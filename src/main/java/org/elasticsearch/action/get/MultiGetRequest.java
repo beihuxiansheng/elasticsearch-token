@@ -941,9 +941,7 @@ name|items
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|add
@@ -1786,9 +1784,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|fields
@@ -1975,9 +1971,7 @@ name|fields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 while|while
@@ -2029,9 +2023,7 @@ name|includes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -2184,9 +2176,7 @@ name|includes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -2224,9 +2214,7 @@ name|excludes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -2661,9 +2649,7 @@ name|items
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

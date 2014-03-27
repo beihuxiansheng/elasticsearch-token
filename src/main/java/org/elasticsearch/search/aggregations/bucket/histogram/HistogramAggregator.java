@@ -672,11 +672,7 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalHistogram
-operator|.
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|(
 name|int

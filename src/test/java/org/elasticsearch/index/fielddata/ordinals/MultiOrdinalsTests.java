@@ -247,9 +247,7 @@ name|ordsAndIdSet
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|OrdAndId
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -301,9 +299,7 @@ name|ordsAndIds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|OrdAndId
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ordsAndIdSet
 argument_list|)
@@ -591,9 +587,7 @@ name|docOrds
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

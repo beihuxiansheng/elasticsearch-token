@@ -941,11 +941,7 @@ name|ordered
 init|=
 operator|new
 name|BoundedTreeSet
-argument_list|<
-name|InternalDoubleTermsFacet
-operator|.
-name|DoubleEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|comparatorType
 operator|.

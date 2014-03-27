@@ -603,9 +603,7 @@ name|nodes
 init|=
 operator|new
 name|ObjectOpenHashSet
-argument_list|<
-name|DiscoveryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

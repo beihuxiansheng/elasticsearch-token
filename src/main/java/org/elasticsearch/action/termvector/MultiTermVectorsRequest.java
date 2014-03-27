@@ -244,9 +244,7 @@ name|requests
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermVectorRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|ids
@@ -259,9 +257,7 @@ name|ids
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|add
@@ -817,9 +813,7 @@ name|requests
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermVectorRequest
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

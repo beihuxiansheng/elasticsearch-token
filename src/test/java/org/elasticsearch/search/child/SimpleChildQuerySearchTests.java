@@ -3270,9 +3270,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// index simple data
@@ -3746,9 +3744,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -8165,9 +8161,7 @@ name|indexBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Parent 1 and its children
@@ -16207,9 +16201,7 @@ name|holder
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|AssertionError
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Runnable

@@ -101,9 +101,7 @@ name|mustClauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|QueryBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|mustNotClauses
@@ -116,9 +114,7 @@ name|mustNotClauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|QueryBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|shouldClauses
@@ -131,9 +127,7 @@ name|shouldClauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|QueryBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|boost

@@ -828,9 +828,7 @@ name|fragsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TextFragment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List

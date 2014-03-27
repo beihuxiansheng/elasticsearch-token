@@ -1591,11 +1591,7 @@ decl_stmt|;
 return|return
 operator|new
 name|PrimaryResponse
-argument_list|<
-name|IndexResponse
-argument_list|,
-name|IndexRequest
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardRequest
 operator|.

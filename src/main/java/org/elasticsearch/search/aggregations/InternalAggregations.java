@@ -545,14 +545,7 @@ name|aggByName
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|InternalAggregation
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -600,9 +593,7 @@ name|aggs
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalAggregation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|aggregationsList
 operator|.
@@ -641,9 +632,7 @@ name|reducedAggregations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalAggregation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

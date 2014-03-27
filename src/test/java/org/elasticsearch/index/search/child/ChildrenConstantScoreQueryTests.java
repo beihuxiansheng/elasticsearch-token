@@ -1452,14 +1452,7 @@ name|childValueToParentIds
 init|=
 operator|new
 name|ObjectObjectOpenHashMap
-argument_list|<
-name|String
-argument_list|,
-name|NavigableSet
-argument_list|<
-name|String
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1885,9 +1878,7 @@ name|parentIds
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 argument_list|)
 expr_stmt|;

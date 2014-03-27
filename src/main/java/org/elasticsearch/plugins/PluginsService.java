@@ -576,11 +576,7 @@ name|add
 argument_list|(
 operator|new
 name|Tuple
-argument_list|<
-name|PluginInfo
-argument_list|,
-name|Plugin
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pluginInfo
 argument_list|,
@@ -2697,11 +2693,7 @@ name|add
 argument_list|(
 operator|new
 name|Tuple
-argument_list|<
-name|PluginInfo
-argument_list|,
-name|Plugin
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pluginInfo
 argument_list|,
@@ -2785,9 +2777,7 @@ name|loadedJvmPlugins
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Already known jvm plugins are ignored

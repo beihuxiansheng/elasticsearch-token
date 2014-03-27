@@ -232,11 +232,7 @@ name|actionsBuilder
 init|=
 operator|new
 name|MapBuilder
-argument_list|<
-name|ClusterAction
-argument_list|,
-name|TransportAction
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

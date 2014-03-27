@@ -892,9 +892,7 @@ name|shardRoutingEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRoutingEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|failedShardQueue
@@ -933,9 +931,7 @@ name|shardRoutingsToBeApplied
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardRoutingEntries
 operator|.
@@ -1222,9 +1218,7 @@ name|shardRoutingEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRoutingEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|startedShardsQueue
@@ -1271,9 +1265,7 @@ name|shardRoutingToBeApplied
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardRoutingEntries
 operator|.

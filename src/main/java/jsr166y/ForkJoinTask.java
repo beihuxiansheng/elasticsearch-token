@@ -4288,9 +4288,7 @@ block|{
 return|return
 operator|new
 name|AdaptedRunnable
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|runnable
 argument_list|,
@@ -4323,9 +4321,7 @@ block|{
 return|return
 operator|new
 name|AdaptedCallable
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|callable
 argument_list|)
@@ -4457,9 +4453,7 @@ name|exceptionTableRefQueue
 operator|=
 operator|new
 name|ReferenceQueue
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|exceptionTable

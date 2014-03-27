@@ -104,12 +104,7 @@ name|cache
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|SoftReference
-argument_list|<
-name|Entry
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|instance
@@ -171,9 +166,7 @@ name|set
 argument_list|(
 operator|new
 name|SoftReference
-argument_list|<
-name|Entry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entry
 argument_list|)

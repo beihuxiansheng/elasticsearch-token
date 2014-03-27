@@ -1275,9 +1275,7 @@ name|evenQ
 operator|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|QNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
@@ -1286,9 +1284,7 @@ name|oddQ
 operator|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|QNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

@@ -606,9 +606,7 @@ name|cursor
 operator|=
 operator|new
 name|Cursor
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|cursor

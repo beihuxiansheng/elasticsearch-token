@@ -218,9 +218,7 @@ name|config
 init|=
 operator|new
 name|ValuesSourceConfig
-argument_list|<
-name|ValuesSource
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ValuesSource
 operator|.

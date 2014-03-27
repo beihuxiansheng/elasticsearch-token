@@ -441,11 +441,7 @@ name|subAggregatorbyName
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Aggregator
-argument_list|>
+argument_list|<>
 argument_list|(
 name|subAggregators
 operator|.
@@ -668,9 +664,7 @@ name|aggs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalAggregation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

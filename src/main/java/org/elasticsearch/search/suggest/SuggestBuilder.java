@@ -203,12 +203,7 @@ name|suggestions
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SuggestionBuilder
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|SuggestBuilder
@@ -482,9 +477,7 @@ name|contextQueries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ContextQuery
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|SuggestionBuilder

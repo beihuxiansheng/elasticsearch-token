@@ -2854,11 +2854,7 @@ decl_stmt|;
 return|return
 operator|new
 name|PrimaryResponse
-argument_list|<
-name|BulkShardResponse
-argument_list|,
-name|BulkShardRequest
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardRequest
 operator|.

@@ -400,9 +400,7 @@ name|customNameResolvers
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|CustomNameResolver
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -254,9 +254,7 @@ name|iterators
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DocIdSet
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sets
 operator|.
@@ -271,9 +269,7 @@ name|bits
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Bits
-argument_list|>
+argument_list|<>
 argument_list|(
 name|sets
 operator|.

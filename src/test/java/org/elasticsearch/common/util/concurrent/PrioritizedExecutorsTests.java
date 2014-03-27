@@ -190,9 +190,7 @@ name|queue
 init|=
 operator|new
 name|PriorityBlockingQueue
-argument_list|<
-name|Priority
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -317,9 +315,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|8
 argument_list|)
@@ -682,9 +678,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|8
 argument_list|)
@@ -1047,9 +1041,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|8
 argument_list|)
@@ -1412,9 +1404,7 @@ name|results
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|8
 argument_list|)

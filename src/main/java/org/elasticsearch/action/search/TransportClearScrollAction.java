@@ -421,15 +421,7 @@ name|contexts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|expHolder
@@ -580,9 +572,7 @@ name|expHolder
 operator|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|Throwable
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this

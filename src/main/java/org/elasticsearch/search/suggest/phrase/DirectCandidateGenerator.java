@@ -740,9 +740,7 @@ name|candidates
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Candidate
-argument_list|>
+argument_list|<>
 argument_list|(
 name|suggestSimilar
 operator|.
@@ -1290,11 +1288,7 @@ name|set
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|DirectCandidateGenerator
-operator|.
-name|Candidate
-argument_list|>
+argument_list|<>
 argument_list|(
 name|candidates
 argument_list|)

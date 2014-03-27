@@ -296,9 +296,7 @@ name|fields
 operator|=
 operator|new
 name|ObjectLongOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -765,9 +763,7 @@ name|fields
 operator|=
 operator|new
 name|ObjectLongOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 specifier|final

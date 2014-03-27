@@ -876,9 +876,7 @@ name|typeListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|DocumentTypeListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

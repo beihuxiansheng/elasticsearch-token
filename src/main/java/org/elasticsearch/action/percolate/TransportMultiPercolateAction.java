@@ -517,9 +517,7 @@ name|percolateRequests
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|request
 operator|.
@@ -548,9 +546,7 @@ name|existingDocsRequests
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|GetRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1039,9 +1035,7 @@ name|responsesByItemAndShard
 operator|=
 operator|new
 name|AtomicReferenceArray
-argument_list|<
-name|AtomicReferenceArray
-argument_list|>
+argument_list|<>
 argument_list|(
 name|percolateRequests
 operator|.
@@ -1053,9 +1047,7 @@ name|expectedOperationsPerItem
 operator|=
 operator|new
 name|AtomicReferenceArray
-argument_list|<
-name|AtomicInteger
-argument_list|>
+argument_list|<>
 argument_list|(
 name|percolateRequests
 operator|.
@@ -1067,9 +1059,7 @@ name|reducedResponses
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|percolateRequests
 operator|.
@@ -1082,13 +1072,7 @@ name|requestsByShard
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|ShardId
-argument_list|,
-name|TransportShardMultiPercolateAction
-operator|.
-name|Request
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// Keep track what slots belong to what shard, in case a request to a shard fails on all copies
@@ -1096,11 +1080,7 @@ name|shardToSlots
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|ShardId
-argument_list|,
-name|IntArrayList
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|int

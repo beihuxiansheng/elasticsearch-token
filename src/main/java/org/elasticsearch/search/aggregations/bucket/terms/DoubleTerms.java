@@ -704,12 +704,7 @@ name|buckets
 operator|=
 operator|new
 name|DoubleObjectPagedHashMap
-argument_list|<
-name|List
-argument_list|<
-name|Bucket
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|terms
 operator|.
@@ -768,9 +763,7 @@ name|existingBuckets
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 name|aggregations
 operator|.
@@ -1088,11 +1081,7 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalTerms
-operator|.
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

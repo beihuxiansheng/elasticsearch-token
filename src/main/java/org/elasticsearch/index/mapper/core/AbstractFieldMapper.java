@@ -1561,9 +1561,7 @@ block|{
 return|return
 operator|new
 name|ArrayList
-argument_list|<
-name|Field
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -2674,9 +2672,7 @@ name|terms
 init|=
 operator|new
 name|ObjectOpenHashSet
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 call|(
 name|int
@@ -5907,9 +5903,7 @@ name|newFieldMappers
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FieldMapper
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

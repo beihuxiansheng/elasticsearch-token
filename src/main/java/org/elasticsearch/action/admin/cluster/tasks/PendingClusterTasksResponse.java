@@ -668,9 +668,7 @@ name|pendingTasks
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PendingClusterTask
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

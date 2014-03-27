@@ -587,9 +587,7 @@ block|{
 return|return
 operator|new
 name|Builder
-argument_list|<
-name|VType
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}
@@ -612,9 +610,7 @@ block|{
 return|return
 operator|new
 name|Builder
-argument_list|<
-name|VType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -642,9 +638,7 @@ block|{
 return|return
 operator|new
 name|Builder
-argument_list|<
-name|VType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 argument_list|)
@@ -698,9 +692,7 @@ name|map
 operator|=
 operator|new
 name|IntObjectOpenHashMap
-argument_list|<
-name|VType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -759,9 +751,7 @@ comment|// nullify the map, so any operation post build will fail! (hackish, but
 return|return
 operator|new
 name|ImmutableOpenIntMap
-argument_list|<
-name|VType
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 argument_list|)

@@ -304,9 +304,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|numDocs

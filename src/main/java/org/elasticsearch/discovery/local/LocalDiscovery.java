@@ -480,9 +480,7 @@ name|initialStateListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|InitialStateDiscoveryListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|clusterGroups

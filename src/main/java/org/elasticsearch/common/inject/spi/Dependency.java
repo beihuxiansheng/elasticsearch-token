@@ -202,9 +202,7 @@ block|{
 return|return
 operator|new
 name|Dependency
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|null
 argument_list|,

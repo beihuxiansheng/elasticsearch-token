@@ -570,9 +570,7 @@ name|shardsResponses
 init|=
 operator|new
 name|AtomicReferenceArray
-argument_list|<
-name|ShardActionResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|groups
 operator|.

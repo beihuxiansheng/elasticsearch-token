@@ -429,9 +429,7 @@ name|queryFetchResults
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|QueryFetchSearchResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|firstResults
 operator|.

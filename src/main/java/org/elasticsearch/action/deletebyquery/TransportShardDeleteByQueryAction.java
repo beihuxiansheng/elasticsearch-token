@@ -853,11 +853,7 @@ block|}
 return|return
 operator|new
 name|PrimaryResponse
-argument_list|<
-name|ShardDeleteByQueryResponse
-argument_list|,
-name|ShardDeleteByQueryRequest
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardRequest
 operator|.

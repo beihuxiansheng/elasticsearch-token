@@ -510,9 +510,7 @@ name|queryResults
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|QuerySearchResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|firstResults
 operator|.
@@ -524,9 +522,7 @@ name|fetchResults
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|FetchSearchResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|firstResults
 operator|.
@@ -538,9 +534,7 @@ name|docIdsToLoad
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|IntArrayList
-argument_list|>
+argument_list|<>
 argument_list|(
 name|firstResults
 operator|.

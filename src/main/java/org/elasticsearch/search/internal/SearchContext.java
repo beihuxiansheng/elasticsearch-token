@@ -616,9 +616,7 @@ name|current
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|SearchContext
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|setCurrent

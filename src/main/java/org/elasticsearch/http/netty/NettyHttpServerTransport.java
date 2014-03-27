@@ -1666,9 +1666,7 @@ name|lastException
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|Exception
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean

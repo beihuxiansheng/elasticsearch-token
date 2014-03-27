@@ -184,9 +184,7 @@ name|fieldEnums
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermsEnum
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -246,9 +244,7 @@ name|states
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermsEnumState
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fieldEnums
 operator|.
@@ -392,9 +388,7 @@ name|docsEnums
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DocsEnum
-argument_list|>
+argument_list|<>
 argument_list|(
 name|stateSlots
 operator|.
@@ -1223,9 +1217,7 @@ name|states
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|State
-argument_list|>
+argument_list|<>
 argument_list|(
 name|docsEnums
 operator|.

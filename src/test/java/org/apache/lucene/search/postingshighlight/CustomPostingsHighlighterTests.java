@@ -492,9 +492,7 @@ name|fieldValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|fieldValues
@@ -1302,9 +1300,7 @@ name|fieldValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|fieldValues
@@ -1509,9 +1505,7 @@ name|snippets2
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Snippet
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2115,9 +2109,7 @@ name|fieldValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|fieldValues
@@ -2816,9 +2808,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|values
@@ -3251,9 +3241,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|values
@@ -3445,9 +3433,7 @@ name|queryTerms
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|query

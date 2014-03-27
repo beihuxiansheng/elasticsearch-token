@@ -635,9 +635,7 @@ name|IGNORE_MALFORMED
 init|=
 operator|new
 name|Explicit
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|false
 argument_list|,
@@ -656,9 +654,7 @@ name|COERCE
 init|=
 operator|new
 name|Explicit
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|true
 argument_list|,
@@ -789,9 +785,7 @@ block|{
 return|return
 operator|new
 name|Explicit
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ignoreMalformed
 argument_list|,
@@ -812,9 +806,7 @@ block|{
 return|return
 operator|new
 name|Explicit
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.
@@ -884,9 +876,7 @@ block|{
 return|return
 operator|new
 name|Explicit
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 name|coerce
 argument_list|,
@@ -907,9 +897,7 @@ block|{
 return|return
 operator|new
 name|Explicit
-argument_list|<
-name|Boolean
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.

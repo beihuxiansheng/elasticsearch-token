@@ -2753,11 +2753,7 @@ name|termsAndDocCount
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|termsAndDocCount
@@ -6787,9 +6783,7 @@ name|phrases
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Collections
@@ -7724,9 +7718,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

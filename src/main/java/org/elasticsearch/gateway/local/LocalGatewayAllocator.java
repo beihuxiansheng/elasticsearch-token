@@ -2358,9 +2358,7 @@ name|shardStates
 operator|=
 operator|new
 name|ObjectLongOpenHashMap
-argument_list|<
-name|DiscoveryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|cachedShardsState

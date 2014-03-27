@@ -539,9 +539,7 @@ name|config
 init|=
 operator|new
 name|ValuesSourceConfig
-argument_list|<
-name|GeoPointValuesSource
-argument_list|>
+argument_list|<>
 argument_list|(
 name|GeoPointValuesSource
 operator|.

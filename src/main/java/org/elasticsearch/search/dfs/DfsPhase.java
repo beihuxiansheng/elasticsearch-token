@@ -291,9 +291,7 @@ block|{
 return|return
 operator|new
 name|ObjectOpenHashSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}

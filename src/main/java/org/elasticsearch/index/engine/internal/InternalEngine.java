@@ -1274,9 +1274,7 @@ name|failedEngineListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|FailedEngineListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|translogIdGenerator
@@ -7116,11 +7114,7 @@ name|segments
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Segment
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// first, go over and compute the search ones...

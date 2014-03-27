@@ -920,9 +920,7 @@ name|add
 argument_list|(
 operator|new
 name|InjectionRequest
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getSource
 argument_list|()
@@ -962,9 +960,7 @@ name|element
 init|=
 operator|new
 name|MembersInjectorLookup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getSource
 argument_list|()
@@ -1325,9 +1321,7 @@ block|{
 return|return
 operator|new
 name|BindingBuilder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -1450,9 +1444,7 @@ name|element
 init|=
 operator|new
 name|ProviderLookup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getSource
 argument_list|()
@@ -1774,9 +1766,7 @@ name|builder
 init|=
 operator|new
 name|ExposureBuilder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,

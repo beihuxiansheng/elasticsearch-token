@@ -247,13 +247,7 @@ name|charCache
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|SoftReference
-argument_list|<
-name|char
-index|[]
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|charCache
@@ -332,10 +326,7 @@ name|set
 argument_list|(
 operator|new
 name|SoftReference
-argument_list|<
-name|char
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|(
 name|arr
 argument_list|)

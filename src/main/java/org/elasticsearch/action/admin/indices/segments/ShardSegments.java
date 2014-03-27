@@ -439,9 +439,7 @@ name|segments
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Segment
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

@@ -2963,9 +2963,7 @@ name|fileDetails
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|reusedFileDetails
@@ -2978,9 +2976,7 @@ name|reusedFileDetails
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|version
@@ -3966,9 +3962,7 @@ name|fileDetails
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -4012,9 +4006,7 @@ name|reusedFileDetails
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|File
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

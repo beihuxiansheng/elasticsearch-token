@@ -410,9 +410,7 @@ name|docs
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ScoreDoc
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

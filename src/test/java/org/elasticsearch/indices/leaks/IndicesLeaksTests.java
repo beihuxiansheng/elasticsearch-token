@@ -395,9 +395,7 @@ name|indexReferences
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|WeakReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -408,9 +406,7 @@ name|shardReferences
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|WeakReference
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO if we could iterate over the already created classes on the injector, we can just add them here to the list

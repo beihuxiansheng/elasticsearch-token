@@ -644,9 +644,7 @@ name|counts
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1015,9 +1013,7 @@ name|counts
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1394,9 +1390,7 @@ name|counts
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1666,9 +1660,7 @@ name|counts
 operator|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -1926,9 +1918,7 @@ name|counts
 operator|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -2162,9 +2152,7 @@ name|counts
 operator|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

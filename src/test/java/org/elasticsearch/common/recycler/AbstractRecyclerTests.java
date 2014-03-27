@@ -757,13 +757,7 @@ name|vals
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|V
-argument_list|<
-name|byte
-index|[]
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|limit
 argument_list|)

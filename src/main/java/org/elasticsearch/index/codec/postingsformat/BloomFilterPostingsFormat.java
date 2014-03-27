@@ -406,11 +406,7 @@ name|bloomsByFieldName
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|BloomFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// for internal use only
@@ -1411,11 +1407,7 @@ name|bloomFilters
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|FieldInfo
-argument_list|,
-name|BloomFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|state
@@ -1574,16 +1566,7 @@ name|nonSaturatedBlooms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-operator|.
-name|Entry
-argument_list|<
-name|FieldInfo
-argument_list|,
-name|BloomFilter
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

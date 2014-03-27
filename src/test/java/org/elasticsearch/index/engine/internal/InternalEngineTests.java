@@ -3152,9 +3152,7 @@ name|waitTillMerge
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|CountDownLatch
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -3166,9 +3164,7 @@ name|waitForMerge
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|CountDownLatch
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|mergeSchedulerProvider

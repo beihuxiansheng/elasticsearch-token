@@ -707,9 +707,7 @@ name|aggregatorCollectors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Aggregator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Aggregator
@@ -1131,9 +1129,7 @@ name|matches
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|hls
@@ -1151,14 +1147,7 @@ name|hls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|HighlightField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|limit
@@ -1696,9 +1685,7 @@ name|matches
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|hls
@@ -1716,14 +1703,7 @@ name|hls
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|HighlightField
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// TODO: Use thread local in order to cache the scores lists?

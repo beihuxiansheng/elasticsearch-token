@@ -286,9 +286,7 @@ name|subAggregationsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalAggregations
-argument_list|>
+argument_list|<>
 argument_list|(
 name|aggregations
 operator|.

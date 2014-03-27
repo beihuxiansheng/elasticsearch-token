@@ -805,11 +805,7 @@ expr_stmt|;
 return|return
 operator|new
 name|Tuple
-argument_list|<
-name|Settings
-argument_list|,
-name|Environment
-argument_list|>
+argument_list|<>
 argument_list|(
 name|v1
 argument_list|,

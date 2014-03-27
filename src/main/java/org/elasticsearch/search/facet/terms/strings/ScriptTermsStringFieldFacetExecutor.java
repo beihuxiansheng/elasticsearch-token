@@ -771,11 +771,7 @@ name|ordered
 init|=
 operator|new
 name|BoundedTreeSet
-argument_list|<
-name|InternalStringTermsFacet
-operator|.
-name|TermEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|comparatorType
 operator|.

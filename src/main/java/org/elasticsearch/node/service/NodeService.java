@@ -528,11 +528,7 @@ name|serviceAttributes
 operator|=
 operator|new
 name|MapBuilder
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|serviceAttributes
 argument_list|)
@@ -562,11 +558,7 @@ name|serviceAttributes
 operator|=
 operator|new
 name|MapBuilder
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|serviceAttributes
 argument_list|)

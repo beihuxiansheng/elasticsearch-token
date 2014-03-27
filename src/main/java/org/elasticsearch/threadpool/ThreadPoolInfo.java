@@ -274,11 +274,7 @@ name|infos
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ThreadPool
-operator|.
-name|Info
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

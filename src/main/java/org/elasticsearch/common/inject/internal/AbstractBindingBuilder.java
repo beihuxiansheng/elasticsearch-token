@@ -296,9 +296,7 @@ name|binding
 operator|=
 operator|new
 name|UntargettedBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|source
 argument_list|,

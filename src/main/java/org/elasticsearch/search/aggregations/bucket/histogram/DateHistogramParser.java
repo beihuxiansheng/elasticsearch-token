@@ -604,9 +604,7 @@ name|config
 init|=
 operator|new
 name|ValuesSourceConfig
-argument_list|<
-name|NumericValuesSource
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericValuesSource
 operator|.

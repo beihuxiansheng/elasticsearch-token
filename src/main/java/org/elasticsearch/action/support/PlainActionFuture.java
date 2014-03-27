@@ -52,9 +52,7 @@ block|{
 return|return
 operator|new
 name|PlainActionFuture
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 block|}

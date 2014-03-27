@@ -116,9 +116,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie
@@ -388,9 +386,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie
@@ -434,9 +430,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie
@@ -554,9 +548,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie
@@ -674,9 +666,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie
@@ -777,9 +767,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie
@@ -942,9 +930,7 @@ name|trie
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|trie

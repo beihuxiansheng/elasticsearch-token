@@ -460,9 +460,7 @@ name|fstEnum
 init|=
 operator|new
 name|BytesRefFSTEnum
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fst
 argument_list|)
@@ -695,9 +693,7 @@ name|firstArc
 init|=
 operator|new
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|scratchArc
@@ -711,9 +707,7 @@ name|scratchArc
 init|=
 operator|new
 name|Arc
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|scratchInts

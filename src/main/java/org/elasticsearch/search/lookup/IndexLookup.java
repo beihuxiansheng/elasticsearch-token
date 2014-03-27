@@ -228,11 +228,7 @@ name|indexFields
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|IndexField
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// number of documents per shard. cached here because the computation is

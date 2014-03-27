@@ -846,9 +846,7 @@ name|key
 argument_list|,
 operator|new
 name|ProviderInstanceBindingImpl
-argument_list|<
-name|Injector
-argument_list|>
+argument_list|<>
 argument_list|(
 name|injector
 argument_list|,
@@ -1002,9 +1000,7 @@ name|key
 argument_list|,
 operator|new
 name|ProviderInstanceBindingImpl
-argument_list|<
-name|Logger
-argument_list|>
+argument_list|<>
 argument_list|(
 name|injector
 argument_list|,

@@ -347,11 +347,7 @@ name|entries1
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalFullDateHistogramFacet
-operator|.
-name|FullEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entries
 operator|.

@@ -462,9 +462,7 @@ name|cities
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Random
@@ -477,9 +475,7 @@ name|expectedDocCountsForGeoHash
 operator|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numRandomPoints
 operator|*

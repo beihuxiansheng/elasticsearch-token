@@ -206,9 +206,7 @@ name|lookup
 init|=
 operator|new
 name|ProviderLookup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|key
 argument_list|,
@@ -255,9 +253,7 @@ name|lookup
 init|=
 operator|new
 name|MembersInjectorLookup
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|type
 argument_list|,

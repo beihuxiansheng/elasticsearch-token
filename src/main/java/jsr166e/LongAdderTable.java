@@ -137,11 +137,7 @@ name|map
 operator|=
 operator|new
 name|ConcurrentHashMapV8
-argument_list|<
-name|K
-argument_list|,
-name|LongAdder
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

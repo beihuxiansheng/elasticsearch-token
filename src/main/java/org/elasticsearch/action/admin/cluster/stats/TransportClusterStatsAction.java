@@ -611,9 +611,7 @@ name|nodeStats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ClusterStatsNodeResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|responses
 operator|.
@@ -849,9 +847,7 @@ name|shardsStats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardStats
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

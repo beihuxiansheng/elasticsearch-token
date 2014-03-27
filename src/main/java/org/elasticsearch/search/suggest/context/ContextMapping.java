@@ -954,13 +954,7 @@ name|querySet
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ContextMapping
-operator|.
-name|ContextQuery
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Token

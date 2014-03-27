@@ -248,12 +248,7 @@ name|invocationHandlers
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DelegatingInvocationHandler
-argument_list|<
-name|T
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -265,9 +260,7 @@ name|invocationHandler
 init|=
 operator|new
 name|DelegatingInvocationHandler
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|invocationHandlers

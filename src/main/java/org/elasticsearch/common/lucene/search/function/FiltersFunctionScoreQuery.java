@@ -886,9 +886,7 @@ name|filterExplanations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ComplexExplanation
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

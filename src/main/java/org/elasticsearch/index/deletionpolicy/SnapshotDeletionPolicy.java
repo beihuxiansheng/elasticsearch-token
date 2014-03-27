@@ -427,9 +427,7 @@ name|newCommits
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SnapshotIndexCommit
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -520,9 +518,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SnapshotIndexCommit
-argument_list|>
+argument_list|<>
 argument_list|(
 name|commits
 operator|.
@@ -923,9 +919,7 @@ name|snapshotCommits
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SnapshotIndexCommit
-argument_list|>
+argument_list|<>
 argument_list|(
 name|count
 argument_list|)

@@ -291,11 +291,7 @@ name|docIdSets
 operator|=
 operator|new
 name|IdentityHashMap
-argument_list|<
-name|AtomicReader
-argument_list|,
-name|DocIdSet
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this

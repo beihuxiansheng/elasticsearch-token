@@ -170,11 +170,7 @@ name|generators
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PhraseSuggestionContext
-operator|.
-name|DirectCandidateGenerator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|gramSize

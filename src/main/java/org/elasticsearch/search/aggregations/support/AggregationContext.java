@@ -352,9 +352,7 @@ name|readerAwares
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReaderContextAware
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|scorerAwares
@@ -367,9 +365,7 @@ name|scorerAwares
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ScorerAware
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|reader
@@ -603,11 +599,7 @@ index|]
 operator|=
 operator|new
 name|ObjectObjectOpenHashMap
-argument_list|<
-name|ConfigCacheKey
-argument_list|,
-name|FieldDataSource
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

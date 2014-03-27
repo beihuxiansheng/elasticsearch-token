@@ -501,11 +501,7 @@ name|INFLIGHT_ENGINE_SEARCHERS
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|AssertingSearcher
-argument_list|,
-name|RuntimeException
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|WRAP_READER_RATIO

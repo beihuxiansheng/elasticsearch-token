@@ -544,9 +544,7 @@ operator|.
 name|fst
 operator|.
 name|Builder
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|INPUT_TYPE
 operator|.

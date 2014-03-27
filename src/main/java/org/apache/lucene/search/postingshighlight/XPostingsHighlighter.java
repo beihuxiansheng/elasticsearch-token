@@ -689,12 +689,7 @@ name|snippets
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -901,9 +896,7 @@ name|queryTerms
 init|=
 operator|new
 name|TreeSet
-argument_list|<
-name|Term
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|query
@@ -1165,12 +1158,7 @@ name|highlights
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1613,11 +1601,7 @@ name|highlights
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// reuse in the real sense... for docs in same segment we just advance our old enum
@@ -1986,9 +1970,7 @@ name|pq
 init|=
 operator|new
 name|PriorityQueue
-argument_list|<
-name|OffsetsEnum
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|float
@@ -2222,9 +2204,7 @@ name|passageQueue
 init|=
 operator|new
 name|PriorityQueue
-argument_list|<
-name|Passage
-argument_list|>
+argument_list|<>
 argument_list|(
 name|n
 argument_list|,
@@ -2872,9 +2852,7 @@ name|passages
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Passage
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int

@@ -788,11 +788,7 @@ name|typeStats
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|(
 name|indexingStats
 operator|.
@@ -1230,11 +1226,7 @@ name|typeStats
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

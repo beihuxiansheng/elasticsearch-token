@@ -602,9 +602,7 @@ name|failures
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// check the number of shards
@@ -1191,9 +1189,7 @@ name|set
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shards
 operator|.
@@ -1244,9 +1240,7 @@ name|set
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

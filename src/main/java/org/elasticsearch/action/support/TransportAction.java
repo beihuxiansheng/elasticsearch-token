@@ -245,9 +245,7 @@ name|listener
 operator|=
 operator|new
 name|ThreadedActionListener
-argument_list|<
-name|Response
-argument_list|>
+argument_list|<>
 argument_list|(
 name|threadPool
 argument_list|,

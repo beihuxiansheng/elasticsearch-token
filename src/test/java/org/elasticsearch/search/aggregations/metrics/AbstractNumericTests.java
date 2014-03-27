@@ -145,9 +145,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -288,9 +286,7 @@ name|builders
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

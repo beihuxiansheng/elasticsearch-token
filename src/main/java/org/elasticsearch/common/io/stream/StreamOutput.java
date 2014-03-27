@@ -207,12 +207,7 @@ name|utf8StreamWriter
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|SoftReference
-argument_list|<
-name|UTF8StreamWriter
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|utf8StreamWriter
@@ -272,9 +267,7 @@ name|set
 argument_list|(
 operator|new
 name|SoftReference
-argument_list|<
-name|UTF8StreamWriter
-argument_list|>
+argument_list|<>
 argument_list|(
 name|writer
 argument_list|)

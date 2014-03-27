@@ -306,11 +306,7 @@ name|fullEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalFullHistogramFacet
-operator|.
-name|FullEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entries
 operator|.

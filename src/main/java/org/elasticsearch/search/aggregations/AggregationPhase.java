@@ -494,9 +494,7 @@ name|collectors
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Aggregator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Aggregator
@@ -678,9 +676,7 @@ name|globals
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Aggregator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -838,9 +834,7 @@ name|aggregations
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalAggregation
-argument_list|>
+argument_list|<>
 argument_list|(
 name|aggregators
 operator|.

@@ -389,9 +389,7 @@ name|connectionListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|TransportConnectionListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// An LRU (don't really care about concurrency here) that holds the latest timed out requests so if they
@@ -926,9 +924,7 @@ name|futureHandler
 init|=
 operator|new
 name|PlainTransportFuture
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|handler
 argument_list|)
@@ -1111,9 +1107,7 @@ name|requestId
 argument_list|,
 operator|new
 name|RequestHolder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|handler
 argument_list|,

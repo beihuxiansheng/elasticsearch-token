@@ -299,9 +299,7 @@ name|result
 init|=
 operator|new
 name|RealMultibinder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|binder
 argument_list|,
@@ -422,9 +420,7 @@ name|result
 init|=
 operator|new
 name|RealMultibinder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|binder
 argument_list|,
@@ -560,9 +556,7 @@ name|result
 init|=
 operator|new
 name|RealMultibinder
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|binder
 argument_list|,
@@ -1161,9 +1155,7 @@ name|result
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

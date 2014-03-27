@@ -175,9 +175,7 @@ name|requests
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermVectorRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -296,9 +294,7 @@ name|requests
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermVectorRequest
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

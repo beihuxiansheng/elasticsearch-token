@@ -1043,9 +1043,7 @@ name|parentFilterContext
 init|=
 operator|new
 name|ThreadLocal
-argument_list|<
-name|LateBindingParentFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|class|LateBindingParentFilter

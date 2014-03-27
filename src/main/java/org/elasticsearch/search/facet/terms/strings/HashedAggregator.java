@@ -756,11 +756,7 @@ name|ordered
 init|=
 operator|new
 name|BoundedTreeSet
-argument_list|<
-name|InternalStringTermsFacet
-operator|.
-name|TermEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|comparatorType
 operator|.
@@ -1322,9 +1318,7 @@ name|valuesAndCount
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|HashedBytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|spare

@@ -387,9 +387,7 @@ operator|new
 name|ImmutableList
 operator|.
 name|Builder
-argument_list|<
-name|ObjectMapper
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -474,9 +472,7 @@ operator|new
 name|ImmutableList
 operator|.
 name|Builder
-argument_list|<
-name|ObjectMapper
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

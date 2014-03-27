@@ -157,9 +157,7 @@ name|array
 operator|=
 operator|new
 name|AtomicReferenceArray
-argument_list|<
-name|E
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -289,12 +287,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Entry
-argument_list|<
-name|E
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|array
 operator|.
@@ -343,9 +336,7 @@ name|add
 argument_list|(
 operator|new
 name|Entry
-argument_list|<
-name|E
-argument_list|>
+argument_list|<>
 argument_list|(
 name|i
 argument_list|,

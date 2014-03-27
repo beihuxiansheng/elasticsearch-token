@@ -751,9 +751,7 @@ name|entries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Entry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -818,9 +816,7 @@ name|types
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

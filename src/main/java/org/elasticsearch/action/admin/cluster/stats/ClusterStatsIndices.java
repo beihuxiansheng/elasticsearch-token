@@ -368,11 +368,7 @@ name|countsPerIndex
 init|=
 operator|new
 name|ObjectObjectOpenHashMap
-argument_list|<
-name|String
-argument_list|,
-name|ShardStats
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|this

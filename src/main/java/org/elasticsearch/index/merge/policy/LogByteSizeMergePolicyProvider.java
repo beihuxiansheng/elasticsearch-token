@@ -265,9 +265,7 @@ name|policies
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|CustomLogByteSizeMergePolicy
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|applySettings

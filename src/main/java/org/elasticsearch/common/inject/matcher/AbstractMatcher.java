@@ -68,9 +68,7 @@ block|{
 return|return
 operator|new
 name|AndMatcher
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,
@@ -98,9 +96,7 @@ block|{
 return|return
 operator|new
 name|OrMatcher
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,

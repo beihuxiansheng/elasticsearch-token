@@ -3719,9 +3719,7 @@ name|payloadCounter
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3946,14 +3944,7 @@ name|payloads
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|BytesRef
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

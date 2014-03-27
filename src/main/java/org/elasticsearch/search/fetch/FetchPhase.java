@@ -879,9 +879,7 @@ name|fieldNames
 operator|=
 operator|new
 name|HashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -1103,11 +1101,7 @@ name|searchFields
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|SearchHitField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fieldsVisitor
 operator|.
@@ -1446,9 +1440,7 @@ name|extractFieldName
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

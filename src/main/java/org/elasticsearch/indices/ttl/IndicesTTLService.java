@@ -879,9 +879,7 @@ name|shardsToPurge
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexShard
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|MetaData
@@ -1394,9 +1392,7 @@ name|docsToPurge
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DocToPurge
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|ExpiredDocsCollector

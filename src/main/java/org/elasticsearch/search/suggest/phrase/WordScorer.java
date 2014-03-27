@@ -760,11 +760,7 @@ name|cache
 init|=
 operator|new
 name|ObjectObjectOpenHashMap
-argument_list|<
-name|BytesRef
-argument_list|,
-name|CacheEntry
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**         * The last term that the called attempted to seek to.         */

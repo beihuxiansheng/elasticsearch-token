@@ -253,11 +253,7 @@ name|shardHandleLookup
 init|=
 operator|new
 name|IdentityHashMap
-argument_list|<
-name|SearchShardTarget
-argument_list|,
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|handleShardLookup
@@ -270,9 +266,7 @@ name|handleShardLookup
 init|=
 operator|new
 name|IntObjectOpenHashMap
-argument_list|<
-name|SearchShardTarget
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|streamShardTarget

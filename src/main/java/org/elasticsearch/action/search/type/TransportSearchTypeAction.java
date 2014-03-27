@@ -853,9 +853,7 @@ name|firstResults
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|FirstResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardsIts
 operator|.
@@ -2351,9 +2349,7 @@ name|shardFailures
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|ShardSearchFailure
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardsIts
 operator|.

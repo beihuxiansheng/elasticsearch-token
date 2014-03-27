@@ -10454,14 +10454,7 @@ name|controlMap
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Integer
-argument_list|,
-name|NavigableSet
-argument_list|<
-name|Integer
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|long
@@ -10614,9 +10607,7 @@ name|usedValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
+argument_list|<>
 argument_list|(
 name|controlMap
 operator|.

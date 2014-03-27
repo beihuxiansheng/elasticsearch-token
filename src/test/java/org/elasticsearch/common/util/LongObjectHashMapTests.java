@@ -75,9 +75,7 @@ name|map1
 init|=
 operator|new
 name|LongObjectOpenHashMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -89,9 +87,7 @@ name|map2
 init|=
 operator|new
 name|LongObjectPagedHashMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|randomInt
 argument_list|(
@@ -302,9 +298,7 @@ name|copy
 init|=
 operator|new
 name|LongObjectOpenHashMap
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

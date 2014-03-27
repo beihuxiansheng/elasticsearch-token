@@ -170,9 +170,7 @@ name|queue
 init|=
 operator|new
 name|ExecutorScalingQueue
-argument_list|<
-name|Runnable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// we force the execution, since we might run into concurrency issues in offer for ScalingBlockingQueue
@@ -297,9 +295,7 @@ name|queue
 operator|=
 operator|new
 name|SizeBlockingQueue
-argument_list|<
-name|Runnable
-argument_list|>
+argument_list|<>
 argument_list|(
 name|ConcurrentCollections
 operator|.

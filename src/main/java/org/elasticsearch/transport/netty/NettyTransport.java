@@ -1126,9 +1126,7 @@ name|connectionLock
 init|=
 operator|new
 name|KeyedLock
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// this lock is here to make sure we close this transport and disconnect all the client nodes
@@ -2761,9 +2759,7 @@ name|lastException
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|Exception
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -6453,9 +6449,7 @@ name|futures
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ChannelFuture
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|closeChannelsAndWait

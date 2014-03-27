@@ -536,9 +536,7 @@ block|}
 return|return
 operator|new
 name|PrioritizedFutureTask
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|(
 name|PrioritizedRunnable
@@ -601,9 +599,7 @@ block|}
 return|return
 operator|new
 name|PrioritizedFutureTask
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|(
 name|PrioritizedCallable

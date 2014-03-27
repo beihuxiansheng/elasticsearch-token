@@ -485,9 +485,7 @@ name|parentTypes
 operator|=
 operator|new
 name|TreeSet
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|BytesRef
 operator|.

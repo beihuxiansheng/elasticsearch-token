@@ -741,9 +741,7 @@ name|entries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LongEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entries
 argument_list|)
@@ -1178,9 +1176,7 @@ name|ordered
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LongEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|map
 operator|.
@@ -1757,9 +1753,7 @@ name|entries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LongEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

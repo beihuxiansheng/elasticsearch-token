@@ -625,9 +625,7 @@ name|snapshotCompletionListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|SnapshotCompletionListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

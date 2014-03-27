@@ -252,9 +252,7 @@ name|listeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|Listener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

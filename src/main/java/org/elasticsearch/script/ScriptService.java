@@ -1275,11 +1275,7 @@ decl_stmt|;
 return|return
 operator|new
 name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|scriptName
 argument_list|,

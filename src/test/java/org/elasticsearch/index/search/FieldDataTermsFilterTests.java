@@ -891,9 +891,7 @@ name|hTerms
 init|=
 operator|new
 name|ObjectOpenHashSet
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -904,9 +902,7 @@ name|cTerms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|docs
 operator|.
@@ -1374,9 +1370,7 @@ name|cTerms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|docs
 operator|.
@@ -1747,9 +1741,7 @@ name|cTerms
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Double
-argument_list|>
+argument_list|<>
 argument_list|(
 name|docs
 operator|.

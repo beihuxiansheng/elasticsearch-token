@@ -253,9 +253,7 @@ name|fieldMap
 operator|=
 operator|new
 name|ObjectLongOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// here we read the header to fill the field offset map

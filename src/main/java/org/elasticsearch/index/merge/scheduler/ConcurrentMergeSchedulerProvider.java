@@ -280,9 +280,7 @@ name|schedulers
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|CustomConcurrentMergeScheduler
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@

@@ -200,9 +200,7 @@ name|infos
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PluginInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -218,9 +216,7 @@ name|infos
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PluginInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

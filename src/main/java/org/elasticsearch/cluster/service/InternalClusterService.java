@@ -516,9 +516,7 @@ name|priorityClusterStateListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|ClusterStateListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|clusterStateListeners
@@ -532,9 +530,7 @@ name|clusterStateListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|ClusterStateListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|lastClusterStateListeners
@@ -548,9 +544,7 @@ name|lastClusterStateListeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|ClusterStateListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|localNodeMasterListeners
@@ -1524,9 +1518,7 @@ name|pendingClusterTasks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|PendingClusterTask
-argument_list|>
+argument_list|<>
 argument_list|(
 name|pendings
 operator|.
@@ -3304,9 +3296,7 @@ name|listeners
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|LocalNodeMasterListener
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|threadPool

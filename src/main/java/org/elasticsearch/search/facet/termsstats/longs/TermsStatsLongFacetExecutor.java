@@ -518,11 +518,7 @@ name|longEntries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalTermsStatsLongFacet
-operator|.
-name|LongEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|entries
 operator|.

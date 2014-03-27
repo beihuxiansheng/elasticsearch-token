@@ -1625,9 +1625,7 @@ name|types
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.
@@ -1741,9 +1739,7 @@ name|typesValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|types
 operator|.
@@ -1861,9 +1857,7 @@ name|types
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.
@@ -1920,9 +1914,7 @@ name|bValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BytesRef
-argument_list|>
+argument_list|<>
 argument_list|(
 name|values
 operator|.

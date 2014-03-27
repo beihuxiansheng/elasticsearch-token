@@ -549,9 +549,7 @@ name|docs
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|docs
@@ -834,11 +832,7 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DateRange
-operator|.
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 name|range
 operator|.
@@ -10186,9 +10180,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -10413,11 +10405,7 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DateRange
-operator|.
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 name|dateRange
 operator|.

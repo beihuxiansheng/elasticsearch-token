@@ -623,11 +623,7 @@ name|typeMap
 init|=
 operator|new
 name|TreeMap
-argument_list|<
-name|Character
-argument_list|,
-name|Byte
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

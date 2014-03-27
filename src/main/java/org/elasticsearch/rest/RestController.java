@@ -210,9 +210,7 @@ name|getHandlers
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|RestHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RestUtils
 operator|.
@@ -230,9 +228,7 @@ name|postHandlers
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|RestHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RestUtils
 operator|.
@@ -250,9 +246,7 @@ name|putHandlers
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|RestHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RestUtils
 operator|.
@@ -270,9 +264,7 @@ name|deleteHandlers
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|RestHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RestUtils
 operator|.
@@ -290,9 +282,7 @@ name|headHandlers
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|RestHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RestUtils
 operator|.
@@ -310,9 +300,7 @@ name|optionsHandlers
 init|=
 operator|new
 name|PathTrie
-argument_list|<
-name|RestHandler
-argument_list|>
+argument_list|<>
 argument_list|(
 name|RestUtils
 operator|.

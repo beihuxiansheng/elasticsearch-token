@@ -231,9 +231,7 @@ name|policies
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|CustomLogDocMergePolicy
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|applySettings

@@ -93,9 +93,7 @@ name|builtIn
 operator|=
 operator|new
 name|IntObjectOpenHashMap
-argument_list|<
-name|NamedAnalyzer
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|builtIn

@@ -249,9 +249,7 @@ block|{
 return|return
 operator|new
 name|Not
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|p
 argument_list|)

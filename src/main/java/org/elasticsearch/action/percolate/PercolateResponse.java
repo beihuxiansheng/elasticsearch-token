@@ -1320,11 +1320,7 @@ name|hl
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|HighlightField
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

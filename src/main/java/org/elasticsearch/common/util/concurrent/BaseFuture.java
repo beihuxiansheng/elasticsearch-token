@@ -121,9 +121,7 @@ name|sync
 init|=
 operator|new
 name|Sync
-argument_list|<
-name|V
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/*     * Improve the documentation of when InterruptedException is thrown. Our     * behavior matches the JDK's, but the JDK's documentation is misleading.     */

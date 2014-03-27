@@ -606,14 +606,7 @@ name|shardResponses
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|ShardRecoveryResponse
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -675,9 +668,7 @@ name|shardFailures
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardOperationFailedException
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -741,9 +732,7 @@ name|responses
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRecoveryResponse
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|shardResponses

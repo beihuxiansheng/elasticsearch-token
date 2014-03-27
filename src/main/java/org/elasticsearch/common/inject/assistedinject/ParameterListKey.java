@@ -109,9 +109,7 @@ name|paramList
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Type
-argument_list|>
+argument_list|<>
 argument_list|(
 name|paramList
 argument_list|)

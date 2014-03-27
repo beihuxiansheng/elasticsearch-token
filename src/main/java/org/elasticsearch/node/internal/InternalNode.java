@@ -1132,11 +1132,7 @@ name|tuple
 operator|=
 operator|new
 name|Tuple
-argument_list|<
-name|Settings
-argument_list|,
-name|Environment
-argument_list|>
+argument_list|<>
 argument_list|(
 name|TribeService
 operator|.

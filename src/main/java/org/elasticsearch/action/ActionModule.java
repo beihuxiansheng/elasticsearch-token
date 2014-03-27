@@ -2578,11 +2578,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|ActionEntry
-argument_list|<
-name|Request
-argument_list|,
-name|Response
-argument_list|>
+argument_list|<>
 argument_list|(
 name|action
 argument_list|,

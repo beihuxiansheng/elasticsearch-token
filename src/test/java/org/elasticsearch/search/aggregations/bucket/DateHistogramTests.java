@@ -5083,11 +5083,7 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|DateHistogram
-operator|.
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 name|histo
 operator|.
@@ -8498,9 +8494,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -9522,9 +9516,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

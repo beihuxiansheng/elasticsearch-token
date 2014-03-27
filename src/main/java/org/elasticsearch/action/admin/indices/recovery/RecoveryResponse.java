@@ -194,14 +194,7 @@ name|shardResponses
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|List
-argument_list|<
-name|ShardRecoveryResponse
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|RecoveryResponse
@@ -319,9 +312,7 @@ name|shardRecoveries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRecoveryResponse
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|shardResponses
@@ -670,9 +661,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRecoveryResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|listSize
 argument_list|)

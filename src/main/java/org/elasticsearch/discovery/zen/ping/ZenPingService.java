@@ -779,10 +779,7 @@ name|response
 init|=
 operator|new
 name|AtomicReference
-argument_list|<
-name|PingResponse
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

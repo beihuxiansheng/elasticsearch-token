@@ -89,9 +89,7 @@ name|shell
 operator|=
 operator|new
 name|Ring
-argument_list|<
-name|PolygonBuilder
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|,

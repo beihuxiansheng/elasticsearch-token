@@ -77,9 +77,7 @@ name|handles
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|handlesText
@@ -93,9 +91,7 @@ name|handlesText
 init|=
 operator|new
 name|ObjectIntOpenHashMap
-argument_list|<
-name|Text
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|HandlesStreamOutput

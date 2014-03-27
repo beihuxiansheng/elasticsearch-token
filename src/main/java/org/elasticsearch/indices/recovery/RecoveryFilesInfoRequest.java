@@ -324,9 +324,7 @@ name|phase1FileNames
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -368,9 +366,7 @@ name|phase1FileSizes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -412,9 +408,7 @@ name|phase1ExistingFileNames
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -456,9 +450,7 @@ name|phase1ExistingFileSizes
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Long
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

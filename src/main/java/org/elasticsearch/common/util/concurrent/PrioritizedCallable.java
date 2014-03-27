@@ -97,9 +97,7 @@ block|{
 return|return
 operator|new
 name|Wrapped
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|callable
 argument_list|,

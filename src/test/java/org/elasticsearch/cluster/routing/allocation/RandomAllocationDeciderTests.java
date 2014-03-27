@@ -414,9 +414,7 @@ name|EMPTY
 argument_list|,
 operator|new
 name|HashSet
-argument_list|<
-name|AllocationDecider
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

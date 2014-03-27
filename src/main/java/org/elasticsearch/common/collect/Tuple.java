@@ -57,11 +57,7 @@ block|{
 return|return
 operator|new
 name|Tuple
-argument_list|<
-name|V1
-argument_list|,
-name|V2
-argument_list|>
+argument_list|<>
 argument_list|(
 name|v1
 argument_list|,

@@ -137,12 +137,7 @@ name|polygons
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BasePolygonBuilder
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|polygon
@@ -306,9 +301,7 @@ name|shapes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Shape
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.
@@ -422,9 +415,7 @@ else|else
 return|return
 operator|new
 name|ShapeCollection
-argument_list|<
-name|Shape
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shapes
 argument_list|,
@@ -473,9 +464,7 @@ name|shell
 operator|=
 operator|new
 name|Ring
-argument_list|<
-name|InternalPolygonBuilder
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 argument_list|)

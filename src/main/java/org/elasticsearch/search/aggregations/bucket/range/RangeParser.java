@@ -264,9 +264,7 @@ name|config
 init|=
 operator|new
 name|ValuesSourceConfig
-argument_list|<
-name|NumericValuesSource
-argument_list|>
+argument_list|<>
 argument_list|(
 name|NumericValuesSource
 operator|.
@@ -484,11 +482,7 @@ name|ranges
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RangeAggregator
-operator|.
-name|Range
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 while|while

@@ -336,9 +336,7 @@ name|factory
 init|=
 operator|new
 name|DefaultConstructionProxyFactory
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|injectionPoint
 argument_list|)
@@ -353,9 +351,7 @@ expr_stmt|;
 return|return
 operator|new
 name|ConstructorInjector
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|membersInjector
 operator|.

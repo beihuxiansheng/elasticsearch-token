@@ -794,9 +794,7 @@ name|globalDocSets
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ContextDocIdSet
-argument_list|>
+argument_list|<>
 argument_list|(
 name|leaves
 operator|.
@@ -1090,9 +1088,7 @@ name|list
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Collector
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|filtersByCollector
@@ -1289,9 +1285,7 @@ name|facets
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Facet
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.

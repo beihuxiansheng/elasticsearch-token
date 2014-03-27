@@ -3465,9 +3465,7 @@ block|{
 return|return
 operator|new
 name|BigObjectArray
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|,
@@ -3507,9 +3505,7 @@ decl_stmt|;
 return|return
 operator|new
 name|ObjectArrayWrapper
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|page
 operator|.
@@ -3527,9 +3523,7 @@ block|{
 return|return
 operator|new
 name|ObjectArrayWrapper
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|new
 name|Object

@@ -319,9 +319,7 @@ name|throwable
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|Throwable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -354,11 +352,7 @@ name|source
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|source

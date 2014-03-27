@@ -748,9 +748,7 @@ name|set
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|IndexRoutingTable
@@ -963,9 +961,7 @@ name|set
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shards
 operator|.
@@ -1099,9 +1095,7 @@ name|set
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|IndexShardRoutingTable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// we use set here and not list since we might get duplicates

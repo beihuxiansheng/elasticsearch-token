@@ -513,12 +513,7 @@ name|tasks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Callable
-argument_list|<
-name|Void
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|taskCount
 argument_list|)

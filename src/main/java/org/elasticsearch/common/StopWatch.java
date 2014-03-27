@@ -115,9 +115,7 @@ name|taskList
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|TaskInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Start time of the current task      */

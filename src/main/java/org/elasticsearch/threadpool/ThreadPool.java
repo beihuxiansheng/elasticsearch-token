@@ -666,9 +666,7 @@ name|retiredExecutors
 init|=
 operator|new
 name|ConcurrentLinkedQueue
-argument_list|<
-name|ExecutorHolder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|scheduler
@@ -1531,9 +1529,7 @@ name|infos
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Info
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1640,11 +1636,7 @@ name|stats
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ThreadPoolStats
-operator|.
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

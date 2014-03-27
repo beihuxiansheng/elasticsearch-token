@@ -356,9 +356,7 @@ name|key
 argument_list|,
 operator|new
 name|ProviderToInternalFactoryAdapter
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|injector
 argument_list|,
@@ -369,9 +367,7 @@ decl_stmt|;
 return|return
 operator|new
 name|InternalFactoryToProviderAdapter
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Initializables
 operator|.

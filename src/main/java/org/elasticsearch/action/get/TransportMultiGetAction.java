@@ -358,9 +358,7 @@ name|responses
 init|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|MultiGetItemResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|request
 operator|.
@@ -380,11 +378,7 @@ name|shardRequests
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|ShardId
-argument_list|,
-name|MultiGetShardRequest
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

@@ -1532,13 +1532,7 @@ name|poolThreadStats
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|ThreadPoolStats
-operator|.
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|14
 argument_list|)
@@ -1751,9 +1745,7 @@ name|requestedPools
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|headers
 operator|.

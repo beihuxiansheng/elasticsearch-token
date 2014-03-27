@@ -851,9 +851,7 @@ name|dicStreams
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InputStream
-argument_list|>
+argument_list|<>
 argument_list|(
 name|dicFiles
 operator|.

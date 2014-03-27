@@ -933,9 +933,7 @@ name|list
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 while|while
@@ -1263,9 +1261,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharSequence
-argument_list|>
+argument_list|<>
 argument_list|(
 name|fields
 operator|.
@@ -1473,9 +1469,7 @@ name|automatons
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Automaton
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1586,9 +1580,7 @@ name|defaultValues
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CharSequence
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|Builder

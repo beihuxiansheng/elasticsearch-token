@@ -142,9 +142,7 @@ name|constructionContext
 operator|=
 operator|new
 name|ConstructionContext
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|constructionContexts

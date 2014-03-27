@@ -199,11 +199,7 @@ name|ACQUIRED_ARRAYS
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Discard the next check that all arrays should be released. This can be useful if for a specific test, the cost to make      * sure the array is released is higher than the cost the user would experience if the array would not be released.      */
@@ -1171,9 +1167,7 @@ block|{
 return|return
 operator|new
 name|ObjectArrayWrapper
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|super
 operator|.
@@ -1268,9 +1262,7 @@ name|arr
 operator|=
 operator|new
 name|ObjectArrayWrapper
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|array
 argument_list|)

@@ -215,9 +215,7 @@ name|shapes
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Point
-argument_list|>
+argument_list|<>
 argument_list|(
 name|points
 operator|.
@@ -255,9 +253,7 @@ block|}
 return|return
 operator|new
 name|ShapeCollection
-argument_list|<
-name|Point
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shapes
 argument_list|,

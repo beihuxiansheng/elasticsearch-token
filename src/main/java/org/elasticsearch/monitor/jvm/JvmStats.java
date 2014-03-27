@@ -883,9 +883,7 @@ name|pools
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MemoryPool
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1496,9 +1494,7 @@ name|bufferPools
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BufferPool
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bufferPools
 operator|.
@@ -2875,9 +2871,7 @@ name|bufferPools
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BufferPool
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

@@ -623,9 +623,7 @@ name|queryResults
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|QuerySearchResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|scrollId
 operator|.
@@ -641,9 +639,7 @@ name|fetchResults
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|FetchSearchResult
-argument_list|>
+argument_list|<>
 argument_list|(
 name|scrollId
 operator|.
@@ -767,9 +763,7 @@ name|shardFailures
 operator|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|ShardSearchFailure
-argument_list|>
+argument_list|<>
 argument_list|(
 name|scrollId
 operator|.
@@ -1644,9 +1638,7 @@ name|docIdsToLoad
 init|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|IntArrayList
-argument_list|>
+argument_list|<>
 argument_list|(
 name|queryResults
 operator|.

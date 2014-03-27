@@ -833,9 +833,7 @@ name|indices
 init|=
 operator|new
 name|ObjectFloatOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|MetaData

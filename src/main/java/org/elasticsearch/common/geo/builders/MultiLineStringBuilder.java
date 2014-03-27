@@ -167,12 +167,7 @@ name|lines
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BaseLineStringBuilder
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|linestring
@@ -406,9 +401,7 @@ name|parts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LineString
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

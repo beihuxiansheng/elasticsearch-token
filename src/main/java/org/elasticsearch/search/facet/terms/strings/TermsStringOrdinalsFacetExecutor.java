@@ -621,9 +621,7 @@ name|aggregators
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ReaderAggregator
-argument_list|>
+argument_list|<>
 argument_list|(
 name|context
 operator|.
@@ -1019,11 +1017,7 @@ name|ordered
 init|=
 operator|new
 name|BoundedTreeSet
-argument_list|<
-name|InternalStringTermsFacet
-operator|.
-name|TermEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|comparatorType
 operator|.

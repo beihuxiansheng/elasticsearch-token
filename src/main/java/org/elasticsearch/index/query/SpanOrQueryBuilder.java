@@ -89,9 +89,7 @@ name|clauses
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|SpanQueryBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|boost

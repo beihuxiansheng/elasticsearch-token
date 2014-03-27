@@ -1375,9 +1375,7 @@ name|retryListener
 init|=
 operator|new
 name|RetryListener
-argument_list|<
-name|Response
-argument_list|>
+argument_list|<>
 argument_list|(
 name|callback
 argument_list|,
@@ -1985,9 +1983,7 @@ name|newNodes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|DiscoveryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|HashSet
@@ -1998,9 +1994,7 @@ name|newFilteredNodes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|DiscoveryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -2715,9 +2709,7 @@ name|newNodes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|DiscoveryNode
-argument_list|>
+argument_list|<>
 argument_list|(
 name|listedNodes
 argument_list|)
@@ -2730,9 +2722,7 @@ name|newFilteredNodes
 init|=
 operator|new
 name|HashSet
-argument_list|<
-name|DiscoveryNode
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

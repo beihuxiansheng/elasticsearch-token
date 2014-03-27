@@ -214,9 +214,7 @@ name|policies
 init|=
 operator|new
 name|CopyOnWriteArraySet
-argument_list|<
-name|CustomTieredMergePolicyProvider
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|forceMergeDeletesPctAllowed

@@ -1074,9 +1074,7 @@ name|responses
 init|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|BulkItemResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bulkRequest
 operator|.

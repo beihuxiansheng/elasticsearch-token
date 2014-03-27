@@ -554,9 +554,7 @@ name|tempMappers
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|FieldMapper
-argument_list|>
+argument_list|<>
 argument_list|(
 name|this
 operator|.

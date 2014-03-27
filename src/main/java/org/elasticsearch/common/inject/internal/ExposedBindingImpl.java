@@ -349,9 +349,7 @@ block|{
 return|return
 operator|new
 name|ExposedBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getSource
 argument_list|()
@@ -383,9 +381,7 @@ block|{
 return|return
 operator|new
 name|ExposedBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|getSource
 argument_list|()

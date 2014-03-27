@@ -973,9 +973,7 @@ name|ordered
 init|=
 operator|new
 name|BoundedTreeSet
-argument_list|<
-name|LongEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|first
 operator|.
@@ -1523,9 +1521,7 @@ name|entries
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LongEntry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

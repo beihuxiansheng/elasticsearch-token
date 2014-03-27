@@ -2890,9 +2890,7 @@ name|values
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|LongOpenHashSet
-argument_list|>
+argument_list|<>
 argument_list|(
 name|numDocs
 argument_list|)

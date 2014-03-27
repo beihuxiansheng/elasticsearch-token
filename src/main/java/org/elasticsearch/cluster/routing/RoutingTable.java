@@ -684,9 +684,7 @@ name|set
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -813,9 +811,7 @@ name|set
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -981,9 +977,7 @@ name|set
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1150,9 +1144,7 @@ name|set
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardIterator
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

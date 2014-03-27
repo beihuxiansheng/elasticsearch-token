@@ -210,9 +210,7 @@ name|allParameters
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Parameter
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// categorize params as @Assisted or @Injected
@@ -334,12 +332,7 @@ block|{
 return|return
 operator|new
 name|HashSet
-argument_list|<
-name|Class
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.

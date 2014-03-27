@@ -145,9 +145,7 @@ case|:
 return|return
 operator|new
 name|PreBuiltCacheStrategyOne
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 case|case
@@ -156,9 +154,7 @@ case|:
 return|return
 operator|new
 name|PreBuiltCacheStrategyLucene
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 case|case
@@ -167,9 +163,7 @@ case|:
 return|return
 operator|new
 name|PreBuiltCacheStrategyElasticsearch
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 return|;
 default|default:

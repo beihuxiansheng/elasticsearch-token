@@ -1306,9 +1306,7 @@ name|shards
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MutableShardRouting
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|int
@@ -1786,9 +1784,7 @@ name|shardsToFail
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|ShardRouting
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

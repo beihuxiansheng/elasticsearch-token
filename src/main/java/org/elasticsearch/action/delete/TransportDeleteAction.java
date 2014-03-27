@@ -1360,11 +1360,7 @@ decl_stmt|;
 return|return
 operator|new
 name|PrimaryResponse
-argument_list|<
-name|DeleteResponse
-argument_list|,
-name|DeleteRequest
-argument_list|>
+argument_list|<>
 argument_list|(
 name|shardRequest
 operator|.

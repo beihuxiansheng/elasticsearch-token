@@ -763,13 +763,7 @@ name|options
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|CompletionSuggestion
-operator|.
-name|Entry
-operator|.
-name|Option
-argument_list|>
+argument_list|<>
 argument_list|(
 name|results
 operator|.

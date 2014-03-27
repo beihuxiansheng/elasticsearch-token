@@ -361,9 +361,7 @@ name|setBinding
 argument_list|(
 operator|new
 name|LinkedBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|base
 operator|.
@@ -493,9 +491,7 @@ name|setBinding
 argument_list|(
 operator|new
 name|InstanceBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|base
 operator|.
@@ -614,9 +610,7 @@ name|setBinding
 argument_list|(
 operator|new
 name|ProviderInstanceBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|base
 operator|.
@@ -722,9 +716,7 @@ name|setBinding
 argument_list|(
 operator|new
 name|LinkedProviderBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|base
 operator|.

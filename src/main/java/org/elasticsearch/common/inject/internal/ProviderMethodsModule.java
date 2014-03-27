@@ -664,9 +664,7 @@ block|}
 return|return
 operator|new
 name|ProviderMethod
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|key
 argument_list|,

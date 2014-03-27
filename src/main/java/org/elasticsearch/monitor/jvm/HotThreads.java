@@ -413,11 +413,7 @@ name|threadInfos
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|Long
-argument_list|,
-name|MyThreadInfo
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -643,9 +639,7 @@ name|hotties
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MyThreadInfo
-argument_list|>
+argument_list|<>
 argument_list|(
 name|threadInfos
 operator|.

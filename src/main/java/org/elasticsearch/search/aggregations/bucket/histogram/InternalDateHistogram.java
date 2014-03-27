@@ -637,13 +637,7 @@ name|bucketsMap
 operator|=
 operator|new
 name|ObjectObjectOpenHashMap
-argument_list|<
-name|String
-argument_list|,
-name|InternalDateHistogram
-operator|.
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

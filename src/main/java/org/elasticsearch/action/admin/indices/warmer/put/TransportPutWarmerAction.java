@@ -1020,11 +1020,7 @@ name|entries
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexWarmersMetaData
-operator|.
-name|Entry
-argument_list|>
+argument_list|<>
 argument_list|(
 name|warmers
 operator|.

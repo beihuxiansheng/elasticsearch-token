@@ -518,9 +518,7 @@ name|refreshOrUpdateQueue
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MappingTask
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|refreshOrUpdateInsertOrder
@@ -782,9 +780,7 @@ name|allTasks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MappingTask
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 synchronized|synchronized
@@ -918,9 +914,7 @@ name|indexTasks
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MappingTask
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|tasksPerIndex
@@ -1042,9 +1036,7 @@ name|tasks
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|MappingTask
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

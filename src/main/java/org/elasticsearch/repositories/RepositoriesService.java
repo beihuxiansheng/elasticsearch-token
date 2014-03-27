@@ -665,9 +665,7 @@ name|repositoriesMetaData
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryMetaData
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repositories
 operator|.
@@ -1083,9 +1081,7 @@ name|repositoriesMetaData
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RepositoryMetaData
-argument_list|>
+argument_list|<>
 argument_list|(
 name|repositories
 operator|.

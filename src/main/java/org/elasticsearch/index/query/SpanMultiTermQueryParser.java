@@ -348,9 +348,7 @@ expr_stmt|;
 return|return
 operator|new
 name|SpanMultiTermQueryWrapper
-argument_list|<
-name|MultiTermQuery
-argument_list|>
+argument_list|<>
 argument_list|(
 operator|(
 name|MultiTermQuery

@@ -965,9 +965,7 @@ name|stack
 operator|=
 operator|new
 name|ArrayDeque
-argument_list|<
-name|GroupTree
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|push

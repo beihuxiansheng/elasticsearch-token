@@ -333,9 +333,7 @@ name|aggregationsList
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|InternalAggregations
-argument_list|>
+argument_list|<>
 argument_list|(
 name|buckets
 operator|.
@@ -714,14 +712,7 @@ name|buckets
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|Text
-argument_list|,
-name|List
-argument_list|<
-name|Bucket
-argument_list|>
-argument_list|>
+argument_list|<>
 argument_list|(
 name|terms
 operator|.
@@ -769,9 +760,7 @@ name|existingBuckets
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Bucket
-argument_list|>
+argument_list|<>
 argument_list|(
 name|aggregations
 operator|.

@@ -354,9 +354,7 @@ block|{
 return|return
 operator|new
 name|FactoryProvider
-argument_list|<
-name|F
-argument_list|>
+argument_list|<>
 argument_list|(
 name|factoryType
 argument_list|,
@@ -369,9 +367,7 @@ block|{
 return|return
 operator|new
 name|FactoryProvider2
-argument_list|<
-name|F
-argument_list|>
+argument_list|<>
 argument_list|(
 name|factoryType
 argument_list|,

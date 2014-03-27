@@ -527,11 +527,7 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|TermSuggester
-operator|.
-name|Token
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final

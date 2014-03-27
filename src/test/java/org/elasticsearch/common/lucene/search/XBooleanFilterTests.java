@@ -421,9 +421,7 @@ name|documents
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Document
-argument_list|>
+argument_list|<>
 argument_list|(
 name|documentMatrix
 operator|.
@@ -601,9 +599,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|booleanFilters
@@ -949,9 +945,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|booleanFilters
@@ -1297,9 +1291,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|booleanFilters
@@ -1974,9 +1966,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|booleanFilters
@@ -2371,9 +2361,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// 2 slow filters
@@ -2591,9 +2579,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Slow filters
@@ -2810,9 +2796,7 @@ name|booleanFilters
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|XBooleanFilter
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// Slow filters

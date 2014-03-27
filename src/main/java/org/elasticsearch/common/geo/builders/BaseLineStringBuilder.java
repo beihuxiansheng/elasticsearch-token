@@ -450,10 +450,7 @@ name|parts
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Coordinate
-index|[]
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|double

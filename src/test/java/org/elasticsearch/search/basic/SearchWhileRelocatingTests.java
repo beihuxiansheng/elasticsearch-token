@@ -465,9 +465,7 @@ name|indexBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|IndexRequestBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -643,9 +641,7 @@ name|thrownExceptions
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|Throwable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -657,9 +653,7 @@ name|nonCriticalExceptions
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|Throwable
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Thread

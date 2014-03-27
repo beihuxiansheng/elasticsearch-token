@@ -78,9 +78,7 @@ block|{
 return|return
 operator|new
 name|NV
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|c
 operator|.

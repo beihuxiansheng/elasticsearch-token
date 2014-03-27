@@ -577,11 +577,7 @@ name|items
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Response
-operator|.
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|(
 name|request
 operator|.
@@ -787,9 +783,7 @@ name|items
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -879,9 +873,7 @@ name|items
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)
@@ -1311,9 +1303,7 @@ name|items
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

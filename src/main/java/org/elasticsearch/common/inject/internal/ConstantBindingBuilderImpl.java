@@ -635,9 +635,7 @@ name|setBinding
 argument_list|(
 operator|new
 name|InstanceBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|base
 operator|.

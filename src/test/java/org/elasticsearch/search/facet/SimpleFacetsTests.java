@@ -3504,9 +3504,7 @@ name|duel
 init|=
 operator|new
 name|ConcurrentDuel
-argument_list|<
-name|Facets
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|5
 argument_list|)
@@ -5429,9 +5427,7 @@ name|duel
 init|=
 operator|new
 name|ConcurrentDuel
-argument_list|<
-name|Facets
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|5
 argument_list|)

@@ -218,9 +218,7 @@ name|future
 init|=
 operator|new
 name|PlainListenableActionFuture
-argument_list|<
-name|Response
-argument_list|>
+argument_list|<>
 argument_list|(
 name|request
 operator|.

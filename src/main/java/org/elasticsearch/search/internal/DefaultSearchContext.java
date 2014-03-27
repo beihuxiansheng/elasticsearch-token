@@ -1904,9 +1904,7 @@ name|rescore
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RescoreSearchContext
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2951,9 +2949,7 @@ name|clearables
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Releasable
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

@@ -267,9 +267,7 @@ name|initializable
 init|=
 operator|new
 name|InjectableReference
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|injector
 argument_list|,

@@ -751,9 +751,7 @@ name|stats
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|Stats
-argument_list|>
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

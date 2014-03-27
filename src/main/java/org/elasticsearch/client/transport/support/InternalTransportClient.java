@@ -311,11 +311,7 @@ name|actionsBuilder
 init|=
 operator|new
 name|MapBuilder
-argument_list|<
-name|Action
-argument_list|,
-name|TransportActionNodeProxy
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

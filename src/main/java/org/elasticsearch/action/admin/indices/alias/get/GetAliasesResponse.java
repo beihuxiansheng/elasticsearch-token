@@ -312,9 +312,7 @@ name|value
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|AliasMetaData
-argument_list|>
+argument_list|<>
 argument_list|(
 name|valueSize
 argument_list|)

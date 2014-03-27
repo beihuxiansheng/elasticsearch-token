@@ -1793,9 +1793,7 @@ name|rescoreBuilders
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RescoreBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2042,9 +2040,7 @@ name|fieldNames
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2089,9 +2085,7 @@ name|fieldNames
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2127,9 +2121,7 @@ name|fieldDataFields
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -2406,9 +2398,7 @@ name|indexBoost
 operator|=
 operator|new
 name|ObjectFloatOpenHashMap
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

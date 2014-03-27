@@ -252,9 +252,7 @@ name|factoryFactory
 init|=
 operator|new
 name|Factory
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|InternalFactory
@@ -281,9 +279,7 @@ decl_stmt|;
 return|return
 operator|new
 name|ConstructorBindingImpl
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|injector
 argument_list|,

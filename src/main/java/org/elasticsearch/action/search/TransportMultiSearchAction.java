@@ -330,11 +330,7 @@ name|responses
 init|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|MultiSearchResponse
-operator|.
-name|Item
-argument_list|>
+argument_list|<>
 argument_list|(
 name|request
 operator|.

@@ -4688,9 +4688,7 @@ name|points
 operator|=
 operator|new
 name|ObjectOpenHashSet
-argument_list|<
-name|GeoPoint
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

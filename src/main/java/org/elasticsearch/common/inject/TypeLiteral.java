@@ -557,9 +557,7 @@ block|{
 return|return
 operator|new
 name|TypeLiteral
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 name|type
 argument_list|)
