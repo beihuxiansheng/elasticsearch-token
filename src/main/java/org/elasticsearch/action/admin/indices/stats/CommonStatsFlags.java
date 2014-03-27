@@ -906,6 +906,12 @@ name|Translog
 argument_list|(
 literal|"translog"
 argument_list|)
+block|,
+DECL|enum constant|Suggest
+name|Suggest
+argument_list|(
+literal|"suggest"
+argument_list|)
 block|;
 DECL|field|restName
 specifier|private
