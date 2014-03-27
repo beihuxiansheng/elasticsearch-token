@@ -302,7 +302,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|ImmutableTestCluster
 import|;
 end_import
 
@@ -1437,7 +1437,7 @@ name|settings
 operator|.
 name|getAsLong
 argument_list|(
-name|TestCluster
+name|ImmutableTestCluster
 operator|.
 name|SETTING_INDEX_SEED
 argument_list|,
