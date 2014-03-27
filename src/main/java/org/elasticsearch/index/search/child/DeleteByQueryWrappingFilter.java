@@ -375,6 +375,8 @@ name|context
 argument_list|)
 condition|)
 block|{
+try|try
+init|(
 name|IndexReader
 name|multiReader
 init|=
@@ -395,8 +397,7 @@ block|}
 argument_list|,
 literal|false
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|Similarity
 name|similarity
@@ -429,14 +430,6 @@ name|createNormalizedWeight
 argument_list|(
 name|query
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|multiReader
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

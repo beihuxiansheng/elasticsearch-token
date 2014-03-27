@@ -1410,6 +1410,13 @@ throws|throws
 name|IOException
 block|{
 comment|// Logic similar to QueryParser#getFieldQuery
+name|int
+name|count
+init|=
+literal|0
+decl_stmt|;
+try|try
+init|(
 name|TokenStream
 name|source
 init|=
@@ -1424,13 +1431,7 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|int
-name|count
-init|=
-literal|0
-decl_stmt|;
-try|try
+init|)
 block|{
 name|source
 operator|.
@@ -1509,14 +1510,6 @@ name|count
 operator|++
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|source
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 if|if
 condition|(

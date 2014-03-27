@@ -235,7 +235,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
+try|try
+init|(
 name|BufferedReader
 name|reader
 init|=
@@ -248,8 +249,7 @@ argument_list|(
 name|from
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|String
 name|line
@@ -305,14 +305,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-finally|finally
-block|{
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 DECL|method|spaceify
 specifier|public
@@ -332,7 +324,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
+try|try
+init|(
 name|BufferedReader
 name|reader
 init|=
@@ -345,8 +338,7 @@ argument_list|(
 name|from
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|String
 name|line
@@ -401,14 +393,6 @@ literal|'\n'
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|reader
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Splits a backslash escaped string on the separator.      *<p/>      * Current backslash escaping supported:      *<br> \n \t \r \b \f are escaped the same as a Java String      *<br> Other characters following a backslash are produced verbatim (\c => c)      *      * @param s         the string to split      * @param separator the separator to split on      * @param decode    decode backslash escaping      */

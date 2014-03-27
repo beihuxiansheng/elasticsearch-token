@@ -776,6 +776,8 @@ operator|.
 name|uncompressed
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -790,8 +792,7 @@ name|createParser
 argument_list|(
 name|filterSource
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ParsedFilter
 name|parsedFilter
@@ -815,14 +816,6 @@ operator|.
 name|filter
 argument_list|()
 return|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 catch|catch

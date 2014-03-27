@@ -448,6 +448,8 @@ operator|>
 literal|0
 condition|)
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -462,8 +464,7 @@ name|createParser
 argument_list|(
 name|data
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 while|while
 condition|(
@@ -731,14 +732,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 for|for

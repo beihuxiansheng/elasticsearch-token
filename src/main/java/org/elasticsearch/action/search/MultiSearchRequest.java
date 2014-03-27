@@ -718,6 +718,8 @@ operator|>
 literal|0
 condition|)
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -736,8 +738,7 @@ operator|-
 name|from
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|// Move to START_OBJECT, if token is null, its an empty data
 name|XContentParser
@@ -1291,14 +1292,6 @@ block|}
 block|}
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 name|searchRequest

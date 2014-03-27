@@ -298,6 +298,8 @@ name|randomAccessFile
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -313,8 +315,7 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|RestTestSuiteParseContext
 name|testParseContext
@@ -337,14 +338,6 @@ argument_list|(
 name|testParseContext
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@

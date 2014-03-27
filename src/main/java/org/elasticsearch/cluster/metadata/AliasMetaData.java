@@ -885,6 +885,8 @@ return|;
 block|}
 try|try
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -899,8 +901,7 @@ name|createParser
 argument_list|(
 name|filter
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|filter
 argument_list|(
@@ -909,14 +910,6 @@ operator|.
 name|mapOrdered
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 return|return

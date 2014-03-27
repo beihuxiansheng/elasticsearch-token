@@ -675,6 +675,8 @@ argument_list|(
 name|map
 argument_list|)
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -694,8 +696,7 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|// move to START_OBJECT
 name|parser
@@ -709,14 +710,6 @@ argument_list|(
 name|parser
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@

@@ -121,6 +121,8 @@ operator|.
 name|binaryValue
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|fSourceParser
 init|=
@@ -135,8 +137,7 @@ name|createParser
 argument_list|(
 name|filterSource
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|ParsedFilter
 name|filter
@@ -166,14 +167,6 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|fSourceParser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

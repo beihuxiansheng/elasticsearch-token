@@ -231,6 +231,8 @@ operator|.
 name|binaryValue
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|qSourceParser
 init|=
@@ -245,8 +247,7 @@ name|createParser
 argument_list|(
 name|querySource
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 specifier|final
 name|QueryParseContext
@@ -288,14 +289,6 @@ expr_stmt|;
 return|return
 name|result
 return|;
-block|}
-finally|finally
-block|{
-name|qSourceParser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

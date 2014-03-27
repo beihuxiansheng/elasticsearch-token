@@ -1332,6 +1332,8 @@ return|return
 name|defaultValue
 return|;
 block|}
+try|try
+init|(
 name|IndexInput
 name|indexInput
 init|=
@@ -1347,8 +1349,7 @@ name|IOContext
 operator|.
 name|READONCE
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|indexInput
 operator|.
@@ -1373,14 +1374,6 @@ comment|// failed to load checksums, ignore and return an empty map
 return|return
 name|defaultValue
 return|;
-block|}
-finally|finally
-block|{
-name|indexInput
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|writeChecksums
@@ -1491,6 +1484,8 @@ name|currentTimeMillis
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+init|(
 name|IndexOutput
 name|output
 init|=
@@ -1506,8 +1501,7 @@ name|DEFAULT
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|output
 operator|.
@@ -1523,14 +1517,6 @@ name|writeStringStringMap
 argument_list|(
 name|checksums
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|output
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

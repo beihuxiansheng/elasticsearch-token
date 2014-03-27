@@ -2126,7 +2126,8 @@ argument_list|>
 name|errorMessages
 parameter_list|)
 block|{
-specifier|final
+try|try
+init|(
 name|Formatter
 name|fmt
 init|=
@@ -2137,8 +2138,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|fmt
 operator|.
@@ -2334,14 +2334,6 @@ operator|.
 name|toString
 argument_list|()
 return|;
-block|}
-finally|finally
-block|{
-name|fmt
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns {@code value} if it is non-null allowed to be null. Otherwise a message is added and      * an {@code ErrorsException} is thrown.      */

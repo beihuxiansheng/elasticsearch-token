@@ -125,6 +125,8 @@ operator|.
 name|binaryValue
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|XContentParser
 name|fSourceParser
 init|=
@@ -139,8 +141,7 @@ name|createParser
 argument_list|(
 name|facetSource
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|fSourceParser
 operator|.
@@ -156,14 +157,6 @@ name|fSourceParser
 argument_list|,
 name|context
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|fSourceParser
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

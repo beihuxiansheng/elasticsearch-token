@@ -3510,6 +3510,8 @@ condition|)
 block|{
 continue|continue;
 block|}
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -3525,8 +3527,7 @@ name|data
 operator|.
 name|length
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|String
 name|currentFieldName
@@ -3652,14 +3653,6 @@ block|}
 block|}
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 name|index
 operator|=

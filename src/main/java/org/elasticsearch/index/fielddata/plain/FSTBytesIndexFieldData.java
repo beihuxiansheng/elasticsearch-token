@@ -610,6 +610,13 @@ operator|.
 name|DEFAULT_ACCEPTABLE_OVERHEAD_RATIO
 argument_list|)
 decl_stmt|;
+name|boolean
+name|success
+init|=
+literal|false
+decl_stmt|;
+try|try
+init|(
 name|OrdinalsBuilder
 name|builder
 init|=
@@ -625,13 +632,7 @@ argument_list|()
 argument_list|,
 name|acceptableTransientOverheadRatio
 argument_list|)
-decl_stmt|;
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|// we don't store an ord 0 in the FST since we could have an empty string in there and FST don't support
 comment|// empty strings twice. ie. them merge fails for long output.
@@ -816,11 +817,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

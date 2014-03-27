@@ -1240,6 +1240,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -1254,8 +1256,7 @@ name|createParser
 argument_list|(
 name|doc
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|parser
 operator|.
@@ -1275,14 +1276,6 @@ name|copyCurrentStructure
 argument_list|(
 name|parser
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 block|}

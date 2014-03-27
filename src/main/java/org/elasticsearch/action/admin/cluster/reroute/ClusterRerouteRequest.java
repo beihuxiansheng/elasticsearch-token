@@ -326,6 +326,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -335,8 +337,7 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|XContentParser
 operator|.
@@ -484,14 +485,6 @@ throw|;
 block|}
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 return|return
 name|this

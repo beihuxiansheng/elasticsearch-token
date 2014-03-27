@@ -555,22 +555,6 @@ operator|.
 name|DEFAULT_ACCEPTABLE_OVERHEAD_RATIO
 argument_list|)
 decl_stmt|;
-name|OrdinalsBuilder
-name|builder
-init|=
-operator|new
-name|OrdinalsBuilder
-argument_list|(
-name|numTerms
-argument_list|,
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
-argument_list|,
-name|acceptableTransientOverheadRatio
-argument_list|)
-decl_stmt|;
 comment|// Wrap the context in an estimator and use it to either estimate
 comment|// the entire set, or wrap the TermsEnum so it can be calculated
 comment|// per-term
@@ -595,6 +579,23 @@ init|=
 literal|false
 decl_stmt|;
 try|try
+init|(
+name|OrdinalsBuilder
+name|builder
+init|=
+operator|new
+name|OrdinalsBuilder
+argument_list|(
+name|numTerms
+argument_list|,
+name|reader
+operator|.
+name|maxDoc
+argument_list|()
+argument_list|,
+name|acceptableTransientOverheadRatio
+argument_list|)
+init|)
 block|{
 comment|// 0 is reserved for "unset"
 name|bytes
@@ -802,11 +803,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Estimator that wraps string field data by either using      * BlockTreeTermsReader, or wrapping the data in a RamAccountingTermsEnum      * if the BlockTreeTermsReader cannot be used.      */

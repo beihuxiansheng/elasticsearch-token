@@ -2571,6 +2571,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -2585,8 +2587,7 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|putMapping
 argument_list|(
@@ -2601,14 +2602,6 @@ name|mapOrdered
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 block|}
 return|return

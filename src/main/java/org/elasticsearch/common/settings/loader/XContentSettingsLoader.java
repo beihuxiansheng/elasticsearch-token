@@ -170,6 +170,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -185,8 +187,7 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 name|load
@@ -194,14 +195,6 @@ argument_list|(
 name|parser
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -223,6 +216,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -238,8 +233,7 @@ name|createParser
 argument_list|(
 name|source
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 name|load
@@ -247,14 +241,6 @@ argument_list|(
 name|parser
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 DECL|method|load

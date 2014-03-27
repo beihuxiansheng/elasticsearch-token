@@ -1344,6 +1344,8 @@ block|{
 break|break;
 block|}
 comment|// now parse the action
+try|try
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -1362,8 +1364,7 @@ operator|-
 name|from
 argument_list|)
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 comment|// move pointers
 name|from
@@ -2375,14 +2376,6 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|parser
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 return|return
