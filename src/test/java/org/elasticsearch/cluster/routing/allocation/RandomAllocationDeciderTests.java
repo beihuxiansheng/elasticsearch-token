@@ -445,7 +445,7 @@ decl_stmt|;
 name|int
 name|indices
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -488,7 +488,7 @@ block|{
 name|int
 name|replicas
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 literal|0
 argument_list|,
@@ -511,7 +511,7 @@ expr_stmt|;
 name|int
 name|numShards
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -645,9 +645,9 @@ name|numIters
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|10
+literal|5
 argument_list|,
-literal|30
+literal|15
 argument_list|)
 decl_stmt|;
 name|int
@@ -658,7 +658,7 @@ decl_stmt|;
 name|int
 name|atMostNodes
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 name|Math
 operator|.
@@ -669,7 +669,7 @@ argument_list|,
 name|maxNumReplicas
 argument_list|)
 argument_list|,
-name|numIters
+literal|15
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -694,6 +694,15 @@ name|i
 operator|++
 control|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Start iteration [{}]"
+argument_list|,
+name|i
+argument_list|)
+expr_stmt|;
 name|ClusterState
 operator|.
 name|Builder
@@ -753,7 +762,7 @@ block|{
 name|int
 name|numNodes
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -814,7 +823,7 @@ block|{
 name|int
 name|nodeId
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 literal|0
 argument_list|,
