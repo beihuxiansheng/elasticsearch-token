@@ -4223,11 +4223,25 @@ name|setSource
 argument_list|(
 literal|"field1"
 argument_list|,
+operator|new
+name|String
+index|[]
+block|{
 literal|"this is a test"
+block|,
+literal|"this is the second test"
+block|}
 argument_list|,
 literal|"field2"
 argument_list|,
+operator|new
+name|String
+index|[]
+block|{
 literal|"this is another test"
+block|,
+literal|"yet another test"
+block|}
 argument_list|)
 operator|.
 name|get
@@ -4294,6 +4308,16 @@ argument_list|(
 literal|"</global>"
 argument_list|)
 operator|.
+name|fragmentSize
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|numOfFragments
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|field
 argument_list|(
 operator|new
@@ -4302,6 +4326,11 @@ operator|.
 name|Field
 argument_list|(
 literal|"field1"
+argument_list|)
+operator|.
+name|numOfFragments
+argument_list|(
+literal|2
 argument_list|)
 argument_list|)
 operator|.
@@ -4323,6 +4352,11 @@ operator|.
 name|postTags
 argument_list|(
 literal|"</field2>"
+argument_list|)
+operator|.
+name|fragmentSize
+argument_list|(
+literal|50
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4364,11 +4398,29 @@ literal|"field1"
 argument_list|,
 literal|0
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"this is a<global>test</global>"
+literal|"<global>test</global>"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertHighlight
+argument_list|(
+name|searchResponse
+argument_list|,
+literal|0
+argument_list|,
+literal|"field1"
+argument_list|,
+literal|1
+argument_list|,
+literal|2
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"<global>test</global>"
 argument_list|)
 argument_list|)
 expr_stmt|;
