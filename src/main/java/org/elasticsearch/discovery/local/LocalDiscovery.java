@@ -1829,6 +1829,17 @@ operator|.
 name|localNode
 argument_list|)
 decl_stmt|;
+name|nodeSpecificClusterState
+operator|.
+name|status
+argument_list|(
+name|ClusterState
+operator|.
+name|ClusterStateStatus
+operator|.
+name|RECEIVED
+argument_list|)
+expr_stmt|;
 comment|// ignore cluster state messages that do not include "me", not in the game yet...
 if|if
 condition|(

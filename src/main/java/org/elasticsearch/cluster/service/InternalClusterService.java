@@ -2292,6 +2292,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|newClusterState
+operator|.
+name|status
+argument_list|(
+name|ClusterState
+operator|.
+name|ClusterStateStatus
+operator|.
+name|BEING_APPLIED
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|logger
@@ -2685,6 +2696,17 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+name|newClusterState
+operator|.
+name|status
+argument_list|(
+name|ClusterState
+operator|.
+name|ClusterStateStatus
+operator|.
+name|APPLIED
+argument_list|)
+expr_stmt|;
 comment|//manual ack only from the master at the end of the publish
 if|if
 condition|(
