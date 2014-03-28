@@ -182,16 +182,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -243,6 +233,10 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|SuiteScopeTest
 DECL|class|NaNSortingTests
 specifier|public
 class|class
@@ -488,11 +482,11 @@ parameter_list|)
 function_decl|;
 block|}
 annotation|@
-name|Before
-DECL|method|init
+name|Override
+DECL|method|setupSuiteScopeCluster
 specifier|public
 name|void
-name|init
+name|setupSuiteScopeCluster
 parameter_list|()
 throws|throws
 name|Exception

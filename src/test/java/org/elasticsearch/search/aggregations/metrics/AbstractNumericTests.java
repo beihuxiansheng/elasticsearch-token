@@ -46,16 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -95,6 +85,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|SuiteScopeTest
 DECL|class|AbstractNumericTests
 specifier|public
 specifier|abstract
@@ -108,6 +102,7 @@ DECL|field|maxValue
 DECL|field|minValues
 DECL|field|maxValues
 specifier|protected
+specifier|static
 name|long
 name|minValue
 decl_stmt|,
@@ -118,11 +113,11 @@ decl_stmt|,
 name|maxValues
 decl_stmt|;
 annotation|@
-name|Before
-DECL|method|init
+name|Override
+DECL|method|setupSuiteScopeCluster
 specifier|public
 name|void
-name|init
+name|setupSuiteScopeCluster
 parameter_list|()
 throws|throws
 name|Exception

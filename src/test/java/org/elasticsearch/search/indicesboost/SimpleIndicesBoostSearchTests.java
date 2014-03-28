@@ -76,7 +76,21 @@ name|client
 operator|.
 name|Requests
 operator|.
-name|*
+name|indexRequest
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|Requests
+operator|.
+name|searchRequest
 import|;
 end_import
 

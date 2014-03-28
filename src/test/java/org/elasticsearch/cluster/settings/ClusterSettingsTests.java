@@ -134,7 +134,7 @@ name|test
 operator|.
 name|ElasticsearchIntegrationTest
 operator|.
-name|*
+name|ClusterScope
 import|;
 end_import
 

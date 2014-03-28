@@ -386,39 +386,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertHitCount
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertThrows
+name|*
 import|;
 end_import
 

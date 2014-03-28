@@ -120,20 +120,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|Scope
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -188,6 +174,8 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
+name|ElasticsearchIntegrationTest
+operator|.
 name|Scope
 operator|.
 name|SUITE

@@ -348,7 +348,7 @@ name|randomIntBetween
 argument_list|(
 literal|1
 argument_list|,
-literal|1000000
+literal|100000
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -364,7 +364,7 @@ argument_list|()
 condition|?
 literal|1000
 else|:
-literal|1000000
+literal|100000
 argument_list|)
 decl_stmt|;
 specifier|final

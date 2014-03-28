@@ -258,7 +258,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|*
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -284,9 +284,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|Scope
+name|TestCluster
 import|;
 end_import
 
@@ -380,6 +378,8 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
+name|ElasticsearchIntegrationTest
+operator|.
 name|Scope
 operator|.
 name|TEST
