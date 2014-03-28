@@ -20,6 +20,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Nightly
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -3679,6 +3693,8 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|Nightly
 DECL|method|testMarvelHerosPhraseSuggest
 specifier|public
 name|void
@@ -5173,6 +5189,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Nightly
 DECL|method|testPhraseBoundaryCases
 specifier|public
 name|void
@@ -7033,6 +7051,8 @@ block|}
 comment|/**      * If the suggester finds tons of options then picking the right one is slow without<<<INSERT SOLUTION HERE>>>.      */
 annotation|@
 name|Test
+annotation|@
+name|Nightly
 DECL|method|suggestWithManyCandidates
 specifier|public
 name|void
