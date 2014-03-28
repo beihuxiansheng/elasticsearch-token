@@ -5204,6 +5204,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+literal|1
+argument_list|)
+comment|// to get reliable statistics we should put this all into one shard
+operator|.
+name|put
+argument_list|(
 literal|"index.analysis.analyzer.body.tokenizer"
 argument_list|,
 literal|"standard"

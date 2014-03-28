@@ -2337,8 +2337,20 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|msg
+init|=
+literal|"Suggest result: "
+operator|+
+name|searchSuggest
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|size
@@ -2352,6 +2364,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
@@ -2370,6 +2384,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
@@ -2391,6 +2407,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
@@ -2454,8 +2472,20 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|String
+name|msg
+init|=
+literal|"Suggest result: "
+operator|+
+name|searchSuggest
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|size
@@ -2469,6 +2499,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
@@ -2487,6 +2519,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
@@ -2508,6 +2542,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
@@ -2537,6 +2573,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|searchSuggest
 operator|.
 name|getSuggestion
