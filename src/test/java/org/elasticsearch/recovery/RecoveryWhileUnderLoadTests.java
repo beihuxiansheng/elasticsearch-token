@@ -765,23 +765,45 @@ expr_stmt|;
 block|}
 try|try
 block|{
+specifier|final
+name|int
+name|totalNumDocs
+init|=
+name|scaledRandomIntBetween
+argument_list|(
+literal|200
+argument_list|,
+literal|20000
+argument_list|)
+decl_stmt|;
+name|int
+name|waitFor
+init|=
+name|totalNumDocs
+operator|/
+literal|3
+decl_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 2000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|2000
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 2000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
@@ -810,23 +832,33 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|waitFor
+operator|+=
+name|totalNumDocs
+operator|/
+literal|3
+expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 4000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|4000
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 4000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
@@ -905,19 +937,23 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 15000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|15000
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 15000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1284,25 +1320,47 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+specifier|final
+name|int
+name|totalNumDocs
+init|=
+name|scaledRandomIntBetween
+argument_list|(
+literal|200
+argument_list|,
+literal|20000
+argument_list|)
+decl_stmt|;
+name|int
+name|waitFor
+init|=
+name|totalNumDocs
+operator|/
+literal|3
+decl_stmt|;
 try|try
 block|{
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 2000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|2000
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 2000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1331,23 +1389,33 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|waitFor
+operator|+=
+name|totalNumDocs
+operator|/
+literal|3
+expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 4000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|4000
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 4000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1424,19 +1492,23 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 15000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|15000
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 15000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|stop
@@ -1837,25 +1909,47 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+specifier|final
+name|int
+name|totalNumDocs
+init|=
+name|scaledRandomIntBetween
+argument_list|(
+literal|200
+argument_list|,
+literal|20000
+argument_list|)
+decl_stmt|;
+name|int
+name|waitFor
+init|=
+name|totalNumDocs
+operator|/
+literal|3
+decl_stmt|;
 try|try
 block|{
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 2000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|2000
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 2000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
@@ -1884,23 +1978,33 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|waitFor
+operator|+=
+name|totalNumDocs
+operator|/
+literal|3
+expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 4000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|4000
+name|waitFor
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 4000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|waitFor
 argument_list|)
 expr_stmt|;
 comment|// now start more nodes, while we index
@@ -1978,19 +2082,23 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> waiting for 15000 docs to be indexed ..."
+literal|"--> waiting for {} docs to be indexed ..."
+argument_list|,
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|waitForDocs
 argument_list|(
-literal|15000
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> 15000 docs indexed"
+literal|"--> {} docs indexed"
+argument_list|,
+name|totalNumDocs
 argument_list|)
 expr_stmt|;
 comment|// now, shutdown nodes
@@ -2475,6 +2583,16 @@ name|CopyOnWriteArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|final
+name|CountDownLatch
+name|startLatch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2529,6 +2647,11 @@ literal|1
 decl_stmt|;
 try|try
 block|{
+name|startLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -2674,13 +2797,27 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
-literal|10000
+literal|200
 argument_list|,
 literal|50000
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> indexing {} docs in total ..."
+argument_list|,
+name|numDocs
+argument_list|)
+expr_stmt|;
+name|startLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -2694,11 +2831,18 @@ name|numDocs
 condition|;
 name|i
 operator|+=
-name|between
+name|scaledRandomIntBetween
 argument_list|(
 literal|100
 argument_list|,
+name|Math
+operator|.
+name|min
+argument_list|(
 literal|1000
+argument_list|,
+name|numDocs
+argument_list|)
 argument_list|)
 control|)
 block|{
