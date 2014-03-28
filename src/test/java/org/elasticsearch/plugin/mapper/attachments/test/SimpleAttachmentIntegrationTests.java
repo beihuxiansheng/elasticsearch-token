@@ -229,11 +229,6 @@ argument_list|(
 literal|"creating index [test]"
 argument_list|)
 expr_stmt|;
-name|wipeIndices
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
 name|createIndex
 argument_list|(
 literal|"test"
