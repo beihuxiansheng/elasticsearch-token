@@ -67,8 +67,6 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-literal|"regex"
-argument_list|,
 literal|"gtelte"
 argument_list|)
 decl_stmt|;
