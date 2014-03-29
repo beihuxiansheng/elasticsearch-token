@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Repeat
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -169,6 +183,18 @@ operator|.
 name|client
 operator|.
 name|Requests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Priority
 import|;
 end_import
 
@@ -1230,6 +1256,12 @@ comment|// Now, clear the cache and check that the circuit breaker has been
 comment|// successfully set back to zero. If there is a bug in the circuit
 comment|// breaker adjustment code, it should show up here by the breaker
 comment|// estimate being either positive or negative.
+name|ensureGreen
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
+comment|// make sure all shards are there - there could be shards that are still starting up.
 name|assertAllSuccessful
 argument_list|(
 name|client
