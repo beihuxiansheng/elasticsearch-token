@@ -949,11 +949,11 @@ name|toString
 parameter_list|()
 block|{
 specifier|final
-name|StringBuffer
+name|StringBuilder
 name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|(
 literal|"PluginInfo{"
 argument_list|)
@@ -1037,7 +1037,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", isolation='"
+literal|", isolation="
 argument_list|)
 operator|.
 name|append
