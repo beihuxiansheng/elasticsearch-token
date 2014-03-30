@@ -350,6 +350,8 @@ DECL|method|sync
 name|void
 name|sync
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|syncNeeded
 name|boolean

@@ -2082,6 +2082,8 @@ specifier|public
 name|void
 name|sync
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|FsTranslogFile
 name|current1
@@ -2099,11 +2101,36 @@ condition|)
 block|{
 return|return;
 block|}
+try|try
+block|{
 name|current1
 operator|.
 name|sync
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// if we switches translots (!=), then this failure is not relevant
+comment|// we are working on a new translog
+if|if
+condition|(
+name|this
+operator|.
+name|current
+operator|==
+name|current1
+condition|)
+block|{
+throw|throw
+name|e
+throw|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
