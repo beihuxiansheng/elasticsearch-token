@@ -322,13 +322,13 @@ name|TransportService
 argument_list|>
 block|{
 DECL|field|transport
-specifier|private
+specifier|protected
 specifier|final
 name|Transport
 name|transport
 decl_stmt|;
 DECL|field|threadPool
-specifier|private
+specifier|protected
 specifier|final
 name|ThreadPool
 name|threadPool
