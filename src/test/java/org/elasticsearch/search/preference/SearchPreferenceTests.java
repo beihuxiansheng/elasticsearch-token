@@ -229,7 +229,7 @@ name|put
 argument_list|(
 literal|"index.number_of_shards"
 argument_list|,
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|dataNodes

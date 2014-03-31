@@ -426,7 +426,7 @@ specifier|final
 name|int
 name|numNodes
 init|=
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|dataNodes

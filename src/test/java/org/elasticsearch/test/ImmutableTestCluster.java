@@ -637,6 +637,14 @@ name|int
 name|size
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the number of data nodes in the cluster.      */
+DECL|method|dataNodes
+specifier|public
+specifier|abstract
+name|int
+name|dataNodes
+parameter_list|()
+function_decl|;
 comment|/**      * Closes the current cluster      */
 DECL|method|close
 specifier|public

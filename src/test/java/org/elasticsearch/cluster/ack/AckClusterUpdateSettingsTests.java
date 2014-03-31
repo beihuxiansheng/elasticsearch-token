@@ -670,7 +670,7 @@ literal|"number_of_shards"
 argument_list|,
 name|between
 argument_list|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|dataNodes
