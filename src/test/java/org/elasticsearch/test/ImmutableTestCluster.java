@@ -629,7 +629,7 @@ name|Client
 name|client
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the size of the cluster      */
+comment|/**      * Returns the number of nodes in the cluster.      */
 DECL|method|size
 specifier|public
 specifier|abstract

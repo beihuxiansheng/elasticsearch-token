@@ -4737,7 +4737,6 @@ name|clazz
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the number of nodes in the cluster.      */
 annotation|@
 name|Override
 DECL|method|size
