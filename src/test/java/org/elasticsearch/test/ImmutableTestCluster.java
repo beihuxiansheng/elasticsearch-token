@@ -336,6 +336,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -396,39 +406,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertAllFilesClosed
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertAllSearchersClosed
+name|*
 import|;
 end_import
 
@@ -643,6 +621,15 @@ specifier|public
 specifier|abstract
 name|int
 name|dataNodes
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the http addresses of the nodes within the cluster.      * Can be used to run REST tests against the test cluster.      */
+DECL|method|httpAddresses
+specifier|public
+specifier|abstract
+name|InetSocketAddress
+index|[]
+name|httpAddresses
 parameter_list|()
 function_decl|;
 comment|/**      * Closes the current cluster      */
