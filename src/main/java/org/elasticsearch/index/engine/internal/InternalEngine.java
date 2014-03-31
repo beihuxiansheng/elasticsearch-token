@@ -4974,6 +4974,11 @@ comment|// an index writer got replaced on us, ignore
 block|}
 else|else
 block|{
+name|failEngine
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|RefreshFailedEngineException
