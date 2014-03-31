@@ -4852,6 +4852,13 @@ name|force
 argument_list|()
 condition|)
 block|{
+comment|// we set dirty to false, even though the refresh hasn't happened yet
+comment|// as the refresh only holds for data indexed before it. Any data indexed during
+comment|// the refresh will not be part of it and will set the dirty flag back to true
+name|dirty
+operator|=
+literal|false
+expr_stmt|;
 name|boolean
 name|refreshed
 init|=
@@ -4865,10 +4872,6 @@ name|refreshed
 operator|:
 literal|"failed to refresh even though refreshMutex was acquired"
 assert|;
-name|dirty
-operator|=
-literal|false
-expr_stmt|;
 block|}
 block|}
 block|}
