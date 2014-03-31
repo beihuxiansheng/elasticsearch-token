@@ -1608,9 +1608,7 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
-argument_list|(
-literal|1000
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
