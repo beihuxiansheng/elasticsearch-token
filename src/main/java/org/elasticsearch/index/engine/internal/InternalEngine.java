@@ -4856,11 +4856,19 @@ name|dirty
 operator|=
 literal|false
 expr_stmt|;
+name|boolean
+name|refreshed
+init|=
 name|searcherManager
 operator|.
 name|maybeRefresh
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+assert|assert
+name|refreshed
+operator|:
+literal|"failed to refresh even though refreshMutex was acquired"
+assert|;
 block|}
 block|}
 block|}
