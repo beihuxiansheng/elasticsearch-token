@@ -419,7 +419,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|OK
 argument_list|)
@@ -433,7 +433,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|NOT_FOUND
 argument_list|)
@@ -471,7 +471,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|ExceptionsHelper
 operator|.

@@ -369,7 +369,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|RestStatus
 operator|.

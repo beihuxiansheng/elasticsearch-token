@@ -362,10 +362,8 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|new
-name|XContentRestResponse
+name|BytesRestResponse
 argument_list|(
-name|request
-argument_list|,
 name|RestStatus
 operator|.
 name|OK
@@ -613,7 +611,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|RestStatus
 operator|.

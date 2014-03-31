@@ -114,10 +114,9 @@ argument_list|()
 decl_stmt|;
 comment|// the netty HTTP handling always copy over the buffer to its own buffer, either in NioWorker internally
 comment|// when reading, or using a cumalation buffer
-name|serverTransport
-operator|.
-name|dispatchRequest
-argument_list|(
+name|NettyHttpRequest
+name|httpRequest
+init|=
 operator|new
 name|NettyHttpRequest
 argument_list|(
@@ -128,6 +127,12 @@ operator|.
 name|getChannel
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|serverTransport
+operator|.
+name|dispatchRequest
+argument_list|(
+name|httpRequest
 argument_list|,
 operator|new
 name|NettyHttpChannel
@@ -139,7 +144,7 @@ operator|.
 name|getChannel
 argument_list|()
 argument_list|,
-name|request
+name|httpRequest
 argument_list|)
 argument_list|)
 expr_stmt|;

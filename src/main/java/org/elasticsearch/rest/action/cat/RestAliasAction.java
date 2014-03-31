@@ -170,6 +170,18 @@ name|elasticsearch
 operator|.
 name|rest
 operator|.
+name|BytesRestResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
 name|RestChannel
 import|;
 end_import
@@ -195,18 +207,6 @@ operator|.
 name|rest
 operator|.
 name|RestRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|XContentThrowableRestResponse
 import|;
 end_import
 
@@ -466,7 +466,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentThrowableRestResponse
+name|BytesRestResponse
 argument_list|(
 name|request
 argument_list|,

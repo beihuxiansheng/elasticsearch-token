@@ -704,7 +704,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentThrowableRestResponse
+name|BytesRestResponse
 argument_list|(
 name|request
 argument_list|,
@@ -814,20 +814,15 @@ name|OPTIONS
 condition|)
 block|{
 comment|// when we have OPTIONS request, simply send OK by default (with the Access Control Origin header which gets automatically added)
-name|StringRestResponse
-name|response
-init|=
-operator|new
-name|StringRestResponse
-argument_list|(
-name|OK
-argument_list|)
-decl_stmt|;
 name|channel
 operator|.
 name|sendResponse
 argument_list|(
-name|response
+operator|new
+name|BytesRestResponse
+argument_list|(
+name|OK
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -838,7 +833,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|BAD_REQUEST
 argument_list|,
@@ -1202,7 +1197,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentThrowableRestResponse
+name|BytesRestResponse
 argument_list|(
 name|request
 argument_list|,

@@ -392,7 +392,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentThrowableRestResponse
+name|BytesRestResponse
 argument_list|(
 name|request
 argument_list|,

@@ -148,7 +148,7 @@ name|RestResponse
 name|response
 init|=
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|RestStatus
 operator|.
@@ -180,7 +180,7 @@ name|RestResponse
 name|response
 init|=
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|RestStatus
 operator|.

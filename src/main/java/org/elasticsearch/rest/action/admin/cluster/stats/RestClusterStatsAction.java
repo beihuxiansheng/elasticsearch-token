@@ -335,10 +335,8 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentRestResponse
+name|BytesRestResponse
 argument_list|(
-name|request
-argument_list|,
 name|RestStatus
 operator|.
 name|OK
@@ -378,7 +376,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentThrowableRestResponse
+name|BytesRestResponse
 argument_list|(
 name|request
 argument_list|,

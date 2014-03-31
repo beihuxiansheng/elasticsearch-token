@@ -450,7 +450,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|status
 argument_list|)
@@ -620,10 +620,8 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentRestResponse
+name|BytesRestResponse
 argument_list|(
-name|request
-argument_list|,
 name|status
 argument_list|,
 name|builder
@@ -671,7 +669,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|StringRestResponse
+name|BytesRestResponse
 argument_list|(
 name|ExceptionsHelper
 operator|.
@@ -690,7 +688,7 @@ operator|.
 name|sendResponse
 argument_list|(
 operator|new
-name|XContentThrowableRestResponse
+name|BytesRestResponse
 argument_list|(
 name|request
 argument_list|,
