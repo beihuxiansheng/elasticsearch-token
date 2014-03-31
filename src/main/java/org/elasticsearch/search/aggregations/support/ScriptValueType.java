@@ -18,42 +18,6 @@ name|support
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|bytes
-operator|.
-name|BytesValuesSource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|numeric
-operator|.
-name|NumericValuesSource
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -67,19 +31,23 @@ block|{
 DECL|enum constant|STRING
 name|STRING
 parameter_list|(
-name|BytesValuesSource
+name|ValuesSource
+operator|.
+name|Bytes
 operator|.
 name|class
 parameter_list|)
 operator|,
 DECL|enum constant|LONG
-constructor|LONG(NumericValuesSource.class
+constructor|LONG(ValuesSource.Numeric.class
 block|)
 enum|,
 DECL|enum constant|DOUBLE
 name|DOUBLE
 argument_list|(
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 operator|.
 name|class
 argument_list|)

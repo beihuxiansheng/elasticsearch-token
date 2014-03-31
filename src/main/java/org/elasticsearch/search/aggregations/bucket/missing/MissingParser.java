@@ -100,7 +100,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|FieldContext
+name|ValuesSource
 import|;
 end_import
 
@@ -116,7 +116,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSource
+name|FieldContext
 import|;
 end_import
 

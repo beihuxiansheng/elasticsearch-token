@@ -134,7 +134,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValueSourceAggregatorFactory
+name|ValuesSource
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSource
+name|ValuesSourceAggregatorFactory
 import|;
 end_import
 
@@ -365,7 +365,7 @@ specifier|static
 class|class
 name|Factory
 extends|extends
-name|ValueSourceAggregatorFactory
+name|ValuesSourceAggregatorFactory
 block|{
 DECL|method|Factory
 specifier|public

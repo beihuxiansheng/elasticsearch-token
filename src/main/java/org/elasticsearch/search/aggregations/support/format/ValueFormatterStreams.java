@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.support.numeric
+DECL|package|org.elasticsearch.search.aggregations.support.format
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|format
 package|;
 end_package
 
@@ -170,6 +170,20 @@ name|Number
 operator|.
 name|Pattern
 argument_list|()
+expr_stmt|;
+break|break;
+case|case
+name|ValueFormatter
+operator|.
+name|GeoHash
+operator|.
+name|ID
+case|:
+name|formatter
+operator|=
+name|ValueFormatter
+operator|.
+name|GEOHASH
 expr_stmt|;
 break|break;
 default|default:

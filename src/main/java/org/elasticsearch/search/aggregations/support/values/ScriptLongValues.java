@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.support.numeric
+DECL|package|org.elasticsearch.search.aggregations.support.values
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|values
 package|;
 end_package
 
@@ -44,7 +44,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|LongValues
 import|;
 end_import
 
@@ -123,16 +123,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link DoubleValues} implementation which is based on a script  */
+comment|/**  * {@link LongValues} implementation which is based on a script  */
 end_comment
 
 begin_class
-DECL|class|ScriptDoubleValues
+DECL|class|ScriptLongValues
 specifier|public
 class|class
-name|ScriptDoubleValues
+name|ScriptLongValues
 extends|extends
-name|DoubleValues
+name|LongValues
 implements|implements
 name|ScriptValues
 block|{
@@ -148,12 +148,12 @@ name|value
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|double
+name|long
 index|[]
 name|values
 init|=
 operator|new
-name|double
+name|long
 index|[
 literal|1
 index|]
@@ -168,9 +168,9 @@ specifier|private
 name|int
 name|valueOffset
 decl_stmt|;
-DECL|method|ScriptDoubleValues
+DECL|method|ScriptLongValues
 specifier|public
-name|ScriptDoubleValues
+name|ScriptLongValues
 parameter_list|(
 name|SearchScript
 name|script
@@ -268,7 +268,7 @@ operator|)
 name|value
 operator|)
 operator|.
-name|doubleValue
+name|longValue
 argument_list|()
 expr_stmt|;
 block|}
@@ -338,7 +338,7 @@ name|i
 argument_list|)
 operator|)
 operator|.
-name|doubleValue
+name|longValue
 argument_list|()
 expr_stmt|;
 block|}
@@ -427,7 +427,7 @@ name|next
 argument_list|()
 operator|)
 operator|.
-name|doubleValue
+name|longValue
 argument_list|()
 expr_stmt|;
 block|}
@@ -463,7 +463,7 @@ annotation|@
 name|Override
 DECL|method|nextValue
 specifier|public
-name|double
+name|long
 name|nextValue
 parameter_list|()
 block|{

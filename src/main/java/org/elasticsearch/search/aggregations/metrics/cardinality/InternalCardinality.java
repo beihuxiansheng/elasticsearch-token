@@ -136,7 +136,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|format
 operator|.
 name|ValueFormatterStreams
 import|;

@@ -162,9 +162,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
-operator|.
-name|NumericValuesSource
+name|ValuesSource
 import|;
 end_import
 
@@ -235,7 +233,9 @@ decl_stmt|;
 DECL|field|valuesSource
 specifier|private
 specifier|final
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 name|valuesSource
 decl_stmt|;
 DECL|field|bucketOrds
@@ -259,7 +259,9 @@ parameter_list|,
 name|AggregatorFactories
 name|factories
 parameter_list|,
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 name|valuesSource
 parameter_list|,
 name|int

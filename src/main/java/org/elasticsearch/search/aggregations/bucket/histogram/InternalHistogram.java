@@ -254,7 +254,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|format
 operator|.
 name|ValueFormatter
 import|;
@@ -272,7 +272,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|format
 operator|.
 name|ValueFormatterStreams
 import|;

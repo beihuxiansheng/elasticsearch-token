@@ -148,7 +148,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValueSourceAggregatorFactory
+name|ValuesSource
 import|;
 end_import
 
@@ -164,7 +164,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSource
+name|ValuesSourceAggregatorFactory
 import|;
 end_import
 
@@ -196,9 +196,9 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|bytes
+name|format
 operator|.
-name|BytesValuesSource
+name|ValueFormatter
 import|;
 end_import
 
@@ -214,9 +214,9 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|format
 operator|.
-name|NumericValuesSource
+name|ValueParser
 import|;
 end_import
 
@@ -230,7 +230,7 @@ specifier|public
 class|class
 name|TermsAggregatorFactory
 extends|extends
-name|ValueSourceAggregatorFactory
+name|ValuesSourceAggregatorFactory
 block|{
 DECL|enum|ExecutionMode
 specifier|public
@@ -397,7 +397,9 @@ argument_list|,
 name|factories
 argument_list|,
 operator|(
-name|BytesValuesSource
+name|ValuesSource
+operator|.
+name|Bytes
 operator|.
 name|WithOrdinals
 operator|)
@@ -591,7 +593,13 @@ name|String
 name|name
 parameter_list|,
 name|ValuesSourceConfig
-name|valueSourceConfig
+name|config
+parameter_list|,
+name|ValueFormatter
+name|formatter
+parameter_list|,
+name|ValueParser
+name|parser
 parameter_list|,
 name|InternalOrder
 name|order
@@ -623,7 +631,11 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|valueSourceConfig
+name|config
+argument_list|,
+name|formatter
+argument_list|,
+name|parser
 argument_list|)
 expr_stmt|;
 name|this
@@ -954,7 +966,9 @@ if|if
 condition|(
 name|valuesSource
 operator|instanceof
-name|BytesValuesSource
+name|ValuesSource
+operator|.
+name|Bytes
 condition|)
 block|{
 name|ExecutionMode
@@ -986,7 +1000,9 @@ operator|!
 operator|(
 name|valuesSource
 operator|instanceof
-name|BytesValuesSource
+name|ValuesSource
+operator|.
+name|Bytes
 operator|.
 name|WithOrdinals
 operator|)
@@ -1027,7 +1043,9 @@ condition|(
 operator|(
 name|valuesSource
 operator|instanceof
-name|BytesValuesSource
+name|ValuesSource
+operator|.
+name|Bytes
 operator|.
 name|WithOrdinals
 operator|)
@@ -1118,14 +1136,18 @@ if|if
 condition|(
 name|valuesSource
 operator|instanceof
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 condition|)
 block|{
 if|if
 condition|(
 operator|(
 operator|(
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 operator|)
 name|valuesSource
 operator|)
@@ -1143,9 +1165,13 @@ argument_list|,
 name|factories
 argument_list|,
 operator|(
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 operator|)
 name|valuesSource
+argument_list|,
+name|formatter
 argument_list|,
 name|estimatedBucketCount
 argument_list|,
@@ -1172,9 +1198,13 @@ argument_list|,
 name|factories
 argument_list|,
 operator|(
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 operator|)
 name|valuesSource
+argument_list|,
+name|formatter
 argument_list|,
 name|estimatedBucketCount
 argument_list|,
@@ -1198,7 +1228,7 @@ name|AggregationExecutionException
 argument_list|(
 literal|"terms aggregation cannot be applied to field ["
 operator|+
-name|valuesSourceConfig
+name|config
 operator|.
 name|fieldContext
 argument_list|()

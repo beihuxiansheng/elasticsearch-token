@@ -92,7 +92,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValueSourceAggregatorFactory
+name|ValuesSource
 import|;
 end_import
 
@@ -108,7 +108,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSource
+name|ValuesSourceAggregatorFactory
 import|;
 end_import
 
@@ -128,31 +128,13 @@ name|ValuesSourceConfig
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|numeric
-operator|.
-name|NumericValuesSource
-import|;
-end_import
-
 begin_class
 DECL|class|CardinalityAggregatorFactory
 specifier|final
 class|class
 name|CardinalityAggregatorFactory
 extends|extends
-name|ValueSourceAggregatorFactory
+name|ValuesSourceAggregatorFactory
 argument_list|<
 name|ValuesSource
 argument_list|>
@@ -176,7 +158,7 @@ name|String
 name|name
 parameter_list|,
 name|ValuesSourceConfig
-name|valuesSourceConfig
+name|config
 parameter_list|,
 name|long
 name|precisionThreshold
@@ -196,7 +178,7 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|valuesSourceConfig
+name|config
 argument_list|)
 expr_stmt|;
 name|this
@@ -311,7 +293,9 @@ operator|!
 operator|(
 name|valuesSource
 operator|instanceof
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 operator|)
 operator|&&
 operator|!

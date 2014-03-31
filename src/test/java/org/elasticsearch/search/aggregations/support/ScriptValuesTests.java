@@ -98,7 +98,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|bytes
+name|values
 operator|.
 name|ScriptBytesValues
 import|;
@@ -116,7 +116,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|values
 operator|.
 name|ScriptDoubleValues
 import|;
@@ -134,7 +134,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
+name|values
 operator|.
 name|ScriptLongValues
 import|;

@@ -62,7 +62,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceConfig
+name|ValuesSource
 import|;
 end_import
 
@@ -78,9 +78,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|numeric
-operator|.
-name|NumericValuesSource
+name|ValuesSourceConfig
 import|;
 end_import
 
@@ -140,7 +138,9 @@ name|aggregationName
 parameter_list|,
 name|ValuesSourceConfig
 argument_list|<
-name|NumericValuesSource
+name|ValuesSource
+operator|.
+name|Numeric
 argument_list|>
 name|config
 parameter_list|)
