@@ -394,7 +394,7 @@ name|void
 name|createIndex
 parameter_list|()
 block|{
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|wipeIndices

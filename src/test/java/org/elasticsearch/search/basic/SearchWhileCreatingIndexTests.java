@@ -671,7 +671,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|wipeIndices

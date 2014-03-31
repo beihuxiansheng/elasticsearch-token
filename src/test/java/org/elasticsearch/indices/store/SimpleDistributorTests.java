@@ -879,7 +879,7 @@ name|String
 name|distributor
 parameter_list|)
 block|{
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -991,7 +991,7 @@ name|String
 name|distributor
 parameter_list|)
 block|{
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|wipeIndices

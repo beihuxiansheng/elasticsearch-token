@@ -2587,7 +2587,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|wipeIndices
