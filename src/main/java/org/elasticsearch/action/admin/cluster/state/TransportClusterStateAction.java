@@ -376,7 +376,12 @@ init|=
 name|ClusterState
 operator|.
 name|builder
+argument_list|(
+name|currentState
+operator|.
+name|getClusterName
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|builder
 operator|.

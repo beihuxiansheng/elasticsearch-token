@@ -1348,7 +1348,11 @@ init|=
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
+argument_list|(
+name|ClusterName
+operator|.
+name|DEFAULT
+argument_list|)
 operator|.
 name|metaData
 argument_list|(
@@ -1547,7 +1551,11 @@ init|=
 name|ClusterState
 operator|.
 name|builder
-argument_list|()
+argument_list|(
+name|ClusterName
+operator|.
+name|DEFAULT
+argument_list|)
 operator|.
 name|metaData
 argument_list|(
