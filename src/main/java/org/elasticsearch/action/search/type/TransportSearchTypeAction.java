@@ -1851,6 +1851,29 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+elseif|else
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{}: Failed to execute [{}]"
+argument_list|,
+name|t
+argument_list|,
+name|shard
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -1964,10 +1987,6 @@ name|logger
 operator|.
 name|isTraceEnabled
 argument_list|()
-operator|&&
-name|t
-operator|!=
-literal|null
 condition|)
 block|{
 name|logger
@@ -2672,6 +2691,33 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"got first-phase result from {}"
+argument_list|,
+name|result
+operator|!=
+literal|null
+condition|?
+name|result
+operator|.
+name|shardTarget
+argument_list|()
+else|:
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// clean a previous error on this shard group (note, this code will be serialized on the same shardIndex value level
 comment|// so its ok concurrency wise to miss potentially the shard failures being created because of another failure
 comment|// in the #addShardFailure, because by definition, it will happen on *another* shardIndex
