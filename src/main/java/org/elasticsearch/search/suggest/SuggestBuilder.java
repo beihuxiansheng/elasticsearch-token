@@ -167,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines how to perform suggesting. This builders allows a number of global options to be specified and  * an arbitrary number of {@link org.elasticsearch.search.suggest.SuggestBuilder.TermSuggestionBuilder} instances.  *<p/>  * Suggesting works by suggesting terms that appear in the suggest text that are similar compared to the terms in  * provided text. These spelling suggestions are based on several options described in this class.  */
+comment|/**  * Defines how to perform suggesting. This builders allows a number of global options to be specified and  * an arbitrary number of {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder} instances.  *<p/>  * Suggesting works by suggesting terms that appear in the suggest text that are similar compared to the terms in  * provided text. These spelling suggestions are based on several options described in this class.  */
 end_comment
 
 begin_class
@@ -253,7 +253,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an {@link org.elasticsearch.search.suggest.SuggestBuilder.TermSuggestionBuilder} instance under a user defined name.      * The order in which the<code>Suggestions</code> are added, is the same as in the response.      */
+comment|/**      * Adds an {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder} instance under a user defined name.      * The order in which the<code>Suggestions</code> are added, is the same as in the response.      */
 DECL|method|addSuggestion
 specifier|public
 name|SuggestBuilder
@@ -534,7 +534,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Setup a Geolocation for suggestions. See {@link GeoContextMapping}.          * @param lat Latitude of the location          * @param lon Longitude of the Location          * @return this          */
+comment|/**          * Setup a Geolocation for suggestions. See {@link GeolocationContextMapping}.          * @param lat Latitude of the location          * @param lon Longitude of the Location          * @return this          */
 DECL|method|addGeoLocation
 specifier|public
 name|T
@@ -548,6 +548,10 @@ name|lat
 parameter_list|,
 name|double
 name|lon
+parameter_list|,
+name|int
+modifier|...
+name|precisions
 parameter_list|)
 block|{
 return|return
@@ -562,11 +566,51 @@ argument_list|,
 name|lat
 argument_list|,
 name|lon
+argument_list|,
+name|precisions
 argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Setup a Geolocation for suggestions. See {@link GeoContextMapping}.          * @param geohash Geohash of the location          * @return this          */
+comment|/**          * Setup a Geolocation for suggestions. See {@link GeolocationContextMapping}.          * @param lat Latitude of the location          * @param lon Longitude of the Location          * @param precisions precisions as string var-args          * @return this          */
+DECL|method|addGeoLocationWithPrecision
+specifier|public
+name|T
+name|addGeoLocationWithPrecision
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|double
+name|lat
+parameter_list|,
+name|double
+name|lon
+parameter_list|,
+name|String
+modifier|...
+name|precisions
+parameter_list|)
+block|{
+return|return
+name|addContextQuery
+argument_list|(
+name|GeolocationContextMapping
+operator|.
+name|query
+argument_list|(
+name|name
+argument_list|,
+name|lat
+argument_list|,
+name|lon
+argument_list|,
+name|precisions
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**          * Setup a Geolocation for suggestions. See {@link GeolocationContextMapping}.          * @param geohash Geohash of the location          * @return this          */
 DECL|method|addGeoLocation
 specifier|public
 name|T
@@ -593,7 +637,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Setup a Category for suggestions. See {@link CategoryMapping}.          * @param category name of the category          * @return this          */
+comment|/**          * Setup a Category for suggestions. See {@link CategoryContextMapping}.          * @param categories name of the category          * @return this          */
 DECL|method|addCategory
 specifier|public
 name|T
@@ -621,7 +665,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Setup a Category for suggestions. See {@link CategoryMapping}.          * @param category name of the category          * @return this          */
+comment|/**          * Setup a Category for suggestions. See {@link CategoryContextMapping}.          * @param categories name of the category          * @return this          */
 DECL|method|addCategory
 specifier|public
 name|T
@@ -653,7 +697,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Setup a Context Field for suggestions. See {@link CategoryContextMapping}.          * @param category name of the category          * @return this          */
+comment|/**          * Setup a Context Field for suggestions. See {@link CategoryContextMapping}.          * @param fieldvalues name of the category          * @return this          */
 DECL|method|addContextField
 specifier|public
 name|T
@@ -681,7 +725,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * Setup a Context Field for suggestions. See {@link CategoryContextMapping}.          * @param category name of the category          * @return this          */
+comment|/**          * Setup a Context Field for suggestions. See {@link CategoryContextMapping}.          * @param fieldvalues name of the category          * @return this          */
 DECL|method|addContextField
 specifier|public
 name|T
@@ -934,7 +978,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**          * Sets from what field to fetch the candidate suggestions from. This is an          * required option and needs to be set via this setter or          * {@link org.elasticsearch.search.suggest.SuggestBuilder.TermSuggestionBuilder#setField(String)}          * method          */
+comment|/**          * Sets from what field to fetch the candidate suggestions from. This is an          * required option and needs to be set via this setter or          * {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder#field(String)}          * method          */
 annotation|@
 name|SuppressWarnings
 argument_list|(

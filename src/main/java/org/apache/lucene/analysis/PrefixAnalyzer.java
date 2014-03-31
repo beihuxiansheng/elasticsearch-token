@@ -50,6 +50,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -361,12 +371,13 @@ name|separator
 operator|=
 name|separator
 expr_stmt|;
-assert|assert
-operator|(
+if|if
+condition|(
 name|prefixes
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
+operator|!
 name|prefixes
 operator|.
 name|iterator
@@ -374,10 +385,16 @@ argument_list|()
 operator|.
 name|hasNext
 argument_list|()
-operator|)
-operator|:
-literal|"one or more prefix needed"
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"one or more prefixes needed"
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
