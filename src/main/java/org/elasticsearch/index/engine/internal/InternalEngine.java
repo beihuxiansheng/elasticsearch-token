@@ -4852,10 +4852,6 @@ name|force
 argument_list|()
 condition|)
 block|{
-name|dirty
-operator|=
-literal|false
-expr_stmt|;
 name|boolean
 name|refreshed
 init|=
@@ -4869,6 +4865,10 @@ name|refreshed
 operator|:
 literal|"failed to refresh even though refreshMutex was acquired"
 assert|;
+name|dirty
+operator|=
+literal|false
+expr_stmt|;
 block|}
 block|}
 block|}
