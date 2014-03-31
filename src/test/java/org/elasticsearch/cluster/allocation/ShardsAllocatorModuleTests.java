@@ -368,7 +368,7 @@ parameter_list|)
 block|{
 while|while
 condition|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size

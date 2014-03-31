@@ -375,7 +375,7 @@ name|minimumNumberOfShards
 parameter_list|()
 block|{
 return|return
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size

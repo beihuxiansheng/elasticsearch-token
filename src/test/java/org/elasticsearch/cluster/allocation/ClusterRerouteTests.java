@@ -1476,7 +1476,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size
@@ -2348,7 +2348,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size
@@ -2526,7 +2526,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size

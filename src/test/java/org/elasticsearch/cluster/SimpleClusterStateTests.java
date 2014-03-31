@@ -503,7 +503,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size

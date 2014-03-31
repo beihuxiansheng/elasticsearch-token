@@ -410,7 +410,7 @@ init|;
 name|i
 operator|<
 operator|(
-name|cluster
+name|immutableCluster
 argument_list|()
 operator|.
 name|size
