@@ -592,7 +592,7 @@ literal|"tests.assertion.disabled"
 argument_list|,
 literal|"tests.security.manager"
 argument_list|,
-literal|"tests.nighly"
+literal|"tests.nightly"
 argument_list|,
 literal|"tests.jvms"
 argument_list|,
