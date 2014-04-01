@@ -921,6 +921,16 @@ name|TESTS_CLIENT_RATIO
 init|=
 literal|"tests.client.ratio"
 decl_stmt|;
+comment|/**      * Key used to eventually switch to using an external cluster and provide its transport addresses      */
+DECL|field|TESTS_CLUSTER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TESTS_CLUSTER
+init|=
+literal|"tests.cluster"
+decl_stmt|;
 comment|/**      * Threshold at which indexing switches from frequently async to frequently bulk.      */
 DECL|field|FREQUENT_BULK_THRESHOLD
 specifier|private
@@ -1048,7 +1058,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"tests.cluster"
+name|TESTS_CLUSTER
 argument_list|)
 decl_stmt|;
 if|if

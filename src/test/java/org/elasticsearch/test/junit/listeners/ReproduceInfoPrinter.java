@@ -184,6 +184,20 @@ name|SYSPROP_ITERATIONS
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|TESTS_CLUSTER
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link RunListener} that emits to {@link System#err} a string with command  * line parameters allowing quick test re-run under MVN command line.  */
 end_comment
@@ -567,6 +581,8 @@ argument_list|,
 literal|"es.node.mode"
 argument_list|,
 literal|"es.node.local"
+argument_list|,
+name|TESTS_CLUSTER
 argument_list|,
 name|TestCluster
 operator|.
