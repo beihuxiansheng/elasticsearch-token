@@ -303,7 +303,7 @@ block|{
 return|return
 name|ScriptDocValues
 operator|.
-name|EMPTY
+name|EMPTY_LONGS
 return|;
 block|}
 block|}
