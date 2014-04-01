@@ -198,6 +198,12 @@ name|MockTransportService
 extends|extends
 name|TransportService
 block|{
+DECL|field|original
+specifier|private
+specifier|final
+name|Transport
+name|original
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|MockTransportService
@@ -226,6 +232,12 @@ argument_list|)
 argument_list|,
 name|threadPool
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|original
+operator|=
+name|transport
 expr_stmt|;
 block|}
 comment|/**      * Clears all the registered rules.      */
@@ -299,7 +311,7 @@ argument_list|,
 operator|new
 name|DelegateTransport
 argument_list|(
-name|transport
+name|original
 argument_list|)
 block|{
 annotation|@
@@ -413,7 +425,7 @@ argument_list|,
 operator|new
 name|DelegateTransport
 argument_list|(
-name|transport
+name|original
 argument_list|)
 block|{
 annotation|@
