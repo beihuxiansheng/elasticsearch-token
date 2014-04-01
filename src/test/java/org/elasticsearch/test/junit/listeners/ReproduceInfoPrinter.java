@@ -581,6 +581,8 @@ argument_list|,
 literal|"tests.jvms"
 argument_list|,
 literal|"tests.client.ratio"
+argument_list|,
+literal|"tests.heap.size"
 argument_list|)
 expr_stmt|;
 if|if
