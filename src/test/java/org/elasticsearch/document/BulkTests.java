@@ -292,6 +292,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -6563,6 +6573,11 @@ index|[
 name|bulkEntryCount
 index|]
 decl_stmt|;
+name|boolean
+name|expectFailure
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -6578,6 +6593,8 @@ name|i
 operator|++
 control|)
 block|{
+name|expectFailure
+operator||=
 name|expectedFailures
 index|[
 name|i
@@ -6644,7 +6661,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+name|expectFailure
 argument_list|)
 argument_list|)
 expr_stmt|;
