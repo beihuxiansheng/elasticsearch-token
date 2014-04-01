@@ -4678,6 +4678,10 @@ argument_list|,
 name|source
 argument_list|)
 expr_stmt|;
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// throw EngineCloseException here if we are already closed
 throw|throw
 operator|new
 name|EngineException
