@@ -186,22 +186,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|fielddata
-operator|.
-name|breaker
-operator|.
-name|CircuitBreakerService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -271,12 +255,6 @@ operator|.
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
-DECL|field|breakerService
-specifier|private
-specifier|final
-name|CircuitBreakerService
-name|breakerService
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|ShardFieldData
@@ -290,9 +268,6 @@ annotation|@
 name|IndexSettings
 name|Settings
 name|indexSettings
-parameter_list|,
-name|CircuitBreakerService
-name|breakerService
 parameter_list|)
 block|{
 name|super
@@ -301,12 +276,6 @@ name|shardId
 argument_list|,
 name|indexSettings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|breakerService
-operator|=
-name|breakerService
 expr_stmt|;
 block|}
 DECL|method|stats
@@ -619,19 +588,6 @@ operator|-
 literal|1
 condition|)
 block|{
-comment|// Since field data is being unloaded (due to expiration or manual
-comment|// clearing), we also need to decrement the used bytes in the breaker
-name|breakerService
-operator|.
-name|getBreaker
-argument_list|()
-operator|.
-name|addWithoutBreaking
-argument_list|(
-operator|-
-name|sizeInBytes
-argument_list|)
-expr_stmt|;
 name|totalMetric
 operator|.
 name|dec
