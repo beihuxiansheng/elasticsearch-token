@@ -4667,6 +4667,10 @@ name|Throwable
 name|ex
 parameter_list|)
 block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+comment|// throw EngineCloseException here if we are already closed
 name|logger
 operator|.
 name|error
@@ -4678,20 +4682,17 @@ argument_list|,
 name|source
 argument_list|)
 expr_stmt|;
-name|ensureOpen
-argument_list|()
-expr_stmt|;
-comment|// throw EngineCloseException here if we are already closed
 throw|throw
 operator|new
 name|EngineException
 argument_list|(
 name|shardId
 argument_list|,
+literal|"failed to acquire searcher, source "
+operator|+
+name|source
+argument_list|,
 name|ex
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
