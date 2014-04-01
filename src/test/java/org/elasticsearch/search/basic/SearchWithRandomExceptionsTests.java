@@ -1159,6 +1159,7 @@ argument_list|(
 literal|"Start Refresh"
 argument_list|)
 expr_stmt|;
+specifier|final
 name|RefreshResponse
 name|refreshResponse
 init|=
@@ -1363,15 +1364,15 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|expectAllShardsFailed
+operator|||
+name|refreshResponse
+operator|.
+name|getSuccessfulShards
+argument_list|()
+operator|==
+literal|0
 condition|)
-block|{
-throw|throw
-name|ex
-throw|;
-block|}
-else|else
 block|{
 name|logger
 operator|.
@@ -1385,6 +1386,12 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+name|ex
+throw|;
 block|}
 block|}
 block|}
