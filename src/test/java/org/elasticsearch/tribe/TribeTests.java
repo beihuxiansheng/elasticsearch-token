@@ -264,6 +264,22 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
 name|assertHitCount
 import|;
 end_import
@@ -1024,6 +1040,8 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|cluster
 argument_list|()
 operator|.
@@ -1040,10 +1058,10 @@ name|prepareCreate
 argument_list|(
 literal|"conflict"
 argument_list|)
-operator|.
-name|get
-argument_list|()
+argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|cluster2
 operator|.
 name|client
@@ -1059,10 +1077,10 @@ name|prepareCreate
 argument_list|(
 literal|"conflict"
 argument_list|)
-operator|.
-name|get
-argument_list|()
+argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|cluster
 argument_list|()
 operator|.
@@ -1079,10 +1097,10 @@ name|prepareCreate
 argument_list|(
 literal|"test1"
 argument_list|)
-operator|.
-name|get
-argument_list|()
+argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|cluster2
 operator|.
 name|client
@@ -1098,9 +1116,7 @@ name|prepareCreate
 argument_list|(
 literal|"test2"
 argument_list|)
-operator|.
-name|get
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|setupTribeNode
 argument_list|(
