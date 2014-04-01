@@ -547,7 +547,7 @@ argument_list|()
 condition|?
 literal|"some_other_name"
 else|:
-literal|"simon"
+literal|"simon the sorcerer"
 argument_list|,
 name|Field
 operator|.
@@ -557,6 +557,7 @@ name|NO
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// make sure length-norm is the tie-breaker
 name|d
 operator|.
 name|add
