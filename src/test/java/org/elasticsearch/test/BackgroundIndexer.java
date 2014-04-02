@@ -337,9 +337,9 @@ name|RandomizedTest
 operator|.
 name|scaledRandomIntBetween
 argument_list|(
-literal|3
+literal|2
 argument_list|,
-literal|10
+literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
