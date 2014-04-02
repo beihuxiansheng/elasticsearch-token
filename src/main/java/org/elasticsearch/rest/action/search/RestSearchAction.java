@@ -990,13 +990,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// add extra source based on the request parameters
-if|if
-condition|(
-operator|!
-name|isTemplateRequest
-condition|)
-block|{
 name|searchRequest
 operator|.
 name|extraSource
@@ -1007,7 +1000,6 @@ name|request
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|searchRequest
 operator|.
 name|searchType
