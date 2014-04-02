@@ -644,15 +644,6 @@ name|supersetSize
 operator|=
 name|supersetSize
 expr_stmt|;
-assert|assert
-name|spare
-operator|.
-name|subsetDf
-operator|<=
-name|spare
-operator|.
-name|supersetDf
-assert|;
 comment|// During shard-local down-selection we use subset/superset stats
 comment|// that are for this shard only
 comment|// Back at the central reducer these properties will be updated with

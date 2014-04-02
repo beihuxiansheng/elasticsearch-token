@@ -218,6 +218,18 @@ name|DEFAULT_MIN_DOC_COUNT
 init|=
 literal|3
 decl_stmt|;
+DECL|field|BACKGROUND_FILTER
+specifier|static
+specifier|final
+name|ParseField
+name|BACKGROUND_FILTER
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"background_filter"
+argument_list|)
+decl_stmt|;
 DECL|field|SHARD_MIN_DOC_COUNT_FIELD_NAME
 specifier|static
 specifier|final
@@ -644,17 +656,56 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-comment|// TODO not sure if code below is the best means to declare a filter for
-comment|// defining an alternative background stats context.
-comment|// In trial runs it becomes obvious that the choice of background does have to
-comment|// be a strict superset of the foreground subset otherwise the significant terms algo
-comment|// immediately singles out the odd terms that are in the foreground but not represented
-comment|// in the background. So a better approach may be to use a designated parent agg as the
-comment|// background because parent aggs are always guaranteed to be a superset whereas arbitrary
-comment|// filters defined by end users and parsed below are not.
-comment|//                if ("background_context".equals(currentFieldName)) {
-comment|//                    filter = context.queryParserService().parseInnerFilter(parser).filter();
-comment|//                }
+if|if
+condition|(
+name|BACKGROUND_FILTER
+operator|.
+name|match
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|filter
+operator|=
+name|context
+operator|.
+name|queryParserService
+argument_list|()
+operator|.
+name|parseInnerFilter
+argument_list|(
+name|parser
+argument_list|)
+operator|.
+name|filter
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{

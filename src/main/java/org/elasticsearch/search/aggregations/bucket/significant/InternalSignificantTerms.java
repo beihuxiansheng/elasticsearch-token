@@ -274,11 +274,6 @@ name|aggregations
 operator|=
 name|aggregations
 expr_stmt|;
-assert|assert
-name|subsetDf
-operator|<=
-name|supersetDf
-assert|;
 name|updateScore
 argument_list|()
 expr_stmt|;
@@ -370,6 +365,21 @@ comment|// avoid any divide by zero issues
 return|return
 literal|0
 return|;
+block|}
+if|if
+condition|(
+name|supersetFreq
+operator|==
+literal|0
+condition|)
+block|{
+comment|// If we are using a background context that is not a strict superset, a foreground
+comment|// term may be missing from the background, so for the purposes of this calculation
+comment|// we assume a value of 1 for our calculations which avoids returning an "infinity" result
+name|supersetFreq
+operator|=
+literal|1
+expr_stmt|;
 block|}
 name|double
 name|subsetProbability
@@ -600,15 +610,6 @@ name|aggregations
 argument_list|)
 expr_stmt|;
 block|}
-assert|assert
-name|reduced
-operator|.
-name|subsetDf
-operator|<=
-name|reduced
-operator|.
-name|supersetDf
-assert|;
 name|reduced
 operator|.
 name|aggregations
