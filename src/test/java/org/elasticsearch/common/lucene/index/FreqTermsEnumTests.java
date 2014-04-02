@@ -512,16 +512,30 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|frequently
+argument_list|()
+condition|)
+block|{
+comment|// we don't want to do any merges, so we won't expunge deletes
 name|conf
 operator|.
-name|setMergeScheduler
+name|setMergePolicy
 argument_list|(
-name|NoMergeScheduler
+name|randomBoolean
+argument_list|()
+condition|?
+name|NoMergePolicy
 operator|.
-name|INSTANCE
+name|COMPOUND_FILES
+else|:
+name|NoMergePolicy
+operator|.
+name|NO_COMPOUND_FILES
 argument_list|)
 expr_stmt|;
-comment|// we don't want to do any merges, so we won't expunge deletes
+block|}
 name|iw
 operator|=
 operator|new
