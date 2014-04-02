@@ -883,7 +883,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// optional stats listener
 DECL|field|sizeInBytes
 name|long
 name|sizeInBytes
