@@ -334,7 +334,7 @@ literal|"unsupported node.mode ["
 operator|+
 name|nodeMode
 operator|+
-literal|"]"
+literal|"]. Should be one of [local, network]."
 argument_list|)
 throw|;
 block|}
