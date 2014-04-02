@@ -371,8 +371,6 @@ argument_list|,
 name|AtomicFieldData
 argument_list|>
 block|{
-annotation|@
-name|Nullable
 DECL|field|indexService
 specifier|private
 specifier|final
@@ -414,8 +412,6 @@ DECL|method|FieldBased
 specifier|protected
 name|FieldBased
 parameter_list|(
-annotation|@
-name|Nullable
 name|IndexService
 name|indexService
 parameter_list|,
@@ -434,6 +430,11 @@ name|IndicesFieldDataCacheListener
 name|indicesFieldDataCacheListener
 parameter_list|)
 block|{
+assert|assert
+name|indexService
+operator|!=
+literal|null
+assert|;
 name|this
 operator|.
 name|indexService
@@ -492,6 +493,7 @@ argument_list|>
 name|notification
 parameter_list|)
 block|{
+specifier|final
 name|Key
 name|key
 init|=
@@ -511,6 +513,7 @@ name|listeners
 operator|!=
 literal|null
 assert|;
+specifier|final
 name|AtomicFieldData
 name|value
 init|=
@@ -526,6 +529,25 @@ name|key
 operator|.
 name|sizeInBytes
 decl_stmt|;
+assert|assert
+name|sizeInBytes
+operator|>=
+literal|0
+operator|||
+name|value
+operator|!=
+literal|null
+operator|:
+literal|"Expected size ["
+operator|+
+name|sizeInBytes
+operator|+
+literal|"] to be positive or value ["
+operator|+
+name|value
+operator|+
+literal|"] to be non-null"
+assert|;
 if|if
 condition|(
 name|sizeInBytes
@@ -691,13 +713,7 @@ argument_list|(
 name|indicesFieldDataCacheListener
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|indexService
-operator|!=
-literal|null
-condition|)
-block|{
+specifier|final
 name|ShardId
 name|shardId
 init|=
@@ -718,6 +734,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+specifier|final
 name|IndexShard
 name|shard
 init|=
@@ -750,7 +767,6 @@ name|fieldData
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 for|for
@@ -980,8 +996,6 @@ DECL|method|Resident
 specifier|public
 name|Resident
 parameter_list|(
-annotation|@
-name|Nullable
 name|IndexService
 name|indexService
 parameter_list|,
@@ -1026,8 +1040,6 @@ DECL|method|Soft
 specifier|public
 name|Soft
 parameter_list|(
-annotation|@
-name|Nullable
 name|IndexService
 name|indexService
 parameter_list|,
