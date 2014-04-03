@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lease
 operator|.
 name|Releasables
@@ -140,7 +152,7 @@ name|support
 operator|.
 name|format
 operator|.
-name|ValueFormatter
+name|ValueFormat
 import|;
 end_import
 
@@ -215,8 +227,10 @@ operator|.
 name|Numeric
 name|valuesSource
 parameter_list|,
-name|ValueFormatter
-name|formatter
+annotation|@
+name|Nullable
+name|ValueFormat
+name|format
 parameter_list|,
 name|long
 name|estimatedBucketCount
@@ -248,7 +262,7 @@ name|factories
 argument_list|,
 name|valuesSource
 argument_list|,
-name|formatter
+name|format
 argument_list|,
 name|estimatedBucketCount
 argument_list|,

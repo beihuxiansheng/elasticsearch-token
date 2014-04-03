@@ -32,6 +32,20 @@ name|IndexFieldData
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|FieldMapper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used by all field data based aggregators. This determine the context of the field data the aggregators are operating  * in. I holds both the field names and the index field datas that are associated with them.  */
 end_comment
@@ -57,6 +71,15 @@ name|?
 argument_list|>
 name|indexFieldData
 decl_stmt|;
+DECL|field|mapper
+specifier|private
+specifier|final
+name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
+name|mapper
+decl_stmt|;
 comment|/**      * Constructs a field data context for the given field and its index field data      *      * @param field             The name of the field      * @param indexFieldData    The index field data of the field      */
 DECL|method|FieldContext
 specifier|public
@@ -70,6 +93,9 @@ argument_list|<
 name|?
 argument_list|>
 name|indexFieldData
+parameter_list|,
+name|FieldMapper
+name|mapper
 parameter_list|)
 block|{
 name|this
@@ -83,6 +109,12 @@ operator|.
 name|indexFieldData
 operator|=
 name|indexFieldData
+expr_stmt|;
+name|this
+operator|.
+name|mapper
+operator|=
+name|mapper
 expr_stmt|;
 block|}
 DECL|method|field
@@ -107,6 +139,16 @@ parameter_list|()
 block|{
 return|return
 name|indexFieldData
+return|;
+block|}
+DECL|method|mapper
+specifier|public
+name|FieldMapper
+name|mapper
+parameter_list|()
+block|{
+return|return
+name|mapper
 return|;
 block|}
 block|}

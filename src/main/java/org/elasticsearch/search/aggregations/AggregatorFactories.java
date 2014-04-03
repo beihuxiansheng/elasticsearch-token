@@ -191,7 +191,6 @@ argument_list|()
 decl_stmt|;
 DECL|field|factories
 specifier|private
-specifier|final
 name|AggregatorFactory
 index|[]
 name|factories

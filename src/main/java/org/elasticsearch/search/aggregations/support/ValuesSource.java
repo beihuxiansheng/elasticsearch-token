@@ -2473,7 +2473,7 @@ block|{
 DECL|field|scriptValueType
 specifier|private
 specifier|final
-name|ScriptValueType
+name|ValueType
 name|scriptValueType
 decl_stmt|;
 DECL|field|doubleValues
@@ -2501,7 +2501,7 @@ parameter_list|(
 name|SearchScript
 name|script
 parameter_list|,
-name|ScriptValueType
+name|ValueType
 name|scriptValueType
 parameter_list|)
 block|{

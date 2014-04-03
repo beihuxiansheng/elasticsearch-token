@@ -40,11 +40,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
+name|Nullable
 import|;
 end_import
 
@@ -54,13 +50,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|mapper
+name|io
 operator|.
-name|core
+name|stream
 operator|.
-name|DateFieldMapper
+name|StreamInput
 import|;
 end_import
 
@@ -277,12 +273,6 @@ name|DateHistogram
 operator|.
 name|Bucket
 block|{
-DECL|field|formatter
-specifier|private
-specifier|final
-name|ValueFormatter
-name|formatter
-decl_stmt|;
 DECL|method|Bucket
 name|Bucket
 parameter_list|(
@@ -295,6 +285,8 @@ parameter_list|,
 name|InternalAggregations
 name|aggregations
 parameter_list|,
+annotation|@
+name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)
@@ -305,14 +297,10 @@ name|key
 argument_list|,
 name|docCount
 argument_list|,
+name|formatter
+argument_list|,
 name|aggregations
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|formatter
-operator|=
-name|formatter
 expr_stmt|;
 block|}
 annotation|@
@@ -442,6 +430,8 @@ parameter_list|,
 name|EmptyBucketInfo
 name|emptyBucketInfo
 parameter_list|,
+annotation|@
+name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -487,6 +477,8 @@ parameter_list|,
 name|InternalAggregations
 name|aggregations
 parameter_list|,
+annotation|@
+name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)
@@ -546,6 +538,8 @@ parameter_list|,
 name|EmptyBucketInfo
 name|emptyBucketInfo
 parameter_list|,
+annotation|@
+name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,

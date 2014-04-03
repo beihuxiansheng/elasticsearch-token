@@ -9899,12 +9899,23 @@ name|minDocCount
 argument_list|(
 literal|0
 argument_list|)
+comment|// when explicitly specifying a format, the extended bounds should be defined by the same format
 operator|.
 name|extendedBounds
 argument_list|(
+name|format
+argument_list|(
 name|boundsMin
 argument_list|,
+name|pattern
+argument_list|)
+argument_list|,
+name|format
+argument_list|(
 name|boundsMax
+argument_list|,
+name|pattern
+argument_list|)
 argument_list|)
 operator|.
 name|format
