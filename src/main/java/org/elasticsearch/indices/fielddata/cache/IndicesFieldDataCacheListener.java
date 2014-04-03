@@ -201,10 +201,10 @@ parameter_list|)
 block|{
 assert|assert
 name|sizeInBytes
-operator|>
+operator|>=
 literal|0
 operator|:
-literal|"When reducing circuit breaker, it should be adjusted with a positive number and not ["
+literal|"When reducing circuit breaker, it should be adjusted with a number higher or equal to 0 and not ["
 operator|+
 name|sizeInBytes
 operator|+
