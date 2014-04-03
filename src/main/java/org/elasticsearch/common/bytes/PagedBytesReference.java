@@ -2124,9 +2124,9 @@ operator|-
 literal|1
 return|;
 block|}
-comment|// we need to stop at the end
+specifier|final
 name|int
-name|todo
+name|numBytesToCopy
 init|=
 name|Math
 operator|.
@@ -2135,11 +2135,14 @@ argument_list|(
 name|len
 argument_list|,
 name|length
+operator|-
+name|pos
 argument_list|)
 decl_stmt|;
+comment|// copy the full lenth or the remaining part
 comment|// current offset into the underlying ByteArray
 name|long
-name|bytearrayOffset
+name|byteArrayOffset
 init|=
 name|offset
 operator|+
@@ -2147,31 +2150,31 @@ name|pos
 decl_stmt|;
 comment|// bytes already copied
 name|int
-name|written
+name|copiedBytes
 init|=
 literal|0
 decl_stmt|;
 while|while
 condition|(
-name|written
+name|copiedBytes
 operator|<
-name|todo
+name|numBytesToCopy
 condition|)
 block|{
 name|long
-name|pagefragment
+name|pageFragment
 init|=
 name|PAGE_SIZE
 operator|-
 operator|(
-name|bytearrayOffset
+name|byteArrayOffset
 operator|%
 name|PAGE_SIZE
 operator|)
 decl_stmt|;
 comment|// how much can we read until hitting N*PAGE_SIZE?
 name|int
-name|bulksize
+name|bulkSize
 init|=
 operator|(
 name|int
@@ -2180,11 +2183,11 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|pagefragment
+name|pageFragment
 argument_list|,
-name|todo
+name|numBytesToCopy
 operator|-
-name|written
+name|copiedBytes
 argument_list|)
 decl_stmt|;
 comment|// we cannot copy more than a page fragment
@@ -2195,9 +2198,9 @@ name|bytearray
 operator|.
 name|get
 argument_list|(
-name|bytearrayOffset
+name|byteArrayOffset
 argument_list|,
-name|bulksize
+name|bulkSize
 argument_list|,
 name|ref
 argument_list|)
@@ -2227,30 +2230,30 @@ name|b
 argument_list|,
 name|bOffset
 operator|+
-name|written
+name|copiedBytes
 argument_list|,
-name|bulksize
+name|bulkSize
 argument_list|)
 expr_stmt|;
 comment|// copy fragment contents
-name|written
+name|copiedBytes
 operator|+=
-name|bulksize
+name|bulkSize
 expr_stmt|;
 comment|// count how much we copied
-name|bytearrayOffset
+name|byteArrayOffset
 operator|+=
-name|bulksize
+name|bulkSize
 expr_stmt|;
 comment|// advance ByteArray index
 block|}
 name|pos
 operator|+=
-name|written
+name|copiedBytes
 expr_stmt|;
 comment|// finally advance our stream position
 return|return
-name|written
+name|copiedBytes
 return|;
 block|}
 annotation|@
