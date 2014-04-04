@@ -1259,7 +1259,7 @@ name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|,
-literal|0.6
+literal|"60%"
 argument_list|)
 operator|.
 name|put
@@ -3638,7 +3638,7 @@ name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|,
-literal|0.71
+literal|"71%"
 argument_list|)
 operator|.
 name|build
