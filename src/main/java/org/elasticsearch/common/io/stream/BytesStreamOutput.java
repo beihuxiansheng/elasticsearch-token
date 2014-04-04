@@ -112,26 +112,23 @@ name|StreamOutput
 implements|implements
 name|BytesStream
 block|{
-comment|/**      * Factory/manager for our ByteArray      */
 DECL|field|bigarrays
-specifier|private
+specifier|protected
 specifier|final
 name|BigArrays
 name|bigarrays
 decl_stmt|;
-comment|/**      * The internal list of pages.      */
 DECL|field|bytes
-specifier|private
+specifier|protected
 name|ByteArray
 name|bytes
 decl_stmt|;
-comment|/**      * The number of valid bytes in the buffer.      */
 DECL|field|count
-specifier|private
+specifier|protected
 name|int
 name|count
 decl_stmt|;
-comment|/**      * Create a nonrecycling {@link BytesStreamOutput} with 1 initial page acquired.      */
+comment|/**      * Create a non recycling {@link BytesStreamOutput} with 1 initial page acquired.      */
 DECL|method|BytesStreamOutput
 specifier|public
 name|BytesStreamOutput
@@ -145,7 +142,7 @@ name|PAGE_SIZE_IN_BYTES
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a nonrecycling {@link BytesStreamOutput} with enough initial pages acquired      * to satisfy the capacity given by {@link expectedSize}.      *       * @param expectedSize the expected maximum size of the stream in bytes.      */
+comment|/**      * Create a non recycling {@link BytesStreamOutput} with enough initial pages acquired      * to satisfy the capacity given by expected size.      *       * @param expectedSize the expected maximum size of the stream in bytes.      */
 DECL|method|BytesStreamOutput
 specifier|public
 name|BytesStreamOutput
@@ -154,12 +151,35 @@ name|int
 name|expectedSize
 parameter_list|)
 block|{
-name|bigarrays
-operator|=
+name|this
+argument_list|(
+name|expectedSize
+argument_list|,
 name|BigArrays
 operator|.
 name|NON_RECYCLING_INSTANCE
+argument_list|)
 expr_stmt|;
+block|}
+DECL|method|BytesStreamOutput
+specifier|protected
+name|BytesStreamOutput
+parameter_list|(
+name|int
+name|expectedSize
+parameter_list|,
+name|BigArrays
+name|bigarrays
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bigarrays
+operator|=
+name|bigarrays
+expr_stmt|;
+name|this
+operator|.
 name|bytes
 operator|=
 name|bigarrays

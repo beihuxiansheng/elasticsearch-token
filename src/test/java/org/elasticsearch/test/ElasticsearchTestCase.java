@@ -186,6 +186,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|cache
 operator|.
 name|recycler
@@ -957,6 +959,8 @@ specifier|public
 name|void
 name|ensureAllPagesReleased
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|MockPageCacheRecycler
 operator|.
@@ -986,6 +990,8 @@ specifier|public
 name|void
 name|ensureAllArraysReleased
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|MockBigArrays
 operator|.

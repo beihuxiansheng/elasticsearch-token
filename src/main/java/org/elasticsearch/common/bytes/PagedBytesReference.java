@@ -202,10 +202,13 @@ name|Arrays
 import|;
 end_import
 
+begin_comment
+comment|/**  * A page based bytes reference, internally holding the bytes in a paged  * data structure.  */
+end_comment
+
 begin_class
 DECL|class|PagedBytesReference
 specifier|public
-specifier|final
 class|class
 name|PagedBytesReference
 implements|implements
@@ -238,7 +241,7 @@ name|BigArrays
 name|bigarrays
 decl_stmt|;
 DECL|field|bytearray
-specifier|private
+specifier|protected
 specifier|final
 name|ByteArray
 name|bytearray
