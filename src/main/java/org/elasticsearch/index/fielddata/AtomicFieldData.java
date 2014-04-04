@@ -53,12 +53,6 @@ name|boolean
 name|isMultiValued
 parameter_list|()
 function_decl|;
-comment|/**      * Are the values ordered? (in ascending manner).      */
-DECL|method|isValuesOrdered
-name|boolean
-name|isValuesOrdered
-parameter_list|()
-function_decl|;
 comment|/**      * The number of docs in this field data.      */
 DECL|method|getNumDocs
 name|int

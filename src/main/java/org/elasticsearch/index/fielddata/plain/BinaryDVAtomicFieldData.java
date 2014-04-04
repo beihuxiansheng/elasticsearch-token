@@ -219,19 +219,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isValuesOrdered
-specifier|public
-name|boolean
-name|isValuesOrdered
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-comment|// single-valued
-block|}
-annotation|@
-name|Override
 DECL|method|getNumDocs
 specifier|public
 name|int
