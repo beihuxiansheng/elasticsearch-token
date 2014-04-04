@@ -1016,7 +1016,7 @@ finally|finally
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|maxCollector
 operator|.
@@ -1073,7 +1073,7 @@ finally|finally
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|sumCollector
 operator|.
@@ -1132,7 +1132,7 @@ finally|finally
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|avgCollector
 operator|.
@@ -1172,7 +1172,7 @@ condition|)
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|parentIds
 argument_list|,
@@ -1700,17 +1700,17 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|parentIds
 argument_list|,
@@ -1719,9 +1719,6 @@ argument_list|,
 name|occurrences
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 DECL|class|ParentScorer
 specifier|private

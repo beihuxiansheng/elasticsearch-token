@@ -1357,7 +1357,7 @@ block|{
 comment|// this will also release the index searcher
 name|context
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|SearchContext

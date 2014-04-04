@@ -339,7 +339,7 @@ expr_stmt|;
 block|}
 name|array
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -481,7 +481,7 @@ expr_stmt|;
 block|}
 name|array
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -623,7 +623,7 @@ expr_stmt|;
 block|}
 name|array
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -767,7 +767,7 @@ expr_stmt|;
 block|}
 name|array
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -911,7 +911,7 @@ expr_stmt|;
 block|}
 name|array
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1093,7 +1093,7 @@ expr_stmt|;
 block|}
 name|array
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1284,7 +1284,7 @@ expr_stmt|;
 block|}
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1475,7 +1475,7 @@ expr_stmt|;
 block|}
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1666,7 +1666,7 @@ expr_stmt|;
 block|}
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1855,7 +1855,7 @@ expr_stmt|;
 block|}
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2027,7 +2027,7 @@ expr_stmt|;
 block|}
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2177,7 +2177,7 @@ expr_stmt|;
 block|}
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2237,12 +2237,12 @@ argument_list|)
 expr_stmt|;
 name|empty1
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|empty2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// not equal: contents differ
@@ -2288,12 +2288,12 @@ argument_list|)
 expr_stmt|;
 name|a1
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|a2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// not equal: contents differ
@@ -2347,12 +2347,12 @@ argument_list|)
 expr_stmt|;
 name|a3
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|a4
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// not equal: contents differ
@@ -2406,12 +2406,12 @@ argument_list|)
 expr_stmt|;
 name|a5
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|a6
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -2479,7 +2479,7 @@ argument_list|)
 expr_stmt|;
 name|emptyByteArray
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// FUN FACT: Arrays.hashCode() and BytesReference.bytesHashCode() are inconsistent for empty byte[]
@@ -2550,7 +2550,7 @@ argument_list|)
 expr_stmt|;
 name|array2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

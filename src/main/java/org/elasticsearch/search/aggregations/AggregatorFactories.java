@@ -711,7 +711,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|doRelease
+name|doClose
 parameter_list|()
 block|{
 specifier|final
@@ -791,7 +791,7 @@ block|}
 decl_stmt|;
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|Iterables
 operator|.

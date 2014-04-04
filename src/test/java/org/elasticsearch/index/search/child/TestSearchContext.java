@@ -786,13 +786,11 @@ annotation|@
 name|Override
 DECL|method|clearAndRelease
 specifier|public
-name|boolean
+name|void
 name|clearAndRelease
 parameter_list|()
 block|{
-return|return
-literal|false
-return|;
+comment|// no-op
 block|}
 annotation|@
 name|Override
@@ -2092,17 +2090,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
-return|return
-literal|false
-return|;
+comment|// no-op
 block|}
 annotation|@
 name|Override

@@ -520,7 +520,7 @@ condition|)
 block|{
 name|entries
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 return|return
@@ -745,7 +745,7 @@ expr_stmt|;
 block|}
 name|entries
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 return|return

@@ -2548,7 +2548,7 @@ parameter_list|)
 block|{
 name|Releasables
 operator|.
-name|releaseWhileHandlingException
+name|closeWhileHandlingException
 argument_list|(
 name|searcher
 argument_list|)
@@ -2605,7 +2605,7 @@ condition|)
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|searcher
 argument_list|)
@@ -2676,7 +2676,7 @@ else|else
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|searcher
 argument_list|)
@@ -6737,7 +6737,7 @@ parameter_list|)
 block|{
 name|Releasables
 operator|.
-name|releaseWhileHandlingException
+name|closeWhileHandlingException
 argument_list|(
 name|onGoingRecoveries
 argument_list|)
@@ -6774,7 +6774,7 @@ parameter_list|)
 block|{
 name|Releasables
 operator|.
-name|releaseWhileHandlingException
+name|closeWhileHandlingException
 argument_list|(
 name|onGoingRecoveries
 argument_list|,
@@ -6834,7 +6834,7 @@ parameter_list|)
 block|{
 name|Releasables
 operator|.
-name|releaseWhileHandlingException
+name|closeWhileHandlingException
 argument_list|(
 name|onGoingRecoveries
 argument_list|,
@@ -6889,7 +6889,7 @@ parameter_list|)
 block|{
 name|Releasables
 operator|.
-name|releaseWhileHandlingException
+name|closeWhileHandlingException
 argument_list|(
 name|onGoingRecoveries
 argument_list|,
@@ -6995,7 +6995,7 @@ finally|finally
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|success
 argument_list|,
@@ -7012,7 +7012,7 @@ argument_list|()
 expr_stmt|;
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|success
 argument_list|,
@@ -7129,7 +7129,7 @@ finally|finally
 block|{
 name|searcher
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -7372,7 +7372,7 @@ finally|finally
 block|{
 name|searcher
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -8072,7 +8072,7 @@ finally|finally
 block|{
 name|searcher
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -9176,10 +9176,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
@@ -9211,9 +9211,7 @@ literal|"Double release"
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+return|return;
 block|}
 try|try
 block|{
@@ -9224,9 +9222,6 @@ argument_list|(
 name|searcher
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -9234,9 +9229,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-return|return
-literal|false
-return|;
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"Cannot close"
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -9245,9 +9246,6 @@ name|e
 parameter_list|)
 block|{
 comment|/* this one can happen if we already closed the                  * underlying store / directory and we call into the                  * IndexWriter to free up pending files. */
-return|return
-literal|false
-return|;
 block|}
 finally|finally
 block|{
@@ -9697,7 +9695,7 @@ block|{
 comment|// no need to release the fullSearcher, nothing really is done...
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|currentSearcher
 argument_list|)
@@ -9814,10 +9812,10 @@ assert|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
@@ -9825,9 +9823,6 @@ block|{
 name|endRecovery
 argument_list|()
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 block|}
 block|}

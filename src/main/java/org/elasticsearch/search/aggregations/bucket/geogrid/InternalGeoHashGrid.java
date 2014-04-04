@@ -1172,7 +1172,7 @@ expr_stmt|;
 block|}
 name|buckets
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|Bucket

@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Specialization of {@link AutoCloseable} that may only throw an {@link ElasticsearchException}.  */
 end_comment
 
 begin_interface
@@ -35,10 +35,12 @@ DECL|interface|Releasable
 specifier|public
 interface|interface
 name|Releasable
+extends|extends
+name|AutoCloseable
 block|{
-DECL|method|release
-name|boolean
-name|release
+DECL|method|close
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException

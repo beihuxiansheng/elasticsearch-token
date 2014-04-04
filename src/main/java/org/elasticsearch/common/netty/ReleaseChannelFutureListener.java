@@ -106,7 +106,7 @@ name|Exception
 block|{
 name|releasable
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

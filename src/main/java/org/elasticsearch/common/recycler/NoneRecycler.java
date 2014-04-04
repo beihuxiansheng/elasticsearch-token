@@ -159,10 +159,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 block|{
 if|if
@@ -184,9 +184,6 @@ name|value
 operator|=
 literal|null
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 block|}
 block|}

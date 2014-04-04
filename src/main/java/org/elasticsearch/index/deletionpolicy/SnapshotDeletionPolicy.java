@@ -100,20 +100,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|AbstractIndexShardComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|IndexShardComponent
 import|;
 end_import
@@ -155,18 +141,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentHashMap
 import|;
 end_import
 
@@ -481,7 +455,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Snapshots all the current commits in the index. Make sure to call      * {@link SnapshotIndexCommits#release()} to release it.      */
+comment|/**      * Snapshots all the current commits in the index. Make sure to call      * {@link SnapshotIndexCommits#close()} to release it.      */
 DECL|method|snapshots
 specifier|public
 name|SnapshotIndexCommits
@@ -554,7 +528,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns a snapshot of the index (for the last commit point). Make      * sure to call {@link SnapshotIndexCommit#release()} in order to release it.      */
+comment|/**      * Returns a snapshot of the index (for the last commit point). Make      * sure to call {@link SnapshotIndexCommit#close()} in order to release it.      */
 DECL|method|snapshot
 specifier|public
 name|SnapshotIndexCommit
@@ -707,9 +681,9 @@ literal|0
 return|;
 block|}
 comment|/**      * Releases the version provided. Returns<tt>true</tt> if the release was successful.      */
-DECL|method|release
+DECL|method|close
 name|boolean
-name|release
+name|close
 parameter_list|(
 name|long
 name|version
@@ -825,10 +799,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 block|{
 if|if
@@ -836,15 +810,12 @@ condition|(
 name|released
 condition|)
 block|{
-return|return
-literal|false
-return|;
+return|return;
 block|}
 name|released
 operator|=
 literal|true
 expr_stmt|;
-return|return
 operator|(
 operator|(
 name|SnapshotIndexCommit
@@ -852,9 +823,9 @@ operator|)
 name|delegate
 operator|)
 operator|.
-name|release
+name|close
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 block|}
 DECL|class|SnapshotHolder

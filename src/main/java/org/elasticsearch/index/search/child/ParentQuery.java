@@ -948,7 +948,7 @@ block|{
 comment|// either if we run into an exception or if we return early
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|collector
 operator|.
@@ -1626,17 +1626,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|parentIds
 argument_list|,
@@ -1645,9 +1645,6 @@ argument_list|,
 name|parentIdsIndexCache
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 block|}
 DECL|class|ChildScorer

@@ -530,7 +530,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Wrap the provided recycler so that calls to {@link Recycler#obtain()} and {@link Recycler.V#release()} are protected by      * a lock.      */
+comment|/**      * Wrap the provided recycler so that calls to {@link Recycler#obtain()} and {@link Recycler.V#close()} are protected by      * a lock.      */
 DECL|method|locked
 specifier|public
 specifier|static
@@ -692,8 +692,8 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
@@ -703,12 +703,11 @@ init|(
 name|lock
 init|)
 block|{
-return|return
 name|delegate
 operator|.
-name|release
+name|close
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 block|}
 annotation|@

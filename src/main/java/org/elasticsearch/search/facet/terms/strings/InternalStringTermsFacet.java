@@ -1194,7 +1194,7 @@ name|total
 expr_stmt|;
 name|aggregated
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 return|return

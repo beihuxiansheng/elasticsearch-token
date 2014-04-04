@@ -682,7 +682,7 @@ block|}
 DECL|method|clearAndRelease
 specifier|public
 specifier|abstract
-name|boolean
+name|void
 name|clearAndRelease
 parameter_list|()
 function_decl|;

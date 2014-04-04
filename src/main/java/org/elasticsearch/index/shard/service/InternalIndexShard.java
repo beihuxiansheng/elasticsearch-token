@@ -3237,7 +3237,7 @@ finally|finally
 block|{
 name|searcher
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -3596,7 +3596,7 @@ finally|finally
 block|{
 name|currentSearcher
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

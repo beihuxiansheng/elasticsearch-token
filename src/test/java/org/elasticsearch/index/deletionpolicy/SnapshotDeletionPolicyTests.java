@@ -512,18 +512,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// release the commit, add a document and commit, now we should be back to one commit point
-name|assertThat
-argument_list|(
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
@@ -643,18 +635,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// release one snapshot, we should still have two commit points
-name|assertThat
-argument_list|(
 name|snapshot1
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
@@ -686,18 +670,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// release the second snapshot, we should be back to one commit
-name|assertThat
-argument_list|(
 name|snapshot2
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
@@ -778,31 +754,15 @@ operator|.
 name|snapshot
 argument_list|()
 decl_stmt|;
-name|assertThat
-argument_list|(
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -938,18 +898,10 @@ expr_stmt|;
 comment|// release the snapshot, add a document and commit
 comment|// we should have 3 commits points since we are holding onto the first two with snapshots
 comment|// and we are using the keep only last
-name|assertThat
-argument_list|(
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.
@@ -981,18 +933,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now release the snapshots, we should be back to a single commit point
-name|assertThat
-argument_list|(
 name|snapshots
 operator|.
-name|release
+name|close
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
 expr_stmt|;
 name|indexWriter
 operator|.

@@ -1129,7 +1129,7 @@ finally|finally
 block|{
 name|context
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|SearchContext

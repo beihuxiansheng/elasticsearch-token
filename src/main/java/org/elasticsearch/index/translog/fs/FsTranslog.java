@@ -2011,7 +2011,7 @@ block|}
 block|}
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|bytes
 argument_list|)
@@ -2064,7 +2064,7 @@ condition|)
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|out
 operator|.

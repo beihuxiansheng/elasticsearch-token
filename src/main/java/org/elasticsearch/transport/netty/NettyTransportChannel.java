@@ -566,7 +566,7 @@ condition|)
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|bStream
 operator|.
@@ -832,7 +832,7 @@ condition|)
 block|{
 name|Releasables
 operator|.
-name|release
+name|close
 argument_list|(
 name|stream
 operator|.

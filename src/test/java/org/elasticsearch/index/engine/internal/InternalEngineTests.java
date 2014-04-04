@@ -3827,7 +3827,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// create a document
@@ -3963,7 +3963,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// but, we can still get it (in realtime)
@@ -4150,7 +4150,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// also in non realtime
@@ -4379,7 +4379,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// but, we can still get it (in realtime)
@@ -4549,7 +4549,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// now delete
@@ -4651,7 +4651,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// but, get should not see it (in realtime)
@@ -4789,7 +4789,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// add it back
@@ -4949,7 +4949,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// refresh and it should be there
@@ -5049,7 +5049,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// now flush
@@ -5278,7 +5278,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// refresh and it should be updated
@@ -5377,7 +5377,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|engine
@@ -5424,7 +5424,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// create a document
@@ -5531,7 +5531,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// refresh and it should be there
@@ -5671,7 +5671,7 @@ argument_list|)
 expr_stmt|;
 name|updateSearchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// the non release search result should not see the deleted yet...
@@ -5717,7 +5717,7 @@ argument_list|)
 expr_stmt|;
 name|searchResult
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

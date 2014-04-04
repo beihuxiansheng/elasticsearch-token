@@ -2320,7 +2320,7 @@ block|}
 block|}
 name|bucketsByKey
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// adding empty buckets in needed

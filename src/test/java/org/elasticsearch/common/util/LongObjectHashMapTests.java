@@ -330,7 +330,7 @@ expr_stmt|;
 block|}
 name|map2
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|assertEquals

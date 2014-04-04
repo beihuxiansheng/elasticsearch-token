@@ -595,7 +595,7 @@ finally|finally
 block|{
 name|snapshotIndexCommit
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

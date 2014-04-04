@@ -580,10 +580,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
@@ -595,9 +595,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class

@@ -452,7 +452,7 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Returns a new searcher instance. The consumer of this      * API is responsible for releasing the returned seacher in a      * safe manner, preferably in a try/finally block.      *      * @see Searcher#release()      */
+comment|/**      * Returns a new searcher instance. The consumer of this      * API is responsible for releasing the returned seacher in a      * safe manner, preferably in a try/finally block.      *      * @see Searcher#close()      */
 DECL|method|acquireSearcher
 name|Searcher
 name|acquireSearcher
@@ -715,18 +715,15 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
 comment|// nothing to release here...
-return|return
-literal|true
-return|;
 block|}
 block|}
 DECL|class|Refresh
@@ -3288,7 +3285,7 @@ condition|)
 block|{
 name|searcher
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

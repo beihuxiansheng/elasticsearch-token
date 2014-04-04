@@ -570,7 +570,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -631,7 +631,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -677,7 +677,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -738,7 +738,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -783,7 +783,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -821,7 +821,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -882,7 +882,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -943,7 +943,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -998,7 +998,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -1061,7 +1061,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot
@@ -1277,7 +1277,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|long
@@ -1349,7 +1349,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1387,7 +1387,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -1448,7 +1448,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot
@@ -1509,7 +1509,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|Translog
@@ -1611,7 +1611,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot
@@ -1700,12 +1700,12 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot1
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1743,7 +1743,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -1854,7 +1854,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot
@@ -1930,12 +1930,12 @@ argument_list|)
 expr_stmt|;
 name|actualSnapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1973,7 +1973,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -2029,7 +2029,7 @@ argument_list|()
 decl_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|translog
@@ -2084,7 +2084,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|snapshot
@@ -2144,7 +2144,7 @@ argument_list|)
 expr_stmt|;
 name|snapshot
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A snapshot index commit point. While this is held and {@link #release()}  * was not called, no files will be deleted that relates to this commit point  * ({@link #getFileNames()}).  *  *  */
+comment|/**  * A snapshot index commit point. While this is held and {@link #close()}  * was not called, no files will be deleted that relates to this commit point  * ({@link #getFileNames()}).  *  *  */
 end_comment
 
 begin_class
@@ -187,21 +187,20 @@ name|files
 return|;
 block|}
 comment|/**      * Releases the current snapshot, returning<code>true</code> if it was      * actually released.      */
-DECL|method|release
+DECL|method|close
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 block|{
-return|return
 name|deletionPolicy
 operator|.
-name|release
+name|close
 argument_list|(
 name|getGeneration
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 comment|/**      * Override the delete operation, and only actually delete it if it      * is not held by the {@link SnapshotDeletionPolicy}.      */
 annotation|@

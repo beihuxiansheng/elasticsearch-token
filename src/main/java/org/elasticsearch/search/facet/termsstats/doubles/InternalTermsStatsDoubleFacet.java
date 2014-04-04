@@ -1115,7 +1115,7 @@ argument_list|)
 expr_stmt|;
 name|map
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 return|return
@@ -1232,7 +1232,7 @@ expr_stmt|;
 block|}
 name|map
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 return|return

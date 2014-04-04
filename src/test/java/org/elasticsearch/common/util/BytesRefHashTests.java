@@ -153,7 +153,7 @@ condition|)
 block|{
 name|hash
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -550,7 +550,7 @@ block|}
 block|}
 name|hash
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -721,7 +721,7 @@ block|}
 block|}
 name|hash
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -985,7 +985,7 @@ expr_stmt|;
 block|}
 name|hash
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1232,7 +1232,7 @@ expr_stmt|;
 block|}
 name|hash
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -1481,7 +1481,7 @@ expr_stmt|;
 block|}
 name|hash
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

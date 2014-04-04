@@ -3849,7 +3849,7 @@ parameter_list|)
 block|{
 name|context
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 throw|throw
@@ -3908,7 +3908,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -3957,7 +3957,7 @@ expr_stmt|;
 block|}
 name|context
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}

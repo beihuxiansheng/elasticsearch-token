@@ -1361,7 +1361,7 @@ operator|.
 name|current
 argument_list|()
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|SearchContext

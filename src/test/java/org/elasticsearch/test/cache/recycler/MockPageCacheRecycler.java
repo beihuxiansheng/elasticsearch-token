@@ -496,8 +496,8 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|release
+name|void
+name|close
 parameter_list|()
 throws|throws
 name|ElasticsearchException
@@ -793,12 +793,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-return|return
 name|v
 operator|.
-name|release
+name|close
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override

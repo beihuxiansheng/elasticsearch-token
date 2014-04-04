@@ -916,7 +916,7 @@ expr_stmt|;
 block|}
 name|map
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// just initialize it as already ordered facet

@@ -437,7 +437,7 @@ argument_list|)
 expr_stmt|;
 name|o
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|assertRecycled
@@ -500,7 +500,7 @@ expr_stmt|;
 block|}
 name|o
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|r
@@ -562,7 +562,7 @@ argument_list|)
 expr_stmt|;
 name|o
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|o
@@ -582,7 +582,7 @@ argument_list|)
 expr_stmt|;
 name|o
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|r
@@ -627,14 +627,14 @@ argument_list|()
 decl_stmt|;
 name|v1
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 try|try
 block|{
 name|v1
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -803,14 +803,14 @@ control|)
 block|{
 name|v
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 block|}
 comment|// release first ref, verify for destruction
 name|o
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 name|assertDead
@@ -883,7 +883,7 @@ argument_list|)
 expr_stmt|;
 name|o
 operator|.
-name|release
+name|close
 argument_list|()
 expr_stmt|;
 comment|// verify that recycle() ran
