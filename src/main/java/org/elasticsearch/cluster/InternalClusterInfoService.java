@@ -200,6 +200,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|block
+operator|.
+name|ClusterBlockException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -1560,18 +1574,13 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Failed to execute NodeStatsAction for ClusterInfoUpdateJob: "
-operator|+
+if|if
+condition|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
+operator|instanceof
+name|ClusterBlockException
+condition|)
+block|{
 if|if
 condition|(
 name|logger
@@ -1584,7 +1593,20 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"NodeStatsAction failure"
+literal|"Failed to execute NodeStatsAction for ClusterInfoUpdateJob"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to execute NodeStatsAction for ClusterInfoUpdateJob"
 argument_list|,
 name|e
 argument_list|)
@@ -1741,18 +1763,13 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Failed to execute IndicesStatsAction for ClusterInfoUpdateJob: "
-operator|+
+if|if
+condition|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
+operator|instanceof
+name|ClusterBlockException
+condition|)
+block|{
 if|if
 condition|(
 name|logger
@@ -1765,7 +1782,20 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"IndicesStatsAction failure"
+literal|"Failed to execute IndicesStatsAction for ClusterInfoUpdateJob"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Failed to execute IndicesStatsAction for ClusterInfoUpdateJob"
 argument_list|,
 name|e
 argument_list|)
