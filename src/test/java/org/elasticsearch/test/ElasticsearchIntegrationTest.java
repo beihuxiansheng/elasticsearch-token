@@ -2913,7 +2913,7 @@ name|lastKnownCount
 index|[
 literal|0
 index|]
-operator|>
+operator|>=
 name|numDocs
 condition|)
 block|{
@@ -3012,7 +3012,7 @@ name|lastKnownCount
 index|[
 literal|0
 index|]
-operator|>
+operator|>=
 name|numDocs
 return|;
 block|}
@@ -5741,7 +5741,7 @@ name|setupSuiteScopeCluster
 parameter_list|()
 throws|throws
 name|Exception
-block|{}
+block|{     }
 DECL|method|isSuiteScope
 specifier|private
 specifier|static
