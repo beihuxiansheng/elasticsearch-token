@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregates data expressed as GeoHash longs (for efficiency's sake) but formats results as Geohash strings.  *   */
+comment|/**  * Aggregates data expressed as GeoHash longs (for efficiency's sake) but formats results as Geohash strings.  *  */
 end_comment
 
 begin_class
@@ -545,34 +545,13 @@ name|i
 operator|<
 name|bucketOrds
 operator|.
-name|capacity
+name|size
 argument_list|()
 condition|;
-operator|++
 name|i
+operator|++
 control|)
 block|{
-specifier|final
-name|long
-name|ord
-init|=
-name|bucketOrds
-operator|.
-name|id
-argument_list|(
-name|i
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|ord
-operator|<
-literal|0
-condition|)
-block|{
-comment|// slot is not allocated
-continue|continue;
-block|}
 if|if
 condition|(
 name|spare
@@ -593,7 +572,7 @@ name|geohashAsLong
 operator|=
 name|bucketOrds
 operator|.
-name|key
+name|get
 argument_list|(
 name|i
 argument_list|)
@@ -604,14 +583,14 @@ name|docCount
 operator|=
 name|bucketDocCount
 argument_list|(
-name|ord
+name|i
 argument_list|)
 expr_stmt|;
 name|spare
 operator|.
 name|bucketOrd
 operator|=
-name|ord
+name|i
 expr_stmt|;
 name|spare
 operator|=
