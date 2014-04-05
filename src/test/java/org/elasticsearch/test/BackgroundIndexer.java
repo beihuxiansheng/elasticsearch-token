@@ -372,6 +372,10 @@ argument_list|,
 name|writerCount
 argument_list|,
 literal|true
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -397,6 +401,10 @@ name|writerCount
 parameter_list|,
 name|boolean
 name|autoStart
+parameter_list|,
+specifier|final
+name|int
+name|maxNumDocs
 parameter_list|)
 block|{
 name|failures
@@ -513,8 +521,16 @@ name|stop
 operator|.
 name|get
 argument_list|()
+operator|&&
+name|indexCounter
+operator|.
+name|get
+argument_list|()
+operator|<
+name|maxNumDocs
 condition|)
 block|{
+comment|// step out once we reach the hard limit
 if|if
 condition|(
 name|batch
@@ -709,9 +725,21 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"**** done indexing thread {}"
+literal|"**** done indexing thread {}  stop: {} numDocsIndexed: {} maxNumDocs: {}"
 argument_list|,
 name|indexerId
+argument_list|,
+name|stop
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|indexCounter
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|maxNumDocs
 argument_list|)
 expr_stmt|;
 block|}
