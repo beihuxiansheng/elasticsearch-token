@@ -3110,6 +3110,13 @@ operator|.
 name|EMPTY
 argument_list|)
 decl_stmt|;
+name|ThreadPool
+name|threadPool
+init|=
+operator|new
+name|ThreadPool
+argument_list|()
+decl_stmt|;
 specifier|final
 name|PageCacheRecycler
 name|pageCacheRecycler
@@ -3121,9 +3128,7 @@ name|ImmutableSettings
 operator|.
 name|EMPTY
 argument_list|,
-operator|new
-name|ThreadPool
-argument_list|()
+name|threadPool
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -3131,7 +3136,7 @@ name|BigArrays
 name|bigArrays
 init|=
 operator|new
-name|MockBigArrays
+name|BigArrays
 argument_list|(
 name|ImmutableSettings
 operator|.
@@ -3219,13 +3224,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|ThreadPool
-name|threadPool
-init|=
-operator|new
-name|ThreadPool
-argument_list|()
-decl_stmt|;
 name|NodeSettingsService
 name|nodeSettingsService
 init|=

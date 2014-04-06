@@ -227,7 +227,7 @@ name|BYTE_PAGE_SIZE
 decl_stmt|;
 DECL|field|bigarrays
 specifier|private
-name|MockBigArrays
+name|BigArrays
 name|bigarrays
 decl_stmt|;
 annotation|@
@@ -248,7 +248,7 @@ expr_stmt|;
 name|bigarrays
 operator|=
 operator|new
-name|MockBigArrays
+name|BigArrays
 argument_list|(
 name|ImmutableSettings
 operator|.
@@ -268,12 +268,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// necessary since we currently never release BigArrays
-name|MockBigArrays
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 name|super
 operator|.
 name|tearDown
