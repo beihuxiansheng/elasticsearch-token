@@ -693,7 +693,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -706,7 +706,7 @@ argument_list|(
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|request
+name|channel
 argument_list|,
 name|e
 argument_list|)
@@ -715,7 +715,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Throwable
 name|e1
 parameter_list|)
 block|{
@@ -723,7 +723,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Failed to send failure response for uri ["
+literal|"failed to send failure response for uri ["
 operator|+
 name|request
 operator|.
@@ -770,6 +770,8 @@ parameter_list|,
 name|RestChannel
 name|channel
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|RestHandler
@@ -1199,7 +1201,7 @@ argument_list|(
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|request
+name|channel
 argument_list|,
 name|e
 argument_list|)
@@ -1254,6 +1256,8 @@ parameter_list|,
 name|RestFilterChain
 name|filterChain
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|executeHandler
 argument_list|(

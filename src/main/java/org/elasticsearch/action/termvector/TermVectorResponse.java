@@ -1056,11 +1056,6 @@ literal|null
 assert|;
 name|builder
 operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
-name|builder
-operator|.
 name|field
 argument_list|(
 name|FieldStrings
@@ -1185,11 +1180,6 @@ name|fieldIter
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 name|builder
 operator|.
 name|endObject

@@ -576,11 +576,6 @@ name|IOException
 block|{
 name|builder
 operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
-name|builder
-operator|.
 name|field
 argument_list|(
 name|Fields
@@ -890,11 +885,6 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 return|return
 name|builder
 return|;

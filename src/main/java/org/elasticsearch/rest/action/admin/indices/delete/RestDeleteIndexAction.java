@@ -136,6 +136,22 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|AcknowledgedRestListener
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -308,16 +324,12 @@ argument_list|(
 name|deleteIndexRequest
 argument_list|,
 operator|new
-name|AcknowledgedRestResponseActionListener
+name|AcknowledgedRestListener
 argument_list|<
 name|DeleteIndexResponse
 argument_list|>
 argument_list|(
-name|request
-argument_list|,
 name|channel
-argument_list|,
-name|logger
 argument_list|)
 argument_list|)
 expr_stmt|;

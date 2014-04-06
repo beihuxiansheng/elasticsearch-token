@@ -90,6 +90,8 @@ parameter_list|,
 name|RestFilterChain
 name|filterChain
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_class

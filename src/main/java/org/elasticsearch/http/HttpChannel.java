@@ -26,19 +26,47 @@ name|RestChannel
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestRequest
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|HttpChannel
+begin_class
+DECL|class|HttpChannel
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|HttpChannel
 extends|extends
 name|RestChannel
-block|{  }
-end_interface
+block|{
+DECL|method|HttpChannel
+specifier|protected
+name|HttpChannel
+parameter_list|(
+name|RestRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 
