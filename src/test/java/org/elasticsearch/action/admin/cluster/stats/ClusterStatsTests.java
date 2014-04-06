@@ -1267,8 +1267,18 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|String
+name|msg
+init|=
+name|response
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|getTimestamp
@@ -1285,6 +1295,8 @@ expr_stmt|;
 comment|// 1 Jan 2000
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|indicesStats
@@ -1305,6 +1317,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1328,6 +1342,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1360,6 +1376,8 @@ block|{
 comment|// We only get those if we have sigar
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1380,6 +1398,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1403,6 +1423,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1427,6 +1449,8 @@ expr_stmt|;
 block|}
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1447,6 +1471,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1471,6 +1497,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1491,6 +1519,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1511,6 +1541,8 @@ expr_stmt|;
 comment|// 0 happens when not supported on platform
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1532,6 +1564,8 @@ expr_stmt|;
 comment|// these can be -1 if not supported on platform
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
@@ -1553,6 +1587,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|msg
+argument_list|,
 name|response
 operator|.
 name|nodesStats
