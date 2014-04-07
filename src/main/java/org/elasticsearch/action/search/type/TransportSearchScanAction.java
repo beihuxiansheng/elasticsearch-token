@@ -518,7 +518,7 @@ name|scrollId
 argument_list|,
 name|expectedSuccessfulOps
 argument_list|,
-name|successulOps
+name|successfulOps
 operator|.
 name|get
 argument_list|()

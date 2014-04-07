@@ -608,11 +608,11 @@ specifier|final
 name|int
 name|expectedTotalOps
 decl_stmt|;
-DECL|field|successulOps
+DECL|field|successfulOps
 specifier|protected
 specifier|final
 name|AtomicInteger
-name|successulOps
+name|successfulOps
 init|=
 operator|new
 name|AtomicInteger
@@ -1621,7 +1621,7 @@ expr_stmt|;
 comment|// we need to increment successful ops first before we compare the exit condition otherwise if we
 comment|// are fast we could concurrently update totalOps but then preempt one of the threads which can
 comment|// cause the successor to read a wrong value from successfulOps if second phase is very fast ie. count etc.
-name|successulOps
+name|successfulOps
 operator|.
 name|incrementAndGet
 argument_list|()
@@ -1881,7 +1881,7 @@ block|}
 block|}
 if|if
 condition|(
-name|successulOps
+name|successfulOps
 operator|.
 name|get
 argument_list|()

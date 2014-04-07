@@ -1209,7 +1209,7 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
-name|successulOps
+name|successfulOps
 operator|.
 name|decrementAndGet
 argument_list|()
@@ -1365,7 +1365,7 @@ name|scrollId
 argument_list|,
 name|expectedSuccessfulOps
 argument_list|,
-name|successulOps
+name|successfulOps
 operator|.
 name|get
 argument_list|()
