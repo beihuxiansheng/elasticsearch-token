@@ -208,8 +208,6 @@ static|static
 block|{
 name|InetAddress
 name|localAddressX
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -223,18 +221,25 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|UnknownHostException
+name|Throwable
 name|e
 parameter_list|)
 block|{
 name|logger
 operator|.
-name|trace
+name|warn
 argument_list|(
-literal|"Failed to find local host"
+literal|"failed to resolve local host, fallback to loopback"
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+name|localAddressX
+operator|=
+name|InetAddress
+operator|.
+name|getLoopbackAddress
+argument_list|()
 expr_stmt|;
 block|}
 name|localAddress
