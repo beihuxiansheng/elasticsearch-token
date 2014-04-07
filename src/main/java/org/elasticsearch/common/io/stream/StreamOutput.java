@@ -2300,7 +2300,7 @@ throw|;
 block|}
 block|}
 DECL|method|writePrimitiveIntArray
-specifier|private
+specifier|public
 name|void
 name|writePrimitiveIntArray
 parameter_list|(
@@ -2346,7 +2346,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|writePrimitiveLongArray
-specifier|private
+specifier|public
 name|void
 name|writePrimitiveLongArray
 parameter_list|(
@@ -2392,7 +2392,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|writePrimitiveFloatArray
-specifier|private
+specifier|public
 name|void
 name|writePrimitiveFloatArray
 parameter_list|(
@@ -2438,7 +2438,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|writePrimitiveDoubleArray
-specifier|private
+specifier|public
 name|void
 name|writePrimitiveDoubleArray
 parameter_list|(

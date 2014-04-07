@@ -2121,8 +2121,9 @@ throw|;
 block|}
 block|}
 DECL|method|readPrimitiveIntArray
-specifier|private
-name|Object
+specifier|public
+name|int
+index|[]
 name|readPrimitiveIntArray
 parameter_list|()
 throws|throws
@@ -2173,8 +2174,9 @@ name|values
 return|;
 block|}
 DECL|method|readPrimitiveLongArray
-specifier|private
-name|Object
+specifier|public
+name|long
+index|[]
 name|readPrimitiveLongArray
 parameter_list|()
 throws|throws
@@ -2225,8 +2227,9 @@ name|values
 return|;
 block|}
 DECL|method|readPrimitiveFloatArray
-specifier|private
-name|Object
+specifier|public
+name|float
+index|[]
 name|readPrimitiveFloatArray
 parameter_list|()
 throws|throws
@@ -2277,8 +2280,9 @@ name|values
 return|;
 block|}
 DECL|method|readPrimitiveDoubleArray
-specifier|private
-name|Object
+specifier|public
+name|double
+index|[]
 name|readPrimitiveDoubleArray
 parameter_list|()
 throws|throws
