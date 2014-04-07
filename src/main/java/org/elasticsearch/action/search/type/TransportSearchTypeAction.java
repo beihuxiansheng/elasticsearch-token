@@ -1618,8 +1618,17 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+comment|// we need to increment successful ops first before we compare the exit condition otherwise if we
+comment|// are fast we could concurrently update totalOps but then preempt one of the threads which can
+comment|// cause the successor to read a wrong value from successfulOps if second phase is very fast ie. count etc.
+name|successulOps
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 comment|// increment all the "future" shards to update the total ops since we some may work and some may not...
 comment|// and when that happens, we break on total ops, so we must maintain them
+specifier|final
 name|int
 name|xTotalOps
 init|=
@@ -1635,11 +1644,6 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|successulOps
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|xTotalOps
