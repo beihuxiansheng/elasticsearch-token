@@ -2187,7 +2187,7 @@ operator|)
 literal|17
 argument_list|)
 expr_stmt|;
-name|writePrimitiveIntArray
+name|writeIntArray
 argument_list|(
 operator|(
 name|int
@@ -2216,7 +2216,7 @@ operator|)
 literal|18
 argument_list|)
 expr_stmt|;
-name|writePrimitiveLongArray
+name|writeLongArray
 argument_list|(
 operator|(
 name|long
@@ -2245,7 +2245,7 @@ operator|)
 literal|19
 argument_list|)
 expr_stmt|;
-name|writePrimitiveFloatArray
+name|writeFloatArray
 argument_list|(
 operator|(
 name|float
@@ -2274,7 +2274,7 @@ operator|)
 literal|20
 argument_list|)
 expr_stmt|;
-name|writePrimitiveDoubleArray
+name|writeDoubleArray
 argument_list|(
 operator|(
 name|double
@@ -2299,10 +2299,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|writePrimitiveIntArray
+DECL|method|writeIntArray
 specifier|public
 name|void
-name|writePrimitiveIntArray
+name|writeIntArray
 parameter_list|(
 name|int
 index|[]
@@ -2345,10 +2345,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writePrimitiveLongArray
+DECL|method|writeLongArray
 specifier|public
 name|void
-name|writePrimitiveLongArray
+name|writeLongArray
 parameter_list|(
 name|long
 index|[]
@@ -2391,10 +2391,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writePrimitiveFloatArray
+DECL|method|writeFloatArray
 specifier|public
 name|void
-name|writePrimitiveFloatArray
+name|writeFloatArray
 parameter_list|(
 name|float
 index|[]
@@ -2437,10 +2437,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|writePrimitiveDoubleArray
+DECL|method|writeDoubleArray
 specifier|public
 name|void
-name|writePrimitiveDoubleArray
+name|writeDoubleArray
 parameter_list|(
 name|double
 index|[]
