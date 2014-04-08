@@ -2040,7 +2040,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
