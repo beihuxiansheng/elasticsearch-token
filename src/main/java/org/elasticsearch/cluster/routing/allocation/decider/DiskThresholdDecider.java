@@ -1041,7 +1041,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"less than required [%d%%] free disk on node, free: [%d%%]"
+literal|"less than required [%s%%] free disk on node, free: [%s%%]"
 argument_list|,
 name|freeDiskThresholdLow
 argument_list|,
@@ -1175,7 +1175,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation less than required [%d%%] free disk on node, free: [%d%%]"
+literal|"after allocation less than required [%s%%] free disk on node, free: [%s%%]"
 argument_list|,
 name|freeDiskThresholdLow
 argument_list|,
@@ -1578,7 +1578,7 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation less than required [%d%%] free disk on node, free: [%d%%]"
+literal|"after allocation less than required [%s%%] free disk on node, free: [%s%%]"
 argument_list|,
 name|freeDiskThresholdHigh
 argument_list|,
