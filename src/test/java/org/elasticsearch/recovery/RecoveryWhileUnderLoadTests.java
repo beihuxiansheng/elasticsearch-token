@@ -336,6 +336,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoTimeout
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -605,7 +621,7 @@ literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -628,7 +644,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
@@ -637,20 +653,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=2"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -970,7 +972,7 @@ argument_list|(
 literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -993,7 +995,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
@@ -1002,20 +1004,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=4"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1336,7 +1324,7 @@ argument_list|(
 literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -1359,7 +1347,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
@@ -1368,20 +1356,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=4"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1437,7 +1411,7 @@ argument_list|(
 literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -1460,7 +1434,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
@@ -1469,20 +1443,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=3"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1507,7 +1467,7 @@ argument_list|(
 literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -1530,7 +1490,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
@@ -1539,20 +1499,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=2"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1577,7 +1523,7 @@ argument_list|(
 literal|"--> waiting for YELLOW health status ..."
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -1600,7 +1546,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForYellowStatus
@@ -1609,20 +1555,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=1"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1645,7 +1577,7 @@ argument_list|(
 literal|"--> indexing threads stopped"
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -1668,7 +1600,7 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForYellowStatus
@@ -1677,20 +1609,6 @@ operator|.
 name|setWaitForNodes
 argument_list|(
 literal|">=1"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1906,7 +1824,7 @@ argument_list|(
 literal|"--> waiting for GREEN health status ..."
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -1929,25 +1847,11 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"1m"
+literal|"5m"
 argument_list|)
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2017,7 +1921,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|client
 argument_list|()
@@ -2045,20 +1949,6 @@ argument_list|)
 operator|.
 name|setWaitForGreenStatus
 argument_list|()
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger
