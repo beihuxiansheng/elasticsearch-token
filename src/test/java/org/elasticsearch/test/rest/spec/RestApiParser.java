@@ -662,6 +662,15 @@ operator|.
 name|Token
 operator|.
 name|END_OBJECT
+operator|:
+literal|"Expected [END_OBJECT] but was ["
+operator|+
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|+
+literal|"]"
 assert|;
 name|parser
 operator|.
