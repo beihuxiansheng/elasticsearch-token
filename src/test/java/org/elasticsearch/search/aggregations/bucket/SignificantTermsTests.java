@@ -292,6 +292,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -661,6 +677,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|SignificantTerms
 name|topTerms
 init|=
@@ -785,6 +806,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|SignificantTerms
 name|topTerms
 init|=
@@ -894,6 +920,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|SignificantTerms
 name|topTerms
 init|=
@@ -1022,6 +1053,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|Terms
 name|topCategoryTerms
 init|=
@@ -1230,6 +1266,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|SignificantTerms
 name|topTerms
 init|=
