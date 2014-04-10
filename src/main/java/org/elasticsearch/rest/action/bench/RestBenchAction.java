@@ -344,6 +344,20 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
+name|OK
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+operator|.
 name|BAD_REQUEST
 import|;
 end_import
@@ -359,6 +373,20 @@ operator|.
 name|RestStatus
 operator|.
 name|METHOD_NOT_ALLOWED
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
 import|;
 end_import
 
@@ -643,8 +671,6 @@ return|return
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|RestStatus
-operator|.
 name|OK
 argument_list|,
 name|builder
@@ -742,8 +768,6 @@ return|return
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|RestStatus
-operator|.
 name|OK
 argument_list|,
 name|builder
@@ -1009,8 +1033,6 @@ return|return
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|RestStatus
-operator|.
 name|OK
 argument_list|,
 name|builder

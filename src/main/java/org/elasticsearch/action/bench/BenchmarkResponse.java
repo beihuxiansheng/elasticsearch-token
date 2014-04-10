@@ -252,7 +252,7 @@ operator|=
 name|competitionResults
 expr_stmt|;
 block|}
-comment|/**      * Benchmarks can be in one of: RUNNING, COMPLETE, or ABORTED.      */
+comment|/**      * Benchmarks can be in one of:      *  RUNNING     - executing normally      *  COMPLETE    - completed normally      *  ABORTED     - aborted      */
 DECL|enum|State
 specifier|public
 specifier|static
@@ -590,13 +590,6 @@ name|state
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|builder
@@ -927,18 +920,6 @@ operator|new
 name|XContentBuilderString
 argument_list|(
 literal|"status"
-argument_list|)
-decl_stmt|;
-DECL|field|INDEX
-specifier|static
-specifier|final
-name|XContentBuilderString
-name|INDEX
-init|=
-operator|new
-name|XContentBuilderString
-argument_list|(
-literal|"index"
 argument_list|)
 decl_stmt|;
 DECL|field|COMPETITORS
