@@ -703,7 +703,14 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"ClusterHealthResponse has timed out"
+literal|"ClusterHealthResponse has timed out - returned status: ["
+operator|+
+name|response
+operator|.
+name|getStatus
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|response
 operator|.

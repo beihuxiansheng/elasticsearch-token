@@ -244,6 +244,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoTimeout
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -891,6 +907,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+comment|// this might time out on some machines if they are really busy and you hit lots of throttling
 name|ClusterHealthResponse
 name|resp
 init|=
@@ -911,10 +928,12 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|execute
-argument_list|()
+name|setTimeout
+argument_list|(
+literal|"5m"
+argument_list|)
 operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|stop
@@ -950,17 +969,9 @@ name|join
 argument_list|()
 expr_stmt|;
 block|}
-name|assertThat
+name|assertNoTimeout
 argument_list|(
 name|resp
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
