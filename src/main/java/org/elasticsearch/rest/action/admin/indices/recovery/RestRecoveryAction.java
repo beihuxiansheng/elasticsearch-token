@@ -378,14 +378,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|response
-operator|.
-name|hasRecoveries
-argument_list|()
-condition|)
-block|{
 name|response
 operator|.
 name|detailed
@@ -415,7 +407,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 operator|new
 name|BytesRestResponse
