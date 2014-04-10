@@ -423,13 +423,12 @@ comment|// now start adding nodes
 name|cluster
 argument_list|()
 operator|.
-name|startNode
-argument_list|()
-expr_stmt|;
-name|cluster
-argument_list|()
+name|startNodesAsync
+argument_list|(
+literal|2
+argument_list|)
 operator|.
-name|startNode
+name|get
 argument_list|()
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
@@ -477,13 +476,12 @@ comment|// now start adding nodes
 name|cluster
 argument_list|()
 operator|.
-name|startNode
-argument_list|()
-expr_stmt|;
-name|cluster
-argument_list|()
+name|startNodesAsync
+argument_list|(
+literal|2
+argument_list|)
 operator|.
-name|startNode
+name|get
 argument_list|()
 expr_stmt|;
 comment|// We now have 5 nodes
