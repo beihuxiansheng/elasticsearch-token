@@ -134,20 +134,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|BigArrays
@@ -781,16 +767,6 @@ name|indexFieldDataService
 operator|=
 literal|null
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|clearAndRelease
-specifier|public
-name|void
-name|clearAndRelease
-parameter_list|()
-block|{
-comment|// no-op
 block|}
 annotation|@
 name|Override
@@ -1995,25 +1971,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|addReleasable
-specifier|public
-name|void
-name|addReleasable
-parameter_list|(
-name|Releasable
-name|releasable
-parameter_list|)
-block|{     }
-annotation|@
-name|Override
-DECL|method|clearReleasables
-specifier|public
-name|void
-name|clearReleasables
-parameter_list|()
-block|{     }
-annotation|@
-name|Override
 DECL|method|scanContext
 specifier|public
 name|ScanContext
@@ -2090,10 +2047,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|close
+DECL|method|doClose
 specifier|public
 name|void
-name|close
+name|doClose
 parameter_list|()
 throws|throws
 name|ElasticsearchException

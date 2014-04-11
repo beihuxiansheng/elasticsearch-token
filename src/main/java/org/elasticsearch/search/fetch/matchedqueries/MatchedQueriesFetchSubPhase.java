@@ -184,6 +184,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+operator|.
+name|Lifetime
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -603,7 +619,11 @@ name|current
 argument_list|()
 operator|.
 name|clearReleasables
-argument_list|()
+argument_list|(
+name|Lifetime
+operator|.
+name|COLLECTION
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -270,14 +270,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|masterCopy
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
-block|}
 comment|// not empty, we might be executing on a shared cluster that keeps on obtaining
 comment|// and releasing pages, lets make sure that after a reasonable timeout, all master
 comment|// copy (snapshot) have been released
@@ -330,11 +329,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|success
 condition|)
 block|{
-return|return;
-block|}
 name|masterCopy
 operator|.
 name|keySet
@@ -403,6 +401,8 @@ argument_list|,
 name|t
 argument_list|)
 throw|;
+block|}
+block|}
 block|}
 block|}
 DECL|field|random

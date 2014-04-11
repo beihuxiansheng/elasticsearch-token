@@ -338,6 +338,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+operator|.
+name|Lifetime
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -836,6 +852,10 @@ operator|.
 name|addReleasable
 argument_list|(
 name|parentWeight
+argument_list|,
+name|Lifetime
+operator|.
+name|COLLECTION
 argument_list|)
 expr_stmt|;
 name|releaseParentIds

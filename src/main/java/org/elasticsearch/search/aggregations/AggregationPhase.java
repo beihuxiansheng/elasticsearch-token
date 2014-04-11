@@ -691,19 +691,6 @@ operator|.
 name|aggregators
 argument_list|()
 decl_stmt|;
-try|try
-init|(
-name|Releasable
-name|releasable
-init|=
-name|Releasables
-operator|.
-name|wrap
-argument_list|(
-name|aggregators
-argument_list|)
-init|)
-block|{
 name|List
 argument_list|<
 name|Aggregator
@@ -918,7 +905,6 @@ name|aggregations
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|class|AggregationsCollector
 specifier|public

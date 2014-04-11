@@ -38,20 +38,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lease
-operator|.
-name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|ReaderContextAware
@@ -113,6 +99,22 @@ operator|.
 name|internal
 operator|.
 name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+operator|.
+name|Lifetime
 import|;
 end_import
 
@@ -363,6 +365,22 @@ argument_list|,
 name|estimatedBucketsCount
 argument_list|)
 expr_stmt|;
+comment|// TODO: change it to SEARCH_PHASE, but this would imply allocating the aggregators in the QUERY
+comment|// phase instead of DFS like it is done today
+name|context
+operator|.
+name|searchContext
+argument_list|()
+operator|.
+name|addReleasable
+argument_list|(
+name|this
+argument_list|,
+name|Lifetime
+operator|.
+name|CONTEXT
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * @return  The name of the aggregation.      */
 DECL|method|name
@@ -586,23 +604,9 @@ name|void
 name|close
 parameter_list|()
 block|{
-try|try
-init|(
-name|Releasable
-name|releasable
-init|=
-name|Releasables
-operator|.
-name|wrap
-argument_list|(
-name|subAggregators
-argument_list|)
-init|)
-block|{
 name|doClose
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 comment|/** Release instance-specific data. */
 DECL|method|doClose

@@ -242,14 +242,6 @@ name|TRACK_ALLOCATIONS
 init|=
 literal|false
 decl_stmt|;
-DECL|field|DISCARD
-specifier|private
-specifier|static
-name|boolean
-name|DISCARD
-init|=
-literal|false
-decl_stmt|;
 DECL|field|ACQUIRED_ARRAYS
 specifier|private
 specifier|static
@@ -266,19 +258,6 @@ name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Discard the next check that all arrays should be released. This can be useful if for a specific test, the cost to make      * sure the array is released is higher than the cost the user would experience if the array would not be released.      */
-DECL|method|discardNextCheck
-specifier|public
-specifier|static
-name|void
-name|discardNextCheck
-parameter_list|()
-block|{
-name|DISCARD
-operator|=
-literal|true
-expr_stmt|;
-block|}
 DECL|method|ensureAllArraysAreReleased
 specifier|public
 specifier|static
@@ -287,18 +266,6 @@ name|ensureAllArraysAreReleased
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-if|if
-condition|(
-name|DISCARD
-condition|)
-block|{
-name|DISCARD
-operator|=
-literal|false
-expr_stmt|;
-block|}
-else|else
 block|{
 specifier|final
 name|Map
@@ -318,14 +285,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|masterCopy
 operator|.
 name|isEmpty
 argument_list|()
 condition|)
 block|{
-return|return;
-block|}
 comment|// not empty, we might be executing on a shared cluster that keeps on obtaining
 comment|// and releasing arrays, lets make sure that after a reasonable timeout, all master
 comment|// copy (snapshot) have been released
@@ -378,11 +344,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+operator|!
 name|success
 condition|)
 block|{
-return|return;
-block|}
 name|masterCopy
 operator|.
 name|keySet
@@ -460,6 +425,7 @@ else|:
 literal|null
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
