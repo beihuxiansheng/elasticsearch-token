@@ -316,6 +316,14 @@ argument_list|,
 name|PURGE_INTERVAL
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"action.auto_create_index"
+argument_list|,
+literal|false
+argument_list|)
+comment|// see #5766
+operator|.
 name|build
 argument_list|()
 return|;
