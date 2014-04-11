@@ -867,9 +867,10 @@ argument_list|)
 operator|.
 name|removeGlobalBlock
 argument_list|(
-name|Discovery
+name|discoverySettings
 operator|.
-name|NO_MASTER_BLOCK
+name|getNoMasterBlock
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

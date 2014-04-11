@@ -866,9 +866,10 @@ argument_list|()
 operator|.
 name|hasGlobalBlock
 argument_list|(
-name|Discovery
+name|discoveryService
 operator|.
-name|NO_MASTER_BLOCK
+name|getNoMasterBlock
+argument_list|()
 argument_list|)
 condition|)
 block|{
