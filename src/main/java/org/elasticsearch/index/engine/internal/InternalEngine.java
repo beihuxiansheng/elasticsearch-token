@@ -4732,9 +4732,52 @@ name|boolean
 name|refreshNeeded
 parameter_list|()
 block|{
+try|try
+block|{
+comment|// we are either dirty due to a document added or due to a
+comment|// finished merge - either way we should refresh
 return|return
 name|dirty
+operator|||
+operator|!
+name|searcherManager
+operator|.
+name|isSearcherCurrent
+argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"failed to access searcher manager"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|failEngine
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|EngineException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"failed to access searcher manager"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -4849,7 +4892,8 @@ init|)
 block|{
 if|if
 condition|(
-name|dirty
+name|refreshNeeded
+argument_list|()
 operator|||
 name|refresh
 operator|.
@@ -6059,6 +6103,7 @@ if|if
 condition|(
 operator|!
 name|possibleMergeNeeded
+argument_list|()
 condition|)
 block|{
 return|return;
