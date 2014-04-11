@@ -1890,7 +1890,7 @@ name|pageMaxOrdinal
 operator|==
 name|Long
 operator|.
-name|MAX_VALUE
+name|MIN_VALUE
 condition|)
 block|{
 comment|// empty page - will use the null reader which just stores size
@@ -2060,7 +2060,7 @@ name|pageMaxOrdinal
 operator|==
 name|Long
 operator|.
-name|MAX_VALUE
+name|MIN_VALUE
 condition|)
 block|{
 comment|// empty page - will use the null reader which just stores size

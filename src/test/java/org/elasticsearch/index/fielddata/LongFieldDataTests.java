@@ -2198,7 +2198,7 @@ operator|.
 name|nextFloat
 argument_list|()
 operator|<
-literal|0.1f
+literal|0.01
 condition|?
 literal|1
 else|:
@@ -2241,7 +2241,7 @@ operator|.
 name|nextFloat
 argument_list|()
 operator|<
-literal|0.1f
+literal|0.01f
 condition|?
 literal|1
 operator|+
