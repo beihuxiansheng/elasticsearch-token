@@ -942,7 +942,8 @@ name|SearchResponse
 argument_list|(
 name|InternalSearchResponse
 operator|.
-name|EMPTY
+name|empty
+argument_list|()
 argument_list|,
 literal|null
 argument_list|,

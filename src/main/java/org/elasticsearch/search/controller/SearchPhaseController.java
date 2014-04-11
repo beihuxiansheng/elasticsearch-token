@@ -2893,7 +2893,8 @@ block|{
 return|return
 name|InternalSearchResponse
 operator|.
-name|EMPTY
+name|empty
+argument_list|()
 return|;
 block|}
 name|QuerySearchResult
