@@ -347,6 +347,7 @@ end_comment
 begin_class
 DECL|class|ElasticsearchAllocationTestCase
 specifier|public
+specifier|abstract
 class|class
 name|ElasticsearchAllocationTestCase
 extends|extends
