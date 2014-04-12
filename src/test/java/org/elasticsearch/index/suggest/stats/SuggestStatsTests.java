@@ -842,6 +842,7 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// the upperbound is num shards * total time since we do searches in parallel
 name|assertThat
 argument_list|(
 name|indicesStats
@@ -857,9 +858,13 @@ argument_list|()
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(
+name|totalShards
+operator|*
+operator|(
 name|endTime
 operator|-
 name|startTime
+operator|)
 argument_list|)
 argument_list|)
 expr_stmt|;
