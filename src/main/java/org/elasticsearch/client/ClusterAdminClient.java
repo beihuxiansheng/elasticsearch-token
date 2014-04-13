@@ -2059,6 +2059,12 @@ name|String
 name|repository
 parameter_list|)
 function_decl|;
+comment|/**      * Get snapshot status.      */
+DECL|method|prepareSnapshotStatus
+name|SnapshotsStatusRequestBuilder
+name|prepareSnapshotStatus
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

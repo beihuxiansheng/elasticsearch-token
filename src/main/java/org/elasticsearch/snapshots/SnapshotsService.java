@@ -2410,9 +2410,12 @@ return|;
 block|}
 if|if
 condition|(
+literal|"_all"
+operator|.
+name|equals
+argument_list|(
 name|repository
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 return|return

@@ -3222,6 +3222,22 @@ name|repository
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|prepareSnapshotStatus
+specifier|public
+name|SnapshotsStatusRequestBuilder
+name|prepareSnapshotStatus
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SnapshotsStatusRequestBuilder
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

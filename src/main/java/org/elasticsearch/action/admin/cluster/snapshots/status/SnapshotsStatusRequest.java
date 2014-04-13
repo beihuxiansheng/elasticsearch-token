@@ -137,6 +137,8 @@ DECL|field|repository
 specifier|private
 name|String
 name|repository
+init|=
+literal|"_all"
 decl_stmt|;
 DECL|field|snapshots
 specifier|private
@@ -149,6 +151,7 @@ operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
 DECL|method|SnapshotsStatusRequest
+specifier|public
 name|SnapshotsStatusRequest
 parameter_list|()
 block|{     }

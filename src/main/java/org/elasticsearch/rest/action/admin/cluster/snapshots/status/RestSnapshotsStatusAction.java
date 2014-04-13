@@ -303,6 +303,8 @@ operator|.
 name|param
 argument_list|(
 literal|"repository"
+argument_list|,
+literal|"_all"
 argument_list|)
 decl_stmt|;
 name|String

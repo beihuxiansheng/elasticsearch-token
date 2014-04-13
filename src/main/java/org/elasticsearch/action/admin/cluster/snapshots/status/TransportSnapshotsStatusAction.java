@@ -510,6 +510,10 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+name|listener
+operator|.
+name|onResponse
+argument_list|(
 name|buildResponse
 argument_list|(
 name|request
@@ -518,7 +522,9 @@ name|currentSnapshots
 argument_list|,
 literal|null
 argument_list|)
+argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|Set
 argument_list|<
