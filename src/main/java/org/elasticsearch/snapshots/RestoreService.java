@@ -711,14 +711,14 @@ decl_stmt|;
 comment|// Make sure that we can restore from this snapshot
 if|if
 condition|(
+operator|!
 name|snapshot
 operator|.
 name|state
 argument_list|()
-operator|!=
-name|SnapshotState
 operator|.
-name|SUCCESS
+name|restorable
+argument_list|()
 condition|)
 block|{
 throw|throw

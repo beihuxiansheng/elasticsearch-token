@@ -2310,7 +2310,7 @@ name|equalTo
 argument_list|(
 name|SnapshotState
 operator|.
-name|SUCCESS
+name|PARTIAL
 argument_list|)
 argument_list|)
 expr_stmt|;

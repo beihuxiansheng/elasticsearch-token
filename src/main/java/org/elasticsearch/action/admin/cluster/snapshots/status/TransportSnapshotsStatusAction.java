@@ -1330,6 +1330,11 @@ break|break;
 case|case
 name|SUCCESS
 case|:
+case|case
+name|PARTIAL
+case|:
+comment|// Translating both PARTIAL and SUCCESS to SUCCESS for now
+comment|// TODO: add the differentiation on the metadata level in the next major release
 name|state
 operator|=
 name|SnapshotMetaData
