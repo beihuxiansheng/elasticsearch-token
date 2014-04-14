@@ -326,11 +326,6 @@ literal|"1"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|boolean
-name|autoGenerateId
-init|=
-literal|true
-decl_stmt|;
 name|Settings
 name|settings
 init|=
@@ -731,10 +726,6 @@ argument_list|)
 operator|.
 name|id
 argument_list|(
-name|autoGenerateId
-condition|?
-literal|null
-else|:
 name|Integer
 operator|.
 name|toString
