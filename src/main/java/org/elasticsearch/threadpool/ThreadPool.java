@@ -4135,24 +4135,6 @@ literal|false
 expr_stmt|;
 return|return;
 block|}
-try|try
-block|{
-name|FileSystemUtils
-operator|.
-name|checkMkdirsStall
-argument_list|(
-name|estimatedTimeInMillis
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 block|}
 block|}
 block|}
