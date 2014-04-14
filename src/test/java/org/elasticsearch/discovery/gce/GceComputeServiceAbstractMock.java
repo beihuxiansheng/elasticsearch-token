@@ -327,13 +327,6 @@ argument_list|)
 expr_stmt|;
 name|instance
 operator|.
-name|setImage
-argument_list|(
-literal|"mock-image-type"
-argument_list|)
-expr_stmt|;
-name|instance
-operator|.
 name|setStatus
 argument_list|(
 literal|"STARTED"

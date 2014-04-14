@@ -763,14 +763,6 @@ name|getMachineType
 argument_list|()
 decl_stmt|;
 name|String
-name|image
-init|=
-name|instance
-operator|.
-name|getImage
-argument_list|()
-decl_stmt|;
-name|String
 name|status
 init|=
 name|instance
@@ -1273,8 +1265,6 @@ argument_list|,
 name|name
 argument_list|,
 name|type
-argument_list|,
-name|image
 argument_list|,
 name|ip_private
 argument_list|,
