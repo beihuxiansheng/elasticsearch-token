@@ -1260,7 +1260,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"adding {}, type {}, image {}, address {}, transport_address {}, status {}"
+literal|"adding {}, type {}, address {}, transport_address {}, status {}"
 argument_list|,
 name|name
 argument_list|,
