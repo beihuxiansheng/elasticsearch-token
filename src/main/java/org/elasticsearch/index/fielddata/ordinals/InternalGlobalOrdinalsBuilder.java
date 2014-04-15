@@ -757,7 +757,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|GlobalOrdinalsIndexFieldData
+name|InternalGlobalOrdinalsIndexFieldData
 argument_list|(
 name|indexFieldData
 operator|.
