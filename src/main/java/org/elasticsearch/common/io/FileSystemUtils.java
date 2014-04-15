@@ -289,6 +289,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * Deletes the given files recursively. if<tt>deleteRoots</tt> is set to<code>true</code>      * the given root files will be deleted as well. Otherwise only their content is deleted.      */
 DECL|method|deleteRecursively
 specifier|public
 specifier|static
@@ -298,6 +299,9 @@ parameter_list|(
 name|File
 index|[]
 name|roots
+parameter_list|,
+name|boolean
+name|deleteRoots
 parameter_list|)
 block|{
 name|boolean
@@ -318,6 +322,8 @@ operator|&=
 name|deleteRecursively
 argument_list|(
 name|root
+argument_list|,
+name|deleteRoots
 argument_list|)
 expr_stmt|;
 block|}
@@ -325,6 +331,7 @@ return|return
 name|deleted
 return|;
 block|}
+comment|/**      * Deletes the given files recursively including the given roots.      */
 DECL|method|deleteRecursively
 specifier|public
 specifier|static
@@ -332,32 +339,14 @@ name|boolean
 name|deleteRecursively
 parameter_list|(
 name|File
-name|root
+modifier|...
+name|roots
 parameter_list|)
 block|{
 return|return
 name|deleteRecursively
 argument_list|(
-name|root
-argument_list|,
-literal|true
-argument_list|)
-return|;
-block|}
-DECL|method|innerDeleteRecursively
-specifier|private
-specifier|static
-name|boolean
-name|innerDeleteRecursively
-parameter_list|(
-name|File
-name|root
-parameter_list|)
-block|{
-return|return
-name|deleteRecursively
-argument_list|(
-name|root
+name|roots
 argument_list|,
 literal|true
 argument_list|)
@@ -421,9 +410,11 @@ range|:
 name|children
 control|)
 block|{
-name|innerDeleteRecursively
+name|deleteRecursively
 argument_list|(
 name|aChildren
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
