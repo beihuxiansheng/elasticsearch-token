@@ -18,7 +18,11 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
 operator|.
 name|ThreadLocalRandom
 import|;

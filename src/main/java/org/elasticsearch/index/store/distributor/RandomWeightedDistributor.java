@@ -20,14 +20,6 @@ end_package
 
 begin_import
 import|import
-name|jsr166y
-operator|.
-name|ThreadLocalRandom
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -75,6 +67,18 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadLocalRandom
 import|;
 end_import
 
