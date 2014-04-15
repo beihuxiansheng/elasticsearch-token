@@ -1502,6 +1502,12 @@ name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|indexShard
+operator|.
+name|readAllowed
+argument_list|()
+expr_stmt|;
+comment|// check if we can read the shard...
 name|ShardPercolateService
 name|shardPercolateService
 init|=
@@ -1899,11 +1905,6 @@ name|context
 argument_list|,
 name|parsedDocument
 argument_list|)
-expr_stmt|;
-name|indexShard
-operator|.
-name|readAllowed
-argument_list|()
 expr_stmt|;
 return|return
 name|action
