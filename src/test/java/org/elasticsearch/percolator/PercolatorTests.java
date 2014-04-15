@@ -16833,6 +16833,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|ensureSearchable
+argument_list|()
+expr_stmt|;
 comment|// percolation source
 name|XContentBuilder
 name|percolateDocumentSource
@@ -16900,6 +16903,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertAllSuccessful
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
 name|assertMatchCount
 argument_list|(
 name|response
