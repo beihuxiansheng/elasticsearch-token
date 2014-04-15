@@ -365,8 +365,6 @@ argument_list|,
 name|estimatedBucketsCount
 argument_list|)
 expr_stmt|;
-comment|// TODO: change it to SEARCH_PHASE, but this would imply allocating the aggregators in the QUERY
-comment|// phase instead of DFS like it is done today
 name|context
 operator|.
 name|searchContext
@@ -378,7 +376,7 @@ name|this
 argument_list|,
 name|Lifetime
 operator|.
-name|CONTEXT
+name|PHASE
 argument_list|)
 expr_stmt|;
 block|}
