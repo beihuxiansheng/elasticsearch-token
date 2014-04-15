@@ -1509,6 +1509,13 @@ argument_list|,
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"index"
+argument_list|,
+literal|"test"
+argument_list|)
+expr_stmt|;
 comment|// introduce the doc
 name|XContentBuilder
 name|doc
@@ -1641,6 +1648,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|refresh
+argument_list|()
+expr_stmt|;
 name|response
 operator|=
 name|client
@@ -1755,6 +1765,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|refresh
+argument_list|()
+expr_stmt|;
 name|response
 operator|=
 name|client
@@ -1842,6 +1855,9 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|refresh
 argument_list|()
 expr_stmt|;
 name|response
@@ -1978,6 +1994,9 @@ name|execute
 argument_list|()
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|refresh
 argument_list|()
 expr_stmt|;
 name|response
