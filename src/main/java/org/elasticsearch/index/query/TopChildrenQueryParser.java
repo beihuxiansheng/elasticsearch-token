@@ -108,6 +108,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|query
+operator|.
+name|support
+operator|.
+name|XContentStructure
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|fielddata
 operator|.
 name|plain
@@ -310,11 +326,6 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|Query
-name|innerQuery
-init|=
-literal|null
-decl_stmt|;
 name|boolean
 name|queryFound
 init|=
@@ -361,6 +372,13 @@ name|XContentParser
 operator|.
 name|Token
 name|token
+decl_stmt|;
+name|XContentStructure
+operator|.
+name|InnerQuery
+name|iq
+init|=
+literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -411,6 +429,10 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+comment|// Usually, the query would be parsed here, but the child
+comment|// type may not have been extracted yet, so use the
+comment|// XContentStructure.<type> facade to parse if available,
+comment|// or delay parsing if not.
 if|if
 condition|(
 literal|"query"
@@ -421,20 +443,15 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|queryFound
+name|iq
 operator|=
-literal|true
-expr_stmt|;
-comment|// TODO we need to set the type, but, `query` can come before `type`... (see HasChildFilterParser)
-comment|// since we switch types, make sure we change the context
-name|String
-index|[]
-name|origTypes
-init|=
-name|QueryParseContext
+operator|new
+name|XContentStructure
 operator|.
-name|setTypesWithPrevious
+name|InnerQuery
 argument_list|(
+name|parseContext
+argument_list|,
 name|childType
 operator|==
 literal|null
@@ -448,27 +465,11 @@ block|{
 name|childType
 block|}
 argument_list|)
-decl_stmt|;
-try|try
-block|{
-name|innerQuery
+expr_stmt|;
+name|queryFound
 operator|=
-name|parseContext
-operator|.
-name|parseInnerQuery
-argument_list|()
+literal|true
 expr_stmt|;
-block|}
-finally|finally
-block|{
-name|QueryParseContext
-operator|.
-name|setTypes
-argument_list|(
-name|origTypes
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -739,6 +740,16 @@ literal|"[top_children] requires 'type' field"
 argument_list|)
 throw|;
 block|}
+name|Query
+name|innerQuery
+init|=
+name|iq
+operator|.
+name|asQuery
+argument_list|(
+name|childType
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|innerQuery
