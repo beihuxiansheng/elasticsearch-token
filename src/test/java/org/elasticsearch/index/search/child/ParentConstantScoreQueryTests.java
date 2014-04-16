@@ -704,9 +704,9 @@ name|numUniqueParentValues
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|1
+literal|100
 argument_list|,
-literal|1000
+literal|2000
 argument_list|)
 decl_stmt|;
 name|String
@@ -759,7 +759,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|1
 argument_list|,
-literal|2000
+name|numUniqueParentValues
 argument_list|)
 decl_stmt|;
 name|ObjectObjectOpenHashMap
