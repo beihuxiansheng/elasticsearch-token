@@ -2457,6 +2457,18 @@ block|}
 block|}
 block|}
 block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed shard {} not found in routingNodes, ignoring it"
+argument_list|,
+name|failedShard
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|dirty
 return|;
@@ -2683,6 +2695,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed shard {} not found in routingNodes, ignoring it"
+argument_list|,
+name|failedShard
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|dirty
@@ -2934,6 +2958,22 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+block|}
+if|if
+condition|(
+operator|!
+name|dirty
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed shard {} not found in routingNodes, ignoring it"
+argument_list|,
+name|failedShard
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|dirty
