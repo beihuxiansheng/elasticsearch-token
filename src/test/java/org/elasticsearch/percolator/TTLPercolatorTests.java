@@ -120,6 +120,32 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|AlreadyExpiredException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -137,6 +163,16 @@ operator|.
 name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
 import|;
 end_import
 
@@ -1073,13 +1109,6 @@ name|IOException
 throws|,
 name|InterruptedException
 block|{
-specifier|final
-name|Client
-name|client
-init|=
-name|client
-argument_list|()
-decl_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
@@ -1156,6 +1185,7 @@ name|string
 argument_list|()
 decl_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1246,14 +1276,17 @@ control|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"index: "
-operator|+
+literal|"index doc {} "
+argument_list|,
 name|i
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
+argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
@@ -1305,7 +1338,7 @@ name|setTTL
 argument_list|(
 name|randomIntBetween
 argument_list|(
-literal|10
+literal|1
 argument_list|,
 literal|500
 argument_list|)
@@ -1317,6 +1350,44 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MapperParsingException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"failed indexing {}"
+argument_list|,
+name|i
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+comment|// if we are unlucky the TTL is so small that we see the expiry date is already in the past when
+comment|// we parse the doc ignore those...
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|Matchers
+operator|.
+name|instanceOf
+argument_list|(
+name|AlreadyExpiredException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|refresh
 argument_list|()
@@ -1346,6 +1417,7 @@ name|IndicesStatsResponse
 name|indicesStatsResponse
 init|=
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
@@ -1371,7 +1443,7 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"delete count [{}]"
 argument_list|,
@@ -1449,6 +1521,7 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 name|client
+argument_list|()
 operator|.
 name|admin
 argument_list|()
