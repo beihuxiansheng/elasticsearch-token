@@ -715,6 +715,12 @@ argument_list|()
 argument_list|,
 name|getNumericType
 argument_list|()
+argument_list|,
+name|getFieldNames
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -2255,6 +2261,12 @@ specifier|final
 name|NumericType
 name|type
 decl_stmt|;
+DECL|field|fieldName
+specifier|private
+specifier|final
+name|String
+name|fieldName
+decl_stmt|;
 DECL|method|PackedArrayEstimator
 specifier|public
 name|PackedArrayEstimator
@@ -2264,6 +2276,9 @@ name|breaker
 parameter_list|,
 name|NumericType
 name|type
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 block|{
 name|this
@@ -2277,6 +2292,12 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|fieldName
+operator|=
+name|fieldName
 expr_stmt|;
 block|}
 comment|/**          * @return number of bytes per term, based on the NumericValue.requiredBits()          */
@@ -2342,6 +2363,10 @@ argument_list|,
 name|breaker
 argument_list|,
 name|this
+argument_list|,
+name|this
+operator|.
+name|fieldName
 argument_list|)
 return|;
 block|}

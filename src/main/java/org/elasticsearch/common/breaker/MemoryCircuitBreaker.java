@@ -265,7 +265,10 @@ DECL|method|circuitBreak
 specifier|public
 name|void
 name|circuitBreak
-parameter_list|()
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
 throws|throws
 name|CircuitBreakingException
 block|{
@@ -273,11 +276,23 @@ throw|throw
 operator|new
 name|CircuitBreakingException
 argument_list|(
-literal|"Data too large, data would be larger than limit of ["
+literal|"Data too large, data for field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] would be larger than limit of ["
 operator|+
 name|memoryBytesLimit
 operator|+
-literal|"] bytes"
+literal|"/"
+operator|+
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|memoryBytesLimit
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -289,6 +304,9 @@ name|addEstimateBytesAndMaybeBreak
 parameter_list|(
 name|long
 name|bytes
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 throws|throws
 name|CircuitBreakingException
@@ -302,7 +320,9 @@ literal|0
 condition|)
 block|{
 name|circuitBreak
-argument_list|()
+argument_list|(
+name|fieldName
+argument_list|)
 expr_stmt|;
 block|}
 name|long
@@ -344,13 +364,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adding [{}] to used bytes [new used: [{}], limit: [-1b]]"
+literal|"Adding [{}][{}] to used bytes [new used: [{}], limit: [-1b]]"
 argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)
+argument_list|,
+name|fieldName
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -411,13 +433,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adding [{}] to used bytes [new used: [{}], limit: {} [{}], estimate: {} [{}]]"
+literal|"Adding [{}][{}] to used bytes [new used: [{}], limit: {} [{}], estimate: {} [{}]]"
 argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)
+argument_list|,
+name|fieldName
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -458,7 +482,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"New used memory {} [{}] would be larger than configured breaker: {} [{}], breaking"
+literal|"New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
 argument_list|,
 name|newUsedWithOverhead
 argument_list|,
@@ -467,6 +491,8 @@ name|ByteSizeValue
 argument_list|(
 name|newUsedWithOverhead
 argument_list|)
+argument_list|,
+name|fieldName
 argument_list|,
 name|memoryBytesLimit
 argument_list|,
@@ -478,7 +504,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|circuitBreak
-argument_list|()
+argument_list|(
+name|fieldName
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Attempt to set the new used value, but make sure it hasn't changed

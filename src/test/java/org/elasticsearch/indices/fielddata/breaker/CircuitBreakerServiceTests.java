@@ -507,7 +507,7 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Data too large, data would be larger than limit of [100] bytes"
+literal|"Data too large, data for field [test] would be larger than limit of [100/100b]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -829,7 +829,7 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Data too large, data would be larger than limit of [100] bytes"
+literal|"Data too large, data for field [test] would be larger than limit of [100/100b]"
 argument_list|)
 argument_list|)
 expr_stmt|;
