@@ -2293,11 +2293,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:TRACE"
-argument_list|)
 DECL|method|testTimeoutSendExceptionWithDelayedResponse
 specifier|public
 name|void
@@ -2444,6 +2439,16 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
 name|TransportFuture
 argument_list|<
 name|StringMessageResponse
@@ -2517,6 +2522,11 @@ name|StringMessageResponse
 name|response
 parameter_list|)
 block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"got response instead of exception"
@@ -2540,6 +2550,11 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|exp
@@ -2598,13 +2613,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// sleep for 400 millis to make sure we get back the response
-name|Thread
+name|latch
 operator|.
-name|sleep
-argument_list|(
-literal|400
-argument_list|)
+name|await
+argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -2651,7 +2663,7 @@ argument_list|()
 operator|.
 name|withTimeout
 argument_list|(
-literal|100
+literal|300
 argument_list|)
 argument_list|,
 operator|new
