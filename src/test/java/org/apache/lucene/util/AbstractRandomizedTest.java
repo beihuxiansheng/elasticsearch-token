@@ -650,6 +650,13 @@ block|,
 literal|"java.rmi.server.randomIDs"
 block|,
 literal|"sun.nio.ch.bugLevel"
+block|,
+literal|"solr.directoryFactory"
+block|,
+literal|"solr.solr.home"
+block|,
+literal|"solr.data.dir"
+comment|// these might be set by the LuceneTestCase -- ignore
 block|}
 decl_stmt|;
 comment|// -----------------------------------------------------------------
