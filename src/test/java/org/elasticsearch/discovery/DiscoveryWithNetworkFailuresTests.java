@@ -32,20 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -172,6 +158,22 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|transport
 operator|.
 name|MockTransportService
@@ -218,7 +220,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
+name|List
 import|;
 end_import
 
@@ -228,7 +230,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -284,7 +288,7 @@ name|scope
 operator|=
 name|Scope
 operator|.
-name|SUITE
+name|TEST
 argument_list|,
 name|numDataNodes
 operator|=
@@ -300,13 +304,9 @@ block|{
 annotation|@
 name|Test
 annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
+name|TestLogging
 argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/issues/2488"
+literal|"discovery.zen:TRACE"
 argument_list|)
 DECL|method|failWithMinimumMasterNodesConfigured
 specifier|public
@@ -327,10 +327,11 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.minimum_master_nodes"
+literal|"discovery.type"
 argument_list|,
-literal|2
+literal|"zen"
 argument_list|)
+comment|//<-- To override the local setting if set externally
 operator|.
 name|put
 argument_list|(
@@ -339,6 +340,13 @@ argument_list|,
 literal|"1s"
 argument_list|)
 comment|//<-- for hitting simulated network failures quickly
+operator|.
+name|put
+argument_list|(
+literal|"discovery.zen.minimum_master_nodes"
+argument_list|,
+literal|2
+argument_list|)
 operator|.
 name|put
 argument_list|(
@@ -352,6 +360,13 @@ name|class
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"discovery.zen.rejoin_on_master_gone"
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|build
@@ -377,28 +392,6 @@ name|get
 argument_list|()
 decl_stmt|;
 comment|// Wait until a green status has been reaches and 3 nodes are part of the cluster
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|nodesList
-init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|nodes
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|String
-index|[
-literal|3
-index|]
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|ClusterHealthResponse
 name|clusterHealthResponse
 init|=
@@ -453,7 +446,7 @@ control|(
 name|String
 name|node
 range|:
-name|nodesList
+name|nodes
 control|)
 block|{
 name|ClusterState
@@ -580,7 +573,7 @@ control|(
 name|String
 name|node
 range|:
-name|nodesList
+name|nodes
 control|)
 block|{
 if|if
@@ -632,6 +625,9 @@ expr_stmt|;
 try|try
 block|{
 comment|// Wait until elected master has removed that the unlucky node...
+name|boolean
+name|applied
+init|=
 name|awaitBusy
 argument_list|(
 operator|new
@@ -684,6 +680,22 @@ literal|2
 return|;
 block|}
 block|}
+argument_list|,
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|MINUTES
+argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|applied
+argument_list|,
+name|is
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// The unlucky node must report *no* master node, since it can't connect to master and in fact it should
@@ -816,7 +828,7 @@ control|(
 name|String
 name|node
 range|:
-name|nodesList
+name|nodes
 control|)
 block|{
 name|ClusterState
