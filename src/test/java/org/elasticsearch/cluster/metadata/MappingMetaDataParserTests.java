@@ -307,8 +307,10 @@ operator|.
 name|routing
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|"routing_value"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -320,7 +322,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1020,8 +1022,10 @@ operator|.
 name|routing
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|"routing_value"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1033,7 +1037,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1691,8 +1695,10 @@ operator|.
 name|routing
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|"routing_value"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1704,7 +1710,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2200,8 +2206,10 @@ operator|.
 name|routing
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|"routing_value"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -2213,7 +2221,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

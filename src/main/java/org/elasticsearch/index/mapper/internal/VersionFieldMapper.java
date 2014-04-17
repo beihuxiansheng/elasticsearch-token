@@ -813,19 +813,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
-block|{     }
-annotation|@
-name|Override
 DECL|method|includeInObject
 specifier|public
 name|boolean
