@@ -549,6 +549,20 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+comment|/** fail engine due to some error. the engine will also be closed. */
+DECL|method|failEngine
+name|void
+name|failEngine
+parameter_list|(
+name|String
+name|reason
+parameter_list|,
+annotation|@
+name|Nullable
+name|Throwable
+name|failure
+parameter_list|)
+function_decl|;
 DECL|interface|FailedEngineListener
 specifier|static
 interface|interface
@@ -561,6 +575,11 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
+name|String
+name|reason
+parameter_list|,
+annotation|@
+name|Nullable
 name|Throwable
 name|t
 parameter_list|)

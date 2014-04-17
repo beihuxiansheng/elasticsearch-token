@@ -2816,6 +2816,8 @@ condition|)
 block|{
 name|failEngine
 argument_list|(
+literal|"out of memory"
+argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
@@ -4600,6 +4602,8 @@ argument_list|)
 expr_stmt|;
 name|failEngine
 argument_list|(
+literal|"failed to access searcher manager"
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -4766,6 +4770,8 @@ parameter_list|)
 block|{
 name|failEngine
 argument_list|(
+literal|"refresh failed"
+argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
@@ -5482,7 +5488,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns the current index writer. This method will never return<code>null</code>      * @throws EngineClosedException if the engine is already closed      */
+comment|/**      * Returns the current index writer. This method will never return<code>null</code>      *      * @throws EngineClosedException if the engine is already closed      */
 DECL|method|currentIndexWriter
 specifier|private
 name|IndexWriter
@@ -7253,16 +7259,25 @@ parameter_list|)
 block|{
 name|failEngine
 argument_list|(
+literal|"merge exception"
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|failEngine
-specifier|private
+specifier|public
 name|void
 name|failEngine
 parameter_list|(
+name|String
+name|reason
+parameter_list|,
+annotation|@
+name|Nullable
 name|Throwable
 name|failure
 parameter_list|)
@@ -7291,6 +7306,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"tried to fail engine but engine is already failed. ignoring. [{}]"
+argument_list|,
+name|reason
+argument_list|,
+name|failure
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 try|try
@@ -7299,15 +7325,40 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed engine"
+literal|"failed engine [{}]"
+argument_list|,
+name|reason
 argument_list|,
 name|failure
 argument_list|)
 expr_stmt|;
+comment|// we must set a failure exception, generate one if not supplied
+if|if
+condition|(
+name|failure
+operator|==
+literal|null
+condition|)
+block|{
+name|failedEngine
+operator|=
+operator|new
+name|EngineException
+argument_list|(
+name|shardId
+argument_list|()
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|failedEngine
 operator|=
 name|failure
 expr_stmt|;
+block|}
 for|for
 control|(
 name|FailedEngineListener
@@ -7321,6 +7372,8 @@ operator|.
 name|onFailedEngine
 argument_list|(
 name|shardId
+argument_list|,
+name|reason
 argument_list|,
 name|failure
 argument_list|)
@@ -7341,7 +7394,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Tried to fail engine but could not acquire lock - engine should be failed by now"
+literal|"tried to fail engine but could not acquire lock - engine should be failed by now [{}]"
+argument_list|,
+name|reason
 argument_list|,
 name|failure
 argument_list|)
@@ -7822,6 +7877,7 @@ name|warmer
 operator|!=
 literal|null
 condition|)
+block|{
 name|warmer
 operator|.
 name|warm
@@ -7829,6 +7885,7 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(

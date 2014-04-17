@@ -264,6 +264,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|Tuple
@@ -5316,6 +5328,12 @@ name|ShardId
 name|shardId
 parameter_list|,
 specifier|final
+name|String
+name|reason
+parameter_list|,
+specifier|final
+annotation|@
+name|Nullable
 name|Throwable
 name|failure
 parameter_list|)
@@ -5389,7 +5407,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}][{}] engine failed, but can't find index shard"
+literal|"[{}][{}] engine failed, but can't find index shard. failure reason: [{}]"
 argument_list|,
 name|shardId
 operator|.
@@ -5403,6 +5421,8 @@ name|shardId
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 return|return;
@@ -5423,6 +5443,33 @@ name|indexUUID
 argument_list|()
 decl_stmt|;
 comment|// we know indexService is not null here.
+specifier|final
+name|String
+name|failureMessage
+init|=
+literal|"engine failure, message ["
+operator|+
+name|reason
+operator|+
+literal|"]"
+operator|+
+operator|(
+name|failure
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+literal|"["
+operator|+
+name|detailedMessage
+argument_list|(
+name|failure
+argument_list|)
+operator|+
+literal|"]"
+operator|)
+decl_stmt|;
 name|threadPool
 operator|.
 name|generic
@@ -5470,16 +5517,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"engine failure ["
-operator|+
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
-name|failure
-argument_list|)
-operator|+
-literal|"]"
+name|failureMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -5501,7 +5539,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}][{}] failed to delete shard after failed engine"
+literal|"[{}][{}] failed to delete shard after failed engine ([{}])"
 argument_list|,
 name|e1
 argument_list|,
@@ -5517,6 +5555,8 @@ name|shardId
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
@@ -5550,14 +5590,7 @@ name|fShardRouting
 argument_list|,
 name|indexUUID
 argument_list|,
-literal|"engine failure, message ["
-operator|+
-name|detailedMessage
-argument_list|(
-name|failure
-argument_list|)
-operator|+
-literal|"]"
+name|failureMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -5571,7 +5604,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}][{}] failed to mark shard as failed after a failed engine"
+literal|"[{}][{}] failed to mark shard as failed after a failed engine ([{}])"
 argument_list|,
 name|e1
 argument_list|,
@@ -5587,6 +5620,8 @@ name|shardId
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 block|}
