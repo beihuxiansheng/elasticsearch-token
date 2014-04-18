@@ -377,7 +377,12 @@ specifier|final
 name|int
 name|numOfShards
 init|=
+name|randomIntBetween
+argument_list|(
+literal|1
+argument_list|,
 literal|5
+argument_list|)
 decl_stmt|;
 comment|// some settings to keep num segments low
 name|assertAcked
@@ -401,6 +406,15 @@ operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 name|numOfShards
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_REPLICAS
+argument_list|,
+literal|0
 argument_list|)
 operator|.
 name|put
@@ -651,6 +665,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|long
+name|upperNumberSegments
+init|=
+literal|2
+operator|*
+name|numOfShards
+operator|*
+literal|10
+decl_stmt|;
 name|awaitBusy
 argument_list|(
 operator|new
@@ -771,7 +795,7 @@ decl_stmt|;
 return|return
 name|count
 operator|<
-literal|50
+name|upperNumberSegments
 operator|&&
 name|current
 operator|==
@@ -873,7 +897,7 @@ name|Matchers
 operator|.
 name|lessThanOrEqualTo
 argument_list|(
-literal|50l
+name|upperNumberSegments
 argument_list|)
 argument_list|)
 expr_stmt|;
