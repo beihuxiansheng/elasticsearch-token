@@ -53,12 +53,6 @@ name|boolean
 name|isMultiValued
 parameter_list|()
 function_decl|;
-comment|/**      * The number of docs in this field data.      */
-DECL|method|getNumDocs
-name|int
-name|getNumDocs
-parameter_list|()
-function_decl|;
 comment|/**      * An upper limit of the number of unique values in this atomic field data.      */
 DECL|method|getNumberUniqueValues
 name|long
