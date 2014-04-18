@@ -3841,7 +3841,7 @@ return|;
 block|}
 DECL|method|freeContext
 specifier|public
-name|void
+name|boolean
 name|freeContext
 parameter_list|(
 name|long
@@ -3865,7 +3865,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 name|context
 operator|.
@@ -3885,6 +3887,9 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|freeContext
 specifier|private
