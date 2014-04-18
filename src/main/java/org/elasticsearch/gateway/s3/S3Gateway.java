@@ -301,6 +301,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|clusterService
+argument_list|,
+name|clusterName
 argument_list|)
 expr_stmt|;
 name|String
