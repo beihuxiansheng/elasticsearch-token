@@ -730,13 +730,11 @@ name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
+comment|// this does include the [] from the array in the impl name
 name|String
 name|implName
 init|=
 name|segmentOrdToGlobalOrdLookups
-index|[
-literal|0
-index|]
 operator|.
 name|getClass
 argument_list|()
@@ -1359,6 +1357,28 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|segmentOrdToGlobalOrdDelta
+operator|.
+name|size
+argument_list|()
+operator|==
+name|maxOrd
+condition|)
+block|{
+comment|// This means that a segment contains all the value and in that case segment ordinals
+comment|// can be used as global ordinals. This will save an extra lookup per hit.
+name|sources
+index|[
+name|i
+index|]
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
 name|long
 name|ramUsed
 init|=
@@ -1386,6 +1406,7 @@ name|memorySizeInBytesCounter
 operator|+=
 name|ramUsed
 expr_stmt|;
+block|}
 block|}
 return|return
 name|sources
@@ -1430,6 +1451,27 @@ index|[
 name|i
 index|]
 decl_stmt|;
+if|if
+condition|(
+name|segmentOrdToGlobalOrdLookup
+operator|.
+name|size
+argument_list|()
+operator|==
+name|maxOrd
+condition|)
+block|{
+comment|// idem as above
+name|sources
+index|[
+name|i
+index|]
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
 name|segmentOrdToGlobalOrdLookup
 operator|.
 name|freeze
@@ -1462,6 +1504,7 @@ name|memorySizeInBytesCounter
 operator|+=
 name|ramUsed
 expr_stmt|;
+block|}
 block|}
 return|return
 name|sources

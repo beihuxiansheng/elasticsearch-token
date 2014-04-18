@@ -418,6 +418,14 @@ operator|.
 name|ordinals
 argument_list|()
 expr_stmt|;
+name|initializeDocCounts
+argument_list|(
+name|globalOrdinals
+operator|.
+name|getMaxOrd
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -470,7 +478,7 @@ operator|.
 name|nextOrd
 argument_list|()
 decl_stmt|;
-name|collectBucket
+name|collectExistingBucket
 argument_list|(
 name|doc
 argument_list|,
