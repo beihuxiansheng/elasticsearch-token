@@ -2434,7 +2434,17 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"index {}"
+literal|"index [{}][{}]{}"
+argument_list|,
+name|create
+operator|.
+name|type
+argument_list|()
+argument_list|,
+name|create
+operator|.
+name|id
+argument_list|()
 argument_list|,
 name|create
 operator|.
@@ -2599,7 +2609,17 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"index {}"
+literal|"index [{}][{}]{}"
+argument_list|,
+name|index
+operator|.
+name|type
+argument_list|()
+argument_list|,
+name|index
+operator|.
+name|id
+argument_list|()
 argument_list|,
 name|index
 operator|.
