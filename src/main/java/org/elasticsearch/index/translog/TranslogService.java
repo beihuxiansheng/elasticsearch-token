@@ -422,7 +422,9 @@ name|getAsInt
 argument_list|(
 literal|"flush_threshold"
 argument_list|,
-literal|5000
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 argument_list|)
 expr_stmt|;
