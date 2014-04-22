@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ImmutableTestCluster
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -215,7 +215,7 @@ name|settings
 operator|.
 name|getAsLong
 argument_list|(
-name|ImmutableTestCluster
+name|ElasticsearchIntegrationTest
 operator|.
 name|SETTING_INDEX_SEED
 argument_list|,
