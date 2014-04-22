@@ -414,27 +414,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Initializes the docCounts to the specified size.      */
-DECL|method|initializeDocCounts
+DECL|method|getDocCounts
 specifier|public
-name|void
-name|initializeDocCounts
-parameter_list|(
-name|long
-name|maxOrd
-parameter_list|)
+name|LongArray
+name|getDocCounts
+parameter_list|()
 block|{
+return|return
 name|docCounts
-operator|=
-name|bigArrays
-operator|.
-name|grow
-argument_list|(
-name|docCounts
-argument_list|,
-name|maxOrd
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 comment|/**      * Utility method to collect the given doc in the given bucket but not to update the doc counts of the bucket      */
 DECL|method|collectBucketNoCounts
@@ -490,7 +478,7 @@ specifier|final
 name|void
 name|incrementBucketDocCount
 parameter_list|(
-name|int
+name|long
 name|inc
 parameter_list|,
 name|long

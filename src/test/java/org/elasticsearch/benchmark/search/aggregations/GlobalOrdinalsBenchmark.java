@@ -1365,7 +1365,7 @@ name|name
 argument_list|,
 name|fieldName
 argument_list|,
-literal|"global_ordinals"
+literal|"global_ordinals_low_cardinality"
 argument_list|)
 argument_list|)
 expr_stmt|;

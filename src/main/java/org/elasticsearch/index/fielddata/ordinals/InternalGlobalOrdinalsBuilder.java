@@ -804,7 +804,7 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|class|GlobalOrdinalMapping
-specifier|private
+specifier|public
 specifier|static
 specifier|abstract
 class|class
@@ -1015,7 +1015,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getGlobalOrd
-specifier|protected
+specifier|public
 specifier|abstract
 name|long
 name|getGlobalOrd
@@ -1658,7 +1658,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getGlobalOrd
-specifier|protected
+specifier|public
 name|long
 name|getGlobalOrd
 parameter_list|(
@@ -1829,7 +1829,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getGlobalOrd
-specifier|protected
+specifier|public
 name|long
 name|getGlobalOrd
 parameter_list|(
