@@ -232,6 +232,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|cluster
+argument_list|()
+operator|.
+name|wipeTemplates
+argument_list|()
+expr_stmt|;
+comment|// no random settings please
 name|createIndexWithStoreType
 argument_list|(
 literal|"test"
@@ -348,7 +355,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|", type=MERGE, rate=20.0)])"
+literal|", type=MERGE, rate=50.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -465,7 +472,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|", type=MERGE, rate=20.0)])"
+literal|", type=MERGE, rate=50.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -582,7 +589,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|", type=MERGE, rate=20.0)])"
+literal|", type=MERGE, rate=50.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -699,7 +706,7 @@ name|storeString
 argument_list|,
 name|endsWith
 argument_list|(
-literal|", type=MERGE, rate=20.0)])"
+literal|", type=MERGE, rate=50.0)])"
 argument_list|)
 argument_list|)
 expr_stmt|;
