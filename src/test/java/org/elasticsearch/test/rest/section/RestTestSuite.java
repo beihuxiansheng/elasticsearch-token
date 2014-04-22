@@ -103,7 +103,7 @@ name|testSections
 init|=
 name|Sets
 operator|.
-name|newHashSet
+name|newTreeSet
 argument_list|()
 decl_stmt|;
 DECL|method|RestTestSuite
