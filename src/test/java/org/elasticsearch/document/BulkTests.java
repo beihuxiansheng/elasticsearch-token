@@ -304,7 +304,19 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|*
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CyclicBarrier
 import|;
 end_import
 
@@ -2389,11 +2401,6 @@ argument_list|,
 literal|"e1"
 argument_list|)
 operator|.
-name|setVersion
-argument_list|(
-literal|4l
-argument_list|)
-operator|.
 name|setDoc
 argument_list|(
 literal|"field"
@@ -2405,14 +2412,8 @@ name|setVersion
 argument_list|(
 literal|10
 argument_list|)
-operator|.
-name|setVersionType
-argument_list|(
-name|VersionType
-operator|.
-name|EXTERNAL
 argument_list|)
-argument_list|)
+comment|// INTERNAL
 operator|.
 name|add
 argument_list|(
@@ -2425,26 +2426,26 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"e2"
+literal|"e1"
 argument_list|)
 operator|.
 name|setDoc
 argument_list|(
 literal|"field"
 argument_list|,
-literal|"2"
+literal|"3"
 argument_list|)
 operator|.
 name|setVersion
 argument_list|(
-literal|15
+literal|20
 argument_list|)
 operator|.
 name|setVersionType
 argument_list|(
 name|VersionType
 operator|.
-name|EXTERNAL
+name|FORCE
 argument_list|)
 argument_list|)
 operator|.
@@ -2462,11 +2463,6 @@ argument_list|,
 literal|"e1"
 argument_list|)
 operator|.
-name|setVersion
-argument_list|(
-literal|2l
-argument_list|)
-operator|.
 name|setDoc
 argument_list|(
 literal|"field"
@@ -2476,14 +2472,14 @@ argument_list|)
 operator|.
 name|setVersion
 argument_list|(
-literal|15
+literal|20
 argument_list|)
 operator|.
 name|setVersionType
 argument_list|(
 name|VersionType
 operator|.
-name|EXTERNAL
+name|INTERNAL
 argument_list|)
 argument_list|)
 operator|.
@@ -2532,7 +2528,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|15l
+literal|20l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2559,7 +2555,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|15l
+literal|21l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5650,9 +5646,11 @@ operator|.
 name|hasFailures
 argument_list|()
 condition|)
+block|{
 name|successes
 operator|++
 expr_stmt|;
+block|}
 block|}
 name|assertThat
 argument_list|(
@@ -6307,7 +6305,7 @@ parameter_list|,
 name|BulkRequest
 name|request
 parameter_list|)
-block|{}
+block|{             }
 annotation|@
 name|Override
 specifier|public
@@ -6831,7 +6829,7 @@ parameter_list|,
 name|BulkRequest
 name|request
 parameter_list|)
-block|{}
+block|{             }
 annotation|@
 name|Override
 specifier|public

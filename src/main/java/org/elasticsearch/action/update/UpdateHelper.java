@@ -868,6 +868,16 @@ operator|.
 name|INTERNAL
 condition|)
 block|{
+assert|assert
+name|request
+operator|.
+name|versionType
+argument_list|()
+operator|==
+name|VersionType
+operator|.
+name|FORCE
+assert|;
 name|updateVersion
 operator|=
 name|request

@@ -512,6 +512,40 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+operator|(
+name|versionType
+operator|==
+name|VersionType
+operator|.
+name|INTERNAL
+operator|||
+name|versionType
+operator|==
+name|VersionType
+operator|.
+name|FORCE
+operator|)
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"version type ["
+operator|+
+name|versionType
+operator|+
+literal|"] is not supported by the update API"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
 name|version
 operator|!=
 name|Versions
@@ -538,7 +572,7 @@ condition|(
 operator|!
 name|versionType
 operator|.
-name|validateVersion
+name|validateVersionForWrites
 argument_list|(
 name|version
 argument_list|)
@@ -564,6 +598,7 @@ argument_list|,
 name|validationException
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

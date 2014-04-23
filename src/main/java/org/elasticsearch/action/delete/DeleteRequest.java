@@ -353,7 +353,7 @@ condition|(
 operator|!
 name|versionType
 operator|.
-name|validateVersion
+name|validateVersionForWrites
 argument_list|(
 name|version
 argument_list|)

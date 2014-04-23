@@ -1273,7 +1273,7 @@ operator|.
 name|versionType
 argument_list|()
 operator|.
-name|validateVersion
+name|validateVersionForWrites
 argument_list|(
 name|request
 operator|.
