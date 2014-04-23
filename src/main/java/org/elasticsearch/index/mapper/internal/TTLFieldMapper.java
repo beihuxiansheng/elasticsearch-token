@@ -536,6 +536,10 @@ name|Defaults
 operator|.
 name|TTL_FIELD_TYPE
 argument_list|)
+argument_list|,
+name|Defaults
+operator|.
+name|PRECISION_STEP_64_BIT
 argument_list|)
 expr_stmt|;
 block|}
@@ -915,7 +919,7 @@ argument_list|)
 argument_list|,
 name|Defaults
 operator|.
-name|PRECISION_STEP
+name|PRECISION_STEP_64_BIT
 argument_list|,
 name|Defaults
 operator|.

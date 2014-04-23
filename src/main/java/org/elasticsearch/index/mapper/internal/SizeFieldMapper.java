@@ -398,6 +398,10 @@ name|Defaults
 operator|.
 name|SIZE_FIELD_TYPE
 argument_list|)
+argument_list|,
+name|Defaults
+operator|.
+name|PRECISION_STEP_32_BIT
 argument_list|)
 expr_stmt|;
 name|builder
@@ -675,7 +679,7 @@ argument_list|)
 argument_list|,
 name|Defaults
 operator|.
-name|PRECISION_STEP
+name|PRECISION_STEP_32_BIT
 argument_list|,
 name|Defaults
 operator|.
