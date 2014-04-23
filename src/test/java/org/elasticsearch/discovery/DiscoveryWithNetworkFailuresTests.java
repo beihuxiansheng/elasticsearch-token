@@ -362,13 +362,6 @@ name|getName
 argument_list|()
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"discovery.zen.rejoin_on_master_gone"
-argument_list|,
-literal|true
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
