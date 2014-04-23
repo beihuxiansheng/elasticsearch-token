@@ -403,6 +403,15 @@ argument_list|,
 name|ShardDeleteByQueryResponse
 argument_list|>
 block|{
+DECL|field|DELETE_BY_QUERY_API
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|DELETE_BY_QUERY_API
+init|=
+literal|"delete_by_query"
+decl_stmt|;
 DECL|field|scriptService
 specifier|private
 specifier|final
@@ -739,7 +748,7 @@ name|indexShard
 operator|.
 name|acquireSearcher
 argument_list|(
-literal|"delete_by_query"
+name|DELETE_BY_QUERY_API
 argument_list|)
 argument_list|,
 name|indexService
@@ -943,7 +952,7 @@ name|indexShard
 operator|.
 name|acquireSearcher
 argument_list|(
-literal|"delete_by_query"
+name|DELETE_BY_QUERY_API
 argument_list|,
 name|IndexShard
 operator|.

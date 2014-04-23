@@ -994,7 +994,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[twitter] [has_child] No mapping for for type [type]"
+literal|"[twitter] [has_child] unsupported in delete_by_query api"
 argument_list|)
 argument_list|)
 expr_stmt|;
