@@ -360,6 +360,8 @@ argument_list|(
 name|getRandom
 argument_list|()
 argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|cluster2
@@ -374,7 +376,7 @@ argument_list|)
 expr_stmt|;
 name|cluster2
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2255,7 +2257,7 @@ argument_list|)
 expr_stmt|;
 name|cluster2
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 name|awaitSameNodeCounts

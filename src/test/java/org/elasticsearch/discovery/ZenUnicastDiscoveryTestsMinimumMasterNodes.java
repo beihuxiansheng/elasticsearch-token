@@ -180,7 +180,7 @@ name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)

@@ -364,7 +364,7 @@ return|return
 name|immutableCluster
 argument_list|()
 operator|.
-name|size
+name|numDataNodes
 argument_list|()
 return|;
 block|}
@@ -659,7 +659,7 @@ argument_list|(
 name|immutableCluster
 argument_list|()
 operator|.
-name|dataNodes
+name|numDataNodes
 argument_list|()
 argument_list|,
 name|DEFAULT_MAX_NUM_SHARDS

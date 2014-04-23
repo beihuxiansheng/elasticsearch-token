@@ -156,6 +156,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -186,13 +200,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|SUITE
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|1
 argument_list|)
@@ -289,10 +301,7 @@ DECL|method|httpClient
 specifier|public
 name|HttpClient
 name|httpClient
-parameter_list|(
-name|String
-name|id
-parameter_list|)
+parameter_list|()
 block|{
 name|HttpServerTransport
 name|httpServerTransport
@@ -300,7 +309,7 @@ init|=
 name|cluster
 argument_list|()
 operator|.
-name|getInstance
+name|getDataNodeInstance
 argument_list|(
 name|HttpServerTransport
 operator|.
@@ -336,9 +345,7 @@ name|HttpClientResponse
 name|response
 init|=
 name|httpClient
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|request
 argument_list|(
@@ -380,9 +387,7 @@ comment|// We test the real URL
 name|response
 operator|=
 name|httpClient
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|request
 argument_list|(
@@ -436,9 +441,7 @@ name|HttpClientResponse
 name|response
 init|=
 name|httpClient
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|request
 argument_list|(
@@ -492,9 +495,7 @@ name|HttpClientResponse
 name|response
 init|=
 name|httpClient
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|request
 argument_list|(
@@ -535,9 +536,7 @@ expr_stmt|;
 name|response
 operator|=
 name|httpClient
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|request
 argument_list|(
@@ -565,9 +564,7 @@ expr_stmt|;
 name|response
 operator|=
 name|httpClient
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 operator|.
 name|request
 argument_list|(

@@ -1149,7 +1149,7 @@ block|{
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -1529,7 +1529,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -1711,7 +1711,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|1
 argument_list|)
@@ -1898,7 +1898,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2266,7 +2266,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2448,7 +2448,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|1
 argument_list|)

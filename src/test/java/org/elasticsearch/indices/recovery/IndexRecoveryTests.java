@@ -270,6 +270,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -312,13 +326,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)

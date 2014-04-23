@@ -506,7 +506,7 @@ name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|1
 argument_list|)
@@ -1548,7 +1548,7 @@ block|{
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -1556,7 +1556,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2060,7 +2060,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2068,7 +2068,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)

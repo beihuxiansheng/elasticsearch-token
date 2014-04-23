@@ -226,6 +226,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -240,13 +254,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -2632,7 +2644,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 name|logger

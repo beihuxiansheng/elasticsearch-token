@@ -214,6 +214,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -232,15 +246,17 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|SUITE
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|1
+argument_list|,
+name|numClientNodes
+operator|=
+literal|0
 argument_list|)
 DECL|class|CacheTests
 specifier|public

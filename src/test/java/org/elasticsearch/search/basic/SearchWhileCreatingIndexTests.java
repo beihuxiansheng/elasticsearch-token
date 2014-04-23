@@ -292,7 +292,7 @@ decl_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -663,7 +663,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 name|numberOfReplicas
 operator|+

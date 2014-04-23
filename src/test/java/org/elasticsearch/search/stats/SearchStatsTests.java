@@ -397,7 +397,7 @@ init|=
 name|immutableCluster
 argument_list|()
 operator|.
-name|dataNodes
+name|numDataNodes
 argument_list|()
 decl_stmt|;
 name|assertThat

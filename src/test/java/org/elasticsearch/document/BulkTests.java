@@ -4764,7 +4764,7 @@ decl_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|1
 operator|+

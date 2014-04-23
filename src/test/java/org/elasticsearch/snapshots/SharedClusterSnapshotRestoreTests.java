@@ -9764,7 +9764,7 @@ range|:
 name|cluster
 argument_list|()
 operator|.
-name|getInstances
+name|getDataNodeInstances
 argument_list|(
 name|RepositoriesService
 operator|.
