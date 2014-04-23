@@ -223,6 +223,22 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"EnableMergeScheduler("
+operator|+
+name|mergeScheduler
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 
