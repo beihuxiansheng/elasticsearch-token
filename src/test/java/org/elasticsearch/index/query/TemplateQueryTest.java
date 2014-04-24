@@ -106,6 +106,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -207,6 +235,34 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -431,6 +487,151 @@ argument_list|(
 name|sr
 argument_list|,
 literal|2
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testTemplateInBodyWithSize
+specifier|public
+name|void
+name|testTemplateInBodyWithSize
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|request
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"size\":0,"
+operator|+
+literal|"    \"query\": {\n"
+operator|+
+literal|"        \"template\": {\n"
+operator|+
+literal|"            \"query\": {\"match_{{template}}\": {}},\n"
+operator|+
+literal|"            \"params\" : {\n"
+operator|+
+literal|"                \"template\" : \"all\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+decl_stmt|;
+name|SearchResponse
+name|sr
+init|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setSource
+argument_list|(
+name|request
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|sr
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|sr
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|length
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|request
+operator|=
+literal|"{\n"
+operator|+
+literal|"    \"query\": {\n"
+operator|+
+literal|"        \"template\": {\n"
+operator|+
+literal|"            \"query\": {\"match_{{template}}\": {}},\n"
+operator|+
+literal|"            \"params\" : {\n"
+operator|+
+literal|"                \"template\" : \"all\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"    },\n"
+operator|+
+literal|"    \"size\":0"
+operator|+
+literal|"}"
+expr_stmt|;
+name|sr
+operator|=
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|()
+operator|.
+name|setSource
+argument_list|(
+name|request
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+name|assertNoFailures
+argument_list|(
+name|sr
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|sr
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|hits
+argument_list|()
+operator|.
+name|length
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -358,11 +358,6 @@ operator|.
 name|parseInnerQuery
 argument_list|()
 decl_stmt|;
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
 return|return
 name|result
 return|;
