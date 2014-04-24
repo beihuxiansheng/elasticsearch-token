@@ -261,11 +261,11 @@ specifier|final
 name|boolean
 name|multiValued
 decl_stmt|;
-DECL|field|numOrds
+DECL|field|maxOrd
 specifier|private
 specifier|final
 name|long
-name|numOrds
+name|maxOrd
 decl_stmt|;
 DECL|field|endOffsets
 specifier|private
@@ -299,11 +299,11 @@ argument_list|()
 operator|>
 literal|0
 expr_stmt|;
-name|numOrds
+name|maxOrd
 operator|=
 name|builder
 operator|.
-name|getNumOrds
+name|getMaxOrd
 argument_list|()
 expr_stmt|;
 name|endOffsets
@@ -412,8 +412,6 @@ name|offset
 operator|+
 name|j
 index|]
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,9 +496,7 @@ name|getMaxOrd
 parameter_list|()
 block|{
 return|return
-name|numOrds
-operator|+
-literal|1
+name|maxOrd
 return|;
 block|}
 annotation|@
@@ -541,12 +537,6 @@ specifier|private
 specifier|final
 name|AppendingPackedLongBuffer
 name|ords
-decl_stmt|;
-DECL|field|longsScratch
-specifier|private
-specifier|final
-name|LongsRef
-name|longsScratch
 decl_stmt|;
 DECL|field|offset
 specifier|private
@@ -590,16 +580,6 @@ operator|=
 name|ordinals
 operator|.
 name|ords
-expr_stmt|;
-name|this
-operator|.
-name|longsScratch
-operator|=
-operator|new
-name|LongsRef
-argument_list|(
-literal|16
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -653,7 +633,9 @@ block|{
 return|return
 name|currentOrd
 operator|=
-literal|0L
+name|Ordinals
+operator|.
+name|MISSING_ORDINAL
 return|;
 comment|// ord for missing values
 block|}
@@ -662,8 +644,6 @@ block|{
 return|return
 name|currentOrd
 operator|=
-literal|1L
-operator|+
 name|ords
 operator|.
 name|get
@@ -689,8 +669,6 @@ assert|;
 return|return
 name|currentOrd
 operator|=
-literal|1L
-operator|+
 name|ords
 operator|.
 name|get

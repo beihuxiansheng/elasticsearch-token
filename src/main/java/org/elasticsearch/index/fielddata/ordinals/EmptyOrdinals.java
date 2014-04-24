@@ -156,7 +156,9 @@ name|docId
 parameter_list|)
 block|{
 return|return
-literal|0
+name|Ordinals
+operator|.
+name|MISSING_ORDINAL
 return|;
 block|}
 annotation|@
@@ -199,7 +201,9 @@ name|currentOrd
 parameter_list|()
 block|{
 return|return
-literal|0
+name|Ordinals
+operator|.
+name|MISSING_ORDINAL
 return|;
 block|}
 block|}

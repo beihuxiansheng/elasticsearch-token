@@ -541,14 +541,6 @@ operator|new
 name|MonotonicAppendingLongBuffer
 argument_list|()
 decl_stmt|;
-name|termOrdToBytesOffset
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// first ord is reserved for missing values
 specifier|final
 name|long
 name|numTerms

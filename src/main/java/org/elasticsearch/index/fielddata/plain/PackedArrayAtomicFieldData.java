@@ -512,8 +512,6 @@ operator|.
 name|get
 argument_list|(
 name|ord
-operator|-
-literal|1
 argument_list|)
 return|;
 block|}
@@ -589,8 +587,6 @@ operator|.
 name|get
 argument_list|(
 name|ord
-operator|-
-literal|1
 argument_list|)
 return|;
 block|}

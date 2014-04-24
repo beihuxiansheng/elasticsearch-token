@@ -230,7 +230,6 @@ name|Empty
 argument_list|()
 return|;
 block|}
-comment|// 0 ordinal in values means no value (its null)
 DECL|field|bytes
 specifier|private
 specifier|final

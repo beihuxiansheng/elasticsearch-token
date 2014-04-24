@@ -1352,8 +1352,6 @@ operator|.
 name|get
 argument_list|(
 name|ord
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|sValues
@@ -1499,8 +1497,6 @@ operator|.
 name|get
 argument_list|(
 name|ord
-operator|-
-literal|1
 argument_list|)
 expr_stmt|;
 block|}
@@ -2081,8 +2077,6 @@ operator|.
 name|get
 argument_list|(
 name|pageMinOrdinal
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|long
@@ -2093,8 +2087,6 @@ operator|.
 name|get
 argument_list|(
 name|pageMaxOrdinal
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|long

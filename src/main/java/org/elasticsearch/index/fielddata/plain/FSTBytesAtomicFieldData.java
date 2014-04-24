@@ -466,22 +466,6 @@ name|getMaxOrd
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// we don't store an ord 0 in the FST since we could have an empty string in there and FST don't support
-comment|// empty strings twice. ie. them merge fails for long output.
-name|hashes
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|,
-operator|new
-name|BytesRef
-argument_list|()
-operator|.
-name|hashCode
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 for|for
@@ -489,7 +473,7 @@ control|(
 name|long
 name|i
 init|=
-literal|1
+literal|0
 init|,
 name|maxOrd
 init|=

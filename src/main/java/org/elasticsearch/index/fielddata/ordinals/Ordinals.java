@@ -18,6 +18,20 @@ name|ordinals
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SortedSetDocValues
+import|;
+end_import
+
 begin_comment
 comment|/**  * A thread safe ordinals abstraction. Ordinals can only be positive integers.  */
 end_comment
@@ -34,7 +48,9 @@ specifier|final
 name|long
 name|MISSING_ORDINAL
 init|=
-literal|0
+name|SortedSetDocValues
+operator|.
+name|NO_MORE_ORDS
 decl_stmt|;
 DECL|field|MIN_ORDINAL
 specifier|static
@@ -42,7 +58,7 @@ specifier|final
 name|long
 name|MIN_ORDINAL
 init|=
-literal|1
+literal|0
 decl_stmt|;
 comment|/**      * The memory size this ordinals take.      */
 DECL|method|getMemorySizeInBytes

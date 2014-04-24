@@ -705,11 +705,6 @@ operator|.
 name|nextOrdinal
 argument_list|()
 decl_stmt|;
-assert|assert
-name|termOrd
-operator|>
-literal|0
-assert|;
 name|fstBuilder
 operator|.
 name|add

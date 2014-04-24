@@ -1204,24 +1204,6 @@ operator|new
 name|MonotonicAppendingLongBuffer
 argument_list|()
 expr_stmt|;
-name|termOrdToBytesOffset
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// first ord is reserved for missing values
-comment|// 0 is reserved for "unset"
-name|bytes
-operator|.
-name|copyUsingLengthPrefix
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|builder
 operator|=
 operator|new

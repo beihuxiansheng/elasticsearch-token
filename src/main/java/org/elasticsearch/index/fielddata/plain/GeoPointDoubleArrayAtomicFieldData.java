@@ -430,11 +430,6 @@ operator|.
 name|nextOrd
 argument_list|()
 decl_stmt|;
-assert|assert
-name|ord
-operator|>
-literal|0
-assert|;
 return|return
 name|scratch
 operator|.

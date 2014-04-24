@@ -28,20 +28,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LongsRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|RamUsageEstimator
 import|;
 end_import
@@ -122,10 +108,8 @@ name|maxOrd
 operator|=
 name|builder
 operator|.
-name|getNumOrds
+name|getMaxOrd
 argument_list|()
-operator|+
-literal|1
 expr_stmt|;
 comment|// We don't reuse the builder as-is because it might have been built with a higher overhead ratio
 specifier|final
@@ -149,8 +133,6 @@ name|bitsRequired
 argument_list|(
 name|getMaxOrd
 argument_list|()
-operator|-
-literal|1
 argument_list|)
 argument_list|,
 name|acceptableOverheadRatio
@@ -280,18 +262,6 @@ operator|.
 name|Reader
 name|reader
 decl_stmt|;
-DECL|field|longsScratch
-specifier|private
-specifier|final
-name|LongsRef
-name|longsScratch
-init|=
-operator|new
-name|LongsRef
-argument_list|(
-literal|1
-argument_list|)
-decl_stmt|;
 DECL|field|currentOrdinal
 specifier|private
 name|long
@@ -342,6 +312,8 @@ name|get
 argument_list|(
 name|docId
 argument_list|)
+operator|-
+literal|1
 return|;
 block|}
 annotation|@
@@ -354,8 +326,10 @@ parameter_list|()
 block|{
 assert|assert
 name|currentOrdinal
-operator|>
-literal|0
+operator|>=
+name|Ordinals
+operator|.
+name|MIN_ORDINAL
 assert|;
 return|return
 name|currentOrdinal
@@ -380,9 +354,13 @@ name|get
 argument_list|(
 name|docId
 argument_list|)
+operator|-
+literal|1
 expr_stmt|;
 comment|// either this is> 1 or 0 - in any case it prevents a branch!
 return|return
+literal|1
+operator|+
 operator|(
 name|int
 operator|)
@@ -392,7 +370,7 @@ name|min
 argument_list|(
 name|currentOrdinal
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 return|;
 block|}
