@@ -9714,7 +9714,7 @@ name|boundsMinKey
 operator|=
 name|baseKey
 operator|.
-name|plus
+name|plusDays
 argument_list|(
 name|addedBucketsLeft
 operator|*
