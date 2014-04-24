@@ -211,11 +211,11 @@ name|ce
 operator|.
 name|setDescription
 argument_list|(
-literal|"exp(- abs("
+literal|"exp(- "
 operator|+
 name|valueExpl
 operator|+
-literal|") * "
+literal|" * "
 operator|+
 operator|-
 literal|1

@@ -221,11 +221,11 @@ literal|"max(0.0, (("
 operator|+
 name|scale
 operator|+
-literal|" - abs("
+literal|" - "
 operator|+
 name|valueExpl
 operator|+
-literal|"))/"
+literal|")/"
 operator|+
 name|scale
 operator|+
