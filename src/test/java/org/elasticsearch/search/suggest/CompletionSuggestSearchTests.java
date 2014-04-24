@@ -624,7 +624,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertNoFailures
+name|assertAllSuccessful
 import|;
 end_import
 
@@ -6678,7 +6678,7 @@ modifier|...
 name|suggestions
 parameter_list|)
 block|{
-name|assertNoFailures
+name|assertAllSuccessful
 argument_list|(
 name|suggestResponse
 argument_list|)
@@ -7841,7 +7841,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|assertNoFailures
+name|assertAllSuccessful
 argument_list|(
 name|actionGet
 argument_list|)
@@ -7914,7 +7914,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|assertNoFailures
+name|assertAllSuccessful
 argument_list|(
 name|actionGet
 argument_list|)
