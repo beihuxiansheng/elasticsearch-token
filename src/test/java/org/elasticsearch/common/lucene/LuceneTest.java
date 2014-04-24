@@ -104,7 +104,7 @@ specifier|public
 class|class
 name|LuceneTest
 block|{
-comment|/*      * simple test that ensures that we bumb the version on Upgrade      */
+comment|/*      * simple test that ensures that we bump the version on Upgrade      */
 annotation|@
 name|Test
 DECL|method|testVersion
