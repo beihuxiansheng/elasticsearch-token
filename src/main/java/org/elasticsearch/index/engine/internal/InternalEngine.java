@@ -3137,7 +3137,7 @@ block|}
 block|}
 name|create
 operator|.
-name|version
+name|updateVersion
 argument_list|(
 name|updatedVersion
 argument_list|)
@@ -3535,7 +3535,7 @@ argument_list|)
 expr_stmt|;
 name|index
 operator|.
-name|version
+name|updateVersion
 argument_list|(
 name|updatedVersion
 argument_list|)
@@ -4045,13 +4045,10 @@ block|{
 comment|// doc does not exists and no prior deletes
 name|delete
 operator|.
-name|version
+name|updateVersion
 argument_list|(
 name|updatedVersion
-argument_list|)
-operator|.
-name|found
-argument_list|(
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -4112,13 +4109,10 @@ block|{
 comment|// a "delete on delete", in this case, we still increment the version, log it, and return that version
 name|delete
 operator|.
-name|version
+name|updateVersion
 argument_list|(
 name|updatedVersion
-argument_list|)
-operator|.
-name|found
-argument_list|(
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
@@ -4167,13 +4161,10 @@ else|else
 block|{
 name|delete
 operator|.
-name|version
+name|updateVersion
 argument_list|(
 name|updatedVersion
-argument_list|)
-operator|.
-name|found
-argument_list|(
+argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
