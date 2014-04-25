@@ -4,17 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.fielddata.fieldcomparator
+DECL|package|org.elasticsearch.search
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
+name|search
 package|;
 end_package
 
@@ -113,10 +109,10 @@ comment|/**  * Defines what values to pick in the case a document contains multi
 end_comment
 
 begin_enum
-DECL|enum|SortMode
+DECL|enum|MultiValueMode
 specifier|public
 enum|enum
-name|SortMode
+name|MultiValueMode
 block|{
 comment|/**      * Sum of all the values.      */
 DECL|enum constant|SUM
@@ -812,7 +808,7 @@ return|;
 block|}
 block|}
 block|;
-comment|/**      * Applies the sort mode and returns the result. This method is meant to be      * a binary function that is commonly used in a loop to find the relevant      * value for the sort mode in a list of values. For instance if the sort mode      * is {@link SortMode#MAX} this method is equivalent to {@link Math#max(double, double)}.      *      * Note: all implementations are idempotent.      *      * @param a an argument      * @param b another argument      * @return the result of the function.      */
+comment|/**      * Applies the sort mode and returns the result. This method is meant to be      * a binary function that is commonly used in a loop to find the relevant      * value for the sort mode in a list of values. For instance if the sort mode      * is {@link MultiValueMode#MAX} this method is equivalent to {@link Math#max(double, double)}.      *      * Note: all implementations are idempotent.      *      * @param a an argument      * @param b another argument      * @return the result of the function.      */
 DECL|method|apply
 specifier|public
 specifier|abstract
@@ -826,7 +822,7 @@ name|double
 name|b
 parameter_list|)
 function_decl|;
-comment|/**      * Applies the sort mode and returns the result. This method is meant to be      * a binary function that is commonly used in a loop to find the relevant      * value for the sort mode in a list of values. For instance if the sort mode      * is {@link SortMode#MAX} this method is equivalent to {@link Math#max(long, long)}.      *      * Note: all implementations are idempotent.      *      * @param a an argument      * @param b another argument      * @return the result of the function.      */
+comment|/**      * Applies the sort mode and returns the result. This method is meant to be      * a binary function that is commonly used in a loop to find the relevant      * value for the sort mode in a list of values. For instance if the sort mode      * is {@link MultiValueMode#MAX} this method is equivalent to {@link Math#max(long, long)}.      *      * Note: all implementations are idempotent.      *      * @param a an argument      * @param b another argument      * @return the result of the function.      */
 DECL|method|apply
 specifier|public
 specifier|abstract
@@ -862,7 +858,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**      * Returns the aggregated value based on the sort mode. For instance if {@link SortMode#AVG} is used      * this method divides the given value by the number of values. The default implementation returns      * the first argument.      *      * Note: all implementations are idempotent.      */
+comment|/**      * Returns the aggregated value based on the sort mode. For instance if {@link MultiValueMode#AVG} is used      * this method divides the given value by the number of values. The default implementation returns      * the first argument.      *      * Note: all implementations are idempotent.      */
 DECL|method|reduce
 specifier|public
 name|double
@@ -879,7 +875,7 @@ return|return
 name|a
 return|;
 block|}
-comment|/**      * Returns the aggregated value based on the sort mode. For instance if {@link SortMode#AVG} is used      * this method divides the given value by the number of values. The default implementation returns      * the first argument.      *      * Note: all implementations are idempotent.      */
+comment|/**      * Returns the aggregated value based on the sort mode. For instance if {@link MultiValueMode#AVG} is used      * this method divides the given value by the number of values. The default implementation returns      * the first argument.      *      * Note: all implementations are idempotent.      */
 DECL|method|reduce
 specifier|public
 name|long
@@ -900,7 +896,7 @@ comment|/**      * A case insensitive version of {@link #valueOf(String)}      *
 DECL|method|fromString
 specifier|public
 specifier|static
-name|SortMode
+name|MultiValueMode
 name|fromString
 parameter_list|(
 name|String
@@ -940,7 +936,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns the relevant value for the given document based on the {@link SortMode}. This      * method will apply each value for the given document to {@link #apply(double, double)} and returns      * the reduced value from {@link #reduce(double, int)} if the document has at least one value. Otherwise it will      * return the given default value.      * @param values the values to fetch the relevant value from.      * @param docId the doc id to fetch the relevant value for.      * @param defaultValue the default value if the document has no value      * @return the relevant value or the default value passed to the method.      */
+comment|/**      * Returns the relevant value for the given document based on the {@link MultiValueMode}. This      * method will apply each value for the given document to {@link #apply(double, double)} and returns      * the reduced value from {@link #reduce(double, int)} if the document has at least one value. Otherwise it will      * return the given default value.      * @param values the values to fetch the relevant value from.      * @param docId the doc id to fetch the relevant value for.      * @param defaultValue the default value if the document has no value      * @return the relevant value or the default value passed to the method.      */
 DECL|method|getRelevantValue
 specifier|public
 name|double
@@ -1017,7 +1013,7 @@ name|numValues
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the relevant value for the given document based on the {@link SortMode}. This      * method will apply each value for the given document to {@link #apply(long, long)} and returns      * the reduced value from {@link #reduce(long, int)} if the document has at least one value. Otherwise it will      * return the given default value.      * @param values the values to fetch the relevant value from.      * @param docId the doc id to fetch the relevant value for.      * @param defaultValue the default value if the document has no value      * @return the relevant value or the default value passed to the method.      */
+comment|/**      * Returns the relevant value for the given document based on the {@link MultiValueMode}. This      * method will apply each value for the given document to {@link #apply(long, long)} and returns      * the reduced value from {@link #reduce(long, int)} if the document has at least one value. Otherwise it will      * return the given default value.      * @param values the values to fetch the relevant value from.      * @param docId the doc id to fetch the relevant value for.      * @param defaultValue the default value if the document has no value      * @return the relevant value or the default value passed to the method.      */
 DECL|method|getRelevantValue
 specifier|public
 name|long
@@ -1094,7 +1090,7 @@ name|numValues
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the relevant value for the given document based on the {@link SortMode}      * if the document has at least one value. Otherwise it will return same object given as the default value.      * Note: This method is optional and will throw {@link UnsupportedOperationException} if the sort mode doesn't      * allow a relevant value.      *      * @param values the values to fetch the relevant value from.      * @param docId the doc id to fetch the relevant value for.      * @param defaultValue the default value if the document has no value. This object will never be modified.      * @return the relevant value or the default value passed to the method.      */
+comment|/**      * Returns the relevant value for the given document based on the {@link MultiValueMode}      * if the document has at least one value. Otherwise it will return same object given as the default value.      * Note: This method is optional and will throw {@link UnsupportedOperationException} if the sort mode doesn't      * allow a relevant value.      *      * @param values the values to fetch the relevant value from.      * @param docId the doc id to fetch the relevant value for.      * @param defaultValue the default value if the document has no value. This object will never be modified.      * @return the relevant value or the default value passed to the method.      */
 DECL|method|getRelevantValue
 specifier|public
 name|BytesRef

@@ -150,13 +150,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -281,7 +277,7 @@ name|Object
 name|missingValue
 parameter_list|,
 specifier|final
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|)
 block|{

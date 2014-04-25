@@ -106,13 +106,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -536,7 +532,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -633,7 +629,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)
@@ -964,7 +960,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -1062,7 +1058,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)
@@ -1162,7 +1158,7 @@ name|comparatorSource
 argument_list|(
 literal|"_first"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -1259,7 +1255,7 @@ name|comparatorSource
 argument_list|(
 literal|"_first"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)
@@ -1358,7 +1354,7 @@ name|comparatorSource
 argument_list|(
 literal|"1"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -1455,7 +1451,7 @@ name|comparatorSource
 argument_list|(
 literal|"1"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)
@@ -2378,7 +2374,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -2776,7 +2772,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)
@@ -3191,7 +3187,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|SUM
 argument_list|)
@@ -3604,7 +3600,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|SUM
 argument_list|)
@@ -4019,7 +4015,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|AVG
 argument_list|)
@@ -4432,7 +4428,7 @@ name|comparatorSource
 argument_list|(
 literal|null
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|AVG
 argument_list|)
@@ -4832,7 +4828,7 @@ name|comparatorSource
 argument_list|(
 literal|"_first"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -5028,7 +5024,7 @@ name|comparatorSource
 argument_list|(
 literal|"_first"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)
@@ -5226,7 +5222,7 @@ name|comparatorSource
 argument_list|(
 literal|"-9"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)
@@ -5422,7 +5418,7 @@ name|comparatorSource
 argument_list|(
 literal|"9"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 argument_list|)

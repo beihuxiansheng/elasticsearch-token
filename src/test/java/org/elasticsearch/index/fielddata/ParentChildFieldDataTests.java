@@ -154,13 +154,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -1314,7 +1310,7 @@ name|comparatorSource
 argument_list|(
 literal|"_last"
 argument_list|,
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 argument_list|)

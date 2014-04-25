@@ -104,13 +104,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -330,7 +326,7 @@ name|reverse
 init|=
 literal|false
 decl_stmt|;
-name|SortMode
+name|MultiValueMode
 name|sortMode
 init|=
 literal|null
@@ -592,7 +588,7 @@ condition|)
 block|{
 name|sortMode
 operator|=
-name|SortMode
+name|MultiValueMode
 operator|.
 name|fromString
 argument_list|(
@@ -761,13 +757,13 @@ operator|&&
 operator|(
 name|sortMode
 operator|==
-name|SortMode
+name|MultiValueMode
 operator|.
 name|SUM
 operator|||
 name|sortMode
 operator|==
-name|SortMode
+name|MultiValueMode
 operator|.
 name|AVG
 operator|)
@@ -798,11 +794,11 @@ name|sortMode
 operator|=
 name|reverse
 condition|?
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 else|:
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 expr_stmt|;

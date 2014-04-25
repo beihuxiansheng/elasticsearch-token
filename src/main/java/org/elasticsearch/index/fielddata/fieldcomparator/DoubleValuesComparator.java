@@ -34,6 +34,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -81,7 +93,7 @@ parameter_list|,
 name|int
 name|numHits
 parameter_list|,
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|)
 block|{

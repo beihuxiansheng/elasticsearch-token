@@ -290,13 +290,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -2101,10 +2097,10 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-name|SortMode
+name|MultiValueMode
 name|sortMode
 init|=
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MIN
 decl_stmt|;
@@ -2518,7 +2514,7 @@ argument_list|)
 expr_stmt|;
 name|sortMode
 operator|=
-name|SortMode
+name|MultiValueMode
 operator|.
 name|MAX
 expr_stmt|;
