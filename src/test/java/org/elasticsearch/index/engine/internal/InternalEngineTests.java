@@ -10209,7 +10209,7 @@ operator|.
 name|getLoggerName
 argument_list|()
 operator|.
-name|equals
+name|endsWith
 argument_list|(
 literal|"lucene.iw"
 argument_list|)
