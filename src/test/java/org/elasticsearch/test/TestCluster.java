@@ -1423,6 +1423,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|builder
+operator|.
+name|put
+argument_list|(
+literal|"script.disable_dynamic"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|defaultSettings
 operator|=
 name|builder
