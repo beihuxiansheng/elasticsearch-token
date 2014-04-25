@@ -1171,7 +1171,7 @@ parameter_list|)
 block|{             }
 block|}
 name|NumShards
-name|test
+name|numShards
 init|=
 name|getNumShards
 argument_list|(
@@ -1373,7 +1373,7 @@ operator|.
 name|getSuccessfulShards
 argument_list|()
 argument_list|,
-name|test
+name|numShards
 operator|.
 name|numPrimaries
 argument_list|)
@@ -1385,7 +1385,7 @@ operator|.
 name|getSuccessfulShards
 argument_list|()
 operator|==
-name|test
+name|numShards
 operator|.
 name|numPrimaries
 operator|&&
@@ -1448,7 +1448,7 @@ operator|.
 name|getSuccessfulShards
 argument_list|()
 argument_list|,
-name|test
+name|numShards
 operator|.
 name|numPrimaries
 argument_list|)
@@ -1460,7 +1460,7 @@ operator|.
 name|getSuccessfulShards
 argument_list|()
 operator|==
-name|test
+name|numShards
 operator|.
 name|numPrimaries
 operator|&&
@@ -1494,8 +1494,23 @@ name|SearchPhaseExecutionException
 name|ex
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"SearchPhaseException: [{}]"
+argument_list|,
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// if a scheduled refresh or flush fails all shards we see all shards failed here
 if|if
 condition|(
+operator|!
+operator|(
 name|expectAllShardsFailed
 operator|||
 name|refreshResponse
@@ -1504,22 +1519,18 @@ name|getSuccessfulShards
 argument_list|()
 operator|==
 literal|0
-condition|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"expected SearchPhaseException: [{}]"
-argument_list|,
+operator|||
 name|ex
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"all shards failed"
 argument_list|)
-expr_stmt|;
-block|}
-else|else
+operator|)
+condition|)
 block|{
 throw|throw
 name|ex
