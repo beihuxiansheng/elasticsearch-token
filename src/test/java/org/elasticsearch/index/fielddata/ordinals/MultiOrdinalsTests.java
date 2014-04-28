@@ -774,7 +774,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0L
+name|Ordinals
+operator|.
+name|MISSING_ORDINAL
 argument_list|)
 argument_list|)
 expr_stmt|;
