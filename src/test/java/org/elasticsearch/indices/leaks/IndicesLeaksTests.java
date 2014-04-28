@@ -250,6 +250,11 @@ annotation|@
 name|Test
 annotation|@
 name|BadApple
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elasticsearch/elasticsearch/issues/3232"
+argument_list|)
 DECL|method|testIndexShardLifecycleLeak
 specifier|public
 name|void

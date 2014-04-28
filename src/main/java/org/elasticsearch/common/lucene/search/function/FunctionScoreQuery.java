@@ -469,12 +469,6 @@ parameter_list|(
 name|AtomicReaderContext
 name|context
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
-name|boolean
-name|topScorer
-parameter_list|,
 name|Bits
 name|acceptDocs
 parameter_list|)
@@ -492,10 +486,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-literal|true
-argument_list|,
-literal|false
 argument_list|,
 name|acceptDocs
 argument_list|)

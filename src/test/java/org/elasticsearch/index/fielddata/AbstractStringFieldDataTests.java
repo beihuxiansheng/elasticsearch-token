@@ -258,7 +258,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|TestUtil
 import|;
 end_import
 
@@ -272,7 +272,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|UnicodeUtil
 import|;
 end_import
 
@@ -2046,7 +2046,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -2507,7 +2507,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomUnicodeString
 argument_list|(
@@ -2944,7 +2944,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(
@@ -3301,7 +3301,7 @@ operator|=
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomSimpleString
 argument_list|(

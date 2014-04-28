@@ -228,7 +228,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 
@@ -1687,7 +1687,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -1703,7 +1703,7 @@ block|}
 name|String
 name|term
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -2012,7 +2012,7 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -2024,7 +2024,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(

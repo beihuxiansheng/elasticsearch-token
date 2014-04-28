@@ -2589,7 +2589,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_47
+name|LUCENE_48
 argument_list|)
 decl_stmt|;
 DECL|field|V_2_0_0_ID
@@ -2626,7 +2626,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_47
+name|LUCENE_48
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT

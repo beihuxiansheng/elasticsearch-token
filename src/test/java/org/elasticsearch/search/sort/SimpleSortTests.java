@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|TestUtil
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|UnicodeUtil
 import|;
 end_import
 
@@ -875,7 +875,7 @@ operator|=
 operator|new
 name|BytesRef
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(

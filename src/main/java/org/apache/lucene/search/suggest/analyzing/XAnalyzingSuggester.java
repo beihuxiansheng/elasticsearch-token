@@ -114,22 +114,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|suggest
-operator|.
-name|Sort
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|*
@@ -232,7 +216,25 @@ name|fst
 operator|.
 name|Util
 operator|.
-name|MinResult
+name|Result
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|fst
+operator|.
+name|Util
+operator|.
+name|TopResults
 import|;
 end_import
 
@@ -1769,7 +1771,7 @@ decl_stmt|;
 name|File
 name|directory
 init|=
-name|Sort
+name|OfflineSorter
 operator|.
 name|defaultTempDir
 argument_list|()
@@ -1809,20 +1811,20 @@ operator|.
 name|hasPayloads
 argument_list|()
 expr_stmt|;
-name|Sort
+name|OfflineSorter
 operator|.
 name|ByteSequencesWriter
 name|writer
 init|=
 operator|new
-name|Sort
+name|OfflineSorter
 operator|.
 name|ByteSequencesWriter
 argument_list|(
 name|tempInput
 argument_list|)
 decl_stmt|;
-name|Sort
+name|OfflineSorter
 operator|.
 name|ByteSequencesReader
 name|reader
@@ -2275,7 +2277,7 @@ argument_list|()
 expr_stmt|;
 comment|// Sort all input/output pairs (required by FST.Builder):
 operator|new
-name|Sort
+name|OfflineSorter
 argument_list|(
 operator|new
 name|AnalyzingComparator
@@ -2300,7 +2302,7 @@ expr_stmt|;
 name|reader
 operator|=
 operator|new
-name|Sort
+name|OfflineSorter
 operator|.
 name|ByteSequencesReader
 argument_list|(
@@ -3420,6 +3422,12 @@ specifier|final
 name|CharSequence
 name|key
 parameter_list|,
+name|Set
+argument_list|<
+name|BytesRef
+argument_list|>
+name|contexts
+parameter_list|,
 name|boolean
 name|onlyMorePopular
 parameter_list|,
@@ -3786,7 +3794,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|MinResult
+name|Util
+operator|.
+name|TopResults
 argument_list|<
 name|Pair
 argument_list|<
@@ -3796,7 +3806,6 @@ name|BytesRef
 argument_list|>
 argument_list|>
 name|completions
-index|[]
 init|=
 name|searcher
 operator|.
@@ -3817,7 +3826,7 @@ comment|// nodes we have and the
 comment|// maxSurfaceFormsPerAnalyzedForm:
 for|for
 control|(
-name|MinResult
+name|Result
 argument_list|<
 name|Pair
 argument_list|<
@@ -4089,7 +4098,7 @@ name|input
 argument_list|)
 expr_stmt|;
 block|}
-name|MinResult
+name|TopResults
 argument_list|<
 name|Pair
 argument_list|<
@@ -4099,7 +4108,6 @@ name|BytesRef
 argument_list|>
 argument_list|>
 name|completions
-index|[]
 init|=
 name|searcher
 operator|.
@@ -4108,7 +4116,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MinResult
+name|Result
 argument_list|<
 name|Pair
 argument_list|<

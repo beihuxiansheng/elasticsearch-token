@@ -42,16 +42,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|FileNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Map
@@ -99,8 +89,6 @@ parameter_list|,
 name|File
 name|location
 parameter_list|)
-throws|throws
-name|FileNotFoundException
 block|{
 name|super
 argument_list|(

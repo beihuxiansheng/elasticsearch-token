@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TimeUnits
+name|TestUtil
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TimeUnits
 import|;
 end_import
 
@@ -237,7 +237,7 @@ name|getCodec
 parameter_list|()
 block|{
 return|return
-name|_TestUtil
+name|TestUtil
 operator|.
 name|alwaysPostingsFormat
 argument_list|(

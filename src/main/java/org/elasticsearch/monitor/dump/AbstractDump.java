@@ -58,20 +58,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Streams
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io

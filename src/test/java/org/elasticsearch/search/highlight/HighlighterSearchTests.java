@@ -1322,7 +1322,7 @@ literal|0
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"<em>Test</em>:<em>http</em>://<em>www</em>.<em>facebook</em>.com<em>http</em>://<em>elasticsearch</em>.<em>org</em><em>http</em>://<em>xing</em>.com<em>http</em>://<em>cnn</em>.com<em>http</em>://<em>quora</em>.com"
+literal|"<em>Test</em>:<em>http://www.facebook.com</em><em>http://elasticsearch.org</em><em>http://xing.com</em><em>http://cnn.com</em> http://quora.com"
 argument_list|)
 argument_list|)
 expr_stmt|;

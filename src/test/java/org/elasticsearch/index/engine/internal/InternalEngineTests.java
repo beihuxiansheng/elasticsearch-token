@@ -182,20 +182,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -3239,23 +3225,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-static|static
-block|{
-assert|assert
-name|Version
-operator|.
-name|LUCENE_47
-operator|.
-name|onOrAfter
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|)
-operator|:
-literal|"LUCENE-5481 is fixed, improve test below"
-assert|;
-block|}
 annotation|@
 name|Test
 DECL|method|testSegmentsWithMergeFlag
@@ -3814,14 +3783,18 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// forcing an optimize will merge this single segment shard
-comment|// TODO: put a random boolean again once LUCENE-5481 is fixed
 specifier|final
 name|boolean
 name|force
 init|=
-literal|true
+name|randomBoolean
+argument_list|()
 decl_stmt|;
-comment|// randomBoolean();
+if|if
+condition|(
+name|force
+condition|)
+block|{
 name|waitTillMerge
 operator|.
 name|set
@@ -3844,6 +3817,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|engine
 operator|.
 name|optimize

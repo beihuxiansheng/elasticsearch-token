@@ -2066,7 +2066,7 @@ return|return;
 block|}
 name|logger
 operator|.
-name|trace
+name|warn
 argument_list|(
 literal|"[{}][{}] recovery from [{}] failed"
 argument_list|,

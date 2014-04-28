@@ -692,12 +692,6 @@ parameter_list|(
 name|AtomicReaderContext
 name|context
 parameter_list|,
-name|boolean
-name|scoreDocsInOrder
-parameter_list|,
-name|boolean
-name|topScorer
-parameter_list|,
 name|Weight
 name|weight
 parameter_list|,
@@ -738,10 +732,6 @@ name|scorer
 argument_list|(
 name|context
 argument_list|,
-name|scoreDocsInOrder
-argument_list|,
-name|topScorer
-argument_list|,
 name|filterAcceptDocs
 argument_list|)
 return|;
@@ -756,10 +746,6 @@ operator|.
 name|filteredScorer
 argument_list|(
 name|context
-argument_list|,
-name|scoreDocsInOrder
-argument_list|,
-name|topScorer
 argument_list|,
 name|weight
 argument_list|,
@@ -798,10 +784,6 @@ name|filteredScorer
 argument_list|(
 name|context
 argument_list|,
-name|scoreDocsInOrder
-argument_list|,
-name|topScorer
-argument_list|,
 name|weight
 argument_list|,
 name|docIdSet
@@ -815,10 +797,6 @@ operator|.
 name|filteredScorer
 argument_list|(
 name|context
-argument_list|,
-name|scoreDocsInOrder
-argument_list|,
-name|topScorer
 argument_list|,
 name|weight
 argument_list|,

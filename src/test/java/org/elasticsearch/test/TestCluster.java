@@ -4794,7 +4794,7 @@ name|deleted
 operator|=
 name|FileSystemUtils
 operator|.
-name|deleteRecursively
+name|deleteSubDirectories
 argument_list|(
 name|dataDirToClean
 operator|.
@@ -4809,8 +4809,6 @@ name|size
 argument_list|()
 index|]
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

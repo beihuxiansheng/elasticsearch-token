@@ -42,6 +42,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|DocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|NumericDocValues
 import|;
 end_import
@@ -321,9 +335,9 @@ block|{
 comment|// segment has no value
 name|values
 operator|=
-name|NumericDocValues
+name|DocValues
 operator|.
-name|EMPTY
+name|EMPTY_NUMERIC
 expr_stmt|;
 name|docsWithField
 operator|=

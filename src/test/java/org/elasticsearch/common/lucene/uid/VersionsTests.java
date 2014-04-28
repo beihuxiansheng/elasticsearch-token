@@ -264,20 +264,6 @@ name|index
 operator|.
 name|merge
 operator|.
-name|Merges
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
 name|policy
 operator|.
 name|ElasticsearchMergePolicy
@@ -2272,13 +2258,13 @@ name|build
 argument_list|()
 decl_stmt|;
 comment|// Force merge and check versions
-name|Merges
+name|iw
 operator|.
 name|forceMerge
 argument_list|(
-name|iw
-argument_list|,
 literal|1
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
