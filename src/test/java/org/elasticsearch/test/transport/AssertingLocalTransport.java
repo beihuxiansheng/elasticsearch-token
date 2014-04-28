@@ -233,10 +233,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|handleParsedRespone
+DECL|method|handleParsedResponse
 specifier|protected
 name|void
-name|handleParsedRespone
+name|handleParsedResponse
 parameter_list|(
 specifier|final
 name|TransportResponse
@@ -263,7 +263,7 @@ argument_list|)
 expr_stmt|;
 name|super
 operator|.
-name|handleParsedRespone
+name|handleParsedResponse
 argument_list|(
 name|response
 argument_list|,
