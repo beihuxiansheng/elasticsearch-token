@@ -1985,6 +1985,8 @@ name|ClusterState
 name|currentState
 parameter_list|)
 block|{
+comment|// Take into account the previous known nodes, if they happen not to be available
+comment|// then fault detection will remove these nodes.
 name|DiscoveryNodes
 operator|.
 name|Builder
@@ -1994,7 +1996,9 @@ operator|new
 name|DiscoveryNodes
 operator|.
 name|Builder
-argument_list|()
+argument_list|(
+name|latestDiscoNodes
+argument_list|)
 operator|.
 name|localNodeId
 argument_list|(
