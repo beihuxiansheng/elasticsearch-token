@@ -417,6 +417,8 @@ specifier|protected
 name|void
 name|doPostCollection
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
