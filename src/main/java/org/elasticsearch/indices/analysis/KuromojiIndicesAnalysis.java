@@ -394,7 +394,7 @@ name|JapanesePartOfSpeechStopFilter
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_48
 argument_list|,
 name|tokenStream
 argument_list|,
