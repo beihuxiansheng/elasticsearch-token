@@ -163,7 +163,7 @@ specifier|final
 name|String
 name|DEFAULT_BREAKER_LIMIT
 init|=
-literal|"80%"
+literal|"60%"
 decl_stmt|;
 DECL|field|breaker
 specifier|private

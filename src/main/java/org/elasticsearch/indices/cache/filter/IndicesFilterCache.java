@@ -662,7 +662,7 @@ name|get
 argument_list|(
 literal|"size"
 argument_list|,
-literal|"20%"
+literal|"10%"
 argument_list|)
 expr_stmt|;
 name|this
