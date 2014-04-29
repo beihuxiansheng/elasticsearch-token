@@ -146,7 +146,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{}: {}"
+literal|"{} {}: {}"
+argument_list|,
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|component
 argument_list|,
