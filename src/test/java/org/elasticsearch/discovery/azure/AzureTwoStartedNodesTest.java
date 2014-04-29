@@ -52,7 +52,7 @@ name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|2
 argument_list|,
