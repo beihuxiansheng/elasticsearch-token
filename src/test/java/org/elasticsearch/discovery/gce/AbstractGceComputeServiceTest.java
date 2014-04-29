@@ -134,7 +134,7 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|2
 argument_list|,
