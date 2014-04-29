@@ -3289,6 +3289,15 @@ operator|==
 name|State
 operator|.
 name|STARTED
+operator|||
+name|snapshot
+operator|.
+name|state
+argument_list|()
+operator|==
+name|State
+operator|.
+name|ABORTED
 condition|)
 block|{
 name|ImmutableMap
