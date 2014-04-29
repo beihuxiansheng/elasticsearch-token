@@ -138,10 +138,6 @@ name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
 argument_list|(
-name|numNodes
-operator|=
-literal|1
-argument_list|,
 name|scope
 operator|=
 name|ElasticsearchIntegrationTest
