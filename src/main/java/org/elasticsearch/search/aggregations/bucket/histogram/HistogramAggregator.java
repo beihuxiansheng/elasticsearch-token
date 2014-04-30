@@ -1111,6 +1111,24 @@ name|parent
 parameter_list|)
 block|{
 comment|// todo if we'll keep track of min/max values in IndexFieldData, we could use the max here to come up with a better estimation for the buckets count
+name|long
+name|estimatedBucketCount
+init|=
+literal|50
+decl_stmt|;
+if|if
+condition|(
+name|hasParentBucketAggregator
+argument_list|(
+name|parent
+argument_list|)
+condition|)
+block|{
+name|estimatedBucketCount
+operator|=
+literal|8
+expr_stmt|;
+block|}
 comment|// we need to round the bounds given by the user and we have to do it for every aggregator we crate
 comment|// as the rounding is not necessarily an idempotent operation.
 comment|// todo we need to think of a better structure to the factory/agtor code so we won't need to do that
@@ -1179,7 +1197,7 @@ operator|.
 name|formatter
 argument_list|()
 argument_list|,
-literal|50
+name|estimatedBucketCount
 argument_list|,
 name|histogramFactory
 argument_list|,
