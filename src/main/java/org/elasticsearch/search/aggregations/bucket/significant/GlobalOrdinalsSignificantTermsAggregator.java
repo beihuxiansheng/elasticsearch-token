@@ -1021,7 +1021,16 @@ literal|1
 operator|-
 name|bucketOrd
 expr_stmt|;
+name|collectExistingBucket
+argument_list|(
+name|doc
+argument_list|,
+name|bucketOrd
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
 name|collectBucket
 argument_list|(
 name|doc
@@ -1029,6 +1038,7 @@ argument_list|,
 name|bucketOrd
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
