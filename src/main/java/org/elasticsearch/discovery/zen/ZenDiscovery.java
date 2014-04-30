@@ -3354,6 +3354,11 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+if|if
+condition|(
+name|master
+condition|)
+block|{
 name|logger
 operator|.
 name|debug
@@ -3371,11 +3376,6 @@ argument_list|,
 name|incomingClusterName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|master
-condition|)
-block|{
 specifier|final
 name|ClusterState
 name|newState
