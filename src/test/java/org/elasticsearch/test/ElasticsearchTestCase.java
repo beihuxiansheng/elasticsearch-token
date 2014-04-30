@@ -1099,9 +1099,7 @@ name|XContentType
 name|randomXContentType
 parameter_list|()
 block|{
-name|XContentType
-name|type
-init|=
+return|return
 name|randomFrom
 argument_list|(
 name|XContentType
@@ -1109,25 +1107,6 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
-decl_stmt|;
-comment|// for now, CBOR is disabled, see JsonVsCborTests#testBugInJacksonCBOR
-if|if
-condition|(
-name|type
-operator|==
-name|XContentType
-operator|.
-name|CBOR
-condition|)
-block|{
-return|return
-name|XContentType
-operator|.
-name|JSON
-return|;
-block|}
-return|return
-name|type
 return|;
 block|}
 annotation|@
