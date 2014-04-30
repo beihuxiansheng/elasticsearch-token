@@ -251,6 +251,11 @@ specifier|final
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
 decl_stmt|;
+DECL|field|shardMinDocCount
+specifier|protected
+name|long
+name|shardMinDocCount
+decl_stmt|;
 DECL|method|GlobalOrdinalsSignificantTermsAggregator
 specifier|public
 name|GlobalOrdinalsSignificantTermsAggregator
@@ -284,6 +289,9 @@ name|shardSize
 parameter_list|,
 name|long
 name|minDocCount
+parameter_list|,
+name|long
+name|shardMinDocCount
 parameter_list|,
 name|AggregationContext
 name|aggregationContext
@@ -325,6 +333,12 @@ operator|.
 name|termsAggFactory
 operator|=
 name|termsAggFactory
+expr_stmt|;
+name|this
+operator|.
+name|shardMinDocCount
+operator|=
+name|shardMinDocCount
 expr_stmt|;
 block|}
 annotation|@
@@ -620,6 +634,15 @@ operator|.
 name|updateScore
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|spare
+operator|.
+name|subsetDf
+operator|>=
+name|shardMinDocCount
+condition|)
+block|{
 name|spare
 operator|=
 operator|(
@@ -634,6 +657,7 @@ argument_list|(
 name|spare
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|InternalSignificantTerms
@@ -868,6 +892,9 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|long
+name|shardMinDocCount
+parameter_list|,
 name|AggregationContext
 name|aggregationContext
 parameter_list|,
@@ -895,6 +922,8 @@ argument_list|,
 name|shardSize
 argument_list|,
 name|minDocCount
+argument_list|,
+name|shardMinDocCount
 argument_list|,
 name|aggregationContext
 argument_list|,

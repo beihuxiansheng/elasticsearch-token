@@ -378,6 +378,9 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|long
+name|shardMinDocCount
+parameter_list|,
 name|IncludeExclude
 name|includeExclude
 parameter_list|,
@@ -408,6 +411,8 @@ argument_list|,
 name|shardSize
 argument_list|,
 name|minDocCount
+argument_list|,
+name|shardMinDocCount
 argument_list|,
 name|includeExclude
 argument_list|,
@@ -468,6 +473,9 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|long
+name|shardMinDocCount
+parameter_list|,
 name|IncludeExclude
 name|includeExclude
 parameter_list|,
@@ -527,6 +535,8 @@ name|shardSize
 argument_list|,
 name|minDocCount
 argument_list|,
+name|shardMinDocCount
+argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
@@ -583,6 +593,9 @@ name|shardSize
 parameter_list|,
 name|long
 name|minDocCount
+parameter_list|,
+name|long
+name|shardMinDocCount
 parameter_list|,
 name|IncludeExclude
 name|includeExclude
@@ -682,6 +695,8 @@ name|shardSize
 argument_list|,
 name|minDocCount
 argument_list|,
+name|shardMinDocCount
+argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
@@ -738,6 +753,9 @@ name|shardSize
 parameter_list|,
 name|long
 name|minDocCount
+parameter_list|,
+name|long
+name|shardMinDocCount
 parameter_list|,
 name|IncludeExclude
 name|includeExclude
@@ -799,6 +817,8 @@ argument_list|,
 name|shardSize
 argument_list|,
 name|minDocCount
+argument_list|,
+name|shardMinDocCount
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -917,6 +937,9 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|long
+name|shardMinDocCount
+parameter_list|,
 name|IncludeExclude
 name|includeExclude
 parameter_list|,
@@ -969,6 +992,12 @@ specifier|private
 specifier|final
 name|long
 name|minDocCount
+decl_stmt|;
+DECL|field|shardMinDocCount
+specifier|private
+specifier|final
+name|long
+name|shardMinDocCount
 decl_stmt|;
 DECL|field|includeExclude
 specifier|private
@@ -1028,6 +1057,9 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|long
+name|shardMinDocCount
+parameter_list|,
 name|IncludeExclude
 name|includeExclude
 parameter_list|,
@@ -1069,6 +1101,12 @@ operator|.
 name|minDocCount
 operator|=
 name|minDocCount
+expr_stmt|;
+name|this
+operator|.
+name|shardMinDocCount
+operator|=
+name|shardMinDocCount
 expr_stmt|;
 name|this
 operator|.
@@ -1346,6 +1384,8 @@ name|shardSize
 argument_list|,
 name|minDocCount
 argument_list|,
+name|shardMinDocCount
+argument_list|,
 name|includeExclude
 argument_list|,
 name|aggregationContext
@@ -1436,6 +1476,8 @@ argument_list|,
 name|shardSize
 argument_list|,
 name|minDocCount
+argument_list|,
+name|shardMinDocCount
 argument_list|,
 name|aggregationContext
 argument_list|,
