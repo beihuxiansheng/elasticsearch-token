@@ -610,25 +610,6 @@ name|SignificantTermsAggregatorFactory
 name|termsAggregatorFactory
 parameter_list|)
 block|{
-if|if
-condition|(
-name|includeExclude
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalArgumentException
-argument_list|(
-literal|"The `"
-operator|+
-name|this
-operator|+
-literal|"` execution mode cannot filter terms."
-argument_list|)
-throw|;
-block|}
 name|ValuesSource
 operator|.
 name|Bytes
@@ -696,6 +677,8 @@ argument_list|,
 name|minDocCount
 argument_list|,
 name|shardMinDocCount
+argument_list|,
+name|includeExclude
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -770,25 +753,6 @@ name|SignificantTermsAggregatorFactory
 name|termsAggregatorFactory
 parameter_list|)
 block|{
-if|if
-condition|(
-name|includeExclude
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalArgumentException
-argument_list|(
-literal|"The `"
-operator|+
-name|this
-operator|+
-literal|"` execution mode cannot filter terms."
-argument_list|)
-throw|;
-block|}
 return|return
 operator|new
 name|GlobalOrdinalsSignificantTermsAggregator
@@ -819,6 +783,8 @@ argument_list|,
 name|minDocCount
 argument_list|,
 name|shardMinDocCount
+argument_list|,
+name|includeExclude
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -1292,21 +1258,6 @@ name|Bytes
 operator|.
 name|WithOrdinals
 operator|)
-condition|)
-block|{
-name|execution
-operator|=
-name|ExecutionMode
-operator|.
-name|MAP
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|includeExclude
-operator|!=
-literal|null
 condition|)
 block|{
 name|execution
