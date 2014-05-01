@@ -858,6 +858,8 @@ name|request
 operator|.
 name|versionType
 argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
