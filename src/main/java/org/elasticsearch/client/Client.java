@@ -1387,6 +1387,18 @@ name|listener
 parameter_list|)
 function_decl|;
 comment|/**      * Runs a benchmark on the server      */
+DECL|method|bench
+name|ActionFuture
+argument_list|<
+name|BenchmarkResponse
+argument_list|>
+name|bench
+parameter_list|(
+name|BenchmarkRequest
+name|request
+parameter_list|)
+function_decl|;
+comment|/**      * Runs a benchmark on the server      */
 DECL|method|prepareBench
 name|BenchmarkRequestBuilder
 name|prepareBench

@@ -152,12 +152,6 @@ specifier|private
 name|String
 name|benchmarkName
 decl_stmt|;
-DECL|field|percentiles
-specifier|private
-name|double
-index|[]
-name|percentiles
-decl_stmt|;
 DECL|field|verbose
 specifier|private
 name|boolean
@@ -171,6 +165,16 @@ init|=
 literal|1
 decl_stmt|;
 comment|// How many nodes to run the benchmark on
+DECL|field|percentiles
+specifier|private
+name|double
+index|[]
+name|percentiles
+init|=
+name|BenchmarkSettings
+operator|.
+name|DEFAULT_PERCENTILES
+decl_stmt|;
 comment|// Global settings which can be overwritten at the competitor level
 DECL|field|settings
 specifier|private

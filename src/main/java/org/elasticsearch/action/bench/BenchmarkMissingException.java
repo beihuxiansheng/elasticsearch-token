@@ -39,20 +39,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indicates that a benchmark cannot be executed due to a lack of candidate nodes.  */
+comment|/**  * Thrown when a client tries to access a benchmark which does not exist  */
 end_comment
 
 begin_class
-DECL|class|BenchmarkNodeMissingException
+DECL|class|BenchmarkMissingException
 specifier|public
 class|class
-name|BenchmarkNodeMissingException
+name|BenchmarkMissingException
 extends|extends
 name|ElasticsearchException
 block|{
-DECL|method|BenchmarkNodeMissingException
+DECL|method|BenchmarkMissingException
 specifier|public
-name|BenchmarkNodeMissingException
+name|BenchmarkMissingException
 parameter_list|(
 name|String
 name|msg
@@ -75,7 +75,7 @@ block|{
 return|return
 name|RestStatus
 operator|.
-name|SERVICE_UNAVAILABLE
+name|NOT_FOUND
 return|;
 block|}
 block|}
