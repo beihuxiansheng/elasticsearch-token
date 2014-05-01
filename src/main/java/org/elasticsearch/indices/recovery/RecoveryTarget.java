@@ -1212,27 +1212,16 @@ name|RecoveryListener
 name|listener
 parameter_list|)
 block|{
-if|if
-condition|(
+assert|assert
 name|request
 operator|.
 name|sourceNode
 argument_list|()
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-name|listener
-operator|.
-name|onIgnoreRecovery
-argument_list|(
-literal|false
-argument_list|,
-literal|"No node to recover from, retry on next cluster state update"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
+operator|:
+literal|"can't do a recovery without a source node"
+assert|;
 specifier|final
 name|InternalIndexShard
 name|shard

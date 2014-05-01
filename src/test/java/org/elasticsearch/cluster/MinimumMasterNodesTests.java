@@ -1619,7 +1619,7 @@ name|Test
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"cluster.service:TRACE,discovery:TRACE"
+literal|"cluster.service:TRACE,discovery:TRACE,indices.cluster:TRACE"
 argument_list|)
 DECL|method|multipleNodesShutdownNonMasterNodes
 specifier|public
