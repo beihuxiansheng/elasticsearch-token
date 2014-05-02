@@ -25,20 +25,6 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
 operator|.
 name|Slow
 import|;
@@ -184,7 +170,7 @@ name|test
 operator|.
 name|ElasticsearchIntegrationTest
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -293,16 +279,7 @@ name|Slow
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.cluster:TRACE,cluster.service:TRACE"
-argument_list|)
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/tree/feature/improve_zen"
+literal|"indices.cluster:TRACE,cluster.service:TRACE,action.search:TRACE,indices.recovery:TRACE"
 argument_list|)
 DECL|method|testFullRollingRestart
 specifier|public
