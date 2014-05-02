@@ -307,6 +307,11 @@ name|aggParser
 operator|.
 name|getExecutionHint
 argument_list|()
+argument_list|,
+name|aggParser
+operator|.
+name|getCollectionMode
+argument_list|()
 argument_list|)
 return|;
 block|}

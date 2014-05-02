@@ -350,6 +350,10 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|SubAggCollectionMode
+operator|.
+name|DEPTH_FIRST
 argument_list|)
 expr_stmt|;
 name|this

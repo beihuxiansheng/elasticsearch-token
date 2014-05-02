@@ -80,6 +80,22 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|Aggregator
+operator|.
+name|SubAggCollectionMode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|bucket
 operator|.
 name|terms
@@ -218,6 +234,9 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|SubAggCollectionMode
+name|subAggCollectMode
 parameter_list|)
 block|{
 return|return
@@ -241,6 +260,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -303,6 +324,9 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|SubAggCollectionMode
+name|subAggCollectMode
 parameter_list|)
 block|{
 if|if
@@ -336,6 +360,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -367,6 +393,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -429,6 +457,9 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|SubAggCollectionMode
+name|subAggCollectMode
 parameter_list|)
 block|{
 return|return
@@ -463,6 +494,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -525,6 +558,9 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|SubAggCollectionMode
+name|subAggCollectMode
 parameter_list|)
 block|{
 return|return
@@ -561,6 +597,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -623,6 +661,9 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|SubAggCollectionMode
+name|subAggCollectMode
 parameter_list|)
 block|{
 if|if
@@ -660,6 +701,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -695,6 +738,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -817,6 +862,9 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|SubAggCollectionMode
+name|subAggCollectMode
 parameter_list|)
 function_decl|;
 DECL|method|needsGlobalOrdinals
@@ -859,6 +907,11 @@ specifier|final
 name|String
 name|executionHint
 decl_stmt|;
+DECL|field|subAggCollectMode
+specifier|private
+name|SubAggCollectionMode
+name|subAggCollectMode
+decl_stmt|;
 DECL|field|bucketCountThresholds
 specifier|private
 specifier|final
@@ -890,6 +943,9 @@ name|includeExclude
 parameter_list|,
 name|String
 name|executionHint
+parameter_list|,
+name|SubAggCollectionMode
+name|executionMode
 parameter_list|)
 block|{
 name|super
@@ -929,6 +985,12 @@ operator|.
 name|bucketCountThresholds
 operator|=
 name|bucketCountThresholds
+expr_stmt|;
+name|this
+operator|.
+name|subAggCollectMode
+operator|=
+name|executionMode
 expr_stmt|;
 block|}
 annotation|@
@@ -1363,6 +1425,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -1440,6 +1504,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
@@ -1472,6 +1538,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|subAggCollectMode
 argument_list|)
 return|;
 block|}
