@@ -4488,7 +4488,7 @@ comment|// TODO: we could walk& add simultaneously, so we
 comment|// don't have to alloc [possibly biggish]
 comment|// intermediate HashSet in RAM:
 return|return
-name|SpecialOperations
+name|XSpecialOperations
 operator|.
 name|getFiniteStrings
 argument_list|(

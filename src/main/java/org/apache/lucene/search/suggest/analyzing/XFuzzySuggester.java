@@ -715,7 +715,7 @@ name|IntsRef
 argument_list|>
 name|ref
 init|=
-name|SpecialOperations
+name|XSpecialOperations
 operator|.
 name|getFiniteStrings
 argument_list|(
