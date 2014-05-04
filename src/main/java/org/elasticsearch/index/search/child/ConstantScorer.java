@@ -80,12 +80,14 @@ end_comment
 
 begin_class
 DECL|class|ConstantScorer
+specifier|public
 class|class
 name|ConstantScorer
 extends|extends
 name|Scorer
 block|{
 DECL|method|create
+specifier|public
 specifier|static
 name|ConstantScorer
 name|create
