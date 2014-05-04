@@ -1023,6 +1023,18 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|docIdsToLoad
+operator|.
+name|set
+argument_list|(
+name|entry
+operator|.
+name|index
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// clear it, we didn't manage to do anything with it
 name|onFetchFailure
 argument_list|(
 name|t
@@ -1137,6 +1149,16 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// the failure might happen without managing to clear the search context..., potentially need to clear its context (for example)
+name|docIdsToLoad
+operator|.
+name|set
+argument_list|(
+name|shardIndex
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|onFetchFailure
 argument_list|(
 name|t
