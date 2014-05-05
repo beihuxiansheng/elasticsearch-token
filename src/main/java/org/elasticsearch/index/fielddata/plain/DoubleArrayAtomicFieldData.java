@@ -56,7 +56,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|BigDoubleArrayList
+name|DoubleArray
 import|;
 end_import
 
@@ -265,7 +265,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|field|ordinals
@@ -278,7 +278,7 @@ DECL|method|WithOrdinals
 specifier|public
 name|WithOrdinals
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|Ordinals
@@ -435,13 +435,13 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|method|LongValues
 name|LongValues
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|Ordinals
@@ -514,13 +514,13 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|method|DoubleValues
 name|DoubleValues
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|Ordinals
@@ -582,7 +582,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|field|set
@@ -601,7 +601,7 @@ DECL|method|SingleFixedSet
 specifier|public
 name|SingleFixedSet
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|FixedBitSet
@@ -753,7 +753,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|field|set
@@ -765,7 +765,7 @@ decl_stmt|;
 DECL|method|LongValues
 name|LongValues
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|FixedBitSet
@@ -859,7 +859,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|field|set
@@ -871,7 +871,7 @@ decl_stmt|;
 DECL|method|DoubleValues
 name|DoubleValues
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|FixedBitSet
@@ -957,7 +957,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|field|numOrds
@@ -971,7 +971,7 @@ DECL|method|Single
 specifier|public
 name|Single
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|,
 name|long
@@ -1093,13 +1093,13 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|method|LongValues
 name|LongValues
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|)
 block|{
@@ -1147,13 +1147,13 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 decl_stmt|;
 DECL|method|DoubleValues
 name|DoubleValues
 parameter_list|(
-name|BigDoubleArrayList
+name|DoubleArray
 name|values
 parameter_list|)
 block|{

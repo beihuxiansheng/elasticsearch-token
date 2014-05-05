@@ -49,6 +49,13 @@ name|long
 name|size
 parameter_list|()
 function_decl|;
+comment|/**      * Return an estimated memory usage of this instance.      */
+DECL|method|sizeInBytes
+specifier|public
+name|long
+name|sizeInBytes
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
