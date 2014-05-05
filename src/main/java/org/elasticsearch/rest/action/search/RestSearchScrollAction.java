@@ -28,20 +28,6 @@ name|action
 operator|.
 name|search
 operator|.
-name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
 name|SearchScrollRequest
 import|;
 end_import
@@ -162,7 +148,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestToXContentListener
+name|RestStatusToXContentListener
 import|;
 end_import
 
@@ -409,10 +395,7 @@ argument_list|(
 name|searchScrollRequest
 argument_list|,
 operator|new
-name|RestToXContentListener
-argument_list|<
-name|SearchResponse
-argument_list|>
+name|RestStatusToXContentListener
 argument_list|(
 name|channel
 argument_list|)
