@@ -301,14 +301,6 @@ name|indices
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|operationThreading
-argument_list|(
-name|request
-operator|.
-name|operationThreading
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|documentType

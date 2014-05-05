@@ -1588,7 +1588,7 @@ name|shardRouting
 init|=
 name|shardIterator
 operator|.
-name|firstOrNull
+name|nextOrNull
 argument_list|()
 decl_stmt|;
 if|if
