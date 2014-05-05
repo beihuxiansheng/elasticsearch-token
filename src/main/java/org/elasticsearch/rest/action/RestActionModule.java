@@ -2736,6 +2736,21 @@ operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;
+name|catActionMultibinder
+operator|.
+name|addBinding
+argument_list|()
+operator|.
+name|to
+argument_list|(
+name|RestFielddataAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 comment|// no abstract cat action
 name|bind
 argument_list|(
