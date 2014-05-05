@@ -158,27 +158,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Controls the the search operation threading model.      */
-DECL|method|setOperationThreading
-specifier|public
-name|SearchScrollRequestBuilder
-name|setOperationThreading
-parameter_list|(
-name|SearchOperationThreading
-name|operationThreading
-parameter_list|)
-block|{
-name|request
-operator|.
-name|operationThreading
-argument_list|(
-name|operationThreading
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Should the listener be called on a separate thread if needed.      */
 DECL|method|listenerThreaded
 specifier|public
