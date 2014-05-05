@@ -26,16 +26,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ListIterator
-import|;
-end_import
-
 begin_comment
 comment|/**  * A simple {@link ShardsIterator} that iterates a list or sub-list of  * {@link ShardRouting shard routings}.  */
 end_comment
@@ -57,13 +47,14 @@ name|ShardRouting
 argument_list|>
 name|shards
 decl_stmt|;
-DECL|field|iterator
+comment|// Calls to nextOrNull might be performed on different threads in the transport actions so we need the volatile
+comment|// keyword in order to ensure visibility. Note that it is fine to use `volatile` for a counter in that case given
+comment|// that although nextOrNull might be called from different threads, it can never happen concurrently.
+DECL|field|index
 specifier|private
-name|ListIterator
-argument_list|<
-name|ShardRouting
-argument_list|>
-name|iterator
+specifier|volatile
+name|int
+name|index
 decl_stmt|;
 DECL|method|PlainShardsIterator
 specifier|public
@@ -82,13 +73,7 @@ name|shards
 operator|=
 name|shards
 expr_stmt|;
-name|this
-operator|.
-name|iterator
-operator|=
-name|shards
-operator|.
-name|listIterator
+name|reset
 argument_list|()
 expr_stmt|;
 block|}
@@ -100,12 +85,9 @@ name|void
 name|reset
 parameter_list|()
 block|{
-name|iterator
+name|index
 operator|=
-name|shards
-operator|.
-name|listIterator
-argument_list|()
+literal|0
 expr_stmt|;
 block|}
 annotation|@
@@ -122,10 +104,7 @@ operator|.
 name|size
 argument_list|()
 operator|-
-name|iterator
-operator|.
-name|nextIndex
-argument_list|()
+name|index
 return|;
 block|}
 annotation|@
@@ -167,23 +146,28 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|iterator
+name|index
+operator|==
+name|shards
 operator|.
-name|hasNext
+name|size
 argument_list|()
 condition|)
 block|{
 return|return
-name|iterator
-operator|.
-name|next
-argument_list|()
+literal|null
 return|;
 block|}
 else|else
 block|{
 return|return
-literal|null
+name|shards
+operator|.
+name|get
+argument_list|(
+name|index
+operator|++
+argument_list|)
 return|;
 block|}
 block|}
