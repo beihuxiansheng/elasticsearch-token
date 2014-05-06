@@ -1430,7 +1430,8 @@ argument_list|()
 argument_list|,
 name|IndicesOptions
 operator|.
-name|ERROR_UNAVAILABLE_EXPAND_OPEN_CLOSE
+name|strictExpand
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|RoutingTable

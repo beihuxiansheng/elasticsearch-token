@@ -394,7 +394,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|,
 operator|new
@@ -427,7 +427,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|,
 operator|new
@@ -462,7 +462,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|,
 operator|new
@@ -504,7 +504,7 @@ name|filter
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|,
 name|expected

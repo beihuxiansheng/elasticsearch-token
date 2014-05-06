@@ -190,7 +190,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 decl_stmt|;
 DECL|method|ClusterSearchShardsRequest

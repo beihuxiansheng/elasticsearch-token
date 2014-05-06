@@ -3128,7 +3128,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3180,7 +3180,7 @@ name|aliasesOrIndices
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -5338,7 +5338,7 @@ name|indicesOrAliases
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 expr_stmt|;

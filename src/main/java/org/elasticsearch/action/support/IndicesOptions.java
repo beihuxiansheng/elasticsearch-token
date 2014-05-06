@@ -155,42 +155,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Indices option that ignores unavailable indices, allows no indices and expand wildcards to open only indices      */
-DECL|field|IGNORE_UNAVAILABLE_EXPAND_OPEN_ONLY
-specifier|public
-specifier|static
-name|IndicesOptions
-name|IGNORE_UNAVAILABLE_EXPAND_OPEN_ONLY
-init|=
-name|fromOptions
-argument_list|(
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|)
-decl_stmt|;
-comment|/**      * Indices option that doesn't ignore unavailable indices, allows no indices and expand wildcards to both open and closed indices      */
-DECL|field|ERROR_UNAVAILABLE_EXPAND_OPEN_CLOSE
-specifier|public
-specifier|static
-name|IndicesOptions
-name|ERROR_UNAVAILABLE_EXPAND_OPEN_CLOSE
-init|=
-name|fromOptions
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
 DECL|field|id
 specifier|private
 specifier|final
@@ -565,12 +529,12 @@ name|expandWildcardsClosed
 argument_list|)
 return|;
 block|}
-comment|/**      * @return indices options that requires any specified index to exists, expands wildcards only to open indices and      *         allow that no indices are resolved from wildcard expressions (not returning an error).      */
-DECL|method|strict
+comment|/**      * @return indices options that requires every specified index to exist, expands wildcards only to open indices and      *         allows that no indices are resolved from wildcard expressions (not returning an error).      */
+DECL|method|strictExpandOpen
 specifier|public
 specifier|static
 name|IndicesOptions
-name|strict
+name|strictExpandOpen
 parameter_list|()
 block|{
 return|return
@@ -580,12 +544,27 @@ literal|6
 index|]
 return|;
 block|}
-comment|/**      * @return indices options that ignore unavailable indices, expand wildcards only to open indices and      *         allow that no indices are resolved from wildcard expressions (not returning an error).      */
-DECL|method|lenient
+comment|/**      * @return indices option that requires every specified index to exist, expands wildcards to both open and closed      * indices and allows that no indices are resolved from wildcard expressions (not returning an error).      */
+DECL|method|strictExpand
 specifier|public
 specifier|static
 name|IndicesOptions
-name|lenient
+name|strictExpand
+parameter_list|()
+block|{
+return|return
+name|VALUES
+index|[
+literal|14
+index|]
+return|;
+block|}
+comment|/**      * @return indices options that ignores unavailable indices, expands wildcards only to open indices and      *         allows that no indices are resolved from wildcard expressions (not returning an error).      */
+DECL|method|lenientExpandOpen
+specifier|public
+specifier|static
+name|IndicesOptions
+name|lenientExpandOpen
 parameter_list|()
 block|{
 return|return

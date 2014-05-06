@@ -1400,7 +1400,8 @@ literal|null
 argument_list|,
 name|IndicesOptions
 operator|.
-name|ERROR_UNAVAILABLE_EXPAND_OPEN_CLOSE
+name|strictExpand
+argument_list|()
 argument_list|)
 argument_list|,
 name|clusterState
@@ -1607,7 +1608,8 @@ literal|null
 argument_list|,
 name|IndicesOptions
 operator|.
-name|ERROR_UNAVAILABLE_EXPAND_OPEN_CLOSE
+name|strictExpand
+argument_list|()
 argument_list|)
 argument_list|,
 name|clusterState

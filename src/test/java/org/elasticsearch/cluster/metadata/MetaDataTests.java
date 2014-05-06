@@ -233,7 +233,7 @@ name|options
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 decl_stmt|;
 name|String
@@ -582,7 +582,7 @@ name|options
 init|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 decl_stmt|;
 name|String
@@ -1657,7 +1657,7 @@ name|options
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 decl_stmt|;
 name|String
@@ -1765,7 +1765,7 @@ name|options
 operator|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 expr_stmt|;
 name|results
@@ -1974,7 +1974,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2007,7 +2007,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2042,7 +2042,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2075,7 +2075,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2110,7 +2110,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2145,7 +2145,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2281,7 +2281,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2318,7 +2318,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2355,7 +2355,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2390,7 +2390,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2427,7 +2427,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2554,7 +2554,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2620,7 +2620,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2703,7 +2703,7 @@ block|}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2775,7 +2775,7 @@ block|{}
 argument_list|,
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)

@@ -210,7 +210,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 decl_stmt|;
 DECL|method|GetFieldMappingsRequest

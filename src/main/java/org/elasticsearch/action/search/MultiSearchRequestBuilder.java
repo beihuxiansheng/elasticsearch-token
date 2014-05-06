@@ -139,7 +139,7 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|&&
 name|request
@@ -150,7 +150,7 @@ argument_list|()
 operator|!=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 condition|)
 block|{
@@ -201,7 +201,7 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|&&
 name|request
@@ -212,7 +212,7 @@ argument_list|()
 operator|!=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 condition|)
 block|{

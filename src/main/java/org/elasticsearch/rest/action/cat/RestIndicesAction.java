@@ -594,7 +594,8 @@ name|indices
 argument_list|,
 name|IndicesOptions
 operator|.
-name|IGNORE_UNAVAILABLE_EXPAND_OPEN_ONLY
+name|lenientExpandOpen
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ClusterHealthRequest

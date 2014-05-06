@@ -603,7 +603,7 @@ name|setIndicesOptions
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 operator|.
@@ -793,7 +793,7 @@ name|setIndicesOptions
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 operator|.

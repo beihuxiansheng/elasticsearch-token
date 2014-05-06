@@ -765,7 +765,8 @@ argument_list|()
 argument_list|,
 name|IndicesOptions
 operator|.
-name|ERROR_UNAVAILABLE_EXPAND_OPEN_CLOSE
+name|strictExpand
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|waitForCounter
@@ -1377,7 +1378,8 @@ argument_list|()
 argument_list|,
 name|IndicesOptions
 operator|.
-name|IGNORE_UNAVAILABLE_EXPAND_OPEN_ONLY
+name|lenientExpandOpen
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
