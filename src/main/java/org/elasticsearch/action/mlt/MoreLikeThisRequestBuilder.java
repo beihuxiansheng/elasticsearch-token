@@ -470,6 +470,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to include the queried document. Defaults to<tt>false</tt>.      */
+DECL|method|setInclude
+specifier|public
+name|MoreLikeThisRequestBuilder
+name|setInclude
+parameter_list|(
+name|boolean
+name|include
+parameter_list|)
+block|{
+name|request
+operator|.
+name|include
+argument_list|(
+name|include
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * An optional search source request allowing to control the search request for the      * more like this documents.      */
 DECL|method|setSearchSource
 specifier|public

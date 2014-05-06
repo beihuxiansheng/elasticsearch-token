@@ -1215,6 +1215,15 @@ expr_stmt|;
 return|return;
 block|}
 comment|// exclude myself
+if|if
+condition|(
+operator|!
+name|request
+operator|.
+name|include
+argument_list|()
+condition|)
+block|{
 name|Term
 name|uidTerm
 init|=
@@ -1261,6 +1270,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
