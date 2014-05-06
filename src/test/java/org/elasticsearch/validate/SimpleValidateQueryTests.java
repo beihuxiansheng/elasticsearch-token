@@ -174,6 +174,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matcher
@@ -303,6 +317,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|ClusterScope
+argument_list|(
+name|randomDynamicTemplates
+operator|=
+literal|false
+argument_list|)
 DECL|class|SimpleValidateQueryTests
 specifier|public
 class|class
