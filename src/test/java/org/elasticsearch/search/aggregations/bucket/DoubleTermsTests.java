@@ -7953,7 +7953,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"ceil(_doc.score/3)"
+literal|"ceil(_doc.score()/3)"
 argument_list|)
 argument_list|)
 operator|.

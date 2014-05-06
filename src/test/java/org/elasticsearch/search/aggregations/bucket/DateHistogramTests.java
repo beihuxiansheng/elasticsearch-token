@@ -5774,7 +5774,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"new DateTime(_value, DateTimeZone.UTC).plusMonths(1).getMillis()"
+literal|"new DateTime((long)_value, DateTimeZone.UTC).plusMonths(1).getMillis()"
 argument_list|)
 operator|.
 name|interval
