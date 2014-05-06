@@ -293,6 +293,7 @@ name|fixedSourceDistance
 decl_stmt|;
 DECL|field|distanceBoundingCheck
 specifier|private
+specifier|final
 name|GeoDistance
 operator|.
 name|DistanceBoundingCheck
@@ -377,6 +378,13 @@ operator|.
 name|DEFAULT
 argument_list|)
 expr_stmt|;
+name|GeoDistance
+operator|.
+name|DistanceBoundingCheck
+name|distanceBoundingCheck
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|optimizeBbox
@@ -490,6 +498,12 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|distanceBoundingCheck
+operator|=
+name|distanceBoundingCheck
+expr_stmt|;
 block|}
 DECL|method|lat
 specifier|public

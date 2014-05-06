@@ -792,15 +792,20 @@ name|unit
 parameter_list|)
 block|{
 comment|// angular distance in radians on a great circle
+comment|// assume worst-case: use the minor axis
 name|double
 name|radDist
 init|=
-name|distance
-operator|/
 name|unit
 operator|.
-name|getEarthRadius
-argument_list|()
+name|toMeters
+argument_list|(
+name|distance
+argument_list|)
+operator|/
+name|GeoUtils
+operator|.
+name|EARTH_SEMI_MINOR_AXIS
 decl_stmt|;
 name|double
 name|radLat
