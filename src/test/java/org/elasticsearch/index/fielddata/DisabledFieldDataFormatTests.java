@@ -85,6 +85,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -117,6 +131,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ClusterScope
+argument_list|(
+name|randomDynamicTemplates
+operator|=
+literal|false
+argument_list|)
 DECL|class|DisabledFieldDataFormatTests
 specifier|public
 class|class

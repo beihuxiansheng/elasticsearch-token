@@ -172,6 +172,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -214,20 +228,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -257,6 +257,10 @@ argument_list|,
 name|numClientNodes
 operator|=
 literal|0
+argument_list|,
+name|randomDynamicTemplates
+operator|=
+literal|false
 argument_list|)
 DECL|class|CacheTests
 specifier|public

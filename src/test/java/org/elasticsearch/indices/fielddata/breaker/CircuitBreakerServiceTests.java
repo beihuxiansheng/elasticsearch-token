@@ -90,6 +90,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|junit
 operator|.
 name|annotations
@@ -147,20 +161,6 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|ClusterScope
 import|;
 end_import
 
@@ -235,6 +235,10 @@ argument_list|(
 name|scope
 operator|=
 name|TEST
+argument_list|,
+name|randomDynamicTemplates
+operator|=
+literal|false
 argument_list|)
 DECL|class|CircuitBreakerServiceTests
 specifier|public
