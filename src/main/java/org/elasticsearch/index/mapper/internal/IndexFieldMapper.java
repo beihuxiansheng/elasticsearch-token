@@ -898,7 +898,9 @@ return|return
 operator|new
 name|FieldDataType
 argument_list|(
-literal|"string"
+name|IndexFieldMapper
+operator|.
+name|NAME
 argument_list|)
 return|;
 block|}
