@@ -780,6 +780,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|builder
+operator|.
+name|startObject
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|keyed
@@ -789,7 +796,9 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|name
+name|CommonFields
+operator|.
+name|VALUES
 argument_list|)
 expr_stmt|;
 for|for
@@ -879,7 +888,9 @@ name|builder
 operator|.
 name|startArray
 argument_list|(
-name|name
+name|CommonFields
+operator|.
+name|VALUES
 argument_list|)
 expr_stmt|;
 for|for
@@ -976,6 +987,11 @@ name|endArray
 argument_list|()
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 return|return
 name|builder
 return|;
