@@ -1549,13 +1549,7 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-name|info
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|info
+name|node
 operator|.
 name|getVersion
 argument_list|()
