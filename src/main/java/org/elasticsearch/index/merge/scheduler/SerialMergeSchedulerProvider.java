@@ -400,6 +400,14 @@ name|of
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|close
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{      }
 DECL|class|CustomSerialMergeScheduler
 specifier|public
 specifier|static

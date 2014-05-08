@@ -3246,6 +3246,17 @@ argument_list|,
 name|EMPTY_SETTINGS
 argument_list|,
 name|threadPool
+argument_list|,
+operator|new
+name|IndexSettingsService
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|EMPTY_SETTINGS
+argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
