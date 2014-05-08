@@ -338,6 +338,7 @@ name|void
 name|computeStatistics
 parameter_list|()
 block|{
+specifier|final
 name|SinglePassStatistics
 name|single
 init|=

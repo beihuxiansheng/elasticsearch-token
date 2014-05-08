@@ -446,7 +446,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> submitting benchmark - competitors [{}] iterations [{}]"
+literal|"--> Submitting benchmark - competitors [{}] iterations [{}]"
 argument_list|,
 name|request
 operator|.
@@ -629,7 +629,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> submitting benchmark - competitors [{}] iterations [{}]"
+literal|"--> Submitting benchmark - competitors [{}] iterations [{}]"
 argument_list|,
 name|request
 operator|.
@@ -840,7 +840,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|equalTo
+name|lessThanOrEqualTo
 argument_list|(
 name|numExecutorNodes
 argument_list|)
@@ -957,7 +957,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> submitting benchmark - competitors [{}] iterations [{}]"
+literal|"--> Submitting benchmark - competitors [{}] iterations [{}]"
 argument_list|,
 name|request
 operator|.
@@ -1108,7 +1108,7 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|equalTo
+name|lessThanOrEqualTo
 argument_list|(
 name|numExecutorNodes
 argument_list|)
@@ -1648,7 +1648,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|min
+name|getMin
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1660,13 +1661,15 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|max
+name|getMax
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
 name|summary
 operator|.
-name|min
+name|getMin
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1674,7 +1677,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|mean
+name|getMean
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1683,7 +1687,8 @@ name|double
 operator|)
 name|summary
 operator|.
-name|min
+name|getMin
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1691,7 +1696,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|mean
+name|getMean
+argument_list|()
 argument_list|,
 name|lessThanOrEqualTo
 argument_list|(
@@ -1700,7 +1706,8 @@ name|double
 operator|)
 name|summary
 operator|.
-name|max
+name|getMax
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1708,7 +1715,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|totalTime
+name|getTotalTime
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1720,7 +1728,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|queriesPerSecond
+name|getQueriesPerSecond
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1732,7 +1741,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|millisPerHit
+name|getMillisPerHit
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1744,7 +1754,8 @@ name|assertThat
 argument_list|(
 name|summary
 operator|.
-name|avgWarmupTime
+name|getAvgWarmupTime
+argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
@@ -1764,7 +1775,8 @@ name|int
 operator|)
 name|summary
 operator|.
-name|totalIterations
+name|getTotalIterations
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1790,7 +1802,8 @@ name|int
 operator|)
 name|summary
 operator|.
-name|completedIterations
+name|getCompletedIterations
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
@@ -1816,7 +1829,8 @@ name|int
 operator|)
 name|summary
 operator|.
-name|totalQueries
+name|getTotalQueries
+argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
