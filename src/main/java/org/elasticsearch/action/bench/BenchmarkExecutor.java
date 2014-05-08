@@ -371,13 +371,18 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|BenchmarkMissingException
 argument_list|(
 literal|"Benchmark ["
 operator|+
 name|benchmarkName
 operator|+
-literal|"] not found"
+literal|"] not found on ["
+operator|+
+name|nodeName
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -409,9 +414,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Aborted benchmark [{}]"
+literal|"Aborted benchmark [{}] on [{}]"
 argument_list|,
 name|benchmarkName
+argument_list|,
+name|nodeName
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -421,6 +429,7 @@ argument_list|(
 name|benchmarkName
 argument_list|,
 name|nodeName
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -498,6 +507,21 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Reporting [{}] active benchmarks on [{}]"
+argument_list|,
+name|response
+operator|.
+name|activeBenchmarks
+argument_list|()
+argument_list|,
+name|nodeName
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|response
 return|;
@@ -557,28 +581,6 @@ argument_list|,
 name|competitionResults
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|this
-operator|.
-name|nodeName
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|nodeName
-operator|=
-name|clusterService
-operator|.
-name|localNode
-argument_list|()
-operator|.
-name|name
-argument_list|()
-expr_stmt|;
-block|}
 synchronized|synchronized
 init|(
 name|lock
@@ -601,14 +603,19 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"Benchmark with id ["
+literal|"Benchmark ["
 operator|+
 name|request
 operator|.
 name|benchmarkName
 argument_list|()
 operator|+
-literal|"] is already running"
+literal|"] is already running on ["
+operator|+
+name|nodeName
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -678,18 +685,21 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Executing [{}] iterations for benchmark [{}][{}] "
+literal|"Executing [iterations: {}] [multiplier: {}] for [{}] on [{}]"
 argument_list|,
 name|iterations
+argument_list|,
+name|settings
+operator|.
+name|multiplier
+argument_list|()
 argument_list|,
 name|request
 operator|.
 name|benchmarkName
 argument_list|()
 argument_list|,
-name|competitor
-operator|.
-name|name
+name|nodeName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -748,6 +758,7 @@ name|name
 argument_list|()
 argument_list|,
 name|nodeName
+argument_list|()
 argument_list|,
 name|iterations
 argument_list|,
@@ -1511,20 +1522,6 @@ name|errorMessages
 argument_list|)
 throw|;
 block|}
-assert|assert
-name|assertBuckets
-argument_list|(
-name|timeBuckets
-argument_list|)
-assert|;
-comment|// make sure they are all set
-assert|assert
-name|assertBuckets
-argument_list|(
-name|docBuckets
-argument_list|)
-assert|;
-comment|// make sure they are all set
 specifier|final
 name|long
 name|totalTime
@@ -2497,6 +2494,34 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+block|}
+DECL|method|nodeName
+specifier|private
+name|String
+name|nodeName
+parameter_list|()
+block|{
+if|if
+condition|(
+name|nodeName
+operator|==
+literal|null
+condition|)
+block|{
+name|nodeName
+operator|=
+name|clusterService
+operator|.
+name|localNode
+argument_list|()
+operator|.
+name|name
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|nodeName
+return|;
 block|}
 DECL|method|assertBuckets
 specifier|private
