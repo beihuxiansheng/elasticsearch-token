@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Controls how to deal when concrete indices are unavailable (closed& missing), to what wildcard expression expand  * (all, closed or open indices) and how to deal when a wildcard expression resolves into no concrete indices.  */
+comment|/**  * Controls how to deal with unavailable concrete indices (closed or missing), how wildcard expressions are expanded  * to actual indices (all, closed or open indices) and how to deal with wildcard expressions that resolve to no indices.  */
 end_comment
 
 begin_class
@@ -193,7 +193,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether to ignore if a wildcard indices expression resolves into no concrete indices.      *         The `_all` string or when no indices have been specified also count as wildcard expressions.      */
+comment|/**      * @return Whether to ignore if a wildcard expression resolves to no concrete indices.      *         The `_all` string or empty list of indices count as wildcard expressions too.      */
 DECL|method|allowNoIndices
 specifier|public
 name|boolean
@@ -210,7 +210,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether wildcard indices expressions should expanded into open indices should be      */
+comment|/**      * @return Whether wildcard expressions should get expanded to open indices      */
 DECL|method|expandWildcardsOpen
 specifier|public
 name|boolean
@@ -227,7 +227,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether wildcard indices expressions should expanded into closed indices should be      */
+comment|/**      * @return Whether wildcard expressions should get expanded to closed indices      */
 DECL|method|expandWildcardsClosed
 specifier|public
 name|boolean
