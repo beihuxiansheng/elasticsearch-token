@@ -226,6 +226,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the minimum document count terms should have on the shard in order to appear in the response.      */
+DECL|method|shardMinDocCount
+specifier|public
+name|TermsBuilder
+name|shardMinDocCount
+parameter_list|(
+name|long
+name|shardMinDocCount
+parameter_list|)
+block|{
+name|bucketCountThresholds
+operator|.
+name|setShardMinDocCount
+argument_list|(
+name|shardMinDocCount
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Define a regular expression that will determine what terms should be aggregated. The regular expression is based      * on the {@link java.util.regex.Pattern} class.      *      * @see #include(String, int)      */
 DECL|method|include
 specifier|public

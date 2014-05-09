@@ -1430,6 +1430,18 @@ name|bucketOrd
 operator|=
 name|i
 expr_stmt|;
+if|if
+condition|(
+name|bucketCountThresholds
+operator|.
+name|getShardMinDocCount
+argument_list|()
+operator|<=
+name|spare
+operator|.
+name|docCount
+condition|)
+block|{
 name|spare
 operator|=
 operator|(
@@ -1444,6 +1456,7 @@ argument_list|(
 name|spare
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 specifier|final
 name|InternalTerms
