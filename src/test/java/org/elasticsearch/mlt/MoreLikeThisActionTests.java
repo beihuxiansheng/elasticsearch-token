@@ -2839,6 +2839,11 @@ name|include
 argument_list|(
 literal|true
 argument_list|)
+operator|.
+name|percentTermsToMatch
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
@@ -2888,6 +2893,11 @@ operator|.
 name|include
 argument_list|(
 literal|true
+argument_list|)
+operator|.
+name|percentTermsToMatch
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -2940,6 +2950,11 @@ operator|.
 name|minDocFreq
 argument_list|(
 literal|1
+argument_list|)
+operator|.
+name|percentTermsToMatch
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 operator|.
