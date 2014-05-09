@@ -4473,14 +4473,6 @@ argument_list|,
 name|sepLabel
 argument_list|)
 expr_stmt|;
-assert|assert
-name|SpecialOperations
-operator|.
-name|isFinite
-argument_list|(
-name|automaton
-argument_list|)
-assert|;
 comment|// Get all paths from the automaton (there can be
 comment|// more than one path, eg if the analyzer created a
 comment|// graph using SynFilter or WDF):

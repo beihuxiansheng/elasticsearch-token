@@ -1249,18 +1249,6 @@ name|PRESERVE_SEP
 else|:
 literal|0
 decl_stmt|;
-comment|// NOTE: remove once we fix isFinite to not
-comment|// recurse; this is just a stopgap to mute the test:
-comment|// This test fails on Java8, I think because that
-comment|// version allocates less stack in the Jenkins envs
-comment|// where we run tests
-name|assumeFalse
-argument_list|(
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA8
-argument_list|)
-expr_stmt|;
 name|XAnalyzingSuggester
 name|reference
 init|=
