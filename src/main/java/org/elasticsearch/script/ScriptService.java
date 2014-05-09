@@ -1404,10 +1404,10 @@ try|try
 block|{
 name|logger
 operator|.
-name|trace
+name|info
 argument_list|(
-literal|"compiling script file "
-operator|+
+literal|"compiling script file [{}]"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
@@ -1562,10 +1562,10 @@ argument_list|)
 decl_stmt|;
 name|logger
 operator|.
-name|trace
+name|info
 argument_list|(
-literal|"removing script file "
-operator|+
+literal|"removing script file [{}]"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
