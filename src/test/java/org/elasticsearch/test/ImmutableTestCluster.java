@@ -405,6 +405,14 @@ name|int
 name|numDataNodes
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the number of bench nodes in the cluster.      */
+DECL|method|numBenchNodes
+specifier|public
+specifier|abstract
+name|int
+name|numBenchNodes
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the http addresses of the nodes within the cluster.      * Can be used to run REST tests against the test cluster.      */
 DECL|method|httpAddresses
 specifier|public

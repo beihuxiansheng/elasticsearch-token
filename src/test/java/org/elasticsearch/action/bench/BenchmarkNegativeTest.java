@@ -66,23 +66,37 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * Tests for negative situations where we cannot run benchmarks  */
 end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
-operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|SUITE
+argument_list|,
+name|enableRandomBenchNodes
+operator|=
+literal|false
 argument_list|)
 DECL|class|BenchmarkNegativeTest
 specifier|public
