@@ -16403,7 +16403,7 @@ argument_list|()
 operator|.
 name|startArray
 argument_list|(
-literal|"dynamic_template"
+literal|"dynamic_templates"
 argument_list|)
 operator|.
 name|startObject

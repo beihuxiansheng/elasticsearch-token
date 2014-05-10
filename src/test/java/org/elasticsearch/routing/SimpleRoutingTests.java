@@ -2696,6 +2696,11 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
+literal|"properties"
+argument_list|)
+operator|.
+name|startObject
+argument_list|(
 literal|"routing_field"
 argument_list|)
 operator|.
@@ -2729,6 +2734,9 @@ literal|"yes"
 else|:
 literal|"no"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
