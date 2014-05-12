@@ -349,7 +349,7 @@ name|FieldData
 name|valuesSource
 decl_stmt|;
 DECL|field|includeExclude
-specifier|private
+specifier|protected
 specifier|final
 name|IncludeExclude
 name|includeExclude
@@ -375,7 +375,7 @@ comment|// first defined one.
 comment|// So currently for each instance of this aggregator the acceptedGlobalOrdinals will be computed, this is unnecessary
 comment|// especially if this agg is on a second layer or deeper.
 DECL|field|acceptedGlobalOrdinals
-specifier|private
+specifier|protected
 name|LongBitSet
 name|acceptedGlobalOrdinals
 decl_stmt|;
@@ -820,6 +820,23 @@ operator|++
 name|globalTermOrd
 control|)
 block|{
+if|if
+condition|(
+name|includeExclude
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|acceptedGlobalOrdinals
+operator|.
+name|get
+argument_list|(
+name|globalTermOrd
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 specifier|final
 name|long
 name|bucketOrd
