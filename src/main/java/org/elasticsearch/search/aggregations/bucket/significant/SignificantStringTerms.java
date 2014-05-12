@@ -864,7 +864,7 @@ argument_list|()
 expr_stmt|;
 name|builder
 operator|.
-name|field
+name|utf8Field
 argument_list|(
 name|CommonFields
 operator|.
