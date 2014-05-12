@@ -162,26 +162,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|math
-operator|.
-name|BigDecimal
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|math
-operator|.
-name|RoundingMode
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashMap
@@ -1736,10 +1716,12 @@ name|i
 init|=
 literal|0
 decl_stmt|;
-name|Double
+name|double
 name|last
 init|=
-literal|null
+name|Double
+operator|.
+name|NEGATIVE_INFINITY
 decl_stmt|;
 for|for
 control|(
@@ -1778,13 +1760,9 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|last
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// This is a hedge against rounding errors. Sometimes two adjacent percentile values will
+comment|// be nearly equivalent except for some insignificant decimal places. In such cases we
+comment|// want the two values to compare as equal.
 name|assertThat
 argument_list|(
 name|entry
@@ -1795,40 +1773,16 @@ argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
 name|last
+operator|-
+literal|1e-6
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|// This is a hedge against rounding errors. Sometimes two adjacent percentile values will
-comment|// be nearly equivalent except for some insignificant decimal places. In such cases we
-comment|// want the two values to compare as equal.
-specifier|final
-name|BigDecimal
-name|bd
-init|=
-operator|new
-name|BigDecimal
-argument_list|(
+name|last
+operator|=
 name|entry
 operator|.
 name|getValue
-argument_list|()
-argument_list|)
-operator|.
-name|setScale
-argument_list|(
-literal|2
-argument_list|,
-name|RoundingMode
-operator|.
-name|HALF_DOWN
-argument_list|)
-decl_stmt|;
-name|last
-operator|=
-name|bd
-operator|.
-name|doubleValue
 argument_list|()
 expr_stmt|;
 block|}
