@@ -366,6 +366,21 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"breaker was tripped exactly once"
+argument_list|,
+name|breaker
+operator|.
+name|getTrippedCount
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1L
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -487,6 +502,21 @@ name|CircuitBreakingException
 name|cbe
 parameter_list|)
 block|{
+name|assertThat
+argument_list|(
+literal|"breaker was tripped exactly twice"
+argument_list|,
+name|breaker
+operator|.
+name|getTrippedCount
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2L
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|cbe

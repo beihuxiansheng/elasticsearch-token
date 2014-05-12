@@ -483,6 +483,11 @@ name|breaker
 operator|.
 name|getOverhead
 argument_list|()
+argument_list|,
+name|breaker
+operator|.
+name|getTrippedCount
+argument_list|()
 argument_list|)
 return|;
 block|}
