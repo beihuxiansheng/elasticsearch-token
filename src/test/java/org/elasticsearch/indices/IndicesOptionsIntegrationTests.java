@@ -2160,9 +2160,6 @@ argument_list|(
 literal|"test1"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
@@ -3846,9 +3843,6 @@ name|createIndex
 argument_list|(
 literal|"foobar"
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
