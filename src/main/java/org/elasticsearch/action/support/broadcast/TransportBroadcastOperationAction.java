@@ -501,6 +501,9 @@ specifier|abstract
 name|ShardRequest
 name|newShardRequest
 parameter_list|(
+name|int
+name|numShards
+parameter_list|,
 name|ShardRouting
 name|shard
 parameter_list|,
@@ -950,6 +953,11 @@ name|shardRequest
 init|=
 name|newShardRequest
 argument_list|(
+name|shardIt
+operator|.
+name|size
+argument_list|()
+argument_list|,
 name|shard
 argument_list|,
 name|request
