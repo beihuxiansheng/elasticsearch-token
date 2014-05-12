@@ -64,6 +64,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|terms
+operator|.
+name|AbstractTermsParametersParser
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -97,7 +115,7 @@ specifier|private
 name|int
 name|requiredSize
 init|=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_REQUIRED_SIZE
 decl_stmt|;
@@ -106,7 +124,7 @@ specifier|private
 name|int
 name|shardSize
 init|=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_SHARD_SIZE
 decl_stmt|;
@@ -115,7 +133,7 @@ specifier|private
 name|int
 name|minDocCount
 init|=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_MIN_DOC_COUNT
 decl_stmt|;
@@ -124,7 +142,7 @@ specifier|private
 name|int
 name|shardMinDocCount
 init|=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_SHARD_MIN_DOC_COUNT
 decl_stmt|;
@@ -450,7 +468,7 @@ if|if
 condition|(
 name|minDocCount
 operator|!=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_MIN_DOC_COUNT
 condition|)
@@ -469,7 +487,7 @@ if|if
 condition|(
 name|shardMinDocCount
 operator|!=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_SHARD_MIN_DOC_COUNT
 condition|)
@@ -488,7 +506,7 @@ if|if
 condition|(
 name|requiredSize
 operator|!=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_REQUIRED_SIZE
 condition|)
@@ -507,7 +525,7 @@ if|if
 condition|(
 name|shardSize
 operator|!=
-name|SignificantTermsParser
+name|AbstractTermsParametersParser
 operator|.
 name|DEFAULT_SHARD_SIZE
 condition|)
@@ -654,7 +672,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|SignificantTermsParser
+name|SignificantTermsParametersParser
 operator|.
 name|BACKGROUND_FILTER
 operator|.
