@@ -15546,6 +15546,13 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"test1"
+argument_list|,
+literal|"test2"
+argument_list|)
+expr_stmt|;
 name|assertAcked
 argument_list|(
 name|client
