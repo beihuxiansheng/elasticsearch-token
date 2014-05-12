@@ -450,13 +450,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/issues/6094"
-argument_list|)
 DECL|method|testSubmitBenchmark
 specifier|public
 name|void
