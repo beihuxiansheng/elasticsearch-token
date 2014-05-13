@@ -256,16 +256,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 return|return
 name|builder
 return|;
