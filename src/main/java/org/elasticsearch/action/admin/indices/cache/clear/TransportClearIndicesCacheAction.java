@@ -885,7 +885,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Clear CacheRecycler on index [{}]"
 argument_list|,
