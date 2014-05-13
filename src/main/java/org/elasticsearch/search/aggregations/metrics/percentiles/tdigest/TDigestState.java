@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Extension of {@link TDigest} with custom serialization.  */
+comment|/**  * Extension of {@link com.tdunning.math.stats.TDigest} with custom serialization.  */
 end_comment
 
 begin_class
