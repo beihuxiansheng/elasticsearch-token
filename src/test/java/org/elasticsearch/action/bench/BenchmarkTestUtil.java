@@ -217,7 +217,7 @@ specifier|final
 name|int
 name|MIN_LARGE_INTERVAL
 init|=
-literal|5
+literal|1
 decl_stmt|;
 DECL|field|MAX_LARGE_INTERVAL
 specifier|public
