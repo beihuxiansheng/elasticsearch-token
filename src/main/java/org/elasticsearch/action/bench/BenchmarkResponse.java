@@ -621,7 +621,7 @@ name|void
 name|errors
 parameter_list|(
 name|String
-index|[]
+modifier|...
 name|errors
 parameter_list|)
 block|{
