@@ -1140,7 +1140,7 @@ name|DecayFunctionBuilder
 operator|.
 name|SCALE
 operator|+
-literal|"and "
+literal|" and "
 operator|+
 name|DecayFunctionBuilder
 operator|.
