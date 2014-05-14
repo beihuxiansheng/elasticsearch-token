@@ -96,6 +96,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|significant
+operator|.
+name|heuristics
+operator|.
+name|JLHScore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -302,6 +322,10 @@ argument_list|,
 name|requiredSize
 argument_list|,
 name|minDocCount
+argument_list|,
+name|JLHScore
+operator|.
+name|INSTANCE
 argument_list|,
 name|BUCKETS
 argument_list|)

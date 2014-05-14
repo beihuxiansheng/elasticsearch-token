@@ -489,7 +489,12 @@ comment|// global stats
 name|spare
 operator|.
 name|updateScore
+argument_list|(
+name|termsAggFactory
+operator|.
+name|getSignificanceHeuristic
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|spare
 operator|.
@@ -632,6 +637,11 @@ operator|.
 name|getMinDocCount
 argument_list|()
 argument_list|,
+name|termsAggFactory
+operator|.
+name|getSignificanceHeuristic
+argument_list|()
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -695,6 +705,11 @@ argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getMinDocCount
+argument_list|()
+argument_list|,
+name|termsAggFactory
+operator|.
+name|getSignificanceHeuristic
 argument_list|()
 argument_list|,
 name|Collections

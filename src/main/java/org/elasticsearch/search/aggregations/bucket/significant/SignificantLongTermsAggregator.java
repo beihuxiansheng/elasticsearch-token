@@ -480,21 +480,17 @@ name|supersetSize
 operator|=
 name|supersetSize
 expr_stmt|;
-assert|assert
-name|spare
-operator|.
-name|subsetDf
-operator|<=
-name|spare
-operator|.
-name|supersetDf
-assert|;
 comment|// During shard-local down-selection we use subset/superset stats that are for this shard only
 comment|// Back at the central reducer these properties will be updated with global stats
 name|spare
 operator|.
 name|updateScore
+argument_list|(
+name|termsAggFactory
+operator|.
+name|getSignificanceHeuristic
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|spare
 operator|.
@@ -625,6 +621,11 @@ operator|.
 name|getMinDocCount
 argument_list|()
 argument_list|,
+name|termsAggFactory
+operator|.
+name|getSignificanceHeuristic
+argument_list|()
+argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -690,6 +691,11 @@ argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getMinDocCount
+argument_list|()
+argument_list|,
+name|termsAggFactory
+operator|.
+name|getSignificanceHeuristic
 argument_list|()
 argument_list|,
 name|Collections
