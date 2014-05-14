@@ -188,6 +188,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -259,9 +279,11 @@ name|Iterable
 argument_list|<
 name|Client
 argument_list|>
+implements|,
+name|Closeable
 block|{
 DECL|field|logger
-specifier|private
+specifier|protected
 specifier|final
 name|ESLogger
 name|logger
@@ -298,6 +320,8 @@ parameter_list|,
 name|double
 name|transportClientRatio
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|transportClientRatio
@@ -429,6 +453,8 @@ specifier|abstract
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Deletes the given indices from the tests cluster. If no index name is passed to this method      * all indices are removed.      */
 DECL|method|wipeIndices

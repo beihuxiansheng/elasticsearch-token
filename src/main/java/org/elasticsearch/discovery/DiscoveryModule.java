@@ -160,6 +160,15 @@ specifier|final
 name|Settings
 name|settings
 decl_stmt|;
+DECL|field|DISCOVERY_TYPE_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISCOVERY_TYPE_KEY
+init|=
+literal|"discovery.type"
+decl_stmt|;
 DECL|method|DiscoveryModule
 specifier|public
 name|DiscoveryModule
@@ -235,7 +244,7 @@ name|settings
 operator|.
 name|getAsClass
 argument_list|(
-literal|"discovery.type"
+name|DISCOVERY_TYPE_KEY
 argument_list|,
 name|defaultDiscoveryModule
 argument_list|,
