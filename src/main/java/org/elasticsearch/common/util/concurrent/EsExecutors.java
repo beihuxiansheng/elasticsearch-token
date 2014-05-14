@@ -68,6 +68,16 @@ specifier|public
 class|class
 name|EsExecutors
 block|{
+comment|/**      * Settings key to manually set the number of available processors.      * This is used to adjust thread pools sizes etc. per node.      */
+DECL|field|PROCESSORS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PROCESSORS
+init|=
+literal|"processors"
+decl_stmt|;
 comment|/**      * Returns the number of processors available but at most<tt>32</tt>.      */
 DECL|method|boundedNumberOfProcessors
 specifier|public
@@ -85,7 +95,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"processors"
+name|PROCESSORS
 argument_list|,
 name|Math
 operator|.
