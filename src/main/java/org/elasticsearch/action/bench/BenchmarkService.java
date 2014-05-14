@@ -1674,12 +1674,13 @@ name|String
 name|executor
 parameter_list|()
 block|{
+comment|// Perform management tasks on GENERIC so as not to block pending acquisition of a thread from BENCH.
 return|return
 name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|BENCH
+name|GENERIC
 return|;
 block|}
 block|}
@@ -1772,12 +1773,13 @@ name|String
 name|executor
 parameter_list|()
 block|{
+comment|// Perform management tasks on GENERIC so as not to block pending acquisition of a thread from BENCH.
 return|return
 name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|BENCH
+name|GENERIC
 return|;
 block|}
 block|}
