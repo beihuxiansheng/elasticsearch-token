@@ -2375,6 +2375,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Send the fields to be highlighted using a syntax that is specific about the order in which they should be highlighted.      * @return this for chaining      */
+DECL|method|setHighlighterExplicitFieldOrder
+specifier|public
+name|SearchRequestBuilder
+name|setHighlighterExplicitFieldOrder
+parameter_list|(
+name|boolean
+name|explicitFieldOrder
+parameter_list|)
+block|{
+name|highlightBuilder
+argument_list|()
+operator|.
+name|useExplicitFieldOrder
+argument_list|(
+name|explicitFieldOrder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Delegates to {@link org.elasticsearch.search.suggest.SuggestBuilder#setText(String)}.      */
 DECL|method|setSuggestText
 specifier|public
