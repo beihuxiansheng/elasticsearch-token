@@ -1538,6 +1538,13 @@ block|{
 name|int
 name|numberOfUpdates
 init|=
+name|childIdToParentId
+operator|.
+name|isEmpty
+argument_list|()
+condition|?
+literal|0
+else|:
 name|scaledRandomIntBetween
 argument_list|(
 literal|1
