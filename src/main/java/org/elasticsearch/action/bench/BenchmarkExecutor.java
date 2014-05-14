@@ -2198,9 +2198,8 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|manage
-argument_list|()
-expr_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|errorMessages
@@ -2213,7 +2212,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|error
+name|debug
 argument_list|(
 literal|"Failed to execute benchmark [{}]"
 argument_list|,
@@ -2244,6 +2243,14 @@ name|getLocalizedMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|manage
+argument_list|()
+expr_stmt|;
+comment|// first add the msg then call the count down on the latch otherwise we might iss one error
 block|}
 block|}
 block|}
@@ -2398,6 +2405,8 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+try|try
+block|{
 name|timeBuckets
 index|[
 name|bucketId
@@ -2414,6 +2423,9 @@ operator|=
 operator|-
 literal|1
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|super
 operator|.
 name|onFailure
@@ -2421,6 +2433,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|class|StoppableSemaphore
