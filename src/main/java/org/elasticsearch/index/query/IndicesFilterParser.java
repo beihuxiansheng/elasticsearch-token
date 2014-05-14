@@ -854,12 +854,12 @@ argument_list|()
 operator|.
 name|concreteIndices
 argument_list|(
-name|indices
-argument_list|,
 name|IndicesOptions
 operator|.
 name|lenientExpandOpen
 argument_list|()
+argument_list|,
+name|indices
 argument_list|)
 decl_stmt|;
 for|for

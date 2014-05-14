@@ -751,10 +751,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IndicesOptionsTests
+DECL|class|IndicesOptionsIntegrationTests
 specifier|public
 class|class
-name|IndicesOptionsTests
+name|IndicesOptionsIntegrationTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

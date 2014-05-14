@@ -861,7 +861,7 @@ name|index
 argument_list|(
 name|metaData
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|request
 operator|.

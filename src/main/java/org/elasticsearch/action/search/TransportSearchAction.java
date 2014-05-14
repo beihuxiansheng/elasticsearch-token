@@ -444,12 +444,12 @@ name|concreteIndices
 argument_list|(
 name|searchRequest
 operator|.
-name|indices
+name|indicesOptions
 argument_list|()
 argument_list|,
 name|searchRequest
 operator|.
-name|indicesOptions
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;

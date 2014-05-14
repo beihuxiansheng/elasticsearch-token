@@ -1558,7 +1558,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|indexRequest
 operator|.
@@ -1740,7 +1740,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|deleteRequest
 operator|.
@@ -1798,7 +1798,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|updateRequest
 operator|.
