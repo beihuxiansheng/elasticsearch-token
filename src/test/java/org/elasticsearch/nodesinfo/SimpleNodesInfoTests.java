@@ -406,7 +406,7 @@ name|test
 operator|.
 name|ElasticsearchIntegrationTest
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -539,16 +539,18 @@ operator|.
 name|cluster
 argument_list|()
 operator|.
-name|health
-argument_list|(
-name|clusterHealthRequest
+name|prepareHealth
 argument_list|()
 operator|.
-name|waitForGreenStatus
+name|setWaitForGreenStatus
 argument_list|()
+operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"2"
 argument_list|)
 operator|.
-name|actionGet
+name|get
 argument_list|()
 decl_stmt|;
 name|logger
