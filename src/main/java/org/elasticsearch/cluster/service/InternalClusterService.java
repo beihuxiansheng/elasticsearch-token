@@ -2317,20 +2317,7 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"cluster state updated:\nversion ["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|newClusterState
-operator|.
-name|version
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"], source ["
+literal|"cluster state updated, source ["
 argument_list|)
 operator|.
 name|append
@@ -2348,35 +2335,6 @@ operator|.
 name|append
 argument_list|(
 name|newClusterState
-operator|.
-name|nodes
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-name|newClusterState
-operator|.
-name|routingTable
-argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-name|newClusterState
-operator|.
-name|readOnlyRoutingNodes
-argument_list|()
 operator|.
 name|prettyPrint
 argument_list|()

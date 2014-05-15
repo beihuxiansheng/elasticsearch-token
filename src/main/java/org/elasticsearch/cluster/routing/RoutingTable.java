@@ -2426,7 +2426,17 @@ init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"routing_table:\n"
+literal|"routing_table (version "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|version
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"):\n"
 argument_list|)
 decl_stmt|;
 for|for
