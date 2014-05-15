@@ -536,6 +536,12 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
+name|SNAPSHOT_DATA
+block|,
+name|ThreadPool
+operator|.
+name|Names
+operator|.
 name|SUGGEST
 block|,
 name|ThreadPool
@@ -580,6 +586,8 @@ block|,
 literal|"s"
 block|,
 literal|"sn"
+block|,
+literal|"sd"
 block|,
 literal|"su"
 block|,
