@@ -3417,6 +3417,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|shardStateAction
 operator|.
 name|shardFailed
@@ -3436,8 +3446,14 @@ name|masterNode
 argument_list|()
 operator|+
 literal|" marked shard as started, but shard has not been created, mark shard as failed"
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 continue|continue;
 block|}
@@ -4027,7 +4043,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} master marked shard as initializing, but shard has state [{}], resending shard started"
+literal|"{} master marked shard as initializing, but shard has state [{}], resending shard started to {}"
 argument_list|,
 name|indexShard
 operator|.
@@ -4038,9 +4054,24 @@ name|indexShard
 operator|.
 name|state
 argument_list|()
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|shardStateAction
 operator|.
 name|shardStarted
@@ -4067,8 +4098,14 @@ name|state
 argument_list|()
 operator|+
 literal|"], mark shard as started"
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 else|else
@@ -4473,6 +4510,16 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|shardStateAction
 operator|.
 name|shardFailed
@@ -4492,8 +4539,29 @@ name|e
 argument_list|)
 operator|+
 literal|"]"
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"can't send shard failed for {} as there is no current master"
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return;
 block|}
 block|}
