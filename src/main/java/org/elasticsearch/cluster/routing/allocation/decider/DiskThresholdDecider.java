@@ -535,7 +535,7 @@ name|get
 argument_list|(
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|,
-literal|"70%"
+literal|"85%"
 argument_list|)
 decl_stmt|;
 name|String
@@ -547,7 +547,7 @@ name|get
 argument_list|(
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|,
-literal|"85%"
+literal|"90%"
 argument_list|)
 decl_stmt|;
 if|if
@@ -643,7 +643,7 @@ name|getAsBoolean
 argument_list|(
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|nodeSettingsService
