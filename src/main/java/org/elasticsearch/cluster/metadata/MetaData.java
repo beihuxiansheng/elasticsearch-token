@@ -729,6 +729,10 @@ name|RestStatus
 operator|.
 name|FORBIDDEN
 argument_list|,
+name|EnumSet
+operator|.
+name|of
+argument_list|(
 name|ClusterBlockLevel
 operator|.
 name|WRITE
@@ -736,6 +740,7 @@ argument_list|,
 name|ClusterBlockLevel
 operator|.
 name|METADATA
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|EMPTY_META_DATA
