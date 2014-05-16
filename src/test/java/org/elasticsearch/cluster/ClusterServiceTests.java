@@ -1519,7 +1519,7 @@ name|String
 argument_list|>
 name|master
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodeAsync
@@ -1533,7 +1533,7 @@ name|String
 argument_list|>
 name|nonMaster
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodeAsync
@@ -1569,7 +1569,7 @@ comment|// make sure we have a cluster
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
