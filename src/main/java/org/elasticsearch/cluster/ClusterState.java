@@ -632,7 +632,8 @@ function_decl|;
 block|}
 block|}
 DECL|field|customFactories
-specifier|public
+specifier|private
+specifier|final
 specifier|static
 name|Map
 argument_list|<

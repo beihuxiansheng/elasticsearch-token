@@ -262,6 +262,7 @@ block|{
 DECL|field|SETTING_MEMORY_STORAGE_HINT
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|SETTING_MEMORY_STORAGE_HINT
 init|=

@@ -99,6 +99,7 @@ name|ReaderContextAware
 block|{
 DECL|field|NO_OP_COLLECTOR
 specifier|public
+specifier|final
 specifier|static
 name|BucketCollector
 name|NO_OP_COLLECTOR
