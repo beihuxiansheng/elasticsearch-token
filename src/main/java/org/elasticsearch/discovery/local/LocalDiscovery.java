@@ -773,7 +773,7 @@ argument_list|(
 literal|"local-disco-initial_connect(master)"
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ProcessedClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -971,7 +971,7 @@ argument_list|(
 literal|"local-disco(detected_master)"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -1086,7 +1086,7 @@ operator|+
 literal|"])"
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ProcessedClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -1403,7 +1403,7 @@ argument_list|(
 literal|"local-disco-update"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -1864,7 +1864,7 @@ argument_list|(
 literal|"local-disco-receive(from master)"
 argument_list|,
 operator|new
-name|ProcessedClusterStateUpdateTask
+name|ProcessedClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@

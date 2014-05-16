@@ -350,18 +350,6 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|Discovery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
 name|DiscoveryService
 import|;
 end_import
@@ -1510,7 +1498,7 @@ name|source
 argument_list|()
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
