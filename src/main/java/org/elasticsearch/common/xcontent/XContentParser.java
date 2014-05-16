@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Interface for pull - parsing {@link XContent} see {@link XContentType} for supported types.  *  * To obtain an instance of this class use the following pattern:  *  *<pre>  *     XContentType xContentType = XContentType.JSON;  *     XContentParser parser = xContentType.xContent().createParser("{\"key\" : \"value\"}");  *</pre>  */
 end_comment
 
 begin_interface
