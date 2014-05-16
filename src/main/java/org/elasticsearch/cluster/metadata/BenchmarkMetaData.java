@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Meta data about snapshots that are currently executing  */
+comment|/**  * Meta data about benchmarks that are currently executing  */
 end_comment
 
 begin_class
@@ -719,45 +719,6 @@ return|return
 name|this
 operator|.
 name|entries
-return|;
-block|}
-DECL|method|snapshot
-specifier|public
-name|Entry
-name|snapshot
-parameter_list|(
-name|SnapshotId
-name|snapshotId
-parameter_list|)
-block|{
-for|for
-control|(
-name|Entry
-name|entry
-range|:
-name|entries
-control|)
-block|{
-if|if
-condition|(
-name|snapshotId
-operator|.
-name|equals
-argument_list|(
-name|entry
-operator|.
-name|benchmarkId
-argument_list|()
-argument_list|)
-condition|)
-block|{
-return|return
-name|entry
-return|;
-block|}
-block|}
-return|return
-literal|null
 return|;
 block|}
 DECL|class|Factory
