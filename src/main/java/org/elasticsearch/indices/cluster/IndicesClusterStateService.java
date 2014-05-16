@@ -669,6 +669,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
 import|import static
 name|com
 operator|.
@@ -862,6 +876,16 @@ specifier|private
 specifier|final
 name|boolean
 name|sendRefreshMapping
+decl_stmt|;
+DECL|field|recoveryIdGenerator
+specifier|private
+specifier|final
+name|AtomicLong
+name|recoveryIdGenerator
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
 decl_stmt|;
 annotation|@
 name|Inject
@@ -4673,6 +4697,11 @@ name|list
 argument_list|()
 argument_list|,
 name|type
+argument_list|,
+name|recoveryIdGenerator
+operator|.
+name|incrementAndGet
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|recoveryTarget
