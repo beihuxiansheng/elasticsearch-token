@@ -2881,7 +2881,7 @@ name|bulkAction
 init|=
 name|unZipData
 argument_list|(
-literal|"/org/elasticsearch/search/geo/gzippedmap.json"
+literal|"/org/elasticsearch/search/geo/gzippedmap.gz"
 argument_list|)
 decl_stmt|;
 name|String
