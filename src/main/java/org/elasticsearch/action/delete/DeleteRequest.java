@@ -181,6 +181,10 @@ DECL|field|version
 specifier|private
 name|long
 name|version
+init|=
+name|Versions
+operator|.
+name|MATCH_ANY
 decl_stmt|;
 DECL|field|versionType
 specifier|private
