@@ -544,6 +544,14 @@ return|return
 name|scheduler
 return|;
 block|}
+comment|/** Maximum number of allowed running merges before index throttling kicks in. */
+DECL|method|getMaxMerges
+specifier|public
+specifier|abstract
+name|int
+name|getMaxMerges
+parameter_list|()
+function_decl|;
 DECL|method|buildMergeScheduler
 specifier|protected
 specifier|abstract
