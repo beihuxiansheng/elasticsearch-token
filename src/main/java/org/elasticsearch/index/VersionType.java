@@ -128,7 +128,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// we need to allow pre 1.2.0 match any as requests can come in for java code where the may be hardcoded
 if|if
 condition|(
 name|expectedVersion
@@ -136,12 +135,6 @@ operator|==
 name|Versions
 operator|.
 name|MATCH_ANY
-operator|||
-name|expectedVersion
-operator|==
-name|Versions
-operator|.
-name|MATCH_ANY_PRE_1_2_0
 condition|)
 block|{
 return|return
@@ -232,12 +225,6 @@ operator|==
 name|Versions
 operator|.
 name|MATCH_ANY
-operator|||
-name|version
-operator|==
-name|Versions
-operator|.
-name|MATCH_ANY_PRE_1_2_0
 return|;
 block|}
 annotation|@
@@ -261,12 +248,6 @@ operator|==
 name|Versions
 operator|.
 name|MATCH_ANY
-operator|||
-name|version
-operator|==
-name|Versions
-operator|.
-name|MATCH_ANY_PRE_1_2_0
 return|;
 block|}
 annotation|@
