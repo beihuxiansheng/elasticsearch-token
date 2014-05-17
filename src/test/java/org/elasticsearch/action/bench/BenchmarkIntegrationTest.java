@@ -1700,11 +1700,6 @@ name|aborted
 operator|=
 literal|true
 expr_stmt|;
-name|waitForTestLatch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
 comment|// Confirm that the benchmark was actually aborted and did not finish on its own
 name|assertThat
 argument_list|(
@@ -1799,6 +1794,12 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|waitForTestLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+comment|// let the queries go - we already aborted and got the status
 name|assertThat
 argument_list|(
 name|statusResponse
