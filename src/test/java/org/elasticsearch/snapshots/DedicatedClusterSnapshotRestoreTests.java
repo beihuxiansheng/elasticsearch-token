@@ -1635,12 +1635,14 @@ argument_list|(
 name|blockedNode
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|DeleteSnapshotResponse
 name|deleteSnapshotResponse
 init|=
 name|deleteSnapshotResponseFuture
 operator|.
-name|get
+name|actionGet
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -1656,6 +1658,17 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SnapshotMissingException
+name|ex
+parameter_list|)
+block|{
+comment|// When master node is closed during this test, it sometime manages to delete the snapshot files before
+comment|// completely stopping. In this case the retried delete snapshot operation on the new master can fail
+comment|// with SnapshotMissingException
+block|}
 name|logger
 operator|.
 name|info
