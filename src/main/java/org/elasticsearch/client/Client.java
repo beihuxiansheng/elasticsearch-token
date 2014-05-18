@@ -1429,7 +1429,8 @@ name|AbortBenchmarkRequestBuilder
 name|prepareAbortBench
 parameter_list|(
 name|String
-name|benchmarkId
+modifier|...
+name|benchmarkNames
 parameter_list|)
 function_decl|;
 comment|/**      * Reports on status of actively running benchmarks      */

@@ -280,7 +280,7 @@ name|abortBenchmark
 argument_list|(
 name|request
 operator|.
-name|benchmarkName
+name|benchmarkNames
 argument_list|()
 argument_list|,
 name|listener

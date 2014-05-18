@@ -2381,7 +2381,8 @@ name|AbortBenchmarkRequestBuilder
 name|prepareAbortBench
 parameter_list|(
 name|String
-name|benchmarkId
+modifier|...
+name|benchmarkNames
 parameter_list|)
 block|{
 return|return
@@ -2389,7 +2390,7 @@ name|delegate
 operator|.
 name|prepareAbortBench
 argument_list|(
-name|benchmarkId
+name|benchmarkNames
 argument_list|)
 return|;
 block|}
