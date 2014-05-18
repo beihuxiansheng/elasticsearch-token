@@ -619,13 +619,11 @@ condition|)
 block|{
 name|listener
 operator|.
-name|onFailure
+name|onResponse
 argument_list|(
 operator|new
-name|BenchmarkNodeMissingException
-argument_list|(
-literal|"No available nodes for executing benchmarks"
-argument_list|)
+name|BenchmarkStatusResponse
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
