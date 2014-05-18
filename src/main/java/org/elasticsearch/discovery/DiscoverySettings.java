@@ -134,6 +134,16 @@ name|RestStatus
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EnumSet
+import|;
+end_import
+
 begin_comment
 comment|/**  * Exposes common discovery settings that may be supported by all the different discovery implementations  */
 end_comment
@@ -245,6 +255,10 @@ name|RestStatus
 operator|.
 name|SERVICE_UNAVAILABLE
 argument_list|,
+name|EnumSet
+operator|.
+name|of
+argument_list|(
 name|ClusterBlockLevel
 operator|.
 name|WRITE
@@ -252,6 +266,7 @@ argument_list|,
 name|ClusterBlockLevel
 operator|.
 name|METADATA
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|METADATA
@@ -276,9 +291,14 @@ name|RestStatus
 operator|.
 name|SERVICE_UNAVAILABLE
 argument_list|,
+name|EnumSet
+operator|.
+name|of
+argument_list|(
 name|ClusterBlockLevel
 operator|.
 name|METADATA
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|noMasterBlock
