@@ -3167,7 +3167,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"gorr the god jewel"
+literal|"four the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;

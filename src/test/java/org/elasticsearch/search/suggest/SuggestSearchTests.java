@@ -5205,15 +5205,6 @@ annotation|@
 name|Test
 annotation|@
 name|Nightly
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/pull/5962"
-argument_list|)
 DECL|method|testPhraseBoundaryCases
 specifier|public
 name|void
@@ -5784,6 +5775,8 @@ argument_list|,
 name|phraseSuggestion
 argument_list|)
 decl_stmt|;
+comment|// "xorr the god jewel" and and "xorn the god jewel" have identical scores (we are only using unigrams to score), so we tie break by
+comment|// earlier term (xorn):
 name|assertSuggestion
 argument_list|(
 name|suggest
@@ -5792,7 +5785,7 @@ literal|0
 argument_list|,
 literal|"simple_phrase"
 argument_list|,
-literal|"xorr the god jewel"
+literal|"xorn the god jewel"
 argument_list|)
 expr_stmt|;
 name|phraseSuggestion
@@ -5811,6 +5804,9 @@ argument_list|,
 name|phraseSuggestion
 argument_list|)
 expr_stmt|;
+comment|// In this case xorr has a better score than xorn because we set the field back to the default (my_shingle2) analyzer, so the
+comment|// probability that the term is not in the dictionary but is NOT a misspelling is relatively high in this case compared to the
+comment|// others that have no n-gram with the other terms in the phrase :) you can set this realWorldErrorLikelyhood
 name|assertSuggestion
 argument_list|(
 name|suggest
