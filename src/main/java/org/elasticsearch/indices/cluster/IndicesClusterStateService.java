@@ -4974,6 +4974,8 @@ name|retryRecovery
 argument_list|(
 name|request
 argument_list|,
+name|retryAfter
+argument_list|,
 name|recoveryStatus
 argument_list|,
 name|PeerRecoveryListener
