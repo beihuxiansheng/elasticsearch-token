@@ -960,6 +960,15 @@ argument_list|)
 expr_stmt|;
 name|put
 argument_list|(
+literal|"uppercase"
+argument_list|,
+name|UpperCaseTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|put
+argument_list|(
 literal|"worddelimiter"
 argument_list|,
 name|WordDelimiterTokenFilterFactory
@@ -1200,16 +1209,6 @@ comment|// puts the type into the payload
 name|put
 argument_list|(
 literal|"typeaspayload"
-argument_list|,
-name|Void
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-comment|// opposite of lowercase...
-name|put
-argument_list|(
-literal|"uppercase"
 argument_list|,
 name|Void
 operator|.
