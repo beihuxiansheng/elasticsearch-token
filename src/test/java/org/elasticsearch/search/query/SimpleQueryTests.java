@@ -624,15 +624,11 @@ name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
-name|between
-argument_list|(
-literal|3
-argument_list|,
-name|DEFAULT_MAX_NUM_SHARDS
-argument_list|)
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// only one shard otherwise IDF might be different for comparing scores
 name|ensureGreen
 argument_list|()
 expr_stmt|;
@@ -739,6 +735,11 @@ literal|"_all"
 argument_list|,
 literal|"quick"
 argument_list|)
+argument_list|)
+operator|.
+name|setExplain
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|get
