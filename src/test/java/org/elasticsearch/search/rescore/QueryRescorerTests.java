@@ -2401,12 +2401,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// no dummy docs since merges can change scores while we run queries.
 name|int
 name|numDocs
 init|=
 name|indexRandomNumbers
 argument_list|(
 literal|"whitespace"
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -5261,6 +5267,8 @@ argument_list|(
 literal|"keyword"
 argument_list|,
 literal|1
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|QueryRescorer
@@ -5619,6 +5627,8 @@ name|analyzer
 argument_list|,
 operator|-
 literal|1
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -5632,6 +5642,9 @@ name|analyzer
 parameter_list|,
 name|int
 name|shards
+parameter_list|,
+name|boolean
+name|dummyDocs
 parameter_list|)
 throws|throws
 name|Exception
@@ -5805,6 +5818,8 @@ block|}
 name|indexRandom
 argument_list|(
 literal|true
+argument_list|,
+name|dummyDocs
 argument_list|,
 name|docs
 argument_list|)
