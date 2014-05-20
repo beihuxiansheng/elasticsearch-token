@@ -519,17 +519,17 @@ argument_list|(
 literal|"docs"
 argument_list|)
 decl_stmt|;
-DECL|field|EXCLUDE
+DECL|field|INCLUDE
 specifier|public
 specifier|static
 specifier|final
 name|ParseField
-name|EXCLUDE
+name|INCLUDE
 init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"exclude"
+literal|"include"
 argument_list|)
 decl_stmt|;
 block|}
@@ -649,9 +649,9 @@ init|=
 literal|null
 decl_stmt|;
 name|boolean
-name|exclude
+name|include
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|XContentParser
 operator|.
@@ -1105,7 +1105,7 @@ if|if
 condition|(
 name|Fields
 operator|.
-name|EXCLUDE
+name|INCLUDE
 operator|.
 name|match
 argument_list|(
@@ -1118,7 +1118,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|exclude
+name|include
 operator|=
 name|parser
 operator|.
@@ -1733,7 +1733,8 @@ block|}
 comment|// exclude the items from the search
 if|if
 condition|(
-name|exclude
+operator|!
+name|include
 condition|)
 block|{
 name|TermsFilter

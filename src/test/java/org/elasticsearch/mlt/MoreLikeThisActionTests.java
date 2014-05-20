@@ -3768,9 +3768,9 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|exclude
+name|include
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|minTermFreq
@@ -4669,9 +4669,9 @@ argument_list|(
 literal|"text"
 argument_list|)
 operator|.
-name|exclude
+name|include
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|minTermFreq
