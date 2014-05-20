@@ -1050,6 +1050,24 @@ name|ParentFieldMapper
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// _field_names last so that it can see all other fields
+name|this
+operator|.
+name|rootMappers
+operator|.
+name|put
+argument_list|(
+name|FieldNamesFieldMapper
+operator|.
+name|class
+argument_list|,
+operator|new
+name|FieldNamesFieldMapper
+argument_list|(
+name|indexSettings
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|meta
 specifier|public
