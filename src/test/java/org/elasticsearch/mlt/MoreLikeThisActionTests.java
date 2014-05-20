@@ -4012,6 +4012,8 @@ name|indexRandom
 argument_list|(
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
