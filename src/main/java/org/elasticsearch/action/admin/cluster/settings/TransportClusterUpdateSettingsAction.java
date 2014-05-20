@@ -644,6 +644,58 @@ name|boolean
 name|updateSettingsAcked
 parameter_list|)
 block|{
+comment|// We're about to send a second update task, so we need to check if we're still the elected master
+comment|// For example the minimum_master_node could have been breached and we're no longer elected master,
+comment|// so we should *not* execute the reroute.
+if|if
+condition|(
+operator|!
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|localNodeMaster
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Skipping reroute after cluster update settings, because node is no longer master"
+argument_list|)
+expr_stmt|;
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+operator|new
+name|ClusterUpdateSettingsResponse
+argument_list|(
+name|updateSettingsAcked
+argument_list|,
+name|transientUpdates
+operator|.
+name|build
+argument_list|()
+argument_list|,
+name|persistentUpdates
+operator|.
+name|build
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+comment|// The reason the reroute needs to be send as separate update task, is that all the *cluster* settings are encapsulate
+comment|// in the components (e.g. FilterAllocationDecider), so the changes made by the first call aren't visible
+comment|// to the components until the ClusterStateListener instances have been invoked, but are visible after
+comment|// the first update task has been completed.
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -789,6 +841,19 @@ argument_list|,
 name|t
 argument_list|,
 name|source
+argument_list|)
+expr_stmt|;
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"reroute after update settings failed"
+argument_list|,
+name|t
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
