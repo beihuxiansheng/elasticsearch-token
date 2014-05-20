@@ -1355,7 +1355,6 @@ block|}
 block|}
 if|if
 condition|(
-operator|(
 name|mltQuery
 operator|.
 name|getLikeText
@@ -1367,22 +1366,6 @@ name|items
 operator|.
 name|isEmpty
 argument_list|()
-operator|)
-operator|||
-operator|(
-name|mltQuery
-operator|.
-name|getLikeText
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|items
-operator|.
-name|isEmpty
-argument_list|()
-operator|)
 condition|)
 block|{
 throw|throw
@@ -1394,7 +1377,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"more_like_this requires either 'like_text' or 'ids/docs' to be specified"
+literal|"more_like_this requires at least 'like_text' or 'ids/docs' to be specified"
 argument_list|)
 throw|;
 block|}
@@ -1775,6 +1758,31 @@ operator|.
 name|Occur
 operator|.
 name|MUST_NOT
+argument_list|)
+expr_stmt|;
+block|}
+comment|// add the possible mlt query with like_text
+if|if
+condition|(
+name|mltQuery
+operator|.
+name|getLikeText
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|boolQuery
+operator|.
+name|add
+argument_list|(
+name|mltQuery
+argument_list|,
+name|BooleanClause
+operator|.
+name|Occur
+operator|.
+name|SHOULD
 argument_list|)
 expr_stmt|;
 block|}
