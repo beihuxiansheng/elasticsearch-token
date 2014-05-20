@@ -5430,7 +5430,7 @@ name|RANDOM_BOGUS_TYPE
 init|=
 literal|"RANDOM_BOGUS_TYPE______"
 decl_stmt|;
-comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes they in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      */
+comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes they in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      *      * @param forceRefresh if<tt>true</tt> all involved indices are refreshed once the documents are indexed. Additionally if<tt>true</tt>      *                     some empty dummy documents are may be randomly inserted into the document list and deleted once all documents are indexed.      *                     This is useful to produce deleted documents on the server side.      * @param builders the documents to index.      *      * @see #indexRandom(boolean, boolean, java.util.List)      */
 DECL|method|indexRandom
 specifier|public
 name|void
@@ -5438,6 +5438,39 @@ name|indexRandom
 parameter_list|(
 name|boolean
 name|forceRefresh
+parameter_list|,
+name|List
+argument_list|<
+name|IndexRequestBuilder
+argument_list|>
+name|builders
+parameter_list|)
+throws|throws
+name|InterruptedException
+throws|,
+name|ExecutionException
+block|{
+name|indexRandom
+argument_list|(
+name|forceRefresh
+argument_list|,
+name|forceRefresh
+argument_list|,
+name|builders
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Indexes the given {@link IndexRequestBuilder} instances randomly. It shuffles the given builders and either      * indexes they in a blocking or async fashion. This is very useful to catch problems that relate to internal document      * ids or index segment creations. Some features might have bug when a given document is the first or the last in a      * segment or if only one document is in a segment etc. This method prevents issues like this by randomizing the index      * layout.      *      * @param forceRefresh if<tt>true</tt> all involved indices are refreshed once the documents are indexed.      * @param dummyDocuments if<tt>true</tt> some empty dummy documents are may be randomly inserted into the document list and deleted once      *                       all documents are indexed. This is useful to produce deleted documents on the server side.      * @param builders the documents to index.      */
+DECL|method|indexRandom
+specifier|public
+name|void
+name|indexRandom
+parameter_list|(
+name|boolean
+name|forceRefresh
+parameter_list|,
+name|boolean
+name|dummyDocuments
 parameter_list|,
 name|List
 argument_list|<
@@ -5518,10 +5551,9 @@ operator|.
 name|isEmpty
 argument_list|()
 operator|&&
-name|forceRefresh
+name|dummyDocuments
 condition|)
 block|{
-comment|// we only do this if we forceRefresh=true since we need to refresh to reflect the deletes
 name|builders
 operator|=
 operator|new
