@@ -294,6 +294,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|search
+operator|.
+name|morelikethis
+operator|.
+name|MoreLikeThisFetchService
+operator|.
+name|LikeText
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1666,8 +1684,6 @@ block|}
 comment|// fetching the items with multi-get
 name|List
 argument_list|<
-name|MoreLikeThisFetchService
-operator|.
 name|LikeText
 argument_list|>
 name|likeTexts
@@ -1689,8 +1705,6 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MoreLikeThisFetchService
-operator|.
 name|LikeText
 name|likeText
 range|:
@@ -1704,12 +1718,6 @@ argument_list|,
 name|mltQuery
 argument_list|,
 name|likeText
-operator|.
-name|field
-argument_list|,
-name|likeText
-operator|.
-name|text
 argument_list|)
 expr_stmt|;
 block|}
@@ -1805,10 +1813,7 @@ parameter_list|,
 name|MoreLikeThisQuery
 name|mltQuery
 parameter_list|,
-name|String
-name|fieldName
-parameter_list|,
-name|String
+name|LikeText
 name|likeText
 parameter_list|)
 block|{
@@ -1827,7 +1832,9 @@ operator|new
 name|String
 index|[]
 block|{
-name|fieldName
+name|likeText
+operator|.
+name|field
 block|}
 argument_list|)
 expr_stmt|;
@@ -1836,6 +1843,8 @@ operator|.
 name|setLikeText
 argument_list|(
 name|likeText
+operator|.
+name|text
 argument_list|)
 expr_stmt|;
 name|mlt
