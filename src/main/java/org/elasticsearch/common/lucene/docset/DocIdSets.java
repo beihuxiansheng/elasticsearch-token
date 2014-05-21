@@ -92,20 +92,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|OpenBitSetIterator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -212,24 +198,6 @@ return|return
 name|set
 operator|instanceof
 name|FixedBitSet
-return|;
-block|}
-comment|/**      * Is {@link org.apache.lucene.search.DocIdSetIterator} implemented in a "fast" manner.      * For example, it does not ends up iterating one doc at a time check for its "value".      */
-DECL|method|isFastIterator
-specifier|public
-specifier|static
-name|boolean
-name|isFastIterator
-parameter_list|(
-name|DocIdSetIterator
-name|iterator
-parameter_list|)
-block|{
-comment|// this is the iterator in the FixedBitSet.
-return|return
-name|iterator
-operator|instanceof
-name|OpenBitSetIterator
 return|;
 block|}
 comment|/**      * Converts to a cacheable {@link DocIdSet}      *<p/>      * Note, we don't use {@link org.apache.lucene.search.DocIdSet#isCacheable()} because execution      * might be expensive even if its cacheable (i.e. not going back to the reader to execute). We effectively      * always either return an empty {@link DocIdSet} or {@link FixedBitSet} but never<code>null</code>.      */
