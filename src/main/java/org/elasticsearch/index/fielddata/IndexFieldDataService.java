@@ -2218,6 +2218,8 @@ name|IndexFieldDataCache
 operator|.
 name|Resident
 argument_list|(
+name|logger
+argument_list|,
 name|indexService
 argument_list|,
 name|fieldNames
@@ -2246,6 +2248,8 @@ name|IndexFieldDataCache
 operator|.
 name|Soft
 argument_list|(
+name|logger
+argument_list|,
 name|indexService
 argument_list|,
 name|fieldNames
