@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices.fielddata.breaker
+DECL|package|org.elasticsearch.indices.memory.breaker
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|fielddata
+name|memory
 operator|.
 name|breaker
 package|;
@@ -169,6 +169,20 @@ operator|.
 name|client
 operator|.
 name|Requests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|breaker
+operator|.
+name|CircuitBreaker
 import|;
 end_import
 
@@ -461,6 +475,15 @@ name|node
 operator|.
 name|getBreaker
 argument_list|()
+operator|.
+name|getStats
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|Name
+operator|.
+name|FIELDDATA
+argument_list|)
 operator|.
 name|getEstimated
 argument_list|()
@@ -1079,6 +1102,15 @@ operator|.
 name|getBreaker
 argument_list|()
 operator|.
+name|getStats
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|Name
+operator|.
+name|FIELDDATA
+argument_list|)
+operator|.
 name|getEstimated
 argument_list|()
 argument_list|,
@@ -1306,6 +1338,15 @@ name|stats
 operator|.
 name|getBreaker
 argument_list|()
+operator|.
+name|getStats
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|Name
+operator|.
+name|FIELDDATA
+argument_list|)
 operator|.
 name|getEstimated
 argument_list|()

@@ -168,13 +168,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|search
 operator|.
-name|fielddata
-operator|.
-name|breaker
-operator|.
-name|CircuitBreakerService
+name|MultiValueMode
 import|;
 end_import
 
@@ -184,9 +180,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|indices
 operator|.
-name|MultiValueMode
+name|breaker
+operator|.
+name|CircuitBreakerService
 import|;
 end_import
 

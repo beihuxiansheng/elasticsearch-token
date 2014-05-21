@@ -46,6 +46,34 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|breaker
+operator|.
+name|BreakerSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|breaker
+operator|.
+name|HierarchyCircuitBreakerService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -59,14 +87,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MemoryCircuitBreaker is a circuit breaker that breaks once a  * configurable memory limit has been reached.  */
+comment|/**  * Breaker that will check a parent's when incrementing  */
 end_comment
 
 begin_class
-DECL|class|MemoryCircuitBreaker
+DECL|class|ChildMemoryCircuitBreaker
 specifier|public
 class|class
-name|MemoryCircuitBreaker
+name|ChildMemoryCircuitBreaker
 implements|implements
 name|CircuitBreaker
 block|{
@@ -75,6 +103,12 @@ specifier|private
 specifier|final
 name|long
 name|memoryBytesLimit
+decl_stmt|;
+DECL|field|settings
+specifier|private
+specifier|final
+name|BreakerSettings
+name|settings
 decl_stmt|;
 DECL|field|overheadConstant
 specifier|private
@@ -100,65 +134,100 @@ specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
-comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. This breaker starts with 0 bytes used.      * @param limit circuit breaker limit      * @param overheadConstant constant multiplier for byte estimations      */
-DECL|method|MemoryCircuitBreaker
+DECL|field|parent
+specifier|private
+specifier|final
+name|HierarchyCircuitBreakerService
+name|parent
+decl_stmt|;
+DECL|field|name
+specifier|private
+specifier|final
+name|Name
+name|name
+decl_stmt|;
+comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. This breaker starts with 0 bytes used.      * @param settings settings to configure this breaker      * @param parent parent circuit breaker service to delegate tripped breakers to      * @param name the name of the breaker      */
+DECL|method|ChildMemoryCircuitBreaker
 specifier|public
-name|MemoryCircuitBreaker
+name|ChildMemoryCircuitBreaker
 parameter_list|(
-name|ByteSizeValue
-name|limit
-parameter_list|,
-name|double
-name|overheadConstant
+name|BreakerSettings
+name|settings
 parameter_list|,
 name|ESLogger
 name|logger
+parameter_list|,
+name|HierarchyCircuitBreakerService
+name|parent
+parameter_list|,
+name|Name
+name|name
 parameter_list|)
 block|{
 name|this
 argument_list|(
-name|limit
-argument_list|,
-name|overheadConstant
+name|settings
 argument_list|,
 literal|null
 argument_list|,
 name|logger
+argument_list|,
+name|parent
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. Uses the given oldBreaker to initialize      * the starting offset.      * @param limit circuit breaker limit      * @param overheadConstant constant multiplier for byte estimations      * @param oldBreaker the previous circuit breaker to inherit the used value from (starting offset)      */
-DECL|method|MemoryCircuitBreaker
+comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. Uses the given oldBreaker to initialize      * the starting offset.      * @param settings settings to configure this breaker      * @param parent parent circuit breaker service to delegate tripped breakers to      * @param name the name of the breaker      * @param oldBreaker the previous circuit breaker to inherit the used value from (starting offset)      */
+DECL|method|ChildMemoryCircuitBreaker
 specifier|public
-name|MemoryCircuitBreaker
+name|ChildMemoryCircuitBreaker
 parameter_list|(
-name|ByteSizeValue
-name|limit
+name|BreakerSettings
+name|settings
 parameter_list|,
-name|double
-name|overheadConstant
-parameter_list|,
-name|MemoryCircuitBreaker
+name|ChildMemoryCircuitBreaker
 name|oldBreaker
 parameter_list|,
 name|ESLogger
 name|logger
+parameter_list|,
+name|HierarchyCircuitBreakerService
+name|parent
+parameter_list|,
+name|Name
+name|name
 parameter_list|)
 block|{
 name|this
 operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+name|this
+operator|.
+name|settings
+operator|=
+name|settings
+expr_stmt|;
+name|this
+operator|.
 name|memoryBytesLimit
 operator|=
-name|limit
+name|settings
 operator|.
-name|bytes
+name|getLimit
 argument_list|()
 expr_stmt|;
 name|this
 operator|.
 name|overheadConstant
 operator|=
-name|overheadConstant
+name|settings
+operator|.
+name|getOverhead
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -225,22 +294,24 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Creating MemoryCircuitBreaker with a limit of {} bytes ({}) and a overhead constant of {}"
+literal|"creating ChildCircuitBreaker with settings {}"
 argument_list|,
 name|this
 operator|.
-name|memoryBytesLimit
-argument_list|,
-name|limit
-argument_list|,
-name|this
-operator|.
-name|overheadConstant
+name|settings
 argument_list|)
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|parent
+operator|=
+name|parent
+expr_stmt|;
 block|}
-comment|/**      * Method used to trip the breaker      * @throws CircuitBreakingException      */
+comment|/**      * Method used to trip the breaker, delegates to the parent to determine      * whether to trip the breaker or not      */
+annotation|@
+name|Override
 DECL|method|circuitBreak
 specifier|public
 name|void
@@ -252,8 +323,6 @@ parameter_list|,
 name|long
 name|bytesNeeded
 parameter_list|)
-throws|throws
-name|CircuitBreakingException
 block|{
 name|this
 operator|.
@@ -266,7 +335,13 @@ throw|throw
 operator|new
 name|CircuitBreakingException
 argument_list|(
-literal|"Data too large, data for field ["
+literal|"["
+operator|+
+name|this
+operator|.
+name|name
+operator|+
+literal|"] Data too large, data for ["
 operator|+
 name|fieldName
 operator|+
@@ -283,10 +358,18 @@ name|memoryBytesLimit
 argument_list|)
 operator|+
 literal|"]"
+argument_list|,
+name|bytesNeeded
+argument_list|,
+name|this
+operator|.
+name|memoryBytesLimit
 argument_list|)
 throw|;
 block|}
 comment|/**      * Add a number of bytes, tripping the circuit breaker if the aggregated      * estimates are above the limit. Automatically trips the breaker if the      * memory limit is set to 0. Will never trip the breaker if the limit is      * set< 0, but can still be used to aggregate estimations.      * @param bytes number of bytes to add to the breaker      * @return number of "used" bytes so far      * @throws CircuitBreakingException      */
+annotation|@
+name|Override
 DECL|method|addEstimateBytesAndMaybeBreak
 specifier|public
 name|double
@@ -356,7 +439,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adding [{}][{}] to used bytes [new used: [{}], limit: [-1b]]"
+literal|"[{}] Adding [{}][{}] to used bytes [new used: [{}], limit: [-1b]]"
+argument_list|,
+name|this
+operator|.
+name|name
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -374,10 +461,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|newUsed
-return|;
 block|}
+else|else
+block|{
 comment|// Otherwise, check the addition and commit the addition, looping if
 comment|// there are conflicts. May result in additional logging, but it's
 comment|// trace logging and shouldn't be counted on for additions.
@@ -425,7 +511,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adding [{}][{}] to used bytes [new used: [{}], limit: {} [{}], estimate: {} [{}]]"
+literal|"[{}] Adding [{}][{}] to used bytes [new used: [{}], limit: {} [{}], estimate: {} [{}]]"
+argument_list|,
+name|this
+operator|.
+name|name
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -474,7 +564,11 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
+literal|"[{}] New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
+argument_list|,
+name|this
+operator|.
+name|name
 argument_list|,
 name|newUsedWithOverhead
 argument_list|,
@@ -521,11 +615,48 @@ name|newUsed
 argument_list|)
 condition|)
 do|;
+block|}
+comment|// Additionally, we need to check that we haven't exceeded the parent's limit
+try|try
+block|{
+name|parent
+operator|.
+name|checkParentLimit
+argument_list|(
+name|label
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CircuitBreakingException
+name|e
+parameter_list|)
+block|{
+comment|// If the parent breaker is tripped, this breaker has to be
+comment|// adjusted back down because the allocation is "blocked" but the
+comment|// breaker has already been incremented
+name|this
+operator|.
+name|used
+operator|.
+name|addAndGet
+argument_list|(
+operator|-
+name|bytes
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 return|return
 name|newUsed
 return|;
 block|}
-comment|/**      * Add an<b>exact</b> number of bytes, not checking for tripping the      * circuit breaker. This bypasses the overheadConstant multiplication.      * @param bytes number of bytes to add to the breaker      * @return number of "used" bytes so far      */
+comment|/**      * Add an<b>exact</b> number of bytes, not checking for tripping the      * circuit breaker. This bypasses the overheadConstant multiplication.      *      * Also does not check with the parent breaker to see if the parent limit      * has been exceeded.      *      * @param bytes number of bytes to add to the breaker      * @return number of "used" bytes so far      */
+annotation|@
+name|Override
 DECL|method|addWithoutBreaking
 specifier|public
 name|long
@@ -557,7 +688,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adjusted breaker by [{}] bytes, now [{}]"
+literal|"[{}] Adjusted breaker by [{}] bytes, now [{}]"
+argument_list|,
+name|this
+operator|.
+name|name
 argument_list|,
 name|bytes
 argument_list|,
@@ -581,6 +716,8 @@ name|u
 return|;
 block|}
 comment|/**      * @return the number of aggregated "used" bytes so far      */
+annotation|@
+name|Override
 DECL|method|getUsed
 specifier|public
 name|long
@@ -597,6 +734,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * @return the number of bytes that can be added before the breaker trips      */
+annotation|@
+name|Override
 DECL|method|getLimit
 specifier|public
 name|long
@@ -610,6 +749,8 @@ name|memoryBytesLimit
 return|;
 block|}
 comment|/**      * @return the constant multiplier the breaker uses for aggregations      */
+annotation|@
+name|Override
 DECL|method|getOverhead
 specifier|public
 name|double
@@ -623,6 +764,8 @@ name|overheadConstant
 return|;
 block|}
 comment|/**      * @return the number of times the breaker has been tripped      */
+annotation|@
+name|Override
 DECL|method|getTrippedCount
 specifier|public
 name|long
@@ -646,9 +789,9 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|Name
+name|this
 operator|.
-name|FIELDDATA
+name|name
 return|;
 block|}
 block|}

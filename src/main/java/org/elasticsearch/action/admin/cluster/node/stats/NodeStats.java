@@ -156,11 +156,9 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|fielddata
-operator|.
 name|breaker
 operator|.
-name|FieldDataBreakerStats
+name|AllCircuitBreakerStats
 import|;
 end_import
 
@@ -364,7 +362,7 @@ annotation|@
 name|Nullable
 DECL|field|breaker
 specifier|private
-name|FieldDataBreakerStats
+name|AllCircuitBreakerStats
 name|breaker
 decl_stmt|;
 DECL|method|NodeStats
@@ -428,7 +426,7 @@ name|http
 parameter_list|,
 annotation|@
 name|Nullable
-name|FieldDataBreakerStats
+name|AllCircuitBreakerStats
 name|breaker
 parameter_list|)
 block|{
@@ -661,7 +659,7 @@ annotation|@
 name|Nullable
 DECL|method|getBreaker
 specifier|public
-name|FieldDataBreakerStats
+name|AllCircuitBreakerStats
 name|getBreaker
 parameter_list|()
 block|{
@@ -892,9 +890,9 @@ expr_stmt|;
 block|}
 name|breaker
 operator|=
-name|FieldDataBreakerStats
+name|AllCircuitBreakerStats
 operator|.
-name|readOptionalCircuitBreakerStats
+name|readOptionalAllCircuitBreakerStats
 argument_list|(
 name|in
 argument_list|)

@@ -140,7 +140,7 @@ name|common
 operator|.
 name|breaker
 operator|.
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 import|;
 end_import
 
@@ -299,8 +299,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|fielddata
 operator|.
 name|breaker
 operator|.
@@ -630,7 +628,13 @@ argument_list|(
 name|breakerService
 operator|.
 name|getBreaker
-argument_list|()
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|Name
+operator|.
+name|FIELDDATA
+argument_list|)
 argument_list|,
 name|getNumericType
 argument_list|()
@@ -2263,7 +2267,7 @@ block|{
 DECL|field|breaker
 specifier|private
 specifier|final
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 name|breaker
 decl_stmt|;
 DECL|field|type
@@ -2282,7 +2286,7 @@ DECL|method|PackedArrayEstimator
 specifier|public
 name|PackedArrayEstimator
 parameter_list|(
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 name|breaker
 parameter_list|,
 name|NumericType

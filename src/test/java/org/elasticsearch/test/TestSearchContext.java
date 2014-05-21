@@ -729,6 +729,9 @@ operator|.
 name|bigArrays
 operator|=
 name|bigArrays
+operator|.
+name|withCircuitBreaking
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

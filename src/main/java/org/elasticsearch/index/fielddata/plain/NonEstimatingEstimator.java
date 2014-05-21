@@ -82,7 +82,7 @@ name|common
 operator|.
 name|breaker
 operator|.
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 import|;
 end_import
 
@@ -113,13 +113,13 @@ block|{
 DECL|field|breaker
 specifier|private
 specifier|final
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 name|breaker
 decl_stmt|;
 DECL|method|NonEstimatingEstimator
 name|NonEstimatingEstimator
 parameter_list|(
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 name|breaker
 parameter_list|)
 block|{

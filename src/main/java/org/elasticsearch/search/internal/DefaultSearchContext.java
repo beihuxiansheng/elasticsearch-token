@@ -1173,11 +1173,15 @@ name|pageCacheRecycler
 operator|=
 name|pageCacheRecycler
 expr_stmt|;
+comment|// SearchContexts use a BigArrays that can circuit break
 name|this
 operator|.
 name|bigArrays
 operator|=
 name|bigArrays
+operator|.
+name|withCircuitBreaking
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
