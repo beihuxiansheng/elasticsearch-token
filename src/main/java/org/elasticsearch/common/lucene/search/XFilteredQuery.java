@@ -771,7 +771,12 @@ name|DocIdSets
 operator|.
 name|isFastIterator
 argument_list|(
+name|ApplyAcceptedDocsFilter
+operator|.
+name|unwrap
+argument_list|(
 name|docIdSet
+argument_list|)
 argument_list|)
 condition|)
 block|{
