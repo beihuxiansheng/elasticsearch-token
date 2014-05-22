@@ -797,7 +797,7 @@ condition|)
 block|{
 name|filter
 operator|=
-literal|"cached("
+literal|"cache("
 operator|+
 name|filter
 operator|+
