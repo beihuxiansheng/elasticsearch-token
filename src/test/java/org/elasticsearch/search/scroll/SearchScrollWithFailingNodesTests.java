@@ -517,7 +517,7 @@ expr_stmt|;
 name|cluster
 argument_list|()
 operator|.
-name|stopRandomDataNode
+name|stopRandomNonMasterNode
 argument_list|()
 expr_stmt|;
 name|searchResponse
