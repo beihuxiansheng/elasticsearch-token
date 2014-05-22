@@ -771,6 +771,43 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|filter
+specifier|private
+specifier|static
+name|String
+name|filter
+parameter_list|(
+name|String
+name|uncachedFilter
+parameter_list|)
+block|{
+name|String
+name|filter
+init|=
+name|uncachedFilter
+decl_stmt|;
+if|if
+condition|(
+name|cluster
+argument_list|()
+operator|.
+name|hasFilterCache
+argument_list|()
+condition|)
+block|{
+name|filter
+operator|=
+literal|"cached("
+operator|+
+name|filter
+operator|+
+literal|")"
+expr_stmt|;
+block|}
+return|return
+name|filter
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|explainValidateQuery
@@ -1126,6 +1163,15 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
+name|String
+name|typeFilter
+init|=
+name|filter
+argument_list|(
+literal|"_type:type1"
+argument_list|)
+decl_stmt|;
 name|assertExplanation
 argument_list|(
 name|QueryBuilders
@@ -1137,7 +1183,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(_uid:type1#1))->cache(_type:type1)"
+literal|"filtered(ConstantScore(_uid:type1#1))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1162,7 +1210,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(_uid:type1#1 _uid:type1#2))->cache(_type:type1)"
+literal|"filtered(ConstantScore(_uid:type1#1 _uid:type1#2))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1177,7 +1227,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(_all:foo)->cache(_type:type1)"
+literal|"filtered(_all:foo)->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1222,7 +1274,23 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(filtered(foo:1)->cache(bar:[2 TO 2]) cache(baz:3))->cache(_type:type1)"
+literal|"filtered(filtered(foo:1)->"
+operator|+
+name|filter
+argument_list|(
+literal|"bar:[2 TO 2]"
+argument_list|)
+operator|+
+literal|" "
+operator|+
+name|filter
+argument_list|(
+literal|"baz:3"
+argument_list|)
+operator|+
+literal|")->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1258,7 +1326,16 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(filtered(foo:1)->cache(bar:[2 TO 2]))->cache(_type:type1)"
+literal|"filtered(filtered(foo:1)->"
+operator|+
+name|filter
+argument_list|(
+literal|"bar:[2 TO 2]"
+argument_list|)
+operator|+
+literal|")->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1316,7 +1393,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(GeoPolygonFilter(pin.location, [[40.0, -70.0], [30.0, -80.0], [20.0, -90.0], [40.0, -70.0]])))->cache(_type:type1)"
+literal|"filtered(ConstantScore(GeoPolygonFilter(pin.location, [[40.0, -70.0], [30.0, -80.0], [20.0, -90.0], [40.0, -70.0]])))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1352,7 +1431,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(GeoBoundingBoxFilter(pin.location, [40.0, -80.0], [20.0, -70.0])))->cache(_type:type1)"
+literal|"filtered(ConstantScore(GeoBoundingBoxFilter(pin.location, [40.0, -80.0], [20.0, -70.0])))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1398,7 +1479,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0)))->cache(_type:type1)"
+literal|"filtered(ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0)))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1444,7 +1527,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0)))->cache(_type:type1)"
+literal|"filtered(ConstantScore(GeoDistanceFilter(pin.location, PLANE, 15.0, 10.0, 20.0)))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1491,7 +1576,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(GeoDistanceRangeFilter(pin.location, PLANE, [15.0 - 25.0], 10.0, 20.0)))->cache(_type:type1)"
+literal|"filtered(ConstantScore(GeoDistanceRangeFilter(pin.location, PLANE, [15.0 - 25.0], 10.0, 20.0)))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1568,7 +1655,9 @@ operator|.
 name|MILES
 argument_list|)
 operator|+
-literal|"], 10.0, 20.0)))->cache(_type:type1)"
+literal|"], 10.0, 20.0)))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1613,7 +1702,23 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(filtered(foo:1)->+cache(bar:[2 TO 2]) +cache(baz:3))->cache(_type:type1)"
+literal|"filtered(filtered(foo:1)->+"
+operator|+
+name|filter
+argument_list|(
+literal|"bar:[2 TO 2]"
+argument_list|)
+operator|+
+literal|" +"
+operator|+
+name|filter
+argument_list|(
+literal|"baz:3"
+argument_list|)
+operator|+
+literal|")->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1639,7 +1744,16 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(cache(foo:1 foo:2 foo:3)))->cache(_type:type1)"
+literal|"filtered(ConstantScore("
+operator|+
+name|filter
+argument_list|(
+literal|"foo:1 foo:2 foo:3"
+argument_list|)
+operator|+
+literal|"))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1666,7 +1780,16 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(ConstantScore(NotFilter(cache(foo:bar))))->cache(_type:type1)"
+literal|"filtered(ConstantScore(NotFilter("
+operator|+
+name|filter
+argument_list|(
+literal|"foo:bar"
+argument_list|)
+operator|+
+literal|")))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1704,7 +1827,16 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(filtered(foo:1)->CustomQueryWrappingFilter(child_filter[child-type/type1](filtered(foo:1)->cache(_type:child-type))))->cache(_type:type1)"
+literal|"filtered(filtered(foo:1)->CustomQueryWrappingFilter(child_filter[child-type/type1](filtered(foo:1)->"
+operator|+
+name|filter
+argument_list|(
+literal|"_type:child-type"
+argument_list|)
+operator|+
+literal|")))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1733,7 +1865,9 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"filtered(filtered(foo:1)->ScriptFilter(true))->cache(_type:type1)"
+literal|"filtered(filtered(foo:1)->ScriptFilter(true))->"
+operator|+
+name|typeFilter
 argument_list|)
 argument_list|)
 expr_stmt|;

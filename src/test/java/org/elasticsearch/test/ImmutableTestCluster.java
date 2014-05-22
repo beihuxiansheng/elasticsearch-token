@@ -847,6 +847,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * Return whether or not this cluster can cache filters.      */
+DECL|method|hasFilterCache
+specifier|public
+specifier|abstract
+name|boolean
+name|hasFilterCache
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

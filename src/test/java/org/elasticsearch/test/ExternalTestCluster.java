@@ -558,6 +558,19 @@ name|iterator
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|hasFilterCache
+specifier|public
+name|boolean
+name|hasFilterCache
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+comment|// default
+block|}
 block|}
 end_class
 
