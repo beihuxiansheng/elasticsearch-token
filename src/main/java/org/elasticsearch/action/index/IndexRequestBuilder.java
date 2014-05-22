@@ -729,7 +729,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Constructs a simple document with a field name and value pairs.      *<b>Note: the number of objects passed to this method must be and even number.</b>       */
+comment|/**      * Constructs a simple document with a field name and value pairs.      *<b>Note: the number of objects passed to this method must be an even number.</b>       */
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
