@@ -239,12 +239,7 @@ name|cacheEntry
 operator|.
 name|docId
 operator|=
-name|highlighterContext
-operator|.
-name|hitContext
-operator|.
 name|docId
-argument_list|()
 expr_stmt|;
 name|cacheEntry
 operator|.
