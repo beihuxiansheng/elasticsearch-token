@@ -649,6 +649,11 @@ name|DEFAULT_SIZE
 init|=
 literal|3
 decl_stmt|;
+DECL|field|from
+specifier|private
+name|int
+name|from
+decl_stmt|;
 DECL|field|size
 specifier|private
 name|int
@@ -1861,10 +1866,7 @@ name|from
 parameter_list|()
 block|{
 return|return
-name|context
-operator|.
 name|from
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -1878,13 +1880,15 @@ name|int
 name|from
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Not supported"
-argument_list|)
-throw|;
+name|this
+operator|.
+name|from
+operator|=
+name|from
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

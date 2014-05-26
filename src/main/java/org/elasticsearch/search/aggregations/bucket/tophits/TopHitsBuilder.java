@@ -188,6 +188,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The index to start to return hits from. Defaults to<tt>0</tt>.      */
+DECL|method|setFrom
+specifier|public
+name|TopHitsBuilder
+name|setFrom
+parameter_list|(
+name|int
+name|from
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|from
+argument_list|(
+name|from
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The number of search hits to return. Defaults to<tt>10</tt>.      */
 DECL|method|setSize
 specifier|public

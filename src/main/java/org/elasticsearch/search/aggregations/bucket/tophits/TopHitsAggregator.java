@@ -605,6 +605,11 @@ name|name
 argument_list|,
 name|topHitsContext
 operator|.
+name|from
+argument_list|()
+argument_list|,
+name|topHitsContext
+operator|.
 name|size
 argument_list|()
 argument_list|,
@@ -700,8 +705,13 @@ name|sort
 argument_list|()
 decl_stmt|;
 name|int
-name|size
+name|topN
 init|=
+name|topHitsContext
+operator|.
+name|from
+argument_list|()
+operator|+
 name|topHitsContext
 operator|.
 name|size
@@ -725,7 +735,7 @@ name|create
 argument_list|(
 name|sort
 argument_list|,
-name|size
+name|topN
 argument_list|,
 literal|true
 argument_list|,
@@ -743,7 +753,7 @@ name|TopScoreDocCollector
 operator|.
 name|create
 argument_list|(
-name|size
+name|topN
 argument_list|,
 literal|false
 argument_list|)

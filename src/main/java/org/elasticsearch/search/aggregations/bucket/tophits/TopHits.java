@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Accumulation of the most relevant hits for a bucket this aggregation falls into.  */
 end_comment
 
 begin_interface
@@ -58,6 +58,7 @@ name|TopHits
 extends|extends
 name|Aggregation
 block|{
+comment|/**      * @return The top matching hits for the bucket      */
 DECL|method|getHits
 name|SearchHits
 name|getHits
