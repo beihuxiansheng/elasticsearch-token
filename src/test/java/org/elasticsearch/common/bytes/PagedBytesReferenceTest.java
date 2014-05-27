@@ -1721,6 +1721,8 @@ init|=
 name|newTempFile
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|RandomAccessFile
 name|file
 init|=
@@ -1731,7 +1733,8 @@ name|tFile
 argument_list|,
 literal|"rw"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|pbr
 operator|.
 name|writeTo
@@ -1770,6 +1773,7 @@ name|tFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testSliceWriteToOutputStream
 specifier|public
@@ -1956,6 +1960,8 @@ init|=
 name|newTempFile
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|RandomAccessFile
 name|file
 init|=
@@ -1966,7 +1972,8 @@ name|tFile
 argument_list|,
 literal|"rw"
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|slice
 operator|.
 name|writeTo
@@ -2005,6 +2012,7 @@ name|tFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|testToBytes
 specifier|public
