@@ -3070,7 +3070,7 @@ literal|"/"
 operator|+
 name|repo
 operator|+
-literal|"/archive/v"
+literal|"/archive/"
 operator|+
 name|version
 operator|+
