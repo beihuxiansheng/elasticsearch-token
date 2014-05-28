@@ -84,6 +84,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -225,6 +241,11 @@ block|{
 comment|/**      * This test tries to simulate load while creating an index and indexing documents      * while the index is being created.      */
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"action.search:TRACE"
+argument_list|)
 DECL|method|testAutoGenerateIdNoDuplicates
 specifier|public
 name|void
@@ -329,6 +350,13 @@ argument_list|(
 literal|true
 argument_list|,
 name|builders
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"verifying indexed content"
 argument_list|)
 expr_stmt|;
 name|int
