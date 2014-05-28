@@ -6125,6 +6125,10 @@ range|:
 name|bogusIds
 control|)
 block|{
+name|assertTrue
+argument_list|(
+literal|"failed to delete a dummy doc"
+argument_list|,
 name|client
 argument_list|()
 operator|.
@@ -6145,6 +6149,10 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+operator|.
+name|isFound
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
