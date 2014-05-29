@@ -806,6 +806,12 @@ specifier|final
 name|TimeValue
 name|pingTimeout
 decl_stmt|;
+DECL|field|joinTimeout
+specifier|private
+specifier|final
+name|TimeValue
+name|joinTimeout
+decl_stmt|;
 comment|// a flag that should be used only for testing
 DECL|field|sendLeaveRequest
 specifier|private
@@ -1011,6 +1017,29 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|joinTimeout
+operator|=
+name|settings
+operator|.
+name|getAsTime
+argument_list|(
+literal|"discovery.zen.join_timeout"
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+name|pingTimeout
+operator|.
+name|millis
+argument_list|()
+operator|*
+literal|10
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|sendLeaveRequest
 operator|=
 name|componentSettings
@@ -1052,9 +1081,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using ping.timeout [{}], master_election.filter_client [{}], master_election.filter_data [{}]"
+literal|"using ping.timeout [{}], join.timeout [{}], master_election.filter_client [{}], master_election.filter_data [{}]"
 argument_list|,
 name|pingTimeout
+argument_list|,
+name|joinTimeout
 argument_list|,
 name|masterElectionFilterClientNodes
 argument_list|,
@@ -2129,7 +2160,7 @@ name|masterNode
 argument_list|,
 name|localNode
 argument_list|,
-name|pingTimeout
+name|joinTimeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -4304,7 +4335,7 @@ name|node
 argument_list|,
 name|state
 argument_list|,
-name|pingTimeout
+name|joinTimeout
 argument_list|)
 expr_stmt|;
 name|clusterService
