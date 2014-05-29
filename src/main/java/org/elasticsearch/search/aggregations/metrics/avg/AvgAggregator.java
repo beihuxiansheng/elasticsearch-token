@@ -130,7 +130,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregator
+name|NumericMetricsAggregator
 import|;
 end_import
 
@@ -218,7 +218,7 @@ specifier|public
 class|class
 name|AvgAggregator
 extends|extends
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|SingleValue
 block|{

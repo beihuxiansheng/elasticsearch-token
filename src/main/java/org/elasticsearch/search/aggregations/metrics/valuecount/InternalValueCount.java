@@ -106,7 +106,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 import|;
 end_import
 
@@ -140,7 +140,7 @@ specifier|public
 class|class
 name|InternalValueCount
 extends|extends
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 implements|implements
 name|ValueCount
 block|{

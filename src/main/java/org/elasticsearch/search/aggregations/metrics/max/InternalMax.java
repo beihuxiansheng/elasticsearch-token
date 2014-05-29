@@ -106,7 +106,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 import|;
 end_import
 
@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|InternalMax
 extends|extends
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
 implements|implements

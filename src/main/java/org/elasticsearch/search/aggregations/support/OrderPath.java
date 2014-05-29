@@ -140,7 +140,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregator
+name|NumericMetricsAggregator
 import|;
 end_import
 
@@ -1003,7 +1003,7 @@ if|if
 condition|(
 name|agg
 operator|instanceof
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
 condition|)
@@ -1059,7 +1059,7 @@ name|value
 operator|=
 operator|(
 operator|(
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
 operator|)
@@ -1105,7 +1105,7 @@ name|value
 operator|=
 operator|(
 operator|(
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|MultiValue
 operator|)
@@ -1209,7 +1209,7 @@ operator|||
 operator|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|&&
 name|i
 operator|==
@@ -1407,7 +1407,7 @@ operator|!
 operator|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|)
 condition|)
 block|{
@@ -1492,7 +1492,7 @@ if|if
 condition|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|SingleValue
 condition|)
@@ -1572,7 +1572,7 @@ condition|(
 operator|!
 operator|(
 operator|(
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|MultiValue
 operator|)

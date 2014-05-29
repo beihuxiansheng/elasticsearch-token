@@ -120,7 +120,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 import|;
 end_import
 
@@ -169,7 +169,7 @@ specifier|final
 class|class
 name|InternalCardinality
 extends|extends
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
 implements|implements

@@ -178,7 +178,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregator
+name|NumericMetricsAggregator
 import|;
 end_import
 
@@ -988,7 +988,7 @@ if|if
 condition|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|MultiValue
 condition|)
@@ -1032,7 +1032,7 @@ name|v1
 init|=
 operator|(
 operator|(
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|MultiValue
 operator|)
@@ -1060,7 +1060,7 @@ name|v2
 init|=
 operator|(
 operator|(
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|MultiValue
 operator|)
@@ -1134,7 +1134,7 @@ name|v1
 init|=
 operator|(
 operator|(
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|SingleValue
 operator|)
@@ -1160,7 +1160,7 @@ name|v2
 init|=
 operator|(
 operator|(
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|SingleValue
 operator|)
