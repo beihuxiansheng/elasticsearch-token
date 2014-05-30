@@ -644,6 +644,11 @@ name|name
 argument_list|,
 name|topHitsContext
 operator|.
+name|from
+argument_list|()
+argument_list|,
+name|topHitsContext
+operator|.
 name|size
 argument_list|()
 argument_list|,
