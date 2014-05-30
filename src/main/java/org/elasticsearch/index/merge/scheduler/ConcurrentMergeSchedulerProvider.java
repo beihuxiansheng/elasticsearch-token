@@ -479,7 +479,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-comment|// nocommit but this doesn't handle SMS ... should we even expose/allow SMS?  or, if user requests SMS can we just use CMS(1,1),
 comment|// which would then stall if there are 2 merges in flight, and unstall once we are back to 1 or 0 merges
 comment|// NOTE: we pass maxMergeCount+1 here so that CMS will allow one too many merges to kick off which then allows
 comment|// InternalEngine.IndexThrottle to detect too-many-merges and throttle:
