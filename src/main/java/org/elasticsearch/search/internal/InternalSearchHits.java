@@ -411,6 +411,26 @@ name|reset
 argument_list|()
 return|;
 block|}
+DECL|method|empty
+specifier|public
+specifier|static
+name|InternalSearchHits
+name|empty
+parameter_list|()
+block|{
+comment|// We shouldn't use static final instance, since that could directly be returned by native transport clients
+return|return
+operator|new
+name|InternalSearchHits
+argument_list|(
+name|EMPTY
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
 DECL|field|EMPTY
 specifier|public
 specifier|static

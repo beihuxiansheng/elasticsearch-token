@@ -1101,6 +1101,7 @@ name|type
 argument_list|)
 expr_stmt|;
 name|sourceBuilder
+argument_list|()
 operator|.
 name|toXContent
 argument_list|(
