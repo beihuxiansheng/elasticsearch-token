@@ -539,6 +539,10 @@ name|size
 argument_list|()
 operator|==
 literal|1
+operator|&&
+name|from
+operator|==
+literal|0
 condition|)
 block|{
 return|return
