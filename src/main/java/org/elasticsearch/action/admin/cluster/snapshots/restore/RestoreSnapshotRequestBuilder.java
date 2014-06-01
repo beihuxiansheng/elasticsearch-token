@@ -429,6 +429,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If set to true the restore procedure will restore partially snapshotted indices      *      * @param partial true if partially snapshotted indices should be restored      * @return this request      */
+DECL|method|setPartial
+specifier|public
+name|RestoreSnapshotRequestBuilder
+name|setPartial
+parameter_list|(
+name|boolean
+name|partial
+parameter_list|)
+block|{
+name|request
+operator|.
+name|partial
+argument_list|(
+name|partial
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute

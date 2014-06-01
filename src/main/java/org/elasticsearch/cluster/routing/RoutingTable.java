@@ -20,6 +20,18 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|IntSet
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -2233,6 +2245,9 @@ name|indexMetaData
 parameter_list|,
 name|RestoreSource
 name|restoreSource
+parameter_list|,
+name|IntSet
+name|ignoreShards
 parameter_list|)
 block|{
 name|IndexRoutingTable
@@ -2256,6 +2271,8 @@ argument_list|(
 name|indexMetaData
 argument_list|,
 name|restoreSource
+argument_list|,
+name|ignoreShards
 argument_list|)
 decl_stmt|;
 name|add
