@@ -2085,7 +2085,14 @@ name|getAsMemory
 argument_list|(
 name|MAX_SIZE_IN_BYTES_SETTING
 argument_list|,
-literal|"20%"
+name|Long
+operator|.
+name|toString
+argument_list|(
+name|Long
+operator|.
+name|MAX_VALUE
+argument_list|)
 argument_list|)
 operator|.
 name|bytes
