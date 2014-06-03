@@ -2100,6 +2100,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+comment|// TODO should be _language
 name|language
 operator|=
 name|parser
@@ -2705,6 +2706,23 @@ expr_stmt|;
 block|}
 try|try
 block|{
+if|if
+condition|(
+name|contentType
+operator|!=
+literal|null
+condition|)
+block|{
+name|context
+operator|.
+name|externalValue
+argument_list|(
+name|contentType
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|context
 operator|.
 name|externalValue
@@ -2719,6 +2737,7 @@ name|CONTENT_TYPE
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|contentTypeMapper
 operator|.
 name|parse

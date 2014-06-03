@@ -221,6 +221,19 @@ comment|/**  * Test case for issue https://github.com/elasticsearch/elasticsearc
 end_comment
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|scope
+operator|=
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+operator|.
+name|SUITE
+argument_list|)
 DECL|class|MultipleAttachmentIntegrationTests
 specifier|public
 class|class
@@ -333,9 +346,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|String
 name|mapping
@@ -552,9 +562,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|String
 name|mapping
