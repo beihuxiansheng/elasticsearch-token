@@ -2100,7 +2100,33 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-comment|// TODO should be _language
+comment|// TODO deprecated form. Will be removed in 2.3
+name|language
+operator|=
+name|parser
+operator|.
+name|text
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"`language` is now deprecated. Use `_language`. See https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/68"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"_language"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
 name|language
 operator|=
 name|parser

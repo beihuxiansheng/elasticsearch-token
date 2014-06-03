@@ -481,7 +481,7 @@ name|xcb
 operator|.
 name|field
 argument_list|(
-literal|"language"
+literal|"_language"
 argument_list|,
 name|forcedLanguage
 index|[
