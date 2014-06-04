@@ -791,7 +791,6 @@ literal|null
 expr_stmt|;
 block|}
 DECL|method|addValue
-specifier|private
 name|void
 name|addValue
 parameter_list|(
