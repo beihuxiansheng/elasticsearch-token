@@ -915,7 +915,7 @@ name|GeoPoint
 argument_list|(
 name|bottom
 argument_list|,
-name|posRight
+name|negRight
 argument_list|)
 argument_list|)
 return|;
@@ -948,7 +948,7 @@ name|GeoPoint
 argument_list|(
 name|bottom
 argument_list|,
-name|negRight
+name|posRight
 argument_list|)
 argument_list|)
 return|;
