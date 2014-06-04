@@ -7,14 +7,6 @@ begin_comment
 comment|/**  * Aggregations module  */
 end_comment
 
-begin_annotation
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"org.elasticsearch.action.search.type:TRACE"
-argument_list|)
-end_annotation
-
 begin_package
 DECL|package|org.elasticsearch.search.aggregations
 package|package
@@ -27,22 +19,6 @@ operator|.
 name|aggregations
 package|;
 end_package
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
 
 end_unit
 
