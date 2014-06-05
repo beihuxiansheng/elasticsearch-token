@@ -272,7 +272,19 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -338,6 +350,14 @@ argument_list|(
 literal|"discovery.zen.fd.ping_timeout"
 argument_list|,
 literal|"1s"
+argument_list|)
+comment|//<-- for hitting simulated network failures quickly
+operator|.
+name|put
+argument_list|(
+literal|"discovery.zen.fd.ping_retries"
+argument_list|,
+literal|"1"
 argument_list|)
 comment|//<-- for hitting simulated network failures quickly
 operator|.
@@ -692,7 +712,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// The unlucky node must report *no* master node, since it can't connect to master and in fact it should
-comment|// continuously ping until network failures have been resolved.
+comment|// continuously ping until network failures have been resolved. However
+specifier|final
 name|Client
 name|isolatedNodeClient
 init|=
@@ -704,6 +725,28 @@ argument_list|(
 name|unluckyNode
 argument_list|)
 decl_stmt|;
+comment|// It may a take a bit before the node detects it has been cut off from the elected master
+name|applied
+operator|=
+name|awaitBusy
+argument_list|(
+operator|new
+name|Predicate
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|apply
+parameter_list|(
+name|Object
+name|input
+parameter_list|)
+block|{
 name|ClusterState
 name|localClusterState
 init|=
@@ -737,15 +780,44 @@ operator|.
 name|nodes
 argument_list|()
 decl_stmt|;
-name|assertThat
+name|logger
+operator|.
+name|info
 argument_list|(
+literal|"localDiscoveryNodes="
+operator|+
+name|localDiscoveryNodes
+operator|.
+name|prettyPrint
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
 name|localDiscoveryNodes
 operator|.
 name|masterNode
 argument_list|()
+operator|==
+literal|null
+return|;
+block|}
+block|}
 argument_list|,
-name|nullValue
-argument_list|()
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|applied
+argument_list|,
+name|is
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
