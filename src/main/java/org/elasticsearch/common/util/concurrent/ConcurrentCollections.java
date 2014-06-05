@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -71,6 +85,14 @@ operator|.
 name|concurrent
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|jsr166e
+operator|.
+name|ConcurrentHashMapV8
 import|;
 end_import
 
@@ -152,6 +174,14 @@ argument_list|>
 name|newConcurrentMapWithAggressiveConcurrency
 parameter_list|()
 block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA8
+condition|)
+block|{
+comment|// Just use JDK's impl when we are on Java8:
 return|return
 operator|new
 name|ConcurrentHashMap
@@ -164,6 +194,22 @@ argument_list|,
 name|aggressiveConcurrencyLevel
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|ConcurrentHashMapV8
+argument_list|<>
+argument_list|(
+literal|16
+argument_list|,
+literal|0.75f
+argument_list|,
+name|aggressiveConcurrencyLevel
+argument_list|)
+return|;
+block|}
 block|}
 DECL|method|newConcurrentMap
 specifier|public
@@ -182,12 +228,30 @@ argument_list|>
 name|newConcurrentMap
 parameter_list|()
 block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA8
+condition|)
+block|{
+comment|// Just use JDK's impl when we are on Java8:
 return|return
 operator|new
 name|ConcurrentHashMap
 argument_list|<>
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+operator|new
+name|ConcurrentHashMapV8
+argument_list|<>
+argument_list|()
+return|;
+block|}
 block|}
 comment|/**      * Creates a new CHM with an aggressive concurrency level, aimed at highly updateable long living maps.      */
 DECL|method|newConcurrentMapLongWithAggressiveConcurrency

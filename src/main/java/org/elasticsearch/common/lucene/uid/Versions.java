@@ -34,19 +34,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
-name|ConcurrentHashMap
+name|ConcurrentMap
 import|;
 end_import
 
@@ -90,34 +80,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|CloseableThreadLocal
 import|;
 end_import
@@ -129,18 +91,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Numbers
 import|;
 end_import
 
@@ -182,13 +132,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|mapper
+name|util
 operator|.
-name|internal
+name|concurrent
 operator|.
-name|UidFieldMapper
+name|ConcurrentCollections
 import|;
 end_import
 
@@ -204,7 +154,7 @@ name|mapper
 operator|.
 name|internal
 operator|.
-name|VersionFieldMapper
+name|UidFieldMapper
 import|;
 end_import
 
@@ -265,7 +215,7 @@ DECL|field|lookupStates
 specifier|private
 specifier|static
 specifier|final
-name|ConcurrentHashMap
+name|ConcurrentMap
 argument_list|<
 name|IndexReader
 argument_list|,
@@ -276,9 +226,9 @@ argument_list|>
 argument_list|>
 name|lookupStates
 init|=
-operator|new
-name|ConcurrentHashMap
-argument_list|<>
+name|ConcurrentCollections
+operator|.
+name|newConcurrentMapWithAggressiveConcurrency
 argument_list|()
 decl_stmt|;
 comment|// Evict this reader from lookupStates once it's closed:
