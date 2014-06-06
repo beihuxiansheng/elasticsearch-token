@@ -34,15 +34,11 @@ name|Aggregation
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
-DECL|interface|Percentiles
+DECL|interface|PercentileRanks
 specifier|public
 interface|interface
-name|Percentiles
+name|PercentileRanks
 extends|extends
 name|Aggregation
 extends|,
@@ -51,12 +47,12 @@ argument_list|<
 name|Percentile
 argument_list|>
 block|{
-DECL|method|percentile
-name|double
-name|percentile
-parameter_list|(
+DECL|method|percent
 name|double
 name|percent
+parameter_list|(
+name|double
+name|percentile
 parameter_list|)
 function_decl|;
 block|}
