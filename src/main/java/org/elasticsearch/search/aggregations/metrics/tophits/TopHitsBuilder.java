@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket.tophits
+DECL|package|org.elasticsearch.search.aggregations.metrics.tophits
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|metrics
 operator|.
 name|tophits
 package|;

@@ -328,7 +328,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|metrics
 operator|.
 name|tophits
 operator|.

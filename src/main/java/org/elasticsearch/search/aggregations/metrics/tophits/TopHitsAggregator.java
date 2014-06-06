@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.bucket.tophits
+DECL|package|org.elasticsearch.search.aggregations.metrics.tophits
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|metrics
 operator|.
 name|tophits
 package|;
@@ -138,9 +138,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|metrics
 operator|.
-name|BucketsAggregator
+name|MetricsAggregator
 import|;
 end_import
 
@@ -236,7 +236,7 @@ specifier|public
 class|class
 name|TopHitsAggregator
 extends|extends
-name|BucketsAggregator
+name|MetricsAggregator
 implements|implements
 name|ScorerAware
 block|{
@@ -297,14 +297,6 @@ block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|BucketAggregationMode
-operator|.
-name|MULTI_BUCKETS
-argument_list|,
-name|AggregatorFactories
-operator|.
-name|EMPTY
 argument_list|,
 name|estimatedBucketsCount
 argument_list|,
