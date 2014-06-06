@@ -362,7 +362,7 @@ comment|// TODO LUCENE MONITOR: this is not needed in next Lucene version
 name|lockFactory
 operator|=
 operator|new
-name|NativeFSLockFactory
+name|XNativeFSLockFactory
 argument_list|()
 expr_stmt|;
 block|}

@@ -66,7 +66,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|NativeFSLockFactory
+name|XNativeFSLockFactory
 import|;
 end_import
 
@@ -504,11 +504,11 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|NativeFSLockFactory
+name|XNativeFSLockFactory
 name|lockFactory
 init|=
 operator|new
-name|NativeFSLockFactory
+name|XNativeFSLockFactory
 argument_list|(
 name|dir
 argument_list|)
