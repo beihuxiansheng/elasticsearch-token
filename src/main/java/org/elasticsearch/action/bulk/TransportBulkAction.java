@@ -1028,6 +1028,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|request
+operator|!=
+literal|null
+operator|&&
 name|setResponseFailureIfIndexMatches
 argument_list|(
 name|responses
