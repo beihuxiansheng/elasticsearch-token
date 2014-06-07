@@ -244,7 +244,7 @@ name|Test
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"action.search:TRACE"
+literal|"action.search:TRACE,indices.recovery:TRACE,index.shard.service:TRACE"
 argument_list|)
 DECL|method|testAutoGenerateIdNoDuplicates
 specifier|public
@@ -299,6 +299,15 @@ argument_list|,
 literal|100
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"indexing [{}] docs"
+argument_list|,
+name|numOfDocs
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|IndexRequestBuilder
@@ -369,9 +378,9 @@ name|numOfChecks
 init|=
 name|randomIntBetween
 argument_list|(
-literal|5
+literal|8
 argument_list|,
-literal|10
+literal|12
 argument_list|)
 decl_stmt|;
 for|for
@@ -391,6 +400,13 @@ control|)
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"running search with all types"
+argument_list|)
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -438,6 +454,13 @@ block|}
 block|}
 try|try
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"running search with a specific type"
+argument_list|)
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
