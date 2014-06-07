@@ -1785,7 +1785,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"recovery completed from [{}], took [{}]"
+literal|"{} recovery completed from [{}], took [{}]"
 argument_list|,
 name|request
 operator|.
