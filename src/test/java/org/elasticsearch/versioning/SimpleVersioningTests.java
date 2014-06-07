@@ -3978,9 +3978,9 @@ name|numIDs
 operator|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|3000
+literal|300
 argument_list|,
-literal|10000
+literal|1000
 argument_list|)
 expr_stmt|;
 block|}
@@ -3990,9 +3990,9 @@ name|numIDs
 operator|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|500
+literal|50
 argument_list|,
-literal|1000
+literal|100
 argument_list|)
 expr_stmt|;
 block|}
@@ -4070,7 +4070,7 @@ operator|(
 name|isNightly
 argument_list|()
 condition|?
-literal|4
+literal|8
 else|:
 literal|2
 operator|)
