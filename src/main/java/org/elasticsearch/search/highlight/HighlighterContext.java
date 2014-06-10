@@ -212,6 +212,7 @@ name|query
 expr_stmt|;
 block|}
 DECL|class|HighlightQuery
+specifier|public
 specifier|static
 class|class
 name|HighlightQuery
@@ -235,6 +236,7 @@ name|boolean
 name|queryRewritten
 decl_stmt|;
 DECL|method|HighlightQuery
+specifier|protected
 name|HighlightQuery
 parameter_list|(
 name|Query
