@@ -326,6 +326,19 @@ name|DEFAULT_NO_MASTER_BLOCK
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|publishTimeout
+operator|=
+name|settings
+operator|.
+name|getAsTime
+argument_list|(
+name|PUBLISH_TIMEOUT
+argument_list|,
+name|publishTimeout
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the current publish timeout      */
 DECL|method|getPublishTimeout
