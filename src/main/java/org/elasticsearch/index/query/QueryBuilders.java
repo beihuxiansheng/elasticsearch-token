@@ -168,7 +168,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a match query with type "BOOLEAN" for the provided field name and text.      *      * @param fieldNames The field names.      * @param text The query text (to be analyzed).      */
+comment|/**      * Creates a match query with type "BOOLEAN" for the provided field name and text.      *      * @param fieldNames The field names.      * @param text       The query text (to be analyzed).      */
 DECL|method|multiMatchQuery
 specifier|public
 specifier|static
@@ -958,7 +958,7 @@ name|SpanOrQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Creates a {@link SpanQueryBuilder} which allows having a sub query      * which implements {@link MultiTermQueryBuilder}. This is useful for      * having e.g. wildcard or fuzzy queries inside spans.      *       * @param multiTermQueryBuilder The {@link MultiTermQueryBuilder} that       * backs the created builder.      * @return      */
+comment|/**      * Creates a {@link SpanQueryBuilder} which allows having a sub query      * which implements {@link MultiTermQueryBuilder}. This is useful for      * having e.g. wildcard or fuzzy queries inside spans.      *      * @param multiTermQueryBuilder The {@link MultiTermQueryBuilder} that      *                              backs the created builder.      * @return      */
 DECL|method|spanMultiTermQueryBuilder
 specifier|public
 specifier|static
@@ -1109,7 +1109,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *       */
+comment|/**      * A query that allows to define a custom scoring function.      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1142,7 +1142,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param function The function builder used to custom score      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      * @param function     The function builder used to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1171,7 +1171,7 @@ name|function
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      * @param function The function builder used to custom score      */
+comment|/**      * A query that allows to define a custom scoring function.      *      * @param filterBuilder The query to custom score      * @param function      The function builder used to custom score      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1871,7 +1871,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Query that matches Documents based on the relationship between the given shape and      * indexed shapes      *      * @param name The shape field name      * @param shape Shape to use in the Query      */
+comment|/**      * Query that matches Documents based on the relationship between the given shape and      * indexed shapes      *      * @param name  The shape field name      * @param shape Shape to use in the Query      */
 DECL|method|geoShapeQuery
 specifier|public
 specifier|static

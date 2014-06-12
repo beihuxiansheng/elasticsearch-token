@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that matches documents matching boolean combinations of other filters.  *  *  */
+comment|/**  * A filter that matches documents matching boolean combinations of other filters.  */
 end_comment
 
 begin_class

@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This mapper add a new sub fields  *  .bin Binary type  *  .bool Boolean type  *  .point GeoPoint type  *  .shape GeoShape type  */
+comment|/**  * This mapper add a new sub fields  * .bin Binary type  * .bool Boolean type  * .point GeoPoint type  * .shape GeoShape type  */
 end_comment
 
 begin_class
