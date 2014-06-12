@@ -12501,6 +12501,16 @@ operator|*
 name|m
 expr_stmt|;
 block|}
+DECL|method|precision
+specifier|public
+name|int
+name|precision
+parameter_list|()
+block|{
+return|return
+name|p
+return|;
+block|}
 DECL|method|maxBucket
 specifier|public
 name|long

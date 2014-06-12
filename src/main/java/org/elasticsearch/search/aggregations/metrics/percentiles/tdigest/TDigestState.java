@@ -130,6 +130,16 @@ operator|=
 name|compression
 expr_stmt|;
 block|}
+DECL|method|compression
+specifier|public
+name|double
+name|compression
+parameter_list|()
+block|{
+return|return
+name|compression
+return|;
+block|}
 DECL|method|write
 specifier|public
 specifier|static

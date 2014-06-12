@@ -1363,8 +1363,6 @@ argument_list|,
 name|formatter
 argument_list|,
 name|keyed
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
@@ -1497,8 +1495,6 @@ argument_list|,
 name|formatter
 argument_list|,
 name|keyed
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
@@ -1888,8 +1884,6 @@ argument_list|,
 name|formatter
 argument_list|,
 name|keyed
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}
