@@ -124,7 +124,7 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 operator|&&
 name|request
@@ -135,7 +135,7 @@ argument_list|()
 operator|!=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 condition|)
 block|{
@@ -186,7 +186,7 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 operator|&&
 name|request
@@ -197,7 +197,7 @@ argument_list|()
 operator|!=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 condition|)
 block|{

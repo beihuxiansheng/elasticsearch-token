@@ -293,7 +293,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 decl_stmt|;
 comment|/**      * Add a search request to execute. Note, the order is important, the search response will be returned in the      * same order as the search requests.      */
@@ -404,7 +404,7 @@ literal|null
 argument_list|,
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 argument_list|,
 literal|true
@@ -664,13 +664,18 @@ argument_list|(
 name|searchType
 argument_list|)
 expr_stmt|;
-name|boolean
-name|ignoreUnavailable
+name|IndicesOptions
+name|defaultOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
+decl_stmt|;
+name|boolean
+name|ignoreUnavailable
+init|=
+name|defaultOptions
 operator|.
 name|ignoreUnavailable
 argument_list|()
@@ -678,10 +683,7 @@ decl_stmt|;
 name|boolean
 name|allowNoIndices
 init|=
-name|IndicesOptions
-operator|.
-name|strictExpandOpen
-argument_list|()
+name|defaultOptions
 operator|.
 name|allowNoIndices
 argument_list|()
@@ -689,10 +691,7 @@ decl_stmt|;
 name|boolean
 name|expandWildcardsOpen
 init|=
-name|IndicesOptions
-operator|.
-name|strictExpandOpen
-argument_list|()
+name|defaultOptions
 operator|.
 name|expandWildcardsOpen
 argument_list|()
@@ -700,10 +699,7 @@ decl_stmt|;
 name|boolean
 name|expandWildcardsClosed
 init|=
-name|IndicesOptions
-operator|.
-name|strictExpandOpen
-argument_list|()
+name|defaultOptions
 operator|.
 name|expandWildcardsClosed
 argument_list|()
@@ -1309,6 +1305,8 @@ argument_list|,
 name|expandWildcardsOpen
 argument_list|,
 name|expandWildcardsClosed
+argument_list|,
+name|defaultOptions
 argument_list|)
 argument_list|)
 expr_stmt|;

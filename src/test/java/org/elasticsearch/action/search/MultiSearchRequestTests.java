@@ -217,6 +217,11 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|IndicesOptions
+operator|.
+name|strictExpandOpenAndForbidClosed
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -296,6 +301,11 @@ argument_list|,
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+name|IndicesOptions
+operator|.
+name|strictExpandOpenAndForbidClosed
+argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)

@@ -408,7 +408,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 decl_stmt|;
 DECL|method|SearchRequest
