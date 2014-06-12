@@ -1549,7 +1549,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a facet to the search operation.      */
+comment|/**      * Adds a facet to the search operation.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addFacet
 specifier|public
 name|SearchRequestBuilder
@@ -1571,7 +1573,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1593,7 +1597,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1616,7 +1622,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1649,7 +1657,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1671,7 +1681,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder

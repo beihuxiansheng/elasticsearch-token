@@ -237,10 +237,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|FacetBuilders
 specifier|public
 class|class
