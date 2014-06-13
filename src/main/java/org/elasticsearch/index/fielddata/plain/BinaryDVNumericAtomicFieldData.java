@@ -693,34 +693,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|isMultiValued
-specifier|public
-name|boolean
-name|isMultiValued
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-comment|// no way to know
-block|}
-annotation|@
-name|Override
-DECL|method|getNumberUniqueValues
-specifier|public
-name|long
-name|getNumberUniqueValues
-parameter_list|()
-block|{
-return|return
-name|Long
-operator|.
-name|MAX_VALUE
-return|;
-comment|// no clue
-block|}
-annotation|@
-name|Override
 DECL|method|getMemorySizeInBytes
 specifier|public
 name|long

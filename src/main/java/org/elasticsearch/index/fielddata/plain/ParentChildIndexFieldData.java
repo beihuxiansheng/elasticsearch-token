@@ -2045,10 +2045,11 @@ block|}
 else|else
 block|{
 return|return
-name|PagedBytesAtomicFieldData
+name|AtomicFieldData
 operator|.
-name|empty
-argument_list|()
+name|WithOrdinals
+operator|.
+name|EMPTY
 return|;
 block|}
 block|}

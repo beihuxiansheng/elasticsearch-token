@@ -38,6 +38,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|BytesValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
@@ -81,18 +95,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -245,9 +247,9 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|Ordinals
+name|BytesValues
 operator|.
-name|Docs
+name|WithOrdinals
 name|docs
 init|=
 name|ords

@@ -180,6 +180,15 @@ argument_list|(
 name|multiValued
 argument_list|)
 block|{
+specifier|private
+specifier|final
+name|BytesRef
+name|scratch
+init|=
+operator|new
+name|BytesRef
+argument_list|()
+decl_stmt|;
 name|BytesRef
 name|previous
 decl_stmt|;

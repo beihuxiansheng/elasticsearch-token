@@ -86,9 +86,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|ordinals
-operator|.
-name|Ordinals
+name|BytesValues
 import|;
 end_import
 
@@ -379,7 +377,7 @@ literal|0
 assert|;
 if|if
 condition|(
-name|globalOrdinals
+name|globalValues
 operator|==
 literal|null
 condition|)
@@ -414,7 +412,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|globalOrdinals
+name|globalValues
 operator|.
 name|getMaxOrd
 argument_list|()
@@ -483,13 +481,15 @@ control|(
 name|long
 name|globalTermOrd
 init|=
-name|Ordinals
+name|BytesValues
+operator|.
+name|WithOrdinals
 operator|.
 name|MIN_ORDINAL
 init|;
 name|globalTermOrd
 operator|<
-name|globalOrdinals
+name|globalValues
 operator|.
 name|getMaxOrd
 argument_list|()
@@ -985,7 +985,7 @@ specifier|final
 name|int
 name|numOrds
 init|=
-name|globalOrdinals
+name|globalValues
 operator|.
 name|setDocument
 argument_list|(
@@ -1011,7 +1011,7 @@ specifier|final
 name|long
 name|globalOrd
 init|=
-name|globalOrdinals
+name|globalValues
 operator|.
 name|nextOrd
 argument_list|()

@@ -138,6 +138,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|BytesValues
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1252,7 +1266,9 @@ specifier|private
 name|long
 name|currentOrd
 init|=
-name|Ordinals
+name|BytesValues
+operator|.
+name|WithOrdinals
 operator|.
 name|MIN_ORDINAL
 operator|-
