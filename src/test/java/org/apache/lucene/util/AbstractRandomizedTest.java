@@ -439,6 +439,10 @@ block|{
 name|ReproduceInfoPrinter
 operator|.
 name|class
+block|,
+name|FailureMarker
+operator|.
+name|class
 block|}
 argument_list|)
 annotation|@
