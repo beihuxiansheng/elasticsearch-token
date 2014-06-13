@@ -2262,10 +2262,10 @@ name|TestLogging
 argument_list|(
 literal|"discovery.zen:TRACE,action:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
 argument_list|)
-DECL|method|voidIsolateMasterAndVerifyClusterStateConsensus
+DECL|method|testIsolateMasterAndVerifyClusterStateConsensus
 specifier|public
 name|void
-name|voidIsolateMasterAndVerifyClusterStateConsensus
+name|testIsolateMasterAndVerifyClusterStateConsensus
 parameter_list|()
 throws|throws
 name|Exception
@@ -2433,31 +2433,10 @@ name|prepareReroute
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// and wait for it to finish.
-name|assertFalse
+comment|// and wait for it to finish and for the cluster to stabilize
+name|ensureGreen
 argument_list|(
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareHealth
-argument_list|()
-operator|.
-name|setWaitForRelocatingShards
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|get
-argument_list|()
-operator|.
-name|isTimedOut
-argument_list|()
+literal|"test"
 argument_list|)
 expr_stmt|;
 comment|// verify all cluster states are the same
