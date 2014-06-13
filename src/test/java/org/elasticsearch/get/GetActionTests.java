@@ -294,22 +294,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertNoFailures
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -9675,9 +9659,18 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|assertNoFailures
+comment|// the flush must at least succeed on one shard and not all shards, because we don't wait for yellow/green
+name|assertThat
 argument_list|(
 name|flushResponse
+operator|.
+name|getSuccessfulShards
+argument_list|()
+argument_list|,
+name|greaterThanOrEqualTo
+argument_list|(
+literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|getResponse
