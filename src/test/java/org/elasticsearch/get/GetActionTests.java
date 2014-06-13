@@ -302,22 +302,6 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAllSuccessful
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
 name|assertNoFailures
 import|;
 end_import
@@ -9692,11 +9676,6 @@ name|get
 argument_list|()
 decl_stmt|;
 name|assertNoFailures
-argument_list|(
-name|flushResponse
-argument_list|)
-expr_stmt|;
-name|assertAllSuccessful
 argument_list|(
 name|flushResponse
 argument_list|)
