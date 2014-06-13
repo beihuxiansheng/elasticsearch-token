@@ -36,13 +36,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|inject
+name|util
 operator|.
-name|Inject
+name|BytesRef
 import|;
 end_import
 
@@ -54,9 +54,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
+name|inject
 operator|.
-name|HashedBytesRef
+name|Inject
 import|;
 end_import
 
@@ -260,7 +260,7 @@ specifier|public
 name|void
 name|addedQuery
 parameter_list|(
-name|HashedBytesRef
+name|BytesRef
 name|id
 parameter_list|,
 name|Query
@@ -281,7 +281,7 @@ specifier|public
 name|void
 name|removedQuery
 parameter_list|(
-name|HashedBytesRef
+name|BytesRef
 name|id
 parameter_list|,
 name|Query

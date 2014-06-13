@@ -317,9 +317,9 @@ name|docId
 argument_list|,
 name|value
 argument_list|,
-name|values
+name|value
 operator|.
-name|currentValueHash
+name|hashCode
 argument_list|()
 argument_list|,
 name|values

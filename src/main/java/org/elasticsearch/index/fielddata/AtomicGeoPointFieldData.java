@@ -92,10 +92,7 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 block|{
 specifier|final
 name|GeoPointValues

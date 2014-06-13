@@ -269,10 +269,7 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 block|{
 specifier|final
 name|BytesValues
@@ -318,9 +315,7 @@ operator|.
 name|value
 operator|.
 name|getBytesValues
-argument_list|(
-name|needsHashes
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 return|return
@@ -576,9 +571,7 @@ return|return
 name|atomicFieldData
 operator|.
 name|getBytesValues
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 return|;
 block|}
 else|else
@@ -621,9 +614,7 @@ operator|.
 name|Strings
 argument_list|(
 name|getBytesValues
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 argument_list|)
 return|;
 block|}

@@ -592,9 +592,7 @@ init|=
 name|afd
 operator|.
 name|getBytesValues
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Ordinals
 operator|.
@@ -1114,9 +1112,7 @@ name|context
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1420,9 +1416,7 @@ name|readerContext
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

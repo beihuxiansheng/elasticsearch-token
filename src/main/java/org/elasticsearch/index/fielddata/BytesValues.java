@@ -183,20 +183,6 @@ name|BytesRef
 name|nextValue
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the hash value of the previously returned shared {@link BytesRef} instances.      *      * @return the hash value of the previously returned shared {@link BytesRef} instances.      */
-DECL|method|currentValueHash
-specifier|public
-name|int
-name|currentValueHash
-parameter_list|()
-block|{
-return|return
-name|scratch
-operator|.
-name|hashCode
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns the order the values are returned from {@link #nextValue()}.      *<p> Note: {@link BytesValues} have {@link AtomicFieldData.Order#BYTES} by default.</p>      */
 DECL|method|getOrder
 specifier|public
@@ -426,22 +412,6 @@ operator|new
 name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Empty BytesValues has no next value"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-DECL|method|currentValueHash
-specifier|public
-name|int
-name|currentValueHash
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalStateException
-argument_list|(
-literal|"Empty BytesValues has no hash for the current Value"
 argument_list|)
 throw|;
 block|}

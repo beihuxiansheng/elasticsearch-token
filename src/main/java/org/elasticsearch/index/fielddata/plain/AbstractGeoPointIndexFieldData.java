@@ -156,9 +156,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|MultiValueMode
+name|mapper
+operator|.
+name|FieldMapper
+operator|.
+name|Names
 import|;
 end_import
 
@@ -168,13 +172,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|mapper
-operator|.
-name|FieldMapper
-operator|.
-name|Names
+name|MultiValueMode
 import|;
 end_import
 
@@ -263,10 +263,7 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 name|BytesValues

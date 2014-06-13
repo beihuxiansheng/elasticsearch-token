@@ -604,10 +604,7 @@ init|=
 name|fieldData
 operator|.
 name|getBytesValues
-argument_list|(
-name|randomBoolean
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|CollectionUtils
 operator|.

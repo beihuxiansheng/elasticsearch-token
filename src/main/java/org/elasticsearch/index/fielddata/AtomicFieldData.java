@@ -59,14 +59,11 @@ name|long
 name|getNumberUniqueValues
 parameter_list|()
 function_decl|;
-comment|/**      * Use a non thread safe (lightweight) view of the values as bytes.      *      * @param needsHashes if<code>true</code> the implementation will use pre-build hashes if      *                    {@link org.elasticsearch.index.fielddata.BytesValues#currentValueHash()} is used. if no hashes      *                    are used<code>false</code> should be passed instead.      *      */
+comment|/**      * Use a non thread safe (lightweight) view of the values as bytes.      */
 DECL|method|getBytesValues
 name|BytesValues
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 function_decl|;
 comment|/**      * Returns a "scripting" based values.      */
 DECL|method|getScriptValues
@@ -100,10 +97,7 @@ name|BytesValues
 operator|.
 name|WithOrdinals
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 function_decl|;
 comment|/**          * Returns a terms enum to iterate over all the underlying values.          */
 DECL|method|getTermsEnum
