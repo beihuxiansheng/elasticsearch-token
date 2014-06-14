@@ -435,7 +435,7 @@ name|getAsBoolean
 argument_list|(
 literal|"connect_on_network_disconnect"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|this
