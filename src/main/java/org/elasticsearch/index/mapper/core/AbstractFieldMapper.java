@@ -5659,8 +5659,10 @@ block|{
 return|return;
 block|}
 name|context
+operator|=
+name|context
 operator|.
-name|setWithinMultiFields
+name|createMultiFieldContext
 argument_list|()
 expr_stmt|;
 name|ContentPath
@@ -5740,11 +5742,6 @@ name|pathType
 argument_list|(
 name|origPathType
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|clearWithinMultiFields
-argument_list|()
 expr_stmt|;
 block|}
 comment|// No need for locking, because locking is taken care of in ObjectMapper#merge and DocumentMapper#merge
@@ -6363,8 +6360,10 @@ throws|throws
 name|IOException
 block|{
 name|context
+operator|=
+name|context
 operator|.
-name|setWithinCopyTo
+name|createCopyToContext
 argument_list|()
 expr_stmt|;
 name|FieldMappers
@@ -6667,11 +6666,6 @@ block|}
 block|}
 block|}
 block|}
-name|context
-operator|.
-name|clearWithinCopyTo
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

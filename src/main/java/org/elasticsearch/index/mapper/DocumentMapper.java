@@ -1428,6 +1428,8 @@ specifier|private
 name|CloseableThreadLocal
 argument_list|<
 name|ParseContext
+operator|.
+name|InternalParseContext
 argument_list|>
 name|cache
 init|=
@@ -1435,6 +1437,8 @@ operator|new
 name|CloseableThreadLocal
 argument_list|<
 name|ParseContext
+operator|.
+name|InternalParseContext
 argument_list|>
 argument_list|()
 block|{
@@ -1442,12 +1446,16 @@ annotation|@
 name|Override
 specifier|protected
 name|ParseContext
+operator|.
+name|InternalParseContext
 name|initialValue
 parameter_list|()
 block|{
 return|return
 operator|new
 name|ParseContext
+operator|.
+name|InternalParseContext
 argument_list|(
 name|index
 argument_list|,
@@ -2587,6 +2595,8 @@ throws|throws
 name|MapperParsingException
 block|{
 name|ParseContext
+operator|.
+name|InternalParseContext
 name|context
 init|=
 name|cache
