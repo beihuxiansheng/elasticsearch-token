@@ -2998,6 +2998,12 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"idx"
+argument_list|)
+expr_stmt|;
+comment|// only one document let's make sure all shards have an active primary
 name|SearchResponse
 name|response
 init|=
@@ -3068,15 +3074,6 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 name|assertSearchResponse
-argument_list|(
-name|response
-argument_list|)
-expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
 argument_list|(
 name|response
 argument_list|)
