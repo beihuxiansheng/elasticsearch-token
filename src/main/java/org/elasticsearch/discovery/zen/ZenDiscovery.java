@@ -4786,6 +4786,27 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+if|if
+condition|(
+name|t
+operator|instanceof
+name|ClusterService
+operator|.
+name|NoLongerMasterException
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"not processing [{}] as we are no longer master"
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|logger
 operator|.
 name|error
@@ -4797,6 +4818,7 @@ argument_list|,
 name|source
 argument_list|)
 expr_stmt|;
+block|}
 name|callback
 operator|.
 name|onFailure
