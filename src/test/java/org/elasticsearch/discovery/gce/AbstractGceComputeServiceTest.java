@@ -150,6 +150,10 @@ name|numDataNodes
 operator|=
 literal|2
 argument_list|,
+name|numClientNodes
+operator|=
+literal|0
+argument_list|,
 name|transportClientRatio
 operator|=
 literal|0.0
@@ -249,6 +253,16 @@ operator|.
 name|LOAD_PLUGIN_FROM_CLASSPATH
 argument_list|,
 literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|super
+operator|.
+name|nodeSettings
+argument_list|(
+name|nodeOrdinal
+argument_list|)
 argument_list|)
 operator|.
 name|build

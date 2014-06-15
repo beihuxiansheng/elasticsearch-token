@@ -44,7 +44,23 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_comment
+comment|/**  * We need to ignore this test from elasticsearch version 1.2.1 as  * expected nodes running is 2 and this test will create 2 clusters with one node each.  * @see org.elasticsearch.test.ElasticsearchIntegrationTest#ensureClusterSizeConsistency()  * TODO Reactivate when it will be possible to set the number of running nodes  */
+end_comment
+
 begin_class
+annotation|@
+name|Ignore
 DECL|class|GceDifferentTagsTwoTagsTest
 specifier|public
 class|class
