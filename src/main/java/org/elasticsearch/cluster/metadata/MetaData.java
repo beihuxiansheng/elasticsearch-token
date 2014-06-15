@@ -1389,12 +1389,10 @@ name|ImmutableOpenMap
 operator|.
 name|builder
 argument_list|(
-name|indices
-operator|.
-name|size
-argument_list|()
+literal|1
 argument_list|)
 expr_stmt|;
+comment|// typically, there is 1 alias pointing to an index
 name|tmpAliases
 operator|.
 name|put
