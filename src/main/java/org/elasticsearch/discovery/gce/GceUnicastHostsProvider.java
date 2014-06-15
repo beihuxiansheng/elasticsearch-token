@@ -848,6 +848,27 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
+operator|||
+name|instance
+operator|.
+name|getTags
+argument_list|()
+operator|.
+name|getItems
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|instance
+operator|.
+name|getTags
+argument_list|()
+operator|.
+name|getItems
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 comment|// If this instance have no tag, we filter it
@@ -965,9 +986,7 @@ name|getTags
 argument_list|()
 operator|==
 literal|null
-condition|?
-literal|""
-else|:
+operator|||
 name|instance
 operator|.
 name|getTags
@@ -975,6 +994,12 @@ argument_list|()
 operator|.
 name|getItems
 argument_list|()
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+literal|""
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -1239,23 +1264,6 @@ argument_list|)
 decl_stmt|;
 comment|// If user has set `es_port` metadata, we don't need to ping all ports
 comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|addresses
-operator|.
-name|length
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -1270,7 +1278,7 @@ name|ip_private
 argument_list|,
 name|addresses
 index|[
-name|i
+literal|0
 index|]
 argument_list|,
 name|status
@@ -1289,11 +1297,11 @@ name|name
 operator|+
 literal|"-"
 operator|+
-name|i
+literal|0
 argument_list|,
 name|addresses
 index|[
-name|i
+literal|0
 index|]
 argument_list|,
 name|Version
@@ -1302,7 +1310,6 @@ name|CURRENT
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
