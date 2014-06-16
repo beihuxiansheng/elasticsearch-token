@@ -4536,6 +4536,15 @@ argument_list|()
 return|;
 block|}
 block|}
+DECL|field|TRANSPORT_CLIENT_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TRANSPORT_CLIENT_PREFIX
+init|=
+literal|"transport_client_"
+decl_stmt|;
 DECL|class|TransportClientFactory
 specifier|static
 class|class
@@ -4650,7 +4659,7 @@ name|put
 argument_list|(
 literal|"name"
 argument_list|,
-literal|"transport_client_"
+name|TRANSPORT_CLIENT_PREFIX
 operator|+
 name|node
 operator|.

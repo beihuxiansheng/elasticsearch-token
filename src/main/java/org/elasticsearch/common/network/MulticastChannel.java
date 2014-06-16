@@ -739,6 +739,15 @@ name|Listener
 name|listener
 parameter_list|)
 function_decl|;
+DECL|field|SHARED_CHANNEL_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHARED_CHANNEL_NAME
+init|=
+literal|"#shared#"
+decl_stmt|;
 comment|/**      * A shared channel that keeps a static map of Config -> Shared channels, and closes shared      * channel once their reference count has reached 0. It also handles de-registering relevant      * listener from the shared list of listeners.      */
 DECL|class|Shared
 specifier|private
@@ -862,7 +871,7 @@ name|Plain
 argument_list|(
 name|multiListener
 argument_list|,
-literal|"#shared#"
+name|SHARED_CHANNEL_NAME
 argument_list|,
 name|config
 argument_list|)
