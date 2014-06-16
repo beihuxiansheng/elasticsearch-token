@@ -411,7 +411,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -422,7 +422,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -679,7 +679,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -690,7 +690,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1071,7 +1071,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1082,7 +1082,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1455,7 +1455,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1466,7 +1466,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1812,7 +1812,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1823,7 +1823,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2207,7 +2207,7 @@ decl_stmt|;
 name|String
 name|node_0
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2215,7 +2215,7 @@ argument_list|(
 name|zenSettings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodeClient
@@ -2226,7 +2226,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2540,7 +2540,7 @@ expr_stmt|;
 name|PendingClusterTasksResponse
 name|response
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient
@@ -2637,7 +2637,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient
@@ -2913,7 +2913,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient
@@ -3081,7 +3081,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3092,7 +3092,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3105,7 +3105,7 @@ decl_stmt|;
 name|MasterAwareService
 name|testService1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3168,7 +3168,7 @@ expr_stmt|;
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3180,7 +3180,7 @@ specifier|final
 name|ClusterService
 name|clusterService2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3195,7 +3195,7 @@ decl_stmt|;
 name|MasterAwareService
 name|testService2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3286,7 +3286,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -3468,7 +3468,7 @@ expr_stmt|;
 name|String
 name|node_2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3478,7 +3478,7 @@ argument_list|)
 decl_stmt|;
 name|clusterService1
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3492,7 +3492,7 @@ argument_list|)
 expr_stmt|;
 name|testService1
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3724,7 +3724,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3735,7 +3735,7 @@ expr_stmt|;
 name|ClusterService
 name|clusterService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

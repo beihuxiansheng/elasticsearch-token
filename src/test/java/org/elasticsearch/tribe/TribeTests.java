@@ -208,7 +208,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -311,7 +311,7 @@ block|{
 DECL|field|cluster2
 specifier|private
 specifier|static
-name|TestCluster
+name|InternalTestCluster
 name|cluster2
 decl_stmt|;
 DECL|field|tribeNode
@@ -344,7 +344,7 @@ comment|// create another cluster
 name|cluster2
 operator|=
 operator|new
-name|TestCluster
+name|InternalTestCluster
 argument_list|(
 name|randomLong
 argument_list|()
@@ -488,7 +488,7 @@ name|put
 argument_list|(
 literal|"tribe.t1.cluster.name"
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getClusterName
@@ -567,7 +567,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -784,7 +784,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -804,7 +804,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1332,7 +1332,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1371,7 +1371,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1611,7 +1611,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -2435,7 +2435,7 @@ argument_list|,
 name|tribeNodes
 argument_list|)
 operator|==
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client

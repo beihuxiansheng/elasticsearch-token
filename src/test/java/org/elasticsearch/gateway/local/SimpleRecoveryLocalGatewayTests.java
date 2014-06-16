@@ -246,7 +246,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|RestartCallback
 import|;
@@ -475,7 +475,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -840,7 +840,7 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -901,7 +901,7 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -975,7 +975,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1425,7 +1425,7 @@ name|ensureYellow
 argument_list|()
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -1554,7 +1554,7 @@ name|value1Docs
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -1696,7 +1696,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1811,7 +1811,7 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -1866,7 +1866,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -1938,7 +1938,7 @@ specifier|final
 name|String
 name|firstNode
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1950,7 +1950,7 @@ name|build
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2091,7 +2091,7 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -2212,7 +2212,7 @@ throws|throws
 name|Exception
 block|{
 comment|// clean two nodes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -2445,7 +2445,7 @@ argument_list|(
 literal|"--> closing first node, and indexing more data to the second node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -3055,7 +3055,7 @@ literal|1.1f
 argument_list|)
 decl_stmt|;
 comment|// use less agressive settings
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -3216,7 +3216,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -3273,7 +3273,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -3444,7 +3444,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3488,7 +3488,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3510,7 +3510,7 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart

@@ -1004,7 +1004,7 @@ name|restTestExecutionContext
 operator|.
 name|resetClient
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|httpAddresses

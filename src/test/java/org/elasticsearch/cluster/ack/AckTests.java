@@ -1545,7 +1545,7 @@ name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 name|between
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -1780,7 +1780,7 @@ name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 name|between
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -1887,7 +1887,7 @@ name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 name|between
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -2128,7 +2128,7 @@ name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 name|between
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes

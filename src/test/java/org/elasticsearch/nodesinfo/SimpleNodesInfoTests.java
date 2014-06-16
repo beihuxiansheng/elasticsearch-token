@@ -400,7 +400,7 @@ name|String
 argument_list|>
 name|nodesIds
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -474,7 +474,7 @@ expr_stmt|;
 name|String
 name|server1NodeId
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -498,7 +498,7 @@ decl_stmt|;
 name|String
 name|server2NodeId
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1367,7 +1367,7 @@ block|}
 name|String
 name|nodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1398,7 +1398,7 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 return|return
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

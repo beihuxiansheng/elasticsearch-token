@@ -368,7 +368,7 @@ parameter_list|)
 block|{
 while|while
 condition|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -377,14 +377,14 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -395,7 +395,7 @@ expr_stmt|;
 name|ShardsAllocator
 name|instance
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

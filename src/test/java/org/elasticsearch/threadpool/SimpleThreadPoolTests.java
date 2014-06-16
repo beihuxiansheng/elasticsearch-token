@@ -359,7 +359,7 @@ block|{
 name|ThreadPool
 name|threadPool
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getDataNodeInstance

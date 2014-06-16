@@ -447,7 +447,7 @@ expr_stmt|;
 name|String
 name|node
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -481,7 +481,7 @@ argument_list|(
 literal|"--> restarting cluster"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -704,7 +704,7 @@ argument_list|(
 literal|"--> start nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -738,7 +738,7 @@ argument_list|(
 literal|"--> restarting cluster"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -833,7 +833,7 @@ expr_stmt|;
 name|String
 name|nodeA
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -879,7 +879,7 @@ expr_stmt|;
 name|String
 name|nodeB
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1313,7 +1313,7 @@ expr_stmt|;
 name|String
 name|nodeA
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1359,7 +1359,7 @@ expr_stmt|;
 name|String
 name|nodeB
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1612,7 +1612,7 @@ expr_stmt|;
 name|String
 name|nodeA
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

@@ -361,7 +361,7 @@ name|minimumNumberOfShards
 parameter_list|()
 block|{
 return|return
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -656,7 +656,7 @@ literal|"number_of_shards"
 argument_list|,
 name|between
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes

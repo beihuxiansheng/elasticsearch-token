@@ -289,7 +289,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -432,7 +432,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// now start adding nodes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -485,7 +485,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now start adding nodes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -583,7 +583,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now start shutting nodes down
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -637,7 +637,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -724,7 +724,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// closing the 3rd node
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -777,7 +777,7 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode

@@ -341,7 +341,7 @@ expr_stmt|;
 name|IndicesService
 name|indicesService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

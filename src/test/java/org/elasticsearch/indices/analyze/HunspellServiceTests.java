@@ -218,7 +218,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -229,7 +229,7 @@ expr_stmt|;
 name|Dictionary
 name|dictionary
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -319,7 +319,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -330,7 +330,7 @@ expr_stmt|;
 name|Dictionary
 name|dictionary
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -363,7 +363,7 @@ expr_stmt|;
 comment|// testing that dictionary specific settings override node level settings
 name|dictionary
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -425,7 +425,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -436,7 +436,7 @@ expr_stmt|;
 name|Dictionary
 name|dictionary
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

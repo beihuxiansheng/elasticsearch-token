@@ -277,7 +277,7 @@ name|String
 argument_list|>
 name|nodesIds
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -312,7 +312,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -670,7 +670,7 @@ name|String
 argument_list|>
 name|nodesIds
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -705,7 +705,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size

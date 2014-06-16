@@ -1146,7 +1146,7 @@ name|void
 name|testAutoExpandNumberOfReplicas0ToData
 parameter_list|()
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes
@@ -1526,7 +1526,7 @@ argument_list|(
 literal|"--> closing one node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes
@@ -1708,7 +1708,7 @@ argument_list|(
 literal|"--> closing another node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes
@@ -1895,7 +1895,7 @@ argument_list|(
 literal|"--> creating index test with auto expand replicas"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes
@@ -2263,7 +2263,7 @@ argument_list|(
 literal|"--> closing one node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes
@@ -2445,7 +2445,7 @@ argument_list|(
 literal|"--> closing another node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes

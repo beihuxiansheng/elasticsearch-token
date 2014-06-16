@@ -567,7 +567,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -700,7 +700,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|rollingRestart
@@ -848,7 +848,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1021,7 +1021,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|rollingRestart
@@ -1515,13 +1515,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2004,7 +2004,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2020,7 +2020,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2036,7 +2036,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2099,7 +2099,7 @@ specifier|final
 name|Client
 name|client
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -2978,7 +2978,7 @@ name|i
 operator|++
 control|)
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
@@ -3039,7 +3039,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
@@ -3100,7 +3100,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3159,7 +3159,7 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

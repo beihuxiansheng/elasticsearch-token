@@ -128,7 +128,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -734,7 +734,7 @@ literal|"es.node.local"
 argument_list|,
 name|TESTS_CLUSTER
 argument_list|,
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|TESTS_ENABLE_MOCK_MODULES
 argument_list|,

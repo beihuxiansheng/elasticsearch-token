@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A test cluster implementation that holds a fixed set of external nodes as well as a TestCluster  * which is used to run mixed version clusters in tests like backwards compatibility tests.  * Note: this is an experimental API  */
+comment|/**  * A test cluster implementation that holds a fixed set of external nodes as well as a InternalTestCluster  * which is used to run mixed version clusters in tests like backwards compatibility tests.  * Note: this is an experimental API  */
 end_comment
 
 begin_class
@@ -234,12 +234,12 @@ specifier|public
 class|class
 name|CompositeTestCluster
 extends|extends
-name|ImmutableTestCluster
+name|TestCluster
 block|{
 DECL|field|cluster
 specifier|private
 specifier|final
-name|TestCluster
+name|InternalTestCluster
 name|cluster
 decl_stmt|;
 DECL|field|externalNodes
@@ -272,7 +272,7 @@ DECL|method|CompositeTestCluster
 specifier|public
 name|CompositeTestCluster
 parameter_list|(
-name|TestCluster
+name|InternalTestCluster
 name|cluster
 parameter_list|,
 name|int

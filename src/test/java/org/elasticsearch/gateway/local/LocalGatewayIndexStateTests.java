@@ -284,7 +284,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -296,7 +296,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|RestartCallback
 import|;
@@ -441,7 +441,7 @@ argument_list|(
 literal|"--> starting 1 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -687,7 +687,7 @@ argument_list|(
 literal|"--> restarting nodes..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -866,7 +866,7 @@ argument_list|(
 literal|"--> starting 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -1772,7 +1772,7 @@ argument_list|(
 literal|"--> restarting nodes..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -2240,7 +2240,7 @@ argument_list|(
 literal|"--> starting 1 master node non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2300,7 +2300,7 @@ argument_list|(
 literal|"--> closing master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|closeNonSharedNodes
@@ -2315,7 +2315,7 @@ argument_list|(
 literal|"--> starting 1 master node non data again"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2473,7 +2473,7 @@ argument_list|(
 literal|"--> starting 1 master node non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2499,7 +2499,7 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2661,7 +2661,7 @@ argument_list|(
 literal|"--> starting 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2680,7 +2680,7 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3147,7 +3147,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3155,7 +3155,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3348,7 +3348,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3360,7 +3360,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -3700,7 +3700,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3708,7 +3708,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3901,7 +3901,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3913,7 +3913,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -4386,7 +4386,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -4394,7 +4394,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -4587,7 +4587,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -4599,7 +4599,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -4759,7 +4759,7 @@ argument_list|(
 literal|"--> restart start the nodes, but make sure we do recovery only after we have 2 nodes in the cluster"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -4972,7 +4972,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -4980,7 +4980,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -5144,7 +5144,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -5156,7 +5156,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -5307,12 +5307,12 @@ argument_list|(
 literal|"--> close the first node, so we remain with the second that has the dangling index"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
 argument_list|(
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|nameFilter
 argument_list|(

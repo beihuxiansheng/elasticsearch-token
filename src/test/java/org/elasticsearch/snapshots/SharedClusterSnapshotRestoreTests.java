@@ -1322,7 +1322,7 @@ argument_list|(
 literal|"--> delete indices"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -1725,7 +1725,7 @@ argument_list|(
 literal|"--> delete the index and recreate it with bar type"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -2902,7 +2902,7 @@ argument_list|(
 literal|"-->  delete test template"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeTemplates
@@ -3314,7 +3314,7 @@ argument_list|(
 literal|"-->  delete test template and index "
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -3322,7 +3322,7 @@ argument_list|(
 literal|"test-idx"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeTemplates
@@ -4881,7 +4881,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -5272,7 +5272,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -5351,7 +5351,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -6155,7 +6155,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -7783,7 +7783,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -8498,7 +8498,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -8915,7 +8915,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -9481,7 +9481,7 @@ argument_list|(
 literal|"--> delete index"
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -9580,7 +9580,7 @@ control|(
 name|RepositoriesService
 name|repositoriesService
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getDataNodeInstances
@@ -10727,7 +10727,7 @@ name|allowNodes
 argument_list|(
 literal|"test-idx"
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|numDataNodes

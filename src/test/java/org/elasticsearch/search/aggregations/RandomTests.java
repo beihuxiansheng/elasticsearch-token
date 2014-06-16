@@ -1250,7 +1250,7 @@ operator|new
 name|IntOpenHashSet
 argument_list|()
 decl_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices

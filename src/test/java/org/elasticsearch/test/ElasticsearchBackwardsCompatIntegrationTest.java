@@ -299,13 +299,13 @@ return|return
 operator|(
 name|CompositeTestCluster
 operator|)
-name|immutableCluster
+name|cluster
 argument_list|()
 return|;
 block|}
 DECL|method|buildTestCluster
 specifier|protected
-name|ImmutableTestCluster
+name|TestCluster
 name|buildTestCluster
 parameter_list|(
 name|Scope
@@ -314,7 +314,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ImmutableTestCluster
+name|TestCluster
 name|cluster
 init|=
 name|super
@@ -329,7 +329,7 @@ operator|new
 name|CompositeTestCluster
 argument_list|(
 operator|(
-name|TestCluster
+name|InternalTestCluster
 operator|)
 name|cluster
 argument_list|,

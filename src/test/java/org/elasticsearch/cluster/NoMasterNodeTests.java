@@ -332,7 +332,7 @@ argument_list|(
 literal|200
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -341,7 +341,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 comment|// start a second node, create an index, and then shut it down so we have no master block
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -377,7 +377,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -905,7 +905,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

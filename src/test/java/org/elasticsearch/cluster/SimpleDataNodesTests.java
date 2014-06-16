@@ -207,7 +207,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -306,7 +306,7 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -433,7 +433,7 @@ block|{
 comment|// all is well
 block|}
 comment|// now, start a node data, and see that it gets with shards
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

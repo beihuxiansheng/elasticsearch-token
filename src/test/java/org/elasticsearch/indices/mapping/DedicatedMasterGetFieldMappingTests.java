@@ -167,7 +167,7 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync

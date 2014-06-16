@@ -152,7 +152,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|RestartCallback
 import|;
@@ -293,7 +293,7 @@ argument_list|(
 literal|"--> starting 1 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -593,7 +593,7 @@ argument_list|(
 literal|"--> restarting the node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -1064,7 +1064,7 @@ argument_list|(
 literal|"--> restarting the node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart

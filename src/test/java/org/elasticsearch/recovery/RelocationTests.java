@@ -362,7 +362,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -613,7 +613,7 @@ specifier|final
 name|String
 name|node_2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -943,7 +943,7 @@ index|[
 literal|0
 index|]
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1027,7 +1027,7 @@ index|[
 name|i
 index|]
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

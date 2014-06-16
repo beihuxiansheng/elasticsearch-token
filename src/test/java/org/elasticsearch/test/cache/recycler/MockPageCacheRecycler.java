@@ -148,7 +148,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -439,7 +439,7 @@ name|settings
 operator|.
 name|getAsLong
 argument_list|(
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|SETTING_CLUSTER_NODE_SEED
 argument_list|,

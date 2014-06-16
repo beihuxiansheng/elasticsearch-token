@@ -559,7 +559,7 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -630,7 +630,7 @@ expr_stmt|;
 name|String
 name|nodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -697,7 +697,7 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -764,7 +764,7 @@ name|getPath
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1118,7 +1118,7 @@ block|{
 name|HttpServerTransport
 name|httpServerTransport
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1229,7 +1229,7 @@ name|info
 argument_list|(
 literal|"--> cluster state [{}]"
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clusterService

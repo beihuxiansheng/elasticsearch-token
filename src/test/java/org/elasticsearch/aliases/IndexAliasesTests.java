@@ -5788,7 +5788,7 @@ expr_stmt|;
 name|AliasMetaData
 name|aliasMetaData
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clusterService

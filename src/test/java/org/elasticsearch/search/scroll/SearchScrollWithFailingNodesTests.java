@@ -296,13 +296,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -530,7 +530,7 @@ argument_list|(
 literal|"_all"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode

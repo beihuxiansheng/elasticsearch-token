@@ -270,7 +270,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -510,7 +510,7 @@ specifier|final
 name|String
 name|server_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -708,7 +708,7 @@ comment|// start another server
 name|String
 name|server_2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1092,7 +1092,7 @@ comment|// start another server
 name|String
 name|server_3
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1538,12 +1538,12 @@ literal|"Closing server1"
 argument_list|)
 expr_stmt|;
 comment|// kill the first server
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
 argument_list|(
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|nameFilter
 argument_list|(
@@ -2019,7 +2019,7 @@ block|{
 name|Discovery
 name|discovery
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2114,7 +2114,7 @@ specifier|final
 name|String
 name|server_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2355,7 +2355,7 @@ specifier|final
 name|String
 name|server_2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2737,7 +2737,7 @@ specifier|final
 name|String
 name|server_3
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3191,12 +3191,12 @@ literal|"Closing server1"
 argument_list|)
 expr_stmt|;
 comment|// kill the first server
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
 argument_list|(
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|nameFilter
 argument_list|(

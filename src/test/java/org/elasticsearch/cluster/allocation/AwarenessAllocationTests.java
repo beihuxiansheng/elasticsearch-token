@@ -392,7 +392,7 @@ argument_list|(
 literal|"--> starting 2 nodes on the same rack"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -476,7 +476,7 @@ specifier|final
 name|String
 name|node3
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -754,7 +754,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -1208,7 +1208,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -1499,7 +1499,7 @@ expr_stmt|;
 name|String
 name|B_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1777,7 +1777,7 @@ expr_stmt|;
 name|String
 name|noZoneNode
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

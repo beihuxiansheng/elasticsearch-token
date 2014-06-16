@@ -2036,7 +2036,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{
@@ -2154,7 +2154,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{

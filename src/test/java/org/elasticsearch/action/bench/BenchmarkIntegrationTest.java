@@ -604,7 +604,7 @@ literal|null
 expr_stmt|;
 name|numExecutorNodes
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|numBenchNodes
@@ -1172,7 +1172,7 @@ name|prepareBlockingScriptQuery
 parameter_list|()
 block|{
 comment|/* Chuck Norris back in the house!! - this is super evil but the only way at this            point to ensure we actually call abort / list while a benchmark is executing            without doing busy waiting etc. This Script calls the two static latches above and this test            will not work if somebody messes around with them but it's much faster and less resource intensive / hardware            dependent to run massive benchmarks and do busy waiting. */
-name|cluster
+name|internalCluster
 argument_list|()
 expr_stmt|;
 comment|// mark that we need a JVM local cluster!

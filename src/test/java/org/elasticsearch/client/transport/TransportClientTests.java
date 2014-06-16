@@ -126,7 +126,7 @@ block|{
 name|String
 name|nodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -150,7 +150,7 @@ init|=
 operator|(
 name|TransportClient
 operator|)
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client

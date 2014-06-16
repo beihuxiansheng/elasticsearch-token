@@ -186,7 +186,7 @@ block|{
 name|INDEX_NAME
 block|}
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|size

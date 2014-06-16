@@ -394,7 +394,7 @@ specifier|final
 name|int
 name|numNodes
 init|=
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -721,7 +721,7 @@ block|{
 name|SearchResponse
 name|searchResponse
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient

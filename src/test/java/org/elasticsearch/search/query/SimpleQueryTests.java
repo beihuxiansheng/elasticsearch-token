@@ -825,7 +825,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -3970,7 +3970,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices

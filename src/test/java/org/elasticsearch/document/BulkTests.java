@@ -4679,7 +4679,7 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtLeastNumDataNodes

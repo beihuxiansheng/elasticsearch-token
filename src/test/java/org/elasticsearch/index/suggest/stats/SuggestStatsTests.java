@@ -382,7 +382,7 @@ specifier|final
 name|int
 name|numNodes
 init|=
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -670,7 +670,7 @@ name|suggestResponse
 init|=
 name|addSuggestions
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient
@@ -711,7 +711,7 @@ name|suggestResponse
 init|=
 name|addSuggestions
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient
@@ -754,7 +754,7 @@ name|suggestResponse
 init|=
 name|addSuggestions
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient

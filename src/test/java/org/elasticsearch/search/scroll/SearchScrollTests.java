@@ -3806,7 +3806,7 @@ argument_list|)
 expr_stmt|;
 name|assertThrows
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|transportClient
@@ -3837,7 +3837,7 @@ argument_list|)
 expr_stmt|;
 name|assertThrows
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|transportClient
@@ -4136,7 +4136,7 @@ argument_list|)
 expr_stmt|;
 name|assertThrows
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|transportClient

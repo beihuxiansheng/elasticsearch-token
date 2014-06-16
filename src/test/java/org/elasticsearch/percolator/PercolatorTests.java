@@ -2709,7 +2709,7 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -15458,7 +15458,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{

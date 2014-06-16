@@ -910,7 +910,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|wipeIndices

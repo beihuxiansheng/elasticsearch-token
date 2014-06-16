@@ -538,7 +538,7 @@ argument_list|(
 literal|"--> start node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1421,7 +1421,7 @@ name|nodes
 operator|.
 name|add
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1432,7 +1432,7 @@ name|nodes
 operator|.
 name|add
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1725,7 +1725,7 @@ name|DeleteSnapshotResponse
 argument_list|>
 name|deleteSnapshotResponseFuture
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1881,7 +1881,23 @@ argument_list|(
 literal|"--> start 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
+argument_list|()
+operator|.
+name|startNode
+argument_list|(
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"gateway.type"
+argument_list|,
+literal|"local"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1898,22 +1914,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|cluster
-argument_list|()
-operator|.
-name|startNode
-argument_list|(
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|immutableCluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -2035,7 +2035,7 @@ argument_list|(
 literal|"--> shutdown one of the nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -3041,7 +3041,7 @@ name|i
 operator|++
 control|)
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3198,7 +3198,7 @@ argument_list|>
 argument_list|>
 name|asyncNodesFuture
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -3447,7 +3447,7 @@ argument_list|,
 name|index
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -3484,7 +3484,7 @@ argument_list|(
 literal|"--> shutting down random node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode

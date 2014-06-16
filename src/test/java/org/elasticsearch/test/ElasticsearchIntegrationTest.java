@@ -1144,7 +1144,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|clusterName
 import|;
@@ -1191,7 +1191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 3 different  * cluster scopes.  *<ul>  *<li>{@link Scope#GLOBAL} - uses a cluster shared across test suites. This cluster doesn't allow any modifications to  * the cluster settings and will fail if any persistent cluster settings are applied during tear down.</li>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test method in the same suite</li>  *</ul>  *<p/>  * The most common test scope it {@link Scope#GLOBAL} which shares a cluster per JVM. This cluster is only set-up once  * and can be used as long as the tests work on a per index basis without changing any cluster wide settings or require  * any specific node configuration. This is the best performing option since it sets up the cluster only once.  *<p/>  * If the tests need specific node settings or change persistent and/or transient cluster settings either {@link Scope#TEST}  * or {@link Scope#SUITE} should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope it {@link Scope#GLOBAL}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The minimum number of nodes in the shared global cluster is<code>2</code>.  * For other scopes the {@link ClusterScope} allows configuring the initial number of nodes that are created before  * the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value TestCluster#TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
+comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 3 different  * cluster scopes.  *<ul>  *<li>{@link Scope#GLOBAL} - uses a cluster shared across test suites. This cluster doesn't allow any modifications to  * the cluster settings and will fail if any persistent cluster settings are applied during tear down.</li>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test method in the same suite</li>  *</ul>  *<p/>  * The most common test scope it {@link Scope#GLOBAL} which shares a cluster per JVM. This cluster is only set-up once  * and can be used as long as the tests work on a per index basis without changing any cluster wide settings or require  * any specific node configuration. This is the best performing option since it sets up the cluster only once.  *<p/>  * If the tests need specific node settings or change persistent and/or transient cluster settings either {@link Scope#TEST}  * or {@link Scope#SUITE} should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope it {@link Scope#GLOBAL}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The minimum number of nodes in the shared global cluster is<code>2</code>.  * For other scopes the {@link ClusterScope} allows configuring the initial number of nodes that are created before  * the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value InternalTestCluster#TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
 end_comment
 
 begin_class
@@ -1212,7 +1212,7 @@ block|{
 DECL|field|GLOBAL_CLUSTER
 specifier|private
 specifier|static
-name|ImmutableTestCluster
+name|TestCluster
 name|GLOBAL_CLUSTER
 decl_stmt|;
 comment|/**      * Key used to set the transport client ratio via the commandline -D{@value #TESTS_CLIENT_RATIO}      */
@@ -1338,7 +1338,7 @@ comment|/**      * The current cluster depending on the configured {@link Scope}
 DECL|field|currentCluster
 specifier|private
 specifier|static
-name|ImmutableTestCluster
+name|TestCluster
 name|currentCluster
 decl_stmt|;
 DECL|field|TRANSPORT_CLIENT_RATIO
@@ -1362,7 +1362,7 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|,
-name|ImmutableTestCluster
+name|TestCluster
 argument_list|>
 name|clusters
 init|=
@@ -1603,7 +1603,7 @@ else|else
 block|{
 name|numClientNodes
 operator|=
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_NUM_CLIENT_NODES
 expr_stmt|;
@@ -1611,15 +1611,15 @@ block|}
 name|GLOBAL_CLUSTER
 operator|=
 operator|new
-name|TestCluster
+name|InternalTestCluster
 argument_list|(
 name|masterSeed
 argument_list|,
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_MIN_NUM_DATA_NODES
 argument_list|,
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_MAX_NUM_DATA_NODES
 argument_list|,
@@ -1636,7 +1636,7 @@ argument_list|)
 argument_list|,
 name|numClientNodes
 argument_list|,
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_ENABLE_RANDOM_BENCH_NODES
 argument_list|)
@@ -1723,7 +1723,7 @@ literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|beforeTest
@@ -1735,7 +1735,7 @@ name|getPerTestTransportClientRatio
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipe
@@ -1805,7 +1805,7 @@ block|{
 comment|// TODO move settings for random directory etc here into the index based randomized settings.
 if|if
 condition|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -1882,7 +1882,7 @@ literal|0
 condition|?
 literal|1
 else|:
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -3040,7 +3040,7 @@ return|;
 block|}
 DECL|method|buildAndPutCluster
 specifier|public
-name|ImmutableTestCluster
+name|TestCluster
 name|buildAndPutCluster
 parameter_list|(
 name|Scope
@@ -3052,7 +3052,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ImmutableTestCluster
+name|TestCluster
 name|testCluster
 init|=
 name|clusters
@@ -3288,14 +3288,14 @@ block|}
 name|ensureClusterSizeConsistency
 argument_list|()
 expr_stmt|;
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipe
 argument_list|()
 expr_stmt|;
 comment|// wipe after to make sure we fail in the test that didn't ack the delete
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|assertAfterTest
@@ -3418,22 +3418,22 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-DECL|method|immutableCluster
+DECL|method|cluster
 specifier|public
 specifier|static
-name|ImmutableTestCluster
-name|immutableCluster
+name|TestCluster
+name|cluster
 parameter_list|()
 block|{
 return|return
 name|currentCluster
 return|;
 block|}
-DECL|method|cluster
+DECL|method|internalCluster
 specifier|public
 specifier|static
-name|TestCluster
-name|cluster
+name|InternalTestCluster
+name|internalCluster
 parameter_list|()
 block|{
 if|if
@@ -3442,7 +3442,7 @@ operator|!
 operator|(
 name|currentCluster
 operator|instanceof
-name|TestCluster
+name|InternalTestCluster
 operator|)
 condition|)
 block|{
@@ -3456,7 +3456,7 @@ throw|;
 block|}
 return|return
 operator|(
-name|TestCluster
+name|InternalTestCluster
 operator|)
 name|currentCluster
 return|;
@@ -3468,7 +3468,7 @@ name|clusterService
 parameter_list|()
 block|{
 return|return
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clusterService
@@ -3485,7 +3485,7 @@ block|{
 name|Client
 name|client
 init|=
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|client
@@ -3526,7 +3526,7 @@ block|{
 name|Client
 name|client
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|dataNodeClient
@@ -3568,7 +3568,7 @@ name|clients
 parameter_list|()
 block|{
 return|return
-name|immutableCluster
+name|cluster
 argument_list|()
 return|;
 block|}
@@ -3632,7 +3632,7 @@ name|max
 argument_list|(
 literal|0
 argument_list|,
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -3814,7 +3814,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -3917,7 +3917,7 @@ name|Builder
 name|settingsBuilder
 parameter_list|)
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtLeastNumDataNodes
@@ -4021,7 +4021,7 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|allDataNodesButN
@@ -4061,7 +4061,7 @@ name|index
 operator|!=
 literal|null
 assert|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtLeastNumDataNodes
@@ -5003,7 +5003,7 @@ name|trace
 argument_list|(
 literal|"Check consistency for [{}] nodes"
 argument_list|,
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -5030,7 +5030,7 @@ name|Integer
 operator|.
 name|toString
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -6649,43 +6649,43 @@ default|default
 operator|-
 literal|1
 function_decl|;
-comment|/**          * Returns the minimum number of nodes in the cluster. Default is {@link org.elasticsearch.test.TestCluster#DEFAULT_MIN_NUM_DATA_NODES}.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
-DECL|field|TestCluster.DEFAULT_MIN_NUM_DATA_NODES
+comment|/**          * Returns the minimum number of nodes in the cluster. Default is {@link InternalTestCluster#DEFAULT_MIN_NUM_DATA_NODES}.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
+DECL|field|InternalTestCluster.DEFAULT_MIN_NUM_DATA_NODES
 name|int
 name|minNumDataNodes
 parameter_list|()
 default|default
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_MIN_NUM_DATA_NODES
 function_decl|;
-comment|/**          * Returns the maximum number of nodes in the cluster.  Default is {@link org.elasticsearch.test.TestCluster#DEFAULT_MAX_NUM_DATA_NODES}.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
-DECL|field|TestCluster.DEFAULT_MAX_NUM_DATA_NODES
+comment|/**          * Returns the maximum number of nodes in the cluster.  Default is {@link InternalTestCluster#DEFAULT_MAX_NUM_DATA_NODES}.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
+DECL|field|InternalTestCluster.DEFAULT_MAX_NUM_DATA_NODES
 name|int
 name|maxNumDataNodes
 parameter_list|()
 default|default
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_MAX_NUM_DATA_NODES
 function_decl|;
-comment|/**          * Returns the number of client nodes in the cluster. Default is {@link org.elasticsearch.test.TestCluster#DEFAULT_NUM_CLIENT_NODES}, a          * negative value means that the number of client nodes will be randomized.          */
-DECL|field|TestCluster.DEFAULT_NUM_CLIENT_NODES
+comment|/**          * Returns the number of client nodes in the cluster. Default is {@link InternalTestCluster#DEFAULT_NUM_CLIENT_NODES}, a          * negative value means that the number of client nodes will be randomized.          */
+DECL|field|InternalTestCluster.DEFAULT_NUM_CLIENT_NODES
 name|int
 name|numClientNodes
 parameter_list|()
 default|default
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_NUM_CLIENT_NODES
 function_decl|;
-comment|/**          * Returns whether the ability to randomly have benchmark (client) nodes as part of the cluster needs to be enabled.          * Default is {@link org.elasticsearch.test.TestCluster#DEFAULT_ENABLE_RANDOM_BENCH_NODES}.          */
-DECL|field|TestCluster.DEFAULT_ENABLE_RANDOM_BENCH_NODES
+comment|/**          * Returns whether the ability to randomly have benchmark (client) nodes as part of the cluster needs to be enabled.          * Default is {@link InternalTestCluster#DEFAULT_ENABLE_RANDOM_BENCH_NODES}.          */
+DECL|field|InternalTestCluster.DEFAULT_ENABLE_RANDOM_BENCH_NODES
 name|boolean
 name|enableRandomBenchNodes
 parameter_list|()
 default|default
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_ENABLE_RANDOM_BENCH_NODES
 function_decl|;
@@ -7103,7 +7103,7 @@ name|annotation
 operator|==
 literal|null
 condition|?
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_MIN_NUM_DATA_NODES
 else|:
@@ -7135,7 +7135,7 @@ name|annotation
 operator|==
 literal|null
 condition|?
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_MAX_NUM_DATA_NODES
 else|:
@@ -7167,7 +7167,7 @@ name|annotation
 operator|==
 literal|null
 condition|?
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_NUM_CLIENT_NODES
 else|:
@@ -7199,7 +7199,7 @@ name|annotation
 operator|==
 literal|null
 condition|?
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|DEFAULT_ENABLE_RANDOM_BENCH_NODES
 else|:
@@ -7257,7 +7257,7 @@ return|;
 block|}
 DECL|method|buildTestCluster
 specifier|protected
-name|ImmutableTestCluster
+name|TestCluster
 name|buildTestCluster
 parameter_list|(
 name|Scope
@@ -7350,7 +7350,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|TestCluster
+name|InternalTestCluster
 argument_list|(
 name|currentClusterSeed
 argument_list|,

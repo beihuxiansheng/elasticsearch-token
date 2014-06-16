@@ -120,7 +120,7 @@ argument_list|)
 operator|&&
 name|ElasticsearchIntegrationTest
 operator|.
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numBenchNodes

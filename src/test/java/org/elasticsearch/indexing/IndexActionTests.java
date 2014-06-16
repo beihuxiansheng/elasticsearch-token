@@ -528,7 +528,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|wipeIndices

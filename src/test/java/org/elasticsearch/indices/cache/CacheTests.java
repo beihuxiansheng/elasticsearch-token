@@ -595,7 +595,7 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|hasFilterCache
@@ -655,7 +655,7 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|hasFilterCache
@@ -2005,7 +2005,7 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|hasFilterCache
@@ -2089,7 +2089,7 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|hasFilterCache

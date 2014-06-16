@@ -351,7 +351,7 @@ block|{
 name|String
 name|name
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -360,7 +360,7 @@ name|settings
 argument_list|)
 decl_stmt|;
 return|return
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client

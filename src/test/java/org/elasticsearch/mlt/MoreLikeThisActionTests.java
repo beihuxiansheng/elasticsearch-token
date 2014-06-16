@@ -1521,7 +1521,7 @@ argument_list|)
 expr_stmt|;
 name|mltResponse
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|clientNodeClient

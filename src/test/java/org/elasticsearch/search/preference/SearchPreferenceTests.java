@@ -229,7 +229,7 @@ name|put
 argument_list|(
 literal|"index.number_of_shards"
 argument_list|,
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|numDataNodes
@@ -296,7 +296,7 @@ block|}
 name|refresh
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -646,7 +646,7 @@ specifier|final
 name|Client
 name|client
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|smartClient

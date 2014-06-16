@@ -406,7 +406,7 @@ block|{
 name|HttpServerTransport
 name|httpServerTransport
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getDataNodeInstance

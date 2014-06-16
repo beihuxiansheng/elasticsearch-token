@@ -195,7 +195,7 @@ specifier|final
 class|class
 name|ExternalTestCluster
 extends|extends
-name|ImmutableTestCluster
+name|TestCluster
 block|{
 DECL|field|logger
 specifier|private

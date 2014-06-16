@@ -221,7 +221,7 @@ control|(
 name|RepositoriesService
 name|repositoriesService
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getDataNodeInstances
@@ -335,7 +335,7 @@ name|String
 name|node
 parameter_list|)
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
@@ -403,7 +403,7 @@ decl_stmt|;
 name|RepositoriesService
 name|repositoriesService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -673,7 +673,7 @@ control|(
 name|String
 name|node
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nodesInclude
@@ -686,7 +686,7 @@ operator|(
 operator|(
 name|MockRepository
 operator|)
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -740,7 +740,7 @@ operator|(
 operator|(
 name|MockRepository
 operator|)
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

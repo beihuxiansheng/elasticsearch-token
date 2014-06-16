@@ -427,7 +427,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -488,7 +488,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -549,7 +549,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -851,7 +851,7 @@ literal|0.0
 argument_list|)
 expr_stmt|;
 comment|// add another node, replicas should get assigned
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1242,7 +1242,7 @@ name|void
 name|testValuesSmokeScreen
 parameter_list|()
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtMostNumDataNodes
@@ -1250,7 +1250,7 @@ argument_list|(
 literal|5
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|ensureAtLeastNumDataNodes
@@ -1261,7 +1261,7 @@ expr_stmt|;
 name|SigarService
 name|sigarService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

@@ -1512,7 +1512,7 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|wipeIndices

@@ -346,7 +346,7 @@ argument_list|(
 literal|"--> start first node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -417,7 +417,7 @@ argument_list|(
 literal|"--> start second node, cluster should be formed"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -792,7 +792,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -916,7 +916,7 @@ argument_list|(
 literal|"--> starting the previous master node again..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1253,7 +1253,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode
@@ -1337,7 +1337,7 @@ argument_list|(
 literal|"--> starting the previous master node again..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1680,7 +1680,7 @@ argument_list|(
 literal|"--> start first 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1688,7 +1688,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1928,7 +1928,7 @@ argument_list|(
 literal|"--> start two more nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1936,7 +1936,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2225,13 +2225,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode
@@ -2255,7 +2255,7 @@ argument_list|(
 literal|"--> start back the 2 nodes "
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2263,7 +2263,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2535,7 +2535,7 @@ argument_list|(
 literal|"--> start 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2543,7 +2543,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2613,7 +2613,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{
@@ -2662,7 +2662,7 @@ argument_list|(
 literal|"--> stopping a node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomDataNode
@@ -2685,7 +2685,7 @@ argument_list|(
 literal|"--> bringing another node up"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2791,7 +2791,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{

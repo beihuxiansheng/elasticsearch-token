@@ -1209,7 +1209,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|hasFilterCache

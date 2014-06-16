@@ -209,7 +209,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -304,7 +304,7 @@ specifier|final
 name|String
 name|masterNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -329,7 +329,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -370,7 +370,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -416,7 +416,7 @@ argument_list|(
 literal|"--> stop master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -487,7 +487,7 @@ specifier|final
 name|String
 name|nextMasterEligibleNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -512,7 +512,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -553,7 +553,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -608,7 +608,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -703,7 +703,7 @@ specifier|final
 name|String
 name|masterNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -728,7 +728,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -769,7 +769,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -819,7 +819,7 @@ specifier|final
 name|String
 name|nextMasterEligableNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -844,7 +844,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -885,7 +885,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -926,7 +926,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -972,7 +972,7 @@ argument_list|(
 literal|"--> closing master node (1)"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -980,7 +980,7 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -1021,7 +1021,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -1079,7 +1079,7 @@ argument_list|(
 literal|"--> start master node / non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1109,7 +1109,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1354,7 +1354,7 @@ argument_list|(
 literal|"--> start master node / non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1384,7 +1384,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

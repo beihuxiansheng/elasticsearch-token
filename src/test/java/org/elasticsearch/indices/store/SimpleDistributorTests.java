@@ -232,7 +232,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|wipeTemplates
@@ -886,7 +886,7 @@ name|String
 name|distributor
 parameter_list|)
 block|{
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -998,7 +998,7 @@ name|String
 name|distributor
 parameter_list|)
 block|{
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices
@@ -1115,7 +1115,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nodesInclude
@@ -1139,7 +1139,7 @@ expr_stmt|;
 name|NodeEnvironment
 name|env
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1182,7 +1182,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nodesInclude
@@ -1206,7 +1206,7 @@ expr_stmt|;
 name|IndicesService
 name|indicesService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
