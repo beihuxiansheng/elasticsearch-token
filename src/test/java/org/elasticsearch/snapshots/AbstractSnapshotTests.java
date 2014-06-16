@@ -175,6 +175,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -334,6 +344,8 @@ specifier|final
 name|String
 name|node
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|internalCluster
 argument_list|()

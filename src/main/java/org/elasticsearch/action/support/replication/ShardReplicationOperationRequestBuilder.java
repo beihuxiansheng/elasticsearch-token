@@ -62,9 +62,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalGenericClient
+name|Client
 import|;
 end_import
 
@@ -123,13 +121,15 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 block|{
 DECL|method|ShardReplicationOperationRequestBuilder
 specifier|protected
 name|ShardReplicationOperationRequestBuilder
 parameter_list|(
-name|InternalGenericClient
+name|Client
 name|client
 parameter_list|,
 name|Request

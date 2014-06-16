@@ -74,9 +74,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalClient
+name|Client
 import|;
 end_import
 
@@ -209,8 +207,6 @@ class|class
 name|InternalTransportClient
 extends|extends
 name|AbstractClient
-implements|implements
-name|InternalClient
 block|{
 DECL|field|settings
 specifier|private
@@ -441,6 +437,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 parameter_list|>
 name|ActionFuture
@@ -457,6 +455,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 name|action
 parameter_list|,
@@ -555,6 +555,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 parameter_list|>
 name|void
@@ -568,6 +570,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 name|action
 parameter_list|,

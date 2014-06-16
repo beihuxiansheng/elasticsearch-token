@@ -596,9 +596,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalClient
+name|Client
 import|;
 end_import
 
@@ -625,7 +623,7 @@ specifier|abstract
 class|class
 name|AbstractClient
 implements|implements
-name|InternalClient
+name|Client
 block|{
 annotation|@
 name|Override
@@ -649,6 +647,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 parameter_list|>
 name|RequestBuilder
@@ -662,6 +662,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 name|action
 parameter_list|)

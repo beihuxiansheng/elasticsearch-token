@@ -82,20 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -119,6 +105,8 @@ argument_list|,
 name|TypesExistsResponse
 argument_list|,
 name|TypesExistsRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 comment|/**      * @param indices What indices to check for types      */
@@ -136,9 +124,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -162,9 +147,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|client
 argument_list|,
 operator|new
@@ -250,12 +232,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|typesExists
 argument_list|(

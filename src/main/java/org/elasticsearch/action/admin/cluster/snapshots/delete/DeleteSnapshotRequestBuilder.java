@@ -62,20 +62,6 @@ name|ClusterAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClusterAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * Delete snapshot request builder  */
 end_comment
@@ -93,6 +79,8 @@ argument_list|,
 name|DeleteSnapshotResponse
 argument_list|,
 name|DeleteSnapshotRequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 block|{
 comment|/**      * Constructs delete snapshot request builder      *      * @param clusterAdminClient cluster admin client      */
@@ -106,9 +94,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterAdminClient
 argument_list|,
 operator|new
@@ -134,9 +119,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterAdminClient
 argument_list|,
 operator|new
@@ -205,12 +187,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|ClusterAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|deleteSnapshot
 argument_list|(

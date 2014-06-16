@@ -22,7 +22,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -54,7 +54,13 @@ parameter_list|,
 name|Response
 parameter_list|,
 name|RequestBuilder
+parameter_list|,
+name|Client
 parameter_list|>
+parameter_list|,
+name|Client
+extends|extends
+name|ElasticsearchClient
 parameter_list|>
 extends|extends
 name|GenericAction

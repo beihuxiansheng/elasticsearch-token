@@ -143,6 +143,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -210,6 +220,8 @@ specifier|public
 name|void
 name|testLoadDefaultShardsAllocator
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|assertAllocatorInstance
 argument_list|(
@@ -230,6 +242,8 @@ specifier|public
 name|void
 name|testLoadByShortKeyShardsAllocator
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Settings
 name|build
@@ -294,6 +308,8 @@ specifier|public
 name|void
 name|testLoadByClassNameShardsAllocator
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Settings
 name|build
@@ -365,6 +381,8 @@ name|ShardsAllocator
 argument_list|>
 name|clazz
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 while|while
 condition|(

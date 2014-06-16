@@ -38,9 +38,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalGenericClient
+name|ClusterAdminClient
 import|;
 end_import
 
@@ -99,13 +97,15 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 block|{
 DECL|method|NodesOperationRequestBuilder
 specifier|protected
 name|NodesOperationRequestBuilder
 parameter_list|(
-name|InternalGenericClient
+name|ClusterAdminClient
 name|client
 parameter_list|,
 name|Request

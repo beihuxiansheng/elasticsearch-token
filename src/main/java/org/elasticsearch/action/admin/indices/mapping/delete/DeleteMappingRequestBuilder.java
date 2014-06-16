@@ -76,20 +76,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * Builder for a delete mapping request  */
 end_comment
@@ -107,6 +93,8 @@ argument_list|,
 name|DeleteMappingResponse
 argument_list|,
 name|DeleteMappingRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|DeleteMappingRequestBuilder
@@ -119,9 +107,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -209,12 +194,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|deleteMapping
 argument_list|(

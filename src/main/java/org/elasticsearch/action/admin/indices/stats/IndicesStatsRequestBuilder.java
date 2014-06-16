@@ -60,20 +60,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request to get indices level stats. Allow to enable different stats to be returned.  *<p/>  *<p>By default, the {@link #setDocs(boolean)}, {@link #setStore(boolean)}, {@link #setIndexing(boolean)}  * are enabled. Other stats can be enabled as well.  *<p/>  *<p>All the stats to be returned can be cleared using {@link #clear()}, at which point, specific  * stats can be enabled.  */
 end_comment
@@ -91,6 +77,8 @@ argument_list|,
 name|IndicesStatsResponse
 argument_list|,
 name|IndicesStatsRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|IndicesStatsRequestBuilder
@@ -103,9 +91,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -585,12 +570,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|stats
 argument_list|(

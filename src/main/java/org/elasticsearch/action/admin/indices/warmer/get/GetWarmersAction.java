@@ -50,20 +50,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalGenericClient
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -129,9 +115,6 @@ return|return
 operator|new
 name|GetWarmersRequestBuilder
 argument_list|(
-operator|(
-name|InternalGenericClient
-operator|)
 name|client
 argument_list|)
 return|;

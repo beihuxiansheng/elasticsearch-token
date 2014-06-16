@@ -78,9 +78,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalClient
+name|FilterClient
 import|;
 end_import
 
@@ -126,7 +124,7 @@ DECL|method|RandomizingClient
 specifier|public
 name|RandomizingClient
 parameter_list|(
-name|InternalClient
+name|Client
 name|client
 parameter_list|,
 name|Random
@@ -176,8 +174,7 @@ name|indices
 parameter_list|)
 block|{
 return|return
-name|delegate
-argument_list|()
+name|in
 operator|.
 name|prepareSearch
 argument_list|(

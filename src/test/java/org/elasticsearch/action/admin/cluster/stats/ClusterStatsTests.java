@@ -165,6 +165,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1241,6 +1251,8 @@ specifier|public
 name|void
 name|testValuesSmokeScreen
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|internalCluster
 argument_list|()

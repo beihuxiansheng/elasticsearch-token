@@ -82,20 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClusterAdminClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -131,6 +117,8 @@ argument_list|,
 name|CreateSnapshotResponse
 argument_list|,
 name|CreateSnapshotRequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 block|{
 comment|/**      * Constructs a new create snapshot request builder      *      * @param clusterAdminClient cluster admin client      */
@@ -144,9 +132,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterAdminClient
 argument_list|,
 operator|new
@@ -172,9 +157,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterAdminClient
 argument_list|,
 operator|new
@@ -440,12 +422,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|ClusterAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|createSnapshot
 argument_list|(

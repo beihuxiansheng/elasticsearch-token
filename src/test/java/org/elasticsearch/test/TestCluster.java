@@ -404,6 +404,8 @@ specifier|abstract
 name|void
 name|afterTest
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Returns a client connected to any node in the cluster      */
 DECL|method|client

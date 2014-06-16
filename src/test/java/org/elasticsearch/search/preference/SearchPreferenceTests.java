@@ -119,6 +119,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -212,6 +222,8 @@ name|testStopOneNodePreferenceWithRedState
 parameter_list|()
 throws|throws
 name|InterruptedException
+throws|,
+name|IOException
 block|{
 name|assertAcked
 argument_list|(

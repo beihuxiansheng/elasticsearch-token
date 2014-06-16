@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.client.internal
+DECL|package|org.elasticsearch.action
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|internal
+name|action
 package|;
 end_package
 
@@ -34,35 +32,72 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|settings
-operator|.
-name|Settings
+name|IndicesAdminClient
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Indices action (used with {@link IndicesAdminClient} API.  */
 end_comment
 
-begin_interface
-DECL|interface|InternalClient
+begin_class
+DECL|class|ClientAction
 specifier|public
-interface|interface
-name|InternalClient
+specifier|abstract
+class|class
+name|ClientAction
+parameter_list|<
+name|Request
 extends|extends
+name|ActionRequest
+parameter_list|,
+name|Response
+extends|extends
+name|ActionResponse
+parameter_list|,
+name|RequestBuilder
+extends|extends
+name|ActionRequestBuilder
+parameter_list|<
+name|Request
+parameter_list|,
+name|Response
+parameter_list|,
+name|RequestBuilder
+parameter_list|,
 name|Client
-extends|,
-name|InternalGenericClient
+parameter_list|>
+parameter_list|>
+extends|extends
+name|Action
+argument_list|<
+name|Request
+argument_list|,
+name|Response
+argument_list|,
+name|RequestBuilder
+argument_list|,
+name|Client
+argument_list|>
 block|{
-DECL|method|settings
-name|Settings
-name|settings
-parameter_list|()
-function_decl|;
+DECL|method|ClientAction
+specifier|protected
+name|ClientAction
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

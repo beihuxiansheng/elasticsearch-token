@@ -60,20 +60,6 @@ name|ClusterAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClusterAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -91,6 +77,8 @@ argument_list|,
 name|ClusterStateResponse
 argument_list|,
 name|ClusterStateRequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 block|{
 DECL|method|ClusterStateRequestBuilder
@@ -103,9 +91,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterClient
 argument_list|,
 operator|new
@@ -265,12 +250,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|ClusterAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|state
 argument_list|(
