@@ -901,6 +901,16 @@ block|,
 literal|"foo fighters generator"
 block|}
 decl_stmt|;
+specifier|final
+name|boolean
+name|omitNorms
+init|=
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+decl_stmt|;
 name|FieldType
 name|ft
 init|=
@@ -939,11 +949,7 @@ name|ft
 operator|.
 name|setOmitNorms
 argument_list|(
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+name|omitNorms
 argument_list|)
 expr_stmt|;
 name|ft
@@ -989,11 +995,7 @@ name|ft1
 operator|.
 name|setOmitNorms
 argument_list|(
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+name|omitNorms
 argument_list|)
 expr_stmt|;
 name|ft1
