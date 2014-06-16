@@ -9656,6 +9656,11 @@ argument_list|(
 literal|"my-index"
 argument_list|)
 operator|.
+name|setForce
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|get
 argument_list|()
 decl_stmt|;
