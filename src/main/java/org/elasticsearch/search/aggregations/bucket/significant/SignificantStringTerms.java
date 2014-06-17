@@ -582,7 +582,7 @@ argument_list|()
 argument_list|,
 name|requiredSize
 argument_list|,
-name|supersetSize
+name|minDocCount
 argument_list|,
 name|buckets
 argument_list|)
