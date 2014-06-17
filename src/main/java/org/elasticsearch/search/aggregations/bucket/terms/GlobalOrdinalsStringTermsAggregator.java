@@ -138,7 +138,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|LongArray
+name|IntArray
 import|;
 end_import
 
@@ -906,7 +906,7 @@ name|globalTermOrd
 argument_list|)
 decl_stmt|;
 specifier|final
-name|long
+name|int
 name|bucketDocCount
 init|=
 name|bucketOrd
@@ -1595,7 +1595,7 @@ block|{
 DECL|field|segmentDocCounts
 specifier|private
 specifier|final
-name|LongArray
+name|IntArray
 name|segmentDocCounts
 decl_stmt|;
 DECL|field|segmentOrdinals
@@ -1607,7 +1607,7 @@ name|segmentOrdinals
 decl_stmt|;
 DECL|field|current
 specifier|private
-name|LongArray
+name|IntArray
 name|current
 decl_stmt|;
 DECL|method|LowCardinality
@@ -1682,7 +1682,7 @@ name|segmentDocCounts
 operator|=
 name|bigArrays
 operator|.
-name|newLongArray
+name|newIntArray
 argument_list|(
 name|maxOrd
 argument_list|,
@@ -1919,7 +1919,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|long
+name|int
 name|inc
 init|=
 name|segmentDocCounts

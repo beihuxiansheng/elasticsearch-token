@@ -525,7 +525,7 @@ name|globalTermOrd
 argument_list|)
 decl_stmt|;
 specifier|final
-name|long
+name|int
 name|bucketDocCount
 init|=
 name|bucketOrd

@@ -42,7 +42,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|LongArray
+name|IntArray
 import|;
 end_import
 
@@ -121,7 +121,7 @@ name|Aggregator
 block|{
 DECL|field|docCounts
 specifier|private
-name|LongArray
+name|IntArray
 name|docCounts
 decl_stmt|;
 DECL|method|BucketsAggregator
@@ -166,7 +166,7 @@ name|docCounts
 operator|=
 name|bigArrays
 operator|.
-name|newLongArray
+name|newIntArray
 argument_list|(
 name|estimatedBucketsCount
 argument_list|,
@@ -261,7 +261,7 @@ expr_stmt|;
 block|}
 DECL|method|getDocCounts
 specifier|public
-name|LongArray
+name|IntArray
 name|getDocCounts
 parameter_list|()
 block|{
@@ -302,7 +302,7 @@ specifier|final
 name|void
 name|incrementBucketDocCount
 parameter_list|(
-name|long
+name|int
 name|inc
 parameter_list|,
 name|long
@@ -338,7 +338,7 @@ comment|/**      * Utility method to return the number of documents that fell in
 DECL|method|bucketDocCount
 specifier|public
 specifier|final
-name|long
+name|int
 name|bucketDocCount
 parameter_list|(
 name|long
@@ -360,7 +360,7 @@ comment|// For example, if there is a long terms agg on 3 terms 1,2,3 with a sub
 comment|// matches the filter, then the filter will never collect bucket ord 3. However, the long terms agg will call bucketAggregations(3)
 comment|// on the filter aggregator anyway to build sub-aggregations.
 return|return
-literal|0L
+literal|0
 return|;
 block|}
 else|else
