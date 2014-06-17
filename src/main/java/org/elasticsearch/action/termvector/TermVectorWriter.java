@@ -1210,7 +1210,8 @@ assert|assert
 operator|(
 name|docFreq
 operator|>=
-literal|0
+operator|-
+literal|1
 operator|)
 assert|;
 name|writePotentiallyNegativeVInt
@@ -1230,7 +1231,8 @@ assert|assert
 operator|(
 name|ttf
 operator|>=
-literal|0
+operator|-
+literal|1
 operator|)
 assert|;
 name|writePotentiallyNegativeVLong
@@ -1262,7 +1264,8 @@ assert|assert
 operator|(
 name|sttf
 operator|>=
-literal|0
+operator|-
+literal|1
 operator|)
 assert|;
 name|writePotentiallyNegativeVLong
@@ -1282,7 +1285,8 @@ assert|assert
 operator|(
 name|sdf
 operator|>=
-literal|0
+operator|-
+literal|1
 operator|)
 assert|;
 name|writePotentiallyNegativeVLong
@@ -1302,7 +1306,8 @@ assert|assert
 operator|(
 name|dc
 operator|>=
-literal|0
+operator|-
+literal|1
 operator|)
 assert|;
 name|writePotentiallyNegativeVInt
