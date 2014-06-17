@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Handler for REST requests  */
 end_comment
 
 begin_interface

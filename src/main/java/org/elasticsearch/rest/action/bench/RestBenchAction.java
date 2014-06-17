@@ -480,6 +480,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 switch|switch
@@ -498,6 +502,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 break|break;
@@ -509,6 +515,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 break|break;
@@ -520,6 +528,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 break|break;
@@ -551,6 +561,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 name|BenchmarkStatusRequest
@@ -636,6 +650,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 specifier|final
@@ -694,6 +712,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 name|String

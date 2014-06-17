@@ -48,16 +48,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -313,6 +303,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 name|ClusterStateRequest

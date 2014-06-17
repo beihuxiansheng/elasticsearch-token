@@ -329,6 +329,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 specifier|final

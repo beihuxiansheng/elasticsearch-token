@@ -26,18 +26,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|search
 operator|.
 name|MultiSearchRequest
@@ -130,20 +118,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|rest
 operator|.
 name|*
@@ -183,16 +157,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -221,34 +185,6 @@ operator|.
 name|Method
 operator|.
 name|POST
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestStatus
-operator|.
-name|BAD_REQUEST
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestStatus
-operator|.
-name|OK
 import|;
 end_import
 
@@ -387,6 +323,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 throws|throws
 name|Exception
