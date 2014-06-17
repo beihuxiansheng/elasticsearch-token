@@ -1113,10 +1113,15 @@ name|fieldType
 operator|.
 name|indexOptions
 argument_list|()
-operator|==
+operator|.
+name|compareTo
+argument_list|(
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS
+argument_list|)
+operator|>=
+literal|0
 condition|)
 block|{
 return|return
@@ -1214,19 +1219,6 @@ name|IOException
 block|{
 comment|// we parse in post parse
 block|}
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
-block|{     }
 annotation|@
 name|Override
 DECL|method|includeInObject

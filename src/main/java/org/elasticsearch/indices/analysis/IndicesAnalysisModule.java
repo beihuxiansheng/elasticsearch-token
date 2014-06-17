@@ -42,7 +42,7 @@ name|analysis
 operator|.
 name|hunspell
 operator|.
-name|HunspellDictionary
+name|Dictionary
 import|;
 end_import
 
@@ -101,7 +101,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|HunspellDictionary
+name|Dictionary
 argument_list|>
 name|hunspellDictionaries
 init|=
@@ -118,7 +118,7 @@ parameter_list|(
 name|String
 name|lang
 parameter_list|,
-name|HunspellDictionary
+name|Dictionary
 name|dictionary
 parameter_list|)
 block|{
@@ -154,7 +154,7 @@ name|MapBinder
 argument_list|<
 name|String
 argument_list|,
-name|HunspellDictionary
+name|Dictionary
 argument_list|>
 name|dictionariesBinder
 init|=
@@ -169,7 +169,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|HunspellDictionary
+name|Dictionary
 operator|.
 name|class
 argument_list|)
@@ -182,7 +182,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|HunspellDictionary
+name|Dictionary
 argument_list|>
 name|entry
 range|:

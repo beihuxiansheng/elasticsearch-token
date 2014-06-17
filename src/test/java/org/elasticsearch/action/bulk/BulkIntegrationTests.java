@@ -97,14 +97,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|hamcrest
+name|junit
 operator|.
-name|Matchers
-operator|.
-name|*
+name|Test
 import|;
 end_import
 
@@ -125,30 +123,42 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|junit
+name|elasticsearch
 operator|.
-name|Test
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
-operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|SUITE
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|1
 argument_list|)

@@ -34,6 +34,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lease
+operator|.
+name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -49,6 +63,8 @@ DECL|interface|Node
 specifier|public
 interface|interface
 name|Node
+extends|extends
+name|Releasable
 block|{
 comment|/**      * The settings that were used to create the node.      */
 DECL|method|settings

@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|index
 operator|.
-name|LongsRef
+name|SortedSetDocValues
 import|;
 end_import
 
@@ -48,7 +48,9 @@ specifier|final
 name|long
 name|MISSING_ORDINAL
 init|=
-literal|0
+name|SortedSetDocValues
+operator|.
+name|NO_MORE_ORDS
 decl_stmt|;
 DECL|field|MIN_ORDINAL
 specifier|static
@@ -56,7 +58,7 @@ specifier|final
 name|long
 name|MIN_ORDINAL
 init|=
-literal|1
+literal|0
 decl_stmt|;
 comment|/**      * The memory size this ordinals take.      */
 DECL|method|getMemorySizeInBytes
@@ -68,18 +70,6 @@ comment|/**      * Is one of the docs maps to more than one ordinal?      */
 DECL|method|isMultiValued
 name|boolean
 name|isMultiValued
-parameter_list|()
-function_decl|;
-comment|/**      * The number of docs in this ordinals.      */
-DECL|method|getNumDocs
-name|int
-name|getNumDocs
-parameter_list|()
-function_decl|;
-comment|/**      * The number of ordinals, excluding the {@link #MISSING_ORDINAL} ordinal indicating a missing value.      */
-DECL|method|getNumOrds
-name|long
-name|getNumOrds
 parameter_list|()
 function_decl|;
 comment|/**      * Returns total unique ord count; this includes +1 for      * the  {@link #MISSING_ORDINAL}  ord (always  {@value #MISSING_ORDINAL} ).      */
@@ -99,24 +89,6 @@ DECL|interface|Docs
 interface|interface
 name|Docs
 block|{
-comment|/**          * Returns the original ordinals used to generate this Docs "itereator".          */
-DECL|method|ordinals
-name|Ordinals
-name|ordinals
-parameter_list|()
-function_decl|;
-comment|/**          * The number of docs in this ordinals.          */
-DECL|method|getNumDocs
-name|int
-name|getNumDocs
-parameter_list|()
-function_decl|;
-comment|/**          * The number of ordinals, excluding the "0" ordinal (indicating a missing value).          */
-DECL|method|getNumOrds
-name|long
-name|getNumOrds
-parameter_list|()
-function_decl|;
 comment|/**          * Returns total unique ord count; this includes +1 for          * the null ord (always 0).          */
 DECL|method|getMaxOrd
 name|long
@@ -133,15 +105,6 @@ comment|/**          * The ordinal that maps to the relevant docId. If it has no
 DECL|method|getOrd
 name|long
 name|getOrd
-parameter_list|(
-name|int
-name|docId
-parameter_list|)
-function_decl|;
-comment|/**          * Returns an array of ordinals matching the docIds, with 0 length one          * for a doc with no ordinals.          */
-DECL|method|getOrds
-name|LongsRef
-name|getOrds
 parameter_list|(
 name|int
 name|docId
@@ -168,6 +131,70 @@ name|long
 name|currentOrd
 parameter_list|()
 function_decl|;
+block|}
+comment|/**      * Base implementation of {@link Docs}.      */
+DECL|class|AbstractDocs
+specifier|public
+specifier|static
+specifier|abstract
+class|class
+name|AbstractDocs
+implements|implements
+name|Docs
+block|{
+DECL|field|ordinals
+specifier|protected
+specifier|final
+name|Ordinals
+name|ordinals
+decl_stmt|;
+DECL|method|AbstractDocs
+specifier|public
+name|AbstractDocs
+parameter_list|(
+name|Ordinals
+name|ordinals
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ordinals
+operator|=
+name|ordinals
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMaxOrd
+specifier|public
+specifier|final
+name|long
+name|getMaxOrd
+parameter_list|()
+block|{
+return|return
+name|ordinals
+operator|.
+name|getMaxOrd
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMultiValued
+specifier|public
+specifier|final
+name|boolean
+name|isMultiValued
+parameter_list|()
+block|{
+return|return
+name|ordinals
+operator|.
+name|isMultiValued
+argument_list|()
+return|;
+block|}
 block|}
 block|}
 end_interface

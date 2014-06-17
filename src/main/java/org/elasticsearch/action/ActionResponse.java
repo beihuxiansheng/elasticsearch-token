@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base class for responses to action requests.  */
 end_comment
 
 begin_class

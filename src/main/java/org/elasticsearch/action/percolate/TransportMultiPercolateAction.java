@@ -1153,12 +1153,12 @@ name|concreteIndices
 argument_list|(
 name|percolateRequest
 operator|.
-name|indices
+name|indicesOptions
 argument_list|()
 argument_list|,
 name|percolateRequest
 operator|.
-name|indicesOptions
+name|indices
 argument_list|()
 argument_list|)
 expr_stmt|;

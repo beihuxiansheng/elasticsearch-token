@@ -617,20 +617,6 @@ operator|.
 name|preProcess
 argument_list|()
 expr_stmt|;
-name|facetPhase
-operator|.
-name|preProcess
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-name|aggregationPhase
-operator|.
-name|preProcess
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|execute
 specifier|public
@@ -643,6 +629,23 @@ parameter_list|)
 throws|throws
 name|QueryPhaseExecutionException
 block|{
+comment|// Pre-process facets and aggregations as late as possible. In the case of a DFS_Q_T_F
+comment|// request, preProcess is called on the DFS phase phase, this is why we pre-process them
+comment|// here to make sure it happens during the QUERY phase
+name|facetPhase
+operator|.
+name|preProcess
+argument_list|(
+name|searchContext
+argument_list|)
+expr_stmt|;
+name|aggregationPhase
+operator|.
+name|preProcess
+argument_list|(
+name|searchContext
+argument_list|)
+expr_stmt|;
 name|searchContext
 operator|.
 name|queryResult

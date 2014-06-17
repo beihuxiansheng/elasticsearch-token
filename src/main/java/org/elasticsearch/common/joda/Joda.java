@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -103,6 +93,16 @@ operator|.
 name|format
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
 import|;
 end_import
 
@@ -1315,7 +1315,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DateTimeFormatter
+name|FormatDateTimeFormatter
 name|currentFormatter
 init|=
 name|forPattern
@@ -1327,6 +1327,11 @@ index|]
 argument_list|,
 name|locale
 argument_list|)
+decl_stmt|;
+name|DateTimeFormatter
+name|currentParser
+init|=
+name|currentFormatter
 operator|.
 name|parser
 argument_list|()
@@ -1341,6 +1346,9 @@ block|{
 name|dateTimeFormatter
 operator|=
 name|currentFormatter
+operator|.
+name|printer
+argument_list|()
 expr_stmt|;
 block|}
 name|parsers
@@ -1348,7 +1356,7 @@ index|[
 name|i
 index|]
 operator|=
-name|currentFormatter
+name|currentParser
 operator|.
 name|getParser
 argument_list|()

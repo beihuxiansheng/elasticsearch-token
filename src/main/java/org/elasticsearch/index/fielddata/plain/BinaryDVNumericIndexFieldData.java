@@ -152,11 +152,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
+name|mapper
 operator|.
-name|fieldcomparator
+name|FieldMapper
 operator|.
-name|SortMode
+name|Names
 import|;
 end_import
 
@@ -166,13 +166,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|mapper
-operator|.
-name|FieldMapper
-operator|.
-name|Names
+name|MultiValueMode
 import|;
 end_import
 
@@ -281,7 +277,7 @@ name|Object
 name|missingValue
 parameter_list|,
 specifier|final
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|)
 block|{
@@ -356,11 +352,6 @@ return|return
 operator|new
 name|BinaryDVNumericAtomicFieldData
 argument_list|(
-name|context
-operator|.
-name|reader
-argument_list|()
-argument_list|,
 name|context
 operator|.
 name|reader

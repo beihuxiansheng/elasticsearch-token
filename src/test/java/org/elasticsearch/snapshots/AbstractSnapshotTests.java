@@ -175,6 +175,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -221,10 +231,10 @@ control|(
 name|RepositoriesService
 name|repositoriesService
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|getInstances
+name|getDataNodeInstances
 argument_list|(
 name|RepositoriesService
 operator|.
@@ -334,8 +344,10 @@ specifier|final
 name|String
 name|node
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
@@ -403,7 +415,7 @@ decl_stmt|;
 name|RepositoriesService
 name|repositoriesService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -673,7 +685,7 @@ control|(
 name|String
 name|node
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nodesInclude
@@ -686,7 +698,7 @@ operator|(
 operator|(
 name|MockRepository
 operator|)
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -740,7 +752,7 @@ operator|(
 operator|(
 name|MockRepository
 operator|)
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

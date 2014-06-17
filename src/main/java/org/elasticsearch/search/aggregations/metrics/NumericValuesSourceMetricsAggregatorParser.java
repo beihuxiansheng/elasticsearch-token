@@ -171,7 +171,7 @@ name|NumericValuesSourceMetricsAggregatorParser
 parameter_list|<
 name|S
 extends|extends
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 parameter_list|>
 implements|implements
 name|Aggregator

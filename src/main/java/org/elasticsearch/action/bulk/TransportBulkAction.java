@@ -1028,6 +1028,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|request
+operator|!=
+literal|null
+operator|&&
 name|setResponseFailureIfIndexMatches
 argument_list|(
 name|responses
@@ -1558,7 +1562,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|indexRequest
 operator|.
@@ -1740,7 +1744,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|deleteRequest
 operator|.
@@ -1798,7 +1802,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|updateRequest
 operator|.

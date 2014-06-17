@@ -110,6 +110,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|SegmentReaderUtils
@@ -378,7 +392,6 @@ name|indicesFieldDataCacheListener
 operator|=
 name|indicesFieldDataCacheListener
 expr_stmt|;
-specifier|final
 name|String
 name|size
 init|=
@@ -391,7 +404,6 @@ argument_list|,
 literal|"-1"
 argument_list|)
 decl_stmt|;
-specifier|final
 name|long
 name|sizeInBytes
 init|=
@@ -407,6 +419,54 @@ operator|.
 name|bytes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|sizeInBytes
+operator|>
+name|ByteSizeValue
+operator|.
+name|MAX_GUAVA_CACHE_SIZE
+operator|.
+name|bytes
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"reducing requested field data cache size of [{}] to the maximum allowed size of [{}]"
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|sizeInBytes
+argument_list|)
+argument_list|,
+name|ByteSizeValue
+operator|.
+name|MAX_GUAVA_CACHE_SIZE
+argument_list|)
+expr_stmt|;
+name|sizeInBytes
+operator|=
+name|ByteSizeValue
+operator|.
+name|MAX_GUAVA_CACHE_SIZE
+operator|.
+name|bytes
+argument_list|()
+expr_stmt|;
+name|size
+operator|=
+name|ByteSizeValue
+operator|.
+name|MAX_GUAVA_CACHE_SIZE
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
 specifier|final
 name|TimeValue
 name|expire
@@ -558,6 +618,8 @@ return|return
 operator|new
 name|IndexFieldCache
 argument_list|(
+name|logger
+argument_list|,
 name|cache
 argument_list|,
 name|indicesFieldDataCacheListener
@@ -696,6 +758,8 @@ operator|.
 name|listeners
 control|)
 block|{
+try|try
+block|{
 name|listener
 operator|.
 name|onUnload
@@ -717,6 +781,24 @@ name|sizeInBytes
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// load anyway since listeners should not throw exceptions
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Failed to call listener on field data cache unloading"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|class|FieldDataWeigher
 specifier|public
@@ -728,7 +810,7 @@ name|Weigher
 argument_list|<
 name|Key
 argument_list|,
-name|AtomicFieldData
+name|RamUsage
 argument_list|>
 block|{
 annotation|@
@@ -741,8 +823,8 @@ parameter_list|(
 name|Key
 name|key
 parameter_list|,
-name|AtomicFieldData
-name|fieldData
+name|RamUsage
+name|ramUsage
 parameter_list|)
 block|{
 name|int
@@ -755,7 +837,7 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|fieldData
+name|ramUsage
 operator|.
 name|getMemorySizeInBytes
 argument_list|()
@@ -792,6 +874,12 @@ name|IndexReader
 operator|.
 name|ReaderClosedListener
 block|{
+DECL|field|logger
+specifier|private
+specifier|final
+name|ESLogger
+name|logger
+decl_stmt|;
 DECL|field|indexService
 specifier|private
 specifier|final
@@ -826,9 +914,18 @@ name|RamUsage
 argument_list|>
 name|cache
 decl_stmt|;
+DECL|field|indicesFieldDataCacheListener
+specifier|private
+specifier|final
+name|IndicesFieldDataCacheListener
+name|indicesFieldDataCacheListener
+decl_stmt|;
 DECL|method|IndexFieldCache
 name|IndexFieldCache
 parameter_list|(
+name|ESLogger
+name|logger
+parameter_list|,
 specifier|final
 name|Cache
 argument_list|<
@@ -856,6 +953,12 @@ name|FieldDataType
 name|fieldDataType
 parameter_list|)
 block|{
+name|this
+operator|.
+name|logger
+operator|=
+name|logger
+expr_stmt|;
 name|this
 operator|.
 name|indexService
@@ -898,12 +1001,6 @@ operator|!=
 literal|null
 assert|;
 block|}
-DECL|field|indicesFieldDataCacheListener
-specifier|private
-specifier|final
-name|IndicesFieldDataCacheListener
-name|indicesFieldDataCacheListener
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|load
@@ -993,25 +1090,6 @@ operator|.
 name|this
 argument_list|)
 expr_stmt|;
-name|AtomicFieldData
-name|fieldData
-init|=
-name|indexFieldData
-operator|.
-name|loadDirect
-argument_list|(
-name|context
-argument_list|)
-decl_stmt|;
-name|key
-operator|.
-name|sizeInBytes
-operator|=
-name|fieldData
-operator|.
-name|getMemorySizeInBytes
-argument_list|()
-expr_stmt|;
 name|key
 operator|.
 name|listeners
@@ -1077,6 +1155,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|final
+name|AtomicFieldData
+name|fieldData
+init|=
+name|indexFieldData
+operator|.
+name|loadDirect
+argument_list|(
+name|context
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|Listener
@@ -1086,6 +1175,8 @@ name|key
 operator|.
 name|listeners
 control|)
+block|{
+try|try
 block|{
 name|listener
 operator|.
@@ -1099,6 +1190,33 @@ name|fieldData
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// load anyway since listeners should not throw exceptions
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Failed to call listener on atomic field data loading"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|key
+operator|.
+name|sizeInBytes
+operator|=
+name|fieldData
+operator|.
+name|getMemorySizeInBytes
+argument_list|()
+expr_stmt|;
 return|return
 name|fieldData
 return|;
@@ -1184,19 +1302,6 @@ operator|.
 name|this
 argument_list|)
 expr_stmt|;
-name|GlobalOrdinalsIndexFieldData
-name|ifd
-init|=
-operator|(
-name|GlobalOrdinalsIndexFieldData
-operator|)
-name|indexFieldData
-operator|.
-name|localGlobalDirect
-argument_list|(
-name|indexReader
-argument_list|)
-decl_stmt|;
 name|key
 operator|.
 name|listeners
@@ -1258,6 +1363,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+specifier|final
+name|GlobalOrdinalsIndexFieldData
+name|ifd
+init|=
+operator|(
+name|GlobalOrdinalsIndexFieldData
+operator|)
+name|indexFieldData
+operator|.
+name|localGlobalDirect
+argument_list|(
+name|indexReader
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|Listener
@@ -1267,6 +1386,8 @@ name|key
 operator|.
 name|listeners
 control|)
+block|{
+try|try
 block|{
 name|listener
 operator|.
@@ -1279,6 +1400,24 @@ argument_list|,
 name|ifd
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// load anyway since listeners should not throw exceptions
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"Failed to call listener on global ordinals loading"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|ifd
@@ -1349,6 +1488,7 @@ name|void
 name|clear
 parameter_list|()
 block|{
+comment|// TODO: determine whether there is ever anything in this cache that doesn't share the index and consider .invalidateAll() instead
 for|for
 control|(
 name|Key
@@ -1386,6 +1526,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// There is an explicit call to cache.cleanUp() here because cache
+comment|// invalidation in Guava does not immediately remove values from the
+comment|// cache. In the case of a cache with a rare write or read rate,
+comment|// it's possible for values to persist longer than desired. In the
+comment|// case of the circuit breaker, when clearing the entire cache all
+comment|// entries should immediately be evicted so that their sizes are
+comment|// removed from the breaker estimates.
+comment|//
+comment|// Note this is intended by the Guava developers, see:
+comment|// https://code.google.com/p/guava-libraries/wiki/CachesExplained#Eviction
+comment|// (the "When Does Cleanup Happen" section)
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override

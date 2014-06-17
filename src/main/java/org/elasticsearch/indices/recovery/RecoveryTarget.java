@@ -1153,6 +1153,9 @@ specifier|final
 name|StartRecoveryRequest
 name|request
 parameter_list|,
+name|TimeValue
+name|retryAfter
+parameter_list|,
 specifier|final
 name|RecoveryStatus
 name|status
@@ -1164,11 +1167,16 @@ parameter_list|)
 block|{
 name|threadPool
 operator|.
-name|generic
-argument_list|()
-operator|.
-name|execute
+name|schedule
 argument_list|(
+name|retryAfter
+argument_list|,
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|GENERIC
+argument_list|,
 operator|new
 name|Runnable
 argument_list|()
@@ -1212,27 +1220,16 @@ name|RecoveryListener
 name|listener
 parameter_list|)
 block|{
-if|if
-condition|(
+assert|assert
 name|request
 operator|.
 name|sourceNode
 argument_list|()
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-name|listener
-operator|.
-name|onIgnoreRecovery
-argument_list|(
-literal|false
-argument_list|,
-literal|"No node to recover from, retry on next cluster state update"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
+operator|:
+literal|"can't do a recovery without a source node"
+assert|;
 specifier|final
 name|InternalIndexShard
 name|shard
@@ -1788,7 +1785,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"recovery completed from [{}], took [{}]"
+literal|"{} recovery completed from [{}], took [{}]"
 argument_list|,
 name|request
 operator|.
@@ -2066,7 +2063,7 @@ return|return;
 block|}
 name|logger
 operator|.
-name|trace
+name|warn
 argument_list|(
 literal|"[{}][{}] recovery from [{}] failed"
 argument_list|,
@@ -3908,7 +3905,7 @@ argument_list|()
 operator|.
 name|addRecoveredByteCount
 argument_list|(
-name|request
+name|content
 operator|.
 name|length
 argument_list|()

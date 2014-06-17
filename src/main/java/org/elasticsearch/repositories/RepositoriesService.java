@@ -1426,6 +1426,21 @@ condition|)
 block|{
 return|return;
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"processing new index repositories for state version [{}]"
+argument_list|,
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -1475,6 +1490,18 @@ operator|==
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"unregistering repository [{}]"
+argument_list|,
+name|entry
+operator|.
+name|getKey
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|closeRepository
 argument_list|(
 name|entry
@@ -1593,6 +1620,18 @@ argument_list|)
 condition|)
 block|{
 comment|// Previous version is different from the version in settings
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"updating repository [{}]"
+argument_list|,
+name|repositoryMetaData
+operator|.
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|closeRepository
 argument_list|(
 name|repositoryMetaData
@@ -1629,6 +1668,18 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"registering repository [{}]"
+argument_list|,
+name|repositoryMetaData
+operator|.
+name|name
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|put

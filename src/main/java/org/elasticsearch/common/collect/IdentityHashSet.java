@@ -215,7 +215,7 @@ name|isEmpty
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns<tt>true</tt> if this set contains the specified element.      * More formally, returns<tt>true</tt> if and only if this set      * contains an element<tt>e</tt> such that      *<tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>.      *      * @param o element whose presence in this set is to be tested      * @return<tt>true</tt> if this set contains the specified element      */
+comment|/**      * Returns<tt>true</tt> if this set contains the specified element.      * More formally, returns<tt>true</tt> if and only if this set      * contains an element<tt>e</tt> such that      *<tt>(o==e)</tt>.      *      * @param o element whose presence in this set is to be tested      * @return<tt>true</tt> if this set contains the specified element      */
 DECL|method|contains
 specifier|public
 name|boolean
@@ -234,7 +234,7 @@ name|o
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds the specified element to this set if it is not already present.      * More formally, adds the specified element<tt>e</tt> to this set if      * this set contains no element<tt>e2</tt> such that      *<tt>(e==null&nbsp;?&nbsp;e2==null&nbsp;:&nbsp;e.equals(e2))</tt>.      * If this set already contains the element, the call leaves the set      * unchanged and returns<tt>false</tt>.      *      * @param e element to be added to this set      * @return<tt>true</tt> if this set did not already contain the specified      *         element      */
+comment|/**      * Adds the specified element to this set if it is not already present.      * More formally, adds the specified element<tt>e</tt> to this set if      * this set contains no element<tt>e2</tt> such that      *<tt>(e==e2)</tt>.      * If this set already contains the element, the call leaves the set      * unchanged and returns<tt>false</tt>.      *      * @param e element to be added to this set      * @return<tt>true</tt> if this set did not already contain the specified      *         element      */
 DECL|method|add
 specifier|public
 name|boolean
@@ -257,7 +257,7 @@ operator|==
 literal|null
 return|;
 block|}
-comment|/**      * Removes the specified element from this set if it is present.      * More formally, removes an element<tt>e</tt> such that      *<tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>,      * if this set contains such an element.  Returns<tt>true</tt> if      * this set contained the element (or equivalently, if this set      * changed as a result of the call).  (This set will not contain the      * element once the call returns.)      *      * @param o object to be removed from this set, if present      * @return<tt>true</tt> if the set contained the specified element      */
+comment|/**      * Removes the specified element from this set if it is present.      * More formally, removes an element<tt>e</tt> such that      *<tt>(o==e)</tt>,      * if this set contains such an element.  Returns<tt>true</tt> if      * this set contained the element (or equivalently, if this set      * changed as a result of the call).  (This set will not contain the      * element once the call returns.)      *      * @param o object to be removed from this set, if present      * @return<tt>true</tt> if the set contained the specified element      */
 DECL|method|remove
 specifier|public
 name|boolean

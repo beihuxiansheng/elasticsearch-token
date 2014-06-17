@@ -3167,32 +3167,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"gorr the god jewel"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|corrections
-index|[
-literal|3
-index|]
-operator|.
-name|join
-argument_list|(
-operator|new
-name|BytesRef
-argument_list|(
-literal|" "
-argument_list|)
-argument_list|)
-operator|.
-name|utf8ToString
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|"varr the god jewel"
+literal|"four the god jewel"
 argument_list|)
 argument_list|)
 expr_stmt|;

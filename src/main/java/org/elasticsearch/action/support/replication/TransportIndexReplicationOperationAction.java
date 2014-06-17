@@ -62,18 +62,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ActionResponse
 import|;
 end_import
@@ -323,7 +311,7 @@ name|ShardReplicationOperationRequest
 parameter_list|,
 name|ShardReplicaRequest
 extends|extends
-name|ActionRequest
+name|ShardReplicationOperationRequest
 parameter_list|,
 name|ShardResponse
 extends|extends
@@ -475,7 +463,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|request
 operator|.

@@ -566,9 +566,7 @@ name|context
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -713,9 +711,7 @@ name|readerContext
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Ordinals
 operator|.
@@ -787,9 +783,7 @@ name|readerContext
 argument_list|)
 operator|.
 name|getBytesValues
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -847,9 +841,9 @@ name|addValue
 argument_list|(
 name|value
 argument_list|,
-name|values
+name|value
 operator|.
-name|currentValueHash
+name|hashCode
 argument_list|()
 argument_list|,
 name|values

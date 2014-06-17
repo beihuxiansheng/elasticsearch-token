@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Factory to get {@link ESLogger}s  */
 end_comment
 
 begin_class

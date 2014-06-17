@@ -607,6 +607,10 @@ name|Defaults
 operator|.
 name|FIELD_TYPE
 argument_list|)
+argument_list|,
+name|Defaults
+operator|.
+name|PRECISION_STEP_32_BIT
 argument_list|)
 expr_stmt|;
 name|builder
@@ -655,7 +659,10 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|,
-name|precisionStep
+name|fieldType
+operator|.
+name|numericPrecisionStep
+argument_list|()
 argument_list|,
 name|boost
 argument_list|,
@@ -874,7 +881,7 @@ name|indexName
 argument_list|,
 name|Defaults
 operator|.
-name|PRECISION_STEP
+name|PRECISION_STEP_32_BIT
 argument_list|,
 name|Defaults
 operator|.
@@ -1590,19 +1597,6 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
 block|{     }
 annotation|@
 name|Override

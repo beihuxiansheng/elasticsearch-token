@@ -172,6 +172,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashSet
 import|;
 end_import
@@ -1279,6 +1299,8 @@ argument_list|>
 name|candidates
 parameter_list|)
 block|{
+comment|// Merge new candidates into existing ones,
+comment|// deduping:
 specifier|final
 name|Set
 argument_list|<
@@ -1341,6 +1363,21 @@ operator|.
 name|size
 argument_list|()
 index|]
+argument_list|)
+expr_stmt|;
+comment|// Sort strongest to weakest:
+name|Arrays
+operator|.
+name|sort
+argument_list|(
+name|this
+operator|.
+name|candidates
+argument_list|,
+name|Collections
+operator|.
+name|reverseOrder
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1414,6 +1451,11 @@ specifier|public
 specifier|static
 class|class
 name|Candidate
+implements|implements
+name|Comparable
+argument_list|<
+name|Candidate
+argument_list|>
 block|{
 DECL|field|EMPTY
 specifier|public
@@ -1529,6 +1571,10 @@ operator|+
 literal|", stringDistance="
 operator|+
 name|stringDistance
+operator|+
+literal|", score="
+operator|+
+name|score
 operator|+
 literal|", frequency="
 operator|+
@@ -1677,6 +1723,55 @@ return|;
 return|return
 literal|true
 return|;
+block|}
+comment|/** Lower scores sort first; if scores are equal, then later (zzz) terms sort first */
+annotation|@
+name|Override
+DECL|method|compareTo
+specifier|public
+name|int
+name|compareTo
+parameter_list|(
+name|Candidate
+name|other
+parameter_list|)
+block|{
+if|if
+condition|(
+name|score
+operator|==
+name|other
+operator|.
+name|score
+condition|)
+block|{
+comment|// Later (zzz) terms sort before earlier (aaa) terms:
+return|return
+name|other
+operator|.
+name|term
+operator|.
+name|compareTo
+argument_list|(
+name|term
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
+name|Double
+operator|.
+name|compare
+argument_list|(
+name|score
+argument_list|,
+name|other
+operator|.
+name|score
+argument_list|)
+return|;
+block|}
 block|}
 block|}
 annotation|@

@@ -520,10 +520,11 @@ name|request
 operator|.
 name|version
 argument_list|()
-argument_list|)
+argument_list|,
+name|VersionType
 operator|.
-name|origin
-argument_list|(
+name|INTERNAL
+argument_list|,
 name|Engine
 operator|.
 name|Operation
@@ -684,10 +685,11 @@ name|request
 operator|.
 name|version
 argument_list|()
-argument_list|)
+argument_list|,
+name|VersionType
 operator|.
-name|origin
-argument_list|(
+name|INTERNAL
+argument_list|,
 name|Engine
 operator|.
 name|Operation
@@ -699,9 +701,14 @@ argument_list|)
 decl_stmt|;
 comment|// IndexDeleteAction doesn't support version type at the moment. Hard coded for the INTERNAL version
 name|delete
+operator|=
+operator|new
+name|Engine
 operator|.
-name|versionType
+name|Delete
 argument_list|(
+name|delete
+argument_list|,
 name|VersionType
 operator|.
 name|INTERNAL
@@ -716,7 +723,7 @@ operator|.
 name|versionType
 argument_list|()
 operator|.
-name|validateVersion
+name|validateVersionForWrites
 argument_list|(
 name|delete
 operator|.

@@ -58,7 +58,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|IndicesAdminClient
+name|Client
 import|;
 end_import
 
@@ -70,9 +70,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
+name|IndicesAdminClient
 import|;
 end_import
 
@@ -93,6 +91,8 @@ argument_list|,
 name|ClearIndicesCacheResponse
 argument_list|,
 name|ClearIndicesCacheRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|ClearIndicesCacheRequestBuilder
@@ -105,9 +105,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -232,12 +229,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|clearCache
 argument_list|(

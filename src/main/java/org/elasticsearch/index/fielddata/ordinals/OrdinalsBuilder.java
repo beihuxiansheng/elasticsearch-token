@@ -426,7 +426,7 @@ specifier|private
 name|PagedGrowableWriter
 name|firstNextLevelSlices
 decl_stmt|;
-comment|// Ordinals and pointers for other levels, starting at 1
+comment|// Ordinals and pointers for other levels +1
 DECL|field|ordinals
 specifier|private
 specifier|final
@@ -711,6 +711,8 @@ argument_list|(
 name|docID
 argument_list|,
 name|ordinal
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 return|return
@@ -783,6 +785,8 @@ argument_list|(
 name|offset
 argument_list|,
 name|ordinal
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 name|positions
@@ -950,6 +954,8 @@ argument_list|(
 name|offset
 argument_list|,
 name|ordinal
+operator|+
+literal|1
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1053,6 +1059,8 @@ operator|++
 index|]
 operator|=
 name|firstOrd
+operator|-
+literal|1
 expr_stmt|;
 if|if
 condition|(
@@ -1193,6 +1201,8 @@ operator|++
 index|]
 operator|=
 name|ord
+operator|-
+literal|1
 expr_stmt|;
 block|}
 if|if
@@ -1242,7 +1252,11 @@ specifier|private
 name|long
 name|currentOrd
 init|=
-literal|0
+name|Ordinals
+operator|.
+name|MIN_ORDINAL
+operator|-
+literal|1
 decl_stmt|;
 DECL|field|numDocsWithValue
 specifier|private
@@ -1414,7 +1428,7 @@ return|return
 name|spare
 return|;
 block|}
-comment|/**      * Return a {@link PackedInts.Reader} instance mapping every doc ID to its first ordinal if it exists and 0 otherwise.      */
+comment|/**      * Return a {@link PackedInts.Reader} instance mapping every doc ID to its first ordinal + 1 if it exists and 0 otherwise.      */
 DECL|method|getFirstOrdinals
 specifier|public
 name|PackedInts
@@ -1565,14 +1579,16 @@ name|totalNumOrds
 return|;
 block|}
 comment|/**      * Returns the number of distinct ordinals in this builder.      */
-DECL|method|getNumOrds
+DECL|method|getMaxOrd
 specifier|public
 name|long
-name|getNumOrds
+name|getMaxOrd
 parameter_list|()
 block|{
 return|return
 name|currentOrd
+operator|+
+literal|1
 return|;
 block|}
 comment|/**      * Builds a {@link FixedBitSet} where each documents bit is that that has one or more ordinals associated with it.      * if every document has an ordinal associated with it this method returns<code>null</code>      */
@@ -1684,7 +1700,7 @@ name|maxDoc
 argument_list|,
 name|numDocsWithValue
 argument_list|,
-name|getNumOrds
+name|getMaxOrd
 argument_list|()
 argument_list|,
 name|acceptableOverheadRatio

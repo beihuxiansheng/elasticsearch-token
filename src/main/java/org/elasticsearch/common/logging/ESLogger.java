@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Contract for all elasticsearch loggers.  */
 end_comment
 
 begin_interface

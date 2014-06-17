@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -67,18 +57,6 @@ operator|.
 name|spans
 operator|.
 name|SpanMultiTermQueryWrapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
 import|;
 end_import
 
@@ -138,6 +116,16 @@ name|Token
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -174,7 +162,7 @@ DECL|method|SpanMultiTermQueryParser
 specifier|public
 name|SpanMultiTermQueryParser
 parameter_list|()
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|names

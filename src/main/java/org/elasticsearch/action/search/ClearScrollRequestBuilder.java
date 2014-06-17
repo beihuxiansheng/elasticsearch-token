@@ -54,20 +54,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClient
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -93,6 +79,8 @@ argument_list|,
 name|ClearScrollResponse
 argument_list|,
 name|ClearScrollRequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 block|{
 DECL|method|ClearScrollRequestBuilder
@@ -105,9 +93,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClient
-operator|)
 name|client
 argument_list|,
 operator|new
@@ -173,12 +158,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|Client
-operator|)
 name|client
-operator|)
 operator|.
 name|clearScroll
 argument_list|(

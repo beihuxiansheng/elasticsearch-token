@@ -377,6 +377,8 @@ specifier|public
 name|void
 name|shutdown
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|client
 operator|.
@@ -926,6 +928,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|ParentChildStressTest
 name|elasticTest

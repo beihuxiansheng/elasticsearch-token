@@ -687,6 +687,8 @@ name|NodesSnapshotStatus
 name|nodeSnapshotStatuses
 parameter_list|)
 block|{
+try|try
+block|{
 name|ImmutableList
 argument_list|<
 name|SnapshotMetaData
@@ -724,6 +726,21 @@ name|nodeSnapshotStatuses
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1048,6 +1065,9 @@ case|case
 name|INIT
 case|:
 case|case
+name|WAITING
+case|:
+case|case
 name|STARTED
 case|:
 name|stage
@@ -1330,6 +1350,11 @@ break|break;
 case|case
 name|SUCCESS
 case|:
+case|case
+name|PARTIAL
+case|:
+comment|// Translating both PARTIAL and SUCCESS to SUCCESS for now
+comment|// TODO: add the differentiation on the metadata level in the next major release
 name|state
 operator|=
 name|SnapshotMetaData

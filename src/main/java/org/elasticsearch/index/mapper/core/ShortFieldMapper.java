@@ -536,6 +536,15 @@ name|CONTENT_TYPE
 init|=
 literal|"short"
 decl_stmt|;
+DECL|field|DEFAULT_PRECISION_STEP
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_PRECISION_STEP
+init|=
+literal|8
+decl_stmt|;
 DECL|class|Defaults
 specifier|public
 specifier|static
@@ -624,6 +633,8 @@ name|Defaults
 operator|.
 name|FIELD_TYPE
 argument_list|)
+argument_list|,
+name|DEFAULT_PRECISION_STEP
 argument_list|)
 expr_stmt|;
 name|builder
@@ -686,7 +697,10 @@ argument_list|(
 name|context
 argument_list|)
 argument_list|,
-name|precisionStep
+name|fieldType
+operator|.
+name|numericPrecisionStep
+argument_list|()
 argument_list|,
 name|boost
 argument_list|,
@@ -2344,9 +2358,7 @@ name|includeDefaults
 operator|||
 name|precisionStep
 operator|!=
-name|Defaults
-operator|.
-name|PRECISION_STEP
+name|DEFAULT_PRECISION_STEP
 condition|)
 block|{
 name|builder

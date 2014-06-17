@@ -90,6 +90,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -170,7 +182,7 @@ decl_stmt|;
 DECL|field|sortMode
 specifier|private
 specifier|final
-name|SortMode
+name|MultiValueMode
 name|sortMode
 decl_stmt|;
 DECL|field|missingValue
@@ -192,7 +204,7 @@ parameter_list|,
 name|Object
 name|missingValue
 parameter_list|,
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|)
 block|{

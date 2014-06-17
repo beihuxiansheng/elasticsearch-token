@@ -90,20 +90,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -203,9 +189,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClient
-operator|)
 name|client
 argument_list|,
 operator|new
@@ -229,9 +212,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClient
-operator|)
 name|client
 argument_list|,
 operator|new
@@ -729,7 +709,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Constructs a simple document with a field name and value pairs.      *<b>Note: the number of objects passed to this method must be and even number.</b>       */
+comment|/**      * Constructs a simple document with a field name and value pairs.      *<b>Note: the number of objects passed to this method must be an even number.</b>       */
 DECL|method|setSource
 specifier|public
 name|IndexRequestBuilder
@@ -1019,12 +999,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|Client
-operator|)
 name|client
-operator|)
 operator|.
 name|index
 argument_list|(

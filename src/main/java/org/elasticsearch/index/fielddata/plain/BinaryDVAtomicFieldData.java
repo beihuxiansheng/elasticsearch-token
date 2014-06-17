@@ -54,6 +54,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|DocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Bits
@@ -219,21 +233,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getNumDocs
-specifier|public
-name|int
-name|getNumDocs
-parameter_list|()
-block|{
-return|return
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getNumberUniqueValues
 specifier|public
 name|long
@@ -268,13 +267,8 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 block|{
-comment|// if you want hashes to be cached, you should rather store them on disk alongside the values rather than loading them into memory
-comment|// here - not supported for now, and probably not useful since this field data only applies to _id and _uid?
 specifier|final
 name|BinaryDocValues
 name|values
@@ -306,9 +300,9 @@ block|{
 comment|// segment has no value
 name|values
 operator|=
-name|BinaryDocValues
+name|DocValues
 operator|.
-name|EMPTY
+name|EMPTY_BINARY
 expr_stmt|;
 name|docsWithField
 operator|=
@@ -452,9 +446,7 @@ operator|.
 name|Strings
 argument_list|(
 name|getBytesValues
-argument_list|(
-literal|false
-argument_list|)
+argument_list|()
 argument_list|)
 return|;
 block|}

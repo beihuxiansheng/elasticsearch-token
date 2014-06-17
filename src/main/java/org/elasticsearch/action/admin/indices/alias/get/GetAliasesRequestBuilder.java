@@ -97,12 +97,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|getAliases
 argument_list|(

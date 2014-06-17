@@ -1596,9 +1596,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|internal
-operator|.
-name|InternalClusterAdminClient
+name|ClusterAdminClient
 import|;
 end_import
 
@@ -1613,7 +1611,7 @@ specifier|abstract
 class|class
 name|AbstractClusterAdminClient
 implements|implements
-name|InternalClusterAdminClient
+name|ClusterAdminClient
 block|{
 annotation|@
 name|Override
@@ -1637,18 +1635,22 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 parameter_list|>
 name|RequestBuilder
 name|prepareExecute
 parameter_list|(
-name|ClusterAction
+name|Action
 argument_list|<
 name|Request
 argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 name|action
 parameter_list|)

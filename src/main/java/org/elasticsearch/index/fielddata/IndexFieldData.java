@@ -156,13 +156,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -266,6 +262,7 @@ block|{
 DECL|field|SETTING_MEMORY_STORAGE_HINT
 specifier|public
 specifier|static
+specifier|final
 name|String
 name|SETTING_MEMORY_STORAGE_HINT
 init|=
@@ -444,7 +441,7 @@ name|Nullable
 name|Object
 name|missingValue
 parameter_list|,
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|)
 function_decl|;

@@ -241,6 +241,8 @@ operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
 literal|1L
+argument_list|,
+literal|"test"
 argument_list|)
 expr_stmt|;
 block|}
@@ -364,6 +366,21 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"breaker was tripped exactly once"
+argument_list|,
+name|breaker
+operator|.
+name|getTrippedCount
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1L
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -393,6 +410,11 @@ argument_list|,
 name|logger
 argument_list|)
 decl_stmt|;
+name|String
+name|field
+init|=
+literal|"myfield"
+decl_stmt|;
 comment|// add only 7 bytes
 name|breaker
 operator|.
@@ -409,6 +431,8 @@ operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
 literal|3
+argument_list|,
+name|field
 argument_list|)
 expr_stmt|;
 name|fail
@@ -429,6 +453,8 @@ operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
 literal|2
+argument_list|,
+name|field
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -460,6 +486,8 @@ operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
 literal|0
+argument_list|,
+name|field
 argument_list|)
 expr_stmt|;
 name|fail
@@ -473,7 +501,45 @@ parameter_list|(
 name|CircuitBreakingException
 name|cbe
 parameter_list|)
-block|{         }
+block|{
+name|assertThat
+argument_list|(
+literal|"breaker was tripped exactly twice"
+argument_list|,
+name|breaker
+operator|.
+name|getTrippedCount
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2L
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|cbe
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"field ["
+operator|+
+name|field
+operator|+
+literal|"]"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

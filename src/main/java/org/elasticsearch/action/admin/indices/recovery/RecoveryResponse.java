@@ -393,6 +393,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|hasRecoveries
+argument_list|()
+condition|)
+block|{
 for|for
 control|(
 name|String
@@ -494,6 +500,7 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 return|return
 name|builder

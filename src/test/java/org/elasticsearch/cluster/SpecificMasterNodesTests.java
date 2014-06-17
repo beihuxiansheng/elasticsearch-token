@@ -105,6 +105,30 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -142,13 +166,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -189,6 +211,8 @@ specifier|public
 name|void
 name|simpleOnlyMasterNodeElection
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|logger
 operator|.
@@ -197,7 +221,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -292,7 +316,7 @@ specifier|final
 name|String
 name|masterNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -317,7 +341,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -358,7 +382,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -404,7 +428,7 @@ argument_list|(
 literal|"--> stop master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -475,7 +499,7 @@ specifier|final
 name|String
 name|nextMasterEligibleNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -500,7 +524,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -541,7 +565,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -588,6 +612,8 @@ specifier|public
 name|void
 name|electOnlyBetweenMasterNodes
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|logger
 operator|.
@@ -596,7 +622,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -691,7 +717,7 @@ specifier|final
 name|String
 name|masterNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -716,7 +742,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -757,7 +783,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -807,7 +833,7 @@ specifier|final
 name|String
 name|nextMasterEligableNodeName
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -832,7 +858,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -873,7 +899,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -914,7 +940,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -960,7 +986,7 @@ argument_list|(
 literal|"--> closing master node (1)"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -968,7 +994,7 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|nonMasterClient
@@ -1009,7 +1035,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -1067,7 +1093,7 @@ argument_list|(
 literal|"--> start master node / non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1097,7 +1123,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1342,7 +1368,7 @@ argument_list|(
 literal|"--> start master node / non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1372,7 +1398,7 @@ argument_list|(
 literal|"--> start data node / non master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

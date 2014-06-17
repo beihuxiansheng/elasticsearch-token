@@ -569,6 +569,9 @@ specifier|protected
 name|ShardRefreshRequest
 name|newShardRequest
 parameter_list|(
+name|int
+name|numShards
+parameter_list|,
 name|ShardRouting
 name|shard
 parameter_list|,

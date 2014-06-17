@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|Action
+name|ClientAction
 import|;
 end_import
 
@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|BenchmarkStatusAction
 extends|extends
-name|Action
+name|ClientAction
 argument_list|<
 name|BenchmarkStatusRequest
 argument_list|,

@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|BinaryDocValues
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|BinaryDocValues
+name|DocValues
 import|;
 end_import
 
@@ -141,12 +141,6 @@ argument_list|<
 name|ScriptDocValues
 argument_list|>
 block|{
-DECL|field|reader
-specifier|private
-specifier|final
-name|AtomicReader
-name|reader
-decl_stmt|;
 DECL|field|values
 specifier|private
 specifier|final
@@ -156,9 +150,6 @@ decl_stmt|;
 DECL|method|GeoPointBinaryDVAtomicFieldData
 name|GeoPointBinaryDVAtomicFieldData
 parameter_list|(
-name|AtomicReader
-name|reader
-parameter_list|,
 name|BinaryDocValues
 name|values
 parameter_list|)
@@ -168,21 +159,15 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|reader
-operator|=
-name|reader
-expr_stmt|;
-name|this
-operator|.
 name|values
 operator|=
 name|values
 operator|==
 literal|null
 condition|?
-name|BinaryDocValues
+name|DocValues
 operator|.
-name|EMPTY
+name|EMPTY_BINARY
 else|:
 name|values
 expr_stmt|;
@@ -197,21 +182,6 @@ parameter_list|()
 block|{
 return|return
 literal|false
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getNumDocs
-specifier|public
-name|int
-name|getNumDocs
-parameter_list|()
-block|{
-return|return
-name|reader
-operator|.
-name|maxDoc
-argument_list|()
 return|;
 block|}
 annotation|@

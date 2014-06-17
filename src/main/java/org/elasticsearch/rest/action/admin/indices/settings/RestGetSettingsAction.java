@@ -375,7 +375,7 @@ name|request
 argument_list|,
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)

@@ -244,13 +244,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -1998,10 +1994,10 @@ argument_list|(
 name|document
 argument_list|)
 expr_stmt|;
-name|SortMode
+name|MultiValueMode
 name|sortMode
 init|=
-name|SortMode
+name|MultiValueMode
 operator|.
 name|SUM
 decl_stmt|;
@@ -4093,10 +4089,10 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SortMode
+name|MultiValueMode
 name|sortMode
 init|=
-name|SortMode
+name|MultiValueMode
 operator|.
 name|AVG
 decl_stmt|;
@@ -4486,7 +4482,7 @@ parameter_list|(
 name|String
 name|fieldName
 parameter_list|,
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|,
 name|Object

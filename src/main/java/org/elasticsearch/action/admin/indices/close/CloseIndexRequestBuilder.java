@@ -74,20 +74,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * Builder for close index request  */
 end_comment
@@ -105,6 +91,8 @@ argument_list|,
 name|CloseIndexResponse
 argument_list|,
 name|CloseIndexRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|CloseIndexRequestBuilder
@@ -117,9 +105,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -142,9 +127,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -212,12 +194,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|close
 argument_list|(

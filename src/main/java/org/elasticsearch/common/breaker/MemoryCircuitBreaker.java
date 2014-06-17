@@ -86,6 +86,12 @@ specifier|final
 name|AtomicLong
 name|used
 decl_stmt|;
+DECL|field|trippedCount
+specifier|private
+specifier|final
+name|AtomicLong
+name|trippedCount
+decl_stmt|;
 DECL|field|logger
 specifier|private
 specifier|final
@@ -108,62 +114,16 @@ name|logger
 parameter_list|)
 block|{
 name|this
-operator|.
-name|memoryBytesLimit
-operator|=
-name|limit
-operator|.
-name|bytes
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|overheadConstant
-operator|=
-name|overheadConstant
-expr_stmt|;
-name|this
-operator|.
-name|used
-operator|=
-operator|new
-name|AtomicLong
 argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|logger
-operator|=
-name|logger
-expr_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"Creating MemoryCircuitBreaker with a limit of {} bytes ({}) and a overhead constant of {}"
-argument_list|,
-name|this
-operator|.
-name|memoryBytesLimit
-argument_list|,
 name|limit
 argument_list|,
-name|this
-operator|.
 name|overheadConstant
+argument_list|,
+literal|null
+argument_list|,
+name|logger
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. Uses the given oldBreaker to initialize      * the starting offset.      * @param limit circuit breaker limit      * @param overheadConstant constant multiplier for byte estimations      * @param oldBreaker the previous circuit breaker to inherit the used value from (starting offset)      */
 DECL|method|MemoryCircuitBreaker
@@ -215,6 +175,16 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|trippedCount
+operator|=
+operator|new
+name|AtomicLong
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -225,6 +195,14 @@ operator|=
 name|oldBreaker
 operator|.
 name|used
+expr_stmt|;
+name|this
+operator|.
+name|trippedCount
+operator|=
+name|oldBreaker
+operator|.
+name|trippedCount
 expr_stmt|;
 block|}
 name|this
@@ -265,19 +243,41 @@ DECL|method|circuitBreak
 specifier|public
 name|void
 name|circuitBreak
-parameter_list|()
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|)
 throws|throws
 name|CircuitBreakingException
 block|{
+name|this
+operator|.
+name|trippedCount
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|CircuitBreakingException
 argument_list|(
-literal|"Data too large, data would be larger than limit of ["
+literal|"Data too large, data for field ["
+operator|+
+name|fieldName
+operator|+
+literal|"] would be larger than limit of ["
 operator|+
 name|memoryBytesLimit
 operator|+
-literal|"] bytes"
+literal|"/"
+operator|+
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|memoryBytesLimit
+argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -289,6 +289,9 @@ name|addEstimateBytesAndMaybeBreak
 parameter_list|(
 name|long
 name|bytes
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 throws|throws
 name|CircuitBreakingException
@@ -302,7 +305,9 @@ literal|0
 condition|)
 block|{
 name|circuitBreak
-argument_list|()
+argument_list|(
+name|fieldName
+argument_list|)
 expr_stmt|;
 block|}
 name|long
@@ -344,13 +349,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adding [{}] to used bytes [new used: [{}], limit: [-1b]]"
+literal|"Adding [{}][{}] to used bytes [new used: [{}], limit: [-1b]]"
 argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)
+argument_list|,
+name|fieldName
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -411,13 +418,15 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Adding [{}] to used bytes [new used: [{}], limit: {} [{}], estimate: {} [{}]]"
+literal|"Adding [{}][{}] to used bytes [new used: [{}], limit: {} [{}], estimate: {} [{}]]"
 argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
 name|bytes
 argument_list|)
+argument_list|,
+name|fieldName
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -458,7 +467,7 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"New used memory {} [{}] would be larger than configured breaker: {} [{}], breaking"
+literal|"New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
 argument_list|,
 name|newUsedWithOverhead
 argument_list|,
@@ -467,6 +476,8 @@ name|ByteSizeValue
 argument_list|(
 name|newUsedWithOverhead
 argument_list|)
+argument_list|,
+name|fieldName
 argument_list|,
 name|memoryBytesLimit
 argument_list|,
@@ -478,7 +489,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|circuitBreak
-argument_list|()
+argument_list|(
+name|fieldName
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Attempt to set the new used value, but make sure it hasn't changed
@@ -598,6 +611,22 @@ return|return
 name|this
 operator|.
 name|overheadConstant
+return|;
+block|}
+comment|/**      * @return the number of times the breaker has been tripped      */
+DECL|method|getTrippedCount
+specifier|public
+name|long
+name|getTrippedCount
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|trippedCount
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 block|}

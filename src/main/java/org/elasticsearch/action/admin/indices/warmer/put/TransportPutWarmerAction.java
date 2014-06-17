@@ -508,7 +508,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|indices
+name|indicesOptions
 argument_list|()
 argument_list|,
 name|request
@@ -516,7 +516,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|indicesOptions
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -797,7 +797,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|indices
+name|indicesOptions
 argument_list|()
 argument_list|,
 name|request
@@ -805,7 +805,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|indicesOptions
+name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;

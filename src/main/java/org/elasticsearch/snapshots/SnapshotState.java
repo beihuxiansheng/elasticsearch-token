@@ -42,6 +42,10 @@ operator|(
 name|byte
 operator|)
 literal|0
+argument_list|,
+literal|false
+argument_list|,
+literal|false
 argument_list|)
 block|,
 comment|/**      * Snapshot process completed successfully      */
@@ -52,6 +56,10 @@ operator|(
 name|byte
 operator|)
 literal|1
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 block|,
 comment|/**      * Snapshot failed      */
@@ -62,6 +70,24 @@ operator|(
 name|byte
 operator|)
 literal|2
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|)
+block|,
+comment|/**      * Snapshot was partial successful      */
+DECL|enum constant|PARTIAL
+name|PARTIAL
+argument_list|(
+operator|(
+name|byte
+operator|)
+literal|3
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 block|;
 DECL|field|value
@@ -69,12 +95,28 @@ specifier|private
 name|byte
 name|value
 decl_stmt|;
+DECL|field|completed
+specifier|private
+name|boolean
+name|completed
+decl_stmt|;
+DECL|field|restorable
+specifier|private
+name|boolean
+name|restorable
+decl_stmt|;
 DECL|method|SnapshotState
 specifier|private
 name|SnapshotState
 parameter_list|(
 name|byte
 name|value
+parameter_list|,
+name|boolean
+name|completed
+parameter_list|,
+name|boolean
+name|restorable
 parameter_list|)
 block|{
 name|this
@@ -82,6 +124,18 @@ operator|.
 name|value
 operator|=
 name|value
+expr_stmt|;
+name|this
+operator|.
+name|completed
+operator|=
+name|completed
+expr_stmt|;
+name|this
+operator|.
+name|restorable
+operator|=
+name|restorable
 expr_stmt|;
 block|}
 comment|/**      * Returns code that represents the snapshot state      *      * @return code for the state      */
@@ -103,13 +157,18 @@ name|completed
 parameter_list|()
 block|{
 return|return
-name|this
-operator|==
-name|SUCCESS
-operator|||
-name|this
-operator|==
-name|FAILED
+name|completed
+return|;
+block|}
+comment|/**      * Returns true if snapshot can be restored (at least partially)      *      * @return true if snapshot can be restored, false otherwise      */
+DECL|method|restorable
+specifier|public
+name|boolean
+name|restorable
+parameter_list|()
+block|{
+return|return
+name|restorable
 return|;
 block|}
 comment|/**      * Generate snapshot state from code      *      * @param value the state code      * @return state      */
@@ -145,6 +204,12 @@ literal|2
 case|:
 return|return
 name|FAILED
+return|;
+case|case
+literal|3
+case|:
+return|return
+name|PARTIAL
 return|;
 default|default:
 throw|throw

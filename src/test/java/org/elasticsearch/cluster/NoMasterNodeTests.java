@@ -152,6 +152,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -181,6 +197,20 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
 import|;
 end_import
 
@@ -218,13 +248,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -237,6 +265,11 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"action:TRACE,cluster.service:TRACE"
+argument_list|)
 DECL|method|testNoMasterActions
 specifier|public
 name|void
@@ -299,7 +332,7 @@ argument_list|(
 literal|200
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -308,7 +341,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 comment|// start a second node, create an index, and then shut it down so we have no master block
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -344,10 +377,10 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -872,7 +905,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

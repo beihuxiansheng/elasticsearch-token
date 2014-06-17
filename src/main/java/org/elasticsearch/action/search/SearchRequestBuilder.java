@@ -82,20 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClient
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -323,6 +309,8 @@ argument_list|,
 name|SearchResponse
 argument_list|,
 name|SearchRequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 block|{
 DECL|field|sourceBuilder
@@ -340,9 +328,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClient
-operator|)
 name|client
 argument_list|,
 operator|new
@@ -604,48 +589,6 @@ operator|.
 name|preference
 argument_list|(
 name|preference
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Controls the the search operation threading model.      */
-DECL|method|setOperationThreading
-specifier|public
-name|SearchRequestBuilder
-name|setOperationThreading
-parameter_list|(
-name|SearchOperationThreading
-name|operationThreading
-parameter_list|)
-block|{
-name|request
-operator|.
-name|operationThreading
-argument_list|(
-name|operationThreading
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the string representation of the operation threading model. Can be one of      * "no_threads", "single_thread" and "thread_per_shard".      */
-DECL|method|setOperationThreading
-specifier|public
-name|SearchRequestBuilder
-name|setOperationThreading
-parameter_list|(
-name|String
-name|operationThreading
-parameter_list|)
-block|{
-name|request
-operator|.
-name|operationThreading
-argument_list|(
-name|operationThreading
 argument_list|)
 expr_stmt|;
 return|return
@@ -1591,7 +1534,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a facet to the search operation.      */
+comment|/**      * Adds a facet to the search operation.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addFacet
 specifier|public
 name|SearchRequestBuilder
@@ -1613,7 +1558,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1635,7 +1582,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1658,7 +1607,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1691,7 +1642,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -1713,7 +1666,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      */
+comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setFacets
 specifier|public
 name|SearchRequestBuilder
@@ -2411,6 +2366,28 @@ operator|.
 name|forceSource
 argument_list|(
 name|forceSource
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Send the fields to be highlighted using a syntax that is specific about the order in which they should be highlighted.      * @return this for chaining      */
+DECL|method|setHighlighterExplicitFieldOrder
+specifier|public
+name|SearchRequestBuilder
+name|setHighlighterExplicitFieldOrder
+parameter_list|(
+name|boolean
+name|explicitFieldOrder
+parameter_list|)
+block|{
+name|highlightBuilder
+argument_list|()
+operator|.
+name|useExplicitFieldOrder
+argument_list|(
+name|explicitFieldOrder
 argument_list|)
 expr_stmt|;
 return|return
@@ -3155,12 +3132,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-operator|(
-operator|(
-name|Client
-operator|)
 name|client
-operator|)
 operator|.
 name|search
 argument_list|(

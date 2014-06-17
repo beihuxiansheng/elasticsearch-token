@@ -264,7 +264,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -453,7 +453,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1016,7 +1016,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1203,7 +1203,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1342,7 +1342,7 @@ name|indicesOptions
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1456,7 +1456,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1629,7 +1629,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1775,7 +1775,7 @@ name|equalTo
 argument_list|(
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 argument_list|)
 argument_list|)

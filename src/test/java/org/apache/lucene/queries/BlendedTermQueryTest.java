@@ -228,7 +228,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|_TestUtil
+name|TestUtil
 import|;
 end_import
 
@@ -901,6 +901,16 @@ block|,
 literal|"foo fighters generator"
 block|}
 decl_stmt|;
+specifier|final
+name|boolean
+name|omitNorms
+init|=
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
+argument_list|()
+decl_stmt|;
 name|FieldType
 name|ft
 init|=
@@ -939,11 +949,7 @@ name|ft
 operator|.
 name|setOmitNorms
 argument_list|(
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+name|omitNorms
 argument_list|)
 expr_stmt|;
 name|ft
@@ -989,11 +995,7 @@ name|ft1
 operator|.
 name|setOmitNorms
 argument_list|(
-name|random
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
+name|omitNorms
 argument_list|)
 expr_stmt|;
 name|ft1
@@ -1687,7 +1689,7 @@ index|[
 name|i
 index|]
 operator|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -1703,7 +1705,7 @@ block|}
 name|String
 name|term
 init|=
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -2012,7 +2014,7 @@ argument_list|(
 operator|new
 name|Term
 argument_list|(
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(
@@ -2024,7 +2026,7 @@ argument_list|,
 literal|10
 argument_list|)
 argument_list|,
-name|_TestUtil
+name|TestUtil
 operator|.
 name|randomRealisticUnicodeString
 argument_list|(

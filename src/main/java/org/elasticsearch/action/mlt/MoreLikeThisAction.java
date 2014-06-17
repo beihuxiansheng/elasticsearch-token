@@ -36,6 +36,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ClientAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|search
 operator|.
 name|SearchResponse
@@ -64,7 +76,7 @@ specifier|public
 class|class
 name|MoreLikeThisAction
 extends|extends
-name|Action
+name|ClientAction
 argument_list|<
 name|MoreLikeThisRequest
 argument_list|,

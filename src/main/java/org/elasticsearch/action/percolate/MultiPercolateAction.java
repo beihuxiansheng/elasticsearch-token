@@ -34,6 +34,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|ClientAction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Client
@@ -50,7 +62,7 @@ specifier|public
 class|class
 name|MultiPercolateAction
 extends|extends
-name|Action
+name|ClientAction
 argument_list|<
 name|MultiPercolateRequest
 argument_list|,

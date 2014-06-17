@@ -165,6 +165,30 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -182,15 +206,17 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|SUITE
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|1
+argument_list|,
+name|numClientNodes
+operator|=
+literal|0
 argument_list|)
 DECL|class|ClusterStatsTests
 specifier|public
@@ -411,7 +437,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -472,7 +498,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -533,7 +559,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -835,7 +861,7 @@ literal|0.0
 argument_list|)
 expr_stmt|;
 comment|// add another node, replicas should get assigned
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1225,19 +1251,21 @@ specifier|public
 name|void
 name|testValuesSmokeScreen
 parameter_list|()
+throws|throws
+name|IOException
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|5
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|1
 argument_list|)
@@ -1245,7 +1273,7 @@ expr_stmt|;
 name|SigarService
 name|sigarService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

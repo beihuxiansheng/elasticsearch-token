@@ -513,12 +513,7 @@ operator|=
 name|FSTBytesAtomicFieldData
 operator|.
 name|empty
-argument_list|(
-name|reader
-operator|.
-name|maxDoc
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|estimator
 operator|.
@@ -710,11 +705,6 @@ operator|.
 name|nextOrdinal
 argument_list|()
 decl_stmt|;
-assert|assert
-name|termOrd
-operator|>
-literal|0
-assert|;
 name|fstBuilder
 operator|.
 name|add

@@ -96,6 +96,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -157,6 +171,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|ClusterScope
+argument_list|(
+name|randomDynamicTemplates
+operator|=
+literal|false
+argument_list|)
 DECL|class|SimpleGetMappingsTests
 specifier|public
 class|class

@@ -72,6 +72,11 @@ index|[]
 name|extensions
 parameter_list|()
 function_decl|;
+DECL|method|sandboxed
+name|boolean
+name|sandboxed
+parameter_list|()
+function_decl|;
 DECL|method|compile
 name|Object
 name|compile

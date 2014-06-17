@@ -313,7 +313,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 decl_stmt|;
 DECL|field|requests
@@ -410,14 +410,14 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|&&
 name|indicesOptions
 operator|!=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 condition|)
 block|{
@@ -616,7 +616,7 @@ name|indicesOptions
 operator|!=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 condition|)
 block|{
@@ -1027,7 +1027,7 @@ name|ignoreUnavailable
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|.
 name|ignoreUnavailable
@@ -1038,7 +1038,7 @@ name|allowNoIndices
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|.
 name|allowNoIndices
@@ -1049,7 +1049,7 @@ name|expandWildcardsOpen
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|.
 name|expandWildcardsOpen
@@ -1060,7 +1060,7 @@ name|expandWildcardsClosed
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|.
 name|expandWildcardsClosed

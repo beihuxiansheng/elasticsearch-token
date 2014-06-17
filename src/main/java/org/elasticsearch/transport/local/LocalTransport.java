@@ -1610,7 +1610,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|handleParsedRespone
+name|handleParsedResponse
 argument_list|(
 name|response
 argument_list|,
@@ -1618,10 +1618,10 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|handleParsedRespone
+DECL|method|handleParsedResponse
 specifier|protected
 name|void
-name|handleParsedRespone
+name|handleParsedResponse
 parameter_list|(
 specifier|final
 name|TransportResponse

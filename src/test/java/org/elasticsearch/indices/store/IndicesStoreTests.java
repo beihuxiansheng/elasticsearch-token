@@ -122,7 +122,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -194,6 +194,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -212,13 +226,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -263,7 +275,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -275,7 +287,7 @@ specifier|final
 name|String
 name|node_2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -443,7 +455,7 @@ expr_stmt|;
 name|String
 name|node_3
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -494,12 +506,12 @@ argument_list|(
 literal|"--> stopping node node_2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
 argument_list|(
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|nameFilter
 argument_list|(
@@ -651,7 +663,7 @@ specifier|final
 name|String
 name|node_4
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -797,7 +809,7 @@ block|{
 name|NodeEnvironment
 name|env
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

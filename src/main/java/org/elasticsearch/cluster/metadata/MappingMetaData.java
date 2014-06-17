@@ -2559,6 +2559,8 @@ name|String
 name|timestamp
 parameter_list|)
 block|{
+comment|// We parse the routing even if there is already a routing key in the request in order to make sure that
+comment|// they are the same
 return|return
 operator|new
 name|ParseContext
@@ -2573,10 +2575,6 @@ operator|.
 name|hasPath
 argument_list|()
 argument_list|,
-name|routing
-operator|==
-literal|null
-operator|&&
 name|routing
 argument_list|()
 operator|.

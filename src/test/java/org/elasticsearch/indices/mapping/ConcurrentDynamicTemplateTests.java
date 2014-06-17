@@ -264,7 +264,7 @@ name|i
 operator|++
 control|)
 block|{
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices

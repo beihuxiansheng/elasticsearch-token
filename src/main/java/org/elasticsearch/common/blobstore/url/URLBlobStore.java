@@ -132,6 +132,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -176,11 +188,11 @@ name|AbstractComponent
 implements|implements
 name|BlobStore
 block|{
-DECL|field|executor
+DECL|field|threadPool
 specifier|private
 specifier|final
-name|Executor
-name|executor
+name|ThreadPool
+name|threadPool
 decl_stmt|;
 DECL|field|path
 specifier|private
@@ -194,7 +206,7 @@ specifier|final
 name|int
 name|bufferSizeInBytes
 decl_stmt|;
-comment|/**      * Constructs new read-only URL-based blob store      *<p/>      * The following settings are supported      *<dl>      *<dt>buffer_size</dt>      *<dd>- size of the read buffer, defaults to 100KB</dd>      *</dl>      *      * @param settings settings      * @param executor executor for read operations      * @param path     base URL      */
+comment|/**      * Constructs new read-only URL-based blob store      *<p/>      * The following settings are supported      *<dl>      *<dt>buffer_size</dt>      *<dd>- size of the read buffer, defaults to 100KB</dd>      *</dl>      *      * @param settings settings      * @param threadPool thread pool for read operations      * @param path     base URL      */
 DECL|method|URLBlobStore
 specifier|public
 name|URLBlobStore
@@ -202,8 +214,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Executor
-name|executor
+name|ThreadPool
+name|threadPool
 parameter_list|,
 name|URL
 name|path
@@ -249,9 +261,9 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|executor
+name|threadPool
 operator|=
-name|executor
+name|threadPool
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
@@ -302,7 +314,16 @@ name|executor
 parameter_list|()
 block|{
 return|return
+name|threadPool
+operator|.
 name|executor
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SNAPSHOT_DATA
+argument_list|)
 return|;
 block|}
 comment|/**      * {@inheritDoc}      */

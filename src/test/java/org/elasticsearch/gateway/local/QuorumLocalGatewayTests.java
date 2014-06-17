@@ -160,7 +160,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|RestartCallback
 import|;
@@ -258,6 +258,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -302,14 +316,12 @@ begin_class
 annotation|@
 name|ClusterScope
 argument_list|(
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|,
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
@@ -357,7 +369,7 @@ name|String
 index|[]
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -546,7 +558,7 @@ argument_list|(
 literal|"--> restarting 1 nodes -- kill 2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -703,7 +715,7 @@ block|{
 name|ClusterStateResponse
 name|clusterStateResponse
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|smartClient
@@ -764,7 +776,7 @@ specifier|final
 name|ClusterStateResponse
 name|clusterStateResponse
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|smartClient
@@ -1011,7 +1023,7 @@ argument_list|(
 literal|"--> starting 3 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -1184,7 +1196,7 @@ argument_list|(
 literal|"--> restart all nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart

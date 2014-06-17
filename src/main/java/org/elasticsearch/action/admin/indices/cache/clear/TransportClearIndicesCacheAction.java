@@ -633,6 +633,9 @@ specifier|protected
 name|ShardClearIndicesCacheRequest
 name|newShardRequest
 parameter_list|(
+name|int
+name|numShards
+parameter_list|,
 name|ShardRouting
 name|shard
 parameter_list|,
@@ -885,7 +888,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Clear CacheRecycler on index [{}]"
 argument_list|,

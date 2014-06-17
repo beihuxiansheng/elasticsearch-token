@@ -1080,6 +1080,9 @@ specifier|protected
 name|PercolateShardRequest
 name|newShardRequest
 parameter_list|(
+name|int
+name|numShards
+parameter_list|,
 name|ShardRouting
 name|shard
 parameter_list|,
@@ -1100,6 +1103,8 @@ name|shard
 operator|.
 name|id
 argument_list|()
+argument_list|,
+name|numShards
 argument_list|,
 name|request
 argument_list|)

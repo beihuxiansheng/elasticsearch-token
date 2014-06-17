@@ -38,17 +38,21 @@ specifier|public
 enum|enum
 name|ScoreType
 block|{
-comment|/**      * Only the highest score of all matching child documents is mapped into the parent.      */
+comment|/**      * Only the highest score of all matching child documents is mapped into the      * parent.      */
 DECL|enum constant|MAX
 name|MAX
 block|,
-comment|/**      * The average score based on all matching child documents are mapped into the parent.      */
+comment|/**      * The average score based on all matching child documents are mapped into      * the parent.      */
 DECL|enum constant|AVG
 name|AVG
 block|,
 comment|/**      * The matching children scores is summed up and mapped into the parent.      */
 DECL|enum constant|SUM
 name|SUM
+block|,
+comment|/**      * Scores are not taken into account      */
+DECL|enum constant|NONE
+name|NONE
 block|;
 DECL|method|fromString
 specifier|public
@@ -60,6 +64,21 @@ name|String
 name|type
 parameter_list|)
 block|{
+if|if
+condition|(
+literal|"none"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|NONE
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 literal|"max"

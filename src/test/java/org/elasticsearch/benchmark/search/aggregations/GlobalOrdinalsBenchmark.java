@@ -1295,6 +1295,17 @@ argument_list|(
 name|threshold
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"--> Threshold: "
+operator|+
+name|threshold
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1321,9 +1332,7 @@ decl_stmt|;
 name|String
 name|name
 init|=
-name|threshold
-operator|+
-literal|"-"
+literal|"global_ordinals-"
 operator|+
 name|fieldName
 decl_stmt|;
@@ -1356,7 +1365,7 @@ name|name
 argument_list|,
 name|fieldName
 argument_list|,
-literal|"global_ordinals"
+literal|"global_ordinals_low_cardinality"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1388,7 +1397,7 @@ decl_stmt|;
 name|String
 name|name
 init|=
-literal|"segment-ordinals-"
+literal|"ordinals-"
 operator|+
 name|fieldName
 decl_stmt|;
@@ -1432,7 +1441,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"------------------ SUMMARY ----------------------------------------------"
+literal|"------------------ SUMMARY -----------------------------------------"
 argument_list|)
 expr_stmt|;
 name|System
@@ -1445,7 +1454,7 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|,
-literal|"%40s%10s%10s%15s\n"
+literal|"%30s%10s%10s%15s\n"
 argument_list|,
 literal|"name"
 argument_list|,
@@ -1474,7 +1483,7 @@ name|Locale
 operator|.
 name|ENGLISH
 argument_list|,
-literal|"%40s%10s%10d%15s\n"
+literal|"%30s%10s%10d%15s\n"
 argument_list|,
 name|stat
 operator|.
@@ -1509,7 +1518,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"------------------ SUMMARY ----------------------------------------------"
+literal|"------------------ SUMMARY -----------------------------------------"
 argument_list|)
 expr_stmt|;
 name|client

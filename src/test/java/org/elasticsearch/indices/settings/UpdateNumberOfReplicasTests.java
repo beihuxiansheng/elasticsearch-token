@@ -101,6 +101,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1145,11 +1155,13 @@ specifier|public
 name|void
 name|testAutoExpandNumberOfReplicas0ToData
 parameter_list|()
+throws|throws
+name|IOException
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -1526,10 +1538,10 @@ argument_list|(
 literal|"--> closing one node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -1708,10 +1720,10 @@ argument_list|(
 literal|"--> closing another node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|1
 argument_list|)
@@ -1887,6 +1899,8 @@ specifier|public
 name|void
 name|testAutoExpandNumberReplicas1ToData
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|logger
 operator|.
@@ -1895,10 +1909,10 @@ argument_list|(
 literal|"--> creating index test with auto expand replicas"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2263,10 +2277,10 @@ argument_list|(
 literal|"--> closing one node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -2445,10 +2459,10 @@ argument_list|(
 literal|"--> closing another node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtMostNumNodes
+name|ensureAtMostNumDataNodes
 argument_list|(
 literal|1
 argument_list|)

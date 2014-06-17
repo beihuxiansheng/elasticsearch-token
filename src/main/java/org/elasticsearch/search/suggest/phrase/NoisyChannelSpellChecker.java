@@ -813,7 +813,7 @@ expr_stmt|;
 block|}
 name|Correction
 index|[]
-name|findBestCandiates
+name|bestCandidates
 init|=
 name|scorer
 operator|.
@@ -830,7 +830,7 @@ return|return
 operator|new
 name|Result
 argument_list|(
-name|findBestCandiates
+name|bestCandidates
 argument_list|,
 name|cutoffScore
 argument_list|)

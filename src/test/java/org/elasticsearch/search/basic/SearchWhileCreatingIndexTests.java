@@ -289,10 +289,10 @@ literal|2
 operator|+
 literal|1
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 name|randomIntBetween
 argument_list|(
@@ -660,10 +660,10 @@ operator|.
 name|getStatus
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 name|numberOfReplicas
 operator|+
@@ -671,7 +671,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|wipeIndices

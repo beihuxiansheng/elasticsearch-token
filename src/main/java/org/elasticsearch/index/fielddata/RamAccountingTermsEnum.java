@@ -74,20 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|AbstractIndexFieldData
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -143,6 +129,12 @@ operator|.
 name|PerValueEstimator
 name|estimator
 decl_stmt|;
+DECL|field|fieldName
+specifier|private
+specifier|final
+name|String
+name|fieldName
+decl_stmt|;
 DECL|field|totalBytes
 specifier|private
 name|long
@@ -167,6 +159,9 @@ name|AbstractIndexFieldData
 operator|.
 name|PerValueEstimator
 name|estimator
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 block|{
 name|super
@@ -191,6 +186,12 @@ operator|.
 name|estimator
 operator|=
 name|estimator
+expr_stmt|;
+name|this
+operator|.
+name|fieldName
+operator|=
+name|fieldName
 expr_stmt|;
 name|this
 operator|.
@@ -239,6 +240,10 @@ argument_list|(
 name|this
 operator|.
 name|flushBuffer
+argument_list|,
+name|this
+operator|.
+name|fieldName
 argument_list|)
 expr_stmt|;
 name|this

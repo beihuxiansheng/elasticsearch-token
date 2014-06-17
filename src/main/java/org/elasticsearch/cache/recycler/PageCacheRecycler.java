@@ -1648,7 +1648,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|SOFT_CONCURRENT
+name|CONCURRENT
 return|;
 block|}
 try|try

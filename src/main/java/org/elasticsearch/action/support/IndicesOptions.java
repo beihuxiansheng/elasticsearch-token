@@ -32,6 +32,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Strings
@@ -93,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Controls how to deal when concrete indices are unavailable (closed& missing), to what wildcard expression expand  * (all, closed or open indices) and how to deal when a wildcard expression resolves into no concrete indices.  */
+comment|/**  * Controls how to deal with unavailable concrete indices (closed or missing), how wildcard expressions are expanded  * to actual indices (all, closed or open indices) and how to deal with wildcard expressions that resolve to no indices.  */
 end_comment
 
 begin_class
@@ -110,6 +120,51 @@ name|IndicesOptions
 index|[]
 name|VALUES
 decl_stmt|;
+DECL|field|IGNORE_UNAVAILABLE
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|IGNORE_UNAVAILABLE
+init|=
+literal|1
+decl_stmt|;
+DECL|field|ALLOW_NO_INDICES
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|ALLOW_NO_INDICES
+init|=
+literal|2
+decl_stmt|;
+DECL|field|EXPAND_WILDCARDS_OPEN
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|EXPAND_WILDCARDS_OPEN
+init|=
+literal|4
+decl_stmt|;
+DECL|field|EXPAND_WILDCARDS_CLOSED
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|EXPAND_WILDCARDS_CLOSED
+init|=
+literal|8
+decl_stmt|;
+DECL|field|FORBID_ALIASES_TO_MULTIPLE_INDICES
+specifier|private
+specifier|static
+specifier|final
+name|byte
+name|FORBID_ALIASES_TO_MULTIPLE_INDICES
+init|=
+literal|16
+decl_stmt|;
 static|static
 block|{
 name|byte
@@ -117,7 +172,7 @@ name|max
 init|=
 literal|1
 operator|<<
-literal|4
+literal|5
 decl_stmt|;
 name|VALUES
 operator|=
@@ -187,13 +242,13 @@ return|return
 operator|(
 name|id
 operator|&
-literal|1
+name|IGNORE_UNAVAILABLE
 operator|)
 operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether to ignore if a wildcard indices expression resolves into no concrete indices.      *         The `_all` string or when no indices have been specified also count as wildcard expressions.      */
+comment|/**      * @return Whether to ignore if a wildcard expression resolves to no concrete indices.      *         The `_all` string or empty list of indices count as wildcard expressions too.      */
 DECL|method|allowNoIndices
 specifier|public
 name|boolean
@@ -204,13 +259,13 @@ return|return
 operator|(
 name|id
 operator|&
-literal|2
+name|ALLOW_NO_INDICES
 operator|)
 operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether wildcard indices expressions should expanded into open indices should be      */
+comment|/**      * @return Whether wildcard expressions should get expanded to open indices      */
 DECL|method|expandWildcardsOpen
 specifier|public
 name|boolean
@@ -221,13 +276,13 @@ return|return
 operator|(
 name|id
 operator|&
-literal|4
+name|EXPAND_WILDCARDS_OPEN
 operator|)
 operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether wildcard indices expressions should expanded into closed indices should be      */
+comment|/**      * @return Whether wildcard expressions should get expanded to closed indices      */
 DECL|method|expandWildcardsClosed
 specifier|public
 name|boolean
@@ -238,9 +293,28 @@ return|return
 operator|(
 name|id
 operator|&
-literal|8
+name|EXPAND_WILDCARDS_CLOSED
 operator|)
 operator|!=
+literal|0
+return|;
+block|}
+comment|/**      * @return whether aliases pointing to multiple indices are allowed      */
+DECL|method|allowAliasesToMultipleIndices
+specifier|public
+name|boolean
+name|allowAliasesToMultipleIndices
+parameter_list|()
+block|{
+comment|//true is default here, for bw comp we keep the first 16 values
+comment|//in the array same as before + the default value for the new flag
+return|return
+operator|(
+name|id
+operator|&
+name|FORBID_ALIASES_TO_MULTIPLE_INDICES
+operator|)
+operator|==
 literal|0
 return|;
 block|}
@@ -255,6 +329,24 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|allowAliasesToMultipleIndices
+argument_list|()
+operator|||
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_1_2_0
+argument_list|)
+condition|)
+block|{
 name|out
 operator|.
 name|write
@@ -262,6 +354,21 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|//if we are talking to a node that doesn't support the newly added flag (allowAliasesToMultipleIndices)
+comment|//flip to 0 all the bits starting from the 5th
+name|out
+operator|.
+name|write
+argument_list|(
+name|id
+operator|&
+literal|0xf
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|readIndicesOptions
 specifier|public
@@ -275,6 +382,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//if we read from a node that doesn't support the newly added flag (allowAliasesToMultipleIndices)
+comment|//we just receive the old corresponding value with the new flag set to true (default)
 name|byte
 name|id
 init|=
@@ -328,6 +437,42 @@ name|boolean
 name|expandToClosedIndices
 parameter_list|)
 block|{
+return|return
+name|fromOptions
+argument_list|(
+name|ignoreUnavailable
+argument_list|,
+name|allowNoIndices
+argument_list|,
+name|expandToOpenIndices
+argument_list|,
+name|expandToClosedIndices
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+DECL|method|fromOptions
+specifier|static
+name|IndicesOptions
+name|fromOptions
+parameter_list|(
+name|boolean
+name|ignoreUnavailable
+parameter_list|,
+name|boolean
+name|allowNoIndices
+parameter_list|,
+name|boolean
+name|expandToOpenIndices
+parameter_list|,
+name|boolean
+name|expandToClosedIndices
+parameter_list|,
+name|boolean
+name|allowAliasesToMultipleIndices
+parameter_list|)
+block|{
 name|byte
 name|id
 init|=
@@ -340,6 +485,8 @@ argument_list|,
 name|expandToOpenIndices
 argument_list|,
 name|expandToClosedIndices
+argument_list|,
+name|allowAliasesToMultipleIndices
 argument_list|)
 decl_stmt|;
 return|return
@@ -500,6 +647,7 @@ throw|;
 block|}
 block|}
 block|}
+comment|//note that allowAliasesToMultipleIndices is not exposed, always true (only for internal use)
 return|return
 name|fromOptions
 argument_list|(
@@ -529,12 +677,12 @@ name|expandWildcardsClosed
 argument_list|)
 return|;
 block|}
-comment|/**      * @return indices options that requires any specified index to exists, expands wildcards only to open indices and      *         allow that no indices are resolved from wildcard expressions (not returning an error).      */
-DECL|method|strict
+comment|/**      * @return indices options that requires every specified index to exist, expands wildcards only to open indices and      *         allows that no indices are resolved from wildcard expressions (not returning an error).      */
+DECL|method|strictExpandOpen
 specifier|public
 specifier|static
 name|IndicesOptions
-name|strict
+name|strictExpandOpen
 parameter_list|()
 block|{
 return|return
@@ -544,12 +692,42 @@ literal|6
 index|]
 return|;
 block|}
-comment|/**      * @return indices options that ignore unavailable indices, expand wildcards only to open indices and      *         allow that no indices are resolved from wildcard expressions (not returning an error).      */
-DECL|method|lenient
+comment|/**      * @return indices option that requires every specified index to exist, expands wildcards to both open and closed      * indices and allows that no indices are resolved from wildcard expressions (not returning an error).      */
+DECL|method|strictExpand
 specifier|public
 specifier|static
 name|IndicesOptions
-name|lenient
+name|strictExpand
+parameter_list|()
+block|{
+return|return
+name|VALUES
+index|[
+literal|14
+index|]
+return|;
+block|}
+comment|/**      * @return indices option that requires each specified index or alias to exist, doesn't expand wildcards and      * throws error if any of the aliases resolves to multiple indices      */
+DECL|method|strictSingleIndexNoExpand
+specifier|public
+specifier|static
+name|IndicesOptions
+name|strictSingleIndexNoExpand
+parameter_list|()
+block|{
+return|return
+name|VALUES
+index|[
+name|FORBID_ALIASES_TO_MULTIPLE_INDICES
+index|]
+return|;
+block|}
+comment|/**      * @return indices options that ignores unavailable indices, expands wildcards only to open indices and      *         allows that no indices are resolved from wildcard expressions (not returning an error).      */
+DECL|method|lenientExpandOpen
+specifier|public
+specifier|static
+name|IndicesOptions
+name|lenientExpandOpen
 parameter_list|()
 block|{
 return|return
@@ -576,6 +754,9 @@ name|wildcardExpandToOpen
 parameter_list|,
 name|boolean
 name|wildcardExpandToClosed
+parameter_list|,
+name|boolean
+name|allowAliasesToMultipleIndices
 parameter_list|)
 block|{
 name|byte
@@ -590,7 +771,7 @@ condition|)
 block|{
 name|id
 operator||=
-literal|1
+name|IGNORE_UNAVAILABLE
 expr_stmt|;
 block|}
 if|if
@@ -600,7 +781,7 @@ condition|)
 block|{
 name|id
 operator||=
-literal|2
+name|ALLOW_NO_INDICES
 expr_stmt|;
 block|}
 if|if
@@ -610,7 +791,7 @@ condition|)
 block|{
 name|id
 operator||=
-literal|4
+name|EXPAND_WILDCARDS_OPEN
 expr_stmt|;
 block|}
 if|if
@@ -620,7 +801,20 @@ condition|)
 block|{
 name|id
 operator||=
-literal|8
+name|EXPAND_WILDCARDS_CLOSED
+expr_stmt|;
+block|}
+comment|//true is default here, for bw comp we keep the first 16 values
+comment|//in the array same as before + the default value for the new flag
+if|if
+condition|(
+operator|!
+name|allowAliasesToMultipleIndices
+condition|)
+block|{
+name|id
+operator||=
+name|FORBID_ALIASES_TO_MULTIPLE_INDICES
 expr_stmt|;
 block|}
 return|return

@@ -1720,6 +1720,17 @@ return|return
 name|this
 operator|.
 name|queryBuilder
+operator|==
+literal|null
+condition|?
+name|super
+operator|.
+name|forceAnalyzeQueryString
+argument_list|()
+else|:
+name|this
+operator|.
+name|queryBuilder
 operator|.
 name|forceAnalyzeQueryString
 argument_list|()

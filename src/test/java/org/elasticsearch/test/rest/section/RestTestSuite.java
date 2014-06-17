@@ -103,7 +103,7 @@ name|testSections
 init|=
 name|Sets
 operator|.
-name|newHashSet
+name|newTreeSet
 argument_list|()
 decl_stmt|;
 DECL|method|RestTestSuite
@@ -150,12 +150,10 @@ return|return
 name|name
 return|;
 block|}
-comment|//describes the rest test suite (e.g. index/10_with_id)
-comment|//useful also to reproduce failures
-DECL|method|getDescription
+DECL|method|getPath
 specifier|public
 name|String
-name|getDescription
+name|getPath
 parameter_list|()
 block|{
 return|return

@@ -140,7 +140,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 import|;
 end_import
 
@@ -156,7 +156,7 @@ name|aggregations
 operator|.
 name|metrics
 operator|.
-name|MetricsAggregator
+name|NumericMetricsAggregator
 import|;
 end_import
 
@@ -1003,7 +1003,7 @@ if|if
 condition|(
 name|agg
 operator|instanceof
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
 condition|)
@@ -1059,7 +1059,7 @@ name|value
 operator|=
 operator|(
 operator|(
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|SingleValue
 operator|)
@@ -1105,7 +1105,7 @@ name|value
 operator|=
 operator|(
 operator|(
-name|MetricsAggregation
+name|InternalNumericMetricsAggregation
 operator|.
 name|MultiValue
 operator|)
@@ -1209,7 +1209,7 @@ operator|||
 operator|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|&&
 name|i
 operator|==
@@ -1223,6 +1223,71 @@ operator|:
 literal|"this should be picked up before aggregation execution - on validate"
 assert|;
 block|}
+return|return
+name|aggregator
+return|;
+block|}
+comment|/**      * Resolves the topmost aggregator pointed by this path using the given root as a point of reference.      *      * @param root      The point of reference of this path      * @param validate  Indicates whether the path should be validated first over the given root aggregator      * @return          The first child aggregator of the root pointed by this path       */
+DECL|method|resolveTopmostAggregator
+specifier|public
+name|Aggregator
+name|resolveTopmostAggregator
+parameter_list|(
+name|Aggregator
+name|root
+parameter_list|,
+name|boolean
+name|validate
+parameter_list|)
+block|{
+if|if
+condition|(
+name|validate
+condition|)
+block|{
+name|validate
+argument_list|(
+name|root
+argument_list|)
+expr_stmt|;
+block|}
+name|OrderPath
+operator|.
+name|Token
+name|token
+init|=
+name|tokens
+index|[
+literal|0
+index|]
+decl_stmt|;
+name|Aggregator
+name|aggregator
+init|=
+name|root
+operator|.
+name|subAggregator
+argument_list|(
+name|token
+operator|.
+name|name
+argument_list|)
+decl_stmt|;
+assert|assert
+operator|(
+name|aggregator
+operator|instanceof
+name|SingleBucketAggregator
+operator|)
+operator|||
+operator|(
+name|aggregator
+operator|instanceof
+name|NumericMetricsAggregator
+operator|)
+operator|:
+literal|"this should be picked up before aggregation execution - on validate"
+assert|;
 return|return
 name|aggregator
 return|;
@@ -1407,7 +1472,7 @@ operator|!
 operator|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|)
 condition|)
 block|{
@@ -1492,7 +1557,7 @@ if|if
 condition|(
 name|aggregator
 operator|instanceof
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|SingleValue
 condition|)
@@ -1572,7 +1637,7 @@ condition|(
 operator|!
 operator|(
 operator|(
-name|MetricsAggregator
+name|NumericMetricsAggregator
 operator|.
 name|MultiValue
 operator|)

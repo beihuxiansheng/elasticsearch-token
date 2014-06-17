@@ -168,6 +168,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -186,13 +200,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|,
@@ -277,7 +289,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -420,7 +432,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// now start adding nodes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -473,7 +485,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// now start adding nodes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -571,10 +583,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now start shutting nodes down
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
@@ -625,10 +637,10 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
@@ -712,10 +724,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// closing the 3rd node
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered
@@ -765,10 +777,10 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 comment|// make sure the cluster state is green, and all has been recovered

@@ -634,7 +634,7 @@ name|acceptsDocsOutOfOrder
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|field|StopCollectingException

@@ -1018,7 +1018,7 @@ literal|"fuzzy_transpositions"
 operator|.
 name|equals
 argument_list|(
-name|fieldName
+name|currentFieldName
 argument_list|)
 condition|)
 block|{

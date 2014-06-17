@@ -286,7 +286,7 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -363,7 +363,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -459,7 +459,7 @@ block|{
 name|ClusterState
 name|state
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -562,7 +562,7 @@ specifier|final
 name|Client
 name|masterClient
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|masterClient
@@ -691,7 +691,7 @@ comment|// continuously ping until network failures have been resolved.
 name|Client
 name|isolatedNodeClient
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -822,7 +822,7 @@ block|{
 name|ClusterState
 name|state
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -904,7 +904,7 @@ block|{
 name|TransportService
 name|mockTransportService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -925,7 +925,7 @@ operator|)
 operator|.
 name|addFailToSendNoConnectRule
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -957,7 +957,7 @@ block|{
 name|TransportService
 name|mockTransportService
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -978,7 +978,7 @@ operator|)
 operator|.
 name|clearRule
 argument_list|(
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

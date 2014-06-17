@@ -180,7 +180,7 @@ name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -251,7 +251,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -335,7 +335,7 @@ block|{
 name|ClusterState
 name|state
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client

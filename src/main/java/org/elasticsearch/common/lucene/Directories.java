@@ -50,6 +50,18 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A set of utilities for Lucene {@link Directory}.  *  *  */
 end_comment
@@ -109,6 +121,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|NoSuchFileException
+decl||
 name|FileNotFoundException
 name|e
 parameter_list|)

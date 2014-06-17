@@ -208,7 +208,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -249,6 +249,16 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -311,7 +321,7 @@ block|{
 DECL|field|cluster2
 specifier|private
 specifier|static
-name|TestCluster
+name|InternalTestCluster
 name|cluster2
 decl_stmt|;
 DECL|field|tribeNode
@@ -344,7 +354,7 @@ comment|// create another cluster
 name|cluster2
 operator|=
 operator|new
-name|TestCluster
+name|InternalTestCluster
 argument_list|(
 name|randomLong
 argument_list|()
@@ -360,6 +370,10 @@ argument_list|(
 name|getRandom
 argument_list|()
 argument_list|)
+argument_list|,
+literal|0
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|cluster2
@@ -374,7 +388,7 @@ argument_list|)
 expr_stmt|;
 name|cluster2
 operator|.
-name|ensureAtLeastNumNodes
+name|ensureAtLeastNumDataNodes
 argument_list|(
 literal|2
 argument_list|)
@@ -420,6 +434,8 @@ specifier|public
 name|void
 name|tearDownTribeNode
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -484,7 +500,7 @@ name|put
 argument_list|(
 literal|"tribe.t1.cluster.name"
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getClusterName
@@ -563,7 +579,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -780,7 +796,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -800,7 +816,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1328,7 +1344,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1367,7 +1383,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -1607,7 +1623,7 @@ argument_list|(
 literal|"create 2 indices, test1 on t1, and test2 on t2"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client
@@ -2255,7 +2271,7 @@ argument_list|)
 expr_stmt|;
 name|cluster2
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 name|awaitSameNodeCounts
@@ -2431,7 +2447,7 @@ argument_list|,
 name|tribeNodes
 argument_list|)
 operator|==
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client

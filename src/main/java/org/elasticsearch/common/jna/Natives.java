@@ -205,7 +205,7 @@ literal|"Unable to lock JVM memory (ENOMEM)."
 operator|+
 literal|" This can result in part of the JVM being swapped out."
 operator|+
-literal|" Increase RLIMIT_MEMLOCK or run elasticsearch as root."
+literal|" Increase RLIMIT_MEMLOCK (ulimit)."
 argument_list|)
 expr_stmt|;
 block|}

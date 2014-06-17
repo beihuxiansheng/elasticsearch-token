@@ -76,20 +76,6 @@ name|ClusterAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClusterAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * Snapshots status request builder  */
 end_comment
@@ -107,6 +93,8 @@ argument_list|,
 name|SnapshotsStatusResponse
 argument_list|,
 name|SnapshotsStatusRequestBuilder
+argument_list|,
+name|ClusterAdminClient
 argument_list|>
 block|{
 comment|/**      * Constructs the new snapshotstatus request      *      * @param clusterAdminClient cluster admin client      */
@@ -120,9 +108,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterAdminClient
 argument_list|,
 operator|new
@@ -145,9 +130,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClusterAdminClient
-operator|)
 name|clusterAdminClient
 argument_list|,
 operator|new
@@ -251,12 +233,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|ClusterAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|snapshotsStatus
 argument_list|(

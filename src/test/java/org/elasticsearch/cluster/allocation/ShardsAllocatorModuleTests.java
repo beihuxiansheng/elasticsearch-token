@@ -143,6 +143,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -155,6 +165,20 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
 import|;
 end_import
 
@@ -176,13 +200,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -198,6 +220,8 @@ specifier|public
 name|void
 name|testLoadDefaultShardsAllocator
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|assertAllocatorInstance
 argument_list|(
@@ -218,6 +242,8 @@ specifier|public
 name|void
 name|testLoadByShortKeyShardsAllocator
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Settings
 name|build
@@ -282,6 +308,8 @@ specifier|public
 name|void
 name|testLoadByClassNameShardsAllocator
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Settings
 name|build
@@ -353,10 +381,12 @@ name|ShardsAllocator
 argument_list|>
 name|clazz
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 while|while
 condition|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -365,14 +395,14 @@ operator|!=
 literal|0
 condition|)
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -383,7 +413,7 @@ expr_stmt|;
 name|ShardsAllocator
 name|instance
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

@@ -551,7 +551,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|concreteIndex
+name|concreteSingleIndex
 argument_list|(
 name|request
 operator|.

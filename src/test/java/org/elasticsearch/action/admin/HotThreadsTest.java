@@ -586,7 +586,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size

@@ -641,7 +641,7 @@ return|return
 name|homeFile
 return|;
 block|}
-comment|/**      * The work location.      */
+comment|/**      * The work location, path to temp files.      *      * Note, currently, we don't use it in ES at all, we should strive to see if we can keep it like that,      * but if we do, we have the infra for it.      */
 DECL|method|workFile
 specifier|public
 name|File
@@ -652,7 +652,7 @@ return|return
 name|workFile
 return|;
 block|}
-comment|/**      * The work location with the cluster name as a sub directory.      */
+comment|/**      * The work location with the cluster name as a sub directory.      *      * Note, currently, we don't use it in ES at all, we should strive to see if we can keep it like that,      * but if we do, we have the infra for it.      */
 DECL|method|workWithClusterFile
 specifier|public
 name|File

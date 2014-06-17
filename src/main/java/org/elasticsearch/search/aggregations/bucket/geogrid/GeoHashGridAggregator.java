@@ -438,7 +438,16 @@ literal|1
 operator|-
 name|bucketOrdinal
 expr_stmt|;
+name|collectExistingBucket
+argument_list|(
+name|doc
+argument_list|,
+name|bucketOrdinal
+argument_list|)
+expr_stmt|;
 block|}
+else|else
+block|{
 name|collectBucket
 argument_list|(
 name|doc
@@ -446,6 +455,7 @@ argument_list|,
 name|bucketOrdinal
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// private impl that stores a bucket ord. This allows for computing the aggregations lazily.

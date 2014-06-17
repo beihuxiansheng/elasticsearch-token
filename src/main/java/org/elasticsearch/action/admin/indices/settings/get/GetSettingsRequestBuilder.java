@@ -90,20 +90,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalGenericClient
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -121,13 +107,15 @@ argument_list|,
 name|GetSettingsResponse
 argument_list|,
 name|GetSettingsRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|GetSettingsRequestBuilder
 specifier|public
 name|GetSettingsRequestBuilder
 parameter_list|(
-name|InternalGenericClient
+name|IndicesAdminClient
 name|client
 parameter_list|,
 name|String
@@ -262,12 +250,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|getSettings
 argument_list|(

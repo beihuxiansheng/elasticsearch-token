@@ -96,18 +96,6 @@ name|ElasticsearchIntegrationTest
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -176,7 +164,7 @@ name|int
 name|nodeOrdinal
 parameter_list|)
 block|{
-comment|// If we add a constructor to InternalNode that allows us to define a version, then in the TestCluster
+comment|// If we add a constructor to InternalNode that allows us to define a version, then in the InternalTestCluster
 comment|// we can start nodes with different versions and then we don't need this setting and would also be helpful
 comment|// for other tests
 name|Settings

@@ -68,6 +68,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|XStringField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|FieldInfo
@@ -884,7 +898,9 @@ return|return
 operator|new
 name|FieldDataType
 argument_list|(
-literal|"string"
+name|IndexFieldMapper
+operator|.
+name|NAME
 argument_list|)
 return|;
 block|}
@@ -1017,19 +1033,6 @@ name|IOException
 block|{      }
 annotation|@
 name|Override
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
-block|{     }
-annotation|@
-name|Override
 DECL|method|includeInObject
 specifier|public
 name|boolean
@@ -1074,7 +1077,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|Field
+name|XStringField
 argument_list|(
 name|names
 operator|.

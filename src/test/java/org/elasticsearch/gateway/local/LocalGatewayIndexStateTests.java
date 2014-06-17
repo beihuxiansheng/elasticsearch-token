@@ -284,7 +284,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -296,7 +296,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|RestartCallback
 import|;
@@ -348,6 +348,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -378,13 +392,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -429,7 +441,7 @@ argument_list|(
 literal|"--> starting 1 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -675,7 +687,7 @@ argument_list|(
 literal|"--> restarting nodes..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -854,7 +866,7 @@ argument_list|(
 literal|"--> starting 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -1760,7 +1772,7 @@ argument_list|(
 literal|"--> restarting nodes..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -2228,7 +2240,7 @@ argument_list|(
 literal|"--> starting 1 master node non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2288,7 +2300,7 @@ argument_list|(
 literal|"--> closing master node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|closeNonSharedNodes
@@ -2303,7 +2315,7 @@ argument_list|(
 literal|"--> starting 1 master node non data again"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2461,7 +2473,7 @@ argument_list|(
 literal|"--> starting 1 master node non data"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2487,7 +2499,7 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2649,7 +2661,7 @@ argument_list|(
 literal|"--> starting 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2668,7 +2680,7 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3135,7 +3147,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3143,7 +3155,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3336,7 +3348,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3348,7 +3360,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -3688,7 +3700,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3696,7 +3708,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -3889,7 +3901,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3901,7 +3913,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -4374,7 +4386,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -4382,7 +4394,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -4575,7 +4587,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -4587,7 +4599,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -4747,7 +4759,7 @@ argument_list|(
 literal|"--> restart start the nodes, but make sure we do recovery only after we have 2 nodes in the cluster"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -4960,7 +4972,7 @@ specifier|final
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -4968,7 +4980,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -5132,7 +5144,7 @@ specifier|final
 name|Gateway
 name|gateway1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -5144,7 +5156,7 @@ argument_list|,
 name|node_1
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|fullRestart
@@ -5295,12 +5307,12 @@ argument_list|(
 literal|"--> close the first node, so we remain with the second that has the dangling index"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNode
 argument_list|(
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|nameFilter
 argument_list|(
@@ -5345,33 +5357,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|assertThat
+name|logger
+operator|.
+name|info
 argument_list|(
-name|client
-argument_list|()
-operator|.
-name|prepareGet
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|isExists
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
+literal|"--> verify that doc 2 does exist"
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -5400,6 +5390,50 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// Need an ensure yellow here, since the index gets created (again) when we index doc2, so the shard that doc
+comment|// with id 1 is assigned to might not be in a started state. We don't need to do this when verifying if doc 2
+comment|// exists, because we index into the shard that doc gets assigned to.
+name|ensureYellow
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> verify that doc 1 doesn't exist"
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|prepareGet
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"type1"
+argument_list|,
+literal|"1"
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+operator|.
+name|isExists
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;

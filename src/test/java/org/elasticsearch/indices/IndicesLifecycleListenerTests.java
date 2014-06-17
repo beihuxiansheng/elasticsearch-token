@@ -326,7 +326,7 @@ name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -351,7 +351,7 @@ comment|//start with a single node
 name|String
 name|node1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -365,7 +365,7 @@ name|IndexShardStateChangeListener
 argument_list|()
 decl_stmt|;
 comment|//add a listener that keeps track of the shard state changes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -463,7 +463,7 @@ expr_stmt|;
 name|String
 name|node2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -477,7 +477,7 @@ name|IndexShardStateChangeListener
 argument_list|()
 decl_stmt|;
 comment|//add a listener that keeps track of the shard state changes
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

@@ -153,22 +153,6 @@ literal|"Empty BytesValues has no next value"
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|currentValueHash
-specifier|public
-name|int
-name|currentValueHash
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalStateException
-argument_list|(
-literal|"Empty BytesValues has no hash for the current value"
-argument_list|)
-throw|;
-block|}
 block|}
 end_class
 

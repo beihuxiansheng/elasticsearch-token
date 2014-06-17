@@ -74,6 +74,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|node
+operator|.
+name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|IndexRoutingTable
@@ -264,9 +278,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|threadpool
+name|transport
 operator|.
-name|ThreadPool
+name|TransportService
 import|;
 end_import
 
@@ -505,6 +519,12 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
+DECL|field|transportService
+specifier|private
+specifier|final
+name|TransportService
+name|transportService
+decl_stmt|;
 DECL|field|rateLimitingType
 specifier|private
 specifier|volatile
@@ -558,8 +578,8 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|ThreadPool
-name|threadPool
+name|TransportService
+name|transportService
 parameter_list|)
 block|{
 name|super
@@ -590,6 +610,12 @@ operator|.
 name|clusterService
 operator|=
 name|clusterService
+expr_stmt|;
+name|this
+operator|.
+name|transportService
+operator|=
+name|transportService
 expr_stmt|;
 comment|// we limit with 20MB / sec by default with a default type set to merge sice 0.90.1
 name|this
@@ -824,12 +850,12 @@ literal|false
 expr_stmt|;
 break|break;
 block|}
-comment|// if the allocated or relocation node id doesn't exists in the cluster state, its a stale
-comment|// node, make sure we don't do anything with this until the routing table has properly been
+comment|// if the allocated or relocation node id doesn't exists in the cluster state or we're not connected to it
+comment|// it may be a stale node, make sure we don't do anything with this until the routing table has properly been
 comment|// rerouted to reflect the fact that the node does not exists
-if|if
-condition|(
-operator|!
+name|DiscoveryNode
+name|node
+init|=
 name|event
 operator|.
 name|state
@@ -838,12 +864,26 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodeExists
+name|get
 argument_list|(
 name|shardRouting
 operator|.
 name|currentNodeId
 argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|node
+operator|==
+literal|null
+operator|||
+operator|!
+name|transportService
+operator|.
+name|nodeConnected
+argument_list|(
+name|node
 argument_list|)
 condition|)
 block|{
@@ -863,9 +903,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-operator|!
+name|node
+operator|=
 name|event
 operator|.
 name|state
@@ -874,12 +913,26 @@ operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodeExists
+name|get
 argument_list|(
 name|shardRouting
 operator|.
 name|relocatingNodeId
 argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|node
+operator|==
+literal|null
+operator|||
+operator|!
+name|transportService
+operator|.
+name|nodeConnected
+argument_list|(
+name|node
 argument_list|)
 condition|)
 block|{

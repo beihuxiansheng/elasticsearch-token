@@ -558,6 +558,18 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
 name|support
 operator|.
 name|AbstractClient
@@ -1739,6 +1751,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 parameter_list|>
 name|ActionFuture
@@ -1754,6 +1768,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 name|action
 parameter_list|,
@@ -1794,6 +1810,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 parameter_list|>
 name|void
@@ -1806,6 +1824,8 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 name|action
 parameter_list|,

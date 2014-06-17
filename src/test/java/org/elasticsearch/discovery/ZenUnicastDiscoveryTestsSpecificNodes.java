@@ -18,20 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -150,6 +136,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -159,6 +161,34 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -180,23 +210,17 @@ end_comment
 
 begin_class
 annotation|@
-name|LuceneTestCase
-operator|.
 name|Slow
 annotation|@
-name|ElasticsearchIntegrationTest
-operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -271,7 +295,7 @@ name|String
 argument_list|>
 name|nodes
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -355,7 +379,7 @@ block|{
 name|ClusterState
 name|state
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|client

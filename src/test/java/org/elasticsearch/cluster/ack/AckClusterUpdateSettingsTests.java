@@ -274,20 +274,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
-operator|.
-name|DEFAULT_MAX_NUM_SHARDS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -375,10 +361,10 @@ name|minimumNumberOfShards
 parameter_list|()
 block|{
 return|return
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
-name|size
+name|numDataNodes
 argument_list|()
 return|;
 block|}
@@ -670,10 +656,10 @@ literal|"number_of_shards"
 argument_list|,
 name|between
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
-name|dataNodes
+name|numDataNodes
 argument_list|()
 argument_list|,
 name|DEFAULT_MAX_NUM_SHARDS

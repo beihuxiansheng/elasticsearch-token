@@ -506,7 +506,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to delete template [{}]"
+literal|"failed to put template [{}]"
 argument_list|,
 name|t
 argument_list|,

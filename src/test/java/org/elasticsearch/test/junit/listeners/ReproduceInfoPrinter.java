@@ -58,6 +58,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|AbstractRandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -114,7 +128,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -223,6 +237,22 @@ operator|.
 name|ElasticsearchIntegrationTest
 operator|.
 name|TESTS_CLUSTER
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|ElasticsearchRestTests
+operator|.
+name|REST_TESTS_BLACKLIST
 import|;
 end_import
 
@@ -704,7 +734,7 @@ literal|"es.node.local"
 argument_list|,
 name|TESTS_CLUSTER
 argument_list|,
-name|TestCluster
+name|InternalTestCluster
 operator|.
 name|TESTS_ENABLE_MOCK_MODULES
 argument_list|,
@@ -719,6 +749,12 @@ argument_list|,
 literal|"tests.client.ratio"
 argument_list|,
 literal|"tests.heap.size"
+argument_list|,
+literal|"tests.bwc"
+argument_list|,
+literal|"tests.bwc.path"
+argument_list|,
+literal|"tests.bwc.version"
 argument_list|)
 expr_stmt|;
 if|if
@@ -761,6 +797,22 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
+name|appendOpt
+argument_list|(
+name|AbstractRandomizedTest
+operator|.
+name|SYSPROP_PROCESSORS
+argument_list|,
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|AbstractRandomizedTest
+operator|.
+name|TESTS_PROCESSORS
+argument_list|)
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 return|;
@@ -777,6 +829,8 @@ argument_list|(
 name|REST_TESTS_SUITE
 argument_list|,
 name|REST_TESTS_SPEC
+argument_list|,
+name|REST_TESTS_BLACKLIST
 argument_list|)
 return|;
 block|}

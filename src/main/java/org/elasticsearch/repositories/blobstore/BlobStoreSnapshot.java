@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|primitives
-operator|.
-name|Longs
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -844,6 +830,25 @@ operator|=
 name|SnapshotState
 operator|.
 name|SUCCESS
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**          * Marks snapshot as partially successful          *          * @return this builder          */
+DECL|method|partial
+specifier|public
+name|Builder
+name|partial
+parameter_list|()
+block|{
+name|this
+operator|.
+name|state
+operator|=
+name|SnapshotState
+operator|.
+name|PARTIAL
 expr_stmt|;
 return|return
 name|this

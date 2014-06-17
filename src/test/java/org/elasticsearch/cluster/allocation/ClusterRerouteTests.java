@@ -398,6 +398,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -416,13 +430,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -556,7 +568,7 @@ name|String
 argument_list|>
 name|nodesIds
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNodesAsync
@@ -1475,7 +1487,7 @@ expr_stmt|;
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1483,7 +1495,7 @@ argument_list|(
 name|commonSettings
 argument_list|)
 decl_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1493,7 +1505,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -1912,7 +1924,7 @@ name|File
 index|[]
 name|shardLocation
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1951,7 +1963,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// make sure the data is there!
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|closeNonSharedNodes
@@ -2014,7 +2026,7 @@ argument_list|)
 expr_stmt|;
 name|node_1
 operator|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2022,7 +2034,7 @@ argument_list|(
 name|commonSettings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2355,7 +2367,7 @@ expr_stmt|;
 name|String
 name|node_1
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2365,7 +2377,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size
@@ -2533,7 +2545,7 @@ expr_stmt|;
 name|String
 name|node_2
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2543,7 +2555,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|immutableCluster
+name|cluster
 argument_list|()
 operator|.
 name|size

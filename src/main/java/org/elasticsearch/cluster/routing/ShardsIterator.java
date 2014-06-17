@@ -56,12 +56,6 @@ name|ShardRouting
 name|nextOrNull
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the first shard, or<tt>null</tt>, without      * incrementing the iterator.      *      * @see ShardRouting#assignedToNode()      */
-DECL|method|firstOrNull
-name|ShardRouting
-name|firstOrNull
-parameter_list|()
-function_decl|;
 comment|/**      * Return the number of shards remaining in this {@link ShardsIterator}      *      * @return number of shard remaining      */
 DECL|method|remaining
 name|int

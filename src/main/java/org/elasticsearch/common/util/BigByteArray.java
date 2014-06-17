@@ -74,20 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cache
-operator|.
-name|recycler
-operator|.
-name|PageCacheRecycler
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -141,8 +127,8 @@ parameter_list|(
 name|long
 name|size
 parameter_list|,
-name|PageCacheRecycler
-name|recycler
+name|BigArrays
+name|bigArrays
 parameter_list|,
 name|boolean
 name|clearOnResize
@@ -152,7 +138,7 @@ name|super
 argument_list|(
 name|BYTE_PAGE_SIZE
 argument_list|,
-name|recycler
+name|bigArrays
 argument_list|,
 name|clearOnResize
 argument_list|)

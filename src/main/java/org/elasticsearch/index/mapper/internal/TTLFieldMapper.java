@@ -536,6 +536,10 @@ name|Defaults
 operator|.
 name|TTL_FIELD_TYPE
 argument_list|)
+argument_list|,
+name|Defaults
+operator|.
+name|PRECISION_STEP_64_BIT
 argument_list|)
 expr_stmt|;
 block|}
@@ -915,7 +919,7 @@ argument_list|)
 argument_list|,
 name|Defaults
 operator|.
-name|PRECISION_STEP
+name|PRECISION_STEP_64_BIT
 argument_list|,
 name|Defaults
 operator|.
@@ -1085,19 +1089,6 @@ name|currentTimeMillis
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
-block|{     }
 annotation|@
 name|Override
 DECL|method|preParse

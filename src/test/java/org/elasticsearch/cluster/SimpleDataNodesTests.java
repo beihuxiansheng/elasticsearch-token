@@ -150,6 +150,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -168,13 +182,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -195,7 +207,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -294,7 +306,7 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -421,7 +433,7 @@ block|{
 comment|// all is well
 block|}
 comment|// now, start a node data, and see that it gets with shards
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode

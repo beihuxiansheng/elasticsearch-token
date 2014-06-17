@@ -174,9 +174,35 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -226,6 +252,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -240,13 +280,11 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|Scope
 operator|.
 name|TEST
 argument_list|,
-name|numNodes
+name|numDataNodes
 operator|=
 literal|0
 argument_list|)
@@ -318,7 +356,7 @@ argument_list|(
 literal|"--> start first node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -389,7 +427,7 @@ argument_list|(
 literal|"--> start second node, cluster should be formed"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -764,7 +802,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopCurrentMasterNode
@@ -888,7 +926,7 @@ argument_list|(
 literal|"--> starting the previous master node again..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1225,7 +1263,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode
@@ -1309,7 +1347,7 @@ argument_list|(
 literal|"--> starting the previous master node again..."
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1588,6 +1626,11 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"cluster.service:TRACE,discovery:TRACE,indices.cluster:TRACE"
+argument_list|)
 DECL|method|multipleNodesShutdownNonMasterNodes
 specifier|public
 name|void
@@ -1647,7 +1690,7 @@ argument_list|(
 literal|"--> start first 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1655,7 +1698,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1895,7 +1938,7 @@ argument_list|(
 literal|"--> start two more nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -1903,7 +1946,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2192,13 +2235,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode
 argument_list|()
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|stopRandomNonMasterNode
@@ -2222,7 +2265,7 @@ argument_list|(
 literal|"--> start back the 2 nodes "
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2230,7 +2273,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2457,6 +2500,8 @@ name|dynamicUpdateMinimumMasterNodes
 parameter_list|()
 throws|throws
 name|InterruptedException
+throws|,
+name|IOException
 block|{
 name|Settings
 name|settings
@@ -2475,7 +2520,7 @@ name|put
 argument_list|(
 literal|"discovery.zen.ping_timeout"
 argument_list|,
-literal|"200ms"
+literal|"400ms"
 argument_list|)
 operator|.
 name|put
@@ -2502,7 +2547,7 @@ argument_list|(
 literal|"--> start 2 nodes"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2510,7 +2555,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2580,7 +2625,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{
@@ -2629,10 +2674,10 @@ argument_list|(
 literal|"--> stopping a node"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
-name|stopRandomNode
+name|stopRandomDataNode
 argument_list|()
 expr_stmt|;
 name|logger
@@ -2652,7 +2697,7 @@ argument_list|(
 literal|"--> bringing another node up"
 argument_list|)
 expr_stmt|;
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|startNode
@@ -2758,7 +2803,7 @@ control|(
 name|Client
 name|client
 range|:
-name|cluster
+name|internalCluster
 argument_list|()
 control|)
 block|{

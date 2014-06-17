@@ -613,12 +613,10 @@ name|index
 operator|+
 name|this
 operator|.
-name|placeholderPrefix
+name|placeholderSuffix
 operator|.
 name|length
 argument_list|()
-operator|-
-literal|1
 expr_stmt|;
 block|}
 else|else

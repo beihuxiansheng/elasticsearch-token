@@ -718,7 +718,7 @@ block|{
 name|DiscoverySettings
 name|discoverySettings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance

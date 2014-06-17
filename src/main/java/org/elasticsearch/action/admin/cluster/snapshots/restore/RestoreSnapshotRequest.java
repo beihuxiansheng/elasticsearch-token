@@ -390,7 +390,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 decl_stmt|;
 DECL|field|renamePattern
@@ -1054,7 +1054,7 @@ name|ignoreUnavailable
 init|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 operator|.
 name|ignoreUnavailable
@@ -1065,7 +1065,7 @@ name|allowNoIndices
 init|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 operator|.
 name|allowNoIndices
@@ -1076,7 +1076,7 @@ name|expandWildcardsOpen
 init|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 operator|.
 name|expandWildcardsOpen
@@ -1087,7 +1087,7 @@ name|expandWildcardsClosed
 init|=
 name|IndicesOptions
 operator|.
-name|lenient
+name|lenientExpandOpen
 argument_list|()
 operator|.
 name|expandWildcardsClosed

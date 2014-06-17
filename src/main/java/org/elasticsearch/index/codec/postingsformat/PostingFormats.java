@@ -195,7 +195,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|Elasticsearch090PostingsFormat
+name|PostingsFormat
 name|defaultFormat
 init|=
 operator|new

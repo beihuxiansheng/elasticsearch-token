@@ -515,43 +515,6 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"[{}][{}] warming [{}]"
-argument_list|,
-name|context
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|context
-operator|.
-name|shardId
-argument_list|()
-operator|.
-name|id
-argument_list|()
-argument_list|,
-name|context
-operator|.
-name|newSearcher
-argument_list|()
-operator|.
-name|reader
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
 literal|"[{}][{}] top warming [{}]"
 argument_list|,
 name|context
@@ -574,9 +537,37 @@ name|id
 argument_list|()
 argument_list|,
 name|context
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
 operator|.
-name|indexReader
+name|trace
+argument_list|(
+literal|"[{}][{}] warming [{}]"
+argument_list|,
+name|context
+operator|.
+name|shardId
 argument_list|()
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|context
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -713,7 +704,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"warming has been interrupted"
+literal|"top warming has been interrupted"
 argument_list|,
 name|e
 argument_list|)
@@ -725,7 +716,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"top warming has been interrupted"
+literal|"warming has been interrupted"
 argument_list|,
 name|e
 argument_list|)

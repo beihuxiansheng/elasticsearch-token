@@ -519,7 +519,7 @@ name|getAsBoolean
 argument_list|(
 literal|"disable_dynamic"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|CacheBuilder
@@ -800,7 +800,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|dynamicScriptDisabled
+operator|!
+name|dynamicScriptEnabled
 argument_list|(
 name|lang
 argument_list|)
@@ -1151,34 +1152,68 @@ name|invalidateAll
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|dynamicScriptDisabled
+DECL|method|dynamicScriptEnabled
 specifier|private
 name|boolean
-name|dynamicScriptDisabled
+name|dynamicScriptEnabled
 parameter_list|(
 name|String
 name|lang
 parameter_list|)
 block|{
+name|ScriptEngineService
+name|service
+init|=
+name|scriptEngines
+operator|.
+name|get
+argument_list|(
+name|lang
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-operator|!
-name|disableDynamic
+name|service
+operator|==
+literal|null
 condition|)
 block|{
-return|return
-literal|false
-return|;
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"script_lang not supported ["
+operator|+
+name|lang
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
-comment|// we allow "native" executions since they register through plugins, so they are "allowed"
-return|return
-operator|!
+comment|// Templating languages and native scripts are always allowed
+comment|// "native" executions are registered through plugins
+if|if
+condition|(
+name|service
+operator|.
+name|sandboxed
+argument_list|()
+operator|||
 literal|"native"
 operator|.
 name|equals
 argument_list|(
 name|lang
 argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+operator|!
+name|disableDynamic
 return|;
 block|}
 DECL|class|ScriptChangesListener
@@ -1369,10 +1404,10 @@ try|try
 block|{
 name|logger
 operator|.
-name|trace
+name|info
 argument_list|(
-literal|"compiling script file "
-operator|+
+literal|"compiling script file [{}]"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
@@ -1527,10 +1562,10 @@ argument_list|)
 decl_stmt|;
 name|logger
 operator|.
-name|trace
+name|info
 argument_list|(
-literal|"removing script file "
-operator|+
+literal|"removing script file [{}]"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath

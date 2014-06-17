@@ -140,7 +140,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|RamAccountingTermsEnum
+name|FieldDataType
 import|;
 end_import
 
@@ -154,7 +154,35 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|*
+name|IndexFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexFieldDataCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|RamAccountingTermsEnum
 import|;
 end_import
 
@@ -444,6 +472,12 @@ name|breakerService
 operator|.
 name|getBreaker
 argument_list|()
+argument_list|,
+name|getFieldNames
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Terms
@@ -473,12 +507,7 @@ init|=
 name|PagedBytesAtomicFieldData
 operator|.
 name|empty
-argument_list|(
-name|reader
-operator|.
-name|maxDoc
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|estimator
 operator|.
@@ -512,14 +541,6 @@ operator|new
 name|MonotonicAppendingLongBuffer
 argument_list|()
 decl_stmt|;
-name|termOrdToBytesOffset
-operator|.
-name|add
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// first ord is reserved for missing values
 specifier|final
 name|long
 name|numTerms
@@ -841,6 +862,12 @@ specifier|final
 name|MemoryCircuitBreaker
 name|breaker
 decl_stmt|;
+DECL|field|fieldName
+specifier|private
+specifier|final
+name|String
+name|fieldName
+decl_stmt|;
 DECL|field|estimatedBytes
 specifier|private
 name|long
@@ -854,6 +881,9 @@ name|context
 parameter_list|,
 name|MemoryCircuitBreaker
 name|breaker
+parameter_list|,
+name|String
+name|fieldName
 parameter_list|)
 block|{
 name|this
@@ -867,6 +897,12 @@ operator|.
 name|context
 operator|=
 name|context
+expr_stmt|;
+name|this
+operator|.
+name|fieldName
+operator|=
+name|fieldName
 expr_stmt|;
 block|}
 comment|/**          * @return the number of bytes for the term based on the length and ordinal overhead          */
@@ -1232,6 +1268,10 @@ argument_list|,
 name|breaker
 argument_list|,
 name|this
+argument_list|,
+name|this
+operator|.
+name|fieldName
 argument_list|)
 return|;
 block|}
@@ -1266,6 +1306,10 @@ argument_list|,
 name|breaker
 argument_list|,
 name|this
+argument_list|,
+name|this
+operator|.
+name|fieldName
 argument_list|)
 return|;
 block|}
@@ -1274,6 +1318,8 @@ operator|.
 name|addEstimateBytesAndMaybeBreak
 argument_list|(
 name|estimatedBytes
+argument_list|,
+name|fieldName
 argument_list|)
 expr_stmt|;
 return|return

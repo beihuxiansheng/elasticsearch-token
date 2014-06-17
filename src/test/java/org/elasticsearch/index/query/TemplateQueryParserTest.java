@@ -459,7 +459,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test parsing and executing a template request.  * */
+comment|/**  * Test parsing and executing a template request.  */
 end_comment
 
 begin_class
@@ -490,22 +490,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|String
-name|scriptPath
-init|=
-name|this
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getResource
-argument_list|(
-literal|"config"
-argument_list|)
-operator|.
-name|getPath
-argument_list|()
-decl_stmt|;
 name|Settings
 name|settings
 init|=
@@ -518,7 +502,15 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|scriptPath
+name|this
+operator|.
+name|getResource
+argument_list|(
+literal|"config"
+argument_list|)
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 operator|.
 name|build

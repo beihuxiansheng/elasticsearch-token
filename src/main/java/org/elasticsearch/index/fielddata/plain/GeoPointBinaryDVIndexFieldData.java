@@ -110,13 +110,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|fielddata
-operator|.
-name|fieldcomparator
-operator|.
-name|SortMode
+name|MultiValueMode
 import|;
 end_import
 
@@ -271,7 +267,7 @@ name|Nullable
 name|Object
 name|missingValue
 parameter_list|,
-name|SortMode
+name|MultiValueMode
 name|sortMode
 parameter_list|)
 block|{
@@ -303,11 +299,6 @@ return|return
 operator|new
 name|GeoPointBinaryDVAtomicFieldData
 argument_list|(
-name|context
-operator|.
-name|reader
-argument_list|()
-argument_list|,
 name|context
 operator|.
 name|reader

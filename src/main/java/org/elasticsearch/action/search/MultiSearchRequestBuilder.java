@@ -66,20 +66,6 @@ name|Client
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request builder for multiple search requests.  */
 end_comment
@@ -97,6 +83,8 @@ argument_list|,
 name|MultiSearchResponse
 argument_list|,
 name|MultiSearchRequestBuilder
+argument_list|,
+name|Client
 argument_list|>
 block|{
 DECL|method|MultiSearchRequestBuilder
@@ -109,9 +97,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalClient
-operator|)
 name|client
 argument_list|,
 operator|new
@@ -139,7 +124,7 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|&&
 name|request
@@ -150,7 +135,7 @@ argument_list|()
 operator|!=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 condition|)
 block|{
@@ -201,7 +186,7 @@ argument_list|()
 operator|==
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 operator|&&
 name|request
@@ -212,7 +197,7 @@ argument_list|()
 operator|!=
 name|IndicesOptions
 operator|.
-name|strict
+name|strictExpandOpen
 argument_list|()
 condition|)
 block|{
@@ -280,12 +265,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|Client
-operator|)
 name|client
-operator|)
 operator|.
 name|multiSearch
 argument_list|(

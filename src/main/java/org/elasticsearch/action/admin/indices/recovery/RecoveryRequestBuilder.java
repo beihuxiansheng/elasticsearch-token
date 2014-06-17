@@ -60,20 +60,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * Recovery information request builder.  */
 end_comment
@@ -91,6 +77,8 @@ argument_list|,
 name|RecoveryResponse
 argument_list|,
 name|RecoveryRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 comment|/**      * Constructs a new recovery information request builder.      *      * @param indicesClient Indices admin client      */
@@ -104,9 +92,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -129,12 +114,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|recoveries
 argument_list|(

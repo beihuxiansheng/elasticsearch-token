@@ -575,6 +575,10 @@ name|Defaults
 operator|.
 name|FIELD_TYPE
 argument_list|)
+argument_list|,
+name|Defaults
+operator|.
+name|PRECISION_STEP_64_BIT
 argument_list|)
 expr_stmt|;
 block|}
@@ -1066,7 +1070,7 @@ name|dateTimeFormatter
 argument_list|,
 name|Defaults
 operator|.
-name|PRECISION_STEP
+name|PRECISION_STEP_64_BIT
 argument_list|,
 name|Defaults
 operator|.
@@ -1195,19 +1199,6 @@ name|value
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
-block|{     }
 annotation|@
 name|Override
 DECL|method|preParse

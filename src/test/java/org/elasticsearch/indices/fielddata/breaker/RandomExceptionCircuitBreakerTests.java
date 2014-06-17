@@ -276,18 +276,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ImmutableTestCluster
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|engine
 operator|.
 name|MockInternalEngine
@@ -1411,8 +1399,6 @@ name|settings
 operator|.
 name|getAsLong
 argument_list|(
-name|ImmutableTestCluster
-operator|.
 name|SETTING_INDEX_SEED
 argument_list|,
 literal|0l

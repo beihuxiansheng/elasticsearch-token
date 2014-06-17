@@ -526,6 +526,8 @@ specifier|abstract
 name|void
 name|postCollection
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 comment|/**      * The mode of the execution.      */

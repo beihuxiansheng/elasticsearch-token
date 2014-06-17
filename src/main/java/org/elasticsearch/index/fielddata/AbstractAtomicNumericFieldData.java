@@ -107,10 +107,7 @@ DECL|method|getBytesValues
 specifier|public
 name|BytesValues
 name|getBytesValues
-parameter_list|(
-name|boolean
-name|needsHashes
-parameter_list|)
+parameter_list|()
 block|{
 if|if
 condition|(

@@ -92,10 +92,10 @@ specifier|private
 name|Object
 name|missing
 decl_stmt|;
-DECL|field|ignoreUnampped
+DECL|field|ignoreUnmapped
 specifier|private
 name|Boolean
-name|ignoreUnampped
+name|ignoreUnmapped
 decl_stmt|;
 DECL|field|sortMode
 specifier|private
@@ -199,7 +199,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreUnampped
+name|ignoreUnmapped
 operator|=
 name|ignoreUnmapped
 expr_stmt|;
@@ -329,7 +329,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ignoreUnampped
+name|ignoreUnmapped
 operator|!=
 literal|null
 condition|)
@@ -340,7 +340,7 @@ name|field
 argument_list|(
 literal|"ignore_unmapped"
 argument_list|,
-name|ignoreUnampped
+name|ignoreUnmapped
 argument_list|)
 expr_stmt|;
 block|}

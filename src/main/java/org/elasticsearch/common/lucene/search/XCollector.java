@@ -32,6 +32,16 @@ name|Collector
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * An extension to {@link Collector} that allows for a callback when  * collection is done.  */
 end_comment
@@ -50,6 +60,8 @@ specifier|public
 name|void
 name|postCollection
 parameter_list|()
+throws|throws
+name|IOException
 block|{      }
 block|}
 end_class

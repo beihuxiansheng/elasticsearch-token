@@ -164,6 +164,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|threadpool
+operator|.
+name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -358,6 +370,9 @@ parameter_list|(
 name|RepositoryName
 name|name
 parameter_list|,
+name|ThreadPool
+name|threadPool
+parameter_list|,
 name|RepositorySettings
 name|repositorySettings
 parameter_list|,
@@ -372,6 +387,8 @@ argument_list|(
 name|name
 argument_list|,
 name|repositorySettings
+argument_list|,
+name|threadPool
 argument_list|,
 name|indexShardRepository
 argument_list|)

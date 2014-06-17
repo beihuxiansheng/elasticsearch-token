@@ -989,6 +989,17 @@ name|localNode
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|clusterState
+operator|.
+name|status
+argument_list|(
+name|ClusterState
+operator|.
+name|ClusterStateStatus
+operator|.
+name|RECEIVED
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug

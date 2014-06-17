@@ -58,16 +58,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|validate
-name|void
-name|validate
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|MapperParsingException
-function_decl|;
 comment|/**      * Should the mapper be included in the root {@link org.elasticsearch.index.mapper.object.ObjectMapper}.      */
 DECL|method|includeInObject
 name|boolean

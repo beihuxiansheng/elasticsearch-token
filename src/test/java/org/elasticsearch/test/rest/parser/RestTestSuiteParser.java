@@ -496,7 +496,7 @@ literal|"] found in ["
 operator|+
 name|restTestSuite
 operator|.
-name|getDescription
+name|getPath
 argument_list|()
 operator|+
 literal|"]"

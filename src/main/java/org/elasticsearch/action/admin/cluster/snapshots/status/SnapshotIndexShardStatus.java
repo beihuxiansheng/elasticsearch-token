@@ -229,6 +229,14 @@ name|stage
 operator|=
 name|stage
 expr_stmt|;
+name|this
+operator|.
+name|stats
+operator|=
+operator|new
+name|SnapshotStats
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|SnapshotIndexShardStatus
 name|SnapshotIndexShardStatus

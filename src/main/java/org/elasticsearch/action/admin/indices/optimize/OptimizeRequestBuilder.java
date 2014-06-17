@@ -60,20 +60,6 @@ name|IndicesAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|internal
-operator|.
-name|InternalIndicesAdminClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #setWaitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #setMaxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  */
 end_comment
@@ -91,6 +77,8 @@ argument_list|,
 name|OptimizeResponse
 argument_list|,
 name|OptimizeRequestBuilder
+argument_list|,
+name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|OptimizeRequestBuilder
@@ -103,9 +91,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|(
-name|InternalIndicesAdminClient
-operator|)
 name|indicesClient
 argument_list|,
 operator|new
@@ -233,12 +218,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|IndicesAdminClient
-operator|)
 name|client
-operator|)
 operator|.
 name|optimize
 argument_list|(
