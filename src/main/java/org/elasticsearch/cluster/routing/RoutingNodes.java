@@ -1223,13 +1223,6 @@ name|ShardRouting
 name|shard
 parameter_list|)
 block|{
-assert|assert
-operator|!
-name|shard
-operator|.
-name|primary
-argument_list|()
-assert|;
 for|for
 control|(
 name|MutableShardRouting

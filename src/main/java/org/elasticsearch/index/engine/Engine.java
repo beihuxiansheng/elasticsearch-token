@@ -557,8 +557,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|,
-annotation|@
-name|Nullable
 name|Throwable
 name|failure
 parameter_list|)

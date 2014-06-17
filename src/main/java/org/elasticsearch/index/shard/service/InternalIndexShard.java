@@ -96,6 +96,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|store
+operator|.
+name|AlreadyClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|ThreadInterruptedException
@@ -129,6 +143,16 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ExceptionsHelper
 import|;
 end_import
 
@@ -3494,6 +3518,17 @@ name|e
 argument_list|)
 throw|;
 block|}
+catch|catch
+parameter_list|(
+name|AlreadyClosedException
+name|ex
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+comment|// already closed
+block|}
 block|}
 annotation|@
 name|Override
@@ -3975,8 +4010,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|,
-annotation|@
-name|Nullable
 name|Throwable
 name|e
 parameter_list|)

@@ -2275,6 +2275,93 @@ operator|.
 name|routingNodes
 argument_list|()
 decl_stmt|;
+name|boolean
+name|dirty
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|failedShard
+operator|.
+name|primary
+argument_list|()
+condition|)
+block|{
+comment|// we have to fail the initializing replicas if the primary fails
+comment|// since they might now yet have started the recovery and then they will
+comment|// stick in the cluster-state forever since the replica has a retry logic that
+comment|// retries infinitely in that case.
+name|List
+argument_list|<
+name|MutableShardRouting
+argument_list|>
+name|initializingReplicas
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|MutableShardRouting
+name|shard
+range|:
+name|routingNodes
+operator|.
+name|assignedShards
+argument_list|(
+name|failedShard
+argument_list|)
+control|)
+block|{
+if|if
+condition|(
+operator|!
+name|shard
+operator|.
+name|primary
+argument_list|()
+operator|&&
+name|shard
+operator|.
+name|initializing
+argument_list|()
+condition|)
+block|{
+name|initializingReplicas
+operator|.
+name|add
+argument_list|(
+name|shard
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// we can't do this in the loop above since we modify the iterator and will get
+comment|// concurrent modification exceptions
+for|for
+control|(
+name|MutableShardRouting
+name|shard
+range|:
+name|initializingReplicas
+control|)
+block|{
+name|dirty
+operator||=
+name|applyFailedShard
+argument_list|(
+name|allocation
+argument_list|,
+name|shard
+argument_list|,
+name|addToIgnoreList
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 name|failedShard
@@ -2297,11 +2384,6 @@ name|INITIALIZING
 condition|)
 block|{
 comment|// the shard is initializing and recovering from another node
-name|boolean
-name|dirty
-init|=
-literal|false
-decl_stmt|;
 comment|// first, we need to cancel the current node that is being initialized
 name|RoutingNodes
 operator|.
@@ -2484,11 +2566,6 @@ operator|==
 name|RELOCATING
 condition|)
 block|{
-name|boolean
-name|dirty
-init|=
-literal|false
-decl_stmt|;
 comment|// the shard is relocating, meaning its the source the shard is relocating from
 comment|// first, we need to cancel the current relocation from the current node
 comment|// now, find the node that we are recovering from, cancel the relocation, remove it from the node
@@ -2708,9 +2785,6 @@ name|failedShard
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|dirty
-return|;
 block|}
 else|else
 block|{
@@ -2728,11 +2802,6 @@ block|}
 else|else
 block|{
 comment|// the shard is not relocating, its either started, or initializing, just cancel it and move on...
-name|boolean
-name|dirty
-init|=
-literal|false
-decl_stmt|;
 name|RoutingNodes
 operator|.
 name|RoutingNodeIterator
@@ -2975,10 +3044,10 @@ name|failedShard
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
 name|dirty
 return|;
-block|}
 block|}
 block|}
 end_class

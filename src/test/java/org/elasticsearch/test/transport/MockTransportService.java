@@ -247,12 +247,8 @@ name|void
 name|clearAllRules
 parameter_list|()
 block|{
-operator|(
-operator|(
-name|LookupTestTransport
-operator|)
 name|transport
-operator|)
+argument_list|()
 operator|.
 name|transports
 operator|.
@@ -270,12 +266,8 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|LookupTestTransport
-operator|)
 name|transport
-operator|)
+argument_list|()
 operator|.
 name|transports
 operator|.
@@ -284,6 +276,17 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns the original Transport service wrapped by this mock transport service.      */
+DECL|method|original
+specifier|public
+name|Transport
+name|original
+parameter_list|()
+block|{
+return|return
+name|original
+return|;
 block|}
 comment|/**      * Adds a rule that will cause every send request to fail, and each new connect since the rule      * is added to fail as well.      */
 DECL|method|addFailToSendNoConnectRule
@@ -295,16 +298,7 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|LookupTestTransport
-operator|)
-name|transport
-operator|)
-operator|.
-name|transports
-operator|.
-name|put
+name|addDelegate
 argument_list|(
 name|node
 argument_list|,
@@ -409,16 +403,7 @@ name|node
 parameter_list|)
 block|{
 comment|// TODO add a parameter to delay the connect timeout?
-operator|(
-operator|(
-name|LookupTestTransport
-operator|)
-name|transport
-operator|)
-operator|.
-name|transports
-operator|.
-name|put
+name|addDelegate
 argument_list|(
 name|node
 argument_list|,
@@ -503,6 +488,48 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Adds a new delegate transport that is used for communication with the given node.      * @return<tt>true</tt> iff no other delegate was registered for this node before, otherwise<tt>false</tt>      */
+DECL|method|addDelegate
+specifier|public
+name|boolean
+name|addDelegate
+parameter_list|(
+name|DiscoveryNode
+name|node
+parameter_list|,
+name|DelegateTransport
+name|transport
+parameter_list|)
+block|{
+return|return
+name|transport
+argument_list|()
+operator|.
+name|transports
+operator|.
+name|put
+argument_list|(
+name|node
+argument_list|,
+name|transport
+argument_list|)
+operator|==
+literal|null
+return|;
+block|}
+DECL|method|transport
+specifier|private
+name|LookupTestTransport
+name|transport
+parameter_list|()
+block|{
+return|return
+operator|(
+name|LookupTestTransport
+operator|)
+name|transport
+return|;
 block|}
 comment|/**      * A lookup transport that has a list of potential Transport implementations to delegate to for node operations,      * if none is registered, then the default one is used.      */
 DECL|class|LookupTestTransport
@@ -720,7 +747,7 @@ block|}
 block|}
 comment|/**      * A pure delegate transport.      * Can be extracted to a common class if needed in other places in the codebase.      */
 DECL|class|DelegateTransport
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|DelegateTransport
@@ -734,6 +761,7 @@ name|Transport
 name|transport
 decl_stmt|;
 DECL|method|DelegateTransport
+specifier|public
 name|DelegateTransport
 parameter_list|(
 name|Transport
