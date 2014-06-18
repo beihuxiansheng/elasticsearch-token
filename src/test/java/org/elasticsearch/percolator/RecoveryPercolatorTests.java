@@ -509,6 +509,14 @@ argument_list|,
 name|numDataNodes
 operator|=
 literal|0
+argument_list|,
+name|numClientNodes
+operator|=
+literal|0
+argument_list|,
+name|transportClientRatio
+operator|=
+literal|0
 argument_list|)
 DECL|class|RecoveryPercolatorTests
 specifier|public
