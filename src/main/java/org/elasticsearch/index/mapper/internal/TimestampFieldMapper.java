@@ -489,7 +489,7 @@ name|ENABLED
 init|=
 name|EnabledAttributeMapper
 operator|.
-name|DISABLED
+name|UNSET_DISABLED
 decl_stmt|;
 DECL|field|PATH
 specifier|public
@@ -1508,10 +1508,14 @@ condition|(
 name|includeDefaults
 operator|||
 name|enabledState
+operator|.
+name|enabled
 operator|!=
 name|Defaults
 operator|.
 name|ENABLED
+operator|.
+name|enabled
 condition|)
 block|{
 name|builder
