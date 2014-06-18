@@ -470,7 +470,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Can not run threaded action, exectuion rejected [{}] running on current thread"
+literal|"Can not run threaded action, execution rejected [{}] running on current thread"
 argument_list|,
 name|listener
 argument_list|)
