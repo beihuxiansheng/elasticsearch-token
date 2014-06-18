@@ -16,33 +16,41 @@ name|ack
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
 begin_comment
-comment|/**  * Listener used for cluster state updates processing  * Supports acknowledgement logic  */
+comment|/**  * Identifies a cluster state update request with acknowledgement support  */
 end_comment
 
 begin_interface
-DECL|interface|ClusterStateUpdateListener
+DECL|interface|AckedRequest
 specifier|public
 interface|interface
-name|ClusterStateUpdateListener
+name|AckedRequest
 block|{
-comment|/**      * Called when the cluster state update is acknowledged      */
-DECL|method|onResponse
-name|void
-name|onResponse
-parameter_list|(
-name|ClusterStateUpdateResponse
-name|response
-parameter_list|)
+comment|/**      * Returns the acknowledgement timeout      */
+DECL|method|ackTimeout
+name|TimeValue
+name|ackTimeout
+parameter_list|()
 function_decl|;
-comment|/**      * Called when any error is thrown during the cluster state update processing      */
-DECL|method|onFailure
-name|void
-name|onFailure
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
+comment|/**      * Returns the timeout for the request to be completed on the master node      */
+DECL|method|masterNodeTimeout
+name|TimeValue
+name|masterNodeTimeout
+parameter_list|()
 function_decl|;
 block|}
 end_interface
