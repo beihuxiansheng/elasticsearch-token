@@ -4546,6 +4546,9 @@ name|termsEnum
 init|=
 name|afd
 operator|.
+name|getBytesValues
+argument_list|()
+operator|.
 name|getTermsEnum
 argument_list|()
 decl_stmt|;

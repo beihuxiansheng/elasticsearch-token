@@ -341,6 +341,9 @@ index|[
 name|i
 index|]
 operator|.
+name|getBytesValues
+argument_list|()
+operator|.
 name|getTermsEnum
 argument_list|()
 expr_stmt|;

@@ -419,7 +419,10 @@ name|globalTermsEnum
 init|=
 name|valueSource
 operator|.
-name|getGlobalTermsEnum
+name|globalBytesValues
+argument_list|()
+operator|.
+name|getTermsEnum
 argument_list|()
 decl_stmt|;
 name|LongBitSet

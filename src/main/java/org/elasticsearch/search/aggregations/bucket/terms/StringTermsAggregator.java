@@ -558,6 +558,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// TODO: use terms enum
 comment|/** Returns an iterator over the field data terms. */
 DECL|method|terms
 specifier|private
@@ -625,6 +626,11 @@ name|BytesRef
 name|next
 parameter_list|()
 block|{
+return|return
+name|BytesRef
+operator|.
+name|deepCopyOf
+argument_list|(
 name|bytesValues
 operator|.
 name|getValueByOrd
@@ -632,12 +638,7 @@ argument_list|(
 name|i
 operator|--
 argument_list|)
-expr_stmt|;
-return|return
-name|bytesValues
-operator|.
-name|copyShared
-argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -685,6 +686,11 @@ name|BytesRef
 name|next
 parameter_list|()
 block|{
+return|return
+name|BytesRef
+operator|.
+name|deepCopyOf
+argument_list|(
 name|bytesValues
 operator|.
 name|getValueByOrd
@@ -692,12 +698,7 @@ argument_list|(
 name|i
 operator|++
 argument_list|)
-expr_stmt|;
-return|return
-name|bytesValues
-operator|.
-name|copyShared
-argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

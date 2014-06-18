@@ -1674,10 +1674,12 @@ name|copyCurrent
 parameter_list|()
 block|{
 return|return
-name|values
+name|BytesRef
 operator|.
-name|copyShared
-argument_list|()
+name|deepCopyOf
+argument_list|(
+name|current
+argument_list|)
 return|;
 block|}
 annotation|@

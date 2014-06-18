@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|TermsEnum
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -51,6 +65,22 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|plain
+operator|.
+name|BytesValuesWithOrdinalsTermsEnum
 import|;
 end_import
 
@@ -109,22 +139,6 @@ parameter_list|()
 block|{
 return|return
 name|multiValued
-return|;
-block|}
-comment|/**      * Converts the current shared {@link BytesRef} to a stable instance. Note,      * this calls makes the bytes safe for *reads*, not writes (into the same BytesRef). For example,      * it makes it safe to be placed in a map.      */
-DECL|method|copyShared
-specifier|public
-name|BytesRef
-name|copyShared
-parameter_list|()
-block|{
-return|return
-name|BytesRef
-operator|.
-name|deepCopyOf
-argument_list|(
-name|scratch
-argument_list|)
 return|;
 block|}
 comment|/**      * Sets iteration to the specified docID and returns the number of      * values for this document ID,      * @param docId document ID      *      * @see #nextValue()      */
@@ -234,14 +248,6 @@ name|long
 name|nextOrd
 parameter_list|()
 function_decl|;
-comment|/**          * Returns the current ordinal in the iteration          * @return the current ordinal in the iteration          */
-DECL|method|currentOrd
-specifier|public
-specifier|abstract
-name|long
-name|currentOrd
-parameter_list|()
-function_decl|;
 comment|/**          * Returns the value for the given ordinal.          * @param ord the ordinal to lookup.          * @return a shared {@link BytesRef} instance holding the value associated          *         with the given ordinal or<code>null</code> if ordinal is<tt>0</tt>          */
 DECL|method|getValueByOrd
 specifier|public
@@ -266,6 +272,21 @@ name|getValueByOrd
 argument_list|(
 name|nextOrd
 argument_list|()
+argument_list|)
+return|;
+block|}
+comment|/**          * Returns a terms enum to iterate over all the underlying values.          */
+DECL|method|getTermsEnum
+specifier|public
+name|TermsEnum
+name|getTermsEnum
+parameter_list|()
+block|{
+return|return
+operator|new
+name|BytesValuesWithOrdinalsTermsEnum
+argument_list|(
+name|this
 argument_list|)
 return|;
 block|}
