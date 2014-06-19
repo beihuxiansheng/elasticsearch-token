@@ -193,7 +193,7 @@ specifier|private
 specifier|final
 name|ImmutableMap
 argument_list|<
-name|Action
+name|ClientAction
 argument_list|,
 name|TransportAction
 argument_list|>
@@ -243,7 +243,7 @@ name|admin
 expr_stmt|;
 name|MapBuilder
 argument_list|<
-name|Action
+name|ClientAction
 argument_list|,
 name|TransportAction
 argument_list|>
@@ -279,7 +279,7 @@ operator|.
 name|getKey
 argument_list|()
 operator|instanceof
-name|Action
+name|ClientAction
 condition|)
 block|{
 name|actionsBuilder
@@ -287,7 +287,7 @@ operator|.
 name|put
 argument_list|(
 operator|(
-name|Action
+name|ClientAction
 operator|)
 name|entry
 operator|.
@@ -429,6 +429,9 @@ name|actions
 operator|.
 name|get
 argument_list|(
+operator|(
+name|ClientAction
+operator|)
 name|action
 argument_list|)
 decl_stmt|;
@@ -509,6 +512,9 @@ name|actions
 operator|.
 name|get
 argument_list|(
+operator|(
+name|ClientAction
+operator|)
 name|action
 argument_list|)
 decl_stmt|;

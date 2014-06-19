@@ -132,20 +132,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -187,7 +173,7 @@ specifier|private
 specifier|final
 name|ImmutableMap
 argument_list|<
-name|Action
+name|IndicesAction
 argument_list|,
 name|TransportAction
 argument_list|>
@@ -199,9 +185,6 @@ DECL|method|NodeIndicesAdminClient
 specifier|public
 name|NodeIndicesAdminClient
 parameter_list|(
-name|Settings
-name|settings
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -222,7 +205,7 @@ name|threadPool
 expr_stmt|;
 name|MapBuilder
 argument_list|<
-name|Action
+name|IndicesAction
 argument_list|,
 name|TransportAction
 argument_list|>
@@ -266,7 +249,7 @@ operator|.
 name|put
 argument_list|(
 operator|(
-name|Action
+name|IndicesAction
 operator|)
 name|entry
 operator|.
@@ -370,6 +353,9 @@ name|actions
 operator|.
 name|get
 argument_list|(
+operator|(
+name|IndicesAction
+operator|)
 name|action
 argument_list|)
 decl_stmt|;
@@ -450,6 +436,9 @@ name|actions
 operator|.
 name|get
 argument_list|(
+operator|(
+name|IndicesAction
+operator|)
 name|action
 argument_list|)
 decl_stmt|;

@@ -26,7 +26,43 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|*
+name|Action
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionResponse
 import|;
 end_import
 
@@ -42,20 +78,8 @@ name|ClusterAdminClient
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|ElasticsearchClient
-import|;
-end_import
-
 begin_comment
-comment|/**  * Cluster action (used with {@link ClusterAdminClient} API.  */
+comment|/**  * Cluster action (used with {@link ClusterAdminClient} API).  */
 end_comment
 
 begin_class
