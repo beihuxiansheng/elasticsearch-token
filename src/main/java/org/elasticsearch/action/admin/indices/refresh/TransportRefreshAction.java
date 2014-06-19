@@ -718,18 +718,6 @@ index|[]
 name|concreteIndices
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"resolving shards to refresh based on cluster state version [{}]"
-argument_list|,
-name|clusterState
-operator|.
-name|version
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|clusterState
 operator|.

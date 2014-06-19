@@ -742,6 +742,18 @@ operator|.
 name|nodes
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"resolving shards based on cluster state version [{}]"
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|shardsIts
 operator|=
 name|shards
