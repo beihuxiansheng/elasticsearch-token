@@ -305,6 +305,15 @@ name|void
 name|stopDisrupting
 parameter_list|()
 block|{
+if|if
+condition|(
+name|worker
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
 name|disrupting
 operator|=
 literal|false
