@@ -256,6 +256,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|PluginsService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|repositories
 operator|.
 name|RepositoryMissingException
@@ -409,6 +421,14 @@ argument_list|,
 name|numDataNodes
 operator|=
 literal|2
+argument_list|,
+name|numClientNodes
+operator|=
+literal|0
+argument_list|,
+name|transportClientRatio
+operator|=
+literal|0.0
 argument_list|)
 DECL|class|S3SnapshotRestoreTest
 specifier|public
@@ -462,6 +482,17 @@ operator|.
 name|put
 argument_list|(
 literal|"cloud.enabled"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"plugins."
+operator|+
+name|PluginsService
+operator|.
+name|LOAD_PLUGIN_FROM_CLASSPATH
 argument_list|,
 literal|true
 argument_list|)
@@ -538,7 +569,7 @@ name|info
 argument_list|(
 literal|"-->  creating s3 repository with bucket[{}] and path [{}]"
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1400,7 +1431,7 @@ name|info
 argument_list|(
 literal|"-->  creating s3 repository with bucket[{}] and path [{}]"
 argument_list|,
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1773,7 +1804,7 @@ expr_stmt|;
 name|Settings
 name|settings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -1796,7 +1827,7 @@ decl_stmt|;
 name|AmazonS3
 name|s3Client
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2426,7 +2457,7 @@ decl_stmt|;
 name|Settings
 name|bucketSettings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2546,7 +2577,7 @@ decl_stmt|;
 name|Settings
 name|bucketSettings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2710,7 +2741,7 @@ decl_stmt|;
 name|Settings
 name|bucketSettings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2832,7 +2863,7 @@ decl_stmt|;
 name|Settings
 name|settings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3409,7 +3440,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -3518,7 +3549,7 @@ decl_stmt|;
 name|AmazonS3
 name|client
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
