@@ -190,6 +190,10 @@ name|numDataNodes
 operator|=
 literal|1
 argument_list|,
+name|numClientNodes
+operator|=
+literal|0
+argument_list|,
 name|transportClientRatio
 operator|=
 literal|0.0

@@ -2259,7 +2259,7 @@ block|{
 name|String
 name|container
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
@@ -2292,7 +2292,7 @@ expr_stmt|;
 name|AzureStorageService
 name|client
 init|=
-name|cluster
+name|internalCluster
 argument_list|()
 operator|.
 name|getInstance
