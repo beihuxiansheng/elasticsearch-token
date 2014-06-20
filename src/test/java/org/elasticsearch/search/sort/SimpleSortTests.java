@@ -7748,7 +7748,7 @@ name|addScriptField
 argument_list|(
 literal|"min"
 argument_list|,
-literal|"retval = Long.MAX_VALUE; for (v : doc['lvalue'].values){ retval = min(v, retval) }; retval"
+literal|"retval = Long.MAX_VALUE; for (v in doc['lvalue'].values){ retval = min(v, retval) }; retval"
 argument_list|)
 operator|.
 name|addSort
@@ -7878,7 +7878,7 @@ name|addScriptField
 argument_list|(
 literal|"min"
 argument_list|,
-literal|"retval = Double.MAX_VALUE; for (v : doc['dvalue'].values){ retval = min(v, retval) }; retval"
+literal|"retval = Double.MAX_VALUE; for (v in doc['dvalue'].values){ retval = min(v, retval) }; retval"
 argument_list|)
 operator|.
 name|addSort
@@ -8008,7 +8008,7 @@ name|addScriptField
 argument_list|(
 literal|"min"
 argument_list|,
-literal|"retval = Integer.MAX_VALUE; for (v : doc['svalue'].values){ retval = min(Integer.parseInt(v), retval) }; retval"
+literal|"retval = Integer.MAX_VALUE; for (v in doc['svalue'].values){ retval = min(Integer.parseInt(v), retval) }; retval"
 argument_list|)
 operator|.
 name|addSort
@@ -8135,7 +8135,7 @@ name|addScriptField
 argument_list|(
 literal|"min"
 argument_list|,
-literal|"retval = Double.MAX_VALUE; for (v : doc['gvalue'].values){ retval = min(v.lon, retval) }; retval"
+literal|"retval = Double.MAX_VALUE; for (v in doc['gvalue'].values){ retval = min(v.lon, retval) }; retval"
 argument_list|)
 operator|.
 name|addSort

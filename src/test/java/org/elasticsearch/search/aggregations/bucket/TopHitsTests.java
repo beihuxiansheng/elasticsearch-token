@@ -2306,7 +2306,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"_doc.score"
+literal|"_doc.score()"
 argument_list|)
 argument_list|)
 argument_list|)

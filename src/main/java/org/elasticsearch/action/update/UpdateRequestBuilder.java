@@ -338,7 +338,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The language of the script to execute.      * Valid options are: mvel, js, groovy, python, and native (Java)<br>      * Default: mvel      *<p>      * Ref: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html      */
+comment|/**      * The language of the script to execute.      * Valid options are: mvel, js, groovy, python, and native (Java)<br>      * Default: groovy      *<p>      * Ref: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html      */
 DECL|method|setScriptLang
 specifier|public
 name|UpdateRequestBuilder

@@ -1497,7 +1497,7 @@ literal|"term = _index['float_payload_field'].get('b',"
 operator|+
 name|includeAllFlag
 operator|+
-literal|"); payloadSum=0; for (pos : term) {payloadSum = pos.payloadAsInt(0)}; payloadSum"
+literal|"); payloadSum=0; for (pos in term) {payloadSum = pos.payloadAsInt(0)}; payloadSum"
 decl_stmt|;
 comment|// non existing field: sum should be 0
 name|HashMap
@@ -1555,7 +1555,7 @@ literal|"term = _index['int_payload_field'].get('b',"
 operator|+
 name|includeAllFlag
 operator|+
-literal|"); payloadSum=0; for (pos : term) {payloadSum = payloadSum + pos.payloadAsInt(0)}; payloadSum"
+literal|"); payloadSum=0; for (pos in term) {payloadSum = payloadSum + pos.payloadAsInt(0)}; payloadSum"
 expr_stmt|;
 comment|// existing field: sums should be as here:
 name|zeroArray
@@ -1847,7 +1847,7 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -1859,7 +1859,7 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -1895,11 +1895,11 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")}; array=[]; for (pos : term) {array.add(pos."
+literal|")}; array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -1942,7 +1942,7 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -1978,7 +1978,7 @@ literal|"']['"
 operator|+
 name|term
 operator|+
-literal|"']; array=[]; for (pos : term) {array.add(pos."
+literal|"']; array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+

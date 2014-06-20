@@ -625,7 +625,7 @@ name|get
 argument_list|(
 name|DEFAULT_SCRIPTING_LANGUAGE_SETTING
 argument_list|,
-literal|"mvel"
+literal|"groovy"
 argument_list|)
 expr_stmt|;
 name|this
