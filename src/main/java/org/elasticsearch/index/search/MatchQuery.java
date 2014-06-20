@@ -1537,9 +1537,7 @@ name|field
 argument_list|,
 name|queryText
 argument_list|,
-name|Occur
-operator|.
-name|SHOULD
+name|lowFreqOccur
 argument_list|)
 decl_stmt|;
 if|if
