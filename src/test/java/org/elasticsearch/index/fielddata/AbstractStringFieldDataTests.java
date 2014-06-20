@@ -4735,6 +4735,13 @@ literal|"global_values"
 argument_list|,
 literal|"fixed"
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cache"
+argument_list|,
+literal|"node"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|IndexFieldData

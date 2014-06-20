@@ -294,7 +294,33 @@ name|fielddata
 operator|.
 name|breaker
 operator|.
-name|CircuitBreakerService
+name|NoneCircuitBreakerService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|query
+operator|.
+name|IndicesQueriesModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptModule
 import|;
 end_import
 
@@ -310,7 +336,7 @@ name|fielddata
 operator|.
 name|breaker
 operator|.
-name|DummyCircuitBreakerService
+name|CircuitBreakerService
 import|;
 end_import
 
@@ -629,7 +655,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 operator|.
 name|class
 argument_list|)

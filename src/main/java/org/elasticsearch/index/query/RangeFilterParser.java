@@ -966,9 +966,6 @@ operator|.
 name|rangeFilter
 argument_list|(
 name|parseContext
-operator|.
-name|fieldData
-argument_list|()
 argument_list|,
 name|from
 argument_list|,
@@ -998,9 +995,6 @@ operator|.
 name|rangeFilter
 argument_list|(
 name|parseContext
-operator|.
-name|fieldData
-argument_list|()
 argument_list|,
 name|from
 argument_list|,

@@ -79,10 +79,10 @@ comment|/**  * Class that returns a breaker that never breaks  */
 end_comment
 
 begin_class
-DECL|class|DummyCircuitBreakerService
+DECL|class|NoneCircuitBreakerService
 specifier|public
 class|class
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 implements|implements
 name|CircuitBreakerService
 block|{
@@ -96,7 +96,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 operator|.
 name|class
 argument_list|)
@@ -123,9 +123,9 @@ argument_list|,
 name|logger
 argument_list|)
 decl_stmt|;
-DECL|method|DummyCircuitBreakerService
+DECL|method|NoneCircuitBreakerService
 specifier|public
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 parameter_list|()
 block|{}
 annotation|@

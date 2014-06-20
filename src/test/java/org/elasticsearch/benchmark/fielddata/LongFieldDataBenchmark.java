@@ -286,7 +286,7 @@ name|fielddata
 operator|.
 name|breaker
 operator|.
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -819,7 +819,7 @@ literal|"dummy"
 argument_list|)
 argument_list|,
 operator|new
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 argument_list|()
 argument_list|)
 decl_stmt|;

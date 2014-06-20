@@ -218,7 +218,7 @@ name|fielddata
 operator|.
 name|breaker
 operator|.
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -360,7 +360,7 @@ literal|"test"
 argument_list|)
 argument_list|,
 operator|new
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -804,7 +804,7 @@ literal|"test"
 argument_list|)
 argument_list|,
 operator|new
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1187,7 +1187,7 @@ literal|"test"
 argument_list|)
 argument_list|,
 operator|new
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -1375,9 +1375,6 @@ operator|.
 name|termsFilter
 argument_list|(
 name|parseContext
-operator|.
-name|fieldData
-argument_list|()
 argument_list|,
 name|terms
 argument_list|,

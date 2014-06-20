@@ -1885,9 +1885,6 @@ name|query
 init|=
 name|parseContext
 operator|.
-name|indexCache
-argument_list|()
-operator|.
 name|queryParserCache
 argument_list|()
 operator|.
@@ -2021,9 +2018,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|parseContext
-operator|.
-name|indexCache
-argument_list|()
 operator|.
 name|queryParserCache
 argument_list|()

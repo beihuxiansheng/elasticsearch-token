@@ -252,7 +252,7 @@ name|fielddata
 operator|.
 name|breaker
 operator|.
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -1803,7 +1803,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 operator|.
 name|class
 argument_list|)

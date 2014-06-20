@@ -914,9 +914,6 @@ name|parentChildIndexFieldData
 operator|=
 name|parseContext
 operator|.
-name|fieldData
-argument_list|()
-operator|.
 name|getForField
 argument_list|(
 name|parentFieldMapper
