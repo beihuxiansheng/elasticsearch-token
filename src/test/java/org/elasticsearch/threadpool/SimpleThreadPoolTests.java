@@ -416,6 +416,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -771,7 +787,7 @@ name|i
 operator|++
 control|)
 block|{
-name|assertAllSuccessful
+name|assertNoFailures
 argument_list|(
 name|client
 argument_list|()
@@ -799,7 +815,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertAllSuccessful
+name|assertNoFailures
 argument_list|(
 name|client
 argument_list|()
