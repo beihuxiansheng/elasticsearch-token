@@ -196,6 +196,15 @@ argument_list|)
 expr_stmt|;
 name|testFailure
 argument_list|(
+literal|"d = new DateTime(); d.\\\"${'get' + 'Class'}\\\"()."
+operator|+
+literal|"\\\"${'getDeclared' + 'Method'}\\\"(\\\"now\\\").\\\"${'set' + 'Accessible'}\\\"(false)"
+argument_list|,
+literal|"Expression [MethodCallExpression] is not allowed: d.$(get + Class)().$(getDeclared + Method)(now).$(set + Accessible)(false)"
+argument_list|)
+expr_stmt|;
+name|testFailure
+argument_list|(
 literal|"Class.forName(\\\"DateTime\\\").getDeclaredMethod(\\\"plus\\\").setAccessible(true)"
 argument_list|,
 literal|"Method calls not allowed on [java.lang.Class]"
@@ -259,6 +268,13 @@ argument_list|(
 literal|"s = new java.net.URL();"
 argument_list|,
 literal|"Expression [ConstructorCallExpression] is not allowed: new java.net.URL()"
+argument_list|)
+expr_stmt|;
+name|testFailure
+argument_list|(
+literal|"def methodName = 'ex'; Runtime.\\\"${'get' + 'Runtime'}\\\"().\\\"${methodName}ec\\\"(\\\"touch /tmp/gotcha2\\\")"
+argument_list|,
+literal|"Expression [MethodCallExpression] is not allowed: java.lang.Runtime.$(get + Runtime)().$methodNameec(touch /tmp/gotcha2)"
 argument_list|)
 expr_stmt|;
 block|}
