@@ -815,6 +815,7 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// TODO: Replace with proper setting
 name|TimeValue
@@ -936,6 +937,7 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// TODO: Replace with proper setting
 name|TimeValue
@@ -1084,6 +1086,7 @@ argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// poor mans request cloning...
 name|TransportRequestHandler

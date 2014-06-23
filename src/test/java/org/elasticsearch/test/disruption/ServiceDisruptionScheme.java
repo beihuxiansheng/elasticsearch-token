@@ -22,9 +22,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|InternalTestCluster
+name|unit
+operator|.
+name|TimeValue
 import|;
 end_import
 
@@ -36,7 +38,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|TestCluster
+name|InternalTestCluster
 import|;
 end_import
 
@@ -104,6 +106,12 @@ DECL|method|testClusterClosed
 specifier|public
 name|void
 name|testClusterClosed
+parameter_list|()
+function_decl|;
+DECL|method|afterDisruptionTimeOut
+specifier|public
+name|TimeValue
+name|afterDisruptionTimeOut
 parameter_list|()
 function_decl|;
 block|}
