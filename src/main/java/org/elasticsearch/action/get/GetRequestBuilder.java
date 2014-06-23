@@ -76,9 +76,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|VersionType
+name|Strings
 import|;
 end_import
 
@@ -88,9 +88,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|Strings
+name|VersionType
 import|;
 end_import
 
@@ -301,7 +301,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Indicates whether the response should contain the stored _source      *      * @param fetch      * @return      */
+comment|/**      * Indicates whether the response should contain the stored _source.      * @return this for chaining      */
 DECL|method|setFetchSource
 specifier|public
 name|GetRequestBuilder
@@ -348,6 +348,58 @@ name|fetch
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should the source be transformed using the script to used at index time      * (if any)? Note that calling this without having called setFetchSource      * will automatically turn on source fetching.      *      * @return this for chaining      */
+DECL|method|setTransformSource
+specifier|public
+name|GetRequestBuilder
+name|setTransformSource
+parameter_list|(
+name|boolean
+name|transform
+parameter_list|)
+block|{
+name|FetchSourceContext
+name|context
+init|=
+name|request
+operator|.
+name|fetchSourceContext
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+name|context
+operator|=
+operator|new
+name|FetchSourceContext
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|request
+operator|.
+name|fetchSourceContext
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+name|context
+operator|.
+name|transformSource
+argument_list|(
+name|transform
+argument_list|)
+expr_stmt|;
 return|return
 name|this
 return|;

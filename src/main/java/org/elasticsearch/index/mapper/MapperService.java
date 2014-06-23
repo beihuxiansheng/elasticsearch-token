@@ -997,6 +997,9 @@ name|docValuesFormatService
 parameter_list|,
 name|SimilarityLookupService
 name|similarityLookupService
+parameter_list|,
+name|ScriptService
+name|scriptService
 parameter_list|)
 block|{
 name|super
@@ -1046,6 +1049,8 @@ argument_list|,
 name|docValuesFormatService
 argument_list|,
 name|similarityLookupService
+argument_list|,
+name|scriptService
 argument_list|)
 expr_stmt|;
 name|this

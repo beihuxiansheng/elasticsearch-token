@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Mapping configuration for a type.  */
 end_comment
 
 begin_class
