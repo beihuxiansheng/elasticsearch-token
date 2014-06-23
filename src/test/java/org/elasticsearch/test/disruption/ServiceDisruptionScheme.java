@@ -108,10 +108,10 @@ name|void
 name|testClusterClosed
 parameter_list|()
 function_decl|;
-DECL|method|afterDisruptionTimeOut
+DECL|method|expectedTimeToHeal
 specifier|public
 name|TimeValue
-name|afterDisruptionTimeOut
+name|expectedTimeToHeal
 parameter_list|()
 function_decl|;
 block|}

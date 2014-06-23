@@ -126,10 +126,10 @@ parameter_list|()
 block|{      }
 annotation|@
 name|Override
-DECL|method|afterDisruptionTimeOut
+DECL|method|expectedTimeToHeal
 specifier|public
 name|TimeValue
-name|afterDisruptionTimeOut
+name|expectedTimeToHeal
 parameter_list|()
 block|{
 return|return
@@ -137,7 +137,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|30
+literal|0
 argument_list|)
 return|;
 block|}

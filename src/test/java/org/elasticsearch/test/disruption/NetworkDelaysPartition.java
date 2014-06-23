@@ -409,10 +409,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|afterDisruptionTimeOut
+DECL|method|expectedTimeToHeal
 specifier|public
 name|TimeValue
-name|afterDisruptionTimeOut
+name|expectedTimeToHeal
 parameter_list|()
 block|{
 return|return
@@ -421,14 +421,6 @@ operator|.
 name|timeValueMillis
 argument_list|(
 name|delayMax
-operator|+
-name|super
-operator|.
-name|afterDisruptionTimeOut
-argument_list|()
-operator|.
-name|millis
-argument_list|()
 argument_list|)
 return|;
 block|}
