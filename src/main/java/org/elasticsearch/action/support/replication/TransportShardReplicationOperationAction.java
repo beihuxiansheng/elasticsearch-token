@@ -3579,6 +3579,19 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] Transport failure during replica request [{}] "
+argument_list|,
+name|exp
+argument_list|,
+name|node
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3897,6 +3910,19 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failure on replica [{}][{}]"
+argument_list|,
+name|t
+argument_list|,
+name|index
+argument_list|,
+name|shardId
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
