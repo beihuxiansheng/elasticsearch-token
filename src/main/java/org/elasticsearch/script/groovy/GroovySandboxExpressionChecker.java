@@ -479,6 +479,17 @@ operator|.
 name|getName
 argument_list|()
 block|,
+name|java
+operator|.
+name|math
+operator|.
+name|BigDecimal
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+block|,
 name|org
 operator|.
 name|joda
