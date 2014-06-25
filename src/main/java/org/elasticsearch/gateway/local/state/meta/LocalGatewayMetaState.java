@@ -2263,7 +2263,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}]: failed to state"
+literal|"[{}]: failed to write index state"
 argument_list|,
 name|lastFailure
 argument_list|,
