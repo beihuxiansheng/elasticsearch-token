@@ -756,6 +756,13 @@ argument_list|,
 literal|"weighted"
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"IndexQueryParserFilterCachingTests"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

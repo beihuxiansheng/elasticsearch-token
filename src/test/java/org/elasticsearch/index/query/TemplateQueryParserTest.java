@@ -513,6 +513,17 @@ name|getPath
 argument_list|()
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

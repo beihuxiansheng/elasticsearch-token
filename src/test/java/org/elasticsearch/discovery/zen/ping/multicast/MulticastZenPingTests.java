@@ -417,7 +417,9 @@ name|threadPool
 init|=
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"testSimplePings"
+argument_list|)
 decl_stmt|;
 name|ClusterName
 name|clusterName
@@ -774,7 +776,9 @@ name|threadPool
 init|=
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"testExternalPing"
+argument_list|)
 decl_stmt|;
 name|ClusterName
 name|clusterName

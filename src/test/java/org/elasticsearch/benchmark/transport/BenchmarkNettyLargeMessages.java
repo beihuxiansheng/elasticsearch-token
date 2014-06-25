@@ -308,7 +308,9 @@ name|threadPool
 init|=
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"BenchmarkNettyLargeMessages"
+argument_list|)
 decl_stmt|;
 specifier|final
 name|TransportService

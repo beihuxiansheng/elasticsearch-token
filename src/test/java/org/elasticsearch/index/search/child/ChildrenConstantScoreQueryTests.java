@@ -3147,7 +3147,9 @@ name|threadPool
 init|=
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"ChildrenConstantScoreQueryTests"
+argument_list|)
 decl_stmt|;
 specifier|final
 name|PageCacheRecycler

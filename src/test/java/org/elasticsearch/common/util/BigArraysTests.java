@@ -201,7 +201,9 @@ name|EMPTY
 argument_list|,
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"BigArraysTests"
+argument_list|)
 argument_list|)
 decl_stmt|;
 return|return

@@ -134,18 +134,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -186,6 +174,13 @@ name|class
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+literal|"testNativeScript"
 argument_list|)
 operator|.
 name|build
