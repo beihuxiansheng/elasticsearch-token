@@ -212,7 +212,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_1_ID
@@ -249,7 +249,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_2_ID
@@ -286,7 +286,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_3_ID
@@ -323,7 +323,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_4_ID
@@ -360,7 +360,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_5_ID
@@ -397,7 +397,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_6_ID
@@ -434,7 +434,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_7_ID
@@ -471,7 +471,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_18_8_ID
@@ -508,7 +508,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_0_RC1_ID
@@ -545,7 +545,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_0_RC2_ID
@@ -582,7 +582,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_0_RC3_ID
@@ -619,7 +619,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_0_ID
@@ -656,7 +656,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_1_ID
@@ -693,7 +693,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_2_ID
@@ -730,7 +730,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_3_ID
@@ -767,7 +767,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_4_ID
@@ -804,7 +804,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_5_ID
@@ -841,7 +841,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_6_ID
@@ -878,7 +878,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_7_ID
@@ -915,7 +915,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_8_ID
@@ -952,7 +952,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_9_ID
@@ -989,7 +989,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_10_ID
@@ -1026,7 +1026,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_11_ID
@@ -1063,7 +1063,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_12_ID
@@ -1100,7 +1100,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_19_13_ID
@@ -1137,7 +1137,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_0_RC1_ID
@@ -1174,7 +1174,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_0_ID
@@ -1211,7 +1211,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_1_ID
@@ -1248,7 +1248,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_2_ID
@@ -1285,7 +1285,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_3_ID
@@ -1322,7 +1322,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_4_ID
@@ -1359,7 +1359,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_5_ID
@@ -1396,7 +1396,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_6_ID
@@ -1433,7 +1433,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_20_7_ID
@@ -1470,7 +1470,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_36
+name|LUCENE_3_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_0_Beta1_ID
@@ -1507,7 +1507,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_41
+name|LUCENE_4_1
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_0_RC1_ID
@@ -1544,7 +1544,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_41
+name|LUCENE_4_1
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_0_RC2_ID
@@ -1581,7 +1581,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_42
+name|LUCENE_4_2
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_0_ID
@@ -1618,7 +1618,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_42
+name|LUCENE_4_2
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_1_ID
@@ -1655,7 +1655,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_4_3
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_2_ID
@@ -1692,7 +1692,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_4_3
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_3_ID
@@ -1729,7 +1729,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_4_4
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_4_ID
@@ -1766,7 +1766,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_4_4
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_5_ID
@@ -1803,7 +1803,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_4_4
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_6_ID
@@ -1840,7 +1840,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_45
+name|LUCENE_4_5
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_7_ID
@@ -1877,7 +1877,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_45
+name|LUCENE_4_5
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_8_ID
@@ -1914,7 +1914,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_9_ID
@@ -1951,7 +1951,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_10_ID
@@ -1988,7 +1988,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_11_ID
@@ -2025,7 +2025,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_12_ID
@@ -2062,7 +2062,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_13_ID
@@ -2099,7 +2099,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_0_90_14_ID
@@ -2136,7 +2136,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_0_Beta1_ID
@@ -2173,7 +2173,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_45
+name|LUCENE_4_5
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_0_Beta2_ID
@@ -2210,7 +2210,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_0_RC1_ID
@@ -2247,7 +2247,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_0_RC2_ID
@@ -2284,7 +2284,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_0_ID
@@ -2321,7 +2321,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_1_ID
@@ -2358,7 +2358,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_2_ID
@@ -2395,7 +2395,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_3_ID
@@ -2432,7 +2432,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_0_4_ID
@@ -2469,7 +2469,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_1_0_ID
@@ -2506,7 +2506,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_47
+name|LUCENE_4_7
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_1_1_ID
@@ -2543,7 +2543,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_47
+name|LUCENE_4_7
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_1_2_ID
@@ -2580,7 +2580,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_47
+name|LUCENE_4_7
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_2_0_ID
@@ -2617,7 +2617,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_8
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_2_1_ID
@@ -2654,7 +2654,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_8
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_2_2_ID
@@ -2691,7 +2691,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_8
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_3_0_ID
@@ -2728,7 +2728,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_9
 argument_list|)
 decl_stmt|;
 DECL|field|V_2_0_0_ID
@@ -2765,7 +2765,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_48
+name|LUCENE_4_9
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT

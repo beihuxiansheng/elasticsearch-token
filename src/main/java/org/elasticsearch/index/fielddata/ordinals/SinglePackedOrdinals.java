@@ -215,10 +215,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getMemorySizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 if|if

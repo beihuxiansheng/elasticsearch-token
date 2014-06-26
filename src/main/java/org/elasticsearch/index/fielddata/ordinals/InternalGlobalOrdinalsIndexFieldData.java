@@ -42,9 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|MultiDocValues
-operator|.
-name|OrdinalMap
+name|XOrdinalMap
 import|;
 end_import
 
@@ -186,7 +184,7 @@ name|WithOrdinals
 index|[]
 name|segmentAfd
 parameter_list|,
-name|OrdinalMap
+name|XOrdinalMap
 name|ordinalMap
 parameter_list|,
 name|long
@@ -296,7 +294,7 @@ decl_stmt|;
 DECL|field|ordinalMap
 specifier|private
 specifier|final
-name|OrdinalMap
+name|XOrdinalMap
 name|ordinalMap
 decl_stmt|;
 DECL|field|segmentIndex
@@ -312,7 +310,7 @@ parameter_list|(
 name|WithOrdinals
 name|afd
 parameter_list|,
-name|OrdinalMap
+name|XOrdinalMap
 name|ordinalMap
 parameter_list|,
 name|int
@@ -441,16 +439,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getMemorySizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return
 name|afd
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 return|;
 block|}

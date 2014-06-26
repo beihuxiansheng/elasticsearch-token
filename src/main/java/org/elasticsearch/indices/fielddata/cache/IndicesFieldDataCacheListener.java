@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -57,20 +71,6 @@ operator|.
 name|fielddata
 operator|.
 name|IndexFieldDataCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|RamUsage
 import|;
 end_import
 
@@ -156,7 +156,7 @@ parameter_list|,
 name|FieldDataType
 name|fieldDataType
 parameter_list|,
-name|RamUsage
+name|Accountable
 name|fieldData
 parameter_list|)
 block|{     }

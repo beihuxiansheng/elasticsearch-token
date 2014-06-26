@@ -118,6 +118,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -377,7 +391,7 @@ parameter_list|,
 name|FieldDataType
 name|fieldDataType
 parameter_list|,
-name|RamUsage
+name|Accountable
 name|ramUsage
 parameter_list|)
 function_decl|;
@@ -420,7 +434,7 @@ name|FieldBased
 operator|.
 name|Key
 argument_list|,
-name|RamUsage
+name|Accountable
 argument_list|>
 implements|,
 name|IndexReader
@@ -454,7 +468,7 @@ name|Cache
 argument_list|<
 name|Key
 argument_list|,
-name|RamUsage
+name|Accountable
 argument_list|>
 name|cache
 decl_stmt|;
@@ -559,7 +573,7 @@ name|RemovalNotification
 argument_list|<
 name|Key
 argument_list|,
-name|RamUsage
+name|Accountable
 argument_list|>
 name|notification
 parameter_list|)
@@ -585,7 +599,7 @@ operator|!=
 literal|null
 assert|;
 specifier|final
-name|RamUsage
+name|Accountable
 name|value
 init|=
 name|notification
@@ -635,7 +649,7 @@ name|sizeInBytes
 operator|=
 name|value
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}
@@ -855,7 +869,7 @@ name|sizeInBytes
 operator|=
 name|fieldData
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 for|for
@@ -961,7 +975,7 @@ argument_list|,
 operator|new
 name|Callable
 argument_list|<
-name|RamUsage
+name|Accountable
 argument_list|>
 argument_list|()
 block|{
@@ -1063,7 +1077,7 @@ name|sizeInBytes
 operator|=
 name|ifd
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 for|for

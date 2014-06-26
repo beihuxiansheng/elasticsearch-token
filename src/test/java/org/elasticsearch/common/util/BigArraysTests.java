@@ -2757,7 +2757,7 @@ name|assertEquals
 argument_list|(
 name|array
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|bigArrays
@@ -2825,7 +2825,7 @@ name|assertEquals
 argument_list|(
 name|array
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|bigArrays
@@ -3158,7 +3158,7 @@ name|assertEquals
 argument_list|(
 name|array
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|bigArrays
@@ -3209,7 +3209,7 @@ name|assertEquals
 argument_list|(
 name|array
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|bigArrays

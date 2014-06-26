@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|BlockTreeTermsWriter
+name|PostingsFormat
 import|;
 end_import
 
@@ -42,7 +42,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|PostingsFormat
+name|blocktree
+operator|.
+name|BlockTreeTermsWriter
 import|;
 end_import
 

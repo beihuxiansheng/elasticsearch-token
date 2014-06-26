@@ -262,10 +262,10 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|getMemorySizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 if|if
@@ -281,7 +281,7 @@ name|size
 init|=
 name|ordinals
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 comment|// FST
@@ -295,7 +295,7 @@ literal|0
 else|:
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 name|this

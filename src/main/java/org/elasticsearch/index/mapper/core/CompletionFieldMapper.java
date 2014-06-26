@@ -124,20 +124,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|document
-operator|.
-name|XStringField
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|suggest
@@ -417,16 +403,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
 import|;
 end_import
 
@@ -2897,7 +2873,7 @@ specifier|final
 class|class
 name|SuggestField
 extends|extends
-name|XStringField
+name|Field
 block|{
 DECL|field|payload
 specifier|private
@@ -2985,6 +2961,9 @@ name|tokenStream
 parameter_list|(
 name|Analyzer
 name|analyzer
+parameter_list|,
+name|TokenStream
+name|previous
 parameter_list|)
 throws|throws
 name|IOException
@@ -3001,6 +2980,8 @@ operator|.
 name|tokenStream
 argument_list|(
 name|analyzer
+argument_list|,
+name|previous
 argument_list|)
 argument_list|)
 decl_stmt|;

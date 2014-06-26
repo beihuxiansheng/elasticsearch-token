@@ -32,6 +32,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -425,7 +439,7 @@ parameter_list|,
 name|FieldDataType
 name|fieldDataType
 parameter_list|,
-name|RamUsage
+name|Accountable
 name|ramUsage
 parameter_list|)
 block|{
@@ -435,7 +449,7 @@ name|inc
 argument_list|(
 name|ramUsage
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -470,7 +484,7 @@ name|inc
 argument_list|(
 name|ramUsage
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -489,7 +503,7 @@ name|inc
 argument_list|(
 name|ramUsage
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -518,7 +532,7 @@ name|inc
 argument_list|(
 name|ramUsage
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;

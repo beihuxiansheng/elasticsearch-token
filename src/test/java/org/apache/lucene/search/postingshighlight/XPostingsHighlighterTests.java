@@ -268,6 +268,15 @@ block|,
 literal|"Lucene3x"
 block|}
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"I print a lot of stuff"
+argument_list|)
 DECL|class|XPostingsHighlighterTests
 specifier|public
 class|class

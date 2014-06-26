@@ -1037,6 +1037,8 @@ name|defaultMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -1061,6 +1063,8 @@ name|defaultMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -1086,6 +1090,8 @@ name|defaultMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|tokenStream
@@ -1153,6 +1159,8 @@ name|defaultMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|tokenStream
@@ -1343,6 +1351,8 @@ name|defaultMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue

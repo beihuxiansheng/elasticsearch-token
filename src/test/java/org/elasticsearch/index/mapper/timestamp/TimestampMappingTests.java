@@ -536,6 +536,8 @@ name|docMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue

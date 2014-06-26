@@ -1079,7 +1079,7 @@ name|estimatedTermsEnum
 argument_list|,
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1815,7 +1815,7 @@ name|memorySizeInBytes
 operator|+=
 name|globalIfd
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}

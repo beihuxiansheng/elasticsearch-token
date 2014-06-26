@@ -28,6 +28,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -56,6 +70,8 @@ specifier|public
 specifier|abstract
 class|class
 name|Ordinals
+implements|implements
+name|Accountable
 block|{
 DECL|field|NO_VALUES
 specifier|public
@@ -87,11 +103,11 @@ block|}
 block|}
 decl_stmt|;
 comment|/**      * The memory size this ordinals take.      */
-DECL|method|getMemorySizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 specifier|abstract
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 function_decl|;
 DECL|method|ordinals

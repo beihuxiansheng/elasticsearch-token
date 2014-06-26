@@ -374,7 +374,7 @@ name|assertThat
 argument_list|(
 name|fieldData
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -1316,7 +1316,7 @@ name|assertThat
 argument_list|(
 name|fieldData
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -1523,7 +1523,7 @@ name|assertThat
 argument_list|(
 name|fieldData
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -1954,7 +1954,7 @@ name|assertThat
 argument_list|(
 name|fieldData
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -2181,7 +2181,7 @@ name|assertThat
 argument_list|(
 name|fieldData
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo

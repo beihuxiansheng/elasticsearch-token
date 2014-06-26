@@ -1089,10 +1089,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|memorySizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|memorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return

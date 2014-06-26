@@ -523,16 +523,9 @@ name|conf
 operator|.
 name|setMergePolicy
 argument_list|(
-name|randomBoolean
-argument_list|()
-condition|?
 name|NoMergePolicy
 operator|.
-name|COMPOUND_FILES
-else|:
-name|NoMergePolicy
-operator|.
-name|NO_COMPOUND_FILES
+name|INSTANCE
 argument_list|)
 expr_stmt|;
 block|}

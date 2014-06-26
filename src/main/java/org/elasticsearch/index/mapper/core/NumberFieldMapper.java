@@ -2504,6 +2504,9 @@ name|tokenStream
 parameter_list|(
 name|Analyzer
 name|analyzer
+parameter_list|,
+name|TokenStream
+name|reuse
 parameter_list|)
 throws|throws
 name|IOException

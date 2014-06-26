@@ -227,10 +227,10 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|getMemorySizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 if|if
@@ -246,7 +246,7 @@ name|size
 init|=
 name|ordinals
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 comment|// PackedBytes

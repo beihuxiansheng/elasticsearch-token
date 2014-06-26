@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -61,7 +75,7 @@ extends|extends
 name|ScriptDocValues
 parameter_list|>
 extends|extends
-name|RamUsage
+name|Accountable
 block|{
 comment|/**      * Use a non thread safe (lightweight) view of the values as bytes.      */
 DECL|method|getBytesValues
@@ -145,7 +159,7 @@ annotation|@
 name|Override
 specifier|public
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return

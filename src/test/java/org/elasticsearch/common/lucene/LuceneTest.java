@@ -17,32 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|core
-operator|.
-name|IsEqual
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -91,6 +65,32 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|core
+operator|.
+name|IsEqual
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -236,7 +236,7 @@ argument_list|()
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"^LUCENE_(\\d)(\\d)$"
+literal|"^LUCENE_(\\d)_?(\\d)$"
 argument_list|,
 literal|"$1.$2"
 argument_list|)

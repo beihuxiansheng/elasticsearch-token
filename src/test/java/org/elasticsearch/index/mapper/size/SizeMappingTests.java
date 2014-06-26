@@ -130,18 +130,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|*
@@ -310,6 +298,8 @@ name|docMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -478,6 +468,8 @@ name|docMapper
 operator|.
 name|indexAnalyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue

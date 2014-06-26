@@ -2903,6 +2903,7 @@ literal|true
 return|;
 block|}
 block|}
+comment|// NOTE: we have to ensure we defeat compression strategies of the default codec...
 DECL|method|testEagerLoading
 specifier|public
 name|void
@@ -2960,6 +2961,7 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// index a doc with 1 token, and one with 3 tokens so we dont get CONST compressed (otherwise norms take zero memory usage)
 name|client
 argument_list|()
 operator|.
@@ -2977,6 +2979,31 @@ argument_list|(
 literal|"foo"
 argument_list|,
 literal|"bar"
+argument_list|)
+operator|.
+name|execute
+argument_list|()
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+name|client
+argument_list|()
+operator|.
+name|prepareIndex
+argument_list|(
+name|indexName
+argument_list|,
+literal|"t"
+argument_list|,
+literal|"2"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar baz foo"
 argument_list|)
 operator|.
 name|setRefresh

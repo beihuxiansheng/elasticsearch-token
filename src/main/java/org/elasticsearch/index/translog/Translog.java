@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
@@ -269,6 +283,8 @@ extends|extends
 name|IndexShardComponent
 extends|,
 name|CloseableIndexComponent
+extends|,
+name|Accountable
 block|{
 DECL|field|INACTIVE_SHARD_TRANSLOG_BUFFER
 specifier|static
@@ -314,12 +330,6 @@ comment|/**      * Returns the number of operations in the transaction log.     
 DECL|method|estimatedNumberOfOperations
 name|int
 name|estimatedNumberOfOperations
-parameter_list|()
-function_decl|;
-comment|/**      * The estimated memory size this translog is taking.      */
-DECL|method|memorySizeInBytes
-name|long
-name|memorySizeInBytes
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the size in bytes of the translog.      */

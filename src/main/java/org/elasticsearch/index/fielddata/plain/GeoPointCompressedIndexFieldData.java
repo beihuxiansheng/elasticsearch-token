@@ -642,7 +642,7 @@ literal|null
 argument_list|,
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1255,7 +1255,7 @@ literal|null
 argument_list|,
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;

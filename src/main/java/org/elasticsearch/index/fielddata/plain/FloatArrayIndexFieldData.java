@@ -536,7 +536,7 @@ literal|null
 argument_list|,
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -797,7 +797,7 @@ name|uniqueValuesArraySize
 init|=
 name|values
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 name|long
@@ -805,7 +805,7 @@ name|ordinalsSize
 init|=
 name|build
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 if|if
@@ -975,7 +975,7 @@ literal|null
 argument_list|,
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;

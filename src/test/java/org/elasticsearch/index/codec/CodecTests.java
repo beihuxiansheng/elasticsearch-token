@@ -56,22 +56,6 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|diskdv
-operator|.
-name|DiskDocValuesFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|codecs
-operator|.
 name|lucene40
 operator|.
 name|Lucene40Codec
@@ -136,9 +120,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene45
+name|lucene46
 operator|.
-name|Lucene45DocValuesFormat
+name|Lucene46Codec
 import|;
 end_import
 
@@ -152,9 +136,25 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene46
+name|lucene49
 operator|.
-name|Lucene46Codec
+name|Lucene49Codec
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|codecs
+operator|.
+name|lucene49
+operator|.
+name|Lucene49DocValuesFormat
 import|;
 end_import
 
@@ -251,6 +251,20 @@ operator|.
 name|simpletext
 operator|.
 name|SimpleTextCodec
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 
@@ -635,6 +649,15 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"I am quite noisy"
+argument_list|)
 DECL|class|CodecTests
 specifier|public
 class|class
@@ -708,7 +731,24 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|Lucene46Codec
+name|Lucene49Codec
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|codecService
+operator|.
+name|codec
+argument_list|(
+literal|"Lucene49"
+argument_list|)
+argument_list|,
+name|instanceOf
+argument_list|(
+name|Lucene49Codec
 operator|.
 name|class
 argument_list|)
@@ -1480,7 +1520,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -1500,7 +1540,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -1520,7 +1560,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|Lucene45DocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -3417,7 +3457,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -3572,7 +3612,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -3757,7 +3797,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|Lucene45DocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -4179,7 +4219,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)
@@ -4325,7 +4365,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 operator|.
 name|class
 argument_list|)

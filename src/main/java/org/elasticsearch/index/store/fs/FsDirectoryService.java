@@ -358,11 +358,10 @@ literal|"native"
 argument_list|)
 condition|)
 block|{
-comment|// TODO LUCENE MONITOR: this is not needed in next Lucene version
 name|lockFactory
 operator|=
 operator|new
-name|XNativeFSLockFactory
+name|NativeFSLockFactory
 argument_list|()
 expr_stmt|;
 block|}

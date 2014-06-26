@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|XStringField
+name|Field
 import|;
 end_import
 
@@ -2654,7 +2654,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|XStringField
+name|Field
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -2682,7 +2682,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|XStringField
+name|Field
 argument_list|(
 name|TypeFieldMapper
 operator|.

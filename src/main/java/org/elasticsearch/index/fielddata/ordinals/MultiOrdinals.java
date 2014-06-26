@@ -499,10 +499,12 @@ name|getTotalNumOrds
 argument_list|()
 assert|;
 block|}
-DECL|method|getMemorySizeInBytes
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|getMemorySizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return

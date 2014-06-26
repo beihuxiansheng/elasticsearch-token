@@ -721,7 +721,7 @@ name|adjustForNoTerms
 argument_list|(
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1579,7 +1579,7 @@ name|termsEnum
 argument_list|,
 name|data
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1705,7 +1705,7 @@ name|ordinalsSize
 init|=
 name|build
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 operator|+
 name|values
