@@ -385,7 +385,13 @@ name|threadPool
 operator|=
 operator|new
 name|ThreadPool
+argument_list|(
+name|getClass
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|serviceA
 operator|=
