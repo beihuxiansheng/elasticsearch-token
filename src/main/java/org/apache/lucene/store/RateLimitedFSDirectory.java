@@ -71,7 +71,7 @@ DECL|method|RateLimitedFSDirectory
 specifier|public
 name|RateLimitedFSDirectory
 parameter_list|(
-name|FSDirectory
+name|Directory
 name|wrapped
 parameter_list|,
 name|StoreRateLimiting

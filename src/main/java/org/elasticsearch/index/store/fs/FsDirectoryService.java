@@ -781,7 +781,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|FSDirectory
+name|Directory
 name|wrapped
 init|=
 name|newFSDirectory
@@ -818,7 +818,7 @@ block|}
 DECL|method|newFSDirectory
 specifier|protected
 specifier|abstract
-name|FSDirectory
+name|Directory
 name|newFSDirectory
 parameter_list|(
 name|File
