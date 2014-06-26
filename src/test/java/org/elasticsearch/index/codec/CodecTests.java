@@ -258,20 +258,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -649,15 +635,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressSysoutChecks
-argument_list|(
-name|bugUrl
-operator|=
-literal|"I am quite noisy"
-argument_list|)
 DECL|class|CodecTests
 specifier|public
 class|class

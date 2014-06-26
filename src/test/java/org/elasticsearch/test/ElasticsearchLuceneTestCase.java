@@ -180,6 +180,15 @@ name|SuppressCodecs
 argument_list|(
 literal|"Lucene3x"
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"we log a lot on purpose"
+argument_list|)
 DECL|class|ElasticsearchLuceneTestCase
 specifier|public
 specifier|abstract
