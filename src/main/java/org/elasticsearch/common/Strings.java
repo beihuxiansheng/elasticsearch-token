@@ -914,6 +914,25 @@ name|str
 argument_list|)
 return|;
 block|}
+comment|/**      * Check that the given CharSequence is either<code>null</code> or of length 0.      * Note: Will return<code>false</code> for a CharSequence that purely consists of whitespace.      *<p><pre>      * StringUtils.isEmpty(null) = true      * StringUtils.isEmpty("") = true      * StringUtils.isEmpty(" ") = false      * StringUtils.isEmpty("Hello") = false      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is either null or has a zero length      */
+DECL|method|isEmpty
+specifier|public
+specifier|static
+name|boolean
+name|isEmpty
+parameter_list|(
+name|CharSequence
+name|str
+parameter_list|)
+block|{
+return|return
+operator|!
+name|hasLength
+argument_list|(
+name|str
+argument_list|)
+return|;
+block|}
 comment|/**      * Check whether the given CharSequence has actual text.      * More specifically, returns<code>true</code> if the string not<code>null</code>,      * its length is greater than 0, and it contains at least one non-whitespace character.      *<p><pre>      * StringUtils.hasText(null) = false      * StringUtils.hasText("") = false      * StringUtils.hasText(" ") = false      * StringUtils.hasText("12345") = true      * StringUtils.hasText(" 12345 ") = true      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is not<code>null</code>,      *         its length is greater than 0, and it does not contain whitespace only      * @see java.lang.Character#isWhitespace      */
 DECL|method|hasText
 specifier|public
