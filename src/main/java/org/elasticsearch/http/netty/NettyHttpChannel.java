@@ -1297,6 +1297,21 @@ expr_stmt|;
 block|}
 block|}
 block|}
+DECL|field|TOO_MANY_REQUESTS
+specifier|private
+specifier|static
+specifier|final
+name|HttpResponseStatus
+name|TOO_MANY_REQUESTS
+init|=
+operator|new
+name|HttpResponseStatus
+argument_list|(
+literal|429
+argument_list|,
+literal|"Too Many Requests"
+argument_list|)
+decl_stmt|;
 DECL|method|getStatus
 specifier|private
 name|HttpResponseStatus
@@ -1615,6 +1630,12 @@ return|return
 name|HttpResponseStatus
 operator|.
 name|BAD_REQUEST
+return|;
+case|case
+name|TOO_MANY_REQUESTS
+case|:
+return|return
+name|TOO_MANY_REQUESTS
 return|;
 case|case
 name|INTERNAL_SERVER_ERROR

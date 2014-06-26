@@ -328,6 +328,13 @@ argument_list|(
 literal|424
 argument_list|)
 block|,
+comment|/**      * 429 Too Many Requests (RFC6585)      */
+DECL|enum constant|TOO_MANY_REQUESTS
+name|TOO_MANY_REQUESTS
+argument_list|(
+literal|429
+argument_list|)
+block|,
 comment|/**      * The server encountered an unexpected condition which prevented it from fulfilling the request.      */
 DECL|enum constant|INTERNAL_SERVER_ERROR
 name|INTERNAL_SERVER_ERROR
