@@ -119,10 +119,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * WordTokenFilter has been deprecated in Lucene 4.8  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SmartChineseWordTokenFilterFactory
 specifier|public
 class|class

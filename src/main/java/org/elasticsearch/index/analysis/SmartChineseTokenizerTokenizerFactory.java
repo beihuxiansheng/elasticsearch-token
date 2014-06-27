@@ -44,7 +44,7 @@ name|cn
 operator|.
 name|smart
 operator|.
-name|SentenceTokenizer
+name|HMMChineseTokenizer
 import|;
 end_import
 
@@ -128,25 +128,19 @@ name|Reader
 import|;
 end_import
 
-begin_comment
-comment|/**  * SentenceTokenizer has been deprecated in Lucene 4.8  */
-end_comment
-
 begin_class
-annotation|@
-name|Deprecated
-DECL|class|SmartChineseSentenceTokenizerFactory
+DECL|class|SmartChineseTokenizerTokenizerFactory
 specifier|public
 class|class
-name|SmartChineseSentenceTokenizerFactory
+name|SmartChineseTokenizerTokenizerFactory
 extends|extends
 name|AbstractTokenizerFactory
 block|{
 annotation|@
 name|Inject
-DECL|method|SmartChineseSentenceTokenizerFactory
+DECL|method|SmartChineseTokenizerTokenizerFactory
 specifier|public
-name|SmartChineseSentenceTokenizerFactory
+name|SmartChineseTokenizerTokenizerFactory
 parameter_list|(
 name|Index
 name|index
@@ -192,7 +186,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|SentenceTokenizer
+name|HMMChineseTokenizer
 argument_list|(
 name|reader
 argument_list|)

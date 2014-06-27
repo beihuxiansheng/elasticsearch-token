@@ -64,6 +64,7 @@ name|TokenizersBindings
 name|tokenizersBindings
 parameter_list|)
 block|{
+comment|// TODO Remove it in 2.3.0 (was deprecated: see https://github.com/elasticsearch/elasticsearch-analysis-smartcn/issues/22)
 name|tokenizersBindings
 operator|.
 name|processTokenizer
@@ -71,6 +72,17 @@ argument_list|(
 literal|"smartcn_sentence"
 argument_list|,
 name|SmartChineseSentenceTokenizerFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenizersBindings
+operator|.
+name|processTokenizer
+argument_list|(
+literal|"smartcn_tokenizer"
+argument_list|,
+name|SmartChineseTokenizerTokenizerFactory
 operator|.
 name|class
 argument_list|)
@@ -87,6 +99,7 @@ name|TokenFiltersBindings
 name|tokenFiltersBindings
 parameter_list|)
 block|{
+comment|// TODO Remove it in 2.3.0 (was deprecated: see https://github.com/elasticsearch/elasticsearch-analysis-smartcn/issues/22)
 name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
