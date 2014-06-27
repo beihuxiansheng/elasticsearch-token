@@ -1307,6 +1307,13 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
+literal|"got: "
+operator|+
+name|e
+operator|.
+name|getDetailedMessage
+argument_list|()
+argument_list|,
 name|e
 operator|.
 name|getDetailedMessage
@@ -4200,6 +4207,13 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
+literal|"got "
+operator|+
+name|ex
+operator|.
+name|getDetailedMessage
+argument_list|()
+argument_list|,
 name|ex
 operator|.
 name|getDetailedMessage
