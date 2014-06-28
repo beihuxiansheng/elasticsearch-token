@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.query
+DECL|package|org.elasticsearch.index.cache.query
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
+operator|.
+name|cache
 operator|.
 name|query
 package|;
@@ -22,54 +24,45 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|common
 operator|.
-name|SearchPhaseResult
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|inject
 operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportResponse
+name|AbstractModule
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  */
 end_comment
 
 begin_class
-DECL|class|QuerySearchResultProvider
+DECL|class|ShardQueryCacheModule
 specifier|public
-specifier|abstract
 class|class
-name|QuerySearchResultProvider
+name|ShardQueryCacheModule
 extends|extends
-name|TransportResponse
-implements|implements
-name|SearchPhaseResult
+name|AbstractModule
 block|{
-comment|/**      * If both query and fetch happened on the same call.      */
-DECL|method|includeFetch
-specifier|public
-specifier|abstract
-name|boolean
-name|includeFetch
+annotation|@
+name|Override
+DECL|method|configure
+specifier|protected
+name|void
+name|configure
 parameter_list|()
-function_decl|;
-DECL|method|queryResult
-specifier|public
-specifier|abstract
-name|QuerySearchResult
-name|queryResult
-parameter_list|()
-function_decl|;
+block|{
+name|bind
+argument_list|(
+name|ShardQueryCache
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

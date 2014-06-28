@@ -912,6 +912,12 @@ name|Suggest
 argument_list|(
 literal|"suggest"
 argument_list|)
+block|,
+DECL|enum constant|QueryCache
+name|QueryCache
+argument_list|(
+literal|"query_cache"
+argument_list|)
 block|;
 DECL|field|restName
 specifier|private

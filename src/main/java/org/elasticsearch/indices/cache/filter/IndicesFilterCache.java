@@ -1078,11 +1078,6 @@ name|remove
 argument_list|()
 expr_stmt|;
 block|}
-name|cache
-operator|.
-name|cleanUp
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -1152,6 +1147,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 name|schedule
 argument_list|()
 expr_stmt|;

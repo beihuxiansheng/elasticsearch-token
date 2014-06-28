@@ -312,6 +312,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|search
+operator|.
+name|query
+operator|.
+name|QuerySearchResultProvider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -421,7 +435,7 @@ name|AsyncAction
 extends|extends
 name|BaseAsyncAction
 argument_list|<
-name|QuerySearchResult
+name|QuerySearchResultProvider
 argument_list|>
 block|{
 DECL|field|fetchResults
@@ -513,7 +527,7 @@ name|request
 parameter_list|,
 name|SearchServiceListener
 argument_list|<
-name|QuerySearchResult
+name|QuerySearchResultProvider
 argument_list|>
 name|listener
 parameter_list|)
@@ -640,7 +654,7 @@ name|asList
 argument_list|()
 control|)
 block|{
-name|QuerySearchResult
+name|QuerySearchResultProvider
 name|queryResult
 init|=
 name|firstResults
@@ -674,6 +688,9 @@ init|=
 name|createFetchRequest
 argument_list|(
 name|queryResult
+operator|.
+name|queryResult
+argument_list|()
 argument_list|,
 name|entry
 argument_list|,

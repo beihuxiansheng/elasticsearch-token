@@ -1665,10 +1665,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|nowInMillis
-specifier|public
+DECL|method|nowInMillisImpl
+specifier|protected
 name|long
-name|nowInMillis
+name|nowInMillisImpl
 parameter_list|()
 block|{
 return|return
