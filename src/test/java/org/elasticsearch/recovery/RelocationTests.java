@@ -2010,7 +2010,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node1] ..."
+literal|"--> starting [node_0] ..."
 argument_list|)
 expr_stmt|;
 name|nodes
@@ -2080,6 +2080,10 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+comment|// make sure the first shard is started.
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -2099,11 +2103,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [node{}] ..."
+literal|"--> starting [node_{}] ..."
 argument_list|,
 name|i
-operator|+
-literal|1
 argument_list|)
 expr_stmt|;
 name|nodes
