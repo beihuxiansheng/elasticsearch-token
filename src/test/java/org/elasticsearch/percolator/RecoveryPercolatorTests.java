@@ -1864,6 +1864,15 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
+name|waitForConcreteMappingsOnAll
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"type1"
+argument_list|,
+literal|"field1"
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
