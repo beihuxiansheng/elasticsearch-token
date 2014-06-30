@@ -16903,6 +16903,12 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
+comment|// wait for at least primaries allocations so concretely allocated on it
 name|waitForConcreteMappingsOnAll
 argument_list|(
 literal|"test"
