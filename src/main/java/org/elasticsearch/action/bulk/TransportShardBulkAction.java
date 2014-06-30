@@ -2623,13 +2623,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|indexRequest
-operator|.
-name|opType
-argument_list|()
-operator|.
-name|lowercase
-argument_list|()
+literal|"update"
 argument_list|,
 operator|new
 name|BulkItemResponse
