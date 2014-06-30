@@ -441,6 +441,15 @@ name|clusterDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|DiscoverySettings
+operator|.
+name|NO_MASTER_BLOCK
+argument_list|)
+expr_stmt|;
+name|clusterDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|FilterAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_INCLUDE_GROUP
