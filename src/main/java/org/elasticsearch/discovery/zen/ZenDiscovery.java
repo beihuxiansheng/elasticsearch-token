@@ -714,7 +714,7 @@ implements|,
 name|DiscoveryNodesProvider
 block|{
 DECL|field|REJOIN_ON_MASTER_GONE
-specifier|private
+specifier|public
 specifier|final
 specifier|static
 name|String
@@ -5754,6 +5754,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|isRejoinOnMasterGone
+name|boolean
+name|isRejoinOnMasterGone
+parameter_list|()
+block|{
+return|return
+name|rejoinOnMasterGone
+return|;
 block|}
 DECL|class|RejoinClusterRequest
 specifier|static
