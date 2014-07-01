@@ -1432,6 +1432,9 @@ name|documentMapperWithAutoCreate
 argument_list|(
 literal|"my_type"
 argument_list|)
+operator|.
+name|v1
+argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
