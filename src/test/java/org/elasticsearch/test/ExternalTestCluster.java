@@ -273,7 +273,15 @@ literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"node.mode"
+argument_list|,
+literal|"network"
 argument_list|)
+argument_list|)
+comment|// we require network here!
 operator|.
 name|addTransportAddresses
 argument_list|(

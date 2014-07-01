@@ -543,6 +543,9 @@ case|:
 case|case
 literal|"gateway.type"
 case|:
+case|case
+literal|"config.ignore_system_properties"
+case|:
 continue|continue;
 default|default:
 name|params

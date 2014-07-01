@@ -426,6 +426,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"node.mode"
+argument_list|,
+literal|"network"
+argument_list|)
+comment|// we need network mode for this
+operator|.
+name|put
+argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"local"
