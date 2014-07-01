@@ -325,13 +325,6 @@ name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|request
-operator|.
-name|indices
-argument_list|(
-name|concreteIndices
-argument_list|)
-expr_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -364,10 +357,7 @@ operator|.
 name|aliases
 argument_list|()
 argument_list|,
-name|request
-operator|.
-name|indices
-argument_list|()
+name|concreteIndices
 argument_list|)
 decl_stmt|;
 name|listener

@@ -374,10 +374,10 @@ parameter_list|)
 throws|throws
 name|ElasticsearchException
 block|{
-name|request
-operator|.
-name|indices
-argument_list|(
+name|String
+index|[]
+name|concreteIndices
+init|=
 name|state
 operator|.
 name|metaData
@@ -395,8 +395,7 @@ operator|.
 name|indices
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|ImmutableOpenMap
 operator|.
 name|Builder
@@ -417,10 +416,7 @@ control|(
 name|String
 name|concreteIndex
 range|:
-name|request
-operator|.
-name|indices
-argument_list|()
+name|concreteIndices
 control|)
 block|{
 name|IndexMetaData

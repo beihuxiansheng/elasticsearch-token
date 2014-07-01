@@ -387,10 +387,6 @@ decl_stmt|;
 if|if
 condition|(
 name|concreteIndices
-operator|==
-literal|null
-operator|||
-name|concreteIndices
 operator|.
 name|length
 operator|==

@@ -281,6 +281,10 @@ specifier|final
 name|GetWarmersRequest
 name|request
 parameter_list|,
+name|String
+index|[]
+name|concreteIndices
+parameter_list|,
 specifier|final
 name|ClusterState
 name|state
@@ -315,10 +319,7 @@ argument_list|()
 operator|.
 name|findWarmers
 argument_list|(
-name|request
-operator|.
-name|indices
-argument_list|()
+name|concreteIndices
 argument_list|,
 name|request
 operator|.
