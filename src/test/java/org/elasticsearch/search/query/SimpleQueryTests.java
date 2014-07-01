@@ -4716,6 +4716,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|cluster
+argument_list|()
+operator|.
+name|wipeTemplates
+argument_list|()
+expr_stmt|;
+comment|// no randomized template for this test -- we are testing bwc compat and set version explicitly this might cause failures if an unsupported feature
+comment|// is added randomly via an index template.
 name|Version
 name|version
 init|=
