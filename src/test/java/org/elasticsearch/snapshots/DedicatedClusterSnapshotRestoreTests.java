@@ -1961,6 +1961,15 @@ name|RANDOM_NO_DELETE_OPEN_FILE
 argument_list|,
 literal|false
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|MockDirectoryHelper
+operator|.
+name|RANDOM_PREVENT_DOUBLE_WRITE
+argument_list|,
+literal|false
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
