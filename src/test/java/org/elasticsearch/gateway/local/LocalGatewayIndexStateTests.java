@@ -1577,14 +1577,6 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
-comment|// we need to wait for mapping on master since the mapping update from translog update might get delayed
-name|waitForMappingOnMaster
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|)
-expr_stmt|;
 name|stateResponse
 operator|=
 name|client
@@ -2989,14 +2981,6 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
-comment|// we need to wait for mapping on master since the mapping update from translog update might get delayed
-name|waitForMappingOnMaster
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -3502,14 +3486,6 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
-comment|// we need to wait for mapping on master since the mapping update from translog update might get delayed
-name|waitForMappingOnMaster
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -3931,14 +3907,6 @@ argument_list|)
 expr_stmt|;
 name|ensureGreen
 argument_list|()
-expr_stmt|;
-comment|// we need to wait for mapping on master since the mapping update from translog update might get delayed
-name|waitForMappingOnMaster
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|)
 expr_stmt|;
 name|logger
 operator|.
