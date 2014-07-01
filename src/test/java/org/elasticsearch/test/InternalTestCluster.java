@@ -990,20 +990,6 @@ name|randomizedtesting
 operator|.
 name|RandomizedTest
 operator|.
-name|randomIntBetween
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
 name|systemPropertyAsBoolean
 import|;
 end_import
@@ -2725,8 +2711,12 @@ name|MappingUpdatedAction
 operator|.
 name|INDICES_MAPPING_ADDITIONAL_MAPPING_CHANGE_TIME
 argument_list|,
+name|RandomInts
+operator|.
 name|randomIntBetween
 argument_list|(
+name|random
+argument_list|,
 literal|0
 argument_list|,
 literal|500
