@@ -641,6 +641,24 @@ argument_list|,
 name|BulkShardResponse
 argument_list|>
 block|{
+DECL|field|OP_TYPE_UPDATE
+specifier|private
+specifier|final
+specifier|static
+name|String
+name|OP_TYPE_UPDATE
+init|=
+literal|"update"
+decl_stmt|;
+DECL|field|OP_TYPE_DELETE
+specifier|private
+specifier|final
+specifier|static
+name|String
+name|OP_TYPE_DELETE
+init|=
+literal|"delete"
+decl_stmt|;
 DECL|field|mappingUpdatedAction
 specifier|private
 specifier|final
@@ -1602,7 +1620,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"delete"
+name|OP_TYPE_DELETE
 argument_list|,
 name|deleteResponse
 argument_list|)
@@ -1750,7 +1768,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"delete"
+name|OP_TYPE_DELETE
 argument_list|,
 operator|new
 name|BulkItemResponse
@@ -2064,7 +2082,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"update"
+name|OP_TYPE_UPDATE
 argument_list|,
 name|updateResponse
 argument_list|)
@@ -2252,7 +2270,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"update"
+name|OP_TYPE_UPDATE
 argument_list|,
 name|updateResponse
 argument_list|)
@@ -2300,7 +2318,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"update"
+name|OP_TYPE_UPDATE
 argument_list|,
 name|updateResult
 operator|.
@@ -2371,7 +2389,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"update"
+name|OP_TYPE_UPDATE
 argument_list|,
 operator|new
 name|BulkItemResponse
@@ -2488,7 +2506,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"update"
+name|OP_TYPE_UPDATE
 argument_list|,
 operator|new
 name|BulkItemResponse
@@ -2623,7 +2641,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"update"
+name|OP_TYPE_UPDATE
 argument_list|,
 operator|new
 name|BulkItemResponse
@@ -2743,7 +2761,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"delete"
+name|OP_TYPE_DELETE
 argument_list|,
 operator|new
 name|BulkItemResponse
