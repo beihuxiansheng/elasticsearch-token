@@ -2274,10 +2274,6 @@ name|numDocs
 argument_list|)
 expr_stmt|;
 block|}
-name|ensureGreen
-argument_list|()
-expr_stmt|;
-comment|// wait for all the relocation
 name|assertVersionCreated
 argument_list|(
 name|compatibilityVersion
