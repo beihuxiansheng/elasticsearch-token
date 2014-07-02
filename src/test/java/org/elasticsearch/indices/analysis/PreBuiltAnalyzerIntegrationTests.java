@@ -140,6 +140,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -243,7 +255,7 @@ operator|.
 name|SUITE
 argument_list|)
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ElasticsearchTestCase
 operator|.
 name|CompatibilityVersion
 argument_list|(
