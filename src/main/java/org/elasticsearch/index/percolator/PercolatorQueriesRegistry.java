@@ -1513,41 +1513,30 @@ comment|// percolator index has started, fetch what we can from it and initializ
 comment|// we have
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"loading percolator queries for index [{}] and shard[{}]..."
+literal|"loading percolator queries for [{}]..."
 argument_list|,
 name|shardId
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 expr_stmt|;
+name|int
+name|loadedQueries
+init|=
 name|loadQueries
 argument_list|(
 name|indexShard
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"done loading percolator queries for index [{}] and shard[{}]"
+literal|"done loading [{}] percolator queries for [{}]"
+argument_list|,
+name|loadedQueries
 argument_list|,
 name|shardId
-operator|.
-name|index
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1589,14 +1578,12 @@ return|;
 block|}
 DECL|method|loadQueries
 specifier|private
-name|void
+name|int
 name|loadQueries
 parameter_list|(
 name|IndexShard
 name|shard
 parameter_list|)
-block|{
-try|try
 block|{
 name|shard
 operator|.
@@ -1617,6 +1604,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Maybe add a mode load? This isn't really a write. We need write b/c state=post_recovery
+try|try
+init|(
 name|Engine
 operator|.
 name|Searcher
@@ -1634,8 +1623,7 @@ name|Mode
 operator|.
 name|WRITE
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|Query
 name|query
@@ -1764,15 +1752,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|searcher
+return|return
+name|queries
 operator|.
-name|close
+name|size
 argument_list|()
-expr_stmt|;
-block|}
+return|;
 block|}
 catch|catch
 parameter_list|(
