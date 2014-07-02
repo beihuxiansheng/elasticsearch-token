@@ -539,8 +539,11 @@ name|field
 operator|.
 name|name
 argument_list|()
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|path
+argument_list|)
 condition|)
 block|{
 name|value

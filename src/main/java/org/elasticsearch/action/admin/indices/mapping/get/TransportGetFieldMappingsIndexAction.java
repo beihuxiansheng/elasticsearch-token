@@ -428,6 +428,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -1089,7 +1099,8 @@ name|MapBuilder
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|ImmutableList
+specifier|final
+name|List
 argument_list|<
 name|FieldMapper
 argument_list|>

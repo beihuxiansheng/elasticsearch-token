@@ -54,7 +54,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 import|;
 end_import
 
@@ -74,7 +74,7 @@ block|{
 DECL|field|analyzers
 specifier|private
 specifier|final
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 argument_list|<
 name|String
 argument_list|,
@@ -92,7 +92,7 @@ DECL|method|FieldNameAnalyzer
 specifier|public
 name|FieldNameAnalyzer
 parameter_list|(
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 argument_list|<
 name|String
 argument_list|,
@@ -119,7 +119,7 @@ expr_stmt|;
 block|}
 DECL|method|analyzers
 specifier|public
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 argument_list|<
 name|String
 argument_list|,

@@ -1839,6 +1839,8 @@ operator|=
 operator|new
 name|DocumentFieldMappers
 argument_list|(
+name|indexSettings
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
@@ -3041,7 +3043,7 @@ specifier|public
 name|void
 name|addFieldMappers
 parameter_list|(
-name|Iterable
+name|List
 argument_list|<
 name|FieldMapper
 argument_list|>
