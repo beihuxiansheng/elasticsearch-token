@@ -380,13 +380,13 @@ name|nodesSideTwo
 argument_list|)
 return|;
 block|}
-DECL|method|getMjaoritySide
+DECL|method|getMajoritySide
 specifier|public
 name|List
 argument_list|<
 name|String
 argument_list|>
-name|getMjaoritySide
+name|getMajoritySide
 parameter_list|()
 block|{
 if|if

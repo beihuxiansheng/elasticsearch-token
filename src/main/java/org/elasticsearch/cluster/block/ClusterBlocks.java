@@ -637,6 +637,26 @@ return|return
 literal|false
 return|;
 block|}
+DECL|method|hasGlobalBlock
+specifier|public
+name|boolean
+name|hasGlobalBlock
+parameter_list|(
+name|ClusterBlockLevel
+name|level
+parameter_list|)
+block|{
+return|return
+operator|!
+name|global
+argument_list|(
+name|level
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 comment|/**      * Is there a global block with the provided status?      */
 DECL|method|hasGlobalBlock
 specifier|public

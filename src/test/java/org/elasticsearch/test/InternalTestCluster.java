@@ -7658,8 +7658,9 @@ name|function
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * get the name of the current master node      */
 DECL|method|getMasterName
-specifier|private
+specifier|public
 name|String
 name|getMasterName
 parameter_list|()
