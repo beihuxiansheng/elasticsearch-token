@@ -86,7 +86,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -237,7 +237,7 @@ name|valuesSource
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|field|states
@@ -436,16 +436,21 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|int
-name|valueCount
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|valueCount
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -468,8 +473,10 @@ name|add
 argument_list|(
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

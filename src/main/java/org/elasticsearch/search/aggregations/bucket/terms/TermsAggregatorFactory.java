@@ -540,8 +540,11 @@ operator|!=
 literal|null
 operator|||
 name|factories
-operator|!=
-literal|null
+operator|.
+name|count
+argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 return|return

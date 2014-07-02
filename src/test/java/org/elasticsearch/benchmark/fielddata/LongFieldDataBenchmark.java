@@ -852,9 +852,6 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|IndexNumericFieldData
-argument_list|<
-name|AtomicNumericFieldData
-argument_list|>
 name|fd
 init|=
 name|fds

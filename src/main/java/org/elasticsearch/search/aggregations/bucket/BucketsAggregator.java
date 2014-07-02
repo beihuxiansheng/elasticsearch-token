@@ -302,11 +302,11 @@ specifier|final
 name|void
 name|incrementBucketDocCount
 parameter_list|(
-name|int
-name|inc
-parameter_list|,
 name|long
 name|bucketOrd
+parameter_list|,
+name|int
+name|inc
 parameter_list|)
 throws|throws
 name|IOException

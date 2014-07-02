@@ -156,34 +156,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
-operator|.
-name|MultiValueMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|ordinals
-operator|.
-name|GlobalOrdinalsBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|mapper
@@ -236,8 +208,20 @@ name|CircuitBreakerService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
+import|;
+end_import
+
 begin_comment
-comment|/**  */
+comment|/**  * Thread-safe utility class that allows to get per-segment values via the  * {@link #load(AtomicReaderContext)} method.  */
 end_comment
 
 begin_interface
@@ -403,12 +387,6 @@ comment|/**      * The field data type.      */
 DECL|method|getFieldDataType
 name|FieldDataType
 name|getFieldDataType
-parameter_list|()
-function_decl|;
-comment|/**      * Are the values ordered? (in ascending manner).      */
-DECL|method|valuesOrdered
-name|boolean
-name|valuesOrdered
 parameter_list|()
 function_decl|;
 comment|/**      * Loads the atomic field data for the reader, possibly cached.      */
@@ -922,6 +900,9 @@ name|Builder
 block|{
 DECL|method|build
 name|IndexFieldData
+argument_list|<
+name|?
+argument_list|>
 name|build
 parameter_list|(
 name|Index
@@ -946,22 +927,18 @@ name|breakerService
 parameter_list|,
 name|MapperService
 name|mapperService
-parameter_list|,
-name|GlobalOrdinalsBuilder
-name|globalOrdinalBuilder
 parameter_list|)
 function_decl|;
 block|}
-DECL|interface|WithOrdinals
+DECL|interface|Global
 specifier|public
+specifier|static
 interface|interface
-name|WithOrdinals
+name|Global
 parameter_list|<
 name|FD
 extends|extends
 name|AtomicFieldData
-operator|.
-name|WithOrdinals
 parameter_list|>
 extends|extends
 name|IndexFieldData
@@ -969,28 +946,11 @@ argument_list|<
 name|FD
 argument_list|>
 block|{
-comment|/**          * Loads the atomic field data for the reader, possibly cached.          */
-DECL|method|load
-name|FD
-name|load
-parameter_list|(
-name|AtomicReaderContext
-name|context
-parameter_list|)
-function_decl|;
-comment|/**          * Loads directly the atomic field data for the reader, ignoring any caching involved.          */
-DECL|method|loadDirect
-name|FD
-name|loadDirect
-parameter_list|(
-name|AtomicReaderContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 DECL|method|loadGlobal
-name|WithOrdinals
+name|IndexFieldData
+argument_list|<
+name|FD
+argument_list|>
 name|loadGlobal
 parameter_list|(
 name|IndexReader
@@ -998,7 +958,10 @@ name|indexReader
 parameter_list|)
 function_decl|;
 DECL|method|localGlobalDirect
-name|WithOrdinals
+name|IndexFieldData
+argument_list|<
+name|FD
+argument_list|>
 name|localGlobalDirect
 parameter_list|(
 name|IndexReader

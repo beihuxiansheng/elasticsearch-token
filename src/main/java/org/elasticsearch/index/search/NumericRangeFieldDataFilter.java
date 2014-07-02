@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|SortedNumericDocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|DocIdSet
@@ -112,20 +126,6 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
 name|IndexNumericFieldData
 import|;
 end_import
@@ -140,7 +140,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|LongValues
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -156,6 +156,10 @@ end_import
 
 begin_comment
 comment|/**  * A numeric filter that can be much faster than {@link org.apache.lucene.search.NumericRangeFilter} at the  * expense of loading numeric values of the field to memory using {@link org.elasticsearch.index.cache.field.data.FieldDataCache}.  */
+end_comment
+
+begin_comment
+comment|// TODO: these filters should not iterate over all values but be more selective like Lucene's DocTermOrdsRangeFilter
 end_comment
 
 begin_class
@@ -822,7 +826,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|LongValues
+name|SortedNumericDocValues
 name|values
 init|=
 name|indexFieldData
@@ -1046,7 +1050,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|LongValues
+name|SortedNumericDocValues
 name|values
 init|=
 name|indexFieldData
@@ -1260,7 +1264,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|LongValues
+name|SortedNumericDocValues
 name|values
 init|=
 name|indexFieldData
@@ -1474,7 +1478,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|LongValues
+name|SortedNumericDocValues
 name|values
 init|=
 name|indexFieldData
@@ -1730,7 +1734,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 init|=
 name|indexFieldData
@@ -1986,7 +1990,7 @@ return|return
 literal|null
 return|;
 specifier|final
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 init|=
 name|indexFieldData
@@ -2036,7 +2040,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|field|inclusiveLowerPoint
@@ -2062,7 +2066,7 @@ name|Bits
 name|acceptDocs
 parameter_list|,
 specifier|final
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 parameter_list|,
 specifier|final
@@ -2111,15 +2115,20 @@ name|int
 name|doc
 parameter_list|)
 block|{
-name|int
-name|numValues
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+name|int
+name|numValues
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2141,8 +2150,10 @@ name|value
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -2177,7 +2188,7 @@ block|{
 DECL|field|values
 specifier|private
 specifier|final
-name|LongValues
+name|SortedNumericDocValues
 name|values
 decl_stmt|;
 DECL|field|inclusiveLowerPoint
@@ -2203,7 +2214,7 @@ name|Bits
 name|acceptDocs
 parameter_list|,
 specifier|final
-name|LongValues
+name|SortedNumericDocValues
 name|values
 parameter_list|,
 specifier|final
@@ -2252,15 +2263,20 @@ name|int
 name|doc
 parameter_list|)
 block|{
-name|int
-name|numValues
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+name|int
+name|numValues
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -2282,8 +2298,10 @@ name|value
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

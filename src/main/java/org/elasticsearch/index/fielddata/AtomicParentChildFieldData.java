@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.fielddata.plain
+DECL|package|org.elasticsearch.index.fielddata
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|fielddata
-operator|.
-name|plain
 package|;
 end_package
 
@@ -22,66 +20,58 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
+operator|.
+name|lucene
 operator|.
 name|index
 operator|.
-name|fielddata
+name|SortedDocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|LongValues
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
 begin_comment
-comment|/**  * Package private base class for dense long values.  */
+comment|/**  * Specialization of {@link AtomicFieldData} for parent/child mappings.  */
 end_comment
 
-begin_class
-DECL|class|DenseLongValues
-specifier|abstract
-class|class
-name|DenseLongValues
-extends|extends
-name|LongValues
-block|{
-DECL|method|DenseLongValues
-specifier|protected
-name|DenseLongValues
-parameter_list|(
-name|boolean
-name|multiValued
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|multiValued
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setDocument
+begin_interface
+DECL|interface|AtomicParentChildFieldData
 specifier|public
-specifier|final
-name|int
-name|setDocument
-parameter_list|(
-name|int
-name|docId
-parameter_list|)
+interface|interface
+name|AtomicParentChildFieldData
+extends|extends
+name|AtomicFieldData
 block|{
-name|this
-operator|.
-name|docId
-operator|=
-name|docId
-expr_stmt|;
-return|return
-literal|1
-return|;
+comment|/**      * Return the set of types there is a mapping for.      */
+DECL|method|types
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|types
+parameter_list|()
+function_decl|;
+comment|/**      * Return the mapping for the given type. The returned      * {@link SortedDocValues} will map doc IDs to the identifier of their      * parent.      */
+DECL|method|getOrdinalsValues
+name|SortedDocValues
+name|getOrdinalsValues
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

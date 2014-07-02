@@ -1201,9 +1201,6 @@ name|mapper
 operator|)
 decl_stmt|;
 name|IndexGeoPointFieldData
-argument_list|<
-name|?
-argument_list|>
 name|indexFieldData
 init|=
 name|parseContext

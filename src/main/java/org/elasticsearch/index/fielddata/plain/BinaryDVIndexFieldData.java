@@ -94,9 +94,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|MultiValueMode
+name|mapper
+operator|.
+name|FieldMapper
+operator|.
+name|Names
 import|;
 end_import
 
@@ -106,13 +110,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|mapper
-operator|.
-name|FieldMapper
-operator|.
-name|Names
+name|MultiValueMode
 import|;
 end_import
 
@@ -152,18 +152,6 @@ argument_list|,
 name|fieldDataType
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|valuesOrdered
-specifier|public
-name|boolean
-name|valuesOrdered
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 annotation|@
 name|Override

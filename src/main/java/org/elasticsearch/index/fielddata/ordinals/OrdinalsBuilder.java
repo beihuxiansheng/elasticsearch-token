@@ -138,20 +138,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|BytesValues
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1266,11 +1252,6 @@ specifier|private
 name|long
 name|currentOrd
 init|=
-name|BytesValues
-operator|.
-name|WithOrdinals
-operator|.
-name|MIN_ORDINAL
 operator|-
 literal|1
 decl_stmt|;
@@ -1595,10 +1576,10 @@ name|totalNumOrds
 return|;
 block|}
 comment|/**      * Returns the number of distinct ordinals in this builder.      */
-DECL|method|getMaxOrd
+DECL|method|getValueCount
 specifier|public
 name|long
-name|getMaxOrd
+name|getValueCount
 parameter_list|()
 block|{
 return|return
@@ -1716,7 +1697,7 @@ name|maxDoc
 argument_list|,
 name|numDocsWithValue
 argument_list|,
-name|getMaxOrd
+name|getValueCount
 argument_list|()
 argument_list|,
 name|acceptableOverheadRatio

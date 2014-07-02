@@ -3651,6 +3651,11 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|facet
+operator|.
 name|getEntries
 argument_list|()
 operator|.
@@ -3667,6 +3672,11 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|facet
+operator|.
 name|getTotalCount
 argument_list|()
 argument_list|,
@@ -3680,6 +3690,11 @@ name|assertThat
 argument_list|(
 name|facet
 operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|facet
+operator|.
 name|getOtherCount
 argument_list|()
 argument_list|,
@@ -3691,6 +3706,11 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|facet
+operator|.
+name|getName
+argument_list|()
+argument_list|,
 name|facet
 operator|.
 name|getMissingCount

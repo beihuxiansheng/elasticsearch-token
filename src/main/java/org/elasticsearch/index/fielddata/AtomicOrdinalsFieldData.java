@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.fielddata.plain
+DECL|package|org.elasticsearch.index.fielddata
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|fielddata
-operator|.
-name|plain
 package|;
 end_package
 
@@ -22,66 +20,36 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
+operator|.
+name|lucene
 operator|.
 name|index
 operator|.
-name|fielddata
-operator|.
-name|DoubleValues
+name|RandomAccessOrds
 import|;
 end_import
 
 begin_comment
-comment|/**  * Package private base class for dense double values.  */
+comment|/**  * Specialization of {@link AtomicFieldData} for data that is indexed with  * ordinals.  */
 end_comment
 
-begin_class
-DECL|class|DenseDoubleValues
-specifier|abstract
-class|class
-name|DenseDoubleValues
-extends|extends
-name|DoubleValues
-block|{
-DECL|method|DenseDoubleValues
-specifier|protected
-name|DenseDoubleValues
-parameter_list|(
-name|boolean
-name|multiValued
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|multiValued
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setDocument
+begin_interface
+DECL|interface|AtomicOrdinalsFieldData
 specifier|public
-specifier|final
-name|int
-name|setDocument
-parameter_list|(
-name|int
-name|docId
-parameter_list|)
+interface|interface
+name|AtomicOrdinalsFieldData
+extends|extends
+name|AtomicFieldData
 block|{
-name|this
-operator|.
-name|docId
-operator|=
-name|docId
-expr_stmt|;
-return|return
-literal|1
-return|;
+comment|/**      * Return the ordinals values for the current atomic reader.      */
+DECL|method|getOrdinalsValues
+name|RandomAccessOrds
+name|getOrdinalsValues
+parameter_list|()
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

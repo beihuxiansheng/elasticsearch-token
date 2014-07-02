@@ -150,7 +150,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|BytesValues
+name|IndexFieldData
 import|;
 end_import
 
@@ -164,7 +164,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldData
+name|SortedBinaryDocValues
 import|;
 end_import
 
@@ -464,7 +464,7 @@ name|BytesRef
 name|current
 decl_stmt|;
 DECL|field|values
-name|BytesValues
+name|SortedBinaryDocValues
 name|values
 decl_stmt|;
 DECL|field|facetAndAggregatorCollector
@@ -1092,16 +1092,21 @@ name|int
 name|doc
 parameter_list|)
 block|{
-specifier|final
-name|int
-name|numValues
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|numValues
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1123,8 +1128,10 @@ name|current
 operator|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+literal|0
+argument_list|)
 expr_stmt|;
 return|return
 name|queries

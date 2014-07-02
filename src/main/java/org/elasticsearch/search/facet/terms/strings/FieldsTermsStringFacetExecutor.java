@@ -86,7 +86,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|BytesValues
+name|IndexFieldData
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldData
+name|SortedBinaryDocValues
 import|;
 end_import
 
@@ -520,7 +520,7 @@ name|aggregator
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|BytesValues
+name|SortedBinaryDocValues
 index|[]
 name|values
 decl_stmt|;
@@ -535,7 +535,7 @@ block|{
 name|values
 operator|=
 operator|new
-name|BytesValues
+name|SortedBinaryDocValues
 index|[
 name|indexFieldDatas
 operator|.

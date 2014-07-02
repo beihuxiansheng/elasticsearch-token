@@ -140,7 +140,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|BytesValues
+name|SortedBinaryDocValues
 import|;
 end_import
 
@@ -263,20 +263,25 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|BytesValues
+name|SortedBinaryDocValues
 name|values
 parameter_list|)
 block|{
-specifier|final
-name|int
-name|length
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|docId
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|length
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 name|int
 name|pendingMissing
@@ -308,8 +313,10 @@ name|value
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 name|onValue
 argument_list|(
@@ -321,8 +328,6 @@ name|value
 operator|.
 name|hashCode
 argument_list|()
-argument_list|,
-name|values
 argument_list|)
 expr_stmt|;
 name|pendingMissing
@@ -345,9 +350,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 specifier|final
@@ -361,8 +363,6 @@ argument_list|(
 name|value
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -373,8 +373,6 @@ argument_list|(
 name|value
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 operator|==
 name|added
@@ -401,9 +399,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 specifier|final
@@ -417,8 +412,6 @@ argument_list|(
 name|value
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 decl_stmt|;
 comment|// note: we must do a deep copy here the incoming value could have been
@@ -436,8 +429,6 @@ name|value
 argument_list|)
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 operator|==
 name|added
@@ -890,9 +881,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 function_decl|;
 DECL|method|addNoCount
@@ -905,9 +893,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 function_decl|;
 DECL|method|release
@@ -983,9 +968,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 name|int
@@ -1068,9 +1050,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 name|int
@@ -1374,9 +1353,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 name|int
@@ -1486,9 +1462,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 if|if

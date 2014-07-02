@@ -428,7 +428,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldData
+name|IndexFieldDataService
 import|;
 end_import
 
@@ -442,7 +442,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldDataService
+name|IndexOrdinalsFieldData
 import|;
 end_import
 
@@ -6164,7 +6164,7 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|IndexFieldData
+name|IndexOrdinalsFieldData
 name|ifd
 init|=
 name|indexFieldDataService
@@ -6174,14 +6174,7 @@ argument_list|(
 name|fieldMapper
 argument_list|)
 decl_stmt|;
-operator|(
-operator|(
-name|IndexFieldData
-operator|.
-name|WithOrdinals
-operator|)
 name|ifd
-operator|)
 operator|.
 name|loadGlobal
 argument_list|(

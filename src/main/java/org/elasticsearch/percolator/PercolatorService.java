@@ -610,7 +610,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|BytesValues
+name|IndexFieldData
 import|;
 end_import
 
@@ -624,7 +624,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldData
+name|SortedBinaryDocValues
 import|;
 end_import
 
@@ -5544,7 +5544,7 @@ argument_list|(
 name|segmentIdx
 argument_list|)
 decl_stmt|;
-name|BytesValues
+name|SortedBinaryDocValues
 name|values
 init|=
 name|idFieldData
@@ -5569,16 +5569,21 @@ name|atomicReaderContext
 operator|.
 name|docBase
 decl_stmt|;
-specifier|final
-name|int
-name|numValues
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|localDocId
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|numValues
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 assert|assert
 name|numValues
@@ -5590,8 +5595,10 @@ name|bytes
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 name|matches
 operator|.

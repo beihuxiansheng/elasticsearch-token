@@ -2673,9 +2673,6 @@ name|newLongRange
 argument_list|(
 operator|(
 name|IndexNumericFieldData
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|parseContext
 operator|.

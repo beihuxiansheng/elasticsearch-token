@@ -68,7 +68,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -134,7 +134,7 @@ name|indexFieldData
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|method|FieldValueFactorFunction
@@ -228,10 +228,6 @@ name|float
 name|subQueryScore
 parameter_list|)
 block|{
-specifier|final
-name|int
-name|numValues
-init|=
 name|this
 operator|.
 name|values
@@ -240,6 +236,17 @@ name|setDocument
 argument_list|(
 name|docId
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|numValues
+init|=
+name|this
+operator|.
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -255,8 +262,10 @@ name|this
 operator|.
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+literal|0
+argument_list|)
 operator|*
 name|boostFactor
 decl_stmt|;

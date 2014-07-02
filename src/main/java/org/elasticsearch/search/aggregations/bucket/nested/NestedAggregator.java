@@ -702,9 +702,9 @@ block|}
 block|}
 name|incrementBucketDocCount
 argument_list|(
-name|numChildren
-argument_list|,
 name|bucketOrd
+argument_list|,
+name|numChildren
 argument_list|)
 expr_stmt|;
 block|}

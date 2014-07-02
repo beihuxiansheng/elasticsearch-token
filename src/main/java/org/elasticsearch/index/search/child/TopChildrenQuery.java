@@ -228,23 +228,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|BytesValues
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|plain
-operator|.
-name|ParentChildIndexFieldData
+name|IndexParentChildFieldData
 import|;
 end_import
 
@@ -374,7 +358,7 @@ decl_stmt|;
 DECL|field|parentChildIndexFieldData
 specifier|private
 specifier|final
-name|ParentChildIndexFieldData
+name|IndexParentChildFieldData
 name|parentChildIndexFieldData
 decl_stmt|;
 DECL|field|cacheRecycler
@@ -440,7 +424,7 @@ DECL|method|TopChildrenQuery
 specifier|public
 name|TopChildrenQuery
 parameter_list|(
-name|ParentChildIndexFieldData
+name|IndexParentChildFieldData
 name|parentChildIndexFieldData
 parameter_list|,
 name|Query
@@ -1046,9 +1030,7 @@ argument_list|(
 name|readerIndex
 argument_list|)
 decl_stmt|;
-name|BytesValues
-operator|.
-name|WithOrdinals
+name|SortedDocValues
 name|parentValues
 init|=
 name|parentChildIndexFieldData
@@ -1058,7 +1040,7 @@ argument_list|(
 name|subContext
 argument_list|)
 operator|.
-name|getBytesValues
+name|getOrdinalsValues
 argument_list|(
 name|parentType
 argument_list|)
@@ -1075,20 +1057,15 @@ operator|.
 name|docBase
 decl_stmt|;
 comment|// find the parent id
-name|parentValues
-operator|.
-name|setDocument
-argument_list|(
-name|subDoc
-argument_list|)
-expr_stmt|;
 name|BytesRef
 name|parentId
 init|=
 name|parentValues
 operator|.
-name|nextValue
-argument_list|()
+name|get
+argument_list|(
+name|subDoc
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

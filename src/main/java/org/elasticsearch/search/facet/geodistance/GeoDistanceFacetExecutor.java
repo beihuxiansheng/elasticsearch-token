@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -94,7 +84,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|GeoPointValues
+name|MultiGeoPointValues
 import|;
 end_import
 
@@ -151,6 +141,16 @@ operator|.
 name|internal
 operator|.
 name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -340,7 +340,7 @@ name|Collector
 block|{
 DECL|field|values
 specifier|protected
-name|GeoPointValues
+name|MultiGeoPointValues
 name|values
 decl_stmt|;
 DECL|field|aggregator
@@ -500,20 +500,25 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|GeoPointValues
+name|MultiGeoPointValues
 name|values
 parameter_list|)
 block|{
-specifier|final
-name|int
-name|length
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|docId
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|length
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -536,8 +541,10 @@ name|next
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 name|double
 name|distance

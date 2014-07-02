@@ -166,7 +166,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -505,7 +505,7 @@ operator|.
 name|maxDoc
 argument_list|()
 decl_stmt|;
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 init|=
 name|indexFieldData
@@ -533,15 +533,20 @@ name|docId
 operator|++
 control|)
 block|{
-name|int
-name|numValues
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|docId
 argument_list|)
+expr_stmt|;
+name|int
+name|numValues
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 name|DoubleIntOpenHashMap
 name|map
@@ -572,8 +577,10 @@ name|putIfAbsent
 argument_list|(
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -951,7 +958,7 @@ name|aggregator
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|method|Collector

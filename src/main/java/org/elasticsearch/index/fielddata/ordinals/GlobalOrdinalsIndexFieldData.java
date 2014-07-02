@@ -120,7 +120,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|AtomicFieldData
+name|AtomicOrdinalsFieldData
 import|;
 end_import
 
@@ -149,6 +149,20 @@ operator|.
 name|fielddata
 operator|.
 name|IndexFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|IndexOrdinalsFieldData
 import|;
 end_import
 
@@ -191,9 +205,7 @@ name|GlobalOrdinalsIndexFieldData
 extends|extends
 name|AbstractIndexComponent
 implements|implements
-name|IndexFieldData
-operator|.
-name|WithOrdinals
+name|IndexOrdinalsFieldData
 implements|,
 name|Accountable
 block|{
@@ -269,9 +281,7 @@ annotation|@
 name|Override
 DECL|method|loadDirect
 specifier|public
-name|AtomicFieldData
-operator|.
-name|WithOrdinals
+name|AtomicOrdinalsFieldData
 name|loadDirect
 parameter_list|(
 name|AtomicReaderContext
@@ -291,7 +301,7 @@ annotation|@
 name|Override
 DECL|method|loadGlobal
 specifier|public
-name|WithOrdinals
+name|IndexOrdinalsFieldData
 name|loadGlobal
 parameter_list|(
 name|IndexReader
@@ -306,7 +316,7 @@ annotation|@
 name|Override
 DECL|method|localGlobalDirect
 specifier|public
-name|WithOrdinals
+name|IndexOrdinalsFieldData
 name|localGlobalDirect
 parameter_list|(
 name|IndexReader
@@ -343,18 +353,6 @@ parameter_list|()
 block|{
 return|return
 name|fieldDataType
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|valuesOrdered
-specifier|public
-name|boolean
-name|valuesOrdered
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 annotation|@

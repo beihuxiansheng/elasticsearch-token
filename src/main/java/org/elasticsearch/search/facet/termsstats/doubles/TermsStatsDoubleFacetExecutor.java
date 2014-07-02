@@ -112,7 +112,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -715,7 +715,7 @@ name|aggregator
 decl_stmt|;
 DECL|field|keyValues
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|keyValues
 decl_stmt|;
 DECL|method|Collector
@@ -916,7 +916,7 @@ name|int
 name|missing
 decl_stmt|;
 DECL|field|valueFieldData
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|valueFieldData
 decl_stmt|;
 DECL|field|valueAggregator

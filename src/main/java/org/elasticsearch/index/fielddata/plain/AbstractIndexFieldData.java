@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.fielddata
+DECL|package|org.elasticsearch.index.fielddata.plain
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|index
 operator|.
 name|fielddata
+operator|.
+name|plain
 package|;
 end_package
 
@@ -131,6 +133,20 @@ operator|.
 name|index
 operator|.
 name|Index
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|*
 import|;
 end_import
 
@@ -333,7 +349,6 @@ annotation|@
 name|Override
 DECL|method|load
 specifier|public
-specifier|final
 name|FD
 name|load
 parameter_list|(

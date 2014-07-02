@@ -428,7 +428,7 @@ name|assertTrue
 argument_list|(
 name|fd
 operator|instanceof
-name|SortedSetDVBytesIndexFieldData
+name|SortedSetDVOrdinalsIndexFieldData
 argument_list|)
 expr_stmt|;
 block|}
@@ -1282,9 +1282,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|AtomicFieldData
-argument_list|<
-name|?
-argument_list|>
 name|afd
 init|=
 name|ifd
@@ -1407,9 +1404,6 @@ argument_list|()
 control|)
 block|{
 name|AtomicFieldData
-argument_list|<
-name|?
-argument_list|>
 name|afd
 init|=
 name|ifd
