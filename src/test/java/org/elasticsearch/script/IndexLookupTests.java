@@ -1321,7 +1321,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-literal|"You must call get with all required flags! Instead of  _index['int_payload_field'].get('b', _FREQUENCIES) and _index['int_payload_field'].get('b', _POSITIONS) call  _index['int_payload_field'].get('b', _FREQUENCIES | _POSITIONS)  once]; "
+literal|"You must call get with all required flags! Instead of  _index['int_payload_field'].get('b', _FREQUENCIES) and _index['int_payload_field'].get('b', _POSITIONS) call  _index['int_payload_field'].get('b', _FREQUENCIES | _POSITIONS)  once]"
 argument_list|)
 argument_list|,
 name|Matchers
