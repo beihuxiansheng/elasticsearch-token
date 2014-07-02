@@ -16490,6 +16490,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"idx"
+argument_list|)
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -16895,21 +16900,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
-comment|// wait for at least primaries allocations so concretely allocated on it
-name|waitForConcreteMappingsOnAll
+name|waitForMappingOnMaster
 argument_list|(
 literal|"test"
 argument_list|,
 literal|"type1"
-argument_list|,
-literal|"field1"
-argument_list|,
-literal|"field2"
 argument_list|)
 expr_stmt|;
 name|GetMappingsResponse
