@@ -1188,6 +1188,13 @@ condition|(
 name|exp
 operator|instanceof
 name|ConnectTransportException
+operator|||
+name|exp
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|ConnectTransportException
 condition|)
 block|{
 name|handleTransportDisconnect
