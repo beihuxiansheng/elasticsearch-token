@@ -1988,6 +1988,9 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|int
 name|numDocs
 init|=
@@ -2144,9 +2147,7 @@ name|upgradeOneNode
 argument_list|()
 expr_stmt|;
 name|ensureYellow
-argument_list|(
-literal|"test"
-argument_list|)
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
