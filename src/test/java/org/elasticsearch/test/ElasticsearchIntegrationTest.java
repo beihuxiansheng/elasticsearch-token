@@ -1324,7 +1324,7 @@ name|Ignore
 annotation|@
 name|AbstractRandomizedTest
 operator|.
-name|IntegrationTests
+name|Integration
 DECL|class|ElasticsearchIntegrationTest
 specifier|public
 specifier|abstract

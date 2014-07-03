@@ -68,6 +68,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -115,6 +127,8 @@ DECL|class|CustomPassageFormatterTests
 specifier|public
 class|class
 name|CustomPassageFormatterTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test

@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|AbstractRandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -137,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for backwards compatibility tests. Subclasses of this class  * can run tests against a mixed version cluster. A subset of the nodes in the cluster  * are started in dedicated process running off a full fledged elasticsearch release.  * Nodes can be "upgraded" from the "backwards" node to an "new" node where "new" nodes  * version corresponds to current version.  * The purpose of this test class is to run tests in scenarios where clusters are in an  * intermediate state during a rolling upgrade as well as upgrade situations. The clients  * accessed via #client() are random clients to the nodes in the cluster which might  * execute requests on the "new" as well as the "old" nodes.  *<p>  *   Note: this base class is still experimental and might have bugs or leave external processes running behind.  *</p>  * Backwards compatibility tests are disabled by default via {@link BackwardsCompatibilityTest} annotation.  * The following system variables control the test execution:  *<ul>  *<li>  *<tt>{@value #TESTS_BACKWARDS_COMPATIBILITY}</tt> enables / disables  *          tests annotated with {@link BackwardsCompatibilityTest} (defaults to  *<tt>false</tt>)  *</li>  *<li>  *<tt>{@value #TESTS_BACKWARDS_COMPATIBILITY_VERSION}</tt>  *          sets the version to run the external nodes from formatted as<i>X.Y.Z</i>.  *          The tests class will try to locate a release folder<i>elasticsearch-X.Y.Z</i>  *          within path passed via {@value #TESTS_BACKWARDS_COMPATIBILITY_PATH}  *          depending on this system variable.  *</li>  *<li>  *<tt>{@value #TESTS_BACKWARDS_COMPATIBILITY_PATH}</tt> the path to the  *          elasticsearch releases to run backwards compatibility tests against.  *</li>  *</ul>  *  */
+comment|/**  * Abstract base class for backwards compatibility tests. Subclasses of this class  * can run tests against a mixed version cluster. A subset of the nodes in the cluster  * are started in dedicated process running off a full fledged elasticsearch release.  * Nodes can be "upgraded" from the "backwards" node to an "new" node where "new" nodes  * version corresponds to current version.  * The purpose of this test class is to run tests in scenarios where clusters are in an  * intermediate state during a rolling upgrade as well as upgrade situations. The clients  * accessed via #client() are random clients to the nodes in the cluster which might  * execute requests on the "new" as well as the "old" nodes.  *<p>  *   Note: this base class is still experimental and might have bugs or leave external processes running behind.  *</p>  * Backwards compatibility tests are disabled by default via {@link org.apache.lucene.util.AbstractRandomizedTest.Backwards} annotation.  * The following system variables control the test execution:  *<ul>  *<li>  *<tt>{@value #TESTS_BACKWARDS_COMPATIBILITY}</tt> enables / disables  *          tests annotated with {@link org.apache.lucene.util.AbstractRandomizedTest.Backwards} (defaults to  *<tt>false</tt>)  *</li>  *<li>  *<tt>{@value #TESTS_BACKWARDS_COMPATIBILITY_VERSION}</tt>  *          sets the version to run the external nodes from formatted as<i>X.Y.Z</i>.  *          The tests class will try to locate a release folder<i>elasticsearch-X.Y.Z</i>  *          within path passed via {@value #TESTS_BACKWARDS_COMPATIBILITY_PATH}  *          depending on this system variable.  *</li>  *<li>  *<tt>{@value #TESTS_BACKWARDS_COMPATIBILITY_PATH}</tt> the path to the  *          elasticsearch releases to run backwards compatibility tests against.  *</li>  *</ul>  *  */
 end_comment
 
 begin_comment
@@ -146,9 +160,9 @@ end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|AbstractRandomizedTest
 operator|.
-name|BackwardsCompatibilityTest
+name|Backwards
 annotation|@
 name|ElasticsearchIntegrationTest
 operator|.

@@ -160,6 +160,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -218,11 +230,25 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_class
 DECL|class|MergePolicySettingsTest
 specifier|public
 class|class
 name|MergePolicySettingsTest
+extends|extends
+name|ElasticsearchTestCase
 block|{
 DECL|field|shardId
 specifier|protected
@@ -1231,11 +1257,9 @@ operator|.
 name|getNoCFSRatio
 argument_list|()
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 literal|"exception expected"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1267,11 +1291,9 @@ operator|.
 name|getNoCFSRatio
 argument_list|()
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 literal|"exception expected"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1303,11 +1325,9 @@ operator|.
 name|getNoCFSRatio
 argument_list|()
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 literal|"exception expected"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

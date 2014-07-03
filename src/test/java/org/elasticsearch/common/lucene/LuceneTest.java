@@ -62,6 +62,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -103,6 +115,8 @@ DECL|class|LuceneTest
 specifier|public
 class|class
 name|LuceneTest
+extends|extends
+name|ElasticsearchTestCase
 block|{
 comment|/*      * simple test that ensures that we bump the version on Upgrade      */
 annotation|@
