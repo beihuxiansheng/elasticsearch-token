@@ -658,11 +658,17 @@ name|NodeFD
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we use schedule with a 0 time value to run the pinger on the pool as it will run on later
 name|threadPool
 operator|.
 name|schedule
 argument_list|(
-name|pingInterval
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+literal|0
+argument_list|)
 argument_list|,
 name|ThreadPool
 operator|.
@@ -853,11 +859,17 @@ name|NodeFD
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we use schedule with a 0 time value to run the pinger on the pool as it will run on later
 name|threadPool
 operator|.
 name|schedule
 argument_list|(
-name|pingInterval
+name|TimeValue
+operator|.
+name|timeValueMillis
+argument_list|(
+literal|0
+argument_list|)
 argument_list|,
 name|ThreadPool
 operator|.
