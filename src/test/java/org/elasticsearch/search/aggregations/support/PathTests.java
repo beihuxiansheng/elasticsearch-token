@@ -86,30 +86,6 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -313,9 +289,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"foo"
-argument_list|,
-literal|"bar"
+literal|"foo.bar"
 argument_list|)
 operator|.
 name|add
@@ -335,9 +309,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"foo"
-argument_list|,
-literal|"bar"
+literal|"foo.bar"
 argument_list|)
 operator|.
 name|add
