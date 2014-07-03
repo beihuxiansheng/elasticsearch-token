@@ -3595,6 +3595,14 @@ expr_stmt|;
 comment|// re-init that cluster
 block|}
 block|}
+if|if
+condition|(
+name|currentCluster
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// this can be null if the test fails due to static initialization ie. missing parameter on the cmd
 name|currentCluster
 operator|.
 name|afterTest
@@ -3604,6 +3612,7 @@ name|currentCluster
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|cluster
