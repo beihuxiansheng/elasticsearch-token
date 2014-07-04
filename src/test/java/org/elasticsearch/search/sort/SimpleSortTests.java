@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -456,6 +470,15 @@ name|SimpleSortTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"simon is working on this"
+argument_list|)
 DECL|method|testIssue6614
 specifier|public
 name|void
