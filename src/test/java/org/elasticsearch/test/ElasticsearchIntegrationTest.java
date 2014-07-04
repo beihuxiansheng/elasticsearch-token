@@ -3565,11 +3565,18 @@ if|if
 condition|(
 operator|!
 name|success
+operator|||
+name|suiteFailureMarker
+operator|.
+name|hadFailures
+argument_list|()
 condition|)
 block|{
 comment|// if we failed that means that something broke horribly so we should
 comment|// clear all clusters and if the current cluster is the global we shut that one
 comment|// down as well to prevent subsequent tests from failing due to the same problem.
+comment|// we also reset everything in the case we had a failure in the suite to make sure subsequent
+comment|// tests get a new / clean cluster
 name|clearClusters
 argument_list|()
 expr_stmt|;
@@ -3594,6 +3601,10 @@ argument_list|()
 expr_stmt|;
 comment|// re-init that cluster
 block|}
+name|currentCluster
+operator|=
+literal|null
+expr_stmt|;
 block|}
 if|if
 condition|(
