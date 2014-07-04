@@ -1113,7 +1113,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"["
+literal|"get ["
 operator|+
 name|index
 operator|+
