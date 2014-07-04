@@ -641,6 +641,9 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|allDocsResponse
 init|=
@@ -734,6 +737,11 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|allDocsResponse
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|numiters
@@ -869,6 +877,11 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|searchResponse
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
