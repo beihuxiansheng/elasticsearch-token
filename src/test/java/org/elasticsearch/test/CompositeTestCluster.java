@@ -608,6 +608,15 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+specifier|final
+name|Client
+name|existingClient
+init|=
+name|cluster
+operator|.
+name|client
+argument_list|()
+decl_stmt|;
 name|ExternalNode
 name|externalNode
 init|=
@@ -639,10 +648,7 @@ name|ExternalNode
 operator|.
 name|waitForNode
 argument_list|(
-name|cluster
-operator|.
-name|client
-argument_list|()
+name|existingClient
 argument_list|,
 name|s
 argument_list|)
