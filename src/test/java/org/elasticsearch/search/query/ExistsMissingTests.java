@@ -658,6 +658,11 @@ operator|.
 name|totalHits
 argument_list|()
 decl_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"idx"
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map
