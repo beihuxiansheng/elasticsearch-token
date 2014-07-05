@@ -294,24 +294,6 @@ name|fixNegativeQueryIfNeeded
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-operator|.
-name|optimizeQuery
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1986,12 +1968,9 @@ expr_stmt|;
 block|}
 name|query
 operator|=
-name|optimizeQuery
-argument_list|(
 name|fixNegativeQueryIfNeeded
 argument_list|(
 name|query
-argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

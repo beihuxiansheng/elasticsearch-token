@@ -332,24 +332,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-operator|.
-name|optimizeQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -5057,12 +5039,9 @@ literal|null
 return|;
 block|}
 return|return
-name|optimizeQuery
-argument_list|(
 name|fixNegativeQueryIfNeeded
 argument_list|(
 name|q
-argument_list|)
 argument_list|)
 return|;
 block|}

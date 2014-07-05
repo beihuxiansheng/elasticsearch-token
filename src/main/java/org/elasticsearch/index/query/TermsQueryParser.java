@@ -232,24 +232,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-operator|.
-name|optimizeQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|query
@@ -846,12 +828,9 @@ name|query
 init|=
 name|wrapSmartNameQuery
 argument_list|(
-name|optimizeQuery
-argument_list|(
 name|fixNegativeQueryIfNeeded
 argument_list|(
 name|booleanQuery
-argument_list|)
 argument_list|)
 argument_list|,
 name|smartNameFieldMappers
