@@ -5188,7 +5188,11 @@ literal|", type "
 operator|+
 name|type
 operator|+
-literal|" on master node["
+literal|", fields "
+operator|+
+name|fieldNames
+operator|+
+literal|", on master node, mapping source ["
 operator|+
 name|source
 operator|+

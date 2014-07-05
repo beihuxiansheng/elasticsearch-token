@@ -1003,6 +1003,9 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|waitNoPendingTasksOnAll
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|info
