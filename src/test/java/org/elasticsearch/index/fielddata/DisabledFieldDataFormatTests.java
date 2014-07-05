@@ -206,6 +206,22 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
 name|assertFailures
 import|;
 end_import
@@ -721,6 +737,8 @@ argument_list|,
 name|format
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -800,11 +818,9 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|execute
+name|get
 argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|logger
 operator|.
