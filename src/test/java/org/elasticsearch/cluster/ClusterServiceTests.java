@@ -2264,13 +2264,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Repeat
-argument_list|(
-name|iterations
-operator|=
-literal|1000
-argument_list|)
 DECL|method|testPendingUpdateTask
 specifier|public
 name|void
