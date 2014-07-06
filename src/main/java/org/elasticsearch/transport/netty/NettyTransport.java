@@ -252,7 +252,7 @@ name|common
 operator|.
 name|netty
 operator|.
-name|NettyStaticSetup
+name|NettyUtils
 import|;
 end_import
 
@@ -983,7 +983,7 @@ name|Transport
 block|{
 static|static
 block|{
-name|NettyStaticSetup
+name|NettyUtils
 operator|.
 name|setup
 argument_list|()
@@ -4186,30 +4186,17 @@ operator|.
 name|toChannelBuffer
 argument_list|()
 decl_stmt|;
-comment|// false on gathering, cause gathering causes the NIO layer to combine the buffers into a single direct buffer....
 name|buffer
 operator|=
-operator|new
-name|CompositeChannelBuffer
-argument_list|(
-name|headerBuffer
+name|NettyUtils
 operator|.
-name|order
-argument_list|()
+name|buildComposite
+argument_list|(
+literal|false
 argument_list|,
-name|ImmutableList
-operator|.
-expr|<
-name|ChannelBuffer
-operator|>
-name|of
-argument_list|(
 name|headerBuffer
 argument_list|,
 name|contentBuffer
-argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

@@ -64,7 +64,7 @@ name|common
 operator|.
 name|netty
 operator|.
-name|NettyStaticSetup
+name|NettyUtils
 import|;
 end_import
 
@@ -497,7 +497,7 @@ name|HttpServerTransport
 block|{
 static|static
 block|{
-name|NettyStaticSetup
+name|NettyUtils
 operator|.
 name|setup
 argument_list|()
