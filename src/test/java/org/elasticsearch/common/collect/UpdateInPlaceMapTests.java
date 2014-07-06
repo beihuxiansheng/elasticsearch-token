@@ -787,6 +787,20 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+for|for
+control|(
+name|Thread
+name|thread
+range|:
+name|threads
+control|)
+block|{
+name|thread
+operator|.
+name|join
+argument_list|()
+expr_stmt|;
+block|}
 comment|// verify the 2 maps are the same
 name|assertThat
 argument_list|(
