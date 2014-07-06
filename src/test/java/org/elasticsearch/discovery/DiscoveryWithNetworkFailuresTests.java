@@ -924,6 +924,13 @@ block|}
 comment|/**      * Verify that the proper block is applied when nodes loose their master      */
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+name|value
+operator|=
+literal|"cluster.service:TRACE,indices.recovery:TRACE"
+argument_list|)
 DECL|method|testVerifyApiBlocksDuringPartition
 specifier|public
 name|void
@@ -1514,6 +1521,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// make sure we have stable cluster& cross partition recoveries are canceled by the removal of the missing node
+comment|// the unresponsive partition causes recoveries to only time out after 15m (default) and these will cause
+comment|// the test to fail due to unfreed resources
+name|ensureStableCluster
+argument_list|(
+literal|2
+argument_list|,
+name|nonIsolatedNode
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * This test isolates the master from rest of the cluster, waits for a new master to be elected, restores the partition      * and verifies that all node agree on the new cluster state      */
 annotation|@
