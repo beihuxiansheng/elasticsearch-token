@@ -153,7 +153,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|parseSingleRescoreContext
-specifier|private
+specifier|public
 name|void
 name|parseSingleRescoreContext
 parameter_list|(
