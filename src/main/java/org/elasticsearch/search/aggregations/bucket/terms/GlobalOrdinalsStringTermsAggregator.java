@@ -489,6 +489,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|collectionMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 name|super
@@ -508,6 +511,8 @@ argument_list|,
 name|bucketCountThresholds
 argument_list|,
 name|collectionMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 expr_stmt|;
 name|this
@@ -993,6 +998,10 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+name|showTermDocCountError
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 for|for
@@ -1130,6 +1139,10 @@ argument_list|,
 literal|0
 argument_list|,
 literal|null
+argument_list|,
+name|showTermDocCountError
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -1246,6 +1259,10 @@ operator|.
 name|docCount
 argument_list|,
 literal|null
+argument_list|,
+name|showTermDocCountError
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|list
@@ -1312,6 +1329,12 @@ operator|.
 name|bucketOrd
 argument_list|)
 expr_stmt|;
+name|bucket
+operator|.
+name|docCountError
+operator|=
+literal|0
+expr_stmt|;
 block|}
 return|return
 operator|new
@@ -1328,6 +1351,11 @@ argument_list|()
 argument_list|,
 name|bucketCountThresholds
 operator|.
+name|getShardSize
+argument_list|()
+argument_list|,
+name|bucketCountThresholds
+operator|.
 name|getMinDocCount
 argument_list|()
 argument_list|,
@@ -1337,6 +1365,10 @@ name|asList
 argument_list|(
 name|list
 argument_list|)
+argument_list|,
+name|showTermDocCountError
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
@@ -1365,6 +1397,12 @@ name|docCount
 parameter_list|,
 name|InternalAggregations
 name|aggregations
+parameter_list|,
+name|boolean
+name|showDocCountError
+parameter_list|,
+name|long
+name|docCountError
 parameter_list|)
 block|{
 name|super
@@ -1372,6 +1410,10 @@ argument_list|(
 name|docCount
 argument_list|,
 name|aggregations
+argument_list|,
+name|showDocCountError
+argument_list|,
+name|docCountError
 argument_list|)
 expr_stmt|;
 name|this
@@ -1463,6 +1505,9 @@ name|docCount
 parameter_list|,
 name|InternalAggregations
 name|aggs
+parameter_list|,
+name|long
+name|docCountError
 parameter_list|)
 block|{
 throw|throw
@@ -1560,6 +1605,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|collectionMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 comment|// Set maxOrd to estimatedBucketCount! To be conservative with memory.
@@ -1586,6 +1634,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|collectionMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 expr_stmt|;
 name|bucketOrds
@@ -1915,6 +1965,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|collectionMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 name|super
@@ -1940,6 +1993,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|collectionMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 expr_stmt|;
 assert|assert

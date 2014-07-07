@@ -237,6 +237,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|subAggCollectMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 return|return
@@ -262,6 +265,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -327,6 +332,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|subAggCollectMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 return|return
@@ -363,6 +371,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -428,6 +438,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|subAggCollectMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 return|return
@@ -466,6 +479,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -531,6 +546,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|subAggCollectMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 if|if
@@ -573,6 +591,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -610,6 +630,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -735,6 +757,9 @@ name|parent
 parameter_list|,
 name|SubAggCollectionMode
 name|subAggCollectMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 function_decl|;
 DECL|method|needsGlobalOrdinals
@@ -790,6 +815,11 @@ operator|.
 name|BucketCountThresholds
 name|bucketCountThresholds
 decl_stmt|;
+DECL|field|showTermDocCountError
+specifier|private
+name|boolean
+name|showTermDocCountError
+decl_stmt|;
 DECL|method|TermsAggregatorFactory
 specifier|public
 name|TermsAggregatorFactory
@@ -816,6 +846,9 @@ name|executionHint
 parameter_list|,
 name|SubAggCollectionMode
 name|executionMode
+parameter_list|,
+name|boolean
+name|showTermDocCountError
 parameter_list|)
 block|{
 name|super
@@ -862,6 +895,12 @@ name|subAggCollectMode
 operator|=
 name|executionMode
 expr_stmt|;
+name|this
+operator|.
+name|showTermDocCountError
+operator|=
+name|showTermDocCountError
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -891,6 +930,11 @@ argument_list|,
 name|bucketCountThresholds
 operator|.
 name|getRequiredSize
+argument_list|()
+argument_list|,
+name|bucketCountThresholds
+operator|.
+name|getShardSize
 argument_list|()
 argument_list|,
 name|bucketCountThresholds
@@ -1297,6 +1341,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -1376,6 +1422,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}
@@ -1410,6 +1458,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|showTermDocCountError
 argument_list|)
 return|;
 block|}

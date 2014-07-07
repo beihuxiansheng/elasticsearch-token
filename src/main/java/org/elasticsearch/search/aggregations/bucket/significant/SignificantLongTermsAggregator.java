@@ -271,6 +271,8 @@ argument_list|,
 name|SubAggCollectionMode
 operator|.
 name|DEPTH_FIRST
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|this

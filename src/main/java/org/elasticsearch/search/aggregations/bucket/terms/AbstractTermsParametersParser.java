@@ -208,6 +208,19 @@ argument_list|(
 literal|"size"
 argument_list|)
 decl_stmt|;
+DECL|field|SHOW_TERM_DOC_COUNT_ERROR
+specifier|public
+specifier|static
+specifier|final
+name|ParseField
+name|SHOW_TERM_DOC_COUNT_ERROR
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"show_term_doc_count_error"
+argument_list|)
+decl_stmt|;
 comment|//These are the results of the parsing.
 DECL|field|bucketCountThresholds
 specifier|private

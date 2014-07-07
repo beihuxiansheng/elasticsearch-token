@@ -300,6 +300,13 @@ name|Bucket
 name|other
 parameter_list|)
 function_decl|;
+DECL|method|getDocCountError
+specifier|public
+specifier|abstract
+name|long
+name|getDocCountError
+parameter_list|()
+function_decl|;
 block|}
 end_class
 
@@ -322,6 +329,14 @@ parameter_list|(
 name|String
 name|term
 parameter_list|)
+function_decl|;
+end_function_decl
+
+begin_function_decl
+DECL|method|getDocCountError
+name|long
+name|getDocCountError
+parameter_list|()
 function_decl|;
 end_function_decl
 
