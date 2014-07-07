@@ -141,6 +141,7 @@ extends|extends
 name|AbstractTokenFilterFactory
 block|{
 DECL|field|DEFAULT_DELIMITER
+specifier|public
 specifier|static
 specifier|final
 name|char
@@ -149,6 +150,7 @@ init|=
 literal|'|'
 decl_stmt|;
 DECL|field|DEFAULT_ENCODER
+specifier|public
 specifier|static
 specifier|final
 name|PayloadEncoder
