@@ -3394,7 +3394,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"received cluster state from [{}] which is also master but with cluster name [{}]"
+literal|"received cluster state from [{}] which is also master with cluster name [{}]"
 argument_list|,
 name|newClusterState
 operator|.
@@ -3519,6 +3519,24 @@ name|masterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|// make sure we're connected to this node (connect to node does nothing if we're already connected)
+comment|// since the network connections are asymmetric, it may be that we received a state but have disconnected from the node
+comment|// in the past (after a master failure, for example)
+name|transportService
+operator|.
+name|connectToNode
+argument_list|(
+name|newState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|sendRequest
@@ -3588,6 +3606,31 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to send rejoin request to [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|newState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|currentState
 return|;
