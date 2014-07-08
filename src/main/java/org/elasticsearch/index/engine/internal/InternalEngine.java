@@ -474,6 +474,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|EsRejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|analysis
@@ -825,6 +841,18 @@ operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|RejectedExecutionException
 import|;
 end_import
 
@@ -2756,6 +2784,10 @@ parameter_list|)
 throws|throws
 name|EngineException
 block|{
+specifier|final
+name|IndexWriter
+name|writer
+decl_stmt|;
 try|try
 init|(
 name|InternalLock
@@ -2767,13 +2799,12 @@ name|acquire
 argument_list|()
 init|)
 block|{
-name|IndexWriter
 name|writer
-init|=
+operator|=
 name|this
 operator|.
 name|indexWriter
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|writer
@@ -2851,7 +2882,9 @@ argument_list|)
 throw|;
 block|}
 name|checkVersionMapRefresh
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|maybeFailEngine
@@ -3377,6 +3410,10 @@ parameter_list|)
 throws|throws
 name|EngineException
 block|{
+specifier|final
+name|IndexWriter
+name|writer
+decl_stmt|;
 try|try
 init|(
 name|InternalLock
@@ -3388,13 +3425,12 @@ name|acquire
 argument_list|()
 init|)
 block|{
-name|IndexWriter
 name|writer
-init|=
+operator|=
 name|this
 operator|.
 name|indexWriter
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|writer
@@ -3472,15 +3508,21 @@ argument_list|)
 throw|;
 block|}
 name|checkVersionMapRefresh
-argument_list|()
+argument_list|(
+name|writer
+argument_list|)
 expr_stmt|;
 block|}
-comment|/** Forces a refresh if the versionMap is using too much RAM (currently> 25% of IndexWriter's RAM buffer). */
+comment|/** Forces a refresh if the versionMap is using too much RAM (currently> 25% of IndexWriter's RAM buffer).      * */
 DECL|method|checkVersionMapRefresh
 specifier|private
 name|void
 name|checkVersionMapRefresh
-parameter_list|()
+parameter_list|(
+specifier|final
+name|IndexWriter
+name|indexWriter
+parameter_list|)
 block|{
 comment|// TODO: we force refresh when versionMap is using> 25% of IW's RAM buffer; should we make this separately configurable?
 if|if
@@ -3496,8 +3538,6 @@ literal|1024.
 operator|>
 literal|0.25
 operator|*
-name|this
-operator|.
 name|indexWriter
 operator|.
 name|getConfig
@@ -3515,6 +3555,14 @@ argument_list|)
 operator|==
 literal|false
 condition|)
+block|{
+if|if
+condition|(
+operator|!
+name|closed
+condition|)
+block|{
+try|try
 block|{
 comment|// Now refresh to clear versionMap:
 name|threadPool
@@ -3539,6 +3587,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|refresh
 argument_list|(
 operator|new
@@ -3549,9 +3599,28 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|EngineClosedException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EsRejectedExecutionException
+name|ex
+parameter_list|)
+block|{
+comment|// that is fine too.. we might be shutting down
+block|}
+block|}
 block|}
 block|}
 DECL|method|innerIndex
