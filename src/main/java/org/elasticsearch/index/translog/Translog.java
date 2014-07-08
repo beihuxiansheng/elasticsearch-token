@@ -48,6 +48,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|RamUsageEstimator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -61,6 +75,16 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
 import|;
 end_import
 
@@ -270,6 +294,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -446,6 +480,8 @@ DECL|class|Location
 specifier|static
 class|class
 name|Location
+implements|implements
+name|Accountable
 block|{
 DECL|field|translogId
 specifier|public
@@ -497,6 +533,30 @@ name|size
 operator|=
 name|size
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
+specifier|public
+name|long
+name|ramBytesUsed
+parameter_list|()
+block|{
+return|return
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_OBJECT_HEADER
+operator|+
+literal|2
+operator|*
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_LONG
+operator|+
+name|RamUsageEstimator
+operator|.
+name|NUM_BYTES_INT
+return|;
 block|}
 block|}
 comment|/**      * A snapshot of the transaction log, allows to iterate over all the transaction log operations.      */
