@@ -40,6 +40,20 @@ name|fasterxml
 operator|.
 name|jackson
 operator|.
+name|core
+operator|.
+name|JsonFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
 name|dataformat
 operator|.
 name|smile
@@ -197,6 +211,20 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// for now, this is an overhead, might make sense for web sockets
+name|smileFactory
+operator|.
+name|configure
+argument_list|(
+name|SmileFactory
+operator|.
+name|Feature
+operator|.
+name|FAIL_ON_SYMBOL_HASH_OVERFLOW
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// this trips on many mappings now...
 name|smileXContent
 operator|=
 operator|new
