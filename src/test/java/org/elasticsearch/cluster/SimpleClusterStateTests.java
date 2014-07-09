@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Repeat
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1244,7 +1258,7 @@ name|ByteSizeValue
 operator|.
 name|parseBytesSizeValue
 argument_list|(
-literal|"1m"
+literal|"256k"
 argument_list|)
 operator|.
 name|bytesAsInt
@@ -1375,6 +1389,10 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
+comment|// wait for green state, so its both green, and there are no more pending events
 name|MappingMetaData
 name|masterMappingMetaData
 init|=
