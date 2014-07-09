@@ -227,6 +227,15 @@ argument_list|<
 name|RestController
 argument_list|>
 block|{
+DECL|field|HTTP_JSON_ENABLE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HTTP_JSON_ENABLE
+init|=
+literal|"http.jsonp.enable"
+decl_stmt|;
 DECL|field|getHandlers
 specifier|private
 specifier|final
@@ -708,9 +717,9 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"http.jsonp.enable"
+name|HTTP_JSON_ENABLE
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 operator|&&
 name|request
