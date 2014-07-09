@@ -354,20 +354,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|service
 operator|.
 name|IndexService
@@ -2450,6 +2436,8 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
+comment|// default mapping should not be sent back, it can only be updated by put mapping API, and its
+comment|// a full in place replace, we don't want to override a potential update coming it
 for|for
 control|(
 name|DocumentMapper
@@ -2459,27 +2447,13 @@ name|indexService
 operator|.
 name|mapperService
 argument_list|()
+operator|.
+name|docMappers
+argument_list|(
+literal|false
+argument_list|)
 control|)
 block|{
-comment|// default mapping should not be sent back, it can only be updated by put mapping API, and its
-comment|// a full in place replace, we don't want to override a potential update coming it
-if|if
-condition|(
-name|documentMapper
-operator|.
-name|type
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|MapperService
-operator|.
-name|DEFAULT_MAPPING
-argument_list|)
-condition|)
-block|{
-continue|continue;
-block|}
 name|MappingMetaData
 name|mappingMetaData
 init|=

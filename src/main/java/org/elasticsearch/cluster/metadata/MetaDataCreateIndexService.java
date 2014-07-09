@@ -2796,6 +2796,11 @@ name|DocumentMapper
 name|mapper
 range|:
 name|mapperService
+operator|.
+name|docMappers
+argument_list|(
+literal|true
+argument_list|)
 control|)
 block|{
 name|MappingMetaData

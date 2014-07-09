@@ -208,7 +208,7 @@ name|test
 operator|.
 name|ElasticsearchIntegrationTest
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -462,6 +462,11 @@ name|indexService
 operator|.
 name|mapperService
 argument_list|()
+operator|.
+name|docMappers
+argument_list|(
+literal|true
+argument_list|)
 control|)
 block|{
 name|indexReferences

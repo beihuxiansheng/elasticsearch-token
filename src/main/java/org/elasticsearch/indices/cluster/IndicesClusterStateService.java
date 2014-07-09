@@ -2421,6 +2421,11 @@ name|DocumentMapper
 name|documentMapper
 range|:
 name|mapperService
+operator|.
+name|docMappers
+argument_list|(
+literal|true
+argument_list|)
 control|)
 block|{
 if|if
