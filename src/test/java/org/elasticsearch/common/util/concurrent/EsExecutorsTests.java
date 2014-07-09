@@ -1183,43 +1183,19 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
-name|awaitBusy
+name|assertBusy
 argument_list|(
 operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
+name|Runnable
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|o
-parameter_list|)
+name|void
+name|run
+parameter_list|()
 block|{
-return|return
-name|pool
-operator|.
-name|getActiveCount
-argument_list|()
-operator|==
-literal|0
-operator|&&
-name|pool
-operator|.
-name|getPoolSize
-argument_list|()
-operator|<
-name|max
-return|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-comment|//assertThat("not all tasks completed", pool.getCompletedTaskCount(), equalTo((long) max));
 name|assertThat
 argument_list|(
 literal|"wrong active count"
@@ -1235,8 +1211,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//assertThat("wrong pool size. ", min, equalTo(pool.getPoolSize())); //BUG in ThreadPool - Bug ID: 6458662
-comment|//assertThat("idle threads didn't stay above min (" + pool.getPoolSize() + ")", pool.getPoolSize(), greaterThan(0));
 name|assertThat
 argument_list|(
 literal|"idle threads didn't shrink below max. ("
@@ -1257,6 +1231,10 @@ name|lessThan
 argument_list|(
 name|max
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|pool
