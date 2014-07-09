@@ -767,17 +767,12 @@ operator|new
 name|MasterPinger
 argument_list|()
 expr_stmt|;
-comment|// we use schedule with a 0 time value to run the pinger on the pool as it will run on later
+comment|// we start pinging slightly later to allow the chosen master to complete it's own master election
 name|threadPool
 operator|.
 name|schedule
 argument_list|(
-name|TimeValue
-operator|.
-name|timeValueMillis
-argument_list|(
-literal|0
-argument_list|)
+name|pingInterval
 argument_list|,
 name|ThreadPool
 operator|.
