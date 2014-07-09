@@ -1233,13 +1233,39 @@ argument_list|(
 name|toLocation
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|binFile
 operator|.
 name|renameTo
 argument_list|(
 name|toLocation
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not move ["
+operator|+
+name|binFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"] to ["
+operator|+
+name|toLocation
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|debug
 argument_list|(
 literal|"Installed "
@@ -1306,13 +1332,39 @@ argument_list|(
 name|toLocation
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
 name|configFile
 operator|.
 name|renameTo
 argument_list|(
 name|toLocation
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not move ["
+operator|+
+name|configFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"] to ["
+operator|+
+name|configFile
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|debug
 argument_list|(
 literal|"Installed "
