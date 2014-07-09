@@ -580,7 +580,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Loading huspell dictionary [{}]..."
+literal|"Loading hunspell dictionary [{}]..."
 argument_list|,
 name|locale
 argument_list|)
