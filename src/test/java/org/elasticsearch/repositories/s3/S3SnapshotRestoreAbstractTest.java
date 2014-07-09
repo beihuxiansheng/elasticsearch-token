@@ -442,10 +442,11 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
-DECL|class|S3SnapshotRestoreTest
+DECL|class|S3SnapshotRestoreAbstractTest
+specifier|abstract
 specifier|public
 class|class
-name|S3SnapshotRestoreTest
+name|S3SnapshotRestoreAbstractTest
 extends|extends
 name|AbstractAwsTest
 block|{
