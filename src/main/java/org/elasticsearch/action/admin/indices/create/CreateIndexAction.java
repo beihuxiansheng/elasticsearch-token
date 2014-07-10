@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/create"
+literal|"indices:admin/create"
 decl_stmt|;
 DECL|method|CreateIndexAction
 specifier|private

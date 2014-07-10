@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/repository/delete"
+literal|"cluster:admin/repository/delete"
 decl_stmt|;
 DECL|method|DeleteRepositoryAction
 specifier|private

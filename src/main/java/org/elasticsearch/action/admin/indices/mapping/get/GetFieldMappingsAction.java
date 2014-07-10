@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"mappings/fields/get"
+literal|"indices:admin/mappings/fields/get"
 decl_stmt|;
 DECL|method|GetFieldMappingsAction
 specifier|private

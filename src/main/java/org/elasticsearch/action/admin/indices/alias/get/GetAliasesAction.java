@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/get/aliases"
+literal|"indices:admin/aliases/get"
 decl_stmt|;
 DECL|method|GetAliasesAction
 specifier|private

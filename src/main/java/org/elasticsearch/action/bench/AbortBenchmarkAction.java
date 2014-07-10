@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"benchmark/abort"
+literal|"indices:data/benchmark/abort"
 decl_stmt|;
 DECL|method|AbortBenchmarkAction
 specifier|private

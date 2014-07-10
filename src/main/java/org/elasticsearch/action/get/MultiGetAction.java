@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"mget"
+literal|"indices:data/read/mget"
 decl_stmt|;
 DECL|method|MultiGetAction
 specifier|private

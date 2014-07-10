@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/nodes/info"
+literal|"cluster:monitor/nodes/info"
 decl_stmt|;
 DECL|method|NodesInfoAction
 specifier|private

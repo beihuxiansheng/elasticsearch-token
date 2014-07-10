@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/snapshot/create"
+literal|"cluster:admin/snapshot/create"
 decl_stmt|;
 DECL|method|CreateSnapshotAction
 specifier|private

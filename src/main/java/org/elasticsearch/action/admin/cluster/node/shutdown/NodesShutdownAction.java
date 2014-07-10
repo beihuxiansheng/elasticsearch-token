@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/nodes/shutdown"
+literal|"cluster:admin/nodes/shutdown"
 decl_stmt|;
 DECL|method|NodesShutdownAction
 specifier|private

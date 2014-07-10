@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/repository/get"
+literal|"cluster:admin/repository/get"
 decl_stmt|;
 DECL|method|GetRepositoriesAction
 specifier|private

@@ -469,13 +469,13 @@ init|=
 literal|"indices.store.throttle.max_bytes_per_sec"
 decl_stmt|;
 DECL|field|ACTION_SHARD_EXISTS
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
 name|ACTION_SHARD_EXISTS
 init|=
-literal|"index/shard/exists"
+literal|"internal:index/shard/exists"
 decl_stmt|;
 DECL|field|ACTIVE_STATES
 specifier|private

@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/flush"
+literal|"indices:admin/flush"
 decl_stmt|;
 DECL|method|FlushAction
 specifier|private

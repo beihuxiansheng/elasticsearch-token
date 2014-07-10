@@ -437,7 +437,7 @@ name|DeleteByQueryAction
 operator|.
 name|NAME
 operator|+
-literal|"/shard"
+literal|"[s]"
 decl_stmt|;
 DECL|field|scriptService
 specifier|private

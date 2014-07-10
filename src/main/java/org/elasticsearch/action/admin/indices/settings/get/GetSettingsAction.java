@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/settings/get"
+literal|"indices:monitor/settings/get"
 decl_stmt|;
 DECL|method|GetSettingsAction
 specifier|public

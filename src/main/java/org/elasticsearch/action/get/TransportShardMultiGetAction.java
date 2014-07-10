@@ -322,7 +322,7 @@ name|MultiGetAction
 operator|.
 name|NAME
 operator|+
-literal|"/shard"
+literal|"[shard]"
 decl_stmt|;
 DECL|field|indicesService
 specifier|private

@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/template/put"
+literal|"indices:admin/template/put"
 decl_stmt|;
 DECL|method|PutIndexTemplateAction
 specifier|private

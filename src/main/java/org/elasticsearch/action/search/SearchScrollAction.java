@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"search/scroll"
+literal|"indices:data/read/scroll"
 decl_stmt|;
 DECL|method|SearchScrollAction
 specifier|private

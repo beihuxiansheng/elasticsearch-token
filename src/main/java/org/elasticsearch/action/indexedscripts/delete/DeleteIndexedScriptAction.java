@@ -79,7 +79,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"deleteIndexedScript"
+literal|"indices:data/write/script/delete"
 decl_stmt|;
 DECL|method|DeleteIndexedScriptAction
 specifier|private

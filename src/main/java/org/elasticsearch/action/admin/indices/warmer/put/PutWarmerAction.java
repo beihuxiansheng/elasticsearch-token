@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/warmer/put"
+literal|"indices:admin/warmers/put"
 decl_stmt|;
 DECL|method|PutWarmerAction
 specifier|private

@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/stats"
+literal|"indices:monitor/stats"
 decl_stmt|;
 DECL|method|IndicesStatsAction
 specifier|private

@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"count"
+literal|"indices:data/read/count"
 decl_stmt|;
 DECL|method|CountAction
 specifier|private

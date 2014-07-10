@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/mapping/delete"
+literal|"indices:admin/mapping/delete"
 decl_stmt|;
 DECL|method|DeleteMappingAction
 specifier|private

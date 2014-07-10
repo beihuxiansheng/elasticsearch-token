@@ -378,7 +378,11 @@ specifier|final
 name|String
 name|ACTION_NAME
 init|=
-literal|"mpercolate/shard"
+name|MultiPercolateAction
+operator|.
+name|NAME
+operator|+
+literal|"[shard]"
 decl_stmt|;
 annotation|@
 name|Inject

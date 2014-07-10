@@ -988,7 +988,7 @@ block|{
 return|return
 name|actionName
 operator|+
-literal|"/replica"
+literal|"[r]"
 return|;
 block|}
 DECL|method|retryPrimaryException

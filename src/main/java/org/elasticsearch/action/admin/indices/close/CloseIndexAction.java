@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/close"
+literal|"indices:admin/close"
 decl_stmt|;
 DECL|method|CloseIndexAction
 specifier|private

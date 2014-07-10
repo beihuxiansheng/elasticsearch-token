@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/health"
+literal|"cluster:monitor/health"
 decl_stmt|;
 DECL|method|ClusterHealthAction
 specifier|private

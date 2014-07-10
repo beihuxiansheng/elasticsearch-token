@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/reroute"
+literal|"cluster:admin/reroute"
 decl_stmt|;
 DECL|method|ClusterRerouteAction
 specifier|private

@@ -91,7 +91,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"suggest"
+literal|"indices:data/read/suggest"
 decl_stmt|;
 DECL|method|SuggestAction
 specifier|private

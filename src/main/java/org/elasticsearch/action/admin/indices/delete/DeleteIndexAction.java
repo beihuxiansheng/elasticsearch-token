@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/delete"
+literal|"indices:admin/delete"
 decl_stmt|;
 DECL|method|DeleteIndexAction
 specifier|private

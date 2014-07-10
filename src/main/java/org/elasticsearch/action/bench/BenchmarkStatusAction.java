@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"benchmark/status"
+literal|"indices:data/benchmark/status"
 decl_stmt|;
 DECL|method|BenchmarkStatusAction
 specifier|public

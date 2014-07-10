@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"update"
+literal|"indices:data/write/update"
 decl_stmt|;
 DECL|method|UpdateAction
 specifier|private

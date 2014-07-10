@@ -107,7 +107,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/exists/aliases"
+literal|"indices:admin/aliases/exists"
 decl_stmt|;
 DECL|method|AliasesExistAction
 specifier|private

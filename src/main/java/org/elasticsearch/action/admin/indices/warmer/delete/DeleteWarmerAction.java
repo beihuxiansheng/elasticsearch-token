@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/warmer/delete"
+literal|"indices:admin/warmers/delete"
 decl_stmt|;
 DECL|method|DeleteWarmerAction
 specifier|private

@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/shards/search_shards"
+literal|"indices:admin/shards/search_shards"
 decl_stmt|;
 DECL|method|ClusterSearchShardsAction
 specifier|private

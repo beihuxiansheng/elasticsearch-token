@@ -73,7 +73,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"exists"
+literal|"indices:data/read/exists"
 decl_stmt|;
 DECL|method|ExistsAction
 specifier|private

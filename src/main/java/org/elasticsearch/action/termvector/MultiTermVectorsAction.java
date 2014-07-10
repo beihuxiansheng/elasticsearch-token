@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"mtv"
+literal|"indices:data/read/mtv"
 decl_stmt|;
 DECL|method|MultiTermVectorsAction
 specifier|private

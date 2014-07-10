@@ -627,7 +627,7 @@ specifier|final
 name|String
 name|START_RECOVERY
 init|=
-literal|"index/shard/recovery/startRecovery"
+literal|"internal:index/shard/recovery/start_recovery"
 decl_stmt|;
 block|}
 DECL|field|transportService

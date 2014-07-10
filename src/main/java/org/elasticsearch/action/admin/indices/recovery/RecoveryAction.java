@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/recovery"
+literal|"indices:monitor/recovery"
 decl_stmt|;
 DECL|method|RecoveryAction
 specifier|private

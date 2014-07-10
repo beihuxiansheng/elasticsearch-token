@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"clear_sc"
+literal|"indices:data/read/scroll/clear"
 decl_stmt|;
 DECL|method|ClearScrollAction
 specifier|private

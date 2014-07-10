@@ -272,7 +272,7 @@ name|MultiTermVectorsAction
 operator|.
 name|NAME
 operator|+
-literal|"/shard"
+literal|"[shard]"
 decl_stmt|;
 annotation|@
 name|Inject
