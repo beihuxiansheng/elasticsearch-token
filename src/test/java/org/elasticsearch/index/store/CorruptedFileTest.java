@@ -787,6 +787,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -852,7 +864,7 @@ operator|.
 name|builder
 argument_list|()
 comment|// we really need local GW here since this also checks for corruption etc.
-comment|// and we need to make sure primaries are not just trashed if we dont' have replicase
+comment|// and we need to make sure primaries are not just trashed if we don'tmvn have replicas
 operator|.
 name|put
 argument_list|(
@@ -1997,6 +2009,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|boolean
+name|didClusterTurnRed
+init|=
 name|awaitBusy
 argument_list|(
 operator|new
@@ -2053,8 +2068,15 @@ name|RED
 return|;
 block|}
 block|}
+argument_list|,
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|MINUTES
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// sometimes on slow nodes the replication / recovery is just dead slow
 specifier|final
 name|ClusterHealthResponse
 name|response
@@ -2093,6 +2115,15 @@ operator|.
 name|RED
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Cluster turned red in busy loop: {}"
+argument_list|,
+name|didClusterTurnRed
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
