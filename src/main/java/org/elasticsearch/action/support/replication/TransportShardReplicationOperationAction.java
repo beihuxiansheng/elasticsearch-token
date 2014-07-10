@@ -1047,17 +1047,6 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|cause
-operator|instanceof
-name|ConnectTransportException
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|// on version conflict or document missing, it means
 comment|// that a news change has crept into the replica, and its fine
 if|if
@@ -3598,9 +3587,6 @@ operator|!
 name|ignoreReplicaException
 argument_list|(
 name|exp
-operator|.
-name|unwrapCause
-argument_list|()
 argument_list|)
 condition|)
 block|{
