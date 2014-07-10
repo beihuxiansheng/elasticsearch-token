@@ -554,6 +554,21 @@ name|DiscoveryWithNetworkFailuresTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+DECL|field|DISRUPTION_HEALING_OVERHEAD
+specifier|private
+specifier|static
+specifier|final
+name|TimeValue
+name|DISRUPTION_HEALING_OVERHEAD
+init|=
+name|TimeValue
+operator|.
+name|timeValueSeconds
+argument_list|(
+literal|40
+argument_list|)
+decl_stmt|;
+comment|// we use 30s as timeout in many places.
 DECL|field|nodeSettings
 specifier|private
 specifier|static
@@ -1311,7 +1326,7 @@ operator|.
 name|stopDisrupting
 argument_list|()
 expr_stmt|;
-comment|// Wait until the master node sees all 3 nodes again.
+comment|// Wait until the master node sees al 3 nodes again.
 name|ensureStableCluster
 argument_list|(
 literal|3
@@ -1319,7 +1334,10 @@ argument_list|,
 operator|new
 name|TimeValue
 argument_list|(
-literal|30000
+name|DISRUPTION_HEALING_OVERHEAD
+operator|.
+name|millis
+argument_list|()
 operator|+
 name|networkPartition
 operator|.
@@ -1681,7 +1699,10 @@ argument_list|,
 operator|new
 name|TimeValue
 argument_list|(
-literal|30000
+name|DISRUPTION_HEALING_OVERHEAD
+operator|.
+name|millis
+argument_list|()
 operator|+
 name|networkPartition
 operator|.
@@ -2723,7 +2744,10 @@ operator|.
 name|millis
 argument_list|()
 operator|+
-literal|30000
+name|DISRUPTION_HEALING_OVERHEAD
+operator|.
+name|millis
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
