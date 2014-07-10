@@ -120,6 +120,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -152,18 +164,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|notNullValue
@@ -179,6 +179,8 @@ DECL|class|LoggingConfigurationTests
 specifier|public
 class|class
 name|LoggingConfigurationTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test
