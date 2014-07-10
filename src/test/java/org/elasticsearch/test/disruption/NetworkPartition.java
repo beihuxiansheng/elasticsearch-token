@@ -218,6 +218,14 @@ specifier|volatile
 name|InternalTestCluster
 name|cluster
 decl_stmt|;
+DECL|field|activeDisruption
+specifier|protected
+specifier|volatile
+name|boolean
+name|activeDisruption
+init|=
+literal|false
+decl_stmt|;
 DECL|method|NetworkPartition
 specifier|public
 name|NetworkPartition
@@ -816,6 +824,10 @@ name|getPartitionDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|activeDisruption
+operator|=
+literal|true
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -900,6 +912,7 @@ annotation|@
 name|Override
 DECL|method|stopDisrupting
 specifier|public
+specifier|synchronized
 name|void
 name|stopDisrupting
 parameter_list|()
@@ -919,6 +932,9 @@ name|size
 argument_list|()
 operator|==
 literal|0
+operator|||
+operator|!
+name|activeDisruption
 condition|)
 block|{
 return|return;
@@ -1013,6 +1029,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|activeDisruption
+operator|=
+literal|false
+expr_stmt|;
 block|}
 DECL|method|applyDisruption
 specifier|abstract
