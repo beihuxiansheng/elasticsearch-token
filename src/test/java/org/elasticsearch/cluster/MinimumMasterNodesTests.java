@@ -420,6 +420,23 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|state
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// verify that we still see the local node in the cluster state
 name|logger
 operator|.
 name|info
@@ -919,6 +936,23 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|state
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// verify that we still see the local node in the cluster state
 name|logger
 operator|.
 name|info

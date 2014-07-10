@@ -284,6 +284,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|service
+operator|.
+name|InternalClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|StopWatch
@@ -2133,6 +2147,11 @@ operator|.
 name|start
 argument_list|()
 decl_stmt|;
+name|discoService
+operator|.
+name|waitForInitialState
+argument_list|()
+expr_stmt|;
 comment|// gateway should start after disco, so it can try and recovery from gateway on "start"
 name|injector
 operator|.
