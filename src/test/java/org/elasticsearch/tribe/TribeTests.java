@@ -22,20 +22,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|ImmutableMap
@@ -686,6 +672,14 @@ operator|.
 name|getDefaultSettings
 argument_list|()
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"node.name"
+argument_list|,
+literal|"tribe_node"
+argument_list|)
+comment|// make sure we can identify threads from this node
 operator|.
 name|build
 argument_list|()

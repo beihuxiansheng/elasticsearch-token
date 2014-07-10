@@ -1394,6 +1394,11 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|transportClient
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
