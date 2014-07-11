@@ -3584,7 +3584,20 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+operator|&&
+operator|!
+name|pathname
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|".del"
+argument_list|)
 return|;
+comment|// temporary fix - del files might be generational and we corrupt an old generation
+comment|// TODO(simonw): fix this method to select the oldest del gen if we pick a del file
 block|}
 block|}
 argument_list|)
