@@ -751,6 +751,12 @@ condition|(
 name|formatter
 operator|!=
 literal|null
+operator|&&
+name|formatter
+operator|!=
+name|ValueFormatter
+operator|.
+name|RAW
 condition|)
 block|{
 name|Text
