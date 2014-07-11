@@ -908,7 +908,7 @@ operator|.
 name|IMMEDIATE
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
@@ -980,7 +980,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed ot update local node"
+literal|"failed to update local node"
 argument_list|,
 name|t
 argument_list|)
