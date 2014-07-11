@@ -978,9 +978,6 @@ operator|.
 name|recoveryStatus
 argument_list|(
 name|indexShard
-operator|.
-name|shardId
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
