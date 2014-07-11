@@ -80,18 +80,6 @@ name|AbstractSimpleTransportTests
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportService
-import|;
-end_import
-
 begin_class
 DECL|class|SimpleLocalTransportTests
 specifier|public
