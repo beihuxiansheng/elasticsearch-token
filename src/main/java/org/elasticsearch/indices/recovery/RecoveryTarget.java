@@ -1049,6 +1049,11 @@ name|recoveryId
 argument_list|()
 argument_list|,
 name|indexShard
+argument_list|,
+name|request
+operator|.
+name|sourceNode
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|recoveryStatus
