@@ -284,6 +284,9 @@ operator|.
 name|remove
 argument_list|(
 name|node
+operator|.
+name|getAddress
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -431,6 +434,9 @@ operator|.
 name|put
 argument_list|(
 name|node
+operator|.
+name|getAddress
+argument_list|()
 argument_list|,
 operator|new
 name|DelegateTransport
@@ -676,6 +682,9 @@ operator|.
 name|put
 argument_list|(
 name|node
+operator|.
+name|getAddress
+argument_list|()
 argument_list|,
 name|transport
 argument_list|)
@@ -709,7 +718,7 @@ DECL|field|transports
 specifier|final
 name|ConcurrentMap
 argument_list|<
-name|DiscoveryNode
+name|TransportAddress
 argument_list|,
 name|Transport
 argument_list|>
@@ -750,6 +759,9 @@ operator|.
 name|get
 argument_list|(
 name|node
+operator|.
+name|getAddress
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -763,7 +775,6 @@ return|return
 name|transport
 return|;
 block|}
-comment|// TODO, if we miss on node by UID, we should have an option to lookup based on address?
 return|return
 name|this
 operator|.
