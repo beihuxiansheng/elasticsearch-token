@@ -5038,6 +5038,15 @@ name|possibleMasterNodes
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"not enough master nodes [{}]"
+argument_list|,
+name|possibleMasterNodes
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;
