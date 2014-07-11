@@ -1270,7 +1270,6 @@ init|=
 literal|true
 decl_stmt|;
 DECL|field|NODE_MODE
-specifier|private
 specifier|static
 specifier|final
 name|String
@@ -1926,7 +1925,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|nodeMode
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|nodeMode
