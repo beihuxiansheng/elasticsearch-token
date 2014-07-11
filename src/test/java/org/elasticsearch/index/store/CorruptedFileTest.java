@@ -2364,10 +2364,10 @@ block|}
 comment|/**      * Tests corruption that happens on the network layer and that the primary does not get affected by corruption that happens on the way      * to the replica. The file on disk stays uncorrupted      */
 annotation|@
 name|Test
-DECL|method|testCorrupteOnNetworkLayer
+DECL|method|testCorruptionOnNetworkLayer
 specifier|public
 name|void
-name|testCorrupteOnNetworkLayer
+name|testCorruptionOnNetworkLayer
 parameter_list|()
 throws|throws
 name|ExecutionException
