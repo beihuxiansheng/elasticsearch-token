@@ -563,13 +563,14 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"can't send shard failed for {}. no master known."
 argument_list|,
 name|shardRouting
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|shardFailed
 argument_list|(
@@ -659,16 +660,7 @@ name|transportService
 operator|.
 name|sendRequest
 argument_list|(
-name|clusterService
-operator|.
-name|state
-argument_list|()
-operator|.
-name|nodes
-argument_list|()
-operator|.
 name|masterNode
-argument_list|()
 argument_list|,
 name|ShardFailedTransportHandler
 operator|.
@@ -755,13 +747,14 @@ condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"can't send shard started for {}. no master known."
 argument_list|,
 name|shardRouting
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 name|shardStarted
 argument_list|(
