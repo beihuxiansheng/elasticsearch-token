@@ -5203,11 +5203,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
 name|addressA
 operator|.
 name|set
@@ -5226,6 +5221,11 @@ operator|new
 name|TestResponse
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -5299,11 +5299,6 @@ name|TestResponse
 name|response
 parameter_list|)
 block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
-expr_stmt|;
 name|addressB
 operator|.
 name|set
@@ -5313,6 +5308,11 @@ operator|.
 name|remoteAddress
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
