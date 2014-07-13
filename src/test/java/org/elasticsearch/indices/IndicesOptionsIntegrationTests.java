@@ -5439,7 +5439,9 @@ literal|"type=string"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+comment|// we wait for green to make sure indices with mappings have been created on all relevant
+comment|// nodes, and that recovery won't re-introduce a mapping
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|verify
