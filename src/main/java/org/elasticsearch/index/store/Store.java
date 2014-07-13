@@ -840,12 +840,44 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *      * Note: Close can safely be called multiple times.      * @see #decRef      */
+comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *      * Note: Close can safely be called multiple times.      * @see #decRef      * @see #tryIncRef()      * @throws AlreadyClosedException iff the reference counter can not be incremented.      */
 DECL|method|incRef
 specifier|public
 specifier|final
 name|void
 name|incRef
+parameter_list|()
+block|{
+if|if
+condition|(
+name|tryIncRef
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|AlreadyClosedException
+argument_list|(
+literal|"Store is already closed can't increment refCount current count ["
+operator|+
+name|refCount
+operator|.
+name|get
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+comment|/**      * Tries to increment the refCount of this Store instance. This method will return<tt>true</tt> iff the refCount was      * incremented successfully otherwise<tt>false</tt>. RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *      * Note: Close can safely be called multiple times.      * @see #decRef()      * @see #incRef()      */
+DECL|method|tryIncRef
+specifier|public
+specifier|final
+name|boolean
+name|tryIncRef
 parameter_list|()
 block|{
 do|do
@@ -879,22 +911,16 @@ literal|1
 argument_list|)
 condition|)
 block|{
-return|return;
+return|return
+literal|true
+return|;
 block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|AlreadyClosedException
-argument_list|(
-literal|"Store is already closed can't increment refCount current count ["
-operator|+
-name|i
-operator|+
-literal|"]"
-argument_list|)
-throw|;
+return|return
+literal|false
+return|;
 block|}
 block|}
 do|while
