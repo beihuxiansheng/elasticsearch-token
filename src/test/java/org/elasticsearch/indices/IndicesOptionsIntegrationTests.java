@@ -5219,7 +5219,7 @@ literal|"type=string"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|verify
@@ -6736,7 +6736,7 @@ literal|"type=string"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|assertThat
