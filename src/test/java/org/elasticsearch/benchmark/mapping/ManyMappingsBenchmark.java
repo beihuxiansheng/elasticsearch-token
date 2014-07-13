@@ -350,7 +350,7 @@ specifier|final
 name|boolean
 name|TWO_NODES
 init|=
-literal|false
+literal|true
 decl_stmt|;
 DECL|method|main
 specifier|public
