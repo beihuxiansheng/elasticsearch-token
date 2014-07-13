@@ -3184,10 +3184,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testListenerCallbacks
+DECL|method|testLocalNodeMasterListenerCallbacks
 specifier|public
 name|void
-name|testListenerCallbacks
+name|testLocalNodeMasterListenerCallbacks
 parameter_list|()
 throws|throws
 name|Exception
@@ -3250,7 +3250,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 name|ClusterService
-name|clusterService1
+name|clusterService
 init|=
 name|internalCluster
 argument_list|()
@@ -3263,7 +3263,7 @@ name|class
 argument_list|)
 decl_stmt|;
 name|MasterAwareService
-name|testService1
+name|testService
 init|=
 name|internalCluster
 argument_list|()
@@ -3321,7 +3321,7 @@ expr_stmt|;
 comment|// the first node should be a master as the minimum required is 1
 name|assertThat
 argument_list|(
-name|clusterService1
+name|clusterService
 operator|.
 name|state
 argument_list|()
@@ -3338,7 +3338,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|clusterService1
+name|clusterService
 operator|.
 name|state
 argument_list|()
@@ -3357,7 +3357,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|testService1
+name|testService
 operator|.
 name|master
 argument_list|()
@@ -3381,7 +3381,7 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|ClusterService
-name|clusterService2
+name|clusterService1
 init|=
 name|internalCluster
 argument_list|()
@@ -3396,7 +3396,7 @@ name|node_1
 argument_list|)
 decl_stmt|;
 name|MasterAwareService
-name|testService2
+name|testService1
 init|=
 name|internalCluster
 argument_list|()
@@ -3455,7 +3455,7 @@ expr_stmt|;
 comment|// the second node should not be the master as node1 is already the master.
 name|assertThat
 argument_list|(
-name|clusterService2
+name|clusterService1
 operator|.
 name|state
 argument_list|()
@@ -3474,7 +3474,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|testService2
+name|testService1
 operator|.
 name|master
 argument_list|()
@@ -3536,7 +3536,7 @@ expr_stmt|;
 comment|// now that node1 is closed, node2 should be elected as master
 name|assertThat
 argument_list|(
-name|clusterService2
+name|clusterService1
 operator|.
 name|state
 argument_list|()
@@ -3555,7 +3555,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|testService2
+name|testService1
 operator|.
 name|master
 argument_list|()
@@ -3628,7 +3628,7 @@ name|obj
 parameter_list|)
 block|{
 return|return
-name|clusterService2
+name|clusterService1
 operator|.
 name|state
 argument_list|()
@@ -3647,7 +3647,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|testService2
+name|testService1
 operator|.
 name|master
 argument_list|()
@@ -3666,11 +3666,12 @@ argument_list|()
 operator|.
 name|startNode
 argument_list|(
-name|settings
+name|newSettings
 argument_list|)
 decl_stmt|;
-name|clusterService1
-operator|=
+name|ClusterService
+name|clusterService2
+init|=
 name|internalCluster
 argument_list|()
 operator|.
@@ -3682,9 +3683,10 @@ name|class
 argument_list|,
 name|node_2
 argument_list|)
-expr_stmt|;
-name|testService1
-operator|=
+decl_stmt|;
+name|MasterAwareService
+name|testService2
+init|=
 name|internalCluster
 argument_list|()
 operator|.
@@ -3696,7 +3698,7 @@ name|class
 argument_list|,
 name|node_2
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// make sure both nodes see each other otherwise the masternode below could be null if node 2 is master and node 1 did'r receive the updated cluster state...
 name|assertThat
 argument_list|(
@@ -3787,7 +3789,7 @@ expr_stmt|;
 comment|// now that we started node1 again, a new master should be elected
 name|assertThat
 argument_list|(
-name|clusterService1
+name|clusterService2
 operator|.
 name|state
 argument_list|()
@@ -3811,7 +3813,7 @@ name|node_2
 operator|.
 name|equals
 argument_list|(
-name|clusterService1
+name|clusterService2
 operator|.
 name|state
 argument_list|()
@@ -3836,7 +3838,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3849,7 +3851,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3865,7 +3867,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3878,7 +3880,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
