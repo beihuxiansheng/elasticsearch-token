@@ -30,6 +30,7 @@ end_import
 
 begin_class
 DECL|class|SettingsSource
+specifier|public
 specifier|abstract
 class|class
 name|SettingsSource
@@ -72,7 +73,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/**      * @return  the settings for the node represented by the given ordinal, or {@code null} if there are no settings defined      */
+comment|/**      * @return the settings for the node represented by the given ordinal, or {@code null} if there are no settings defined      */
 DECL|method|node
 specifier|public
 specifier|abstract

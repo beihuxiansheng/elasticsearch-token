@@ -1210,7 +1210,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertThat
+name|assertFalse
 import|;
 end_import
 
@@ -1222,7 +1222,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertFalse
+name|assertThat
 import|;
 end_import
 
@@ -1347,6 +1347,7 @@ init|=
 literal|true
 decl_stmt|;
 DECL|field|NODE_MODE
+specifier|public
 specifier|static
 specifier|final
 name|String
