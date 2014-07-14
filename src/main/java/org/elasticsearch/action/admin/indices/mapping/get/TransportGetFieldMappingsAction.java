@@ -233,12 +233,6 @@ specifier|final
 name|TransportGetFieldMappingsIndexAction
 name|shardAction
 decl_stmt|;
-DECL|field|transportAction
-specifier|private
-specifier|final
-name|String
-name|transportAction
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportGetFieldMappingsAction
@@ -265,6 +259,10 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
+name|GetFieldMappingsAction
+operator|.
+name|NAME
+argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
@@ -280,19 +278,11 @@ name|shardAction
 operator|=
 name|shardAction
 expr_stmt|;
-name|this
-operator|.
-name|transportAction
-operator|=
-name|GetFieldMappingsAction
-operator|.
-name|NAME
-expr_stmt|;
 name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportAction
+name|actionName
 argument_list|,
 operator|new
 name|TransportHandler
@@ -819,7 +809,7 @@ name|warn
 argument_list|(
 literal|"Failed to send error response for action ["
 operator|+
-name|transportAction
+name|actionName
 operator|+
 literal|"] and request ["
 operator|+

@@ -335,6 +335,10 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
+name|ClearScrollAction
+operator|.
+name|NAME
+argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;

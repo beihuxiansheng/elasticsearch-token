@@ -40,7 +40,7 @@ name|action
 operator|.
 name|delete
 operator|.
-name|DeleteAction
+name|DeleteResponse
 import|;
 end_import
 
@@ -55,20 +55,6 @@ operator|.
 name|support
 operator|.
 name|DelegatingActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|delete
-operator|.
-name|DeleteResponse
 import|;
 end_import
 
@@ -158,7 +144,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|*
+name|TransportService
 import|;
 end_import
 
@@ -215,13 +201,13 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
-name|threadPool
-argument_list|,
-name|transportService
-argument_list|,
 name|DeleteIndexedScriptAction
 operator|.
 name|NAME
+argument_list|,
+name|threadPool
+argument_list|,
+name|transportService
 argument_list|)
 expr_stmt|;
 name|this

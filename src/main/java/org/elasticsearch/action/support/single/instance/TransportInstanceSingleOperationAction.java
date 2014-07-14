@@ -329,11 +329,6 @@ specifier|final
 name|TransportService
 name|transportService
 decl_stmt|;
-DECL|field|transportAction
-specifier|final
-name|String
-name|transportAction
-decl_stmt|;
 DECL|field|executor
 specifier|final
 name|String
@@ -345,6 +340,9 @@ name|TransportInstanceSingleOperationAction
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|String
+name|actionName
 parameter_list|,
 name|ThreadPool
 name|threadPool
@@ -359,6 +357,8 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|,
+name|actionName
 argument_list|,
 name|threadPool
 argument_list|)
@@ -377,13 +377,6 @@ name|transportService
 expr_stmt|;
 name|this
 operator|.
-name|transportAction
-operator|=
-name|transportAction
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|executor
 operator|=
 name|executor
@@ -393,7 +386,7 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportAction
+name|actionName
 argument_list|,
 operator|new
 name|TransportHandler
@@ -435,13 +428,6 @@ specifier|protected
 specifier|abstract
 name|String
 name|executor
-parameter_list|()
-function_decl|;
-DECL|method|transportAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportAction
 parameter_list|()
 function_decl|;
 DECL|method|shardOperation
@@ -1079,7 +1065,7 @@ name|sendRequest
 argument_list|(
 name|node
 argument_list|,
-name|transportAction
+name|actionName
 argument_list|,
 name|request
 argument_list|,

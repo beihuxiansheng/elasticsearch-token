@@ -180,20 +180,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -344,14 +330,15 @@ name|ShardResponse
 argument_list|>
 name|shardAction
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|TransportIndexReplicationOperationAction
-specifier|public
+specifier|protected
 name|TransportIndexReplicationOperationAction
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|String
+name|actionName
 parameter_list|,
 name|TransportService
 name|transportService
@@ -377,6 +364,8 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
+name|actionName
+argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
@@ -396,8 +385,7 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportAction
-argument_list|()
+name|actionName
 argument_list|,
 operator|new
 name|TransportHandler
@@ -915,13 +903,6 @@ argument_list|>
 name|shardFailures
 parameter_list|)
 function_decl|;
-DECL|method|transportAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportAction
-parameter_list|()
-function_decl|;
 DECL|method|shards
 specifier|protected
 specifier|abstract
@@ -1202,8 +1183,7 @@ name|warn
 argument_list|(
 literal|"Failed to send error response for action ["
 operator|+
-name|transportAction
-argument_list|()
+name|actionName
 operator|+
 literal|"] and request ["
 operator|+

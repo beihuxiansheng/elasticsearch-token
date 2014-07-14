@@ -281,6 +281,10 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
+name|MultiGetAction
+operator|.
+name|NAME
+argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;

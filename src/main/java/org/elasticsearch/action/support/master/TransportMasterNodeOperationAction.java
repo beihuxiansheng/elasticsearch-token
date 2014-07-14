@@ -257,11 +257,6 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|transportAction
-specifier|final
-name|String
-name|transportAction
-decl_stmt|;
 DECL|field|executor
 specifier|final
 name|String
@@ -273,6 +268,9 @@ name|TransportMasterNodeOperationAction
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|String
+name|actionName
 parameter_list|,
 name|TransportService
 name|transportService
@@ -288,6 +286,8 @@ name|super
 argument_list|(
 name|settings
 argument_list|,
+name|actionName
+argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;
@@ -305,13 +305,6 @@ name|clusterService
 expr_stmt|;
 name|this
 operator|.
-name|transportAction
-operator|=
-name|transportAction
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|executor
 operator|=
 name|executor
@@ -321,7 +314,7 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportAction
+name|actionName
 argument_list|,
 operator|new
 name|TransportHandler
@@ -329,13 +322,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|transportAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportAction
-parameter_list|()
-function_decl|;
 DECL|method|executor
 specifier|protected
 specifier|abstract
@@ -985,7 +971,7 @@ operator|.
 name|masterNode
 argument_list|()
 argument_list|,
-name|transportAction
+name|actionName
 argument_list|,
 name|request
 argument_list|,

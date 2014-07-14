@@ -593,11 +593,6 @@ specifier|final
 name|TransportRequestOptions
 name|transportOptions
 decl_stmt|;
-DECL|field|transportAction
-specifier|final
-name|String
-name|transportAction
-decl_stmt|;
 DECL|field|transportReplicaAction
 specifier|final
 name|String
@@ -620,6 +615,9 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
+name|String
+name|actionName
+parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
@@ -639,6 +637,8 @@ block|{
 name|super
 argument_list|(
 name|settings
+argument_list|,
+name|actionName
 argument_list|,
 name|threadPool
 argument_list|)
@@ -669,13 +669,6 @@ name|shardStateAction
 expr_stmt|;
 name|this
 operator|.
-name|transportAction
-operator|=
-name|transportAction
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|transportReplicaAction
 operator|=
 name|transportReplicaAction
@@ -699,7 +692,7 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportAction
+name|actionName
 argument_list|,
 operator|new
 name|OperationTransportHandler
@@ -809,13 +802,6 @@ specifier|protected
 specifier|abstract
 name|Response
 name|newResponseInstance
-parameter_list|()
-function_decl|;
-DECL|method|transportAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportAction
 parameter_list|()
 function_decl|;
 DECL|method|executor
@@ -990,8 +976,7 @@ name|transportReplicaAction
 parameter_list|()
 block|{
 return|return
-name|transportAction
-argument_list|()
+name|actionName
 operator|+
 literal|"/replica"
 return|;
@@ -1224,7 +1209,7 @@ name|warn
 argument_list|(
 literal|"Failed to send response for "
 operator|+
-name|transportAction
+name|actionName
 argument_list|,
 name|e1
 argument_list|)
@@ -2309,7 +2294,7 @@ name|sendRequest
 argument_list|(
 name|node
 argument_list|,
-name|transportAction
+name|actionName
 argument_list|,
 name|request
 argument_list|,
@@ -3596,7 +3581,7 @@ name|warn
 argument_list|(
 literal|"Failed to perform "
 operator|+
-name|transportAction
+name|actionName
 operator|+
 literal|" on remote replica "
 operator|+
@@ -3623,7 +3608,7 @@ argument_list|()
 argument_list|,
 literal|"Failed to perform ["
 operator|+
-name|transportAction
+name|actionName
 operator|+
 literal|"] on replica, message ["
 operator|+
@@ -3982,7 +3967,7 @@ name|indexShard
 operator|.
 name|failShard
 argument_list|(
-name|transportAction
+name|actionName
 operator|+
 literal|" failed on replica"
 argument_list|,
