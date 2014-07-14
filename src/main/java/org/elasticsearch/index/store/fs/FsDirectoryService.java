@@ -284,7 +284,6 @@ annotation|@
 name|Override
 DECL|method|throttleTimeInNanos
 specifier|public
-specifier|final
 name|long
 name|throttleTimeInNanos
 parameter_list|()
@@ -300,7 +299,6 @@ annotation|@
 name|Override
 DECL|method|rateLimiting
 specifier|public
-specifier|final
 name|StoreRateLimiting
 name|rateLimiting
 parameter_list|()
@@ -834,7 +832,6 @@ annotation|@
 name|Override
 DECL|method|onPause
 specifier|public
-specifier|final
 name|void
 name|onPause
 parameter_list|(
