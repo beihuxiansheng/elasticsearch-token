@@ -1348,7 +1348,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -1460,7 +1460,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -1765,7 +1765,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.extra = \"foo\""
 argument_list|)
@@ -1870,7 +1870,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.extra = \"foo\""
 argument_list|)
@@ -1992,7 +1992,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v2'"
 argument_list|)
@@ -2022,7 +2022,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v2'"
 argument_list|)
@@ -2074,7 +2074,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v3'"
 argument_list|)
@@ -2143,7 +2143,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v2'"
 argument_list|)
@@ -2210,7 +2210,7 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v2'"
 argument_list|)
@@ -2249,7 +2249,7 @@ argument_list|,
 literal|"3"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v2'"
 argument_list|)
@@ -2326,7 +2326,7 @@ argument_list|,
 literal|"4"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.text = 'v2'"
 argument_list|)
@@ -2473,7 +2473,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.extra = \"foo\""
 argument_list|)
@@ -2574,7 +2574,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field++"
 argument_list|)
@@ -2637,7 +2637,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -2741,7 +2741,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += count"
 argument_list|)
@@ -2853,7 +2853,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx.op = 'none'"
 argument_list|)
@@ -2958,7 +2958,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx.op = 'delete'"
 argument_list|)
@@ -3145,7 +3145,7 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -3224,7 +3224,7 @@ argument_list|,
 literal|"2"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._ttl = 3600000"
 argument_list|)
@@ -3343,7 +3343,7 @@ argument_list|,
 literal|"3"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._timestamp = \"2009-11-15T14:12:12\""
 argument_list|)
@@ -3450,7 +3450,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -4162,7 +4162,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -4264,7 +4264,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -4495,7 +4495,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -4563,7 +4563,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)

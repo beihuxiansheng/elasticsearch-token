@@ -598,7 +598,7 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -627,7 +627,7 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -1156,7 +1156,7 @@ argument_list|(
 literal|"6"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -1204,7 +1204,7 @@ argument_list|(
 literal|"7"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -1233,7 +1233,7 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -2705,7 +2705,7 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += a"
 argument_list|)
@@ -2739,7 +2739,7 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += 1"
 argument_list|)
@@ -2773,7 +2773,7 @@ argument_list|(
 literal|"3"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field += a"
 argument_list|)
@@ -3157,7 +3157,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.counter += 1"
 argument_list|)
@@ -3604,7 +3604,7 @@ condition|)
 block|{
 name|updateBuilder
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.counter += 1"
 argument_list|)
@@ -3978,7 +3978,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.counter += 1"
 argument_list|)
@@ -4267,7 +4267,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx.op = \"none\""
 argument_list|)
@@ -4481,7 +4481,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx.op = \"delete\""
 argument_list|)

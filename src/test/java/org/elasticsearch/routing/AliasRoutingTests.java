@@ -505,7 +505,7 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"ctx._source.field = 'value2'"
 argument_list|)

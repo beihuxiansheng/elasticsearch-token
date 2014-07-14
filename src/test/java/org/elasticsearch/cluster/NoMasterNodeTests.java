@@ -641,7 +641,7 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setScript
+name|setInlineScript
 argument_list|(
 literal|"test script"
 argument_list|)

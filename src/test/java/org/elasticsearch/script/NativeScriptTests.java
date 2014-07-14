@@ -234,6 +234,12 @@ literal|"native"
 argument_list|,
 literal|"my"
 argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;

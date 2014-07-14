@@ -1209,6 +1209,10 @@ name|script
 argument_list|,
 name|request
 operator|.
+name|scriptType
+argument_list|,
+name|request
+operator|.
 name|scriptParams
 argument_list|)
 decl_stmt|;

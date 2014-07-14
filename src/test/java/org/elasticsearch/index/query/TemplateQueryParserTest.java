@@ -799,7 +799,7 @@ block|{
 name|String
 name|templateString
 init|=
-literal|"{ \"template\": { \"query\": \"storedTemplate\" ,\"params\":{\"template\":\"all\" } } } "
+literal|"{ \"template\": { \"file\": \"storedTemplate\" ,\"params\":{\"template\":\"all\" } } } "
 decl_stmt|;
 name|XContentParser
 name|templateSourceParser

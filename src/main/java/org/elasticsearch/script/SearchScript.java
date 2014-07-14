@@ -163,6 +163,13 @@ specifier|private
 name|String
 name|script
 decl_stmt|;
+DECL|field|scriptType
+specifier|private
+name|ScriptService
+operator|.
+name|ScriptType
+name|scriptType
+decl_stmt|;
 DECL|field|lang
 specifier|private
 name|String
@@ -185,6 +192,11 @@ name|script
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+name|scriptType
 parameter_list|)
 block|{
 name|this
@@ -192,6 +204,12 @@ operator|.
 name|script
 operator|=
 name|script
+expr_stmt|;
+name|this
+operator|.
+name|scriptType
+operator|=
+name|scriptType
 expr_stmt|;
 return|return
 name|this
@@ -286,6 +304,8 @@ argument_list|,
 name|lang
 argument_list|,
 name|script
+argument_list|,
+name|scriptType
 argument_list|,
 name|params
 argument_list|)
