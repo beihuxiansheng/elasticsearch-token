@@ -1264,7 +1264,7 @@ expr_stmt|;
 comment|// nothing committed
 name|writer
 operator|.
-name|commit
+name|close
 argument_list|()
 expr_stmt|;
 name|Store
@@ -1479,11 +1479,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|assertDeleteContent
 argument_list|(
 name|store
