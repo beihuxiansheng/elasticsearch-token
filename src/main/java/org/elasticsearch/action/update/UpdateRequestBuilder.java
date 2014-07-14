@@ -1097,6 +1097,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to perform extra effort to detect noop updates via docAsUpsert.      */
+DECL|method|setDetectNoop
+specifier|public
+name|UpdateRequestBuilder
+name|setDetectNoop
+parameter_list|(
+name|boolean
+name|detectNoop
+parameter_list|)
+block|{
+name|request
+operator|.
+name|detectNoop
+argument_list|(
+name|detectNoop
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute

@@ -1148,6 +1148,10 @@ name|parent
 argument_list|()
 expr_stmt|;
 block|}
+name|boolean
+name|noop
+init|=
+operator|!
 name|XContentHelper
 operator|.
 name|update
@@ -1158,8 +1162,31 @@ name|indexRequest
 operator|.
 name|sourceAsMap
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|detectNoop
+argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// noop could still be true even if detectNoop isn't because update detects empty maps as noops.  BUT we can only
+comment|// actually turn the update into a noop if detectNoop is true to preserve backwards compatibility and to handle
+comment|// cases where users repopulating multi-fields or adding synonyms, etc.
+if|if
+condition|(
+name|request
+operator|.
+name|detectNoop
+argument_list|()
+operator|&&
+name|noop
+condition|)
+block|{
+name|operation
+operator|=
+literal|"none"
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1717,7 +1744,10 @@ name|updatedSourceAsMap
 argument_list|,
 name|updateSourceContentType
 argument_list|,
-literal|null
+name|getResult
+operator|.
+name|internalSourceRef
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
