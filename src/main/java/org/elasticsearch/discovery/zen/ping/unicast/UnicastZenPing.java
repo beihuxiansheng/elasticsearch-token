@@ -931,6 +931,19 @@ operator|=
 name|nodesProvider
 expr_stmt|;
 block|}
+comment|/**      * Clears the list of cached ping responses.      */
+DECL|method|clearTemporalReponses
+specifier|public
+name|void
+name|clearTemporalReponses
+parameter_list|()
+block|{
+name|temporalResponses
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|pingAndWait
 specifier|public
 name|PingResponse
