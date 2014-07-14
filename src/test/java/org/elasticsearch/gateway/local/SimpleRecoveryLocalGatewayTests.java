@@ -1818,6 +1818,13 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
+comment|// wait for primary allocations here otherwise if we have a lot of shards we might have a
+comment|// shard that is still in post recovery when we restart and the ensureYellow() below will timeout
 name|internalCluster
 argument_list|()
 operator|.
