@@ -2607,9 +2607,7 @@ init|=
 operator|new
 name|HashSet
 argument_list|<>
-argument_list|(
-name|listedNodes
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|HashSet
 argument_list|<
