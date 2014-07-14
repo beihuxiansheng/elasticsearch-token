@@ -100,20 +100,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|ChecksumIndexInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|Directory
 import|;
 end_import
@@ -2565,6 +2551,7 @@ name|directory
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns<tt>true</tt> iff the given exception or      * one of it's causes is an instance of {@link CorruptIndexException} otherwise<tt>false</tt>.      */
 DECL|method|isCorruptionException
 specifier|public
 specifier|static
