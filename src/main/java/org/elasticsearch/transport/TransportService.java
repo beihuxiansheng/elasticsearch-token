@@ -1247,9 +1247,16 @@ argument_list|(
 name|requestId
 argument_list|)
 decl_stmt|;
+comment|// if the scheduler raise a EsRejectedExecutionException (due to shutdown), we may have a timeout handler, but no future
 if|if
 condition|(
 name|timeoutHandler
+operator|!=
+literal|null
+operator|&&
+name|timeoutHandler
+operator|.
+name|future
 operator|!=
 literal|null
 condition|)
