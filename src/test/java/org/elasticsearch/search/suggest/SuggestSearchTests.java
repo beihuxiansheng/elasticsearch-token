@@ -8386,6 +8386,14 @@ argument_list|,
 literal|"title"
 argument_list|)
 expr_stmt|;
+name|NumShards
+name|numShards
+init|=
+name|getNumShards
+argument_list|(
+literal|"test"
+argument_list|)
+decl_stmt|;
 comment|// filtered suggest with bad query
 name|String
 name|incorrectFilterString
@@ -8434,6 +8442,10 @@ block|{
 name|searchSuggest
 argument_list|(
 literal|"united states house of representatives elections in washington 2006"
+argument_list|,
+name|numShards
+operator|.
+name|numPrimaries
 argument_list|,
 name|incorrectFilteredSuggest
 argument_list|)
@@ -8582,6 +8594,10 @@ name|searchSuggest
 argument_list|(
 literal|"united states house of representatives elections in washington 2006"
 argument_list|,
+name|numShards
+operator|.
+name|numPrimaries
+argument_list|,
 name|in
 argument_list|)
 expr_stmt|;
@@ -8652,6 +8668,10 @@ block|{
 name|searchSuggest
 argument_list|(
 literal|"united states house of representatives elections in washington 2006"
+argument_list|,
+name|numShards
+operator|.
+name|numPrimaries
 argument_list|,
 name|phraseSuggestWithNoParams
 argument_list|)
@@ -8763,6 +8783,10 @@ block|{
 name|searchSuggest
 argument_list|(
 literal|"united states house of representatives elections in washington 2006"
+argument_list|,
+name|numShards
+operator|.
+name|numPrimaries
 argument_list|,
 name|phraseSuggestWithFilterAndQuery
 argument_list|)
