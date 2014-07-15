@@ -1246,6 +1246,12 @@ operator|.
 name|waitForGreenStatus
 argument_list|()
 operator|.
+name|timeout
+argument_list|(
+literal|"5m"
+argument_list|)
+comment|// sometimes due to cluster rebalacing and random settings default timeout is just not enough.
+operator|.
 name|waitForRelocatingShards
 argument_list|(
 literal|0
