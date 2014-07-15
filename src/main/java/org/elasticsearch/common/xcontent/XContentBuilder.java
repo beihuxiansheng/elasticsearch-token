@@ -136,6 +136,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lease
+operator|.
+name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|text
 operator|.
 name|Text
@@ -314,6 +328,8 @@ class|class
 name|XContentBuilder
 implements|implements
 name|BytesStream
+implements|,
+name|Releasable
 block|{
 DECL|enum|FieldCaseConversion
 specifier|public
@@ -5603,7 +5619,7 @@ operator|)
 name|bos
 return|;
 block|}
-comment|/**      * Returns a string representation of the builder (only applicable for text based xcontent).      *<p/>      *<p>Only applicable when the builder is constructed with {@link FastByteArrayOutputStream}.      */
+comment|/**      * Returns a string representation of the builder (only applicable for text based xcontent).      */
 DECL|method|string
 specifier|public
 name|String
