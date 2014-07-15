@@ -640,6 +640,18 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|t
+operator|instanceof
+name|ClusterService
+operator|.
+name|NoLongerMasterException
+operator|)
+condition|)
+block|{
 name|ClusterState
 name|state
 init|=
@@ -664,6 +676,7 @@ name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
