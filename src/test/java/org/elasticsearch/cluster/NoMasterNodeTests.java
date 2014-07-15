@@ -128,6 +128,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -641,9 +653,15 @@ argument_list|,
 literal|"1"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"test script"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setTimeout

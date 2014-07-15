@@ -256,6 +256,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -598,9 +610,15 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 argument_list|)
 operator|.
@@ -627,9 +645,15 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setRetryOnConflict
@@ -1156,9 +1180,15 @@ argument_list|(
 literal|"6"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setUpsert
@@ -1204,9 +1234,15 @@ argument_list|(
 literal|"7"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 argument_list|)
 operator|.
@@ -1233,9 +1269,15 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 argument_list|)
 operator|.
@@ -2705,9 +2747,15 @@ argument_list|(
 literal|"1"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += a"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setFields
@@ -2739,9 +2787,15 @@ argument_list|(
 literal|"2"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setFields
@@ -2773,9 +2827,15 @@ argument_list|(
 literal|"3"
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.field += a"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setFields
@@ -3157,9 +3217,15 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.counter += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|setFields
@@ -3604,9 +3670,15 @@ condition|)
 block|{
 name|updateBuilder
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.counter += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 expr_stmt|;
 block|}
@@ -3978,9 +4050,15 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx._source.counter += 1"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4267,9 +4345,15 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx.op = \"none\""
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4481,9 +4565,15 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|setInlineScript
+name|setScript
 argument_list|(
 literal|"ctx.op = \"delete\""
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 argument_list|)
 expr_stmt|;
