@@ -2249,6 +2249,13 @@ name|int
 name|docId
 parameter_list|)
 block|{
+name|script
+operator|.
+name|setNextDocId
+argument_list|(
+name|docId
+argument_list|)
+expr_stmt|;
 return|return
 name|source
 operator|.
@@ -2359,6 +2366,13 @@ name|int
 name|docId
 parameter_list|)
 block|{
+name|script
+operator|.
+name|setNextDocId
+argument_list|(
+name|docId
+argument_list|)
+expr_stmt|;
 return|return
 name|source
 operator|.
