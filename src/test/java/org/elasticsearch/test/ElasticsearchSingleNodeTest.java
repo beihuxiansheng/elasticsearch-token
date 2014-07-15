@@ -108,6 +108,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|node
+operator|.
+name|DiscoveryNode
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Priority
@@ -233,14 +247,28 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
-name|Matchers
+name|ElasticsearchAssertions
 operator|.
-name|equalTo
+name|assertAcked
 import|;
 end_import
 
@@ -252,7 +280,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|lessThanOrEqualTo
+name|*
 import|;
 end_import
 
@@ -261,8 +289,11 @@ comment|/**  * A test that keep a single node started for all tests that can be 
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|ElasticsearchSingleNodeTest
 specifier|public
+specifier|abstract
 class|class
 name|ElasticsearchSingleNodeTest
 extends|extends
@@ -392,7 +423,7 @@ expr_stmt|;
 block|}
 comment|/**      * Same as {@link #node(Settings) node(ImmutableSettings.EMPTY)}.      */
 DECL|method|node
-specifier|public
+specifier|private
 specifier|static
 name|Node
 name|node
@@ -408,7 +439,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|node
-specifier|public
+specifier|private
 specifier|static
 name|Node
 name|node
@@ -417,7 +448,9 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-return|return
+name|Node
+name|build
+init|=
 name|NodeBuilder
 operator|.
 name|nodeBuilder
@@ -515,6 +548,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"config.ignore_system_properties"
+argument_list|,
+literal|true
+argument_list|)
+comment|// make sure we get what we set :)
+operator|.
+name|put
+argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"none"
@@ -523,9 +564,32 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+decl_stmt|;
+name|build
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|DiscoveryNode
+operator|.
+name|localNode
+argument_list|(
+name|build
+operator|.
+name|settings
+argument_list|()
+argument_list|)
+argument_list|,
+name|is
+argument_list|(
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|build
 return|;
 block|}
 DECL|method|getInstanceFromNode
@@ -598,6 +662,8 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+name|assertAcked
+argument_list|(
 name|node
 operator|.
 name|client
@@ -621,6 +687,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// Wait for the index to be allocated so that cluster state updates don't override
 comment|// changes that would have been done locally
@@ -681,6 +748,21 @@ name|YELLOW
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"Cluster must be a single node cluster"
+argument_list|,
+name|health
+operator|.
+name|getNumberOfDataNodes
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|IndicesService
 name|instanceFromNode
 init|=
@@ -696,7 +778,7 @@ decl_stmt|;
 return|return
 name|instanceFromNode
 operator|.
-name|indexService
+name|indexServiceSafe
 argument_list|(
 name|index
 argument_list|)
