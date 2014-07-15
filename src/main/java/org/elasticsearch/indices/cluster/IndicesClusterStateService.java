@@ -4339,7 +4339,7 @@ return|return;
 block|}
 block|}
 block|}
-comment|// figure out where to recover from (node or disk, in which case sourceNode is null)
+comment|// if we're in peer recovery, try to find out the source node now so in case it fails, we will not create the index shard
 name|DiscoveryNode
 name|sourceNode
 init|=
@@ -4364,6 +4364,27 @@ argument_list|,
 name|shardRouting
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sourceNode
+operator|==
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"ignoring initializing shard {} - no source node can be found."
+argument_list|,
+name|shardRouting
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 block|}
 comment|// if there is no shard, create it
 if|if
@@ -4692,13 +4713,21 @@ return|return;
 block|}
 if|if
 condition|(
-name|sourceNode
-operator|!=
-literal|null
+name|isPeerRecovery
+argument_list|(
+name|shardRouting
+argument_list|)
 condition|)
 block|{
 try|try
 block|{
+assert|assert
+name|sourceNode
+operator|!=
+literal|null
+operator|:
+literal|"peer recovery started but sourceNode is null"
+assert|;
 comment|// we don't mark this one as relocated at the end.
 comment|// For primaries: requests in any case are routed to both when its relocating and that way we handle
 comment|//    the edge case where its mark as relocated, and we might need to roll it back...
@@ -5047,7 +5076,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"can't find replica source node because primary shard {} is assigned to an unknown node. ignoring."
+literal|"can't find replica source node because primary shard {} is assigned to an unknown node."
 argument_list|,
 name|entry
 argument_list|)
@@ -5070,7 +5099,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"can't find replica source node for {} because a primary shard can not be found. ignoring."
+literal|"can't find replica source node for {} because a primary shard can not be found."
 argument_list|,
 name|shardRouting
 operator|.
@@ -5114,7 +5143,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"can't find relocation source node for shard {} because it is assigned to an unknown node [{}]. ignoring."
+literal|"can't find relocation source node for shard {} because it is assigned to an unknown node [{}]."
 argument_list|,
 name|shardRouting
 operator|.
