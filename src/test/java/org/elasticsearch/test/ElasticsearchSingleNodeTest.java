@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A test that keep a single node started for all tests that can be used to get  * references to Guice injectors in unit tests.  */
+comment|/**  * A test that keep a singleton node started for all tests that can be used to get  * references to Guice injectors in unit tests.  */
 end_comment
 
 begin_class
@@ -306,7 +306,7 @@ specifier|final
 name|Node
 name|node
 init|=
-name|node
+name|newNode
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -421,32 +421,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Same as {@link #node(Settings) node(ImmutableSettings.EMPTY)}.      */
-DECL|method|node
+DECL|method|newNode
 specifier|private
 specifier|static
 name|Node
-name|node
+name|newNode
 parameter_list|()
-block|{
-return|return
-name|node
-argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|)
-return|;
-block|}
-DECL|method|node
-specifier|private
-specifier|static
-name|Node
-name|node
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
 block|{
 name|Node
 name|build
@@ -519,11 +499,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|settings
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|EsExecutors
 operator|.
 name|PROCESSORS
@@ -592,6 +567,19 @@ return|return
 name|build
 return|;
 block|}
+comment|/**      * Return a reference to the singleton node.      */
+DECL|method|node
+specifier|public
+specifier|static
+name|Node
+name|node
+parameter_list|()
+block|{
+return|return
+name|node
+return|;
+block|}
+comment|/**      * Get an instance for a particular class using the injector of the singleton node.      */
 DECL|method|getInstanceFromNode
 specifier|public
 specifier|static
@@ -606,9 +594,6 @@ argument_list|<
 name|T
 argument_list|>
 name|clazz
-parameter_list|,
-name|Node
-name|node
 parameter_list|)
 block|{
 return|return
@@ -628,6 +613,7 @@ name|clazz
 argument_list|)
 return|;
 block|}
+comment|/**      * Create a new index on the singleton node with empty index settings.      */
 DECL|method|createIndex
 specifier|public
 specifier|static
@@ -649,6 +635,7 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+comment|/**      * Create a new index on the singleton node with the provided index settings.      */
 DECL|method|createIndex
 specifier|public
 specifier|static
@@ -771,8 +758,6 @@ argument_list|(
 name|IndicesService
 operator|.
 name|class
-argument_list|,
-name|node
 argument_list|)
 decl_stmt|;
 return|return
