@@ -3419,7 +3419,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|!
 name|failedShards
 operator|.
 name|containsKey
@@ -3430,6 +3429,46 @@ name|shardId
 argument_list|()
 argument_list|)
 condition|)
+block|{
+if|if
+condition|(
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|shardStateAction
+operator|.
+name|resendShardFailed
+argument_list|(
+name|shardRouting
+argument_list|,
+name|indexMetaData
+operator|.
+name|getUUID
+argument_list|()
+argument_list|,
+literal|"master "
+operator|+
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+operator|+
+literal|" marked shard as started, but shard has previous failed. resending shard failure."
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
 block|{
 comment|// the master thinks we are started, but we don't have this shard at all, mark it as failed
 name|logger
@@ -4351,24 +4390,43 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// already tried to create this shard but it failed - ignore
-name|logger
+if|if
+condition|(
+name|nodes
 operator|.
-name|trace
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|shardStateAction
+operator|.
+name|resendShardFailed
 argument_list|(
-literal|"[{}][{}] not initializing, this shards failed to recover on this node before, waiting for reassignment"
-argument_list|,
 name|shardRouting
+argument_list|,
+name|indexMetaData
 operator|.
-name|index
+name|getUUID
 argument_list|()
 argument_list|,
-name|shardRouting
+literal|"master "
+operator|+
+name|nodes
 operator|.
-name|id
+name|masterNode
+argument_list|()
+operator|+
+literal|" marked shard as initializing, but shard is marked as failed, resend shard failure"
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return;
 block|}
 try|try
