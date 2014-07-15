@@ -50,18 +50,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|SearchContext
@@ -93,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search script.  *  * @see ExplainableSearchScript for script which can explain a score  */
+comment|/**  * A search script.  *  * @see {@link ExplainableSearchScript} for script which can explain a score  */
 end_comment
 
 begin_interface

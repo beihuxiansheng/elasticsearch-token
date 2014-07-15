@@ -134,6 +134,20 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|expression
+operator|.
+name|ExpressionScriptEngineService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|groovy
 operator|.
 name|GroovyScriptEngineService
@@ -175,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An {@link org.elasticsearch.common.inject.Module} which manages {@link ScriptEngineService}s, as well  * as named script  */
 end_comment
 
 begin_class
@@ -593,6 +607,56 @@ operator|.
 name|debug
 argument_list|(
 literal|"failed to load mustache"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|settings
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|loadClass
+argument_list|(
+literal|"org.apache.lucene.expressions.Expression"
+argument_list|)
+expr_stmt|;
+name|multibinder
+operator|.
+name|addBinding
+argument_list|()
+operator|.
+name|to
+argument_list|(
+name|ExpressionScriptEngineService
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|ScriptService
+operator|.
+name|class
+argument_list|,
+name|settings
+argument_list|)
+operator|.
+name|debug
+argument_list|(
+literal|"failed to load lucene expressions"
 argument_list|,
 name|t
 argument_list|)
