@@ -1867,7 +1867,7 @@ name|Flush
 operator|.
 name|Type
 operator|.
-name|NEW_WRITER
+name|COMMIT
 argument_list|)
 argument_list|)
 expr_stmt|;
