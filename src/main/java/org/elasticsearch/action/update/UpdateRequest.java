@@ -2649,9 +2649,12 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
 name|script
-operator|!=
-literal|null
+argument_list|)
 operator|&&
 name|out
 operator|.
