@@ -760,12 +760,6 @@ specifier|final
 name|ClusterName
 name|clusterName
 decl_stmt|;
-DECL|field|discoveryService
-specifier|private
-specifier|final
-name|DiscoveryService
-name|discoveryService
-decl_stmt|;
 DECL|field|discoveryNodeService
 specifier|private
 specifier|final
@@ -948,9 +942,6 @@ name|version
 parameter_list|,
 name|DiscoverySettings
 name|discoverySettings
-parameter_list|,
-name|DiscoveryService
-name|discoveryService
 parameter_list|)
 block|{
 name|super
@@ -981,12 +972,6 @@ operator|.
 name|transportService
 operator|=
 name|transportService
-expr_stmt|;
-name|this
-operator|.
-name|discoveryService
-operator|=
-name|discoveryService
 expr_stmt|;
 name|this
 operator|.
@@ -4009,7 +3994,7 @@ argument_list|()
 operator|.
 name|hasGlobalBlock
 argument_list|(
-name|discoveryService
+name|discoverySettings
 operator|.
 name|getNoMasterBlock
 argument_list|()
@@ -4307,7 +4292,7 @@ argument_list|()
 operator|.
 name|hasGlobalBlock
 argument_list|(
-name|discoveryService
+name|discoverySettings
 operator|.
 name|getNoMasterBlock
 argument_list|()
