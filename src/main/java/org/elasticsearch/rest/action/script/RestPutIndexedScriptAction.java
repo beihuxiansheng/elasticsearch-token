@@ -261,14 +261,13 @@ argument_list|,
 name|client
 argument_list|)
 expr_stmt|;
-comment|//controller.registerHandler(GET, "/template", this);
 name|controller
 operator|.
 name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/_search/script/{lang}/{id}"
+literal|"/_scripts/{lang}/{id}"
 argument_list|,
 name|this
 argument_list|)
@@ -279,7 +278,7 @@ name|registerHandler
 argument_list|(
 name|PUT
 argument_list|,
-literal|"/_search/script/{lang}/{id}"
+literal|"/_scripts/{lang}/{id}"
 argument_list|,
 name|this
 argument_list|)
@@ -290,7 +289,7 @@ name|registerHandler
 argument_list|(
 name|PUT
 argument_list|,
-literal|"/_search/script/{lang}/{id}/_create"
+literal|"/_scripts/{lang}/{id}/_create"
 argument_list|,
 operator|new
 name|CreateHandler
@@ -307,7 +306,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/_search/script/{lang}/{id}/_create"
+literal|"/_scripts/{lang}/{id}/_create"
 argument_list|,
 operator|new
 name|CreateHandler

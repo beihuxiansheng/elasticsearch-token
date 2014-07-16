@@ -332,7 +332,7 @@ name|registerHandler
 argument_list|(
 name|GET
 argument_list|,
-literal|"/_search/script/{lang}/{id}"
+literal|"/_scripts/{lang}/{id}"
 argument_list|,
 name|this
 argument_list|)

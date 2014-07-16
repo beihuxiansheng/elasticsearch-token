@@ -259,7 +259,7 @@ name|registerHandler
 argument_list|(
 name|DELETE
 argument_list|,
-literal|"/_search/script/{lang}/{id}"
+literal|"/_scripts/{lang}/{id}"
 argument_list|,
 name|this
 argument_list|)
