@@ -34,6 +34,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Preconditions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -164,6 +176,17 @@ name|SizeUnit
 name|sizeUnit
 parameter_list|)
 block|{
+name|Preconditions
+operator|.
+name|checkArgument
+argument_list|(
+name|size
+operator|>=
+literal|0
+argument_list|,
+literal|"size in SizeValue may not be negative"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|size
