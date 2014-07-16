@@ -1372,10 +1372,8 @@ name|filter
 operator|=
 name|fieldMapper
 operator|.
-name|termsFilter
+name|fieldDataTermsFilter
 argument_list|(
-name|parseContext
-argument_list|,
 name|terms
 argument_list|,
 name|parseContext

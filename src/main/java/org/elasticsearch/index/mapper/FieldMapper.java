@@ -1003,13 +1003,10 @@ name|QueryParseContext
 name|context
 parameter_list|)
 function_decl|;
-DECL|method|termsFilter
+DECL|method|fieldDataTermsFilter
 name|Filter
-name|termsFilter
+name|fieldDataTermsFilter
 parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|,
 name|List
 name|values
 parameter_list|,

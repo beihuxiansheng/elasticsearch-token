@@ -2632,14 +2632,11 @@ block|}
 comment|/**      * A terms filter based on the field data cache      */
 annotation|@
 name|Override
-DECL|method|termsFilter
+DECL|method|fieldDataTermsFilter
 specifier|public
 name|Filter
-name|termsFilter
+name|fieldDataTermsFilter
 parameter_list|(
-name|QueryParseContext
-name|fieldDataService
-parameter_list|,
 name|List
 name|values
 parameter_list|,
@@ -2722,7 +2719,7 @@ name|FieldDataTermsFilter
 operator|.
 name|newBytes
 argument_list|(
-name|fieldDataService
+name|context
 operator|.
 name|getForField
 argument_list|(
