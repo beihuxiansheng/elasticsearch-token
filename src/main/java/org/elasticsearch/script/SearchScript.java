@@ -117,14 +117,6 @@ argument_list|>
 name|source
 parameter_list|)
 function_decl|;
-DECL|method|setNextScore
-name|void
-name|setNextScore
-parameter_list|(
-name|float
-name|score
-parameter_list|)
-function_decl|;
 DECL|method|runAsFloat
 name|float
 name|runAsFloat
