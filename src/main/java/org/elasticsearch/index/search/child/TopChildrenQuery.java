@@ -992,6 +992,8 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|child_hits
+label|:
 for|for
 control|(
 name|ScoreDoc
@@ -1433,6 +1435,9 @@ name|score
 expr_stmt|;
 block|}
 block|}
+continue|continue
+name|child_hits
+continue|;
 block|}
 block|}
 block|}
