@@ -5261,6 +5261,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// We can't include the local node in pingMasters list, otherwise we may up electing ourselves without
+comment|// any check / verifications from other nodes in ZenDiscover#innerJoinCluster()
+if|if
+condition|(
+operator|!
+name|localNode
+operator|.
+name|equals
+argument_list|(
+name|pingResponse
+operator|.
+name|master
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|pingMasters
 operator|.
 name|add
@@ -5271,6 +5287,7 @@ name|master
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|Set
