@@ -1824,7 +1824,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"not deleting shard [{}], expected {} active copies, but only {} found active copies"
+literal|"not deleting shard {}, expected {} active copies, but only {} found active copies"
 argument_list|,
 name|shardId
 argument_list|,
@@ -1863,7 +1863,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"not deleting shard [{}], the latest cluster state version[{}] is not equal to cluster state before shard active api call [{}]"
+literal|"not deleting shard {}, the latest cluster state version[{}] is not equal to cluster state before shard active api call [{}]"
 argument_list|,
 name|shardId
 argument_list|,
@@ -1879,6 +1879,64 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 return|return;
+block|}
+name|clusterService
+operator|.
+name|submitStateUpdateTask
+argument_list|(
+literal|"indices_store"
+argument_list|,
+operator|new
+name|ClusterStateUpdateTask
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|ClusterState
+name|execute
+parameter_list|(
+name|ClusterState
+name|currentState
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|clusterState
+operator|.
+name|getVersion
+argument_list|()
+operator|!=
+name|currentState
+operator|.
+name|getVersion
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"not deleting shard {}, the update task state version[{}] is not equal to cluster state before shard active api call [{}]"
+argument_list|,
+name|shardId
+argument_list|,
+name|currentState
+operator|.
+name|getVersion
+argument_list|()
+argument_list|,
+name|clusterState
+operator|.
+name|getVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|currentState
+return|;
 block|}
 name|IndexService
 name|indexService
@@ -1937,17 +1995,6 @@ argument_list|(
 literal|"[{}][{}] deleting shard that is no longer used"
 argument_list|,
 name|shardId
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -1993,20 +2040,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] deleting shard that is no longer used"
+literal|"{} deleting shard that is no longer used"
 argument_list|,
 name|shardId
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -2032,22 +2068,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] failed to delete unallocated shard, ignoring"
+literal|"{} failed to delete unallocated shard, ignoring"
 argument_list|,
 name|e
 argument_list|,
 name|shardId
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
-argument_list|()
-argument_list|,
-name|shardId
-operator|.
-name|id
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2061,6 +2086,38 @@ comment|// but its still physically exists on an IndexService
 comment|// Note, this listener should run after IndicesClusterStateService...
 block|}
 block|}
+return|return
+name|currentState
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"{} unexpected error during deletion of unallocated shard"
+argument_list|,
+name|t
+argument_list|,
+name|shardId
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|class|ShardActiveRequestHandler
