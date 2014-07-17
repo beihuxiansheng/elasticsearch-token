@@ -730,6 +730,15 @@ operator|.
 name|refresh
 argument_list|)
 expr_stmt|;
+name|shardRequest
+operator|.
+name|ignoreErrorsOnGeneratedFields
+argument_list|(
+name|request
+operator|.
+name|ignoreErrorsOnGeneratedFields
+argument_list|)
+expr_stmt|;
 name|shardRequests
 operator|.
 name|put

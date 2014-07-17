@@ -6757,6 +6757,17 @@ block|}
 block|}
 block|}
 block|}
+comment|/**      * Returns if this field is only generated when indexing. For example, the field of type token_count      */
+DECL|method|isGenerated
+specifier|public
+name|boolean
+name|isGenerated
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

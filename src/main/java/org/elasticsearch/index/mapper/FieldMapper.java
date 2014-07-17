@@ -1214,6 +1214,13 @@ name|Loading
 name|defaultLoading
 parameter_list|)
 function_decl|;
+comment|/**      * Fields might not be available before indexing, for example _all, token_count,...      * When get is called and these fields are requested, this case needs special treatment.      *      * @return If the field is available before indexing or not.      * */
+DECL|method|isGenerated
+specifier|public
+name|boolean
+name|isGenerated
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
