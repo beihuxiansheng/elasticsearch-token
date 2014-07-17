@@ -5284,6 +5284,14 @@ operator|.
 name|newHashSet
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|localNode
+operator|.
+name|masterNode
+argument_list|()
+condition|)
+block|{
 name|possibleMasterNodes
 operator|.
 name|add
@@ -5291,6 +5299,7 @@ argument_list|(
 name|localNode
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|ZenPing
