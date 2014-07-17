@@ -1156,6 +1156,8 @@ parameter_list|(
 name|Script
 name|script
 parameter_list|,
+annotation|@
+name|Nullable
 name|SearchLookup
 name|lookup
 parameter_list|,
@@ -1193,6 +1195,13 @@ operator|.
 name|getVariables
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|lookup
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// Add the _score variable, which will access score from lookup.doc()
 name|this
 operator|.
@@ -1212,6 +1221,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
