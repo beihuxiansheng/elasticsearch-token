@@ -466,11 +466,11 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|version
+DECL|field|minCompatibilityVersion
 specifier|private
 specifier|final
 name|Version
-name|version
+name|minCompatibilityVersion
 decl_stmt|;
 comment|// nodes that are added to be discovered
 DECL|field|listedNodes
@@ -616,9 +616,12 @@ name|threadPool
 expr_stmt|;
 name|this
 operator|.
-name|version
+name|minCompatibilityVersion
 operator|=
 name|version
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -1009,7 +1012,7 @@ argument_list|()
 argument_list|,
 name|transportAddress
 argument_list|,
-name|version
+name|minCompatibilityVersion
 argument_list|)
 decl_stmt|;
 name|logger

@@ -1368,6 +1368,15 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|nodeService
+name|TransportClientNodesService
+name|nodeService
+parameter_list|()
+block|{
+return|return
+name|nodesService
+return|;
+block|}
 comment|/**      * Returns the current registered transport addresses to use (added using      * {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.      */
 DECL|method|transportAddresses
 specifier|public

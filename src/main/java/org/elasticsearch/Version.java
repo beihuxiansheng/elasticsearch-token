@@ -3928,6 +3928,31 @@ operator|>=
 name|id
 return|;
 block|}
+comment|/**      * Returns the minimum compatible version based on the current      * version. Ie a node needs to have at least the return version in order      * to communicate with a node running the current version. The returned version      * is in most of the cases the smallest major version release unless the current version      * is a beta or RC release then the version itself is returned.      */
+DECL|method|minimumCompatibilityVersion
+specifier|public
+name|Version
+name|minimumCompatibilityVersion
+parameter_list|()
+block|{
+return|return
+name|Version
+operator|.
+name|smallest
+argument_list|(
+name|this
+argument_list|,
+name|fromId
+argument_list|(
+name|major
+operator|*
+literal|1000000
+operator|+
+literal|99
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Just the version number (without -SNAPSHOT if snapshot).      */
 DECL|method|number
 specifier|public
