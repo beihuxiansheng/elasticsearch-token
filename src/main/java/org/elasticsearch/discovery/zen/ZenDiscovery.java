@@ -5312,8 +5312,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we don't have enough master nodes, we bail, even if we get a response that indicates
-comment|// there is a master by other node, we don't see enough...
+if|if
+condition|(
+name|pingMasters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// if we don't have enough master nodes, we bail, because there are not enough master to elect from
 if|if
 condition|(
 operator|!
@@ -5338,14 +5345,6 @@ return|return
 literal|null
 return|;
 block|}
-if|if
-condition|(
-name|pingMasters
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
 comment|// lets tie break between discovered nodes
 name|DiscoveryNode
 name|electedMaster
