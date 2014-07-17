@@ -1887,7 +1887,7 @@ argument_list|(
 literal|"indices_store"
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@
