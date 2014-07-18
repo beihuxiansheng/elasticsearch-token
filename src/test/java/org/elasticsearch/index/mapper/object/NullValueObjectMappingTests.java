@@ -56,20 +56,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|ParsedDocument
 import|;
 end_import
@@ -82,7 +68,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -112,18 +98,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -140,7 +114,7 @@ specifier|public
 class|class
 name|NullValueObjectMappingTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 block|{
 annotation|@
 name|Test
@@ -203,9 +177,15 @@ decl_stmt|;
 name|DocumentMapper
 name|defaultMapper
 init|=
-name|MapperTestUtils
+name|createIndex
+argument_list|(
+literal|"test"
+argument_list|)
 operator|.
-name|newParser
+name|mapperService
+argument_list|()
+operator|.
+name|documentMapperParser
 argument_list|()
 operator|.
 name|parse

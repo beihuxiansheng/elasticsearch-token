@@ -368,7 +368,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|TestSearchContext
 import|;
 end_import
 
@@ -452,67 +452,13 @@ name|TreeMap
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
-name|ChildrenConstantScoreQueryTests
-operator|.
-name|assertBitSet
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
-name|ChildrenConstantScoreQueryTests
-operator|.
-name|createSearchContext
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
-name|ChildrenQueryTests
-operator|.
-name|assertTopDocs
-import|;
-end_import
-
 begin_class
 DECL|class|ParentQueryTests
 specifier|public
 class|class
 name|ParentQueryTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|AbstractChildTests
 block|{
 annotation|@
 name|BeforeClass

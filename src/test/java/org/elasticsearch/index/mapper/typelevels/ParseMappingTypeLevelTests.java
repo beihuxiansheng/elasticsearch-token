@@ -56,7 +56,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperTestUtils
+name|DocumentMapperParser
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -79,18 +79,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
@@ -116,7 +104,7 @@ specifier|public
 class|class
 name|ParseMappingTypeLevelTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 block|{
 annotation|@
 name|Test
@@ -168,13 +156,24 @@ operator|.
 name|string
 argument_list|()
 decl_stmt|;
+name|DocumentMapperParser
+name|parser
+init|=
+name|createIndex
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|mapperService
+argument_list|()
+operator|.
+name|documentMapperParser
+argument_list|()
+decl_stmt|;
 name|DocumentMapper
 name|mapper
 init|=
-name|MapperTestUtils
-operator|.
-name|newParser
-argument_list|()
+name|parser
 operator|.
 name|parse
 argument_list|(
@@ -214,10 +213,7 @@ argument_list|)
 expr_stmt|;
 name|mapper
 operator|=
-name|MapperTestUtils
-operator|.
-name|newParser
-argument_list|()
+name|parser
 operator|.
 name|parse
 argument_list|(

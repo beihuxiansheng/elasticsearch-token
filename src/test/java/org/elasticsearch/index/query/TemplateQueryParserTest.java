@@ -462,6 +462,10 @@ begin_comment
 comment|/**  * Test parsing and executing a template request.  */
 end_comment
 
+begin_comment
+comment|// NOTE: this can't be migrated to ElasticsearchSingleNodeTest because of the custom path.conf
+end_comment
+
 begin_class
 DECL|class|TemplateQueryParserTest
 specifier|public
