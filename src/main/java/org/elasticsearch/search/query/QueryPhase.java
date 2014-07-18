@@ -562,6 +562,15 @@ name|TimeoutParseElement
 argument_list|()
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"terminate_after"
+argument_list|,
+operator|new
+name|TerminateAfterParseElement
+argument_list|()
+argument_list|)
+operator|.
 name|putAll
 argument_list|(
 name|facetPhase

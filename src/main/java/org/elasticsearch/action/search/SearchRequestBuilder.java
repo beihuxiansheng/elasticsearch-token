@@ -543,6 +543,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * An optional document count, upon collecting which the search      * query will early terminate      */
+DECL|method|setTerminateAfter
+specifier|public
+name|SearchRequestBuilder
+name|setTerminateAfter
+parameter_list|(
+name|int
+name|terminateAfter
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|terminateAfter
+argument_list|(
+name|terminateAfter
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
 DECL|method|setRouting
 specifier|public

@@ -1462,6 +1462,11 @@ name|SearchType
 operator|.
 name|COUNT
 argument_list|)
+operator|.
+name|setTerminateAfter
+argument_list|(
+literal|1
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -1491,6 +1496,11 @@ argument_list|(
 name|SearchType
 operator|.
 name|COUNT
+argument_list|)
+operator|.
+name|setTerminateAfter
+argument_list|(
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
