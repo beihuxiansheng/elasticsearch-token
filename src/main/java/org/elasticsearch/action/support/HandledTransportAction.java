@@ -164,6 +164,9 @@ name|threadPool
 parameter_list|,
 name|TransportService
 name|transportService
+parameter_list|,
+name|ActionFilters
+name|actionFilters
 parameter_list|)
 block|{
 name|super
@@ -173,6 +176,8 @@ argument_list|,
 name|actionName
 argument_list|,
 name|threadPool
+argument_list|,
+name|actionFilters
 argument_list|)
 expr_stmt|;
 name|transportService
