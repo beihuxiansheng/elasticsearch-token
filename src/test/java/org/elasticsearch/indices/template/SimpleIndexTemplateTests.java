@@ -3287,6 +3287,13 @@ argument_list|(
 literal|"te*"
 argument_list|)
 operator|.
+name|addMapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"{\"type1\" : {\"properties\" : {\"value\" : {\"type\" : \"string\"}}}}"
+argument_list|)
+operator|.
 name|addAlias
 argument_list|(
 operator|new
