@@ -1196,6 +1196,11 @@ name|boolean
 name|isSortable
 parameter_list|()
 function_decl|;
+DECL|method|supportsNullValue
+name|boolean
+name|supportsNullValue
+parameter_list|()
+function_decl|;
 DECL|method|hasDocValues
 name|boolean
 name|hasDocValues
