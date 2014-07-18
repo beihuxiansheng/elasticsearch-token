@@ -146,7 +146,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|AtomicGeoPointFieldData
+name|*
 import|;
 end_import
 
@@ -160,35 +160,11 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|FieldDataType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|IndexFieldData
 operator|.
-name|elasticsearch
+name|XFieldComparatorSource
 operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|IndexFieldDataCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|IndexGeoPointFieldData
+name|Nested
 import|;
 end_import
 
@@ -535,6 +511,9 @@ name|missingValue
 parameter_list|,
 name|MultiValueMode
 name|sortMode
+parameter_list|,
+name|Nested
+name|nested
 parameter_list|)
 block|{
 throw|throw

@@ -132,7 +132,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|AtomicOrdinalsFieldData
+name|*
 import|;
 end_import
 
@@ -146,35 +146,11 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|FieldDataType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|IndexFieldData
 operator|.
-name|elasticsearch
+name|XFieldComparatorSource
 operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|IndexFieldDataCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|IndexOrdinalsFieldData
+name|Nested
 import|;
 end_import
 
@@ -422,6 +398,9 @@ name|missingValue
 parameter_list|,
 name|MultiValueMode
 name|sortMode
+parameter_list|,
+name|Nested
+name|nested
 parameter_list|)
 block|{
 return|return
@@ -433,6 +412,8 @@ argument_list|,
 name|missingValue
 argument_list|,
 name|sortMode
+argument_list|,
+name|nested
 argument_list|)
 return|;
 block|}

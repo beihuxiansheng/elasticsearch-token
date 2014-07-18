@@ -158,6 +158,35 @@ operator|:
 literal|"Remove emptySortedNumeric in 4.10 and use the method with the same name from Lucene's DocValues class. See LUCENE-5834."
 assert|;
 block|}
+comment|/**      * Return a {@link SortedBinaryDocValues} that doesn't contain any value.      */
+DECL|method|emptySortedBinary
+specifier|public
+specifier|static
+name|SortedBinaryDocValues
+name|emptySortedBinary
+parameter_list|(
+name|int
+name|maxDoc
+parameter_list|)
+block|{
+return|return
+name|singleton
+argument_list|(
+name|DocValues
+operator|.
+name|emptyBinary
+argument_list|()
+argument_list|,
+operator|new
+name|Bits
+operator|.
+name|MatchNoBits
+argument_list|(
+name|maxDoc
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Return a {@link SortedNumericDocValues} that doesn't contain any value.      */
 DECL|method|emptySortedNumeric
 specifier|public

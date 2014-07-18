@@ -144,6 +144,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+operator|.
+name|UsesLuceneFieldCacheOnPurpose
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -176,18 +190,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
@@ -199,6 +201,8 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|UsesLuceneFieldCacheOnPurpose
 DECL|class|SimpleLuceneTests
 specifier|public
 class|class

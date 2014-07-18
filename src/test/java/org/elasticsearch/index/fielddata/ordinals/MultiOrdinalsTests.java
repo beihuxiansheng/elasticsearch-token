@@ -614,9 +614,6 @@ operator|.
 name|select
 argument_list|(
 name|docs
-argument_list|,
-operator|-
-literal|1
 argument_list|)
 decl_stmt|;
 name|int

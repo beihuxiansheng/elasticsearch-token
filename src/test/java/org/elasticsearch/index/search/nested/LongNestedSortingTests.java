@@ -98,9 +98,11 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|fieldcomparator
+name|IndexFieldData
 operator|.
-name|LongValuesComparatorSource
+name|XFieldComparatorSource
+operator|.
+name|Nested
 import|;
 end_import
 
@@ -110,9 +112,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|MultiValueMode
+name|fielddata
+operator|.
+name|fieldcomparator
+operator|.
+name|LongValuesComparatorSource
 import|;
 end_import
 
@@ -129,6 +135,18 @@ operator|.
 name|plain
 operator|.
 name|PackedArrayIndexFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
 import|;
 end_import
 
@@ -162,12 +180,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createInnerFieldComparator
+DECL|method|createFieldComparator
 specifier|protected
 name|IndexFieldData
 operator|.
 name|XFieldComparatorSource
-name|createInnerFieldComparator
+name|createFieldComparator
 parameter_list|(
 name|String
 name|fieldName
@@ -177,6 +195,9 @@ name|sortMode
 parameter_list|,
 name|Object
 name|missingValue
+parameter_list|,
+name|Nested
+name|nested
 parameter_list|)
 block|{
 name|PackedArrayIndexFieldData
@@ -196,6 +217,8 @@ argument_list|,
 name|missingValue
 argument_list|,
 name|sortMode
+argument_list|,
+name|nested
 argument_list|)
 return|;
 block|}

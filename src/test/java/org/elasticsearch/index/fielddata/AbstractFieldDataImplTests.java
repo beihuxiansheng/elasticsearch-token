@@ -94,9 +94,9 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|fieldcomparator
+name|IndexFieldData
 operator|.
-name|BytesRefFieldComparatorSource
+name|XFieldComparatorSource
 import|;
 end_import
 
@@ -576,6 +576,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -760,6 +762,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -1220,6 +1224,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1331,6 +1337,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -1716,6 +1724,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2088,7 +2098,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-name|BytesRefFieldComparatorSource
+name|XFieldComparatorSource
 operator|.
 name|MAX_TERM
 argument_list|)
@@ -2135,7 +2145,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-name|BytesRefFieldComparatorSource
+name|XFieldComparatorSource
 operator|.
 name|MAX_TERM
 argument_list|)
@@ -2170,6 +2180,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true

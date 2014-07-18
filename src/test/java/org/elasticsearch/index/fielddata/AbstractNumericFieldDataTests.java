@@ -595,6 +595,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -692,6 +694,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -1065,6 +1069,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1163,6 +1169,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -1263,6 +1271,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1360,6 +1370,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -1459,6 +1471,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1556,6 +1570,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -2585,6 +2601,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2983,6 +3001,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -3398,6 +3418,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|SUM
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3811,6 +3833,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|SUM
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -4226,6 +4250,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|AVG
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4639,6 +4665,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|AVG
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -5039,6 +5067,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5235,6 +5265,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
@@ -5433,6 +5465,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MIN
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5629,6 +5663,8 @@ argument_list|,
 name|MultiValueMode
 operator|.
 name|MAX
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 literal|true
