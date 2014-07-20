@@ -741,7 +741,10 @@ operator|.
 name|trackScores
 argument_list|()
 argument_list|,
-literal|true
+name|topHitsContext
+operator|.
+name|trackScores
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
