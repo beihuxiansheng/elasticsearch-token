@@ -40,6 +40,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -96,6 +108,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -132,6 +158,8 @@ name|AcknowledgedRequest
 argument_list|<
 name|CloseIndexRequest
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|indices
 specifier|private
@@ -193,15 +221,12 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|indices
-operator|==
-literal|null
-operator|||
-name|indices
+name|CollectionUtils
 operator|.
-name|length
-operator|==
-literal|0
+name|isEmpty
+argument_list|(
+name|indices
+argument_list|)
 condition|)
 block|{
 name|validationException
@@ -219,7 +244,10 @@ name|validationException
 return|;
 block|}
 comment|/**      * The indices to be closed      * @return the indices to be closed      */
+annotation|@
+name|Override
 DECL|method|indices
+specifier|public
 name|String
 index|[]
 name|indices
@@ -251,6 +279,8 @@ name|this
 return|;
 block|}
 comment|/**      * Specifies what type of requested indices to ignore and how to deal with wildcard expressions.      * For example indices that don't exist.      *      * @return the desired behaviour regarding indices to ignore and wildcard indices expressions      */
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

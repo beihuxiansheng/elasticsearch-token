@@ -449,6 +449,15 @@ argument_list|<
 name|IndexMetaData
 argument_list|>
 block|{
+DECL|field|ALL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ALL
+init|=
+literal|"_all"
+decl_stmt|;
 DECL|interface|Custom
 specifier|public
 interface|interface
@@ -4426,6 +4435,7 @@ index|]
 argument_list|)
 return|;
 block|}
+comment|/**      *      * Utility method that allows to resolve an index or alias to its corresponding single concrete index.      * Callers should make sure they provide proper {@link org.elasticsearch.action.support.IndicesOptions}      * that require a single index as a result. The indices resolution must in fact return a single index when      * using this method, an {@link org.elasticsearch.ElasticsearchIllegalArgumentException} gets thrown otherwise.      *      * @param indexOrAlias the index or alias to be resolved to concrete index      * @param indicesOptions the indices options to be used for the index resolution      * @return the concrete index obtained as a result of the index resolution      * @throws IndexMissingException if the index or alias provided doesn't exist      * @throws ElasticsearchIllegalArgumentException if the index resolution lead to more than one index      */
 DECL|method|concreteSingleIndex
 specifier|public
 name|String
@@ -4433,6 +4443,9 @@ name|concreteSingleIndex
 parameter_list|(
 name|String
 name|indexOrAlias
+parameter_list|,
+name|IndicesOptions
+name|indicesOptions
 parameter_list|)
 throws|throws
 name|IndexMissingException
@@ -4445,23 +4458,28 @@ name|indices
 init|=
 name|concreteIndices
 argument_list|(
-name|IndicesOptions
-operator|.
-name|strictSingleIndexNoExpandForbidClosed
-argument_list|()
+name|indicesOptions
 argument_list|,
 name|indexOrAlias
 argument_list|)
 decl_stmt|;
-assert|assert
+if|if
+condition|(
 name|indices
 operator|.
 name|length
-operator|==
+operator|!=
 literal|1
-operator|:
-literal|"expected an exception to be thrown otherwise"
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"unable to return a single index as the index and options provided got resolved to multiple indices"
+argument_list|)
+throw|;
+block|}
 return|return
 name|indices
 index|[
@@ -5815,6 +5833,7 @@ block|}
 comment|/**      * Identifies whether the array containing index names given as argument refers to all indices      * The empty or null array identifies all indices      *      * @param aliasesOrIndices the array containing index names      * @return true if the provided array maps to all indices, false otherwise      */
 DECL|method|isAllIndices
 specifier|public
+specifier|static
 name|boolean
 name|isAllIndices
 parameter_list|(
@@ -5871,6 +5890,7 @@ block|}
 comment|/**      * Identifies whether the array containing index names given as argument explicitly refers to all indices      * The empty or null array doesn't explicitly map to all indices      *      * @param aliasesOrIndices the array containing index names      * @return true if the provided array explicitly maps to all indices, false otherwise      */
 DECL|method|isExplicitAllPattern
 specifier|public
+specifier|static
 name|boolean
 name|isExplicitAllPattern
 parameter_list|(
@@ -5890,7 +5910,7 @@ name|length
 operator|==
 literal|1
 operator|&&
-literal|"_all"
+name|ALL
 operator|.
 name|equals
 argument_list|(

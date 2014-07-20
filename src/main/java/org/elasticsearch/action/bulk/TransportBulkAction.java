@@ -1608,6 +1608,11 @@ name|indexRequest
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|indexRequest
+operator|.
+name|indicesOptions
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1790,6 +1795,11 @@ name|deleteRequest
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|deleteRequest
+operator|.
+name|indicesOptions
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1847,6 +1857,11 @@ argument_list|(
 name|updateRequest
 operator|.
 name|index
+argument_list|()
+argument_list|,
+name|updateRequest
+operator|.
+name|indicesOptions
 argument_list|()
 argument_list|)
 argument_list|)

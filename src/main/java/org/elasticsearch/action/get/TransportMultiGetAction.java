@@ -621,6 +621,11 @@ name|item
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|item
+operator|.
+name|indicesOptions
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

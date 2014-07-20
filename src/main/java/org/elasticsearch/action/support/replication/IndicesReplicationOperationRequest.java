@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|WriteConsistencyLevel
 import|;
 end_import
@@ -143,6 +155,8 @@ name|ActionRequest
 argument_list|<
 name|T
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|timeout
 specifier|protected
@@ -269,6 +283,8 @@ operator|)
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|String
@@ -282,6 +298,8 @@ operator|.
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

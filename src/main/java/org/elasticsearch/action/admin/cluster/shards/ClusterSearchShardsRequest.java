@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -152,6 +164,8 @@ name|MasterNodeReadOperationRequest
 argument_list|<
 name|ClusterSearchShardsRequest
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|indices
 specifier|private
@@ -305,6 +319,8 @@ name|this
 return|;
 block|}
 comment|/**      * The indices      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|String
@@ -316,6 +332,8 @@ return|return
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

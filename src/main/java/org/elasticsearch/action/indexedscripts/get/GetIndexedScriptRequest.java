@@ -378,6 +378,26 @@ return|return
 name|validationException
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|indices
+specifier|public
+name|String
+index|[]
+name|indices
+parameter_list|()
+block|{
+return|return
+operator|new
+name|String
+index|[]
+block|{
+name|ScriptService
+operator|.
+name|SCRIPT_INDEX
+block|}
+return|;
+block|}
 comment|/**      * Sets the type of the document to fetch.      */
 DECL|method|scriptLang
 specifier|public

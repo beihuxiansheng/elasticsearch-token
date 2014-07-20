@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -172,6 +184,8 @@ name|AcknowledgedRequest
 argument_list|<
 name|DeleteWarmerRequest
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|names
 specifier|private
@@ -215,7 +229,7 @@ DECL|method|DeleteWarmerRequest
 name|DeleteWarmerRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new delete warmer request for the specified name.      *      * @param name: the name (or wildcard expression) of the warmer to match, null to delete all.      */
+comment|/**      * Constructs a new delete warmer request for the specified name.      *      * @param names: the name (or wildcard expression) of the warmer to match, null to delete all.      */
 DECL|method|DeleteWarmerRequest
 specifier|public
 name|DeleteWarmerRequest
@@ -432,6 +446,8 @@ name|this
 return|;
 block|}
 comment|/**      * The indices the mappings will be put.      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|String
@@ -443,6 +459,8 @@ return|return
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

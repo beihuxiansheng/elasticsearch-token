@@ -54,6 +54,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -158,6 +170,8 @@ name|ActionRequest
 argument_list|<
 name|GetFieldMappingsRequest
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|local
 specifier|protected
@@ -364,6 +378,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|String
@@ -386,6 +402,8 @@ return|return
 name|types
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

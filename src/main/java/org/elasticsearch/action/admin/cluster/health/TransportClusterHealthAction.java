@@ -1380,9 +1380,9 @@ argument_list|()
 operator|.
 name|concreteIndices
 argument_list|(
-name|IndicesOptions
+name|request
 operator|.
-name|lenientExpandOpen
+name|indicesOptions
 argument_list|()
 argument_list|,
 name|request

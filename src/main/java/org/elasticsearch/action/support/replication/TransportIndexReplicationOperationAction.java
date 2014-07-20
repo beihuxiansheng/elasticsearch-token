@@ -476,6 +476,11 @@ name|request
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|indicesOptions
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
