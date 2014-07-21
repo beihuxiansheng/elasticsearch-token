@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchTimeoutException
@@ -426,6 +440,15 @@ block|}
 comment|/**      * Checks correct behavior in case of an update request that does not include a retry_on_conflict parameter.      */
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"ignore for now, is being worked on"
+argument_list|)
 DECL|method|shouldReceiveUpdateResponseWhenNotRetryingOnConflict
 specifier|public
 name|void
@@ -463,6 +486,15 @@ block|}
 comment|/**      * Checks correct behavior in case of an update request that includes a retry_on_conflict parameter set to 1. This      * test demonstrates the bug described in issue #6355 and validates the fix. The scenario is based on real client      * requests that happen with a particular timing.      */
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"ignore for now, is being worked on"
+argument_list|)
 DECL|method|shouldReceiveUpdateResponseWhenRetryingOnConflict
 specifier|public
 name|void
@@ -539,6 +571,15 @@ block|}
 comment|/**      * Checks correct behavior in case of an upsert request that includes a retry_on_conflict parameter set to 1. This      * was not originally covered by issue #6355, but the discussion for pull request #6724 revealed that the same bug      * may appear here as well. The scenario is based on a fake exception thrown when getting a document from the      * {@link Engine}, because unlike for the "update" case it turns out to be quite difficult to set up real client      * requests to trigger an exception in {@link UpdateHelper#prepare(UpdateRequest)} for the "upsert" case.      */
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"ignore for now, is being worked on"
+argument_list|)
 DECL|method|shouldReceiveUpsertResponseWhenRetryingOnConflict
 specifier|public
 name|void
