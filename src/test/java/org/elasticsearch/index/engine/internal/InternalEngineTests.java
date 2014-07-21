@@ -1035,7 +1035,7 @@ name|put
 argument_list|(
 name|InternalEngine
 operator|.
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -5947,7 +5947,7 @@ name|getAsBoolean
 argument_list|(
 name|InternalEngine
 operator|.
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 literal|false
 argument_list|)

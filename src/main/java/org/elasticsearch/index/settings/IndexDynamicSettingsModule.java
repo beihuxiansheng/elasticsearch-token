@@ -759,6 +759,15 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|InternalEngine
+operator|.
+name|INDEX_FAIL_ON_CORRUPTION
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|ShardSlowLogIndexingService
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_WARN

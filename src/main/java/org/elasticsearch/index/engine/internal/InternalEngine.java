@@ -1705,7 +1705,7 @@ name|indexSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 literal|true
 argument_list|)
@@ -6777,7 +6777,7 @@ name|t
 argument_list|,
 name|source
 argument_list|,
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 name|this
 operator|.
@@ -7704,7 +7704,7 @@ literal|"corrupt file detected source: [merge] but [{}] is set to [{}]"
 argument_list|,
 name|e
 argument_list|,
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 name|failEngineOnCorruption
 argument_list|)
@@ -8500,12 +8500,12 @@ name|INDEX_FAIL_ON_MERGE_FAILURE
 init|=
 literal|"index.fail_on_merge_failure"
 decl_stmt|;
-DECL|field|ENGINE_FAIL_ON_CORRUPTION
+DECL|field|INDEX_FAIL_ON_CORRUPTION
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 init|=
 literal|"index.fail_on_corruption"
 decl_stmt|;
@@ -8669,11 +8669,11 @@ name|this
 operator|.
 name|failEngineOnCorruption
 operator|=
-name|indexSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-name|ENGINE_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 name|InternalEngine
 operator|.
