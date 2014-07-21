@@ -1201,6 +1201,8 @@ name|MembershipAction
 argument_list|(
 name|settings
 argument_list|,
+name|clusterService
+argument_list|,
 name|transportService
 argument_list|,
 name|this
@@ -4359,14 +4361,6 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-name|ClusterState
-name|state
-init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
-decl_stmt|;
 comment|// validate the join request, will throw a failure if it fails, which will get back to the
 comment|// node calling the join request
 name|membership
@@ -4374,8 +4368,6 @@ operator|.
 name|sendValidateJoinRequestBlocking
 argument_list|(
 name|node
-argument_list|,
-name|state
 argument_list|,
 name|joinTimeout
 argument_list|)
@@ -4593,9 +4585,7 @@ block|{
 name|callback
 operator|.
 name|onSuccess
-argument_list|(
-name|newState
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
