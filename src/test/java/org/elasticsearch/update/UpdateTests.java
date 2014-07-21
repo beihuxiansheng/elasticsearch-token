@@ -5359,7 +5359,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|5
 argument_list|,
-literal|20
+literal|10
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -5381,7 +5381,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|100
 argument_list|,
-literal|1000
+literal|200
 argument_list|)
 decl_stmt|;
 specifier|final
