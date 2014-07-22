@@ -394,7 +394,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"id"
+literal|"script_id"
 operator|.
 name|equals
 argument_list|(
