@@ -5357,9 +5357,9 @@ name|numberOfThreads
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|5
+literal|3
 argument_list|,
-literal|10
+literal|5
 argument_list|)
 decl_stmt|;
 specifier|final
