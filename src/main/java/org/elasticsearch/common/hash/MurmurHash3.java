@@ -26,7 +26,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|UnsafeUtils
+name|ByteUtils
 import|;
 end_import
 
@@ -103,7 +103,7 @@ operator|+
 name|i_8
 decl_stmt|;
 return|return
-name|UnsafeUtils
+name|ByteUtils
 operator|.
 name|readLongLE
 argument_list|(
@@ -230,7 +230,7 @@ block|{
 name|long
 name|k1
 init|=
-name|UnsafeUtils
+name|ByteUtils
 operator|.
 name|readLongLE
 argument_list|(
@@ -242,7 +242,7 @@ decl_stmt|;
 name|long
 name|k2
 init|=
-name|UnsafeUtils
+name|ByteUtils
 operator|.
 name|readLongLE
 argument_list|(
