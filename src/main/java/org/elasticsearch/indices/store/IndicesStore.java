@@ -1992,7 +1992,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}][{}] deleting shard that is no longer used"
+literal|"{} deleting shard that is no longer used"
 argument_list|,
 name|shardId
 argument_list|)
