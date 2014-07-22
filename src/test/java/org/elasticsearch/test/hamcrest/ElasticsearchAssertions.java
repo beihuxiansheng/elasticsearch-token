@@ -4052,7 +4052,7 @@ name|version
 operator|+
 literal|"] for streamable ["
 operator|+
-name|streamable
+name|newInstance
 operator|+
 literal|"]"
 argument_list|,
@@ -4083,7 +4083,7 @@ name|serialize
 argument_list|(
 name|version
 argument_list|,
-name|streamable
+name|newInstance
 argument_list|)
 argument_list|,
 name|equalTo

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -41,20 +27,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
 import|;
 end_import
 
@@ -471,14 +443,7 @@ extends|extends
 name|ElasticsearchIntegrationTest
 block|{
 annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"simon is working on this"
-argument_list|)
+name|Test
 DECL|method|testIssue6614
 specifier|public
 name|void
@@ -510,7 +475,7 @@ specifier|final
 name|int
 name|numIndices
 init|=
-name|randomIntBetween
+name|scaledRandomIntBetween
 argument_list|(
 literal|2
 argument_list|,
@@ -564,7 +529,7 @@ specifier|final
 name|int
 name|numDocs
 init|=
-name|randomIntBetween
+name|scaledRandomIntBetween
 argument_list|(
 literal|1
 argument_list|,
@@ -664,7 +629,7 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|SearchResponse
