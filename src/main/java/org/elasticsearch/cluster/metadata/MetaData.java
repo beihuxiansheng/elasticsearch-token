@@ -4447,7 +4447,7 @@ name|concreteIndices
 argument_list|(
 name|IndicesOptions
 operator|.
-name|strictSingleIndexNoExpand
+name|strictSingleIndexNoExpandForbidClosed
 argument_list|()
 argument_list|,
 name|indexOrAlias
