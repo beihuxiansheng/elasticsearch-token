@@ -380,10 +380,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|toXContent
+DECL|method|doXContentBody
 specifier|public
 name|XContentBuilder
-name|toXContent
+name|doXContentBody
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -397,11 +397,6 @@ block|{
 return|return
 name|builder
 operator|.
-name|startObject
-argument_list|(
-name|name
-argument_list|)
-operator|.
 name|field
 argument_list|(
 name|CommonFields
@@ -410,9 +405,6 @@ name|VALUE
 argument_list|,
 name|value
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 return|;
 block|}
 annotation|@
