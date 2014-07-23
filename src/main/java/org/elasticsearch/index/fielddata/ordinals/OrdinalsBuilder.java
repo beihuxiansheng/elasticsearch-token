@@ -189,6 +189,16 @@ name|OrdinalsBuilder
 implements|implements
 name|Closeable
 block|{
+comment|/**      * Whether to for the use of {@link MultiOrdinals} to store the ordinals for testing purposes.      */
+DECL|field|FORCE_MULTI_ORDINALS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FORCE_MULTI_ORDINALS
+init|=
+literal|"force_multi_ordinals"
+decl_stmt|;
 comment|/**      * Default acceptable overhead ratio. {@link OrdinalsBuilder} memory usage is mostly transient so it is likely a better trade-off to      * trade memory for speed in order to resize less often.      */
 DECL|field|DEFAULT_ACCEPTABLE_OVERHEAD_RATIO
 specifier|public
@@ -1683,8 +1693,23 @@ operator|.
 name|FASTEST
 argument_list|)
 decl_stmt|;
+specifier|final
+name|boolean
+name|forceMultiOrdinals
+init|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|FORCE_MULTI_ORDINALS
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+name|forceMultiOrdinals
+operator|||
 name|numMultiValuedDocs
 operator|>
 literal|0
