@@ -818,6 +818,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|codec
+operator|.
+name|CodecService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|fielddata
 operator|.
 name|FieldDataType
@@ -849,6 +863,8 @@ operator|.
 name|mapper
 operator|.
 name|FieldMapper
+operator|.
+name|Loading
 import|;
 end_import
 
@@ -863,8 +879,6 @@ operator|.
 name|mapper
 operator|.
 name|FieldMapper
-operator|.
-name|Loading
 import|;
 end_import
 
@@ -2821,6 +2835,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Randomly load or don't load bloom filters:
+name|builder
+operator|.
+name|put
+argument_list|(
+name|CodecService
+operator|.
+name|INDEX_CODEC_BLOOM_LOAD
+argument_list|,
+name|random
+operator|.
+name|nextBoolean
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|builder
 return|;
