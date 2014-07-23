@@ -3848,10 +3848,25 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|indexTime
+DECL|field|indexStartTime
 specifier|public
 name|long
-name|indexTime
+name|indexStartTime
+decl_stmt|;
+DECL|field|indexFinishTime
+specifier|public
+name|long
+name|indexFinishTime
+decl_stmt|;
+DECL|field|versionConflict
+specifier|public
+name|boolean
+name|versionConflict
+decl_stmt|;
+DECL|field|alreadyExists
+specifier|public
+name|boolean
+name|alreadyExists
 decl_stmt|;
 annotation|@
 name|Override
@@ -3878,9 +3893,21 @@ literal|" threadID="
 operator|+
 name|threadID
 operator|+
-literal|" indexTime="
+literal|" indexStartTime="
 operator|+
-name|indexTime
+name|indexStartTime
+operator|+
+literal|" indexFinishTime="
+operator|+
+name|indexFinishTime
+operator|+
+literal|" versionConflict="
+operator|+
+name|versionConflict
+operator|+
+literal|" alreadyExists="
+operator|+
+name|alreadyExists
 return|;
 block|}
 block|}
@@ -4623,7 +4650,7 @@ name|threadID
 expr_stmt|;
 name|idVersion
 operator|.
-name|indexTime
+name|indexStartTime
 operator|=
 name|System
 operator|.
@@ -4702,6 +4729,12 @@ operator|.
 name|version
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|idVersion
+operator|.
+name|versionConflict
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -4805,7 +4838,7 @@ block|}
 catch|catch
 parameter_list|(
 name|DocumentAlreadyExistsException
-name|vcee
+name|daee
 parameter_list|)
 block|{
 if|if
@@ -4815,13 +4848,19 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// OK: id was already index by another thread, now use index:
+comment|// OK: id was already indexed by another thread, now use index:
+name|idVersion
+operator|.
+name|alreadyExists
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
 comment|// Should not happen with op=INDEX:
 throw|throw
-name|vcee
+name|daee
 throw|;
 block|}
 block|}
@@ -4849,9 +4888,26 @@ name|version
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|idVersion
+operator|.
+name|versionConflict
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 block|}
+name|idVersion
+operator|.
+name|indexFinishTime
+operator|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|startTime
+expr_stmt|;
 if|if
 condition|(
 name|threadRandom
