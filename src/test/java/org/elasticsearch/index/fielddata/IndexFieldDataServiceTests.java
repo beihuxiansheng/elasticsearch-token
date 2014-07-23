@@ -575,7 +575,7 @@ name|assertTrue
 argument_list|(
 name|fd
 operator|instanceof
-name|BinaryDVNumericIndexFieldData
+name|SortedNumericDVIndexFieldData
 argument_list|)
 expr_stmt|;
 block|}
@@ -641,7 +641,7 @@ name|assertTrue
 argument_list|(
 name|fd
 operator|instanceof
-name|BinaryDVNumericIndexFieldData
+name|SortedNumericDVIndexFieldData
 argument_list|)
 expr_stmt|;
 block|}
@@ -706,7 +706,7 @@ name|assertTrue
 argument_list|(
 name|fd
 operator|instanceof
-name|BinaryDVNumericIndexFieldData
+name|SortedNumericDVIndexFieldData
 argument_list|)
 expr_stmt|;
 block|}

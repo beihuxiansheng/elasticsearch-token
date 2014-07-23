@@ -1973,7 +1973,7 @@ name|assertEquals
 argument_list|(
 name|DocValuesType
 operator|.
-name|BINARY
+name|SORTED_NUMERIC
 argument_list|,
 name|SimpleStringMappingTests
 operator|.
@@ -1989,7 +1989,7 @@ name|assertEquals
 argument_list|(
 name|DocValuesType
 operator|.
-name|BINARY
+name|SORTED_NUMERIC
 argument_list|,
 name|SimpleStringMappingTests
 operator|.
@@ -2246,7 +2246,7 @@ name|assertEquals
 argument_list|(
 name|DocValuesType
 operator|.
-name|BINARY
+name|SORTED_NUMERIC
 argument_list|,
 name|SimpleStringMappingTests
 operator|.
@@ -2262,7 +2262,7 @@ name|assertEquals
 argument_list|(
 name|DocValuesType
 operator|.
-name|BINARY
+name|SORTED_NUMERIC
 argument_list|,
 name|SimpleStringMappingTests
 operator|.
