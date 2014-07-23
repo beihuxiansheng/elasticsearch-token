@@ -2318,7 +2318,7 @@ operator|.
 name|sawUpdateSetting
 argument_list|)
 expr_stmt|;
-comment|// Now make a live change to reduce allowed merge threads:
+comment|// Now make a live change to reduce allowed merge threads, and waaay over-throttle merging so they fall behind:
 name|client
 argument_list|()
 operator|.
@@ -2347,6 +2347,15 @@ operator|.
 name|MAX_THREAD_COUNT
 argument_list|,
 literal|"1"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|AbstractIndexStore
+operator|.
+name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC
+argument_list|,
+literal|"10kb"
 argument_list|)
 argument_list|)
 operator|.
