@@ -244,6 +244,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ElasticsearchSingleNodeTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|InternalTestCluster
 import|;
 end_import
@@ -393,22 +405,6 @@ operator|.
 name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertAllSuccessful
 import|;
 end_import
 
@@ -927,6 +923,7 @@ name|threadNames
 control|)
 block|{
 comment|// ignore some shared threads we know that are created within the same VM, like the shared discovery one
+comment|// or the ones that are occasionally come up from ElasticsearchSingleNodeTest
 if|if
 condition|(
 name|threadName
@@ -938,6 +935,20 @@ operator|+
 name|MulticastChannel
 operator|.
 name|SHARED_CHANNEL_NAME
+operator|+
+literal|"]"
+argument_list|)
+operator|||
+name|threadName
+operator|.
+name|contains
+argument_list|(
+literal|"["
+operator|+
+name|ElasticsearchSingleNodeTest
+operator|.
+name|nodeName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)
