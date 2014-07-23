@@ -96,7 +96,7 @@ name|common
 operator|.
 name|rounding
 operator|.
-name|TimeZoneRounding
+name|Rounding
 import|;
 end_import
 
@@ -181,7 +181,7 @@ block|{
 DECL|field|tzRounding
 specifier|private
 specifier|final
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 decl_stmt|;
 DECL|field|indexFieldData
@@ -214,7 +214,7 @@ parameter_list|(
 name|IndexNumericFieldData
 name|indexFieldData
 parameter_list|,
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 parameter_list|,
 name|DateHistogramFacet
@@ -524,7 +524,7 @@ decl_stmt|;
 DECL|field|tzRounding
 specifier|private
 specifier|final
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 decl_stmt|;
 DECL|method|DateHistogramProc
@@ -534,7 +534,7 @@ parameter_list|(
 name|LongLongOpenHashMap
 name|counts
 parameter_list|,
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 parameter_list|)
 block|{

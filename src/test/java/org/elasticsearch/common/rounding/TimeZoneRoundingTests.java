@@ -110,7 +110,7 @@ name|void
 name|testUTCMonthRounding
 parameter_list|()
 block|{
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 init|=
 name|TimeZoneRounding
@@ -302,7 +302,7 @@ name|void
 name|testDayTimeZoneRounding
 parameter_list|()
 block|{
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 init|=
 name|TimeZoneRounding
@@ -651,7 +651,7 @@ name|void
 name|testTimeTimeZoneRounding
 parameter_list|()
 block|{
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 init|=
 name|TimeZoneRounding

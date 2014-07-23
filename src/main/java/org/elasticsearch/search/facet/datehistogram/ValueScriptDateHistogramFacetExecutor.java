@@ -110,7 +110,7 @@ name|common
 operator|.
 name|rounding
 operator|.
-name|TimeZoneRounding
+name|Rounding
 import|;
 end_import
 
@@ -235,7 +235,7 @@ name|valueScript
 decl_stmt|;
 DECL|field|tzRounding
 specifier|final
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 decl_stmt|;
 DECL|field|entries
@@ -263,7 +263,7 @@ parameter_list|,
 name|SearchScript
 name|valueScript
 parameter_list|,
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 parameter_list|,
 name|DateHistogramFacet
@@ -585,7 +585,7 @@ block|{
 DECL|field|tzRounding
 specifier|private
 specifier|final
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 decl_stmt|;
 DECL|field|valueScript
@@ -608,7 +608,7 @@ DECL|method|DateHistogramProc
 specifier|public
 name|DateHistogramProc
 parameter_list|(
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 parameter_list|,
 name|SearchScript
