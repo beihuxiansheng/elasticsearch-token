@@ -486,10 +486,9 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
-name|termVectorRequest
-operator|.
-name|index
-argument_list|(
+name|String
+name|concreteSingleIndex
+init|=
 name|clusterState
 operator|.
 name|metaData
@@ -507,8 +506,7 @@ operator|.
 name|indicesOptions
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|termVectorRequest
@@ -525,10 +523,7 @@ argument_list|()
 operator|.
 name|routingRequired
 argument_list|(
-name|termVectorRequest
-operator|.
-name|index
-argument_list|()
+name|concreteSingleIndex
 argument_list|,
 name|termVectorRequest
 operator|.
@@ -553,10 +548,7 @@ name|MultiTermVectorsResponse
 operator|.
 name|Failure
 argument_list|(
-name|termVectorRequest
-operator|.
-name|index
-argument_list|()
+name|concreteSingleIndex
 argument_list|,
 name|termVectorRequest
 operator|.
@@ -570,10 +562,7 @@ argument_list|()
 argument_list|,
 literal|"routing is required for ["
 operator|+
-name|termVectorRequest
-operator|.
-name|index
-argument_list|()
+name|concreteSingleIndex
 operator|+
 literal|"]/["
 operator|+
@@ -608,10 +597,7 @@ name|getShards
 argument_list|(
 name|clusterState
 argument_list|,
-name|termVectorRequest
-operator|.
-name|index
-argument_list|()
+name|concreteSingleIndex
 argument_list|,
 name|termVectorRequest
 operator|.

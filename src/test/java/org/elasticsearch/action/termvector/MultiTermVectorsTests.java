@@ -97,6 +97,8 @@ name|createIndexBasedOnFieldSettings
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"alias"
+argument_list|,
 name|testFieldSettings
 argument_list|)
 expr_stmt|;

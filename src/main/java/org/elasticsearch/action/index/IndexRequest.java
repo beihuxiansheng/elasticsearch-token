@@ -2082,9 +2082,6 @@ parameter_list|(
 name|MetaData
 name|metaData
 parameter_list|,
-name|String
-name|aliasOrIndex
-parameter_list|,
 annotation|@
 name|Nullable
 name|MappingMetaData
@@ -2092,6 +2089,9 @@ name|mappingMd
 parameter_list|,
 name|boolean
 name|allowIdGeneration
+parameter_list|,
+name|String
+name|concreteIndex
 parameter_list|)
 throws|throws
 name|ElasticsearchException
@@ -2105,7 +2105,7 @@ name|resolveIndexRouting
 argument_list|(
 name|routing
 argument_list|,
-name|aliasOrIndex
+name|index
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2380,7 +2380,7 @@ throw|throw
 operator|new
 name|RoutingMissingException
 argument_list|(
-name|index
+name|concreteIndex
 argument_list|,
 name|type
 argument_list|,

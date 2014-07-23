@@ -415,6 +415,9 @@ name|getTermVector
 parameter_list|(
 name|TermVectorRequest
 name|request
+parameter_list|,
+name|String
+name|concreteIndex
 parameter_list|)
 block|{
 specifier|final
@@ -445,10 +448,7 @@ init|=
 operator|new
 name|TermVectorResponse
 argument_list|(
-name|request
-operator|.
-name|index
-argument_list|()
+name|concreteIndex
 argument_list|,
 name|request
 operator|.
