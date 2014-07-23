@@ -664,6 +664,14 @@ operator|.
 name|Flush
 argument_list|()
 operator|.
+name|waitIfOngoing
+argument_list|(
+name|request
+operator|.
+name|waitIfOngoing
+argument_list|()
+argument_list|)
+operator|.
 name|type
 argument_list|(
 name|request
