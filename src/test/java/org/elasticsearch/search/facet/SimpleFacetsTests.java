@@ -28208,6 +28208,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
