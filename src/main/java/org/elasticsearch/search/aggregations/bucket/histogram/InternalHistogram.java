@@ -2011,7 +2011,7 @@ decl_stmt|;
 while|while
 condition|(
 name|key
-operator|!=
+operator|<
 name|nextBucket
 operator|.
 name|key
@@ -2047,6 +2047,13 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+assert|assert
+name|key
+operator|==
+name|nextBucket
+operator|.
+name|key
+assert|;
 block|}
 name|lastBucket
 operator|=
