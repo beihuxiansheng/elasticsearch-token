@@ -171,16 +171,16 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|rest
+name|concurrent
 operator|.
-name|RestStatus
+name|atomic
 operator|.
-name|BAD_REQUEST
+name|AtomicInteger
 import|;
 end_import
 
@@ -194,21 +194,7 @@ name|rest
 operator|.
 name|RestStatus
 operator|.
-name|OK
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestStatus
-operator|.
-name|FORBIDDEN
+name|*
 import|;
 end_import
 
@@ -1215,9 +1201,13 @@ name|executionFilter
 decl_stmt|;
 DECL|field|index
 specifier|private
-specifier|volatile
-name|int
+specifier|final
+name|AtomicInteger
 name|index
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|method|ControllerFilterChain
 name|ControllerFilterChain
@@ -1253,10 +1243,10 @@ name|int
 name|loc
 init|=
 name|index
+operator|.
+name|getAndIncrement
+argument_list|()
 decl_stmt|;
-name|index
-operator|++
-expr_stmt|;
 if|if
 condition|(
 name|loc

@@ -109,6 +109,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -672,11 +686,13 @@ name|ActionFilterChain
 block|{
 DECL|field|index
 specifier|private
-specifier|volatile
-name|int
+specifier|final
+name|AtomicInteger
 name|index
 init|=
-literal|0
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 annotation|@
 name|SuppressWarnings
@@ -704,7 +720,9 @@ name|int
 name|i
 init|=
 name|index
-operator|++
+operator|.
+name|getAndIncrement
+argument_list|()
 decl_stmt|;
 try|try
 block|{
