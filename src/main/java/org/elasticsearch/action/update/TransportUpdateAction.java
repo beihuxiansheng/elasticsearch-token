@@ -1236,10 +1236,7 @@ argument_list|()
 operator|.
 name|indexShards
 argument_list|(
-name|clusterService
-operator|.
-name|state
-argument_list|()
+name|clusterState
 argument_list|,
 name|request
 operator|.
