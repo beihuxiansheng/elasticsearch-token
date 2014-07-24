@@ -356,12 +356,12 @@ name|Integer
 operator|.
 name|compare
 argument_list|(
-name|o2
+name|o1
 operator|.
 name|order
 argument_list|()
 argument_list|,
-name|o1
+name|o2
 operator|.
 name|order
 argument_list|()
