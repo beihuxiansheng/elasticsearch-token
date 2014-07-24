@@ -238,10 +238,6 @@ name|PRIMARY_FIRST
 argument_list|,
 name|Preference
 operator|.
-name|PRIMARY
-argument_list|,
-name|Preference
-operator|.
 name|LOCAL
 argument_list|)
 argument_list|)
