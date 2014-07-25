@@ -184,6 +184,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|cache
+operator|.
+name|fixedbitset
+operator|.
+name|FixedBitSetFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|fielddata
 operator|.
 name|IndexParentChildFieldData
@@ -357,7 +373,7 @@ decl_stmt|;
 DECL|field|nonNestedDocsFilter
 specifier|private
 specifier|final
-name|Filter
+name|FixedBitSetFilter
 name|nonNestedDocsFilter
 decl_stmt|;
 comment|// This field will hold the rewritten form of originalChildQuery, so that we can reuse it
@@ -397,7 +413,7 @@ parameter_list|,
 name|int
 name|incrementalFactor
 parameter_list|,
-name|Filter
+name|FixedBitSetFilter
 name|nonNestedDocsFilter
 parameter_list|)
 block|{

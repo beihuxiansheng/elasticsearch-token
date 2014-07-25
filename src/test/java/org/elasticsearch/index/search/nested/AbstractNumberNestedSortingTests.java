@@ -2086,8 +2086,7 @@ name|sortMode
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|Nested
+name|createNested
 argument_list|(
 name|parentFilter
 argument_list|,
@@ -2756,8 +2755,7 @@ name|sortMode
 argument_list|,
 literal|null
 argument_list|,
-operator|new
-name|Nested
+name|createNested
 argument_list|(
 name|parentFilter
 argument_list|,
@@ -3409,8 +3407,7 @@ name|sortMode
 argument_list|,
 literal|127
 argument_list|,
-operator|new
-name|Nested
+name|createNested
 argument_list|(
 name|parentFilter
 argument_list|,
@@ -3744,8 +3741,7 @@ argument_list|,
 operator|-
 literal|127
 argument_list|,
-operator|new
-name|Nested
+name|createNested
 argument_list|(
 name|parentFilter
 argument_list|,
@@ -4128,8 +4124,7 @@ argument_list|,
 operator|-
 literal|127
 argument_list|,
-operator|new
-name|Nested
+name|createNested
 argument_list|(
 name|parentFilter
 argument_list|,

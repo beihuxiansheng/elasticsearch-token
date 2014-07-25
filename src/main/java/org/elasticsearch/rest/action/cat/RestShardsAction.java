@@ -1085,6 +1085,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"segments.fixed_bitset_memory"
+argument_list|,
+literal|"alias:sfbm,fixedBitsetMemory;default:false;text-align:right;desc:memory used by fixed bit sets for nested object field types and type filters for types referred in _parent fields"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"warmer.current"
 argument_list|,
 literal|"alias:wc,warmerCurrent;default:false;text-align:right;desc:current warmer ops"
@@ -2357,6 +2366,25 @@ name|getSegments
 argument_list|()
 operator|.
 name|getVersionMapMemory
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|shardStats
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|shardStats
+operator|.
+name|getSegments
+argument_list|()
+operator|.
+name|getFixedBitSetMemory
 argument_list|()
 argument_list|)
 expr_stmt|;

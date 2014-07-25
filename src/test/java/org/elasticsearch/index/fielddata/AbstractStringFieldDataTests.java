@@ -3241,8 +3241,7 @@ decl_stmt|;
 name|Nested
 name|nested
 init|=
-operator|new
-name|Nested
+name|createNested
 argument_list|(
 name|parentFilter
 argument_list|,

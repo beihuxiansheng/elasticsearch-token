@@ -84,22 +84,6 @@ name|search
 operator|.
 name|join
 operator|.
-name|FixedBitSetCachingWrapperFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|join
-operator|.
 name|ScoreMode
 import|;
 end_import
@@ -960,24 +944,12 @@ comment|//if (mapper.hasDocMapper()) {
 comment|//    // filter based on the type...
 comment|//    parentFilter = mapper.docMapper().typeFilter();
 comment|//}
+block|}
 name|parentFilter
 operator|=
 name|parseContext
 operator|.
-name|cacheFilter
-argument_list|(
-name|parentFilter
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-comment|// if the filter cache is disabled, then we still have a filter that is not cached while ToParentBlockJoinQuery
-comment|// expects FixedBitSet instances
-name|parentFilter
-operator|=
-operator|new
-name|FixedBitSetCachingWrapperFilter
+name|fixedBitSetFilter
 argument_list|(
 name|parentFilter
 argument_list|)
