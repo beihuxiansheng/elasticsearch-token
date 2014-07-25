@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<pre>  *      field1 : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      file1 : {  *          _content_type : "application/pdf",  *          _content_length : "500000000",  *          _name : "..../something.pdf",  *          content : ""  *      }  * }  *</pre>  *<p/>  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  * tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  */
+comment|/**  *<pre>  *      "field1" : "..."  *</pre>  *<p>Or:  *<pre>  * {  *      "file1" : {  *          "_content_type" : "application/pdf",  *          "_content_length" : "500000000",  *          "_name" : "..../something.pdf",  *          "_content" : ""  *      }  * }  *</pre>  *<p/>  * _content_length = Specify the maximum amount of characters to extract from the attachment. If not specified, then the default for  * tika is 100,000 characters. Caution is required when setting large values as this can cause memory issues.  */
 end_comment
 
 begin_class
@@ -2396,6 +2396,7 @@ condition|(
 operator|!
 name|ignoreErrors
 condition|)
+block|{
 throw|throw
 operator|new
 name|MapperParsingException
@@ -2413,6 +2414,26 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Failed to extract [{}] characters of text for [{}]: [{}]"
+argument_list|,
+name|indexedChars
+argument_list|,
+name|name
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return;
 block|}
 name|context
@@ -2501,9 +2522,9 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"Cannot detect language: {}"
+literal|"Cannot detect language: [{}]"
 argument_list|,
 name|t
 operator|.
@@ -2564,7 +2585,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing name: {}"
+literal|"Ignoring MapperParsingException catch while parsing name: [{}]"
 argument_list|,
 name|e
 operator|.
@@ -2639,7 +2660,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing date: {}: {}"
+literal|"Ignoring MapperParsingException catch while parsing date: [{}]: [{}]"
 argument_list|,
 name|e
 operator|.
@@ -2719,7 +2740,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing title: {}: {}"
+literal|"Ignoring MapperParsingException catch while parsing title: [{}]: [{}]"
 argument_list|,
 name|e
 operator|.
@@ -2799,7 +2820,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing author: {}: {}"
+literal|"Ignoring MapperParsingException catch while parsing author: [{}]: [{}]"
 argument_list|,
 name|e
 operator|.
@@ -2879,7 +2900,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing keywords: {}: {}"
+literal|"Ignoring MapperParsingException catch while parsing keywords: [{}]: [{}]"
 argument_list|,
 name|e
 operator|.
@@ -2964,7 +2985,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing content_type: {}: {}"
+literal|"Ignoring MapperParsingException catch while parsing content_type: [{}]: [{}]"
 argument_list|,
 name|e
 operator|.
@@ -3062,7 +3083,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Ignoring MapperParsingException catch while parsing content_length: {}: {}"
+literal|"Ignoring MapperParsingException catch while parsing content_length: [{}]: [{}]"
 argument_list|,
 name|e
 operator|.
