@@ -289,6 +289,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|mapperParser
@@ -807,6 +809,8 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
@@ -1349,6 +1353,8 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,
