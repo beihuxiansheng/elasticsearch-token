@@ -40,11 +40,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|settings
+name|search
 operator|.
-name|ImmutableSettings
+name|SearchResponse
 import|;
 end_import
 
@@ -54,11 +54,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|common
 operator|.
-name|search
+name|settings
 operator|.
-name|SearchResponse
+name|ImmutableSettings
 import|;
 end_import
 
@@ -177,22 +177,6 @@ operator|.
 name|Streams
 operator|.
 name|copyToStringFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -341,29 +325,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|indexSettings
-specifier|public
-name|Settings
-name|indexSettings
-parameter_list|()
-block|{
-return|return
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"index.numberOfReplicas"
-argument_list|,
-literal|0
-argument_list|)
-operator|.
-name|build
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Test
