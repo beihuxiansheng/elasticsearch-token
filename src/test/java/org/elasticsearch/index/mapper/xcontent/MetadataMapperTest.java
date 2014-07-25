@@ -389,7 +389,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"content"
+literal|"_content"
 argument_list|,
 name|html
 argument_list|)

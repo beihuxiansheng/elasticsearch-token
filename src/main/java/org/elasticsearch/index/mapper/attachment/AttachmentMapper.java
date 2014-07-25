@@ -2035,6 +2035,25 @@ condition|)
 block|{
 if|if
 condition|(
+literal|"_content"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|content
+operator|=
+name|parser
+operator|.
+name|binaryValue
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"content"
 operator|.
 name|equals
@@ -2043,6 +2062,14 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+comment|// TODO Remove in 2.4.0. See #75 https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/75
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"`content` has been deprecated by _content. Please update your code. Will be removed in a future version."
+argument_list|)
+expr_stmt|;
 name|content
 operator|=
 name|parser
