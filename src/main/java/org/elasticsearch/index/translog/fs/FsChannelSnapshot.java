@@ -68,7 +68,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|Translog
+name|TranslogStreams
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|TranslogStreams
+name|Translog
 import|;
 end_import
 
@@ -103,6 +103,16 @@ operator|.
 name|io
 operator|.
 name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -197,7 +207,7 @@ literal|null
 decl_stmt|;
 DECL|field|position
 specifier|private
-name|int
+name|long
 name|position
 init|=
 literal|0
@@ -347,10 +357,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|hasNext
+DECL|method|next
 specifier|public
-name|boolean
-name|hasNext
+name|Translog
+operator|.
+name|Operation
+name|next
 parameter_list|()
 block|{
 try|try
@@ -363,7 +375,7 @@ name|length
 condition|)
 block|{
 return|return
-literal|false
+literal|null
 return|;
 block|}
 if|if
@@ -411,7 +423,8 @@ operator|<
 literal|0
 condition|)
 block|{
-comment|// the snapshot is acquired under a write lock. we should never read beyond the EOF
+comment|// the snapshot is acquired under a write lock. we should never
+comment|// read beyond the EOF, must be an abrupt EOF
 throw|throw
 operator|new
 name|EOFException
@@ -471,7 +484,8 @@ operator|>
 name|length
 condition|)
 block|{
-comment|// the snapshot is acquired under a write lock. we should never read beyond the EOF
+comment|// the snapshot is acquired under a write lock. we should never
+comment|// read beyond the EOF, must be an abrupt EOF
 name|position
 operator|-=
 literal|4
@@ -548,6 +562,8 @@ operator|<
 literal|0
 condition|)
 block|{
+comment|// the snapshot is acquired under a write lock. we should never
+comment|// read beyond the EOF, must be an abrupt EOF
 throw|throw
 operator|new
 name|EOFException
@@ -577,8 +593,7 @@ name|position
 operator|+=
 name|opSize
 expr_stmt|;
-name|lastOperationRead
-operator|=
+return|return
 name|TranslogStreams
 operator|.
 name|readTranslogOperation
@@ -598,54 +613,48 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
 return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IOException
 name|e
 parameter_list|)
 block|{
-return|return
-literal|false
-return|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|next
-specifier|public
-name|Translog
-operator|.
-name|Operation
-name|next
-parameter_list|()
-block|{
-return|return
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"unexpected exception reading from translog snapshot of "
+operator|+
 name|this
 operator|.
-name|lastOperationRead
-return|;
+name|raf
+operator|.
+name|file
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
-DECL|method|seekForward
+DECL|method|seekTo
 specifier|public
 name|void
-name|seekForward
+name|seekTo
 parameter_list|(
 name|long
-name|length
+name|position
 parameter_list|)
 block|{
 name|this
 operator|.
 name|position
-operator|+=
-name|length
+operator|=
+name|position
 expr_stmt|;
 block|}
 annotation|@

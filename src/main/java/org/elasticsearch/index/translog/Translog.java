@@ -74,7 +74,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -294,16 +294,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -425,6 +415,18 @@ parameter_list|(
 name|Location
 name|location
 parameter_list|)
+function_decl|;
+DECL|method|readSource
+name|Translog
+operator|.
+name|Source
+name|readSource
+parameter_list|(
+name|Location
+name|location
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Snapshots the current transaction log allowing to safely iterate over the snapshot.      */
 DECL|method|snapshot
@@ -573,6 +575,7 @@ name|long
 name|translogId
 parameter_list|()
 function_decl|;
+comment|/**          * Returns the current position in the translog stream          */
 DECL|method|position
 name|long
 name|position
@@ -590,22 +593,19 @@ name|int
 name|estimatedTotalOperations
 parameter_list|()
 function_decl|;
-DECL|method|hasNext
-name|boolean
-name|hasNext
-parameter_list|()
-function_decl|;
+comment|/**          * Returns the next operation, or null when no more operations are found          */
 DECL|method|next
 name|Operation
 name|next
 parameter_list|()
 function_decl|;
-DECL|method|seekForward
+comment|/**          * Seek to the specified position in the translog stream          */
+DECL|method|seekTo
 name|void
-name|seekForward
+name|seekTo
 parameter_list|(
 name|long
-name|length
+name|position
 parameter_list|)
 function_decl|;
 comment|/**          * The length in bytes of this stream.          */
@@ -739,7 +739,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ElasticsearchIllegalArgumentException
 argument_list|(
 literal|"No type mapped for ["
 operator|+

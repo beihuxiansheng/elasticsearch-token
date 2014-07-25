@@ -86,6 +86,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogStream
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -356,6 +370,11 @@ function_decl|;
 DECL|method|syncNeeded
 name|boolean
 name|syncNeeded
+parameter_list|()
+function_decl|;
+DECL|method|getStream
+name|TranslogStream
+name|getStream
 parameter_list|()
 function_decl|;
 block|}
