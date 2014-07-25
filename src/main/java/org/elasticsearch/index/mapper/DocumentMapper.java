@@ -746,8 +746,6 @@ specifier|final
 name|String
 name|index
 decl_stmt|;
-annotation|@
-name|Nullable
 DECL|field|indexSettings
 specifier|private
 specifier|final
@@ -790,8 +788,6 @@ parameter_list|(
 name|String
 name|index
 parameter_list|,
-annotation|@
-name|Nullable
 name|Settings
 name|indexSettings
 parameter_list|,

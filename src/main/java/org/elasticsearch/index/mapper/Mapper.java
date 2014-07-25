@@ -234,8 +234,6 @@ DECL|method|BuilderContext
 specifier|public
 name|BuilderContext
 parameter_list|(
-annotation|@
-name|Nullable
 name|Settings
 name|indexSettings
 parameter_list|,

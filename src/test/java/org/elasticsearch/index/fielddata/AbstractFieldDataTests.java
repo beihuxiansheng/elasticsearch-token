@@ -354,7 +354,13 @@ init|=
 operator|new
 name|BuilderContext
 argument_list|(
-literal|null
+name|indexService
+operator|.
+name|settingsService
+argument_list|()
+operator|.
+name|getSettings
+argument_list|()
 argument_list|,
 operator|new
 name|ContentPath

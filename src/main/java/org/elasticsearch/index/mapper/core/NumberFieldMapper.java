@@ -1296,14 +1296,6 @@ expr_stmt|;
 name|Version
 name|v
 init|=
-name|indexSettings
-operator|==
-literal|null
-condition|?
-name|Version
-operator|.
-name|CURRENT
-else|:
 name|Version
 operator|.
 name|indexCreated
