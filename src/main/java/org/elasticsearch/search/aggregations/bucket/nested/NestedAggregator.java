@@ -464,21 +464,21 @@ operator|==
 literal|null
 condition|)
 block|{
-name|NestedAggregator
-name|closestNestedAggregator
+comment|// The aggs are instantiated in reverse, first the most inner nested aggs and lastly the top level aggs
+comment|// So at the time a nested 'nested' aggs is parsed its closest parent nested aggs hasn't been constructed.
+comment|// So the trick to set at the last moment just before needed and we can use its child filter as the
+comment|// parent filter.
+name|Filter
+name|parentFilterNotCached
 init|=
-name|findClosestNestedAggregator
+name|findClosestNestedPath
 argument_list|(
 name|parentAggregator
 argument_list|)
 decl_stmt|;
-specifier|final
-name|Filter
-name|parentFilterNotCached
-decl_stmt|;
 if|if
 condition|(
-name|closestNestedAggregator
+name|parentFilterNotCached
 operator|==
 literal|null
 condition|)
@@ -488,19 +488,6 @@ operator|=
 name|NonNestedDocsFilter
 operator|.
 name|INSTANCE
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// The aggs are instantiated in reverse, first the most inner nested aggs and lastly the top level aggs
-comment|// So at the time a nested 'nested' aggs is parsed its closest parent nested aggs hasn't been constructed.
-comment|// So the trick to set at the last moment just before needed and we can use its child filter as the
-comment|// parent filter.
-name|parentFilterNotCached
-operator|=
-name|closestNestedAggregator
-operator|.
-name|childFilter
 expr_stmt|;
 block|}
 name|parentFilter
@@ -768,10 +755,11 @@ return|return
 name|nestedPath
 return|;
 block|}
-DECL|method|findClosestNestedAggregator
+DECL|method|findClosestNestedPath
+specifier|private
 specifier|static
-name|NestedAggregator
-name|findClosestNestedAggregator
+name|Filter
+name|findClosestNestedPath
 parameter_list|(
 name|Aggregator
 name|parent
@@ -801,9 +789,33 @@ condition|)
 block|{
 return|return
 operator|(
+operator|(
 name|NestedAggregator
 operator|)
 name|parent
+operator|)
+operator|.
+name|childFilter
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|parent
+operator|instanceof
+name|ReverseNestedAggregator
+condition|)
+block|{
+return|return
+operator|(
+operator|(
+name|ReverseNestedAggregator
+operator|)
+name|parent
+operator|)
+operator|.
+name|getParentFilter
+argument_list|()
 return|;
 block|}
 block|}
