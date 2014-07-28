@@ -3502,18 +3502,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// We only keep the first two parts
-name|String
-name|parts
-index|[]
-init|=
-name|luceneVersion
-operator|.
-name|split
-argument_list|(
-literal|"\\."
-argument_list|)
-decl_stmt|;
 comment|// Should fail if the running node is too old!
 name|org
 operator|.
@@ -3530,17 +3518,7 @@ name|Lucene
 operator|.
 name|parseVersionLenient
 argument_list|(
-name|parts
-index|[
-literal|0
-index|]
-operator|+
-literal|"."
-operator|+
-name|parts
-index|[
-literal|1
-index|]
+name|luceneVersion
 argument_list|,
 literal|null
 argument_list|)
