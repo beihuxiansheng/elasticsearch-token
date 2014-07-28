@@ -1248,6 +1248,8 @@ argument_list|,
 name|transportService
 argument_list|,
 name|this
+argument_list|,
+name|clusterName
 argument_list|)
 expr_stmt|;
 name|this
@@ -1273,6 +1275,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|transportService
+argument_list|,
+name|clusterName
 argument_list|)
 expr_stmt|;
 name|this
