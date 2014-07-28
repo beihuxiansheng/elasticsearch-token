@@ -562,7 +562,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"[{}] New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
 argument_list|,
