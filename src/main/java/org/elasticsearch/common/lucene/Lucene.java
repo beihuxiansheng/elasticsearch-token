@@ -322,6 +322,24 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|NoopCollector
+operator|.
+name|NOOP_COLLECTOR
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
