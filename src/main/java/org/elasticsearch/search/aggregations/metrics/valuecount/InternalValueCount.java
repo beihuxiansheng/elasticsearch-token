@@ -131,6 +131,8 @@ class|class
 name|InternalValueCount
 extends|extends
 name|InternalNumericMetricsAggregation
+operator|.
+name|SingleValue
 implements|implements
 name|ValueCount
 block|{
@@ -255,6 +257,18 @@ DECL|method|getValue
 specifier|public
 name|long
 name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|value
+specifier|public
+name|double
+name|value
 parameter_list|()
 block|{
 return|return
