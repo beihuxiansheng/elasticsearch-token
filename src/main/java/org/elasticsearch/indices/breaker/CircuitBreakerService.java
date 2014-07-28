@@ -81,7 +81,7 @@ name|CircuitBreakerService
 extends|extends
 name|AbstractLifecycleComponent
 argument_list|<
-name|InternalCircuitBreakerService
+name|CircuitBreakerService
 argument_list|>
 block|{
 DECL|method|CircuitBreakerService

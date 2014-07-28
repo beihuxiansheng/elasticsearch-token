@@ -274,15 +274,6 @@ name|BigArrays
 extends|extends
 name|AbstractComponent
 block|{
-DECL|field|MAX_SIZE_IN_BYTES_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|MAX_SIZE_IN_BYTES_SETTING
-init|=
-literal|"requests.memory.breaker.limit"
-decl_stmt|;
 DECL|field|NON_RECYCLING_INSTANCE
 specifier|public
 specifier|static

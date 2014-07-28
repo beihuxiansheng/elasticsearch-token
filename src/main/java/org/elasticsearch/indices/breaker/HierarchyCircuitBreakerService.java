@@ -223,6 +223,25 @@ name|CircuitBreaker
 argument_list|>
 name|breakers
 decl_stmt|;
+comment|// Old pre-1.4.0 backwards compatible settings
+DECL|field|OLD_CIRCUIT_BREAKER_MAX_BYTES_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OLD_CIRCUIT_BREAKER_MAX_BYTES_SETTING
+init|=
+literal|"indices.fielddata.breaker.limit"
+decl_stmt|;
+DECL|field|OLD_CIRCUIT_BREAKER_OVERHEAD_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OLD_CIRCUIT_BREAKER_OVERHEAD_SETTING
+init|=
+literal|"indices.fielddata.breaker.overhead"
+decl_stmt|;
 DECL|field|TOTAL_CIRCUIT_BREAKER_LIMIT_SETTING
 specifier|public
 specifier|static
@@ -354,8 +373,8 @@ name|settings
 argument_list|)
 expr_stmt|;
 comment|// This uses the old InternalCircuitBreakerService.CIRCUIT_BREAKER_MAX_BYTES_SETTING
-comment|// setting to keep backwards compatibility with 1.2, it can be safely
-comment|// removed when compatibility with 1.2 is no longer needed
+comment|// setting to keep backwards compatibility with 1.3, it can be safely
+comment|// removed when compatibility with 1.3 is no longer needed
 name|String
 name|compatibilityFielddataLimitDefault
 init|=
@@ -368,9 +387,7 @@ name|settings
 operator|.
 name|getAsMemory
 argument_list|(
-name|InternalCircuitBreakerService
-operator|.
-name|CIRCUIT_BREAKER_MAX_BYTES_SETTING
+name|OLD_CIRCUIT_BREAKER_MAX_BYTES_SETTING
 argument_list|,
 literal|null
 argument_list|)
@@ -391,8 +408,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// This uses the old InternalCircuitBreakerService.CIRCUIT_BREAKER_OVERHEAD_SETTING
-comment|// setting to keep backwards compatibility with 1.2, it can be safely
-comment|// removed when compatibility with 1.2 is no longer needed
+comment|// setting to keep backwards compatibility with 1.3, it can be safely
+comment|// removed when compatibility with 1.3 is no longer needed
 name|double
 name|compatibilityFielddataOverheadDefault
 init|=
@@ -405,9 +422,7 @@ name|settings
 operator|.
 name|getAsDouble
 argument_list|(
-name|InternalCircuitBreakerService
-operator|.
-name|CIRCUIT_BREAKER_OVERHEAD_SETTING
+name|OLD_CIRCUIT_BREAKER_OVERHEAD_SETTING
 argument_list|,
 literal|null
 argument_list|)
