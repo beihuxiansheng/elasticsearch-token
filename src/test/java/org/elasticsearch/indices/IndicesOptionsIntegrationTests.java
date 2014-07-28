@@ -3830,6 +3830,14 @@ argument_list|(
 literal|"foobar"
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"foobar"
+argument_list|)
+expr_stmt|;
+name|waitForRelocation
+argument_list|()
+expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
@@ -4017,7 +4025,9 @@ argument_list|)
 expr_stmt|;
 comment|//TODO: temporary work-around for #5531
 name|ensureGreen
-argument_list|()
+argument_list|(
+literal|"barbaz"
+argument_list|)
 expr_stmt|;
 name|waitForRelocation
 argument_list|()
