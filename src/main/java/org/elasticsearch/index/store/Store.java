@@ -2087,9 +2087,9 @@ specifier|final
 name|Version
 name|version
 init|=
-name|Version
+name|Lucene
 operator|.
-name|parseLeniently
+name|parseVersionLenient
 argument_list|(
 name|info
 operator|.
@@ -2097,6 +2097,10 @@ name|info
 operator|.
 name|getVersion
 argument_list|()
+argument_list|,
+name|Version
+operator|.
+name|LUCENE_3_0
 argument_list|)
 decl_stmt|;
 if|if
