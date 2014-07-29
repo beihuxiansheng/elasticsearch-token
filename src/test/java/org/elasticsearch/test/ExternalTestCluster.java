@@ -672,6 +672,11 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
+name|setIndices
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.
@@ -724,6 +729,58 @@ expr_stmt|;
 comment|// ExternalTestCluster does not check the request breaker,
 comment|// because checking it requires a network request, which in
 comment|// turn increments the breaker, making it non-0
+name|assertThat
+argument_list|(
+literal|"Fielddata size must be 0 on node: "
+operator|+
+name|stats
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|stats
+operator|.
+name|getIndices
+argument_list|()
+operator|.
+name|getFieldData
+argument_list|()
+operator|.
+name|getMemorySizeInBytes
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0l
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"Filter cache size must be 0 on node: "
+operator|+
+name|stats
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|stats
+operator|.
+name|getIndices
+argument_list|()
+operator|.
+name|getFilterCache
+argument_list|()
+operator|.
+name|getMemorySizeInBytes
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0l
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
