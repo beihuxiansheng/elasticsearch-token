@@ -327,9 +327,6 @@ argument_list|(
 name|subAggregationsList
 argument_list|,
 name|reduceContext
-operator|.
-name|bigArrays
-argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
