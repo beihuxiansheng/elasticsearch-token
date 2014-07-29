@@ -1996,6 +1996,19 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * returns true if there is a currently a background thread active for (re)joining the cluster      * used for testing.      */
+DECL|method|joiningCluster
+specifier|public
+name|boolean
+name|joiningCluster
+parameter_list|()
+block|{
+return|return
+name|currentJoinThread
+operator|!=
+literal|null
+return|;
+block|}
 DECL|method|innerJoinCluster
 specifier|private
 name|void
@@ -2505,6 +2518,8 @@ argument_list|(
 literal|"failed to send join request to master [{}]"
 argument_list|,
 name|t
+argument_list|,
+name|masterNode
 argument_list|)
 expr_stmt|;
 block|}
