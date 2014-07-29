@@ -379,6 +379,10 @@ argument_list|()
 operator|.
 name|extractRawValues
 argument_list|(
+name|hitContext
+operator|.
+name|getSourcePath
+argument_list|(
 name|mapper
 operator|.
 name|names
@@ -386,6 +390,7 @@ argument_list|()
 operator|.
 name|sourcePath
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

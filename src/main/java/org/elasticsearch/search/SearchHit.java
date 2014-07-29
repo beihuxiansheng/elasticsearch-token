@@ -76,6 +76,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|text
+operator|.
+name|Text
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|ToXContent
@@ -171,6 +185,12 @@ comment|/**      * The type of the document.      */
 DECL|method|getType
 name|String
 name|getType
+parameter_list|()
+function_decl|;
+comment|/**      * If this is a nested hit then nested reference information is returned otherwise<code>null</code> is returned.      */
+DECL|method|getNestedIdentity
+name|NestedIdentity
+name|getNestedIdentity
 parameter_list|()
 function_decl|;
 comment|/**      * The version of the hit.      */
@@ -352,6 +372,34 @@ name|SearchShardTarget
 name|getShard
 parameter_list|()
 function_decl|;
+comment|/**      * Encapsulates the nested identity of a hit.      */
+DECL|interface|NestedIdentity
+specifier|public
+interface|interface
+name|NestedIdentity
+block|{
+comment|/**          * Returns the nested field in the source this hit originates from          */
+DECL|method|getField
+specifier|public
+name|Text
+name|getField
+parameter_list|()
+function_decl|;
+comment|/**          * Returns the offset in the nested array of objects in the source this hit          */
+DECL|method|getOffset
+specifier|public
+name|int
+name|getOffset
+parameter_list|()
+function_decl|;
+comment|/**          * Returns the next child nested level if there is any, otherwise<code>null</code> is returned.          *          * In the case of mappings with multiple levels of nested object fields          */
+DECL|method|getChild
+specifier|public
+name|NestedIdentity
+name|getChild
+parameter_list|()
+function_decl|;
+block|}
 block|}
 end_interface
 

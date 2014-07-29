@@ -779,6 +779,8 @@ name|mapper
 argument_list|,
 name|context
 argument_list|,
+name|hitContext
+argument_list|,
 name|field
 operator|.
 name|fieldOptions
@@ -892,6 +894,8 @@ name|mapper
 argument_list|,
 name|context
 argument_list|,
+name|hitContext
+argument_list|,
 name|field
 operator|.
 name|fieldOptions
@@ -966,6 +970,8 @@ argument_list|(
 name|mapper
 argument_list|,
 name|context
+argument_list|,
+name|hitContext
 argument_list|,
 name|field
 operator|.
