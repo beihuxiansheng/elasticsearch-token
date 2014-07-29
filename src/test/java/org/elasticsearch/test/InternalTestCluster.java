@@ -1050,6 +1050,18 @@ end_import
 
 begin_import
 import|import static
+name|junit
+operator|.
+name|framework
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|apache
@@ -1107,6 +1119,20 @@ operator|.
 name|NodeBuilder
 operator|.
 name|nodeBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+operator|.
+name|assertBusy
 import|;
 end_import
 
@@ -8914,6 +8940,7 @@ name|values
 argument_list|()
 control|)
 block|{
+specifier|final
 name|String
 name|name
 init|=
@@ -8921,6 +8948,7 @@ name|nodeAndClient
 operator|.
 name|name
 decl_stmt|;
+specifier|final
 name|CircuitBreakerService
 name|breakerService
 init|=
@@ -8949,20 +8977,6 @@ operator|.
 name|FIELDDATA
 argument_list|)
 decl_stmt|;
-name|CircuitBreaker
-name|reqBreaker
-init|=
-name|breakerService
-operator|.
-name|getBreaker
-argument_list|(
-name|CircuitBreaker
-operator|.
-name|Name
-operator|.
-name|REQUEST
-argument_list|)
-decl_stmt|;
 name|assertThat
 argument_list|(
 literal|"Fielddata breaker not reset to 0 on node: "
@@ -8980,6 +8994,43 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Anything that uses transport or HTTP can increase the
+comment|// request breaker (because they use bigarrays), because of
+comment|// that the breaker can sometimes be incremented from ping
+comment|// requests from other clusters because Jenkins is running
+comment|// multiple ES testing jobs in parallel on the same machine.
+comment|// To combat this we check whether the breaker has reached 0
+comment|// in an assertBusy loop, so it will try for 10 seconds and
+comment|// fail if it never reached 0
+try|try
+block|{
+name|assertBusy
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|CircuitBreaker
+name|reqBreaker
+init|=
+name|breakerService
+operator|.
+name|getBreaker
+argument_list|(
+name|CircuitBreaker
+operator|.
+name|Name
+operator|.
+name|REQUEST
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
 literal|"Request breaker not reset to 0 on node: "
@@ -8997,6 +9048,25 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"Exception during check for request breaker reset to 0: "
+operator|+
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
