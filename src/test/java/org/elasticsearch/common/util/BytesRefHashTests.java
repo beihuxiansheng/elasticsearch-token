@@ -90,7 +90,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|BytesRefHashTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 block|{
 DECL|field|hash
 name|BytesRefHash
