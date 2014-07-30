@@ -386,19 +386,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
+name|*
 import|;
 end_import
 
@@ -1943,7 +1931,7 @@ name|getKey
 argument_list|()
 argument_list|)
 operator|.
-name|getServerSideEncryption
+name|getSSEAlgorithm
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3546,6 +3534,18 @@ argument_list|(
 literal|"bucket"
 argument_list|)
 decl_stmt|;
+comment|// We check that settings has been set in elasticsearch.yml integration test file
+comment|// as described in README
+name|assertThat
+argument_list|(
+literal|"Your settings in elasticsearch.yml are incorrects. Check README file."
+argument_list|,
+name|bucketName
+argument_list|,
+name|notNullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|AmazonS3
 name|client
 init|=

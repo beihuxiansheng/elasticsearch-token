@@ -229,7 +229,7 @@ condition|)
 block|{
 name|md
 operator|.
-name|setServerSideEncryption
+name|setSSEAlgorithm
 argument_list|(
 name|ObjectMetadata
 operator|.
