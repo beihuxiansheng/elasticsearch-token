@@ -128,7 +128,7 @@ name|ElasticsearchIntegrationTest
 operator|.
 name|Scope
 operator|.
-name|TEST
+name|SUITE
 argument_list|,
 name|numDataNodes
 operator|=

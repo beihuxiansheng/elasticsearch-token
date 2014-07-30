@@ -92,18 +92,6 @@ name|Settings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|PluginsService
-import|;
-end_import
-
 begin_class
 DECL|class|AbstractAzureComputeServiceTest
 specifier|public
@@ -218,17 +206,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"plugins."
-operator|+
-name|PluginsService
-operator|.
-name|LOAD_PLUGIN_FROM_CLASSPATH
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"discovery.type"
 argument_list|,
 literal|"azure"
@@ -282,6 +259,14 @@ argument_list|(
 literal|"cloud.azure.refresh_interval"
 argument_list|,
 literal|"5s"
+argument_list|)
+comment|// We need the network to make the mock working
+operator|.
+name|put
+argument_list|(
+literal|"node.mode"
+argument_list|,
+literal|"network"
 argument_list|)
 comment|// Make the tests run faster
 operator|.
