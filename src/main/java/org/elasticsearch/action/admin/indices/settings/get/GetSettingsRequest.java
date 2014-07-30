@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ValidateActions
 import|;
 end_import
@@ -154,6 +166,8 @@ name|MasterNodeReadOperationRequest
 argument_list|<
 name|GetSettingsRequest
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|indices
 specifier|private
@@ -232,6 +246,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|String
@@ -243,6 +259,8 @@ return|return
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

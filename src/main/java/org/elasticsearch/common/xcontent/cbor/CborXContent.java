@@ -161,6 +161,20 @@ operator|new
 name|CBORFactory
 argument_list|()
 expr_stmt|;
+name|cborFactory
+operator|.
+name|configure
+argument_list|(
+name|CBORFactory
+operator|.
+name|Feature
+operator|.
+name|FAIL_ON_SYMBOL_HASH_OVERFLOW
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// this trips on many mappings now...
 name|cborXContent
 operator|=
 operator|new

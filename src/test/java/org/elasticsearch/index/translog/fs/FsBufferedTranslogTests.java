@@ -56,7 +56,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|Translog
+name|AbstractSimpleTranslogTests
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|AbstractSimpleTranslogTests
+name|Translog
 import|;
 end_import
 
@@ -139,13 +139,27 @@ name|name
 argument_list|()
 argument_list|)
 operator|.
+name|put
+argument_list|(
+literal|"index.translog.fs.buffer_size"
+argument_list|,
+literal|10
+operator|+
+name|randomInt
+argument_list|(
+literal|128
+operator|*
+literal|1024
+argument_list|)
+argument_list|)
+operator|.
 name|build
 argument_list|()
 argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"data/fs-translog"
+literal|"data/fs-buf-translog"
 argument_list|)
 argument_list|)
 return|;
@@ -166,7 +180,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"data/fs-translog"
+literal|"data/fs-buf-translog"
 argument_list|)
 argument_list|,
 literal|true

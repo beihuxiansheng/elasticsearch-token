@@ -20,44 +20,51 @@ begin_comment
 comment|/**  *  */
 end_comment
 
-begin_interface
-DECL|interface|LifecycleListener
+begin_class
+DECL|class|LifecycleListener
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|LifecycleListener
 block|{
 DECL|method|beforeStart
+specifier|public
 name|void
 name|beforeStart
 parameter_list|()
-function_decl|;
+block|{      }
 DECL|method|afterStart
+specifier|public
 name|void
 name|afterStart
 parameter_list|()
-function_decl|;
+block|{      }
 DECL|method|beforeStop
+specifier|public
 name|void
 name|beforeStop
 parameter_list|()
-function_decl|;
+block|{      }
 DECL|method|afterStop
+specifier|public
 name|void
 name|afterStop
 parameter_list|()
-function_decl|;
+block|{      }
 DECL|method|beforeClose
+specifier|public
 name|void
 name|beforeClose
 parameter_list|()
-function_decl|;
+block|{      }
 DECL|method|afterClose
+specifier|public
 name|void
 name|afterClose
 parameter_list|()
-function_decl|;
+block|{      }
 block|}
-end_interface
+end_class
 
 end_unit
 

@@ -196,16 +196,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Set
@@ -322,6 +312,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 block|{
 specifier|final

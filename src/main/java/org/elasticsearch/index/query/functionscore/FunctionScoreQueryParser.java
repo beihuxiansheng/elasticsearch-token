@@ -1289,6 +1289,21 @@ operator|.
 name|MATCH_ALL_FILTER
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|scoreFunction
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"function_score: One entry in functions list is missing a function."
+argument_list|)
+throw|;
+block|}
 name|filterFunctions
 operator|.
 name|add

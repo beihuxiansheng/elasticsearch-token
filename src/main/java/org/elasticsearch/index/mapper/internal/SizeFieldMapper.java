@@ -328,7 +328,7 @@ name|ENABLED_STATE
 init|=
 name|EnabledAttributeMapper
 operator|.
-name|DISABLED
+name|UNSET_DISABLED
 decl_stmt|;
 DECL|field|SIZE_FIELD_TYPE
 specifier|public
@@ -962,10 +962,14 @@ condition|(
 name|includeDefaults
 operator|||
 name|enabledState
+operator|.
+name|enabled
 operator|!=
 name|Defaults
 operator|.
 name|ENABLED_STATE
+operator|.
+name|enabled
 condition|)
 block|{
 name|builder

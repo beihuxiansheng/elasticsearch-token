@@ -104,7 +104,7 @@ specifier|public
 name|void
 name|fieldMappers
 parameter_list|(
-name|Iterable
+name|List
 argument_list|<
 name|FieldMapper
 argument_list|>

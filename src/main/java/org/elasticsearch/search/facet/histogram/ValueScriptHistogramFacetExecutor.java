@@ -82,7 +82,19 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
 import|;
 end_import
 
@@ -96,7 +108,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -272,6 +284,11 @@ parameter_list|,
 name|String
 name|valueScript
 parameter_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+name|scriptType
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -329,6 +346,8 @@ argument_list|,
 name|scriptLang
 argument_list|,
 name|valueScript
+argument_list|,
+name|scriptType
 argument_list|,
 name|params
 argument_list|)
@@ -525,7 +544,7 @@ name|Collector
 block|{
 DECL|field|values
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|field|histoProc

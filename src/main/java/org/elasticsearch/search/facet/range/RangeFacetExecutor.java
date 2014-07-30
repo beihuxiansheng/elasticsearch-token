@@ -42,7 +42,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|rangeProc
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|values
 decl_stmt|;
 DECL|method|Collector

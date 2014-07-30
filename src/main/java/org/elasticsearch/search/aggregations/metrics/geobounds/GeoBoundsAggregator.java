@@ -86,7 +86,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|GeoPointValues
+name|MultiGeoPointValues
 import|;
 end_import
 
@@ -263,7 +263,7 @@ name|negRights
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|GeoPointValues
+name|MultiGeoPointValues
 name|values
 decl_stmt|;
 DECL|method|GeoBoundsAggregator
@@ -895,16 +895,21 @@ name|NEGATIVE_INFINITY
 argument_list|)
 expr_stmt|;
 block|}
-specifier|final
-name|int
-name|valuesCount
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|docId
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|valuesCount
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -926,8 +931,10 @@ name|value
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 name|double
 name|top

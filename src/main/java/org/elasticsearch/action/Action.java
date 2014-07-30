@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Main action (used with {@link Client} API.  */
+comment|/**  * Base action. Supports building the<code>Request</code> through a<code>RequestBuilder</code>.  */
 end_comment
 
 begin_class
@@ -84,6 +84,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a new request builder given the client provided as argument      */
 DECL|method|newRequestBuilder
 specifier|public
 specifier|abstract

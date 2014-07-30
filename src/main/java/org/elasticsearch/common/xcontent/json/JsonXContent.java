@@ -217,6 +217,20 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+name|jsonFactory
+operator|.
+name|configure
+argument_list|(
+name|JsonFactory
+operator|.
+name|Feature
+operator|.
+name|FAIL_ON_SYMBOL_HASH_OVERFLOW
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// this trips on many mappings now...
 name|jsonXContent
 operator|=
 operator|new

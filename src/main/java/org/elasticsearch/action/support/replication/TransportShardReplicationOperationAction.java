@@ -106,6 +106,20 @@ name|action
 operator|.
 name|support
 operator|.
+name|ActionFilters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|support
+operator|.
 name|TransportAction
 import|;
 end_import
@@ -593,11 +607,6 @@ specifier|final
 name|TransportRequestOptions
 name|transportOptions
 decl_stmt|;
-DECL|field|transportAction
-specifier|final
-name|String
-name|transportAction
-decl_stmt|;
 DECL|field|transportReplicaAction
 specifier|final
 name|String
@@ -620,6 +629,9 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
+name|String
+name|actionName
+parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
@@ -634,13 +646,20 @@ name|threadPool
 parameter_list|,
 name|ShardStateAction
 name|shardStateAction
+parameter_list|,
+name|ActionFilters
+name|actionFilters
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
 argument_list|,
+name|actionName
+argument_list|,
 name|threadPool
+argument_list|,
+name|actionFilters
 argument_list|)
 expr_stmt|;
 name|this
@@ -669,13 +688,6 @@ name|shardStateAction
 expr_stmt|;
 name|this
 operator|.
-name|transportAction
-operator|=
-name|transportAction
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
 name|transportReplicaAction
 operator|=
 name|transportReplicaAction
@@ -699,7 +711,7 @@ name|transportService
 operator|.
 name|registerHandler
 argument_list|(
-name|transportAction
+name|actionName
 argument_list|,
 operator|new
 name|OperationTransportHandler
@@ -809,13 +821,6 @@ specifier|protected
 specifier|abstract
 name|Response
 name|newResponseInstance
-parameter_list|()
-function_decl|;
-DECL|method|transportAction
-specifier|protected
-specifier|abstract
-name|String
-name|transportAction
 parameter_list|()
 function_decl|;
 DECL|method|executor
@@ -953,6 +958,11 @@ name|request
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|indicesOptions
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -990,8 +1000,7 @@ name|transportReplicaAction
 parameter_list|()
 block|{
 return|return
-name|transportAction
-argument_list|()
+name|actionName
 operator|+
 literal|"/replica"
 return|;
@@ -1047,17 +1056,6 @@ argument_list|(
 name|e
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|cause
-operator|instanceof
-name|ConnectTransportException
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 comment|// on version conflict or document missing, it means
 comment|// that a news change has crept into the replica, and its fine
 if|if
@@ -1235,7 +1233,7 @@ name|warn
 argument_list|(
 literal|"Failed to send response for "
 operator|+
-name|transportAction
+name|actionName
 argument_list|,
 name|e1
 argument_list|)
@@ -2320,7 +2318,7 @@ name|sendRequest
 argument_list|(
 name|node
 argument_list|,
-name|transportAction
+name|actionName
 argument_list|,
 name|request
 argument_list|,
@@ -3579,15 +3577,25 @@ name|TransportException
 name|exp
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] Transport failure during replica request [{}] "
+argument_list|,
+name|exp
+argument_list|,
+name|node
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
 name|ignoreReplicaException
 argument_list|(
 name|exp
-operator|.
-name|unwrapCause
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -3597,7 +3605,7 @@ name|warn
 argument_list|(
 literal|"Failed to perform "
 operator|+
-name|transportAction
+name|actionName
 operator|+
 literal|" on remote replica "
 operator|+
@@ -3624,7 +3632,7 @@ argument_list|()
 argument_list|,
 literal|"Failed to perform ["
 operator|+
-name|transportAction
+name|actionName
 operator|+
 literal|"] on replica, message ["
 operator|+
@@ -3897,6 +3905,19 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"failure on replica [{}][{}]"
+argument_list|,
+name|t
+argument_list|,
+name|index
+argument_list|,
+name|shardId
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -3970,7 +3991,7 @@ name|indexShard
 operator|.
 name|failShard
 argument_list|(
-name|transportAction
+name|actionName
 operator|+
 literal|" failed on replica"
 argument_list|,

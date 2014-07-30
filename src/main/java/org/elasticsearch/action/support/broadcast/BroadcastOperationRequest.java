@@ -60,6 +60,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -128,6 +140,8 @@ name|ActionRequest
 argument_list|<
 name|T
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|indices
 specifier|protected
@@ -142,7 +156,7 @@ name|indicesOptions
 init|=
 name|IndicesOptions
 operator|.
-name|strictExpandOpen
+name|strictExpandOpenAndForbidClosed
 argument_list|()
 decl_stmt|;
 DECL|method|BroadcastOperationRequest
@@ -166,6 +180,8 @@ operator|=
 name|indices
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|String
@@ -218,6 +234,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions

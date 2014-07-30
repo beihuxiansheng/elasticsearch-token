@@ -200,7 +200,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|IntArray
+name|ByteUtils
 import|;
 end_import
 
@@ -214,7 +214,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|UnsafeUtils
+name|IntArray
 import|;
 end_import
 
@@ -14123,7 +14123,7 @@ name|readSpare
 argument_list|)
 expr_stmt|;
 return|return
-name|UnsafeUtils
+name|ByteUtils
 operator|.
 name|readIntLE
 argument_list|(

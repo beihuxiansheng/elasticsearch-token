@@ -22,7 +22,27 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -100,6 +120,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|ShardSearchFailure
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|geo
@@ -151,6 +185,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|FilterBuilders
 import|;
 end_import
 
@@ -259,6 +307,16 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -8937,6 +8995,425 @@ operator|.
 name|contains
 argument_list|(
 literal|"Did you mean \"boost\" instead?"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// issue https://github.com/elasticsearch/elasticsearch/issues/6292
+annotation|@
+name|Test
+DECL|method|testMissingFunctionThrowsElasticsearchParseException
+specifier|public
+name|void
+name|testMissingFunctionThrowsElasticsearchParseException
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// example from issue https://github.com/elasticsearch/elasticsearch/issues/6292
+name|String
+name|doc
+init|=
+literal|"{\n"
+operator|+
+literal|"  \"text\": \"baseball bats\"\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|String
+name|query
+init|=
+literal|"{\n"
+operator|+
+literal|"    \"function_score\": {\n"
+operator|+
+literal|"      \"score_mode\": \"sum\",\n"
+operator|+
+literal|"      \"boost_mode\": \"replace\",\n"
+operator|+
+literal|"      \"functions\": [\n"
+operator|+
+literal|"        {\n"
+operator|+
+literal|"          \"filter\": {\n"
+operator|+
+literal|"            \"term\": {\n"
+operator|+
+literal|"              \"text\": \"baseball\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      ]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}\n"
+decl_stmt|;
+name|client
+argument_list|()
+operator|.
+name|prepareIndex
+argument_list|(
+literal|"t"
+argument_list|,
+literal|"test"
+argument_list|)
+operator|.
+name|setSource
+argument_list|(
+name|doc
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|refresh
+argument_list|()
+expr_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"t"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|client
+argument_list|()
+operator|.
+name|search
+argument_list|(
+name|searchRequest
+argument_list|()
+operator|.
+name|source
+argument_list|(
+name|searchSource
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|query
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should fail with SearchPhaseExecutionException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SearchPhaseExecutionException
+name|failure
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"SearchParseException"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"NullPointerException"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|query
+operator|=
+literal|"{\n"
+operator|+
+literal|"    \"function_score\": {\n"
+operator|+
+literal|"      \"score_mode\": \"sum\",\n"
+operator|+
+literal|"      \"boost_mode\": \"replace\",\n"
+operator|+
+literal|"      \"functions\": [\n"
+operator|+
+literal|"        {\n"
+operator|+
+literal|"          \"filter\": {\n"
+operator|+
+literal|"            \"term\": {\n"
+operator|+
+literal|"              \"text\": \"baseball\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          },\n"
+operator|+
+literal|"          \"boost_factor\": 2\n"
+operator|+
+literal|"        },\n"
+operator|+
+literal|"        {\n"
+operator|+
+literal|"          \"filter\": {\n"
+operator|+
+literal|"            \"term\": {\n"
+operator|+
+literal|"              \"text\": \"baseball\"\n"
+operator|+
+literal|"            }\n"
+operator|+
+literal|"          }\n"
+operator|+
+literal|"        }\n"
+operator|+
+literal|"      ]\n"
+operator|+
+literal|"    }\n"
+operator|+
+literal|"}"
+expr_stmt|;
+try|try
+block|{
+name|client
+argument_list|()
+operator|.
+name|search
+argument_list|(
+name|searchRequest
+argument_list|()
+operator|.
+name|source
+argument_list|(
+name|searchSource
+argument_list|()
+operator|.
+name|query
+argument_list|(
+name|query
+argument_list|)
+argument_list|)
+argument_list|)
+operator|.
+name|actionGet
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should fail with SearchPhaseExecutionException"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SearchPhaseExecutionException
+name|failure
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"SearchParseException"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"NullPointerException"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"One entry in functions list is missing a function"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// next test java client
+try|try
+block|{
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"t"
+argument_list|)
+operator|.
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|functionScoreQuery
+argument_list|(
+name|FilterBuilders
+operator|.
+name|matchAllFilter
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchIllegalArgumentException
+name|failure
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"function must not be null"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"t"
+argument_list|)
+operator|.
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|functionScoreQuery
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|FilterBuilders
+operator|.
+name|matchAllFilter
+argument_list|()
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchIllegalArgumentException
+name|failure
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"function must not be null"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+name|client
+argument_list|()
+operator|.
+name|prepareSearch
+argument_list|(
+literal|"t"
+argument_list|)
+operator|.
+name|setQuery
+argument_list|(
+name|QueryBuilders
+operator|.
+name|functionScoreQuery
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|null
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchIllegalArgumentException
+name|failure
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|failure
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"function must not be null"
 argument_list|)
 argument_list|)
 expr_stmt|;

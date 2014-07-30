@@ -463,6 +463,13 @@ name|query
 init|=
 literal|null
 decl_stmt|;
+DECL|field|queryParsed
+specifier|private
+name|boolean
+name|queryParsed
+init|=
+literal|false
+decl_stmt|;
 DECL|method|InnerQuery
 specifier|public
 name|InnerQuery
@@ -510,6 +517,10 @@ name|parseContext1
 operator|.
 name|parseInnerQuery
 argument_list|()
+expr_stmt|;
+name|queryParsed
+operator|=
+literal|true
 expr_stmt|;
 block|}
 finally|finally
@@ -570,13 +581,11 @@ name|IOException
 block|{
 if|if
 condition|(
-name|this
-operator|.
-name|query
-operator|==
-literal|null
+operator|!
+name|queryParsed
 condition|)
 block|{
+comment|// query can be null
 name|this
 operator|.
 name|query
@@ -611,6 +620,13 @@ name|Query
 name|query
 init|=
 literal|null
+decl_stmt|;
+DECL|field|queryParsed
+specifier|private
+name|boolean
+name|queryParsed
+init|=
+literal|false
 decl_stmt|;
 DECL|method|InnerFilter
 specifier|public
@@ -668,6 +684,10 @@ name|XConstantScoreQuery
 argument_list|(
 name|innerFilter
 argument_list|)
+expr_stmt|;
+name|queryParsed
+operator|=
+literal|true
 expr_stmt|;
 block|}
 finally|finally
@@ -728,13 +748,11 @@ name|IOException
 block|{
 if|if
 condition|(
-name|this
-operator|.
-name|query
-operator|==
-literal|null
+operator|!
+name|queryParsed
 condition|)
 block|{
+comment|// query can be null
 name|this
 operator|.
 name|query

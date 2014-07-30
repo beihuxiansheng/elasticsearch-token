@@ -216,6 +216,33 @@ operator|new
 name|AffixFileFilter
 argument_list|()
 decl_stmt|;
+DECL|field|HUNSPELL_LAZY_LOAD
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|HUNSPELL_LAZY_LOAD
+init|=
+literal|"indices.analysis.hunspell.dictionary.lazy"
+decl_stmt|;
+DECL|field|HUNSPELL_IGNORE_CASE
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|HUNSPELL_IGNORE_CASE
+init|=
+literal|"indices.analysis.hunspell.dictionary.ignore_case"
+decl_stmt|;
+DECL|field|HUNSPELL_LOCATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|HUNSPELL_LOCATION
+init|=
+literal|"indices.analysis.hunspell.dictionary.location"
+decl_stmt|;
 DECL|field|dictionaries
 specifier|private
 specifier|final
@@ -335,7 +362,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"indices.analysis.hunspell.dictionary.ignore_case"
+name|HUNSPELL_IGNORE_CASE
 argument_list|,
 literal|false
 argument_list|)
@@ -406,9 +433,23 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|HUNSPELL_LAZY_LOAD
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
 name|scanAndLoadDictionaries
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the hunspell dictionary for the given locale.      *      * @param locale The name of the locale      */
 DECL|method|getDictionary
@@ -448,7 +489,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"indices.analysis.hunspell.dictionary.location"
+name|HUNSPELL_LOCATION
 argument_list|,
 literal|null
 argument_list|)
@@ -526,7 +567,7 @@ name|file
 operator|.
 name|list
 argument_list|(
-name|AFFIX_FILE_FILTER
+name|DIC_FILE_FILTER
 argument_list|)
 operator|.
 name|length
@@ -580,7 +621,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Loading huspell dictionary [{}]..."
+literal|"Loading hunspell dictionary [{}]..."
 argument_list|,
 name|locale
 argument_list|)
@@ -678,6 +719,34 @@ condition|(
 name|affixFiles
 operator|.
 name|length
+operator|==
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|,
+literal|"Missing affix file for hunspell dictionary [%s]"
+argument_list|,
+name|locale
+argument_list|)
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|affixFiles
+operator|.
+name|length
 operator|!=
 literal|1
 condition|)
@@ -694,7 +763,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"Missing affix file for hunspell dictionary [%s]"
+literal|"Too many affix files exist for hunspell dictionary [%s]"
 argument_list|,
 name|locale
 argument_list|)

@@ -180,6 +180,15 @@ name|SuppressCodecs
 argument_list|(
 literal|"Lucene3x"
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"we log a lot on purpose"
+argument_list|)
 DECL|class|ElasticsearchLuceneTestCase
 specifier|public
 specifier|abstract
@@ -200,6 +209,18 @@ operator|.
 name|getDefault
 argument_list|()
 decl_stmt|;
+comment|/**      * Returns the lucene default codec without any randomization      */
+DECL|method|actualDefaultCodec
+specifier|public
+specifier|static
+name|Codec
+name|actualDefaultCodec
+parameter_list|()
+block|{
+return|return
+name|DEFAULT_CODEC
+return|;
+block|}
 comment|/**      * Forcefully reset the default codec      */
 DECL|method|forceDefaultCodec
 specifier|public

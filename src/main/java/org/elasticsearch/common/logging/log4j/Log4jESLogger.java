@@ -105,6 +105,16 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
+DECL|method|logger
+specifier|public
+name|Logger
+name|logger
+parameter_list|()
+block|{
+return|return
+name|logger
+return|;
+block|}
 DECL|method|setLevel
 specifier|public
 name|void

@@ -1444,7 +1444,7 @@ name|sizeInBytes
 operator|+=
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 name|lookupMap
@@ -1788,7 +1788,7 @@ argument_list|()
 operator|.
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 if|if
@@ -1840,7 +1840,7 @@ argument_list|()
 operator|.
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 decl_stmt|;
 name|completionFields

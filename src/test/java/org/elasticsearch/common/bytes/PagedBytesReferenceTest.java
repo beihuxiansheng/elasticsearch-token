@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -145,6 +131,20 @@ operator|.
 name|util
 operator|.
 name|ByteArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|breaker
+operator|.
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -313,6 +313,10 @@ operator|.
 name|EMPTY
 argument_list|,
 literal|null
+argument_list|,
+operator|new
+name|NoneCircuitBreakerService
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

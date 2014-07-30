@@ -42,7 +42,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -263,7 +263,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 index|[]
 name|values
 decl_stmt|;
@@ -277,7 +277,7 @@ operator|.
 name|values
 operator|=
 operator|new
-name|DoubleValues
+name|SortedNumericDoubleValues
 index|[
 name|indexFieldDatas
 operator|.
@@ -350,7 +350,7 @@ name|IOException
 block|{
 for|for
 control|(
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|value
 range|:
 name|values

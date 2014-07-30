@@ -1851,7 +1851,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"new double[] { doc['value'].value, doc['value'].value + inc }"
+literal|"[ doc['value'].value, doc['value'].value + inc ]"
 argument_list|)
 operator|.
 name|param

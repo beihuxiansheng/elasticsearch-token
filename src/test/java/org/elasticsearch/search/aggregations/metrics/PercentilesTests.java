@@ -112,7 +112,7 @@ name|metrics
 operator|.
 name|percentiles
 operator|.
-name|Percentiles
+name|Percentile
 import|;
 end_import
 
@@ -131,8 +131,6 @@ operator|.
 name|percentiles
 operator|.
 name|Percentiles
-operator|.
-name|Percentile
 import|;
 end_import
 

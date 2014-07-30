@@ -282,11 +282,9 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|fielddata
-operator|.
 name|breaker
 operator|.
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -819,7 +817,7 @@ literal|"dummy"
 argument_list|)
 argument_list|,
 operator|new
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -852,9 +850,6 @@ argument_list|)
 decl_stmt|;
 specifier|final
 name|IndexNumericFieldData
-argument_list|<
-name|AtomicNumericFieldData
-argument_list|>
 name|fd
 init|=
 name|fds
@@ -935,23 +930,11 @@ literal|"\t"
 operator|+
 name|RamUsageEstimator
 operator|.
-name|humanSizeOf
-argument_list|(
-name|afd
-operator|.
-name|getLongValues
-argument_list|()
-argument_list|)
-operator|+
-literal|"\t"
-operator|+
-name|RamUsageEstimator
-operator|.
 name|humanReadableUnits
 argument_list|(
 name|afd
 operator|.
-name|getMemorySizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 argument_list|)

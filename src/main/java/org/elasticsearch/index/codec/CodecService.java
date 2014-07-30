@@ -222,7 +222,7 @@ specifier|final
 name|boolean
 name|INDEX_CODEC_BLOOM_LOAD_DEFAULT
 init|=
-literal|true
+literal|false
 decl_stmt|;
 DECL|field|postingsFormatService
 specifier|private

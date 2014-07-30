@@ -16,8 +16,22 @@ name|fielddata
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|SortedNumericDocValues
+import|;
+end_import
+
 begin_comment
-comment|/**  */
+comment|/**  * Specialization of {@link AtomicFieldData} for numeric data.  */
 end_comment
 
 begin_interface
@@ -27,17 +41,16 @@ interface|interface
 name|AtomicNumericFieldData
 extends|extends
 name|AtomicFieldData
-argument_list|<
-name|ScriptDocValues
-argument_list|>
 block|{
+comment|/**      * Get an integer view of the values of this segment. If the implementation      * stores floating-point numbers then these values will return the same      * values but casted to longs.      */
 DECL|method|getLongValues
-name|LongValues
+name|SortedNumericDocValues
 name|getLongValues
 parameter_list|()
 function_decl|;
+comment|/**      * Return a floating-point view of the values in this segment. If the      * implementation stored integers then the returned doubles would be the      * same ones as you would get from casting to a double.      */
 DECL|method|getDoubleValues
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|getDoubleValues
 parameter_list|()
 function_decl|;

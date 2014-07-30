@@ -64,11 +64,27 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|plain
+operator|.
+name|AbstractIndexFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|breaker
 operator|.
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 import|;
 end_import
 
@@ -112,7 +128,7 @@ decl_stmt|;
 DECL|field|breaker
 specifier|private
 specifier|final
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 name|breaker
 decl_stmt|;
 DECL|field|termsEnum
@@ -152,7 +168,7 @@ parameter_list|(
 name|TermsEnum
 name|termsEnum
 parameter_list|,
-name|MemoryCircuitBreaker
+name|CircuitBreaker
 name|breaker
 parameter_list|,
 name|AbstractIndexFieldData

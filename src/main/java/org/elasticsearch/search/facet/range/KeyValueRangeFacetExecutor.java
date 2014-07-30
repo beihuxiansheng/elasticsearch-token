@@ -42,7 +42,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -249,7 +249,7 @@ name|rangeProc
 decl_stmt|;
 DECL|field|keyValues
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|keyValues
 decl_stmt|;
 DECL|method|Collector
@@ -375,7 +375,7 @@ index|[]
 name|entries
 decl_stmt|;
 DECL|field|valueValues
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|valueValues
 decl_stmt|;
 DECL|method|RangeProc
@@ -457,15 +457,20 @@ operator|.
 name|count
 operator|++
 expr_stmt|;
-name|int
-name|seek
-init|=
 name|valueValues
 operator|.
 name|setDocument
 argument_list|(
 name|docId
 argument_list|)
+expr_stmt|;
+name|int
+name|seek
+init|=
+name|valueValues
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -487,8 +492,10 @@ name|valueValue
 init|=
 name|valueValues
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 name|entry
 operator|.

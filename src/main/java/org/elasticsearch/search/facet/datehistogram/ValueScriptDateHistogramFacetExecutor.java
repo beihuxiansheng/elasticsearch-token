@@ -52,6 +52,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|SortedNumericDocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Scorer
@@ -96,7 +110,7 @@ name|common
 operator|.
 name|rounding
 operator|.
-name|TimeZoneRounding
+name|Rounding
 import|;
 end_import
 
@@ -111,20 +125,6 @@ operator|.
 name|fielddata
 operator|.
 name|IndexNumericFieldData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|LongValues
 import|;
 end_import
 
@@ -235,7 +235,7 @@ name|valueScript
 decl_stmt|;
 DECL|field|tzRounding
 specifier|final
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 decl_stmt|;
 DECL|field|entries
@@ -263,7 +263,7 @@ parameter_list|,
 name|SearchScript
 name|valueScript
 parameter_list|,
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 parameter_list|,
 name|DateHistogramFacet
@@ -464,7 +464,7 @@ name|histoProc
 decl_stmt|;
 DECL|field|keyValues
 specifier|private
-name|LongValues
+name|SortedNumericDocValues
 name|keyValues
 decl_stmt|;
 DECL|method|Collector
@@ -585,7 +585,7 @@ block|{
 DECL|field|tzRounding
 specifier|private
 specifier|final
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 decl_stmt|;
 DECL|field|valueScript
@@ -608,7 +608,7 @@ DECL|method|DateHistogramProc
 specifier|public
 name|DateHistogramProc
 parameter_list|(
-name|TimeZoneRounding
+name|Rounding
 name|tzRounding
 parameter_list|,
 name|SearchScript

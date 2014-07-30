@@ -876,6 +876,11 @@ name|parseContext
 operator|.
 name|mapperService
 argument_list|()
+operator|.
+name|docMappers
+argument_list|(
+literal|false
+argument_list|)
 control|)
 block|{
 name|ParentFieldMapper
@@ -913,9 +918,6 @@ decl_stmt|;
 name|parentChildIndexFieldData
 operator|=
 name|parseContext
-operator|.
-name|fieldData
-argument_list|()
 operator|.
 name|getForField
 argument_list|(

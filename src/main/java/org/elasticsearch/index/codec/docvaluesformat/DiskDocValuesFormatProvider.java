@@ -42,9 +42,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|diskdv
+name|lucene49
 operator|.
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 import|;
 end_import
 
@@ -132,12 +132,13 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+comment|// TODO: log a warning if someone chooses this? just remove this together and map it to the 4.9 provider?
 name|this
 operator|.
 name|docValuesFormat
 operator|=
 operator|new
-name|DiskDocValuesFormat
+name|Lucene49DocValuesFormat
 argument_list|()
 expr_stmt|;
 block|}

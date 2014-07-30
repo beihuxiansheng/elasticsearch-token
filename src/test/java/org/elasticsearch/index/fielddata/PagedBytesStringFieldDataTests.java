@@ -30,6 +30,22 @@ name|ImmutableSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|fielddata
+operator|.
+name|ordinals
+operator|.
+name|OrdinalsBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -66,6 +82,16 @@ argument_list|(
 literal|"format"
 argument_list|,
 literal|"paged_bytes"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|OrdinalsBuilder
+operator|.
+name|FORCE_MULTI_ORDINALS
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

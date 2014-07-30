@@ -170,24 +170,6 @@ name|fixNegativeQueryIfNeeded
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-operator|.
-name|optimizeQuery
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -996,8 +978,6 @@ expr_stmt|;
 name|Query
 name|query
 init|=
-name|optimizeQuery
-argument_list|(
 name|adjustPureNegative
 condition|?
 name|fixNegativeQueryIfNeeded
@@ -1006,7 +986,6 @@ name|booleanQuery
 argument_list|)
 else|:
 name|booleanQuery
-argument_list|)
 decl_stmt|;
 if|if
 condition|(

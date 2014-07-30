@@ -56,7 +56,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|Translog
+name|AbstractSimpleTranslogTests
 import|;
 end_import
 
@@ -70,7 +70,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|AbstractSimpleTranslogTests
+name|Translog
 import|;
 end_import
 
@@ -145,7 +145,7 @@ argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"data/fs-translog"
+literal|"data/fs-simple-translog"
 argument_list|)
 argument_list|)
 return|;
@@ -166,7 +166,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"data/fs-translog"
+literal|"data/fs-simple-translog"
 argument_list|)
 argument_list|,
 literal|true

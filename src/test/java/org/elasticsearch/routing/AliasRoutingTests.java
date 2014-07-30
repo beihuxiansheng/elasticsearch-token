@@ -110,6 +110,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -508,6 +520,12 @@ operator|.
 name|setScript
 argument_list|(
 literal|"ctx._source.field = 'value2'"
+argument_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+operator|.
+name|INLINE
 argument_list|)
 operator|.
 name|execute

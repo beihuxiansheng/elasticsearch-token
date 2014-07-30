@@ -422,7 +422,9 @@ name|serverThreadPool
 init|=
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"server"
+argument_list|)
 decl_stmt|;
 specifier|final
 name|TransportService
@@ -452,7 +454,9 @@ name|clientThreadPool
 init|=
 operator|new
 name|ThreadPool
-argument_list|()
+argument_list|(
+literal|"client"
+argument_list|)
 decl_stmt|;
 specifier|final
 name|TransportService

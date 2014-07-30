@@ -80,6 +80,10 @@ block|{
 if|if
 condition|(
 name|sValue
+operator|!=
+literal|null
+operator|&&
+name|sValue
 operator|.
 name|endsWith
 argument_list|(

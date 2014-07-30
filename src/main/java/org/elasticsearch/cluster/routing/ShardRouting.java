@@ -218,6 +218,12 @@ name|String
 name|relocatingNodeId
 parameter_list|()
 function_decl|;
+comment|/**      * If the shard is relocating, return a shard routing representing the target shard or null o.w.      * The target shard routing will be the INITIALIZING state and have relocatingNodeId set to the      * source node.      */
+DECL|method|targetRoutingIfRelocating
+name|ShardRouting
+name|targetRoutingIfRelocating
+parameter_list|()
+function_decl|;
 comment|/**      * Snapshot id and repository where this shard is being restored from      */
 DECL|method|restoreSource
 name|RestoreSource

@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Indices action (used with {@link IndicesAdminClient} API.  */
+comment|/**  * Indices action (used with {@link IndicesAdminClient} API).  */
 end_comment
 
 begin_class

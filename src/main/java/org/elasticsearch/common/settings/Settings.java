@@ -132,6 +132,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * Immutable settings allowing to control the configuration.  *<p/>  *<p>Using {@link ImmutableSettings#settingsBuilder()} in order to create a builder  * which in turn can create an immutable implementation of settings.  *  * @see ImmutableSettings  */
 end_comment
@@ -172,6 +182,15 @@ name|getByPrefix
 parameter_list|(
 name|String
 name|prefix
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the settings mapped to the given setting name.      */
+DECL|method|getAsSettings
+name|Settings
+name|getAsSettings
+parameter_list|(
+name|String
+name|setting
 parameter_list|)
 function_decl|;
 comment|/**      * The class loader associated with this settings, or {@link org.elasticsearch.common.Classes#getDefaultClassLoader()}      * if not set.      */
@@ -699,6 +718,15 @@ name|defaultVersion
 parameter_list|)
 throws|throws
 name|SettingsException
+function_decl|;
+comment|/**      * @return  The direct keys of this settings      */
+DECL|method|names
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|names
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the settings as delimited string.      */
 DECL|method|toDelimitedString

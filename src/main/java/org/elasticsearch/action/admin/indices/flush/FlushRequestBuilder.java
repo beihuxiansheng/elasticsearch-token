@@ -163,6 +163,26 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setWaitIfOngoing
+specifier|public
+name|FlushRequestBuilder
+name|setWaitIfOngoing
+parameter_list|(
+name|boolean
+name|waitIfOngoing
+parameter_list|)
+block|{
+name|request
+operator|.
+name|waitIfOngoing
+argument_list|(
+name|waitIfOngoing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

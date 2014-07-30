@@ -77,12 +77,10 @@ parameter_list|()
 block|{
 name|bigArrays
 operator|.
-name|ramBytesUsed
-operator|.
-name|addAndGet
+name|adjustBreaker
 argument_list|(
 operator|-
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -190,6 +190,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lease
+operator|.
+name|Releasables
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|search
@@ -358,7 +372,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|TestSearchContext
 import|;
 end_import
 
@@ -432,42 +446,6 @@ name|TreeSet
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
-name|ChildrenConstantScoreQueryTests
-operator|.
-name|assertBitSet
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
-name|ChildrenConstantScoreQueryTests
-operator|.
-name|createSearchContext
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -478,7 +456,7 @@ specifier|public
 class|class
 name|ParentConstantScoreQueryTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|AbstractChildTests
 block|{
 annotation|@
 name|BeforeClass
@@ -521,9 +499,24 @@ throws|throws
 name|IOException
 block|{
 name|SearchContext
+name|current
+init|=
+name|SearchContext
+operator|.
+name|current
+argument_list|()
+decl_stmt|;
+name|SearchContext
 operator|.
 name|removeCurrent
 argument_list|()
+expr_stmt|;
+name|Releasables
+operator|.
+name|close
+argument_list|(
+name|current
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

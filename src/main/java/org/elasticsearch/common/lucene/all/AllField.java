@@ -102,16 +102,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -242,30 +232,6 @@ return|return
 name|allEntries
 return|;
 block|}
-static|static
-block|{
-assert|assert
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|luceneVersion
-operator|==
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-operator|.
-name|LUCENE_48
-operator|:
-literal|"Re-use the incoming AllTokenStream once we upgrade to Lucene 4.9"
-assert|;
-block|}
 annotation|@
 name|Override
 DECL|method|tokenStream
@@ -275,6 +241,9 @@ name|tokenStream
 parameter_list|(
 name|Analyzer
 name|analyzer
+parameter_list|,
+name|TokenStream
+name|previous
 parameter_list|)
 throws|throws
 name|IOException
@@ -310,6 +279,8 @@ operator|>=
 literal|0
 condition|)
 block|{
+comment|// TODO: we should be able to reuse "previous" if its instanceof AllTokenStream?
+comment|// but we need to be careful this optimization is safe (and tested)...
 comment|// AllTokenStream maps boost to 4-byte payloads, so we only need to use it any field had non-default (!= 1.0f) boost and if
 comment|// positions are indexed:
 return|return

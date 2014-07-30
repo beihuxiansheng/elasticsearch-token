@@ -233,7 +233,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore and how to deal with wildcard expressions.      * For example indices that don't exist.      *      * @param indicesOptions the desired behaviour regarding indices to ignore and wildcard indices expressions      * @return this request      */
+comment|/**      * Specifies what type of requested indices to ignore and how to deal with wildcard expressions.      * For example indices that don't exist.      *      * @param indicesOptions the desired behaviour regarding indices to ignore and wildcard indices expressions      * @return this builder      */
 DECL|method|setIndicesOptions
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -275,7 +275,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets rename replacement      *<p/>      * See {@link #setRenamePattern(String)} for more information.      *      * @param renameReplacement rename replacement      * @return      */
+comment|/**      * Sets rename replacement      *<p/>      * See {@link #setRenamePattern(String)} for more information.      *      * @param renameReplacement rename replacement      * @return this builder      */
 DECL|method|setRenameReplacement
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -408,7 +408,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If set to true the restore procedure will restore global cluster state.      *<p/>      * The global cluster state includes persistent settings and index template definitions.      *      * @param restoreGlobalState true if global state should be restored from the snapshot      * @return this request      */
+comment|/**      * If set to true the restore procedure will restore global cluster state.      *<p/>      * The global cluster state includes persistent settings and index template definitions.      *      * @param restoreGlobalState true if global state should be restored from the snapshot      * @return this builder      */
 DECL|method|setRestoreGlobalState
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -423,6 +423,48 @@ operator|.
 name|includeGlobalState
 argument_list|(
 name|restoreGlobalState
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If set to true the restore procedure will restore partially snapshotted indices      *      * @param partial true if partially snapshotted indices should be restored      * @return this builder      */
+DECL|method|setPartial
+specifier|public
+name|RestoreSnapshotRequestBuilder
+name|setPartial
+parameter_list|(
+name|boolean
+name|partial
+parameter_list|)
+block|{
+name|request
+operator|.
+name|partial
+argument_list|(
+name|partial
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If set to true the restore procedure will restore aliases      *      * @param restoreAliases true if aliases should be restored from the snapshot      * @return this builder      */
+DECL|method|setIncludeAliases
+specifier|public
+name|RestoreSnapshotRequestBuilder
+name|setIncludeAliases
+parameter_list|(
+name|boolean
+name|restoreAliases
+parameter_list|)
+block|{
+name|request
+operator|.
+name|includeAliases
+argument_list|(
+name|restoreAliases
 argument_list|)
 expr_stmt|;
 return|return

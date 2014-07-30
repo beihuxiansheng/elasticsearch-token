@@ -26,20 +26,8 @@ name|Client
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|client
-operator|.
-name|IndicesAdminClient
-import|;
-end_import
-
 begin_comment
-comment|/**  * Indices action (used with {@link IndicesAdminClient} API.  */
+comment|/**  * Action (used with {@link Client} API).  */
 end_comment
 
 begin_class

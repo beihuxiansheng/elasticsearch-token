@@ -72,6 +72,22 @@ name|lucene
 operator|.
 name|analysis
 operator|.
+name|ga
+operator|.
+name|IrishLowerCaseFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
 name|tr
 operator|.
 name|TurkishLowerCaseFilter
@@ -159,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Factory for {@link LowerCaseFilter} and some language-specific variants  * supported by the {@code language} parameter:  *<ul>  *<li>greek: {@link GreekLowerCaseFilter}  *<li>irish: {@link IrishLowerCaseFilter}  *<li>turkish: {@link TurkishLowerCaseFilter}  *</ul>  */
 end_comment
 
 begin_class
@@ -271,6 +287,25 @@ name|GreekLowerCaseFilter
 argument_list|(
 name|version
 argument_list|,
+name|tokenStream
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|lang
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"irish"
+argument_list|)
+condition|)
+block|{
+return|return
+operator|new
+name|IrishLowerCaseFilter
+argument_list|(
 name|tokenStream
 argument_list|)
 return|;

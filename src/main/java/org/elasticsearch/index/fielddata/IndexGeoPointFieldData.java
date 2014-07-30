@@ -16,22 +16,8 @@ name|fielddata
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|AtomicReaderContext
-import|;
-end_import
-
 begin_comment
-comment|/**  */
+comment|/**  * Specialization of {@link IndexFieldData} for geo points.  */
 end_comment
 
 begin_interface
@@ -39,38 +25,12 @@ DECL|interface|IndexGeoPointFieldData
 specifier|public
 interface|interface
 name|IndexGeoPointFieldData
-parameter_list|<
-name|FD
-extends|extends
-name|AtomicGeoPointFieldData
-parameter_list|>
 extends|extends
 name|IndexFieldData
 argument_list|<
-name|FD
+name|AtomicGeoPointFieldData
 argument_list|>
-block|{
-comment|/**      * Loads the atomic field data for the reader, possibly cached.      */
-DECL|method|load
-name|FD
-name|load
-parameter_list|(
-name|AtomicReaderContext
-name|context
-parameter_list|)
-function_decl|;
-comment|/**      * Loads directly the atomic field data for the reader, ignoring any caching involved.      */
-DECL|method|loadDirect
-name|FD
-name|loadDirect
-parameter_list|(
-name|AtomicReaderContext
-name|context
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-block|}
+block|{ }
 end_interface
 
 end_unit

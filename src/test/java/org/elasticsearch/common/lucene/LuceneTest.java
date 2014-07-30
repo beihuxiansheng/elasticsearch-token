@@ -17,32 +17,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|core
-operator|.
-name|IsEqual
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -88,9 +62,47 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|MatcherAssert
+operator|.
+name|assertThat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|core
+operator|.
+name|IsEqual
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -103,6 +115,8 @@ DECL|class|LuceneTest
 specifier|public
 class|class
 name|LuceneTest
+extends|extends
+name|ElasticsearchTestCase
 block|{
 comment|/*      * simple test that ensures that we bump the version on Upgrade      */
 annotation|@
@@ -236,7 +250,7 @@ argument_list|()
 operator|.
 name|replaceFirst
 argument_list|(
-literal|"^LUCENE_(\\d)(\\d)$"
+literal|"^LUCENE_(\\d)_?(\\d)$"
 argument_list|,
 literal|"$1.$2"
 argument_list|)

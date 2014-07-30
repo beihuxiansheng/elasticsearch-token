@@ -130,13 +130,13 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|method|InternalNumericMetricsAggregation
-specifier|protected
+specifier|private
 name|InternalNumericMetricsAggregation
 parameter_list|()
 block|{}
 comment|// for serialization
 DECL|method|InternalNumericMetricsAggregation
-specifier|protected
+specifier|private
 name|InternalNumericMetricsAggregation
 parameter_list|(
 name|String

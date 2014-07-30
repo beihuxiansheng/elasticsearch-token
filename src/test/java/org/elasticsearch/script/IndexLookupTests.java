@@ -1307,6 +1307,13 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
+literal|"got: "
+operator|+
+name|e
+operator|.
+name|getDetailedMessage
+argument_list|()
+argument_list|,
 name|e
 operator|.
 name|getDetailedMessage
@@ -1314,7 +1321,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-literal|"You must call get with all required flags! Instead of  _index['int_payload_field'].get('b', _FREQUENCIES) and _index['int_payload_field'].get('b', _POSITIONS) call  _index['int_payload_field'].get('b', _FREQUENCIES | _POSITIONS)  once]; "
+literal|"You must call get with all required flags! Instead of  _index['int_payload_field'].get('b', _FREQUENCIES) and _index['int_payload_field'].get('b', _POSITIONS) call  _index['int_payload_field'].get('b', _FREQUENCIES | _POSITIONS)  once]"
 argument_list|)
 argument_list|,
 name|Matchers
@@ -1497,7 +1504,7 @@ literal|"term = _index['float_payload_field'].get('b',"
 operator|+
 name|includeAllFlag
 operator|+
-literal|"); payloadSum=0; for (pos : term) {payloadSum = pos.payloadAsInt(0);} return payloadSum;"
+literal|"); payloadSum=0; for (pos in term) {payloadSum = pos.payloadAsInt(0)}; payloadSum"
 decl_stmt|;
 comment|// non existing field: sum should be 0
 name|HashMap
@@ -1555,7 +1562,7 @@ literal|"term = _index['int_payload_field'].get('b',"
 operator|+
 name|includeAllFlag
 operator|+
-literal|"); payloadSum=0; for (pos : term) {payloadSum = payloadSum + pos.payloadAsInt(0);} return payloadSum;"
+literal|"); payloadSum=0; for (pos in term) {payloadSum = payloadSum + pos.payloadAsInt(0)}; payloadSum"
 expr_stmt|;
 comment|// existing field: sums should be as here:
 name|zeroArray
@@ -1847,11 +1854,11 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} ;_index['int_payload_field'].get('"
+literal|")}; _index['int_payload_field'].get('"
 operator|+
 name|term
 operator|+
@@ -1859,7 +1866,7 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
@@ -1895,15 +1902,15 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} array=[]; for (pos : term) {array.add(pos."
+literal|")}; array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} return array;"
+literal|")}; array"
 decl_stmt|;
 return|return
 name|script
@@ -1942,11 +1949,11 @@ literal|"',"
 operator|+
 name|flags
 operator|+
-literal|"); array=[]; for (pos : term) {array.add(pos."
+literal|"); array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} return array;"
+literal|")}; array"
 decl_stmt|;
 return|return
 name|script
@@ -1978,11 +1985,11 @@ literal|"']['"
 operator|+
 name|term
 operator|+
-literal|"']; array=[]; for (pos : term) {array.add(pos."
+literal|"']; array=[]; for (pos in term) {array.add(pos."
 operator|+
 name|what
 operator|+
-literal|")} return array;"
+literal|")}; array"
 decl_stmt|;
 return|return
 name|script
@@ -4200,6 +4207,13 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
+literal|"got "
+operator|+
+name|ex
+operator|.
+name|getDetailedMessage
+argument_list|()
+argument_list|,
 name|ex
 operator|.
 name|getDetailedMessage

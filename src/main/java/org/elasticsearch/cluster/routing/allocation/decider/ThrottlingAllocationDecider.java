@@ -173,6 +173,15 @@ name|CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
 init|=
 literal|"cluster.routing.allocation.node_concurrent_recoveries"
 decl_stmt|;
+DECL|field|CLUSTER_ROUTING_ALLOCATION_CONCURRENT_RECOVERIES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLUSTER_ROUTING_ALLOCATION_CONCURRENT_RECOVERIES
+init|=
+literal|"cluster.routing.allocation.concurrent_recoveries"
+decl_stmt|;
 DECL|field|DEFAULT_CLUSTER_ROUTING_ALLOCATION_NODE_CONCURRENT_RECOVERIES
 specifier|public
 specifier|static
@@ -242,7 +251,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"cluster.routing.allocation.concurrent_recoveries"
+name|CLUSTER_ROUTING_ALLOCATION_CONCURRENT_RECOVERIES
 argument_list|,
 name|settings
 operator|.

@@ -68,7 +68,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|DoubleValues
+name|IndexNumericFieldData
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexNumericFieldData
+name|SortedNumericDoubleValues
 import|;
 end_import
 
@@ -439,7 +439,7 @@ name|histoProc
 decl_stmt|;
 DECL|field|keyValues
 specifier|private
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|keyValues
 decl_stmt|;
 DECL|method|Collector
@@ -560,7 +560,7 @@ argument_list|>
 name|entries
 decl_stmt|;
 DECL|field|valueValues
-name|DoubleValues
+name|SortedNumericDoubleValues
 name|valueValues
 decl_stmt|;
 DECL|field|valueAggregator

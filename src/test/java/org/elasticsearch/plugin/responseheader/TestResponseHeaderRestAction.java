@@ -127,6 +127,9 @@ name|request
 parameter_list|,
 name|RestChannel
 name|channel
+parameter_list|,
+name|Client
+name|client
 parameter_list|)
 block|{
 if|if

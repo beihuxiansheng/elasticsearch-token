@@ -186,6 +186,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|Lucene
@@ -505,12 +517,12 @@ name|sysProperty
 operator|=
 name|TESTS_BACKWARDS_COMPATIBILITY
 argument_list|)
-DECL|interface|BackwardsCompatibilityTest
+DECL|interface|Backwards
 specifier|public
 annotation_defn|@interface
-name|BackwardsCompatibilityTest
+name|Backwards
 block|{     }
-comment|/**      * Key used to set the path for the elasticsearch executable used to run backwards compatibility tests from      * via the commandline -D{@value #TESTS_BACKWARDS_COMPATIBILITY_PATH}      */
+comment|/**      * Key used to set the path for the elasticsearch executable used to run backwards compatibility tests from      * via the commandline -D{@value #TESTS_BACKWARDS_COMPATIBILITY}      */
 DECL|field|TESTS_BACKWARDS_COMPATIBILITY
 specifier|public
 specifier|static
@@ -567,10 +579,10 @@ name|sysProperty
 operator|=
 name|SYSPROP_INTEGRATION
 argument_list|)
-DECL|interface|IntegrationTests
+DECL|interface|Integration
 specifier|public
 annotation_defn|@interface
-name|IntegrationTests
+name|Integration
 block|{     }
 comment|// --------------------------------------------------------------------
 comment|// Test groups, system properties and other annotations modifying tests

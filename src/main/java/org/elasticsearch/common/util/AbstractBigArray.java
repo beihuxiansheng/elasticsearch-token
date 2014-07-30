@@ -436,11 +436,11 @@ name|int
 name|numBytesPerElement
 parameter_list|()
 function_decl|;
-DECL|method|sizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 specifier|final
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 comment|// rough approximate, we only take into account the size of the values, not the overhead of the array objects

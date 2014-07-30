@@ -36,6 +36,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|DocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalArgumentException
@@ -128,7 +142,11 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldDataCache
+name|IndexFieldData
+operator|.
+name|XFieldComparatorSource
+operator|.
+name|Nested
 import|;
 end_import
 
@@ -142,9 +160,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|ordinals
-operator|.
-name|GlobalOrdinalsBuilder
+name|IndexFieldDataCache
 import|;
 end_import
 
@@ -199,8 +215,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|indices
-operator|.
-name|fielddata
 operator|.
 name|breaker
 operator|.
@@ -269,18 +283,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|valuesOrdered
-specifier|public
-name|boolean
-name|valuesOrdered
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|comparatorSource
 specifier|public
 specifier|final
@@ -294,6 +296,9 @@ name|missingValue
 parameter_list|,
 name|MultiValueMode
 name|sortMode
+parameter_list|,
+name|Nested
+name|nested
 parameter_list|)
 block|{
 throw|throw
@@ -321,13 +326,15 @@ return|return
 operator|new
 name|BytesBinaryDVAtomicFieldData
 argument_list|(
+name|DocValues
+operator|.
+name|getBinary
+argument_list|(
 name|context
 operator|.
 name|reader
 argument_list|()
-operator|.
-name|getBinaryDocValues
-argument_list|(
+argument_list|,
 name|fieldNames
 operator|.
 name|indexName
@@ -413,9 +420,6 @@ name|breakerService
 parameter_list|,
 name|MapperService
 name|mapperService
-parameter_list|,
-name|GlobalOrdinalsBuilder
-name|globalOrdinalBuilder
 parameter_list|)
 block|{
 comment|// Ignore breaker

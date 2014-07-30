@@ -285,7 +285,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Mapping configuration for a type.  */
 end_comment
 
 begin_class
@@ -1180,31 +1180,6 @@ operator|!=
 name|timestamp
 operator|.
 name|enabled
-condition|)
-return|return
-literal|false
-return|;
-if|if
-condition|(
-name|dateTimeFormatter
-operator|!=
-literal|null
-condition|?
-operator|!
-name|dateTimeFormatter
-operator|.
-name|equals
-argument_list|(
-name|timestamp
-operator|.
-name|dateTimeFormatter
-argument_list|)
-else|:
-name|timestamp
-operator|.
-name|dateTimeFormatter
-operator|!=
-literal|null
 condition|)
 return|return
 literal|false

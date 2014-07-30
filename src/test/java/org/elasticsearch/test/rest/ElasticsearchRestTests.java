@@ -1197,7 +1197,8 @@ name|randomizeNumberOfShardsAndReplicas
 parameter_list|()
 block|{
 return|return
-name|COMPATIBILITY_VERSION
+name|compatibilityVersion
+argument_list|()
 operator|.
 name|onOrAfter
 argument_list|(

@@ -189,6 +189,16 @@ name|OrdinalsBuilder
 implements|implements
 name|Closeable
 block|{
+comment|/**      * Whether to for the use of {@link MultiOrdinals} to store the ordinals for testing purposes.      */
+DECL|field|FORCE_MULTI_ORDINALS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|FORCE_MULTI_ORDINALS
+init|=
+literal|"force_multi_ordinals"
+decl_stmt|;
 comment|/**      * Default acceptable overhead ratio. {@link OrdinalsBuilder} memory usage is mostly transient so it is likely a better trade-off to      * trade memory for speed in order to resize less often.      */
 DECL|field|DEFAULT_ACCEPTABLE_OVERHEAD_RATIO
 specifier|public
@@ -1252,9 +1262,6 @@ specifier|private
 name|long
 name|currentOrd
 init|=
-name|Ordinals
-operator|.
-name|MIN_ORDINAL
 operator|-
 literal|1
 decl_stmt|;
@@ -1579,10 +1586,10 @@ name|totalNumOrds
 return|;
 block|}
 comment|/**      * Returns the number of distinct ordinals in this builder.      */
-DECL|method|getMaxOrd
+DECL|method|getValueCount
 specifier|public
 name|long
-name|getMaxOrd
+name|getValueCount
 parameter_list|()
 block|{
 return|return
@@ -1686,8 +1693,23 @@ operator|.
 name|FASTEST
 argument_list|)
 decl_stmt|;
+specifier|final
+name|boolean
+name|forceMultiOrdinals
+init|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|FORCE_MULTI_ORDINALS
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+name|forceMultiOrdinals
+operator|||
 name|numMultiValuedDocs
 operator|>
 literal|0
@@ -1700,7 +1722,7 @@ name|maxDoc
 argument_list|,
 name|numDocsWithValue
 argument_list|,
-name|getMaxOrd
+name|getValueCount
 argument_list|()
 argument_list|,
 name|acceptableOverheadRatio

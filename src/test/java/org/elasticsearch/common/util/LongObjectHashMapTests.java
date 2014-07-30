@@ -36,7 +36,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|LongObjectHashMapTests
 extends|extends
-name|ElasticsearchTestCase
+name|ElasticsearchSingleNodeTest
 block|{
 annotation|@
 name|Test

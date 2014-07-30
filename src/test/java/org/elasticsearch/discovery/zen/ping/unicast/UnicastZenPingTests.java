@@ -347,7 +347,13 @@ name|threadPool
 init|=
 operator|new
 name|ThreadPool
+argument_list|(
+name|getClass
 argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|ClusterName
 name|clusterName

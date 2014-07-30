@@ -265,6 +265,8 @@ continue|continue;
 block|}
 try|try
 block|{
+comment|// TODO: instead of passing null here, we can have a CTL<Map<String,TokenStream>> and pass previous,
+comment|// like the indexer does
 name|TokenStream
 name|tokenStream
 init|=
@@ -276,6 +278,8 @@ name|parsedDocument
 operator|.
 name|analyzer
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

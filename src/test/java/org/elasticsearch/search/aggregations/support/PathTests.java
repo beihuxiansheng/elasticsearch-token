@@ -36,6 +36,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -74,30 +86,6 @@ name|equalTo
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|fail
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -107,6 +95,8 @@ DECL|class|PathTests
 specifier|public
 class|class
 name|PathTests
+extends|extends
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test
@@ -299,9 +289,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"foo"
-argument_list|,
-literal|"bar"
+literal|"foo.bar"
 argument_list|)
 operator|.
 name|add
@@ -321,9 +309,7 @@ argument_list|()
 operator|.
 name|add
 argument_list|(
-literal|"foo"
-argument_list|,
-literal|"bar"
+literal|"foo.bar"
 argument_list|)
 operator|.
 name|add

@@ -156,6 +156,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -317,7 +329,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p>      * The script works with the variable<code>ctx</code>, which is bound to the entry,       * e.g.<code>ctx._source.mycounter += 1</code>.      *       * @see #setScriptLang(String)      * @see #setScriptParams(Map)      */
+comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p>      * The script works with the variable<code>ctx</code>, which is bound to the entry,      * e.g.<code>ctx._source.mycounter += 1</code>.      *      * @see #setScriptLang(String)      * @see #setScriptParams(Map)      */
 DECL|method|setScript
 specifier|public
 name|UpdateRequestBuilder
@@ -325,6 +337,11 @@ name|setScript
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+name|scriptType
 parameter_list|)
 block|{
 name|request
@@ -332,13 +349,15 @@ operator|.
 name|script
 argument_list|(
 name|script
+argument_list|,
+name|scriptType
 argument_list|)
 expr_stmt|;
 return|return
 name|this
 return|;
 block|}
-comment|/**      * The language of the script to execute.      * Valid options are: mvel, js, groovy, python, and native (Java)<br>      * Default: mvel      *<p>      * Ref: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html      */
+comment|/**      * The language of the script to execute.      * Valid options are: mvel, js, groovy, python, and native (Java)<br>      * Default: groovy      *<p>      * Ref: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html      */
 DECL|method|setScriptLang
 specifier|public
 name|UpdateRequestBuilder
@@ -1072,6 +1091,27 @@ operator|.
 name|docAsUpsert
 argument_list|(
 name|shouldUpsertDoc
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to perform extra effort to detect noop updates via docAsUpsert.      */
+DECL|method|setDetectNoop
+specifier|public
+name|UpdateRequestBuilder
+name|setDetectNoop
+parameter_list|(
+name|boolean
+name|detectNoop
+parameter_list|)
+block|{
+name|request
+operator|.
+name|detectNoop
+argument_list|(
+name|detectNoop
 argument_list|)
 expr_stmt|;
 return|return

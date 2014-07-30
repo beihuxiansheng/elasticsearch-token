@@ -789,7 +789,14 @@ name|request
 operator|.
 name|opType
 argument_list|(
+name|IndexRequest
+operator|.
+name|OpType
+operator|.
+name|fromString
+argument_list|(
 name|opType
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

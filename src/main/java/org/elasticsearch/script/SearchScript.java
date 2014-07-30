@@ -50,18 +50,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|SearchContext
@@ -93,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search script.  *  * @see ExplainableSearchScript for script which can explain a score  */
+comment|/**  * A search script.  *  * @see {@link ExplainableSearchScript} for script which can explain a score  */
 end_comment
 
 begin_interface
@@ -129,14 +117,6 @@ argument_list|>
 name|source
 parameter_list|)
 function_decl|;
-DECL|method|setNextScore
-name|void
-name|setNextScore
-parameter_list|(
-name|float
-name|score
-parameter_list|)
-function_decl|;
 DECL|method|runAsFloat
 name|float
 name|runAsFloat
@@ -163,6 +143,13 @@ specifier|private
 name|String
 name|script
 decl_stmt|;
+DECL|field|scriptType
+specifier|private
+name|ScriptService
+operator|.
+name|ScriptType
+name|scriptType
+decl_stmt|;
 DECL|field|lang
 specifier|private
 name|String
@@ -185,6 +172,11 @@ name|script
 parameter_list|(
 name|String
 name|script
+parameter_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+name|scriptType
 parameter_list|)
 block|{
 name|this
@@ -192,6 +184,12 @@ operator|.
 name|script
 operator|=
 name|script
+expr_stmt|;
+name|this
+operator|.
+name|scriptType
+operator|=
+name|scriptType
 expr_stmt|;
 return|return
 name|this
@@ -286,6 +284,8 @@ argument_list|,
 name|lang
 argument_list|,
 name|script
+argument_list|,
+name|scriptType
 argument_list|,
 name|params
 argument_list|)

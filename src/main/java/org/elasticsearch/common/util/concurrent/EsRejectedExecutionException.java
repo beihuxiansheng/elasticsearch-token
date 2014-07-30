@@ -104,7 +104,7 @@ block|{
 return|return
 name|RestStatus
 operator|.
-name|SERVICE_UNAVAILABLE
+name|TOO_MANY_REQUESTS
 return|;
 block|}
 block|}

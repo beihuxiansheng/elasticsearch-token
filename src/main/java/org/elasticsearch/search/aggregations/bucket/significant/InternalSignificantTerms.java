@@ -122,6 +122,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|significant
+operator|.
+name|heuristics
+operator|.
+name|SignificanceHeuristic
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -149,6 +169,11 @@ name|ToXContent
 implements|,
 name|Streamable
 block|{
+DECL|field|significanceHeuristic
+specifier|protected
+name|SignificanceHeuristic
+name|significanceHeuristic
+decl_stmt|;
 DECL|field|requiredSize
 specifier|protected
 name|int
@@ -193,7 +218,6 @@ name|InternalSignificantTerms
 parameter_list|()
 block|{}
 comment|// for serialization
-comment|// TODO updateScore call in constructor to be cleaned up as part of adding pluggable scoring algos
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -260,9 +284,6 @@ name|aggregations
 operator|=
 name|aggregations
 expr_stmt|;
-name|updateScore
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -312,144 +333,20 @@ return|return
 name|subsetSize
 return|;
 block|}
-comment|/**          * Calculates the significance of a term in a sample against a background of          * normal distributions by comparing the changes in frequency. This is the heart          * of the significant terms feature.          *<p/>          * TODO - allow pluggable scoring implementations          *          * @param subsetFreq   The frequency of the term in the selected sample          * @param subsetSize   The size of the selected sample (typically number of docs)          * @param supersetFreq The frequency of the term in the superset from which the sample was taken          * @param supersetSize The size of the superset from which the sample was taken  (typically number of docs)          * @return a "significance" score          */
-DECL|method|getSampledTermSignificance
-specifier|public
-specifier|static
-name|double
-name|getSampledTermSignificance
-parameter_list|(
-name|long
-name|subsetFreq
-parameter_list|,
-name|long
-name|subsetSize
-parameter_list|,
-name|long
-name|supersetFreq
-parameter_list|,
-name|long
-name|supersetSize
-parameter_list|)
-block|{
-if|if
-condition|(
-operator|(
-name|subsetSize
-operator|==
-literal|0
-operator|)
-operator|||
-operator|(
-name|supersetSize
-operator|==
-literal|0
-operator|)
-condition|)
-block|{
-comment|// avoid any divide by zero issues
-return|return
-literal|0
-return|;
-block|}
-if|if
-condition|(
-name|supersetFreq
-operator|==
-literal|0
-condition|)
-block|{
-comment|// If we are using a background context that is not a strict superset, a foreground
-comment|// term may be missing from the background, so for the purposes of this calculation
-comment|// we assume a value of 1 for our calculations which avoids returning an "infinity" result
-name|supersetFreq
-operator|=
-literal|1
-expr_stmt|;
-block|}
-name|double
-name|subsetProbability
-init|=
-operator|(
-name|double
-operator|)
-name|subsetFreq
-operator|/
-operator|(
-name|double
-operator|)
-name|subsetSize
-decl_stmt|;
-name|double
-name|supersetProbability
-init|=
-operator|(
-name|double
-operator|)
-name|supersetFreq
-operator|/
-operator|(
-name|double
-operator|)
-name|supersetSize
-decl_stmt|;
-comment|// Using absoluteProbabilityChange alone favours very common words e.g. you, we etc
-comment|// because a doubling in popularity of a common term is a big percent difference
-comment|// whereas a rare term would have to achieve a hundred-fold increase in popularity to
-comment|// achieve the same difference measure.
-comment|// In favouring common words as suggested features for search we would get high
-comment|// recall but low precision.
-name|double
-name|absoluteProbabilityChange
-init|=
-name|subsetProbability
-operator|-
-name|supersetProbability
-decl_stmt|;
-if|if
-condition|(
-name|absoluteProbabilityChange
-operator|<=
-literal|0
-condition|)
-block|{
-return|return
-literal|0
-return|;
-block|}
-comment|// Using relativeProbabilityChange tends to favour rarer terms e.g.mis-spellings or
-comment|// unique URLs.
-comment|// A very low-probability term can very easily double in popularity due to the low
-comment|// numbers required to do so whereas a high-probability term would have to add many
-comment|// extra individual sightings to achieve the same shift.
-comment|// In favouring rare words as suggested features for search we would get high
-comment|// precision but low recall.
-name|double
-name|relativeProbabilityChange
-init|=
-operator|(
-name|subsetProbability
-operator|/
-name|supersetProbability
-operator|)
-decl_stmt|;
-comment|// A blend of the above metrics - favours medium-rare terms to strike a useful
-comment|// balance between precision and recall.
-return|return
-name|absoluteProbabilityChange
-operator|*
-name|relativeProbabilityChange
-return|;
-block|}
 DECL|method|updateScore
 specifier|public
 name|void
 name|updateScore
-parameter_list|()
+parameter_list|(
+name|SignificanceHeuristic
+name|significanceHeuristic
+parameter_list|)
 block|{
 name|score
 operator|=
-name|getSampledTermSignificance
+name|significanceHeuristic
+operator|.
+name|getScore
 argument_list|(
 name|subsetDf
 argument_list|,
@@ -638,6 +535,9 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|SignificanceHeuristic
+name|significanceHeuristic
+parameter_list|,
 name|Collection
 argument_list|<
 name|Bucket
@@ -679,6 +579,12 @@ operator|.
 name|supersetSize
 operator|=
 name|supersetSize
+expr_stmt|;
+name|this
+operator|.
+name|significanceHeuristic
+operator|=
+name|significanceHeuristic
 expr_stmt|;
 block|}
 annotation|@
@@ -1072,6 +978,13 @@ name|bigArrays
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|b
+operator|.
+name|updateScore
+argument_list|(
+name|significanceHeuristic
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(

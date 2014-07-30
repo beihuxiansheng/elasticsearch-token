@@ -61,6 +61,14 @@ name|short
 name|uniqueAddressTypeId
 parameter_list|()
 function_decl|;
+DECL|method|sameHost
+name|boolean
+name|sameHost
+parameter_list|(
+name|TransportAddress
+name|other
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

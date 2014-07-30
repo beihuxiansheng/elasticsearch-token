@@ -180,7 +180,7 @@ name|BytesReference
 operator|.
 name|Helper
 operator|.
-name|slowBytesEquals
+name|bytesEquals
 argument_list|(
 name|b1
 argument_list|,
@@ -248,7 +248,7 @@ name|BytesReference
 operator|.
 name|Helper
 operator|.
-name|slowBytesEquals
+name|bytesEquals
 argument_list|(
 name|b1
 argument_list|,
@@ -352,7 +352,7 @@ name|BytesReference
 operator|.
 name|Helper
 operator|.
-name|slowBytesEquals
+name|bytesEquals
 argument_list|(
 name|b1
 argument_list|,

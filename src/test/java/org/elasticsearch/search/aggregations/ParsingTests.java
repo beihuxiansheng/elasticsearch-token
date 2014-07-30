@@ -400,7 +400,7 @@ name|Pattern
 operator|.
 name|compile
 argument_list|(
-literal|"[a-zA-Z0-9\\-_]+"
+literal|"[^\\[\\]>]+"
 argument_list|)
 operator|.
 name|matcher

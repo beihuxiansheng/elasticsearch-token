@@ -1723,6 +1723,15 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// only disconnect from nodes that we will end up creating a light connection to, as they are temporal
+comment|// if we find on the disco nodes a matching node by address, we are going to restore the connection
+comment|// anyhow down the line if its not connected...
+if|if
+condition|(
+operator|!
+name|nodeFoundByAddress
+condition|)
+block|{
 name|sendPingsHandler
 operator|.
 name|nodeToDisconnect
@@ -1732,6 +1741,7 @@ argument_list|(
 name|nodeToSend
 argument_list|)
 expr_stmt|;
+block|}
 comment|// fork the connection to another thread
 name|sendPingsHandler
 operator|.

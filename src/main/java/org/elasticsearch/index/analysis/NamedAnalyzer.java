@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|CustomAnalyzerWrapper
+name|SimpleAnalyzerWrapper
 import|;
 end_import
 
@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|NamedAnalyzer
 extends|extends
-name|CustomAnalyzerWrapper
+name|SimpleAnalyzerWrapper
 block|{
 DECL|field|name
 specifier|private
@@ -180,14 +180,6 @@ name|int
 name|positionOffsetGap
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|analyzer
-operator|.
-name|getReuseStrategy
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|name
@@ -267,24 +259,6 @@ return|return
 name|this
 operator|.
 name|analyzer
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|wrapComponents
-specifier|protected
-name|TokenStreamComponents
-name|wrapComponents
-parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
-name|TokenStreamComponents
-name|components
-parameter_list|)
-block|{
-return|return
-name|components
 return|;
 block|}
 annotation|@

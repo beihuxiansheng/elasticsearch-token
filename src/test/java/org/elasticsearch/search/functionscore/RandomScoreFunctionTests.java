@@ -351,7 +351,6 @@ init|=
 name|randomLong
 argument_list|()
 decl_stmt|;
-specifier|final
 name|String
 name|preference
 init|=
@@ -363,6 +362,27 @@ literal|10
 argument_list|)
 decl_stmt|;
 comment|// at least one char!!
+comment|// randomPreference should not start with '_' (reserved for known preference types (e.g. _shards, _primary)
+while|while
+condition|(
+name|preference
+operator|.
+name|startsWith
+argument_list|(
+literal|"_"
+argument_list|)
+condition|)
+block|{
+name|preference
+operator|=
+name|randomRealisticUnicodeOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+expr_stmt|;
+block|}
 name|int
 name|innerIters
 init|=

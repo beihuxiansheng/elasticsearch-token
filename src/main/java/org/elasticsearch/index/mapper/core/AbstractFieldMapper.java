@@ -466,20 +466,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
-operator|.
-name|IndexFieldDataService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|mapper
 operator|.
 name|*
@@ -2646,14 +2632,11 @@ block|}
 comment|/**      * A terms filter based on the field data cache      */
 annotation|@
 name|Override
-DECL|method|termsFilter
+DECL|method|fieldDataTermsFilter
 specifier|public
 name|Filter
-name|termsFilter
+name|fieldDataTermsFilter
 parameter_list|(
-name|IndexFieldDataService
-name|fieldDataService
-parameter_list|,
 name|List
 name|values
 parameter_list|,
@@ -2736,7 +2719,7 @@ name|FieldDataTermsFilter
 operator|.
 name|newBytes
 argument_list|(
-name|fieldDataService
+name|context
 operator|.
 name|getForField
 argument_list|(
@@ -4841,7 +4824,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"similariry"
+literal|"similarity"
 argument_list|,
 name|SimilarityLookupService
 operator|.
@@ -5676,8 +5659,10 @@ block|{
 return|return;
 block|}
 name|context
+operator|=
+name|context
 operator|.
-name|setWithinMultiFields
+name|createMultiFieldContext
 argument_list|()
 expr_stmt|;
 name|ContentPath
@@ -5757,11 +5742,6 @@ name|pathType
 argument_list|(
 name|origPathType
 argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|clearWithinMultiFields
-argument_list|()
 expr_stmt|;
 block|}
 comment|// No need for locking, because locking is taken care of in ObjectMapper#merge and DocumentMapper#merge
@@ -6380,8 +6360,10 @@ throws|throws
 name|IOException
 block|{
 name|context
+operator|=
+name|context
 operator|.
-name|setWithinCopyTo
+name|createCopyToContext
 argument_list|()
 expr_stmt|;
 name|FieldMappers
@@ -6684,11 +6666,6 @@ block|}
 block|}
 block|}
 block|}
-name|context
-operator|.
-name|clearWithinCopyTo
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}

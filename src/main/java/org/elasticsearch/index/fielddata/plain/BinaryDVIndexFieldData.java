@@ -82,9 +82,11 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|fieldcomparator
+name|IndexFieldData
 operator|.
-name|BytesRefFieldComparatorSource
+name|XFieldComparatorSource
+operator|.
+name|Nested
 import|;
 end_import
 
@@ -94,9 +96,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|search
+name|index
 operator|.
-name|MultiValueMode
+name|fielddata
+operator|.
+name|fieldcomparator
+operator|.
+name|BytesRefFieldComparatorSource
 import|;
 end_import
 
@@ -113,6 +119,18 @@ operator|.
 name|FieldMapper
 operator|.
 name|Names
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
 import|;
 end_import
 
@@ -152,18 +170,6 @@ argument_list|,
 name|fieldDataType
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|valuesOrdered
-specifier|public
-name|boolean
-name|valuesOrdered
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 annotation|@
 name|Override
@@ -234,6 +240,9 @@ name|missingValue
 parameter_list|,
 name|MultiValueMode
 name|sortMode
+parameter_list|,
+name|Nested
+name|nested
 parameter_list|)
 block|{
 return|return
@@ -245,6 +254,8 @@ argument_list|,
 name|missingValue
 argument_list|,
 name|sortMode
+argument_list|,
+name|nested
 argument_list|)
 return|;
 block|}

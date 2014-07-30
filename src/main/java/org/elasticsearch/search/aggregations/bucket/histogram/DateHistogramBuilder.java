@@ -161,16 +161,14 @@ name|String
 name|format
 decl_stmt|;
 DECL|field|preOffset
-name|long
+specifier|private
+name|String
 name|preOffset
-init|=
-literal|0
 decl_stmt|;
 DECL|field|postOffset
-name|long
+specifier|private
+name|String
 name|postOffset
-init|=
-literal|0
 decl_stmt|;
 DECL|field|factor
 name|float
@@ -341,7 +339,7 @@ specifier|public
 name|DateHistogramBuilder
 name|preOffset
 parameter_list|(
-name|long
+name|String
 name|preOffset
 parameter_list|)
 block|{
@@ -360,7 +358,7 @@ specifier|public
 name|DateHistogramBuilder
 name|postOffset
 parameter_list|(
-name|long
+name|String
 name|postOffset
 parameter_list|)
 block|{
@@ -650,7 +648,7 @@ if|if
 condition|(
 name|preOffset
 operator|!=
-literal|0
+literal|null
 condition|)
 block|{
 name|builder
@@ -667,7 +665,7 @@ if|if
 condition|(
 name|postOffset
 operator|!=
-literal|0
+literal|null
 condition|)
 block|{
 name|builder

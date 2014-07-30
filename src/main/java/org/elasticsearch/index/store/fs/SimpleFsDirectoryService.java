@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FSDirectory
+name|Directory
 import|;
 end_import
 
@@ -194,7 +194,7 @@ annotation|@
 name|Override
 DECL|method|newFSDirectory
 specifier|protected
-name|FSDirectory
+name|Directory
 name|newFSDirectory
 parameter_list|(
 name|File

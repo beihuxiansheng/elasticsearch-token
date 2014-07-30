@@ -815,10 +815,10 @@ name|holeCharacter
 expr_stmt|;
 block|}
 comment|/** Returns byte size of the underlying FST. */
-DECL|method|sizeInBytes
+DECL|method|ramBytesUsed
 specifier|public
 name|long
-name|sizeInBytes
+name|ramBytesUsed
 parameter_list|()
 block|{
 return|return
@@ -830,7 +830,7 @@ literal|0
 else|:
 name|fst
 operator|.
-name|sizeInBytes
+name|ramBytesUsed
 argument_list|()
 return|;
 block|}
@@ -4480,7 +4480,7 @@ comment|// TODO: we could walk& add simultaneously, so we
 comment|// don't have to alloc [possibly biggish]
 comment|// intermediate HashSet in RAM:
 return|return
-name|XSpecialOperations
+name|SpecialOperations
 operator|.
 name|getFiniteStrings
 argument_list|(

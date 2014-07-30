@@ -72,9 +72,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene46
+name|lucene49
 operator|.
-name|Lucene46Codec
+name|Lucene49Codec
 import|;
 end_import
 
@@ -314,7 +314,7 @@ specifier|final
 class|class
 name|TestCodec
 extends|extends
-name|Lucene46Codec
+name|Lucene49Codec
 block|{
 annotation|@
 name|Override

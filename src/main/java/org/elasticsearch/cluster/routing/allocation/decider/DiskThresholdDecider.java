@@ -671,6 +671,7 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
+comment|// Always allow allocation if the decider is disabled
 if|if
 condition|(
 operator|!
@@ -706,6 +707,22 @@ operator|<=
 literal|1
 condition|)
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Only a single node is present, allowing allocation"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|allocation
 operator|.
@@ -721,6 +738,7 @@ literal|"only a single node is present"
 argument_list|)
 return|;
 block|}
+comment|// Fail open there is no info available
 name|ClusterInfo
 name|clusterInfo
 init|=
@@ -767,6 +785,7 @@ literal|"cluster info unavailable"
 argument_list|)
 return|;
 block|}
+comment|// Fail open if there are no disk usages available
 name|Map
 argument_list|<
 name|String
@@ -940,6 +959,35 @@ name|freeDiskPercentage
 argument_list|)
 expr_stmt|;
 block|}
+comment|// a flag for whether the primary shard has been previously allocated
+name|boolean
+name|primaryHasBeenAllocated
+init|=
+name|allocation
+operator|.
+name|routingTable
+argument_list|()
+operator|.
+name|index
+argument_list|(
+name|shardRouting
+operator|.
+name|index
+argument_list|()
+argument_list|)
+operator|.
+name|shard
+argument_list|(
+name|shardRouting
+operator|.
+name|id
+argument_list|()
+argument_list|)
+operator|.
+name|primaryAllocatedPostApi
+argument_list|()
+decl_stmt|;
+comment|// checks for exact byte comparisons
 if|if
 condition|(
 name|freeBytes
@@ -948,6 +996,25 @@ name|freeBytesThresholdLow
 operator|.
 name|bytes
 argument_list|()
+condition|)
+block|{
+comment|// If the shard is a replica or has a primary that has already been allocated before, check the low threshold
+if|if
+condition|(
+operator|!
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|||
+operator|(
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|&&
+name|primaryHasBeenAllocated
+operator|)
 condition|)
 block|{
 if|if
@@ -998,11 +1065,141 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|freeBytes
+operator|>
+name|freeBytesThresholdHigh
+operator|.
+name|bytes
+argument_list|()
+condition|)
+block|{
+comment|// Allow the shard to be allocated because it is primary that
+comment|// has never been allocated if it's under the high watermark
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, "
+operator|+
+literal|"but allowing allocation because primary has never been allocated"
+argument_list|,
+name|freeBytesThresholdLow
+argument_list|,
+name|freeBytes
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|YES
+argument_list|,
+name|NAME
+argument_list|,
+literal|"primary has never been allocated before"
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|// Even though the primary has never been allocated, the node is
+comment|// above the high watermark, so don't allow allocating the shard
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, "
+operator|+
+literal|"preventing allocation even though primary has never been allocated"
+argument_list|,
+name|freeBytesThresholdHigh
+argument_list|,
+name|freeBytes
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|NO
+argument_list|,
+name|NAME
+argument_list|,
+literal|"less than required [%s] free on node, free: [%s]"
+argument_list|,
+name|freeBytesThresholdHigh
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|freeBytes
+argument_list|)
+argument_list|)
+return|;
+block|}
+block|}
+comment|// checks for percentage comparisons
 if|if
 condition|(
 name|freeDiskPercentage
 operator|<
 name|freeDiskThresholdLow
+condition|)
+block|{
+comment|// If the shard is a replica or has a primary that has already been allocated before, check the low threshold
+if|if
+condition|(
+operator|!
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|||
+operator|(
+name|shardRouting
+operator|.
+name|primary
+argument_list|()
+operator|&&
+name|primaryHasBeenAllocated
+operator|)
 condition|)
 block|{
 if|if
@@ -1048,6 +1245,109 @@ argument_list|,
 name|freeDiskThresholdLow
 argument_list|)
 return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|freeDiskPercentage
+operator|>
+name|freeDiskThresholdHigh
+condition|)
+block|{
+comment|// Allow the shard to be allocated because it is primary that
+comment|// has never been allocated if it's under the high watermark
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Less than the required {}% free disk threshold ({}% free) on node [{}], "
+operator|+
+literal|"but allowing allocation because primary has never been allocated"
+argument_list|,
+name|freeDiskThresholdLow
+argument_list|,
+name|freeDiskPercentage
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|YES
+argument_list|,
+name|NAME
+argument_list|,
+literal|"primary has never been allocated before"
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|// Even though the primary has never been allocated, the node is
+comment|// above the high watermark, so don't allow allocating the shard
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, "
+operator|+
+literal|"preventing allocation even though primary has never been allocated"
+argument_list|,
+name|freeDiskThresholdHigh
+argument_list|,
+name|freeDiskPercentage
+argument_list|,
+name|node
+operator|.
+name|nodeId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|allocation
+operator|.
+name|decision
+argument_list|(
+name|Decision
+operator|.
+name|NO
+argument_list|,
+name|NAME
+argument_list|,
+literal|"less than required [%s%%] free disk on node, free: [%s%%]"
+argument_list|,
+name|freeDiskThresholdLow
+argument_list|,
+name|freeDiskThresholdLow
+argument_list|)
+return|;
+block|}
 block|}
 comment|// Secondly, check that allocating the shard to this node doesn't put it above the high watermark
 name|Long

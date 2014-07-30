@@ -1220,15 +1220,9 @@ argument_list|)
 condition|)
 block|{
 name|IndexGeoPointFieldData
-argument_list|<
-name|?
-argument_list|>
 name|indexFieldData
 init|=
 name|parseContext
-operator|.
-name|fieldData
-argument_list|()
 operator|.
 name|getForField
 argument_list|(

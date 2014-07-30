@@ -67,6 +67,8 @@ DECL|class|MemoryCircuitBreaker
 specifier|public
 class|class
 name|MemoryCircuitBreaker
+implements|implements
+name|CircuitBreaker
 block|{
 DECL|field|memoryBytesLimit
 specifier|private
@@ -246,6 +248,9 @@ name|circuitBreak
 parameter_list|(
 name|String
 name|fieldName
+parameter_list|,
+name|long
+name|bytesNeeded
 parameter_list|)
 throws|throws
 name|CircuitBreakingException
@@ -291,7 +296,7 @@ name|long
 name|bytes
 parameter_list|,
 name|String
-name|fieldName
+name|label
 parameter_list|)
 throws|throws
 name|CircuitBreakingException
@@ -306,7 +311,9 @@ condition|)
 block|{
 name|circuitBreak
 argument_list|(
-name|fieldName
+name|label
+argument_list|,
+name|bytes
 argument_list|)
 expr_stmt|;
 block|}
@@ -357,7 +364,7 @@ argument_list|(
 name|bytes
 argument_list|)
 argument_list|,
-name|fieldName
+name|label
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -426,7 +433,7 @@ argument_list|(
 name|bytes
 argument_list|)
 argument_list|,
-name|fieldName
+name|label
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -465,7 +472,7 @@ condition|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
 argument_list|,
@@ -477,7 +484,7 @@ argument_list|(
 name|newUsedWithOverhead
 argument_list|)
 argument_list|,
-name|fieldName
+name|label
 argument_list|,
 name|memoryBytesLimit
 argument_list|,
@@ -490,7 +497,9 @@ argument_list|)
 expr_stmt|;
 name|circuitBreak
 argument_list|(
-name|fieldName
+name|label
+argument_list|,
+name|newUsedWithOverhead
 argument_list|)
 expr_stmt|;
 block|}
@@ -587,11 +596,11 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * @return the maximum number of bytes before the circuit breaker will trip      */
-DECL|method|getMaximum
+comment|/**      * @return the number of bytes that can be added before the breaker trips      */
+DECL|method|getLimit
 specifier|public
 name|long
-name|getMaximum
+name|getLimit
 parameter_list|()
 block|{
 return|return
@@ -627,6 +636,19 @@ name|trippedCount
 operator|.
 name|get
 argument_list|()
+return|;
+block|}
+comment|/**      * @return the name of the breaker      */
+DECL|method|getName
+specifier|public
+name|Name
+name|getName
+parameter_list|()
+block|{
+return|return
+name|Name
+operator|.
+name|FIELDDATA
 return|;
 block|}
 block|}

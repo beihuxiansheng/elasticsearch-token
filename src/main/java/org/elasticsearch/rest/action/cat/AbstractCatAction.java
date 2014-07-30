@@ -178,6 +178,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 function_decl|;
 DECL|method|documentation
@@ -213,6 +217,10 @@ parameter_list|,
 specifier|final
 name|RestChannel
 name|channel
+parameter_list|,
+specifier|final
+name|Client
+name|client
 parameter_list|)
 throws|throws
 name|Exception
@@ -444,6 +452,8 @@ argument_list|(
 name|request
 argument_list|,
 name|channel
+argument_list|,
+name|client
 argument_list|)
 expr_stmt|;
 block|}

@@ -354,8 +354,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|fielddata
-operator|.
 name|breaker
 operator|.
 name|CircuitBreakerService
@@ -370,11 +368,9 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|fielddata
-operator|.
 name|breaker
 operator|.
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 import|;
 end_import
 
@@ -462,6 +458,10 @@ begin_comment
 comment|/**  * Test parsing and executing a template request.  */
 end_comment
 
+begin_comment
+comment|// NOTE: this can't be migrated to ElasticsearchSingleNodeTest because of the custom path.conf
+end_comment
+
 begin_class
 DECL|class|TemplateQueryParserTest
 specifier|public
@@ -510,6 +510,17 @@ literal|"config"
 argument_list|)
 operator|.
 name|getPath
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"name"
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -665,7 +676,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|DummyCircuitBreakerService
+name|NoneCircuitBreakerService
 operator|.
 name|class
 argument_list|)
@@ -788,7 +799,7 @@ block|{
 name|String
 name|templateString
 init|=
-literal|"{ \"template\": { \"query\": \"storedTemplate\" ,\"params\":{\"template\":\"all\" } } } "
+literal|"{ \"template\": { \"file\": \"storedTemplate\" ,\"params\":{\"template\":\"all\" } } } "
 decl_stmt|;
 name|XContentParser
 name|templateSourceParser

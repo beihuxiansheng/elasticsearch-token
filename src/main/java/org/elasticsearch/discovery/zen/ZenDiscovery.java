@@ -1201,6 +1201,8 @@ name|MembershipAction
 argument_list|(
 name|settings
 argument_list|,
+name|clusterService
+argument_list|,
 name|transportService
 argument_list|,
 name|this
@@ -3394,7 +3396,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"received cluster state from [{}] which is also master but with cluster name [{}]"
+literal|"received cluster state from [{}] which is also master with cluster name [{}]"
 argument_list|,
 name|newClusterState
 operator|.
@@ -3519,6 +3521,24 @@ name|masterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+comment|// make sure we're connected to this node (connect to node does nothing if we're already connected)
+comment|// since the network connections are asymmetric, it may be that we received a state but have disconnected from the node
+comment|// in the past (after a master failure, for example)
+name|transportService
+operator|.
+name|connectToNode
+argument_list|(
+name|newState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|sendRequest
@@ -3588,6 +3608,31 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to send rejoin request to [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|newState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|currentState
 return|;
@@ -4316,14 +4361,6 @@ argument_list|(
 name|node
 argument_list|)
 expr_stmt|;
-name|ClusterState
-name|state
-init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
-decl_stmt|;
 comment|// validate the join request, will throw a failure if it fails, which will get back to the
 comment|// node calling the join request
 name|membership
@@ -4331,8 +4368,6 @@ operator|.
 name|sendValidateJoinRequestBlocking
 argument_list|(
 name|node
-argument_list|,
-name|state
 argument_list|,
 name|joinTimeout
 argument_list|)
@@ -4550,9 +4585,7 @@ block|{
 name|callback
 operator|.
 name|onSuccess
-argument_list|(
-name|newState
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -4995,6 +5028,15 @@ name|possibleMasterNodes
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"not enough master nodes [{}]"
+argument_list|,
+name|possibleMasterNodes
+argument_list|)
+expr_stmt|;
 return|return
 literal|null
 return|;

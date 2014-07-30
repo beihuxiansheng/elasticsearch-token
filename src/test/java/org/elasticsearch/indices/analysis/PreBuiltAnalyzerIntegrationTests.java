@@ -140,6 +140,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -228,10 +240,6 @@ name|notNullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ElasticsearchIntegrationTest
@@ -246,6 +254,18 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
+annotation|@
+name|ElasticsearchTestCase
+operator|.
+name|CompatibilityVersion
+argument_list|(
+name|version
+operator|=
+name|Version
+operator|.
+name|V_1_2_0_ID
+argument_list|)
+comment|// we throw an exception if we create an index with _field_names that is 1.3
 DECL|class|PreBuiltAnalyzerIntegrationTests
 specifier|public
 class|class

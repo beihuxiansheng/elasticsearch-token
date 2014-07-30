@@ -48,6 +48,8 @@ parameter_list|<
 name|T
 parameter_list|>
 parameter_list|>
+implements|implements
+name|AckedRequest
 block|{
 DECL|field|ackTimeout
 specifier|private

@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -41,19 +55,14 @@ interface|interface
 name|BigArray
 extends|extends
 name|Releasable
+extends|,
+name|Accountable
 block|{
 comment|/** Return the length of this array. */
 DECL|method|size
 specifier|public
 name|long
 name|size
-parameter_list|()
-function_decl|;
-comment|/**      * Return an estimated memory usage of this instance.      */
-DECL|method|sizeInBytes
-specifier|public
-name|long
-name|sizeInBytes
 parameter_list|()
 function_decl|;
 block|}

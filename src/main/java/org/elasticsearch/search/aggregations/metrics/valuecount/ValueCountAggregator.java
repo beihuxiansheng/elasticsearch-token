@@ -72,7 +72,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|BytesValues
+name|SortedBinaryDocValues
 import|;
 end_import
 
@@ -216,7 +216,7 @@ name|valuesSource
 decl_stmt|;
 DECL|field|values
 specifier|private
-name|BytesValues
+name|SortedBinaryDocValues
 name|values
 decl_stmt|;
 comment|// a count per bucket
@@ -356,6 +356,13 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+name|values
+operator|.
+name|setDocument
+argument_list|(
+name|doc
+argument_list|)
+expr_stmt|;
 name|counts
 operator|.
 name|increment
@@ -364,10 +371,8 @@ name|owningBucketOrdinal
 argument_list|,
 name|values
 operator|.
-name|setDocument
-argument_list|(
-name|doc
-argument_list|)
+name|count
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

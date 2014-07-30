@@ -110,6 +110,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TimeUnits
 import|;
 end_import
@@ -180,6 +194,15 @@ operator|=
 name|TimeUnits
 operator|.
 name|HOUR
+argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"we log a lot on purpose"
 argument_list|)
 comment|/**  * Basic test case for token streams. the assertion methods in this class will  * run basic checks to enforce correct behavior of the token streams.  */
 DECL|class|ElasticsearchTokenStreamTestCase

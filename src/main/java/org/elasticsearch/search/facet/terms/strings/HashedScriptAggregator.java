@@ -82,20 +82,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|fielddata
-operator|.
-name|BytesValues
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|script
 operator|.
 name|SearchScript
@@ -253,9 +239,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 if|if
@@ -273,8 +256,6 @@ argument_list|(
 name|value
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 expr_stmt|;
 block|}
@@ -381,9 +362,6 @@ name|value
 parameter_list|,
 name|int
 name|hashCode
-parameter_list|,
-name|BytesValues
-name|values
 parameter_list|)
 block|{
 if|if
@@ -510,8 +488,6 @@ argument_list|,
 name|scriptSpare
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 expr_stmt|;
 return|return;
@@ -539,8 +515,6 @@ argument_list|,
 name|value
 argument_list|,
 name|hashCode
-argument_list|,
-name|values
 argument_list|)
 expr_stmt|;
 block|}

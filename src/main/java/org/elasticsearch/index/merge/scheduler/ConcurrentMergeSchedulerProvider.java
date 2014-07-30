@@ -903,7 +903,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"index.merge.scheduler.max_thread_count"
+name|MAX_THREAD_COUNT
 argument_list|,
 name|ConcurrentMergeSchedulerProvider
 operator|.
@@ -927,7 +927,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [max_thread_count] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|MAX_THREAD_COUNT_KEY
 argument_list|,
 name|ConcurrentMergeSchedulerProvider
 operator|.
@@ -976,7 +978,7 @@ name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"index.merge.scheduler.max_merge_count"
+name|MAX_MERGE_COUNT
 argument_list|,
 name|ConcurrentMergeSchedulerProvider
 operator|.
@@ -1000,7 +1002,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [max_merge_count] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|MAX_MERGE_COUNT_KEY
 argument_list|,
 name|ConcurrentMergeSchedulerProvider
 operator|.

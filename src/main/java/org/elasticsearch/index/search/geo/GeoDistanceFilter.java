@@ -196,7 +196,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|GeoPointValues
+name|IndexGeoPointFieldData
 import|;
 end_import
 
@@ -210,7 +210,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexGeoPointFieldData
+name|MultiGeoPointValues
 import|;
 end_import
 
@@ -616,7 +616,7 @@ return|;
 block|}
 block|}
 specifier|final
-name|GeoPointValues
+name|MultiGeoPointValues
 name|values
 init|=
 name|indexFieldData
@@ -1035,7 +1035,7 @@ comment|// in miles
 DECL|field|values
 specifier|private
 specifier|final
-name|GeoPointValues
+name|MultiGeoPointValues
 name|values
 decl_stmt|;
 DECL|field|fixedSourceDistance
@@ -1066,7 +1066,7 @@ name|Nullable
 name|Bits
 name|acceptDocs
 parameter_list|,
-name|GeoPointValues
+name|MultiGeoPointValues
 name|values
 parameter_list|,
 name|GeoDistance
@@ -1117,18 +1117,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isCacheable
-specifier|public
-name|boolean
-name|isCacheable
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|matchDoc
 specifier|protected
 name|boolean
@@ -1138,16 +1126,21 @@ name|int
 name|doc
 parameter_list|)
 block|{
-specifier|final
-name|int
-name|length
-init|=
 name|values
 operator|.
 name|setDocument
 argument_list|(
 name|doc
 argument_list|)
+expr_stmt|;
+specifier|final
+name|int
+name|length
+init|=
+name|values
+operator|.
+name|count
+argument_list|()
 decl_stmt|;
 for|for
 control|(
@@ -1169,8 +1162,10 @@ name|point
 init|=
 name|values
 operator|.
-name|nextValue
-argument_list|()
+name|valueAt
+argument_list|(
+name|i
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

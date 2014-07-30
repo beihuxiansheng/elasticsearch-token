@@ -284,7 +284,6 @@ annotation|@
 name|Override
 DECL|method|throttleTimeInNanos
 specifier|public
-specifier|final
 name|long
 name|throttleTimeInNanos
 parameter_list|()
@@ -300,7 +299,6 @@ annotation|@
 name|Override
 DECL|method|rateLimiting
 specifier|public
-specifier|final
 name|StoreRateLimiting
 name|rateLimiting
 parameter_list|()
@@ -358,11 +356,10 @@ literal|"native"
 argument_list|)
 condition|)
 block|{
-comment|// TODO LUCENE MONITOR: this is not needed in next Lucene version
 name|lockFactory
 operator|=
 operator|new
-name|XNativeFSLockFactory
+name|NativeFSLockFactory
 argument_list|()
 expr_stmt|;
 block|}
@@ -782,7 +779,7 @@ name|i
 index|]
 argument_list|)
 expr_stmt|;
-name|FSDirectory
+name|Directory
 name|wrapped
 init|=
 name|newFSDirectory
@@ -819,7 +816,7 @@ block|}
 DECL|method|newFSDirectory
 specifier|protected
 specifier|abstract
-name|FSDirectory
+name|Directory
 name|newFSDirectory
 parameter_list|(
 name|File
@@ -835,7 +832,6 @@ annotation|@
 name|Override
 DECL|method|onPause
 specifier|public
-specifier|final
 name|void
 name|onPause
 parameter_list|(

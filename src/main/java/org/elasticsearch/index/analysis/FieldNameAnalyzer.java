@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|AnalyzerWrapper
+name|SimpleAnalyzerWrapper
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 import|;
 end_import
 
@@ -69,12 +69,12 @@ specifier|final
 class|class
 name|FieldNameAnalyzer
 extends|extends
-name|AnalyzerWrapper
+name|SimpleAnalyzerWrapper
 block|{
 DECL|field|analyzers
 specifier|private
 specifier|final
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 argument_list|<
 name|String
 argument_list|,
@@ -92,7 +92,7 @@ DECL|method|FieldNameAnalyzer
 specifier|public
 name|FieldNameAnalyzer
 parameter_list|(
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 argument_list|<
 name|String
 argument_list|,
@@ -119,7 +119,7 @@ expr_stmt|;
 block|}
 DECL|method|analyzers
 specifier|public
-name|ImmutableOpenMap
+name|UpdateInPlaceMap
 argument_list|<
 name|String
 argument_list|,
@@ -158,24 +158,6 @@ name|getAnalyzer
 argument_list|(
 name|fieldName
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|wrapComponents
-specifier|protected
-name|TokenStreamComponents
-name|wrapComponents
-parameter_list|(
-name|String
-name|fieldName
-parameter_list|,
-name|TokenStreamComponents
-name|components
-parameter_list|)
-block|{
-return|return
-name|components
 return|;
 block|}
 DECL|method|getAnalyzer

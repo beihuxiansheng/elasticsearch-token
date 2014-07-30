@@ -32,6 +32,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lease
+operator|.
+name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -70,7 +84,7 @@ specifier|public
 interface|interface
 name|XContentParser
 extends|extends
-name|Closeable
+name|Releasable
 block|{
 DECL|enum|Token
 enum|enum
@@ -536,11 +550,6 @@ name|binaryValue
 parameter_list|()
 throws|throws
 name|IOException
-function_decl|;
-DECL|method|close
-name|void
-name|close
-parameter_list|()
 function_decl|;
 block|}
 end_interface
