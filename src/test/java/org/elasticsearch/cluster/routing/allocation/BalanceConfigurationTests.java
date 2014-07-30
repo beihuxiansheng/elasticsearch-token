@@ -445,7 +445,9 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
+name|ClusterRebalanceAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
@@ -658,7 +660,9 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
+name|ClusterRebalanceAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
@@ -871,7 +875,9 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
+name|ClusterRebalanceAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
@@ -2670,7 +2676,9 @@ name|settings
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.allocation.allow_rebalance"
+name|ClusterRebalanceAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_ALLOW_REBALANCE
 argument_list|,
 name|ClusterRebalanceAllocationDecider
 operator|.
