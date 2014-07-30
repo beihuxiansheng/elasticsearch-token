@@ -758,6 +758,24 @@ argument_list|)
 decl_stmt|;
 comment|// TODO Should we set some timeout and retry options?
 comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blob_container.deleteIfExists(options, null);         */
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"removing container [{}]"
+argument_list|,
+name|container
+argument_list|)
+expr_stmt|;
+block|}
 name|blob_container
 operator|.
 name|deleteIfExists
