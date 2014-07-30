@@ -756,9 +756,11 @@ argument_list|(
 name|container
 argument_list|)
 decl_stmt|;
+comment|// TODO Should we set some timeout and retry options?
+comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blob_container.deleteIfExists(options, null);         */
 name|blob_container
 operator|.
-name|delete
+name|deleteIfExists
 argument_list|()
 expr_stmt|;
 block|}
@@ -1158,6 +1160,9 @@ name|String
 name|container
 parameter_list|,
 name|String
+name|keyPath
+parameter_list|,
+name|String
 name|prefix
 parameter_list|)
 throws|throws
@@ -1171,9 +1176,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"listBlobsByPrefix container [{}], prefix [{}]"
+literal|"listBlobsByPrefix container [{}], keyPath [{}], prefix [{}]"
 argument_list|,
 name|container
+argument_list|,
+name|keyPath
 argument_list|,
 name|prefix
 argument_list|)
@@ -1221,6 +1228,8 @@ name|blob_container
 operator|.
 name|listBlobs
 argument_list|(
+name|keyPath
+operator|+
 name|prefix
 argument_list|)
 decl_stmt|;
@@ -1294,17 +1303,16 @@ decl_stmt|;
 name|String
 name|name
 init|=
-name|uri
-operator|.
-name|getPath
-argument_list|()
+name|blobpath
 operator|.
 name|substring
 argument_list|(
-name|prefix
+name|keyPath
 operator|.
 name|length
 argument_list|()
+operator|+
+literal|1
 argument_list|)
 decl_stmt|;
 if|if

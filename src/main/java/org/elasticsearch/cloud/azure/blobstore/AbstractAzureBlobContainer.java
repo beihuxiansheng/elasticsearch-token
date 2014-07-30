@@ -694,37 +694,11 @@ parameter_list|(
 annotation|@
 name|Nullable
 name|String
-name|blobNamePrefix
+name|prefix
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|String
-name|prefix
-decl_stmt|;
-if|if
-condition|(
-name|blobNamePrefix
-operator|!=
-literal|null
-condition|)
-block|{
-name|prefix
-operator|=
-name|buildKey
-argument_list|(
-name|blobNamePrefix
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|prefix
-operator|=
-name|keyPath
-expr_stmt|;
-block|}
 try|try
 block|{
 return|return
@@ -739,6 +713,8 @@ name|blobStore
 operator|.
 name|container
 argument_list|()
+argument_list|,
+name|keyPath
 argument_list|,
 name|prefix
 argument_list|)
@@ -756,7 +732,7 @@ name|warn
 argument_list|(
 literal|"can not access [{}] in container {{}}: {}"
 argument_list|,
-name|blobNamePrefix
+name|prefix
 argument_list|,
 name|blobStore
 operator|.
@@ -789,7 +765,7 @@ name|warn
 argument_list|(
 literal|"can not access [{}] in container {{}}: {}"
 argument_list|,
-name|blobNamePrefix
+name|prefix
 argument_list|,
 name|blobStore
 operator|.
@@ -822,7 +798,7 @@ name|warn
 argument_list|(
 literal|"can not access [{}] in container {{}}: {}"
 argument_list|,
-name|blobNamePrefix
+name|prefix
 argument_list|,
 name|blobStore
 operator|.
