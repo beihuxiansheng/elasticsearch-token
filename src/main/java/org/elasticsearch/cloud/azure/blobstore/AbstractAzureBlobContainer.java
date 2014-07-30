@@ -200,6 +200,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|HttpURLConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URISyntaxException
 import|;
 end_import
@@ -624,7 +634,9 @@ operator|.
 name|getHttpStatusCode
 argument_list|()
 operator|==
-literal|404
+name|HttpURLConnection
+operator|.
+name|HTTP_NOT_FOUND
 condition|)
 block|{
 name|listener
