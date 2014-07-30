@@ -1079,6 +1079,14 @@ argument_list|(
 name|concreteIndices
 argument_list|)
 operator|.
+name|types
+argument_list|(
+name|request
+operator|.
+name|types
+argument_list|()
+argument_list|)
+operator|.
 name|source
 argument_list|(
 name|querySourceBuilder
