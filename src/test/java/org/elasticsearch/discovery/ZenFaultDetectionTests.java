@@ -929,6 +929,9 @@ name|buildNodesForA
 argument_list|(
 literal|true
 argument_list|)
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 specifier|final
