@@ -725,9 +725,7 @@ name|responses
 init|=
 operator|new
 name|AtomicArray
-argument_list|<
-name|BulkItemResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|bulkRequest
 operator|.
@@ -967,6 +965,14 @@ name|cause
 argument_list|(
 literal|"auto(bulk api)"
 argument_list|)
+operator|.
+name|masterNodeTimeout
+argument_list|(
+name|bulkRequest
+operator|.
+name|timeout
+argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|ActionListener
@@ -1110,6 +1116,8 @@ operator|==
 literal|0
 condition|)
 block|{
+try|try
+block|{
 name|executeBulk
 argument_list|(
 name|bulkRequest
@@ -1121,6 +1129,21 @@ argument_list|,
 name|responses
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|listener
+operator|.
+name|onFailure
+argument_list|(
+name|t
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
