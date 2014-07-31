@@ -1050,10 +1050,10 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|notifyPingRecieved
+DECL|method|notifyPingReceived
 specifier|private
 name|void
-name|notifyPingRecieved
+name|notifyPingReceived
 parameter_list|(
 specifier|final
 name|PingRequest
@@ -1639,7 +1639,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|notifyPingRecieved
+name|notifyPingReceived
 argument_list|(
 name|request
 argument_list|)
