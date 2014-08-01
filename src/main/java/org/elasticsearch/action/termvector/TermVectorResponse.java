@@ -1117,11 +1117,6 @@ name|isExists
 argument_list|()
 condition|)
 block|{
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 return|return
 name|builder
 return|;
