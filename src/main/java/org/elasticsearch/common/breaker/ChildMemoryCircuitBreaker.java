@@ -638,9 +638,7 @@ comment|// adjusted back down because the allocation is "blocked" but the
 comment|// breaker has already been incremented
 name|this
 operator|.
-name|used
-operator|.
-name|addAndGet
+name|addWithoutBreaking
 argument_list|(
 operator|-
 name|bytes

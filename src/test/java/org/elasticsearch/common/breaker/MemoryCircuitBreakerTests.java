@@ -896,6 +896,18 @@ literal|4500
 argument_list|)
 decl_stmt|;
 specifier|final
+name|int
+name|parentLimit
+init|=
+operator|(
+name|BYTES_PER_THREAD
+operator|*
+name|NUM_THREADS
+operator|)
+operator|-
+literal|2
+decl_stmt|;
+specifier|final
 name|Thread
 index|[]
 name|threads
@@ -1020,13 +1032,7 @@ operator|.
 name|getUsed
 argument_list|()
 operator|>
-operator|(
-name|BYTES_PER_THREAD
-operator|*
-name|NUM_THREADS
-operator|)
-operator|-
-literal|2
+name|parentLimit
 condition|)
 block|{
 name|parentTripped
@@ -1259,16 +1265,19 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"breaker was tripped exactly once"
+literal|"breaker should be reset back to the parent limit after parent breaker trips"
 argument_list|,
 name|breaker
 operator|.
-name|getTrippedCount
+name|getUsed
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0L
+operator|(
+name|long
+operator|)
+name|parentLimit
 argument_list|)
 argument_list|)
 expr_stmt|;
