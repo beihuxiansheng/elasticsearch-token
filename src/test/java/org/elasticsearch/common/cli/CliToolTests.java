@@ -1172,7 +1172,10 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1186,7 +1189,12 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"cmd1 help\n"
+literal|"cmd1 help"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1200,7 +1208,10 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1378,7 +1389,10 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1392,7 +1406,12 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"tool help\n"
+literal|"tool help"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1406,7 +1425,10 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1614,7 +1636,10 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1628,7 +1653,12 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"cmd1 help\n"
+literal|"cmd1 help"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1642,7 +1672,10 @@ name|msg
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
