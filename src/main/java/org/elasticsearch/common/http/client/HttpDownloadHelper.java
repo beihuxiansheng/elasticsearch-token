@@ -376,9 +376,9 @@ init|=
 literal|0
 decl_stmt|;
 comment|// CheckStyle:VisibilityModifier OFF - bc
-DECL|field|out
-name|PrintStream
-name|out
+DECL|field|writer
+name|PrintWriter
+name|writer
 decl_stmt|;
 comment|// CheckStyle:VisibilityModifier ON
 comment|/**          * Construct a verbose progress reporter.          *          * @param out the output stream.          */
@@ -392,9 +392,31 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|out
+name|writer
 operator|=
+operator|new
+name|PrintWriter
+argument_list|(
 name|out
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**          * Construct a verbose progress reporter.          *          * @param writer the output stream.          */
+DECL|method|VerboseProgress
+specifier|public
+name|VerboseProgress
+parameter_list|(
+name|PrintWriter
+name|writer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|writer
+operator|=
+name|this
+operator|.
+name|writer
 expr_stmt|;
 block|}
 comment|/**          * begin a download          */
@@ -404,7 +426,7 @@ name|void
 name|beginDownload
 parameter_list|()
 block|{
-name|out
+name|writer
 operator|.
 name|print
 argument_list|(
@@ -423,7 +445,7 @@ name|void
 name|onTick
 parameter_list|()
 block|{
-name|out
+name|writer
 operator|.
 name|print
 argument_list|(
@@ -438,7 +460,7 @@ operator|>
 literal|50
 condition|)
 block|{
-name|out
+name|writer
 operator|.
 name|flush
 argument_list|()
@@ -456,14 +478,14 @@ name|void
 name|endDownload
 parameter_list|()
 block|{
-name|out
+name|writer
 operator|.
 name|println
 argument_list|(
 literal|"DONE"
 argument_list|)
 expr_stmt|;
-name|out
+name|writer
 operator|.
 name|flush
 argument_list|()
