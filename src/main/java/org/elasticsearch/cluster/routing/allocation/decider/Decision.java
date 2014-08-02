@@ -634,6 +634,7 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
