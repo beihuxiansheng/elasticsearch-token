@@ -97,7 +97,7 @@ DECL|class|FieldValueFactorFunctionBuilder
 specifier|public
 class|class
 name|FieldValueFactorFunctionBuilder
-implements|implements
+extends|extends
 name|ScoreFunctionBuilder
 block|{
 DECL|field|field
@@ -197,10 +197,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|toXContent
+DECL|method|doXContent
 specifier|public
-name|XContentBuilder
-name|toXContent
+name|void
+name|doXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -285,9 +285,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-return|return
-name|builder
-return|;
 block|}
 block|}
 end_class

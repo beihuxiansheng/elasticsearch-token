@@ -80,7 +80,7 @@ specifier|public
 specifier|abstract
 class|class
 name|DecayFunctionBuilder
-implements|implements
+extends|extends
 name|ScoreFunctionBuilder
 block|{
 DECL|field|ORIGIN
@@ -246,10 +246,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|toXContent
+DECL|method|doXContent
 specifier|public
-name|XContentBuilder
-name|toXContent
+name|void
+name|doXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -370,9 +370,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-return|return
-name|builder
-return|;
 block|}
 DECL|method|setMultiValueMode
 specifier|public

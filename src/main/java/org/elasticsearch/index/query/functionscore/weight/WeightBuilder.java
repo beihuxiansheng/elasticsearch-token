@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query.functionscore.random
+DECL|package|org.elasticsearch.index.query.functionscore.weight
 package|package
 name|org
 operator|.
@@ -16,9 +16,23 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|random
+name|weight
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
 
 begin_import
 import|import
@@ -61,29 +75,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A function that computes a random score for the matched documents  */
+comment|/**  * A query that multiplies the weight to the score.  */
 end_comment
 
 begin_class
-DECL|class|RandomScoreFunctionBuilder
+DECL|class|WeightBuilder
 specifier|public
 class|class
-name|RandomScoreFunctionBuilder
+name|WeightBuilder
 extends|extends
 name|ScoreFunctionBuilder
 block|{
-DECL|field|seed
-specifier|private
-name|Integer
-name|seed
-init|=
-literal|null
-decl_stmt|;
-DECL|method|RandomScoreFunctionBuilder
-specifier|public
-name|RandomScoreFunctionBuilder
-parameter_list|()
-block|{     }
 annotation|@
 name|Override
 DECL|method|getName
@@ -93,38 +95,13 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|RandomScoreFunctionParser
-operator|.
-name|NAMES
-index|[
-literal|0
-index|]
-return|;
-block|}
-comment|/**      * Sets the seed based on which the random number will be generated. Using the same seed is guaranteed to generate the same      * random number for a specific doc.      *      * @param seed The seed.      */
-DECL|method|seed
-specifier|public
-name|RandomScoreFunctionBuilder
-name|seed
-parameter_list|(
-name|int
-name|seed
-parameter_list|)
-block|{
-name|this
-operator|.
-name|seed
-operator|=
-name|seed
-expr_stmt|;
-return|return
-name|this
+literal|"weight"
 return|;
 block|}
 annotation|@
 name|Override
 DECL|method|doXContent
-specifier|public
+specifier|protected
 name|void
 name|doXContent
 parameter_list|(
@@ -136,41 +113,7 @@ name|params
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-name|builder
-operator|.
-name|startObject
-argument_list|(
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|seed
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"seed"
-argument_list|,
-name|seed
-operator|.
-name|intValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

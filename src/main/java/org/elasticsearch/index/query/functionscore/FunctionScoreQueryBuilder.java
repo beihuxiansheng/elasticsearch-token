@@ -589,48 +589,6 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-comment|// If there is only one function without a filter, we later want to
-comment|// create a FunctionScoreQuery.
-comment|// For this, we only build the scoreFunction.Tthis will be translated to
-comment|// FunctionScoreQuery in the parser.
-if|if
-condition|(
-name|filters
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|1
-operator|&&
-name|filters
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-name|scoreFunctions
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|toXContent
-argument_list|(
-name|builder
-argument_list|,
-name|params
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// in all other cases we build the format needed for a
-comment|// FiltersFunctionScoreQuery
 name|builder
 operator|.
 name|startArray
@@ -720,7 +678,6 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|scoreMode

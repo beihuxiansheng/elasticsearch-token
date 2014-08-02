@@ -93,7 +93,7 @@ DECL|class|ScriptScoreFunctionBuilder
 specifier|public
 class|class
 name|ScriptScoreFunctionBuilder
-implements|implements
+extends|extends
 name|ScoreFunctionBuilder
 block|{
 DECL|field|script
@@ -252,10 +252,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|toXContent
+DECL|method|doXContent
 specifier|public
-name|XContentBuilder
-name|toXContent
+name|void
+name|doXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
@@ -321,12 +321,11 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-return|return
 name|builder
 operator|.
 name|endObject
 argument_list|()
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override
