@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|plugins
 package|;
 end_package
 
@@ -57,18 +57,6 @@ operator|.
 name|nodesinfo
 operator|.
 name|SimpleNodesInfoTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|PluginsService
 import|;
 end_import
 
@@ -242,7 +230,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-literal|"/org/elasticsearch/plugin/lucene/"
+literal|"/org/elasticsearch/plugins/lucene/"
 argument_list|)
 decl_stmt|;
 name|logger
@@ -393,7 +381,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-literal|"/org/elasticsearch/plugin/lucene/"
+literal|"/org/elasticsearch/plugins/lucene/"
 argument_list|)
 decl_stmt|;
 name|logger

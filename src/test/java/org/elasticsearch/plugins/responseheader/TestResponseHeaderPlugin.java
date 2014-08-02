@@ -4,17 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.lucene.old
+DECL|package|org.elasticsearch.plugins.responseheader
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|plugins
 operator|.
-name|lucene
-operator|.
-name|old
+name|responseheader
 package|;
 end_package
 
@@ -30,15 +28,26 @@ name|AbstractPlugin
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|RestModule
+import|;
+end_import
+
 begin_class
-DECL|class|OldLucenePlugin
+DECL|class|TestResponseHeaderPlugin
 specifier|public
 class|class
-name|OldLucenePlugin
+name|TestResponseHeaderPlugin
 extends|extends
 name|AbstractPlugin
 block|{
-comment|/**      * The name of the plugin.      */
 annotation|@
 name|Override
 DECL|method|name
@@ -48,10 +57,9 @@ name|name
 parameter_list|()
 block|{
 return|return
-literal|"old-lucene"
+literal|"test-plugin-custom-header"
 return|;
 block|}
-comment|/**      * The description of the plugin.      */
 annotation|@
 name|Override
 DECL|method|description
@@ -61,8 +69,27 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"old"
+literal|"test-plugin-custom-header-desc"
 return|;
+block|}
+DECL|method|onModule
+specifier|public
+name|void
+name|onModule
+parameter_list|(
+name|RestModule
+name|restModule
+parameter_list|)
+block|{
+name|restModule
+operator|.
+name|addRestAction
+argument_list|(
+name|TestResponseHeaderRestAction
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

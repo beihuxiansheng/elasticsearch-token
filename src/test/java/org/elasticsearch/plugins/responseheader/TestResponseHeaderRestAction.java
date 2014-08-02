@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.responseheader
+DECL|package|org.elasticsearch.plugins.responseheader
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|plugins
 operator|.
 name|responseheader
 package|;

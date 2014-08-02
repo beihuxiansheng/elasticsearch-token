@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|plugins
 package|;
 end_package
 
@@ -219,18 +219,6 @@ operator|.
 name|internal
 operator|.
 name|InternalSettingsPreparer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|PluginManager
 import|;
 end_import
 

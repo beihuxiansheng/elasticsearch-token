@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin
+DECL|package|org.elasticsearch.plugins
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|plugins
 package|;
 end_package
 
@@ -296,7 +296,7 @@ name|class
 operator|.
 name|getResource
 argument_list|(
-literal|"/org/elasticsearch/plugin"
+literal|"/org/elasticsearch/plugins"
 argument_list|)
 operator|.
 name|toURI
