@@ -1118,6 +1118,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether the script should be run in the case of an insert      */
+DECL|method|setScriptedUpsert
+specifier|public
+name|UpdateRequestBuilder
+name|setScriptedUpsert
+parameter_list|(
+name|boolean
+name|scriptedUpsert
+parameter_list|)
+block|{
+name|request
+operator|.
+name|scriptedUpsert
+argument_list|(
+name|scriptedUpsert
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute
