@@ -474,6 +474,36 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+comment|// Valid directory names for plugin ZIP files when it has only one single dir
+DECL|field|VALID_TOP_LEVEL_PLUGIN_DIRS
+specifier|private
+specifier|static
+specifier|final
+name|ImmutableSet
+argument_list|<
+name|Object
+argument_list|>
+name|VALID_TOP_LEVEL_PLUGIN_DIRS
+init|=
+name|ImmutableSet
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"_site"
+argument_list|,
+literal|"bin"
+argument_list|,
+literal|"config"
+argument_list|,
+literal|"_dict"
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 DECL|field|environment
 specifier|private
 specifier|final
@@ -1250,6 +1280,12 @@ literal|"Plugin installation assumed to be site plugin, but contains source code
 argument_list|)
 throw|;
 block|}
+comment|// It could potentially be a non explicit _site plugin
+name|boolean
+name|potentialSitePlugin
+init|=
+literal|true
+decl_stmt|;
 name|File
 name|binFile
 init|=
@@ -1347,6 +1383,10 @@ operator|.
 name|getAbsolutePath
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|potentialSitePlugin
+operator|=
+literal|false
 expr_stmt|;
 block|}
 name|File
@@ -1447,6 +1487,10 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|potentialSitePlugin
+operator|=
+literal|false
+expr_stmt|;
 block|}
 comment|// try and identify the plugin type, see if it has no .class or .jar files in it
 comment|// so its probably a _site, and it it does not have a _site in it, move everything to _site
@@ -1467,6 +1511,8 @@ condition|)
 block|{
 if|if
 condition|(
+name|potentialSitePlugin
+operator|&&
 operator|!
 name|FileSystemUtils
 operator|.
@@ -2170,18 +2216,21 @@ literal|false
 return|;
 block|}
 block|}
-return|return
+if|if
+condition|(
 name|topLevelDirNames
 operator|.
 name|size
 argument_list|()
 operator|==
 literal|1
-operator|&&
+condition|)
+block|{
+return|return
 operator|!
-literal|"_site"
+name|VALID_TOP_LEVEL_PLUGIN_DIRS
 operator|.
-name|equals
+name|contains
 argument_list|(
 name|topLevelDirNames
 operator|.
@@ -2191,6 +2240,10 @@ operator|.
 name|next
 argument_list|()
 argument_list|)
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|field|EXIT_CODE_OK
