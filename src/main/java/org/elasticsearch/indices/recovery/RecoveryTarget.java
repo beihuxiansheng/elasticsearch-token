@@ -489,7 +489,7 @@ specifier|final
 name|String
 name|FILES_INFO
 init|=
-literal|"index/shard/recovery/filesInfo"
+literal|"internal:index/shard/recovery/filesInfo"
 decl_stmt|;
 DECL|field|FILE_CHUNK
 specifier|public
@@ -498,7 +498,7 @@ specifier|final
 name|String
 name|FILE_CHUNK
 init|=
-literal|"index/shard/recovery/fileChunk"
+literal|"internal:index/shard/recovery/file_chunk"
 decl_stmt|;
 DECL|field|CLEAN_FILES
 specifier|public
@@ -507,7 +507,7 @@ specifier|final
 name|String
 name|CLEAN_FILES
 init|=
-literal|"index/shard/recovery/cleanFiles"
+literal|"internal:index/shard/recovery/clean_files"
 decl_stmt|;
 DECL|field|TRANSLOG_OPS
 specifier|public
@@ -516,7 +516,7 @@ specifier|final
 name|String
 name|TRANSLOG_OPS
 init|=
-literal|"index/shard/recovery/translogOps"
+literal|"internal:index/shard/recovery/translog_ops"
 decl_stmt|;
 DECL|field|PREPARE_TRANSLOG
 specifier|public
@@ -525,7 +525,7 @@ specifier|final
 name|String
 name|PREPARE_TRANSLOG
 init|=
-literal|"index/shard/recovery/prepareTranslog"
+literal|"internal:index/shard/recovery/prepare_translog"
 decl_stmt|;
 DECL|field|FINALIZE
 specifier|public
@@ -534,7 +534,7 @@ specifier|final
 name|String
 name|FINALIZE
 init|=
-literal|"index/shard/recovery/finalize"
+literal|"internal:index/shard/recovery/finalize"
 decl_stmt|;
 block|}
 DECL|field|threadPool

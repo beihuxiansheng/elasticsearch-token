@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"get"
+literal|"indices:data/read/get"
 decl_stmt|;
 DECL|method|GetAction
 specifier|private

@@ -79,7 +79,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"putIndexedScript"
+literal|"indices:data/write/script/put"
 decl_stmt|;
 DECL|method|PutIndexedScriptAction
 specifier|private

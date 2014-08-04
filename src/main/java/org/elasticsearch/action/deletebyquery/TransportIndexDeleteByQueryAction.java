@@ -220,7 +220,7 @@ name|DeleteByQueryAction
 operator|.
 name|NAME
 operator|+
-literal|"/index"
+literal|"[index]"
 decl_stmt|;
 annotation|@
 name|Inject

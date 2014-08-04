@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/optimize"
+literal|"indices:admin/optimize"
 decl_stmt|;
 DECL|method|OptimizeAction
 specifier|private

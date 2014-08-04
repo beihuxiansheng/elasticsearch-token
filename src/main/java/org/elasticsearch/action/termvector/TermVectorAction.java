@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"tv"
+literal|"indices:data/read/tv"
 decl_stmt|;
 DECL|method|TermVectorAction
 specifier|private

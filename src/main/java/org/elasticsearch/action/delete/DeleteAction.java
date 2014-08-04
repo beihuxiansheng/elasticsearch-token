@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"delete"
+literal|"indices:data/write/delete"
 decl_stmt|;
 DECL|method|DeleteAction
 specifier|private

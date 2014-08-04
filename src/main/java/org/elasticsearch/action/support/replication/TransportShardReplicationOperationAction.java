@@ -388,20 +388,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|DocumentAlreadyExistsException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
 name|VersionConflictEngineException
 import|;
 end_import
@@ -1002,7 +988,7 @@ block|{
 return|return
 name|actionName
 operator|+
-literal|"/replica"
+literal|"[r]"
 return|;
 block|}
 DECL|method|retryPrimaryException
@@ -1057,24 +1043,12 @@ name|e
 argument_list|)
 decl_stmt|;
 comment|// on version conflict or document missing, it means
-comment|// that a news change has crept into the replica, and its fine
+comment|// that a new change has crept into the replica, and it's fine
 if|if
 condition|(
 name|cause
 operator|instanceof
 name|VersionConflictEngineException
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-comment|// same here
-if|if
-condition|(
-name|cause
-operator|instanceof
-name|DocumentAlreadyExistsException
 condition|)
 block|{
 return|return

@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/mapping/put"
+literal|"indices:admin/mapping/put"
 decl_stmt|;
 DECL|method|PutMappingAction
 specifier|private

@@ -324,13 +324,13 @@ name|NodeLocalGatewayMetaState
 argument_list|>
 block|{
 DECL|field|ACTION_NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
 name|ACTION_NAME
 init|=
-literal|"/gateway/local/meta-state"
+literal|"internal:gateway/local/meta_state"
 decl_stmt|;
 DECL|field|metaState
 specifier|private

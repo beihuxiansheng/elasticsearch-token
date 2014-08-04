@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/nodes/restart"
+literal|"cluster:admin/nodes/restart"
 decl_stmt|;
 DECL|method|NodesRestartAction
 specifier|private

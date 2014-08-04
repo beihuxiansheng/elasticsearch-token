@@ -1523,6 +1523,7 @@ literal|0
 case|:
 block|{
 comment|// do nothing
+break|break;
 block|}
 case|case
 literal|1
@@ -1532,6 +1533,7 @@ name|storeTermVectors
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 case|case
 literal|2
@@ -1545,6 +1547,7 @@ name|storePositions
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 case|case
 literal|3
@@ -1558,6 +1561,7 @@ name|storeOffsets
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 case|case
 literal|4
@@ -1575,6 +1579,7 @@ name|storeOffsets
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 case|case
 literal|5
@@ -1592,6 +1597,7 @@ name|storePayloads
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 case|case
 literal|6
@@ -1613,6 +1619,7 @@ name|storePayloads
 operator|=
 literal|true
 expr_stmt|;
+break|break;
 block|}
 block|}
 name|ft

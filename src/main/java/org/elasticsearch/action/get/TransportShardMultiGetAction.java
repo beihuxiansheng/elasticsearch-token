@@ -322,7 +322,7 @@ name|MultiGetAction
 operator|.
 name|NAME
 operator|+
-literal|"/shard"
+literal|"[shard]"
 decl_stmt|;
 DECL|field|indicesService
 specifier|private
@@ -796,6 +796,11 @@ argument_list|,
 name|versionType
 argument_list|,
 name|fetchSourceContext
+argument_list|,
+name|request
+operator|.
+name|ignoreErrorsOnGeneratedFields
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|response

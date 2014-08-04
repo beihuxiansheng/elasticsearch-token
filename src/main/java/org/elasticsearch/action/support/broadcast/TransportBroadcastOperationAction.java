@@ -401,7 +401,7 @@ name|transportShardAction
 operator|=
 name|actionName
 operator|+
-literal|"/s"
+literal|"[s]"
 expr_stmt|;
 name|this
 operator|.
@@ -583,6 +583,7 @@ name|concreteIndices
 parameter_list|)
 function_decl|;
 DECL|class|AsyncBroadcastAction
+specifier|protected
 class|class
 name|AsyncBroadcastAction
 block|{
@@ -642,6 +643,7 @@ name|AtomicReferenceArray
 name|shardsResponses
 decl_stmt|;
 DECL|method|AsyncBroadcastAction
+specifier|protected
 name|AsyncBroadcastAction
 parameter_list|(
 name|Request
@@ -917,6 +919,7 @@ block|}
 block|}
 block|}
 DECL|method|performOperation
+specifier|protected
 name|void
 name|performOperation
 parameter_list|(
@@ -1218,6 +1221,7 @@ literal|"unchecked"
 block|}
 argument_list|)
 DECL|method|onOperation
+specifier|protected
 name|void
 name|onOperation
 parameter_list|(
@@ -1445,6 +1449,7 @@ block|}
 block|}
 block|}
 DECL|method|finishHim
+specifier|protected
 name|void
 name|finishHim
 parameter_list|()

@@ -89,7 +89,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"benchmark/start"
+literal|"indices:data/benchmark/start"
 decl_stmt|;
 DECL|method|BenchmarkAction
 specifier|private

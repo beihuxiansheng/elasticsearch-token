@@ -79,7 +79,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"getIndexedScript"
+literal|"indices:data/read/script/get"
 decl_stmt|;
 DECL|method|GetIndexedScriptAction
 specifier|private

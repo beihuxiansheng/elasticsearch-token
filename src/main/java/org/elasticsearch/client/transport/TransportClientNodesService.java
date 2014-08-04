@@ -2328,7 +2328,7 @@ condition|)
 block|{
 try|try
 block|{
-comment|// if its one of hte actual nodes we will talk to, not to listed nodes, fully connect
+comment|// if its one of the actual nodes we will talk to, not to listed nodes, fully connect
 if|if
 condition|(
 name|nodes

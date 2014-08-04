@@ -91,7 +91,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"mlt"
+literal|"indices:data/read/mlt"
 decl_stmt|;
 DECL|method|MoreLikeThisAction
 specifier|private

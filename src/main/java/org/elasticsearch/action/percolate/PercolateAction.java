@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"percolate"
+literal|"indices:data/read/percolate"
 decl_stmt|;
 DECL|method|PercolateAction
 specifier|private

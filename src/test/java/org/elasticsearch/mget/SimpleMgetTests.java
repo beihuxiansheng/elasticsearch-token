@@ -827,7 +827,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"routing is required, but hasn't been specified"
+literal|"routing is required for [test]/[test]/[1]"
 argument_list|)
 argument_list|)
 expr_stmt|;

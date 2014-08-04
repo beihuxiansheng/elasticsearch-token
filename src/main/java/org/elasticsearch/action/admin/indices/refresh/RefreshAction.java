@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/refresh"
+literal|"indices:admin/refresh"
 decl_stmt|;
 DECL|method|RefreshAction
 specifier|private

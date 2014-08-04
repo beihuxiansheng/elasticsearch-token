@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/analyze"
+literal|"indices:admin/analyze"
 decl_stmt|;
 DECL|method|AnalyzeAction
 specifier|private

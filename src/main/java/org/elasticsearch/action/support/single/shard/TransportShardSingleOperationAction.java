@@ -411,7 +411,7 @@ name|transportShardAction
 operator|=
 name|actionName
 operator|+
-literal|"/s"
+literal|"[s]"
 expr_stmt|;
 name|this
 operator|.

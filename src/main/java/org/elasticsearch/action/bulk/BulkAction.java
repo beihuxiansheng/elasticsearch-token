@@ -103,7 +103,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"bulk"
+literal|"indices:data/write/bulk"
 decl_stmt|;
 DECL|method|BulkAction
 specifier|private

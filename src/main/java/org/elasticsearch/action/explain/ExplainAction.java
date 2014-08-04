@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"explain"
+literal|"indices:data/read/explain"
 decl_stmt|;
 DECL|method|ExplainAction
 specifier|private

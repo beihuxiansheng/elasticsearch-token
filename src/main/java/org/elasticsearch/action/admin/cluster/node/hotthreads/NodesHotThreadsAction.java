@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/nodes/hot_threads"
+literal|"cluster:monitor/nodes/hot_threads"
 decl_stmt|;
 DECL|method|NodesHotThreadsAction
 specifier|private

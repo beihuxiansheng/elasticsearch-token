@@ -746,6 +746,14 @@ name|boolean
 name|hasFilterCache
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the cluster name      */
+DECL|method|getClusterName
+specifier|public
+specifier|abstract
+name|String
+name|getClusterName
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

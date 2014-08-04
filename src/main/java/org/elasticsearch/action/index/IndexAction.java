@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"index"
+literal|"indices:data/write/index"
 decl_stmt|;
 DECL|method|IndexAction
 specifier|private

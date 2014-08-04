@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"msearch"
+literal|"indices:data/read/msearch"
 decl_stmt|;
 DECL|method|MultiSearchAction
 specifier|private

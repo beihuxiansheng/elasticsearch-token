@@ -466,7 +466,7 @@ name|GetFieldMappingsAction
 operator|.
 name|NAME
 operator|+
-literal|"/index"
+literal|"[index]"
 decl_stmt|;
 DECL|field|clusterService
 specifier|protected

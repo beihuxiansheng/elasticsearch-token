@@ -500,13 +500,13 @@ name|NodeStoreFilesMetaData
 argument_list|>
 block|{
 DECL|field|ACTION_NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
 name|ACTION_NAME
 init|=
-literal|"/cluster/nodes/indices/shard/store"
+literal|"internal:cluster/nodes/indices/shard/store"
 decl_stmt|;
 DECL|field|indicesService
 specifier|private

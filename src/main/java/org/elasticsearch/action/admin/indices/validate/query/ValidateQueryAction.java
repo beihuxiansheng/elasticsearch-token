@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/validate/query"
+literal|"indices:admin/validate/query"
 decl_stmt|;
 DECL|method|ValidateQueryAction
 specifier|private

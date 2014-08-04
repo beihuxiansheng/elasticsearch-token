@@ -346,7 +346,7 @@ name|transportNodeAction
 operator|=
 name|actionName
 operator|+
-literal|"/n"
+literal|"[n]"
 expr_stmt|;
 name|this
 operator|.

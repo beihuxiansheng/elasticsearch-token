@@ -1615,9 +1615,9 @@ name|GeoDistance
 operator|.
 name|distanceValues
 argument_list|(
-name|distance
-argument_list|,
 name|geoValues
+argument_list|,
+name|distance
 argument_list|)
 expr_stmt|;
 block|}

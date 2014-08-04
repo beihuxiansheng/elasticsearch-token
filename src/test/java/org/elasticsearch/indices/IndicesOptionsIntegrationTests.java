@@ -2146,6 +2146,14 @@ argument_list|(
 literal|"test1"
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"test1"
+argument_list|)
+expr_stmt|;
+name|waitForRelocation
+argument_list|()
+expr_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
@@ -2350,17 +2358,16 @@ operator|.
 name|strictExpandOpen
 argument_list|()
 expr_stmt|;
-name|assertAcked
-argument_list|(
-name|prepareCreate
+name|createIndex
 argument_list|(
 literal|"test2"
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//TODO: temporary work-around for #5531
 name|ensureGreen
-argument_list|()
+argument_list|(
+literal|"test2"
+argument_list|)
 expr_stmt|;
 name|waitForRelocation
 argument_list|()

@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"search"
+literal|"indices:data/read/search"
 decl_stmt|;
 DECL|method|SearchAction
 specifier|private

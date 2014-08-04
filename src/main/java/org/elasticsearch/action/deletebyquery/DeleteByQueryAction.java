@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"deleteByQuery"
+literal|"indices:data/write/delete/by_query"
 decl_stmt|;
 DECL|method|DeleteByQueryAction
 specifier|private

@@ -44,6 +44,24 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|alias
+operator|.
+name|Alias
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|explain
 operator|.
 name|ExplainResponse
@@ -2051,6 +2069,15 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|addAlias
+argument_list|(
+operator|new
+name|Alias
+argument_list|(
+literal|"alias"
+argument_list|)
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"type1"
@@ -2111,7 +2138,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2162,7 +2190,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2242,7 +2271,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2282,7 +2312,8 @@ argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2322,7 +2353,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2384,7 +2416,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2424,7 +2457,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2480,7 +2514,8 @@ name|Requests
 operator|.
 name|deleteRequest
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|)
 operator|.
 name|type
@@ -2540,7 +2575,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2602,7 +2638,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2653,6 +2690,15 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addAlias
+argument_list|(
+operator|new
+name|Alias
+argument_list|(
+literal|"alias"
+argument_list|)
 argument_list|)
 operator|.
 name|addMapping
@@ -2769,7 +2815,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2812,7 +2859,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2901,7 +2949,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -2986,7 +3035,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3037,6 +3087,15 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addAlias
+argument_list|(
+operator|new
+name|Alias
+argument_list|(
+literal|"alias"
+argument_list|)
 argument_list|)
 operator|.
 name|addMapping
@@ -3114,7 +3173,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3186,7 +3246,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3271,7 +3332,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3322,6 +3384,15 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addAlias
+argument_list|(
+operator|new
+name|Alias
+argument_list|(
+literal|"alias"
+argument_list|)
 argument_list|)
 operator|.
 name|addMapping
@@ -3391,7 +3462,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3462,7 +3534,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3547,7 +3620,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3598,6 +3672,15 @@ operator|.
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addAlias
+argument_list|(
+operator|new
+name|Alias
+argument_list|(
+literal|"alias"
+argument_list|)
 argument_list|)
 operator|.
 name|addMapping
@@ -3660,7 +3743,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3694,7 +3778,8 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3735,7 +3820,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3776,7 +3862,8 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3825,7 +3912,8 @@ argument_list|()
 operator|.
 name|prepareExplain
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3888,7 +3976,8 @@ argument_list|()
 operator|.
 name|prepareExplain
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3945,7 +4034,8 @@ argument_list|()
 operator|.
 name|prepareTermVector
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3993,7 +4083,8 @@ argument_list|()
 operator|.
 name|prepareTermVector
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4035,7 +4126,8 @@ argument_list|()
 operator|.
 name|prepareUpdate
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4090,7 +4182,8 @@ argument_list|()
 operator|.
 name|prepareUpdate
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4154,7 +4247,8 @@ name|MultiGetRequest
 operator|.
 name|Item
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4174,7 +4268,8 @@ name|MultiGetRequest
 operator|.
 name|Item
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4309,7 +4404,8 @@ name|MultiGetRequest
 operator|.
 name|Item
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4324,7 +4420,8 @@ name|MultiGetRequest
 operator|.
 name|Item
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4409,7 +4506,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"routing is required, but hasn't been specified"
+literal|"routing is required for [test]/[type1]/[1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4472,7 +4569,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"routing is required, but hasn't been specified"
+literal|"routing is required for [test]/[type1]/[2]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4490,7 +4587,8 @@ argument_list|(
 operator|new
 name|TermVectorRequest
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4508,7 +4606,8 @@ argument_list|(
 operator|new
 name|TermVectorRequest
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4716,7 +4815,8 @@ argument_list|(
 operator|new
 name|TermVectorRequest
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4729,7 +4829,8 @@ argument_list|(
 operator|new
 name|TermVectorRequest
 argument_list|(
-literal|"test"
+name|indexOrAlias
+argument_list|()
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4811,7 +4912,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"routing is required, but hasn't been specified"
+literal|"routing is required for [test]/[type1]/[1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4905,10 +5006,26 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"routing is required, but hasn't been specified"
+literal|"routing is required for [test]/[type1]/[2]"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|indexOrAlias
+specifier|private
+specifier|static
+name|String
+name|indexOrAlias
+parameter_list|()
+block|{
+return|return
+name|randomBoolean
+argument_list|()
+condition|?
+literal|"test"
+else|:
+literal|"alias"
+return|;
 block|}
 block|}
 end_class

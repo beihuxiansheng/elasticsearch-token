@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/settings/update"
+literal|"cluster:admin/settings/update"
 decl_stmt|;
 DECL|method|ClusterUpdateSettingsAction
 specifier|private

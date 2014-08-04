@@ -561,13 +561,13 @@ init|=
 literal|"indices.mapping.additional_mapping_change_time"
 decl_stmt|;
 DECL|field|ACTION_NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
 name|ACTION_NAME
 init|=
-literal|"cluster/mappingUpdated"
+literal|"internal:cluster/mapping_updated"
 decl_stmt|;
 DECL|field|mappingUpdateOrderGen
 specifier|private

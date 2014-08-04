@@ -334,13 +334,13 @@ name|NodeLocalGatewayStartedShards
 argument_list|>
 block|{
 DECL|field|ACTION_NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
 name|ACTION_NAME
 init|=
-literal|"/gateway/local/started-shards"
+literal|"internal:gateway/local/started_shards"
 decl_stmt|;
 DECL|field|shardsState
 specifier|private

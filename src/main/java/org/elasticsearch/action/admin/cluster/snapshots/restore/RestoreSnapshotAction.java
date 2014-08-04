@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/snapshot/restore"
+literal|"cluster:admin/snapshot/restore"
 decl_stmt|;
 DECL|method|RestoreSnapshotAction
 specifier|private

@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/template/get"
+literal|"indices:admin/template/get"
 decl_stmt|;
 DECL|method|GetIndexTemplatesAction
 specifier|protected

@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/state"
+literal|"cluster:monitor/state"
 decl_stmt|;
 DECL|method|ClusterStateAction
 specifier|private

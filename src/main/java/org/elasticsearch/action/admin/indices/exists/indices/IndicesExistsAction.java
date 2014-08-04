@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/exists"
+literal|"indices:admin/exists"
 decl_stmt|;
 DECL|method|IndicesExistsAction
 specifier|private

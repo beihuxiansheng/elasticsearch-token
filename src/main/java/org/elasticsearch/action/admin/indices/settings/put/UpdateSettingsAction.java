@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/settings/update"
+literal|"indices:admin/settings/update"
 decl_stmt|;
 DECL|method|UpdateSettingsAction
 specifier|private

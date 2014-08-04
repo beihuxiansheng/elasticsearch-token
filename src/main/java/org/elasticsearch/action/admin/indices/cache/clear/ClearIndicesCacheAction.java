@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices/cache/clear"
+literal|"indices:admin/cache/clear"
 decl_stmt|;
 DECL|method|ClearIndicesCacheAction
 specifier|private

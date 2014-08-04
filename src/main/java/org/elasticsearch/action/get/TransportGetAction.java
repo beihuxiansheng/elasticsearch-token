@@ -735,6 +735,11 @@ name|request
 operator|.
 name|fetchSourceContext
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|ignoreErrorsOnGeneratedFields
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

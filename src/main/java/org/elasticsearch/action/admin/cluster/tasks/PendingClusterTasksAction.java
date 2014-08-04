@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster/task"
+literal|"cluster:monitor/task"
 decl_stmt|;
 DECL|method|PendingClusterTasksAction
 specifier|private
