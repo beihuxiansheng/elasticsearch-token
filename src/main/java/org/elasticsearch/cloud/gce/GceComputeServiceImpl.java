@@ -305,6 +305,18 @@ specifier|final
 name|String
 name|zone
 decl_stmt|;
+comment|// Forcing Google Token API URL as set in GCE SDK to
+comment|//      http://metadata/computeMetadata/v1/instance/service-accounts/default/token
+comment|// See https://developers.google.com/compute/docs/metadata#metadataserver
+DECL|field|TOKEN_SERVER_ENCODED_URL
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|TOKEN_SERVER_ENCODED_URL
+init|=
+literal|"http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token"
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|instances
@@ -618,6 +630,11 @@ argument_list|(
 name|HTTP_TRANSPORT
 argument_list|,
 name|JSON_FACTORY
+argument_list|)
+operator|.
+name|setTokenServerEncodedUrl
+argument_list|(
+name|TOKEN_SERVER_ENCODED_URL
 argument_list|)
 operator|.
 name|build
