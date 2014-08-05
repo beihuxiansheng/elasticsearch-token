@@ -922,7 +922,7 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-name|autoCreateIndex
+literal|false
 argument_list|,
 name|timeout
 argument_list|,
@@ -992,7 +992,7 @@ argument_list|)
 expr_stmt|;
 name|checkWriteAction
 argument_list|(
-name|autoCreateIndex
+literal|false
 argument_list|,
 name|timeout
 argument_list|,
@@ -1146,7 +1146,7 @@ argument_list|)
 expr_stmt|;
 name|checkBulkAction
 argument_list|(
-name|autoCreateIndex
+literal|false
 argument_list|,
 name|timeout
 argument_list|,
@@ -1429,9 +1429,8 @@ name|ClusterBlockException
 name|e
 parameter_list|)
 block|{
-comment|// today, we clear the metadata on when there is no master, so it will go through the auto create logic and
-comment|// add it... (if set to true), if we didn't remove the metedata when there is no master, then, the non
-comment|// retry in bulk should be taken into account
+comment|// If the index exists the bulk doesn't retry with a global block, if an index doesn't exist bulk api delegates
+comment|// to the create index api which does retry / wait on a global block.
 if|if
 condition|(
 operator|!
