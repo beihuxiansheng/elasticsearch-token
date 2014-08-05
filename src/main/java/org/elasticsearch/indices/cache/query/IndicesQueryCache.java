@@ -1157,6 +1157,17 @@ return|return
 literal|false
 return|;
 block|}
+comment|// if not explicitly set in the request, use the index setting, if not, use the request
+if|if
+condition|(
+name|request
+operator|.
+name|queryCache
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 operator|!
@@ -1173,6 +1184,21 @@ name|Boolean
 operator|.
 name|FALSE
 argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|request
+operator|.
+name|queryCache
+argument_list|()
 condition|)
 block|{
 return|return
@@ -1214,7 +1240,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// TODO allow to have a queryCache level flag on the request as well
 return|return
 literal|true
 return|;

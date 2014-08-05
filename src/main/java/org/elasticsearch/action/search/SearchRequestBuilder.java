@@ -3082,6 +3082,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets if this request should use the query cache or not, assuming that it can (for      * example, if "now" is used, it will never be cached). By default (not set, or null,      * will default to the index level setting if query cache is enabled or not).      */
+DECL|method|setQueryCache
+specifier|public
+name|SearchRequestBuilder
+name|setQueryCache
+parameter_list|(
+name|Boolean
+name|queryCache
+parameter_list|)
+block|{
+name|request
+operator|.
+name|queryCache
+argument_list|(
+name|queryCache
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the source builder to be used with this request. Note, any operations done      * on this require builder before are discarded as this internal builder replaces      * what has been built up until this point.      */
 DECL|method|internalBuilder
 specifier|public
