@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|S3SnapshotRestoreOverHttpTest
 extends|extends
-name|S3SnapshotRestoreAbstractTest
+name|AbstractS3SnapshotRestoreTest
 block|{
 annotation|@
 name|Override
