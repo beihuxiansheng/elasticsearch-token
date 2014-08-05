@@ -316,6 +316,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|http
+operator|.
+name|netty
+operator|.
+name|NettyHttpServerTransport
+operator|.
+name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|jboss
 operator|.
 name|netty
@@ -692,7 +708,7 @@ argument_list|()
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"http.cors.enabled"
+name|SETTING_CORS_ENABLED
 argument_list|,
 literal|true
 argument_list|)
@@ -742,7 +758,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"http.cors.allow-origin"
+name|SETTING_CORS_ALLOW_ORIGIN
 argument_list|,
 literal|"*"
 argument_list|)
@@ -806,7 +822,7 @@ argument_list|()
 operator|.
 name|getAsInt
 argument_list|(
-literal|"http.cors.max-age"
+name|SETTING_CORS_MAX_AGE
 argument_list|,
 literal|1728000
 argument_list|)
@@ -828,7 +844,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"http.cors.allow-methods"
+name|SETTING_CORS_ALLOW_METHODS
 argument_list|,
 literal|"OPTIONS, HEAD, GET, POST, PUT, DELETE"
 argument_list|)
@@ -850,10 +866,38 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"http.cors.allow-headers"
+name|SETTING_CORS_ALLOW_HEADERS
 argument_list|,
 literal|"X-Requested-With, Content-Type, Content-Length"
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|transport
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|getAsBoolean
+argument_list|(
+name|SETTING_CORS_ALLOW_CREDENTIALS
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
+name|resp
+operator|.
+name|headers
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|ACCESS_CONTROL_ALLOW_CREDENTIALS
+argument_list|,
+literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
