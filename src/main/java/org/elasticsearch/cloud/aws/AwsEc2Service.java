@@ -344,7 +344,7 @@ name|get
 argument_list|(
 literal|"protocol"
 argument_list|,
-literal|"http"
+literal|"https"
 argument_list|)
 operator|.
 name|toLowerCase
