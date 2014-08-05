@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test needs GCE to run and -Dtests.gce=true to be set  * and -Des.config=/path/to/elasticsearch.yml  * TODO: By now, it will only work from GCE platform as we don't support yet external auth.  * See https://github.com/elasticsearch/elasticsearch-cloud-gce/issues/10  * @see org.elasticsearch.cloud.gce.AbstractGceTest  */
+comment|/**  * This test needs GCE to run and -Dtests.gce=true to be set  * and -Dtests.config=/path/to/elasticsearch.yml  * TODO: By now, it will only work from GCE platform as we don't support yet external auth.  * See https://github.com/elasticsearch/elasticsearch-cloud-gce/issues/10  * @see org.elasticsearch.cloud.gce.AbstractGceTest  */
 end_comment
 
 begin_class

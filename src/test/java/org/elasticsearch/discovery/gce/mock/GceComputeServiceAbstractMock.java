@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.gce
+DECL|package|org.elasticsearch.discovery.gce.mock
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|discovery
 operator|.
 name|gce
+operator|.
+name|mock
 package|;
 end_package
 
@@ -137,6 +139,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|discovery
+operator|.
+name|gce
+operator|.
+name|GceComputeEngineTest
 import|;
 end_import
 
@@ -410,7 +426,7 @@ literal|"es_port"
 argument_list|,
 literal|""
 operator|+
-name|AbstractGceComputeServiceTest
+name|GceComputeEngineTest
 operator|.
 name|getPort
 argument_list|(
