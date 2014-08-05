@@ -774,6 +774,10 @@ assert|assert
 name|v
 operator|>=
 literal|0
+operator|:
+literal|"bytes="
+operator|+
+name|v
 assert|;
 block|}
 block|}
@@ -845,6 +849,10 @@ assert|assert
 name|v
 operator|>=
 literal|0
+operator|:
+literal|"bytes="
+operator|+
+name|v
 assert|;
 block|}
 specifier|final
@@ -955,13 +963,10 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|ramBytesUsedTombstones
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
+comment|// NOTE: we can't zero this here, because a refresh thread could be calling InternalEngine.pruneDeletedTombstones at the same time,
+comment|// and this will lead to an assert trip.  Presumably it's fine if our ramBytesUsedTombstones is non-zero after clear since the index
+comment|// is being closed:
+comment|//ramBytesUsedTombstones.set(0);
 if|if
 condition|(
 name|mgr
