@@ -1385,6 +1385,11 @@ argument_list|,
 name|mapping
 argument_list|)
 operator|.
+name|setTimeout
+argument_list|(
+literal|"60s"
+argument_list|)
+operator|.
 name|get
 argument_list|()
 argument_list|)
