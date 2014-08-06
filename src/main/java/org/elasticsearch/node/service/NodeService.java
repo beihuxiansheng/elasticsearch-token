@@ -351,11 +351,11 @@ specifier|final
 name|Version
 name|version
 decl_stmt|;
-DECL|field|disovery
+DECL|field|discovery
 specifier|private
 specifier|final
 name|Discovery
-name|disovery
+name|discovery
 decl_stmt|;
 annotation|@
 name|Inject
@@ -422,7 +422,7 @@ name|indicesService
 expr_stmt|;
 name|this
 operator|.
-name|disovery
+name|discovery
 operator|=
 name|discovery
 expr_stmt|;
@@ -604,7 +604,7 @@ name|Build
 operator|.
 name|CURRENT
 argument_list|,
-name|disovery
+name|discovery
 operator|.
 name|localNode
 argument_list|()
@@ -722,7 +722,7 @@ name|Build
 operator|.
 name|CURRENT
 argument_list|,
-name|disovery
+name|discovery
 operator|.
 name|localNode
 argument_list|()
@@ -853,7 +853,7 @@ return|return
 operator|new
 name|NodeStats
 argument_list|(
-name|disovery
+name|discovery
 operator|.
 name|localNode
 argument_list|()
@@ -980,7 +980,7 @@ return|return
 operator|new
 name|NodeStats
 argument_list|(
-name|disovery
+name|discovery
 operator|.
 name|localNode
 argument_list|()
