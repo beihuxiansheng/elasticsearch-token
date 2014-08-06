@@ -1385,6 +1385,15 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|node
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|Decision
 name|decision
 init|=

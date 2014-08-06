@@ -3449,6 +3449,15 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|CompressedString
 name|existingSource
 init|=

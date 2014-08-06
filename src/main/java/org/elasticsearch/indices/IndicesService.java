@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -84,16 +98,6 @@ name|IndexService
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -154,14 +158,18 @@ name|IndicesLifecycle
 name|indicesLifecycle
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a snapshot of the started indices and the associated {@link IndexService} instances.      *      * The map being returned is not a live view and subsequent calls can return a different view.      */
 DECL|method|indices
-name|Set
+name|ImmutableMap
 argument_list|<
 name|String
+argument_list|,
+name|IndexService
 argument_list|>
 name|indices
 parameter_list|()
 function_decl|;
+comment|/**      * Returns an IndexService for the specified index if exists otherwise returns<code>null</code>.      *      * Even if the index name appeared in {@link #indices()}<code>null</code> can still be returned as an      * index maybe removed in the meantime, so preferable use the associated {@link IndexService} in order to prevent NPE.      */
 DECL|method|indexService
 name|IndexService
 name|indexService
@@ -170,6 +178,7 @@ name|String
 name|index
 parameter_list|)
 function_decl|;
+comment|/**      * Returns an IndexService for the specified index if exists otherwise a {@link IndexMissingException} is thrown.      */
 DECL|method|indexServiceSafe
 name|IndexService
 name|indexServiceSafe

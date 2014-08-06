@@ -640,15 +640,28 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|ClusterState
+name|state
+init|=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
 name|logger
 operator|.
 name|error
 argument_list|(
-literal|"unexpected failure during [{}]"
+literal|"unexpected failure during [{}], current state:\n{}"
 argument_list|,
 name|t
 argument_list|,
 name|source
+argument_list|,
+name|state
+operator|.
+name|prettyPrint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -666,13 +679,26 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|ClusterState
+name|state
+init|=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to reroute routing table"
+literal|"Failed to reroute routing table, current state:\n{}"
 argument_list|,
 name|e
+argument_list|,
+name|state
+operator|.
+name|prettyPrint
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

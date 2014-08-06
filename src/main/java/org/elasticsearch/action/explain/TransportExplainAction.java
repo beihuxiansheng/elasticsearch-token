@@ -797,7 +797,7 @@ name|indexService
 init|=
 name|indicesService
 operator|.
-name|indexService
+name|indexServiceSafe
 argument_list|(
 name|request
 operator|.
