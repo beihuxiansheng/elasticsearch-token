@@ -139,7 +139,7 @@ name|put
 argument_list|(
 literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
-literal|"localhost:9390,localhost:9391"
+literal|"localhost:9380,localhost:9381,localhost:9390,localhost:9391"
 argument_list|)
 operator|.
 name|put
@@ -193,7 +193,7 @@ name|put
 argument_list|(
 literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
-literal|"localhost:9380,localhost:9381"
+literal|"localhost:9380,localhost:9381,localhost:9390,localhost:9391"
 argument_list|)
 operator|.
 name|put
@@ -217,8 +217,6 @@ specifier|public
 name|void
 name|testUnicastDiscovery
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 name|ClusterHealthResponse
 name|healthResponse
