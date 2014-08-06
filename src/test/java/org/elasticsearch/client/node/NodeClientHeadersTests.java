@@ -476,9 +476,6 @@ argument_list|(
 name|actionName
 argument_list|,
 name|request
-operator|.
-name|getHeaders
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
