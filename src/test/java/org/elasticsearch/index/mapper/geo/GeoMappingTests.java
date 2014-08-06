@@ -132,6 +132,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAcked
+import|;
+end_import
+
 begin_class
 DECL|class|GeoMappingTests
 specifier|public
@@ -148,6 +164,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assertAcked
+argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
@@ -222,11 +240,9 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|execute
+name|get
 argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|ensureYellow
 argument_list|()
@@ -244,6 +260,8 @@ name|MILLIMETERS
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -330,11 +348,9 @@ name|endObject
 argument_list|()
 argument_list|)
 operator|.
-name|execute
+name|get
 argument_list|()
-operator|.
-name|actionGet
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|assertPrecision
 argument_list|(
