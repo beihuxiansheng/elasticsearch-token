@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Note: this is only used by one lone test method.  */
 end_comment
 
 begin_class
