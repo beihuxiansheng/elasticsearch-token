@@ -404,7 +404,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|200
 condition|;
 name|i
 operator|++
@@ -421,7 +421,7 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|1000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream
@@ -618,7 +618,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|200
 condition|;
 name|i
 operator|++
@@ -635,7 +635,7 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|1000
+literal|20000
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream
@@ -776,7 +776,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|1000
+literal|200
 condition|;
 name|i
 operator|++
@@ -793,7 +793,7 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|1000
+literal|40000
 argument_list|)
 decl_stmt|;
 name|ByteArrayOutputStream
