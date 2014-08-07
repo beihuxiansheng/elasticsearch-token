@@ -16650,11 +16650,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|(
-literal|"idx"
-argument_list|)
-expr_stmt|;
 name|waitForConcreteMappingsOnAll
 argument_list|(
 literal|"idx"
@@ -16698,6 +16693,13 @@ name|queryString
 argument_list|(
 literal|"color:blue"
 argument_list|)
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"type"
 argument_list|)
 operator|.
 name|endObject
