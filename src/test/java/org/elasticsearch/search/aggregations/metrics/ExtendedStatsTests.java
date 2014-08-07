@@ -5465,7 +5465,7 @@ literal|"Shard Failure: {}"
 argument_list|,
 name|failure
 operator|.
-name|failure
+name|reason
 argument_list|()
 argument_list|,
 name|failure
