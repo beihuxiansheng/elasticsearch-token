@@ -52,6 +52,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -1950,13 +1960,21 @@ argument_list|,
 name|INTERSECTION_ORDER
 argument_list|)
 decl_stmt|;
-assert|assert
+if|if
+condition|(
 name|pos
 operator|<
 literal|0
-operator|:
-literal|"illegal state: two edges cross the datum at the same position"
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"Invaild shape: Hole is not within polygon"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|int
 name|index
