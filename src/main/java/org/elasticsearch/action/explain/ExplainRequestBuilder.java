@@ -399,7 +399,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Indicates whether the response should contain the stored _source      *      *      * @param fetch      * @return      */
+comment|/**      * Indicates whether the response should contain the stored _source      */
 DECL|method|setFetchSource
 specifier|public
 name|ExplainRequestBuilder
@@ -599,28 +599,6 @@ argument_list|(
 name|source
 argument_list|,
 name|unsafe
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets whether the actual explain action should occur in a different thread if executed locally.      */
-DECL|method|operationThreaded
-specifier|public
-name|ExplainRequestBuilder
-name|operationThreaded
-parameter_list|(
-name|boolean
-name|threadedOperation
-parameter_list|)
-block|{
-name|request
-argument_list|()
-operator|.
-name|operationThreaded
-argument_list|(
-name|threadedOperation
 argument_list|)
 expr_stmt|;
 return|return
