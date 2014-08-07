@@ -2329,7 +2329,15 @@ name|intersect
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|in
+operator|.
+name|next
+operator|!=
+name|out
+condition|)
 block|{
 comment|// first edge intersects with dateline
 name|Edge
