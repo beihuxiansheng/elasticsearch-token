@@ -22924,7 +22924,7 @@ argument_list|,
 literal|1l
 argument_list|)
 expr_stmt|;
-comment|// The range filter is now explicitly cached, so it now it is in the filter cache.
+comment|// The range filter is now explicitly cached but we don't want to cache now even if the user asked for it
 name|statsResponse
 operator|=
 name|client
@@ -22970,17 +22970,6 @@ operator|.
 name|getMemorySizeInBytes
 argument_list|()
 argument_list|,
-name|cluster
-argument_list|()
-operator|.
-name|hasFilterCache
-argument_list|()
-condition|?
-name|greaterThan
-argument_list|(
-name|filtercacheSize
-argument_list|)
-else|:
 name|is
 argument_list|(
 name|filtercacheSize
