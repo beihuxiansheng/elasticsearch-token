@@ -20,6 +20,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|net
+operator|.
+name|InetAddresses
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -676,6 +690,29 @@ name|ElasticsearchIllegalArgumentException
 block|{
 try|try
 block|{
+if|if
+condition|(
+operator|!
+name|InetAddresses
+operator|.
+name|isInetAddress
+argument_list|(
+name|ip
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"failed to parse ip ["
+operator|+
+name|ip
+operator|+
+literal|"], not a valid ip address"
+argument_list|)
+throw|;
+block|}
 name|String
 index|[]
 name|octets
@@ -704,7 +741,7 @@ literal|"failed to parse ip ["
 operator|+
 name|ip
 operator|+
-literal|"], not full ip address (4 dots)"
+literal|"], not a valid ipv4 address (4 dots)"
 argument_list|)
 throw|;
 block|}
