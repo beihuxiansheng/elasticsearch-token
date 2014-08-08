@@ -5302,7 +5302,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|map
 parameter_list|)
@@ -5674,7 +5674,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|map
 parameter_list|)
@@ -5694,7 +5694,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|entry
 range|:
