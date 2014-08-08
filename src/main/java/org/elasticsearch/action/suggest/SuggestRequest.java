@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get suggestions for corrections of phrases. Best created with  * {@link org.elasticsearch.client.Requests#suggestRequest(String...)}.  *<p/>  *<p>The request requires the query source to be set either using {@link #query(org.elasticsearch.index.query.QueryBuilder)},  * or {@link #query(byte[])}.  *  * @see SuggestResponse  * @see org.elasticsearch.client.Client#suggest(SuggestRequest)  * @see org.elasticsearch.client.Requests#suggestRequest(String...)  */
+comment|/**  * A request to get suggestions for corrections of phrases. Best created with  * {@link org.elasticsearch.client.Requests#suggestRequest(String...)}.  *<p/>  *<p>The request requires the suggest query source to be set either using {@link #suggest(org.elasticsearch.common.bytes.BytesReference)},  * or {@link #suggest(org.elasticsearch.common.bytes.BytesReference, boolean)}.  *  * @see SuggestResponse  * @see org.elasticsearch.client.Client#suggest(SuggestRequest)  * @see org.elasticsearch.client.Requests#suggestRequest(String...)  */
 end_comment
 
 begin_class
