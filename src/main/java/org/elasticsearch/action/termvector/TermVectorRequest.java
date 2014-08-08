@@ -534,7 +534,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @returns<code>true</code> if term offsets should be returned. Otherwise      *<code>false</code>      */
+comment|/**      * @return<code>true</code> if term offsets should be returned. Otherwise      *<code>false</code>      */
 DECL|method|offsets
 specifier|public
 name|boolean
@@ -593,7 +593,7 @@ name|Positions
 argument_list|)
 return|;
 block|}
-comment|/**      * @returns<code>true</code> if term payloads should be returned. Otherwise      *<code>false</code>      */
+comment|/**      * @return<code>true</code> if term payloads should be returned. Otherwise      *<code>false</code>      */
 DECL|method|payloads
 specifier|public
 name|boolean
@@ -634,7 +634,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @returns<code>true</code> if term statistics should be returned.      * Otherwise<code>false</code>      */
+comment|/**      * @return<code>true</code> if term statistics should be returned.      * Otherwise<code>false</code>      */
 DECL|method|termStatistics
 specifier|public
 name|boolean
@@ -675,7 +675,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @returns<code>true</code> if field statistics should be returned.      * Otherwise<code>false</code>      */
+comment|/**      * @return<code>true</code> if field statistics should be returned.      * Otherwise<code>false</code>      */
 DECL|method|fieldStatistics
 specifier|public
 name|boolean
@@ -837,27 +837,11 @@ block|{
 name|ActionRequestValidationException
 name|validationException
 init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|index
-operator|==
-literal|null
-condition|)
-block|{
-name|validationException
-operator|=
-name|ValidateActions
+name|super
 operator|.
-name|addValidationError
-argument_list|(
-literal|"index is missing"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
+name|validate
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|type
@@ -1240,8 +1224,8 @@ block|,
 name|FieldStatistics
 block|,
 name|TermStatistics
-block|;     }
-comment|/**      * populates a request object (pre-populated with defaults) based on a parser.      *      * @param termVectorRequest      * @param parser      * @throws IOException      */
+block|}
+comment|/**      * populates a request object (pre-populated with defaults) based on a parser.      */
 DECL|method|parseRequest
 specifier|public
 specifier|static
