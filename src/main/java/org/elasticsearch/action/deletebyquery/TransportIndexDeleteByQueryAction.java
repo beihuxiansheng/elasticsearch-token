@@ -166,18 +166,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -187,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Internal transport action that broadcasts a delete by query request to all of the shards that belong to an index.  */
 end_comment
 
 begin_class
@@ -234,9 +222,6 @@ parameter_list|,
 name|ClusterService
 name|clusterService
 parameter_list|,
-name|TransportService
-name|transportService
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -253,8 +238,6 @@ name|settings
 argument_list|,
 name|ACTION_NAME
 argument_list|,
-name|transportService
-argument_list|,
 name|clusterService
 argument_list|,
 name|threadPool
@@ -264,20 +247,6 @@ argument_list|,
 name|actionFilters
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|newRequestInstance
-specifier|protected
-name|IndexDeleteByQueryRequest
-name|newRequestInstance
-parameter_list|()
-block|{
-return|return
-operator|new
-name|IndexDeleteByQueryRequest
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override

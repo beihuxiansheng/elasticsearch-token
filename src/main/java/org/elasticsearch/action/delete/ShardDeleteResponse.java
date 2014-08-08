@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.delete.index
+DECL|package|org.elasticsearch.action.delete
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|action
 operator|.
 name|delete
-operator|.
-name|index
 package|;
 end_package
 

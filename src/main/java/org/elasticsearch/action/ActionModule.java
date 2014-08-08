@@ -2028,8 +2028,6 @@ name|action
 operator|.
 name|delete
 operator|.
-name|index
-operator|.
 name|TransportIndexDeleteAction
 import|;
 end_import
@@ -2043,8 +2041,6 @@ operator|.
 name|action
 operator|.
 name|delete
-operator|.
-name|index
 operator|.
 name|TransportShardDeleteAction
 import|;
