@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of the delete action.  *  * @see DeleteIndexedScriptRequest  * @see org.elasticsearch.client.Client#delete(DeleteIndexedScriptRequest)  */
+comment|/**  * The response of the delete indexed script action.  *  * @see DeleteIndexedScriptRequest  * @see org.elasticsearch.client.Client#deleteIndexedScript(DeleteIndexedScriptRequest)  */
 end_comment
 
 begin_class
