@@ -76,18 +76,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -203,8 +191,6 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-annotation|@
-name|Nullable
 DECL|field|version
 specifier|private
 name|long
