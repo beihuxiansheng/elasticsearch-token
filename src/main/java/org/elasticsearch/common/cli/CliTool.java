@@ -693,9 +693,6 @@ operator|.
 name|printError
 argument_list|(
 name|ioe
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -719,9 +716,6 @@ operator|.
 name|printError
 argument_list|(
 name|ilae
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -743,9 +737,6 @@ operator|.
 name|printError
 argument_list|(
 name|t
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
