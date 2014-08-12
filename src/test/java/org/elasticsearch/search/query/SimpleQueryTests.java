@@ -24198,19 +24198,6 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Ensure all shards have our mappings, otherwise we can sometimes fail to hit the expected exceptions below, because some shards
-comment|// will succeed in running a query (that returns 0 hits) instead of throwing the expected exception:
-name|waitForConcreteMappingsOnAll
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|,
-literal|"date"
-argument_list|,
-literal|"num"
-argument_list|)
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
