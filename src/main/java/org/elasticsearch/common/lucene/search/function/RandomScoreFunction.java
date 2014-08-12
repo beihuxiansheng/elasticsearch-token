@@ -136,8 +136,8 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|Explanation
-name|subQueryExpl
+name|float
+name|subQueryScore
 parameter_list|)
 block|{
 name|Explanation
@@ -158,13 +158,6 @@ operator|.
 name|originalSeed
 operator|+
 literal|")"
-argument_list|)
-expr_stmt|;
-name|exp
-operator|.
-name|addDetail
-argument_list|(
-name|subQueryExpl
 argument_list|)
 expr_stmt|;
 return|return

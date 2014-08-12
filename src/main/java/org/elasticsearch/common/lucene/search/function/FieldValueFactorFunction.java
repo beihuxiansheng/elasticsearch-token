@@ -344,8 +344,8 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|Explanation
-name|subQueryExpl
+name|float
+name|subQueryScore
 parameter_list|)
 block|{
 name|Explanation
@@ -376,10 +376,7 @@ name|score
 argument_list|(
 name|docId
 argument_list|,
-name|subQueryExpl
-operator|.
-name|getValue
-argument_list|()
+name|subQueryScore
 argument_list|)
 decl_stmt|;
 name|exp
@@ -413,13 +410,6 @@ operator|+
 name|boostFactor
 operator|+
 literal|")"
-argument_list|)
-expr_stmt|;
-name|exp
-operator|.
-name|addDetail
-argument_list|(
-name|subQueryExpl
 argument_list|)
 expr_stmt|;
 return|return

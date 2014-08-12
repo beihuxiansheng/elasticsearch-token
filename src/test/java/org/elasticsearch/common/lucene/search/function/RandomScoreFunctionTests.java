@@ -895,6 +895,9 @@ argument_list|(
 literal|0
 argument_list|,
 name|subExplanation
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// Original seed should be there
@@ -910,19 +913,6 @@ argument_list|(
 literal|""
 operator|+
 name|seed
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|randomExplanation
-operator|.
-name|getDetails
-argument_list|()
-argument_list|,
-name|arrayContaining
-argument_list|(
-name|subExplanation
 argument_list|)
 argument_list|)
 expr_stmt|;

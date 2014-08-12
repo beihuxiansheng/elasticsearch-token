@@ -139,8 +139,8 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|Explanation
-name|subQueryExpl
+name|float
+name|subQueryScore
 parameter_list|)
 block|{
 name|Explanation

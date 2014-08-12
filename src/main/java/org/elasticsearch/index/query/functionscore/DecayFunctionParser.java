@@ -2829,8 +2829,8 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|Explanation
-name|subQueryExpl
+name|float
+name|subQueryScore
 parameter_list|)
 block|{
 name|ComplexExplanation
@@ -2852,10 +2852,7 @@ name|score
 argument_list|(
 name|docId
 argument_list|,
-name|subQueryExpl
-operator|.
-name|getValue
-argument_list|()
+name|subQueryScore
 argument_list|)
 argument_list|)
 argument_list|)
