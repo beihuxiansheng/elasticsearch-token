@@ -848,7 +848,7 @@ operator|>=
 literal|0
 operator|&&
 name|ny
-operator|<
+operator|<=
 name|yLimit
 condition|)
 block|{
