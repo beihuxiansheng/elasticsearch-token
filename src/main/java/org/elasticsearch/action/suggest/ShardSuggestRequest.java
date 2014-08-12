@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -88,6 +78,30 @@ name|StreamOutput
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Internal suggest request executed directly against a specific index shard.  */
 end_comment
@@ -110,13 +124,9 @@ name|ShardSuggestRequest
 parameter_list|()
 block|{     }
 DECL|method|ShardSuggestRequest
-specifier|public
 name|ShardSuggestRequest
 parameter_list|(
-name|String
-name|index
-parameter_list|,
-name|int
+name|ShardId
 name|shardId
 parameter_list|,
 name|SuggestRequest
@@ -125,8 +135,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|shardId
 argument_list|,
 name|request

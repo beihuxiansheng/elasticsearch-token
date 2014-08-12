@@ -110,6 +110,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -167,13 +181,9 @@ name|ShardValidateQueryRequest
 parameter_list|()
 block|{      }
 DECL|method|ShardValidateQueryRequest
-specifier|public
 name|ShardValidateQueryRequest
 parameter_list|(
-name|String
-name|index
-parameter_list|,
-name|int
+name|ShardId
 name|shardId
 parameter_list|,
 annotation|@
@@ -188,8 +198,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 name|shardId
 argument_list|,
 name|request

@@ -814,12 +814,7 @@ name|ShardExistsRequest
 argument_list|(
 name|shard
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|shard
-operator|.
-name|id
+name|shardId
 argument_list|()
 argument_list|,
 name|filteringAliases

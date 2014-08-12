@@ -896,10 +896,13 @@ init|=
 operator|new
 name|PercolateShardRequest
 argument_list|(
+operator|new
+name|ShardId
+argument_list|(
 name|index
-argument_list|()
 argument_list|,
 name|shardId
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|shardRequest
