@@ -832,6 +832,28 @@ name|String
 name|source
 parameter_list|)
 block|{
+if|if
+condition|(
+name|mappings
+operator|.
+name|containsKey
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"mappings for type \""
+operator|+
+name|type
+operator|+
+literal|"\" were already defined"
+argument_list|)
+throw|;
+block|}
 name|mappings
 operator|.
 name|put
@@ -878,6 +900,28 @@ name|XContentBuilder
 name|source
 parameter_list|)
 block|{
+if|if
+condition|(
+name|mappings
+operator|.
+name|containsKey
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"mappings for type \""
+operator|+
+name|type
+operator|+
+literal|"\" were already defined"
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 name|mappings
@@ -931,6 +975,28 @@ name|Map
 name|source
 parameter_list|)
 block|{
+if|if
+condition|(
+name|mappings
+operator|.
+name|containsKey
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"mappings for type \""
+operator|+
+name|type
+operator|+
+literal|"\" were already defined"
+argument_list|)
+throw|;
+block|}
 comment|// wrap it in a type map if its not
 if|if
 condition|(
