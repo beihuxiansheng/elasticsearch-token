@@ -774,27 +774,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * A filter that restricts search results to values that are within the given numeric range. Uses the      * field data cache (loading all the values for the specified field into memory)      *      * @param name The field name      * @deprecated The numeric_range filter will be removed at some point in time in favor for the range filter with      *             the execution mode<code>fielddata</code>.      */
-annotation|@
-name|Deprecated
-DECL|method|numericRangeFilter
-specifier|public
-specifier|static
-name|NumericRangeFilterBuilder
-name|numericRangeFilter
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-operator|new
-name|NumericRangeFilterBuilder
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
 comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
 DECL|method|queryFilter
 specifier|public
