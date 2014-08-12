@@ -1963,7 +1963,7 @@ decl_stmt|;
 if|if
 condition|(
 name|pos
-operator|<
+operator|>=
 literal|0
 condition|)
 block|{
