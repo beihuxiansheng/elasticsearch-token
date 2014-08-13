@@ -642,6 +642,8 @@ operator|=
 operator|new
 name|MultiTermVectorsShardRequest
 argument_list|(
+name|request
+argument_list|,
 name|shardId
 operator|.
 name|index

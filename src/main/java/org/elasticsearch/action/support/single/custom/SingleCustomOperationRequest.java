@@ -171,6 +171,20 @@ specifier|protected
 name|SingleCustomOperationRequest
 parameter_list|()
 block|{     }
+DECL|method|SingleCustomOperationRequest
+specifier|protected
+name|SingleCustomOperationRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|validate

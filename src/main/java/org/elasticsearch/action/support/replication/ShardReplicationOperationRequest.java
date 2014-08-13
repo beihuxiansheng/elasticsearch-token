@@ -262,7 +262,7 @@ name|ShardReplicationOperationRequest
 parameter_list|()
 block|{      }
 DECL|method|ShardReplicationOperationRequest
-specifier|public
+specifier|protected
 name|ShardReplicationOperationRequest
 parameter_list|(
 name|ActionRequest
@@ -276,7 +276,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ShardReplicationOperationRequest
-specifier|public
+specifier|protected
 name|ShardReplicationOperationRequest
 parameter_list|(
 name|T

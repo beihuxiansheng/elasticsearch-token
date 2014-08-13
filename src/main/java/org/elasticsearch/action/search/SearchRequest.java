@@ -463,6 +463,21 @@ specifier|public
 name|SearchRequest
 parameter_list|()
 block|{     }
+comment|/**      * Constructs a new search request starting from the provided request, meaning that it will      * inherit its headers and context      */
+DECL|method|SearchRequest
+specifier|public
+name|SearchRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructs a new search request against the indices. No indices provided here means that search      * will run against all indices.      */
 DECL|method|SearchRequest
 specifier|public

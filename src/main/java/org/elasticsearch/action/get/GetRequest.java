@@ -402,6 +402,26 @@ operator|=
 literal|"_all"
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new get request starting from the provided request, meaning that it will      * inherit its headers and context, and against the specified index.      */
+DECL|method|GetRequest
+specifier|public
+name|GetRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|,
+name|String
+name|index
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructs a new get request against the specified index with the type and id.      *      * @param index The index to get the document from      * @param type  The type of the document      * @param id    The id of the document      */
 DECL|method|GetRequest
 specifier|public

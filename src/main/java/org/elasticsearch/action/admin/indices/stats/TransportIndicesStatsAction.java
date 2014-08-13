@@ -1352,6 +1352,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|IndexShardStatsRequest
+specifier|public
 specifier|static
 class|class
 name|IndexShardStatsRequest

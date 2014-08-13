@@ -2485,6 +2485,8 @@ init|=
 operator|new
 name|BulkShardRequest
 argument_list|(
+name|bulkRequest
+argument_list|,
 name|shardId
 operator|.
 name|index

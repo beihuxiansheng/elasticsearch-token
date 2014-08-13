@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Needs to be implemented by all {@link org.elasticsearch.action.ActionRequest} subclasses that relate to  * one or more indices. Allows to retrieve which indices the action relates to.  */
+comment|/**  * Needs to be implemented by all {@link org.elasticsearch.action.ActionRequest} subclasses that relate to  * one or more indices. Allows to retrieve which indices the action relates to.  * In case of internal requests  originated during the distributed execution of an external request,  * they will still return the indices that the original request related to.  */
 end_comment
 
 begin_interface

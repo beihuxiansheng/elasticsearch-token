@@ -849,6 +849,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|IndexShardSegmentRequest
+specifier|public
 specifier|static
 class|class
 name|IndexShardSegmentRequest

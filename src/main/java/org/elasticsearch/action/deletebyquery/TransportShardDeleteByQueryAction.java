@@ -668,7 +668,11 @@ literal|0
 argument_list|,
 operator|new
 name|ShardSearchRequest
-argument_list|()
+argument_list|(
+name|shardRequest
+operator|.
+name|request
+argument_list|)
 operator|.
 name|types
 argument_list|(
@@ -875,7 +879,9 @@ literal|0
 argument_list|,
 operator|new
 name|ShardSearchRequest
-argument_list|()
+argument_list|(
+name|shardRequest
+argument_list|)
 operator|.
 name|types
 argument_list|(
