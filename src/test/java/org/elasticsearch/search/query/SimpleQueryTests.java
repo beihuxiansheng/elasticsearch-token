@@ -302,9 +302,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facet
+name|aggregations
 operator|.
-name|FacetBuilders
+name|AggregationBuilders
 import|;
 end_import
 
@@ -8047,11 +8047,11 @@ argument_list|(
 name|builder
 argument_list|)
 operator|.
-name|addFacet
+name|addAggregation
 argument_list|(
-name|FacetBuilders
+name|AggregationBuilders
 operator|.
-name|termsFacet
+name|terms
 argument_list|(
 literal|"field1"
 argument_list|)

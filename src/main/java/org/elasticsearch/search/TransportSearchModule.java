@@ -84,20 +84,6 @@ name|TransportAggregationModule
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|facet
-operator|.
-name|TransportFacetModule
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -130,10 +116,6 @@ name|ImmutableList
 operator|.
 name|of
 argument_list|(
-operator|new
-name|TransportFacetModule
-argument_list|()
-argument_list|,
 operator|new
 name|TransportAggregationModule
 argument_list|()

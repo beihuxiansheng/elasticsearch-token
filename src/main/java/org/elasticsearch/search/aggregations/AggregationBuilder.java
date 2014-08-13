@@ -326,13 +326,13 @@ name|B
 name|subAggregation
 parameter_list|(
 name|XContentBuilder
-name|facets
+name|aggs
 parameter_list|)
 block|{
 return|return
 name|subAggregation
 argument_list|(
-name|facets
+name|aggs
 operator|.
 name|bytes
 argument_list|()
@@ -351,7 +351,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|facets
+name|aggs
 parameter_list|)
 block|{
 try|try
@@ -372,7 +372,7 @@ name|builder
 operator|.
 name|map
 argument_list|(
-name|facets
+name|aggs
 argument_list|)
 expr_stmt|;
 return|return
@@ -394,7 +394,7 @@ name|ElasticsearchGenerationException
 argument_list|(
 literal|"Failed to generate ["
 operator|+
-name|facets
+name|aggs
 operator|+
 literal|"]"
 argument_list|,

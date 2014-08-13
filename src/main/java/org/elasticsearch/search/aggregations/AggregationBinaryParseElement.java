@@ -118,7 +118,7 @@ name|Exception
 block|{
 name|byte
 index|[]
-name|facetSource
+name|aggSource
 init|=
 name|parser
 operator|.
@@ -134,12 +134,12 @@ name|XContentFactory
 operator|.
 name|xContent
 argument_list|(
-name|facetSource
+name|aggSource
 argument_list|)
 operator|.
 name|createParser
 argument_list|(
-name|facetSource
+name|aggSource
 argument_list|)
 init|)
 block|{

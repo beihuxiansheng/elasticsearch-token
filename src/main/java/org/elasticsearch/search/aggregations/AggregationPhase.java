@@ -648,7 +648,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// no need to compute the facets twice, they should be computed on a per context basis
+comment|// no need to compute the aggs twice, they should be computed on a per context basis
 return|return;
 block|}
 name|Aggregator

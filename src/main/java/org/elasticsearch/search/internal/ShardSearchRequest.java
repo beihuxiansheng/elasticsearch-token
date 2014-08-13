@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Source structure:  *<p/>  *<pre>  * {  *  from : 0, size : 20, (optional, can be set on the request)  *  sort : { "name.first" : {}, "name.last" : { reverse : true } }  *  fields : [ "name.first", "name.last" ]  *  query : { ... }  *  facets : {  *      "facet1" : {  *          query : { ... }  *      }  *  }  * }  *</pre>  */
+comment|/**  * Source structure:  *<p/>  *<pre>  * {  *  from : 0, size : 20, (optional, can be set on the request)  *  sort : { "name.first" : {}, "name.last" : { reverse : true } }  *  fields : [ "name.first", "name.last" ]  *  query : { ... }  *  aggs : {  *      "agg1" : {  *          terms : { ... }  *      }  *  }  * }  *</pre>  */
 end_comment
 
 begin_class

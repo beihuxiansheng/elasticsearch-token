@@ -218,20 +218,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facet
-operator|.
-name|FacetBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|highlight
 operator|.
 name|HighlightBuilder
@@ -817,7 +803,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter that will be executed after the query has been executed and only has affect on the search hits      * (not aggregations or facets). This filter is always executed as last filtering mechanism.      */
+comment|/**      * Sets a filter that will be executed after the query has been executed and only has affect on the search hits      * (not aggregations). This filter is always executed as last filtering mechanism.      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -839,7 +825,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not facets for example).      */
+comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not aggs for example).      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -861,7 +847,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not facets for example).      */
+comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not aggs for example).      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -883,7 +869,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not facets for example).      */
+comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not aggs for example).      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -906,7 +892,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not facets for example).      */
+comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not aggs for example).      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -939,7 +925,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not facets for example).      */
+comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not aggs for example).      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -961,7 +947,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not facets for example).      */
+comment|/**      * Sets a filter on the query executed that only applies to the search query      * (and not aggs for example).      */
 DECL|method|setPostFilter
 specifier|public
 name|SearchRequestBuilder
@@ -1568,162 +1554,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a facet to the search operation.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
-annotation|@
-name|Deprecated
-DECL|method|addFacet
-specifier|public
-name|SearchRequestBuilder
-name|addFacet
-parameter_list|(
-name|FacetBuilder
-name|facet
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|facet
-argument_list|(
-name|facet
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setFacets
-specifier|public
-name|SearchRequestBuilder
-name|setFacets
-parameter_list|(
-name|BytesReference
-name|facets
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|facets
-argument_list|(
-name|facets
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setFacets
-specifier|public
-name|SearchRequestBuilder
-name|setFacets
-parameter_list|(
-name|byte
-index|[]
-name|facets
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|facets
-argument_list|(
-name|facets
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setFacets
-specifier|public
-name|SearchRequestBuilder
-name|setFacets
-parameter_list|(
-name|byte
-index|[]
-name|facets
-parameter_list|,
-name|int
-name|facetsOffset
-parameter_list|,
-name|int
-name|facetsLength
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|facets
-argument_list|(
-name|facets
-argument_list|,
-name|facetsOffset
-argument_list|,
-name|facetsLength
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setFacets
-specifier|public
-name|SearchRequestBuilder
-name|setFacets
-parameter_list|(
-name|XContentBuilder
-name|facets
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|facets
-argument_list|(
-name|facets
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets a raw (xcontent) binary representation of facets to use.      * @deprecated Facets are deprecated and will be removed in a future release. Please use aggregations instead.      */
-annotation|@
-name|Deprecated
-DECL|method|setFacets
-specifier|public
-name|SearchRequestBuilder
-name|setFacets
-parameter_list|(
-name|Map
-name|facets
-parameter_list|)
-block|{
-name|sourceBuilder
-argument_list|()
-operator|.
-name|facets
-argument_list|(
-name|facets
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Adds an get to the search operation.      */
 DECL|method|addAggregation
 specifier|public
@@ -1811,7 +1641,7 @@ block|{
 name|sourceBuilder
 argument_list|()
 operator|.
-name|facets
+name|aggregations
 argument_list|(
 name|aggregations
 argument_list|,

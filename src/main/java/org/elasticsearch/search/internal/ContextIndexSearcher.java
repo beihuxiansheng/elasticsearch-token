@@ -845,7 +845,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// apply the minimum score after multi collector so we filter facets as well
+comment|// apply the minimum score after multi collector so we filter aggs as well
 if|if
 condition|(
 name|searchContext

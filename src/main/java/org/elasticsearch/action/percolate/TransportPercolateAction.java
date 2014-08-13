@@ -1069,11 +1069,6 @@ name|tookInMillis
 argument_list|,
 name|result
 operator|.
-name|reducedFacets
-argument_list|()
-argument_list|,
-name|result
-operator|.
 name|reducedAggregations
 argument_list|()
 argument_list|)

@@ -395,7 +395,7 @@ name|Number
 name|getKeyAsNumber
 parameter_list|()
 block|{
-comment|// this method is needed for scripted numeric faceting
+comment|// this method is needed for scripted numeric aggs
 return|return
 name|Double
 operator|.

@@ -174,20 +174,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|facet
-operator|.
-name|FacetPhase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|internal
 operator|.
 name|ContextIndexSearcher
@@ -300,12 +286,6 @@ name|QueryPhase
 implements|implements
 name|SearchPhase
 block|{
-DECL|field|facetPhase
-specifier|private
-specifier|final
-name|FacetPhase
-name|facetPhase
-decl_stmt|;
 DECL|field|aggregationPhase
 specifier|private
 specifier|final
@@ -329,9 +309,6 @@ DECL|method|QueryPhase
 specifier|public
 name|QueryPhase
 parameter_list|(
-name|FacetPhase
-name|facetPhase
-parameter_list|,
 name|AggregationPhase
 name|aggregationPhase
 parameter_list|,
@@ -342,12 +319,6 @@ name|RescorePhase
 name|rescorePhase
 parameter_list|)
 block|{
-name|this
-operator|.
-name|facetPhase
-operator|=
-name|facetPhase
-expr_stmt|;
 name|this
 operator|.
 name|aggregationPhase
@@ -573,14 +544,6 @@ argument_list|)
 operator|.
 name|putAll
 argument_list|(
-name|facetPhase
-operator|.
-name|parseElements
-argument_list|()
-argument_list|)
-operator|.
-name|putAll
-argument_list|(
 name|aggregationPhase
 operator|.
 name|parseElements
@@ -638,16 +601,9 @@ parameter_list|)
 throws|throws
 name|QueryPhaseExecutionException
 block|{
-comment|// Pre-process facets and aggregations as late as possible. In the case of a DFS_Q_T_F
+comment|// Pre-process aggregations as late as possible. In the case of a DFS_Q_T_F
 comment|// request, preProcess is called on the DFS phase phase, this is why we pre-process them
 comment|// here to make sure it happens during the QUERY phase
-name|facetPhase
-operator|.
-name|preProcess
-argument_list|(
-name|searchContext
-argument_list|)
-expr_stmt|;
 name|aggregationPhase
 operator|.
 name|preProcess
@@ -1169,13 +1125,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|suggestPhase
-operator|.
-name|execute
-argument_list|(
-name|searchContext
-argument_list|)
-expr_stmt|;
-name|facetPhase
 operator|.
 name|execute
 argument_list|(

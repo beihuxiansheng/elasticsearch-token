@@ -86,7 +86,7 @@ operator|)
 literal|4
 argument_list|)
 block|,
-comment|/**      * Only counts the results, will still execute facets and the like.      */
+comment|/**      * Only counts the results, will still execute aggregations and the like.      */
 DECL|enum constant|COUNT
 name|COUNT
 argument_list|(
