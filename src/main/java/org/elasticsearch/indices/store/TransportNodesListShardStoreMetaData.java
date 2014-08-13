@@ -1107,13 +1107,6 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|indexShard
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 operator|new
 name|StoreFilesMetaData
@@ -1134,7 +1127,6 @@ name|asMap
 argument_list|()
 argument_list|)
 return|;
-block|}
 block|}
 finally|finally
 block|{

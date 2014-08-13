@@ -64,6 +64,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|LifecycleComponent
@@ -170,6 +182,8 @@ name|indices
 parameter_list|()
 function_decl|;
 comment|/**      * Returns an IndexService for the specified index if exists otherwise returns<code>null</code>.      *      * Even if the index name appeared in {@link #indices()}<code>null</code> can still be returned as an      * index maybe removed in the meantime, so preferable use the associated {@link IndexService} in order to prevent NPE.      */
+annotation|@
+name|Nullable
 DECL|method|indexService
 name|IndexService
 name|indexService

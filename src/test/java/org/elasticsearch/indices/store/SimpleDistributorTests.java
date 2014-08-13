@@ -1434,7 +1434,7 @@ argument_list|(
 name|index
 argument_list|)
 operator|.
-name|shard
+name|shardSafe
 argument_list|(
 name|shardId
 argument_list|)

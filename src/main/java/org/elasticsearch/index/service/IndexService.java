@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Injector
@@ -370,6 +382,9 @@ name|int
 name|shardId
 parameter_list|)
 function_decl|;
+comment|/**      * Return the shard with the provided id, or null if there is no such shard.      */
+annotation|@
+name|Nullable
 DECL|method|shard
 name|IndexShard
 name|shard
@@ -378,6 +393,7 @@ name|int
 name|shardId
 parameter_list|)
 function_decl|;
+comment|/**      * Return the shard with the provided id, or throw an exception if it doesn't exist.      */
 DECL|method|shardSafe
 name|IndexShard
 name|shardSafe
@@ -388,6 +404,9 @@ parameter_list|)
 throws|throws
 name|IndexShardMissingException
 function_decl|;
+comment|/**      * Return the shard injector for the provided id, or null if there is no such shard.      */
+annotation|@
+name|Nullable
 DECL|method|shardInjector
 name|Injector
 name|shardInjector
@@ -396,6 +415,7 @@ name|int
 name|shardId
 parameter_list|)
 function_decl|;
+comment|/**      * Return the shard injector for the provided id, or throw an exception if there is no such shard.      */
 DECL|method|shardInjectorSafe
 name|Injector
 name|shardInjectorSafe

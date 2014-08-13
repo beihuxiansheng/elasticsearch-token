@@ -774,7 +774,7 @@ name|indexService
 init|=
 name|indicesService
 operator|.
-name|indexService
+name|indexServiceSafe
 argument_list|(
 name|shardId
 operator|.

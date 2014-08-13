@@ -2096,6 +2096,9 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|IndexShard
+name|shard
+init|=
 name|indexService
 operator|.
 name|shard
@@ -2108,6 +2111,15 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|shard
+operator|!=
+literal|null
+condition|)
+block|{
+name|shard
 operator|.
 name|indexingService
 argument_list|()
@@ -2123,6 +2135,7 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 break|break;
 default|default:
