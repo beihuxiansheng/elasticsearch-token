@@ -530,6 +530,17 @@ operator|new
 name|String
 index|[]
 block|{
+name|groovy
+operator|.
+name|util
+operator|.
+name|GroovyCollections
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+block|,
 name|java
 operator|.
 name|lang

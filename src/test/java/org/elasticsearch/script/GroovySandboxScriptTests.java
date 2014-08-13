@@ -179,6 +179,12 @@ argument_list|(
 literal|"def t = Instant.now().getMillis()"
 argument_list|)
 expr_stmt|;
+comment|// GroovyCollections
+name|testSuccess
+argument_list|(
+literal|"def n = [1,2,3]; GroovyCollections.max(n)"
+argument_list|)
+expr_stmt|;
 comment|// Fail cases
 name|testFailure
 argument_list|(
