@@ -2448,6 +2448,13 @@ name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|values
+operator|.
+name|append
+argument_list|(
+literal|"["
+argument_list|)
+expr_stmt|;
 name|doubleValues
 operator|.
 name|setDocument
