@@ -197,7 +197,6 @@ name|ShardSegments
 parameter_list|()
 block|{     }
 DECL|method|ShardSegments
-specifier|public
 name|ShardSegments
 parameter_list|(
 name|ShardRouting
@@ -214,12 +213,7 @@ name|super
 argument_list|(
 name|shardRouting
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|shardRouting
-operator|.
-name|id
+name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;

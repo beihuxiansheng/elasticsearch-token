@@ -1123,17 +1123,6 @@ name|shardEntry
 operator|.
 name|getKey
 argument_list|()
-operator|.
-name|getIndex
-argument_list|()
-argument_list|,
-name|shardEntry
-operator|.
-name|getKey
-argument_list|()
-operator|.
-name|getId
-argument_list|()
 argument_list|,
 name|stage
 argument_list|)

@@ -211,15 +211,7 @@ operator|.
 name|routingEntry
 argument_list|()
 operator|.
-name|index
-argument_list|()
-argument_list|,
-name|indexShard
-operator|.
-name|routingEntry
-argument_list|()
-operator|.
-name|id
+name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
