@@ -414,8 +414,6 @@ name|this
 operator|.
 name|writer
 operator|=
-name|this
-operator|.
 name|writer
 expr_stmt|;
 block|}
