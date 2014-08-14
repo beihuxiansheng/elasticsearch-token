@@ -1774,7 +1774,7 @@ operator|.
 name|getVersion
 argument_list|()
 operator|.
-name|onOrBefore
+name|before
 argument_list|(
 name|Version
 operator|.
