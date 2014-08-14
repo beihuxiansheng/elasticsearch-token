@@ -513,11 +513,6 @@ argument_list|,
 name|context
 argument_list|)
 operator|.
-name|requiresSortedValues
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;

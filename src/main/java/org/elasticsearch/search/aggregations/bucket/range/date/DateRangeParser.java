@@ -264,11 +264,6 @@ operator|.
 name|DATE
 argument_list|)
 operator|.
-name|requiresSortedValues
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|formattable
 argument_list|(
 literal|true
