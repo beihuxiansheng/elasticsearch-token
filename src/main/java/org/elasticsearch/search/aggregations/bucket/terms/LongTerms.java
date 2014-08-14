@@ -480,7 +480,6 @@ return|;
 block|}
 block|}
 DECL|field|formatter
-specifier|private
 annotation|@
 name|Nullable
 name|ValueFormatter
