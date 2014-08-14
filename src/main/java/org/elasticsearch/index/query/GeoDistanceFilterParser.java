@@ -1031,6 +1031,27 @@ block|}
 if|if
 condition|(
 name|vDistance
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"geo_distance requires 'distance' to be specified"
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|vDistance
 operator|instanceof
 name|Number
 condition|)
