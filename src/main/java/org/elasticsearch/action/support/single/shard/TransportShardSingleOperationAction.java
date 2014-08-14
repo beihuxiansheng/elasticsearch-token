@@ -458,6 +458,13 @@ operator|=
 name|executor
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|isSubAction
+argument_list|()
+condition|)
+block|{
 name|transportService
 operator|.
 name|registerHandler
@@ -469,6 +476,7 @@ name|TransportHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|transportService
 operator|.
 name|registerHandler
@@ -480,6 +488,17 @@ name|ShardTransportHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Tells whether the action is a main one or a subaction. Used to decide whether we need to register      * the main transport handler. In fact if the action is a subaction, its execute method      * will be called locally to its parent action.      */
+DECL|method|isSubAction
+specifier|protected
+name|boolean
+name|isSubAction
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 annotation|@
 name|Override
