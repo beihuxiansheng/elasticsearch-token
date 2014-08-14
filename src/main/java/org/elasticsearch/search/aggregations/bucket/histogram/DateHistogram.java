@@ -38,7 +38,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|List
 import|;
 end_import
 
@@ -73,7 +73,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends

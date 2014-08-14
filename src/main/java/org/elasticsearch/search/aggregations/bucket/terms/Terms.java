@@ -70,7 +70,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|Comparator
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
+name|List
 import|;
 end_import
 
@@ -310,9 +310,13 @@ function_decl|;
 block|}
 end_class
 
+begin_comment
+comment|/**      * Return the sorted list of the buckets in this terms aggregation.      */
+end_comment
+
 begin_function_decl
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|Bucket
 argument_list|>

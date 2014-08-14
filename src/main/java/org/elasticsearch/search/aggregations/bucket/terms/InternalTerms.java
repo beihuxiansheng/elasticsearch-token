@@ -625,7 +625,7 @@ annotation|@
 name|Override
 DECL|method|getBuckets
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|Terms
 operator|.
@@ -641,7 +641,7 @@ name|buckets
 decl_stmt|;
 return|return
 operator|(
-name|Collection
+name|List
 argument_list|<
 name|Terms
 operator|.

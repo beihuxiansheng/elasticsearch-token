@@ -316,16 +316,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -1392,7 +1382,7 @@ annotation|@
 name|Override
 DECL|method|getBuckets
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|B
 argument_list|>

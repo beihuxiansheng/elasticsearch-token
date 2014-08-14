@@ -56,7 +56,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|Comparator
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
+name|List
 import|;
 end_import
 
@@ -101,7 +101,7 @@ function_decl|;
 block|}
 comment|/**      * @return  The buckets of this histogram (each bucket representing an interval in the histogram)      */
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends
