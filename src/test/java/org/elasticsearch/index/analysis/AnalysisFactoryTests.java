@@ -1073,6 +1073,15 @@ argument_list|)
 expr_stmt|;
 name|put
 argument_list|(
+literal|"type"
+argument_list|,
+name|KeepTypesFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|put
+argument_list|(
 literal|"uppercase"
 argument_list|,
 name|UpperCaseTokenFilterFactory
@@ -1164,16 +1173,6 @@ comment|// ???
 name|put
 argument_list|(
 literal|"tokenoffsetpayload"
-argument_list|,
-name|Void
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-comment|// like a stop filter but by token-type
-name|put
-argument_list|(
-literal|"type"
 argument_list|,
 name|Void
 operator|.

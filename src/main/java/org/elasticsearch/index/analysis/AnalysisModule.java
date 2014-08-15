@@ -3193,6 +3193,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"keep_types"
+argument_list|,
+name|KeepTypesFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"pattern_capture"
 argument_list|,
 name|PatternCaptureGroupTokenFilterFactory
