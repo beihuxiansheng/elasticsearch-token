@@ -3573,11 +3573,20 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"not_recovering [{}], exists in local store and is same"
+literal|"[{}] [{}] not_recovering [{}] from [{}], exists in local store and is same"
+argument_list|,
+name|shardId
+argument_list|,
+name|snapshotId
 argument_list|,
 name|fileInfo
 operator|.
 name|physicalName
+argument_list|()
+argument_list|,
+name|fileInfo
+operator|.
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3636,11 +3645,20 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"recovering [{}], does not exists in local store"
+literal|"[{}] [{}] recovering [{}] from [{}], does not exists in local store"
+argument_list|,
+name|shardId
+argument_list|,
+name|snapshotId
 argument_list|,
 name|fileInfo
 operator|.
 name|physicalName
+argument_list|()
+argument_list|,
+name|fileInfo
+operator|.
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3651,11 +3669,20 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"recovering [{}], exists in local store but is different"
+literal|"[{}] [{}] recovering [{}] from [{}], exists in local store but is different"
+argument_list|,
+name|shardId
+argument_list|,
+name|snapshotId
 argument_list|,
 name|fileInfo
 operator|.
 name|physicalName
+argument_list|()
+argument_list|,
+name|fileInfo
+operator|.
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
