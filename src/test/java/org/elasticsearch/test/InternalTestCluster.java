@@ -880,7 +880,7 @@ name|test
 operator|.
 name|transport
 operator|.
-name|AssertingLocalTransportModule
+name|AssertingLocalTransport
 import|;
 end_import
 
@@ -1141,22 +1141,6 @@ operator|.
 name|LuceneTestCase
 operator|.
 name|usually
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|EMPTY
 import|;
 end_import
 
@@ -2533,7 +2517,7 @@ name|TransportModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|AssertingLocalTransportModule
+name|AssertingLocalTransport
 operator|.
 name|class
 operator|.

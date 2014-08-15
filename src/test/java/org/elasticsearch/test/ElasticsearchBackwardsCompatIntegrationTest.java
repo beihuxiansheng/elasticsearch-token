@@ -194,7 +194,7 @@ name|transport
 operator|.
 name|netty
 operator|.
-name|NettyTransportModule
+name|NettyTransport
 import|;
 end_import
 
@@ -609,7 +609,7 @@ name|TransportModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|NettyTransportModule
+name|NettyTransport
 operator|.
 name|class
 argument_list|)
