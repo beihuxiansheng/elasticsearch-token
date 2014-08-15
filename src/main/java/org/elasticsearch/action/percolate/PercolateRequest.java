@@ -471,7 +471,7 @@ return|;
 block|}
 DECL|method|documentType
 specifier|public
-name|void
+name|PercolateRequest
 name|documentType
 parameter_list|(
 name|String
@@ -484,6 +484,9 @@ name|documentType
 operator|=
 name|type
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|routing
 specifier|public
@@ -555,7 +558,7 @@ return|;
 block|}
 DECL|method|getRequest
 specifier|public
-name|void
+name|PercolateRequest
 name|getRequest
 parameter_list|(
 name|GetRequest
@@ -568,6 +571,9 @@ name|getRequest
 operator|=
 name|getRequest
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 comment|/**      * Before we fork on a local thread, make sure we copy over the bytes if they are unsafe      */
 annotation|@
@@ -628,6 +634,11 @@ name|CONTENT_TYPE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -902,7 +913,7 @@ return|;
 block|}
 DECL|method|onlyCount
 specifier|public
-name|void
+name|PercolateRequest
 name|onlyCount
 parameter_list|(
 name|boolean
@@ -915,6 +926,9 @@ name|onlyCount
 operator|=
 name|onlyCount
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|docSource
 name|BytesReference
