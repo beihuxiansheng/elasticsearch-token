@@ -961,7 +961,6 @@ extends|extends
 name|AbstractClient
 block|{
 DECL|field|injector
-specifier|private
 specifier|final
 name|Injector
 name|injector

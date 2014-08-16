@@ -126,6 +126,7 @@ name|ClusterStateResponse
 parameter_list|()
 block|{     }
 DECL|method|ClusterStateResponse
+specifier|public
 name|ClusterStateResponse
 parameter_list|(
 name|ClusterName

@@ -538,6 +538,10 @@ name|transportService
 argument_list|,
 name|threadPool
 argument_list|,
+name|Headers
+operator|.
+name|EMPTY
+argument_list|,
 name|Version
 operator|.
 name|CURRENT
