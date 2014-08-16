@@ -264,6 +264,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -463,6 +477,7 @@ specifier|private
 name|void
 name|publish
 parameter_list|(
+specifier|final
 name|ClusterState
 name|clusterState
 parameter_list|,
@@ -493,6 +508,25 @@ init|=
 name|Maps
 operator|.
 name|newHashMap
+argument_list|()
+decl_stmt|;
+specifier|final
+name|AtomicBoolean
+name|timedOutWaitingForNodes
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
+specifier|final
+name|TimeValue
+name|publishTimeout
+init|=
+name|discoverySettings
+operator|.
+name|getPublishTimeout
 argument_list|()
 decl_stmt|;
 for|for
@@ -712,6 +746,31 @@ name|Empty
 name|response
 parameter_list|)
 block|{
+if|if
+condition|(
+name|timedOutWaitingForNodes
+operator|.
+name|get
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"node {} responded for cluster state [{}] (took longer than [{}])"
+argument_list|,
+name|node
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
+argument_list|,
+name|publishTimeout
+argument_list|)
+expr_stmt|;
+block|}
 name|publishResponseHandler
 operator|.
 name|onResponse
@@ -734,7 +793,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to send cluster state to [{}]"
+literal|"failed to send cluster state to {}"
 argument_list|,
 name|exp
 argument_list|,
@@ -765,7 +824,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"error sending cluster state to [{}]"
+literal|"error sending cluster state to {}"
 argument_list|,
 name|t
 argument_list|,
@@ -783,14 +842,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|TimeValue
-name|publishTimeout
-init|=
-name|discoverySettings
-operator|.
-name|getPublishTimeout
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|publishTimeout
@@ -804,27 +855,32 @@ block|{
 comment|// only wait if the publish timeout is configured...
 try|try
 block|{
-name|boolean
-name|awaited
-init|=
+name|timedOutWaitingForNodes
+operator|.
+name|set
+argument_list|(
+operator|!
 name|publishResponseHandler
 operator|.
 name|awaitAllNodes
 argument_list|(
 name|publishTimeout
 argument_list|)
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-operator|!
-name|awaited
+name|timedOutWaitingForNodes
+operator|.
+name|get
+argument_list|()
 condition|)
 block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"awaiting all nodes to process published state {} timed out, timeout {}"
+literal|"timed out waiting for all nodes to process published state [{}] (timeout [{}])"
 argument_list|,
 name|clusterState
 operator|.
