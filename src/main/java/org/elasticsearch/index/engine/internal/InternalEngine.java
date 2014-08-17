@@ -7930,9 +7930,9 @@ name|warn
 argument_list|(
 literal|"failed engine [{}]"
 argument_list|,
-name|reason
-argument_list|,
 name|failure
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 comment|// we must set a failure exception, generate one if not supplied
