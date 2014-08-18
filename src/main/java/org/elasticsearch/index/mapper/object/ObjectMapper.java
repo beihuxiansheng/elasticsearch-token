@@ -3577,7 +3577,13 @@ condition|(
 name|mapper
 operator|!=
 literal|null
-operator|&&
+condition|)
+block|{
+comment|// There is a concrete mapper for this field already. Need to check if the mapper
+comment|// expects an array, if so we pass the context straight to the mapper and if not
+comment|// we serialize the array components
+if|if
+condition|(
 name|mapper
 operator|instanceof
 name|ArrayValueMapperParser
@@ -3590,6 +3596,19 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|serializeNonDynamicArray
+argument_list|(
+name|context
+argument_list|,
+name|lastFieldName
+argument_list|,
+name|arrayFieldName
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
