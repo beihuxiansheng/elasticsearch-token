@@ -4972,6 +4972,13 @@ operator|.
 name|id
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|snapshotMetaData
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|SnapshotMetaData
@@ -5317,6 +5324,7 @@ operator|.
 name|abort
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
