@@ -269,7 +269,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|10
 condition|;
 name|i
 operator|++
@@ -290,7 +290,7 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|4000000
+literal|400000
 argument_list|)
 index|]
 decl_stmt|;
@@ -422,7 +422,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|10
 condition|;
 name|i
 operator|++
@@ -539,7 +539,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|10
 condition|;
 name|i
 operator|++
@@ -747,7 +747,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|10
 condition|;
 name|i
 operator|++
@@ -901,7 +901,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|10
 condition|;
 name|i
 operator|++
@@ -1204,7 +1204,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|10
 condition|;
 name|i
 operator|++
@@ -1462,7 +1462,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|10
 condition|;
 name|i
 operator|++
@@ -1709,7 +1709,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|10
 condition|;
 name|i
 operator|++
@@ -1911,7 +1911,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|10
 condition|;
 name|i
 operator|++
@@ -2058,7 +2058,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+literal|2
 condition|;
 operator|++
 name|i
@@ -2094,7 +2094,7 @@ operator|.
 name|size
 argument_list|()
 operator|<
-literal|4000000
+literal|400000
 condition|)
 block|{
 switch|switch
@@ -2621,7 +2621,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|10
 condition|;
 name|i
 operator|++
