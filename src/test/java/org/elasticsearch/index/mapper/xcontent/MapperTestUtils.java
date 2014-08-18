@@ -302,8 +302,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|fielddata
-operator|.
 name|breaker
 operator|.
 name|NoneCircuitBreakerService
