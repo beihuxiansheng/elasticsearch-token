@@ -2414,12 +2414,6 @@ return|return
 literal|null
 return|;
 block|}
-assert|assert
-name|assertShardStats
-argument_list|(
-name|this
-argument_list|)
-assert|;
 return|return
 operator|new
 name|RoutingNodeIterator

@@ -1525,17 +1525,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-name|RoutingNodes
-operator|.
-name|assertShardStats
-argument_list|(
-name|allocation
-operator|.
-name|routingNodes
-argument_list|()
-argument_list|)
-assert|;
 name|changed
 operator|=
 literal|true
