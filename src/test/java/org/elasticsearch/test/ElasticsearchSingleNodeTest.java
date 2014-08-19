@@ -973,7 +973,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|createIndex
-specifier|private
+specifier|protected
 specifier|static
 name|IndexService
 name|createIndex
