@@ -743,23 +743,30 @@ name|primary
 argument_list|()
 return|;
 block|}
-if|if
-condition|(
-operator|!
+name|Directory
+name|directory
+init|=
 name|nameDirMapping
 operator|.
-name|containsKey
+name|get
 argument_list|(
 name|name
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|directory
+operator|==
+literal|null
 condition|)
 block|{
+comment|// name is not yet bound to a directory:
 if|if
 condition|(
 name|iterate
 condition|)
 block|{
-comment|// in order to get stuff like "write.lock" that might not be written though this directory
+comment|// in order to get stuff like "write.lock" that might not be written through this directory
 for|for
 control|(
 name|Directory
@@ -781,10 +788,8 @@ name|name
 argument_list|)
 condition|)
 block|{
-specifier|final
-name|Directory
 name|directory
-init|=
+operator|=
 name|nameDirMapping
 operator|.
 name|putIfAbsent
@@ -793,7 +798,7 @@ name|name
 argument_list|,
 name|dir
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|directory
 operator|==
@@ -823,7 +828,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-block|}
+comment|// Pick a directory and associate this new file with it:
 specifier|final
 name|Directory
 name|dir
@@ -833,10 +838,8 @@ operator|.
 name|any
 argument_list|()
 decl_stmt|;
-specifier|final
-name|Directory
 name|directory
-init|=
+operator|=
 name|nameDirMapping
 operator|.
 name|putIfAbsent
@@ -845,14 +848,22 @@ name|name
 argument_list|,
 name|dir
 argument_list|)
-decl_stmt|;
-return|return
+expr_stmt|;
+if|if
+condition|(
 name|directory
 operator|==
 literal|null
-condition|?
+condition|)
+block|{
+comment|// putIfAbsent did in fact put dir:
+name|directory
+operator|=
 name|dir
-else|:
+expr_stmt|;
+block|}
+block|}
+return|return
 name|directory
 return|;
 block|}
