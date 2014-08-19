@@ -1017,6 +1017,9 @@ parameter_list|,
 name|ZenPingService
 name|pingService
 parameter_list|,
+name|ElectMasterService
+name|electMasterService
+parameter_list|,
 name|Version
 name|version
 parameter_list|,
@@ -1076,6 +1079,12 @@ operator|.
 name|version
 operator|=
 name|version
+expr_stmt|;
+name|this
+operator|.
+name|electMaster
+operator|=
+name|electMasterService
 expr_stmt|;
 comment|// also support direct discovery.zen settings, for cases when it gets extended
 name|this
@@ -1247,16 +1256,6 @@ argument_list|,
 name|masterElectionFilterClientNodes
 argument_list|,
 name|masterElectionFilterDataNodes
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|electMaster
-operator|=
-operator|new
-name|ElectMasterService
-argument_list|(
-name|settings
 argument_list|)
 expr_stmt|;
 name|nodeSettingsService
