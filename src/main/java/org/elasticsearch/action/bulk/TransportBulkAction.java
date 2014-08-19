@@ -904,6 +904,11 @@ argument_list|(
 operator|new
 name|CreateIndexRequest
 argument_list|(
+name|bulkRequest
+argument_list|)
+operator|.
+name|index
+argument_list|(
 name|index
 argument_list|)
 operator|.

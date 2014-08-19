@@ -128,6 +128,25 @@ name|masterNodeTimeout
 init|=
 name|DEFAULT_MASTER_NODE_TIMEOUT
 decl_stmt|;
+DECL|method|MasterNodeOperationRequest
+specifier|protected
+name|MasterNodeOperationRequest
+parameter_list|()
+block|{      }
+DECL|method|MasterNodeOperationRequest
+specifier|protected
+name|MasterNodeOperationRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A timeout value in case the master has not been discovered yet or disconnected.      */
 annotation|@
 name|SuppressWarnings

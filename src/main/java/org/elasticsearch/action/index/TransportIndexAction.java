@@ -580,6 +580,11 @@ operator|new
 name|CreateIndexRequest
 argument_list|(
 name|request
+argument_list|)
+operator|.
+name|index
+argument_list|(
+name|request
 operator|.
 name|index
 argument_list|()
