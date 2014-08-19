@@ -7207,6 +7207,8 @@ block|{
 literal|"typ1"
 block|}
 argument_list|,
+literal|false
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
@@ -7416,6 +7418,8 @@ index|[]
 block|{
 literal|"type1"
 block|}
+argument_list|,
+literal|false
 argument_list|,
 operator|new
 name|BytesArray

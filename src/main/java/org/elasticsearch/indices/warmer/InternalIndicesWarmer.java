@@ -336,10 +336,10 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|warm
+DECL|method|warmNewReaders
 specifier|public
 name|void
-name|warm
+name|warmNewReaders
 parameter_list|(
 specifier|final
 name|WarmerContext
@@ -354,10 +354,10 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|warmTop
+DECL|method|warmTopReader
 specifier|public
 name|void
-name|warmTop
+name|warmTopReader
 parameter_list|(
 name|WarmerContext
 name|context
@@ -625,7 +625,7 @@ name|add
 argument_list|(
 name|listener
 operator|.
-name|warmTop
+name|warmTopReader
 argument_list|(
 name|indexShard
 argument_list|,
@@ -646,7 +646,7 @@ name|add
 argument_list|(
 name|listener
 operator|.
-name|warm
+name|warmNewReaders
 argument_list|(
 name|indexShard
 argument_list|,

@@ -1112,7 +1112,7 @@ block|}
 comment|// for now, only enable it for search type count
 if|if
 condition|(
-name|request
+name|context
 operator|.
 name|searchType
 argument_list|()
