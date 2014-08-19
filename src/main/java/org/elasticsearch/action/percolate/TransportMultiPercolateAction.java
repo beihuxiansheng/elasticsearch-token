@@ -645,7 +645,9 @@ name|multiGetRequest
 init|=
 operator|new
 name|MultiGetRequest
-argument_list|()
+argument_list|(
+name|request
+argument_list|)
 decl_stmt|;
 for|for
 control|(

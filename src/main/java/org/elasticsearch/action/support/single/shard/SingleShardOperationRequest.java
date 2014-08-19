@@ -177,6 +177,20 @@ name|SingleShardOperationRequest
 parameter_list|()
 block|{     }
 DECL|method|SingleShardOperationRequest
+specifier|protected
+name|SingleShardOperationRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SingleShardOperationRequest
 specifier|public
 name|SingleShardOperationRequest
 parameter_list|(
