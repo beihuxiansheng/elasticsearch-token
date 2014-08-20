@@ -223,6 +223,10 @@ argument_list|,
 name|numDataNodes
 operator|=
 literal|2
+argument_list|,
+name|transportClientRatio
+operator|=
+literal|0.0
 argument_list|)
 DECL|class|PluggableTransportModuleTests
 specifier|public
