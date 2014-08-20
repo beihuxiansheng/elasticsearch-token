@@ -564,6 +564,13 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|config
+operator|.
+name|remove
+argument_list|(
+name|FIELD_FIELDNAME
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -615,6 +622,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|config
+operator|.
+name|remove
+argument_list|(
+name|FIELD_MISSING
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|mapping

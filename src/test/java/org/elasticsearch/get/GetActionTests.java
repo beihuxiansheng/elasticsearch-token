@@ -5505,7 +5505,7 @@ argument_list|)
 operator|.
 name|array
 argument_list|(
-literal|"exlcudes"
+literal|"excludes"
 argument_list|,
 literal|"excluded"
 argument_list|)
@@ -9192,6 +9192,11 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
+literal|"properties"
+argument_list|)
+operator|.
+name|startObject
+argument_list|(
 literal|"field2"
 argument_list|)
 operator|.
@@ -9204,6 +9209,11 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
+literal|"properties"
+argument_list|)
+operator|.
+name|startObject
+argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
@@ -9212,6 +9222,11 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"object"
+argument_list|)
+operator|.
+name|startObject
+argument_list|(
+literal|"properties"
 argument_list|)
 operator|.
 name|startObject
@@ -9232,6 +9247,15 @@ literal|"store"
 argument_list|,
 literal|"yes"
 argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|endObject
+argument_list|()
 operator|.
 name|endObject
 argument_list|()
@@ -10420,13 +10444,7 @@ literal|"      },\n"
 operator|+
 literal|"      \"_parent\": {\n"
 operator|+
-literal|"        \"type\": \"parentdoc\",\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\"\n"
+literal|"        \"type\": \"parentdoc\"\n"
 operator|+
 literal|"      },\n"
 operator|+

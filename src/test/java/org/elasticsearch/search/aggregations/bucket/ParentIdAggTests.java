@@ -242,13 +242,6 @@ argument_list|,
 literal|"parenttype"
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"store"
-argument_list|,
-literal|true
-argument_list|)
-operator|.
 name|endObject
 argument_list|()
 operator|.

@@ -12537,11 +12537,11 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=string,term_vectors=with_positions_offsets"
+literal|"type=string,term_vector=with_positions_offsets"
 argument_list|,
 literal|"field2"
 argument_list|,
-literal|"type=string,term_vectors=with_positions_offsets"
+literal|"type=string,term_vector=with_positions_offsets"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -392,8 +392,7 @@ name|fieldType
 argument_list|,
 name|docValues
 argument_list|,
-operator|~
-literal|0L
+literal|null
 argument_list|,
 name|ignoreMalformed
 argument_list|(
@@ -504,6 +503,11 @@ argument_list|,
 name|parserContext
 argument_list|)
 expr_stmt|;
+comment|// Because this mapper extends LongFieldMapper the null_value field will be added to the JSON when transferring cluster state
+comment|// between nodes so we have to remove the entry here so that the validation doesn't fail
+comment|// TODO should murmur3 support null_value? at the moment if a user sets null_value it has to be silently ignored since we can't
+comment|// determine whether the JSON is the original JSON from the user or if its the serialised cluster state being passed between nodes.
+comment|//            node.remove("null_value");
 return|return
 name|builder
 return|;
