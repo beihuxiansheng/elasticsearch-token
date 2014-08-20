@@ -677,7 +677,6 @@ specifier|volatile
 name|TimeValue
 name|expire
 decl_stmt|;
-comment|//TODO expose this in our stats APIs
 DECL|field|cache
 specifier|private
 specifier|volatile
@@ -1316,6 +1315,16 @@ name|isLoaded
 argument_list|()
 condition|)
 block|{
+name|key
+operator|.
+name|shard
+operator|.
+name|queryCache
+argument_list|()
+operator|.
+name|onMiss
+argument_list|()
+expr_stmt|;
 comment|// see if its the first time we see this reader, and make sure to register a cleanup key
 name|CleanupKey
 name|cleanupKey
@@ -1392,6 +1401,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+else|else
+block|{
+name|key
+operator|.
+name|shard
+operator|.
+name|queryCache
+argument_list|()
+operator|.
+name|onHit
+argument_list|()
+expr_stmt|;
 block|}
 comment|// try and be smart, and reuse an already loaded and constructed QueryResult of in VM execution
 return|return
