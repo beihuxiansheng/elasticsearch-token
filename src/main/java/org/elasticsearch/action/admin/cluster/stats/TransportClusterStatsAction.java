@@ -887,6 +887,13 @@ name|indexShard
 operator|.
 name|routingEntry
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|indexShard
+operator|.
+name|routingEntry
+argument_list|()
 operator|.
 name|active
 argument_list|()
@@ -901,6 +908,11 @@ operator|new
 name|ShardStats
 argument_list|(
 name|indexShard
+argument_list|,
+name|indexShard
+operator|.
+name|routingEntry
+argument_list|()
 argument_list|,
 name|SHARD_STATS_FLAGS
 argument_list|)

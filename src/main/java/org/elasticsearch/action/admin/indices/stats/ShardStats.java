@@ -200,6 +200,9 @@ parameter_list|(
 name|IndexShard
 name|indexShard
 parameter_list|,
+name|ShardRouting
+name|shardRouting
+parameter_list|,
 name|CommonStatsFlags
 name|flags
 parameter_list|)
@@ -207,9 +210,6 @@ block|{
 name|super
 argument_list|(
 name|indexShard
-operator|.
-name|routingEntry
-argument_list|()
 operator|.
 name|shardId
 argument_list|()
@@ -219,10 +219,7 @@ name|this
 operator|.
 name|shardRouting
 operator|=
-name|indexShard
-operator|.
-name|routingEntry
-argument_list|()
+name|shardRouting
 expr_stmt|;
 name|this
 operator|.

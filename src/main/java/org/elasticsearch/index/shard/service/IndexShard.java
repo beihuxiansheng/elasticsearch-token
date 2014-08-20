@@ -679,6 +679,9 @@ name|ShardFieldData
 name|fieldData
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the latest cluster routing entry received with this shard. Might be null if the      * shard was just created.      */
+annotation|@
+name|Nullable
 DECL|method|routingEntry
 name|ShardRouting
 name|routingEntry
