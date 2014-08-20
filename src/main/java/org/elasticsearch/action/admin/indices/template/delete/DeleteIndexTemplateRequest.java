@@ -182,6 +182,7 @@ return|;
 block|}
 comment|/**      * The index template name to delete.      */
 DECL|method|name
+specifier|public
 name|String
 name|name
 parameter_list|()
