@@ -679,8 +679,6 @@ argument_list|,
 name|dateDetection
 argument_list|,
 name|numericDetection
-argument_list|,
-name|settings
 argument_list|)
 return|;
 block|}
@@ -1251,13 +1249,6 @@ name|dateDetection
 parameter_list|,
 name|boolean
 name|numericDetection
-parameter_list|,
-annotation|@
-name|Nullable
-annotation|@
-name|IndexSettings
-name|Settings
-name|settings
 parameter_list|)
 block|{
 name|super
@@ -1277,8 +1268,6 @@ argument_list|,
 name|pathType
 argument_list|,
 name|mappers
-argument_list|,
-name|settings
 argument_list|)
 expr_stmt|;
 name|this

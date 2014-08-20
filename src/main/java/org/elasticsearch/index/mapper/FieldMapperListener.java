@@ -61,6 +61,9 @@ specifier|final
 name|List
 argument_list|<
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|mappers
 init|=
@@ -77,6 +80,9 @@ name|void
 name|fieldMapper
 parameter_list|(
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 name|fieldMapper
 parameter_list|)
 block|{
@@ -96,6 +102,9 @@ name|void
 name|fieldMapper
 parameter_list|(
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 name|fieldMapper
 parameter_list|)
 function_decl|;
@@ -107,6 +116,9 @@ parameter_list|(
 name|List
 argument_list|<
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -114,6 +126,9 @@ block|{
 for|for
 control|(
 name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
 name|mapper
 range|:
 name|fieldMappers

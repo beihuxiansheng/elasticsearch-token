@@ -5388,9 +5388,6 @@ name|docMapper
 operator|.
 name|mappers
 argument_list|()
-operator|.
-name|mappers
-argument_list|()
 control|)
 block|{
 specifier|final
@@ -5781,9 +5778,6 @@ name|docMapper
 operator|.
 name|mappers
 argument_list|()
-operator|.
-name|mappers
-argument_list|()
 control|)
 block|{
 specifier|final
@@ -6158,9 +6152,6 @@ argument_list|>
 name|fieldMapper
 range|:
 name|docMapper
-operator|.
-name|mappers
-argument_list|()
 operator|.
 name|mappers
 argument_list|()
