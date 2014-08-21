@@ -3276,8 +3276,9 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|geohash
-operator|=
+name|String
+name|truncatedGeohash
+init|=
 name|geohash
 operator|.
 name|substring
@@ -3286,7 +3287,7 @@ literal|0
 argument_list|,
 name|precision
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|mapping
@@ -3298,7 +3299,7 @@ name|GeoHashUtils
 operator|.
 name|addNeighbors
 argument_list|(
-name|geohash
+name|truncatedGeohash
 argument_list|,
 name|precision
 argument_list|,
@@ -3310,7 +3311,7 @@ name|locations
 operator|.
 name|add
 argument_list|(
-name|geohash
+name|truncatedGeohash
 argument_list|)
 expr_stmt|;
 block|}
@@ -3585,7 +3586,7 @@ argument_list|()
 argument_list|,
 name|precisions
 index|[
-literal|0
+name|i
 index|]
 argument_list|)
 argument_list|)
