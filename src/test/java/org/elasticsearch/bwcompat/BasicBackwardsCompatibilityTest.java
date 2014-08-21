@@ -7702,7 +7702,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
+name|ensureYellow
 argument_list|(
 literal|"test"
 argument_list|)
