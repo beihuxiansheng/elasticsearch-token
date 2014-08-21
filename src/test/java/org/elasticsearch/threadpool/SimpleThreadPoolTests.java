@@ -952,6 +952,13 @@ argument_list|()
 operator|+
 literal|"]"
 argument_list|)
+operator|||
+name|threadName
+operator|.
+name|contains
+argument_list|(
+literal|"Keep-Alive-Timer"
+argument_list|)
 condition|)
 block|{
 continue|continue;
