@@ -1916,6 +1916,30 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a string representation of the {@link #opType(org.elasticsearch.action.index.IndexRequest.OpType)}. Can      * be either "index" or "create".      */
+DECL|method|opType
+specifier|public
+name|IndexRequest
+name|opType
+parameter_list|(
+name|String
+name|opType
+parameter_list|)
+throws|throws
+name|ElasticsearchIllegalArgumentException
+block|{
+return|return
+name|opType
+argument_list|(
+name|OpType
+operator|.
+name|fromString
+argument_list|(
+name|opType
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Set to<tt>true</tt> to force this index to use {@link OpType#CREATE}.      */
 DECL|method|create
 specifier|public
