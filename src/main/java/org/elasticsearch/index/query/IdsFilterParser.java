@@ -390,7 +390,7 @@ name|value
 init|=
 name|parser
 operator|.
-name|bytesOrNull
+name|utf8BytesOrNull
 argument_list|()
 decl_stmt|;
 if|if

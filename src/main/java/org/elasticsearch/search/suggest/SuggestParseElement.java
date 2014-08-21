@@ -361,7 +361,7 @@ name|globalText
 operator|=
 name|parser
 operator|.
-name|bytes
+name|utf8Bytes
 argument_list|()
 expr_stmt|;
 block|}
@@ -467,7 +467,7 @@ name|suggestText
 operator|=
 name|parser
 operator|.
-name|bytes
+name|utf8Bytes
 argument_list|()
 expr_stmt|;
 block|}

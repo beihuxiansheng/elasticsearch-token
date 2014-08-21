@@ -2158,7 +2158,7 @@ name|payload
 operator|=
 name|parser
 operator|.
-name|bytesOrNull
+name|utf8BytesOrNull
 argument_list|()
 expr_stmt|;
 block|}

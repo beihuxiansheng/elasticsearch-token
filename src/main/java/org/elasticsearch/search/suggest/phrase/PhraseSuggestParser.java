@@ -924,7 +924,7 @@ name|setPreTag
 argument_list|(
 name|parser
 operator|.
-name|bytes
+name|utf8Bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -953,7 +953,7 @@ name|setPostTag
 argument_list|(
 name|parser
 operator|.
-name|bytes
+name|utf8Bytes
 argument_list|()
 argument_list|)
 expr_stmt|;

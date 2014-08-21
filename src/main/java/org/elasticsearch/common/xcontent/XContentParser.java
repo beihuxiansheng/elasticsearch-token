@@ -50,16 +50,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -368,16 +358,18 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|bytesOrNull
+comment|/**      * Returns a BytesRef holding UTF-8 bytes or null if a null value is {@link Token#VALUE_NULL}.      * This method should be used to read text only binary content should be read through {@link #binaryValue()}      */
+DECL|method|utf8BytesOrNull
 name|BytesRef
-name|bytesOrNull
+name|utf8BytesOrNull
 parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|bytes
+comment|/**      * Returns a BytesRef holding UTF-8 bytes.      * This method should be used to read text only binary content should be read through {@link #binaryValue()}      */
+DECL|method|utf8Bytes
 name|BytesRef
-name|bytes
+name|utf8Bytes
 parameter_list|()
 throws|throws
 name|IOException
@@ -543,6 +535,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Reads a plain binary value that was written via one of the following methods:      *      *<li>      *<ul>{@link XContentBuilder#field(String, org.apache.lucene.util.BytesRef)}</ul>      *<ul>{@link XContentBuilder#field(String, org.elasticsearch.common.bytes.BytesReference)}</ul>      *<ul>{@link XContentBuilder#field(String, byte[], int, int)}}</ul>      *<ul>{@link XContentBuilder#field(String, byte[])}}</ul>      *</li>      *      * as well as via their<code>XContentBuilderString</code> variants of the separated value methods.      * Note: Do not use this method to read values written with:      *<li>      *<ul>{@link XContentBuilder#utf8Field(XContentBuilderString, org.apache.lucene.util.BytesRef)}</ul>      *<ul>{@link XContentBuilder#utf8Field(String, org.apache.lucene.util.BytesRef)}</ul>      *</li>      *      * these methods write UTF-8 encoded strings and must be read through:      *<li>      *<ul>{@link XContentParser#utf8Bytes()}</ul>      *<ul>{@link XContentParser#utf8BytesOrNull()}}</ul>      *<ul>{@link XContentParser#text()} ()}</ul>      *<ul>{@link XContentParser#textOrNull()} ()}</ul>      *<ul>{@link XContentParser#textCharacters()} ()}}</ul>      *</li>      *      */
 DECL|method|binaryValue
 name|byte
 index|[]

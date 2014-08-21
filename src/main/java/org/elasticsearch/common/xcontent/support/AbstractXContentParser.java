@@ -824,10 +824,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|bytesOrNull
+DECL|method|utf8BytesOrNull
 specifier|public
 name|BytesRef
-name|bytesOrNull
+name|utf8BytesOrNull
 parameter_list|()
 throws|throws
 name|IOException
@@ -847,7 +847,7 @@ literal|null
 return|;
 block|}
 return|return
-name|bytes
+name|utf8Bytes
 argument_list|()
 return|;
 block|}

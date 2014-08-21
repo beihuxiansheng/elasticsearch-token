@@ -307,7 +307,7 @@ name|type
 init|=
 name|parser
 operator|.
-name|bytes
+name|utf8Bytes
 argument_list|()
 decl_stmt|;
 comment|// move to the next token
