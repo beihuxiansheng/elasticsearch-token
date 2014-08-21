@@ -87,7 +87,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"cluster:admin/template/delete"
+literal|"indices:admin/template/delete"
 decl_stmt|;
 DECL|method|DeleteIndexTemplateAction
 specifier|private
