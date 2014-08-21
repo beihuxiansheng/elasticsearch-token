@@ -673,20 +673,25 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|readLastCommittedSegmentsInfo
+name|readSegmentsInfo
 argument_list|(
+literal|null
+argument_list|,
 name|directory
 argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the last committed segments info for the given directory      * @throws IOException if the index is corrupted or the segments file is not present      */
-DECL|method|readLastCommittedSegmentsInfo
+comment|/**      * Returns the segments info for the given commit or for the latest commit if the given commit is<code>null</code>      * @throws IOException if the index is corrupted or the segments file is not present      */
+DECL|method|readSegmentsInfo
 specifier|private
 specifier|static
 name|SegmentInfos
-name|readLastCommittedSegmentsInfo
+name|readSegmentsInfo
 parameter_list|(
+name|IndexCommit
+name|commit
+parameter_list|,
 name|Directory
 name|directory
 parameter_list|)
@@ -696,10 +701,23 @@ block|{
 try|try
 block|{
 return|return
+name|commit
+operator|==
+literal|null
+condition|?
 name|Lucene
 operator|.
 name|readSegmentInfos
 argument_list|(
+name|directory
+argument_list|)
+else|:
+name|Lucene
+operator|.
+name|readSegmentInfos
+argument_list|(
+name|commit
+argument_list|,
 name|directory
 argument_list|)
 return|;
@@ -750,12 +768,31 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a new MetadataSnapshot.      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
 name|getMetadata
 parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|getMetadata
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      */
+DECL|method|getMetadata
+specifier|public
+name|MetadataSnapshot
+name|getMetadata
+parameter_list|(
+name|IndexCommit
+name|commit
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -771,6 +808,8 @@ return|return
 operator|new
 name|MetadataSnapshot
 argument_list|(
+name|commit
+argument_list|,
 name|distributorDirectory
 argument_list|,
 name|logger
@@ -1210,6 +1249,8 @@ return|return
 operator|new
 name|MetadataSnapshot
 argument_list|(
+literal|null
+argument_list|,
 name|dir
 argument_list|,
 name|logger
@@ -2093,6 +2134,9 @@ decl_stmt|;
 DECL|method|MetadataSnapshot
 name|MetadataSnapshot
 parameter_list|(
+name|IndexCommit
+name|commit
+parameter_list|,
 name|Directory
 name|directory
 parameter_list|,
@@ -2106,6 +2150,8 @@ name|metadata
 operator|=
 name|buildMetadata
 argument_list|(
+name|commit
+argument_list|,
 name|directory
 argument_list|,
 name|logger
@@ -2121,6 +2167,9 @@ name|StoreFileMetaData
 argument_list|>
 name|buildMetadata
 parameter_list|(
+name|IndexCommit
+name|commit
+parameter_list|,
 name|Directory
 name|directory
 parameter_list|,
@@ -2170,8 +2219,10 @@ name|segmentCommitInfos
 operator|=
 name|Store
 operator|.
-name|readLastCommittedSegmentsInfo
+name|readSegmentsInfo
 argument_list|(
+name|commit
+argument_list|,
 name|directory
 argument_list|)
 expr_stmt|;

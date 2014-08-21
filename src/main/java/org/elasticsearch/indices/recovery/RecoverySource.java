@@ -1120,7 +1120,9 @@ operator|=
 name|store
 operator|.
 name|getMetadata
-argument_list|()
+argument_list|(
+name|snapshot
+argument_list|)
 expr_stmt|;
 for|for
 control|(
