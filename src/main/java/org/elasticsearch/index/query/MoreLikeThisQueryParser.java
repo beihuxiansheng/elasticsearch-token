@@ -1413,6 +1413,32 @@ throw|;
 block|}
 if|if
 condition|(
+name|moreLikeFields
+operator|!=
+literal|null
+operator|&&
+name|moreLikeFields
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"more_like_this requires 'fields' to be non-empty"
+argument_list|)
+throw|;
+block|}
+comment|// set analyzer
+if|if
+condition|(
 name|analyzer
 operator|==
 literal|null
@@ -1436,11 +1462,19 @@ argument_list|(
 name|analyzer
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+comment|// set like text fields
+name|boolean
+name|useDefaultField
+init|=
+operator|(
 name|moreLikeFields
 operator|==
 literal|null
+operator|)
+decl_stmt|;
+if|if
+condition|(
+name|useDefaultField
 condition|)
 block|{
 name|moreLikeFields
@@ -1456,28 +1490,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|moreLikeFields
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|QueryParsingException
-argument_list|(
-name|parseContext
-operator|.
-name|index
-argument_list|()
-argument_list|,
-literal|"more_like_this requires 'fields' to be non-empty"
-argument_list|)
-throw|;
-block|}
+comment|// possibly remove unsupported fields
 name|removeUnsupportedFields
 argument_list|(
 name|moreLikeFields
@@ -1513,6 +1526,7 @@ name|EMPTY_ARRAY
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// support for named query
 if|if
 condition|(
 name|queryName
@@ -1530,6 +1544,7 @@ name|mltQuery
 argument_list|)
 expr_stmt|;
 block|}
+comment|// handle items
 if|if
 condition|(
 operator|!
@@ -1659,6 +1674,21 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|useDefaultField
+condition|)
+block|{
+name|item
+operator|.
+name|fields
+argument_list|(
+literal|"*"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|item
 operator|.
 name|fields
@@ -1678,6 +1708,7 @@ index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// fetching the items with multi-termvectors API
