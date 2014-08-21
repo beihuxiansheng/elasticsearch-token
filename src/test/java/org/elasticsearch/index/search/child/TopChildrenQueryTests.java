@@ -365,14 +365,6 @@ literal|1
 argument_list|,
 literal|1
 argument_list|,
-name|SearchContext
-operator|.
-name|current
-argument_list|()
-operator|.
-name|cacheRecycler
-argument_list|()
-argument_list|,
 name|NonNestedDocsFilter
 operator|.
 name|INSTANCE

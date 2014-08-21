@@ -250,7 +250,7 @@ name|cache
 operator|.
 name|recycler
 operator|.
-name|CacheRecycler
+name|PageCacheRecycler
 import|;
 end_import
 
@@ -2545,27 +2545,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|put
-argument_list|(
-literal|"type"
-argument_list|,
-name|RandomPicks
-operator|.
-name|randomFrom
-argument_list|(
-name|random
-argument_list|,
-name|CacheRecycler
-operator|.
-name|Type
-operator|.
-name|values
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|random
@@ -2586,7 +2565,7 @@ name|randomFrom
 argument_list|(
 name|random
 argument_list|,
-name|CacheRecycler
+name|PageCacheRecycler
 operator|.
 name|Type
 operator|.
