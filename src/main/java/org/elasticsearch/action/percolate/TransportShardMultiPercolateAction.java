@@ -752,6 +752,9 @@ block|{         }
 DECL|method|Request
 name|Request
 parameter_list|(
+name|MultiPercolateRequest
+name|multiPercolateRequest
+parameter_list|,
 name|String
 name|concreteIndex
 parameter_list|,
@@ -762,11 +765,12 @@ name|String
 name|preference
 parameter_list|)
 block|{
-name|this
-operator|.
-name|index
-operator|=
+name|super
+argument_list|(
+name|multiPercolateRequest
+argument_list|,
 name|concreteIndex
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

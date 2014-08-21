@@ -882,6 +882,8 @@ block|}
 operator|new
 name|ASyncAction
 argument_list|(
+name|request
+argument_list|,
 name|percolateRequests
 argument_list|,
 name|listener
@@ -920,6 +922,8 @@ block|{
 operator|new
 name|ASyncAction
 argument_list|(
+name|request
+argument_list|,
 name|percolateRequests
 argument_list|,
 name|listener
@@ -956,6 +960,11 @@ operator|.
 name|Request
 argument_list|>
 name|requestsByShard
+decl_stmt|;
+DECL|field|multiPercolateRequest
+specifier|final
+name|MultiPercolateRequest
+name|multiPercolateRequest
 decl_stmt|;
 DECL|field|percolateRequests
 specifier|final
@@ -1007,6 +1016,9 @@ decl_stmt|;
 DECL|method|ASyncAction
 name|ASyncAction
 parameter_list|(
+name|MultiPercolateRequest
+name|multiPercolateRequest
+parameter_list|,
 name|List
 argument_list|<
 name|Object
@@ -1028,6 +1040,12 @@ operator|.
 name|finalListener
 operator|=
 name|finalListener
+expr_stmt|;
+name|this
+operator|.
+name|multiPercolateRequest
+operator|=
+name|multiPercolateRequest
 expr_stmt|;
 name|this
 operator|.
@@ -1400,6 +1418,8 @@ name|TransportShardMultiPercolateAction
 operator|.
 name|Request
 argument_list|(
+name|multiPercolateRequest
+argument_list|,
 name|shardId
 operator|.
 name|getIndex
