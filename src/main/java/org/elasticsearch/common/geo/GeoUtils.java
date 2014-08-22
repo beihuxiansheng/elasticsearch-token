@@ -1841,6 +1841,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|GeoUtils
+specifier|private
+name|GeoUtils
+parameter_list|()
+block|{     }
 block|}
 end_class
 

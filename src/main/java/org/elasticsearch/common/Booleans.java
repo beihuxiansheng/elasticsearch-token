@@ -24,6 +24,7 @@ specifier|public
 class|class
 name|Booleans
 block|{
+comment|/**      * Returns<code>true</code> iff the sequence is neither of the following:      *<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>,      *   otherwise<code>false</code>      */
 DECL|method|parseBoolean
 specifier|public
 specifier|static
@@ -469,13 +470,13 @@ block|}
 DECL|method|parseBoolean
 specifier|public
 specifier|static
-name|boolean
+name|Boolean
 name|parseBoolean
 parameter_list|(
 name|String
 name|value
 parameter_list|,
-name|boolean
+name|Boolean
 name|defaultValue
 parameter_list|)
 block|{
@@ -486,53 +487,31 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// only for the null case we do that here!
 return|return
 name|defaultValue
 return|;
 block|}
 return|return
-operator|!
-operator|(
-name|value
-operator|.
-name|equals
+name|parseBoolean
 argument_list|(
-literal|"false"
-argument_list|)
-operator|||
 name|value
-operator|.
-name|equals
-argument_list|(
-literal|"0"
+argument_list|,
+literal|false
 argument_list|)
-operator|||
-name|value
-operator|.
-name|equals
-argument_list|(
-literal|"off"
-argument_list|)
-operator|||
-name|value
-operator|.
-name|equals
-argument_list|(
-literal|"no"
-argument_list|)
-operator|)
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the value is neither of the following:      *<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>      *   otherwise<code>false</code>      */
 DECL|method|parseBoolean
 specifier|public
 specifier|static
-name|Boolean
+name|boolean
 name|parseBoolean
 parameter_list|(
 name|String
 name|value
 parameter_list|,
-name|Boolean
+name|boolean
 name|defaultValue
 parameter_list|)
 block|{
@@ -580,6 +559,7 @@ argument_list|)
 operator|)
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the value is either of the following:      *<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>      *   otherwise<code>false</code>      */
 DECL|method|isExplicitFalse
 specifier|public
 specifier|static
@@ -591,6 +571,10 @@ name|value
 parameter_list|)
 block|{
 return|return
+name|value
+operator|!=
+literal|null
+operator|&&
 operator|(
 name|value
 operator|.
@@ -622,6 +606,7 @@ argument_list|)
 operator|)
 return|;
 block|}
+comment|/**      * Returns<code>true</code> iff the value is either of the following:      *<tt>true</tt>,<tt>1</tt>,<tt>on</tt>,<tt>yes</tt>      *   otherwise<code>false</code>      */
 DECL|method|isExplicitTrue
 specifier|public
 specifier|static
@@ -633,6 +618,10 @@ name|value
 parameter_list|)
 block|{
 return|return
+name|value
+operator|!=
+literal|null
+operator|&&
 operator|(
 name|value
 operator|.

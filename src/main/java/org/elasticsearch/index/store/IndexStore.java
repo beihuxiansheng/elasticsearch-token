@@ -36,20 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|ByteSizeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|CloseableIndexComponent
@@ -132,18 +118,6 @@ extends|extends
 name|DirectoryService
 argument_list|>
 name|shardDirectory
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the backing store total space. Return<tt>-1</tt> if not available.      */
-DECL|method|backingStoreTotalSpace
-name|ByteSizeValue
-name|backingStoreTotalSpace
-parameter_list|()
-function_decl|;
-comment|/**      * Returns the backing store free space. Return<tt>-1</tt> if not available.      */
-DECL|method|backingStoreFreeSpace
-name|ByteSizeValue
-name|backingStoreFreeSpace
 parameter_list|()
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if this shard is allocated on this node. Allocated means      * that it has storage files that can be deleted using {@link #deleteUnallocated(org.elasticsearch.index.shard.ShardId)}.      */

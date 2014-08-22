@@ -268,6 +268,16 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
+name|ExternalRootMapper
+operator|.
+name|CONTENT_TYPE
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|startObject
+argument_list|(
 literal|"properties"
 argument_list|)
 operator|.

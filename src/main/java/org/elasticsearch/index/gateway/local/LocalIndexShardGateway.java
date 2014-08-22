@@ -920,10 +920,10 @@ name|indexShouldExists
 operator|&&
 name|indexShard
 operator|.
-name|store
+name|indexService
 argument_list|()
 operator|.
-name|indexStore
+name|store
 argument_list|()
 operator|.
 name|persistent

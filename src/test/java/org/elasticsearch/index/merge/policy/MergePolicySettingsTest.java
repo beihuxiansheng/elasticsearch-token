@@ -212,33 +212,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|Matchers
 operator|.
 name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
 import|;
 end_import
 
@@ -1865,8 +1841,6 @@ argument_list|(
 name|shardId
 argument_list|,
 name|settings
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|,

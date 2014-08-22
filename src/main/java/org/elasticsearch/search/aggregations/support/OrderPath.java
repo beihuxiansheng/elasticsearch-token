@@ -1274,7 +1274,7 @@ return|return
 name|value
 return|;
 block|}
-comment|/**      * Resolves the aggregator pointed by this path using the given root as a point of reference.      *      * @param root      The point of reference of this path      * @param validate  Indicates whether the path should be validated first over the given root aggregator      * @return          The aggregator pointed by this path starting from the given aggregator as a point of reference      */
+comment|/**      * Resolves the aggregator pointed by this path using the given root as a point of reference.      *      * @param root      The point of reference of this path      * @return          The aggregator pointed by this path starting from the given aggregator as a point of reference      */
 DECL|method|resolveAggregator
 specifier|public
 name|Aggregator
@@ -1282,22 +1282,8 @@ name|resolveAggregator
 parameter_list|(
 name|Aggregator
 name|root
-parameter_list|,
-name|boolean
-name|validate
 parameter_list|)
 block|{
-if|if
-condition|(
-name|validate
-condition|)
-block|{
-name|validate
-argument_list|(
-name|root
-argument_list|)
-expr_stmt|;
-block|}
 name|Aggregator
 name|aggregator
 init|=
@@ -1377,7 +1363,7 @@ return|return
 name|aggregator
 return|;
 block|}
-comment|/**      * Resolves the topmost aggregator pointed by this path using the given root as a point of reference.      *      * @param root      The point of reference of this path      * @param validate  Indicates whether the path should be validated first over the given root aggregator      * @return          The first child aggregator of the root pointed by this path       */
+comment|/**      * Resolves the topmost aggregator pointed by this path using the given root as a point of reference.      *      * @param root      The point of reference of this path      * @return          The first child aggregator of the root pointed by this path       */
 DECL|method|resolveTopmostAggregator
 specifier|public
 name|Aggregator
@@ -1385,22 +1371,8 @@ name|resolveTopmostAggregator
 parameter_list|(
 name|Aggregator
 name|root
-parameter_list|,
-name|boolean
-name|validate
 parameter_list|)
 block|{
-if|if
-condition|(
-name|validate
-condition|)
-block|{
-name|validate
-argument_list|(
-name|root
-argument_list|)
-expr_stmt|;
-block|}
 name|OrderPath
 operator|.
 name|Token

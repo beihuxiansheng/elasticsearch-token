@@ -822,8 +822,6 @@ operator|.
 name|resolveAggregator
 argument_list|(
 name|termsAggregator
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 specifier|final
