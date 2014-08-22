@@ -1306,6 +1306,14 @@ name|geohash
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+comment|//infinite loop without this line
 block|}
 return|return
 name|result
