@@ -1757,9 +1757,12 @@ name|clusterName
 argument_list|(
 literal|"shared"
 argument_list|,
-name|ElasticsearchTestCase
+name|Integer
 operator|.
-name|CHILD_VM_ID
+name|toString
+argument_list|(
+name|CHILD_JVM_ID
+argument_list|)
 argument_list|,
 name|masterSeed
 argument_list|)
@@ -1769,6 +1772,8 @@ argument_list|,
 name|InternalTestCluster
 operator|.
 name|DEFAULT_ENABLE_RANDOM_BENCH_NODES
+argument_list|,
+name|CHILD_JVM_ID
 argument_list|)
 expr_stmt|;
 block|}
@@ -8749,9 +8754,12 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|ElasticsearchTestCase
+name|Integer
 operator|.
-name|CHILD_VM_ID
+name|toString
+argument_list|(
+name|CHILD_JVM_ID
+argument_list|)
 argument_list|,
 name|currentClusterSeed
 argument_list|)
@@ -8761,6 +8769,8 @@ argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableRandomBenchNodes
+argument_list|,
+name|CHILD_JVM_ID
 argument_list|)
 return|;
 block|}
