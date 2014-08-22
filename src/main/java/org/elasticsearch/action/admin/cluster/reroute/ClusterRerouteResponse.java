@@ -82,18 +82,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -239,6 +227,8 @@ operator|.
 name|readFrom
 argument_list|(
 name|in
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)

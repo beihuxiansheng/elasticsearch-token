@@ -832,6 +832,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+comment|// we don't care about cluster name. This cluster state is never used.
 name|clusterState
 operator|=
 name|ClusterState
@@ -849,6 +850,8 @@ argument_list|()
 operator|.
 name|localNode
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1102,6 +1105,7 @@ name|V_1_4_0
 argument_list|)
 condition|)
 block|{
+comment|// cluster name doesn't matter...
 name|ClusterState
 operator|.
 name|Builder
@@ -1117,6 +1121,8 @@ argument_list|()
 operator|.
 name|localNode
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

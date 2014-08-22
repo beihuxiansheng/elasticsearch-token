@@ -1827,6 +1827,8 @@ argument_list|,
 name|discovery
 operator|.
 name|localNode
+argument_list|,
+name|clusterName
 argument_list|)
 decl_stmt|;
 name|nodeSpecificClusterState
