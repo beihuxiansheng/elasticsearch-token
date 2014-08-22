@@ -16599,7 +16599,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Merge failed with failures {[The _parent field can't be added or updated]}"
+literal|"Merge failed with failures {[The _parent field's type option can't be changed]}"
 argument_list|)
 argument_list|)
 expr_stmt|;

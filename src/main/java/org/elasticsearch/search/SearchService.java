@@ -414,7 +414,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexFieldDataService
+name|IndexFieldData
 import|;
 end_import
 
@@ -428,7 +428,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|IndexOrdinalsFieldData
+name|IndexFieldDataService
 import|;
 end_import
 
@@ -710,7 +710,35 @@ name|search
 operator|.
 name|internal
 operator|.
-name|*
+name|DefaultSearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|InternalScrollSearchRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -727,6 +755,20 @@ operator|.
 name|SearchContext
 operator|.
 name|Lifetime
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|ShardSearchRequest
 import|;
 end_import
 
@@ -6217,7 +6259,9 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|IndexOrdinalsFieldData
+name|IndexFieldData
+operator|.
+name|Global
 name|ifd
 init|=
 name|indexFieldDataService
