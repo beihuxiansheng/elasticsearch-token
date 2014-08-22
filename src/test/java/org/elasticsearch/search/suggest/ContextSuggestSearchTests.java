@@ -152,7 +152,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|*
+name|XContentBuilder
 import|;
 end_import
 
@@ -167,24 +167,6 @@ operator|.
 name|mapper
 operator|.
 name|MapperParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|format
-operator|.
-name|ValueFormatter
 import|;
 end_import
 
@@ -8859,6 +8841,24 @@ argument_list|(
 name|type
 argument_list|)
 expr_stmt|;
+name|mapping
+operator|.
+name|startObject
+argument_list|(
+literal|"_type"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"index"
+argument_list|,
+literal|"not_analyzed"
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
+comment|// Forcefully configure the _type field, since it can be randomized and if used as context it needs to be enabled
 name|mapping
 operator|.
 name|startObject

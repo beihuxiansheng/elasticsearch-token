@@ -517,11 +517,9 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|System
+name|logger
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
 literal|"AGG COLLECTION MODE: "
 operator|+
