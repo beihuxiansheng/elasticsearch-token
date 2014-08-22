@@ -414,12 +414,15 @@ operator|=
 literal|"api"
 expr_stmt|;
 block|}
+specifier|final
 name|CreateIndexClusterStateUpdateRequest
 name|updateRequest
 init|=
 operator|new
 name|CreateIndexClusterStateUpdateRequest
 argument_list|(
+name|request
+argument_list|,
 name|cause
 argument_list|,
 name|request

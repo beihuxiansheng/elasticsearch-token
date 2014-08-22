@@ -374,6 +374,33 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A specialized simplified mapping source method, takes the form of simple properties definition:      * ("field1", "type=string,store=true").      */
+DECL|method|addMapping
+specifier|public
+name|PutIndexTemplateRequestBuilder
+name|addMapping
+parameter_list|(
+name|String
+name|type
+parameter_list|,
+name|Object
+modifier|...
+name|source
+parameter_list|)
+block|{
+name|request
+operator|.
+name|mapping
+argument_list|(
+name|type
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the aliases that will be associated with the index when it gets created      */
 DECL|method|setAliases
 specifier|public
