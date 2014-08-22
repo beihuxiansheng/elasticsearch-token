@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -1399,6 +1413,15 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Order is incorrect, c is sometimes before a..."
+argument_list|)
 DECL|method|testParentWithMultipleBuckets
 specifier|public
 name|void
