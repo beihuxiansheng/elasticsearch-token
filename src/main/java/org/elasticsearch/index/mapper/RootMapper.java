@@ -18,6 +18,22 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|object
+operator|.
+name|RootObjectMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -38,6 +54,7 @@ name|RootMapper
 extends|extends
 name|Mapper
 block|{
+comment|/**      * Called before {@link #parse(ParseContext)} on the {@link RootObjectMapper}.      */
 DECL|method|preParse
 name|void
 name|preParse
@@ -48,6 +65,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Called after {@link #parse(ParseContext)} on the {@link RootObjectMapper}.      */
 DECL|method|postParse
 name|void
 name|postParse
@@ -58,7 +76,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Should the mapper be included in the root {@link org.elasticsearch.index.mapper.object.ObjectMapper}.      */
+comment|/**      * Should the mapper be included in the root      * {@link org.elasticsearch.index.mapper.object.ObjectMapper}.      *      * If this method returns true, then {@link #parse(ParseContext)} will be      * called if the context has a property that matches the name of this      * {@link RootMapper}. Otherwise {@link #parse(ParseContext)} will not      * be called.      */
 DECL|method|includeInObject
 name|boolean
 name|includeInObject
