@@ -217,6 +217,13 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+name|force
+operator|=
+name|request
+operator|.
+name|force
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|waitForMerge
 name|boolean
