@@ -94,11 +94,13 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
-comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query (Can be null)      */
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to (Can be null)      * @param filterBuilder The filter to apply on the query (Can be null)      */
 DECL|method|FilteredQueryBuilder
 specifier|public
 name|FilteredQueryBuilder
 parameter_list|(
+annotation|@
+name|Nullable
 name|QueryBuilder
 name|queryBuilder
 parameter_list|,
@@ -186,6 +188,13 @@ operator|.
 name|NAME
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|queryBuilder
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -202,6 +211,7 @@ argument_list|,
 name|params
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|filterBuilder

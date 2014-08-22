@@ -1033,6 +1033,8 @@ specifier|static
 name|FilteredQueryBuilder
 name|filteredQuery
 parameter_list|(
+annotation|@
+name|Nullable
 name|QueryBuilder
 name|queryBuilder
 parameter_list|,
