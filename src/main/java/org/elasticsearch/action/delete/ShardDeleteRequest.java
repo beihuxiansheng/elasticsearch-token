@@ -496,7 +496,7 @@ name|originalIndex
 operator|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 expr_stmt|;
 block|}
@@ -575,7 +575,7 @@ condition|)
 block|{
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|originalIndex
 argument_list|)

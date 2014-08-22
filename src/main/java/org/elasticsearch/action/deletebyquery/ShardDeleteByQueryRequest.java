@@ -704,7 +704,7 @@ name|originalIndices
 operator|=
 name|OriginalIndices
 operator|.
-name|readOriginalIndices
+name|readOptionalOriginalIndices
 argument_list|(
 name|in
 argument_list|)
@@ -863,7 +863,7 @@ expr_stmt|;
 block|}
 name|OriginalIndices
 operator|.
-name|writeOriginalIndices
+name|writeOptionalOriginalIndices
 argument_list|(
 name|originalIndices
 argument_list|,
