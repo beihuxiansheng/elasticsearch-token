@@ -1514,8 +1514,6 @@ block|}
 catch|catch
 parameter_list|(
 name|ClusterBlockException
-decl||
-name|MasterNotDiscoveredException
 name|e
 parameter_list|)
 block|{
@@ -1539,7 +1537,12 @@ name|now
 argument_list|,
 name|lessThan
 argument_list|(
-literal|50l
+name|timeout
+operator|.
+name|millis
+argument_list|()
+operator|/
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1684,8 +1687,6 @@ block|}
 catch|catch
 parameter_list|(
 name|ClusterBlockException
-decl||
-name|MasterNotDiscoveredException
 name|e
 parameter_list|)
 block|{
@@ -1709,7 +1710,12 @@ name|now
 argument_list|,
 name|lessThan
 argument_list|(
-literal|50l
+name|timeout
+operator|.
+name|millis
+argument_list|()
+operator|/
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
