@@ -1068,35 +1068,7 @@ name|randomizedtesting
 operator|.
 name|RandomizedTest
 operator|.
-name|frequently
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|isNightly
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|systemPropertyAsBoolean
+name|*
 import|;
 end_import
 
@@ -1275,8 +1247,9 @@ name|SETTING_CLUSTER_NODE_SEED
 init|=
 literal|"test.cluster.node.seed"
 decl_stmt|;
+comment|/**      * All nodes started by the cluster will have their name set to NODE_PREFIX followed by a positive number      */
 DECL|field|NODE_PREFIX
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
