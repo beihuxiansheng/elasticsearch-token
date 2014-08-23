@@ -674,6 +674,70 @@ name|memoryInBytes
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Segment{"
+operator|+
+literal|"name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|", generation="
+operator|+
+name|generation
+operator|+
+literal|", committed="
+operator|+
+name|committed
+operator|+
+literal|", search="
+operator|+
+name|search
+operator|+
+literal|", sizeInBytes="
+operator|+
+name|sizeInBytes
+operator|+
+literal|", docCount="
+operator|+
+name|docCount
+operator|+
+literal|", delDocCount="
+operator|+
+name|delDocCount
+operator|+
+literal|", version='"
+operator|+
+name|version
+operator|+
+literal|'\''
+operator|+
+literal|", compound="
+operator|+
+name|compound
+operator|+
+literal|", mergeId='"
+operator|+
+name|mergeId
+operator|+
+literal|'\''
+operator|+
+literal|", memoryInBytes="
+operator|+
+name|memoryInBytes
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
