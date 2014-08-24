@@ -561,6 +561,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+return|return
 name|Strings
 operator|.
 name|randomBase64UUID
@@ -576,7 +577,7 @@ name|seed
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 return|return
 name|Strings
