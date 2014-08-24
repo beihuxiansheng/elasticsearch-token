@@ -206,7 +206,8 @@ name|mask
 operator|+
 literal|"] in ip_range aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

@@ -774,7 +774,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"at least one range must be defined for geo_distance aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)
@@ -793,7 +794,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"center point must be defined for geo_distance aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

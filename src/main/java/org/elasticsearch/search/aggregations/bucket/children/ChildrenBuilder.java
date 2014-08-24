@@ -166,7 +166,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"child_type must be set on children aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

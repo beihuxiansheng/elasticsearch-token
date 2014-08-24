@@ -157,7 +157,8 @@ name|IllegalArgumentException
 argument_list|(
 literal|"the percents in the percentiles aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"] must be in the [0, 100] range"
 argument_list|)

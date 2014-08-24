@@ -1467,7 +1467,8 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|name
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|startObject

@@ -166,7 +166,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"nested path must be set on nested aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

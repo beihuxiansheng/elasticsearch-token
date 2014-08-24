@@ -299,7 +299,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"[interval] must be defined for histogram aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

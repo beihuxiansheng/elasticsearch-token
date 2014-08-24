@@ -44,7 +44,7 @@ implements|implements
 name|ToXContent
 block|{
 DECL|field|name
-specifier|protected
+specifier|private
 specifier|final
 name|String
 name|name
@@ -78,6 +78,16 @@ name|type
 operator|=
 name|type
 expr_stmt|;
+block|}
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
 block|}
 end_class

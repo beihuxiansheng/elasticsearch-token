@@ -175,7 +175,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"filter must be set on filter aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

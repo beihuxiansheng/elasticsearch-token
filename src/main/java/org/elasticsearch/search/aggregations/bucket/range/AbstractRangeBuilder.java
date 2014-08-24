@@ -332,7 +332,8 @@ name|SearchSourceBuilderException
 argument_list|(
 literal|"at least one range must be defined for range aggregation ["
 operator|+
-name|name
+name|getName
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)
