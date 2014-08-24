@@ -6091,13 +6091,11 @@ operator|)
 operator|.
 name|requests
 operator|.
-name|isEmpty
+name|entrySet
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
+name|emptyIterable
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
