@@ -1711,9 +1711,6 @@ block|{
 name|assertAllRequestsHaveBeenConsumed
 argument_list|()
 expr_stmt|;
-name|clearInterceptedActions
-argument_list|()
-expr_stmt|;
 name|indices
 operator|.
 name|clear
@@ -1773,6 +1770,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|getFieldMappingsRequest
@@ -1829,6 +1829,9 @@ name|analyzeRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -1902,6 +1905,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|indexRequest
@@ -1964,6 +1970,9 @@ name|deleteRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -2081,6 +2090,9 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|updateRequest
@@ -2180,6 +2192,9 @@ argument_list|(
 literal|true
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
 expr_stmt|;
 name|assertSameIndices
 argument_list|(
@@ -2294,6 +2309,9 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|updateRequest
@@ -2369,6 +2387,9 @@ name|deleteByQueryRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -2617,6 +2638,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertIndicesSubset
 argument_list|(
 name|indices
@@ -2669,6 +2693,9 @@ name|getRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -2740,6 +2767,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|explainRequest
@@ -2792,6 +2822,9 @@ name|termVectorRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -2907,6 +2940,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertIndicesSubset
 argument_list|(
 name|indices
@@ -3020,6 +3056,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertIndicesSubset
 argument_list|(
 name|indices
@@ -3070,6 +3109,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|countRequest
@@ -3118,6 +3160,9 @@ name|existsRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3176,6 +3221,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|flushRequest
@@ -3230,6 +3278,9 @@ name|optimizeRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3288,6 +3339,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|refreshRequest
@@ -3342,6 +3396,9 @@ name|clearIndicesCacheRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3400,6 +3457,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|recoveryRequest
@@ -3454,6 +3514,9 @@ name|segmentsRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3515,6 +3578,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|indicesStatsRequest
@@ -3563,6 +3629,9 @@ name|suggestRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3619,6 +3688,9 @@ name|validateQueryRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3731,6 +3803,9 @@ name|percolateRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -3911,6 +3986,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertIndicesSubset
 argument_list|(
 name|indices
@@ -3958,6 +4036,9 @@ name|openIndexRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -4009,6 +4090,9 @@ name|closeIndexRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -4071,6 +4155,9 @@ name|actionGet
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|deleteIndexRequest
@@ -4079,10 +4166,6 @@ name|DeleteIndexAction
 operator|.
 name|NAME
 argument_list|)
-expr_stmt|;
-comment|//explicitly cleanup otherwise the delete index after test gets intercepted too and assertAllRequestsHaveBeenConsumed fails
-name|clearInterceptedActions
-argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -4127,6 +4210,9 @@ name|getMappingsRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -4190,6 +4276,9 @@ name|putMappingRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -4287,6 +4376,9 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|clearInterceptedActions
+argument_list|()
+expr_stmt|;
 name|assertSameIndices
 argument_list|(
 name|deleteMappingRequest
@@ -4339,6 +4431,9 @@ name|getSettingsRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -4406,6 +4501,9 @@ name|updateSettingsRequest
 argument_list|)
 operator|.
 name|actionGet
+argument_list|()
+expr_stmt|;
+name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
 name|assertSameIndices
@@ -4548,8 +4646,6 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//explicitly stop intercepting requests since free context is async hence it might keep coming
-comment|//after the checks and make assertAllRequestsHaveBeenConsumed fail
 name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
@@ -4711,8 +4807,6 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//explicitly stop intercepting requests since free context is async hence it might keep coming
-comment|//after the checks and make assertAllRequestsHaveBeenConsumed fail
 name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
@@ -4870,8 +4964,6 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//explicitly stop intercepting requests since free context is async hence it might keep coming
-comment|//after the checks and make assertAllRequestsHaveBeenConsumed fail
 name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
@@ -5021,8 +5113,6 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//explicitly stop intercepting requests since free context is async hence it might keep coming
-comment|//after the checks and make assertAllRequestsHaveBeenConsumed fail
 name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
@@ -5194,8 +5284,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-comment|//explicitly stop intercepting requests since free context is async hence it might keep coming
-comment|//after the checks and make assertAllRequestsHaveBeenConsumed fail
 name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
@@ -5377,8 +5465,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-comment|//explicitly stop intercepting requests since free context is async hence it might keep coming
-comment|//after the checks and make assertAllRequestsHaveBeenConsumed fail
 name|clearInterceptedActions
 argument_list|()
 expr_stmt|;
