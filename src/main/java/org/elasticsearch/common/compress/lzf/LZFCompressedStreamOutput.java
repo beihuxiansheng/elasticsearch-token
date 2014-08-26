@@ -60,22 +60,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|ning
-operator|.
-name|compress
-operator|.
-name|lzf
-operator|.
-name|util
-operator|.
-name|ChunkEncoderFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -147,6 +131,9 @@ name|LZFCompressedStreamOutput
 parameter_list|(
 name|StreamOutput
 name|out
+parameter_list|,
+name|ChunkEncoder
+name|encoder
 parameter_list|)
 throws|throws
 name|IOException
@@ -196,10 +183,7 @@ name|this
 operator|.
 name|encoder
 operator|=
-name|ChunkEncoderFactory
-operator|.
-name|safeInstance
-argument_list|()
+name|encoder
 expr_stmt|;
 block|}
 annotation|@
