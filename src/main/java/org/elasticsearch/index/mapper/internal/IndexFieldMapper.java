@@ -1144,6 +1144,10 @@ operator|==
 name|Defaults
 operator|.
 name|ENABLED_STATE
+operator|&&
+name|customFieldDataSettings
+operator|==
+literal|null
 condition|)
 block|{
 return|return
@@ -1173,10 +1177,6 @@ name|FIELD_TYPE
 operator|.
 name|stored
 argument_list|()
-operator|&&
-name|enabledState
-operator|.
-name|enabled
 condition|)
 block|{
 name|builder
@@ -1198,14 +1198,10 @@ condition|(
 name|includeDefaults
 operator|||
 name|enabledState
-operator|.
-name|enabled
 operator|!=
 name|Defaults
 operator|.
 name|ENABLED_STATE
-operator|.
-name|enabled
 condition|)
 block|{
 name|builder

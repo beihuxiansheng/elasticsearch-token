@@ -1615,14 +1615,10 @@ condition|(
 name|includeDefaults
 operator|||
 name|enabledState
-operator|.
-name|enabled
 operator|!=
 name|Defaults
 operator|.
 name|ENABLED
-operator|.
-name|enabled
 condition|)
 block|{
 name|builder
@@ -1637,13 +1633,6 @@ name|enabled
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|enabledState
-operator|.
-name|enabled
-condition|)
-block|{
 if|if
 condition|(
 name|includeDefaults
@@ -1839,7 +1828,6 @@ name|getAsMap
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|builder
 operator|.

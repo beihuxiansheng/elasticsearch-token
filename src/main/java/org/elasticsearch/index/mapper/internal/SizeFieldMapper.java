@@ -962,14 +962,10 @@ condition|(
 name|includeDefaults
 operator|||
 name|enabledState
-operator|.
-name|enabled
 operator|!=
 name|Defaults
 operator|.
 name|ENABLED_STATE
-operator|.
-name|enabled
 condition|)
 block|{
 name|builder
@@ -1000,10 +996,6 @@ name|SIZE_FIELD_TYPE
 operator|.
 name|stored
 argument_list|()
-operator|&&
-name|enabledState
-operator|.
-name|enabled
 condition|)
 block|{
 name|builder
