@@ -40,6 +40,18 @@ name|ActionRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionResponse
+import|;
+end_import
+
 begin_comment
 comment|/**  * A filter chain allowing to continue and process the transport action request  */
 end_comment
@@ -50,10 +62,10 @@ specifier|public
 interface|interface
 name|ActionFilterChain
 block|{
-comment|/**      * Continue processing the request. Should only be called if a response has not been sent through the {@link ActionListener}      */
-DECL|method|continueProcessing
+comment|/**      * Continue processing the request. Should only be called if a response has not been sent through      * the given {@link ActionListener listener}      */
+DECL|method|proceed
 name|void
-name|continueProcessing
+name|proceed
 parameter_list|(
 specifier|final
 name|String
@@ -65,7 +77,25 @@ name|request
 parameter_list|,
 specifier|final
 name|ActionListener
-name|actionListener
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Continue processing the response. Should only be called if a response has not been sent through      * the given {@link ActionListener listener}      */
+DECL|method|proceed
+name|void
+name|proceed
+parameter_list|(
+specifier|final
+name|String
+name|action
+parameter_list|,
+specifier|final
+name|ActionResponse
+name|response
+parameter_list|,
+specifier|final
+name|ActionListener
+name|listener
 parameter_list|)
 function_decl|;
 block|}
