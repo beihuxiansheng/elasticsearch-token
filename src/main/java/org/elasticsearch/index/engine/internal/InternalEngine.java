@@ -4723,15 +4723,14 @@ name|success
 init|=
 literal|false
 decl_stmt|;
-try|try
-block|{
-comment|/* Acquire order here is store -> manager since we need             * to make sure that the store is not closed before             * the searcher is acquired. */
+comment|/* Acquire order here is store -> manager since we need           * to make sure that the store is not closed before           * the searcher is acquired. */
 name|store
 operator|.
 name|incRef
 argument_list|()
 expr_stmt|;
-specifier|final
+try|try
+block|{
 name|SearcherManager
 name|manager
 init|=
@@ -4739,6 +4738,48 @@ name|this
 operator|.
 name|searcherManager
 decl_stmt|;
+if|if
+condition|(
+name|manager
+operator|==
+literal|null
+condition|)
+block|{
+name|ensureOpen
+argument_list|()
+expr_stmt|;
+try|try
+init|(
+name|InternalLock
+name|_
+init|=
+name|this
+operator|.
+name|readLock
+operator|.
+name|acquire
+argument_list|()
+init|)
+block|{
+comment|// we might start up right now and the searcherManager is not initialized
+comment|// we take the read lock and retry again since write lock is taken
+comment|// while start() is called and otherwise the ensureOpen() call will
+comment|// barf.
+name|manager
+operator|=
+name|this
+operator|.
+name|searcherManager
+expr_stmt|;
+assert|assert
+name|manager
+operator|!=
+literal|null
+operator|:
+literal|"SearcherManager is null but shouldn't"
+assert|;
+block|}
+block|}
 comment|/* This might throw NPE but that's fine we will run ensureOpen()             *  in the catch block and throw the right exception */
 specifier|final
 name|IndexSearcher
@@ -4789,6 +4830,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|EngineClosedException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+name|ex
+throw|;
 block|}
 catch|catch
 parameter_list|(
