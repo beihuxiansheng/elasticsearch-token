@@ -837,8 +837,6 @@ operator|new
 name|LZFCompressedStreamOutput
 argument_list|(
 name|out
-argument_list|,
-name|encoder
 argument_list|)
 return|;
 block|}
