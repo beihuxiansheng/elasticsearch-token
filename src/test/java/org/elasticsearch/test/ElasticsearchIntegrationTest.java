@@ -3052,9 +3052,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Disabled for now as it seems to make tests unstable
-comment|// TODO: figure out what is wrong with the soft and/or resident caches?
-comment|/*if (random.nextBoolean()) {             builder.put(IndexFieldDataService.FIELDDATA_CACHE_KEY, randomFrom(                     IndexFieldDataService.FIELDDATA_CACHE_VALUE_NODE,                     IndexFieldDataService.FIELDDATA_CACHE_VALUE_RESIDENT,                     IndexFieldDataService.FIELDDATA_CACHE_VALUE_SOFT));         }*/
 return|return
 name|builder
 return|;
