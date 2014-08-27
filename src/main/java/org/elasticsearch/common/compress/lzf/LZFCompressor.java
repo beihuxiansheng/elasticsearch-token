@@ -326,11 +326,6 @@ name|TYPE
 init|=
 literal|"lzf"
 decl_stmt|;
-DECL|field|encoder
-specifier|private
-name|ChunkEncoder
-name|encoder
-decl_stmt|;
 DECL|field|decoder
 specifier|private
 name|ChunkDecoder
@@ -341,15 +336,6 @@ specifier|public
 name|LZFCompressor
 parameter_list|()
 block|{
-name|this
-operator|.
-name|encoder
-operator|=
-name|ChunkEncoderFactory
-operator|.
-name|safeInstance
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|decoder
@@ -371,16 +357,6 @@ operator|.
 name|debug
 argument_list|(
 literal|"using encoder [{}] and decoder[{}] "
-argument_list|,
-name|this
-operator|.
-name|encoder
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
 argument_list|,
 name|this
 operator|.
@@ -784,10 +760,8 @@ block|{
 return|return
 name|LZFEncoder
 operator|.
-name|encode
+name|safeEncode
 argument_list|(
-name|encoder
-argument_list|,
 name|data
 argument_list|,
 name|offset
