@@ -110,6 +110,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ListenableActionFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|delete
 operator|.
 name|DeleteRequest
@@ -127,6 +139,20 @@ operator|.
 name|delete
 operator|.
 name|DeleteResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|get
+operator|.
+name|GetRequest
 import|;
 end_import
 
@@ -2196,6 +2222,17 @@ operator|.
 name|setVersionType
 argument_list|(
 name|versionType
+argument_list|)
+operator|.
+name|setPreference
+argument_list|(
+literal|"_local"
+argument_list|)
+comment|//Set preference for no forking
+operator|.
+name|setOperationThreaded
+argument_list|(
+literal|false
 argument_list|)
 operator|.
 name|get
