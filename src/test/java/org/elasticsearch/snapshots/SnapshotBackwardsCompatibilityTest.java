@@ -2250,10 +2250,19 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|cluster
+argument_list|()
+operator|.
+name|numDataNodes
+argument_list|()
+operator|>
+literal|1
+operator|&&
 name|randomBoolean
 argument_list|()
 condition|)
 block|{
+comment|// only bump the replicas if we have enough nodes
 name|client
 argument_list|()
 operator|.
