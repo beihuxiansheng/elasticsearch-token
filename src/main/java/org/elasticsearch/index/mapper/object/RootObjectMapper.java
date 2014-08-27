@@ -918,8 +918,6 @@ name|add
 argument_list|(
 name|parseDateTimeFormatter
 argument_list|(
-name|fieldName
-argument_list|,
 name|node1
 argument_list|)
 argument_list|)
@@ -953,8 +951,6 @@ name|add
 argument_list|(
 name|parseDateTimeFormatter
 argument_list|(
-name|fieldName
-argument_list|,
 name|fieldNode
 argument_list|)
 argument_list|)

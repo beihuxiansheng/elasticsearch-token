@@ -1174,8 +1174,6 @@ name|dateTimeFormatter
 argument_list|(
 name|parseDateTimeFormatter
 argument_list|(
-name|propName
-argument_list|,
 name|propNode
 argument_list|)
 argument_list|)

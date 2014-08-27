@@ -2586,16 +2586,6 @@ operator|.
 name|fullPath
 return|;
 block|}
-DECL|method|nestedTypePathAsBytes
-specifier|public
-name|BytesRef
-name|nestedTypePathAsBytes
-parameter_list|()
-block|{
-return|return
-name|nestedTypePathAsBytes
-return|;
-block|}
 DECL|method|nestedTypePathAsString
 specifier|public
 name|String
@@ -4805,21 +4795,6 @@ comment|// not a long number
 block|}
 block|}
 block|}
-comment|// DON'T do automatic ip detection logic, since it messes up with docs that have hosts and ips
-comment|// check if its an ip
-comment|//                if (!resolved&& text.indexOf('.') != -1) {
-comment|//                    try {
-comment|//                        IpFieldMapper.ipToLong(text);
-comment|//                        XContentMapper.Builder builder = context.root().findTemplateBuilder(context, currentFieldName, "ip");
-comment|//                        if (builder == null) {
-comment|//                            builder = ipField(currentFieldName);
-comment|//                        }
-comment|//                        mapper = builder.build(builderContext);
-comment|//                        resolved = true;
-comment|//                    } catch (Exception e) {
-comment|//                        // failure to parse, not ip...
-comment|//                    }
-comment|//                }
 if|if
 condition|(
 operator|!
