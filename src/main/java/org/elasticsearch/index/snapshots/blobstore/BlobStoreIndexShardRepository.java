@@ -3522,7 +3522,7 @@ name|get
 argument_list|(
 name|fileInfo
 operator|.
-name|name
+name|physicalName
 argument_list|()
 argument_list|)
 operator|)
@@ -3556,6 +3556,7 @@ condition|)
 block|{
 comment|// we have a hash - check if our repo has a hash too otherwise we have
 comment|// to calculate it.
+specifier|final
 name|byte
 index|[]
 name|bytes
@@ -3566,10 +3567,36 @@ name|readBlobFully
 argument_list|(
 name|fileInfo
 operator|.
-name|physicalName
+name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
+assert|assert
+name|bytes
+operator|!=
+literal|null
+assert|;
+assert|assert
+name|bytes
+operator|.
+name|length
+operator|==
+name|fileInfo
+operator|.
+name|length
+argument_list|()
+operator|:
+name|bytes
+operator|.
+name|length
+operator|+
+literal|" != "
+operator|+
+name|fileInfo
+operator|.
+name|length
+argument_list|()
+assert|;
 specifier|final
 name|BytesRef
 name|spare
