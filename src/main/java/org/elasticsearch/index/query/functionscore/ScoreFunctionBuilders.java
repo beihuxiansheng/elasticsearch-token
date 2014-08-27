@@ -482,7 +482,7 @@ specifier|static
 name|RandomScoreFunctionBuilder
 name|randomFunction
 parameter_list|(
-name|long
+name|int
 name|seed
 parameter_list|)
 block|{

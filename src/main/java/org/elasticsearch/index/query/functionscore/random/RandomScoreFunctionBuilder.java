@@ -74,7 +74,7 @@ name|ScoreFunctionBuilder
 block|{
 DECL|field|seed
 specifier|private
-name|Long
+name|Integer
 name|seed
 init|=
 literal|null
@@ -107,7 +107,7 @@ specifier|public
 name|RandomScoreFunctionBuilder
 name|seed
 parameter_list|(
-name|long
+name|int
 name|seed
 parameter_list|)
 block|{
@@ -160,7 +160,7 @@ literal|"seed"
 argument_list|,
 name|seed
 operator|.
-name|longValue
+name|intValue
 argument_list|()
 argument_list|)
 expr_stmt|;
