@@ -2319,6 +2319,16 @@ operator|=
 name|version
 expr_stmt|;
 block|}
+DECL|method|getVersion
+specifier|public
+name|Long
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|docVersion
+return|;
+block|}
 DECL|method|getIndex
 specifier|public
 name|String
