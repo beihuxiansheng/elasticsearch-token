@@ -233,6 +233,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -860,6 +872,12 @@ literal|false
 return|;
 block|}
 block|}
+argument_list|,
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 return|;
 block|}
