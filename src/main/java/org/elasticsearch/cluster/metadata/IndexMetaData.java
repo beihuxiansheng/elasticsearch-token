@@ -1241,12 +1241,10 @@ name|getAsInt
 argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
-operator|-
-literal|1
+literal|null
 argument_list|)
 operator|!=
-operator|-
-literal|1
+literal|null
 argument_list|,
 literal|"must specify numberOfShards for index ["
 operator|+
@@ -1265,12 +1263,10 @@ name|getAsInt
 argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
-operator|-
-literal|1
+literal|null
 argument_list|)
 operator|!=
-operator|-
-literal|1
+literal|null
 argument_list|,
 literal|"must specify numberOfReplicas for index ["
 operator|+
