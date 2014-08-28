@@ -427,10 +427,8 @@ argument_list|)
 expr_stmt|;
 name|fixedBitSetFilterCache
 operator|.
-name|clear
-argument_list|(
-literal|"close"
-argument_list|)
+name|close
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
