@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -124,6 +110,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentCollections
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|internal
@@ -158,7 +160,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|concurrent
+operator|.
+name|ConcurrentMap
 import|;
 end_import
 
@@ -175,7 +179,7 @@ block|{
 DECL|field|readerStates
 specifier|private
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|IndexReader
 argument_list|,
@@ -183,9 +187,9 @@ name|ReaderState
 argument_list|>
 name|readerStates
 init|=
-name|Maps
+name|ConcurrentCollections
 operator|.
-name|newHashMap
+name|newConcurrentMap
 argument_list|()
 decl_stmt|;
 DECL|method|clear
@@ -297,7 +301,7 @@ block|{
 DECL|field|readerStates
 specifier|private
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|IndexReader
 argument_list|,
@@ -360,7 +364,7 @@ decl_stmt|;
 DECL|method|ScanCollector
 name|ScanCollector
 parameter_list|(
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|IndexReader
 argument_list|,
@@ -680,7 +684,7 @@ block|{
 DECL|field|readerStates
 specifier|private
 specifier|final
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|IndexReader
 argument_list|,
@@ -698,7 +702,7 @@ DECL|method|ScanFilter
 specifier|public
 name|ScanFilter
 parameter_list|(
-name|Map
+name|ConcurrentMap
 argument_list|<
 name|IndexReader
 argument_list|,
