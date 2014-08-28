@@ -288,6 +288,16 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|super
+operator|.
+name|nodeSettings
+argument_list|(
+name|nodeOrdinal
+argument_list|)
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"discovery.type"
 argument_list|,
 literal|"zen"
@@ -306,18 +316,8 @@ literal|"http.enabled"
 argument_list|,
 literal|false
 argument_list|)
-comment|// just to make test quicker
-operator|.
-name|put
-argument_list|(
-name|super
-operator|.
-name|nodeSettings
-argument_list|(
-name|nodeOrdinal
-argument_list|)
-argument_list|)
 decl_stmt|;
+comment|// just to make test quicker
 name|String
 index|[]
 name|unicastHosts
