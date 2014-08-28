@@ -633,6 +633,16 @@ operator|==
 literal|null
 condition|)
 block|{
+name|context
+operator|.
+name|queryResult
+argument_list|()
+operator|.
+name|aggregations
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -875,6 +885,14 @@ name|InternalAggregations
 argument_list|(
 name|aggregations
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// disable aggregations so that they don't run on next pages in case of scrolling
+name|context
+operator|.
+name|aggregations
+argument_list|(
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
