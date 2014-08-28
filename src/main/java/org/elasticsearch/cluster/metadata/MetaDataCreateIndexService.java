@@ -2543,7 +2543,7 @@ name|put
 argument_list|(
 name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|,
-literal|"1-all"
+literal|"0-all"
 argument_list|)
 expr_stmt|;
 block|}
