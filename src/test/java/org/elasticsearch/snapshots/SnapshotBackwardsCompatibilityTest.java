@@ -2289,6 +2289,13 @@ argument_list|()
 condition|)
 block|{
 comment|// only bump the replicas if we have enough nodes
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> move from 0 to 1 replica"
+argument_list|)
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -2316,12 +2323,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|,
-name|randomIntBetween
-argument_list|(
 literal|1
-argument_list|,
-literal|2
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
