@@ -1697,7 +1697,7 @@ name|put
 argument_list|(
 literal|"discovery.zen.ping_timeout"
 argument_list|,
-literal|"200ms"
+literal|"1s"
 argument_list|)
 operator|.
 name|put
