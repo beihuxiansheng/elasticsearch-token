@@ -140,6 +140,24 @@ specifier|private
 name|SortedBinaryDocValues
 name|uidByteData
 decl_stmt|;
+comment|/**      * Default constructor. Only useful for constructing as a placeholder, but should not be used for actual scoring.      */
+DECL|method|RandomScoreFunction
+specifier|public
+name|RandomScoreFunction
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|CombineFunction
+operator|.
+name|MULT
+argument_list|)
+expr_stmt|;
+name|uidFieldData
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|/**      * Creates a RandomScoreFunction.      *      * @param seed A seed for randomness      * @param salt A value to salt the seed with, ideally unique to the running node/index      * @param uidFieldData The field data for _uid to use for generating consistent random values for the same id      */
 DECL|method|RandomScoreFunction
 specifier|public
