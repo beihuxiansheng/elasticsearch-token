@@ -358,7 +358,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestBuilder
+name|SuggestBuilders
 operator|.
 name|termSuggestion
 import|;

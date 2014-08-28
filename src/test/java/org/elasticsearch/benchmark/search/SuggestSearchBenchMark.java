@@ -210,7 +210,7 @@ name|search
 operator|.
 name|suggest
 operator|.
-name|SuggestBuilder
+name|SuggestBuilders
 import|;
 end_import
 
@@ -1041,7 +1041,7 @@ argument_list|)
 operator|.
 name|addSuggestion
 argument_list|(
-name|SuggestBuilder
+name|SuggestBuilders
 operator|.
 name|termSuggestion
 argument_list|(
@@ -1158,7 +1158,7 @@ argument_list|)
 operator|.
 name|addSuggestion
 argument_list|(
-name|SuggestBuilder
+name|SuggestBuilders
 operator|.
 name|termSuggestion
 argument_list|(

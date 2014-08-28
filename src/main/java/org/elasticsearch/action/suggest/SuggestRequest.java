@@ -180,16 +180,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|search
 operator|.
-name|xcontent
+name|suggest
 operator|.
-name|XContentType
+name|SuggestBuilder
 import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get suggestions for corrections of phrases. Best created with  * {@link org.elasticsearch.client.Requests#suggestRequest(String...)}.  *<p/>  *<p>The request requires the suggest query source to be set either using {@link #suggest(org.elasticsearch.common.bytes.BytesReference)},  * or {@link #suggest(org.elasticsearch.common.bytes.BytesReference, boolean)}.  *  * @see SuggestResponse  * @see org.elasticsearch.client.Client#suggest(SuggestRequest)  * @see org.elasticsearch.client.Requests#suggestRequest(String...)  */
+comment|/**  * A request to get suggestions for corrections of phrases. Best created with  * {@link org.elasticsearch.client.Requests#suggestRequest(String...)}.  *<p/>  *<p>The request requires the suggest query source to be set either using  * {@link #suggest(org.elasticsearch.common.bytes.BytesReference)} / {@link #suggest(org.elasticsearch.common.bytes.BytesReference, boolean)}  * or by using {@link #suggest(org.elasticsearch.search.suggest.SuggestBuilder)}  * (Best created using the {link @org.elasticsearch.search.suggest.SuggestBuilders)}).  *  * @see SuggestResponse  * @see org.elasticsearch.client.Client#suggest(SuggestRequest)  * @see org.elasticsearch.client.Requests#suggestRequest(String...)  * @see org.elasticsearch.search.suggest.SuggestBuilders  */
 end_comment
 
 begin_class
@@ -319,6 +319,56 @@ argument_list|(
 name|suggestSource
 argument_list|,
 literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * set a new source using a {@link org.elasticsearch.search.suggest.SuggestBuilder}      * for phrase and term suggestion lookup      */
+DECL|method|suggest
+specifier|public
+name|SuggestRequest
+name|suggest
+parameter_list|(
+name|SuggestBuilder
+name|suggestBuilder
+parameter_list|)
+block|{
+return|return
+name|suggest
+argument_list|(
+name|suggestBuilder
+operator|.
+name|buildAsBytes
+argument_list|(
+name|Requests
+operator|.
+name|CONTENT_TYPE
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * set a new source using a {@link org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder}      * for completion suggestion lookup      */
+DECL|method|suggest
+specifier|public
+name|SuggestRequest
+name|suggest
+parameter_list|(
+name|SuggestBuilder
+operator|.
+name|SuggestionBuilder
+name|suggestionBuilder
+parameter_list|)
+block|{
+return|return
+name|suggest
+argument_list|(
+name|suggestionBuilder
+operator|.
+name|buildAsBytes
+argument_list|(
+name|Requests
+operator|.
+name|CONTENT_TYPE
+argument_list|)
 argument_list|)
 return|;
 block|}
