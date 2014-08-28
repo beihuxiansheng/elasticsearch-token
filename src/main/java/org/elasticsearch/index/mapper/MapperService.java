@@ -1176,9 +1176,9 @@ name|environment
 argument_list|,
 name|defaultMappingLocation
 argument_list|,
-literal|"script-index-defaults.json"
+literal|"script-mapping.json"
 argument_list|,
-literal|"org/elasticsearch/index/mapper/script-index-defaults.json"
+literal|"org/elasticsearch/index/mapper/script-mapping.json"
 argument_list|)
 expr_stmt|;
 block|}
