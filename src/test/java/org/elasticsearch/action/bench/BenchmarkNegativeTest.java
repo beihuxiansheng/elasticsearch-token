@@ -143,6 +143,16 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|super
+operator|.
+name|nodeSettings
+argument_list|(
+name|nodeOrdinal
+argument_list|)
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"node.bench"
 argument_list|,
 literal|false

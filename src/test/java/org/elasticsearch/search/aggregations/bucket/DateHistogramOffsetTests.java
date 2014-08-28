@@ -339,6 +339,16 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|super
+operator|.
+name|nodeSettings
+argument_list|(
+name|nodeOrdinal
+argument_list|)
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|AssertingLocalTransport
 operator|.
 name|ASSERTING_TRANSPORT_MIN_VERSION_KEY
