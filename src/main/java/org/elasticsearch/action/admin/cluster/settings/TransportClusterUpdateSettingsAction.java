@@ -753,24 +753,11 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onFailure
+name|onNoLongerMaster
 parameter_list|(
 name|String
 name|source
-parameter_list|,
-name|Throwable
-name|t
 parameter_list|)
-block|{
-comment|//if the reroute fails we only log
-if|if
-condition|(
-name|t
-operator|instanceof
-name|ClusterService
-operator|.
-name|NoLongerMasterException
-condition|)
 block|{
 name|logger
 operator|.
@@ -801,8 +788,20 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onFailure
+parameter_list|(
+name|String
+name|source
+parameter_list|,
+name|Throwable
+name|t
+parameter_list|)
 block|{
+comment|//if the reroute fails we only log
 name|logger
 operator|.
 name|debug
@@ -827,7 +826,6 @@ name|t
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override

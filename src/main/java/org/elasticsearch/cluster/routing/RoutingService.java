@@ -631,6 +631,18 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|onNoLongerMaster
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+comment|// no biggie
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
 name|onFailure
 parameter_list|(
 name|String
@@ -639,18 +651,6 @@ parameter_list|,
 name|Throwable
 name|t
 parameter_list|)
-block|{
-if|if
-condition|(
-operator|!
-operator|(
-name|t
-operator|instanceof
-name|ClusterService
-operator|.
-name|NoLongerMasterException
-operator|)
-condition|)
 block|{
 name|ClusterState
 name|state
@@ -676,7 +676,6 @@ name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)

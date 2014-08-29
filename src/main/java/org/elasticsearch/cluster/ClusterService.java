@@ -293,30 +293,6 @@ argument_list|>
 name|pendingTasks
 parameter_list|()
 function_decl|;
-comment|/**      * an exception to indicate a {@link org.elasticsearch.cluster.ClusterStateUpdateTask} was not executed as      * the current node is no longer master      */
-DECL|class|NoLongerMasterException
-specifier|public
-specifier|static
-class|class
-name|NoLongerMasterException
-extends|extends
-name|ElasticsearchIllegalStateException
-block|{
-DECL|method|NoLongerMasterException
-specifier|public
-name|NoLongerMasterException
-parameter_list|(
-name|String
-name|msg
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 end_interface
 

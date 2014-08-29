@@ -32,22 +32,25 @@ begin_comment
 comment|/**  * An extension interface to {@link org.elasticsearch.cluster.ClusterStateUpdateTask} that allows to associate  * a timeout.  */
 end_comment
 
-begin_interface
-DECL|interface|TimeoutClusterStateUpdateTask
+begin_class
+DECL|class|TimeoutClusterStateUpdateTask
+specifier|abstract
 specifier|public
-interface|interface
+class|class
 name|TimeoutClusterStateUpdateTask
 extends|extends
 name|ProcessedClusterStateUpdateTask
 block|{
 comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(String, Throwable)}      */
 DECL|method|timeout
+specifier|abstract
+specifier|public
 name|TimeValue
 name|timeout
 parameter_list|()
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 

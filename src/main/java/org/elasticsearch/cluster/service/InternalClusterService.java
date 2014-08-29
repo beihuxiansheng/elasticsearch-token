@@ -1873,12 +1873,10 @@ operator|.
 name|localNodeMaster
 argument_list|()
 operator|&&
-operator|!
-operator|(
 name|updateTask
-operator|instanceof
-name|ClusterStateNonMasterUpdateTask
-operator|)
+operator|.
+name|runOnlyOnMaster
+argument_list|()
 condition|)
 block|{
 name|logger
@@ -1892,17 +1890,9 @@ argument_list|)
 expr_stmt|;
 name|updateTask
 operator|.
-name|onFailure
+name|onNoLongerMaster
 argument_list|(
 name|source
-argument_list|,
-operator|new
-name|NoLongerMasterException
-argument_list|(
-literal|"source: "
-operator|+
-name|source
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;

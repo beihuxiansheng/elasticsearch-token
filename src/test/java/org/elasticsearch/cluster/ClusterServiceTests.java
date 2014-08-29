@@ -4449,7 +4449,7 @@ specifier|private
 specifier|static
 class|class
 name|BlockingTask
-implements|implements
+extends|extends
 name|ClusterStateUpdateTask
 block|{
 DECL|field|latch
@@ -4518,7 +4518,7 @@ specifier|private
 specifier|static
 class|class
 name|PrioritiezedTask
-implements|implements
+extends|extends
 name|ClusterStateUpdateTask
 block|{
 DECL|field|priority

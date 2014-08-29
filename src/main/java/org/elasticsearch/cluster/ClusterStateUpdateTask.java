@@ -14,18 +14,49 @@ name|cluster
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|EsRejectedExecutionException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A task that can update the cluster state.  */
 end_comment
 
-begin_interface
-DECL|interface|ClusterStateUpdateTask
+begin_class
+DECL|class|ClusterStateUpdateTask
+specifier|abstract
 specifier|public
-interface|interface
+class|class
 name|ClusterStateUpdateTask
 block|{
 comment|/**      * Update the cluster state based on the current state. Return the *same instance* if no state      * should be changed.      */
 DECL|method|execute
+specifier|abstract
+specifier|public
 name|ClusterState
 name|execute
 parameter_list|(
@@ -37,18 +68,59 @@ name|Exception
 function_decl|;
 comment|/**      * A callback called when execute fails.      */
 DECL|method|onFailure
+specifier|abstract
+specifier|public
 name|void
 name|onFailure
 parameter_list|(
 name|String
 name|source
 parameter_list|,
+annotation|@
+name|Nullable
 name|Throwable
 name|t
 parameter_list|)
 function_decl|;
+comment|/**      * indicates whether this task should only run if current node is master      */
+DECL|method|runOnlyOnMaster
+specifier|public
+name|boolean
+name|runOnlyOnMaster
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
-end_interface
+comment|/**      * called when the task was rejected because the local node is no longer master      */
+DECL|method|onNoLongerMaster
+specifier|public
+name|void
+name|onNoLongerMaster
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+name|onFailure
+argument_list|(
+name|source
+argument_list|,
+operator|new
+name|EsRejectedExecutionException
+argument_list|(
+literal|"no longer master. source: ["
+operator|+
+name|source
+operator|+
+literal|"]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

@@ -18,15 +18,29 @@ begin_comment
 comment|/**  * This is a marker interface to indicate that the task should be executed  * even if the current node is not a master.  */
 end_comment
 
-begin_interface
-DECL|interface|ClusterStateNonMasterUpdateTask
+begin_class
+DECL|class|ClusterStateNonMasterUpdateTask
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|ClusterStateNonMasterUpdateTask
 extends|extends
 name|ClusterStateUpdateTask
-block|{ }
-end_interface
+block|{
+annotation|@
+name|Override
+DECL|method|runOnlyOnMaster
+specifier|public
+name|boolean
+name|runOnlyOnMaster
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

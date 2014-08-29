@@ -15,20 +15,32 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A combination interface between {@link org.elasticsearch.cluster.ProcessedClusterStateUpdateTask} and  * {@link org.elasticsearch.cluster.ClusterStateNonMasterUpdateTask} to allow easy creation of anonymous classes  */
+comment|/**  * A combination between {@link org.elasticsearch.cluster.ProcessedClusterStateUpdateTask} and  * {@link org.elasticsearch.cluster.ClusterStateNonMasterUpdateTask} to allow easy creation of anonymous classes  */
 end_comment
 
-begin_interface
-DECL|interface|ProcessedClusterStateNonMasterUpdateTask
+begin_class
+DECL|class|ProcessedClusterStateNonMasterUpdateTask
+specifier|abstract
 specifier|public
-interface|interface
+class|class
 name|ProcessedClusterStateNonMasterUpdateTask
 extends|extends
 name|ProcessedClusterStateUpdateTask
-extends|,
-name|ClusterStateNonMasterUpdateTask
-block|{ }
-end_interface
+block|{
+annotation|@
+name|Override
+DECL|method|runOnlyOnMaster
+specifier|public
+name|boolean
+name|runOnlyOnMaster
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

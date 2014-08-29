@@ -18,16 +18,19 @@ begin_comment
 comment|/**  * An extension interface to {@link ClusterStateUpdateTask} that allows to be notified when  * the cluster state update has been processed.  */
 end_comment
 
-begin_interface
-DECL|interface|ProcessedClusterStateUpdateTask
+begin_class
+DECL|class|ProcessedClusterStateUpdateTask
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|ProcessedClusterStateUpdateTask
 extends|extends
 name|ClusterStateUpdateTask
 block|{
 comment|/**      * Called when the result of the {@link #execute(ClusterState)} have been processed      * properly by all listeners.      */
 DECL|method|clusterStateProcessed
+specifier|public
+specifier|abstract
 name|void
 name|clusterStateProcessed
 parameter_list|(
@@ -42,7 +45,7 @@ name|newState
 parameter_list|)
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 
