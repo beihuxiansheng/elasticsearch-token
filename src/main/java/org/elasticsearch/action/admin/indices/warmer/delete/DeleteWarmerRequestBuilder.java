@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A builder for the {@link DeleteWarmerRequest}  * @see DeleteWarmerRequest for details  */
 end_comment
 
 begin_class

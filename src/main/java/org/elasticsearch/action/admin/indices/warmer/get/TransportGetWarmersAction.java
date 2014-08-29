@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Internal Actions executed on the master fetching the warmer from the cluster state metadata.  *  * Note: this is an internal API and should not be used / called by any client code.  */
 end_comment
 
 begin_class

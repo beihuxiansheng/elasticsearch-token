@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Holds a warmer-name to a list of {@link IndexWarmersMetaData} mapping for each warmer specified  * in the {@link GetWarmersRequest}. This information is fetched from the current master since the metadata  * is contained inside the cluster-state  */
 end_comment
 
 begin_class

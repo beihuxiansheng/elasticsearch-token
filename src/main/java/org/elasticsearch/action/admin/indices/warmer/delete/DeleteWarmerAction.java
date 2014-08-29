@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Action for the admin/warmers/delete API.  */
 end_comment
 
 begin_class

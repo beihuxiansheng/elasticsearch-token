@@ -329,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Put warmer action.  */
+comment|/**  * Internal Actions executed on the master associating a warmer with a name in the cluster state metadata.  *  * Note: this is an internal API and should not be used / called by any client code.  */
 end_comment
 
 begin_class

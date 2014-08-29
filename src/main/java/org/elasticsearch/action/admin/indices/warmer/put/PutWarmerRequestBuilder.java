@@ -91,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for {@link PutWarmerRequest}  * @see PutWarmerRequest for details  */
 end_comment
 
 begin_class
@@ -111,6 +111,7 @@ argument_list|,
 name|IndicesAdminClient
 argument_list|>
 block|{
+comment|/**      * Creates a new {@link PutWarmerRequestBuilder} with a given name.      */
 DECL|method|PutWarmerRequestBuilder
 specifier|public
 name|PutWarmerRequestBuilder
@@ -137,6 +138,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a new {@link PutWarmerRequestBuilder}      * Note: {@link #setName(String)} must be called with a non-null value before this request is executed.      */
 DECL|method|PutWarmerRequestBuilder
 specifier|public
 name|PutWarmerRequestBuilder

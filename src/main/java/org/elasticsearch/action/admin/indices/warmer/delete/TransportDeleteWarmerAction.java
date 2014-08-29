@@ -319,7 +319,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete index warmer.  */
+comment|/**  * Internal Actions executed on the master deleting the warmer from the cluster state metadata.  *  * Note: this is an internal API and should not be used / called by any client code.  */
 end_comment
 
 begin_class

@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A response for a delete warmer.  */
+comment|/**  * An acknowledged response of delete warmer operation.  */
 end_comment
 
 begin_class

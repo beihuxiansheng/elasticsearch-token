@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of put warmer operation.  */
+comment|/**  * An acknowledged response of put warmer operation.  */
 end_comment
 
 begin_class

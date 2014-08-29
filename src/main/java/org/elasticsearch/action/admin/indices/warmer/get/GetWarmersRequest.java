@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * An {@ClusterInfoRequest} that fetches {@link org.elasticsearch.search.warmer.IndexWarmersMetaData} for  * a list or all existing index warmers in the cluster-state  */
 end_comment
 
 begin_class

@@ -2698,6 +2698,7 @@ name|DeleteWarmerRequestBuilder
 name|prepareDeleteWarmer
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a map of index warmers for the given get request.      */
 DECL|method|getWarmers
 name|void
 name|getWarmers
@@ -2712,6 +2713,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a map of index warmers for the given get request.      */
 DECL|method|getWarmers
 name|ActionFuture
 argument_list|<
@@ -2723,6 +2725,7 @@ name|GetWarmersRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a new builder to fetch index warmer metadata for the given indices.      */
 DECL|method|prepareGetWarmers
 name|GetWarmersRequestBuilder
 name|prepareGetWarmers
@@ -2732,6 +2735,7 @@ modifier|...
 name|indices
 parameter_list|)
 function_decl|;
+comment|/**      * Executed a per index settings get request and returns the settings for the indices specified.      * Note: this is a per index request and will not include settings that are set on the cluster      * level. This request is not exhaustive, it will not return default values for setting.      */
 DECL|method|getSettings
 name|void
 name|getSettings
@@ -2746,6 +2750,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Executed a per index settings get request.      * @see #getSettings(org.elasticsearch.action.admin.indices.settings.get.GetSettingsRequest)      */
 DECL|method|getSettings
 name|ActionFuture
 argument_list|<
@@ -2757,6 +2762,7 @@ name|GetSettingsRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a builder for a per index settings get request.      * @param indices the indices to fetch the setting for.      * @see #getSettings(org.elasticsearch.action.admin.indices.settings.get.GetSettingsRequest)      */
 DECL|method|prepareGetSettings
 name|GetSettingsRequestBuilder
 name|prepareGetSettings

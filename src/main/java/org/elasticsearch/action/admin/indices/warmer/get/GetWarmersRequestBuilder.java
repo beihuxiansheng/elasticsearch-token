@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Builder for {@link GetWarmersRequest}  *  * @see GetWarmersRequest for details  */
 end_comment
 
 begin_class

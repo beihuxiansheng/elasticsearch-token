@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete an index warmer.  */
+comment|/**  * A request that deletes a index warmer (name, {@link org.elasticsearch.action.search.SearchRequest})  * tuple from the clusters metadata.  */
 end_comment
 
 begin_class

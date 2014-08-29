@@ -38,22 +38,6 @@ name|admin
 operator|.
 name|cluster
 operator|.
-name|ClusterAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
 name|health
 operator|.
 name|ClusterHealthRequest
@@ -1200,18 +1184,6 @@ name|PendingClusterTasksResponse
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
 begin_comment
 comment|/**  * Administrative actions/operations against indices.  *  * @see AdminClient#cluster()  */
 end_comment
@@ -1469,6 +1441,7 @@ modifier|...
 name|nodesIds
 parameter_list|)
 function_decl|;
+comment|/**      * Returns top N hot-threads samples per node. The hot-threads are only sampled      * for the node ids specified in the request.      */
 DECL|method|nodesHotThreads
 name|ActionFuture
 argument_list|<
@@ -1480,6 +1453,7 @@ name|NodesHotThreadsRequest
 name|request
 parameter_list|)
 function_decl|;
+comment|/**      * Returns top N hot-threads samples per node. The hot-threads are only sampled      * for the node ids specified in the request.      */
 DECL|method|nodesHotThreads
 name|void
 name|nodesHotThreads
@@ -1494,6 +1468,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a request builder to fetch top N hot-threads samples per node. The hot-threads are only sampled      * for the node ids provided. Note: Use<tt>*</tt> to fetch samples for all nodes      */
 DECL|method|prepareNodesHotThreads
 name|NodesHotThreadsRequestBuilder
 name|prepareNodesHotThreads

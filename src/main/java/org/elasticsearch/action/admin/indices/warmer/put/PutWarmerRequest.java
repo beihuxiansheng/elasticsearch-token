@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to put a search warmer.  */
+comment|/**  * A request that associates a {@link SearchRequest} with a name in the cluster that is  * in-turn used to warm up indices before they are available for search.  *  * Note: neither the search request nor the name must be<code>null</code>  */
 end_comment
 
 begin_class
