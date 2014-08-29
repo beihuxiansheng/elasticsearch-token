@@ -2739,6 +2739,8 @@ operator|.
 name|REQUEST_CIRCUIT_BREAKER_LIMIT_SETTING
 argument_list|,
 name|size
+operator|-
+literal|1
 argument_list|)
 operator|.
 name|build
