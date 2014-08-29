@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link Missing} aggregation.  */
 end_comment
 
 begin_class
@@ -78,6 +78,7 @@ specifier|private
 name|String
 name|field
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|MissingBuilder
 specifier|public
 name|MissingBuilder
@@ -99,6 +100,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the field to count missing values on.      */
 DECL|method|field
 specifier|public
 name|MissingBuilder

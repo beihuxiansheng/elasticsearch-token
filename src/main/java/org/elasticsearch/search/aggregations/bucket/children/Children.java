@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * An single bucket aggregation that translates parent documents to their children documents.  */
 end_comment
 
 begin_interface

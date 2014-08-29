@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link DateHistogram} aggregation.  */
 end_comment
 
 begin_class
@@ -171,11 +171,13 @@ name|String
 name|postOffset
 decl_stmt|;
 DECL|field|factor
+specifier|private
 name|float
 name|factor
 init|=
 literal|1.0f
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|DateHistogramBuilder
 specifier|public
 name|DateHistogramBuilder
@@ -197,6 +199,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the interval in milliseconds.      */
 DECL|method|interval
 specifier|public
 name|DateHistogramBuilder
@@ -216,6 +219,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the interval.      */
 DECL|method|interval
 specifier|public
 name|DateHistogramBuilder
@@ -237,6 +241,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the order by which the buckets will be returned.      */
 DECL|method|order
 specifier|public
 name|DateHistogramBuilder
@@ -258,6 +263,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the minimum document count per bucket. Buckets with less documents      * than this min value will not be returned.      */
 DECL|method|minDocCount
 specifier|public
 name|DateHistogramBuilder
@@ -277,6 +283,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the timezone in which to translate dates before computing buckets.      */
 DECL|method|preZone
 specifier|public
 name|DateHistogramBuilder
@@ -296,6 +303,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the timezone in which to translate dates after having computed buckets.      */
 DECL|method|postZone
 specifier|public
 name|DateHistogramBuilder
@@ -315,6 +323,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set whether to adjust large intervals, when using days or larger intervals.      */
 DECL|method|preZoneAdjustLargeInterval
 specifier|public
 name|DateHistogramBuilder
@@ -334,6 +343,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the offset to apply prior to computing buckets.      */
 DECL|method|preOffset
 specifier|public
 name|DateHistogramBuilder
@@ -353,6 +363,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the offset to apply after having computed buckets.      */
 DECL|method|postOffset
 specifier|public
 name|DateHistogramBuilder
@@ -372,6 +383,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set a factor to apply to values of the field, typically used if times      * are stored in seconds instead of milliseconds.      */
 DECL|method|factor
 specifier|public
 name|DateHistogramBuilder
@@ -391,6 +403,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the format to use for dates.      */
 DECL|method|format
 specifier|public
 name|DateHistogramBuilder
@@ -410,6 +423,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set extended bounds for the histogram. In case the lower value in the      * histogram would be greater than<code>min</code> or the upper value would      * be less than<code>max</code>, empty buckets will be generated.      */
 DECL|method|extendedBounds
 specifier|public
 name|DateHistogramBuilder
@@ -434,6 +448,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set extended bounds for the histogram. In case the lower value in the      * histogram would be greater than<code>min</code> or the upper value would      * be less than<code>max</code>, empty buckets will be generated.      */
 DECL|method|extendedBounds
 specifier|public
 name|DateHistogramBuilder
@@ -458,6 +473,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set extended bounds for the histogram. In case the lower value in the      * histogram would be greater than<code>min</code> or the upper value would      * be less than<code>max</code>, empty buckets will be generated.      */
 DECL|method|extendedBounds
 specifier|public
 name|DateHistogramBuilder

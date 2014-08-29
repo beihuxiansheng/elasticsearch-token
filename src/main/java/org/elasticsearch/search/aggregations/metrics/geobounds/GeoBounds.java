@@ -48,6 +48,10 @@ name|Aggregation
 import|;
 end_import
 
+begin_comment
+comment|/**  * An aggregation that computes a bounding box in which all documents of the current bucket are.  */
+end_comment
+
 begin_interface
 DECL|interface|GeoBounds
 specifier|public
@@ -56,11 +60,13 @@ name|GeoBounds
 extends|extends
 name|Aggregation
 block|{
+comment|/**      * Get the top-left location of the bounding box.      */
 DECL|method|topLeft
 name|GeoPoint
 name|topLeft
 parameter_list|()
 function_decl|;
+comment|/**      * Get the bottom-right location of the bounding box.      */
 DECL|method|bottomRight
 name|GeoPoint
 name|bottomRight

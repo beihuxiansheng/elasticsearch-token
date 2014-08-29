@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link IPv4Range} aggregation.  */
 end_comment
 
 begin_class
@@ -95,6 +95,7 @@ argument_list|(
 literal|"[\\.|/]"
 argument_list|)
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|IPv4RangeBuilder
 specifier|public
 name|IPv4RangeBuilder
@@ -116,6 +117,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Add a new range to this aggregation.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      * @parap to   the upper bound on the distances, exclusive      */
 DECL|method|addRange
 specifier|public
 name|IPv4RangeBuilder
@@ -150,6 +152,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addMaskRange(String, String)} but uses the mask itself as a key.      */
 DECL|method|addMaskRange
 specifier|public
 name|IPv4RangeBuilder
@@ -168,6 +171,7 @@ name|mask
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a range based on a CIDR mask.      */
 DECL|method|addMaskRange
 specifier|public
 name|IPv4RangeBuilder
@@ -256,6 +260,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addRange(String, String, String)} but the key will be      * automatically generated.      */
 DECL|method|addRange
 specifier|public
 name|IPv4RangeBuilder
@@ -279,6 +284,7 @@ name|to
 argument_list|)
 return|;
 block|}
+comment|/**      * Same as {@link #addRange(String, String, String)} but there will be no lower bound.      */
 DECL|method|addUnboundedTo
 specifier|public
 name|IPv4RangeBuilder
@@ -310,6 +316,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addUnboundedTo(String, String)} but the key will be      * generated automatically.      */
 DECL|method|addUnboundedTo
 specifier|public
 name|IPv4RangeBuilder
@@ -328,6 +335,7 @@ name|to
 argument_list|)
 return|;
 block|}
+comment|/**      * Same as {@link #addRange(String, String, String)} but there will be no upper bound.      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|IPv4RangeBuilder
@@ -359,6 +367,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addUnboundedFrom(String, String)} but the key will be      * generated automatically.      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|IPv4RangeBuilder
@@ -581,7 +590,7 @@ block|}
 return|;
 block|}
 DECL|method|intIpToLongIp
-specifier|public
+specifier|private
 specifier|static
 name|long
 name|intIpToLongIp

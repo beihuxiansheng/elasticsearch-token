@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builds a {@code terms} aggregation  */
+comment|/**  * Builder for the {@link Terms} aggregation.  */
 end_comment
 
 begin_class
@@ -187,6 +187,7 @@ specifier|private
 name|Boolean
 name|showTermDocCountError
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|TermsBuilder
 specifier|public
 name|TermsBuilder
@@ -427,6 +428,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: provide an execution hint to the aggregation.      */
 DECL|method|executionHint
 specifier|public
 name|TermsBuilder
@@ -446,6 +448,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: set the collection mode.      */
 DECL|method|collectMode
 specifier|public
 name|TermsBuilder
@@ -465,6 +468,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: return document count errors per term in the response.      */
 DECL|method|showTermDocCountError
 specifier|public
 name|TermsBuilder

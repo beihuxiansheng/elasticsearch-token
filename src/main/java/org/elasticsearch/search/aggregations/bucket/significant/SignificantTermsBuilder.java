@@ -78,6 +78,26 @@ name|significant
 operator|.
 name|heuristics
 operator|.
+name|SignificanceHeuristic
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|significant
+operator|.
+name|heuristics
+operator|.
 name|SignificanceHeuristicBuilder
 import|;
 end_import
@@ -208,6 +228,7 @@ specifier|private
 name|SignificanceHeuristicBuilder
 name|significanceHeuristicBuilder
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|SignificantTermsBuilder
 specifier|public
 name|SignificantTermsBuilder
@@ -229,6 +250,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the field to fetch significant terms from.      */
 DECL|method|field
 specifier|public
 name|SignificantTermsBuilder
@@ -248,6 +270,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the number of significant terms to retrieve.      */
 DECL|method|size
 specifier|public
 name|SignificantTermsBuilder
@@ -268,6 +291,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: Set the number of significant terms to retrieve on each shard.      */
 DECL|method|shardSize
 specifier|public
 name|SignificantTermsBuilder
@@ -288,6 +312,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Only return significant terms that belong to at least<code>minDocCount</code> documents.      */
 DECL|method|minDocCount
 specifier|public
 name|SignificantTermsBuilder
@@ -308,6 +333,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the background filter to compare to. Defaults to the whole index.      */
 DECL|method|backgroundFilter
 specifier|public
 name|SignificantTermsBuilder
@@ -327,6 +353,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: set the minimum number of documents that a term should match to      * be retrieved from a shard.      */
 DECL|method|shardMinDocCount
 specifier|public
 name|SignificantTermsBuilder
@@ -347,6 +374,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: give an execution hint to this aggregation.      */
 DECL|method|executionHint
 specifier|public
 name|SignificantTermsBuilder
@@ -684,6 +712,7 @@ name|endObject
 argument_list|()
 return|;
 block|}
+comment|/**      * Expert: set the {@link SignificanceHeuristic} to use.      */
 DECL|method|significanceHeuristic
 specifier|public
 name|SignificantTermsBuilder

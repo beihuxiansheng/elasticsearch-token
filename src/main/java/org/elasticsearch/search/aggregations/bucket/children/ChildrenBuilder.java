@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Builder for the {@link Children} aggregation.  */
 end_comment
 
 begin_class
@@ -92,6 +92,7 @@ specifier|private
 name|String
 name|childType
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|ChildrenBuilder
 specifier|public
 name|ChildrenBuilder
@@ -113,6 +114,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the type of children documents. This parameter is compulsory.      */
 DECL|method|childType
 specifier|public
 name|ChildrenBuilder

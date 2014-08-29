@@ -172,6 +172,7 @@ specifier|private
 name|BytesReference
 name|aggregationsBinary
 decl_stmt|;
+comment|/**      * Sole constructor, typically used by sub-classes.      */
 DECL|method|AggregationBuilder
 specifier|protected
 name|AggregationBuilder

@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An aggregation that computes the minimum of the values in the current bucket.  */
 end_comment
 
 begin_interface
@@ -46,6 +46,7 @@ name|Min
 extends|extends
 name|Aggregation
 block|{
+comment|/**      * The minimum.      */
 DECL|method|getValue
 name|double
 name|getValue

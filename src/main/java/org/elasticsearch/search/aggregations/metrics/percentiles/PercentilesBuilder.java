@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link Percentiles} aggregation.  */
 end_comment
 
 begin_class
@@ -86,6 +86,7 @@ specifier|private
 name|Double
 name|compression
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|PercentilesBuilder
 specifier|public
 name|PercentilesBuilder
@@ -107,6 +108,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the percentiles to compute.      */
 DECL|method|percentiles
 specifier|public
 name|PercentilesBuilder
@@ -175,6 +177,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: set the compression. Higher values improve accuracy but also memory usage.      */
 DECL|method|compression
 specifier|public
 name|PercentilesBuilder

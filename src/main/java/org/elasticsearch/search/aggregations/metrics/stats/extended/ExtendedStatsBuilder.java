@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link ExtendedStats} aggregation.  */
 end_comment
 
 begin_class
@@ -53,6 +53,7 @@ argument_list|<
 name|ExtendedStatsBuilder
 argument_list|>
 block|{
+comment|/**      * Sole constructor.      */
 DECL|method|ExtendedStatsBuilder
 specifier|public
 name|ExtendedStatsBuilder

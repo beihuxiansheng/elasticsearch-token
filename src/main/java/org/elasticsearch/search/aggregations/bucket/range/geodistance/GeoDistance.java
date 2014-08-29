@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An aggregation that computes ranges of geo distances.  */
 end_comment
 
 begin_interface
@@ -62,6 +62,7 @@ name|GeoDistance
 extends|extends
 name|Range
 block|{
+comment|/**      * A range bucket.      */
 DECL|interface|Bucket
 specifier|public
 specifier|static

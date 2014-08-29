@@ -52,16 +52,19 @@ name|ExtendedStats
 extends|extends
 name|Stats
 block|{
+comment|/**      * The sum of the squares of the collected values.      */
 DECL|method|getSumOfSquares
 name|double
 name|getSumOfSquares
 parameter_list|()
 function_decl|;
+comment|/**      * The variance of the collected values.      */
 DECL|method|getVariance
 name|double
 name|getVariance
 parameter_list|()
 function_decl|;
+comment|/**      * The standard deviation of the collected values.      */
 DECL|method|getStdDeviation
 name|double
 name|getStdDeviation

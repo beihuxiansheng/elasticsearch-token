@@ -60,6 +60,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builder for the {@link Cardinality} aggregation.  */
+end_comment
+
 begin_class
 DECL|class|CardinalityBuilder
 specifier|public
@@ -81,6 +85,7 @@ specifier|private
 name|Boolean
 name|rehash
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|CardinalityBuilder
 specifier|public
 name|CardinalityBuilder
@@ -102,6 +107,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set a precision threshold. Higher values improve accuracy but also      * increase memory usage.      */
 DECL|method|precisionThreshold
 specifier|public
 name|CardinalityBuilder
@@ -121,6 +127,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: set to false in case values of this field can already be treated      * as 64-bits hash values.      */
 DECL|method|rehash
 specifier|public
 name|CardinalityBuilder

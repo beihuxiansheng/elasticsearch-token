@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A {@code reverse nested} aggregation. Defines a single bucket that holds all the parent documents for a specific nested path.  */
 end_comment
 
 begin_interface

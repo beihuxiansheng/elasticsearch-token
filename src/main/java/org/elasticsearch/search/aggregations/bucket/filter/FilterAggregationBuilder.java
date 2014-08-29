@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link Filter} aggregation.  */
 end_comment
 
 begin_class
@@ -106,6 +106,7 @@ specifier|private
 name|FilterBuilder
 name|filter
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|FilterAggregationBuilder
 specifier|public
 name|FilterAggregationBuilder
@@ -127,6 +128,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the filter to use, only documents that match this filter will fall      * into the bucket defined by this {@link Filter} aggregation.      */
 DECL|method|filter
 specifier|public
 name|FilterAggregationBuilder

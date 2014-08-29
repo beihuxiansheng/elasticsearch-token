@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A range aggregation on date values.  */
 end_comment
 
 begin_interface

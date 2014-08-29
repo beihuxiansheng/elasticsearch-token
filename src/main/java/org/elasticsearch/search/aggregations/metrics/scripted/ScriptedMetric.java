@@ -34,6 +34,10 @@ name|Aggregation
 import|;
 end_import
 
+begin_comment
+comment|/**  * A metric aggregation that computes both its final and intermediate states using scripts.  */
+end_comment
+
 begin_interface
 DECL|interface|ScriptedMetric
 specifier|public
@@ -42,6 +46,7 @@ name|ScriptedMetric
 extends|extends
 name|Aggregation
 block|{
+comment|/**      * The result of the aggregation. The type of the object depends on the aggregation that was run.      */
 DECL|method|aggregation
 name|Object
 name|aggregation

@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link Avg} aggregation.  */
 end_comment
 
 begin_class
@@ -51,6 +51,7 @@ argument_list|<
 name|AvgBuilder
 argument_list|>
 block|{
+comment|/**      * Sole constructor.      */
 DECL|method|AvgBuilder
 specifier|public
 name|AvgBuilder

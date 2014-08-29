@@ -58,6 +58,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builder for the {@link GeoBounds} aggregation.  */
+end_comment
+
 begin_class
 DECL|class|GeoBoundsBuilder
 specifier|public
@@ -74,6 +78,7 @@ specifier|private
 name|Boolean
 name|wrapLongitude
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|GeoBoundsBuilder
 specifier|public
 name|GeoBoundsBuilder
@@ -95,6 +100,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set whether to wrap longitudes. Defaults to true.      */
 DECL|method|wrapLongitude
 specifier|public
 name|GeoBoundsBuilder

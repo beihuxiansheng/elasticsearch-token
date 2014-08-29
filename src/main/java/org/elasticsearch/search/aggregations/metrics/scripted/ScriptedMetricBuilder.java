@@ -84,6 +84,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builder for the {@link ScriptedMetric} aggregation.  */
+end_comment
+
 begin_class
 DECL|class|ScriptedMetricBuilder
 specifier|public
@@ -158,6 +162,7 @@ name|lang
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|ScriptedMetricBuilder
 specifier|public
 name|ScriptedMetricBuilder
@@ -179,6 +184,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set parameters that will be available in the<tt>init</tt>,<tt>map</tt>      * and<tt>combine</tt> phases.      */
 DECL|method|params
 specifier|public
 name|ScriptedMetricBuilder
@@ -203,6 +209,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set parameters that will be available in the<tt>reduce</tt> phase.      */
 DECL|method|reduceParams
 specifier|public
 name|ScriptedMetricBuilder
@@ -227,6 +234,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the<tt>init</tt> script.      */
 DECL|method|initScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -246,6 +254,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the<tt>map</tt> script.      */
 DECL|method|mapScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -265,6 +274,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the<tt>combine</tt> script.      */
 DECL|method|combineScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -284,6 +294,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the<tt>reduce</tt> script.      */
 DECL|method|reduceScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -303,6 +314,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the script language.      */
 DECL|method|lang
 specifier|public
 name|ScriptedMetricBuilder
@@ -322,6 +334,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the script type.      */
 DECL|method|scriptType
 specifier|public
 name|ScriptedMetricBuilder

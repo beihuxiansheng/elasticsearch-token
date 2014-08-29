@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A number of unique terms.  */
+comment|/**  * An aggregation that computes approximate numbers of unique terms.  */
 end_comment
 
 begin_interface
@@ -46,6 +46,7 @@ name|Cardinality
 extends|extends
 name|Aggregation
 block|{
+comment|/**      * The number of unique terms.      */
 DECL|method|getValue
 specifier|public
 name|long

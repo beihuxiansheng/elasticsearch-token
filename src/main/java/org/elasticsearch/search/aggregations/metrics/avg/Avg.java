@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An aggregation that computes the average of the values in the current bucket.  */
 end_comment
 
 begin_interface
@@ -46,6 +46,7 @@ name|Avg
 extends|extends
 name|Aggregation
 block|{
+comment|/**      * The average value.      */
 DECL|method|getValue
 name|double
 name|getValue

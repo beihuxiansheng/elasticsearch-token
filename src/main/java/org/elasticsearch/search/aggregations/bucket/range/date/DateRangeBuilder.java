@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link DateRange} aggregation.  */
 end_comment
 
 begin_class
@@ -84,6 +84,7 @@ specifier|private
 name|String
 name|format
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|DateRangeBuilder
 specifier|public
 name|DateRangeBuilder
@@ -105,6 +106,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Add a new range to this aggregation.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      * @parap to   the upper bound on the distances, exclusive      */
 DECL|method|addRange
 specifier|public
 name|DateRangeBuilder
@@ -139,6 +141,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addRange(String, double, double)} but the key will be      * automatically generated based on<code>from</code> and<code>to</code>.      */
 DECL|method|addRange
 specifier|public
 name|DateRangeBuilder
@@ -162,6 +165,7 @@ name|to
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a new range with no lower bound.      *      * @param key the key to use for this range in the response      * @param to  the upper bound on the distances, exclusive      */
 DECL|method|addUnboundedTo
 specifier|public
 name|DateRangeBuilder
@@ -193,6 +197,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addUnboundedTo(String, double)} but the key will be      * computed automatically.      */
 DECL|method|addUnboundedTo
 specifier|public
 name|DateRangeBuilder
@@ -211,6 +216,7 @@ name|to
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a new range with no upper bound.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|DateRangeBuilder
@@ -242,6 +248,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addUnboundedFrom(String, double)} but the key will be      * computed automatically.      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|DateRangeBuilder
@@ -260,6 +267,7 @@ name|from
 argument_list|)
 return|;
 block|}
+comment|/**      * Set the format to use to display values.      */
 DECL|method|format
 specifier|public
 name|DateRangeBuilder

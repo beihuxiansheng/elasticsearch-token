@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A range aggregation on ipv4 values.  */
 end_comment
 
 begin_interface

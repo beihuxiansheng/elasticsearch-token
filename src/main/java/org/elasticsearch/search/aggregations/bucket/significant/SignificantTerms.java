@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An aggregation that collects significant terms in comparison to a background set.  */
 end_comment
 
 begin_interface

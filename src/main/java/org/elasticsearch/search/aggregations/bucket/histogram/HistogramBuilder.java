@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder for a histogram aggregation.  */
+comment|/**  * Builder for the {@link Histogram} aggregation.  */
 end_comment
 
 begin_class
@@ -208,6 +208,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set extended bounds for the histogram. In case the lower value in the      * histogram would be greater than<code>min</code> or the upper value would      * be less than<code>max</code>, empty buckets will be generated.      */
 DECL|method|extendedBounds
 specifier|public
 name|HistogramBuilder
@@ -232,6 +233,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the offset to apply prior to computing buckets.      */
 DECL|method|preOffset
 specifier|public
 name|HistogramBuilder
@@ -251,6 +253,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the offset to apply after having computed buckets.      */
 DECL|method|postOffset
 specifier|public
 name|HistogramBuilder

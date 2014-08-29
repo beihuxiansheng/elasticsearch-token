@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link ValueCount} aggregation.  */
 end_comment
 
 begin_class
@@ -51,6 +51,7 @@ argument_list|<
 name|ValueCountBuilder
 argument_list|>
 block|{
+comment|/**      * Sole constructor.      */
 DECL|method|ValueCountBuilder
 specifier|public
 name|ValueCountBuilder

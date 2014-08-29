@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An aggregation that computes approximate percentiles.  */
 end_comment
 
 begin_interface
@@ -51,6 +51,7 @@ argument_list|<
 name|Percentile
 argument_list|>
 block|{
+comment|/**      * Return the value associated with the provided percentile.      */
 DECL|method|percentile
 name|double
 name|percentile

@@ -34,6 +34,10 @@ name|Aggregation
 import|;
 end_import
 
+begin_comment
+comment|/**  * An aggregation that computes approximate percentiles given values.  */
+end_comment
+
 begin_interface
 DECL|interface|PercentileRanks
 specifier|public
@@ -47,12 +51,13 @@ argument_list|<
 name|Percentile
 argument_list|>
 block|{
+comment|/**      * Return the percentile for the given value.      */
 DECL|method|percent
 name|double
 name|percent
 parameter_list|(
 name|double
-name|percentile
+name|value
 parameter_list|)
 function_decl|;
 block|}

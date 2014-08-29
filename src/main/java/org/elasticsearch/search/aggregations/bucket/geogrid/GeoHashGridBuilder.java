@@ -113,6 +113,7 @@ name|shardSize
 init|=
 literal|0
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|GeoHashGridBuilder
 specifier|public
 name|GeoHashGridBuilder
@@ -134,6 +135,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the field to use to get geo points.      */
 DECL|method|field
 specifier|public
 name|GeoHashGridBuilder
@@ -153,6 +155,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the geohash precision to use for this aggregation. The higher the      * precision, the more fine-grained this aggregation will be.      */
 DECL|method|precision
 specifier|public
 name|GeoHashGridBuilder
@@ -199,6 +202,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the number of buckets to return.      */
 DECL|method|size
 specifier|public
 name|GeoHashGridBuilder
@@ -218,6 +222,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Expert: Set the number of buckets to get on each shard to improve      * accuracy.      */
 DECL|method|shardSize
 specifier|public
 name|GeoHashGridBuilder

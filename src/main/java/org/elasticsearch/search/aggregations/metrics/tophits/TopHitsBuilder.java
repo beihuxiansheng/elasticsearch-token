@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Builder for the {@link TopHits} aggregation.  */
 end_comment
 
 begin_class
@@ -167,6 +167,7 @@ specifier|private
 name|SearchSourceBuilder
 name|sourceBuilder
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|TopHitsBuilder
 specifier|public
 name|TopHitsBuilder

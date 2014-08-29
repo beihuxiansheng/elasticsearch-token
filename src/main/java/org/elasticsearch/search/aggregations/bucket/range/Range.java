@@ -30,20 +30,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|bucket
 operator|.
 name|MultiBucketsAggregation
@@ -96,6 +82,7 @@ name|getTo
 parameter_list|()
 function_decl|;
 block|}
+comment|/**      * Return the buckets of this range aggregation.      */
 DECL|method|getBuckets
 name|Collection
 argument_list|<

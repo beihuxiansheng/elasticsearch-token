@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base structure for aggregation builders.  */
 end_comment
 
 begin_class
@@ -55,6 +55,7 @@ specifier|final
 name|String
 name|type
 decl_stmt|;
+comment|/**      * Sole constructor, typically used by sub-classes.      */
 DECL|method|AbstractAggregationBuilder
 specifier|protected
 name|AbstractAggregationBuilder
@@ -79,6 +80,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * Return the name of the aggregation that is being built.      */
 DECL|method|getName
 specifier|public
 name|String

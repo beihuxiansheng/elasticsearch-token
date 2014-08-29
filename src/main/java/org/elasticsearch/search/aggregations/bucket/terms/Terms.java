@@ -325,6 +325,10 @@ parameter_list|()
 function_decl|;
 end_function_decl
 
+begin_comment
+comment|/**      * Get the bucket for the given term, or null if there is no such bucket.      */
+end_comment
+
 begin_function_decl
 DECL|method|getBucketByKey
 name|Bucket
@@ -335,6 +339,10 @@ name|term
 parameter_list|)
 function_decl|;
 end_function_decl
+
+begin_comment
+comment|/**      * Get an upper bound of the error on document counts in this aggregation.      */
+end_comment
 
 begin_function_decl
 DECL|method|getDocCountError

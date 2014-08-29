@@ -69,6 +69,7 @@ name|MultiBucketsAggregation
 operator|.
 name|Bucket
 block|{     }
+comment|/**      * The buckets created by this aggregation.      */
 DECL|method|getBuckets
 name|Collection
 argument_list|<

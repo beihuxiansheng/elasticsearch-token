@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base builder for metrics aggregations.  */
 end_comment
 
 begin_class

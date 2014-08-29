@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link Nested} aggregation.  */
 end_comment
 
 begin_class
@@ -92,6 +92,7 @@ specifier|private
 name|String
 name|path
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|NestedBuilder
 specifier|public
 name|NestedBuilder
@@ -113,6 +114,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the path to use for this nested aggregation. The path must match      * the path to a nested object in the mappings. This parameter is      * compulsory.      */
 DECL|method|path
 specifier|public
 name|NestedBuilder

@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Builder for the {@link GeoDistance} aggregation.  */
 end_comment
 
 begin_class
@@ -179,6 +179,7 @@ argument_list|<
 name|GeoDistanceBuilder
 argument_list|>
 block|{
+comment|/**      * A range of values.      */
 DECL|class|Range
 specifier|public
 specifier|static
@@ -202,6 +203,7 @@ specifier|private
 name|Double
 name|to
 decl_stmt|;
+comment|/**          * Create a new range.          * @param key   the identifier of this range          * @param from  the lower bound (inclusive)          * @param to    the upper bound (exclusive)          */
 DECL|method|Range
 specifier|public
 name|Range
@@ -354,6 +356,7 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
+comment|/**      * Sole constructor.      */
 DECL|method|GeoDistanceBuilder
 specifier|public
 name|GeoDistanceBuilder
@@ -375,6 +378,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the field to use to compute distances.      */
 DECL|method|field
 specifier|public
 name|GeoDistanceBuilder
@@ -394,6 +398,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the unit to use for distances, default is kilometers.      */
 DECL|method|unit
 specifier|public
 name|GeoDistanceBuilder
@@ -413,6 +418,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the {@link GeoDistance distance type} to use, defaults to      * {@link GeoDistance#SLOPPY_ARC}.      */
 DECL|method|distanceType
 specifier|public
 name|GeoDistanceBuilder
@@ -432,6 +438,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the point to calculate distances from using a      *<code>lat,lon</code> notation or geohash.      */
 DECL|method|point
 specifier|public
 name|GeoDistanceBuilder
@@ -453,6 +460,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Set the point to calculate distances from.      */
 DECL|method|point
 specifier|public
 name|GeoDistanceBuilder
@@ -472,6 +480,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the point to calculate distances from using its geohash.      */
 DECL|method|geohash
 specifier|public
 name|GeoDistanceBuilder
@@ -512,6 +521,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the latitude of the point to calculate distances from.      */
 DECL|method|lat
 specifier|public
 name|GeoDistanceBuilder
@@ -548,6 +558,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the longitude of the point to calculate distances from.      */
 DECL|method|lon
 specifier|public
 name|GeoDistanceBuilder
@@ -584,6 +595,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Add a new range to this aggregation.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      * @parap to   the upper bound on the distances, exclusive      */
 DECL|method|addRange
 specifier|public
 name|GeoDistanceBuilder
@@ -618,6 +630,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addRange(String, double, double)} but the key will be      * automatically generated based on<code>from</code> and<code>to</code>.      */
 DECL|method|addRange
 specifier|public
 name|GeoDistanceBuilder
@@ -641,6 +654,7 @@ name|to
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a new range with no lower bound.      *      * @param key the key to use for this range in the response      * @param to  the upper bound on the distances, exclusive      */
 DECL|method|addUnboundedTo
 specifier|public
 name|GeoDistanceBuilder
@@ -672,6 +686,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addUnboundedTo(String, double)} but the key will be      * computed automatically.      */
 DECL|method|addUnboundedTo
 specifier|public
 name|GeoDistanceBuilder
@@ -690,6 +705,7 @@ name|to
 argument_list|)
 return|;
 block|}
+comment|/**      * Add a new range with no upper bound.      *      * @param key  the key to use for this range in the response      * @param from the lower bound on the distances, inclusive      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|GeoDistanceBuilder
@@ -721,6 +737,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Same as {@link #addUnboundedFrom(String, double)} but the key will be      * computed automatically.      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|GeoDistanceBuilder
