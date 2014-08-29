@@ -305,7 +305,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A multi percolate request that encapsulates multiple {@link PercolateRequest} instances in a single api call.  */
 end_comment
 
 begin_class
@@ -355,6 +355,7 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
+comment|/**      * Embeds a percolate request to this multi percolate request      */
 DECL|method|add
 specifier|public
 name|MultiPercolateRequest
@@ -374,6 +375,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Embeds a percolate request to this multi percolate request      */
 DECL|method|add
 specifier|public
 name|MultiPercolateRequest
@@ -466,6 +468,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Embeds a percolate request which request body is defined as raw bytes to this multi percolate request      */
 DECL|method|add
 specifier|public
 name|MultiPercolateRequest
@@ -506,6 +509,7 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|/**      * Embeds a percolate request which request body is defined as raw bytes to this multi percolate request      */
 DECL|method|add
 specifier|public
 name|MultiPercolateRequest
@@ -2336,6 +2340,7 @@ operator|-
 literal|1
 return|;
 block|}
+comment|/**      * @return The list of already set percolate requests.      */
 DECL|method|requests
 specifier|public
 name|List
@@ -2351,6 +2356,7 @@ operator|.
 name|requests
 return|;
 block|}
+comment|/**      * @return Returns the {@link IndicesOptions} that is used as default for all percolate requests.      */
 DECL|method|indicesOptions
 specifier|public
 name|IndicesOptions
@@ -2361,6 +2367,7 @@ return|return
 name|indicesOptions
 return|;
 block|}
+comment|/**      * Sets the {@link IndicesOptions} for all percolate request that don't have this set.      *      * Warning: This should be set before adding any percolate requests. Setting this after adding percolate requests      * will have no effect on any percolate requests already added.      */
 DECL|method|indicesOptions
 specifier|public
 name|MultiPercolateRequest
@@ -2380,6 +2387,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @return The default indices for all percolate request.      */
 DECL|method|indices
 specifier|public
 name|String
@@ -2391,6 +2399,7 @@ return|return
 name|indices
 return|;
 block|}
+comment|/**      * Sets the default indices for any percolate request that doesn't have indices defined.      *      * Warning: This should be set before adding any percolate requests. Setting this after adding percolate requests      * will have no effect on any percolate requests already added.      */
 DECL|method|indices
 specifier|public
 name|MultiPercolateRequest
@@ -2411,6 +2420,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @return Sets the default type for all percolate requests      */
 DECL|method|documentType
 specifier|public
 name|String
@@ -2421,6 +2431,7 @@ return|return
 name|documentType
 return|;
 block|}
+comment|/**      * Sets the default document type for any percolate request that doesn't have a document type set.      *      * Warning: This should be set before adding any percolate requests. Setting this after adding percolate requests      * will have no effect on any percolate requests already added.      */
 DECL|method|documentType
 specifier|public
 name|MultiPercolateRequest

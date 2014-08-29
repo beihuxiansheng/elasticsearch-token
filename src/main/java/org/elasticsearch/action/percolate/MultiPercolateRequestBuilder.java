@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A builder for to ease the use of defining a {@link MultiPercolateRequest} instance.  */
 end_comment
 
 begin_class

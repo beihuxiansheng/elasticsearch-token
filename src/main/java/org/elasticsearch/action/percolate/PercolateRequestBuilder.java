@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A builder the easy to use of defining a percolate request.  */
 end_comment
 
 begin_class
@@ -248,7 +248,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the type of the document to percolate.      */
+comment|/**      * Sets the type of the document to percolate. This is important as it selects the mapping to be used to parse      * the document.      */
 DECL|method|setDocumentType
 specifier|public
 name|PercolateRequestBuilder
@@ -380,7 +380,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Limits the maximum number of percolate query matches to be returned.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setSize(int)}}      */
 DECL|method|setSize
 specifier|public
 name|PercolateRequestBuilder
@@ -402,7 +402,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Similar as {@link #setScore(boolean)}, but whether to sort by the score descending.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setSort(boolean)}}      */
 DECL|method|setSortByScore
 specifier|public
 name|PercolateRequestBuilder
@@ -424,7 +424,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#addSort(SortBuilder)}      */
 DECL|method|addSort
 specifier|public
 name|PercolateRequestBuilder
@@ -446,7 +446,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether to compute a score for each match and include it in the response. The score is based on      * {@link #setPercolateQuery(QueryBuilder)}}.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setSort(boolean)}}      */
 DECL|method|setScore
 specifier|public
 name|PercolateRequestBuilder
@@ -468,7 +468,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a query to reduce the number of percolate queries to be evaluated and score the queries that match based      * on this query.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setDoc(PercolateSourceBuilder.DocBuilder)}      */
 DECL|method|setPercolateDoc
 specifier|public
 name|PercolateRequestBuilder
@@ -492,7 +492,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a query to reduce the number of percolate queries to be evaluated and score the queries that match based      * on this query.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setQueryBuilder(QueryBuilder)}      */
 DECL|method|setPercolateQuery
 specifier|public
 name|PercolateRequestBuilder
@@ -514,7 +514,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a filter to reduce the number of percolate queries to be evaluated.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setFilterBuilder(FilterBuilder)}      */
 DECL|method|setPercolateFilter
 specifier|public
 name|PercolateRequestBuilder
@@ -536,7 +536,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables highlighting for the percolate document. Per matched percolate query highlight the percolate document.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#setHighlightBuilder(HighlightBuilder)}      */
 DECL|method|setHighlightBuilder
 specifier|public
 name|PercolateRequestBuilder
@@ -558,7 +558,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add a aggregation definition.      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#addAggregation(AggregationBuilder)}      */
 DECL|method|addAggregation
 specifier|public
 name|PercolateRequestBuilder
@@ -580,7 +580,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the raw percolate request body.      */
+comment|/**      * Sets the percolate request definition directly on the request.      * This will overwrite any definitions set by any of the delegate methods.      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -598,6 +598,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -623,6 +624,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -653,6 +655,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -673,6 +676,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -693,6 +697,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -715,6 +720,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -740,6 +746,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -761,6 +768,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder
@@ -792,6 +800,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw variant of {@link #setSource(PercolateSourceBuilder)}      */
 DECL|method|setSource
 specifier|public
 name|PercolateRequestBuilder

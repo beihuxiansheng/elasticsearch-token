@@ -226,6 +226,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|percolate
+operator|.
+name|PercolateSourceBuilder
+operator|.
+name|docBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -607,7 +623,9 @@ argument_list|()
 decl_stmt|;
 name|percolateSource
 operator|.
-name|percolateDocument
+name|setDoc
+argument_list|(
+name|docBuilder
 argument_list|()
 operator|.
 name|setDoc
@@ -615,6 +633,7 @@ argument_list|(
 operator|new
 name|HashMap
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThrows
@@ -657,7 +676,9 @@ argument_list|()
 expr_stmt|;
 name|percolateSource
 operator|.
-name|percolateDocument
+name|setDoc
+argument_list|(
+name|docBuilder
 argument_list|()
 operator|.
 name|setDoc
@@ -665,6 +686,7 @@ argument_list|(
 operator|new
 name|HashMap
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThrows

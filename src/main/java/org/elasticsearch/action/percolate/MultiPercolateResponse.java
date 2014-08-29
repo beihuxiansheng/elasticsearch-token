@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -153,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Represents the response of a multi percolate request.  *  * Each item represents the response of a percolator request and the order of the items is in the same order as the  * percolator requests were defined in the multi percolate request.  */
 end_comment
 
 begin_class
@@ -180,7 +192,6 @@ index|[]
 name|items
 decl_stmt|;
 DECL|method|MultiPercolateResponse
-specifier|public
 name|MultiPercolateResponse
 parameter_list|(
 name|Item
@@ -196,7 +207,6 @@ name|items
 expr_stmt|;
 block|}
 DECL|method|MultiPercolateResponse
-specifier|public
 name|MultiPercolateResponse
 parameter_list|()
 block|{
@@ -231,6 +241,7 @@ name|items
 argument_list|)
 return|;
 block|}
+comment|/**      * Same as {@link #getItems()}      */
 DECL|method|items
 specifier|public
 name|Item
@@ -242,6 +253,7 @@ return|return
 name|items
 return|;
 block|}
+comment|/**      * @return the percolate responses as items.      */
 DECL|method|getItems
 specifier|public
 name|Item
@@ -476,6 +488,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Encapsulates a single percolator response which may contain an error or the actual percolator response itself.      */
 DECL|class|Item
 specifier|public
 specifier|static
@@ -495,7 +508,6 @@ name|String
 name|errorMessage
 decl_stmt|;
 DECL|method|Item
-specifier|public
 name|Item
 parameter_list|(
 name|PercolateResponse
@@ -510,7 +522,6 @@ name|response
 expr_stmt|;
 block|}
 DECL|method|Item
-specifier|public
 name|Item
 parameter_list|(
 name|String
@@ -525,10 +536,12 @@ name|errorMessage
 expr_stmt|;
 block|}
 DECL|method|Item
-specifier|public
 name|Item
 parameter_list|()
 block|{         }
+comment|/**          * @return The percolator response or<code>null</code> if there was error.          */
+annotation|@
+name|Nullable
 DECL|method|response
 specifier|public
 name|PercolateResponse
@@ -539,6 +552,9 @@ return|return
 name|response
 return|;
 block|}
+comment|/**          * @return An error description if there was an error or<code>null</code> if the percolate request was successful          */
+annotation|@
+name|Nullable
 DECL|method|errorMessage
 specifier|public
 name|String
@@ -549,6 +565,9 @@ return|return
 name|errorMessage
 return|;
 block|}
+comment|/**          * @return The percolator response or<code>null</code> if there was error.          */
+annotation|@
+name|Nullable
 DECL|method|getResponse
 specifier|public
 name|PercolateResponse
@@ -559,6 +578,9 @@ return|return
 name|response
 return|;
 block|}
+comment|/**          * @return An error description if there was an error or<code>null</code> if the percolate request was successful          */
+annotation|@
+name|Nullable
 DECL|method|getErrorMessage
 specifier|public
 name|String
@@ -569,6 +591,7 @@ return|return
 name|errorMessage
 return|;
 block|}
+comment|/**          * @return<code>true</code> if the percolator request that this item represents failed otherwise          *<code>false</code> is returned.          */
 DECL|method|isFailure
 specifier|public
 name|boolean

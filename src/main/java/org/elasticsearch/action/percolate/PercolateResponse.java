@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -239,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Encapsulates the response of a percolator request.  */
 end_comment
 
 begin_class
@@ -295,7 +307,6 @@ name|InternalAggregations
 name|aggregations
 decl_stmt|;
 DECL|method|PercolateResponse
-specifier|public
 name|PercolateResponse
 parameter_list|(
 name|int
@@ -364,7 +375,6 @@ name|aggregations
 expr_stmt|;
 block|}
 DECL|method|PercolateResponse
-specifier|public
 name|PercolateResponse
 parameter_list|(
 name|int
@@ -418,22 +428,6 @@ DECL|method|PercolateResponse
 name|PercolateResponse
 parameter_list|()
 block|{     }
-DECL|method|PercolateResponse
-specifier|public
-name|PercolateResponse
-parameter_list|(
-name|Match
-index|[]
-name|matches
-parameter_list|)
-block|{
-name|this
-operator|.
-name|matches
-operator|=
-name|matches
-expr_stmt|;
-block|}
 comment|/**      * How long the percolate took.      */
 DECL|method|getTook
 specifier|public
@@ -1023,6 +1017,7 @@ name|aggregations
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Represents a query that has matched with the document that was percolated.      */
 DECL|class|Match
 specifier|public
 specifier|static
@@ -1056,6 +1051,7 @@ name|HighlightField
 argument_list|>
 name|hl
 decl_stmt|;
+comment|/**          * Constructor only for internal usage.          */
 DECL|method|Match
 specifier|public
 name|Match
@@ -1103,6 +1099,7 @@ operator|=
 name|hl
 expr_stmt|;
 block|}
+comment|/**          * Constructor only for internal usage.          */
 DECL|method|Match
 specifier|public
 name|Match
@@ -1140,6 +1137,7 @@ DECL|method|Match
 name|Match
 parameter_list|()
 block|{         }
+comment|/**          * @return The index that the matched percolator query resides in.          */
 DECL|method|getIndex
 specifier|public
 name|Text
@@ -1150,6 +1148,7 @@ return|return
 name|index
 return|;
 block|}
+comment|/**          * @return The id of the matched percolator query.          */
 DECL|method|getId
 specifier|public
 name|Text
@@ -1160,6 +1159,7 @@ return|return
 name|id
 return|;
 block|}
+comment|/**          * @return If in the percolate request a query was specified this returns the score representing how well that          * query matched on the metadata associated with the matching query otherwise {@link Float#NaN} is returned.          */
 DECL|method|getScore
 specifier|public
 name|float
@@ -1170,6 +1170,9 @@ return|return
 name|score
 return|;
 block|}
+comment|/**          * @return If highlighting was specified in the percolate request the this returns highlight snippets for each          * matching field in the document being percolated based on this query otherwise<code>null</code> is returned.          */
+annotation|@
+name|Nullable
 DECL|method|getHighlightFields
 specifier|public
 name|Map

@@ -188,6 +188,20 @@ name|common
 operator|.
 name|xcontent
 operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
 name|XContentBuilder
 import|;
 end_import
@@ -217,6 +231,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilderException
 import|;
 end_import
 
@@ -265,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A request to execute a percolate operation.  */
 end_comment
 
 begin_class
@@ -327,13 +355,13 @@ DECL|field|startTime
 name|long
 name|startTime
 decl_stmt|;
+comment|/**      * Constructor only for internal usage.      */
 DECL|method|PercolateRequest
 specifier|public
 name|PercolateRequest
 parameter_list|()
 block|{     }
 DECL|method|PercolateRequest
-specifier|public
 name|PercolateRequest
 parameter_list|(
 name|PercolateRequest
@@ -459,6 +487,7 @@ return|return
 name|requests
 return|;
 block|}
+comment|/**      * Getter for {@link #documentType(String)}      */
 DECL|method|documentType
 specifier|public
 name|String
@@ -469,6 +498,7 @@ return|return
 name|documentType
 return|;
 block|}
+comment|/**      * Sets the type of the document to percolate. This is important as it selects the mapping to be used to parse      * the document.      */
 DECL|method|documentType
 specifier|public
 name|PercolateRequest
@@ -488,6 +518,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Getter for {@link #routing(String)}      */
 DECL|method|routing
 specifier|public
 name|String
@@ -498,6 +529,7 @@ return|return
 name|routing
 return|;
 block|}
+comment|/**      * A comma separated list of routing values to control the shards the search will be executed on.      */
 DECL|method|routing
 specifier|public
 name|PercolateRequest
@@ -517,6 +549,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Getter for {@link #preference(String)}      */
 DECL|method|preference
 specifier|public
 name|String
@@ -527,6 +560,7 @@ return|return
 name|preference
 return|;
 block|}
+comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
 DECL|method|preference
 specifier|public
 name|PercolateRequest
@@ -546,6 +580,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Getter for {@link #getRequest(GetRequest)}      */
 DECL|method|getRequest
 specifier|public
 name|GetRequest
@@ -556,6 +591,7 @@ return|return
 name|getRequest
 return|;
 block|}
+comment|/**      * This defines where to fetch the document to be percolated from, which is an alternative of defining the document      * to percolate in the request body.      *      * If this defined than this will override the document specified in the request body.      */
 DECL|method|getRequest
 specifier|public
 name|PercolateRequest
@@ -602,6 +638,7 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @return The request body in its raw form.      */
 DECL|method|source
 specifier|public
 name|BytesReference
@@ -612,6 +649,7 @@ return|return
 name|source
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -634,6 +672,7 @@ name|CONTENT_TYPE
 argument_list|)
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -700,6 +739,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -729,6 +769,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -753,6 +794,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -776,6 +818,7 @@ name|length
 argument_list|)
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -805,6 +848,7 @@ literal|false
 argument_list|)
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -841,6 +885,7 @@ name|unsafe
 argument_list|)
 return|;
 block|}
+comment|/**      * Raw version of {@link #source(PercolateSourceBuilder)}      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -869,6 +914,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the request body definition for this percolate request as raw bytes.      *      * This is the preferred way to set the request body.      */
 DECL|method|source
 specifier|public
 name|PercolateRequest
@@ -878,19 +924,57 @@ name|PercolateSourceBuilder
 name|sourceBuilder
 parameter_list|)
 block|{
-name|this
+try|try
+block|{
+name|XContentBuilder
+name|builder
+init|=
+name|XContentFactory
 operator|.
-name|source
-operator|=
-name|sourceBuilder
-operator|.
-name|buildAsBytes
+name|contentBuilder
 argument_list|(
 name|Requests
 operator|.
 name|CONTENT_TYPE
 argument_list|)
+decl_stmt|;
+name|sourceBuilder
+operator|.
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|ToXContent
+operator|.
+name|EMPTY_PARAMS
+argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|source
+operator|=
+name|builder
+operator|.
+name|bytes
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|SearchSourceBuilderException
+argument_list|(
+literal|"Failed to build search source"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|unsafe
@@ -901,6 +985,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Getter for {@link #onlyCount(boolean)}      */
 DECL|method|onlyCount
 specifier|public
 name|boolean
@@ -911,6 +996,7 @@ return|return
 name|onlyCount
 return|;
 block|}
+comment|/**      * Sets whether this percolate request should only count the number of percolator queries that matches with      * the document being percolated and don't keep track of the actual queries that have matched.      */
 DECL|method|onlyCount
 specifier|public
 name|PercolateRequest

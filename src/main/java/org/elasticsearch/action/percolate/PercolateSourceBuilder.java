@@ -158,20 +158,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|builder
-operator|.
-name|SearchSourceBuilderException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|highlight
 operator|.
 name|HighlightBuilder
@@ -278,11 +264,6 @@ specifier|private
 name|Integer
 name|size
 decl_stmt|;
-DECL|field|sort
-specifier|private
-name|Boolean
-name|sort
-decl_stmt|;
 DECL|field|sorts
 specifier|private
 name|List
@@ -309,40 +290,6 @@ name|AggregationBuilder
 argument_list|>
 name|aggregations
 decl_stmt|;
-DECL|method|percolateDocument
-specifier|public
-name|DocBuilder
-name|percolateDocument
-parameter_list|()
-block|{
-if|if
-condition|(
-name|docBuilder
-operator|==
-literal|null
-condition|)
-block|{
-name|docBuilder
-operator|=
-operator|new
-name|DocBuilder
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|docBuilder
-return|;
-block|}
-DECL|method|getDoc
-specifier|public
-name|DocBuilder
-name|getDoc
-parameter_list|()
-block|{
-return|return
-name|docBuilder
-return|;
-block|}
 comment|/**      * Sets the document to run the percolate queries against.      */
 DECL|method|setDoc
 specifier|public
@@ -363,16 +310,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getQueryBuilder
-specifier|public
-name|QueryBuilder
-name|getQueryBuilder
-parameter_list|()
-block|{
-return|return
-name|queryBuilder
-return|;
-block|}
 comment|/**      * Sets a query to reduce the number of percolate queries to be evaluated and score the queries that match based      * on this query.      */
 DECL|method|setQueryBuilder
 specifier|public
@@ -391,16 +328,6 @@ name|queryBuilder
 expr_stmt|;
 return|return
 name|this
-return|;
-block|}
-DECL|method|getFilterBuilder
-specifier|public
-name|FilterBuilder
-name|getFilterBuilder
-parameter_list|()
-block|{
-return|return
-name|filterBuilder
 return|;
 block|}
 comment|/**      * Sets a filter to reduce the number of percolate queries to be evaluated.      */
@@ -479,7 +406,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a sort builder. Only sorting by score desc is supported.      */
+comment|/**      * Adds a sort builder. Only sorting by score desc is supported.      *      * By default the matching percolator queries are returned in an undefined order.      */
 DECL|method|addSort
 specifier|public
 name|PercolateSourceBuilder
@@ -555,7 +482,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add an aggregationB definition.      */
+comment|/**      * Add an aggregation definition.      */
 DECL|method|addAggregation
 specifier|public
 name|PercolateSourceBuilder
@@ -590,62 +517,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-DECL|method|buildAsBytes
-specifier|public
-name|BytesReference
-name|buildAsBytes
-parameter_list|(
-name|XContentType
-name|contentType
-parameter_list|)
-throws|throws
-name|SearchSourceBuilderException
-block|{
-try|try
-block|{
-name|XContentBuilder
-name|builder
-init|=
-name|XContentFactory
-operator|.
-name|contentBuilder
-argument_list|(
-name|contentType
-argument_list|)
-decl_stmt|;
-name|toXContent
-argument_list|(
-name|builder
-argument_list|,
-name|ToXContent
-operator|.
-name|EMPTY_PARAMS
-argument_list|)
-expr_stmt|;
-return|return
-name|builder
-operator|.
-name|bytes
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|SearchSourceBuilderException
-argument_list|(
-literal|"Failed to build search source"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -884,6 +755,7 @@ return|return
 name|builder
 return|;
 block|}
+comment|/**      * @return A new {@link DocBuilder} instance.      */
 DECL|method|docBuilder
 specifier|public
 specifier|static
@@ -897,6 +769,7 @@ name|DocBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * A builder for defining the document to be percolated in various ways.      */
 DECL|class|DocBuilder
 specifier|public
 specifier|static
@@ -910,6 +783,7 @@ specifier|private
 name|BytesReference
 name|doc
 decl_stmt|;
+comment|/**          * Sets the document to be percolated.          */
 DECL|method|setDoc
 specifier|public
 name|DocBuilder
@@ -929,6 +803,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the document to be percolated.          */
 DECL|method|setDoc
 specifier|public
 name|DocBuilder
@@ -974,6 +849,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the document to be percolated.          */
 DECL|method|setDoc
 specifier|public
 name|DocBuilder
@@ -997,6 +873,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the document to be percolated.          */
 DECL|method|setDoc
 specifier|public
 name|DocBuilder
@@ -1019,6 +896,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**          * Sets the document to be percolated.          */
 DECL|method|setDoc
 specifier|public
 name|DocBuilder
@@ -1039,6 +917,11 @@ name|CONTENT_TYPE
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|setDoc
 specifier|public
 name|DocBuilder
