@@ -20,6 +20,38 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|highlight
+operator|.
+name|SimpleFragmenter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|highlight
+operator|.
+name|SimpleSpanFragmenter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -105,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A builder for search highlighting.  *  * @see org.elasticsearch.search.builder.SearchSourceBuilder#highlight()  */
+comment|/**  * A builder for search highlighting. Settings can control how large fields  * are summarized to show only selected snippets ("fragments") containing search terms.  *  * @see org.elasticsearch.search.builder.SearchSourceBuilder#highlight()  */
 end_comment
 
 begin_class
@@ -482,6 +514,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set this to true when using the highlighterType<tt>fast-vector-highlighter</tt>      * and you want to provide highlighting on filter clauses in your      * query. Default is<tt>false</tt>.      */
 DECL|method|highlightFilter
 specifier|public
 name|HighlightBuilder
@@ -501,6 +534,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the size of a fragment in characters (defaults to 100)      */
 DECL|method|fragmentSize
 specifier|public
 name|HighlightBuilder
@@ -520,6 +554,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the maximum number of fragments returned      */
 DECL|method|numOfFragments
 specifier|public
 name|HighlightBuilder
@@ -621,6 +656,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set to true to cause a field to be highlighted only if a query matches that field.       * Default is false meaning that terms are highlighted on all requested fields regardless       * if the query matches specifically on them.       */
 DECL|method|requireFieldMatch
 specifier|public
 name|HighlightBuilder
@@ -640,6 +676,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting       * controls how far to look for boundary characters, and defaults to 20.      */
 DECL|method|boundaryMaxScan
 specifier|public
 name|HighlightBuilder
@@ -659,6 +696,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * When using the highlighterType<tt>fast-vector-highlighter</tt> this setting       * defines what constitutes a boundary for highlighting. Itâs a single string with       * each boundary character defined in it. It defaults to .,!? \t\n      */
 DECL|method|boundaryChars
 specifier|public
 name|HighlightBuilder
@@ -679,7 +717,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> and<tt>postings-highlighter</tt>.      */
+comment|/**      * Set type of highlighter to use. Supported types      * are<tt>highlighter</tt>,<tt>fast-vector-highlighter</tt> and<tt>postings-highlighter</tt>.      * The default option selected is dependent on the mappings defined for your index.       * Details of the different highlighter types are covered in the reference guide.      */
 DECL|method|highlighterType
 specifier|public
 name|HighlightBuilder
@@ -699,7 +737,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets what fragmenter to use to break up text that is eligible for highlighting.      * This option is only applicable when using plain / normal highlighter.      */
+comment|/**      * Sets what fragmenter to use to break up text that is eligible for highlighting.      * This option is only applicable when using the plain highlighterType<tt>highlighter</tt>.      * Permitted values are "simple" or "span" relating to {@link SimpleFragmenter} and      * {@link SimpleSpanFragmenter} implementations respectively with the default being "span"      */
 DECL|method|fragmenter
 specifier|public
 name|HighlightBuilder
