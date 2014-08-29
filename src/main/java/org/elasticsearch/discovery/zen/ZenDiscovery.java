@@ -5776,6 +5776,17 @@ block|}
 block|}
 else|else
 block|{
+assert|assert
+operator|!
+name|pingMasters
+operator|.
+name|contains
+argument_list|(
+name|localNode
+argument_list|)
+operator|:
+literal|"local node should never be elected as master when other nodes indicate an active master"
+assert|;
 comment|// lets tie break between discovered nodes
 return|return
 name|electMaster
