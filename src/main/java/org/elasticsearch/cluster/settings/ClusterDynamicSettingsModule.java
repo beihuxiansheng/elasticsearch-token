@@ -430,7 +430,7 @@ name|addDynamicSetting
 argument_list|(
 name|ZenDiscovery
 operator|.
-name|REJOIN_ON_MASTER_GONE
+name|SETTING_REJOIN_ON_MASTER_GONE
 argument_list|,
 name|Validator
 operator|.
