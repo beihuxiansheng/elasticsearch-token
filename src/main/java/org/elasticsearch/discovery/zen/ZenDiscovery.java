@@ -1623,8 +1623,9 @@ name|updateNodes
 argument_list|(
 name|latestDiscoNodes
 argument_list|,
-operator|-
-literal|1
+name|ClusterState
+operator|.
+name|UNKNOWN_VERSION
 argument_list|)
 expr_stmt|;
 name|pingService
