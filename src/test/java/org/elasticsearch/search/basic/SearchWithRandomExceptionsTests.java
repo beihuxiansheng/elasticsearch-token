@@ -696,7 +696,7 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 for|for
@@ -726,16 +726,6 @@ argument_list|,
 literal|""
 operator|+
 name|i
-argument_list|)
-operator|.
-name|setTimeout
-argument_list|(
-name|TimeValue
-operator|.
-name|timeValueSeconds
-argument_list|(
-literal|1
-argument_list|)
 argument_list|)
 operator|.
 name|setSource

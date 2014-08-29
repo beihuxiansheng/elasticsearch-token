@@ -342,6 +342,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|inject
+operator|.
+name|Injector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -3626,6 +3640,11 @@ decl_stmt|;
 comment|// if the current and global routing are initializing, but are still not the same, its a different "shard" being allocated
 comment|// for example: a shard that recovers from one node and now needs to recover to another node,
 comment|//              or a replica allocated and then allocating a primary because the primary failed on another node
+name|boolean
+name|shardHasBeenRemoved
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|currentRoutingEntry
@@ -3687,6 +3706,10 @@ argument_list|()
 argument_list|,
 literal|"removing shard (different instance of it allocated on this node)"
 argument_list|)
+expr_stmt|;
+name|shardHasBeenRemoved
+operator|=
+literal|true
 expr_stmt|;
 block|}
 elseif|else
@@ -3794,11 +3817,19 @@ argument_list|,
 literal|"removing shard (recovery source node changed)"
 argument_list|)
 expr_stmt|;
+name|shardHasBeenRemoved
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 block|}
 if|if
 condition|(
+name|shardHasBeenRemoved
+operator|==
+literal|false
+operator|&&
 operator|!
 name|shardRouting
 operator|.
@@ -3811,6 +3842,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// if we happen to remove the shardRouting by id above we don't need to jump in here!
 name|indexShard
 operator|.
 name|routingEntry
