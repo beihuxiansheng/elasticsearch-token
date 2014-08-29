@@ -340,6 +340,15 @@ name|TribeTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+DECL|field|SECOND_CLUSTER_NODE_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SECOND_CLUSTER_NODE_PREFIX
+init|=
+literal|"node_tribe2"
+decl_stmt|;
 DECL|field|cluster2
 specifier|private
 specifier|static
@@ -398,6 +407,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|CHILD_JVM_ID
+argument_list|,
+name|SECOND_CLUSTER_NODE_PREFIX
 argument_list|)
 expr_stmt|;
 name|cluster2

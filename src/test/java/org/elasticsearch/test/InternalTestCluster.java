@@ -1256,16 +1256,6 @@ name|SETTING_CLUSTER_NODE_SEED
 init|=
 literal|"test.cluster.node.seed"
 decl_stmt|;
-comment|/**      * All nodes started by the cluster will have their name set to NODE_PREFIX followed by a positive number      */
-DECL|field|NODE_PREFIX
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NODE_PREFIX
-init|=
-literal|"node_"
-decl_stmt|;
 DECL|field|ENABLE_MOCK_MODULES
 specifier|private
 specifier|static
@@ -1448,6 +1438,13 @@ specifier|final
 name|boolean
 name|hasFilterCache
 decl_stmt|;
+comment|/**      * All nodes started by the cluster will have their name set to nodePrefix followed by a positive number      */
+DECL|field|nodePrefix
+specifier|private
+specifier|final
+name|String
+name|nodePrefix
+decl_stmt|;
 DECL|method|InternalTestCluster
 specifier|public
 name|InternalTestCluster
@@ -1472,6 +1469,9 @@ name|enableRandomBenchNodes
 parameter_list|,
 name|int
 name|jvmOrdinal
+parameter_list|,
+name|String
+name|nodePrefix
 parameter_list|)
 block|{
 name|this
@@ -1491,6 +1491,8 @@ argument_list|,
 name|enableRandomBenchNodes
 argument_list|,
 name|jvmOrdinal
+argument_list|,
+name|nodePrefix
 argument_list|)
 expr_stmt|;
 block|}
@@ -1521,6 +1523,9 @@ name|enableRandomBenchNodes
 parameter_list|,
 name|int
 name|jvmOrdinal
+parameter_list|,
+name|String
+name|nodePrefix
 parameter_list|)
 block|{
 name|this
@@ -1657,6 +1662,17 @@ name|enableRandomBenchNodes
 operator|=
 name|enableRandomBenchNodes
 expr_stmt|;
+name|this
+operator|.
+name|nodePrefix
+operator|=
+name|nodePrefix
+expr_stmt|;
+assert|assert
+name|nodePrefix
+operator|!=
+literal|null
+assert|;
 comment|/*          *  TODO          *  - we might want start some master only nodes?          *  - we could add a flag that returns a client to the master all the time?          *  - we could add a flag that never returns a client to the master          *  - along those lines use a dedicated node that is master eligible and let all other nodes be only data nodes          */
 name|sharedNodesSeeds
 operator|=
@@ -3947,7 +3963,7 @@ name|id
 parameter_list|)
 block|{
 return|return
-name|NODE_PREFIX
+name|nodePrefix
 operator|+
 name|id
 return|;
@@ -3960,7 +3976,7 @@ name|nodePrefix
 parameter_list|()
 block|{
 return|return
-name|NODE_PREFIX
+name|nodePrefix
 return|;
 block|}
 annotation|@
