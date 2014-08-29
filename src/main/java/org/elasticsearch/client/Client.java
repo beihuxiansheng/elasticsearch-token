@@ -1450,6 +1450,12 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
+comment|/**      * Builder for the term vector request.      */
+DECL|method|prepareTermVector
+name|TermVectorRequestBuilder
+name|prepareTermVector
+parameter_list|()
+function_decl|;
 comment|/**      * Builder for the term vector request.      *      * @param index The index to load the document from      * @param type  The type of the document      * @param id    The id of the document      */
 DECL|method|prepareTermVector
 name|TermVectorRequestBuilder

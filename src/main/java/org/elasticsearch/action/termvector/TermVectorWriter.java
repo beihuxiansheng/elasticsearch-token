@@ -328,6 +328,19 @@ argument_list|(
 name|field
 argument_list|)
 decl_stmt|;
+comment|// if no terms found, take the retrieved term vector fields for stats
+if|if
+condition|(
+name|topLevelTerms
+operator|==
+literal|null
+condition|)
+block|{
+name|topLevelTerms
+operator|=
+name|fieldTermVector
+expr_stmt|;
+block|}
 name|topLevelIterator
 operator|=
 name|topLevelTerms
@@ -472,11 +485,6 @@ argument_list|(
 name|term
 argument_list|)
 decl_stmt|;
-assert|assert
-operator|(
-name|foundTerm
-operator|)
-assert|;
 name|startTerm
 argument_list|(
 name|term
