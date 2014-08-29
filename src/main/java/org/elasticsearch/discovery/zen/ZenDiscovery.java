@@ -5246,6 +5246,8 @@ range|:
 name|drainedTasks
 control|)
 block|{
+try|try
+block|{
 name|drainedTask
 operator|.
 name|v2
@@ -5254,6 +5256,25 @@ operator|.
 name|onSuccess
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"unexpected error during [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|source
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
