@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Defines a suggest command based on a prefix, typically to provide "auto-complete" functionality  * for users as they type search terms. The implementation of the completion service uses FSTs that  * are created at index-time and so must be defined in the mapping with the type "completion" before   * indexing.    */
 end_comment
 
 begin_class

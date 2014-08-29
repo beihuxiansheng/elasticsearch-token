@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * A form of {@link CompletionSuggestionBuilder} that supports fuzzy queries allowing   * matches on typos.   * Various settings control when and how fuzziness is counted.  */
 end_comment
 
 begin_class
@@ -190,6 +190,7 @@ return|return
 name|fuzziness
 return|;
 block|}
+comment|/**      * Sets the level of fuzziness used to create suggestions using a {@link Fuzziness} instance.      * The default value is {@link Fuzziness#ONE} which allows for an "edit distance" of one.      */
 DECL|method|setFuzziness
 specifier|public
 name|CompletionSuggestionFuzzyBuilder
@@ -219,6 +220,7 @@ return|return
 name|fuzzyTranspositions
 return|;
 block|}
+comment|/**      * Sets if transpositions (swapping one character for another) counts as one character       * change or two.      * Defaults to true, meaning it uses the fuzzier option of counting transpositions as       * a single change.         */
 DECL|method|setFuzzyTranspositions
 specifier|public
 name|CompletionSuggestionFuzzyBuilder
@@ -248,6 +250,7 @@ return|return
 name|fuzzyMinLength
 return|;
 block|}
+comment|/**      * Sets the minimum length of input string before fuzzy suggestions are returned, defaulting      * to 3.         */
 DECL|method|setFuzzyMinLength
 specifier|public
 name|CompletionSuggestionFuzzyBuilder
@@ -277,6 +280,7 @@ return|return
 name|fuzzyPrefixLength
 return|;
 block|}
+comment|/**      * Sets the minimum length of the input, which is not checked for fuzzy alternatives, defaults to 1      */
 DECL|method|setFuzzyPrefixLength
 specifier|public
 name|CompletionSuggestionFuzzyBuilder
@@ -306,6 +310,7 @@ return|return
 name|unicodeAware
 return|;
 block|}
+comment|/**      * Set to true if all measurements (like edit distance, transpositions and lengths) are in unicode       * code points (actual letters) instead of bytes. Default is false.      */
 DECL|method|setUnicodeAware
 specifier|public
 name|CompletionSuggestionFuzzyBuilder
