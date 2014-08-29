@@ -3922,7 +3922,7 @@ name|corruptRandomFile
 parameter_list|(
 specifier|final
 name|boolean
-name|includeSegmentsFiles
+name|includePerCommitFiles
 parameter_list|)
 throws|throws
 name|IOException
@@ -4161,9 +4161,10 @@ argument_list|()
 argument_list|)
 operator|&&
 operator|(
-name|includeSegmentsFiles
+name|includePerCommitFiles
 operator|==
 literal|true
+comment|// .del and segments_N are per commit files and might change after corruption
 operator|||
 name|pathname
 operator|.
@@ -4173,6 +4174,18 @@ operator|.
 name|startsWith
 argument_list|(
 literal|"segments"
+argument_list|)
+operator|==
+literal|false
+operator|||
+name|pathname
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|".del"
 argument_list|)
 operator|==
 literal|false
