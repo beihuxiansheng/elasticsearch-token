@@ -522,7 +522,7 @@ expr_stmt|;
 try|try
 block|{
 comment|// In ES if parent is deleted, then also the children are deleted, so the child docs this agg receives
-comment|// must belong to parent docs that are live. For this reason acceptedDocs can also null here.
+comment|// must belong to parent docs that is alive. For this reason acceptedDocs can be null here.
 name|DocIdSet
 name|docIdSet
 init|=
