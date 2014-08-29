@@ -5611,7 +5611,6 @@ block|{
 comment|// if we don't have enough master nodes, we bail, because there are not enough master to elect from
 if|if
 condition|(
-operator|!
 name|electMaster
 operator|.
 name|hasEnoughMasterNodes
@@ -5619,6 +5618,17 @@ argument_list|(
 name|possibleMasterNodes
 argument_list|)
 condition|)
+block|{
+return|return
+name|electMaster
+operator|.
+name|electMaster
+argument_list|(
+name|possibleMasterNodes
+argument_list|)
+return|;
+block|}
+else|else
 block|{
 name|logger
 operator|.
@@ -5633,18 +5643,10 @@ return|return
 literal|null
 return|;
 block|}
-comment|// lets tie break between discovered nodes
-return|return
-name|electMaster
-operator|.
-name|electMaster
-argument_list|(
-name|possibleMasterNodes
-argument_list|)
-return|;
 block|}
 else|else
 block|{
+comment|// lets tie break between discovered nodes
 return|return
 name|electMaster
 operator|.

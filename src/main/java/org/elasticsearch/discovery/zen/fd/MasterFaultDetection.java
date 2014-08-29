@@ -1865,6 +1865,7 @@ name|NotMasterException
 argument_list|()
 throw|;
 block|}
+comment|// ping from nodes of version< 1.4.0 will have the clustername set to null
 if|if
 condition|(
 name|request

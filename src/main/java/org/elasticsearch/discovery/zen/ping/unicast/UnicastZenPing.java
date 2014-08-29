@@ -541,12 +541,12 @@ specifier|final
 name|int
 name|concurrentConnects
 decl_stmt|;
-DECL|field|nodes
+DECL|field|configuredTargetNodes
 specifier|private
 specifier|final
 name|DiscoveryNode
 index|[]
-name|nodes
+name|configuredTargetNodes
 decl_stmt|;
 DECL|field|nodesProvider
 specifier|private
@@ -583,7 +583,7 @@ init|=
 name|newConcurrentMap
 argument_list|()
 decl_stmt|;
-comment|// a list of temporal responses a node will return for a request (holds requests from other nodes)
+comment|// a list of temporal responses a node will return for a request (holds requests from other configuredTargetNodes)
 DECL|field|temporalResponses
 specifier|private
 specifier|final
@@ -778,7 +778,7 @@ name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
-name|nodes
+name|configuredTargetNodes
 init|=
 name|Lists
 operator|.
@@ -835,7 +835,7 @@ name|i
 operator|++
 control|)
 block|{
-name|nodes
+name|configuredTargetNodes
 operator|.
 name|add
 argument_list|(
@@ -888,16 +888,16 @@ block|}
 block|}
 name|this
 operator|.
-name|nodes
+name|configuredTargetNodes
 operator|=
-name|nodes
+name|configuredTargetNodes
 operator|.
 name|toArray
 argument_list|(
 operator|new
 name|DiscoveryNode
 index|[
-name|nodes
+name|configuredTargetNodes
 operator|.
 name|size
 argument_list|()
@@ -1728,7 +1728,7 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-name|nodes
+name|configuredTargetNodes
 argument_list|)
 decl_stmt|;
 name|nodesToPing

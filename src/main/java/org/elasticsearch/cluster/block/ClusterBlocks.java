@@ -647,14 +647,15 @@ name|level
 parameter_list|)
 block|{
 return|return
-operator|!
 name|global
 argument_list|(
 name|level
 argument_list|)
 operator|.
-name|isEmpty
+name|size
 argument_list|()
+operator|>
+literal|0
 return|;
 block|}
 comment|/**      * Is there a global block with the provided status?      */

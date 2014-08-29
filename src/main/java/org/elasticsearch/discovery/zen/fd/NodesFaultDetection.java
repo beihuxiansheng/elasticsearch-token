@@ -1601,6 +1601,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+comment|// PingRequest will have clusterName set to null if it came from a node of version<1.4.0
 if|if
 condition|(
 name|request
