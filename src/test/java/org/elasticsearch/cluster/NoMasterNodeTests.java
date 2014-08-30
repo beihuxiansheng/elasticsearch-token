@@ -1030,18 +1030,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|bulkRequestBuilder
-operator|.
-name|setTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
+comment|// today, we clear the metadata on when there is no master, so it will go through the auto create logic and
+comment|// add it... (if autoCreate is set to true)
 name|checkBulkAction
 argument_list|(
 name|autoCreateIndex
-argument_list|,
-name|timeout
 argument_list|,
 name|bulkRequestBuilder
 argument_list|)
@@ -1116,18 +1109,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|bulkRequestBuilder
-operator|.
-name|setTimeout
-argument_list|(
-name|timeout
-argument_list|)
-expr_stmt|;
 name|checkBulkAction
 argument_list|(
 name|autoCreateIndex
-argument_list|,
-name|timeout
 argument_list|,
 name|bulkRequestBuilder
 argument_list|)
@@ -1284,17 +1268,51 @@ name|void
 name|checkBulkAction
 parameter_list|(
 name|boolean
-name|autoCreateIndex
-parameter_list|,
-name|TimeValue
-name|timeout
+name|indexShouldBeAutoCreated
 parameter_list|,
 name|BulkRequestBuilder
 name|builder
 parameter_list|)
 block|{
 comment|// bulk operation do not throw MasterNotDiscoveredException exceptions. The only test that auto create kicked in and failed is
-comment|// via the timeout, as they do not wait on block :(
+comment|// via the timeout, as bulk operation do not wait on blocks.
+name|TimeValue
+name|timeout
+decl_stmt|;
+if|if
+condition|(
+name|indexShouldBeAutoCreated
+condition|)
+block|{
+comment|// we expect the bulk to fail because it will try to go to the master. Use small timeout and detect it has passed
+name|timeout
+operator|=
+operator|new
+name|TimeValue
+argument_list|(
+literal|200
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the request should fail very quickly - use a large timeout and make sure it didn't pass...
+name|timeout
+operator|=
+operator|new
+name|TimeValue
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+block|}
+name|builder
+operator|.
+name|setTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
 name|long
 name|now
 init|=
@@ -1322,38 +1340,12 @@ name|ClusterBlockException
 name|e
 parameter_list|)
 block|{
-comment|// today, we clear the metadata on when there is no master, so it will go through the auto create logic and
-comment|// add it... (if set to true), if we didn't remove the metedata when there is no master, then, the non
-comment|// retry in bulk should be taken into account
 if|if
 condition|(
-operator|!
-name|autoCreateIndex
+name|indexShouldBeAutoCreated
 condition|)
 block|{
-name|assertThat
-argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-operator|-
-name|now
-argument_list|,
-name|lessThan
-argument_list|(
-name|timeout
-operator|.
-name|millis
-argument_list|()
-operator|/
-literal|2
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
+comment|// timeout is 200
 name|assertThat
 argument_list|(
 name|System
@@ -1386,6 +1378,30 @@ argument_list|(
 name|RestStatus
 operator|.
 name|SERVICE_UNAVAILABLE
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// timeout is 5000
+name|assertThat
+argument_list|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+operator|-
+name|now
+argument_list|,
+name|lessThan
+argument_list|(
+name|timeout
+operator|.
+name|millis
+argument_list|()
+operator|-
+literal|50
 argument_list|)
 argument_list|)
 expr_stmt|;
