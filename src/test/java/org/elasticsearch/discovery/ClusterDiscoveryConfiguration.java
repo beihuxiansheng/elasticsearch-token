@@ -561,8 +561,9 @@ name|int
 name|calcBasePort
 parameter_list|()
 block|{
+comment|// note that this has properly co-exist with the port logic at InternalTestCluster's constructor
 return|return
-literal|10000
+literal|30000
 operator|+
 literal|1000
 operator|*
