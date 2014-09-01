@@ -462,7 +462,7 @@ name|START_ACTION_NAME
 init|=
 literal|"indices:data/benchmark/executor/start"
 decl_stmt|;
-comment|/**      * Constructs a service component for running benchmarks      *      * @param settings          Settings      * @param clusterService    Cluster service      * @param threadPool        Thread pool      * @param client            Client      * @param transportService  Transport service      */
+comment|/**      * Constructs a service component for running benchmarks      *      * @param settings         Settings      * @param clusterService   Cluster service      * @param threadPool       Thread pool      * @param client           Client      * @param transportService Transport service      */
 annotation|@
 name|Inject
 DECL|method|BenchmarkService
@@ -563,7 +563,7 @@ name|doStart
 parameter_list|()
 throws|throws
 name|ElasticsearchException
-block|{ }
+block|{     }
 annotation|@
 name|Override
 DECL|method|doStop
@@ -573,7 +573,7 @@ name|doStop
 parameter_list|()
 throws|throws
 name|ElasticsearchException
-block|{ }
+block|{     }
 annotation|@
 name|Override
 DECL|method|doClose
@@ -583,8 +583,8 @@ name|doClose
 parameter_list|()
 throws|throws
 name|ElasticsearchException
-block|{ }
-comment|/**      * Lists actively running benchmarks on the cluster      *      * @param request   Status request      * @param listener  Response listener      */
+block|{     }
+comment|/**      * Lists actively running benchmarks on the cluster      *      * @param request  Status request      * @param listener Response listener      */
 DECL|method|listBenchmarks
 specifier|public
 name|void
@@ -1034,7 +1034,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Executes benchmarks on the cluster      *      * @param request   Benchmark request      * @param listener  Response listener      */
+comment|/**      * Executes benchmarks on the cluster      *      * @param request  Benchmark request      * @param listener Response listener      */
 DECL|method|startBenchmark
 specifier|public
 name|void
@@ -3820,7 +3820,7 @@ specifier|public
 specifier|abstract
 class|class
 name|UpdateBenchmarkStateTask
-implements|implements
+extends|extends
 name|ProcessedClusterStateUpdateTask
 block|{
 DECL|field|reason
@@ -4253,7 +4253,7 @@ name|R
 extends|extends
 name|MasterNodeOperationRequest
 parameter_list|>
-implements|implements
+extends|extends
 name|TimeoutClusterStateUpdateTask
 block|{
 DECL|field|request

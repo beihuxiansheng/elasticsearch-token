@@ -1073,7 +1073,7 @@ name|numOfDocs
 argument_list|)
 expr_stmt|;
 block|}
-comment|/** Stop all background threads **/
+comment|/** Stop all background threads * */
 DECL|method|stop
 specifier|public
 name|void

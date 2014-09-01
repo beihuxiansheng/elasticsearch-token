@@ -72,16 +72,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|support
@@ -350,7 +340,7 @@ name|elasticsearch
 operator|.
 name|discovery
 operator|.
-name|Discovery
+name|DiscoveryService
 import|;
 end_import
 
@@ -441,18 +431,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|CountDownLatch
 import|;
 end_import
 
@@ -853,6 +831,9 @@ name|settings
 parameter_list|,
 name|ClusterService
 name|clusterService
+parameter_list|,
+name|DiscoveryService
+name|discoveryService
 parameter_list|)
 block|{
 name|super
@@ -1061,9 +1042,10 @@ name|clusterService
 operator|.
 name|removeInitialStateBlock
 argument_list|(
-name|Discovery
+name|discoveryService
 operator|.
-name|NO_MASTER_BLOCK
+name|getNoMasterBlock
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|clusterService
@@ -1494,7 +1476,7 @@ name|source
 argument_list|()
 argument_list|,
 operator|new
-name|ClusterStateUpdateTask
+name|ClusterStateNonMasterUpdateTask
 argument_list|()
 block|{
 annotation|@

@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster
+DECL|package|org.elasticsearch.test.disruption
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|test
+operator|.
+name|disruption
 package|;
 end_package
 
@@ -22,7 +24,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
+name|unit
+operator|.
+name|TimeValue
 import|;
 end_import
 
@@ -32,92 +36,110 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|EsRejectedExecutionException
+name|InternalTestCluster
 import|;
 end_import
 
-begin_comment
-comment|/**  * A task that can update the cluster state.  */
-end_comment
-
 begin_class
-DECL|class|ClusterStateUpdateTask
-specifier|abstract
+DECL|class|NoOpDisruptionScheme
 specifier|public
 class|class
-name|ClusterStateUpdateTask
+name|NoOpDisruptionScheme
+implements|implements
+name|ServiceDisruptionScheme
 block|{
-comment|/**      * Update the cluster state based on the current state. Return the *same instance* if no state      * should be changed.      */
-DECL|method|execute
-specifier|abstract
-specifier|public
-name|ClusterState
-name|execute
-parameter_list|(
-name|ClusterState
-name|currentState
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * A callback called when execute fails.      */
-DECL|method|onFailure
-specifier|abstract
+annotation|@
+name|Override
+DECL|method|applyToCluster
 specifier|public
 name|void
-name|onFailure
+name|applyToCluster
+parameter_list|(
+name|InternalTestCluster
+name|cluster
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
+DECL|method|removeFromCluster
+specifier|public
+name|void
+name|removeFromCluster
+parameter_list|(
+name|InternalTestCluster
+name|cluster
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
+DECL|method|applyToNode
+specifier|public
+name|void
+name|applyToNode
 parameter_list|(
 name|String
-name|source
+name|node
 parameter_list|,
-annotation|@
-name|Nullable
-name|Throwable
-name|t
+name|InternalTestCluster
+name|cluster
 parameter_list|)
-function_decl|;
-comment|/**      * indicates whether this task should only run if current node is master      */
-DECL|method|runOnlyOnMaster
+block|{      }
+annotation|@
+name|Override
+DECL|method|removeFromNode
 specifier|public
-name|boolean
-name|runOnlyOnMaster
+name|void
+name|removeFromNode
+parameter_list|(
+name|String
+name|node
+parameter_list|,
+name|InternalTestCluster
+name|cluster
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
+DECL|method|startDisrupting
+specifier|public
+name|void
+name|startDisrupting
+parameter_list|()
+block|{      }
+annotation|@
+name|Override
+DECL|method|stopDisrupting
+specifier|public
+name|void
+name|stopDisrupting
+parameter_list|()
+block|{      }
+annotation|@
+name|Override
+DECL|method|testClusterClosed
+specifier|public
+name|void
+name|testClusterClosed
+parameter_list|()
+block|{      }
+annotation|@
+name|Override
+DECL|method|expectedTimeToHeal
+specifier|public
+name|TimeValue
+name|expectedTimeToHeal
 parameter_list|()
 block|{
 return|return
-literal|true
+name|TimeValue
+operator|.
+name|timeValueSeconds
+argument_list|(
+literal|0
+argument_list|)
 return|;
-block|}
-comment|/**      * called when the task was rejected because the local node is no longer master      */
-DECL|method|onNoLongerMaster
-specifier|public
-name|void
-name|onNoLongerMaster
-parameter_list|(
-name|String
-name|source
-parameter_list|)
-block|{
-name|onFailure
-argument_list|(
-name|source
-argument_list|,
-operator|new
-name|EsRejectedExecutionException
-argument_list|(
-literal|"no longer master. source: ["
-operator|+
-name|source
-operator|+
-literal|"]"
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -170,7 +170,7 @@ name|test
 operator|.
 name|ElasticsearchIntegrationTest
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -279,7 +279,7 @@ name|Slow
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.cluster:TRACE,cluster.service:TRACE"
+literal|"indices.cluster:TRACE,cluster.service:TRACE,action.search:TRACE,indices.recovery:TRACE"
 argument_list|)
 DECL|method|testFullRollingRestart
 specifier|public

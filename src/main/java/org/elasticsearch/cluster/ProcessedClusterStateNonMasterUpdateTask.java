@@ -14,41 +14,31 @@ name|cluster
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
 begin_comment
-comment|/**  * An extension interface to {@link org.elasticsearch.cluster.ClusterStateUpdateTask} that allows to associate  * a timeout.  */
+comment|/**  * A combination between {@link org.elasticsearch.cluster.ProcessedClusterStateUpdateTask} and  * {@link org.elasticsearch.cluster.ClusterStateNonMasterUpdateTask} to allow easy creation of anonymous classes  */
 end_comment
 
 begin_class
-DECL|class|TimeoutClusterStateUpdateTask
+DECL|class|ProcessedClusterStateNonMasterUpdateTask
 specifier|abstract
 specifier|public
 class|class
-name|TimeoutClusterStateUpdateTask
+name|ProcessedClusterStateNonMasterUpdateTask
 extends|extends
 name|ProcessedClusterStateUpdateTask
 block|{
-comment|/**      * If the cluster state update task wasn't processed by the provided timeout, call      * {@link #onFailure(String, Throwable)}      */
-DECL|method|timeout
-specifier|abstract
+annotation|@
+name|Override
+DECL|method|runOnlyOnMaster
 specifier|public
-name|TimeValue
-name|timeout
+name|boolean
+name|runOnlyOnMaster
 parameter_list|()
-function_decl|;
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 

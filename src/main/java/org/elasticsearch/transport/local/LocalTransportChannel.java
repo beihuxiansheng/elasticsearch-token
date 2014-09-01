@@ -358,10 +358,7 @@ argument_list|()
 decl_stmt|;
 name|targetTransport
 operator|.
-name|threadPool
-argument_list|()
-operator|.
-name|generic
+name|workers
 argument_list|()
 operator|.
 name|execute
@@ -551,10 +548,7 @@ argument_list|()
 decl_stmt|;
 name|targetTransport
 operator|.
-name|threadPool
-argument_list|()
-operator|.
-name|generic
+name|workers
 argument_list|()
 operator|.
 name|execute

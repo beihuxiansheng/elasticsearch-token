@@ -631,6 +631,18 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|onNoLongerMaster
+parameter_list|(
+name|String
+name|source
+parameter_list|)
+block|{
+comment|// no biggie
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
 name|onFailure
 parameter_list|(
 name|String

@@ -93,7 +93,7 @@ name|AckedClusterStateUpdateTask
 parameter_list|<
 name|Response
 parameter_list|>
-implements|implements
+extends|extends
 name|TimeoutClusterStateUpdateTask
 block|{
 DECL|field|listener
@@ -138,7 +138,7 @@ operator|=
 name|request
 expr_stmt|;
 block|}
-comment|/**      * Called to determine which nodes the acknowledgement is expected from      * @param discoveryNode a node      * @return true if the node is expected to send ack back, false otherwise      */
+comment|/**      * Called to determine which nodes the acknowledgement is expected from      *      * @param discoveryNode a node      * @return true if the node is expected to send ack back, false otherwise      */
 DECL|method|mustAck
 specifier|public
 name|boolean
@@ -152,7 +152,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Called once all the nodes have acknowledged the cluster state update request. Must be      * very lightweight execution, since it gets executed on the cluster service thread.      * @param t optional error that might have been thrown      */
+comment|/**      * Called once all the nodes have acknowledged the cluster state update request. Must be      * very lightweight execution, since it gets executed on the cluster service thread.      *      * @param t optional error that might have been thrown      */
 DECL|method|onAllNodesAcked
 specifier|public
 name|void

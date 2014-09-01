@@ -767,6 +767,16 @@ return|return
 name|factory
 return|;
 block|}
+DECL|field|UNKNOWN_VERSION
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|UNKNOWN_VERSION
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|field|version
 specifier|private
 specifier|final
