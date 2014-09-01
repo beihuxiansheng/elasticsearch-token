@@ -187,10 +187,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|UpdateMappingOnCusterTests
+DECL|class|UpdateMappingOnClusterTests
 specifier|public
 class|class
-name|UpdateMappingOnCusterTests
+name|UpdateMappingOnClusterTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
