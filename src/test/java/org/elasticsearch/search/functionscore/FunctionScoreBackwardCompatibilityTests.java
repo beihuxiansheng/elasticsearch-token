@@ -543,7 +543,7 @@ operator|.
 name|upgradeOneNode
 argument_list|()
 expr_stmt|;
-name|ensureGreen
+name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|logClusterState
