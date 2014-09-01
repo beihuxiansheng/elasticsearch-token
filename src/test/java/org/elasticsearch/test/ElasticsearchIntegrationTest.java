@@ -8876,20 +8876,12 @@ operator|=
 name|SUITE_CLUSTER_NODE_PREFIX
 expr_stmt|;
 break|break;
-case|case
-name|GLOBAL
-case|:
-name|nodePrefix
-operator|=
-name|GLOBAL_CLUSTER_NODE_PREFIX
-expr_stmt|;
-break|break;
 default|default:
 throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"Unknown scope: "
+literal|"Scope not supported: "
 operator|+
 name|scope
 argument_list|)
