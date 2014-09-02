@@ -352,7 +352,7 @@ name|BalancedShardsAllocator
 operator|.
 name|SETTING_THRESHOLD
 argument_list|,
-literal|1.1f
+literal|100.0f
 argument_list|)
 operator|.
 name|build
