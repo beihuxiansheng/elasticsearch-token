@@ -3751,7 +3751,7 @@ argument_list|(
 name|next
 argument_list|)
 expr_stmt|;
-name|removeDistruptionSchemeFromNode
+name|removeDisruptionSchemeFromNode
 argument_list|(
 name|next
 argument_list|)
@@ -6785,7 +6785,7 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
-name|removeDistruptionSchemeFromNode
+name|removeDisruptionSchemeFromNode
 argument_list|(
 name|nodeAndClient
 argument_list|)
@@ -6885,7 +6885,7 @@ operator|.
 name|name
 argument_list|)
 expr_stmt|;
-name|removeDistruptionSchemeFromNode
+name|removeDisruptionSchemeFromNode
 argument_list|(
 name|nodeAndClient
 argument_list|)
@@ -6948,7 +6948,7 @@ argument_list|,
 name|masterNodeName
 argument_list|)
 expr_stmt|;
-name|removeDistruptionSchemeFromNode
+name|removeDisruptionSchemeFromNode
 argument_list|(
 name|nodes
 operator|.
@@ -7022,7 +7022,7 @@ name|getMasterName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|removeDistruptionSchemeFromNode
+name|removeDisruptionSchemeFromNode
 argument_list|(
 name|nodeAndClient
 argument_list|)
@@ -8752,10 +8752,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|removeDistruptionSchemeFromNode
+DECL|method|removeDisruptionSchemeFromNode
 specifier|private
 name|void
-name|removeDistruptionSchemeFromNode
+name|removeDisruptionSchemeFromNode
 parameter_list|(
 name|NodeAndClient
 name|nodeAndClient
