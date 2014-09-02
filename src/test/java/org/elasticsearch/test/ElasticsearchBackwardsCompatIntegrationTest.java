@@ -743,7 +743,7 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
-literal|"backward compatibility tests must run in network mode. You probably have a system property overriding the test settings"
+literal|"backward compatibility tests must run in network mode. You probably have a system property overriding the test settings."
 argument_list|,
 name|DiscoveryNode
 operator|.
