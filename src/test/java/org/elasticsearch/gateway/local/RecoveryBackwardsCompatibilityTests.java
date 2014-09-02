@@ -224,22 +224,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -286,31 +270,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThan
+name|*
 import|;
 end_import
 
@@ -383,7 +343,7 @@ name|put
 argument_list|(
 literal|"gateway.recover_after_nodes"
 argument_list|,
-literal|3
+literal|2
 argument_list|)
 operator|.
 name|put
@@ -398,7 +358,7 @@ operator|.
 name|build
 argument_list|()
 return|;
-comment|// use less agressive settings
+comment|// use less aggressive settings
 block|}
 DECL|method|minExternalNodes
 specifier|protected
