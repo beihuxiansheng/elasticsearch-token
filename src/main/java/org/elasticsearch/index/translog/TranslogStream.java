@@ -54,7 +54,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|Closeable
+name|File
 import|;
 end_import
 
@@ -89,20 +89,7 @@ DECL|interface|TranslogStream
 specifier|public
 interface|interface
 name|TranslogStream
-extends|extends
-name|Closeable
 block|{
-comment|/**      * Read the next operation from the translog file, the stream<b>must</b>      * have been created through {@link TranslogStreams#translogStreamFor(java.io.File)}      */
-DECL|method|read
-specifier|public
-name|Translog
-operator|.
-name|Operation
-name|read
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Read the next translog operation from the input stream      */
 DECL|method|read
 specifier|public
@@ -113,21 +100,6 @@ name|read
 parameter_list|(
 name|StreamInput
 name|in
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Read a translog operation from the given byte array, returning the      * {@link Translog.Source} object from the Operation      */
-DECL|method|readSource
-specifier|public
-name|Translog
-operator|.
-name|Source
-name|readSource
-parameter_list|(
-name|byte
-index|[]
-name|data
 parameter_list|)
 throws|throws
 name|IOException
@@ -161,12 +133,15 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Close the stream opened with {@link TranslogStreams#translogStreamFor(java.io.File)}      */
-DECL|method|close
+comment|/**      * Seek past the header, if any header is present      */
+DECL|method|openInput
 specifier|public
-name|void
-name|close
-parameter_list|()
+name|StreamInput
+name|openInput
+parameter_list|(
+name|File
+name|translogFile
+parameter_list|)
 throws|throws
 name|IOException
 function_decl|;

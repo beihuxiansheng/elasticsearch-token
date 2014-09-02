@@ -344,7 +344,7 @@ name|add
 argument_list|(
 name|TranslogStreams
 operator|.
-name|V1
+name|CHECKSUMMED_TRANSLOG_STREAM
 operator|.
 name|read
 argument_list|(
@@ -361,7 +361,7 @@ name|add
 argument_list|(
 name|TranslogStreams
 operator|.
-name|V0
+name|LEGACY_TRANSLOG_STREAM
 operator|.
 name|read
 argument_list|(
@@ -443,7 +443,7 @@ condition|)
 block|{
 name|TranslogStreams
 operator|.
-name|V1
+name|CHECKSUMMED_TRANSLOG_STREAM
 operator|.
 name|write
 argument_list|(
@@ -457,7 +457,7 @@ else|else
 block|{
 name|TranslogStreams
 operator|.
-name|V0
+name|LEGACY_TRANSLOG_STREAM
 operator|.
 name|write
 argument_list|(

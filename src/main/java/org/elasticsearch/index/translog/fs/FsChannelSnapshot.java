@@ -461,6 +461,7 @@ operator|.
 name|flip
 argument_list|()
 expr_stmt|;
+comment|// Add an extra 4 to account for the operation size integer itself
 name|int
 name|opSize
 init|=
@@ -468,11 +469,9 @@ name|cacheBuffer
 operator|.
 name|getInt
 argument_list|()
-decl_stmt|;
-name|position
-operator|+=
+operator|+
 literal|4
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -486,10 +485,6 @@ condition|)
 block|{
 comment|// the snapshot is acquired under a write lock. we should never
 comment|// read beyond the EOF, must be an abrupt EOF
-name|position
-operator|-=
-literal|4
-expr_stmt|;
 throw|throw
 operator|new
 name|EOFException
