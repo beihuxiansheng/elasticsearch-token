@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -83,29 +73,7 @@ argument_list|>
 name|delegatedActionListener
 decl_stmt|;
 DECL|method|DelegatingActionListener
-specifier|private
-name|DelegatingActionListener
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|ElasticsearchIllegalStateException
-argument_list|(
-literal|"Constructor for "
-operator|+
-name|DelegatingActionListener
-operator|.
-name|class
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" can't be called."
-argument_list|)
-throw|;
-block|}
-DECL|method|DelegatingActionListener
-specifier|public
+specifier|protected
 name|DelegatingActionListener
 parameter_list|(
 specifier|final
@@ -124,7 +92,7 @@ name|listener
 expr_stmt|;
 block|}
 DECL|method|getDelegatedFromInstigator
-specifier|public
+specifier|protected
 specifier|abstract
 name|Delegated
 name|getDelegatedFromInstigator
