@@ -24,9 +24,43 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|IndicesRequest
 import|;
 end_import
 
@@ -52,11 +86,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|single
-operator|.
-name|shard
-operator|.
-name|SingleShardOperationRequest
+name|IndicesOptions
 import|;
 end_import
 
@@ -171,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get a document (its source) from an index based on its type/language (optional) and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *<p/>  *<p>The operation requires the {@link #index()}, {@link #scriptLang(String)} and {@link #id(String)}  * to be set.  *  * @see GetIndexedScriptResponse  */
+comment|/**  * A request to get an indexed script (its source) based on its language (optional) and id.  * The operation requires the {@link #scriptLang(String)} and {@link #id(String)} to be set.  *  * @see GetIndexedScriptResponse  */
 end_comment
 
 begin_class
@@ -180,10 +210,12 @@ specifier|public
 class|class
 name|GetIndexedScriptRequest
 extends|extends
-name|SingleShardOperationRequest
+name|ActionRequest
 argument_list|<
 name|GetIndexedScriptRequest
 argument_list|>
+implements|implements
+name|IndicesRequest
 block|{
 DECL|field|scriptLang
 specifier|protected
@@ -244,23 +276,12 @@ DECL|method|GetIndexedScriptRequest
 specifier|public
 name|GetIndexedScriptRequest
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|ScriptService
-operator|.
-name|SCRIPT_INDEX
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Constructs a new get request against the script index with the type and id.      *      * @param index The index to get the document from      * @param scriptLang  The type of the document      * @param id    The id of the document      */
+block|{      }
+comment|/**      * Constructs a new get request against the script index with the type and id.      *      * @param scriptLang  The language of the script      * @param id    The id of the script      */
 DECL|method|GetIndexedScriptRequest
 specifier|public
 name|GetIndexedScriptRequest
 parameter_list|(
-name|String
-name|index
-parameter_list|,
 name|String
 name|scriptLang
 parameter_list|,
@@ -268,11 +289,6 @@ name|String
 name|id
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|scriptLang
@@ -297,10 +313,7 @@ block|{
 name|ActionRequestValidationException
 name|validationException
 init|=
-name|super
-operator|.
-name|validate
-argument_list|()
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -398,7 +411,22 @@ name|SCRIPT_INDEX
 block|}
 return|;
 block|}
-comment|/**      * Sets the type of the document to fetch.      */
+annotation|@
+name|Override
+DECL|method|indicesOptions
+specifier|public
+name|IndicesOptions
+name|indicesOptions
+parameter_list|()
+block|{
+return|return
+name|IndicesOptions
+operator|.
+name|strictSingleIndexNoExpandForbidClosed
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the language of the script to fetch.      */
 DECL|method|scriptLang
 specifier|public
 name|GetIndexedScriptRequest
@@ -420,7 +448,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the id of the document to fetch.      */
+comment|/**      * Sets the id of the script to fetch.      */
 DECL|method|id
 specifier|public
 name|GetIndexedScriptRequest
@@ -460,19 +488,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Explicitly specify the fields that will be returned. By default, the<tt>_source</tt>      * field will be returned.      */
-DECL|method|fields
-specifier|public
-name|String
-index|[]
-name|fields
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-comment|/**      * Sets the preference to execute the search. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
+comment|/**      * Sets the preference to execute the get. Defaults to randomize across shards. Can be set to      *<tt>_local</tt> to prefer local shards,<tt>_primary</tt> to execute only on primary shards, or      * a custom value, which guarantees that the same order will be used across different requests.      */
 DECL|method|preference
 specifier|public
 name|GetIndexedScriptRequest
@@ -687,6 +703,28 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_1_4_0
+argument_list|)
+condition|)
+block|{
+comment|//the index was previously serialized although not needed
+name|in
+operator|.
+name|readString
+argument_list|()
+expr_stmt|;
+block|}
 name|scriptLang
 operator|=
 name|in
@@ -807,6 +845,32 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_1_4_0
+argument_list|)
+condition|)
+block|{
+comment|//the index was previously serialized although not needed
+name|out
+operator|.
+name|writeString
+argument_list|(
+name|ScriptService
+operator|.
+name|SCRIPT_INDEX
+argument_list|)
+expr_stmt|;
+block|}
 name|out
 operator|.
 name|writeString
@@ -857,9 +921,8 @@ block|}
 elseif|else
 if|if
 condition|(
+operator|!
 name|realtime
-operator|==
-literal|false
 condition|)
 block|{
 name|out
@@ -926,7 +989,9 @@ block|{
 return|return
 literal|"["
 operator|+
-name|index
+name|ScriptService
+operator|.
+name|SCRIPT_INDEX
 operator|+
 literal|"]["
 operator|+
