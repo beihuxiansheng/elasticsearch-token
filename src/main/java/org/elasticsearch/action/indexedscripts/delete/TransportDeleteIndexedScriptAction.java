@@ -181,11 +181,13 @@ argument_list|>
 block|{
 DECL|field|scriptService
 specifier|private
+specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
 DECL|field|client
 specifier|private
+specifier|final
 name|Client
 name|client
 decl_stmt|;
