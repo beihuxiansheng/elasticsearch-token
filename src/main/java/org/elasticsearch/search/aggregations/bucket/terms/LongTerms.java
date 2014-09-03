@@ -497,7 +497,9 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|InternalOrder
+name|Terms
+operator|.
+name|Order
 name|order
 parameter_list|,
 annotation|@

@@ -121,7 +121,9 @@ parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
-name|InternalOrder
+name|Terms
+operator|.
+name|Order
 name|order
 parameter_list|,
 name|BucketCountThresholds

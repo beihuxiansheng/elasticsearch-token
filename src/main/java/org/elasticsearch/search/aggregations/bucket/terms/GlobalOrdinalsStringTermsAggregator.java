@@ -472,7 +472,9 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|InternalOrder
+name|Terms
+operator|.
+name|Order
 name|order
 parameter_list|,
 name|BucketCountThresholds
@@ -1588,7 +1590,9 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|InternalOrder
+name|Terms
+operator|.
+name|Order
 name|order
 parameter_list|,
 name|BucketCountThresholds
@@ -1951,7 +1955,9 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|InternalOrder
+name|Terms
+operator|.
+name|Order
 name|order
 parameter_list|,
 name|BucketCountThresholds
