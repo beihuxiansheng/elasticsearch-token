@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ActionRequestValidationException
 import|;
 end_import
@@ -652,6 +664,21 @@ specifier|public
 name|IndexRequest
 parameter_list|()
 block|{     }
+comment|/**      * Creates an index request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
+DECL|method|IndexRequest
+specifier|public
+name|IndexRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Constructs a new index request against the specific index. The {@link #type(String)}      * {@link #source(byte[])} must be set.      */
 DECL|method|IndexRequest
 specifier|public

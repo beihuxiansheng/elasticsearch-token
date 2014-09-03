@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ActionRequestValidationException
 import|;
 end_import
@@ -318,6 +330,21 @@ specifier|public
 name|DeleteRequest
 parameter_list|()
 block|{     }
+comment|/**      * Creates a delete request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
+DECL|method|DeleteRequest
+specifier|public
+name|DeleteRequest
+parameter_list|(
+name|ActionRequest
+name|request
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|validate
