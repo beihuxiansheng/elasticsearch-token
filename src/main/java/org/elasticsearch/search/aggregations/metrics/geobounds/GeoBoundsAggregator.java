@@ -804,13 +804,13 @@ operator|.
 name|NEGATIVE_INFINITY
 argument_list|)
 expr_stmt|;
-name|posLefts
+name|posRights
 operator|=
 name|bigArrays
 operator|.
 name|resize
 argument_list|(
-name|posLefts
+name|posRights
 argument_list|,
 name|tops
 operator|.
