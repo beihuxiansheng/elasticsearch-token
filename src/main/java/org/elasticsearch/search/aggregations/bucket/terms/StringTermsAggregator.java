@@ -305,7 +305,9 @@ parameter_list|,
 name|long
 name|estimatedBucketCount
 parameter_list|,
-name|InternalOrder
+name|Terms
+operator|.
+name|Order
 name|order
 parameter_list|,
 name|BucketCountThresholds
