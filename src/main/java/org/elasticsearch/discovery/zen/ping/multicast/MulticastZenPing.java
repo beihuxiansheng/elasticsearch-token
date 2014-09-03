@@ -312,7 +312,9 @@ name|discovery
 operator|.
 name|zen
 operator|.
-name|DiscoveryNodesProvider
+name|ping
+operator|.
+name|PingContextProvider
 import|;
 end_import
 
@@ -597,11 +599,11 @@ specifier|final
 name|Version
 name|version
 decl_stmt|;
-DECL|field|nodesProvider
+DECL|field|contextProvider
 specifier|private
 specifier|volatile
-name|DiscoveryNodesProvider
-name|nodesProvider
+name|PingContextProvider
+name|contextProvider
 decl_stmt|;
 DECL|field|pingEnabled
 specifier|private
@@ -846,12 +848,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNodesProvider
+DECL|method|setPingContextProvider
 specifier|public
 name|void
-name|setNodesProvider
+name|setPingContextProvider
 parameter_list|(
-name|DiscoveryNodesProvider
+name|PingContextProvider
 name|nodesProvider
 parameter_list|)
 block|{
@@ -873,7 +875,7 @@ throw|;
 block|}
 name|this
 operator|.
-name|nodesProvider
+name|contextProvider
 operator|=
 name|nodesProvider
 expr_stmt|;
@@ -1409,6 +1411,7 @@ argument_list|(
 name|INTERNAL_HEADER
 argument_list|)
 expr_stmt|;
+comment|// TODO: change to min_required version!
 name|Version
 operator|.
 name|writeVersion
@@ -1432,7 +1435,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|nodesProvider
+name|contextProvider
 operator|.
 name|nodes
 argument_list|()
@@ -1645,7 +1648,7 @@ name|request
 operator|.
 name|pingResponse
 operator|.
-name|target
+name|node
 argument_list|()
 argument_list|,
 name|request
@@ -2216,8 +2219,9 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+specifier|final
 name|String
-name|clusterName
+name|requestClusterName
 init|=
 name|request
 operator|.
@@ -2257,7 +2261,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|clusterName
+name|requestClusterName
 operator|==
 literal|null
 condition|)
@@ -2278,14 +2282,10 @@ block|}
 if|if
 condition|(
 operator|!
-name|clusterName
+name|requestClusterName
 operator|.
 name|equals
 argument_list|(
-name|MulticastZenPing
-operator|.
-name|this
-operator|.
 name|clusterName
 operator|.
 name|value
@@ -2299,12 +2299,8 @@ name|trace
 argument_list|(
 literal|"got request for cluster_name {}, but our cluster_name is {}, from {}, content {}"
 argument_list|,
-name|clusterName
+name|requestClusterName
 argument_list|,
-name|MulticastZenPing
-operator|.
-name|this
-operator|.
 name|clusterName
 operator|.
 name|value
@@ -2342,7 +2338,7 @@ block|{
 name|DiscoveryNode
 name|localNode
 init|=
-name|nodesProvider
+name|contextProvider
 operator|.
 name|nodes
 argument_list|()
@@ -2376,10 +2372,6 @@ name|field
 argument_list|(
 literal|"cluster_name"
 argument_list|,
-name|MulticastZenPing
-operator|.
-name|this
-operator|.
 name|clusterName
 operator|.
 name|value
@@ -2432,7 +2424,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|nodesProvider
+name|contextProvider
 operator|.
 name|nodeService
 argument_list|()
@@ -2452,7 +2444,7 @@ name|String
 argument_list|>
 name|attr
 range|:
-name|nodesProvider
+name|contextProvider
 operator|.
 name|nodeService
 argument_list|()
@@ -2599,7 +2591,7 @@ name|DiscoveryNode
 name|requestingNodeX
 parameter_list|,
 name|ClusterName
-name|clusterName
+name|requestClusterName
 parameter_list|)
 block|{
 if|if
@@ -2610,10 +2602,11 @@ condition|)
 block|{
 return|return;
 block|}
+specifier|final
 name|DiscoveryNodes
 name|discoveryNodes
 init|=
-name|nodesProvider
+name|contextProvider
 operator|.
 name|nodes
 argument_list|()
@@ -2646,14 +2639,10 @@ block|}
 if|if
 condition|(
 operator|!
-name|clusterName
+name|requestClusterName
 operator|.
 name|equals
 argument_list|(
-name|MulticastZenPing
-operator|.
-name|this
-operator|.
 name|clusterName
 argument_list|)
 condition|)
@@ -2676,13 +2665,15 @@ name|id
 argument_list|,
 name|requestingNode
 argument_list|,
-name|clusterName
+name|requestClusterName
+operator|.
+name|value
+argument_list|()
 argument_list|,
-name|MulticastZenPing
-operator|.
-name|this
-operator|.
 name|clusterName
+operator|.
+name|value
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2721,7 +2712,7 @@ name|id
 argument_list|,
 name|requestingNode
 argument_list|,
-name|clusterName
+name|requestClusterName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2759,6 +2750,11 @@ name|masterNode
 argument_list|()
 argument_list|,
 name|clusterName
+argument_list|,
+name|contextProvider
+operator|.
+name|nodeHasJoinedClusterOnce
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

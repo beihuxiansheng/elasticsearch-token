@@ -34,6 +34,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterName
@@ -132,20 +142,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|DiscoveryNodesProvider
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -199,12 +195,12 @@ argument_list|<
 name|ZenPing
 argument_list|>
 block|{
-DECL|method|setNodesProvider
+DECL|method|setPingContextProvider
 name|void
-name|setNodesProvider
+name|setPingContextProvider
 parameter_list|(
-name|DiscoveryNodesProvider
-name|nodesProvider
+name|PingContextProvider
+name|contextProvider
 parameter_list|)
 function_decl|;
 DECL|method|ping
@@ -262,40 +258,49 @@ specifier|private
 name|ClusterName
 name|clusterName
 decl_stmt|;
-DECL|field|target
+DECL|field|node
 specifier|private
 name|DiscoveryNode
-name|target
+name|node
 decl_stmt|;
 DECL|field|master
 specifier|private
 name|DiscoveryNode
 name|master
 decl_stmt|;
+DECL|field|hasJoinedOnce
+specifier|private
+name|boolean
+name|hasJoinedOnce
+decl_stmt|;
 DECL|method|PingResponse
 specifier|private
 name|PingResponse
 parameter_list|()
 block|{         }
+comment|/**          * @param node          the node which this ping describes          * @param master        the current master of the node          * @param clusterName   the cluster name of the node          * @param hasJoinedOnce true if the joined has successfully joined the cluster before          */
 DECL|method|PingResponse
 specifier|public
 name|PingResponse
 parameter_list|(
 name|DiscoveryNode
-name|target
+name|node
 parameter_list|,
 name|DiscoveryNode
 name|master
 parameter_list|,
 name|ClusterName
 name|clusterName
+parameter_list|,
+name|boolean
+name|hasJoinedOnce
 parameter_list|)
 block|{
 name|this
 operator|.
-name|target
+name|node
 operator|=
-name|target
+name|node
 expr_stmt|;
 name|this
 operator|.
@@ -308,6 +313,12 @@ operator|.
 name|clusterName
 operator|=
 name|clusterName
+expr_stmt|;
+name|this
+operator|.
+name|hasJoinedOnce
+operator|=
+name|hasJoinedOnce
 expr_stmt|;
 block|}
 DECL|method|clusterName
@@ -322,16 +333,18 @@ operator|.
 name|clusterName
 return|;
 block|}
-DECL|method|target
+comment|/** the node which this ping describes */
+DECL|method|node
 specifier|public
 name|DiscoveryNode
-name|target
+name|node
 parameter_list|()
 block|{
 return|return
-name|target
+name|node
 return|;
 block|}
+comment|/** the current master of the node */
 DECL|method|master
 specifier|public
 name|DiscoveryNode
@@ -340,6 +353,17 @@ parameter_list|()
 block|{
 return|return
 name|master
+return|;
+block|}
+comment|/** true if the joined has successfully joined the cluster before */
+DECL|method|hasJoinedOnce
+specifier|public
+name|boolean
+name|hasJoinedOnce
+parameter_list|()
+block|{
+return|return
+name|hasJoinedOnce
 return|;
 block|}
 DECL|method|readPingResponse
@@ -392,7 +416,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|target
+name|node
 operator|=
 name|readNode
 argument_list|(
@@ -413,6 +437,44 @@ name|readNode
 argument_list|(
 name|in
 argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|in
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_1_4_0
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|hasJoinedOnce
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// As of 1.4.0 we prefer to elect nodes which have previously successfully joined the cluster.
+comment|// Nodes before 1.4.0 do not take this into consideration. If pre<1.4.0 node elects it self as master
+comment|// based on the pings, we need to make sure we do the same. We therefore can not demote it
+comment|// and thus mark it as if it has previously joined.
+name|this
+operator|.
+name|hasJoinedOnce
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -436,7 +498,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|target
+name|node
 operator|.
 name|writeTo
 argument_list|(
@@ -475,6 +537,29 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|out
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_1_4_0
+argument_list|)
+condition|)
+block|{
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|hasJoinedOnce
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -485,13 +570,17 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ping_response{target ["
+literal|"ping_response{node ["
 operator|+
-name|target
+name|node
 operator|+
 literal|"], master ["
 operator|+
 name|master
+operator|+
+literal|"], hasJoinedOnce ["
+operator|+
+name|hasJoinedOnce
 operator|+
 literal|"], cluster_name["
 operator|+

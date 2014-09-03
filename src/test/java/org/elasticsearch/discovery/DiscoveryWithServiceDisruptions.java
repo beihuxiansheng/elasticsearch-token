@@ -1230,7 +1230,7 @@ operator|)
 name|zenPing
 operator|)
 operator|.
-name|clearTemporalReponses
+name|clearTemporalResponses
 argument_list|()
 expr_stmt|;
 block|}
@@ -3957,7 +3957,7 @@ operator|)
 name|zenPing
 operator|)
 operator|.
-name|clearTemporalReponses
+name|clearTemporalResponses
 argument_list|()
 expr_stmt|;
 block|}
@@ -4149,7 +4149,7 @@ operator|)
 name|zenPing
 operator|)
 operator|.
-name|clearTemporalReponses
+name|clearTemporalResponses
 argument_list|()
 expr_stmt|;
 block|}
