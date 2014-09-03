@@ -703,6 +703,12 @@ argument_list|>
 extends|,
 name|Releasable
 block|{
+DECL|field|CLIENT_TYPE_SETTING
+name|String
+name|CLIENT_TYPE_SETTING
+init|=
+literal|"client.type"
+decl_stmt|;
 comment|/**      * The admin client that can be used to perform administrative operations.      */
 DECL|method|admin
 name|AdminClient
