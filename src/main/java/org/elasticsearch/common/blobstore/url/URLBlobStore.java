@@ -28,6 +28,20 @@ name|common
 operator|.
 name|blobstore
 operator|.
+name|BlobContainer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|blobstore
+operator|.
 name|BlobPath
 import|;
 end_import
@@ -57,20 +71,6 @@ operator|.
 name|blobstore
 operator|.
 name|BlobStoreException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|blobstore
-operator|.
-name|ImmutableBlobContainer
 import|;
 end_import
 
@@ -188,12 +188,6 @@ name|AbstractComponent
 implements|implements
 name|BlobStore
 block|{
-DECL|field|threadPool
-specifier|private
-specifier|final
-name|ThreadPool
-name|threadPool
-decl_stmt|;
 DECL|field|path
 specifier|private
 specifier|final
@@ -206,16 +200,13 @@ specifier|final
 name|int
 name|bufferSizeInBytes
 decl_stmt|;
-comment|/**      * Constructs new read-only URL-based blob store      *<p/>      * The following settings are supported      *<dl>      *<dt>buffer_size</dt>      *<dd>- size of the read buffer, defaults to 100KB</dd>      *</dl>      *      * @param settings settings      * @param threadPool thread pool for read operations      * @param path     base URL      */
+comment|/**      * Constructs new read-only URL-based blob store      *<p/>      * The following settings are supported      *<dl>      *<dt>buffer_size</dt>      *<dd>- size of the read buffer, defaults to 100KB</dd>      *</dl>      *      * @param settings settings      * @param path     base URL      */
 DECL|method|URLBlobStore
 specifier|public
 name|URLBlobStore
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|ThreadPool
-name|threadPool
 parameter_list|,
 name|URL
 name|path
@@ -259,12 +250,6 @@ operator|.
 name|bytes
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|threadPool
-operator|=
-name|threadPool
-expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
@@ -306,33 +291,13 @@ operator|.
 name|bufferSizeInBytes
 return|;
 block|}
-comment|/**      * Returns executor used for read operations      *      * @return executor      */
-DECL|method|executor
-specifier|public
-name|Executor
-name|executor
-parameter_list|()
-block|{
-return|return
-name|threadPool
-operator|.
-name|executor
-argument_list|(
-name|ThreadPool
-operator|.
-name|Names
-operator|.
-name|SNAPSHOT_DATA
-argument_list|)
-return|;
-block|}
 comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
-DECL|method|immutableBlobContainer
+DECL|method|blobContainer
 specifier|public
-name|ImmutableBlobContainer
-name|immutableBlobContainer
+name|BlobContainer
+name|blobContainer
 parameter_list|(
 name|BlobPath
 name|path
@@ -342,7 +307,7 @@ try|try
 block|{
 return|return
 operator|new
-name|URLImmutableBlobContainer
+name|URLBlobContainer
 argument_list|(
 name|this
 argument_list|,

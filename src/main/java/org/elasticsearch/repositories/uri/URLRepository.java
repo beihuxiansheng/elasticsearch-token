@@ -249,9 +249,6 @@ parameter_list|,
 name|RepositorySettings
 name|repositorySettings
 parameter_list|,
-name|ThreadPool
-name|threadPool
-parameter_list|,
 name|IndexShardRepository
 name|indexShardRepository
 parameter_list|)
@@ -351,8 +348,6 @@ operator|new
 name|URLBlobStore
 argument_list|(
 name|componentSettings
-argument_list|,
-name|threadPool
 argument_list|,
 name|url
 argument_list|)

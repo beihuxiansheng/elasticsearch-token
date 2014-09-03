@@ -2834,12 +2834,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|SNAPSHOT_DATA
-argument_list|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|SUGGEST
 argument_list|,
 name|ThreadPool

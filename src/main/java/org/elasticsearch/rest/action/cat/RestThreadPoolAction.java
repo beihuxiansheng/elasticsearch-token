@@ -536,12 +536,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|SNAPSHOT_DATA
-block|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|SUGGEST
 block|,
 name|ThreadPool

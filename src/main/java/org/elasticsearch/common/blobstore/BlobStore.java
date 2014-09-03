@@ -26,9 +26,9 @@ specifier|public
 interface|interface
 name|BlobStore
 block|{
-DECL|method|immutableBlobContainer
-name|ImmutableBlobContainer
-name|immutableBlobContainer
+DECL|method|blobContainer
+name|BlobContainer
+name|blobContainer
 parameter_list|(
 name|BlobPath
 name|path
