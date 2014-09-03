@@ -178,6 +178,7 @@ name|builders
 init|=
 operator|new
 name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|builders
@@ -380,16 +381,14 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|SearchResponse
-name|searchResponse
-decl_stmt|;
 name|String
 name|query
 init|=
 literal|"{ \"query\" : { \"match_all\": {}} , \"script_fields\" : { \"test1\" : { \"script_id\" : \"script1\", \"lang\":\"groovy\" }, \"test2\" : { \"script_id\" : \"script2\", \"lang\":\"groovy\", \"params\":{\"factor\":3}  }}, size:1}"
 decl_stmt|;
+name|SearchResponse
 name|searchResponse
-operator|=
+init|=
 name|client
 argument_list|()
 operator|.
@@ -413,7 +412,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|assertHitCount
 argument_list|(
 name|searchResponse
