@@ -1528,16 +1528,6 @@ name|mapperBuilder
 argument_list|,
 name|fieldName
 argument_list|,
-operator|(
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-operator|)
-name|fieldNode
-argument_list|,
 name|parserContext
 argument_list|,
 name|propName
