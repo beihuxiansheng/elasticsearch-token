@@ -139,9 +139,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Client
-name|client
-parameter_list|,
 name|RestController
 name|controller
 parameter_list|,
@@ -150,13 +147,16 @@ argument_list|<
 name|AbstractCatAction
 argument_list|>
 name|catActions
+parameter_list|,
+name|RestClientFactory
+name|restClientFactory
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
 argument_list|,
-name|client
+name|restClientFactory
 argument_list|)
 expr_stmt|;
 name|controller
