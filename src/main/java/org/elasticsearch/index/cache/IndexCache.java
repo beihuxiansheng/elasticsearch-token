@@ -343,6 +343,17 @@ return|return
 name|filterCache
 return|;
 block|}
+comment|/**      * Return the {@link FixedBitSetFilterCache} for this index.      */
+DECL|method|fixedBitSetFilterCache
+specifier|public
+name|FixedBitSetFilterCache
+name|fixedBitSetFilterCache
+parameter_list|()
+block|{
+return|return
+name|fixedBitSetFilterCache
+return|;
+block|}
 DECL|method|queryParserCache
 specifier|public
 name|QueryParserCache
