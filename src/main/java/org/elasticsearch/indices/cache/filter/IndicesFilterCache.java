@@ -789,9 +789,10 @@ name|void
 name|computeSizeInBytes
 parameter_list|()
 block|{
-name|long
+name|this
+operator|.
 name|sizeInBytes
-init|=
+operator|=
 name|MemorySizeValue
 operator|.
 name|parseBytesSizeValueOrHeapRatio
@@ -801,54 +802,6 @@ argument_list|)
 operator|.
 name|bytes
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|sizeInBytes
-operator|>
-name|ByteSizeValue
-operator|.
-name|MAX_GUAVA_CACHE_SIZE
-operator|.
-name|bytes
-argument_list|()
-condition|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"reducing requested filter cache size of [{}] to the maximum allowed size of [{}]"
-argument_list|,
-operator|new
-name|ByteSizeValue
-argument_list|(
-name|sizeInBytes
-argument_list|)
-argument_list|,
-name|ByteSizeValue
-operator|.
-name|MAX_GUAVA_CACHE_SIZE
-argument_list|)
-expr_stmt|;
-name|sizeInBytes
-operator|=
-name|ByteSizeValue
-operator|.
-name|MAX_GUAVA_CACHE_SIZE
-operator|.
-name|bytes
-argument_list|()
-expr_stmt|;
-comment|// Even though it feels wrong for size and sizeInBytes to get out of
-comment|// sync we don't update size here because it might cause the cache
-comment|// to be rebuilt every time new settings are applied.
-block|}
-name|this
-operator|.
-name|sizeInBytes
-operator|=
-name|sizeInBytes
 expr_stmt|;
 block|}
 DECL|method|addReaderKeyToClean
