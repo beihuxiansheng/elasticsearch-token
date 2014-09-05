@@ -377,6 +377,25 @@ name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"mapping type is empty"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|source
@@ -389,6 +408,25 @@ operator|=
 name|addValidationError
 argument_list|(
 literal|"mapping source is missing"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|source
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"mapping source is empty"
 argument_list|,
 name|validationException
 argument_list|)
