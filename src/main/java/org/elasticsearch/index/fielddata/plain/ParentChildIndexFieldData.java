@@ -80,6 +80,22 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|MultiDocValues
+operator|.
+name|OrdinalMap
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Accountable
@@ -140,7 +156,7 @@ name|util
 operator|.
 name|packed
 operator|.
-name|MonotonicAppendingLongBuffer
+name|PackedInts
 import|;
 end_import
 
@@ -156,7 +172,7 @@ name|util
 operator|.
 name|packed
 operator|.
-name|PackedInts
+name|PackedLongValues
 import|;
 end_import
 
@@ -1044,6 +1060,9 @@ operator|.
 name|value
 operator|.
 name|termOrdToBytesOffset
+operator|.
+name|build
+argument_list|()
 argument_list|,
 name|ordinals
 argument_list|)
@@ -1248,7 +1267,9 @@ name|bytes
 decl_stmt|;
 DECL|field|termOrdToBytesOffset
 specifier|final
-name|MonotonicAppendingLongBuffer
+name|PackedLongValues
+operator|.
+name|Builder
 name|termOrdToBytesOffset
 decl_stmt|;
 DECL|field|builder
@@ -1278,9 +1299,14 @@ argument_list|)
 expr_stmt|;
 name|termOrdToBytesOffset
 operator|=
-operator|new
-name|MonotonicAppendingLongBuffer
-argument_list|()
+name|PackedLongValues
+operator|.
+name|monotonicBuilder
+argument_list|(
+name|PackedInts
+operator|.
+name|COMPACT
+argument_list|)
 expr_stmt|;
 name|builder
 operator|=
@@ -1848,10 +1874,10 @@ name|getValue
 argument_list|()
 decl_stmt|;
 specifier|final
-name|XOrdinalMap
+name|OrdinalMap
 name|ordinalMap
 init|=
-name|XOrdinalMap
+name|OrdinalMap
 operator|.
 name|build
 argument_list|(

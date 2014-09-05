@@ -77,9 +77,9 @@ name|IndexShardComponent
 extends|,
 name|CloseableIndexComponent
 block|{
-DECL|method|newMergePolicy
+DECL|method|getMergePolicy
 name|T
-name|newMergePolicy
+name|getMergePolicy
 parameter_list|()
 function_decl|;
 block|}

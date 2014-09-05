@@ -172,9 +172,8 @@ index|[
 name|i
 index|]
 operator|.
-name|length
-operator|=
-literal|0
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 else|else

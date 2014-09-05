@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|SimpleAnalyzerWrapper
+name|DelegatingAnalyzerWrapper
 import|;
 end_import
 
@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|NamedAnalyzer
 extends|extends
-name|SimpleAnalyzerWrapper
+name|DelegatingAnalyzerWrapper
 block|{
 DECL|field|name
 specifier|private
@@ -180,6 +180,11 @@ name|int
 name|positionOffsetGap
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|ERROR_STRATEGY
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|name
@@ -314,6 +319,66 @@ operator|+
 literal|"]"
 return|;
 block|}
+comment|/** It is an error if this is ever used, it means we screwed up! */
+DECL|field|ERROR_STRATEGY
+specifier|static
+specifier|final
+name|ReuseStrategy
+name|ERROR_STRATEGY
+init|=
+operator|new
+name|Analyzer
+operator|.
+name|ReuseStrategy
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|TokenStreamComponents
+name|getReusableComponents
+parameter_list|(
+name|Analyzer
+name|a
+parameter_list|,
+name|String
+name|f
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"NamedAnalyzer cannot be wrapped with a wrapper, only a delegator"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|setReusableComponents
+parameter_list|(
+name|Analyzer
+name|a
+parameter_list|,
+name|String
+name|f
+parameter_list|,
+name|TokenStreamComponents
+name|c
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"NamedAnalyzer cannot be wrapped with a wrapper, only a delegator"
+argument_list|)
+throw|;
+block|}
+block|}
+decl_stmt|;
 block|}
 end_class
 

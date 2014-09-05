@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IntsRef
+name|IntsRefBuilder
 import|;
 end_import
 
@@ -535,11 +535,11 @@ name|outputs
 argument_list|)
 decl_stmt|;
 specifier|final
-name|IntsRef
+name|IntsRefBuilder
 name|scratch
 init|=
 operator|new
-name|IntsRef
+name|IntsRefBuilder
 argument_list|()
 decl_stmt|;
 specifier|final

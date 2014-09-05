@@ -1156,10 +1156,16 @@ argument_list|(
 name|spare
 operator|.
 name|surfaceForm
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|spare
 operator|.
 name|payload
+operator|.
+name|get
+argument_list|()
 argument_list|,
 name|spare
 operator|.

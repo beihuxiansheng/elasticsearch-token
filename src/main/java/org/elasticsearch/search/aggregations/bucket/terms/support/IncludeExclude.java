@@ -74,7 +74,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -89,20 +89,6 @@ operator|.
 name|util
 operator|.
 name|LongBitSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|UnicodeUtil
 import|;
 end_import
 
@@ -247,11 +233,11 @@ decl_stmt|;
 DECL|field|scratch
 specifier|private
 specifier|final
-name|CharsRef
+name|CharsRefBuilder
 name|scratch
 init|=
 operator|new
-name|CharsRef
+name|CharsRefBuilder
 argument_list|()
 decl_stmt|;
 comment|/**      * @param include   The regular expression pattern for the terms to be included      *                  (may only be {@code null} if {@code exclude} is not {@code null}      * @param exclude   The regular expression pattern for the terms to be excluded      *                  (may only be {@code null} if {@code include} is not {@code null}      */
@@ -323,13 +309,11 @@ name|BytesRef
 name|value
 parameter_list|)
 block|{
-name|UnicodeUtil
+name|scratch
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|value
-argument_list|,
-name|scratch
 argument_list|)
 expr_stmt|;
 if|if
@@ -347,6 +331,9 @@ operator|.
 name|reset
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|.
 name|matches
@@ -361,6 +348,9 @@ operator|.
 name|reset
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|.
 name|matches
@@ -389,6 +379,9 @@ operator|.
 name|reset
 argument_list|(
 name|scratch
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|.
 name|matches

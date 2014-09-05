@@ -72,7 +72,7 @@ name|util
 operator|.
 name|packed
 operator|.
-name|MonotonicAppendingLongBuffer
+name|PackedLongValues
 import|;
 end_import
 
@@ -115,7 +115,7 @@ decl_stmt|;
 DECL|field|termOrdToBytesOffset
 specifier|private
 specifier|final
-name|MonotonicAppendingLongBuffer
+name|PackedLongValues
 name|termOrdToBytesOffset
 decl_stmt|;
 DECL|field|ordinals
@@ -133,7 +133,7 @@ operator|.
 name|Reader
 name|bytes
 parameter_list|,
-name|MonotonicAppendingLongBuffer
+name|PackedLongValues
 name|termOrdToBytesOffset
 parameter_list|,
 name|Ordinals
@@ -257,7 +257,7 @@ decl_stmt|;
 DECL|field|termOrdToBytesOffset
 specifier|private
 specifier|final
-name|MonotonicAppendingLongBuffer
+name|PackedLongValues
 name|termOrdToBytesOffset
 decl_stmt|;
 DECL|method|ValuesHolder
@@ -268,7 +268,7 @@ operator|.
 name|Reader
 name|bytes
 parameter_list|,
-name|MonotonicAppendingLongBuffer
+name|PackedLongValues
 name|termOrdToBytesOffset
 parameter_list|)
 block|{

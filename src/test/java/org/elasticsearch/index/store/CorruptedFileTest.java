@@ -5105,10 +5105,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|newMergePolicy
+DECL|method|getMergePolicy
 specifier|public
 name|MergePolicy
-name|newMergePolicy
+name|getMergePolicy
 parameter_list|()
 block|{
 return|return

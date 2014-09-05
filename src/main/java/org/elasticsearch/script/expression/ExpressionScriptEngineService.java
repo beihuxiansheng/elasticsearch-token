@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|expressions
 operator|.
-name|XSimpleBindings
+name|SimpleBindings
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|expressions
 operator|.
 name|js
 operator|.
-name|XJavascriptCompiler
+name|JavascriptCompiler
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|expressions
 operator|.
 name|js
 operator|.
-name|XVariableContext
+name|VariableContext
 import|;
 end_import
 
@@ -383,7 +383,7 @@ try|try
 block|{
 comment|// NOTE: validation is delayed to allow runtime vars, and we don't have access to per index stuff here
 return|return
-name|XJavascriptCompiler
+name|JavascriptCompiler
 operator|.
 name|compile
 argument_list|(
@@ -455,11 +455,11 @@ argument_list|()
 decl_stmt|;
 comment|// NOTE: if we need to do anything complicated with bindings in the future, we can just extend Bindings,
 comment|// instead of complicating SimpleBindings (which should stay simple)
-name|XSimpleBindings
+name|SimpleBindings
 name|bindings
 init|=
 operator|new
-name|XSimpleBindings
+name|SimpleBindings
 argument_list|()
 decl_stmt|;
 name|ReplaceableConstValueSource
@@ -609,11 +609,11 @@ block|}
 block|}
 else|else
 block|{
-name|XVariableContext
+name|VariableContext
 index|[]
 name|parts
 init|=
-name|XVariableContext
+name|VariableContext
 operator|.
 name|parse
 argument_list|(
@@ -669,7 +669,7 @@ index|]
 operator|.
 name|type
 operator|!=
-name|XVariableContext
+name|VariableContext
 operator|.
 name|Type
 operator|.
@@ -699,7 +699,7 @@ index|]
 operator|.
 name|type
 operator|!=
-name|XVariableContext
+name|VariableContext
 operator|.
 name|Type
 operator|.

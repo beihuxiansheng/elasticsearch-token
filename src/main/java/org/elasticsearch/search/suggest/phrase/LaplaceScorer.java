@@ -262,6 +262,9 @@ operator|+
 name|frequency
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|)
 operator|/
@@ -322,6 +325,9 @@ init|=
 name|frequency
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SuggestUtils
@@ -354,6 +360,9 @@ operator|+
 name|frequency
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|+
 name|vocabluarySize

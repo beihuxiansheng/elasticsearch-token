@@ -2987,7 +2987,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_9
+name|LUCENE_4_10_0
 argument_list|)
 decl_stmt|;
 DECL|field|V_2_0_0_ID
@@ -3024,7 +3024,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_9
+name|LUCENE_4_10_0
 argument_list|)
 decl_stmt|;
 DECL|field|CURRENT
@@ -3042,10 +3042,13 @@ assert|assert
 name|CURRENT
 operator|.
 name|luceneVersion
-operator|==
+operator|.
+name|equals
+argument_list|(
 name|Lucene
 operator|.
 name|VERSION
+argument_list|)
 operator|:
 literal|"Version must be upgraded to ["
 operator|+

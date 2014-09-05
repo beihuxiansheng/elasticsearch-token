@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -437,14 +437,13 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 init|=
 operator|new
-name|CharsRef
+name|CharsRefBuilder
 argument_list|()
 decl_stmt|;
-comment|// Maybe add CharsRef to CacheRecycler?
 specifier|final
 name|List
 argument_list|<

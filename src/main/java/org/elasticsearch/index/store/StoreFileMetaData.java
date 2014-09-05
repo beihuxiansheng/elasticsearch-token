@@ -633,7 +633,7 @@ literal|null
 else|:
 name|writtenBy
 operator|.
-name|name
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

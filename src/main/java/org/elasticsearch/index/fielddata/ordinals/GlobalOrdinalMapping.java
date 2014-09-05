@@ -28,7 +28,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|MultiDocValues
+operator|.
+name|OrdinalMap
 import|;
 end_import
 
@@ -42,7 +44,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|XOrdinalMap
+name|RandomAccessOrds
 import|;
 end_import
 
@@ -109,7 +111,7 @@ decl_stmt|;
 DECL|field|ordinalMap
 specifier|private
 specifier|final
-name|XOrdinalMap
+name|OrdinalMap
 name|ordinalMap
 decl_stmt|;
 DECL|field|mapping
@@ -128,7 +130,7 @@ decl_stmt|;
 DECL|method|GlobalOrdinalMapping
 name|GlobalOrdinalMapping
 parameter_list|(
-name|XOrdinalMap
+name|OrdinalMap
 name|ordinalMap
 parameter_list|,
 name|RandomAccessOrds

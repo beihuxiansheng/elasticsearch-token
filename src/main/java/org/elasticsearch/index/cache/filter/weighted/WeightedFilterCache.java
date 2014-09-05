@@ -156,7 +156,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|BytesRefBuilder
 import|;
 end_import
 
@@ -694,11 +694,11 @@ name|keys
 argument_list|)
 expr_stmt|;
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|spare
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 for|for

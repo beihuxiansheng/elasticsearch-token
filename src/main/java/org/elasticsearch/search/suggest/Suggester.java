@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -105,7 +105,7 @@ parameter_list|,
 name|IndexReader
 name|indexReader
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -162,7 +162,7 @@ parameter_list|,
 name|IndexReader
 name|indexReader
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws

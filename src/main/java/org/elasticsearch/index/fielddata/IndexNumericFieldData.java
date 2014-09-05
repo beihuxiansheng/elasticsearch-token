@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|NumericUtils
 import|;
 end_import
@@ -159,7 +173,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
@@ -244,7 +258,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
@@ -329,7 +343,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
@@ -419,7 +433,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
@@ -514,7 +528,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
@@ -619,7 +633,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 block|{
@@ -817,7 +831,7 @@ parameter_list|(
 name|Number
 name|number
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|bytes
 parameter_list|)
 function_decl|;

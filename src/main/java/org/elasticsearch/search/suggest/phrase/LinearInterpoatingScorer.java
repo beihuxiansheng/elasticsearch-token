@@ -251,6 +251,9 @@ init|=
 name|frequency
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -339,6 +342,9 @@ init|=
 name|frequency
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -386,6 +392,9 @@ operator|+
 name|frequency
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|)
 operator|)
 operator|)

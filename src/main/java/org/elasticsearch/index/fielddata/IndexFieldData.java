@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|BytesRefBuilder
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|FixedBitSet
 import|;
 end_import
 
@@ -503,12 +503,13 @@ name|MAX_TERM
 decl_stmt|;
 static|static
 block|{
-name|MAX_TERM
-operator|=
+name|BytesRefBuilder
+name|builder
+init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|char
 index|[]
@@ -523,9 +524,9 @@ operator|.
 name|MAX_CODE_POINT
 argument_list|)
 decl_stmt|;
-name|UnicodeUtil
+name|builder
 operator|.
-name|UTF16toUTF8
+name|copyChars
 argument_list|(
 name|chars
 argument_list|,
@@ -534,9 +535,14 @@ argument_list|,
 name|chars
 operator|.
 name|length
-argument_list|,
-name|MAX_TERM
 argument_list|)
+expr_stmt|;
+name|MAX_TERM
+operator|=
+name|builder
+operator|.
+name|toBytesRef
+argument_list|()
 expr_stmt|;
 block|}
 comment|/**          * Simple wrapper class around a filter that matches parent documents          * and a filter that matches child documents. For every root document R,          * R will be in the parent filter and its children documents will be the          * documents that are contained in the inner set between the previous          * parent + 1, or 0 if there is no previous parent, and R (excluded).          */

@@ -606,7 +606,7 @@ operator|.
 name|writtenBy
 argument_list|()
 operator|.
-name|name
+name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -36,6 +36,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|search
@@ -207,7 +221,7 @@ argument_list|(
 name|separator
 argument_list|,
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 argument_list|,
 name|preTag
@@ -224,7 +238,7 @@ parameter_list|(
 name|BytesRef
 name|separator
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|result
 parameter_list|,
 name|BytesRef
@@ -330,16 +344,21 @@ operator|.
 name|length
 decl_stmt|;
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|highlighted
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
+argument_list|()
+decl_stmt|;
+comment|// just allocate once
+name|highlighted
+operator|.
+name|grow
 argument_list|(
 name|maxLen
 argument_list|)
-decl_stmt|;
-comment|// just allocate once
+expr_stmt|;
 if|if
 condition|(
 name|i
@@ -407,6 +426,9 @@ name|i
 index|]
 operator|=
 name|highlighted
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
 block|}
 name|len
@@ -421,12 +443,6 @@ expr_stmt|;
 block|}
 name|result
 operator|.
-name|offset
-operator|=
-literal|0
-expr_stmt|;
-name|result
-operator|.
 name|grow
 argument_list|(
 name|len
@@ -435,7 +451,7 @@ expr_stmt|;
 return|return
 name|SuggestUtils
 operator|.
-name|joinPreAllocated
+name|join
 argument_list|(
 name|separator
 argument_list|,

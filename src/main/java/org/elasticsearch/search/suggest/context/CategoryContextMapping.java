@@ -114,6 +114,22 @@ name|util
 operator|.
 name|automaton
 operator|.
+name|Automata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|automaton
+operator|.
 name|Automaton
 import|;
 end_import
@@ -130,7 +146,7 @@ name|util
 operator|.
 name|automaton
 operator|.
-name|BasicAutomata
+name|Operations
 import|;
 end_import
 
@@ -1633,7 +1649,7 @@ name|automatons
 operator|.
 name|add
 argument_list|(
-name|BasicAutomata
+name|Automata
 operator|.
 name|makeString
 argument_list|(
@@ -1646,7 +1662,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|Automaton
+name|Operations
 operator|.
 name|union
 argument_list|(

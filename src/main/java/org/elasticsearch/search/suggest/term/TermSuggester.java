@@ -102,7 +102,21 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -278,7 +292,7 @@ parameter_list|,
 name|IndexReader
 name|indexReader
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -512,7 +526,7 @@ parameter_list|(
 name|SuggestionContext
 name|suggestion
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -583,7 +597,7 @@ argument_list|(
 name|fillBytesRef
 argument_list|(
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 argument_list|)
 argument_list|)

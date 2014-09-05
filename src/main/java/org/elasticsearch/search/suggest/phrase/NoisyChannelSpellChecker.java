@@ -132,7 +132,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|BytesRefBuilder
 import|;
 end_import
 
@@ -146,7 +146,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -424,11 +424,11 @@ name|typeAttribute
 decl_stmt|;
 specifier|private
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|termsRef
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 specifier|private
@@ -884,7 +884,7 @@ argument_list|,
 name|query
 argument_list|,
 operator|new
-name|CharsRef
+name|CharsRefBuilder
 argument_list|()
 argument_list|,
 name|analysisField
@@ -923,7 +923,7 @@ parameter_list|,
 name|BytesRef
 name|query
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|,
 name|String
@@ -932,13 +932,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|query
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 return|return
@@ -954,14 +952,14 @@ argument_list|(
 name|spare
 operator|.
 name|chars
+argument_list|()
 argument_list|,
-name|spare
-operator|.
-name|offset
+literal|0
 argument_list|,
 name|spare
 operator|.
 name|length
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

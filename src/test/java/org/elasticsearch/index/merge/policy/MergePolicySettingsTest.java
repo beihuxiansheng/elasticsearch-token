@@ -282,7 +282,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -310,7 +310,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -338,7 +338,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -366,7 +366,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -394,7 +394,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -422,7 +422,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -450,7 +450,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -478,7 +478,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -506,7 +506,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -534,7 +534,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -562,7 +562,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -587,7 +587,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -615,7 +615,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -643,7 +643,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -671,7 +671,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -699,7 +699,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -727,7 +727,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -755,7 +755,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -783,7 +783,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -811,7 +811,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -839,7 +839,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -867,7 +867,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -892,7 +892,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -920,7 +920,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -948,7 +948,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -976,7 +976,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1004,7 +1004,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1032,7 +1032,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1060,7 +1060,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1088,7 +1088,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1116,7 +1116,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1144,7 +1144,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1172,7 +1172,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1227,7 +1227,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1261,7 +1261,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1295,7 +1295,7 @@ argument_list|,
 name|service
 argument_list|)
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1358,7 +1358,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1384,7 +1384,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1410,7 +1410,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1436,7 +1436,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1483,7 +1483,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1509,7 +1509,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1535,7 +1535,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1561,7 +1561,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1608,7 +1608,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1634,7 +1634,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1660,7 +1660,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio
@@ -1686,7 +1686,7 @@ name|assertThat
 argument_list|(
 name|mp
 operator|.
-name|newMergePolicy
+name|getMergePolicy
 argument_list|()
 operator|.
 name|getNoCFSRatio

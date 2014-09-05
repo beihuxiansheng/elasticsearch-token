@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|SimpleAnalyzerWrapper
+name|DelegatingAnalyzerWrapper
 import|;
 end_import
 
@@ -69,7 +69,7 @@ specifier|final
 class|class
 name|FieldNameAnalyzer
 extends|extends
-name|SimpleAnalyzerWrapper
+name|DelegatingAnalyzerWrapper
 block|{
 DECL|field|analyzers
 specifier|private
@@ -104,6 +104,13 @@ name|Analyzer
 name|defaultAnalyzer
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|Analyzer
+operator|.
+name|PER_FIELD_REUSE_STRATEGY
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|analyzers

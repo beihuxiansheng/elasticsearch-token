@@ -42,7 +42,9 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|RandomAccessOrds
+name|MultiDocValues
+operator|.
+name|OrdinalMap
 import|;
 end_import
 
@@ -56,7 +58,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|XOrdinalMap
+name|RandomAccessOrds
 import|;
 end_import
 
@@ -315,10 +317,10 @@ argument_list|()
 expr_stmt|;
 block|}
 specifier|final
-name|XOrdinalMap
+name|OrdinalMap
 name|ordinalMap
 init|=
-name|XOrdinalMap
+name|OrdinalMap
 operator|.
 name|build
 argument_list|(

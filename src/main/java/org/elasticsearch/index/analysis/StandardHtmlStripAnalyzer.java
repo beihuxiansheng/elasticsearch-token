@@ -221,6 +221,7 @@ name|ENGLISH_STOP_WORDS_SET
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: add non Version based ctors?
 DECL|method|StandardHtmlStripAnalyzer
 specifier|public
 name|StandardHtmlStripAnalyzer
@@ -263,7 +264,8 @@ init|=
 operator|new
 name|StandardTokenizer
 argument_list|(
-name|matchVersion
+name|getVersion
+argument_list|()
 argument_list|,
 name|reader
 argument_list|)
@@ -283,7 +285,8 @@ init|=
 operator|new
 name|StandardFilter
 argument_list|(
-name|matchVersion
+name|getVersion
+argument_list|()
 argument_list|,
 name|src
 argument_list|)
@@ -293,7 +296,8 @@ operator|=
 operator|new
 name|LowerCaseFilter
 argument_list|(
-name|matchVersion
+name|getVersion
+argument_list|()
 argument_list|,
 name|tok
 argument_list|)
@@ -312,7 +316,8 @@ operator|=
 operator|new
 name|StopFilter
 argument_list|(
-name|matchVersion
+name|getVersion
+argument_list|()
 argument_list|,
 name|tok
 argument_list|,

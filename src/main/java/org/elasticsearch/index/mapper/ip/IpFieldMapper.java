@@ -154,6 +154,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|NumericUtils
 import|;
 end_import
@@ -1468,11 +1482,11 @@ name|Object
 name|value
 parameter_list|)
 block|{
-name|BytesRef
+name|BytesRefBuilder
 name|bytesRef
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 name|NumericUtils
@@ -1492,6 +1506,9 @@ expr_stmt|;
 comment|// 0 because of exact match
 return|return
 name|bytesRef
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 DECL|method|parseValue

@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|expressions
 operator|.
-name|XSimpleBindings
+name|SimpleBindings
 import|;
 end_import
 
@@ -178,7 +178,7 @@ name|expression
 decl_stmt|;
 DECL|field|bindings
 specifier|final
-name|XSimpleBindings
+name|SimpleBindings
 name|bindings
 decl_stmt|;
 DECL|field|source
@@ -219,7 +219,7 @@ parameter_list|(
 name|Expression
 name|e
 parameter_list|,
-name|XSimpleBindings
+name|SimpleBindings
 name|b
 parameter_list|,
 name|ReplaceableConstValueSource

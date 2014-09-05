@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|BytesRefBuilder
 import|;
 end_import
 
@@ -128,7 +128,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|UnicodeUtil
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -512,7 +512,7 @@ parameter_list|,
 name|IndexReader
 name|indexReader
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -876,11 +876,11 @@ argument_list|(
 name|resultEntry
 argument_list|)
 expr_stmt|;
-name|BytesRef
+name|BytesRefBuilder
 name|byteSpare
 init|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 decl_stmt|;
 name|MultiSearchResponse
@@ -964,9 +964,9 @@ index|[
 name|i
 index|]
 decl_stmt|;
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|correction
 operator|.
@@ -980,8 +980,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 name|Text
@@ -1011,9 +1009,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|correction
 operator|.
@@ -1033,8 +1031,6 @@ operator|.
 name|getPostTag
 argument_list|()
 argument_list|)
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 name|highlighted
@@ -1149,23 +1145,21 @@ parameter_list|(
 name|PhraseSuggestionContext
 name|suggestion
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|,
 name|double
 name|cutoffScore
 parameter_list|)
 block|{
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|suggestion
 operator|.
 name|getText
 argument_list|()
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 return|return
@@ -1188,6 +1182,7 @@ argument_list|,
 name|spare
 operator|.
 name|length
+argument_list|()
 argument_list|,
 name|cutoffScore
 argument_list|)
@@ -1204,10 +1199,10 @@ parameter_list|,
 name|Result
 name|checkerResult
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|byteSpare
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -1311,10 +1306,10 @@ parameter_list|,
 name|PhraseSuggestionContext
 name|suggestions
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|byteSpare
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -1362,9 +1357,9 @@ range|:
 name|corrections
 control|)
 block|{
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|correction
 operator|.
@@ -1378,8 +1373,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|)
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 name|vars

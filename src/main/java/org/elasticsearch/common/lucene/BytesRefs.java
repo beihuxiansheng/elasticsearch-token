@@ -30,6 +30,20 @@ name|BytesRef
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -144,7 +158,7 @@ parameter_list|(
 name|Object
 name|value
 parameter_list|,
-name|BytesRef
+name|BytesRefBuilder
 name|spare
 parameter_list|)
 block|{
@@ -185,6 +199,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|spare
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 block|}

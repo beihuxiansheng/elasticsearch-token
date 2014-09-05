@@ -114,7 +114,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -129,20 +129,6 @@ operator|.
 name|util
 operator|.
 name|CollectionUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|UnicodeUtil
 import|;
 end_import
 
@@ -372,7 +358,7 @@ parameter_list|,
 name|IndexReader
 name|indexReader
 parameter_list|,
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 parameter_list|)
 throws|throws
@@ -427,16 +413,14 @@ name|getSize
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|suggestionContext
 operator|.
 name|getText
 argument_list|()
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 name|CompletionSuggestion
@@ -605,6 +589,9 @@ operator|.
 name|lookup
 argument_list|(
 name|spare
+operator|.
+name|get
+argument_list|()
 argument_list|,
 literal|false
 argument_list|,

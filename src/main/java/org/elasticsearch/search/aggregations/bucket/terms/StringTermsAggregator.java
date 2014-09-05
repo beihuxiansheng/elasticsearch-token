@@ -52,6 +52,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -272,7 +286,7 @@ decl_stmt|;
 DECL|field|previous
 specifier|private
 specifier|final
-name|BytesRef
+name|BytesRefBuilder
 name|previous
 decl_stmt|;
 DECL|method|StringTermsAggregator
@@ -362,7 +376,7 @@ expr_stmt|;
 name|previous
 operator|=
 operator|new
-name|BytesRef
+name|BytesRefBuilder
 argument_list|()
 expr_stmt|;
 block|}
@@ -437,9 +451,8 @@ decl_stmt|;
 comment|// SortedBinaryDocValues don't guarantee uniqueness so we need to take care of dups
 name|previous
 operator|.
-name|length
-operator|=
-literal|0
+name|clear
+argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -487,6 +500,9 @@ block|}
 if|if
 condition|(
 name|previous
+operator|.
+name|get
+argument_list|()
 operator|.
 name|equals
 argument_list|(

@@ -1883,6 +1883,26 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns immutable list of all known versions.      */
+DECL|method|allVersions
+specifier|public
+specifier|static
+name|List
+argument_list|<
+name|Version
+argument_list|>
+name|allVersions
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|SORTED_VERSIONS
+argument_list|)
+return|;
+block|}
 comment|/**      * A random {@link Version} from<code>minVersion</code> to      *<code>maxVersion</code> (inclusive).      *       * @param minVersion      *            the minimum version (inclusive)      * @param maxVersion      *            the maximum version (inclusive)      * @return a random {@link Version} from<code>minVersion</code> to      *<code>maxVersion</code> (inclusive)      */
 DECL|method|randomVersionBetween
 specifier|public

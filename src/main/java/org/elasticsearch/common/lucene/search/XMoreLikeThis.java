@@ -206,7 +206,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CharsRef
+name|CharsRefBuilder
 import|;
 end_import
 
@@ -221,20 +221,6 @@ operator|.
 name|util
 operator|.
 name|PriorityQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|UnicodeUtil
 import|;
 end_import
 
@@ -2103,11 +2089,11 @@ literal|null
 argument_list|)
 decl_stmt|;
 specifier|final
-name|CharsRef
+name|CharsRefBuilder
 name|spare
 init|=
 operator|new
-name|CharsRef
+name|CharsRefBuilder
 argument_list|()
 decl_stmt|;
 name|BytesRef
@@ -2127,13 +2113,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|UnicodeUtil
+name|spare
 operator|.
-name|UTF8toUTF16
+name|copyUTF8Bytes
 argument_list|(
 name|text
-argument_list|,
-name|spare
 argument_list|)
 expr_stmt|;
 specifier|final
