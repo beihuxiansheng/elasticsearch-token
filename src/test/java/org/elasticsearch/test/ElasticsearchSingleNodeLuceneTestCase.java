@@ -102,8 +102,22 @@ block|{
 name|ElasticsearchSingleNodeTest
 operator|.
 name|cleanup
+argument_list|(
+name|resetNodeAfterTest
 argument_list|()
+argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * This method returns<code>true</code> if the node that is used in the background should be reset      * after each test. This is useful if the test changes the cluster state metadata etc. The default is      *<code>false</code>.      */
+DECL|method|resetNodeAfterTest
+specifier|protected
+name|boolean
+name|resetNodeAfterTest
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
 block|}
 comment|/**      * Create a new index on the singleton node with empty index settings.      */
 DECL|method|createIndex
