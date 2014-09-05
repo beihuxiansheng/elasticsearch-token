@@ -114,10 +114,6 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|LZFCompressedStreamOutput
 specifier|public
@@ -199,7 +195,9 @@ operator|=
 name|ChunkEncoderFactory
 operator|.
 name|safeInstance
-argument_list|()
+argument_list|(
+name|recycler
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
