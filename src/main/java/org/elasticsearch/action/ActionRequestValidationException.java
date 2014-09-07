@@ -20,7 +20,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|ActionRequestValidationException
 extends|extends
-name|ElasticsearchException
+name|ElasticsearchIllegalArgumentException
 block|{
 DECL|field|validationErrors
 specifier|private
