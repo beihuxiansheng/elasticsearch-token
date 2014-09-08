@@ -682,7 +682,7 @@ name|getAsBoolean
 argument_list|(
 name|SETTING_CORS_ENABLED
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 condition|)
 block|{
