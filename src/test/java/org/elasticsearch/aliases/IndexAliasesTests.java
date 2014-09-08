@@ -1164,9 +1164,25 @@ argument_list|(
 literal|"--> creating index [test]"
 argument_list|)
 expr_stmt|;
-name|createIndex
+name|assertAcked
+argument_list|(
+name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+literal|"type1"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|"type=string"
+argument_list|,
+literal|"name"
+argument_list|,
+literal|"type=string"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
