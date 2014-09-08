@@ -32,6 +32,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -91,6 +105,16 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
 import|;
 end_import
 
@@ -174,10 +198,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 annotation|@
 name|ElasticsearchIntegrationTest
@@ -214,6 +234,17 @@ block|{
 comment|/**      * Simple upgrade test for analyzers to make sure they analyze to the same tokens after upgrade      * TODO we need this for random tokenizers / tokenfilters as well      */
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elasticsearch/dev/issues/264"
+argument_list|)
 DECL|method|testAnalyzerTokensAfterUpgrade
 specifier|public
 name|void
