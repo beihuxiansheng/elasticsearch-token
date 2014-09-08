@@ -244,7 +244,7 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * A simple factory used to create {@link PostingsFormatProvider} used by      * delegating providers like {@link BloomFilterLucenePostingsFormatProvider} or      * {@link PulsingPostingsFormatProvider}. Those providers wrap other      * postings formats to enrich their capabilities.      */
+comment|/**      * A simple factory used to create {@link PostingsFormatProvider} used by      * delegating providers.      */
 DECL|interface|Factory
 specifier|public
 interface|interface

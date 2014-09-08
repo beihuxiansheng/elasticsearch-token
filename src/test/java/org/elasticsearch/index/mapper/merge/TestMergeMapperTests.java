@@ -1288,7 +1288,7 @@ name|field
 argument_list|(
 literal|"postings_format"
 argument_list|,
-literal|"direct"
+literal|"Lucene41"
 argument_list|)
 operator|.
 name|endObject
@@ -1448,7 +1448,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"direct"
+literal|"Lucene41"
 argument_list|)
 argument_list|)
 expr_stmt|;
