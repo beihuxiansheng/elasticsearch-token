@@ -2074,13 +2074,6 @@ operator|.
 name|action
 argument_list|()
 decl_stmt|;
-name|listener
-operator|.
-name|onResponse
-argument_list|(
-name|update
-argument_list|)
-expr_stmt|;
 name|IndexService
 name|indexServiceOrNull
 init|=
@@ -2142,6 +2135,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+name|update
+argument_list|)
+expr_stmt|;
 break|break;
 default|default:
 throw|throw
