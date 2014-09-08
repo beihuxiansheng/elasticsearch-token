@@ -2465,7 +2465,7 @@ name|ExecutorHolder
 argument_list|(
 name|MoreExecutors
 operator|.
-name|sameThreadExecutor
+name|directExecutor
 argument_list|()
 argument_list|,
 operator|new
