@@ -752,8 +752,6 @@ literal|"tests.heap.size"
 argument_list|,
 literal|"tests.bwc"
 argument_list|,
-literal|"tests.bwc.path"
-argument_list|,
 literal|"tests.bwc.version"
 argument_list|)
 expr_stmt|;
