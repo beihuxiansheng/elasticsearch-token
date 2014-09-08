@@ -723,9 +723,7 @@ name|bucketCountThresholds
 decl_stmt|;
 DECL|field|order
 specifier|protected
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 decl_stmt|;
 DECL|field|aggUsedForSorting
@@ -763,9 +761,7 @@ parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|SubAggCollectionMode

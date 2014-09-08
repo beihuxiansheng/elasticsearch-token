@@ -218,9 +218,7 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|TermsAggregator
@@ -315,9 +313,7 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|TermsAggregator
@@ -423,9 +419,7 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|TermsAggregator
@@ -533,9 +527,7 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|TermsAggregator
@@ -746,9 +738,7 @@ parameter_list|,
 name|long
 name|maxOrd
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|TermsAggregator
@@ -797,9 +787,7 @@ block|}
 DECL|field|order
 specifier|private
 specifier|final
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 decl_stmt|;
 DECL|field|includeExclude
@@ -842,9 +830,7 @@ parameter_list|,
 name|ValuesSourceConfig
 name|config
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|TermsAggregator

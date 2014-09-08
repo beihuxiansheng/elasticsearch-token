@@ -272,9 +272,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Terms
-operator|.
-name|Order
+name|InternalOrder
 name|order
 parameter_list|,
 name|int
