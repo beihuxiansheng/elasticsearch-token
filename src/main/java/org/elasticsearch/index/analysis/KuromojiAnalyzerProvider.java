@@ -288,8 +288,6 @@ operator|=
 operator|new
 name|JapaneseAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|userDictionary
 argument_list|,
 name|mode
@@ -298,8 +296,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|version
-argument_list|,
 name|stopWords
 argument_list|)
 argument_list|,
