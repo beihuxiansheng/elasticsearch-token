@@ -1016,6 +1016,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+specifier|final
 name|boolean
 name|freed
 init|=

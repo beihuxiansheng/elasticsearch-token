@@ -640,6 +640,20 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -748,6 +762,18 @@ name|clearables
 init|=
 literal|null
 decl_stmt|;
+DECL|field|closed
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|closed
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 DECL|method|close
 specifier|public
 specifier|final
@@ -755,6 +781,19 @@ name|void
 name|close
 parameter_list|()
 block|{
+if|if
+condition|(
+name|closed
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+comment|// prevent double release
 try|try
 block|{
 name|clearReleasables
@@ -770,6 +809,7 @@ block|{
 name|doClose
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|field|nowInMillisUsed
