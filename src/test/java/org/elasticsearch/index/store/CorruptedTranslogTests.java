@@ -553,6 +553,11 @@ literal|"bar"
 argument_list|)
 expr_stmt|;
 block|}
+name|disableTranslogFlush
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|false
@@ -577,6 +582,11 @@ comment|// node needs time to start recovery and discover the translog corruptio
 name|sleep
 argument_list|(
 literal|1000
+argument_list|)
+expr_stmt|;
+name|enableTranslogFlush
+argument_list|(
+literal|"test"
 argument_list|)
 expr_stmt|;
 try|try
