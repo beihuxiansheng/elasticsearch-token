@@ -96,6 +96,18 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|SearchHit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|SearchHitField
 import|;
 end_import
@@ -1300,8 +1312,9 @@ expr_stmt|;
 name|ensureSearchable
 argument_list|()
 expr_stmt|;
-comment|// Added to debug a test failure (Dev issue #266) where the terms aggregation seems to be reporting two documents with the same value for NUMBER_FIELD_NAME.  This will chaeck that after
-comment|// random indexing each document only has 1 value for NUMBER_FIELD_NAME and it is the correct value
+comment|// Added to debug a test failure where the terms aggregation seems to be reporting two documents with the same value for NUMBER_FIELD_NAME.  This will check that after
+comment|// random indexing each document only has 1 value for NUMBER_FIELD_NAME and it is the correct value. Following this initial change its seems that this call was getting
+comment|// more that 2000 hits (actual value was 2059) so now it will also check to ensure all hits have the correct index and type
 name|SearchResponse
 name|response
 init|=
@@ -1348,8 +1361,9 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
+name|long
+name|totalHits
+init|=
 name|response
 operator|.
 name|getHits
@@ -1357,13 +1371,7 @@ argument_list|()
 operator|.
 name|totalHits
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|2000l
-argument_list|)
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1373,14 +1381,14 @@ literal|0
 init|;
 name|i
 operator|<
-literal|2000
+name|totalHits
 condition|;
 name|i
 operator|++
 control|)
 block|{
-name|SearchHitField
-name|hitField
+name|SearchHit
+name|searchHit
 init|=
 name|response
 operator|.
@@ -1391,6 +1399,59 @@ name|getAt
 argument_list|(
 name|i
 argument_list|)
+decl_stmt|;
+name|assertThat
+argument_list|(
+literal|"Hit "
+operator|+
+name|i
+operator|+
+literal|" with id: "
+operator|+
+name|searchHit
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|searchHit
+operator|.
+name|getIndex
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"high_card_idx"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"Hit "
+operator|+
+name|i
+operator|+
+literal|" with id: "
+operator|+
+name|searchHit
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|searchHit
+operator|.
+name|getType
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"type"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|SearchHitField
+name|hitField
+init|=
+name|searchHit
 operator|.
 name|field
 argument_list|(
@@ -1444,6 +1505,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|assertThat
+argument_list|(
+name|totalHits
+argument_list|,
+name|equalTo
+argument_list|(
+literal|2000l
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|updateBoundsBottomRight
 specifier|private
