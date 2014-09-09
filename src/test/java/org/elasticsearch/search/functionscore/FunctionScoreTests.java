@@ -1829,7 +1829,7 @@ expr_stmt|;
 block|}
 DECL|method|computeExpectedScore
 specifier|protected
-name|float
+name|double
 name|computeExpectedScore
 parameter_list|(
 name|float
@@ -1844,10 +1844,10 @@ name|String
 name|scoreMode
 parameter_list|)
 block|{
-name|float
+name|double
 name|expectedScore
 init|=
-literal|0.0f
+literal|0.0
 decl_stmt|;
 if|if
 condition|(
@@ -1861,7 +1861,7 @@ condition|)
 block|{
 name|expectedScore
 operator|=
-literal|1.0f
+literal|1.0
 expr_stmt|;
 block|}
 if|if
@@ -1881,7 +1881,7 @@ operator|.
 name|MAX_VALUE
 operator|*
 operator|-
-literal|1.0f
+literal|1.0
 expr_stmt|;
 block|}
 if|if
