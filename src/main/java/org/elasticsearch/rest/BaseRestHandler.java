@@ -252,15 +252,6 @@ name|request
 argument_list|,
 name|channel
 argument_list|,
-name|usefulHeaders
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|0
-condition|?
-name|client
-else|:
 operator|new
 name|HeadersAndContextCopyClient
 argument_list|(
