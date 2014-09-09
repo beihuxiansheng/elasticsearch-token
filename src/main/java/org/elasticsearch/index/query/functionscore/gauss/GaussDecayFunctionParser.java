@@ -212,7 +212,7 @@ name|ce
 operator|.
 name|setDescription
 argument_list|(
-literal|"-exp(-0.5*pow("
+literal|"exp(-0.5*pow("
 operator|+
 name|valueExpl
 operator|+
