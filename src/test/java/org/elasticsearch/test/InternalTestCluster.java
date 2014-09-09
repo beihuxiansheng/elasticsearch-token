@@ -22,6 +22,18 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
+name|RandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
 name|SeedUtils
 import|;
 end_import
@@ -1074,20 +1086,6 @@ end_import
 
 begin_import
 import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
 name|junit
 operator|.
 name|framework
@@ -1289,6 +1287,8 @@ specifier|final
 name|boolean
 name|ENABLE_MOCK_MODULES
 init|=
+name|RandomizedTest
+operator|.
 name|systemPropertyAsBoolean
 argument_list|(
 name|TESTS_ENABLE_MOCK_MODULES
@@ -4887,8 +4887,6 @@ argument_list|(
 name|node
 argument_list|,
 name|clusterName
-argument_list|,
-name|random
 argument_list|)
 return|;
 block|}
@@ -5261,9 +5259,6 @@ name|node
 parameter_list|,
 name|String
 name|clusterName
-parameter_list|,
-name|Random
-name|random
 parameter_list|)
 block|{
 name|TransportAddress
@@ -5804,8 +5799,10 @@ if|if
 condition|(
 name|enableRandomBenchNodes
 operator|&&
-name|frequently
-argument_list|()
+name|usually
+argument_list|(
+name|random
+argument_list|)
 condition|)
 block|{
 comment|//client nodes might also be bench nodes
@@ -6123,6 +6120,8 @@ block|{
 comment|// only reset the clients on nightly tests, it causes heavy load...
 if|if
 condition|(
+name|RandomizedTest
+operator|.
 name|isNightly
 argument_list|()
 operator|&&
