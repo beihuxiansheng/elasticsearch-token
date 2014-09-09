@@ -266,6 +266,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|DiscoveryModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -429,6 +441,14 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+literal|"config.ignore_system_properties"
+argument_list|,
+literal|true
+argument_list|)
+comment|// prevents any settings to be replaced by system properties.
+operator|.
+name|put
+argument_list|(
 literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|true
@@ -445,39 +465,6 @@ name|build
 argument_list|()
 decl_stmt|;
 comment|// we require network here!
-comment|// verify that the end node setting will have network enabled.
-name|Tuple
-argument_list|<
-name|Settings
-argument_list|,
-name|Environment
-argument_list|>
-name|finalSettings
-init|=
-name|InternalSettingsPreparer
-operator|.
-name|prepareSettings
-argument_list|(
-name|clientSettings
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-name|assertFalse
-argument_list|(
-literal|"testing against an external cluster must run in network mode. You probably have a system property overriding the test settings."
-argument_list|,
-name|DiscoveryNode
-operator|.
-name|localNode
-argument_list|(
-name|finalSettings
-operator|.
-name|v1
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|client

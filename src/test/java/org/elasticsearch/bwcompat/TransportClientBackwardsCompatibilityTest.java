@@ -258,6 +258,12 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+name|requiredSettings
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"client.transport.nodes_sampler_interval"
 argument_list|,
 literal|"1s"
