@@ -170,12 +170,12 @@ name|Regex
 operator|.
 name|simpleMatch
 argument_list|(
-name|dynamicSetting
-argument_list|,
 name|setting
 operator|.
 name|getKey
 argument_list|()
+argument_list|,
+name|dynamicSetting
 argument_list|)
 condition|)
 block|{
