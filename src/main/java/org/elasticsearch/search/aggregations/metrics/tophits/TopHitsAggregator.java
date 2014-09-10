@@ -605,11 +605,6 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|topHitsContext
-operator|.
-name|sort
-argument_list|()
-argument_list|,
 name|topDocs
 argument_list|,
 name|fetchResult
@@ -642,11 +637,6 @@ argument_list|,
 name|topHitsContext
 operator|.
 name|size
-argument_list|()
-argument_list|,
-name|topHitsContext
-operator|.
-name|sort
 argument_list|()
 argument_list|,
 name|Lucene
