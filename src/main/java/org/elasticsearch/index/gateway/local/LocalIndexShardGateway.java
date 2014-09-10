@@ -1622,6 +1622,18 @@ name|e
 parameter_list|)
 block|{
 comment|// file is empty or header has been half-written and should be ignored
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"ignoring truncation exception, the translog is either empty or half-written ([])"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 while|while
 condition|(
@@ -1675,6 +1687,18 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore, not properly written the last op
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"ignoring translog EOF exception, the last operation was not properly written"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 catch|catch
@@ -1684,6 +1708,18 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore, not properly written last op
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"ignoring translog IO exception, the last operation was not properly written"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 try|try
