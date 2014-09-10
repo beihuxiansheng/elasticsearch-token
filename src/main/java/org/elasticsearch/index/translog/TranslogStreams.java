@@ -62,20 +62,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -346,7 +332,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Given a file, return a VersionedTranslogStream based on an      * optionally-existing header in the file. If the file does not exist, or      * has zero length, returns the latest version. If the header does not      * exist, assumes Version 0 of the translog file format.      *      * The caller is responsible for closing the TranslogStream.      *      * @throws IOException      */
+comment|/**      * Given a file, return a VersionedTranslogStream based on an      * optionally-existing header in the file. If the file does not exist, or      * has zero length, returns the latest version. If the header does not      * exist, assumes Version 0 of the translog file format.      *<p/>      * The caller is responsible for closing the TranslogStream.      *      * @throws IOException      */
 DECL|method|translogStreamFor
 specifier|public
 specifier|static
@@ -359,26 +345,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// This stream will be passed to the translog stream, so closing the
-comment|// TranslogStream will close this. It is not closed here on purpose.
-name|InputStreamStreamInput
-name|in
-init|=
-operator|new
-name|InputStreamStreamInput
-argument_list|(
-operator|new
-name|FileInputStream
-argument_list|(
-name|translogFile
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
 try|try
 init|(
 name|InputStreamStreamInput
@@ -415,10 +381,6 @@ condition|)
 block|{
 comment|// if it doesn't exist or has no data, use the latest version,
 comment|// there aren't any backwards compatibility issues
-name|success
-operator|=
-literal|true
-expr_stmt|;
 return|return
 name|CHECKSUMMED_TRANSLOG_STREAM
 return|;
@@ -575,10 +537,6 @@ name|ChecksummedTranslogStream
 operator|.
 name|VERSION
 case|:
-name|success
-operator|=
-literal|true
-expr_stmt|;
 return|return
 name|CHECKSUMMED_TRANSLOG_STREAM
 return|;
@@ -602,10 +560,6 @@ operator|==
 name|UNVERSIONED_TRANSLOG_HEADER_BYTE
 condition|)
 block|{
-name|success
-operator|=
-literal|true
-expr_stmt|;
 return|return
 name|LEGACY_TRANSLOG_STREAM
 return|;
@@ -645,26 +599,6 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
-block|}
-finally|finally
-block|{
-comment|// something happened, we should close the stream just so it's
-comment|// not dangling
-if|if
-condition|(
-name|success
-operator|==
-literal|false
-condition|)
-block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
