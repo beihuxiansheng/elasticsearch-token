@@ -1573,6 +1573,25 @@ range|:
 name|requests
 control|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} sending shard active check to {}"
+argument_list|,
+name|request
+operator|.
+name|v2
+argument_list|()
+operator|.
+name|shardId
+argument_list|,
+name|request
+operator|.
+name|v1
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|transportService
 operator|.
 name|sendRequest
@@ -1710,6 +1729,27 @@ name|ShardActiveResponse
 name|response
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} is {}active on node {}"
+argument_list|,
+name|shardId
+argument_list|,
+name|response
+operator|.
+name|shardActive
+condition|?
+literal|""
+else|:
+literal|"not "
+argument_list|,
+name|response
+operator|.
+name|node
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|response
@@ -1717,19 +1757,6 @@ operator|.
 name|shardActive
 condition|)
 block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"[{}] exists on node [{}]"
-argument_list|,
-name|shardId
-argument_list|,
-name|response
-operator|.
-name|node
-argument_list|)
-expr_stmt|;
 name|activeCopies
 operator|.
 name|incrementAndGet
