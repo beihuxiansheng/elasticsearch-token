@@ -9160,6 +9160,9 @@ name|Exception
 block|{
 try|try
 block|{
+name|SearchResponse
+name|response
+init|=
 name|client
 argument_list|()
 operator|.
@@ -9235,12 +9238,19 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|fail
 argument_list|(
 literal|"Expected search to fail when trying to sort terms aggregation by multi-valued sug-aggregation "
 operator|+
-literal|"with an unknown specified metric to order by"
+literal|"with an unknown specified metric to order by. response had "
+operator|+
+name|response
+operator|.
+name|getFailedShards
+argument_list|()
+operator|+
+literal|" failed shards."
 argument_list|)
 expr_stmt|;
 block|}
