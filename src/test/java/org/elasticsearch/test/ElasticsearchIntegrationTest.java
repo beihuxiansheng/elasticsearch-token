@@ -5699,6 +5699,23 @@ name|GREEN
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"indices {} are green"
+argument_list|,
+name|indices
+operator|.
+name|length
+operator|==
+literal|0
+condition|?
+literal|"[_all]"
+else|:
+name|indices
+argument_list|)
+expr_stmt|;
 return|return
 name|actionGet
 operator|.
@@ -6335,6 +6352,23 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"indices {} are yellow"
+argument_list|,
+name|indices
+operator|.
+name|length
+operator|==
+literal|0
+condition|?
+literal|"[_all]"
+else|:
+name|indices
+argument_list|)
+expr_stmt|;
 return|return
 name|actionGet
 operator|.
