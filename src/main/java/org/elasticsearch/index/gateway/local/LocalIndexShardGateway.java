@@ -1626,7 +1626,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"ignoring truncation exception, the translog is either empty or half-written ([])"
+literal|"ignoring truncation exception, the translog is either empty or half-written ([{}])"
 argument_list|,
 name|e
 operator|.
@@ -1691,7 +1691,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"ignoring translog EOF exception, the last operation was not properly written"
+literal|"ignoring translog EOF exception, the last operation was not properly written ([{}])"
 argument_list|,
 name|e
 operator|.
@@ -1712,7 +1712,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"ignoring translog IO exception, the last operation was not properly written"
+literal|"ignoring translog IO exception, the last operation was not properly written ([{}])"
 argument_list|,
 name|e
 operator|.
