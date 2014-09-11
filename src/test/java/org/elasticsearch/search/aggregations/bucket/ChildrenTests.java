@@ -299,6 +299,10 @@ operator|.
 name|addMapping
 argument_list|(
 literal|"article"
+argument_list|,
+literal|"_id"
+argument_list|,
+literal|"index=not_analyzed"
 argument_list|)
 operator|.
 name|addMapping
