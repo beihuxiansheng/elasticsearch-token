@@ -142,6 +142,8 @@ name|T
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|protected
@@ -212,6 +214,8 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 specifier|final

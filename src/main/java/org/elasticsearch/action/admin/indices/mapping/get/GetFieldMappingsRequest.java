@@ -172,6 +172,8 @@ name|GetFieldMappingsRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|local
 specifier|protected
@@ -319,6 +321,8 @@ return|return
 name|local
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|GetFieldMappingsRequest

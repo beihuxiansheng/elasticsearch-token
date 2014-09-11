@@ -390,6 +390,8 @@ name|CreateSnapshotRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|snapshot
 specifier|private
@@ -673,6 +675,8 @@ name|repository
 return|;
 block|}
 comment|/**      * Sets a list of indices that should be included into the snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @param indices      * @return this request      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|CreateSnapshotRequest

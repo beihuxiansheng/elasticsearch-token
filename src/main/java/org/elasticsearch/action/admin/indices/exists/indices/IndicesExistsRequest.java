@@ -166,6 +166,8 @@ name|IndicesExistsRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -224,6 +226,8 @@ return|return
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|IndicesExistsRequest

@@ -160,6 +160,8 @@ name|CloseIndexRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -258,6 +260,8 @@ name|indices
 return|;
 block|}
 comment|/**      * Sets the indices to be closed      * @param indices the indices to be closed      * @return the request itself      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|CloseIndexRequest

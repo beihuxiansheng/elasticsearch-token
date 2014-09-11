@@ -288,6 +288,8 @@ name|UpdateSettingsRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -428,6 +430,8 @@ name|settings
 return|;
 block|}
 comment|/**      * Sets the indices to apply to settings update to      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|UpdateSettingsRequest

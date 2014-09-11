@@ -168,6 +168,8 @@ name|GetSettingsRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -207,6 +209,8 @@ name|Strings
 operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|GetSettingsRequest

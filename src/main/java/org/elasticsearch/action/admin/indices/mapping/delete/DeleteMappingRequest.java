@@ -174,6 +174,8 @@ name|DeleteMappingRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -370,6 +372,8 @@ name|validationException
 return|;
 block|}
 comment|/**      * Sets the indices this delete mapping operation will execute on.      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|DeleteMappingRequest

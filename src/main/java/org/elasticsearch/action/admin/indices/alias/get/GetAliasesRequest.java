@@ -156,6 +156,8 @@ name|GetAliasesRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -228,6 +230,8 @@ specifier|public
 name|GetAliasesRequest
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|GetAliasesRequest

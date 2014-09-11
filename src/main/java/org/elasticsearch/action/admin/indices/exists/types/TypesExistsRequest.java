@@ -158,6 +158,8 @@ name|TypesExistsRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -224,9 +226,11 @@ return|return
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
-name|void
+name|TypesExistsRequest
 name|indices
 parameter_list|(
 name|String
@@ -240,6 +244,9 @@ name|indices
 operator|=
 name|indices
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|types
 specifier|public

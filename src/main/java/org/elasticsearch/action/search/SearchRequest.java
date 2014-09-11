@@ -332,6 +332,8 @@ name|SearchRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|searchType
 specifier|private
@@ -772,6 +774,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Sets the indices the search will be executed on.      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|SearchRequest

@@ -166,6 +166,8 @@ name|ClusterSearchShardsRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -240,6 +242,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Sets the indices the search will be executed on.      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|ClusterSearchShardsRequest

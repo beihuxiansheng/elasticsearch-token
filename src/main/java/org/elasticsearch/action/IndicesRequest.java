@@ -51,6 +51,24 @@ name|IndicesOptions
 name|indicesOptions
 parameter_list|()
 function_decl|;
+DECL|interface|Replaceable
+specifier|static
+interface|interface
+name|Replaceable
+extends|extends
+name|IndicesRequest
+block|{
+comment|/*          * Sets the array of indices that the action relates to          */
+DECL|method|indices
+name|IndicesRequest
+name|indices
+parameter_list|(
+name|String
+index|[]
+name|indices
+parameter_list|)
+function_decl|;
+block|}
 block|}
 end_interface
 

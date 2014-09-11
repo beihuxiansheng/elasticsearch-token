@@ -186,6 +186,8 @@ name|DeleteWarmerRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|names
 specifier|private
@@ -425,6 +427,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the indices this put mapping operation will execute on.      */
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|DeleteWarmerRequest

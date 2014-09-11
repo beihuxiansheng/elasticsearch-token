@@ -206,6 +206,8 @@ name|DeleteIndexRequest
 argument_list|>
 implements|implements
 name|IndicesRequest
+operator|.
+name|Replaceable
 block|{
 DECL|field|indices
 specifier|private
@@ -351,6 +353,8 @@ return|return
 name|validationException
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indices
 specifier|public
 name|DeleteIndexRequest
