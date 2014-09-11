@@ -18,11 +18,15 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
 operator|.
 name|util
 operator|.
-name|Collection
+name|CollectionUtil
 import|;
 end_import
 
@@ -32,12 +36,12 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
+name|*
 import|;
 end_import
 
 begin_comment
-comment|/**  * This class implements a compilation of {@link ShardIterator}s. Each {@link ShardIterator}  * iterated by this {@link Iterable} represents a group of shards.  *   */
+comment|/**  * This class implements a compilation of {@link ShardIterator}s. Each {@link ShardIterator}  * iterated by this {@link Iterable} represents a group of shards.  * ShardsIterators are always returned in ascending order independently of their order at construction  * time. The incoming iterators are sorted to ensure consistent iteration behavior across Nodes / JVMs. */
 end_comment
 
 begin_class
@@ -54,23 +58,31 @@ block|{
 DECL|field|iterators
 specifier|private
 specifier|final
-name|Collection
+name|List
 argument_list|<
 name|ShardIterator
 argument_list|>
 name|iterators
 decl_stmt|;
+comment|/**      * Constructs a enw GroupShardsIterator from the given list.      */
 DECL|method|GroupShardsIterator
 specifier|public
 name|GroupShardsIterator
 parameter_list|(
-name|Collection
+name|List
 argument_list|<
 name|ShardIterator
 argument_list|>
 name|iterators
 parameter_list|)
 block|{
+name|CollectionUtil
+operator|.
+name|timSort
+argument_list|(
+name|iterators
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|iterators
@@ -174,20 +186,6 @@ name|iterators
 operator|.
 name|size
 argument_list|()
-return|;
-block|}
-comment|/**      * Return all group iterators      * @return      */
-DECL|method|iterators
-specifier|public
-name|Collection
-argument_list|<
-name|ShardIterator
-argument_list|>
-name|iterators
-parameter_list|()
-block|{
-return|return
-name|iterators
 return|;
 block|}
 annotation|@

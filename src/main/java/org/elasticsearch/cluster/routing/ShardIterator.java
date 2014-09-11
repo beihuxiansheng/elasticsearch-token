@@ -41,6 +41,11 @@ interface|interface
 name|ShardIterator
 extends|extends
 name|ShardsIterator
+extends|,
+name|Comparable
+argument_list|<
+name|ShardIterator
+argument_list|>
 block|{
 comment|/**      * The shard id this group relates to.      */
 DECL|method|shardId
