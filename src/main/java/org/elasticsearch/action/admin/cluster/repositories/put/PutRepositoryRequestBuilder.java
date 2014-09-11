@@ -283,6 +283,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether or not repository should be verified after creation      *      * @param verify true if repository should be verified after registration, false otherwise      * @return this builder      */
+DECL|method|setVerify
+specifier|public
+name|PutRepositoryRequestBuilder
+name|setVerify
+parameter_list|(
+name|boolean
+name|verify
+parameter_list|)
+block|{
+name|request
+operator|.
+name|verify
+argument_list|(
+name|verify
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute

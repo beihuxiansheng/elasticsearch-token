@@ -367,6 +367,14 @@ name|int
 name|numDataNodes
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the number of data and master eligible nodes in the cluster.      */
+DECL|method|numDataAndMasterNodes
+specifier|public
+specifier|abstract
+name|int
+name|numDataAndMasterNodes
+parameter_list|()
+function_decl|;
 comment|/**      * Returns the number of bench nodes in the cluster.      */
 DECL|method|numBenchNodes
 specifier|public

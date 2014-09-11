@@ -437,6 +437,38 @@ throw|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|startVerification
+specifier|public
+name|String
+name|startVerification
+parameter_list|()
+block|{
+comment|//TODO: #7831 Add check that URL exists and accessible
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|endVerification
+specifier|public
+name|void
+name|endVerification
+parameter_list|(
+name|String
+name|seed
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"shouldn't be called"
+argument_list|)
+throw|;
+block|}
 block|}
 end_class
 

@@ -130,6 +130,15 @@ name|ShardId
 name|shardId
 parameter_list|)
 function_decl|;
+comment|/**      * Verifies repository settings on data node      * @param verificationToken value returned by {@link org.elasticsearch.repositories.Repository#startVerification()}      */
+DECL|method|verify
+name|void
+name|verify
+parameter_list|(
+name|String
+name|verificationToken
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
