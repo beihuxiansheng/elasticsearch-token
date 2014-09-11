@@ -1918,9 +1918,12 @@ name|i
 operator|++
 control|)
 block|{
-name|float
+name|double
 name|functionScore
 init|=
+operator|(
+name|double
+operator|)
 name|weights
 index|[
 name|i
