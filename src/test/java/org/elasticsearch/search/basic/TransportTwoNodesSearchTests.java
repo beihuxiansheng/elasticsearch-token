@@ -563,7 +563,7 @@ name|fullExpectedIds
 init|=
 name|Sets
 operator|.
-name|newHashSet
+name|newTreeSet
 argument_list|()
 decl_stmt|;
 name|ImmutableSettings
@@ -1847,7 +1847,7 @@ name|collectedIds
 init|=
 name|Sets
 operator|.
-name|newHashSet
+name|newTreeSet
 argument_list|()
 decl_stmt|;
 name|SearchResponse
