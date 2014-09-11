@@ -356,6 +356,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|search
+operator|.
+name|child
+operator|.
+name|CustomQueryWrappingFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|similarity
 operator|.
 name|SimilarityService
@@ -534,6 +550,13 @@ DECL|field|propagateNoCache
 specifier|private
 name|boolean
 name|propagateNoCache
+init|=
+literal|false
+decl_stmt|;
+DECL|field|requireCustomQueryWrappingFilter
+specifier|private
+name|boolean
+name|requireCustomQueryWrappingFilter
 init|=
 literal|false
 decl_stmt|;
@@ -746,6 +769,18 @@ name|namedFilters
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|requireCustomQueryWrappingFilter
+operator|=
+literal|false
+expr_stmt|;
+name|this
+operator|.
+name|propagateNoCache
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|index
@@ -1108,6 +1143,8 @@ operator|.
 name|wrap
 argument_list|(
 name|query
+argument_list|,
+name|this
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1353,6 +1390,25 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|CustomQueryWrappingFilter
+operator|.
+name|shouldUseCustomQueryWrappingFilter
+argument_list|(
+name|result
+argument_list|)
+condition|)
+block|{
+name|requireCustomQueryWrappingFilter
+operator|=
+literal|true
+expr_stmt|;
+comment|// If later on, either directly or indirectly this query gets wrapped in a query filter it must never
+comment|// get cached even if a filter higher up the chain is configured to do this. This will happen, because
+comment|// the result filter will be instance of NoCacheFilter (CustomQueryWrappingFilter) which will in
+comment|// #executeFilterParser() set propagateNoCache to true.
 block|}
 return|return
 name|result
@@ -2144,6 +2200,16 @@ name|System
 operator|.
 name|currentTimeMillis
 argument_list|()
+return|;
+block|}
+DECL|method|requireCustomQueryWrappingFilter
+specifier|public
+name|boolean
+name|requireCustomQueryWrappingFilter
+parameter_list|()
+block|{
+return|return
+name|requireCustomQueryWrappingFilter
 return|;
 block|}
 block|}

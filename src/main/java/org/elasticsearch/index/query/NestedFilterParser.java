@@ -915,6 +915,8 @@ name|ScoreMode
 operator|.
 name|None
 argument_list|)
+argument_list|,
+name|parseContext
 argument_list|)
 decl_stmt|;
 if|if

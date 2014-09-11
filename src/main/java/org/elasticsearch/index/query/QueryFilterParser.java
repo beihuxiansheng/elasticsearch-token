@@ -170,6 +170,8 @@ operator|.
 name|wrap
 argument_list|(
 name|query
+argument_list|,
+name|parseContext
 argument_list|)
 return|;
 block|}

@@ -52,6 +52,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|query
+operator|.
+name|QueryParseContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|search
 operator|.
 name|child
@@ -685,6 +699,7 @@ operator|)
 operator|)
 return|;
 block|}
+comment|/**      * Wraps a query in a filter.      *      * If a filter has an anti per segment execution / caching nature then @{@link CustomQueryWrappingFilter} is returned      * otherwise the standard {@link org.apache.lucene.search.QueryWrapperFilter} is returned.      */
 DECL|method|wrap
 specifier|public
 specifier|static
@@ -693,6 +708,9 @@ name|wrap
 parameter_list|(
 name|Query
 name|query
+parameter_list|,
+name|QueryParseContext
+name|context
 parameter_list|)
 block|{
 return|return
@@ -701,6 +719,8 @@ operator|.
 name|wrap
 argument_list|(
 name|query
+argument_list|,
+name|context
 argument_list|)
 return|;
 block|}
@@ -732,10 +752,18 @@ name|wrap
 parameter_list|(
 name|Query
 name|query
+parameter_list|,
+name|QueryParseContext
+name|context
 parameter_list|)
 block|{
 if|if
 condition|(
+name|context
+operator|.
+name|requireCustomQueryWrappingFilter
+argument_list|()
+operator|||
 name|CustomQueryWrappingFilter
 operator|.
 name|shouldUseCustomQueryWrappingFilter
