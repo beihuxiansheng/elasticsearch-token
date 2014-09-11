@@ -758,6 +758,33 @@ name|eof
 argument_list|)
 throw|;
 block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|exception
+parameter_list|)
+block|{
+throw|throw
+name|exception
+throw|;
+comment|// IOExceptions like too many open files are not necessarily a corruption - just bubble it up
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CorruptIndexException
+argument_list|(
+literal|"Hit unexpected exception while reading segment infos"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|ensureOpen
 specifier|final
