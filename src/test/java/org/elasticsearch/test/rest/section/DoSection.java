@@ -721,7 +721,7 @@ literal|"] ["
 operator|+
 name|restResponse
 operator|.
-name|getBody
+name|getBodyAsString
 argument_list|()
 operator|+
 literal|"]"
