@@ -313,16 +313,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -2585,7 +2575,7 @@ name|elasticsearch
 operator|.
 name|Version
 operator|.
-name|V_1_4_0
+name|V_1_4_0_Beta
 argument_list|)
 operator|&&
 name|in
@@ -2727,7 +2717,7 @@ name|elasticsearch
 operator|.
 name|Version
 operator|.
-name|V_1_4_0
+name|V_1_4_0_Beta
 argument_list|)
 condition|)
 block|{
