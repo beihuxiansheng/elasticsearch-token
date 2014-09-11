@@ -964,6 +964,7 @@ operator|.
 name|getVersion
 argument_list|()
 expr_stmt|;
+comment|/**                          * We generate the translog ID before each lucene commit to ensure that                          * we can read the current translog ID safely when we recover. The commits metadata                          * therefor contains always the current / active translog ID.                          */
 if|if
 condition|(
 name|si
