@@ -9403,7 +9403,7 @@ name|explanation
 argument_list|,
 name|containsString
 argument_list|(
-literal|" 1.0 = -exp(-0.5*pow(MIN[Math.max(Math.abs(0.5(=doc value) - 1.0(=origin))) - 1.0(=offset), 0), Math.max(Math.abs(0.7(=doc value) - 1.0(=origin))) - 1.0(=offset), 0)],2.0)/18.033688011112044)"
+literal|" 1.0 = exp(-0.5*pow(MIN[Math.max(Math.abs(0.5(=doc value) - 1.0(=origin))) - 1.0(=offset), 0), Math.max(Math.abs(0.7(=doc value) - 1.0(=origin))) - 1.0(=offset), 0)],2.0)/18.033688011112044)"
 argument_list|)
 argument_list|)
 expr_stmt|;
