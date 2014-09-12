@@ -1362,9 +1362,18 @@ return|;
 block|}
 if|if
 condition|(
+operator|(
 name|includeExclude
 operator|!=
 literal|null
+operator|)
+operator|&&
+operator|(
+name|includeExclude
+operator|.
+name|isRegexBased
+argument_list|()
+operator|)
 condition|)
 block|{
 throw|throw
@@ -1375,9 +1384,9 @@ literal|"Aggregation ["
 operator|+
 name|name
 operator|+
-literal|"] cannot support the include/exclude "
+literal|"] cannot support regular expression style include/exclude "
 operator|+
-literal|"settings as it can only be applied to string values"
+literal|"settings as they can only be applied to string fields. Use an array of numeric values for include/exclude clauses used to filter numeric fields"
 argument_list|)
 throw|;
 block|}
@@ -1390,6 +1399,13 @@ operator|.
 name|Numeric
 condition|)
 block|{
+name|IncludeExclude
+operator|.
+name|LongFilter
+name|longFilter
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 operator|(
@@ -1405,6 +1421,21 @@ name|isFloatingPoint
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|includeExclude
+operator|!=
+literal|null
+condition|)
+block|{
+name|longFilter
+operator|=
+name|includeExclude
+operator|.
+name|convertToDoubleFilter
+argument_list|()
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|DoubleTermsAggregator
@@ -1438,8 +1469,25 @@ argument_list|,
 name|subAggCollectMode
 argument_list|,
 name|showTermDocCountError
+argument_list|,
+name|longFilter
 argument_list|)
 return|;
+block|}
+if|if
+condition|(
+name|includeExclude
+operator|!=
+literal|null
+condition|)
+block|{
+name|longFilter
+operator|=
+name|includeExclude
+operator|.
+name|convertToLongFilter
+argument_list|()
+expr_stmt|;
 block|}
 return|return
 operator|new
@@ -1474,6 +1522,8 @@ argument_list|,
 name|subAggCollectMode
 argument_list|,
 name|showTermDocCountError
+argument_list|,
+name|longFilter
 argument_list|)
 return|;
 block|}
