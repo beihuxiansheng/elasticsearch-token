@@ -66,6 +66,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -620,7 +634,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Recreates the embedded REST client which will point to the given addresses      */
+comment|/**      * Resets (or creates) the embedded REST client which will point to the given addresses      */
 DECL|method|resetClient
 specifier|public
 name|void
@@ -629,6 +643,9 @@ parameter_list|(
 name|InetSocketAddress
 index|[]
 name|addresses
+parameter_list|,
+name|Settings
+name|settings
 parameter_list|)
 throws|throws
 name|IOException
@@ -647,9 +664,11 @@ operator|=
 operator|new
 name|RestClient
 argument_list|(
-name|addresses
-argument_list|,
 name|restSpec
+argument_list|,
+name|settings
+argument_list|,
+name|addresses
 argument_list|)
 expr_stmt|;
 block|}

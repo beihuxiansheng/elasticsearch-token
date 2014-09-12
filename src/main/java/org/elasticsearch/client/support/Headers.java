@@ -199,6 +199,16 @@ return|return
 name|message
 return|;
 block|}
+DECL|method|headers
+specifier|public
+name|Settings
+name|headers
+parameter_list|()
+block|{
+return|return
+name|headers
+return|;
+block|}
 DECL|method|resolveHeaders
 specifier|static
 name|Settings
