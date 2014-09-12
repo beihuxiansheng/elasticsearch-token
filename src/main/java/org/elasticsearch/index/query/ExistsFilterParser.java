@@ -196,6 +196,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -506,7 +516,7 @@ operator|+
 literal|".*"
 expr_stmt|;
 block|}
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>

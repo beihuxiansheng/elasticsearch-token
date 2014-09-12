@@ -1109,10 +1109,10 @@ name|fullName
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a set of the index names of a simple match regex like pattern against full name, name and index name.      */
+comment|/**      * Returns a list of the index names of a simple match regex like pattern against full name, name and index name.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1122,15 +1122,15 @@ name|String
 name|pattern
 parameter_list|)
 block|{
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|fields
 init|=
-name|Sets
+name|Lists
 operator|.
-name|newHashSet
+name|newArrayList
 argument_list|()
 decl_stmt|;
 for|for
@@ -1244,10 +1244,10 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Returns a set of the full names of a simple match regex like pattern against full name, name and index name.      */
+comment|/**      * Returns a list of the full names of a simple match regex like pattern against full name, name and index name.      */
 DECL|method|simpleMatchToFullName
 specifier|public
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1257,15 +1257,15 @@ name|String
 name|pattern
 parameter_list|)
 block|{
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|fields
 init|=
-name|Sets
+name|Lists
 operator|.
-name|newHashSet
+name|newArrayList
 argument_list|()
 decl_stmt|;
 for|for

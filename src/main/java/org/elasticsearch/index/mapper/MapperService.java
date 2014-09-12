@@ -3580,7 +3580,7 @@ block|}
 comment|/**      * Returns all the fields that match the given pattern, with an optional narrowing      * based on a list of types.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -3654,7 +3654,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ImmutableSet
+name|ImmutableList
 operator|.
 name|of
 argument_list|(
@@ -3662,15 +3662,15 @@ name|pattern
 argument_list|)
 return|;
 block|}
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|fields
 init|=
-name|Sets
+name|Lists
 operator|.
-name|newHashSet
+name|newArrayList
 argument_list|()
 decl_stmt|;
 for|for
@@ -3731,7 +3731,7 @@ block|}
 comment|/**      * Returns all the fields that match the given pattern. If the pattern is prefixed with a type      * then the fields will be returned with a type prefix.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -3753,7 +3753,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ImmutableSet
+name|ImmutableList
 operator|.
 name|of
 argument_list|(
@@ -3808,15 +3808,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Set
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|typedFields
 init|=
-name|Sets
+name|Lists
 operator|.
-name|newHashSet
+name|newArrayList
 argument_list|()
 decl_stmt|;
 for|for
