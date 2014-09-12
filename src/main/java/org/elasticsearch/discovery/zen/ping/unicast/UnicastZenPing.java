@@ -2425,8 +2425,16 @@ block|{
 comment|// try and merge the best ping response for it, i.e. if the new one
 comment|// doesn't have the master node set, and the existing one does, then
 comment|// the existing one is better, so we keep it
+comment|// if both have a master or both have none, we prefer the latest ping
 if|if
 condition|(
+name|existingResponse
+operator|.
+name|master
+argument_list|()
+operator|==
+literal|null
+operator|||
 name|pingResponse
 operator|.
 name|master
