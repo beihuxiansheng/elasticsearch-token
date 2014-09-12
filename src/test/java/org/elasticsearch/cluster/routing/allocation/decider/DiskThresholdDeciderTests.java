@@ -2524,6 +2524,24 @@ operator|=
 literal|"node1"
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> nodeWithPrimary: {}"
+argument_list|,
+name|nodeWithPrimary
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> nodeWithoutPrimary: {}"
+argument_list|,
+name|nodeWithoutPrimary
+argument_list|)
+expr_stmt|;
 comment|// Make node without the primary now habitable to replicas
 name|usages
 operator|.
