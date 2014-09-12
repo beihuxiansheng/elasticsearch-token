@@ -147,9 +147,6 @@ block|{
 comment|// note that we already computed scale^2 in processScale() so we do
 comment|// not need to square it here.
 return|return
-operator|(
-name|float
-operator|)
 name|Math
 operator|.
 name|exp
