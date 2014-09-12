@@ -2115,6 +2115,7 @@ block|}
 comment|/**      * Test the we do not loose document whose indexing request was successful, under a randomly selected disruption scheme      * We also collect& report the type of indexing failures that occur.      */
 annotation|@
 name|Test
+comment|// NOTE: if you remove the awaitFix, make sure to port the test to the 1.x branch
 annotation|@
 name|LuceneTestCase
 operator|.
