@@ -46,6 +46,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -329,6 +343,15 @@ argument_list|,
 name|numDataNodes
 operator|=
 literal|0
+argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fails due to old ping responses confusing master elections, bleskes investigating"
 argument_list|)
 DECL|class|IndicesLifecycleListenerTests
 specifier|public
