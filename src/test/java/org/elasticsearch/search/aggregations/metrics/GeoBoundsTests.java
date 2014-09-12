@@ -450,7 +450,7 @@ name|SuiteScopeTest
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"org.elasticsearch.indices.recovery:TRACE"
+literal|"indices.recovery:TRACE,action.search.type:TRACE"
 argument_list|)
 DECL|class|GeoBoundsTests
 specifier|public
