@@ -964,6 +964,13 @@ argument_list|(
 name|in
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|fdStats
+operator|!=
+literal|null
+condition|)
+block|{
 name|CircuitBreakerStats
 name|reqStats
 init|=
@@ -1025,6 +1032,7 @@ name|reqStats
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
