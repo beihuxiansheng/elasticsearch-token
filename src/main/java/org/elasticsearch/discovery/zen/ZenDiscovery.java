@@ -4995,7 +4995,7 @@ literal|"])"
 argument_list|,
 name|Priority
 operator|.
-name|IMMEDIATE
+name|URGENT
 argument_list|,
 operator|new
 name|ProcessedClusterStateUpdateTask
