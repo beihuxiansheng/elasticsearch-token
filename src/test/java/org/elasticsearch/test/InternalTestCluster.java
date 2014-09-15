@@ -4736,13 +4736,13 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Using transport client for node [{}] sniff: [{}]"
 argument_list|,
