@@ -46,6 +46,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A multi bucket aggregation where the buckets are defined by a set of filters (a bucket per filter). Each bucket  * will collect all documents matching its filter.  */
 end_comment
@@ -71,7 +81,7 @@ name|Bucket
 block|{     }
 comment|/**      * The buckets created by this aggregation.      */
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends

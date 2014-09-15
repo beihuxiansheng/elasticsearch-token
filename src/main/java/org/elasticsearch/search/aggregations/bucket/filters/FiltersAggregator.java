@@ -573,6 +573,8 @@ name|bucketAggregations
 argument_list|(
 name|bucketOrd
 argument_list|)
+argument_list|,
+name|keyed
 argument_list|)
 decl_stmt|;
 name|buckets
@@ -663,6 +665,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|subAggs
+argument_list|,
+name|keyed
 argument_list|)
 decl_stmt|;
 name|buckets

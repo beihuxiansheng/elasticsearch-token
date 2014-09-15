@@ -1346,6 +1346,8 @@ argument_list|(
 name|bucketOrd
 argument_list|)
 argument_list|,
+name|keyed
+argument_list|,
 name|formatter
 argument_list|)
 decl_stmt|;
@@ -1477,6 +1479,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|subAggs
+argument_list|,
+name|keyed
 argument_list|,
 name|formatter
 argument_list|)
@@ -1873,6 +1877,8 @@ argument_list|,
 literal|0
 argument_list|,
 name|subAggs
+argument_list|,
+name|keyed
 argument_list|,
 name|formatter
 argument_list|)

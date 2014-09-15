@@ -172,7 +172,7 @@ name|minDocCount
 decl_stmt|;
 DECL|field|buckets
 specifier|protected
-name|Collection
+name|List
 argument_list|<
 name|Bucket
 argument_list|>
@@ -233,6 +233,26 @@ DECL|field|score
 name|double
 name|score
 decl_stmt|;
+DECL|method|Bucket
+specifier|protected
+name|Bucket
+parameter_list|(
+name|long
+name|subsetSize
+parameter_list|,
+name|long
+name|supersetSize
+parameter_list|)
+block|{
+comment|// for serialization
+name|super
+argument_list|(
+name|subsetSize
+argument_list|,
+name|supersetSize
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|Bucket
 specifier|protected
 name|Bucket
@@ -524,7 +544,7 @@ parameter_list|,
 name|SignificanceHeuristic
 name|significanceHeuristic
 parameter_list|,
-name|Collection
+name|List
 argument_list|<
 name|Bucket
 argument_list|>
@@ -610,7 +630,7 @@ annotation|@
 name|Override
 DECL|method|getBuckets
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|SignificantTerms
 operator|.
@@ -626,7 +646,7 @@ name|buckets
 decl_stmt|;
 return|return
 operator|(
-name|Collection
+name|List
 argument_list|<
 name|SignificantTerms
 operator|.

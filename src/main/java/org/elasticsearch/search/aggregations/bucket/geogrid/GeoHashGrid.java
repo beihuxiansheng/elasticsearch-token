@@ -74,6 +74,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@code geohash_grid} aggregation. Defines multiple buckets, each representing a cell in a geo-grid of a specific  * precision.  */
 end_comment
@@ -114,7 +124,7 @@ comment|/**      * @return  The buckets of this aggregation (each bucket represe
 annotation|@
 name|Override
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|Bucket
 argument_list|>

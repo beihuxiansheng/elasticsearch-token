@@ -26,6 +26,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Streamable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|text
 operator|.
 name|Text
@@ -43,6 +59,20 @@ operator|.
 name|util
 operator|.
 name|Comparators
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
 import|;
 end_import
 
@@ -114,6 +144,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregation that returns multiple buckets  */
 end_comment
@@ -133,6 +173,10 @@ interface|interface
 name|Bucket
 extends|extends
 name|HasAggregations
+extends|,
+name|ToXContent
+extends|,
+name|Streamable
 block|{
 comment|/**          * @return  The key associated with the bucket as a string          */
 DECL|method|getKey
@@ -289,7 +333,7 @@ block|}
 block|}
 comment|/**      * @return  The buckets of this aggregation.      */
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends

@@ -50,6 +50,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregation that computes ranges of geo distances.  */
 end_comment
@@ -76,12 +86,10 @@ block|{     }
 annotation|@
 name|Override
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends
-name|GeoDistance
-operator|.
 name|Bucket
 argument_list|>
 name|getBuckets

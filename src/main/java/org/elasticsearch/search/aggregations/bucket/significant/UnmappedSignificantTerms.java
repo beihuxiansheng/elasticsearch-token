@@ -195,7 +195,7 @@ DECL|field|BUCKETS
 specifier|private
 specifier|static
 specifier|final
-name|Collection
+name|List
 argument_list|<
 name|Bucket
 argument_list|>

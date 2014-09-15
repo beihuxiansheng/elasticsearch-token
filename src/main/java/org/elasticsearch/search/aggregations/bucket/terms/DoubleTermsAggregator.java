@@ -431,6 +431,10 @@ argument_list|,
 name|bucket
 operator|.
 name|docCountError
+argument_list|,
+name|bucket
+operator|.
+name|formatter
 argument_list|)
 return|;
 block|}

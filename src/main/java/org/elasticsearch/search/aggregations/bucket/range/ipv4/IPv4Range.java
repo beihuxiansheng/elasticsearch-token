@@ -50,6 +50,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A range aggregation on ipv4 values.  */
 end_comment
@@ -85,12 +95,10 @@ block|}
 annotation|@
 name|Override
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends
-name|IPv4Range
-operator|.
 name|Bucket
 argument_list|>
 name|getBuckets

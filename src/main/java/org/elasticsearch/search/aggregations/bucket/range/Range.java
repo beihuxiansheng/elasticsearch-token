@@ -46,6 +46,16 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@code range} aggregation. Defines multiple buckets, each associated with a pre-defined value range of a field,  * and where the value of that fields in all documents in each bucket fall in the bucket's range.  */
 end_comment
@@ -84,7 +94,7 @@ function_decl|;
 block|}
 comment|/**      * Return the buckets of this range aggregation.      */
 DECL|method|getBuckets
-name|Collection
+name|List
 argument_list|<
 name|?
 extends|extends
