@@ -2324,7 +2324,7 @@ literal|"zen-disco-join (elected_as_master)"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ProcessedClusterStateNonMasterUpdateTask
@@ -6482,7 +6482,7 @@ literal|"ping from another master"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ClusterStateUpdateTask
@@ -6783,7 +6783,7 @@ literal|"]"
 argument_list|,
 name|Priority
 operator|.
-name|URGENT
+name|IMMEDIATE
 argument_list|,
 operator|new
 name|ClusterStateNonMasterUpdateTask
