@@ -251,6 +251,7 @@ name|DEFAULT
 decl_stmt|;
 DECL|field|canHaveDuplicates
 specifier|private
+specifier|volatile
 name|boolean
 name|canHaveDuplicates
 init|=

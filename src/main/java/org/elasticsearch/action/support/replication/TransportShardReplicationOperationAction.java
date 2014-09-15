@@ -374,6 +374,20 @@ name|index
 operator|.
 name|engine
 operator|.
+name|DocumentAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
 name|VersionConflictEngineException
 import|;
 end_import
@@ -1012,6 +1026,7 @@ return|;
 block|}
 comment|/**      * Should an exception be ignored when the operation is performed on the replica.      */
 DECL|method|ignoreReplicaException
+specifier|protected
 name|boolean
 name|ignoreReplicaException
 parameter_list|(
@@ -1033,6 +1048,33 @@ return|return
 literal|true
 return|;
 block|}
+comment|// on version conflict or document missing, it means
+comment|// that a new change has crept into the replica, and it's fine
+if|if
+condition|(
+name|isConflictException
+argument_list|(
+name|e
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+DECL|method|isConflictException
+specifier|protected
+name|boolean
+name|isConflictException
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
 name|Throwable
 name|cause
 init|=
@@ -1050,6 +1092,17 @@ condition|(
 name|cause
 operator|instanceof
 name|VersionConflictEngineException
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|DocumentAlreadyExistsException
 condition|)
 block|{
 return|return
@@ -2892,6 +2945,13 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+name|internalRequest
+operator|.
+name|request
+operator|.
+name|setCanHaveDuplicates
+argument_list|()
+expr_stmt|;
 comment|// shard has not been allocated yet, retry it here
 if|if
 condition|(
