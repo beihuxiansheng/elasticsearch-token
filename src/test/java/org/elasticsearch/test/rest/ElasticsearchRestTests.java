@@ -901,11 +901,6 @@ argument_list|,
 name|specPaths
 argument_list|)
 decl_stmt|;
-assert|assert
-name|restTestExecutionContext
-operator|==
-literal|null
-assert|;
 name|restTestExecutionContext
 operator|=
 operator|new
@@ -1041,6 +1036,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|//The client needs non static info to get initialized, therefore it can't be initialized in the before class
 name|restTestExecutionContext
 operator|.
 name|resetClient

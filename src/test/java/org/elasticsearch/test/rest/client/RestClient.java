@@ -324,6 +324,7 @@ name|headers
 decl_stmt|;
 DECL|field|addresses
 specifier|private
+specifier|final
 name|InetSocketAddress
 index|[]
 name|addresses
@@ -607,24 +608,6 @@ block|{
 return|return
 name|esVersion
 return|;
-block|}
-comment|/**      * Allows to update the addresses the client needs to connect to      */
-DECL|method|updateAddresses
-specifier|public
-name|void
-name|updateAddresses
-parameter_list|(
-name|InetSocketAddress
-index|[]
-name|addresses
-parameter_list|)
-block|{
-name|this
-operator|.
-name|addresses
-operator|=
-name|addresses
-expr_stmt|;
 block|}
 comment|/**      * Calls an api with the provided parameters and body      * @throws RestException if the obtained status code is non ok, unless the specific error code needs to be ignored      * according to the ignore parameter received as input (which won't get sent to elasticsearch)      */
 DECL|method|callApi

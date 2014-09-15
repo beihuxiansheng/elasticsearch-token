@@ -271,10 +271,6 @@ parameter_list|(
 name|RestSpec
 name|restSpec
 parameter_list|)
-throws|throws
-name|RestException
-throws|,
-name|IOException
 block|{
 name|this
 operator|.
@@ -634,7 +630,7 @@ name|path
 argument_list|)
 return|;
 block|}
-comment|/**      * Resets (or creates) the embedded REST client which will point to the given addresses      */
+comment|/**      * Creates the embedded REST client when needed. Needs to be called before executing any test.      */
 DECL|method|resetClient
 specifier|public
 name|void
@@ -668,16 +664,6 @@ name|restSpec
 argument_list|,
 name|settings
 argument_list|,
-name|addresses
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|restClient
-operator|.
-name|updateAddresses
-argument_list|(
 name|addresses
 argument_list|)
 expr_stmt|;
@@ -738,13 +724,19 @@ name|void
 name|close
 parameter_list|()
 block|{
-name|this
-operator|.
+if|if
+condition|(
+name|restClient
+operator|!=
+literal|null
+condition|)
+block|{
 name|restClient
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
