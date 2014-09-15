@@ -442,7 +442,7 @@ name|key
 argument_list|)
 return|;
 block|}
-DECL|method|cancleAndClearOpenIndexInputs
+DECL|method|cancelAndClearOpenIndexInputs
 specifier|public
 specifier|synchronized
 name|Set
@@ -454,7 +454,7 @@ argument_list|,
 name|IndexOutput
 argument_list|>
 argument_list|>
-name|cancleAndClearOpenIndexInputs
+name|cancelAndClearOpenIndexInputs
 parameter_list|()
 block|{
 name|cancel

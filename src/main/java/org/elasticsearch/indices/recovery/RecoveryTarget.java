@@ -932,6 +932,15 @@ name|recoveryStatus
 operator|.
 name|sentCanceledToSource
 operator|&&
+name|transportService
+operator|.
+name|nodeConnected
+argument_list|(
+name|recoveryStatus
+operator|.
+name|sourceNode
+argument_list|)
+operator|&&
 name|rounds
 operator|>
 literal|0
@@ -2334,7 +2343,7 @@ name|entrySet
 init|=
 name|status
 operator|.
-name|cancleAndClearOpenIndexInputs
+name|cancelAndClearOpenIndexInputs
 argument_list|()
 decl_stmt|;
 name|Iterator
@@ -4043,11 +4052,9 @@ operator|.
 name|CLOSED
 condition|)
 block|{
-name|cancelRecovery
+name|removeAndCleanOnGoingRecovery
 argument_list|(
 name|onGoingRecovery
-operator|.
-name|indexShard
 argument_list|)
 expr_stmt|;
 name|onGoingRecovery
