@@ -207,6 +207,11 @@ name|VersionType
 operator|.
 name|INTERNAL
 decl_stmt|;
+DECL|method|DeleteRequest
+specifier|public
+name|DeleteRequest
+parameter_list|()
+block|{     }
 comment|/**      * Constructs a new delete request against the specified index. The {@link #type(String)} and {@link #id(String)}      * must be set.      */
 DECL|method|DeleteRequest
 specifier|public
@@ -257,6 +262,7 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+comment|/**      * Copy constructor that creates a new delete request that is a copy of the one provided as an argument.      */
 DECL|method|DeleteRequest
 specifier|public
 name|DeleteRequest
@@ -265,9 +271,31 @@ name|DeleteRequest
 name|request
 parameter_list|)
 block|{
+name|this
+argument_list|(
+name|request
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Copy constructor that creates a new delete request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
+DECL|method|DeleteRequest
+specifier|public
+name|DeleteRequest
+parameter_list|(
+name|DeleteRequest
+name|request
+parameter_list|,
+name|ActionRequest
+name|originalRequest
+parameter_list|)
+block|{
 name|super
 argument_list|(
 name|request
+argument_list|,
+name|originalRequest
 argument_list|)
 expr_stmt|;
 name|this
@@ -325,11 +353,6 @@ name|versionType
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|DeleteRequest
-specifier|public
-name|DeleteRequest
-parameter_list|()
-block|{     }
 comment|/**      * Creates a delete request caused by some other request, which is provided as an      * argument so that its headers and context can be copied to the new request      */
 DECL|method|DeleteRequest
 specifier|public

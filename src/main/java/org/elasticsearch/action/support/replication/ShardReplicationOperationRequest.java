@@ -262,6 +262,7 @@ specifier|protected
 name|ShardReplicationOperationRequest
 parameter_list|()
 block|{      }
+comment|/**      * Creates a new request that inherits headers and context from the request provided as argument.      */
 DECL|method|ShardReplicationOperationRequest
 specifier|protected
 name|ShardReplicationOperationRequest
@@ -276,6 +277,7 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Copy constructor that creates a new request that is a copy of the one provided as an argument.      */
 DECL|method|ShardReplicationOperationRequest
 specifier|protected
 name|ShardReplicationOperationRequest
@@ -284,9 +286,29 @@ name|T
 name|request
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
 name|request
+argument_list|,
+name|request
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Copy constructor that creates a new request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
+DECL|method|ShardReplicationOperationRequest
+specifier|protected
+name|ShardReplicationOperationRequest
+parameter_list|(
+name|T
+name|request
+parameter_list|,
+name|ActionRequest
+name|originalRequest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|originalRequest
 argument_list|)
 expr_stmt|;
 name|this
