@@ -355,7 +355,7 @@ name|ASSERTING_TRANSPORT_MIN_VERSION_KEY
 argument_list|,
 name|Version
 operator|.
-name|V_1_4_0_Beta
+name|V_1_4_0_Beta1
 argument_list|)
 operator|.
 name|build
