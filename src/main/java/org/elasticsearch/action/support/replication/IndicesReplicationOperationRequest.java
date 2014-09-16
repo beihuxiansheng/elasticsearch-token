@@ -143,6 +143,7 @@ end_comment
 begin_class
 DECL|class|IndicesReplicationOperationRequest
 specifier|public
+specifier|abstract
 class|class
 name|IndicesReplicationOperationRequest
 parameter_list|<
@@ -218,6 +219,25 @@ block|{
 return|return
 name|timeout
 return|;
+block|}
+DECL|method|IndicesReplicationOperationRequest
+specifier|protected
+name|IndicesReplicationOperationRequest
+parameter_list|()
+block|{     }
+DECL|method|IndicesReplicationOperationRequest
+specifier|protected
+name|IndicesReplicationOperationRequest
+parameter_list|(
+name|ActionRequest
+name|actionRequest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|actionRequest
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * A timeout to wait if the delete by query operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
 annotation|@
@@ -310,6 +330,11 @@ return|return
 name|indicesOptions
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|indicesOptions
 specifier|public
 name|T

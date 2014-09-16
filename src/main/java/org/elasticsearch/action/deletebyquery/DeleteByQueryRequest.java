@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ActionRequestValidationException
 import|;
 end_import
@@ -328,6 +340,21 @@ specifier|public
 name|DeleteByQueryRequest
 parameter_list|()
 block|{     }
+comment|/**      * Copy constructor that creates a new delete by query request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
+DECL|method|DeleteByQueryRequest
+specifier|public
+name|DeleteByQueryRequest
+parameter_list|(
+name|ActionRequest
+name|originalRequest
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|originalRequest
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|validate
@@ -459,6 +486,11 @@ name|this
 return|;
 block|}
 comment|/**      * The source to execute in the form of a map.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|source
 specifier|public
 name|DeleteByQueryRequest
