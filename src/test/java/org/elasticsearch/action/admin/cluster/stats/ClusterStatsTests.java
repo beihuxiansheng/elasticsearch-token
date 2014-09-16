@@ -516,6 +516,11 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|waitForNodes
+argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
 name|response
 operator|=
 name|client
@@ -532,11 +537,6 @@ argument_list|()
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|waitForNodes
-argument_list|(
-literal|3
-argument_list|)
 expr_stmt|;
 name|assertCounts
 argument_list|(
@@ -577,6 +577,11 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|waitForNodes
+argument_list|(
+literal|4
+argument_list|)
+expr_stmt|;
 name|response
 operator|=
 name|client
@@ -593,11 +598,6 @@ argument_list|()
 operator|.
 name|get
 argument_list|()
-expr_stmt|;
-name|waitForNodes
-argument_list|(
-literal|4
-argument_list|)
 expr_stmt|;
 name|assertCounts
 argument_list|(
