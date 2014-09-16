@@ -600,9 +600,17 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
 name|builders
 argument_list|)
+argument_list|)
 expr_stmt|;
+comment|// this one
 comment|// Corrupt the translog file(s)
 name|corruptRandomTranslogFiles
 argument_list|()
