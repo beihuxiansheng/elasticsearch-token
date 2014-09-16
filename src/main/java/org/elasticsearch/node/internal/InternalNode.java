@@ -1078,6 +1078,15 @@ name|CLIENT_TYPE
 init|=
 literal|"node"
 decl_stmt|;
+DECL|field|HTTP_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HTTP_ENABLED
+init|=
+literal|"http.enabled"
+decl_stmt|;
 DECL|field|lifecycle
 specifier|private
 specifier|final
@@ -1619,7 +1628,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"http.enabled"
+name|HTTP_ENABLED
 argument_list|,
 literal|true
 argument_list|)
