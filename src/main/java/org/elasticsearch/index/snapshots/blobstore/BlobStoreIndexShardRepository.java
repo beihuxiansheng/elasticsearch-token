@@ -3238,11 +3238,22 @@ expr_stmt|;
 name|BytesRef
 name|hash
 init|=
+name|fileInfo
+operator|.
 name|metadata
+argument_list|()
 operator|.
 name|hash
 argument_list|()
 decl_stmt|;
+comment|// reset the file infos metadata hash
+assert|assert
+name|hash
+operator|.
+name|length
+operator|==
+literal|0
+assert|;
 name|hash
 operator|.
 name|bytes
