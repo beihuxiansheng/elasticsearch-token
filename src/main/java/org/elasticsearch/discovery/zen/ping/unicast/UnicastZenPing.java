@@ -1840,6 +1840,20 @@ operator|!
 name|nodeFoundByAddress
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|nodeToSend
+operator|.
+name|id
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|UNICAST_NODE_PREFIX
+argument_list|)
+condition|)
+block|{
 name|DiscoveryNode
 name|tempNode
 init|=
@@ -1861,6 +1875,8 @@ name|nodeToSend
 operator|.
 name|id
 argument_list|()
+operator|+
+literal|"#"
 argument_list|,
 name|nodeToSend
 operator|.
@@ -1903,6 +1919,7 @@ name|nodeToSend
 operator|=
 name|tempNode
 expr_stmt|;
+block|}
 name|sendPingsHandler
 operator|.
 name|nodeToDisconnect
