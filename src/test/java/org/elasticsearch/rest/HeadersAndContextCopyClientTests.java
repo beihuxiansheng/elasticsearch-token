@@ -2096,12 +2096,7 @@ name|client
 operator|.
 name|prepareMultiGet
 argument_list|()
-block|,
-name|client
-operator|.
-name|prepareBenchStatus
-argument_list|()
-block|}
+block|,         }
 decl_stmt|;
 for|for
 control|(
