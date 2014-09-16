@@ -757,7 +757,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"aggregation"
+literal|"value"
 argument_list|,
 name|aggregation
 argument_list|)
