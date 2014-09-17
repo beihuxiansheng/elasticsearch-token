@@ -256,6 +256,15 @@ name|AbstractChildTests
 extends|extends
 name|ElasticsearchSingleNodeLuceneTestCase
 block|{
+comment|/**      * The name of the field within the child type that stores a score to use in test queries.      *<p />      * Its type is {@code double}.      */
+DECL|field|CHILD_SCORE_NAME
+specifier|protected
+specifier|static
+name|String
+name|CHILD_SCORE_NAME
+init|=
+literal|"childScore"
+decl_stmt|;
 DECL|method|createSearchContext
 specifier|static
 name|SearchContext
@@ -309,6 +318,10 @@ argument_list|,
 literal|"type="
 operator|+
 name|parentType
+argument_list|,
+name|CHILD_SCORE_NAME
+argument_list|,
+literal|"type=double"
 argument_list|)
 operator|.
 name|string

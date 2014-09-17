@@ -38,6 +38,10 @@ specifier|public
 enum|enum
 name|ScoreType
 block|{
+comment|/**      * Only the lowest score of all matching child documents is mapped into the      * parent.      */
+DECL|enum constant|MIN
+name|MIN
+block|,
 comment|/**      * Only the highest score of all matching child documents is mapped into the      * parent.      */
 DECL|enum constant|MAX
 name|MAX
@@ -76,6 +80,21 @@ condition|)
 block|{
 return|return
 name|NONE
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"min"
+operator|.
+name|equals
+argument_list|(
+name|type
+argument_list|)
+condition|)
+block|{
+return|return
+name|MIN
 return|;
 block|}
 elseif|else
