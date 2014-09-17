@@ -374,10 +374,16 @@ block|{
 name|super
 argument_list|(
 name|request
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|indices
+operator|=
+name|request
 operator|.
 name|indices
 argument_list|()
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
