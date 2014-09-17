@@ -1029,6 +1029,10 @@ name|shardIt
 operator|.
 name|shardId
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|failure
 argument_list|)
 expr_stmt|;
 block|}
