@@ -88,6 +88,30 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|ActionListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionRunnable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -1375,7 +1399,7 @@ name|ExecutorHolder
 argument_list|(
 name|MoreExecutors
 operator|.
-name|sameThreadExecutor
+name|directExecutor
 argument_list|()
 argument_list|,
 operator|new
@@ -1749,6 +1773,7 @@ condition|(
 name|holder
 operator|.
 name|executor
+argument_list|()
 operator|instanceof
 name|ThreadPoolExecutor
 condition|)
@@ -1762,6 +1787,7 @@ operator|)
 name|holder
 operator|.
 name|executor
+argument_list|()
 decl_stmt|;
 name|threads
 operator|=
@@ -1899,6 +1925,7 @@ name|name
 argument_list|)
 operator|.
 name|executor
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -2078,6 +2105,7 @@ condition|(
 name|executor
 operator|.
 name|executor
+argument_list|()
 operator|instanceof
 name|ThreadPoolExecutor
 condition|)
@@ -2089,6 +2117,7 @@ operator|)
 name|executor
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|shutdown
@@ -2135,6 +2164,7 @@ condition|(
 name|executor
 operator|.
 name|executor
+argument_list|()
 operator|instanceof
 name|ThreadPoolExecutor
 condition|)
@@ -2146,6 +2176,7 @@ operator|)
 name|executor
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|shutdownNow
@@ -2172,6 +2203,7 @@ name|remove
 argument_list|()
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|shutdownNow
@@ -2221,6 +2253,7 @@ condition|(
 name|executor
 operator|.
 name|executor
+argument_list|()
 operator|instanceof
 name|ThreadPoolExecutor
 condition|)
@@ -2234,6 +2267,7 @@ operator|)
 name|executor
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|awaitTermination
@@ -2266,6 +2300,7 @@ name|remove
 argument_list|()
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|awaitTermination
@@ -2573,6 +2608,7 @@ operator|)
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|setKeepAliveTime
@@ -2594,6 +2630,7 @@ argument_list|(
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 argument_list|,
 operator|new
 name|Info
@@ -2890,6 +2927,7 @@ operator|)
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|setCorePoolSize
@@ -2904,6 +2942,7 @@ operator|)
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|setMaximumPoolSize
@@ -2918,6 +2957,7 @@ argument_list|(
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 argument_list|,
 operator|new
 name|Info
@@ -3261,6 +3301,7 @@ operator|)
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|setKeepAliveTime
@@ -3293,6 +3334,7 @@ operator|)
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|setCorePoolSize
@@ -3318,6 +3360,7 @@ operator|)
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|setMaximumPoolSize
@@ -3333,6 +3376,7 @@ argument_list|(
 name|previousExecutorHolder
 operator|.
 name|executor
+argument_list|()
 argument_list|,
 operator|new
 name|Info
@@ -3706,17 +3750,20 @@ operator|!
 name|oldExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|.
 name|equals
 argument_list|(
 name|newExecutorHolder
 operator|.
 name|executor
+argument_list|()
 argument_list|)
 operator|&&
 name|oldExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|instanceof
 name|EsThreadPoolExecutor
 condition|)
@@ -3735,6 +3782,7 @@ operator|)
 name|oldExecutorHolder
 operator|.
 name|executor
+argument_list|()
 operator|)
 operator|.
 name|shutdown
@@ -4196,7 +4244,7 @@ class|class
 name|ExecutorHolder
 block|{
 DECL|field|executor
-specifier|public
+specifier|private
 specifier|final
 name|Executor
 name|executor
@@ -4217,6 +4265,18 @@ name|Info
 name|info
 parameter_list|)
 block|{
+assert|assert
+name|executor
+operator|instanceof
+name|EsThreadPoolExecutor
+operator|||
+name|executor
+operator|==
+name|MoreExecutors
+operator|.
+name|directExecutor
+argument_list|()
+assert|;
 name|this
 operator|.
 name|executor
@@ -4229,6 +4289,15 @@ name|info
 operator|=
 name|info
 expr_stmt|;
+block|}
+DECL|method|executor
+name|Executor
+name|executor
+parameter_list|()
+block|{
+return|return
+name|executor
+return|;
 block|}
 block|}
 DECL|class|Info
