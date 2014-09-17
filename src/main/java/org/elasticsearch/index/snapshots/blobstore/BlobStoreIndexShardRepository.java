@@ -2479,8 +2479,6 @@ name|indexTotalFilesSize
 argument_list|)
 decl_stmt|;
 comment|//TODO: The time stored in snapshot doesn't include cleanup time.
-try|try
-block|{
 name|logger
 operator|.
 name|trace
@@ -2512,7 +2510,6 @@ argument_list|,
 name|output
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2619,6 +2616,17 @@ name|fileInfo
 operator|.
 name|physicalName
 argument_list|()
+decl_stmt|;
+specifier|final
+name|byte
+index|[]
+name|buffer
+init|=
+operator|new
+name|byte
+index|[
+name|BUFFER_SIZE
+index|]
 decl_stmt|;
 try|try
 init|(
@@ -2727,17 +2735,6 @@ init|)
 block|{
 name|int
 name|len
-decl_stmt|;
-specifier|final
-name|byte
-index|[]
-name|buffer
-init|=
-operator|new
-name|byte
-index|[
-name|BUFFER_SIZE
-index|]
 decl_stmt|;
 while|while
 condition|(
