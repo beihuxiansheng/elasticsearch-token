@@ -116,6 +116,34 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|block
+operator|.
+name|ClusterBlockException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|block
+operator|.
+name|ClusterBlockLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -289,6 +317,28 @@ operator|.
 name|Names
 operator|.
 name|SAME
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|checkBlock
+specifier|protected
+name|ClusterBlockException
+name|checkBlock
+parameter_list|(
+name|ClusterStateRequest
+name|request
+parameter_list|,
+name|ClusterState
+name|state
+parameter_list|)
+block|{
+comment|// cluster state calls are done also on a fully blocked cluster to figure out what is going
+comment|// on in the cluster. For example, which nodes have joined yet the recovery has not yet kicked
+comment|// in, we need to make sure we allow those calls
+comment|// return state.blocks().globalBlockedException(ClusterBlockLevel.METADATA);
+return|return
+literal|null
 return|;
 block|}
 annotation|@

@@ -557,15 +557,6 @@ name|AbstractSnapshotTests
 block|{
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Shay is working on this"
-argument_list|)
 DECL|method|restorePersistentSettingsTest
 specifier|public
 name|void

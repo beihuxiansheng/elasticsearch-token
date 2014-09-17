@@ -529,6 +529,16 @@ name|equals
 argument_list|(
 literal|"master_timeout"
 argument_list|)
+operator|||
+name|entry
+operator|.
+name|getKey
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"index"
+argument_list|)
 condition|)
 block|{
 continue|continue;

@@ -398,6 +398,7 @@ return|;
 block|}
 DECL|method|checkBlock
 specifier|protected
+specifier|abstract
 name|ClusterBlockException
 name|checkBlock
 parameter_list|(
@@ -407,11 +408,7 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-block|{
-return|return
-literal|null
-return|;
-block|}
+function_decl|;
 DECL|method|processBeforeDelegationToMaster
 specifier|protected
 name|void
