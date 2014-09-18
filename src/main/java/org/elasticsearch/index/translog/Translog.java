@@ -408,25 +408,14 @@ throws|throws
 name|TranslogException
 function_decl|;
 DECL|method|read
-name|byte
-index|[]
+name|Translog
+operator|.
+name|Operation
 name|read
 parameter_list|(
 name|Location
 name|location
 parameter_list|)
-function_decl|;
-DECL|method|readSource
-name|Translog
-operator|.
-name|Source
-name|readSource
-parameter_list|(
-name|Location
-name|location
-parameter_list|)
-throws|throws
-name|IOException
 function_decl|;
 comment|/**      * Snapshots the current transaction log allowing to safely iterate over the snapshot.      */
 DECL|method|snapshot
@@ -558,6 +547,30 @@ operator|+
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"[id: "
+operator|+
+name|translogId
+operator|+
+literal|", location: "
+operator|+
+name|translogLocation
+operator|+
+literal|", size: "
+operator|+
+name|size
+operator|+
+literal|"]"
 return|;
 block|}
 block|}
