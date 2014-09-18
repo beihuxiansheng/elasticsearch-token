@@ -2625,6 +2625,7 @@ block|}
 block|}
 block|}
 comment|// no version, get the version from the index, we know that we refresh on flush
+specifier|final
 name|Searcher
 name|searcher
 init|=
@@ -4926,6 +4927,15 @@ name|boolean
 name|refreshNeeded
 parameter_list|()
 block|{
+if|if
+condition|(
+name|store
+operator|.
+name|tryIncRef
+argument_list|()
+condition|)
+block|{
+comment|/*               we need to inc the store here since searcherManager.isSearcherCurrent()               acquires a searcher internally and that might keep a file open on the               store. this violates the assumption that all files are closed when               the store is closed so we need to make sure we increment it here              */
 try|try
 block|{
 comment|// we are either dirty due to a document added or due to a
@@ -4974,6 +4984,18 @@ name|e
 argument_list|)
 throw|;
 block|}
+finally|finally
+block|{
+name|store
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+return|return
+literal|false
+return|;
 block|}
 annotation|@
 name|Override
@@ -7043,6 +7065,9 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+try|try
+init|(
+specifier|final
 name|Searcher
 name|searcher
 init|=
@@ -7050,8 +7075,7 @@ name|acquireSearcher
 argument_list|(
 literal|"segments_stats"
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 name|SegmentsStats
 name|stats
@@ -7132,14 +7156,6 @@ expr_stmt|;
 return|return
 name|stats
 return|;
-block|}
-finally|finally
-block|{
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -8166,6 +8182,9 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+try|try
+init|(
+specifier|final
 name|Searcher
 name|searcher
 init|=
@@ -8173,8 +8192,7 @@ name|acquireSearcher
 argument_list|(
 literal|"load_version"
 argument_list|)
-decl_stmt|;
-try|try
+init|)
 block|{
 return|return
 name|Versions
@@ -8189,14 +8207,6 @@ argument_list|,
 name|uid
 argument_list|)
 return|;
-block|}
-finally|finally
-block|{
-name|searcher
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Returns whether a leaf reader comes from a merge (versus flush or addIndexes).      */
@@ -9532,11 +9542,6 @@ condition|)
 block|{
 comment|// we need to pass a custom searcher that does not release anything on Engine.Search Release,
 comment|// we will release explicitly
-name|Searcher
-name|currentSearcher
-init|=
-literal|null
-decl_stmt|;
 name|IndexSearcher
 name|newSearcher
 init|=
@@ -9564,13 +9569,18 @@ expr_stmt|;
 block|}
 else|else
 block|{
+try|try
+init|(
+specifier|final
+name|Searcher
 name|currentSearcher
-operator|=
+init|=
 name|acquireSearcher
 argument_list|(
 literal|"search_factory"
 argument_list|)
-expr_stmt|;
+init|)
+block|{
 comment|// figure out the newSearcher, with only the new readers that are relevant for us
 name|List
 argument_list|<
@@ -9719,6 +9729,7 @@ literal|true
 expr_stmt|;
 block|}
 block|}
+block|}
 if|if
 condition|(
 name|newSearcher
@@ -9803,13 +9814,6 @@ block|}
 finally|finally
 block|{
 comment|// no need to release the fullSearcher, nothing really is done...
-name|Releasables
-operator|.
-name|close
-argument_list|(
-name|currentSearcher
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|newSearcher
