@@ -1688,11 +1688,12 @@ name|SortedBinaryDocValues
 name|bytesValues
 parameter_list|()
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
+return|return
+name|atomicFieldData
+operator|.
+name|getBytesValues
 argument_list|()
-throw|;
+return|;
 block|}
 annotation|@
 name|Override
