@@ -253,6 +253,7 @@ specifier|static
 interface|interface
 name|Listener
 block|{
+comment|/** called when pinging the master failed, like a timeout, transport disconnects etc */
 DECL|method|onMasterFailure
 name|void
 name|onMasterFailure
@@ -264,9 +265,10 @@ name|String
 name|reason
 parameter_list|)
 function_decl|;
-DECL|method|onDisconnectedFromMaster
+comment|/** called when the current nodes is not part of the disco nodes on the master */
+DECL|method|notListedOnMaster
 name|void
-name|onDisconnectedFromMaster
+name|notListedOnMaster
 parameter_list|()
 function_decl|;
 block|}
@@ -881,10 +883,10 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|notifyDisconnectedFromMaster
+DECL|method|notifyNotListedOnMaster
 specifier|private
 name|void
-name|notifyDisconnectedFromMaster
+name|notifyNotListedOnMaster
 parameter_list|()
 block|{
 name|threadPool
@@ -915,7 +917,7 @@ control|)
 block|{
 name|listener
 operator|.
-name|onDisconnectedFromMaster
+name|notListedOnMaster
 argument_list|()
 expr_stmt|;
 block|}
@@ -1204,7 +1206,7 @@ condition|(
 operator|!
 name|response
 operator|.
-name|connectedToMaster
+name|listedOnMaster
 condition|)
 block|{
 name|logger
@@ -1216,7 +1218,7 @@ argument_list|,
 name|masterToPing
 argument_list|)
 expr_stmt|;
-name|notifyDisconnectedFromMaster
+name|notifyNotListedOnMaster
 argument_list|()
 expr_stmt|;
 block|}
@@ -1951,10 +1953,10 @@ name|MasterPingResponseResponse
 extends|extends
 name|TransportResponse
 block|{
-DECL|field|connectedToMaster
+DECL|field|listedOnMaster
 specifier|private
 name|boolean
-name|connectedToMaster
+name|listedOnMaster
 decl_stmt|;
 DECL|method|MasterPingResponseResponse
 specifier|private
@@ -1966,14 +1968,14 @@ specifier|private
 name|MasterPingResponseResponse
 parameter_list|(
 name|boolean
-name|connectedToMaster
+name|listedOnMaster
 parameter_list|)
 block|{
 name|this
 operator|.
-name|connectedToMaster
+name|listedOnMaster
 operator|=
-name|connectedToMaster
+name|listedOnMaster
 expr_stmt|;
 block|}
 annotation|@
@@ -1996,7 +1998,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|connectedToMaster
+name|listedOnMaster
 operator|=
 name|in
 operator|.
@@ -2028,7 +2030,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|connectedToMaster
+name|listedOnMaster
 argument_list|)
 expr_stmt|;
 block|}
