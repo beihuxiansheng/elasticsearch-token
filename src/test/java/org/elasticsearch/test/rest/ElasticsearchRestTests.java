@@ -919,6 +919,13 @@ name|void
 name|close
 parameter_list|()
 block|{
+if|if
+condition|(
+name|restTestExecutionContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|restTestExecutionContext
 operator|.
 name|close
@@ -928,6 +935,7 @@ name|restTestExecutionContext
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Used to obtain settings for the REST client that is used to send REST requests.      */
 DECL|method|restClientSettings
