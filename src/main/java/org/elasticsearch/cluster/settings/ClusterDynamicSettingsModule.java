@@ -726,6 +726,15 @@ name|clusterDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|DiskThresholdDecider
+operator|.
+name|CLUSTER_ROUTING_ALLOCATION_INCLUDE_RELOCATIONS
+argument_list|)
+expr_stmt|;
+name|clusterDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|InternalClusterInfoService
 operator|.
 name|INTERNAL_CLUSTER_INFO_UPDATE_INTERVAL
