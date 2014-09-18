@@ -584,6 +584,17 @@ name|IOException
 throws|,
 name|RestTestParseException
 block|{
+comment|//skip REST tests if disabled through -Dtests.rest=false
+name|assumeTrue
+argument_list|(
+name|systemPropertyAsBoolean
+argument_list|(
+name|REST_TESTS
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|RestTestCandidate
@@ -867,17 +878,6 @@ name|IOException
 throws|,
 name|RestException
 block|{
-comment|//skip REST tests if disabled through -Dtests.rest=false
-name|assumeTrue
-argument_list|(
-name|systemPropertyAsBoolean
-argument_list|(
-name|REST_TESTS
-argument_list|,
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|String
 index|[]
 name|specPaths
