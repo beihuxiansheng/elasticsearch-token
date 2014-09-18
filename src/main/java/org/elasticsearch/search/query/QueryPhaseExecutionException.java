@@ -82,6 +82,25 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|QueryPhaseExecutionException
+specifier|public
+name|QueryPhaseExecutionException
+parameter_list|(
+name|SearchContext
+name|context
+parameter_list|,
+name|String
+name|msg
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+name|msg
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
