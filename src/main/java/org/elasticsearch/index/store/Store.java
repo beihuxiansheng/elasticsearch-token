@@ -420,22 +420,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|support
-operator|.
-name|ForceSyncDirectory
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -519,7 +503,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Store provides plain access to files written by an elasticsearch index shard. Each shard  * has a dedicated store that is uses to access lucenes Directory which represents the lowest level  * of file abstraction in lucene used to read and write Lucene indices to.  * This class also provides access to metadata information like checksums for committed files. A committed  * file is a file that belongs to a segment written by a Lucene commit. Files that have not been committed  * ie. created during a merge or a shard refresh / NRT reopen are not considered in the MetadataSnapshot.  *  * Note: If you use a store it's reference count should be increased before using it by calling #incRef and a  * corresponding #decRef must be called in a try/finally block to release the store again ie.:  *<pre>  *      store.incRef();  *      try {  *        // use the store...  *  *      } finally {  *          store.decRef();  *      }  *</pre>  */
+comment|/**  * A Store provides plain access to files written by an elasticsearch index shard. Each shard  * has a dedicated store that is uses to access Lucene's Directory which represents the lowest level  * of file abstraction in Lucene used to read and write Lucene indices.  * This class also provides access to metadata information like checksums for committed files. A committed  * file is a file that belongs to a segment written by a Lucene commit. Files that have not been committed  * ie. created during a merge or a shard refresh / NRT reopen are not considered in the MetadataSnapshot.  *  * Note: If you use a store it's reference count should be increased before using it by calling #incRef and a  * corresponding #decRef must be called in a try/finally block to release the store again ie.:  *<pre>  *      store.incRef();  *      try {  *        // use the store...  *  *      } finally {  *          store.decRef();  *      }  *</pre>  */
 end_comment
 
 begin_class
@@ -622,12 +606,6 @@ specifier|final
 name|StoreDirectory
 name|directory
 decl_stmt|;
-DECL|field|sync
-specifier|private
-specifier|final
-name|boolean
-name|sync
-decl_stmt|;
 DECL|field|distributorDirectory
 specifier|private
 specifier|final
@@ -678,19 +656,6 @@ operator|.
 name|directoryService
 operator|=
 name|directoryService
-expr_stmt|;
-name|this
-operator|.
-name|sync
-operator|=
-name|componentSettings
-operator|.
-name|getAsBoolean
-argument_list|(
-literal|"sync"
-argument_list|,
-literal|true
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -1955,15 +1920,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The idea of the store directory is to cache file level meta data, as well as md5 of it      */
+comment|/**      * This exists so {@link BloomFilteringPostingsFormat} can load its boolean setting; can we find a more straightforward way?      */
 DECL|class|StoreDirectory
 specifier|public
 class|class
 name|StoreDirectory
 extends|extends
 name|FilterDirectory
-implements|implements
-name|ForceSyncDirectory
 block|{
 DECL|method|StoreDirectory
 name|StoreDirectory
@@ -2140,36 +2103,6 @@ operator|:
 literal|"Nobody should close this directory except of the Store itself"
 assert|;
 block|}
-annotation|@
-name|Override
-DECL|method|sync
-specifier|public
-name|void
-name|sync
-parameter_list|(
-name|Collection
-argument_list|<
-name|String
-argument_list|>
-name|names
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-if|if
-condition|(
-name|sync
-condition|)
-block|{
-name|super
-operator|.
-name|sync
-argument_list|(
-name|names
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 DECL|method|innerClose
 specifier|private
 name|void
@@ -2182,30 +2115,6 @@ name|super
 operator|.
 name|close
 argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|forceSync
-specifier|public
-name|void
-name|forceSync
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|sync
-argument_list|(
-name|ImmutableList
-operator|.
-name|of
-argument_list|(
-name|name
-argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
