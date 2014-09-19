@@ -567,6 +567,49 @@ name|TESTS_BACKWARDS_COMPATIBILITY_PATH
 init|=
 literal|"tests.bwc.path"
 decl_stmt|;
+comment|/**      * Annotation for REST tests      */
+annotation|@
+name|Inherited
+annotation|@
+name|Retention
+argument_list|(
+name|RetentionPolicy
+operator|.
+name|RUNTIME
+argument_list|)
+annotation|@
+name|Target
+argument_list|(
+name|ElementType
+operator|.
+name|TYPE
+argument_list|)
+annotation|@
+name|TestGroup
+argument_list|(
+name|enabled
+operator|=
+literal|true
+argument_list|,
+name|sysProperty
+operator|=
+name|TESTS_REST
+argument_list|)
+DECL|interface|Rest
+specifier|public
+annotation_defn|@interface
+name|Rest
+block|{     }
+comment|/**      * Property that allows to control whether the REST tests are run (default) or not      */
+DECL|field|TESTS_REST
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TESTS_REST
+init|=
+literal|"tests.rest"
+decl_stmt|;
 comment|/**      * Annotation for integration tests      */
 annotation|@
 name|Inherited
