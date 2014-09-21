@@ -92,6 +92,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|netty
+operator|.
+name|NettyUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|BigArrays
@@ -214,15 +228,6 @@ init|=
 name|BigArrays
 operator|.
 name|BYTE_PAGE_SIZE
-decl_stmt|;
-DECL|field|NIO_GATHERING_LIMIT
-specifier|private
-specifier|static
-specifier|final
-name|int
-name|NIO_GATHERING_LIMIT
-init|=
-literal|524288
 decl_stmt|;
 DECL|field|bigarrays
 specifier|private
@@ -1196,16 +1201,14 @@ operator|==
 name|bufferSlot
 operator|)
 assert|;
-comment|// we can use gathering writes from the ChannelBuffers, but only if they are
-comment|// moderately small to prevent OOMs due to DirectBuffer allocations.
 return|return
 name|ChannelBuffers
 operator|.
 name|wrappedBuffer
 argument_list|(
-name|length
-operator|<=
-name|NIO_GATHERING_LIMIT
+name|NettyUtils
+operator|.
+name|DEFAULT_GATHERING
 argument_list|,
 name|buffers
 argument_list|)
