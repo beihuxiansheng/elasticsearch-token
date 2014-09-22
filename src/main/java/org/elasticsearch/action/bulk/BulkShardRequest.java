@@ -410,7 +410,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if we are serializing to a node that is pre 1.4, make sure to pass null to maintain
+comment|// if we are serializing to a node that is pre 1.3.3, make sure to pass null to maintain
 comment|// the old behavior of putting null in the request to be ignored on the replicas
 if|if
 condition|(
@@ -428,7 +428,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_1_4_0_Beta1
+name|V_1_3_3
 argument_list|)
 condition|)
 block|{
