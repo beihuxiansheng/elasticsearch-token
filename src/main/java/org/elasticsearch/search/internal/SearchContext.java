@@ -118,6 +118,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Counter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -1793,6 +1807,13 @@ parameter_list|(
 name|boolean
 name|useSlowScroll
 parameter_list|)
+function_decl|;
+DECL|method|timeEstimateCounter
+specifier|public
+specifier|abstract
+name|Counter
+name|timeEstimateCounter
+parameter_list|()
 function_decl|;
 comment|/**      * The life time of an object that is used during search execution.      */
 DECL|enum|Lifetime

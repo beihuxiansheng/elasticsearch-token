@@ -284,7 +284,7 @@ argument_list|()
 argument_list|,
 name|scriptFilter
 argument_list|(
-literal|"Thread.sleep(100); return true;"
+literal|"Thread.sleep(500); return true;"
 argument_list|)
 argument_list|)
 argument_list|)

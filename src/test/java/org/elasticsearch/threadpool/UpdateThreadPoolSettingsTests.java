@@ -2125,10 +2125,10 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|terminate
+argument_list|(
 name|threadPool
-operator|.
-name|shutdownNow
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|latch
 operator|.

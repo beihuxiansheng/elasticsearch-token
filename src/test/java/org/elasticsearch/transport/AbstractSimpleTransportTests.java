@@ -651,10 +651,10 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|terminate
+argument_list|(
 name|threadPool
-operator|.
-name|shutdown
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

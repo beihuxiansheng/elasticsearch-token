@@ -217,6 +217,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -673,6 +685,8 @@ specifier|public
 name|void
 name|testThatNegativeSettingAllowsToStart
 parameter_list|()
+throws|throws
+name|InterruptedException
 block|{
 name|Settings
 name|settings
@@ -725,6 +739,11 @@ argument_list|(
 name|nullValue
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|terminate
+argument_list|(
+name|threadPool
 argument_list|)
 expr_stmt|;
 block|}

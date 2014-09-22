@@ -257,11 +257,13 @@ specifier|public
 name|void
 name|cleanup
 parameter_list|()
+throws|throws
+name|InterruptedException
 block|{
+name|terminate
+argument_list|(
 name|threadPool
-operator|.
-name|shutdownNow
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

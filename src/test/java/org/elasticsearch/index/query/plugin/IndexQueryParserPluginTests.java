@@ -413,6 +413,8 @@ specifier|public
 name|void
 name|testCustomInjection
 parameter_list|()
+throws|throws
+name|InterruptedException
 block|{
 name|Settings
 name|settings
@@ -710,6 +712,8 @@ literal|"my"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|terminate
+argument_list|(
 name|injector
 operator|.
 name|getInstance
@@ -718,9 +722,7 @@ name|ThreadPool
 operator|.
 name|class
 argument_list|)
-operator|.
-name|shutdownNow
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

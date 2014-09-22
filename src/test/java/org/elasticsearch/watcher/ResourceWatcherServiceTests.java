@@ -77,6 +77,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -427,6 +439,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|terminate
+argument_list|(
+name|threadPool
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -762,6 +779,11 @@ name|is
 argument_list|(
 literal|1
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|terminate
+argument_list|(
+name|threadPool
 argument_list|)
 expr_stmt|;
 block|}

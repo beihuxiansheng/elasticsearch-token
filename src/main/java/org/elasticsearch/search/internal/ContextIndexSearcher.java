@@ -663,6 +663,11 @@ name|collector
 argument_list|,
 name|searchContext
 operator|.
+name|timeEstimateCounter
+argument_list|()
+argument_list|,
+name|searchContext
+operator|.
 name|timeoutInMillis
 argument_list|()
 argument_list|)

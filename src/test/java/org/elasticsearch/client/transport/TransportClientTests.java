@@ -673,6 +673,8 @@ name|void
 name|testThatTransportClientSettingCannotBeChanged
 parameter_list|()
 block|{
+try|try
+init|(
 name|TransportClient
 name|client
 init|=
@@ -691,7 +693,8 @@ argument_list|,
 literal|"anything"
 argument_list|)
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|Settings
 name|settings
 init|=
@@ -723,6 +726,7 @@ literal|"transport"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

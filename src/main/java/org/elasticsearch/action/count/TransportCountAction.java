@@ -1228,6 +1228,11 @@ argument_list|,
 name|pageCacheRecycler
 argument_list|,
 name|bigArrays
+argument_list|,
+name|threadPool
+operator|.
+name|estimatedTimeInMillisCounter
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|SearchContext
