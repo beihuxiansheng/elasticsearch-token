@@ -525,8 +525,14 @@ try|try
 block|{
 name|threadPool
 operator|.
-name|generic
-argument_list|()
+name|executor
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|LISTENER
+argument_list|)
 operator|.
 name|execute
 argument_list|(
@@ -628,8 +634,14 @@ try|try
 block|{
 name|threadPool
 operator|.
-name|generic
-argument_list|()
+name|executor
+argument_list|(
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|LISTENER
+argument_list|)
 operator|.
 name|execute
 argument_list|(
@@ -666,12 +678,12 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Can not run threaded action, exectuion rejected for listener [{}] running on current thread"
+literal|"Can not run threaded action, execution rejected for listener [{}] running on current thread"
 argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
-comment|/* we don't care if that takes long since we are shutting down. But if we not respond somebody could wait                  * for the response on the listener side which could be a remote machine so make sure we push it out there.*/
+comment|/* we don't care if that takes long since we are shutting down (or queue capacity). But if we not respond somebody could wait                  * for the response on the listener side which could be a remote machine so make sure we push it out there.*/
 name|listener
 operator|.
 name|onFailure

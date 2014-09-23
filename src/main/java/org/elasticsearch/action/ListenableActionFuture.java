@@ -45,16 +45,6 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Add an action listener (runnable) to be invoked when a response has received.      */
-DECL|method|addListener
-name|void
-name|addListener
-parameter_list|(
-specifier|final
-name|Runnable
-name|listener
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
