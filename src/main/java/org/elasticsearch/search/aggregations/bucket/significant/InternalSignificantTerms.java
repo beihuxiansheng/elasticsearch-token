@@ -980,6 +980,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|significanceHeuristic
+operator|.
+name|initialize
+argument_list|(
+name|reduceContext
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|size

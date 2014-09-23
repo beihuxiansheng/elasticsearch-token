@@ -50,6 +50,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|InternalAggregation
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -184,6 +198,17 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|initialize
+specifier|public
+name|void
+name|initialize
+parameter_list|(
+name|InternalAggregation
+operator|.
+name|ReduceContext
+name|reduceContext
+parameter_list|)
+block|{      }
 block|}
 end_class
 
