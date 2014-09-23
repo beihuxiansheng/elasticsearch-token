@@ -3789,10 +3789,15 @@ name|indexOutput
 operator|.
 name|getFilePointer
 argument_list|()
-operator|==
+operator|>=
 name|request
 operator|.
 name|length
+argument_list|()
+operator|||
+name|request
+operator|.
+name|lastChunk
 argument_list|()
 condition|)
 block|{

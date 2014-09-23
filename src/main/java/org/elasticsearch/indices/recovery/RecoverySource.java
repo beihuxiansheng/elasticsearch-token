@@ -1961,6 +1961,10 @@ argument_list|,
 name|toRead
 argument_list|)
 decl_stmt|;
+name|readCount
+operator|+=
+name|toRead
+expr_stmt|;
 name|transportService
 operator|.
 name|submitRequest
@@ -1994,6 +1998,10 @@ argument_list|,
 name|position
 argument_list|,
 name|content
+argument_list|,
+name|readCount
+operator|==
+name|len
 argument_list|)
 argument_list|,
 name|TransportRequestOptions
@@ -2027,10 +2035,6 @@ argument_list|)
 operator|.
 name|txGet
 argument_list|()
-expr_stmt|;
-name|readCount
-operator|+=
-name|toRead
 expr_stmt|;
 block|}
 block|}
