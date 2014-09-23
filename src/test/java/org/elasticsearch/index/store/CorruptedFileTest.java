@@ -670,6 +670,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndicesLifecycle
@@ -1132,6 +1146,16 @@ name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 name|failOnCorruption
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|TranslogService
+operator|.
+name|INDEX_TRANSLOG_DISABLE_FLUSH
+argument_list|,
+literal|true
+argument_list|)
+comment|// no translog based flush - it might change the .del / segments.N files
 operator|.
 name|put
 argument_list|(
@@ -1961,6 +1985,16 @@ name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|TranslogService
+operator|.
+name|INDEX_TRANSLOG_DISABLE_FLUSH
+argument_list|,
+literal|true
+argument_list|)
+comment|// no translog based flush - it might change the .del / segments.N files
 operator|.
 name|put
 argument_list|(
@@ -3547,6 +3581,16 @@ name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|TranslogService
+operator|.
+name|INDEX_TRANSLOG_DISABLE_FLUSH
+argument_list|,
+literal|true
+argument_list|)
+comment|// no translog based flush - it might change the .del / segments.N files
 operator|.
 name|put
 argument_list|(
