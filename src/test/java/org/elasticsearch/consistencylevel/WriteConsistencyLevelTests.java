@@ -106,6 +106,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|rest
+operator|.
+name|RestStatus
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -389,7 +401,35 @@ name|UnavailableShardsException
 name|e
 parameter_list|)
 block|{
-comment|// all is well
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|status
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"[test][0] Not enough active copies to meet write consistency of [QUORUM] (have 1, needed 2). Timeout: [100ms], request: index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// but really, all is well
 block|}
 name|allowNodes
 argument_list|(
@@ -574,7 +614,35 @@ name|UnavailableShardsException
 name|e
 parameter_list|)
 block|{
-comment|// all is well
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|status
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|RestStatus
+operator|.
+name|SERVICE_UNAVAILABLE
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"[test][0] Not enough active copies to meet write consistency of [ALL] (have 2, needed 3). Timeout: [100ms], request: index {[test][type1][1], source[{ type1 : { \"id\" : \"1\", \"name\" : \"test\" } }]}"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// but really, all is well
 block|}
 name|allowNodes
 argument_list|(
