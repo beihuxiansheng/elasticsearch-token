@@ -2220,7 +2220,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// in 1.4.0 we added additional hashes for .si / segments_N files
+comment|// in 1.3.3 we added additional hashes for .si / segments_N files
 comment|// to ensure we don't double the space in the repo since old snapshots
 comment|// don't have this hash we try to read that hash from the blob store
 comment|// in a bwc compatible way.
@@ -3628,7 +3628,7 @@ control|)
 block|{
 try|try
 block|{
-comment|// in 1.4.0 we added additional hashes for .si / segments_N files
+comment|// in 1.3.3 we added additional hashes for .si / segments_N files
 comment|// to ensure we don't double the space in the repo since old snapshots
 comment|// don't have this hash we try to read that hash from the blob store
 comment|// in a bwc compatible way.
