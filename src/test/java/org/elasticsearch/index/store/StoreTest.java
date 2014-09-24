@@ -4521,6 +4521,22 @@ argument_list|(
 name|preventDoubleWrite
 argument_list|)
 expr_stmt|;
+comment|// TODO: fix this test to handle virus checker
+operator|(
+operator|(
+name|MockDirectoryWrapper
+operator|)
+name|dirs
+index|[
+name|i
+index|]
+operator|)
+operator|.
+name|setEnableVirusScanner
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|this

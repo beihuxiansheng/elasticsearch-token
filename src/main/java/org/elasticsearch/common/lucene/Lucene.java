@@ -327,6 +327,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -506,7 +516,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ParseException
 name|e
 parameter_list|)
 block|{
@@ -3213,7 +3223,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|IllegalArgumentException
+name|ParseException
 name|e
 parameter_list|)
 block|{
