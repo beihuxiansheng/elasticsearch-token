@@ -970,8 +970,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{                 }
 block|}
 block|}
 DECL|method|executePhase

@@ -2427,24 +2427,6 @@ name|Exception
 block|{
 comment|// TODO: for now, this will create different keys for different JSON order
 comment|// TODO: tricky to get around this, need to parse and order all, which can be expensive
-name|BytesStreamOutput
-name|out
-init|=
-operator|new
-name|BytesStreamOutput
-argument_list|()
-decl_stmt|;
-name|request
-operator|.
-name|writeTo
-argument_list|(
-name|out
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// copy it over, most requests are small, we might as well copy to make sure we are not sliced...
-comment|// we could potentially keep it without copying, but then pay the price of extra unused bytes up to a page
 return|return
 operator|new
 name|Key
@@ -2470,12 +2452,9 @@ operator|.
 name|getVersion
 argument_list|()
 argument_list|,
-name|out
+name|request
 operator|.
-name|bytes
-argument_list|()
-operator|.
-name|copyBytesArray
+name|cacheKey
 argument_list|()
 argument_list|)
 return|;

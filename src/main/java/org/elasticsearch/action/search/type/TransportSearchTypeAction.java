@@ -388,7 +388,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|ShardSearchRequest
+name|ShardSearchTransportRequest
 import|;
 end_import
 
@@ -2442,7 +2442,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|ShardSearchRequest
+name|ShardSearchTransportRequest
 name|request
 parameter_list|,
 name|SearchServiceListener

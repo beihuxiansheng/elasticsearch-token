@@ -222,21 +222,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|ShardSearchRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|query
-operator|.
-name|QuerySearchResult
+name|ShardSearchTransportRequest
 import|;
 end_import
 
@@ -420,7 +406,7 @@ parameter_list|(
 name|DiscoveryNode
 name|node
 parameter_list|,
-name|ShardSearchRequest
+name|ShardSearchTransportRequest
 name|request
 parameter_list|,
 name|SearchServiceListener
