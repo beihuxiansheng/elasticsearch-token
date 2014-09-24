@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
+name|ActionWriteResponse
 import|;
 end_import
 
@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|BulkShardResponse
 extends|extends
-name|ActionResponse
+name|ActionWriteResponse
 block|{
 DECL|field|shardId
 specifier|private

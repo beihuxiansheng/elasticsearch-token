@@ -34,7 +34,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
+name|ActionWriteResponse
 import|;
 end_import
 
@@ -382,7 +382,7 @@ name|opType
 decl_stmt|;
 DECL|field|response
 specifier|private
-name|ActionResponse
+name|ActionWriteResponse
 name|response
 decl_stmt|;
 DECL|field|failure
@@ -404,7 +404,7 @@ parameter_list|,
 name|String
 name|opType
 parameter_list|,
-name|ActionResponse
+name|ActionWriteResponse
 name|response
 parameter_list|)
 block|{
@@ -825,7 +825,7 @@ specifier|public
 parameter_list|<
 name|T
 extends|extends
-name|ActionResponse
+name|ActionWriteResponse
 parameter_list|>
 name|T
 name|getResponse

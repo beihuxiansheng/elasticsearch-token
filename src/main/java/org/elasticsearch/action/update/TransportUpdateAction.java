@@ -1426,6 +1426,11 @@ name|UpdateResponse
 argument_list|(
 name|response
 operator|.
+name|getShardInfo
+argument_list|()
+argument_list|,
+name|response
+operator|.
 name|getIndex
 argument_list|()
 argument_list|,
@@ -1716,6 +1721,11 @@ name|UpdateResponse
 argument_list|(
 name|response
 operator|.
+name|getShardInfo
+argument_list|()
+argument_list|,
+name|response
+operator|.
 name|getIndex
 argument_list|()
 argument_list|,
@@ -1932,6 +1942,11 @@ init|=
 operator|new
 name|UpdateResponse
 argument_list|(
+name|response
+operator|.
+name|getShardInfo
+argument_list|()
+argument_list|,
 name|response
 operator|.
 name|getIndex

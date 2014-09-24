@@ -4803,6 +4803,9 @@ name|assertThat
 argument_list|(
 name|indexDeleteByQueryResponse
 operator|.
+name|getShardInfo
+argument_list|()
+operator|.
 name|getFailures
 argument_list|()
 operator|.

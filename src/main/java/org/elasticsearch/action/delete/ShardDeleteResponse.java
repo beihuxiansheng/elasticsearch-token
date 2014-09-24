@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
+name|ActionWriteResponse
 import|;
 end_import
 
@@ -80,7 +80,7 @@ specifier|public
 class|class
 name|ShardDeleteResponse
 extends|extends
-name|ActionResponse
+name|ActionWriteResponse
 block|{
 DECL|field|version
 specifier|private

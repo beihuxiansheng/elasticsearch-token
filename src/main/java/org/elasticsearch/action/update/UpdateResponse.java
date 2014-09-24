@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionResponse
+name|ActionWriteResponse
 import|;
 end_import
 
@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|UpdateResponse
 extends|extends
-name|ActionResponse
+name|ActionWriteResponse
 block|{
 DECL|field|index
 specifier|private
@@ -130,7 +130,8 @@ DECL|method|UpdateResponse
 specifier|public
 name|UpdateResponse
 parameter_list|()
-block|{      }
+block|{     }
+comment|/**      * Constructor to be used when a update didn't translate in a write.      * For example: update script with operation set to none      */
 DECL|method|UpdateResponse
 specifier|public
 name|UpdateResponse
@@ -151,6 +152,58 @@ name|boolean
 name|created
 parameter_list|)
 block|{
+name|this
+argument_list|(
+operator|new
+name|ShardInfo
+argument_list|(
+literal|0
+argument_list|,
+literal|0
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
+name|index
+argument_list|,
+name|type
+argument_list|,
+name|id
+argument_list|,
+name|version
+argument_list|,
+name|created
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|UpdateResponse
+specifier|public
+name|UpdateResponse
+parameter_list|(
+name|ShardInfo
+name|shardInfo
+parameter_list|,
+name|String
+name|index
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|long
+name|version
+parameter_list|,
+name|boolean
+name|created
+parameter_list|)
+block|{
+name|setShardInfo
+argument_list|(
+name|shardInfo
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|index
