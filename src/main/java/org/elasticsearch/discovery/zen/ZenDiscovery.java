@@ -2048,7 +2048,7 @@ throw|;
 block|}
 name|nodesFD
 operator|.
-name|updateNodes
+name|updateNodesAndPing
 argument_list|(
 name|clusterState
 argument_list|)
@@ -2389,7 +2389,7 @@ argument_list|)
 expr_stmt|;
 name|nodesFD
 operator|.
-name|start
+name|updateNodesAndPing
 argument_list|(
 name|newState
 argument_list|)
@@ -3797,7 +3797,7 @@ argument_list|()
 decl_stmt|;
 name|nodesFD
 operator|.
-name|start
+name|updateNodesAndPing
 argument_list|(
 name|newState
 argument_list|)

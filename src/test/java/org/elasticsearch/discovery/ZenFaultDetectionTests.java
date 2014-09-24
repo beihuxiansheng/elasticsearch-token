@@ -987,7 +987,7 @@ argument_list|)
 expr_stmt|;
 name|nodesFD
 operator|.
-name|start
+name|updateNodesAndPing
 argument_list|(
 name|clusterState
 argument_list|)
