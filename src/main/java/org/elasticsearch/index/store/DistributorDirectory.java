@@ -1041,7 +1041,7 @@ literal|" to: "
 operator|+
 name|to
 operator|+
-literal|": target file already exists"
+literal|"target file already exists"
 argument_list|)
 throw|;
 block|}

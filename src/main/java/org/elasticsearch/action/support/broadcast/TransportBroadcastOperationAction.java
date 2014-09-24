@@ -1408,7 +1408,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{}: failed to execute [{}]"
+literal|"{}: failed to executed [{}]"
 argument_list|,
 name|t
 argument_list|,

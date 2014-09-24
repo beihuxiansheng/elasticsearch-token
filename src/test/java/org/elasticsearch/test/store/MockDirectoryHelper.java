@@ -616,14 +616,6 @@ argument_list|(
 name|preventDoubleWrite
 argument_list|)
 expr_stmt|;
-comment|// TODO: make this test robust to virus scanner
-name|w
-operator|.
-name|setEnableVirusScanner
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|w
 operator|.
 name|setNoDeleteOpenFile
