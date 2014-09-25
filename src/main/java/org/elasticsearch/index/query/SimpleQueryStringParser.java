@@ -897,8 +897,14 @@ if|if
 condition|(
 name|parser
 operator|.
-name|hasTextCharacters
+name|currentToken
 argument_list|()
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|VALUE_NUMBER
 condition|)
 block|{
 comment|// Possible options are:

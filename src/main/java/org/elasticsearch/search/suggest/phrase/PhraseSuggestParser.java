@@ -1053,12 +1053,6 @@ operator|.
 name|Token
 operator|.
 name|START_OBJECT
-operator|&&
-operator|!
-name|parser
-operator|.
-name|hasTextCharacters
-argument_list|()
 condition|)
 block|{
 name|XContentBuilder
