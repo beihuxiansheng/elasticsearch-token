@@ -236,10 +236,7 @@ argument_list|)
 operator|.
 name|find
 argument_list|()
-operator|||
-literal|true
 return|;
-comment|// TODO disabled for now
 block|}
 block|}
 end_class
