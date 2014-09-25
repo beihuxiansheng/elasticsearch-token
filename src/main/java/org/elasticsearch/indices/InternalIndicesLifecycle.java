@@ -768,6 +768,11 @@ name|afterIndexShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|Nullable
+name|IndexShard
+name|indexShard
 parameter_list|)
 block|{
 for|for
@@ -785,6 +790,8 @@ operator|.
 name|afterIndexShardClosed
 argument_list|(
 name|shardId
+argument_list|,
+name|indexShard
 argument_list|)
 expr_stmt|;
 block|}

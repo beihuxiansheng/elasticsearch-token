@@ -2734,6 +2734,8 @@ operator|.
 name|afterIndexShardClosed
 argument_list|(
 name|sId
+argument_list|,
+name|indexShard
 argument_list|)
 expr_stmt|;
 comment|// if we delete or have no gateway or the store is not persistent, clean the store...

@@ -2757,6 +2757,16 @@ name|INDEX_FAIL_ON_CORRUPTION
 argument_list|,
 literal|true
 argument_list|)
+comment|// This does corrupt files on the replica, so we can't check:
+operator|.
+name|put
+argument_list|(
+name|MockFSDirectoryService
+operator|.
+name|CHECK_INDEX_ON_CLOSE
+argument_list|,
+literal|false
+argument_list|)
 operator|.
 name|put
 argument_list|(

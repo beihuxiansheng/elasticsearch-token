@@ -1441,6 +1441,13 @@ decl_stmt|;
 comment|// -----------------------------------------------------------------
 comment|// Suite and test case setup/ cleanup.
 comment|// -----------------------------------------------------------------
+comment|/** MockFSDirectoryService sets this: */
+DECL|field|checkIndexFailed
+specifier|public
+specifier|static
+name|boolean
+name|checkIndexFailed
+decl_stmt|;
 comment|/**      * For subclasses to override. Overrides must call {@code super.setUp()}.      */
 annotation|@
 name|Before
@@ -1457,6 +1464,10 @@ operator|.
 name|setupCalled
 operator|=
 literal|true
+expr_stmt|;
+name|checkIndexFailed
+operator|=
+literal|false
 expr_stmt|;
 block|}
 comment|/**      * For subclasses to override. Overrides must call {@code super.tearDown()}.      */
@@ -1475,6 +1486,13 @@ operator|.
 name|teardownCalled
 operator|=
 literal|true
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"at least one shard failed CheckIndex"
+argument_list|,
+name|checkIndexFailed
+argument_list|)
 expr_stmt|;
 block|}
 comment|// -----------------------------------------------------------------
