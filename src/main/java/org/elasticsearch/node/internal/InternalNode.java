@@ -3064,6 +3064,7 @@ argument_list|(
 literal|"thread_pool"
 argument_list|)
 expr_stmt|;
+comment|// TODO this should really use ThreadPool.terminate()
 name|injector
 operator|.
 name|getInstance
