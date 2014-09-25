@@ -3374,7 +3374,7 @@ specifier|public
 name|FetchSearchResult
 name|executeFetchPhase
 parameter_list|(
-name|FetchSearchRequest
+name|ShardFetchRequest
 name|request
 parameter_list|)
 throws|throws

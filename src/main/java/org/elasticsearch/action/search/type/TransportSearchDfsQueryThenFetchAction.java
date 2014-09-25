@@ -214,22 +214,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|EsRejectedExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|SearchShardTarget
@@ -316,7 +300,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 import|;
 end_import
 
@@ -1143,7 +1127,7 @@ name|nodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 name|fetchSearchRequest
 init|=
 name|createFetchRequest
@@ -1192,7 +1176,7 @@ name|AtomicInteger
 name|counter
 parameter_list|,
 specifier|final
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 name|fetchSearchRequest
 parameter_list|,
 name|DiscoveryNode
@@ -1290,7 +1274,7 @@ parameter_list|(
 name|Throwable
 name|t
 parameter_list|,
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 name|fetchSearchRequest
 parameter_list|,
 name|int

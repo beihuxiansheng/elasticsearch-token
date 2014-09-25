@@ -937,6 +937,15 @@ operator|.
 name|FREE_CONTEXT_SCROLL_ACTION_NAME
 argument_list|)
 expr_stmt|;
+name|post_1_4_actions
+operator|.
+name|add
+argument_list|(
+name|SearchServiceTransportAction
+operator|.
+name|FETCH_ID_SCROLL_ACTION_NAME
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

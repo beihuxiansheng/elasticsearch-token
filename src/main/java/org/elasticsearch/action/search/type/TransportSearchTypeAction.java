@@ -360,7 +360,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 import|;
 end_import
 
@@ -2387,7 +2387,7 @@ block|}
 block|}
 DECL|method|createFetchRequest
 specifier|protected
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 name|createFetchRequest
 parameter_list|(
 name|QuerySearchResult
@@ -2425,7 +2425,7 @@ index|]
 decl_stmt|;
 return|return
 operator|new
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 argument_list|(
 name|request
 argument_list|,
@@ -2446,7 +2446,7 @@ else|else
 block|{
 return|return
 operator|new
-name|FetchSearchRequest
+name|ShardFetchSearchRequest
 argument_list|(
 name|request
 argument_list|,
