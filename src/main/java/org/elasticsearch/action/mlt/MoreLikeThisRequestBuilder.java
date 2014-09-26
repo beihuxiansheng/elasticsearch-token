@@ -261,6 +261,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Number of terms that must match the generated query expressed in the      * common syntax for minimum should match. Defaults to<tt>30%</tt>.      *      * @see    org.elasticsearch.common.lucene.search.Queries#calculateMinShouldMatch(int, String)      */
+DECL|method|setMinimumShouldMatch
+specifier|public
+name|MoreLikeThisRequestBuilder
+name|setMinimumShouldMatch
+parameter_list|(
+name|String
+name|minimumShouldMatch
+parameter_list|)
+block|{
+name|request
+operator|.
+name|minimumShouldMatch
+argument_list|(
+name|minimumShouldMatch
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * The percent of the terms to match for each field. Defaults to<tt>0.3f</tt>.      */
 DECL|method|setPercentTermsToMatch
 specifier|public
@@ -271,15 +292,20 @@ name|float
 name|percentTermsToMatch
 parameter_list|)
 block|{
-name|request
-operator|.
-name|percentTermsToMatch
+return|return
+name|setMinimumShouldMatch
+argument_list|(
+call|(
+name|int
+call|)
 argument_list|(
 name|percentTermsToMatch
+operator|*
+literal|100
 argument_list|)
-expr_stmt|;
-return|return
-name|this
+operator|+
+literal|"%"
+argument_list|)
 return|;
 block|}
 comment|/**      * The frequency below which terms will be ignored in the source doc. Defaults to<tt>2</tt>.      */

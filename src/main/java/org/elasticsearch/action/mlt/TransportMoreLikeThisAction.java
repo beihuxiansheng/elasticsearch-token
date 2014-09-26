@@ -2165,11 +2165,11 @@ argument_list|(
 name|likeText
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
 name|request
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|()
 argument_list|)
 operator|.

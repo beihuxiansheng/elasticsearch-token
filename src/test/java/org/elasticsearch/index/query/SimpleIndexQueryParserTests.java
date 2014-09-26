@@ -16231,9 +16231,9 @@ decl_stmt|;
 comment|// all terms must match
 name|mltQuery
 operator|.
-name|setPercentTermsToMatch
+name|setMinimumShouldMatch
 argument_list|(
-literal|1.0f
+literal|"100%"
 argument_list|)
 expr_stmt|;
 name|mltQuery
