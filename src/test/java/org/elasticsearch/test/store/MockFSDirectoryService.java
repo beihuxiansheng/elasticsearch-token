@@ -506,7 +506,7 @@ name|getAsBoolean
 argument_list|(
 name|CHECK_INDEX_ON_CLOSE
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|delegateService
