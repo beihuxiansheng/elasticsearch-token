@@ -3010,6 +3010,14 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|createIndex
+argument_list|(
+name|INDEX
+argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|index
 argument_list|(
 name|INDEX
