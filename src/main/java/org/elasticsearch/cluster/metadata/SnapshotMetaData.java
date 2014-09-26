@@ -1689,7 +1689,7 @@ specifier|public
 specifier|static
 class|class
 name|Factory
-implements|implements
+extends|extends
 name|MetaData
 operator|.
 name|Custom
@@ -2439,16 +2439,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|isPersistent
-specifier|public
-name|boolean
-name|isPersistent
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 block|}
 block|}
