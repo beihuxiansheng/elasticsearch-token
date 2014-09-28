@@ -10310,6 +10310,7 @@ annotation|@
 name|Override
 DECL|method|beforeMerge
 specifier|public
+specifier|synchronized
 name|void
 name|beforeMerge
 parameter_list|(
@@ -10361,6 +10362,7 @@ annotation|@
 name|Override
 DECL|method|afterMerge
 specifier|public
+specifier|synchronized
 name|void
 name|afterMerge
 parameter_list|(
