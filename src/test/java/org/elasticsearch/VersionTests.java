@@ -166,6 +166,47 @@ name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test
+DECL|method|testMavenVersion
+specifier|public
+name|void
+name|testMavenVersion
+parameter_list|()
+block|{
+comment|// maven sets this property to ensure that the latest version
+comment|// we use here is the version that is actually set to the project.version
+comment|// in maven
+name|String
+name|property
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.version"
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|assumeNotNull
+argument_list|(
+name|property
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|property
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testVersions
 specifier|public
 name|void
