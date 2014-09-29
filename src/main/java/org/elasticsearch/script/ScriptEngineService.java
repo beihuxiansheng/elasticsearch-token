@@ -153,6 +153,17 @@ name|void
 name|close
 parameter_list|()
 function_decl|;
+comment|/**      * Handler method called when a script is removed from the Guava cache.      *      * The passed script may be null if it has already been garbage collected.      * */
+DECL|method|scriptRemoved
+name|void
+name|scriptRemoved
+parameter_list|(
+annotation|@
+name|Nullable
+name|CompiledScript
+name|script
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

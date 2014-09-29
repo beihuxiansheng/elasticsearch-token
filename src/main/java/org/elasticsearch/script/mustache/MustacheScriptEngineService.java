@@ -134,6 +134,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|CompiledScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -613,6 +625,19 @@ specifier|public
 name|void
 name|close
 parameter_list|()
+block|{
+comment|// Nothing to do here
+block|}
+annotation|@
+name|Override
+DECL|method|scriptRemoved
+specifier|public
+name|void
+name|scriptRemoved
+parameter_list|(
+name|CompiledScript
+name|script
+parameter_list|)
 block|{
 comment|// Nothing to do here
 block|}
