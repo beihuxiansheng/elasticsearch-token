@@ -48,6 +48,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -1392,6 +1402,21 @@ name|nextBoolean
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|nodeInfo
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_1_3_3
+argument_list|)
+condition|)
+block|{
 comment|// sometimes shut down gracefully
 name|getClient
 argument_list|()
@@ -1431,6 +1456,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
