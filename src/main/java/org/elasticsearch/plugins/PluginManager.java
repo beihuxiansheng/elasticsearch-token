@@ -3784,16 +3784,10 @@ return|return
 operator|new
 name|File
 argument_list|(
-operator|new
-name|File
-argument_list|(
 name|env
 operator|.
-name|homeFile
+name|configFile
 argument_list|()
-argument_list|,
-literal|"config"
-argument_list|)
 argument_list|,
 name|name
 argument_list|)
