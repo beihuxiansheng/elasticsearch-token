@@ -719,9 +719,9 @@ name|mltQuery
 operator|.
 name|setMinimumShouldMatch
 argument_list|(
-call|(
-name|int
-call|)
+name|Math
+operator|.
+name|round
 argument_list|(
 name|parser
 operator|.
