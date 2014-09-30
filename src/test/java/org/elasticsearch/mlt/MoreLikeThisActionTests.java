@@ -32,6 +32,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -5467,6 +5481,15 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"alex k working on it"
+argument_list|)
 DECL|method|testMoreLikeThisArtificialDocs
 specifier|public
 name|void
@@ -5769,6 +5792,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"alex k working on it"
+argument_list|)
 DECL|method|testMoreLikeThisMalformedArtificialDocs
 specifier|public
 name|void
