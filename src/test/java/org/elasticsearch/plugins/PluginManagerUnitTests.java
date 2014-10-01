@@ -87,6 +87,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -133,6 +143,8 @@ specifier|public
 name|void
 name|testThatConfigDirectoryCanBeOutsideOfElasticsearchHomeDirectory
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|String
 name|pluginName
@@ -219,7 +231,7 @@ argument_list|(
 name|environment
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|getCanonicalPath
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -238,7 +250,7 @@ argument_list|,
 name|pluginName
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|getCanonicalPath
 argument_list|()
 argument_list|)
 decl_stmt|;
