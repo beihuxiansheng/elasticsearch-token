@@ -3424,6 +3424,13 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|scriptNameExt
+operator|!=
+literal|null
+condition|)
+block|{
 name|logger
 operator|.
 name|info
@@ -3446,6 +3453,7 @@ name|v1
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
