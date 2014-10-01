@@ -225,6 +225,16 @@ argument_list|(
 literal|"test_idx"
 argument_list|)
 operator|.
+name|settings
+argument_list|(
+name|settings
+argument_list|(
+name|Version
+operator|.
+name|CURRENT
+argument_list|)
+argument_list|)
+operator|.
 name|numberOfShards
 argument_list|(
 literal|10

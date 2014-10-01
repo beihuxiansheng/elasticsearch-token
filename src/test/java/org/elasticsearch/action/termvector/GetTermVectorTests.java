@@ -2893,12 +2893,7 @@ name|testDocs
 init|=
 name|generateTestDocs
 argument_list|(
-name|getNumShards
-argument_list|(
 literal|"test"
-argument_list|)
-operator|.
-name|numPrimaries
 argument_list|,
 name|testFieldSettings
 argument_list|)

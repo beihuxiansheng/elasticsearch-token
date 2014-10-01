@@ -822,7 +822,7 @@ argument_list|)
 operator|.
 name|setRouting
 argument_list|(
-literal|"1"
+name|routing1
 argument_list|)
 operator|.
 name|setQuery
@@ -1863,7 +1863,7 @@ argument_list|)
 operator|.
 name|setRouting
 argument_list|(
-literal|"1"
+name|routing1
 argument_list|)
 operator|.
 name|setQuery
@@ -2905,7 +2905,7 @@ argument_list|)
 operator|.
 name|setRouting
 argument_list|(
-literal|"1"
+name|routing1
 argument_list|)
 operator|.
 name|setQuery
