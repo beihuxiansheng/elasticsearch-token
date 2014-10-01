@@ -2670,9 +2670,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+operator|!
 name|lifecycle
 operator|.
-name|stoppedOrClosed
+name|started
 argument_list|()
 condition|)
 block|{
@@ -2680,7 +2681,7 @@ throw|throw
 operator|new
 name|ElasticsearchIllegalStateException
 argument_list|(
-literal|"received ping request while stopped/closed"
+literal|"received ping request while not started"
 argument_list|)
 throw|;
 block|}
