@@ -320,8 +320,6 @@ name|int
 name|nodeOrdinal
 parameter_list|)
 block|{
-comment|//to test that the acknowledgement mechanism is working we better disable the wait for publish
-comment|//otherwise the operation is most likely acknowledged even if it doesn't support ack
 return|return
 name|ImmutableSettings
 operator|.
@@ -336,15 +334,6 @@ name|nodeSettings
 argument_list|(
 name|nodeOrdinal
 argument_list|)
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|DiscoverySettings
-operator|.
-name|PUBLISH_TIMEOUT
-argument_list|,
-literal|0
 argument_list|)
 comment|//make sure that enough concurrent reroutes can happen at the same time
 comment|//we have a minimum of 2 nodes, and a maximum of 10 shards, thus 5 should be enough
@@ -390,6 +379,47 @@ return|return
 literal|0
 return|;
 block|}
+DECL|method|removePublishTimeout
+specifier|private
+name|void
+name|removePublishTimeout
+parameter_list|()
+block|{
+comment|//to test that the acknowledgement mechanism is working we better disable the wait for publish
+comment|//otherwise the operation is most likely acknowledged even if it doesn't support ack
+name|assertAcked
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareUpdateSettings
+argument_list|()
+operator|.
+name|setTransientSettings
+argument_list|(
+name|ImmutableSettings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|DiscoverySettings
+operator|.
+name|PUBLISH_TIMEOUT
+argument_list|,
+literal|"0"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testClusterUpdateSettingsAcknowledgement
@@ -404,6 +434,10 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 name|ensureGreen
+argument_list|()
+expr_stmt|;
+comment|// now that the cluster is stable, remove timeout
+name|removePublishTimeout
 argument_list|()
 expr_stmt|;
 name|NodesInfoResponse
@@ -688,6 +722,10 @@ name|get
 argument_list|()
 expr_stmt|;
 name|ensureGreen
+argument_list|()
+expr_stmt|;
+comment|// now that the cluster is stable, remove timeout
+name|removePublishTimeout
 argument_list|()
 expr_stmt|;
 name|NodesInfoResponse
