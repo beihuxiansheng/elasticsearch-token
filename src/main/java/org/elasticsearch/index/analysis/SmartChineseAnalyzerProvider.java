@@ -181,8 +181,6 @@ operator|=
 operator|new
 name|SmartChineseAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|SmartChineseAnalyzer
 operator|.
 name|getDefaultStopSet
