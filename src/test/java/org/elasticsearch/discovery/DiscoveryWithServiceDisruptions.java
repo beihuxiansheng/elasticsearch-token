@@ -2327,7 +2327,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Test the we do not loose document whose indexing request was successful, under a randomly selected disruption scheme      * We also collect& report the type of indexing failures that occur.      */
+comment|/**      * Test that we do not loose document whose indexing request was successful, under a randomly selected disruption scheme      * We also collect& report the type of indexing failures that occur.      *      * This test is a superset of tests run in the Jepsen test suite, with the exception of versioned updates      */
 annotation|@
 name|Test
 comment|// NOTE: if you remove the awaitFix, make sure to port the test to the 1.x branch
@@ -2353,6 +2353,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: add node count randomizaion
 specifier|final
 name|List
 argument_list|<
@@ -5213,6 +5214,7 @@ name|ServiceDisruptionScheme
 name|addRandomDisruptionScheme
 parameter_list|()
 block|{
+comment|// TODO: add partial partitions
 name|List
 argument_list|<
 name|ServiceDisruptionScheme
