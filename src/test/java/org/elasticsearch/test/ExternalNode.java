@@ -881,6 +881,17 @@ name|getAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|params
+operator|.
+name|add
+argument_list|(
+literal|"-Des.path.conf="
+operator|+
+name|path
+operator|+
+literal|"/config"
+argument_list|)
+expr_stmt|;
 name|ProcessBuilder
 name|builder
 init|=
