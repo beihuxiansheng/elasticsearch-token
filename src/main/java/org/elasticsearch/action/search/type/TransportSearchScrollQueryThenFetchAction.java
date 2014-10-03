@@ -234,7 +234,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|ShardFetchRequest
+name|FetchSearchResult
 import|;
 end_import
 
@@ -248,7 +248,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|FetchSearchResult
+name|ShardFetchRequest
 import|;
 end_import
 
@@ -445,6 +445,8 @@ DECL|class|AsyncAction
 specifier|private
 class|class
 name|AsyncAction
+extends|extends
+name|AbstractAsyncAction
 block|{
 DECL|field|request
 specifier|private
@@ -510,17 +512,6 @@ specifier|private
 specifier|final
 name|AtomicInteger
 name|successfulOps
-decl_stmt|;
-DECL|field|startTime
-specifier|private
-specifier|final
-name|long
-name|startTime
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
 decl_stmt|;
 DECL|field|useSlowScroll
 specifier|private
@@ -1654,12 +1645,8 @@ operator|.
 name|get
 argument_list|()
 argument_list|,
-name|System
-operator|.
-name|currentTimeMillis
+name|buildTookInMillis
 argument_list|()
-operator|-
-name|startTime
 argument_list|,
 name|buildShardFailures
 argument_list|()
