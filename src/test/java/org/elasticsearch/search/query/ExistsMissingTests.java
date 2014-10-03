@@ -166,23 +166,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertSearchResponse
+name|*
 import|;
 end_import
 
@@ -406,6 +390,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -634,9 +619,21 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|(
+literal|"idx"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|long
 name|numDocs
+init|=
+name|sources
+operator|.
+name|length
+decl_stmt|;
+name|SearchResponse
+name|resp
 init|=
 name|client
 argument_list|()
@@ -646,21 +643,19 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-operator|.
-name|getHits
-argument_list|()
-operator|.
-name|totalHits
+name|get
 argument_list|()
 decl_stmt|;
-name|ensureYellow
+name|assertSearchResponse
 argument_list|(
-literal|"idx"
+name|resp
+argument_list|)
+expr_stmt|;
+name|assertHitCount
+argument_list|(
+name|resp
+argument_list|,
+name|numDocs
 argument_list|)
 expr_stmt|;
 for|for
@@ -700,9 +695,8 @@ name|getValue
 argument_list|()
 decl_stmt|;
 comment|// exists
-name|SearchResponse
 name|resp
-init|=
+operator|=
 name|client
 argument_list|()
 operator|.
@@ -736,7 +730,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|assertSearchResponse
 argument_list|(
 name|resp
@@ -752,7 +746,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"exists(%s, %d) mapping: %s"
+literal|"exists(%s, %d) mapping: %s response: %s"
 argument_list|,
 name|fieldName
 argument_list|,
@@ -762,6 +756,8 @@ name|mapping
 operator|.
 name|string
 argument_list|()
+argument_list|,
+name|resp
 argument_list|)
 argument_list|,
 name|count
@@ -827,7 +823,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"missing(%s, %d) mapping: %s"
+literal|"missing(%s, %d) mapping: %s response: %s"
 argument_list|,
 name|fieldName
 argument_list|,
@@ -837,6 +833,8 @@ name|mapping
 operator|.
 name|string
 argument_list|()
+argument_list|,
+name|resp
 argument_list|)
 argument_list|,
 name|numDocs
