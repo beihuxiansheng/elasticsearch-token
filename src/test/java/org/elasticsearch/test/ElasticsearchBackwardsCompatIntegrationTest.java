@@ -293,6 +293,28 @@ argument_list|(
 name|TESTS_BACKWARDS_COMPATIBILITY_PATH
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|path
+operator|==
+literal|null
+operator|||
+name|path
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Invalid Backwards tests location path:"
+operator|+
+name|path
+argument_list|)
+throw|;
+block|}
 name|String
 name|version
 init|=
@@ -305,15 +327,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|path
-operator|==
-literal|null
-operator|||
-name|path
-operator|.
-name|isEmpty
-argument_list|()
-operator|||
 name|version
 operator|==
 literal|null
@@ -328,13 +341,50 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid Backwards tests location path:"
-operator|+
-name|path
-operator|+
-literal|" version: "
+literal|"Invalid Backwards tests version:"
 operator|+
 name|version
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|Version
+operator|.
+name|fromString
+argument_list|(
+name|version
+argument_list|)
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Backcompat elasticsearch version must be same major version as current. "
+operator|+
+literal|"backcompat: "
+operator|+
+name|version
+operator|+
+literal|", current: "
+operator|+
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 throw|;
 block|}

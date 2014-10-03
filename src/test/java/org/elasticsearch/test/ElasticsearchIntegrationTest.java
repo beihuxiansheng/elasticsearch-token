@@ -3819,6 +3819,14 @@ try|try
 block|{
 if|if
 condition|(
+name|cluster
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|currentClusterScope
 operator|!=
 name|Scope
@@ -3928,6 +3936,7 @@ operator|.
 name|assertAfterTest
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
