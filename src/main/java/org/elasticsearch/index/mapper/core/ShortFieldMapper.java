@@ -865,6 +865,21 @@ literal|"null_value"
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|propNode
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"Property [null_value] cannot be null."
+argument_list|)
+throw|;
+block|}
 name|builder
 operator|.
 name|nullValue
