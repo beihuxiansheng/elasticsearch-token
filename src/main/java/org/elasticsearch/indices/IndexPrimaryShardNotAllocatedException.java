@@ -89,7 +89,7 @@ block|{
 return|return
 name|RestStatus
 operator|.
-name|CONFLICT
+name|INTERNAL_SERVER_ERROR
 return|;
 block|}
 block|}
