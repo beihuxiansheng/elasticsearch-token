@@ -347,41 +347,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @deprecated See {@link #upgrade()}      */
-annotation|@
-name|Deprecated
-DECL|method|force
-specifier|public
-name|boolean
-name|force
-parameter_list|()
-block|{
-return|return
-name|upgrade
-return|;
-block|}
-comment|/**      * @deprecated Use {@link #upgrade(boolean)}.      */
-annotation|@
-name|Deprecated
-DECL|method|force
-specifier|public
-name|OptimizeRequest
-name|force
-parameter_list|(
-name|boolean
-name|force
-parameter_list|)
-block|{
-name|this
-operator|.
-name|upgrade
-operator|=
-name|force
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Should the merge upgrade all old segments to the current index format.      * Defaults to<tt>false</tt>.      */
 DECL|method|upgrade
 specifier|public

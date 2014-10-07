@@ -221,11 +221,6 @@ name|upgrade
 operator|=
 name|request
 operator|.
-name|force
-argument_list|()
-operator|||
-name|request
-operator|.
 name|upgrade
 argument_list|()
 expr_stmt|;
