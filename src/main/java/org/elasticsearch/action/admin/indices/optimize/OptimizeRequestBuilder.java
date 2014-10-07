@@ -183,27 +183,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the merge be forced even if there is a single segment with no deletions in the shard.      * Defaults to<tt>false</tt>.      */
-DECL|method|setForce
-specifier|public
-name|OptimizeRequestBuilder
-name|setForce
-parameter_list|(
-name|boolean
-name|force
-parameter_list|)
-block|{
-name|request
-operator|.
-name|force
-argument_list|(
-name|force
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute

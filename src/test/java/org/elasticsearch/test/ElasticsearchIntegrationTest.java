@@ -7026,12 +7026,6 @@ operator|.
 name|prepareOptimize
 argument_list|()
 operator|.
-name|setForce
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
-operator|.
 name|execute
 argument_list|()
 operator|.
