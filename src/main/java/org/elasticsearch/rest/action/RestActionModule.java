@@ -84,13 +84,11 @@ name|action
 operator|.
 name|admin
 operator|.
-name|cluster
+name|indices
 operator|.
-name|repositories
+name|upgrade
 operator|.
-name|verify
-operator|.
-name|RestVerifyRepositoryAction
+name|RestUpgradeAction
 import|;
 end_import
 
@@ -104,9 +102,15 @@ name|rest
 operator|.
 name|action
 operator|.
-name|exists
+name|admin
 operator|.
-name|RestExistsAction
+name|cluster
+operator|.
+name|repositories
+operator|.
+name|verify
+operator|.
+name|RestVerifyRepositoryAction
 import|;
 end_import
 
@@ -2396,6 +2400,16 @@ expr_stmt|;
 name|bind
 argument_list|(
 name|RestOptimizeAction
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
+name|RestUpgradeAction
 operator|.
 name|class
 argument_list|)

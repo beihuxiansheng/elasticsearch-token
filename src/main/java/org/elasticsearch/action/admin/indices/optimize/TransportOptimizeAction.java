@@ -697,11 +697,11 @@ name|flush
 argument_list|()
 argument_list|)
 operator|.
-name|force
+name|upgrade
 argument_list|(
 name|request
 operator|.
-name|force
+name|upgrade
 argument_list|()
 argument_list|)
 argument_list|)

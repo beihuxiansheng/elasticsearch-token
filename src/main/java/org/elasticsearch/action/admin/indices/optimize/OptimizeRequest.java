@@ -147,12 +147,12 @@ name|FLUSH
 init|=
 literal|true
 decl_stmt|;
-DECL|field|FORCE
+DECL|field|UPGRADE
 specifier|public
 specifier|static
 specifier|final
 name|boolean
-name|FORCE
+name|UPGRADE
 init|=
 literal|false
 decl_stmt|;
@@ -193,14 +193,14 @@ name|Defaults
 operator|.
 name|FLUSH
 decl_stmt|;
-DECL|field|force
+DECL|field|upgrade
 specifier|private
 name|boolean
-name|force
+name|upgrade
 init|=
 name|Defaults
 operator|.
-name|FORCE
+name|UPGRADE
 decl_stmt|;
 comment|/**      * Constructs an optimization request over one or more indices.      *      * @param indices The indices to optimize, no indices passed means all indices will be optimized.      */
 DECL|method|OptimizeRequest
@@ -347,7 +347,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the merge be forced even if there is a single segment with no deletions in the shard.      * Defaults to<tt>false</tt>.      */
+comment|/**      * @deprecated See {@link #upgrade()}      */
+annotation|@
+name|Deprecated
 DECL|method|force
 specifier|public
 name|boolean
@@ -355,10 +357,12 @@ name|force
 parameter_list|()
 block|{
 return|return
-name|force
+name|upgrade
 return|;
 block|}
-comment|/**      * See #force().      */
+comment|/**      * @deprecated Use {@link #upgrade(boolean)}.      */
+annotation|@
+name|Deprecated
 DECL|method|force
 specifier|public
 name|OptimizeRequest
@@ -370,9 +374,40 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|force
+name|upgrade
 operator|=
 name|force
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Should the merge upgrade all old segments to the current index format.      * Defaults to<tt>false</tt>.      */
+DECL|method|upgrade
+specifier|public
+name|boolean
+name|upgrade
+parameter_list|()
+block|{
+return|return
+name|upgrade
+return|;
+block|}
+comment|/**      * See {@link #upgrade()}      */
+DECL|method|upgrade
+specifier|public
+name|OptimizeRequest
+name|upgrade
+parameter_list|(
+name|boolean
+name|upgrade
+parameter_list|)
+block|{
+name|this
+operator|.
+name|upgrade
+operator|=
+name|upgrade
 expr_stmt|;
 return|return
 name|this
@@ -439,7 +474,7 @@ name|V_1_1_0
 argument_list|)
 condition|)
 block|{
-name|force
+name|upgrade
 operator|=
 name|in
 operator|.
@@ -513,7 +548,7 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|force
+name|upgrade
 argument_list|)
 expr_stmt|;
 block|}
