@@ -116,10 +116,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|testRunStarted
+DECL|method|testStarted
 specifier|public
 name|void
-name|testRunStarted
+name|testStarted
 parameter_list|(
 name|Description
 name|description
