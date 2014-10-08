@@ -810,7 +810,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If set to true the request should wait for the snapshot completion before returning.      *      * @param waitForCompletion true if      * @return this request      */
+comment|/**      * If set to true the operation should wait for the snapshot completion before returning.      *      * By default, the operation will return as soon as snapshot is initialized. It can be changed by setting this      * flag to true.      *      * @param waitForCompletion true if operation should wait for the snapshot completion      * @return this request      */
 DECL|method|waitForCompletion
 specifier|public
 name|CreateSnapshotRequest
