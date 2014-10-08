@@ -134,6 +134,18 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
 name|is
 import|;
 end_import
@@ -295,7 +307,7 @@ name|dst
 argument_list|,
 literal|"file1.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -304,7 +316,7 @@ name|dst
 argument_list|,
 literal|"dir/file2.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -330,7 +342,7 @@ name|dst
 argument_list|,
 literal|"file1.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -339,7 +351,7 @@ name|dst
 argument_list|,
 literal|"dir/file2.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -348,7 +360,7 @@ name|dst
 argument_list|,
 literal|"file1.txt.new"
 argument_list|,
-literal|"version2\n"
+literal|"version2"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -357,7 +369,7 @@ name|dst
 argument_list|,
 literal|"dir/file2.txt.new"
 argument_list|,
-literal|"version2\n"
+literal|"version2"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -366,7 +378,7 @@ name|dst
 argument_list|,
 literal|"file3.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -375,7 +387,7 @@ name|dst
 argument_list|,
 literal|"dir/subdir/file4.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -401,7 +413,7 @@ name|dst
 argument_list|,
 literal|"file1.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -410,7 +422,7 @@ name|dst
 argument_list|,
 literal|"dir/file2.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -419,7 +431,7 @@ name|dst
 argument_list|,
 literal|"file1.txt.new"
 argument_list|,
-literal|"version3\n"
+literal|"version3"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -428,7 +440,7 @@ name|dst
 argument_list|,
 literal|"dir/file2.txt.new"
 argument_list|,
-literal|"version3\n"
+literal|"version3"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -437,7 +449,7 @@ name|dst
 argument_list|,
 literal|"file3.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -446,7 +458,7 @@ name|dst
 argument_list|,
 literal|"dir/subdir/file4.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -455,7 +467,7 @@ name|dst
 argument_list|,
 literal|"file3.txt.new"
 argument_list|,
-literal|"version2\n"
+literal|"version2"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -464,7 +476,7 @@ name|dst
 argument_list|,
 literal|"dir/subdir/file4.txt.new"
 argument_list|,
-literal|"version2\n"
+literal|"version2"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -473,7 +485,7 @@ name|dst
 argument_list|,
 literal|"dir/subdir/file5.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 block|}
@@ -516,7 +528,7 @@ name|dest
 argument_list|,
 literal|"file1.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -525,7 +537,7 @@ name|dest
 argument_list|,
 literal|"dir/file2.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -551,7 +563,7 @@ name|dest
 argument_list|,
 literal|"file1.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -560,7 +572,7 @@ name|dest
 argument_list|,
 literal|"dir/file2.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -587,7 +599,7 @@ name|dest
 argument_list|,
 literal|"file3.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -596,7 +608,7 @@ name|dest
 argument_list|,
 literal|"dir/subdir/file4.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|FileSystemUtils
@@ -622,7 +634,7 @@ name|dest
 argument_list|,
 literal|"file1.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -631,7 +643,7 @@ name|dest
 argument_list|,
 literal|"dir/file2.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -658,7 +670,7 @@ name|dest
 argument_list|,
 literal|"file3.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -667,7 +679,7 @@ name|dest
 argument_list|,
 literal|"dir/subdir/file4.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 name|assertFileContent
@@ -694,7 +706,7 @@ name|dest
 argument_list|,
 literal|"dir/subdir/file5.txt"
 argument_list|,
-literal|"version1\n"
+literal|"version1"
 argument_list|)
 expr_stmt|;
 block|}
@@ -804,15 +816,22 @@ argument_list|,
 name|UTF8
 argument_list|)
 decl_stmt|;
+comment|// trim the string content to prevent different handling on windows vs. unix and CR chars...
 name|Assert
 operator|.
 name|assertThat
 argument_list|(
 name|fileContent
+operator|.
+name|trim
+argument_list|()
 argument_list|,
-name|containsString
+name|equalTo
 argument_list|(
 name|expected
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
