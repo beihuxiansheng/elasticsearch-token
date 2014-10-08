@@ -6827,7 +6827,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|float
+name|short
 name|v
 range|:
 operator|(
