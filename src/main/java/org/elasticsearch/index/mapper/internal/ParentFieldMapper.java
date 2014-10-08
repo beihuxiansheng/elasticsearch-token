@@ -362,6 +362,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|settings
+operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1087,7 +1101,10 @@ block|}
 DECL|method|ParentFieldMapper
 specifier|public
 name|ParentFieldMapper
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 name|this
 argument_list|(
@@ -1105,7 +1122,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|indexSettings
 argument_list|)
 expr_stmt|;
 name|this

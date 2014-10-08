@@ -731,19 +731,21 @@ literal|"WRONG.VERSION"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testVersion
+annotation|@
+name|Test
+argument_list|(
+name|expected
+operator|=
+name|ElasticsearchIllegalStateException
+operator|.
+name|class
+argument_list|)
+DECL|method|testVersionNoPresentInSettings
 specifier|public
 name|void
-name|testVersion
+name|testVersionNoPresentInSettings
 parameter_list|()
 block|{
-comment|// test scenario
-name|assertEquals
-argument_list|(
-name|Version
-operator|.
-name|CURRENT
-argument_list|,
 name|Version
 operator|.
 name|indexCreated
@@ -756,8 +758,14 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
+block|}
+DECL|method|testVersion
+specifier|public
+name|void
+name|testVersion
+parameter_list|()
+block|{
 comment|// an actual index has a IndexMetaData.SETTING_UUID
 specifier|final
 name|Version

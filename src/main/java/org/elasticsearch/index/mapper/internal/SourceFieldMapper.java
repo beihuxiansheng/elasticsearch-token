@@ -264,6 +264,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|ByteSizeValue
@@ -834,6 +848,11 @@ argument_list|,
 name|includes
 argument_list|,
 name|excludes
+argument_list|,
+name|context
+operator|.
+name|indexSettings
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1271,7 +1290,10 @@ decl_stmt|;
 DECL|method|SourceFieldMapper
 specifier|public
 name|SourceFieldMapper
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 name|this
 argument_list|(
@@ -1295,6 +1317,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -1324,6 +1348,9 @@ parameter_list|,
 name|String
 index|[]
 name|excludes
+parameter_list|,
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 name|super
@@ -1372,7 +1399,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
+name|indexSettings
 argument_list|)
 expr_stmt|;
 comment|// Only stored.

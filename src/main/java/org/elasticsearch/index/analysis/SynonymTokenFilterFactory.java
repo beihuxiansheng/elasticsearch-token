@@ -601,7 +601,7 @@ name|create
 argument_list|(
 name|tokenizerName
 argument_list|,
-name|settings
+name|indexSettings
 argument_list|)
 decl_stmt|;
 name|Analyzer

@@ -848,7 +848,10 @@ decl_stmt|;
 DECL|method|BoostFieldMapper
 specifier|public
 name|BoostFieldMapper
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 name|this
 argument_list|(
@@ -859,6 +862,8 @@ argument_list|,
 name|Defaults
 operator|.
 name|NAME
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -871,6 +876,9 @@ name|name
 parameter_list|,
 name|String
 name|indexName
+parameter_list|,
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 name|this
@@ -907,9 +915,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|ImmutableSettings
-operator|.
-name|EMPTY
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}

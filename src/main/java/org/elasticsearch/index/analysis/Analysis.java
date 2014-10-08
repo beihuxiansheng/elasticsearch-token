@@ -901,21 +901,15 @@ return|;
 block|}
 comment|// resolve the analysis version based on the version the index was created with
 return|return
-name|indexSettings
-operator|.
-name|getAsVersion
-argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_VERSION_CREATED
-argument_list|,
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|Version
 operator|.
-name|CURRENT
+name|indexCreated
+argument_list|(
+name|indexSettings
 argument_list|)
 operator|.
 name|luceneVersion

@@ -1009,7 +1009,9 @@ name|class
 argument_list|,
 operator|new
 name|SizeFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1039,7 +1041,9 @@ name|class
 argument_list|,
 operator|new
 name|SourceFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1099,7 +1103,9 @@ name|class
 argument_list|,
 operator|new
 name|BoostFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1114,7 +1120,9 @@ name|class
 argument_list|,
 operator|new
 name|TimestampFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1129,7 +1137,9 @@ name|class
 argument_list|,
 operator|new
 name|TTLFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1159,7 +1169,9 @@ name|class
 argument_list|,
 operator|new
 name|ParentFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// _field_names last so that it can see all other fields

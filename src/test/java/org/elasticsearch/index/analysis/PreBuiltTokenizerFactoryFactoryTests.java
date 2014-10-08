@@ -140,20 +140,6 @@ name|CURRENT
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|TokenizerFactory
-name|emptySettingsTokenizerFactory
-init|=
-name|factory
-operator|.
-name|create
-argument_list|(
-literal|"standard"
-argument_list|,
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|)
-decl_stmt|;
 comment|// different es versions, same lucene version, thus cached
 name|TokenizerFactory
 name|former090TokenizerFactory
@@ -244,17 +230,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|emptySettingsTokenizerFactory
-argument_list|,
-name|is
-argument_list|(
 name|currentTokenizerFactory
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|emptySettingsTokenizerFactory
 argument_list|,
 name|is
 argument_list|(
@@ -267,7 +243,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|emptySettingsTokenizerFactory
+name|currentTokenizerFactory
 argument_list|,
 name|is
 argument_list|(
