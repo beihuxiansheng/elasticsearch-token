@@ -23522,7 +23522,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"parent_filter[foo](*:*)"
+literal|"parent_filter[foo](filtered(*:*)->cache(_type:foo))"
 argument_list|)
 argument_list|)
 expr_stmt|;
