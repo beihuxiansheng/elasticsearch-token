@@ -2244,6 +2244,17 @@ condition|)
 block|{
 return|return;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing ... (reason [{}])"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -2309,6 +2320,17 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing index service"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 operator|(
 operator|(
 name|InternalIndexService
@@ -2323,6 +2345,17 @@ argument_list|,
 name|executor
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing index cache"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 name|indexInjector
 operator|.
 name|getInstance
@@ -2334,6 +2367,17 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] clearing index field data"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
 expr_stmt|;
 name|indexInjector
 operator|.
@@ -2347,6 +2391,17 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing analysis service"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 name|indexInjector
 operator|.
 name|getInstance
@@ -2358,6 +2413,17 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing index engine"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
 expr_stmt|;
 name|indexInjector
 operator|.
@@ -2371,6 +2437,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing index gateway"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 name|indexInjector
 operator|.
 name|getInstance
@@ -2382,6 +2459,17 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing mapper service"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
 expr_stmt|;
 name|indexInjector
 operator|.
@@ -2395,6 +2483,17 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing index query parser service"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 name|indexInjector
 operator|.
 name|getInstance
@@ -2406,6 +2505,17 @@ argument_list|)
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closing index service"
+argument_list|,
+name|index
+argument_list|,
+name|reason
+argument_list|)
 expr_stmt|;
 name|indexInjector
 operator|.
@@ -2424,6 +2534,17 @@ operator|.
 name|close
 argument_list|(
 name|injector
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}] closed... (reason [{}])"
+argument_list|,
+name|index
+argument_list|,
+name|reason
 argument_list|)
 expr_stmt|;
 name|indicesLifecycle
