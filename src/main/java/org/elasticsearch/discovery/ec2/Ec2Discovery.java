@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cloud
 operator|.
 name|aws
@@ -321,10 +311,6 @@ argument_list|,
 name|pingService
 argument_list|,
 name|electMasterService
-argument_list|,
-name|Version
-operator|.
-name|CURRENT
 argument_list|,
 name|discoverySettings
 argument_list|)

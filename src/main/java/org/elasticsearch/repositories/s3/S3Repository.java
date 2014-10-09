@@ -194,18 +194,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -285,9 +273,6 @@ name|indexShardRepository
 parameter_list|,
 name|AwsS3Service
 name|s3Service
-parameter_list|,
-name|ThreadPool
-name|threadPool
 parameter_list|)
 throws|throws
 name|IOException
@@ -658,11 +643,33 @@ literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|ByteSizeValue
+name|bufferSize
+init|=
+name|repositorySettings
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|getAsBytesSize
+argument_list|(
+literal|"buffer_size"
+argument_list|,
+name|componentSettings
+operator|.
+name|getAsBytesSize
+argument_list|(
+literal|"buffer_size"
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using bucket [{}], region [{}], chunk_size [{}], server_side_encryption [{}]"
+literal|"using bucket [{}], region [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}]"
 argument_list|,
 name|bucket
 argument_list|,
@@ -671,6 +678,8 @@ argument_list|,
 name|chunkSize
 argument_list|,
 name|serverSideEncryption
+argument_list|,
+name|bufferSize
 argument_list|)
 expr_stmt|;
 name|blobStore
@@ -711,9 +720,9 @@ name|bucket
 argument_list|,
 name|region
 argument_list|,
-name|threadPool
-argument_list|,
 name|serverSideEncryption
+argument_list|,
+name|bufferSize
 argument_list|)
 expr_stmt|;
 name|this
