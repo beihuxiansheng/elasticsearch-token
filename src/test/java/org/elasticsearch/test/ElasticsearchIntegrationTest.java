@@ -3978,6 +3978,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+comment|// TODO: it looks like CurrentTestFailedMarker is never set at this point, so testFailed() will always be false?
 if|if
 condition|(
 operator|!
@@ -3989,45 +3990,6 @@ name|testFailed
 argument_list|()
 condition|)
 block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"[{}#{}]: now dump all thread stacks on failure"
-argument_list|,
-name|getTestClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-argument_list|,
-name|getTestName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|ElasticsearchTestCase
-operator|.
-name|printStackDump
-argument_list|(
-name|logger
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"[{}#{}]: done dump all thread stacks on failure"
-argument_list|,
-name|getTestClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-argument_list|,
-name|getTestName
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// if we failed that means that something broke horribly so we should
 comment|// clear all clusters and if the current cluster is the global we shut that one
 comment|// down as well to prevent subsequent tests from failing due to the same problem.
