@@ -1352,6 +1352,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test: set low merge throttling"
+argument_list|)
+expr_stmt|;
 comment|// Now updates settings to turn on merge throttling lowish rate
 name|client
 argument_list|()
@@ -1612,6 +1619,13 @@ break|break;
 block|}
 block|}
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test: disable merge throttling"
+argument_list|)
+expr_stmt|;
 comment|// Now updates settings to disable merge throttling
 name|client
 argument_list|()
@@ -1648,6 +1662,13 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// Optimize does a waitForMerges, which we must do to make sure all in-flight (throttled) merges finish:
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test: optimize"
+argument_list|)
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -1664,6 +1685,13 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test: optimize done"
+argument_list|)
 expr_stmt|;
 comment|// Record current throttling so far
 name|long
@@ -1823,6 +1851,13 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test: done indexing after disabling throttling"
+argument_list|)
+expr_stmt|;
 name|long
 name|newSumThrottleTime
 init|=
@@ -1884,6 +1919,13 @@ argument_list|(
 name|sumThrottleTime
 argument_list|,
 name|newSumThrottleTime
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test: test done"
 argument_list|)
 expr_stmt|;
 block|}
