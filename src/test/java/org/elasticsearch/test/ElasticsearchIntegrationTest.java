@@ -3976,37 +3976,6 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|OutOfMemoryError
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"unable to create new native thread"
-argument_list|)
-condition|)
-block|{
-name|ElasticsearchTestCase
-operator|.
-name|printStackDump
-argument_list|(
-name|logger
-argument_list|)
-expr_stmt|;
-block|}
-throw|throw
-name|e
-throw|;
-block|}
 finally|finally
 block|{
 if|if
@@ -4020,6 +3989,45 @@ name|testFailed
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"[{}#{}]: now dump all thread stacks on failure"
+argument_list|,
+name|getTestClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|getTestName
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|ElasticsearchTestCase
+operator|.
+name|printStackDump
+argument_list|(
+name|logger
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"[{}#{}]: done dump all thread stacks on failure"
+argument_list|,
+name|getTestClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|getTestName
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// if we failed that means that something broke horribly so we should
 comment|// clear all clusters and if the current cluster is the global we shut that one
 comment|// down as well to prevent subsequent tests from failing due to the same problem.
