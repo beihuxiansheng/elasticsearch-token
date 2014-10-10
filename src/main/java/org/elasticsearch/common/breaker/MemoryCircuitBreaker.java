@@ -262,10 +262,10 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-throw|throw
-operator|new
-name|CircuitBreakingException
-argument_list|(
+specifier|final
+name|String
+name|message
+init|=
 literal|"Data too large, data for field ["
 operator|+
 name|fieldName
@@ -283,6 +283,19 @@ name|memoryBytesLimit
 argument_list|)
 operator|+
 literal|"]"
+decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|CircuitBreakingException
+argument_list|(
+name|message
 argument_list|)
 throw|;
 block|}
