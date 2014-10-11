@@ -2957,7 +2957,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"found old metadata state, loading metadata from [{}] and converting to new metadata location and strucutre..."
+literal|"found old metadata state, loading metadata from [{}] and converting to new metadata location and structure..."
 argument_list|,
 name|metaDataFile
 operator|.
@@ -3261,7 +3261,7 @@ return|return;
 block|}
 name|logger
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"[{}] deleting dangling index"
 argument_list|,
