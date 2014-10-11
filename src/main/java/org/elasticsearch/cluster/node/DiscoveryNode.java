@@ -240,6 +240,21 @@ name|Streamable
 implements|,
 name|Serializable
 block|{
+comment|/**      * Minimum version of a node to communicate with. This version corresponds to the minimum compatibility version      * of the current elasticsearch major version.      */
+DECL|field|MINIMUM_DISCOVERY_NODE_VERSION
+specifier|public
+specifier|static
+specifier|final
+name|Version
+name|MINIMUM_DISCOVERY_NODE_VERSION
+init|=
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+decl_stmt|;
 DECL|method|localNode
 specifier|public
 specifier|static
@@ -575,6 +590,7 @@ DECL|method|DiscoveryNode
 name|DiscoveryNode
 parameter_list|()
 block|{     }
+comment|/**      * Creates a new {@link DiscoveryNode}      *<p>      *<b>Note:</b> if the version of the node is unknown {@link #MINIMUM_DISCOVERY_NODE_VERSION} should be used.      * it corresponds to the minimum version this elasticsearch version can communicate with. If a higher version is used      * the node might not be able to communicate with the remove node. After initial handshakes node versions will be discovered      * and updated.      *</p>      * @param nodeId the nodes unique id.      * @param address the nodes transport address      * @param version the version of the node.      */
 DECL|method|DiscoveryNode
 specifier|public
 name|DiscoveryNode
@@ -611,6 +627,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a new {@link DiscoveryNode}      *<p>      *<b>Note:</b> if the version of the node is unknown {@link #MINIMUM_DISCOVERY_NODE_VERSION} should be used.      * it corresponds to the minimum version this elasticsearch version can communicate with. If a higher version is used      * the node might not be able to communicate with the remove node. After initial handshakes node versions will be discovered      * and updated.      *</p>      * @param nodeName the nodes name      * @param nodeId the nodes unique id.      * @param address the nodes transport address      * @param attributes node attributes      * @param version the version of the node.      */
 DECL|method|DiscoveryNode
 specifier|public
 name|DiscoveryNode
@@ -664,6 +681,7 @@ name|version
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a new {@link DiscoveryNode}      *<p>      *<b>Note:</b> if the version of the node is unknown {@link #MINIMUM_DISCOVERY_NODE_VERSION} should be used.      * it corresponds to the minimum version this elasticsearch version can communicate with. If a higher version is used      * the node might not be able to communicate with the remove node. After initial handshakes node versions will be discovered      * and updated.      *</p>      * @param nodeName the nodes name      * @param nodeId the nodes unique id.      * @param hostName the nodes hostname      * @param hostAddress the nodes host address      * @param address the nodes transport address      * @param attributes node attributes      * @param version the version of the node.      */
 DECL|method|DiscoveryNode
 specifier|public
 name|DiscoveryNode
