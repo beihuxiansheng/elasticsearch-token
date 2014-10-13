@@ -901,31 +901,6 @@ name|to_upgrade_bytes
 argument_list|)
 return|;
 block|}
-comment|// this is a silly class which should just be a standalone function, but java doesn't even have a standard Pair that could
-comment|// be used to return 2 values from a function...
-DECL|class|UpgradeSummary
-specifier|static
-class|class
-name|UpgradeSummary
-block|{
-DECL|field|total_bytes
-specifier|public
-name|long
-name|total_bytes
-decl_stmt|;
-DECL|field|to_upgrade_bytes
-specifier|public
-name|long
-name|to_upgrade_bytes
-decl_stmt|;
-DECL|method|UpgradeSummary
-name|UpgradeSummary
-parameter_list|(
-name|IndexSegments
-name|indexSegments
-parameter_list|)
-block|{                      }
-block|}
 DECL|field|SIZE
 specifier|static
 specifier|final
