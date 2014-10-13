@@ -224,6 +224,16 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -445,6 +455,8 @@ return|return
 name|dataDir
 return|;
 block|}
+annotation|@
+name|Ignore
 DECL|method|testUpgrade_0_20
 specifier|public
 name|void
