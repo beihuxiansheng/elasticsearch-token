@@ -2366,7 +2366,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"closing... (reason: [{}])"
+literal|"[{}] closing... (reason: [{}])"
+argument_list|,
+name|shardId
 argument_list|,
 name|reason
 argument_list|)
@@ -2459,9 +2461,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to clean plugin shard service [{}]"
+literal|"[{}] failed to clean plugin shard service [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|,
 name|closeable
 argument_list|)
@@ -2494,9 +2498,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close translog service"
+literal|"[{}] failed to close translog service"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2535,9 +2541,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close index shard"
+literal|"[{}] failed to close index shard"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2568,9 +2576,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close engine"
+literal|"[{}] failed to close engine"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2600,9 +2610,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close merge policy scheduler"
+literal|"[{}] failed to close merge policy scheduler"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2632,9 +2644,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close merge policy provider"
+literal|"[{}] failed to close merge policy provider"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2664,9 +2678,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close index shard gateway"
+literal|"[{}] failed to close index shard gateway"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2697,9 +2713,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close translog"
+literal|"[{}] failed to close translog"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2730,9 +2748,11 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to close PercolatorQueriesRegistry"
+literal|"[{}] failed to close PercolatorQueriesRegistry"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 comment|// ignore
@@ -2779,9 +2799,11 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to close store on shard deletion"
+literal|"[{}] failed to close store on shard deletion"
 argument_list|,
 name|e
+argument_list|,
+name|shardId
 argument_list|)
 expr_stmt|;
 block|}
@@ -2796,7 +2818,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"closed (reason: [{}])"
+literal|"[{}] closed (reason: [{}])"
+argument_list|,
+name|shardId
 argument_list|,
 name|reason
 argument_list|)
