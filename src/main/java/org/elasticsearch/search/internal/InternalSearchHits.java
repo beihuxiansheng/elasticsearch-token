@@ -518,7 +518,7 @@ control|)
 block|{
 name|hit
 operator|.
-name|shardTarget
+name|shard
 argument_list|(
 name|shardTarget
 argument_list|)

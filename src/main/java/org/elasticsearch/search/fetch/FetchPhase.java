@@ -428,6 +428,22 @@ name|search
 operator|.
 name|fetch
 operator|.
+name|innerhits
+operator|.
+name|InnerHitsFetchSubPhase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
 name|matchedqueries
 operator|.
 name|MatchedQueriesFetchSubPhase
@@ -715,8 +731,18 @@ name|fetchSourceSubPhase
 parameter_list|,
 name|FieldDataFieldsFetchSubPhase
 name|fieldDataFieldsFetchSubPhase
+parameter_list|,
+name|InnerHitsFetchSubPhase
+name|innerHitsFetchSubPhase
 parameter_list|)
 block|{
+name|innerHitsFetchSubPhase
+operator|.
+name|setFetchPhase
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|fetchSubPhases
@@ -738,6 +764,8 @@ block|,
 name|versionPhase
 block|,
 name|fieldDataFieldsFetchSubPhase
+block|,
+name|innerHitsFetchSubPhase
 block|}
 expr_stmt|;
 block|}
@@ -2054,8 +2082,18 @@ operator|||
 name|extractFieldNames
 operator|!=
 literal|null
+operator|||
+name|context
+operator|.
+name|highlight
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
+comment|// Also if highlighting is requested on nested documents we need to fetch the _source from the root document,
+comment|// otherwise highlighting will attempt to fetch the _source from the nested doc, which will fail,
+comment|// because the entire _source is only stored with the root document.
 name|rootFieldsVisitor
 operator|=
 operator|new

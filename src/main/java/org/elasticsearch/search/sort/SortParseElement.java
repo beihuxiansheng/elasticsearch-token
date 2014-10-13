@@ -332,13 +332,9 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
+name|internal
 operator|.
-name|metrics
-operator|.
-name|tophits
-operator|.
-name|TopHitsContext
+name|SubSearchContext
 import|;
 end_import
 
@@ -1826,7 +1822,7 @@ operator|!
 operator|(
 name|context
 operator|instanceof
-name|TopHitsContext
+name|SubSearchContext
 operator|)
 condition|)
 block|{

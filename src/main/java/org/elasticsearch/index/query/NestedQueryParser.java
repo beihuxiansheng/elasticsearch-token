@@ -1011,7 +1011,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// TODO: Change this mechanism in favour of how parent nested object type is resolved in nested and reverse_nested agg
+comment|// with this also proper validation can be performed on what is a valid nested child nested object type to be used
 DECL|field|parentFilterContext
+specifier|public
 specifier|static
 name|ThreadLocal
 argument_list|<
@@ -1025,6 +1028,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|class|LateBindingParentFilter
+specifier|public
 specifier|static
 class|class
 name|LateBindingParentFilter
@@ -1032,6 +1036,7 @@ extends|extends
 name|BitDocIdSetFilter
 block|{
 DECL|field|filter
+specifier|public
 name|BitDocIdSetFilter
 name|filter
 decl_stmt|;
@@ -1061,12 +1066,31 @@ name|Object
 name|obj
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+operator|(
+name|obj
+operator|instanceof
+name|LateBindingParentFilter
+operator|)
+condition|)
+return|return
+literal|false
+return|;
 return|return
 name|filter
 operator|.
 name|equals
 argument_list|(
+operator|(
+operator|(
+name|LateBindingParentFilter
+operator|)
 name|obj
+operator|)
+operator|.
+name|filter
 argument_list|)
 return|;
 block|}

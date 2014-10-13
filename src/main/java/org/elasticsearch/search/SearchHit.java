@@ -372,6 +372,17 @@ name|SearchShardTarget
 name|getShard
 parameter_list|()
 function_decl|;
+comment|/**      * @return Inner hits or<code>null</code> if there are none      */
+DECL|method|getInnerHits
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|SearchHits
+argument_list|>
+name|getInnerHits
+parameter_list|()
+function_decl|;
 comment|/**      * Encapsulates the nested identity of a hit.      */
 DECL|interface|NestedIdentity
 specifier|public
