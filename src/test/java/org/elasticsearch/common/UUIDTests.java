@@ -305,7 +305,7 @@ decl_stmt|;
 name|int
 name|count
 init|=
-literal|100
+literal|20
 decl_stmt|;
 name|int
 name|uuids
