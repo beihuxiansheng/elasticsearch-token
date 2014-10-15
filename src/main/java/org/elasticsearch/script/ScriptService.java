@@ -124,16 +124,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -644,16 +634,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Locale
 import|;
 end_import
@@ -699,22 +679,6 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
 import|;
 end_import
 
@@ -3185,15 +3149,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|List
-argument_list|<
-name|Exception
-argument_list|>
-name|errors
-init|=
-name|newArrayList
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|ScriptEngineService
@@ -3224,22 +3179,19 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|errors
+name|logger
 operator|.
-name|add
+name|warn
 argument_list|(
+literal|"exception calling script removal listener for script service"
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// We don't rethrow because Guava would just catch the
+comment|// exception and log it, which we have already done
 block|}
 block|}
-name|ExceptionsHelper
-operator|.
-name|maybeThrowRuntimeAndSuppress
-argument_list|(
-name|errors
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|class|ScriptChangesListener
