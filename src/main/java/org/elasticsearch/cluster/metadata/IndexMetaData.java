@@ -3435,6 +3435,23 @@ operator|.
 name|currentToken
 argument_list|()
 operator|==
+literal|null
+condition|)
+block|{
+comment|// fresh parser? move to the first token
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|parser
+operator|.
+name|currentToken
+argument_list|()
+operator|==
 name|XContentParser
 operator|.
 name|Token
@@ -3442,6 +3459,7 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+comment|// on a start object move to next token
 name|parser
 operator|.
 name|nextToken
@@ -3685,14 +3703,10 @@ condition|)
 block|{
 while|while
 condition|(
-operator|(
-name|token
-operator|=
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-operator|)
 operator|!=
 name|XContentParser
 operator|.
