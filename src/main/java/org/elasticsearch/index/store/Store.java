@@ -1920,7 +1920,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This exists so {@link BloomFilteringPostingsFormat} can load its boolean setting; can we find a more straightforward way?      */
+comment|/**      * This exists so {@link org.elasticsearch.index.codec.postingsformat.BloomFilterPostingsFormat} can load its boolean setting; can we find a more straightforward way?      */
 DECL|class|StoreDirectory
 specifier|public
 class|class
@@ -2287,11 +2287,7 @@ block|{
 specifier|final
 name|SegmentInfos
 name|segmentCommitInfos
-decl_stmt|;
-try|try
-block|{
-name|segmentCommitInfos
-operator|=
+init|=
 name|Store
 operator|.
 name|readSegmentsInfo
@@ -2300,33 +2296,7 @@ name|commit
 argument_list|,
 name|directory
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|FileNotFoundException
-decl||
-name|NoSuchFileException
-name|ex
-parameter_list|)
-block|{
-comment|// no segments file -- can't read metadata
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"Can't read segment infos"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-return|return
-name|ImmutableMap
-operator|.
-name|of
-argument_list|()
-return|;
-block|}
+decl_stmt|;
 name|Version
 name|maxVersion
 init|=
