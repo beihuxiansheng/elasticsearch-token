@@ -194,6 +194,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -283,6 +311,21 @@ name|ElasticsearchMergePolicy
 extends|extends
 name|MergePolicy
 block|{
+DECL|field|logger
+specifier|private
+specifier|static
+name|ESLogger
+name|logger
+init|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|ElasticsearchMergePolicy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|delegate
 specifier|private
 specifier|final
@@ -1232,6 +1275,21 @@ condition|)
 block|{
 comment|// TODO: Use IndexUpgradeMergePolicy instead.  We should be comparing codecs,
 comment|// for now we just assume every minor upgrade has a new format.
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Adding segment "
+operator|+
+name|info
+operator|.
+name|info
+operator|.
+name|name
+operator|+
+literal|" to be upgraded"
+argument_list|)
+expr_stmt|;
 name|spec
 operator|.
 name|add
@@ -1262,6 +1320,22 @@ name|MAX_CONCURRENT_UPGRADE_MERGES
 condition|)
 block|{
 comment|// hit our max upgrades, so return the spec.  we will get a cascaded call to continue.
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Returning "
+operator|+
+name|spec
+operator|.
+name|merges
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" merges for upgrade"
+argument_list|)
+expr_stmt|;
 return|return
 name|spec
 return|;
@@ -1284,6 +1358,22 @@ operator|==
 literal|false
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Return "
+operator|+
+name|spec
+operator|.
+name|merges
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" merges for end of upgrade"
+argument_list|)
+expr_stmt|;
 return|return
 name|spec
 return|;

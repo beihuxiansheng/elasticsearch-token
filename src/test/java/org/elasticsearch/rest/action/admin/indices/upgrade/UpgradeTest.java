@@ -829,6 +829,18 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Running upgrade on index "
+operator|+
+name|indexToUpgrade
+argument_list|)
+expr_stmt|;
+name|logClusterState
+argument_list|()
+expr_stmt|;
 name|runUpgrade
 argument_list|(
 name|httpClient
@@ -885,6 +897,26 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Single index upgrade complete"
+argument_list|)
+expr_stmt|;
+name|logClusterState
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Running upgrade on the rest of the indexes"
+argument_list|)
+expr_stmt|;
+name|logClusterState
+argument_list|()
+expr_stmt|;
 name|runUpgrade
 argument_list|(
 name|httpClient
@@ -895,6 +927,16 @@ literal|"wait_for_completion"
 argument_list|,
 literal|"true"
 argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Full upgrade complete"
+argument_list|)
+expr_stmt|;
+name|logClusterState
+argument_list|()
 expr_stmt|;
 name|assertUpgraded
 argument_list|(
