@@ -594,6 +594,11 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"test"
+argument_list|)
+expr_stmt|;
 name|assertIndexSanity
 argument_list|()
 expr_stmt|;
