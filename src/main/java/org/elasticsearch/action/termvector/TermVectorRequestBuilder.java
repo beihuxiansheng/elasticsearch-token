@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * The builder class for a term vector request.  * Returns the term vector (doc frequency, positions, offsets) for a document.  *<p/>  * Note, the {@code index}, {@code type} and {@code id} are  * required.  */
 end_comment
 
 begin_class
@@ -115,6 +115,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Constructs a new term vector request builder for a document that will be fetch      * from the provided index. Use {@code index}, {@code type} and      * {@code id} to specify the document to load.      */
 DECL|method|TermVectorRequestBuilder
 specifier|public
 name|TermVectorRequestBuilder
@@ -295,6 +296,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to return the start and stop offsets for each term if they were stored or      * skip offsets.      */
 DECL|method|setOffsets
 specifier|public
 name|TermVectorRequestBuilder
@@ -315,6 +317,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to return the positions for each term if stored or skip.      */
 DECL|method|setPositions
 specifier|public
 name|TermVectorRequestBuilder
@@ -335,6 +338,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to return the payloads for each term or skip.      */
 DECL|method|setPayloads
 specifier|public
 name|TermVectorRequestBuilder
@@ -355,6 +359,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to return the term statistics for each term in the shard or skip.      */
 DECL|method|setTermStatistics
 specifier|public
 name|TermVectorRequestBuilder
@@ -375,6 +380,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to return the field statistics for each term in the shard or skip.      */
 DECL|method|setFieldStatistics
 specifier|public
 name|TermVectorRequestBuilder
@@ -395,6 +401,28 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to use distributed frequencies instead of shard statistics.      */
+DECL|method|setDfs
+specifier|public
+name|TermVectorRequestBuilder
+name|setDfs
+parameter_list|(
+name|boolean
+name|dfs
+parameter_list|)
+block|{
+name|request
+operator|.
+name|dfs
+argument_list|(
+name|dfs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to return only term vectors for special selected fields. Returns the term      * vectors for all fields if selectedFields == null      */
 DECL|method|setSelectedFields
 specifier|public
 name|TermVectorRequestBuilder
@@ -416,6 +444,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether term vectors are generated real-time.      */
 DECL|method|setRealtime
 specifier|public
 name|TermVectorRequestBuilder
@@ -436,6 +465,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the analyzer used at each field when generating term vectors.      */
 DECL|method|setPerFieldAnalyzer
 specifier|public
 name|TermVectorRequestBuilder

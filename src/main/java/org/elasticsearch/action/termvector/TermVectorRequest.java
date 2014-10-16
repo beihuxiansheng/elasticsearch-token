@@ -1019,6 +1019,47 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @return<code>true</code> if distributed frequencies should be returned. Otherwise      *<code>false</code>      */
+DECL|method|dfs
+specifier|public
+name|boolean
+name|dfs
+parameter_list|()
+block|{
+return|return
+name|flagsEnum
+operator|.
+name|contains
+argument_list|(
+name|Flag
+operator|.
+name|Dfs
+argument_list|)
+return|;
+block|}
+comment|/**      * Use distributed frequencies instead of shard statistics.      */
+DECL|method|dfs
+specifier|public
+name|TermVectorRequest
+name|dfs
+parameter_list|(
+name|boolean
+name|dfs
+parameter_list|)
+block|{
+name|setFlag
+argument_list|(
+name|Flag
+operator|.
+name|Dfs
+argument_list|,
+name|dfs
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Return only term vectors for special selected fields. Returns for term      * vectors for all fields if selectedFields == null      */
 DECL|method|selectedFields
 specifier|public
@@ -1069,6 +1110,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Return whether term vectors should be generated real-time (default to true).      */
 DECL|method|realtime
 specifier|public
 name|boolean
@@ -1089,6 +1131,7 @@ operator|.
 name|realtime
 return|;
 block|}
+comment|/**      * Choose whether term vectors be generated real-time.      */
 DECL|method|realtime
 specifier|public
 name|TermVectorRequest
@@ -1108,7 +1151,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Return the overridden analyzers at each field      */
+comment|/**      * Return the overridden analyzers at each field.      */
 DECL|method|perFieldAnalyzer
 specifier|public
 name|Map
@@ -1124,7 +1167,7 @@ return|return
 name|perFieldAnalyzer
 return|;
 block|}
-comment|/**      * Override the analyzer used at each field when generating term vectors      */
+comment|/**      * Override the analyzer used at each field when generating term vectors.      */
 DECL|method|perFieldAnalyzer
 specifier|public
 name|TermVectorRequest
@@ -1816,6 +1859,7 @@ DECL|enum constant|Offsets
 DECL|enum constant|Payloads
 DECL|enum constant|FieldStatistics
 DECL|enum constant|TermStatistics
+DECL|enum constant|Dfs
 name|Positions
 block|,
 name|Offsets
@@ -1825,6 +1869,8 @@ block|,
 name|FieldStatistics
 block|,
 name|TermStatistics
+block|,
+name|Dfs
 block|}
 comment|/**      * populates a request object (pre-populated with defaults) based on a parser.      */
 DECL|method|parseRequest
@@ -2082,6 +2128,28 @@ block|{
 name|termVectorRequest
 operator|.
 name|fieldStatistics
+argument_list|(
+name|parser
+operator|.
+name|booleanValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|currentFieldName
+operator|.
+name|equals
+argument_list|(
+literal|"dfs"
+argument_list|)
+condition|)
+block|{
+name|termVectorRequest
+operator|.
+name|dfs
 argument_list|(
 name|parser
 operator|.
