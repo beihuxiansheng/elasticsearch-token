@@ -747,8 +747,8 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// In the case of nested docs, let's fill nested docs with version=0 so that Lucene doesn't write a Bitset for documents
-comment|// that don't have the field
+comment|// In the case of nested docs, let's fill nested docs with version=1 so that Lucene doesn't write a Bitset for documents
+comment|// that don't have the field. This is consistent with the default value for efficiency.
 for|for
 control|(
 name|int
@@ -793,7 +793,7 @@ name|NumericDocValuesField
 argument_list|(
 name|NAME
 argument_list|,
-literal|0L
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
