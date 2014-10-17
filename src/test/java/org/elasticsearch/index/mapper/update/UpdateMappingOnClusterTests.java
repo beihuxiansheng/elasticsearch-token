@@ -1114,7 +1114,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|"no"
 argument_list|)
 operator|.
 name|endObject
@@ -1213,7 +1213,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1327,7 +1327,7 @@ name|field
 argument_list|(
 literal|"store"
 argument_list|,
-literal|"yes"
+literal|"no"
 argument_list|)
 operator|.
 name|endObject
@@ -1430,7 +1430,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
