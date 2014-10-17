@@ -840,6 +840,15 @@ operator|.
 name|NON_NEGATIVE_DOUBLE
 argument_list|)
 expr_stmt|;
+name|clusterDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
+name|HierarchyCircuitBreakerService
+operator|.
+name|REQUEST_CIRCUIT_BREAKER_TYPE_SETTING
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|addDynamicSettings
 specifier|public

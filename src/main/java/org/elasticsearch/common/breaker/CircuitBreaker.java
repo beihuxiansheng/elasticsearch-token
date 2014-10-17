@@ -68,6 +68,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  * Interface for an object that can be incremented, breaking after some  * configured limit has been reached.  */
 end_comment
@@ -220,6 +230,83 @@ name|getSerializableValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+DECL|enum|Type
+specifier|public
+specifier|static
+enum|enum
+name|Type
+block|{
+comment|// A regular or child MemoryCircuitBreaker
+DECL|enum constant|MEMORY
+name|MEMORY
+block|,
+comment|// A special parent-type for the hierarchy breaker service
+DECL|enum constant|PARENT
+name|PARENT
+block|,
+comment|// A breaker where every action is a noop, it never breaks
+DECL|enum constant|NOOP
+name|NOOP
+block|;
+DECL|method|parseValue
+specifier|public
+specifier|static
+name|Type
+name|parseValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+switch|switch
+condition|(
+name|value
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+condition|)
+block|{
+case|case
+literal|"noop"
+case|:
+return|return
+name|Type
+operator|.
+name|NOOP
+return|;
+case|case
+literal|"parent"
+case|:
+return|return
+name|Type
+operator|.
+name|PARENT
+return|;
+case|case
+literal|"memory"
+case|:
+return|return
+name|Type
+operator|.
+name|MEMORY
+return|;
+default|default:
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"No CircuitBreaker with type: "
+operator|+
+name|value
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 comment|/**      * Trip the circuit breaker      * @param fieldName name of the field responsible for tripping the breaker      * @param bytesNeeded bytes asked for but unable to be allocated      */

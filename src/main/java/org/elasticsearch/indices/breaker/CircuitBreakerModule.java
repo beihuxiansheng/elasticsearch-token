@@ -59,7 +59,7 @@ specifier|final
 name|String
 name|IMPL
 init|=
-literal|"indices.breaker.breaker_impl"
+literal|"indices.breaker.type"
 decl_stmt|;
 DECL|field|settings
 specifier|private
