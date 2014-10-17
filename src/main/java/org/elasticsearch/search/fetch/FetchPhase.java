@@ -416,22 +416,6 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|partial
-operator|.
-name|PartialFieldsFetchSubPhase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|fetch
-operator|.
 name|script
 operator|.
 name|ScriptFieldsFetchSubPhase
@@ -639,9 +623,6 @@ parameter_list|,
 name|ScriptFieldsFetchSubPhase
 name|scriptFieldsPhase
 parameter_list|,
-name|PartialFieldsFetchSubPhase
-name|partialFieldsPhase
-parameter_list|,
 name|MatchedQueriesFetchSubPhase
 name|matchedQueriesPhase
 parameter_list|,
@@ -667,8 +648,6 @@ name|FetchSubPhase
 index|[]
 block|{
 name|scriptFieldsPhase
-block|,
-name|partialFieldsPhase
 block|,
 name|matchedQueriesPhase
 block|,
@@ -804,24 +783,6 @@ name|hasFieldNames
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|context
-operator|.
-name|hasPartialFields
-argument_list|()
-condition|)
-block|{
-comment|// partial fields need the source, so fetch it
-name|fieldsVisitor
-operator|=
-operator|new
-name|UidAndSourceFieldsVisitor
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
 comment|// no fields specified, default to return source if no explicit indication
 if|if
 condition|(
@@ -865,7 +826,6 @@ operator|new
 name|JustUidFieldsVisitor
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
