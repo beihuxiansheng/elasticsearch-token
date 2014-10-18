@@ -3110,6 +3110,8 @@ expr_stmt|;
 block|}
 comment|// Tests a rescorer that penalizes the scores:
 annotation|@
+name|Ignore
+annotation|@
 name|Test
 DECL|method|testRescorerMadeScoresWorse
 specifier|public
