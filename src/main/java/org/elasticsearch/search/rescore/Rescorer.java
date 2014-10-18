@@ -140,7 +140,7 @@ function_decl|;
 comment|/**      * Modifies the result of the previously executed search ({@link TopDocs})      * in place based on the given {@link RescoreSearchContext}.      *      * @param topDocs        the result of the previously exectued search      * @param context        the current {@link SearchContext}. This will never be<code>null</code>.      * @param rescoreContext the {@link RescoreSearchContext}. This will never be<code>null</code>      * @throws IOException if an {@link IOException} occurs during rescoring      */
 DECL|method|rescore
 specifier|public
-name|void
+name|TopDocs
 name|rescore
 parameter_list|(
 name|TopDocs
