@@ -831,7 +831,7 @@ specifier|static
 name|int
 name|MAX_INDEX_NAME_BYTES
 init|=
-literal|100
+literal|255
 decl_stmt|;
 DECL|field|DEFAULT_INDEX_TEMPLATE_FILTER
 specifier|private
