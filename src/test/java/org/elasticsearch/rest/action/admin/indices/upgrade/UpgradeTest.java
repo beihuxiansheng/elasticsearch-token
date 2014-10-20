@@ -836,6 +836,21 @@ name|indexName
 argument_list|)
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"--> Upgrading nodes"
+argument_list|)
+expr_stmt|;
+name|logClusterState
+argument_list|()
+expr_stmt|;
+name|logSegmentsState
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|backwardsCluster
 argument_list|()
 operator|.
@@ -852,6 +867,21 @@ argument_list|()
 expr_stmt|;
 name|ensureGreen
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"--> Nodes upgrade complete"
+argument_list|)
+expr_stmt|;
+name|logClusterState
+argument_list|()
+expr_stmt|;
+name|logSegmentsState
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 specifier|final
 name|HttpRequestBuilder
