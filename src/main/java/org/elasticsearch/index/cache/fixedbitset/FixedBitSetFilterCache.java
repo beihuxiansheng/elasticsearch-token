@@ -770,6 +770,25 @@ name|indicesWarmer
 operator|=
 name|indicesWarmer
 expr_stmt|;
+block|}
+DECL|method|setIndexService
+specifier|public
+name|void
+name|setIndexService
+parameter_list|(
+name|InternalIndexService
+name|indexService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indexService
+operator|=
+name|indexService
+expr_stmt|;
+comment|// First the indicesWarmer is set and then the indexService is set, because of this there is a small window of
+comment|// time where indexService is null. This is why the warmer should only registered after indexService has been set.
+comment|// Otherwise there is a small chance of the warmer running into a NPE, since it uses the indexService
 name|indicesWarmer
 operator|.
 name|addListener
@@ -1197,22 +1216,6 @@ argument_list|)
 operator|.
 name|fixedBitSet
 return|;
-block|}
-DECL|method|setIndexService
-specifier|public
-name|void
-name|setIndexService
-parameter_list|(
-name|InternalIndexService
-name|indexService
-parameter_list|)
-block|{
-name|this
-operator|.
-name|indexService
-operator|=
-name|indexService
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1880,7 +1883,7 @@ argument_list|()
 operator|.
 name|trace
 argument_list|(
-literal|"warmed random access for [{}], took [{}]"
+literal|"warmed fixed bitset for [{}], took [{}]"
 argument_list|,
 name|filterToWarm
 argument_list|,
@@ -1915,7 +1918,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"failed to load random access for [{}]"
+literal|"failed to load fixed bitset for [{}]"
 argument_list|,
 name|t
 argument_list|,
