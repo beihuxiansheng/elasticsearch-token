@@ -253,6 +253,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|module
+operator|.
+name|addTokenFilter
+argument_list|(
+literal|"ja_stop"
+argument_list|,
+name|JapaneseStopTokenFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
