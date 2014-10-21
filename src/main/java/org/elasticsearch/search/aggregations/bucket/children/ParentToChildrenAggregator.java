@@ -176,6 +176,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|ApplyAcceptedDocsFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|LongArray
@@ -417,7 +433,7 @@ decl_stmt|;
 DECL|field|childFilter
 specifier|private
 specifier|final
-name|FixedBitSetFilter
+name|Filter
 name|childFilter
 decl_stmt|;
 DECL|field|parentFilter
@@ -544,21 +560,28 @@ name|parentType
 operator|=
 name|parentType
 expr_stmt|;
+comment|// The child filter doesn't rely on random access it just used to iterate over all docs with a specific type,
+comment|// so use the filter cache instead. When the filter cache is smarter with what filter impl to pick we can benefit
+comment|// from it here
 name|this
 operator|.
 name|childFilter
 operator|=
+operator|new
+name|ApplyAcceptedDocsFilter
+argument_list|(
 name|aggregationContext
 operator|.
 name|searchContext
 argument_list|()
 operator|.
-name|fixedBitSetFilterCache
+name|filterCache
 argument_list|()
 operator|.
-name|getFixedBitSetFilter
+name|cache
 argument_list|(
 name|childFilter
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
