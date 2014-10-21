@@ -74,6 +74,38 @@ name|QueryParseContext
 name|parseContext
 parameter_list|)
 block|{
+name|SearchContext
+name|context
+init|=
+name|SearchContext
+operator|.
+name|current
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+operator|.
+name|index
+argument_list|()
+argument_list|,
+literal|"["
+operator|+
+name|name
+operator|+
+literal|"] query and filter requires a search context"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|TransportShardDeleteByQueryAction
@@ -82,10 +114,7 @@ name|DELETE_BY_QUERY_API
 operator|.
 name|equals
 argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|context
 operator|.
 name|source
 argument_list|()
@@ -105,7 +134,7 @@ literal|"["
 operator|+
 name|name
 operator|+
-literal|"] unsupported in delete_by_query api"
+literal|"] query and filter unsupported in delete_by_query api"
 argument_list|)
 throw|;
 block|}
