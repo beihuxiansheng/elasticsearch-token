@@ -1082,7 +1082,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[test] [has_child] unsupported in delete_by_query api"
+literal|"[test] [has_child] query and filter unsupported in delete_by_query api"
 argument_list|)
 argument_list|)
 expr_stmt|;

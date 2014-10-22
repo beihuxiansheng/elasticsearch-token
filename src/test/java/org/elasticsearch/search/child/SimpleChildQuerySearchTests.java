@@ -16021,7 +16021,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[has_child] unsupported in delete_by_query api"
+literal|"[has_child] query and filter unsupported in delete_by_query api"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16584,7 +16584,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[has_child] unsupported in delete_by_query api"
+literal|"[has_child] query and filter unsupported in delete_by_query api"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17081,7 +17081,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[has_parent] unsupported in delete_by_query api"
+literal|"[has_parent] query and filter unsupported in delete_by_query api"
 argument_list|)
 argument_list|)
 expr_stmt|;
