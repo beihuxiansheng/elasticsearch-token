@@ -107,7 +107,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should hte missing filter include documents where the field doesn't exists in the docs.      * Defaults to<tt>true</tt>.      */
+comment|/**      * Should the missing filter include documents where the field doesn't exists in the docs.      * Defaults to<tt>true</tt>.      */
 DECL|method|existence
 specifier|public
 name|MissingFilterBuilder
