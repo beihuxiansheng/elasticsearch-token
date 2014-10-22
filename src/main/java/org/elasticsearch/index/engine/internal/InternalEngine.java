@@ -2063,6 +2063,8 @@ argument_list|(
 name|mergeScheduler
 argument_list|,
 name|logger
+argument_list|,
+name|indexingService
 argument_list|)
 expr_stmt|;
 name|mergeScheduler
@@ -5424,6 +5426,8 @@ argument_list|,
 name|this
 operator|.
 name|logger
+argument_list|,
+name|indexingService
 argument_list|)
 expr_stmt|;
 name|mergeScheduler
@@ -10184,7 +10188,6 @@ return|;
 block|}
 block|}
 DECL|class|IndexThrottle
-specifier|private
 specifier|static
 specifier|final
 class|class
@@ -10257,6 +10260,12 @@ specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
+DECL|field|indexingService
+specifier|private
+specifier|final
+name|ShardIndexingService
+name|indexingService
+decl_stmt|;
 DECL|field|lock
 specifier|private
 specifier|volatile
@@ -10274,6 +10283,9 @@ name|mergeScheduler
 parameter_list|,
 name|ESLogger
 name|logger
+parameter_list|,
+name|ShardIndexingService
+name|indexingService
 parameter_list|)
 block|{
 name|this
@@ -10287,6 +10299,12 @@ operator|.
 name|logger
 operator|=
 name|logger
+expr_stmt|;
+name|this
+operator|.
+name|indexingService
+operator|=
+name|indexingService
 expr_stmt|;
 block|}
 DECL|method|acquireThrottle
@@ -10355,6 +10373,11 @@ argument_list|,
 name|maxNumMerges
 argument_list|)
 expr_stmt|;
+name|indexingService
+operator|.
+name|throttlingActivated
+argument_list|()
+expr_stmt|;
 block|}
 name|lock
 operator|=
@@ -10412,6 +10435,11 @@ name|numMergesInFlight
 argument_list|,
 name|maxNumMerges
 argument_list|)
+expr_stmt|;
+name|indexingService
+operator|.
+name|throttlingDeactivated
+argument_list|()
 expr_stmt|;
 block|}
 name|lock
