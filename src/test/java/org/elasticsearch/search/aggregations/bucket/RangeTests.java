@@ -519,6 +519,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|()
+comment|// shift sequence by 1, to ensure we have negative values, and value 3 on the edge of the tested ranges
 operator|.
 name|field
 argument_list|(
@@ -527,6 +528,8 @@ argument_list|,
 name|i
 operator|*
 literal|2
+operator|-
+literal|1
 argument_list|)
 operator|.
 name|endObject
@@ -7969,7 +7972,7 @@ name|histo
 operator|.
 name|getBucketByKey
 argument_list|(
-literal|1l
+literal|0l
 argument_list|)
 decl_stmt|;
 name|assertThat
