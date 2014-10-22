@@ -505,6 +505,15 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|EnableAllocationDecider
+operator|.
+name|INDEX_ROUTING_REBALANCE_ENABLE
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|DisableAllocationDecider
 operator|.
 name|INDEX_ROUTING_ALLOCATION_DISABLE_ALLOCATION

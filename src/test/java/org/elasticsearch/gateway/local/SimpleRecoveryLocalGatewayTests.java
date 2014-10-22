@@ -104,24 +104,6 @@ name|routing
 operator|.
 name|allocation
 operator|.
-name|allocator
-operator|.
-name|BalancedShardsAllocator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
 name|decider
 operator|.
 name|EnableAllocationDecider
@@ -3102,6 +3084,22 @@ name|CRASH_INDEX
 argument_list|,
 literal|false
 argument_list|)
+comment|// prevent any rebalance actions during the peer recovery
+comment|// if we run into a relocation the reuse count will be 0 and this fails the test. We are testing here if
+comment|// we reuse the files on disk after full restarts for replicas.
+operator|.
+name|put
+argument_list|(
+name|EnableAllocationDecider
+operator|.
+name|INDEX_ROUTING_REBALANCE_ENABLE
+argument_list|,
+name|EnableAllocationDecider
+operator|.
+name|Rebalance
+operator|.
+name|NONE
+argument_list|)
 decl_stmt|;
 name|internalCluster
 argument_list|()
@@ -3229,39 +3227,6 @@ name|info
 argument_list|(
 literal|"--> shutting down the nodes"
 argument_list|)
-expr_stmt|;
-comment|// prevent any rebalance actions during the peer recovery
-comment|// if we run into a relocation the reuse count will be 0 and this fails the test. We are testing here if
-comment|// we reuse the files on disk after full restarts for replicas.
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareUpdateSettings
-argument_list|()
-operator|.
-name|setPersistentSettings
-argument_list|(
-name|settingsBuilder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-name|BalancedShardsAllocator
-operator|.
-name|SETTING_THRESHOLD
-argument_list|,
-literal|100.0f
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
 expr_stmt|;
 comment|// Disable allocations while we are closing nodes
 name|client

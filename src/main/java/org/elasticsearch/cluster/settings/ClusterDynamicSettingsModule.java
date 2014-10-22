@@ -388,6 +388,15 @@ name|clusterDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|EnableAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_REBALANCE_ENABLE
+argument_list|)
+expr_stmt|;
+name|clusterDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|DisableAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISABLE_NEW_ALLOCATION
