@@ -580,7 +580,7 @@ name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 expr_stmt|;
 name|nodeSettingsService
