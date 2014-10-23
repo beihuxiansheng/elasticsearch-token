@@ -290,35 +290,7 @@ name|randomizedtesting
 operator|.
 name|RandomizedTest
 operator|.
-name|randomBoolean
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|randomInt
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|randomIntBetween
+name|*
 import|;
 end_import
 
@@ -1443,30 +1415,47 @@ argument_list|()
 expr_stmt|;
 comment|// flush
 block|}
-comment|// check before we committed
 name|Store
 operator|.
 name|MetadataSnapshot
 name|metadata
-init|=
+decl_stmt|;
+comment|// check before we committed
+try|try
+block|{
 name|store
 operator|.
 name|getMetadata
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"no index present - expected exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|assertThat
 argument_list|(
-name|metadata
+name|store
 operator|.
-name|asMap
-argument_list|()
-operator|.
-name|isEmpty
+name|getMetadataOrEmpty
 argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+name|Store
+operator|.
+name|MetadataSnapshot
+operator|.
+name|EMPTY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2097,30 +2086,47 @@ argument_list|()
 expr_stmt|;
 comment|// flush
 block|}
-comment|// check before we committed
 name|Store
 operator|.
 name|MetadataSnapshot
 name|metadata
-init|=
+decl_stmt|;
+comment|// check before we committed
+try|try
+block|{
 name|store
 operator|.
 name|getMetadata
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"no index present - expected exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|assertThat
 argument_list|(
-name|metadata
+name|store
 operator|.
-name|asMap
-argument_list|()
-operator|.
-name|isEmpty
+name|getMetadataOrEmpty
 argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+name|Store
+operator|.
+name|MetadataSnapshot
+operator|.
+name|EMPTY
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2710,30 +2716,47 @@ argument_list|()
 expr_stmt|;
 comment|// flush
 block|}
-comment|// check before we committed
 name|Store
 operator|.
 name|MetadataSnapshot
 name|metadata
-init|=
+decl_stmt|;
+comment|// check before we committed
+try|try
+block|{
 name|store
 operator|.
 name|getMetadata
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"no index present - expected exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// expected
+block|}
 name|assertThat
 argument_list|(
-name|metadata
+name|store
 operator|.
-name|asMap
-argument_list|()
-operator|.
-name|isEmpty
+name|getMetadataOrEmpty
 argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+name|Store
+operator|.
+name|MetadataSnapshot
+operator|.
+name|EMPTY
 argument_list|)
 argument_list|)
 expr_stmt|;

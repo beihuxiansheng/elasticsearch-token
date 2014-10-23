@@ -847,7 +847,55 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      * unexpected exception when opening the index reading the segments file.      */
+DECL|method|getMetadataOrEmpty
+specifier|public
+name|MetadataSnapshot
+name|getMetadataOrEmpty
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+return|return
+name|getMetadata
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// that's fine - happens all the time no need to log
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+decl||
+name|NoSuchFileException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Failed to open / find files while reading metadata snapshot"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|MetadataSnapshot
+operator|.
+name|EMPTY
+return|;
+block|}
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      * unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException if one or more files referenced by a commit are not present.      * @throws NoSuchFileException if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -863,7 +911,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      */
+comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      * unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException if one or more files referenced by a commit are not present.      * @throws NoSuchFileException if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1166,6 +1214,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Reads a MetadataSnapshot from the given index locations or returns an empty snapshot if it can't be read.      * @throws IOException if the index we try to read is corrupted      */
 DECL|method|readMetadataSnapshot
 specifier|public
 specifier|static
@@ -1263,6 +1312,30 @@ name|logger
 argument_list|)
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|IndexNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// that's fine - happens all the time no need to log
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+decl||
+name|NoSuchFileException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Failed to open / find files while reading metadata snapshot"
+argument_list|)
+expr_stmt|;
+block|}
 finally|finally
 block|{
 name|IOUtils
@@ -1273,6 +1346,11 @@ name|dirs
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|MetadataSnapshot
+operator|.
+name|EMPTY
+return|;
 block|}
 comment|/**      * The returned IndexOutput might validate the files checksum if the file has been written with a newer lucene version      * and the metadata holds the necessary information to detect that it was been written by Lucene 4.8 or newer. If it has only      * a legacy checksum, returned IndexOutput will not verify the checksum.      *      * Note: Checksums are calculated nevertheless since lucene does it by default sicne version 4.8.0. This method only adds the      * verification against the checksum in the given metadata and does not add any significant overhead.      */
 DECL|method|createVerifyingOutput
@@ -2476,31 +2554,6 @@ block|{
 throw|throw
 name|ex
 throw|;
-block|}
-catch|catch
-parameter_list|(
-name|FileNotFoundException
-decl||
-name|NoSuchFileException
-name|ex
-parameter_list|)
-block|{
-comment|// can't open index | no commit present -- we might open a snapshot index that is not fully restored?
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Can't open file to read checksums"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-return|return
-name|ImmutableMap
-operator|.
-name|of
-argument_list|()
-return|;
 block|}
 catch|catch
 parameter_list|(

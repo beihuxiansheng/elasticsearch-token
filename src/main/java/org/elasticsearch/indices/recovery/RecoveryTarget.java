@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1119,7 +1105,7 @@ operator|.
 name|store
 argument_list|()
 operator|.
-name|getMetadata
+name|getMetadataOrEmpty
 argument_list|()
 operator|.
 name|asMap
