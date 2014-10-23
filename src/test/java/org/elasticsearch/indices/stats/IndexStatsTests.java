@@ -26,6 +26,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|Version
 import|;
 end_import
@@ -4289,6 +4303,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"This test intermittently fails with no throttling happening."
+argument_list|)
 DECL|method|throttleStats
 specifier|public
 name|void
