@@ -680,6 +680,13 @@ literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"flush finished in beforeIndexShardClosed"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
