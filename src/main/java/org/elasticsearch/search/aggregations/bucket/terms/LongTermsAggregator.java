@@ -828,6 +828,11 @@ name|getShardSize
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|long
+name|otherDocCount
+init|=
+literal|0
+decl_stmt|;
 name|BucketPriorityQueue
 name|ordered
 init|=
@@ -916,6 +921,12 @@ name|bucketDocCount
 argument_list|(
 name|i
 argument_list|)
+expr_stmt|;
+name|otherDocCount
+operator|+=
+name|spare
+operator|.
+name|docCount
 expr_stmt|;
 name|spare
 operator|.
@@ -1035,6 +1046,12 @@ index|]
 operator|=
 name|bucket
 expr_stmt|;
+name|otherDocCount
+operator|-=
+name|bucket
+operator|.
+name|docCount
+expr_stmt|;
 block|}
 name|runDeferredCollections
 argument_list|(
@@ -1121,6 +1138,8 @@ argument_list|,
 name|showTermDocCountError
 argument_list|,
 literal|0
+argument_list|,
+name|otherDocCount
 argument_list|)
 return|;
 block|}
@@ -1168,6 +1187,8 @@ name|emptyList
 argument_list|()
 argument_list|,
 name|showTermDocCountError
+argument_list|,
+literal|0
 argument_list|,
 literal|0
 argument_list|)

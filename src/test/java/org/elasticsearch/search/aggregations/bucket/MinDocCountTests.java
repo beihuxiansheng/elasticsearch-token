@@ -379,7 +379,7 @@ specifier|public
 class|class
 name|MinDocCountTests
 extends|extends
-name|ElasticsearchIntegrationTest
+name|AbstractTermsTests
 block|{
 DECL|field|QUERY
 specifier|private
@@ -2053,8 +2053,6 @@ argument_list|)
 operator|.
 name|executionHint
 argument_list|(
-name|StringTermsTests
-operator|.
 name|randomExecutionHint
 argument_list|()
 argument_list|)
@@ -2202,8 +2200,6 @@ argument_list|)
 operator|.
 name|executionHint
 argument_list|(
-name|StringTermsTests
-operator|.
 name|randomExecutionHint
 argument_list|()
 argument_list|)

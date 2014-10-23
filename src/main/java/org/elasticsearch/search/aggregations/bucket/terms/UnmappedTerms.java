@@ -304,6 +304,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|0
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -504,6 +506,9 @@ name|showTermDocCountError
 parameter_list|,
 name|long
 name|docCountError
+parameter_list|,
+name|long
+name|otherDocCount
 parameter_list|)
 block|{
 throw|throw
@@ -539,6 +544,15 @@ operator|.
 name|DOC_COUNT_ERROR_UPPER_BOUND_FIELD_NAME
 argument_list|,
 name|docCountError
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|field
+argument_list|(
+name|SUM_OF_OTHER_DOC_COUNTS
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 name|builder

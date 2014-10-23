@@ -363,6 +363,18 @@ function_decl|;
 end_function_decl
 
 begin_comment
+comment|/**      * Return the sum of the document counts of all buckets that did not make      * it to the top buckets.      */
+end_comment
+
+begin_function_decl
+DECL|method|getSumOfOtherDocCounts
+name|long
+name|getSumOfOtherDocCounts
+parameter_list|()
+function_decl|;
+end_function_decl
+
+begin_comment
 comment|/**      * Determines the order by which the term buckets will be sorted      */
 end_comment
 

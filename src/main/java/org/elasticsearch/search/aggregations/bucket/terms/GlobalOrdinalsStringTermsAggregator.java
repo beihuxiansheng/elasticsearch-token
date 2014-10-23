@@ -1032,6 +1032,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|long
+name|otherDocCount
+init|=
+literal|0
+decl_stmt|;
 name|BucketPriorityQueue
 name|ordered
 init|=
@@ -1141,6 +1146,10 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|otherDocCount
+operator|+=
+name|bucketDocCount
+expr_stmt|;
 name|spare
 operator|.
 name|globalOrd
@@ -1338,6 +1347,15 @@ name|bucket
 operator|.
 name|bucketOrd
 expr_stmt|;
+name|otherDocCount
+operator|-=
+name|list
+index|[
+name|i
+index|]
+operator|.
+name|docCount
+expr_stmt|;
 block|}
 comment|//replay any deferred collections
 name|runDeferredCollections
@@ -1431,6 +1449,8 @@ argument_list|,
 name|showTermDocCountError
 argument_list|,
 literal|0
+argument_list|,
+name|otherDocCount
 argument_list|)
 return|;
 block|}

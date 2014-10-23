@@ -545,6 +545,10 @@ argument_list|,
 name|terms
 operator|.
 name|docCountError
+argument_list|,
+name|terms
+operator|.
+name|otherDocCount
 argument_list|)
 return|;
 block|}
