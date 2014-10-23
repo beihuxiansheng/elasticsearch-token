@@ -159,6 +159,19 @@ return|return
 name|emptyClusterInfo
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|addListener
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// no-op, no new info is ever gathered, so adding listeners is useless
+block|}
 block|}
 end_class
 

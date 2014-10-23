@@ -14,6 +14,10 @@ name|cluster
 package|;
 end_package
 
+begin_comment
+comment|/**  * Interface for a class used to gather information about a cluster at  * regular intervals  */
+end_comment
+
 begin_interface
 DECL|interface|ClusterInfoService
 specifier|public
@@ -31,12 +35,39 @@ operator|.
 name|getInstance
 argument_list|()
 decl_stmt|;
+comment|/** The latest cluster information */
 DECL|method|getClusterInfo
 specifier|public
 name|ClusterInfo
 name|getClusterInfo
 parameter_list|()
 function_decl|;
+comment|/** Add a listener that will be called every time new information is gathered */
+DECL|method|addListener
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+function_decl|;
+comment|/**      * Interface for listeners to implement in order to perform actions when      * new information about the cluster has been gathered      */
+DECL|interface|Listener
+specifier|public
+interface|interface
+name|Listener
+block|{
+DECL|method|onNewInfo
+specifier|public
+name|void
+name|onNewInfo
+parameter_list|(
+name|ClusterInfo
+name|info
+parameter_list|)
+function_decl|;
+block|}
 block|}
 end_interface
 

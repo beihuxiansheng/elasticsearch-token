@@ -182,7 +182,7 @@ operator|+
 name|getFreeDiskAsPercentage
 argument_list|()
 operator|+
-literal|"]"
+literal|"%]"
 return|;
 block|}
 block|}

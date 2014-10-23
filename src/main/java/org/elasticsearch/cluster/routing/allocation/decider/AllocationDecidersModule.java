@@ -228,6 +228,9 @@ name|to
 argument_list|(
 name|deciderClass
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 for|for
@@ -252,6 +255,9 @@ name|to
 argument_list|(
 name|allocation
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 name|bind

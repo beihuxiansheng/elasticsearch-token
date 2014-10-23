@@ -665,6 +665,18 @@ return|return
 name|clusterInfo
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// noop
+block|}
 block|}
 decl_stmt|;
 name|AllocationService
@@ -2330,6 +2342,18 @@ return|return
 name|clusterInfo
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// noop
+block|}
 block|}
 decl_stmt|;
 name|AllocationService
@@ -2684,6 +2708,18 @@ expr_stmt|;
 return|return
 name|clusterInfo2
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 expr_stmt|;
@@ -4432,6 +4468,18 @@ return|return
 name|clusterInfo
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// noop
+block|}
 block|}
 decl_stmt|;
 name|AllocationService
@@ -4938,6 +4986,18 @@ expr_stmt|;
 return|return
 name|clusterInfo
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 decl_stmt|;
@@ -5748,6 +5808,18 @@ expr_stmt|;
 return|return
 name|clusterInfo
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|addListener
+parameter_list|(
+name|Listener
+name|listener
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 decl_stmt|;
