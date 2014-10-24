@@ -4449,9 +4449,16 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|AssertionError
 argument_list|(
-literal|"failed to walk tree"
+literal|"failed to walk file tree starting at ["
+operator|+
+name|shardLoc
+operator|.
+name|toPath
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|e
 argument_list|)
