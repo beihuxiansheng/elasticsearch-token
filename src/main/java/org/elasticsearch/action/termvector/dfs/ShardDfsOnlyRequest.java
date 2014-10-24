@@ -165,8 +165,6 @@ name|String
 index|[]
 name|filteringAliases
 parameter_list|,
-annotation|@
-name|Nullable
 name|long
 name|nowInMillis
 parameter_list|,
