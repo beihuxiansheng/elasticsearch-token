@@ -1411,6 +1411,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicInteger
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -7545,6 +7559,16 @@ name|randomRealisticUnicodeOfLength
 argument_list|(
 name|unicodeLen
 argument_list|)
+operator|+
+name|Integer
+operator|.
+name|toString
+argument_list|(
+name|dummmyDocIdGenerator
+operator|.
+name|incrementAndGet
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|String
 name|index
@@ -7564,11 +7588,7 @@ name|add
 argument_list|(
 operator|new
 name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
 name|index
 argument_list|,
@@ -8113,6 +8133,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|field|dummmyDocIdGenerator
+specifier|private
+name|AtomicInteger
+name|dummmyDocIdGenerator
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 comment|/** Disables translog flushing for the specified index */
 DECL|method|disableTranslogFlush
 specifier|public

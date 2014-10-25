@@ -1270,30 +1270,6 @@ argument_list|(
 name|searchResponse
 argument_list|)
 decl_stmt|;
-name|assertThat
-argument_list|(
-literal|"Expected different hit count. "
-operator|+
-name|shardStatus
-argument_list|,
-name|searchResponse
-operator|.
-name|getHits
-argument_list|()
-operator|.
-name|hits
-argument_list|()
-operator|.
-name|length
-argument_list|,
-name|equalTo
-argument_list|(
-name|ids
-operator|.
-name|length
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|Set
 argument_list|<
 name|String
@@ -1325,14 +1301,28 @@ control|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Expected id: "
+literal|"id ["
 operator|+
 name|hit
 operator|.
 name|getId
 argument_list|()
 operator|+
-literal|" in the result but wasn't."
+literal|"] was found in search results but wasn't expected (type ["
+operator|+
+name|hit
+operator|.
+name|getType
+argument_list|()
+operator|+
+literal|"], index ["
+operator|+
+name|hit
+operator|.
+name|index
+argument_list|()
+operator|+
+literal|"])"
 operator|+
 name|shardStatus
 argument_list|,
@@ -1355,7 +1345,7 @@ expr_stmt|;
 block|}
 name|assertThat
 argument_list|(
-literal|"Expected ids: "
+literal|"Some expected ids were not found in search results: "
 operator|+
 name|Arrays
 operator|.
@@ -1376,7 +1366,7 @@ index|]
 argument_list|)
 argument_list|)
 operator|+
-literal|" in the result - result size differs."
+literal|"."
 operator|+
 name|shardStatus
 argument_list|,
