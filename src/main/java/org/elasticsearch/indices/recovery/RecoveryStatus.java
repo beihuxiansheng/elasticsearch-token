@@ -220,6 +220,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -844,10 +854,12 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|FileNotFoundException
+decl||
 name|NoSuchFileException
 name|e
 parameter_list|)
-block|{              }
+block|{             }
 catch|catch
 parameter_list|(
 name|Throwable
