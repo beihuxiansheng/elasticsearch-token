@@ -142,6 +142,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Filter that returns all nested documents.  * A nested document is a sub documents that belong to a root document.  * Nested documents share the unique id and type and optionally the _source with root documents.  */
+end_comment
+
 begin_class
 DECL|class|NestedDocsFilter
 specifier|public
@@ -164,26 +168,11 @@ decl_stmt|;
 DECL|field|filter
 specifier|private
 specifier|final
-name|PrefixFilter
+name|Filter
 name|filter
 init|=
-operator|new
-name|PrefixFilter
-argument_list|(
-operator|new
-name|Term
-argument_list|(
-name|TypeFieldMapper
-operator|.
-name|NAME
-argument_list|,
-operator|new
-name|BytesRef
-argument_list|(
-literal|"__"
-argument_list|)
-argument_list|)
-argument_list|)
+name|nestedFilter
+argument_list|()
 decl_stmt|;
 DECL|field|hashCode
 specifier|private
@@ -200,7 +189,7 @@ DECL|method|NestedDocsFilter
 specifier|private
 name|NestedDocsFilter
 parameter_list|()
-block|{      }
+block|{     }
 annotation|@
 name|Override
 DECL|method|getDocIdSet
@@ -255,6 +244,32 @@ return|return
 name|obj
 operator|==
 name|INSTANCE
+return|;
+block|}
+DECL|method|nestedFilter
+specifier|static
+name|Filter
+name|nestedFilter
+parameter_list|()
+block|{
+return|return
+operator|new
+name|PrefixFilter
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|TypeFieldMapper
+operator|.
+name|NAME
+argument_list|,
+operator|new
+name|BytesRef
+argument_list|(
+literal|"__"
+argument_list|)
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}
