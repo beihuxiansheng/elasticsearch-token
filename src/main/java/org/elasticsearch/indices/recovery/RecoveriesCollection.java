@@ -495,7 +495,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * fail the recovery with the given id (if found) and remove it from the recovery collection      *      * @param id id of the recovery to fail      * @param e  exception with reason for the failure      * @param sendShardFailure true a shard failed message should be sent to the master      */
+comment|/**      * fail the recovery with the given id (if found) and remove it from the recovery collection      *      * @param id               id of the recovery to fail      * @param e                exception with reason for the failure      * @param sendShardFailure true a shard failed message should be sent to the master      */
 DECL|method|failRecovery
 specifier|public
 name|void
@@ -642,6 +642,18 @@ name|values
 argument_list|()
 control|)
 block|{
+comment|// check if the recovery has already finished and if not protect
+comment|// against it being closed on us while we check
+if|if
+condition|(
+name|recoveryStatus
+operator|.
+name|tryIncRef
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
 if|if
 condition|(
 name|recoveryStatus
@@ -652,14 +664,11 @@ operator|==
 name|indexShard
 condition|)
 block|{
-if|if
-condition|(
 name|recoveryStatus
 operator|.
-name|tryIncRef
+name|incRef
 argument_list|()
-condition|)
-block|{
+expr_stmt|;
 return|return
 operator|new
 name|StatusRef
@@ -668,11 +677,14 @@ name|recoveryStatus
 argument_list|)
 return|;
 block|}
-else|else
+block|}
+finally|finally
 block|{
-return|return
-literal|null
-return|;
+name|recoveryStatus
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
