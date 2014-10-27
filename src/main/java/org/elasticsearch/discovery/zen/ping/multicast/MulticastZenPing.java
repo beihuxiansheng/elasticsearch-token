@@ -935,6 +935,11 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|String
+name|msg
+init|=
+literal|"multicast failed to start [{}], disabling. Consider using IPv4 only (by defining env. variable `ES_USE_IPV4`)"
+decl_stmt|;
 if|if
 condition|(
 name|logger
@@ -947,7 +952,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"multicast failed to start [{}], disabling"
+name|msg
 argument_list|,
 name|t
 argument_list|,
@@ -966,7 +971,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"multicast failed to start [{}], disabling"
+name|msg
 argument_list|,
 name|ExceptionsHelper
 operator|.
@@ -1164,6 +1169,10 @@ if|if
 condition|(
 operator|!
 name|pingEnabled
+operator|||
+name|multicastChannel
+operator|==
+literal|null
 condition|)
 block|{
 name|threadPool
@@ -2972,6 +2981,10 @@ if|if
 condition|(
 operator|!
 name|pingEnabled
+operator|||
+name|multicastChannel
+operator|==
+literal|null
 condition|)
 block|{
 return|return;
