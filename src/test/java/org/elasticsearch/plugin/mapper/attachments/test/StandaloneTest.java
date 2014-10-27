@@ -683,7 +683,7 @@ name|field
 argument_list|(
 literal|"_indexed_chars"
 argument_list|,
-literal|10
+name|size
 argument_list|)
 expr_stmt|;
 block|}
