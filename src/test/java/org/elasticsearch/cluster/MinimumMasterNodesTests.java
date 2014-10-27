@@ -2346,13 +2346,6 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
-name|setWaitForEvents
-argument_list|(
-name|Priority
-operator|.
-name|LANGUID
-argument_list|)
-operator|.
 name|setWaitForNodes
 argument_list|(
 literal|"4"
@@ -2381,7 +2374,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running Cluster Health"
+literal|"--> running Cluster Health"
 argument_list|)
 expr_stmt|;
 name|ClusterHealthResponse
@@ -2412,7 +2405,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Done Cluster Health, status "
+literal|"--> done Cluster Health, status "
 operator|+
 name|clusterHealth
 operator|.
