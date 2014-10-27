@@ -528,6 +528,11 @@ name|ParseField
 argument_list|(
 literal|"percent_terms_to_match"
 argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"minimum_should_match"
+argument_list|)
 decl_stmt|;
 DECL|field|FAIL_ON_UNSUPPORTED_FIELD
 specifier|public
