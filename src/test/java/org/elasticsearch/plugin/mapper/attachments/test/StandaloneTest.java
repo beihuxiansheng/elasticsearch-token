@@ -331,7 +331,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class provides a simple main class which can be used to test what is extracted from a given binary file.  * You can run it using  *  -u file://URL/TO/YOUR/DOC  *  -s set extracted size (default to mapper attachment size)  *  BASE64 encoded binary  *  * Example:  *  StandaloneTest BASE64Text  *  StandaloneTest -u /tmp/mydoc.pdf  *  StandaloneTest -u /tmp/mydoc.pdf -s 1000000  */
+comment|/**  * This class provides a simple main class which can be used to test what is extracted from a given binary file.  * You can run it using  *  -u file://URL/TO/YOUR/DOC  *  --size set extracted size (default to mapper attachment size)  *  BASE64 encoded binary  *  * Example:  *  StandaloneTest BASE64Text  *  StandaloneTest -u /tmp/mydoc.pdf  *  StandaloneTest -u /tmp/mydoc.pdf --size 1000000  */
 end_comment
 
 begin_class
@@ -452,7 +452,7 @@ name|options
 argument_list|(
 name|option
 argument_list|(
-literal|"s"
+literal|"t"
 argument_list|,
 literal|"size"
 argument_list|)
@@ -956,7 +956,7 @@ name|cli
 operator|.
 name|getOptionValue
 argument_list|(
-literal|"s"
+literal|"size"
 argument_list|)
 decl_stmt|;
 name|Integer
