@@ -354,6 +354,9 @@ name|AmazonS3
 name|client
 parameter_list|(
 name|String
+name|endpoint
+parameter_list|,
+name|String
 name|region
 parameter_list|,
 name|String
@@ -363,12 +366,9 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|String
-name|endpoint
-decl_stmt|;
 if|if
 condition|(
-name|region
+name|endpoint
 operator|==
 literal|null
 condition|)
@@ -379,7 +379,12 @@ name|getDefaultEndpoint
 argument_list|()
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+name|region
+operator|!=
+literal|null
+condition|)
 block|{
 name|endpoint
 operator|=

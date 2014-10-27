@@ -171,6 +171,9 @@ name|AmazonS3
 name|client
 parameter_list|(
 name|String
+name|endpoint
+parameter_list|,
+name|String
 name|region
 parameter_list|,
 name|String
@@ -187,6 +190,8 @@ name|super
 operator|.
 name|client
 argument_list|(
+name|endpoint
+argument_list|,
 name|region
 argument_list|,
 name|account

@@ -330,6 +330,26 @@ argument_list|)
 throw|;
 block|}
 name|String
+name|endpoint
+init|=
+name|repositorySettings
+operator|.
+name|settings
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"endpoint"
+argument_list|,
+name|componentSettings
+operator|.
+name|get
+argument_list|(
+literal|"endpoint"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|String
 name|region
 init|=
 name|repositorySettings
@@ -669,11 +689,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using bucket [{}], region [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}]"
+literal|"using bucket [{}], region [{}], endpoint [{}], chunk_size [{}], server_side_encryption [{}], buffer_size [{}]"
 argument_list|,
 name|bucket
 argument_list|,
 name|region
+argument_list|,
+name|endpoint
 argument_list|,
 name|chunkSize
 argument_list|,
@@ -693,6 +715,8 @@ name|s3Service
 operator|.
 name|client
 argument_list|(
+name|endpoint
+argument_list|,
 name|region
 argument_list|,
 name|repositorySettings
