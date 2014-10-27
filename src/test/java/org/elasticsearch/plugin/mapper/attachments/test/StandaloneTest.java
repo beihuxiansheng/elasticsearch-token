@@ -734,6 +734,8 @@ name|terminal
 operator|.
 name|println
 argument_list|(
+literal|"%s"
+argument_list|,
 name|doc
 operator|.
 name|get
