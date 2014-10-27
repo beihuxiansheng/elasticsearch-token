@@ -1308,25 +1308,6 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * A more like this query that runs against a specific field.      *      * @param name The field name      */
-DECL|method|moreLikeThisFieldQuery
-specifier|public
-specifier|static
-name|MoreLikeThisFieldQueryBuilder
-name|moreLikeThisFieldQuery
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-operator|new
-name|MoreLikeThisFieldQueryBuilder
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
 comment|/**      * Constructs a new scoring child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type  The child type.      * @param query The query.      */
 DECL|method|topChildrenQuery
 specifier|public

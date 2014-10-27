@@ -392,7 +392,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|MoreLikeThisFieldQueryBuilder
+name|MoreLikeThisQueryBuilder
 import|;
 end_import
 
@@ -2152,10 +2152,10 @@ name|boolean
 name|failOnUnsupportedField
 parameter_list|)
 block|{
-name|MoreLikeThisFieldQueryBuilder
+name|MoreLikeThisQueryBuilder
 name|mlt
 init|=
-name|moreLikeThisFieldQuery
+name|moreLikeThisQuery
 argument_list|(
 name|fieldName
 argument_list|)
@@ -2205,7 +2205,7 @@ name|minWordLength
 argument_list|()
 argument_list|)
 operator|.
-name|maxWordLen
+name|maxWordLength
 argument_list|(
 name|request
 operator|.

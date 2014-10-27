@@ -426,22 +426,6 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|moreLikeThisFieldQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
 name|moreLikeThisQuery
 import|;
 end_import
@@ -2689,7 +2673,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|moreLikeThisFieldQuery
+name|moreLikeThisQuery
 argument_list|(
 literal|"int_value"
 argument_list|)
@@ -2726,7 +2710,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|moreLikeThisFieldQuery
+name|moreLikeThisQuery
 argument_list|(
 literal|"int_value"
 argument_list|)
@@ -2768,7 +2752,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|moreLikeThisFieldQuery
+name|moreLikeThisQuery
 argument_list|(
 literal|"int_value"
 argument_list|)
