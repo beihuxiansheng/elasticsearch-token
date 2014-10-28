@@ -378,6 +378,15 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+DECL|method|testSingleValuedField_getProperty
+specifier|public
+specifier|abstract
+name|void
+name|testSingleValuedField_getProperty
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 DECL|method|testSingleValuedField_PartiallyUnmapped
 specifier|public
 specifier|abstract

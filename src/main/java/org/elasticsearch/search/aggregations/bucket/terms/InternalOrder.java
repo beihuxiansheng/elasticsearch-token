@@ -220,7 +220,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|OrderPath
+name|AggregationPath
 import|;
 end_import
 
@@ -240,7 +240,57 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|LinkedList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -818,7 +868,7 @@ return|return
 name|order
 return|;
 block|}
-name|OrderPath
+name|AggregationPath
 name|path
 init|=
 operator|(
@@ -895,7 +945,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|path
-name|OrderPath
+name|AggregationPath
 name|path
 parameter_list|()
 block|{
@@ -949,7 +999,7 @@ comment|// to avoid constructing buckets for ordering purposes (we can potential
 comment|// them will cause loads of redundant object constructions). The "special" comparators here will fetch the
 comment|// sub aggregation values directly from the sub aggregators bypassing bucket creation. Note that the comparator
 comment|// attached to the order will still be used in the reduce phase of the Aggregation.
-name|OrderPath
+name|AggregationPath
 name|path
 init|=
 name|path
@@ -972,16 +1022,8 @@ name|key
 init|=
 name|path
 operator|.
-name|tokens
-index|[
-name|path
-operator|.
-name|tokens
-operator|.
-name|length
-operator|-
-literal|1
-index|]
+name|lastPathElement
+argument_list|()
 operator|.
 name|key
 decl_stmt|;
@@ -1755,7 +1797,7 @@ name|asc
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|OrderPath
+name|AggregationPath
 name|path
 init|=
 operator|(
@@ -1797,14 +1839,14 @@ block|}
 else|else
 block|{
 comment|// prev versions only supported sorting on a single level -> a single token;
-name|OrderPath
+name|AggregationPath
 operator|.
-name|Token
+name|PathElement
 name|token
 init|=
 name|path
 operator|.
-name|lastToken
+name|lastPathElement
 argument_list|()
 decl_stmt|;
 name|out

@@ -168,7 +168,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|OrderPath
+name|AggregationPath
 import|;
 end_import
 
@@ -888,7 +888,7 @@ operator|instanceof
 name|Aggregation
 condition|)
 block|{
-name|OrderPath
+name|AggregationPath
 name|path
 init|=
 operator|(
@@ -950,7 +950,7 @@ operator|instanceof
 name|Aggregation
 condition|)
 block|{
-name|OrderPath
+name|AggregationPath
 name|path
 init|=
 operator|(

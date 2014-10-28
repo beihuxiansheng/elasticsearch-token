@@ -130,7 +130,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|OrderPath
+name|AggregationPath
 import|;
 end_import
 
@@ -202,6 +202,20 @@ name|Aggregations
 name|getAggregations
 parameter_list|()
 function_decl|;
+DECL|method|getProperty
+name|Object
+name|getProperty
+parameter_list|(
+name|String
+name|containingAggName
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|path
+parameter_list|)
+function_decl|;
 DECL|class|SubAggregationComparator
 specifier|static
 class|class
@@ -224,7 +238,7 @@ block|{
 DECL|field|path
 specifier|private
 specifier|final
-name|OrderPath
+name|AggregationPath
 name|path
 decl_stmt|;
 DECL|field|asc
@@ -254,7 +268,7 @@ name|this
 operator|.
 name|path
 operator|=
-name|OrderPath
+name|AggregationPath
 operator|.
 name|parse
 argument_list|(
@@ -274,7 +288,7 @@ return|;
 block|}
 DECL|method|path
 specifier|public
-name|OrderPath
+name|AggregationPath
 name|path
 parameter_list|()
 block|{
