@@ -180,6 +180,17 @@ name|names
 argument_list|()
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|message
+operator|.
+name|hasHeader
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
 name|message
 operator|.
 name|putHeader
@@ -194,6 +205,7 @@ name|key
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|message
