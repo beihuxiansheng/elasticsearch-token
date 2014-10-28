@@ -1683,6 +1683,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|setWaitForMerge
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|get
 argument_list|()
 expr_stmt|;
@@ -1920,6 +1925,34 @@ name|sumThrottleTime
 argument_list|,
 name|newSumThrottleTime
 argument_list|)
+expr_stmt|;
+comment|// Optimize& flush and wait; else we sometimes get a "Delete Index failed - not acked"
+comment|// when ElasticsearchIntegrationTest.after tries to remove indices created by the test:
+comment|// Wait for merges to finish
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|prepareOptimize
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setWaitForMerge
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
+name|flush
+argument_list|()
 expr_stmt|;
 name|logger
 operator|.
