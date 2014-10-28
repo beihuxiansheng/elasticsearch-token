@@ -561,6 +561,7 @@ init|=
 literal|false
 decl_stmt|;
 DECL|field|indexQueryParser
+specifier|private
 specifier|final
 name|IndexQueryParserService
 name|indexQueryParser
@@ -819,6 +820,16 @@ parameter_list|()
 block|{
 return|return
 name|parser
+return|;
+block|}
+DECL|method|indexQueryParserService
+specifier|public
+name|IndexQueryParserService
+name|indexQueryParserService
+parameter_list|()
+block|{
+return|return
+name|indexQueryParser
 return|;
 block|}
 DECL|method|analysisService

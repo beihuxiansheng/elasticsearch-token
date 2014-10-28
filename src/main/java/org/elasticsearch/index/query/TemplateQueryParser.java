@@ -454,7 +454,8 @@ argument_list|()
 argument_list|,
 name|parseContext
 operator|.
-name|indexQueryParser
+name|indexQueryParserService
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|context
