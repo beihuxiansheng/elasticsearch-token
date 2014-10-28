@@ -392,7 +392,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|templateParams
 init|=
@@ -1737,7 +1737,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|params
 parameter_list|)
@@ -1780,7 +1780,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|templateParams
 parameter_list|()
@@ -2175,7 +2175,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 operator|)
 name|in

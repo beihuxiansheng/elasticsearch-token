@@ -316,7 +316,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|templateParams
 decl_stmt|;
@@ -755,7 +755,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|templateParams
 parameter_list|()
@@ -983,7 +983,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 operator|)
 name|in

@@ -170,7 +170,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|String
+name|Object
 argument_list|>
 name|templateParams
 parameter_list|()
