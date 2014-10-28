@@ -388,6 +388,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+argument_list|(
+name|cluster
+operator|.
+name|seed
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|cluster

@@ -1578,6 +1578,11 @@ name|String
 name|nodePrefix
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|clusterSeed
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|clusterName

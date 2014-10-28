@@ -661,6 +661,9 @@ name|buildTestCluster
 parameter_list|(
 name|Scope
 name|scope
+parameter_list|,
+name|long
+name|seed
 parameter_list|)
 throws|throws
 name|IOException
@@ -673,6 +676,8 @@ operator|.
 name|buildTestCluster
 argument_list|(
 name|scope
+argument_list|,
+name|seed
 argument_list|)
 decl_stmt|;
 name|ExternalNode
