@@ -1209,11 +1209,11 @@ name|createVerifyingOutput
 argument_list|(
 name|tempFileName
 argument_list|,
+name|metaData
+argument_list|,
 name|IOContext
 operator|.
 name|DEFAULT
-argument_list|,
-name|metaData
 argument_list|)
 decl_stmt|;
 name|openIndexOutputs

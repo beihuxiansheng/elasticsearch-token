@@ -4711,7 +4711,9 @@ block|{
 if|if
 condition|(
 operator|!
-literal|"write.lock"
+name|IndexWriter
+operator|.
+name|WRITE_LOCK_NAME
 operator|.
 name|equals
 argument_list|(
