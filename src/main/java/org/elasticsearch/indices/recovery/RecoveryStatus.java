@@ -659,7 +659,7 @@ name|InternalIndexShard
 name|indexShard
 parameter_list|()
 block|{
-name|ensureNotFinished
+name|ensureRefCount
 argument_list|()
 expr_stmt|;
 return|return
@@ -694,7 +694,7 @@ name|Store
 name|store
 parameter_list|()
 block|{
-name|ensureNotFinished
+name|ensureRefCount
 argument_list|()
 expr_stmt|;
 return|return
@@ -794,7 +794,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ensureNotFinished
+name|ensureRefCount
 argument_list|()
 expr_stmt|;
 name|Iterator
@@ -1086,7 +1086,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-name|ensureNotFinished
+name|ensureRefCount
 argument_list|()
 expr_stmt|;
 return|return
@@ -1151,7 +1151,7 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|ensureNotFinished
+name|ensureRefCount
 argument_list|()
 expr_stmt|;
 return|return
@@ -1181,7 +1181,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ensureNotFinished
+name|ensureRefCount
 argument_list|()
 expr_stmt|;
 name|String
@@ -1358,25 +1358,25 @@ operator|+
 literal|"]"
 return|;
 block|}
-DECL|method|ensureNotFinished
+DECL|method|ensureRefCount
 specifier|private
 name|void
-name|ensureNotFinished
+name|ensureRefCount
 parameter_list|()
 block|{
 if|if
 condition|(
-name|finished
-operator|.
-name|get
+name|refCount
 argument_list|()
+operator|<=
+literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"RecoveryStatus is used after it was finished. Probably a mismatch between incRef/decRef calls"
+literal|"RecoveryStatus is used but it's refcount is 0. Probably a mismatch between incRef/decRef calls"
 argument_list|)
 throw|;
 block|}
