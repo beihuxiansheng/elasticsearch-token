@@ -268,6 +268,16 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Aggregates Geo information into cells determined by geohashes of a given precision.  * WARNING - for high-precision geohashes it may prove necessary to use a {@link GeoBoundingBoxFilterBuilder}  * aggregation to focus in on a smaller area to avoid generating too many buckets and using too much RAM  */
 end_comment
@@ -605,6 +615,13 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|GeoPoint
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 block|{
 DECL|field|precision
@@ -692,6 +709,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 specifier|final
@@ -714,6 +739,8 @@ name|Bucket
 operator|>
 name|emptyList
 argument_list|()
+argument_list|,
+name|metaData
 argument_list|)
 decl_stmt|;
 return|return
@@ -725,6 +752,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 block|{
 specifier|public
@@ -760,6 +789,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 specifier|final
@@ -807,6 +844,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}

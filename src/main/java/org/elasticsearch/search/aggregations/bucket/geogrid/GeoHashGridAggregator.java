@@ -196,6 +196,16 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * Aggregates data expressed as GeoHash longs (for efficiency's sake) but formats results as Geohash strings.  *  */
 end_comment
@@ -275,6 +285,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -292,6 +310,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -705,6 +725,9 @@ name|asList
 argument_list|(
 name|list
 argument_list|)
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -732,6 +755,9 @@ operator|.
 name|Bucket
 operator|>
 name|emptyList
+argument_list|()
+argument_list|,
+name|getMetaData
 argument_list|()
 argument_list|)
 return|;

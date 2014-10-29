@@ -138,6 +138,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/** * */
 end_comment
@@ -313,6 +323,14 @@ name|max
 parameter_list|,
 name|double
 name|sumOfSqrs
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -326,6 +344,8 @@ argument_list|,
 name|min
 argument_list|,
 name|max
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -548,6 +568,9 @@ name|getMax
 argument_list|()
 argument_list|,
 name|sumOfSqrs
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}

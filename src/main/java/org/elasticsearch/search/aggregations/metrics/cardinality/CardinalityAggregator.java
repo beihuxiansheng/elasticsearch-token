@@ -338,6 +338,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregator that computes approximate counts of unique values.  */
 end_comment
@@ -407,6 +417,14 @@ name|context
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -418,6 +436,8 @@ argument_list|,
 name|context
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -896,6 +916,9 @@ argument_list|(
 name|name
 argument_list|,
 name|copy
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -914,6 +937,9 @@ argument_list|(
 name|name
 argument_list|,
 literal|null
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}

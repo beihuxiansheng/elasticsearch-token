@@ -194,6 +194,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * A field data based aggregator that counts the number of values a specific field has within the aggregation context.  *  * This aggregator works in a multi-bucket mode, that is, when serves as a sub-aggregator, a single aggregator instance aggregates the  * counts for all buckets owned by the parent aggregator)  */
 end_comment
@@ -242,6 +252,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -253,6 +271,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -427,6 +447,9 @@ argument_list|(
 name|name
 argument_list|,
 literal|0
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -450,6 +473,9 @@ name|get
 argument_list|(
 name|owningBucketOrdinal
 argument_list|)
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -468,6 +494,9 @@ argument_list|(
 name|name
 argument_list|,
 literal|0l
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -503,6 +532,13 @@ operator|.
 name|LeafOnly
 argument_list|<
 name|VS
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 block|{
 DECL|method|Factory
@@ -546,6 +582,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -561,6 +605,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}
@@ -571,7 +617,7 @@ specifier|protected
 name|Aggregator
 name|create
 parameter_list|(
-name|ValuesSource
+name|VS
 name|valuesSource
 parameter_list|,
 name|long
@@ -582,6 +628,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -597,6 +651,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}

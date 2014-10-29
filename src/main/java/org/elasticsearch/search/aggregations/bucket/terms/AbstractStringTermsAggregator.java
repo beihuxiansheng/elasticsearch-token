@@ -88,6 +88,16 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
 DECL|class|AbstractStringTermsAggregator
 specifier|abstract
@@ -134,6 +144,14 @@ name|subAggCollectMode
 parameter_list|,
 name|boolean
 name|showTermDocCountError
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -157,6 +175,8 @@ argument_list|,
 name|order
 argument_list|,
 name|subAggCollectMode
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -224,6 +244,9 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}

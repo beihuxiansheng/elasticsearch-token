@@ -182,6 +182,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -619,6 +629,14 @@ name|formatter
 parameter_list|,
 name|boolean
 name|keyed
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -638,6 +656,8 @@ argument_list|,
 name|formatter
 argument_list|,
 name|keyed
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}
@@ -732,6 +752,14 @@ name|formatter
 parameter_list|,
 name|boolean
 name|keyed
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -749,6 +777,8 @@ argument_list|,
 name|formatter
 argument_list|,
 name|keyed
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -958,10 +988,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|readFrom
-specifier|public
+DECL|method|doReadFrom
+specifier|protected
 name|void
-name|readFrom
+name|doReadFrom
 parameter_list|(
 name|StreamInput
 name|in
@@ -971,7 +1001,7 @@ name|IOException
 block|{
 name|super
 operator|.
-name|readFrom
+name|doReadFrom
 argument_list|(
 name|in
 argument_list|)

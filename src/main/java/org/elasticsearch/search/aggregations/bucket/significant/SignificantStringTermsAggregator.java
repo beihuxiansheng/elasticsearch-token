@@ -204,6 +204,16 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregator of significant string values.  */
 end_comment
@@ -257,6 +267,14 @@ name|parent
 parameter_list|,
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -284,6 +302,8 @@ operator|.
 name|DEPTH_FIRST
 argument_list|,
 literal|false
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -650,6 +670,9 @@ name|asList
 argument_list|(
 name|list
 argument_list|)
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -722,6 +745,9 @@ operator|.
 name|Bucket
 operator|>
 name|emptyList
+argument_list|()
+argument_list|,
+name|getMetaData
 argument_list|()
 argument_list|)
 return|;

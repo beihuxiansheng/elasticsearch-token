@@ -403,6 +403,11 @@ name|first
 operator|.
 name|parent
 argument_list|()
+argument_list|,
+name|first
+operator|.
+name|getMetaData
+argument_list|()
 argument_list|)
 block|{
 name|ObjectArray

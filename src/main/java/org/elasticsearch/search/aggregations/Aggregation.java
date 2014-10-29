@@ -16,6 +16,16 @@ name|aggregations
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregation  */
 end_comment
@@ -30,6 +40,17 @@ comment|/**      * @return The name of this aggregation.      */
 DECL|method|getName
 name|String
 name|getName
+parameter_list|()
+function_decl|;
+comment|/**      * Get the optional byte array metadata that was set on the aggregation      */
+DECL|method|getMetaData
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getMetaData
 parameter_list|()
 function_decl|;
 block|}

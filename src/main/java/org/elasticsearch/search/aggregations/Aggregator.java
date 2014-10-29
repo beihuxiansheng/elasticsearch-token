@@ -279,6 +279,17 @@ return|;
 block|}
 block|}
 decl_stmt|;
+DECL|field|metaData
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
+decl_stmt|;
 comment|/**      * Returns whether any of the parent aggregators has {@link BucketAggregationMode#PER_BUCKET} as a bucket aggregation mode.      */
 DECL|method|hasParentBucketAggregator
 specifier|public
@@ -344,6 +355,23 @@ argument_list|(
 literal|"collect_mode"
 argument_list|)
 decl_stmt|;
+DECL|method|getMetaData
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getMetaData
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|metaData
+return|;
+block|}
 comment|/**      * Defines the nature of the aggregator's aggregation execution when nested in other aggregators and the buckets they create.      */
 DECL|enum|BucketAggregationMode
 specifier|public
@@ -721,7 +749,7 @@ specifier|private
 name|DeferringBucketCollector
 name|recordingWrapper
 decl_stmt|;
-comment|/**      * Constructs a new Aggregator.      *      * @param name                  The name of the aggregation      * @param bucketAggregationMode The nature of execution as a sub-aggregator (see {@link BucketAggregationMode})      * @param factories             The factories for all the sub-aggregators under this aggregator      * @param estimatedBucketsCount When served as a sub-aggregator, indicate how many buckets the parent aggregator will generate.      * @param context               The aggregation context      * @param parent                The parent aggregator (may be {@code null} for top level aggregators)      */
+comment|/**      * Constructs a new Aggregator.      *      * @param name                  The name of the aggregation      * @param bucketAggregationMode The nature of execution as a sub-aggregator (see {@link BucketAggregationMode})      * @param factories             The factories for all the sub-aggregators under this aggregator      * @param estimatedBucketsCount When served as a sub-aggregator, indicate how many buckets the parent aggregator will generate.      * @param context               The aggregation context      * @param parent                The parent aggregator (may be {@code null} for top level aggregators)      * @param metaData              The metaData associated with this aggregator      */
 DECL|method|Aggregator
 specifier|protected
 name|Aggregator
@@ -743,6 +771,14 @@ name|context
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|this
@@ -750,6 +786,12 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+name|this
+operator|.
+name|metaData
+operator|=
+name|metaData
 expr_stmt|;
 name|this
 operator|.

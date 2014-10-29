@@ -706,6 +706,8 @@ argument_list|,
 name|heuristic
 argument_list|,
 name|buckets
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|sTerms
@@ -775,6 +777,8 @@ argument_list|,
 name|heuristic
 argument_list|,
 name|buckets
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|sTerms

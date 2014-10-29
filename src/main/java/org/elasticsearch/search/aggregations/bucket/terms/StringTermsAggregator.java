@@ -248,6 +248,16 @@ name|Collections
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregator of string values.  */
 end_comment
@@ -327,6 +337,14 @@ name|collectionMode
 parameter_list|,
 name|boolean
 name|showTermDocCountError
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -348,6 +366,8 @@ argument_list|,
 name|collectionMode
 argument_list|,
 name|showTermDocCountError
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -1090,6 +1110,9 @@ argument_list|,
 literal|0
 argument_list|,
 name|otherDocCount
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}

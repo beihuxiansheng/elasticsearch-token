@@ -184,6 +184,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -704,6 +714,14 @@ name|formatter
 parameter_list|,
 name|boolean
 name|keyed
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -715,6 +733,8 @@ argument_list|,
 name|ranges
 argument_list|,
 name|keyed
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}
@@ -791,6 +811,14 @@ name|ranges
 parameter_list|,
 name|boolean
 name|keyed
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -804,6 +832,8 @@ operator|.
 name|IPv4
 argument_list|,
 name|keyed
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 block|}

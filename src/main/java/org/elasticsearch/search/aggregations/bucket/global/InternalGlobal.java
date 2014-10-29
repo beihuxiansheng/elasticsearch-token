@@ -90,6 +90,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * A global scope get (the document set on which we aggregate is all documents in the search context (ie. index + type)  * regardless the query.  */
 end_comment
@@ -200,6 +210,14 @@ name|docCount
 parameter_list|,
 name|InternalAggregations
 name|aggregations
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -209,6 +227,8 @@ argument_list|,
 name|docCount
 argument_list|,
 name|aggregations
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 block|}
@@ -250,6 +270,9 @@ argument_list|,
 name|docCount
 argument_list|,
 name|subAggregations
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}

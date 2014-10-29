@@ -250,6 +250,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -801,10 +811,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|readFrom
-specifier|public
+DECL|method|doReadFrom
+specifier|protected
 name|void
-name|readFrom
+name|doReadFrom
 parameter_list|(
 name|StreamInput
 name|in
@@ -812,13 +822,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|name
-operator|=
-name|in
-operator|.
-name|readString
-argument_list|()
-expr_stmt|;
 name|from
 operator|=
 name|in
@@ -854,10 +857,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|writeTo
-specifier|public
+DECL|method|doWriteTo
+specifier|protected
 name|void
-name|writeTo
+name|doWriteTo
 parameter_list|(
 name|StreamOutput
 name|out
@@ -865,13 +868,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|out
-operator|.
-name|writeString
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 name|out
 operator|.
 name|writeVInt

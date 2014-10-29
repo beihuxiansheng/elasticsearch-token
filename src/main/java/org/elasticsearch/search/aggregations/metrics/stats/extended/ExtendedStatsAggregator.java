@@ -234,6 +234,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -306,6 +316,14 @@ name|context
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -317,6 +335,8 @@ argument_list|,
 name|context
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -1066,6 +1086,9 @@ operator|.
 name|NEGATIVE_INFINITY
 argument_list|,
 literal|0d
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1117,6 +1140,9 @@ name|get
 argument_list|(
 name|owningBucketOrdinal
 argument_list|)
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1147,6 +1173,9 @@ operator|.
 name|NEGATIVE_INFINITY
 argument_list|,
 literal|0d
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1187,6 +1216,13 @@ argument_list|<
 name|ValuesSource
 operator|.
 name|Numeric
+argument_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|>
 block|{
 DECL|method|Factory
@@ -1232,6 +1268,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -1247,6 +1291,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}
@@ -1270,6 +1316,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -1285,6 +1339,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}

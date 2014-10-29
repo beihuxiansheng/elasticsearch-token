@@ -56,6 +56,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  * An aggregator that is not collected, this can typically be used when running an aggregation over a field that doesn't have  * a mapping.  */
 end_comment
@@ -81,6 +91,14 @@ name|context
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -100,6 +118,8 @@ argument_list|,
 name|context
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 block|}

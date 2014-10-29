@@ -158,6 +158,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -252,6 +262,14 @@ name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 name|super
@@ -285,6 +303,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 expr_stmt|;
 name|this
@@ -594,6 +614,9 @@ argument_list|,
 name|buckets
 argument_list|,
 name|keyed
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -686,6 +709,9 @@ argument_list|,
 name|buckets
 argument_list|,
 name|keyed
+argument_list|,
+name|getMetaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -778,10 +804,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|create
+DECL|method|createInternal
 specifier|public
 name|Aggregator
-name|create
+name|createInternal
 parameter_list|(
 name|AggregationContext
 name|context
@@ -791,6 +817,14 @@ name|parent
 parameter_list|,
 name|long
 name|expectedBucketsCount
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|metaData
 parameter_list|)
 block|{
 return|return
@@ -808,6 +842,8 @@ argument_list|,
 name|context
 argument_list|,
 name|parent
+argument_list|,
+name|metaData
 argument_list|)
 return|;
 block|}
