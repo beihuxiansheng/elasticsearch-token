@@ -70,22 +70,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -234,13 +218,7 @@ name|LoggingConfigurationTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"relates to commit 4ebbb657"
-argument_list|)
+comment|// @AwaitsFix(bugUrl = "relates to commit 4ebbb657")
 annotation|@
 name|Test
 DECL|method|testMultipleConfigs
