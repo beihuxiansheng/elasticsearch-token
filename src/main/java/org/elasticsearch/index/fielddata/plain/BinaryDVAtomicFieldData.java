@@ -274,8 +274,7 @@ name|ramBytesUsed
 parameter_list|()
 block|{
 return|return
-operator|-
-literal|1
+literal|0
 return|;
 comment|// unknown
 block|}

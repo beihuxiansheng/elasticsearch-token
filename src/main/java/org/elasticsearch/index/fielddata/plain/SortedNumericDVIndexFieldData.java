@@ -484,8 +484,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|-
-literal|1L
+literal|0L
 argument_list|)
 expr_stmt|;
 name|this
@@ -571,8 +570,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|-
-literal|1L
+literal|0L
 argument_list|)
 expr_stmt|;
 name|this
@@ -855,8 +853,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-operator|-
-literal|1L
+literal|0L
 argument_list|)
 expr_stmt|;
 name|this
