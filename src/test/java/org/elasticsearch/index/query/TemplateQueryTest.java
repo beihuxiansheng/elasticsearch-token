@@ -1752,15 +1752,6 @@ operator|.
 name|INDEXED
 argument_list|)
 operator|.
-name|setTemplateType
-argument_list|(
-name|ScriptService
-operator|.
-name|ScriptType
-operator|.
-name|INDEXED
-argument_list|)
-operator|.
 name|setTemplateParams
 argument_list|(
 name|templateParams
