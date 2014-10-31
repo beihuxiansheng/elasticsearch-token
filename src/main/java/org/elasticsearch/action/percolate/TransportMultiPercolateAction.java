@@ -1735,7 +1735,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"{} Percolate shard response"
 argument_list|,
