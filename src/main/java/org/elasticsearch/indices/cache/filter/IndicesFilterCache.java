@@ -381,6 +381,12 @@ specifier|final
 name|TimeValue
 name|cleanInterval
 decl_stmt|;
+DECL|field|minimumEntryWeight
+specifier|private
+specifier|final
+name|int
+name|minimumEntryWeight
+decl_stmt|;
 DECL|field|readersKeysToClean
 specifier|private
 specifier|final
@@ -427,6 +433,24 @@ name|String
 name|INDICES_CACHE_FILTER_CONCURRENCY_LEVEL
 init|=
 literal|"indices.cache.filter.concurrency_level"
+decl_stmt|;
+DECL|field|INDICES_CACHE_FILTER_CLEAN_INTERVAL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDICES_CACHE_FILTER_CLEAN_INTERVAL
+init|=
+literal|"indices.cache.filter.clean_interval"
+decl_stmt|;
+DECL|field|INDICES_CACHE_FILTER_MINIMUM_ENTRY_WEIGHT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDICES_CACHE_FILTER_MINIMUM_ENTRY_WEIGHT
+init|=
+literal|"indices.cache.filter.minimum_entry_weight"
 decl_stmt|;
 DECL|class|ApplySettings
 class|class
@@ -487,7 +511,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [indices.cache.filter.size] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|INDICES_CACHE_FILTER_SIZE
 argument_list|,
 name|IndicesFilterCache
 operator|.
@@ -548,7 +574,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [indices.cache.filter.expire] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|INDICES_CACHE_FILTER_EXPIRE
 argument_list|,
 name|IndicesFilterCache
 operator|.
@@ -627,7 +655,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"updating [indices.cache.filter.concurrency_level] from [{}] to [{}]"
+literal|"updating [{}] from [{}] to [{}]"
+argument_list|,
+name|INDICES_CACHE_FILTER_CONCURRENCY_LEVEL
 argument_list|,
 name|IndicesFilterCache
 operator|.
@@ -717,11 +747,11 @@ name|this
 operator|.
 name|size
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-literal|"size"
+name|INDICES_CACHE_FILTER_SIZE
 argument_list|,
 literal|"10%"
 argument_list|)
@@ -730,24 +760,55 @@ name|this
 operator|.
 name|expire
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"expire"
+name|INDICES_CACHE_FILTER_EXPIRE
 argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|minimumEntryWeight
+operator|=
+name|settings
+operator|.
+name|getAsInt
+argument_list|(
+name|INDICES_CACHE_FILTER_MINIMUM_ENTRY_WEIGHT
+argument_list|,
+literal|1024
+argument_list|)
+expr_stmt|;
+comment|// 1k per entry minimum
+if|if
+condition|(
+name|minimumEntryWeight
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"minimum_entry_weight must be> 0 but was: "
+operator|+
+name|minimumEntryWeight
+argument_list|)
+throw|;
+block|}
+name|this
+operator|.
 name|cleanInterval
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"clean_interval"
+name|INDICES_CACHE_FILTER_CLEAN_INTERVAL
 argument_list|,
 name|TimeValue
 operator|.
@@ -757,6 +818,7 @@ literal|60
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// defaults to 4, but this is a busy map for all indices, increase it a bit
 name|this
 operator|.
 name|concurrencyLevel
@@ -876,15 +938,18 @@ operator|new
 name|WeightedFilterCache
 operator|.
 name|FilterCacheValueWeigher
-argument_list|()
+argument_list|(
+name|minimumEntryWeight
+argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// defaults to 4, but this is a busy map for all indices, increase it a bit
 name|cacheBuilder
 operator|.
 name|concurrencyLevel
 argument_list|(
-literal|16
+name|this
+operator|.
+name|concurrencyLevel
 argument_list|)
 expr_stmt|;
 if|if
@@ -968,6 +1033,11 @@ expr_stmt|;
 name|cache
 operator|.
 name|invalidateAll
+argument_list|()
+expr_stmt|;
+name|cache
+operator|.
+name|cleanUp
 argument_list|()
 expr_stmt|;
 block|}
