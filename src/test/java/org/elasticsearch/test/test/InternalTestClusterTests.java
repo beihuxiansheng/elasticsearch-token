@@ -273,6 +273,12 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
+name|boolean
+name|enableHttpPipelining
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|int
 name|jvmOrdinal
 init|=
@@ -313,6 +319,8 @@ name|numClientNodes
 argument_list|,
 name|enableRandomBenchNodes
 argument_list|,
+name|enableHttpPipelining
+argument_list|,
 name|jvmOrdinal
 argument_list|,
 name|nodePrefix
@@ -337,6 +345,8 @@ argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableRandomBenchNodes
+argument_list|,
+name|enableHttpPipelining
 argument_list|,
 name|jvmOrdinal
 argument_list|,
@@ -691,6 +701,12 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
+name|boolean
+name|enableHttpPipelining
+init|=
+name|randomBoolean
+argument_list|()
+decl_stmt|;
 name|int
 name|jvmOrdinal
 init|=
@@ -726,6 +742,8 @@ name|numClientNodes
 argument_list|,
 name|enableRandomBenchNodes
 argument_list|,
+name|enableHttpPipelining
+argument_list|,
 name|jvmOrdinal
 argument_list|,
 name|nodePrefix
@@ -750,6 +768,8 @@ argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableRandomBenchNodes
+argument_list|,
+name|enableHttpPipelining
 argument_list|,
 name|jvmOrdinal
 argument_list|,

@@ -9160,6 +9160,13 @@ name|InternalTestCluster
 operator|.
 name|DEFAULT_ENABLE_RANDOM_BENCH_NODES
 decl_stmt|;
+name|boolean
+name|enableHttpPipelining
+init|=
+name|InternalTestCluster
+operator|.
+name|DEFAULT_ENABLE_HTTP_PIPELINING
+decl_stmt|;
 name|int
 name|minNumDataNodes
 init|=
@@ -9534,6 +9541,8 @@ argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableRandomBenchNodes
+argument_list|,
+name|enableHttpPipelining
 argument_list|,
 name|CHILD_JVM_ID
 argument_list|,

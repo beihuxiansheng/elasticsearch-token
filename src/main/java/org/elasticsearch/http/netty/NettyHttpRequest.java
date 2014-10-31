@@ -593,6 +593,16 @@ name|getLocalAddress
 argument_list|()
 return|;
 block|}
+DECL|method|getChannel
+specifier|public
+name|Channel
+name|getChannel
+parameter_list|()
+block|{
+return|return
+name|channel
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|header
