@@ -199,6 +199,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TimeZone
+import|;
+end_import
+
+begin_import
 import|import static
 name|com
 operator|.
@@ -209,6 +229,20 @@ operator|.
 name|SysGlobals
 operator|.
 name|SYSPROP_ITERATIONS
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|SysGlobals
+operator|.
+name|SYSPROP_PREFIX
 import|;
 end_import
 
@@ -645,6 +679,19 @@ name|appendESProperties
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|appendEnvironmentSettings
+specifier|public
+name|ReproduceErrorMessageBuilder
+name|appendEnvironmentSettings
+parameter_list|()
+block|{
+comment|// we handle our own environment settings
+return|return
+name|this
+return|;
+block|}
 comment|/**          * Append a single VM option.          */
 annotation|@
 name|Override
@@ -689,6 +736,22 @@ condition|)
 block|{
 comment|//don't print out the test method, we print it ourselves in appendAllOpts
 comment|//without filtering out the parameters (needed for REST tests)
+return|return
+name|this
+return|;
+block|}
+if|if
+condition|(
+name|sysPropName
+operator|.
+name|equals
+argument_list|(
+name|SYSPROP_PREFIX
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// we always use the default prefix
 return|return
 name|this
 return|;
@@ -795,6 +858,32 @@ literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
+name|appendOpt
+argument_list|(
+literal|"tests.locale"
+argument_list|,
+name|Locale
+operator|.
+name|getDefault
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|appendOpt
+argument_list|(
+literal|"tests.timezone"
+argument_list|,
+name|TimeZone
+operator|.
+name|getDefault
+argument_list|()
+operator|.
+name|getID
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|appendOpt
 argument_list|(
 name|AbstractRandomizedTest
