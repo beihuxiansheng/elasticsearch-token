@@ -3562,6 +3562,9 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|String
+name|node_0
+init|=
 name|internalCluster
 argument_list|()
 operator|.
@@ -3569,7 +3572,7 @@ name|startNode
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|ClusterService
 name|clusterService
 init|=
@@ -3854,7 +3857,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// now that node1 is closed, node2 should be elected as master
+comment|// now that node0 is closed, node1 should be elected as master
 name|assertThat
 argument_list|(
 name|clusterService1
@@ -3885,6 +3888,49 @@ name|is
 argument_list|(
 literal|true
 argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// start another node and set min_master_node
+name|internalCluster
+argument_list|()
+operator|.
+name|startNode
+argument_list|(
+name|ImmutableSettings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|settings
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareHealth
+argument_list|()
+operator|.
+name|setWaitForNodes
+argument_list|(
+literal|"2"
+argument_list|)
+operator|.
+name|get
+argument_list|()
+operator|.
+name|isTimedOut
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Settings
@@ -3921,6 +3967,13 @@ name|transientSettings
 argument_list|)
 operator|.
 name|get
+argument_list|()
+expr_stmt|;
+comment|// and shutdown the second node
+name|internalCluster
+argument_list|()
+operator|.
+name|stopRandomNonMasterNode
 argument_list|()
 expr_stmt|;
 comment|// there should not be any master as the minimum number of required eligible masters is not met
@@ -3972,6 +4025,7 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// bring the node back up
 name|String
 name|node_2
 init|=
