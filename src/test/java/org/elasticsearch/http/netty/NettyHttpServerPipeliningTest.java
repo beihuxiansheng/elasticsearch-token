@@ -780,11 +780,6 @@ argument_list|,
 literal|"/thirdfast"
 argument_list|)
 decl_stmt|;
-name|long
-name|maxdurationInMilliSeconds
-init|=
-literal|1200
-decl_stmt|;
 try|try
 init|(
 name|NettyHttpClient
@@ -809,8 +804,6 @@ name|transportAddress
 operator|.
 name|address
 argument_list|()
-argument_list|,
-name|maxdurationInMilliSeconds
 argument_list|,
 name|requests
 operator|.
@@ -933,11 +926,6 @@ argument_list|,
 literal|"/slow?sleep=500"
 argument_list|)
 decl_stmt|;
-name|long
-name|maxdurationInMilliSeconds
-init|=
-literal|1200
-decl_stmt|;
 try|try
 init|(
 name|NettyHttpClient
@@ -962,8 +950,6 @@ name|transportAddress
 operator|.
 name|address
 argument_list|()
-argument_list|,
-name|maxdurationInMilliSeconds
 argument_list|,
 name|requests
 operator|.
