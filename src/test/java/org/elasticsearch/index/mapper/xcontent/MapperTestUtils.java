@@ -387,7 +387,10 @@ specifier|public
 specifier|static
 name|MapperService
 name|newMapperService
-parameter_list|()
+parameter_list|(
+name|ThreadPool
+name|testingThreadPool
+parameter_list|)
 block|{
 return|return
 name|newMapperService
@@ -416,6 +419,8 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+name|testingThreadPool
 argument_list|)
 return|;
 block|}
@@ -430,6 +435,9 @@ name|index
 parameter_list|,
 name|Settings
 name|indexSettings
+parameter_list|,
+name|ThreadPool
+name|testingThreadPool
 parameter_list|)
 block|{
 name|NoneCircuitBreakerService
@@ -480,11 +488,7 @@ argument_list|(
 name|circuitBreakerService
 argument_list|)
 argument_list|,
-operator|new
-name|ThreadPool
-argument_list|(
-literal|"testing-only"
-argument_list|)
+name|testingThreadPool
 argument_list|)
 argument_list|,
 name|circuitBreakerService
