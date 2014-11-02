@@ -126,7 +126,7 @@ argument_list|>
 name|lookup
 parameter_list|)
 function_decl|;
-comment|/**      * Visit an error message and the context in which it occured.      */
+comment|/**      * Visit an error message and the context in which it occurred.      */
 DECL|method|visit
 name|V
 name|visit

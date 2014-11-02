@@ -579,7 +579,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/* otherwise, simple expresion */
+comment|/* otherwise, simple expression */
 if|if
 condition|(
 operator|-

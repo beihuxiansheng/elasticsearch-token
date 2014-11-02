@@ -227,7 +227,7 @@ operator|=
 name|parentFilter
 expr_stmt|;
 block|}
-comment|// For rewritting
+comment|// For rewriting
 DECL|method|IncludeNestedDocsQuery
 name|IncludeNestedDocsQuery
 parameter_list|(

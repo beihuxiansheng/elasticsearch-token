@@ -1802,7 +1802,7 @@ operator|>=
 literal|0
 condition|)
 block|{
-comment|//A timeslip may have occured but never want to add a negative number
+comment|//A timeslip may have occurred but never want to add a negative number
 name|throttleTimeMillisMetric
 operator|.
 name|inc

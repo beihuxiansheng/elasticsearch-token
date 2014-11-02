@@ -24073,10 +24073,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testWeight1fStillProducesWeighFuction
+DECL|method|testWeight1fStillProducesWeighFunction
 specifier|public
 name|void
-name|testWeight1fStillProducesWeighFuction
+name|testWeight1fStillProducesWeighFunction
 parameter_list|()
 throws|throws
 name|IOException

@@ -5845,7 +5845,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] going to try and aquire [{}] in [{}]ms [{}] available to aquire right now"
+literal|"[{}] going to try and acquire [{}] in [{}]ms [{}] available to acquire right now"
 argument_list|,
 name|name
 argument_list|,
@@ -5995,7 +5995,7 @@ argument_list|()
 expr_stmt|;
 comment|//Threads should have finished because of the latch.await
 block|}
-comment|//If are no errors every request recieved a response otherwise the test would have timedout
+comment|//If are no errors every request received a response otherwise the test would have timedout
 comment|//aquiring the request outstanding semaphores.
 for|for
 control|(

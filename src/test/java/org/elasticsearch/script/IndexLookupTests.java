@@ -4185,7 +4185,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitely."
+literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitly."
 argument_list|)
 argument_list|,
 name|Matchers
@@ -4221,7 +4221,7 @@ argument_list|()
 operator|.
 name|indexOf
 argument_list|(
-literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitely."
+literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitly."
 argument_list|)
 argument_list|,
 name|Matchers

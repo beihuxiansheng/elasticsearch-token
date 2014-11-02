@@ -853,7 +853,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|// This cast is safe after the preceeding check.
+comment|// This cast is safe after the preceding check.
 specifier|final
 name|BindingImpl
 argument_list|<

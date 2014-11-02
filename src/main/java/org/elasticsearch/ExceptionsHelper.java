@@ -682,7 +682,7 @@ control|)
 block|{
 name|main
 operator|=
-name|useOrSupress
+name|useOrSuppress
 argument_list|(
 name|main
 argument_list|,
@@ -736,7 +736,7 @@ control|)
 block|{
 name|main
 operator|=
-name|useOrSupress
+name|useOrSuppress
 argument_list|(
 name|main
 argument_list|,
@@ -765,7 +765,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|useOrSupress
+DECL|method|useOrSuppress
 specifier|public
 specifier|static
 parameter_list|<
@@ -774,7 +774,7 @@ extends|extends
 name|Throwable
 parameter_list|>
 name|T
-name|useOrSupress
+name|useOrSuppress
 parameter_list|(
 name|T
 name|first

@@ -844,7 +844,7 @@ name|growBuffers
 argument_list|()
 expr_stmt|;
 comment|// finally, read the values into the arrays
-comment|// curentPosition etc. so that we can just iterate
+comment|// currentPosition etc. so that we can just iterate
 comment|// later
 name|writeInfos
 argument_list|(

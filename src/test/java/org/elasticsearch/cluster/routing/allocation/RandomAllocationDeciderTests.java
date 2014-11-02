@@ -1093,7 +1093,7 @@ expr_stmt|;
 block|}
 name|randomAllocationDecider
 operator|.
-name|allwaysSayYes
+name|alwaysSayYes
 operator|=
 literal|true
 expr_stmt|;
@@ -1548,10 +1548,10 @@ operator|=
 name|random
 expr_stmt|;
 block|}
-DECL|field|allwaysSayYes
+DECL|field|alwaysSayYes
 specifier|public
 name|boolean
-name|allwaysSayYes
+name|alwaysSayYes
 init|=
 literal|false
 decl_stmt|;
@@ -1582,7 +1582,7 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|allwaysSayYes
+name|alwaysSayYes
 condition|)
 block|{
 return|return

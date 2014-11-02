@@ -320,7 +320,7 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitely."
+literal|"Cannot iterate twice! If you want to iterate more that once, add _CACHE explicitly."
 argument_list|)
 throw|;
 block|}

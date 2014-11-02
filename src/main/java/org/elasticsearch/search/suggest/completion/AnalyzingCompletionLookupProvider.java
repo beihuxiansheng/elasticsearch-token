@@ -399,12 +399,12 @@ extends|extends
 name|CompletionLookupProvider
 block|{
 comment|// for serialization
-DECL|field|SERIALIZE_PRESERVE_SEPERATORS
+DECL|field|SERIALIZE_PRESERVE_SEPARATORS
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|SERIALIZE_PRESERVE_SEPERATORS
+name|SERIALIZE_PRESERVE_SEPARATORS
 init|=
 literal|1
 decl_stmt|;
@@ -1126,7 +1126,7 @@ name|options
 operator||=
 name|preserveSep
 condition|?
-name|SERIALIZE_PRESERVE_SEPERATORS
+name|SERIALIZE_PRESERVE_SEPARATORS
 else|:
 literal|0
 expr_stmt|;
@@ -1465,7 +1465,7 @@ init|=
 operator|(
 name|options
 operator|&
-name|SERIALIZE_PRESERVE_SEPERATORS
+name|SERIALIZE_PRESERVE_SEPARATORS
 operator|)
 operator|!=
 literal|0

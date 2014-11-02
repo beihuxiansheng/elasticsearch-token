@@ -5118,7 +5118,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|IndexOrdinalsFieldData
-name|cachedInstace
+name|cachedInstance
 init|=
 literal|null
 decl_stmt|;
@@ -5146,7 +5146,7 @@ operator|instanceof
 name|IndexOrdinalsFieldData
 condition|)
 block|{
-name|cachedInstace
+name|cachedInstance
 operator|=
 operator|(
 name|IndexOrdinalsFieldData
@@ -5158,7 +5158,7 @@ block|}
 block|}
 name|assertThat
 argument_list|(
-name|cachedInstace
+name|cachedInstance
 argument_list|,
 name|sameInstance
 argument_list|(

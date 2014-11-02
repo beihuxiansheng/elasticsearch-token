@@ -2949,10 +2949,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDisabledPreserveSeperators
+DECL|method|testDisabledPreserveSeparators
 specifier|public
 name|void
-name|testDisabledPreserveSeperators
+name|testDisabledPreserveSeparators
 parameter_list|()
 throws|throws
 name|Exception
@@ -3094,10 +3094,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testEnabledPreserveSeperators
+DECL|method|testEnabledPreserveSeparators
 specifier|public
 name|void
-name|testEnabledPreserveSeperators
+name|testEnabledPreserveSeparators
 parameter_list|()
 throws|throws
 name|Exception

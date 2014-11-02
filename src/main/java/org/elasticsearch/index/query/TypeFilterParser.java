@@ -319,7 +319,7 @@ expr_stmt|;
 name|Filter
 name|filter
 decl_stmt|;
-comment|//LUCENE 4 UPGRADE document mapper should use bytesref aswell?
+comment|//LUCENE 4 UPGRADE document mapper should use bytesref as well?
 name|DocumentMapper
 name|documentMapper
 init|=

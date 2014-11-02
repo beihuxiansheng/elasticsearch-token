@@ -385,9 +385,9 @@ name|NAME
 init|=
 literal|"function_score"
 decl_stmt|;
-DECL|field|funtionParserMapper
+DECL|field|functionParserMapper
 name|ScoreFunctionParserMapper
-name|funtionParserMapper
+name|functionParserMapper
 decl_stmt|;
 comment|// For better readability of error message
 DECL|field|MISPLACED_FUNCTION_MESSAGE_PREFIX
@@ -426,14 +426,14 @@ specifier|public
 name|FunctionScoreQueryParser
 parameter_list|(
 name|ScoreFunctionParserMapper
-name|funtionParserMapper
+name|functionParserMapper
 parameter_list|)
 block|{
 name|this
 operator|.
-name|funtionParserMapper
+name|functionParserMapper
 operator|=
-name|funtionParserMapper
+name|functionParserMapper
 expr_stmt|;
 block|}
 annotation|@
@@ -893,7 +893,7 @@ comment|// function for the current field name,
 comment|// functionParserMapper.get() will throw an Exception.
 name|scoreFunction
 operator|=
-name|funtionParserMapper
+name|functionParserMapper
 operator|.
 name|get
 argument_list|(
@@ -1395,12 +1395,12 @@ block|}
 else|else
 block|{
 comment|// do not need to check null here,
-comment|// funtionParserMapper throws exception if parser
+comment|// functionParserMapper throws exception if parser
 comment|// non-existent
 name|ScoreFunctionParser
 name|functionParser
 init|=
-name|funtionParserMapper
+name|functionParserMapper
 operator|.
 name|get
 argument_list|(

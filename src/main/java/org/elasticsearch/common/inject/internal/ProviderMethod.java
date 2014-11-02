@@ -483,7 +483,7 @@ expr_stmt|;
 block|}
 try|try
 block|{
-comment|// We know this cast is safe becase T is the method's return type.
+comment|// We know this cast is safe because T is the method's return type.
 annotation|@
 name|SuppressWarnings
 argument_list|(

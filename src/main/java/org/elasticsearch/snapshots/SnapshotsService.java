@@ -2708,7 +2708,7 @@ name|shards
 return|;
 block|}
 block|}
-comment|/**      * Returns status of shards  currently finished snapshots      *<p>      * This method is executed on master node and it's complimentary to the {@link #currentSnapshotShards(SnapshotId)} becuase it      * returns simliar information but for already finished snapshots.      *</p>      *      * @param snapshotId snapshot id      * @return map of shard id to snapshot status      */
+comment|/**      * Returns status of shards  currently finished snapshots      *<p>      * This method is executed on master node and it's complimentary to the {@link #currentSnapshotShards(SnapshotId)} because it      * returns simliar information but for already finished snapshots.      *</p>      *      * @param snapshotId snapshot id      * @return map of shard id to snapshot status      */
 DECL|method|snapshotShards
 specifier|public
 name|ImmutableMap

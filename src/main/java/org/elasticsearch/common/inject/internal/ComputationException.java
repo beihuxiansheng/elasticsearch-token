@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Wraps an exception that occured during a computation.  */
+comment|/**  * Wraps an exception that occurred during a computation.  */
 end_comment
 
 begin_class

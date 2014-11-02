@@ -153,7 +153,7 @@ name|OrderedDownstreamChannelEvent
 argument_list|>
 name|holdingQueue
 decl_stmt|;
-comment|/**      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel      *                      connection. This is required as events cannot queue up indefintely; we would run out of      *                      memory if this was the case.      */
+comment|/**      * @param maxEventsHeld the maximum number of channel events that will be retained prior to aborting the channel      *                      connection. This is required as events cannot queue up indefinitely; we would run out of      *                      memory if this was the case.      */
 DECL|method|HttpPipeliningHandler
 specifier|public
 name|HttpPipeliningHandler

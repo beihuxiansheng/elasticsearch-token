@@ -859,7 +859,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Trim all occurences of the supplied leading character from the given String.      *      * @param str              the String to check      * @param leadingCharacter the leading character to be trimmed      * @return the trimmed String      */
+comment|/**      * Trim all occurrences of the supplied leading character from the given String.      *      * @param str              the String to check      * @param leadingCharacter the leading character to be trimmed      * @return the trimmed String      */
 DECL|method|trimLeadingCharacter
 specifier|public
 specifier|static
@@ -1096,7 +1096,7 @@ return|return
 name|count
 return|;
 block|}
-comment|/**      * Replace all occurences of a substring within a string with      * another string.      *      * @param inString   String to examine      * @param oldPattern String to replace      * @param newPattern String to insert      * @return a String with the replacements      */
+comment|/**      * Replace all occurrences of a substring within a string with      * another string.      *      * @param inString   String to examine      * @param oldPattern String to replace      * @param newPattern String to insert      * @return a String with the replacements      */
 DECL|method|replace
 specifier|public
 specifier|static

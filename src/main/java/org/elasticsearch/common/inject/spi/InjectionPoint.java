@@ -525,7 +525,7 @@ parameter_list|,
 name|Annotation
 index|[]
 index|[]
-name|paramterAnnotations
+name|parameterAnnotations
 parameter_list|)
 block|{
 name|Errors
@@ -548,7 +548,7 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-name|paramterAnnotations
+name|parameterAnnotations
 argument_list|)
 operator|.
 name|iterator
@@ -593,7 +593,7 @@ try|try
 block|{
 name|Annotation
 index|[]
-name|parameterAnnotations
+name|paramAnnotations
 init|=
 name|annotationsIterator
 operator|.
@@ -614,7 +614,7 @@ name|parameterType
 argument_list|,
 name|member
 argument_list|,
-name|parameterAnnotations
+name|paramAnnotations
 argument_list|,
 name|errors
 argument_list|)
@@ -631,7 +631,7 @@ name|Nullability
 operator|.
 name|allowsNull
 argument_list|(
-name|parameterAnnotations
+name|paramAnnotations
 argument_list|)
 argument_list|,
 name|index

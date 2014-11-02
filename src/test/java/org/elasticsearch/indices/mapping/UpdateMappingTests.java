@@ -2897,7 +2897,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// now test you can change stuff that are normally unchangable
+comment|// now test you can change stuff that are normally unchangeable
 name|logger
 operator|.
 name|info

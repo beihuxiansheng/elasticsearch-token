@@ -798,10 +798,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|testIsExplict
+DECL|method|testIsExplicit
 specifier|public
 name|void
-name|testIsExplict
+name|testIsExplicit
 parameter_list|()
 block|{
 name|assertThat

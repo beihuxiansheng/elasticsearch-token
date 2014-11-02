@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An error message and the context in which it occured. Messages are usually created internally by  * Guice and its extensions. Messages can be created explicitly in a module using {@link  * org.elasticsearch.common.inject.Binder#addError(Throwable) addError()} statements:  *<pre>  *     try {  *       bindPropertiesFromFile();  *     } catch (IOException e) {  *       addError(e);  *     }</pre>  *  * @author crazybob@google.com (Bob Lee)  */
+comment|/**  * An error message and the context in which it occurred. Messages are usually created internally by  * Guice and its extensions. Messages can be created explicitly in a module using {@link  * org.elasticsearch.common.inject.Binder#addError(Throwable) addError()} statements:  *<pre>  *     try {  *       bindPropertiesFromFile();  *     } catch (IOException e) {  *       addError(e);  *     }</pre>  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
 
 begin_class

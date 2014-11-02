@@ -1422,7 +1422,7 @@ argument_list|,
 name|isNestedDoc
 argument_list|)
 expr_stmt|;
-comment|// TODO: Use TopFieldCollector.create(...) for ascending and decending scoring?
+comment|// TODO: Use TopFieldCollector.create(...) for ascending and descending scoring?
 name|topDocsCollector
 operator|=
 name|TopScoreDocCollector

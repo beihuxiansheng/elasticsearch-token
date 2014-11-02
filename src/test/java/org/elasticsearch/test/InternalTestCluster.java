@@ -2899,7 +2899,7 @@ name|put
 argument_list|(
 name|SearchService
 operator|.
-name|DEFAUTL_KEEPALIVE_KEY
+name|DEFAULT_KEEPALIVE_KEY
 argument_list|,
 name|TimeValue
 operator|.

@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract implemenetation of {@link SimilarityProvider} providing common behaviour  */
+comment|/**  * Abstract implementation of {@link SimilarityProvider} providing common behaviour  */
 end_comment
 
 begin_class

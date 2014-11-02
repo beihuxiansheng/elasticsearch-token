@@ -5061,7 +5061,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"index operation was not supposed to be succesful"
+literal|"index operation was not supposed to be successful"
 argument_list|)
 expr_stmt|;
 block|}
