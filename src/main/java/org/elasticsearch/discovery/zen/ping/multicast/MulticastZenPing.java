@@ -1217,6 +1217,8 @@ operator|.
 name|incrementAndGet
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|receivedResponses
 operator|.
 name|put
@@ -1492,6 +1494,30 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to ping"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|finalizePingCycle
+argument_list|(
+name|id
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * takes all pings collected for a given id and pass them to the given listener.      * this method is safe to call multiple times as is guaranteed to only finalize once.      */
 DECL|method|finalizePingCycle

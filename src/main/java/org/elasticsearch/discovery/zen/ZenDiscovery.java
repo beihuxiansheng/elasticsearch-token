@@ -1741,6 +1741,11 @@ name|localNode
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|joinThreadControl
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|pingService
 operator|.
 name|start
@@ -2240,7 +2245,7 @@ name|ackListener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * returns true if there is a currently a background thread active for (re)joining the cluster      * used for testing.      */
+comment|/**      * returns true if zen discovery is started and there is a currently a background thread active for (re)joining      * the cluster used for testing.      */
 DECL|method|joiningCluster
 specifier|public
 name|boolean
@@ -7256,6 +7261,18 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
+DECL|field|running
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|running
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 DECL|field|currentJoinThread
 specifier|private
 specifier|final
@@ -7285,7 +7302,7 @@ operator|=
 name|threadPool
 expr_stmt|;
 block|}
-comment|/** returns true if there is currently an active join thread */
+comment|/** returns true if join thread control is started and there is currently an active join thread */
 DECL|method|joinThreadActive
 specifier|public
 name|boolean
@@ -7301,6 +7318,11 @@ name|get
 argument_list|()
 decl_stmt|;
 return|return
+name|running
+operator|.
+name|get
+argument_list|()
+operator|&&
 name|currentThread
 operator|!=
 literal|null
@@ -7311,7 +7333,7 @@ name|isAlive
 argument_list|()
 return|;
 block|}
-comment|/** returns true if the supplied thread is the currently active joinThread */
+comment|/** returns true if join thread control is started and the supplied thread is the currently active joinThread */
 DECL|method|joinThreadActive
 specifier|public
 name|boolean
@@ -7322,6 +7344,11 @@ name|joinThread
 parameter_list|)
 block|{
 return|return
+name|running
+operator|.
+name|get
+argument_list|()
+operator|&&
 name|joinThread
 operator|.
 name|equals
@@ -7365,7 +7392,7 @@ name|reason
 argument_list|)
 return|;
 block|}
-comment|/** starts a new joining thread if there is no currently active one */
+comment|/** starts a new joining thread if there is no currently active one and join thread controlling is started */
 DECL|method|startNewThreadIfNotRunning
 specifier|public
 name|void
@@ -7426,6 +7453,11 @@ return|return;
 block|}
 while|while
 condition|(
+name|running
+operator|.
+name|get
+argument_list|()
+operator|&&
 name|joinThreadActive
 argument_list|(
 name|currentThread
@@ -7441,8 +7473,8 @@ return|return;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|t
+name|Exception
+name|e
 parameter_list|)
 block|{
 name|logger
@@ -7451,9 +7483,20 @@ name|error
 argument_list|(
 literal|"unexpected error while joining cluster, trying again"
 argument_list|,
-name|t
+name|e
 argument_list|)
 expr_stmt|;
+comment|// Because we catch any exception here, we want to know in
+comment|// tests if an uncaught exception got to this point and the test infra uncaught exception
+comment|// leak detection can catch this. In practise no uncaught exception should leak
+assert|assert
+name|ExceptionsHelper
+operator|.
+name|reThrowIfNotNull
+argument_list|(
+name|e
+argument_list|)
+assert|;
 block|}
 block|}
 comment|// cleaning the current thread from currentJoinThread is done by explicit calls.
@@ -7520,6 +7563,13 @@ name|void
 name|stop
 parameter_list|()
 block|{
+name|running
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|Thread
 name|joinThread
 init|=
@@ -7553,7 +7603,46 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+try|try
+block|{
+name|joinThread
+operator|.
+name|join
+argument_list|(
+literal|10000
+argument_list|)
+expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|e
+parameter_list|)
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|interrupt
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+DECL|method|start
+specifier|public
+name|void
+name|start
+parameter_list|()
+block|{
+name|running
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|assertClusterStateThread
 specifier|private

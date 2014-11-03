@@ -1285,6 +1285,8 @@ name|incrementAndGet
 argument_list|()
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|receivedResponses
 operator|.
 name|put
@@ -1531,6 +1533,28 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|sendPingsHandler
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"Ping execution failed"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|class|SendPingsHandler
 class|class
