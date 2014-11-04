@@ -308,7 +308,6 @@ name|ConnectTransportException
 name|e
 parameter_list|)
 block|{
-comment|//            e.printStackTrace();
 comment|// all is well
 block|}
 block|}
