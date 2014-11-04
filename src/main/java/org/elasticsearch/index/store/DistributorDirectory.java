@@ -918,6 +918,8 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|Directory
 index|[]
 name|all
@@ -1078,6 +1080,16 @@ operator|.
 name|toString
 argument_list|()
 assert|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchDirectoryException
+name|ex
+parameter_list|)
+block|{
+comment|// that's fine - we can't check the directory since we might have already been wiped by a shutdown or
+comment|// a test cleanup ie the directory is not there anymore.
+block|}
 return|return
 name|consistent
 return|;
