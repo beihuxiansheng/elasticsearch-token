@@ -726,16 +726,21 @@ name|utcMillis
 parameter_list|)
 block|{
 name|long
-name|time
+name|offset
 init|=
-name|utcMillis
-operator|+
 name|preTz
 operator|.
 name|getOffset
 argument_list|(
 name|utcMillis
 argument_list|)
+decl_stmt|;
+name|long
+name|time
+init|=
+name|utcMillis
+operator|+
+name|offset
 decl_stmt|;
 return|return
 name|field
@@ -744,6 +749,8 @@ name|roundFloor
 argument_list|(
 name|time
 argument_list|)
+operator|-
+name|offset
 return|;
 block|}
 annotation|@
@@ -757,18 +764,6 @@ name|long
 name|time
 parameter_list|)
 block|{
-comment|// now, time is still in local, move it to UTC (or the adjustLargeInterval flag is set)
-name|time
-operator|=
-name|time
-operator|-
-name|preTz
-operator|.
-name|getOffset
-argument_list|(
-name|time
-argument_list|)
-expr_stmt|;
 comment|// now apply post Tz
 name|time
 operator|=
