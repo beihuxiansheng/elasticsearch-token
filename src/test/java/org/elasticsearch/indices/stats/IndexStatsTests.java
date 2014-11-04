@@ -4303,15 +4303,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"This test intermittently fails with no throttling happening."
-argument_list|)
 DECL|method|throttleStats
 specifier|public
 name|void
@@ -4618,6 +4609,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|done
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|stats
@@ -4640,6 +4636,7 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Test
