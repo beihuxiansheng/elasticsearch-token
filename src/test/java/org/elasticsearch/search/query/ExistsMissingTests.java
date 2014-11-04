@@ -552,9 +552,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// We do NOT index dummy documents, otherwise the type for these dummy documents
+comment|// would have _field_names indexed while the current type might not which might
+comment|// confuse the exists/missing parser at query time
 name|indexRandom
 argument_list|(
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|reqs
 argument_list|)
