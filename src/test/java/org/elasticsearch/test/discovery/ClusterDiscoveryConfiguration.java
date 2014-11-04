@@ -4,11 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery
+DECL|package|org.elasticsearch.test.discovery
 package|package
 name|org
 operator|.
 name|elasticsearch
+operator|.
+name|test
 operator|.
 name|discovery
 package|;
@@ -555,7 +557,6 @@ expr_stmt|;
 block|}
 DECL|method|calcBasePort
 specifier|private
-specifier|final
 specifier|static
 name|int
 name|calcBasePort
