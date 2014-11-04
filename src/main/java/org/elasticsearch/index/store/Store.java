@@ -2185,6 +2185,8 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
 assert|assert
 name|DistributorDirectory
 operator|.
@@ -2195,11 +2197,15 @@ argument_list|,
 name|distributorDirectory
 argument_list|)
 assert|;
+block|}
+finally|finally
+block|{
 name|super
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
