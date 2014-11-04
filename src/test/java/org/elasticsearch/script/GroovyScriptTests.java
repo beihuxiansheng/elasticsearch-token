@@ -160,7 +160,55 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|constantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|functionScoreQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchQuery
 import|;
 end_import
 
@@ -211,6 +259,22 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertOrderedSearchHits
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
 import|;
 end_import
 
@@ -932,7 +996,7 @@ argument_list|(
 name|resp
 argument_list|)
 expr_stmt|;
-name|assertOrderedSearchHits
+name|assertSearchHits
 argument_list|(
 name|resp
 argument_list|,
