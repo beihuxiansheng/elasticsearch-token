@@ -1038,6 +1038,17 @@ name|requiredAllocation
 init|=
 literal|1
 decl_stmt|;
+comment|// if we restore from a repository one copy is more then enough
+if|if
+condition|(
+name|shard
+operator|.
+name|restoreSource
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|IndexMetaData
@@ -1286,12 +1297,24 @@ name|shard
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|// not enough found for this shard, continue...
 if|if
 condition|(
 name|numberOfAllocationsFound
 operator|<
 name|requiredAllocation
+condition|)
+block|{
+comment|// if we are restoring this shard we still can allocate
+if|if
+condition|(
+name|shard
+operator|.
+name|restoreSource
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 comment|// we can't really allocate, so ignore it and continue
@@ -1337,6 +1360,39 @@ argument_list|,
 name|numberOfAllocationsFound
 argument_list|,
 name|requiredAllocation
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|logger
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"[{}][{}]: missing local data, will restore from [{}]"
+argument_list|,
+name|shard
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|shard
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|shard
+operator|.
+name|restoreSource
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
