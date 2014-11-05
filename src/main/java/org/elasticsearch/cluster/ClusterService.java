@@ -241,7 +241,7 @@ name|LocalNodeMasterListener
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Adds a cluster state listener that will timeout after the provided timeout.      */
+comment|/**      * Adds a cluster state listener that will timeout after the provided timeout,      * and is executed after the clusterstate has been successfully applied ie. is      * in state {@link org.elasticsearch.cluster.ClusterState.ClusterStateStatus#APPLIED}      */
 DECL|method|add
 name|void
 name|add
