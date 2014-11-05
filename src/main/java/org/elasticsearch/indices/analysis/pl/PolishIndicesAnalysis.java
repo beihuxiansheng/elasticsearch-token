@@ -250,11 +250,7 @@ name|INDICES
 argument_list|,
 operator|new
 name|PolishAnalyzer
-argument_list|(
-name|Lucene
-operator|.
-name|ANALYZER_VERSION
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
