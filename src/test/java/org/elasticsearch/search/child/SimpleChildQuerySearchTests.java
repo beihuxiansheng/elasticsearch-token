@@ -22481,6 +22481,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createMinMaxDocBuilders
+specifier|private
 name|List
 argument_list|<
 name|IndexRequestBuilder
@@ -23019,9 +23020,10 @@ return|return
 name|indexBuilders
 return|;
 block|}
-DECL|method|MinMaxQuery
+DECL|method|minMaxQuery
+specifier|private
 name|SearchResponse
-name|MinMaxQuery
+name|minMaxQuery
 parameter_list|(
 name|String
 name|scoreType
@@ -23173,9 +23175,10 @@ name|get
 argument_list|()
 return|;
 block|}
-DECL|method|MinMaxFilter
+DECL|method|minMaxFilter
+specifier|private
 name|SearchResponse
-name|MinMaxFilter
+name|minMaxFilter
 parameter_list|(
 name|int
 name|minChildren
@@ -23273,6 +23276,10 @@ operator|.
 name|addMapping
 argument_list|(
 literal|"parent"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|"type=long"
 argument_list|)
 operator|.
 name|addMapping
@@ -23322,7 +23329,7 @@ decl_stmt|;
 comment|// Score mode = NONE
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -23483,7 +23490,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -23644,7 +23651,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -23761,7 +23768,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -23834,7 +23841,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -23863,7 +23870,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -24024,7 +24031,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -24185,7 +24192,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -24302,7 +24309,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -24377,7 +24384,7 @@ try|try
 block|{
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"none"
 argument_list|,
@@ -24415,7 +24422,7 @@ block|}
 comment|// Score mode = SUM
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -24576,7 +24583,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -24737,7 +24744,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -24854,7 +24861,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -24927,7 +24934,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -24956,7 +24963,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -25117,7 +25124,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -25278,7 +25285,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -25395,7 +25402,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -25470,7 +25477,7 @@ try|try
 block|{
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"sum"
 argument_list|,
@@ -25508,7 +25515,7 @@ block|}
 comment|// Score mode = MAX
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -25669,7 +25676,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -25830,7 +25837,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -25947,7 +25954,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26020,7 +26027,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26049,7 +26056,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26210,7 +26217,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26371,7 +26378,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26488,7 +26495,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26563,7 +26570,7 @@ try|try
 block|{
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"max"
 argument_list|,
@@ -26601,7 +26608,7 @@ block|}
 comment|// Score mode = AVG
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -26762,7 +26769,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -26923,7 +26930,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27040,7 +27047,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27113,7 +27120,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27142,7 +27149,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27303,7 +27310,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27464,7 +27471,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27581,7 +27588,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27656,7 +27663,7 @@ try|try
 block|{
 name|response
 operator|=
-name|MinMaxQuery
+name|minMaxQuery
 argument_list|(
 literal|"avg"
 argument_list|,
@@ -27694,7 +27701,7 @@ block|}
 comment|// HasChildFilter
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|0
 argument_list|,
@@ -27853,7 +27860,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|1
 argument_list|,
@@ -28012,7 +28019,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|2
 argument_list|,
@@ -28127,7 +28134,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|3
 argument_list|,
@@ -28198,7 +28205,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|4
 argument_list|,
@@ -28225,7 +28232,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|0
 argument_list|,
@@ -28384,7 +28391,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|0
 argument_list|,
@@ -28543,7 +28550,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|0
 argument_list|,
@@ -28658,7 +28665,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|2
 argument_list|,
@@ -28731,7 +28738,7 @@ try|try
 block|{
 name|response
 operator|=
-name|MinMaxFilter
+name|minMaxFilter
 argument_list|(
 literal|3
 argument_list|,
