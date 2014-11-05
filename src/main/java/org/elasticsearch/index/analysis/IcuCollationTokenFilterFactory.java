@@ -76,20 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|collation
-operator|.
-name|ICUCollationKeyFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalArgumentException
@@ -958,15 +944,14 @@ name|TokenStream
 name|tokenStream
 parameter_list|)
 block|{
-return|return
+throw|throw
 operator|new
-name|ICUCollationKeyFilter
+name|UnsupportedOperationException
 argument_list|(
-name|tokenStream
-argument_list|,
-name|collator
+literal|"i was deprecated in lucene 4, and now i'm gone"
 argument_list|)
-return|;
+throw|;
+comment|// TODO: lucene does sort keys as binary keys since 4.x
 block|}
 block|}
 end_class
