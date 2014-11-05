@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -131,7 +131,7 @@ specifier|static
 name|ShardId
 name|extractShardId
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 block|{

@@ -916,7 +916,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -1579,7 +1579,7 @@ name|docids
 parameter_list|,
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 parameter_list|,
@@ -1589,7 +1589,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|//private Map<Integer,Object> highlightField(String field, String contents[], BreakIterator bi, BytesRef terms[], int[] docids, List<AtomicReaderContext> leaves, int maxPassages) throws IOException {
+comment|//private Map<Integer,Object> highlightField(String field, String contents[], BreakIterator bi, BytesRef terms[], int[] docids, List<LeafReaderContext> leaves, int maxPassages) throws IOException {
 comment|//END EDIT
 name|Map
 argument_list|<
@@ -1710,7 +1710,7 @@ argument_list|,
 name|leaves
 argument_list|)
 decl_stmt|;
-name|AtomicReaderContext
+name|LeafReaderContext
 name|subContext
 init|=
 name|leaves
@@ -1720,7 +1720,7 @@ argument_list|(
 name|leaf
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|r
 init|=
 name|subContext

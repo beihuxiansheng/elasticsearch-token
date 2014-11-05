@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -87,6 +87,22 @@ operator|.
 name|search
 operator|.
 name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|join
+operator|.
+name|BitDocIdSetFilter
 import|;
 end_import
 
@@ -176,22 +192,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|ApplyAcceptedDocsFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|LongArray
@@ -209,22 +209,6 @@ operator|.
 name|util
 operator|.
 name|LongObjectPagedHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|cache
-operator|.
-name|fixedbitset
-operator|.
-name|FixedBitSetFilter
 import|;
 end_import
 
@@ -449,7 +433,7 @@ decl_stmt|;
 DECL|field|parentFilter
 specifier|private
 specifier|final
-name|FixedBitSetFilter
+name|BitDocIdSetFilter
 name|parentFilter
 decl_stmt|;
 DECL|field|valuesSource
@@ -496,7 +480,7 @@ DECL|field|replay
 specifier|private
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|replay
 init|=
@@ -587,9 +571,6 @@ name|this
 operator|.
 name|childFilter
 operator|=
-operator|new
-name|ApplyAcceptedDocsFilter
-argument_list|(
 name|aggregationContext
 operator|.
 name|searchContext
@@ -602,7 +583,6 @@ name|cache
 argument_list|(
 name|childFilter
 argument_list|)
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -613,10 +593,10 @@ operator|.
 name|searchContext
 argument_list|()
 operator|.
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 argument_list|()
 operator|.
-name|getFixedBitSetFilter
+name|getBitDocIdSetFilter
 argument_list|(
 name|parentFilter
 argument_list|)
@@ -887,7 +867,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -1014,7 +994,7 @@ name|IOException
 block|{
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|replay
 init|=
@@ -1030,7 +1010,7 @@ literal|null
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 range|:
 name|replay

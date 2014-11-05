@@ -834,6 +834,14 @@ parameter_list|)
 throws|throws
 name|IndexShardException
 block|{
+if|if
+condition|(
+name|store
+operator|.
+name|tryIncRef
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 name|Directory
@@ -883,6 +891,8 @@ name|shardId
 argument_list|)
 throw|;
 block|}
+try|try
+init|(
 name|CheckIndex
 name|checkIndex
 init|=
@@ -891,7 +901,8 @@ name|CheckIndex
 argument_list|(
 name|dir
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|BytesStreamOutput
 name|os
 init|=
@@ -1022,6 +1033,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -1037,6 +1049,15 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|store
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@

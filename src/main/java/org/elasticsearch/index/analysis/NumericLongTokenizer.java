@@ -66,9 +66,6 @@ DECL|method|NumericLongTokenizer
 specifier|public
 name|NumericLongTokenizer
 parameter_list|(
-name|Reader
-name|reader
-parameter_list|,
 name|int
 name|precisionStep
 parameter_list|,
@@ -81,8 +78,6 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|reader
-argument_list|,
 operator|new
 name|NumericTokenStream
 argument_list|(

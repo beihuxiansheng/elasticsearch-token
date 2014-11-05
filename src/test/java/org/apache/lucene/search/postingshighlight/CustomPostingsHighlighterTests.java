@@ -349,8 +349,6 @@ name|offsetsType
 operator|.
 name|setIndexOptions
 argument_list|(
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
@@ -1017,8 +1015,6 @@ name|offsetsType
 operator|.
 name|setIndexOptions
 argument_list|(
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
@@ -1824,8 +1820,6 @@ name|offsetsType
 operator|.
 name|setIndexOptions
 argument_list|(
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
@@ -2623,8 +2617,6 @@ name|offsetsType
 operator|.
 name|setIndexOptions
 argument_list|(
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS
@@ -3054,8 +3046,6 @@ name|offsetsType
 operator|.
 name|setIndexOptions
 argument_list|(
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS

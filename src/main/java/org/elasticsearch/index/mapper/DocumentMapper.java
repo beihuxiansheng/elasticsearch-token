@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|IndexOptions
 import|;
 end_import
 
@@ -125,6 +125,20 @@ operator|.
 name|index
 operator|.
 name|IndexableField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReaderContext
 import|;
 end_import
 
@@ -152,7 +166,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|CloseableThreadLocal
+name|BitDocIdSet
 import|;
 end_import
 
@@ -166,7 +180,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|CloseableThreadLocal
 import|;
 end_import
 
@@ -394,9 +408,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|bitset
 operator|.
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -3148,8 +3162,12 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|!=
+name|IndexOptions
+operator|.
+name|NONE
 operator|&&
 operator|!
 name|field
@@ -3307,10 +3325,10 @@ parameter_list|(
 name|int
 name|nestedDocId
 parameter_list|,
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 name|cache
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -3347,12 +3365,12 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|FixedBitSet
+name|BitDocIdSet
 name|nestedTypeBitSet
 init|=
 name|cache
 operator|.
-name|getFixedBitSetFilter
+name|getBitDocIdSetFilter
 argument_list|(
 name|objectMapper
 operator|.
@@ -3363,8 +3381,6 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|context
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -3374,6 +3390,9 @@ operator|!=
 literal|null
 operator|&&
 name|nestedTypeBitSet
+operator|.
+name|bits
+argument_list|()
 operator|.
 name|get
 argument_list|(

@@ -219,6 +219,9 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -278,6 +281,9 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -343,6 +349,9 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -422,6 +431,9 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -506,6 +518,9 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|RAMDirectory

@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|carrotsearch
@@ -62,7 +72,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -91,6 +101,20 @@ operator|.
 name|search
 operator|.
 name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocValuesDocIdSet
 import|;
 end_import
 
@@ -133,22 +157,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|MatchDocIdSet
 import|;
 end_import
 
@@ -205,16 +213,6 @@ operator|.
 name|fielddata
 operator|.
 name|SortedNumericDoubleValues
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -578,7 +576,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -619,7 +617,7 @@ decl_stmt|;
 comment|// load fielddata
 return|return
 operator|new
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 argument_list|(
 name|context
 operator|.
@@ -695,6 +693,17 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|long
+name|ramBytesUsed
+parameter_list|()
+block|{
+return|return
+literal|0
 return|;
 block|}
 block|}
@@ -839,7 +848,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -900,7 +909,7 @@ decl_stmt|;
 comment|// load fielddata
 return|return
 operator|new
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 argument_list|(
 name|context
 operator|.
@@ -1126,7 +1135,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1187,7 +1196,7 @@ decl_stmt|;
 comment|// load fielddata
 return|return
 operator|new
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 argument_list|(
 name|context
 operator|.

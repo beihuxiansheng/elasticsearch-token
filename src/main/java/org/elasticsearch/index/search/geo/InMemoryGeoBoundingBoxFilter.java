@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -28,7 +38,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -43,6 +53,20 @@ operator|.
 name|search
 operator|.
 name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocValuesDocIdSet
 import|;
 end_import
 
@@ -106,22 +130,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|MatchDocIdSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|fielddata
@@ -141,16 +149,6 @@ operator|.
 name|fielddata
 operator|.
 name|MultiGeoPointValues
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -260,7 +258,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -380,7 +378,7 @@ specifier|static
 class|class
 name|Meridian180GeoBoundingBoxDocSet
 extends|extends
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 block|{
 DECL|field|values
 specifier|private
@@ -565,7 +563,7 @@ specifier|static
 class|class
 name|GeoBoundingBoxDocSet
 extends|extends
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 block|{
 DECL|field|values
 specifier|private

@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -59,6 +59,20 @@ operator|.
 name|index
 operator|.
 name|RandomAccessOrds
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
 import|;
 end_import
 
@@ -262,7 +276,7 @@ specifier|public
 name|AtomicOrdinalsFieldData
 name|load
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{
@@ -439,6 +453,26 @@ return|return
 name|afd
 operator|.
 name|ramBytesUsed
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getChildResources
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Accountable
+argument_list|>
+name|getChildResources
+parameter_list|()
+block|{
+return|return
+name|afd
+operator|.
+name|getChildResources
 argument_list|()
 return|;
 block|}

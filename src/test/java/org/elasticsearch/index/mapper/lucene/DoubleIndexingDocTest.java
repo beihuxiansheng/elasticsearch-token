@@ -233,8 +233,6 @@ argument_list|(
 name|random
 argument_list|()
 argument_list|,
-name|TEST_VERSION_CURRENT
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER

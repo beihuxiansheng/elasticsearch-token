@@ -56,8 +56,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|IndexOptions
 import|;
 end_import
@@ -432,7 +430,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -1244,12 +1242,15 @@ name|IOException
 block|{
 if|if
 condition|(
-operator|!
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|==
+name|IndexOptions
+operator|.
+name|NONE
 operator|&&
 operator|!
 name|fieldType

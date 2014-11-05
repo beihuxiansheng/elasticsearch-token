@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A lazy regexp filter which only builds the automaton on the first call to {@link #getDocIdSet(AtomicReaderContext, Bits)}.  * It is not thread safe (so can't be applied on multiple segments concurrently)  */
+comment|/**  * A lazy regexp filter which only builds the automaton on the first call to {@link #getDocIdSet(LeafReaderContext, Bits)}.  * It is not thread safe (so can't be applied on multiple segments concurrently)  */
 end_comment
 
 begin_class
@@ -269,7 +269,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits

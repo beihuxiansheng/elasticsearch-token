@@ -28,8 +28,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|IndexOptions
 import|;
 end_import
@@ -1652,7 +1650,7 @@ argument_list|)
 condition|?
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 else|:
 name|IndexOptions
 operator|.
@@ -1677,14 +1675,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"'omit_term_freq_and_positions' is not supported anymore - use ['index_options' : '"
-operator|+
-name|op
-operator|.
-name|name
-argument_list|()
-operator|+
-literal|"']  instead"
+literal|"'omit_term_freq_and_positions' is not supported anymore - use ['index_options' : 'docs']  instead"
 argument_list|)
 throw|;
 block|}
@@ -2505,7 +2496,7 @@ block|{
 return|return
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 return|;
 block|}
 else|else

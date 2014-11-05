@@ -469,6 +469,9 @@ operator|.
 name|fsync
 argument_list|(
 name|file
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 literal|false
 argument_list|)
@@ -478,6 +481,9 @@ operator|.
 name|fsync
 argument_list|(
 name|path
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 literal|true
 argument_list|)

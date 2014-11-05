@@ -24,20 +24,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|CorruptIndexException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchCorruptionException
@@ -71,12 +57,12 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link CorruptStateException} with the given exceptions stacktrace.      * This constructor copies the stacktrace as well as the message from the given {@link CorruptIndexException}      * into this exception.      *      * @param ex the exception cause      */
+comment|/**      * Creates a new {@link CorruptStateException} with the given exceptions stacktrace.      * This constructor copies the stacktrace as well as the message from the given {@link Throwable}      * into this exception.      *      * @param ex the exception cause      */
 DECL|method|CorruptStateException
 specifier|public
 name|CorruptStateException
 parameter_list|(
-name|CorruptIndexException
+name|Throwable
 name|ex
 parameter_list|)
 block|{

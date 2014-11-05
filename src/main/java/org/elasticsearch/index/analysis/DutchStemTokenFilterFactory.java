@@ -56,9 +56,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|nl
+name|snowball
 operator|.
-name|DutchStemFilter
+name|SnowballFilter
 import|;
 end_import
 
@@ -148,6 +148,20 @@ name|IndexSettings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|tartarus
+operator|.
+name|snowball
+operator|.
+name|ext
+operator|.
+name|DutchStemmer
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -215,8 +229,6 @@ argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
-argument_list|,
-name|version
 argument_list|)
 expr_stmt|;
 block|}
@@ -231,10 +243,8 @@ name|TokenStream
 name|tokenStream
 parameter_list|)
 block|{
-return|return
-operator|new
-name|DutchStemFilter
-argument_list|(
+name|tokenStream
+operator|=
 operator|new
 name|SetKeywordMarkerFilter
 argument_list|(
@@ -242,6 +252,16 @@ name|tokenStream
 argument_list|,
 name|exclusions
 argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|SnowballFilter
+argument_list|(
+name|tokenStream
+argument_list|,
+operator|new
+name|DutchStemmer
+argument_list|()
 argument_list|)
 return|;
 block|}

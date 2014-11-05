@@ -200,7 +200,7 @@ DECL|method|setNextReader
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 block|{
@@ -404,7 +404,7 @@ parameter_list|(
 name|int
 name|luceneFlags
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws
@@ -542,7 +542,7 @@ parameter_list|(
 name|int
 name|luceneFlags
 parameter_list|,
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws

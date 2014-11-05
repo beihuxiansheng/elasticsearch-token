@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The thread safe {@link org.apache.lucene.index.AtomicReader} level cache of the data.  */
+comment|/**  * The thread safe {@link org.apache.lucene.index.LeafReader} level cache of the data.  */
 end_comment
 
 begin_interface

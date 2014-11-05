@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.fixedbitset
+DECL|package|org.elasticsearch.index.cache.bitset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|bitset
 package|;
 end_package
 
@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|DocIdSetIterator
+name|Filter
 import|;
 end_import
 
@@ -140,7 +140,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|join
+operator|.
+name|BitDocIdSetFilter
 import|;
 end_import
 
@@ -154,7 +156,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
+name|BitDocIdSet
 import|;
 end_import
 
@@ -168,7 +170,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|SparseFixedBitSet
 import|;
 end_import
 
@@ -609,18 +611,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a cache for {@link FixedBitSet} based filters and is unbounded by size or time.  *<p/>  * Use this cache with care, only components that require that a filter is to be materialized as a {@link FixedBitSet}  * and require that it should always be around should use this cache, otherwise the  * {@link org.elasticsearch.index.cache.filter.FilterCache} should be used instead.  */
+comment|/**  * This is a cache for {@link BitDocIdSet} based filters and is unbounded by size or time.  *<p/>  * Use this cache with care, only components that require that a filter is to be materialized as a {@link BitDocIdSet}  * and require that it should always be around should use this cache, otherwise the  * {@link org.elasticsearch.index.cache.filter.FilterCache} should be used instead.  */
 end_comment
 
 begin_class
-DECL|class|FixedBitSetFilterCache
+DECL|class|BitsetFilterCache
 specifier|public
 class|class
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 extends|extends
 name|AbstractIndexComponent
 implements|implements
-name|AtomicReader
+name|LeafReader
 operator|.
 name|CoreClosedListener
 implements|,
@@ -632,7 +634,7 @@ name|Cache
 argument_list|<
 name|Filter
 argument_list|,
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 operator|.
 name|Value
 argument_list|>
@@ -674,7 +676,7 @@ decl_stmt|;
 DECL|field|warmer
 specifier|private
 specifier|final
-name|FixedBitSetFilterWarmer
+name|BitDocIdSetFilterWarmer
 name|warmer
 decl_stmt|;
 DECL|field|indexService
@@ -689,9 +691,9 @@ name|indicesWarmer
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|FixedBitSetFilterCache
+DECL|method|BitsetFilterCache
 specifier|public
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 parameter_list|(
 name|Index
 name|index
@@ -744,7 +746,7 @@ operator|.
 name|warmer
 operator|=
 operator|new
-name|FixedBitSetFilterWarmer
+name|BitDocIdSetFilterWarmer
 argument_list|()
 expr_stmt|;
 block|}
@@ -797,10 +799,10 @@ name|warmer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getFixedBitSetFilter
+DECL|method|getBitDocIdSetFilter
 specifier|public
-name|FixedBitSetFilter
-name|getFixedBitSetFilter
+name|BitDocIdSetFilter
+name|getBitDocIdSetFilter
 parameter_list|(
 name|Filter
 name|filter
@@ -821,7 +823,7 @@ operator|)
 assert|;
 return|return
 operator|new
-name|FixedBitSetFilterWrapper
+name|BitDocIdSetFilterWrapper
 argument_list|(
 name|filter
 argument_list|)
@@ -880,7 +882,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Clearing all FixedBitSets because [{}]"
+literal|"Clearing all Bitsets because [{}]"
 argument_list|,
 name|reason
 argument_list|)
@@ -898,7 +900,7 @@ expr_stmt|;
 block|}
 DECL|method|getAndLoadIfNotPresent
 specifier|private
-name|FixedBitSet
+name|BitDocIdSet
 name|getAndLoadIfNotPresent
 parameter_list|(
 specifier|final
@@ -906,7 +908,7 @@ name|Filter
 name|filter
 parameter_list|,
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -989,7 +991,7 @@ operator|.
 name|reader
 argument_list|()
 argument_list|,
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 operator|.
 name|this
 argument_list|)
@@ -1043,30 +1045,35 @@ literal|null
 argument_list|)
 decl_stmt|;
 specifier|final
-name|FixedBitSet
-name|fixedBitSet
+name|BitDocIdSet
+name|bitSet
 decl_stmt|;
 if|if
 condition|(
 name|docIdSet
 operator|instanceof
-name|FixedBitSet
+name|BitDocIdSet
 condition|)
 block|{
-name|fixedBitSet
+name|bitSet
 operator|=
 operator|(
-name|FixedBitSet
+name|BitDocIdSet
 operator|)
 name|docIdSet
 expr_stmt|;
 block|}
 else|else
 block|{
-name|fixedBitSet
-operator|=
+name|BitDocIdSet
+operator|.
+name|Builder
+name|builder
+init|=
 operator|new
-name|FixedBitSet
+name|BitDocIdSet
+operator|.
+name|Builder
 argument_list|(
 name|context
 operator|.
@@ -1076,7 +1083,7 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|docIdSet
@@ -1090,67 +1097,58 @@ operator|.
 name|EMPTY
 condition|)
 block|{
-name|DocIdSetIterator
-name|iterator
-init|=
+name|builder
+operator|.
+name|or
+argument_list|(
 name|docIdSet
 operator|.
 name|iterator
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+name|BitDocIdSet
+name|bits
+init|=
+name|builder
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
+comment|// code expects this to be non-null
 if|if
 condition|(
-name|iterator
-operator|!=
+name|bits
+operator|==
 literal|null
 condition|)
 block|{
-name|int
-name|doc
-init|=
-name|iterator
-operator|.
-name|nextDoc
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|doc
-operator|!=
-name|DocIdSetIterator
-operator|.
-name|NO_MORE_DOCS
-condition|)
-block|{
-do|do
-block|{
-name|fixedBitSet
-operator|.
-name|set
+name|bits
+operator|=
+operator|new
+name|BitDocIdSet
 argument_list|(
-name|doc
+operator|new
+name|SparseFixedBitSet
+argument_list|(
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|maxDoc
+argument_list|()
+argument_list|)
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
-name|doc
+block|}
+name|bitSet
 operator|=
-name|iterator
-operator|.
-name|nextDoc
-argument_list|()
+name|bits
 expr_stmt|;
-block|}
-do|while
-condition|(
-name|doc
-operator|!=
-name|DocIdSetIterator
-operator|.
-name|NO_MORE_DOCS
-condition|)
-do|;
-block|}
-block|}
-block|}
 block|}
 name|Value
 name|value
@@ -1158,7 +1156,7 @@ init|=
 operator|new
 name|Value
 argument_list|(
-name|fixedBitSet
+name|bitSet
 argument_list|,
 name|shardId
 argument_list|)
@@ -1192,14 +1190,14 @@ condition|)
 block|{
 name|shard
 operator|.
-name|shardFixedBitSetFilterCache
+name|shardBitsetFilterCache
 argument_list|()
 operator|.
 name|onCached
 argument_list|(
 name|value
 operator|.
-name|fixedBitSet
+name|bitset
 operator|.
 name|ramBytesUsed
 argument_list|()
@@ -1214,7 +1212,7 @@ block|}
 block|}
 argument_list|)
 operator|.
-name|fixedBitSet
+name|bitset
 return|;
 block|}
 annotation|@
@@ -1337,15 +1335,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ShardFixedBitSetFilterCache
-name|shardFixedBitSetFilterCache
+name|ShardBitsetFilterCache
+name|shardBitsetFilterCache
 init|=
 name|shard
 operator|.
-name|shardFixedBitSetFilterCache
+name|shardBitsetFilterCache
 argument_list|()
 decl_stmt|;
-name|shardFixedBitSetFilterCache
+name|shardBitsetFilterCache
 operator|.
 name|onRemoval
 argument_list|(
@@ -1354,7 +1352,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|fixedBitSet
+name|bitset
 operator|.
 name|ramBytesUsed
 argument_list|()
@@ -1371,10 +1369,10 @@ specifier|final
 class|class
 name|Value
 block|{
-DECL|field|fixedBitSet
+DECL|field|bitset
 specifier|final
-name|FixedBitSet
-name|fixedBitSet
+name|BitDocIdSet
+name|bitset
 decl_stmt|;
 DECL|field|shardId
 specifier|final
@@ -1385,8 +1383,8 @@ DECL|method|Value
 specifier|public
 name|Value
 parameter_list|(
-name|FixedBitSet
-name|fixedBitSet
+name|BitDocIdSet
+name|bitset
 parameter_list|,
 name|ShardId
 name|shardId
@@ -1394,9 +1392,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|fixedBitSet
+name|bitset
 operator|=
-name|fixedBitSet
+name|bitset
 expr_stmt|;
 name|this
 operator|.
@@ -1406,20 +1404,20 @@ name|shardId
 expr_stmt|;
 block|}
 block|}
-DECL|class|FixedBitSetFilterWrapper
+DECL|class|BitDocIdSetFilterWrapper
 specifier|final
 class|class
-name|FixedBitSetFilterWrapper
+name|BitDocIdSetFilterWrapper
 extends|extends
-name|FixedBitSetFilter
+name|BitDocIdSetFilter
 block|{
 DECL|field|filter
 specifier|final
 name|Filter
 name|filter
 decl_stmt|;
-DECL|method|FixedBitSetFilterWrapper
-name|FixedBitSetFilterWrapper
+DECL|method|BitDocIdSetFilterWrapper
+name|BitDocIdSetFilterWrapper
 parameter_list|(
 name|Filter
 name|filter
@@ -1436,14 +1434,11 @@ annotation|@
 name|Override
 DECL|method|getDocIdSet
 specifier|public
-name|FixedBitSet
+name|BitDocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1504,7 +1499,7 @@ operator|!
 operator|(
 name|o
 operator|instanceof
-name|FixedBitSetFilterWrapper
+name|BitDocIdSetFilterWrapper
 operator|)
 condition|)
 return|return
@@ -1519,7 +1514,7 @@ name|equals
 argument_list|(
 operator|(
 operator|(
-name|FixedBitSetFilterWrapper
+name|BitDocIdSetFilterWrapper
 operator|)
 name|o
 operator|)
@@ -1544,10 +1539,10 @@ literal|0x1117BF26
 return|;
 block|}
 block|}
-DECL|class|FixedBitSetFilterWarmer
+DECL|class|BitDocIdSetFilterWarmer
 specifier|final
 class|class
-name|FixedBitSetFilterWarmer
+name|BitDocIdSetFilterWarmer
 extends|extends
 name|IndicesWarmer
 operator|.
@@ -1802,7 +1797,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|context
@@ -1883,7 +1878,7 @@ argument_list|()
 operator|.
 name|trace
 argument_list|(
-literal|"warmed fixed bitset for [{}], took [{}]"
+literal|"warmed bitset for [{}], took [{}]"
 argument_list|,
 name|filterToWarm
 argument_list|,
@@ -1918,7 +1913,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"failed to load fixed bitset for [{}]"
+literal|"failed to load bitset for [{}]"
 argument_list|,
 name|t
 argument_list|,

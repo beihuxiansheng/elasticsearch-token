@@ -72,16 +72,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Collections
@@ -214,9 +204,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 name|TokenStreamComponents
@@ -227,8 +214,6 @@ operator|.
 name|createComponents
 argument_list|(
 name|fieldName
-argument_list|,
-name|reader
 argument_list|)
 decl_stmt|;
 name|TokenStream

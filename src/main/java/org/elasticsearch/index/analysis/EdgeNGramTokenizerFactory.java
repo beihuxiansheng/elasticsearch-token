@@ -391,10 +391,7 @@ DECL|method|create
 specifier|public
 name|Tokenizer
 name|create
-parameter_list|(
-name|Reader
-name|reader
-parameter_list|)
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -404,7 +401,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_4_3
 argument_list|)
 operator|&&
 name|esVersion
@@ -457,11 +454,11 @@ name|version
 operator|==
 name|Version
 operator|.
-name|LUCENE_43
+name|LUCENE_4_3
 condition|?
 name|Version
 operator|.
-name|LUCENE_44
+name|LUCENE_4_4
 else|:
 name|this
 operator|.
@@ -479,10 +476,6 @@ return|return
 operator|new
 name|EdgeNGramTokenizer
 argument_list|(
-name|version
-argument_list|,
-name|reader
-argument_list|,
 name|minGram
 argument_list|,
 name|maxGram
@@ -495,10 +488,6 @@ return|return
 operator|new
 name|EdgeNGramTokenizer
 argument_list|(
-name|version
-argument_list|,
-name|reader
-argument_list|,
 name|minGram
 argument_list|,
 name|maxGram
@@ -533,10 +522,6 @@ return|return
 operator|new
 name|Lucene43EdgeNGramTokenizer
 argument_list|(
-name|version
-argument_list|,
-name|reader
-argument_list|,
 name|side
 argument_list|,
 name|minGram

@@ -54,16 +54,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -80,9 +70,6 @@ DECL|method|NumericDateTokenizer
 specifier|public
 name|NumericDateTokenizer
 parameter_list|(
-name|Reader
-name|reader
-parameter_list|,
 name|int
 name|precisionStep
 parameter_list|,
@@ -98,8 +85,6 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|reader
-argument_list|,
 operator|new
 name|NumericTokenStream
 argument_list|(

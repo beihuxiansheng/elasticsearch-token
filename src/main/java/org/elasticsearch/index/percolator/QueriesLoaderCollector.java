@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -54,21 +54,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Collector
+name|LeafReaderContext
 import|;
 end_import
 
@@ -97,6 +83,20 @@ operator|.
 name|search
 operator|.
 name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SimpleCollector
 import|;
 end_import
 
@@ -258,7 +258,7 @@ specifier|final
 class|class
 name|QueriesLoaderCollector
 extends|extends
-name|Collector
+name|SimpleCollector
 block|{
 DECL|field|queries
 specifier|private
@@ -314,7 +314,7 @@ name|idValues
 decl_stmt|;
 DECL|field|reader
 specifier|private
-name|AtomicReader
+name|LeafReader
 name|reader
 decl_stmt|;
 DECL|method|QueriesLoaderCollector
@@ -532,12 +532,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
-specifier|public
+DECL|method|doSetNextReader
+specifier|protected
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

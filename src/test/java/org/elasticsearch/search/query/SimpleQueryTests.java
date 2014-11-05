@@ -4991,7 +4991,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"'omit_term_freq_and_positions' is not supported anymore - use ['index_options' : 'DOCS_ONLY']  instead"
+literal|"'omit_term_freq_and_positions' is not supported anymore - use ['index_options' : 'docs']  instead"
 argument_list|)
 argument_list|)
 expr_stmt|;

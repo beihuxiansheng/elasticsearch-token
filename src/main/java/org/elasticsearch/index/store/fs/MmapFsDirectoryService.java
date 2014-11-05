@@ -211,6 +211,9 @@ operator|new
 name|MMapDirectory
 argument_list|(
 name|location
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|buildLockFactory
 argument_list|()

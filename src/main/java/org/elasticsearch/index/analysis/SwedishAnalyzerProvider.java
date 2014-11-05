@@ -195,8 +195,6 @@ operator|=
 operator|new
 name|SwedishAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|Analysis
 operator|.
 name|parseStopWords
@@ -209,8 +207,6 @@ name|SwedishAnalyzer
 operator|.
 name|getDefaultStopSet
 argument_list|()
-argument_list|,
-name|version
 argument_list|)
 argument_list|,
 name|Analysis
@@ -222,9 +218,14 @@ argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
-argument_list|,
-name|version
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 block|}

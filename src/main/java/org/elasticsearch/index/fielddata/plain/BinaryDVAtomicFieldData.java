@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -57,6 +57,20 @@ operator|.
 name|index
 operator|.
 name|DocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
 import|;
 end_import
 
@@ -124,6 +138,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/** {@link AtomicFieldData} impl on top of Lucene's binary doc values. */
 end_comment
@@ -139,7 +163,7 @@ block|{
 DECL|field|reader
 specifier|private
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|reader
 decl_stmt|;
 DECL|field|field
@@ -152,7 +176,7 @@ DECL|method|BinaryDVAtomicFieldData
 specifier|public
 name|BinaryDVAtomicFieldData
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|String
@@ -277,6 +301,26 @@ return|return
 literal|0
 return|;
 comment|// unknown
+block|}
+annotation|@
+name|Override
+DECL|method|getChildResources
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Accountable
+argument_list|>
+name|getChildResources
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
 block|}
 block|}
 end_class

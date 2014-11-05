@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -389,7 +389,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|reader
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 decl_stmt|;
 DECL|field|scorer
@@ -457,7 +457,7 @@ return|;
 block|}
 DECL|method|currentReader
 specifier|public
-name|AtomicReaderContext
+name|LeafReaderContext
 name|currentReader
 parameter_list|()
 block|{
@@ -506,7 +506,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{

@@ -142,16 +142,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_class
 DECL|class|PathHierarchyTokenizerFactory
 specifier|public
@@ -390,10 +380,7 @@ DECL|method|create
 specifier|public
 name|Tokenizer
 name|create
-parameter_list|(
-name|Reader
-name|reader
-parameter_list|)
+parameter_list|()
 block|{
 if|if
 condition|(
@@ -404,8 +391,6 @@ return|return
 operator|new
 name|ReversePathHierarchyTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|bufferSize
 argument_list|,
 name|delimiter
@@ -420,8 +405,6 @@ return|return
 operator|new
 name|PathHierarchyTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|bufferSize
 argument_list|,
 name|delimiter

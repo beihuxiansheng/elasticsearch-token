@@ -653,6 +653,8 @@ specifier|public
 name|void
 name|testDefaultFactoryTokenFilters
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|assertTokenFilter
 argument_list|(
@@ -886,6 +888,8 @@ parameter_list|,
 name|Class
 name|clazz
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|AnalysisService
 name|analysisService
@@ -929,20 +933,19 @@ name|tokenizer
 init|=
 operator|new
 name|WhitespaceTokenizer
+argument_list|()
+decl_stmt|;
+name|tokenizer
+operator|.
+name|setReader
 argument_list|(
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|luceneVersion
-argument_list|,
 operator|new
 name|StringReader
 argument_list|(
 literal|"foo bar"
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|TokenStream
 name|stream
 init|=
@@ -1345,10 +1348,6 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"index.analysis.filter.dict_dec.word_list"
-argument_list|,
-name|Lucene
-operator|.
-name|VERSION
 argument_list|)
 decl_stmt|;
 name|MatcherAssert
@@ -1454,10 +1453,6 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"index.word_list"
-argument_list|,
-name|Lucene
-operator|.
-name|VERSION
 argument_list|)
 decl_stmt|;
 name|MatcherAssert

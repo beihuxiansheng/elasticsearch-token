@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -28,7 +38,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -260,7 +270,7 @@ specifier|public
 name|AtomicOrdinalsFieldData
 name|loadDirect
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -391,6 +401,27 @@ parameter_list|()
 block|{
 return|return
 name|memorySizeInBytes
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getChildResources
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Accountable
+argument_list|>
+name|getChildResources
+parameter_list|()
+block|{
+comment|// TODO: break down ram usage?
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 block|}

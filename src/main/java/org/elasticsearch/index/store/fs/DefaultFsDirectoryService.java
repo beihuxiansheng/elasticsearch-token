@@ -247,6 +247,9 @@ operator|new
 name|MMapDirectory
 argument_list|(
 name|location
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|lockFactory
 argument_list|)
@@ -255,6 +258,9 @@ operator|new
 name|NIOFSDirectory
 argument_list|(
 name|location
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|lockFactory
 argument_list|)

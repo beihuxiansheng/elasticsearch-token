@@ -92,20 +92,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|FieldCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|MockDirectoryWrapper
@@ -136,7 +122,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
+name|TimeUnits
 import|;
 end_import
 
@@ -148,9 +134,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|uninverting
 operator|.
-name|TimeUnits
+name|UninvertingReader
 import|;
 end_import
 
@@ -791,22 +777,6 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Before
-DECL|method|cleanFieldCache
-specifier|public
-name|void
-name|cleanFieldCache
-parameter_list|()
-block|{
-name|FieldCache
-operator|.
-name|DEFAULT
-operator|.
-name|purgeAllCaches
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|After
 DECL|method|ensureNoFieldCacheUse
 specifier|public
@@ -814,34 +784,14 @@ name|void
 name|ensureNoFieldCacheUse
 parameter_list|()
 block|{
-comment|// We use the lucene comparators, and by default they work on field cache.
-comment|// However, given the way that we use them, field cache should NEVER get loaded.
-if|if
-condition|(
-name|getClass
-argument_list|()
-operator|.
-name|getAnnotation
-argument_list|(
-name|UsesLuceneFieldCacheOnPurpose
-operator|.
-name|class
-argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-name|FieldCache
-operator|.
-name|CacheEntry
+comment|// field cache should NEVER get loaded.
+name|String
 index|[]
 name|entries
 init|=
-name|FieldCache
+name|UninvertingReader
 operator|.
-name|DEFAULT
-operator|.
-name|getCacheEntries
+name|getUninvertedStats
 argument_list|()
 decl_stmt|;
 name|assertEquals
@@ -862,7 +812,6 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Runs the code block for 10 seconds waiting for no assertion to trip.      */
 DECL|method|assertBusy
@@ -1680,11 +1629,6 @@ name|maybeDocValues
 parameter_list|()
 block|{
 return|return
-name|LuceneTestCase
-operator|.
-name|defaultCodecSupportsSortedSet
-argument_list|()
-operator|&&
 name|randomBoolean
 argument_list|()
 return|;
@@ -2753,30 +2697,6 @@ name|version
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * Most tests don't use {@link FieldCache} but some of them might do.      */
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|Target
-argument_list|(
-block|{
-name|ElementType
-operator|.
-name|TYPE
-block|}
-argument_list|)
-annotation|@
-name|Ignore
-DECL|interface|UsesLuceneFieldCacheOnPurpose
-specifier|public
-annotation_defn|@interface
-name|UsesLuceneFieldCacheOnPurpose
-block|{     }
 comment|/**      * Returns a global compatibility version that is set via the      * {@value #TESTS_COMPATIBILITY} or {@value #TESTS_BACKWARDS_COMPATIBILITY_VERSION} system property.      * If both are unset the current version is used as the global compatibility version. This      * compatibility version is used for static randomization. For per-suite compatibility version see      * {@link #compatibilityVersion()}      */
 DECL|method|globalCompatibilityVersion
 specifier|public

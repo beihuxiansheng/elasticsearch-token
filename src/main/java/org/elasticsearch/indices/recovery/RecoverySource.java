@@ -1210,6 +1210,8 @@ name|size
 argument_list|()
 operator|+
 literal|" files"
+argument_list|,
+name|name
 argument_list|)
 throw|;
 block|}
@@ -1673,7 +1675,7 @@ decl_stmt|;
 specifier|final
 name|AtomicReference
 argument_list|<
-name|CorruptIndexException
+name|Throwable
 argument_list|>
 name|corruptedEngine
 init|=
@@ -2044,7 +2046,7 @@ name|e
 parameter_list|)
 block|{
 specifier|final
-name|CorruptIndexException
+name|Throwable
 name|corruptIndexException
 decl_stmt|;
 if|if
@@ -2054,13 +2056,9 @@ name|corruptIndexException
 operator|=
 name|ExceptionsHelper
 operator|.
-name|unwrap
+name|unwrapCorruption
 argument_list|(
 name|e
-argument_list|,
-name|CorruptIndexException
-operator|.
-name|class
 argument_list|)
 operator|)
 operator|!=

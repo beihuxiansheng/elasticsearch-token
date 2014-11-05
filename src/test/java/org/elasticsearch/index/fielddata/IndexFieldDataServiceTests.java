@@ -1213,8 +1213,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|TEST_VERSION_CURRENT
-argument_list|,
 operator|new
 name|KeywordAnalyzer
 argument_list|()
@@ -1292,7 +1290,7 @@ argument_list|)
 expr_stmt|;
 name|Set
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|oldSegments
 init|=
@@ -1303,7 +1301,7 @@ argument_list|(
 operator|new
 name|IdentityHashMap
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|,
 name|Boolean
 argument_list|>
@@ -1312,7 +1310,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|arc
 range|:
 name|reader1
@@ -1444,7 +1442,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|arc
 range|:
 name|reader2

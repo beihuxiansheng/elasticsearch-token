@@ -52,6 +52,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BitSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -67,20 +81,6 @@ operator|.
 name|util
 operator|.
 name|BytesRefBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|FixedBitSet
 import|;
 end_import
 
@@ -1355,6 +1355,7 @@ return|;
 block|}
 block|}
 comment|/**      * Return a {@link NumericDocValues} instance that can be used to sort root documents      * with this mode, the provided values and filters for root/inner documents.      *      * For every root document, the values of its inner documents will be aggregated.      * If none of the inner documents has a value, then<code>missingValue</code> is returned.      *      * NOTE: Calling the returned instance on docs that are not root docs is illegal      */
+comment|// TODO: technically innerDocs need not be BitSet: only needs advance() ?
 DECL|method|select
 specifier|public
 name|NumericDocValues
@@ -1369,11 +1370,11 @@ name|long
 name|missingValue
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 parameter_list|,
 name|int
@@ -1814,6 +1815,7 @@ return|;
 block|}
 block|}
 comment|/**      * Return a {@link NumericDoubleValues} instance that can be used to sort root documents      * with this mode, the provided values and filters for root/inner documents.      *      * For every root document, the values of its inner documents will be aggregated.      * If none of the inner documents has a value, then<code>missingValue</code> is returned.      *      * NOTE: Calling the returned instance on docs that are not root docs is illegal      */
+comment|// TODO: technically innerDocs need not be BitSet: only needs advance() ?
 DECL|method|select
 specifier|public
 name|NumericDoubleValues
@@ -1828,11 +1830,11 @@ name|double
 name|missingValue
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 parameter_list|,
 name|int
@@ -2213,6 +2215,7 @@ return|;
 block|}
 block|}
 comment|/**      * Return a {@link BinaryDocValues} instance that can be used to sort root documents      * with this mode, the provided values and filters for root/inner documents.      *      * For every root document, the values of its inner documents will be aggregated.      * If none of the inner documents has a value, then<code>missingValue</code> is returned.      *      * NOTE: Calling the returned instance on docs that are not root docs is illegal      */
+comment|// TODO: technically innerDocs need not be BitSet: only needs advance() ?
 DECL|method|select
 specifier|public
 name|BinaryDocValues
@@ -2227,11 +2230,11 @@ name|BytesRef
 name|missingValue
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 parameter_list|,
 name|int
@@ -2680,6 +2683,7 @@ return|;
 block|}
 block|}
 comment|/**      * Return a {@link SortedDocValues} instance that can be used to sort root documents      * with this mode, the provided values and filters for root/inner documents.      *      * For every root document, the values of its inner documents will be aggregated.      *      * NOTE: Calling the returned instance on docs that are not root docs is illegal      */
+comment|// TODO: technically innerDocs need not be BitSet: only needs advance() ?
 DECL|method|select
 specifier|public
 name|SortedDocValues
@@ -2690,11 +2694,11 @@ name|RandomAccessOrds
 name|values
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 parameter_list|,
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 parameter_list|)
 block|{

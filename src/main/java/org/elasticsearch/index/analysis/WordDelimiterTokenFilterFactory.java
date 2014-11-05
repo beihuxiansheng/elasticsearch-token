@@ -520,8 +520,6 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"protected_words"
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 name|this
@@ -538,10 +536,6 @@ name|CharArraySet
 operator|.
 name|copy
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|protectedWords
 argument_list|)
 expr_stmt|;
@@ -579,8 +573,6 @@ return|return
 operator|new
 name|WordDelimiterFilter
 argument_list|(
-name|version
-argument_list|,
 name|tokenStream
 argument_list|,
 name|charTypeTable

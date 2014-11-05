@@ -294,6 +294,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -547,6 +557,26 @@ operator|+
 name|RamUsageEstimator
 operator|.
 name|NUM_BYTES_INT
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getChildResources
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Accountable
+argument_list|>
+name|getChildResources
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 annotation|@

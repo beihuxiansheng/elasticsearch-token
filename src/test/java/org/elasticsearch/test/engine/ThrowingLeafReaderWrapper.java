@@ -85,16 +85,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An FilterAtomicReader that allows to throw exceptions if certain methods  * are called on is. This allows to test parts of the system under certain  * error conditions that would otherwise not be possible.  */
+comment|/**  * An FilterLeafReader that allows to throw exceptions if certain methods  * are called on is. This allows to test parts of the system under certain  * error conditions that would otherwise not be possible.  */
 end_comment
 
 begin_class
-DECL|class|ThrowingAtomicReaderWrapper
+DECL|class|ThrowingLeafReaderWrapper
 specifier|public
 class|class
-name|ThrowingAtomicReaderWrapper
+name|ThrowingLeafReaderWrapper
 extends|extends
-name|FilterAtomicReader
+name|FilterLeafReader
 block|{
 DECL|field|thrower
 specifier|private
@@ -102,7 +102,7 @@ specifier|final
 name|Thrower
 name|thrower
 decl_stmt|;
-comment|/**      * Flags passed to {@link Thrower#maybeThrow(org.elasticsearch.test.engine.ThrowingAtomicReaderWrapper.Flags)}      * when the corresponding method is called.      */
+comment|/**      * Flags passed to {@link Thrower#maybeThrow(org.elasticsearch.test.engine.ThrowingLeafReaderWrapper.Flags)}      * when the corresponding method is called.      */
 DECL|enum|Flags
 specifier|public
 enum|enum
@@ -144,7 +144,7 @@ name|SortedDocValues
 block|,
 name|SortedSetDocValues
 block|;     }
-comment|/**      * A callback interface that allows to throw certain exceptions for      * methods called on the IndexReader that is wrapped by {@link ThrowingAtomicReaderWrapper}      */
+comment|/**      * A callback interface that allows to throw certain exceptions for      * methods called on the IndexReader that is wrapped by {@link ThrowingLeafReaderWrapper}      */
 DECL|interface|Thrower
 specifier|public
 specifier|static
@@ -174,11 +174,11 @@ name|field
 parameter_list|)
 function_decl|;
 block|}
-DECL|method|ThrowingAtomicReaderWrapper
+DECL|method|ThrowingLeafReaderWrapper
 specifier|public
-name|ThrowingAtomicReaderWrapper
+name|ThrowingLeafReaderWrapper
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|in
 parameter_list|,
 name|Thrower

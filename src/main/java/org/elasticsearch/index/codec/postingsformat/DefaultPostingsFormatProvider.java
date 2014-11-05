@@ -58,9 +58,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene41
+name|lucene50
 operator|.
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 import|;
 end_import
 
@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default postingsformat, maps to {@link Lucene41PostingsFormat}.  *<ul>  *<li><tt>min_block_size</tt>: the minimum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *   *<li><tt>max_block_size</tt>: the maximum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *</ul>  */
+comment|/**  * The default postingsformat, maps to {@link Lucene50PostingsFormat}.  *<ul>  *<li><tt>min_block_size</tt>: the minimum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *   *<li><tt>max_block_size</tt>: the maximum block size the default Lucene term  * dictionary uses to encode on-disk blocks.</li>  *</ul>  */
 end_comment
 
 begin_comment
@@ -139,7 +139,7 @@ decl_stmt|;
 DECL|field|postingsFormat
 specifier|private
 specifier|final
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 name|postingsFormat
 decl_stmt|;
 annotation|@
@@ -199,7 +199,7 @@ operator|.
 name|postingsFormat
 operator|=
 operator|new
-name|Lucene41PostingsFormat
+name|Lucene50PostingsFormat
 argument_list|(
 name|minBlockSize
 argument_list|,

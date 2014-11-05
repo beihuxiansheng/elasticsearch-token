@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -343,7 +343,7 @@ operator|.
 name|setNextReader
 argument_list|(
 operator|(
-name|AtomicReaderContext
+name|LeafReaderContext
 operator|)
 name|reader
 operator|.

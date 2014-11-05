@@ -203,8 +203,6 @@ return|return
 operator|new
 name|StopFilter
 argument_list|(
-name|version
-argument_list|,
 name|tokenStream
 argument_list|,
 name|StopAnalyzer

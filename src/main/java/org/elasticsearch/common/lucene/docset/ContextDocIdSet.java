@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A holder for a {@link DocIdSet} and the {@link AtomicReaderContext} it is associated with.  */
+comment|/**  * A holder for a {@link DocIdSet} and the {@link LeafReaderContext} it is associated with.  */
 end_comment
 
 begin_class
@@ -59,7 +59,7 @@ block|{
 DECL|field|context
 specifier|public
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|docSet
@@ -72,7 +72,7 @@ DECL|method|ContextDocIdSet
 specifier|public
 name|ContextDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|DocIdSet

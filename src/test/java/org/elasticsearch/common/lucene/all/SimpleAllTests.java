@@ -362,11 +362,7 @@ name|allEntries
 argument_list|,
 operator|new
 name|WhitespaceAnalyzer
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -813,10 +809,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
@@ -1252,10 +1244,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER
@@ -1694,10 +1682,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER
@@ -2206,10 +2190,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
@@ -2714,10 +2694,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|KEYWORD_ANALYZER

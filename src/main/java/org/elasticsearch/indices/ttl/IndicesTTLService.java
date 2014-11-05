@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -41,20 +41,6 @@ operator|.
 name|index
 operator|.
 name|Term
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Collector
 import|;
 end_import
 
@@ -83,6 +69,20 @@ operator|.
 name|search
 operator|.
 name|Scorer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SimpleCollector
 import|;
 end_import
 
@@ -1511,11 +1511,11 @@ specifier|private
 class|class
 name|ExpiredDocsCollector
 extends|extends
-name|Collector
+name|SimpleCollector
 block|{
 DECL|field|context
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|docsToPurge
@@ -1664,12 +1664,12 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setNextReader
+DECL|method|doSetNextReader
 specifier|public
 name|void
-name|setNextReader
+name|doSetNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws

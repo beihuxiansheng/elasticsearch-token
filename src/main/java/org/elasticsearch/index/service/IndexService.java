@@ -140,9 +140,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
+name|cache
 operator|.
-name|IndexEngine
+name|bitset
+operator|.
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -154,11 +156,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
+name|engine
 operator|.
-name|fixedbitset
-operator|.
-name|FixedBitSetFilterCache
+name|IndexEngine
 import|;
 end_import
 
@@ -313,9 +313,9 @@ name|IndexFieldDataService
 name|fieldData
 parameter_list|()
 function_decl|;
-DECL|method|fixedBitSetFilterCache
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+DECL|method|bitsetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|()
 function_decl|;
 DECL|method|settingsService

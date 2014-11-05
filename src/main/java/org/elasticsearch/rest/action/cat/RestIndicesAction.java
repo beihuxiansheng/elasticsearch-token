@@ -4559,7 +4559,7 @@ operator|.
 name|getSegments
 argument_list|()
 operator|.
-name|getFixedBitSetMemory
+name|getBitsetMemory
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4581,7 +4581,7 @@ operator|.
 name|getSegments
 argument_list|()
 operator|.
-name|getFixedBitSetMemory
+name|getBitsetMemory
 argument_list|()
 argument_list|)
 expr_stmt|;

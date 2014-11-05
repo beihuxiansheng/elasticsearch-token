@@ -959,9 +959,6 @@ name|settings
 parameter_list|,
 name|CharArraySet
 name|defaultStemExclusion
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|String
@@ -1004,8 +1001,6 @@ return|return
 operator|new
 name|CharArraySet
 argument_list|(
-name|version
-argument_list|,
 name|Strings
 operator|.
 name|commaDelimitedListToSet
@@ -1043,8 +1038,6 @@ return|return
 operator|new
 name|CharArraySet
 argument_list|(
-name|version
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -1433,9 +1426,6 @@ argument_list|>
 argument_list|>
 name|namedWords
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|boolean
 name|ignoreCase
 parameter_list|)
@@ -1487,8 +1477,6 @@ argument_list|)
 argument_list|,
 name|namedWords
 argument_list|,
-name|version
-argument_list|,
 name|ignoreCase
 argument_list|)
 return|;
@@ -1523,8 +1511,6 @@ name|pathLoadedWords
 argument_list|,
 name|namedWords
 argument_list|,
-name|version
-argument_list|,
 name|ignoreCase
 argument_list|)
 return|;
@@ -1548,9 +1534,6 @@ parameter_list|,
 name|CharArraySet
 name|defaultCommonWords
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|boolean
 name|ignoreCase
 parameter_list|)
@@ -1568,8 +1551,6 @@ name|defaultCommonWords
 argument_list|,
 name|namedStopWords
 argument_list|,
-name|version
-argument_list|,
 name|ignoreCase
 argument_list|)
 return|;
@@ -1585,9 +1566,6 @@ name|env
 parameter_list|,
 name|Settings
 name|settings
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 return|return
@@ -1602,8 +1580,6 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-name|version
 argument_list|,
 name|settings
 operator|.
@@ -1630,9 +1606,6 @@ name|settings
 parameter_list|,
 name|CharArraySet
 name|defaultStopWords
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 return|return
@@ -1643,8 +1616,6 @@ argument_list|,
 name|settings
 argument_list|,
 name|defaultStopWords
-argument_list|,
-name|version
 argument_list|,
 name|settings
 operator|.
@@ -1672,9 +1643,6 @@ parameter_list|,
 name|CharArraySet
 name|defaultStopWords
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|boolean
 name|ignoreCase
 parameter_list|)
@@ -1691,8 +1659,6 @@ argument_list|,
 name|defaultStopWords
 argument_list|,
 name|namedStopWords
-argument_list|,
-name|version
 argument_list|,
 name|ignoreCase
 argument_list|)
@@ -1721,9 +1687,6 @@ argument_list|>
 argument_list|>
 name|namedWords
 parameter_list|,
-name|Version
-name|version
-parameter_list|,
 name|boolean
 name|ignoreCase
 parameter_list|)
@@ -1739,8 +1702,6 @@ return|return
 operator|new
 name|CharArraySet
 argument_list|(
-name|version
-argument_list|,
 name|words
 argument_list|,
 name|ignoreCase
@@ -1753,8 +1714,6 @@ init|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|version
-argument_list|,
 name|words
 operator|.
 name|size
@@ -1823,9 +1782,6 @@ name|settings
 parameter_list|,
 name|String
 name|settingsPrefix
-parameter_list|,
-name|Version
-name|version
 parameter_list|)
 block|{
 name|List
@@ -1858,8 +1814,6 @@ return|return
 operator|new
 name|CharArraySet
 argument_list|(
-name|version
-argument_list|,
 name|wordList
 argument_list|,
 name|settings

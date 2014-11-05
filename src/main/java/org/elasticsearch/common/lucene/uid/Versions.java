@@ -623,7 +623,7 @@ specifier|private
 name|Versions
 parameter_list|()
 block|{     }
-comment|/** Wraps an {@link AtomicReaderContext}, a doc ID<b>relative to the context doc base</b> and a version. */
+comment|/** Wraps an {@link LeafReaderContext}, a doc ID<b>relative to the context doc base</b> and a version. */
 DECL|class|DocIdAndVersion
 specifier|public
 specifier|static
@@ -645,7 +645,7 @@ decl_stmt|;
 DECL|field|context
 specifier|public
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|method|DocIdAndVersion
@@ -658,7 +658,7 @@ parameter_list|,
 name|long
 name|version
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{

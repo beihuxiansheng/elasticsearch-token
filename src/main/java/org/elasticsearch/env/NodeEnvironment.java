@@ -573,6 +573,9 @@ operator|new
 name|NativeFSLockFactory
 argument_list|(
 name|dir
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Lock

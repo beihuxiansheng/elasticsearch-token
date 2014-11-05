@@ -141,7 +141,7 @@ comment|// NEVER cache this XConstantScore Query it's not immutable and based on
 comment|// some code might set a boost on this query.
 return|return
 operator|new
-name|XConstantScoreQuery
+name|ConstantScoreQuery
 argument_list|(
 name|MATCH_ALL_FILTER
 argument_list|)
@@ -302,14 +302,14 @@ if|if
 condition|(
 name|query
 operator|instanceof
-name|XConstantScoreQuery
+name|ConstantScoreQuery
 condition|)
 block|{
-name|XConstantScoreQuery
+name|ConstantScoreQuery
 name|scoreQuery
 init|=
 operator|(
-name|XConstantScoreQuery
+name|ConstantScoreQuery
 operator|)
 name|query
 decl_stmt|;

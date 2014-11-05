@@ -205,8 +205,6 @@ name|CJKAnalyzer
 operator|.
 name|getDefaultStopSet
 argument_list|()
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 name|analyzer
@@ -214,9 +212,14 @@ operator|=
 operator|new
 name|CJKAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|stopWords
+argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 block|}

@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -28,7 +38,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -43,6 +53,20 @@ operator|.
 name|search
 operator|.
 name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocValuesDocIdSet
 import|;
 end_import
 
@@ -178,22 +202,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|MatchDocIdSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|unit
 operator|.
 name|DistanceUnit
@@ -241,16 +249,6 @@ operator|.
 name|geo
 operator|.
 name|GeoPointFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -666,7 +664,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -695,7 +693,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptedDocs
+literal|null
 argument_list|)
 expr_stmt|;
 if|if
@@ -1179,7 +1177,7 @@ specifier|static
 class|class
 name|GeoDistanceRangeDocSet
 extends|extends
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 block|{
 DECL|field|values
 specifier|private

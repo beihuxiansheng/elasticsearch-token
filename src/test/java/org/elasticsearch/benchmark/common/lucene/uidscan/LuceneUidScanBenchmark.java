@@ -231,6 +231,9 @@ name|File
 argument_list|(
 literal|"work/test"
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexWriter
@@ -244,10 +247,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER

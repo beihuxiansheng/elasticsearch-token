@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -159,7 +159,7 @@ class|class
 name|PerSegmentCollects
 block|{
 DECL|field|readerContext
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 decl_stmt|;
 DECL|field|docs
@@ -183,7 +183,7 @@ decl_stmt|;
 DECL|method|PerSegmentCollects
 name|PerSegmentCollects
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 parameter_list|)
 block|{
@@ -511,7 +511,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{

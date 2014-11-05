@@ -162,8 +162,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|IndexOptions
 import|;
 end_import
@@ -460,10 +458,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER
@@ -1076,10 +1070,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
@@ -1508,10 +1498,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
@@ -1744,13 +1730,6 @@ argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
 operator|.
-name|setIndexed
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|FIELD_TYPE
-operator|.
 name|setIndexOptions
 argument_list|(
 name|IndexOptions
@@ -1948,10 +1927,6 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 operator|new
 name|KeywordAnalyzer
 argument_list|()
@@ -2271,7 +2246,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 specifier|final
-name|AtomicReader
+name|LeafReader
 name|ir
 init|=
 name|SlowCompositeReaderWrapper

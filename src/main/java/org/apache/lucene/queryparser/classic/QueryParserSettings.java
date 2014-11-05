@@ -310,7 +310,7 @@ name|rewriteMethod
 init|=
 name|MultiTermQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 decl_stmt|;
 DECL|field|minimumShouldMatch
 specifier|private

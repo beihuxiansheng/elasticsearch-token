@@ -145,6 +145,8 @@ specifier|public
 name|Directory
 name|doAny
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 for|for
 control|(

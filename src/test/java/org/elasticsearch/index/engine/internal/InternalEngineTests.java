@@ -1105,19 +1105,6 @@ name|put
 argument_list|(
 name|InternalEngine
 operator|.
-name|INDEX_CHECKSUM_ON_MERGE
-argument_list|,
-name|getRandom
-argument_list|()
-operator|.
-name|nextBoolean
-argument_list|()
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|InternalEngine
-operator|.
 name|INDEX_GC_DELETES
 argument_list|,
 literal|"1h"
@@ -6319,6 +6306,8 @@ operator|new
 name|CorruptIndexException
 argument_list|(
 literal|"Foo"
+argument_list|,
+literal|"fake file description"
 argument_list|)
 argument_list|)
 throw|;
@@ -6355,6 +6344,8 @@ operator|new
 name|CorruptIndexException
 argument_list|(
 literal|"Foo"
+argument_list|,
+literal|"fake file description"
 argument_list|)
 argument_list|)
 throw|;
@@ -6391,6 +6382,8 @@ operator|new
 name|CorruptIndexException
 argument_list|(
 literal|"Foo"
+argument_list|,
+literal|"fake file description"
 argument_list|)
 argument_list|)
 throw|;

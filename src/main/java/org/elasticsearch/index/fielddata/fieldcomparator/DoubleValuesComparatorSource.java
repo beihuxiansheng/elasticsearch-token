@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -40,11 +40,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|index
 operator|.
-name|FieldCache
-operator|.
-name|Doubles
+name|NumericDocValues
 import|;
 end_import
 
@@ -100,7 +98,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|BitSet
 import|;
 end_import
 
@@ -299,7 +297,7 @@ specifier|protected
 name|SortedNumericDoubleValues
 name|getValues
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{
@@ -394,17 +392,15 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 block|{
 annotation|@
 name|Override
 specifier|protected
-name|Doubles
-name|getDoubleValues
+name|NumericDocValues
+name|getNumericDocValues
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|String
@@ -448,7 +444,7 @@ block|}
 else|else
 block|{
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 init|=
 name|nested
@@ -457,9 +453,12 @@ name|rootDocs
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 init|=
 name|nested
@@ -468,6 +467,9 @@ name|innerDocs
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 name|selectedValues
 operator|=
@@ -494,30 +496,10 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-operator|new
-name|Doubles
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|double
-name|get
-parameter_list|(
-name|int
-name|docID
-parameter_list|)
-block|{
-return|return
 name|selectedValues
 operator|.
-name|get
-argument_list|(
-name|docID
-argument_list|)
-return|;
-block|}
-block|}
+name|getRawDoubleValues
+argument_list|()
 return|;
 block|}
 annotation|@

@@ -72,20 +72,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|IndexReader
 import|;
 end_import
@@ -100,7 +86,35 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|LeafReaderContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|SegmentReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|BitsFilteredDocIdSet
 import|;
 end_import
 
@@ -922,7 +936,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1172,10 +1186,11 @@ name|cacheValue
 argument_list|)
 expr_stmt|;
 block|}
-comment|// note, we don't wrap the return value with a BitsFilteredDocIdSet.wrap(docIdSet, acceptDocs) because
-comment|// we rely on our custom XFilteredQuery to do the wrapping if needed, so we don't have the wrap each
-comment|// filter on its own
 return|return
+name|BitsFilteredDocIdSet
+operator|.
+name|wrap
+argument_list|(
 name|DocIdSets
 operator|.
 name|isEmpty
@@ -1186,6 +1201,9 @@ condition|?
 literal|null
 else|:
 name|cacheValue
+argument_list|,
+name|acceptDocs
+argument_list|)
 return|;
 block|}
 DECL|method|toString

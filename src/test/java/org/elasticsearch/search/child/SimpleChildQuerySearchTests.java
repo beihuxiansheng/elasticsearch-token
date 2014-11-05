@@ -764,6 +764,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -3884,7 +3900,7 @@ operator|.
 name|getSegments
 argument_list|()
 operator|.
-name|getFixedBitSetMemoryInBytes
+name|getBitsetMemoryInBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4094,7 +4110,7 @@ operator|.
 name|getSegments
 argument_list|()
 operator|.
-name|getFixedBitSetMemoryInBytes
+name|getBitsetMemoryInBytes
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4188,7 +4204,7 @@ operator|.
 name|getSegments
 argument_list|()
 operator|.
-name|getFixedBitSetMemoryInBytes
+name|getBitsetMemoryInBytes
 argument_list|()
 argument_list|,
 name|greaterThan
@@ -4241,7 +4257,7 @@ operator|.
 name|getSegments
 argument_list|()
 operator|.
-name|getFixedBitSetMemoryInBytes
+name|getBitsetMemoryInBytes
 argument_list|()
 argument_list|,
 name|equalTo

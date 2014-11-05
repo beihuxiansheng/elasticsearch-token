@@ -68,7 +68,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|DocValuesType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexOptions
 import|;
 end_import
 
@@ -507,9 +521,11 @@ static|static
 block|{
 name|FIELD_TYPE
 operator|.
-name|setIndexed
+name|setIndexOptions
 argument_list|(
-literal|false
+name|IndexOptions
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -1687,8 +1703,6 @@ name|TYPE
 operator|.
 name|setDocValueType
 argument_list|(
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|BINARY

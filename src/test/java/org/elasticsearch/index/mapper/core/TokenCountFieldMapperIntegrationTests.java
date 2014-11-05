@@ -881,14 +881,7 @@ name|field
 argument_list|(
 literal|"format"
 argument_list|,
-name|LuceneTestCase
-operator|.
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|?
 literal|"doc_values"
-else|:
-literal|null
 argument_list|)
 operator|.
 name|endObject

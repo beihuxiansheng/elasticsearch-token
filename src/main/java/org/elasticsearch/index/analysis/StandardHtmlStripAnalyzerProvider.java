@@ -275,8 +275,6 @@ argument_list|,
 name|settings
 argument_list|,
 name|defaultStopwords
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 name|analyzer
@@ -284,9 +282,14 @@ operator|=
 operator|new
 name|StandardHtmlStripAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|stopWords
+argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 block|}

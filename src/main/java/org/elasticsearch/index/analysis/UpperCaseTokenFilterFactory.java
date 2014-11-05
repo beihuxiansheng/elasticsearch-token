@@ -180,8 +180,6 @@ return|return
 operator|new
 name|UpperCaseFilter
 argument_list|(
-name|version
-argument_list|,
 name|tokenStream
 argument_list|)
 return|;

@@ -166,16 +166,6 @@ name|Arrays
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
-import|;
-end_import
-
 begin_comment
 comment|/**  * Simple class to build document ID<-> ordinal mapping. Note: Ordinals are  *<tt>1</tt> based monotonically increasing positive integers.<tt>0</tt>  * donates the missing value in this context.  */
 end_comment
@@ -1598,10 +1588,10 @@ operator|+
 literal|1
 return|;
 block|}
-comment|/**      * Builds a {@link FixedBitSet} where each documents bit is that that has one or more ordinals associated with it.      * if every document has an ordinal associated with it this method returns<code>null</code>      */
+comment|/**      * Builds a {@link BitSet} where each documents bit is that that has one or more ordinals associated with it.      * if every document has an ordinal associated with it this method returns<code>null</code>      */
 DECL|method|buildDocsWithValuesSet
 specifier|public
-name|FixedBitSet
+name|BitSet
 name|buildDocsWithValuesSet
 parameter_list|()
 block|{
@@ -1970,23 +1960,6 @@ block|}
 block|}
 return|return
 name|ref
-return|;
-block|}
-annotation|@
-name|Override
-specifier|public
-name|Comparator
-argument_list|<
-name|BytesRef
-argument_list|>
-name|getComparator
-parameter_list|()
-block|{
-return|return
-name|termsEnum
-operator|.
-name|getComparator
-argument_list|()
 return|;
 block|}
 block|}

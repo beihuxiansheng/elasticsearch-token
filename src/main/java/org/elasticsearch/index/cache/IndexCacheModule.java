@@ -54,9 +54,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|bitset
 operator|.
-name|FilterCacheModule
+name|BitsetFilterCacheModule
 import|;
 end_import
 
@@ -70,9 +70,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|filter
 operator|.
-name|FixedBitSetFilterCacheModule
+name|FilterCacheModule
 import|;
 end_import
 
@@ -160,7 +160,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 operator|new
-name|FixedBitSetFilterCacheModule
+name|BitsetFilterCacheModule
 argument_list|(
 name|settings
 argument_list|)

@@ -1169,7 +1169,7 @@ name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
 literal|true
 argument_list|)
-comment|// no translog based flush - it might change the .del / segments.N files
+comment|// no translog based flush - it might change the .liv / segments.N files
 operator|.
 name|put
 argument_list|(
@@ -1622,7 +1622,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|beforeIndexShardClosed
+name|afterIndexShardClosed
 parameter_list|(
 name|ShardId
 name|sid
@@ -1685,6 +1685,8 @@ condition|)
 block|{
 return|return;
 block|}
+try|try
+init|(
 name|CheckIndex
 name|checkIndex
 init|=
@@ -1696,7 +1698,8 @@ operator|.
 name|directory
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|BytesStreamOutput
 name|os
 init|=
@@ -1784,6 +1787,7 @@ argument_list|,
 literal|"index check failure"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 catch|catch
@@ -2008,7 +2012,7 @@ name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
 literal|true
 argument_list|)
-comment|// no translog based flush - it might change the .del / segments.N files
+comment|// no translog based flush - it might change the .liv / segments.N files
 operator|.
 name|put
 argument_list|(
@@ -3627,7 +3631,7 @@ name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
 literal|true
 argument_list|)
-comment|// no translog based flush - it might change the .del / segments.N files
+comment|// no translog based flush - it might change the .liv / segments.N files
 operator|.
 name|put
 argument_list|(
@@ -4349,6 +4353,9 @@ name|fileToCorrupt
 operator|.
 name|getParentFile
 argument_list|()
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -4725,7 +4732,7 @@ name|String
 name|fileName
 parameter_list|)
 block|{
-comment|// .del and segments_N are per commit files and might change after corruption
+comment|// .liv and segments_N are per commit files and might change after corruption
 return|return
 name|fileName
 operator|.
@@ -4738,7 +4745,7 @@ name|fileName
 operator|.
 name|endsWith
 argument_list|(
-literal|".del"
+literal|".liv"
 argument_list|)
 return|;
 block|}
@@ -4804,7 +4811,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|".del"
+literal|".liv"
 argument_list|)
 condition|)
 block|{

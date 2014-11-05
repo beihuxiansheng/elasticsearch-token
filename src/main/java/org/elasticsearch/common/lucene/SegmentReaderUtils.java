@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|FilterLeafReader
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FilterAtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -95,7 +95,7 @@ specifier|static
 name|SegmentReader
 name|segmentReader
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 block|{
@@ -117,7 +117,7 @@ specifier|static
 name|SegmentReader
 name|segmentReaderOrNull
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 block|{
@@ -136,7 +136,7 @@ specifier|static
 name|boolean
 name|registerCoreListener
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|SegmentReader
@@ -162,7 +162,7 @@ specifier|static
 name|SegmentReader
 name|internalSegmentReader
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|,
 name|boolean
@@ -199,22 +199,22 @@ if|if
 condition|(
 name|reader
 operator|instanceof
-name|FilterAtomicReader
+name|FilterLeafReader
 condition|)
 block|{
 specifier|final
-name|FilterAtomicReader
+name|FilterLeafReader
 name|fReader
 init|=
 operator|(
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|)
 name|reader
 decl_stmt|;
 return|return
 name|segmentReader
 argument_list|(
-name|FilterAtomicReader
+name|FilterLeafReader
 operator|.
 name|unwrap
 argument_list|(

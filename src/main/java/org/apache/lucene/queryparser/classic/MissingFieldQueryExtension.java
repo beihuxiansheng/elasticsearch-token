@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -36,15 +36,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
 name|search
 operator|.
-name|XConstantScoreQuery
+name|Query
 import|;
 end_import
 
@@ -113,7 +111,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|XConstantScoreQuery
+name|ConstantScoreQuery
 argument_list|(
 name|MissingFilterParser
 operator|.

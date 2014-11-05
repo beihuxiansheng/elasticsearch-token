@@ -1428,13 +1428,6 @@ argument_list|)
 operator|.
 name|around
 argument_list|(
-operator|new
-name|TestRuleFieldCacheSanity
-argument_list|()
-argument_list|)
-operator|.
-name|around
-argument_list|(
 name|parentChainCallRule
 argument_list|)
 decl_stmt|;

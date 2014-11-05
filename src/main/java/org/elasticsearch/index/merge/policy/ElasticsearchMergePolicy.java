@@ -68,38 +68,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|DocValuesType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|FieldInfo
-operator|.
-name|IndexOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -366,10 +334,10 @@ block|}
 comment|/** Return an "upgraded" view of the reader. */
 DECL|method|filter
 specifier|static
-name|AtomicReader
+name|LeafReader
 name|filter
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 throws|throws
@@ -405,8 +373,12 @@ literal|null
 operator|&&
 name|versionInfo
 operator|.
-name|hasDocValues
+name|getDocValuesType
 argument_list|()
+operator|!=
+name|DocValuesType
+operator|.
+name|NONE
 condition|)
 block|{
 comment|// the reader is a recent one, it has versions and they are stored
@@ -649,6 +621,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: lots of things can wrong here...
 name|newVersionInfo
 operator|=
 operator|new
@@ -658,31 +631,33 @@ name|VersionFieldMapper
 operator|.
 name|NAME
 argument_list|,
-literal|false
-argument_list|,
+comment|// field name
 name|fieldNumber
 argument_list|,
+comment|// field number
 literal|false
 argument_list|,
-literal|true
-argument_list|,
+comment|// store term vectors
 literal|false
 argument_list|,
+comment|// omit norms
+literal|false
+argument_list|,
+comment|// store payloads
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|NONE
 argument_list|,
+comment|// index options
 name|DocValuesType
 operator|.
 name|NUMERIC
 argument_list|,
-name|DocValuesType
-operator|.
-name|NUMERIC
-argument_list|,
+comment|// docvalues
 operator|-
 literal|1
 argument_list|,
+comment|// docvalues generation
 name|Collections
 operator|.
 expr|<
@@ -692,6 +667,7 @@ name|String
 operator|>
 name|emptyMap
 argument_list|()
+comment|// attributes
 argument_list|)
 expr_stmt|;
 block|}
@@ -699,64 +675,15 @@ else|else
 block|{
 name|newVersionInfo
 operator|=
-operator|new
-name|FieldInfo
-argument_list|(
-name|VersionFieldMapper
-operator|.
-name|NAME
-argument_list|,
 name|versionInfo
-operator|.
-name|isIndexed
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|number
-argument_list|,
-name|versionInfo
-operator|.
-name|hasVectors
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|omitsNorms
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|hasPayloads
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|getIndexOptions
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|getDocValuesType
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|getNormType
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|getDocValuesGen
-argument_list|()
-argument_list|,
-name|versionInfo
-operator|.
-name|attributes
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
+name|newVersionInfo
+operator|.
+name|checkConsistency
+argument_list|()
+expr_stmt|;
+comment|// fail merge immediately if above code is wrong
 specifier|final
 name|ArrayList
 argument_list|<
@@ -853,7 +780,7 @@ block|}
 decl_stmt|;
 return|return
 operator|new
-name|FilterAtomicReader
+name|FilterLeafReader
 argument_list|(
 name|reader
 argument_list|)
@@ -964,7 +891,7 @@ DECL|method|getMergeReaders
 specifier|public
 name|List
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|getMergeReaders
 parameter_list|()
@@ -974,7 +901,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|readers
 init|=
@@ -987,7 +914,7 @@ name|ImmutableList
 operator|.
 name|Builder
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|>
 name|newReaders
 init|=
@@ -998,7 +925,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReader
+name|LeafReader
 name|reader
 range|:
 name|readers

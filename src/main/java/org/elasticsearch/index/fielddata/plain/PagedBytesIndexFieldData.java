@@ -404,13 +404,13 @@ specifier|public
 name|AtomicOrdinalsFieldData
 name|loadDirect
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context
@@ -807,7 +807,7 @@ block|{
 DECL|field|context
 specifier|private
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 decl_stmt|;
 DECL|field|breaker
@@ -830,7 +830,7 @@ decl_stmt|;
 DECL|method|PagedBytesEstimator
 name|PagedBytesEstimator
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|CircuitBreaker
@@ -922,7 +922,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context
@@ -985,7 +985,7 @@ operator|)
 name|fieldTerms
 operator|)
 operator|.
-name|computeStats
+name|getStats
 argument_list|()
 decl_stmt|;
 name|long
@@ -1103,7 +1103,7 @@ operator|.
 name|DEFAULT_ACCEPTABLE_OVERHEAD_RATIO
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context

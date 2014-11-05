@@ -72,9 +72,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene410
+name|lucene50
 operator|.
-name|Lucene410Codec
+name|Lucene50Codec
 import|;
 end_import
 
@@ -314,7 +314,7 @@ specifier|final
 class|class
 name|TestCodec
 extends|extends
-name|Lucene410Codec
+name|Lucene50Codec
 block|{
 annotation|@
 name|Override
@@ -364,17 +364,9 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|config
@@ -450,7 +442,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -472,7 +464,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|leaves
@@ -597,17 +589,9 @@ init|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 operator|new
 name|WhitespaceAnalyzer
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|)
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|config
@@ -706,7 +690,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -728,7 +712,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|leaves

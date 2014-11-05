@@ -18,6 +18,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -26,7 +46,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -55,6 +75,20 @@ operator|.
 name|search
 operator|.
 name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocValuesDocIdSet
 import|;
 end_import
 
@@ -119,22 +153,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|MatchDocIdSet
 import|;
 end_import
 
@@ -231,26 +249,6 @@ operator|.
 name|lookup
 operator|.
 name|SearchLookup
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -1039,7 +1037,7 @@ specifier|public
 name|DocIdSet
 name|getDocIdSet
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|Bits
@@ -1086,7 +1084,7 @@ specifier|static
 class|class
 name|ScriptDocSet
 extends|extends
-name|MatchDocIdSet
+name|DocValuesDocIdSet
 block|{
 DECL|field|searchScript
 specifier|private
@@ -1207,6 +1205,18 @@ operator|+
 literal|"] in script filter"
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|ramBytesUsed
+specifier|public
+name|long
+name|ramBytesUsed
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
 block|}
 block|}
 block|}

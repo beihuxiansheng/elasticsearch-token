@@ -84,6 +84,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -289,7 +299,9 @@ name|sets
 argument_list|)
 return|;
 block|}
+comment|/** A disjunction between several {@link Bits} instances with short-circuit logic. */
 DECL|class|OrBits
+specifier|public
 specifier|static
 class|class
 name|OrBits
@@ -304,6 +316,7 @@ index|[]
 name|bits
 decl_stmt|;
 DECL|method|OrBits
+specifier|public
 name|OrBits
 parameter_list|(
 name|Bits

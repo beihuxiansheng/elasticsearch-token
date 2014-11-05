@@ -407,13 +407,13 @@ specifier|public
 name|AtomicOrdinalsFieldData
 name|loadDirect
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context

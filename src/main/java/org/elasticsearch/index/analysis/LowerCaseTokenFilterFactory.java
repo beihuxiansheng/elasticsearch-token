@@ -264,8 +264,6 @@ return|return
 operator|new
 name|LowerCaseFilter
 argument_list|(
-name|version
-argument_list|,
 name|tokenStream
 argument_list|)
 return|;
@@ -285,8 +283,6 @@ return|return
 operator|new
 name|GreekLowerCaseFilter
 argument_list|(
-name|version
-argument_list|,
 name|tokenStream
 argument_list|)
 return|;

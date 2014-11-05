@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|topLevelReader
 decl_stmt|;
 DECL|field|readerContext
 specifier|private
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 decl_stmt|;
 DECL|field|docId
@@ -217,7 +217,7 @@ parameter_list|(
 name|InternalSearchHit
 name|hit
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|int
@@ -270,7 +270,7 @@ return|;
 block|}
 DECL|method|reader
 specifier|public
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|()
 block|{
@@ -283,7 +283,7 @@ return|;
 block|}
 DECL|method|readerContext
 specifier|public
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 parameter_list|()
 block|{

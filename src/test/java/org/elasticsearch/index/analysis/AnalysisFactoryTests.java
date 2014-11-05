@@ -1099,6 +1099,16 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// TODO: these tokenfilters are not yet exposed: useful?
+comment|// suggest stop
+name|put
+argument_list|(
+literal|"suggeststop"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// capitalizes tokens
 name|put
 argument_list|(

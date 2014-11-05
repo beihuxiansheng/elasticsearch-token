@@ -90,7 +90,21 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|IndexOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|LeafReaderContext
 import|;
 end_import
 
@@ -5409,8 +5423,12 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|!=
+name|IndexOptions
+operator|.
+name|NONE
 operator|&&
 operator|!
 name|fieldMapper
@@ -5523,7 +5541,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|context
@@ -5898,7 +5916,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 range|:
 name|context

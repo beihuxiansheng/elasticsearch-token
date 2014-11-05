@@ -234,9 +234,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|bitset
 operator|.
-name|FilterCache
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -250,9 +250,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|filter
 operator|.
-name|FixedBitSetFilterCache
+name|FilterCache
 import|;
 end_import
 
@@ -1178,11 +1178,11 @@ name|FilterCache
 name|filterCache
 parameter_list|()
 function_decl|;
-DECL|method|fixedBitSetFilterCache
+DECL|method|bitsetFilterCache
 specifier|public
 specifier|abstract
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|()
 function_decl|;
 DECL|method|fieldData

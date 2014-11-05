@@ -64,6 +64,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Accountable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -97,6 +111,16 @@ operator|.
 name|search
 operator|.
 name|MultiValueMode
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -214,6 +238,28 @@ parameter_list|()
 block|{
 return|return
 name|memorySizeInBytes
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getChildResources
+specifier|public
+name|Iterable
+argument_list|<
+name|?
+extends|extends
+name|Accountable
+argument_list|>
+name|getChildResources
+parameter_list|()
+block|{
+comment|// TODO: should we break down by type?
+comment|// the current 'map' does not impl java.util.Map so we cant use Accountables.namedAccountables...
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
 return|;
 block|}
 annotation|@

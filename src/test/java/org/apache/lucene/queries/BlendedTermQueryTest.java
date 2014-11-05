@@ -110,7 +110,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|IndexOptions
 import|;
 end_import
 
@@ -928,14 +928,10 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 else|:
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS
@@ -974,14 +970,10 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 else|:
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS

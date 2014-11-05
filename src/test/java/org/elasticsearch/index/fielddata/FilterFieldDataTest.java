@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -373,7 +373,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader
@@ -1241,7 +1241,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader

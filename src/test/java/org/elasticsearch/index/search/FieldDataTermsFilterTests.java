@@ -497,7 +497,7 @@ name|writer
 decl_stmt|;
 DECL|field|reader
 specifier|protected
-name|AtomicReader
+name|LeafReader
 name|reader
 decl_stmt|;
 DECL|field|strMapper
@@ -612,17 +612,9 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|)
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -291,8 +291,6 @@ argument_list|,
 name|settings
 argument_list|,
 name|defaultStopwords
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 name|int
@@ -314,9 +312,14 @@ operator|=
 operator|new
 name|StandardAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|stopWords
+argument_list|)
+expr_stmt|;
+name|standardAnalyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 name|standardAnalyzer

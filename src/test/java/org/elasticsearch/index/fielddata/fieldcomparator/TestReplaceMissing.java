@@ -275,7 +275,7 @@ argument_list|(
 name|dir
 argument_list|)
 decl_stmt|;
-name|AtomicReader
+name|LeafReader
 name|ar
 init|=
 name|getOnlySegmentReader

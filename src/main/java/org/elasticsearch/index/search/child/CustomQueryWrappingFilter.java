@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -95,22 +95,6 @@ operator|.
 name|lease
 operator|.
 name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|docset
-operator|.
-name|DocIdSets
 import|;
 end_import
 
@@ -209,7 +193,7 @@ DECL|field|docIdSets
 specifier|private
 name|IdentityHashMap
 argument_list|<
-name|AtomicReader
+name|LeafReader
 argument_list|,
 name|DocIdSet
 argument_list|>
@@ -264,7 +248,7 @@ name|DocIdSet
 name|getDocIdSet
 parameter_list|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 specifier|final
@@ -341,7 +325,7 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|AtomicReaderContext
+name|LeafReaderContext
 name|leaf
 range|:
 name|searcher
@@ -357,15 +341,6 @@ specifier|final
 name|DocIdSet
 name|set
 init|=
-name|DocIdSets
-operator|.
-name|toCacheable
-argument_list|(
-name|leaf
-operator|.
-name|reader
-argument_list|()
-argument_list|,
 operator|new
 name|DocIdSet
 argument_list|()
@@ -401,8 +376,18 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|long
+name|ramBytesUsed
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
 block|}
-argument_list|)
+block|}
 decl_stmt|;
 name|docIdSets
 operator|.
@@ -446,17 +431,6 @@ name|reader
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|set
-operator|!=
-literal|null
-operator|&&
-name|acceptDocs
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 name|BitsFilteredDocIdSet
 operator|.
@@ -466,10 +440,6 @@ name|set
 argument_list|,
 name|acceptDocs
 argument_list|)
-return|;
-block|}
-return|return
-name|set
 return|;
 block|}
 annotation|@

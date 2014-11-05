@@ -174,20 +174,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -436,14 +422,7 @@ name|field
 argument_list|(
 literal|"format"
 argument_list|,
-name|LuceneTestCase
-operator|.
-name|defaultCodecSupportsSortedSet
-argument_list|()
-condition|?
 literal|"doc_values"
-else|:
-literal|"fst"
 argument_list|)
 operator|.
 name|endObject
@@ -805,7 +784,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader
@@ -1457,7 +1436,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -1468,7 +1447,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 range|:
 name|leaves
@@ -1935,7 +1914,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader
@@ -2381,7 +2360,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -2392,7 +2371,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 range|:
 name|leaves
@@ -2839,7 +2818,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader
@@ -3177,7 +3156,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -3188,7 +3167,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 range|:
 name|leaves
@@ -3430,7 +3409,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader
@@ -3759,7 +3738,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -3770,7 +3749,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 range|:
 name|leaves
@@ -4566,7 +4545,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 init|=
 name|refreshReader
@@ -4906,7 +4885,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|AtomicReaderContext
+name|LeafReaderContext
 argument_list|>
 name|leaves
 init|=
@@ -4917,7 +4896,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 range|:
 name|leaves
@@ -5082,7 +5061,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|IndexFieldData
@@ -5380,7 +5359,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|IndexNumericFieldData
@@ -5630,7 +5609,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|IndexNumericFieldData
@@ -5842,7 +5821,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|IndexGeoPointFieldData

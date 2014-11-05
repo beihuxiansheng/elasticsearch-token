@@ -67,17 +67,8 @@ block|{
 DECL|method|DummyAnalyzer
 specifier|protected
 name|DummyAnalyzer
-parameter_list|(
-name|Version
-name|version
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|version
-argument_list|)
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|createComponents
@@ -87,9 +78,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 return|return

@@ -46,20 +46,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -68,7 +54,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|IndexOptions
 import|;
 end_import
 
@@ -277,16 +263,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -708,8 +684,6 @@ operator|.
 name|indexOptions
 argument_list|()
 operator|==
-name|FieldInfo
-operator|.
 name|IndexOptions
 operator|.
 name|DOCS_AND_FREQS_AND_POSITIONS_AND_OFFSETS

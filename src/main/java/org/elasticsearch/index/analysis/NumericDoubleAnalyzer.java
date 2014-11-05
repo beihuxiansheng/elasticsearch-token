@@ -38,16 +38,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -232,9 +222,6 @@ specifier|protected
 name|NumericDoubleTokenizer
 name|createNumericTokenizer
 parameter_list|(
-name|Reader
-name|reader
-parameter_list|,
 name|char
 index|[]
 name|buffer
@@ -246,8 +233,6 @@ return|return
 operator|new
 name|NumericDoubleTokenizer
 argument_list|(
-name|reader
-argument_list|,
 name|precisionStep
 argument_list|,
 name|buffer

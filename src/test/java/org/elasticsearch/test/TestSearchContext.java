@@ -160,9 +160,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|bitset
 operator|.
-name|FilterCache
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -176,9 +176,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|filter
 operator|.
-name|FixedBitSetFilterCache
+name|FilterCache
 import|;
 end_import
 
@@ -633,7 +633,7 @@ name|indexFieldDataService
 decl_stmt|;
 DECL|field|fixedBitSetFilterCache
 specifier|final
-name|FixedBitSetFilterCache
+name|BitsetFilterCache
 name|fixedBitSetFilterCache
 decl_stmt|;
 DECL|field|threadPool
@@ -733,7 +733,7 @@ name|fixedBitSetFilterCache
 operator|=
 name|indexService
 operator|.
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 argument_list|()
 expr_stmt|;
 name|this
@@ -1367,10 +1367,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fixedBitSetFilterCache
+DECL|method|bitsetFilterCache
 specifier|public
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|()
 block|{
 return|return

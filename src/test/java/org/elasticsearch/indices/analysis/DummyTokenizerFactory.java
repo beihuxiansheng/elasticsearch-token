@@ -44,16 +44,6 @@ name|TokenizerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_class
 DECL|class|DummyTokenizerFactory
 specifier|public
@@ -80,10 +70,7 @@ DECL|method|create
 specifier|public
 name|Tokenizer
 name|create
-parameter_list|(
-name|Reader
-name|reader
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 literal|null

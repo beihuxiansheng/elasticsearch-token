@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|BytesRef
+name|BitSet
 import|;
 end_import
 
@@ -154,7 +154,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|BytesRef
 import|;
 end_import
 
@@ -331,7 +331,7 @@ specifier|protected
 name|SortedBinaryDocValues
 name|getValues
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{
@@ -450,7 +450,7 @@ specifier|protected
 name|SortedDocValues
 name|getSortedDocValues
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|String
@@ -502,7 +502,7 @@ block|}
 else|else
 block|{
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 init|=
 name|nested
@@ -511,9 +511,12 @@ name|rootDocs
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 init|=
 name|nested
@@ -522,6 +525,9 @@ name|innerDocs
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 name|selectedValues
 operator|=
@@ -646,7 +652,7 @@ specifier|protected
 name|BinaryDocValues
 name|getBinaryDocValues
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|String
@@ -690,7 +696,7 @@ block|}
 else|else
 block|{
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|rootDocs
 init|=
 name|nested
@@ -699,9 +705,12 @@ name|rootDocs
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 specifier|final
-name|FixedBitSet
+name|BitSet
 name|innerDocs
 init|=
 name|nested
@@ -710,6 +719,9 @@ name|innerDocs
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|bits
+argument_list|()
 decl_stmt|;
 name|selectedValues
 operator|=
@@ -745,7 +757,7 @@ specifier|protected
 name|Bits
 name|getDocsWithField
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|,
 name|String

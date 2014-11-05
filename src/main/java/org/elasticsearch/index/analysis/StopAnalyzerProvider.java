@@ -204,8 +204,6 @@ argument_list|,
 name|StopAnalyzer
 operator|.
 name|ENGLISH_STOP_WORDS_SET
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 name|this
@@ -215,9 +213,16 @@ operator|=
 operator|new
 name|StopAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|stopWords
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|stopAnalyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 block|}

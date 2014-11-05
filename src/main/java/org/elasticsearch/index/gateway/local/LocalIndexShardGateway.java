@@ -1047,10 +1047,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 operator|.

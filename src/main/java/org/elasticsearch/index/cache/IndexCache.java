@@ -150,9 +150,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|bitset
 operator|.
-name|FilterCache
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -166,9 +166,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|filter
 operator|.
-name|FixedBitSetFilterCache
+name|FilterCache
 import|;
 end_import
 
@@ -232,11 +232,11 @@ specifier|final
 name|QueryParserCache
 name|queryParserCache
 decl_stmt|;
-DECL|field|fixedBitSetFilterCache
+DECL|field|bitsetFilterCache
 specifier|private
 specifier|final
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 decl_stmt|;
 DECL|field|clusterService
 specifier|private
@@ -263,8 +263,8 @@ parameter_list|,
 name|QueryParserCache
 name|queryParserCache
 parameter_list|,
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|)
 block|{
 name|super
@@ -288,9 +288,9 @@ name|queryParserCache
 expr_stmt|;
 name|this
 operator|.
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 operator|=
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 expr_stmt|;
 block|}
 annotation|@
@@ -343,15 +343,15 @@ return|return
 name|filterCache
 return|;
 block|}
-comment|/**      * Return the {@link FixedBitSetFilterCache} for this index.      */
-DECL|method|fixedBitSetFilterCache
+comment|/**      * Return the {@link BitsetFilterCache} for this index.      */
+DECL|method|bitsetFilterCache
 specifier|public
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|()
 block|{
 return|return
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 return|;
 block|}
 DECL|method|queryParserCache
@@ -386,7 +386,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 operator|.
 name|close
 argument_list|()
@@ -428,7 +428,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 operator|.
 name|clear
 argument_list|(

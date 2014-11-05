@@ -116,16 +116,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_comment
 comment|/**  * Factory for {@link ThaiTokenizer}  */
 end_comment
@@ -181,17 +171,12 @@ DECL|method|create
 specifier|public
 name|Tokenizer
 name|create
-parameter_list|(
-name|Reader
-name|reader
-parameter_list|)
+parameter_list|()
 block|{
 return|return
 operator|new
 name|ThaiTokenizer
-argument_list|(
-name|reader
-argument_list|)
+argument_list|()
 return|;
 block|}
 block|}

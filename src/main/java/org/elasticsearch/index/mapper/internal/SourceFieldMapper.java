@@ -84,8 +84,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
-operator|.
 name|IndexOptions
 import|;
 end_import
@@ -591,11 +589,14 @@ static|static
 block|{
 name|FIELD_TYPE
 operator|.
-name|setIndexed
+name|setIndexOptions
 argument_list|(
-literal|false
+name|IndexOptions
+operator|.
+name|NONE
 argument_list|)
 expr_stmt|;
+comment|// not indexed
 name|FIELD_TYPE
 operator|.
 name|setStored
@@ -608,15 +609,6 @@ operator|.
 name|setOmitNorms
 argument_list|(
 literal|true
-argument_list|)
-expr_stmt|;
-name|FIELD_TYPE
-operator|.
-name|setIndexOptions
-argument_list|(
-name|IndexOptions
-operator|.
-name|DOCS_ONLY
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE

@@ -181,7 +181,7 @@ comment|// Current reader from which we can get the term vectors. No info on ter
 comment|// and field statistics.
 DECL|field|reader
 specifier|private
-name|AtomicReader
+name|LeafReader
 name|reader
 decl_stmt|;
 comment|// The parent reader from which we can get proper field and term
@@ -412,7 +412,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 block|{
@@ -731,7 +731,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|getReader
-name|AtomicReader
+name|LeafReader
 name|getReader
 parameter_list|()
 block|{

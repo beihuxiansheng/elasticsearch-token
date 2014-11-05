@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|FixedBitSet
+name|BitSet
 import|;
 end_import
 
@@ -413,13 +413,13 @@ specifier|public
 name|AtomicGeoPointFieldData
 name|loadDirect
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AtomicReader
+name|LeafReader
 name|reader
 init|=
 name|context
@@ -849,7 +849,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|FixedBitSet
+name|BitSet
 name|set
 init|=
 name|builder

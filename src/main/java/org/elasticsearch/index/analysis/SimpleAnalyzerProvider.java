@@ -165,6 +165,13 @@ name|simpleAnalyzer
 operator|=
 operator|new
 name|SimpleAnalyzer
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|simpleAnalyzer
+operator|.
+name|setVersion
 argument_list|(
 name|version
 argument_list|)

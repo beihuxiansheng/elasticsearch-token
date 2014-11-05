@@ -479,7 +479,7 @@ name|UNIQUE
 expr_stmt|;
 for|for
 control|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|readerContext
 range|:
 name|context
@@ -1157,7 +1157,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -1394,7 +1394,7 @@ return|;
 block|}
 else|else
 block|{
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 init|=
 name|indexReader
@@ -1520,7 +1520,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -1627,7 +1627,7 @@ return|;
 block|}
 else|else
 block|{
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 init|=
 name|indexReader
@@ -1789,7 +1789,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -2582,7 +2582,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -3231,7 +3231,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{

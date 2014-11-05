@@ -40,16 +40,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -77,9 +67,6 @@ name|createComponents
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|,
-name|Reader
-name|reader
 parameter_list|)
 block|{
 try|try
@@ -92,8 +79,6 @@ name|TokenStreamComponents
 argument_list|(
 name|createNumericTokenizer
 argument_list|(
-name|reader
-argument_list|,
 operator|new
 name|char
 index|[
@@ -126,9 +111,6 @@ specifier|abstract
 name|T
 name|createNumericTokenizer
 parameter_list|(
-name|Reader
-name|reader
-parameter_list|,
 name|char
 index|[]
 name|buffer

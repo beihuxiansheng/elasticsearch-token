@@ -570,6 +570,9 @@ operator|.
 name|fsync
 argument_list|(
 name|fileToSync
+operator|.
+name|toPath
+argument_list|()
 argument_list|,
 name|isDir
 argument_list|)

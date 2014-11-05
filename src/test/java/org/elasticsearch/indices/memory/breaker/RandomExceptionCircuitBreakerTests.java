@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReader
+name|LeafReader
 import|;
 end_import
 
@@ -306,7 +306,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|ThrowingAtomicReaderWrapper
+name|ThrowingLeafReaderWrapper
 import|;
 end_import
 
@@ -1403,7 +1403,7 @@ name|ThrowingSubReaderWrapper
 extends|extends
 name|SubReaderWrapper
 implements|implements
-name|ThrowingAtomicReaderWrapper
+name|ThrowingLeafReaderWrapper
 operator|.
 name|Thrower
 block|{
@@ -1486,16 +1486,16 @@ annotation|@
 name|Override
 DECL|method|wrap
 specifier|public
-name|AtomicReader
+name|LeafReader
 name|wrap
 parameter_list|(
-name|AtomicReader
+name|LeafReader
 name|reader
 parameter_list|)
 block|{
 return|return
 operator|new
-name|ThrowingAtomicReaderWrapper
+name|ThrowingLeafReaderWrapper
 argument_list|(
 name|reader
 argument_list|,
@@ -1510,7 +1510,7 @@ specifier|public
 name|void
 name|maybeThrow
 parameter_list|(
-name|ThrowingAtomicReaderWrapper
+name|ThrowingLeafReaderWrapper
 operator|.
 name|Flags
 name|flag

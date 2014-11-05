@@ -549,7 +549,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_42
+name|LUCENE_4_2
 argument_list|)
 operator|)
 condition|)
@@ -612,7 +612,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_42
+name|LUCENE_4_2
 argument_list|)
 condition|)
 block|{

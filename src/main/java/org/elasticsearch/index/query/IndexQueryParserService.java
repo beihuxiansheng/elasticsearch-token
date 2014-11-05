@@ -276,9 +276,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
+name|cache
 operator|.
-name|IndexEngine
+name|bitset
+operator|.
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -290,11 +292,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
+name|engine
 operator|.
-name|fixedbitset
-operator|.
-name|FixedBitSetFilterCache
+name|IndexEngine
 import|;
 end_import
 
@@ -626,10 +626,10 @@ specifier|final
 name|IndexFieldDataService
 name|fieldDataService
 decl_stmt|;
-DECL|field|fixedBitSetFilterCache
+DECL|field|bitsetFilterCache
 specifier|final
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 decl_stmt|;
 DECL|field|indexEngine
 specifier|final
@@ -715,8 +715,8 @@ parameter_list|,
 name|IndexEngine
 name|indexEngine
 parameter_list|,
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|,
 annotation|@
 name|Nullable
@@ -795,9 +795,9 @@ name|indexEngine
 expr_stmt|;
 name|this
 operator|.
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 operator|=
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 expr_stmt|;
 name|this
 operator|.

@@ -24,11 +24,35 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|util
+operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|analysis
 operator|.
-name|cn
+name|standard
 operator|.
-name|ChineseAnalyzer
+name|StandardAnalyzer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -103,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Only for old indexes  */
 end_comment
 
 begin_class
@@ -114,13 +138,13 @@ name|ChineseAnalyzerProvider
 extends|extends
 name|AbstractIndexAnalyzerProvider
 argument_list|<
-name|ChineseAnalyzer
+name|StandardAnalyzer
 argument_list|>
 block|{
 DECL|field|analyzer
 specifier|private
 specifier|final
-name|ChineseAnalyzer
+name|StandardAnalyzer
 name|analyzer
 decl_stmt|;
 annotation|@
@@ -159,18 +183,26 @@ argument_list|,
 name|settings
 argument_list|)
 expr_stmt|;
+comment|// old index: best effort
 name|analyzer
 operator|=
 operator|new
-name|ChineseAnalyzer
+name|StandardAnalyzer
 argument_list|()
+expr_stmt|;
+name|analyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
 DECL|method|get
 specifier|public
-name|ChineseAnalyzer
+name|StandardAnalyzer
 name|get
 parameter_list|()
 block|{

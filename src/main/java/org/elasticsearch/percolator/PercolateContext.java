@@ -38,7 +38,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -220,9 +220,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|bitset
 operator|.
-name|FilterCache
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -236,9 +236,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|filter
 operator|.
-name|FixedBitSetFilterCache
+name|FilterCache
 import|;
 end_import
 
@@ -1063,7 +1063,7 @@ operator|.
 name|reader
 argument_list|()
 decl_stmt|;
-name|AtomicReaderContext
+name|LeafReaderContext
 name|atomicReaderContext
 init|=
 name|indexReader
@@ -2089,16 +2089,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fixedBitSetFilterCache
+DECL|method|bitsetFilterCache
 specifier|public
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|()
 block|{
 return|return
 name|indexService
 operator|.
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 argument_list|()
 return|;
 block|}

@@ -6661,7 +6661,7 @@ name|luceneVersion
 operator|!=
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_6_0
 argument_list|)
 expr_stmt|;
 name|assertThat

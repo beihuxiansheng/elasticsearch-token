@@ -184,9 +184,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|bitset
 operator|.
-name|FilterCache
+name|BitsetFilterCache
 import|;
 end_import
 
@@ -200,9 +200,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|filter
 operator|.
-name|FixedBitSetFilterCache
+name|FilterCache
 import|;
 end_import
 
@@ -1436,16 +1436,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|fixedBitSetFilterCache
+DECL|method|bitsetFilterCache
 specifier|public
-name|FixedBitSetFilterCache
-name|fixedBitSetFilterCache
+name|BitsetFilterCache
+name|bitsetFilterCache
 parameter_list|()
 block|{
 return|return
 name|context
 operator|.
-name|fixedBitSetFilterCache
+name|bitsetFilterCache
 argument_list|()
 return|;
 block|}

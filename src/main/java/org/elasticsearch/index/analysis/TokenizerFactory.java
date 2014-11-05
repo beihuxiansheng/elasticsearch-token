@@ -58,10 +58,7 @@ function_decl|;
 DECL|method|create
 name|Tokenizer
 name|create
-parameter_list|(
-name|Reader
-name|reader
-parameter_list|)
+parameter_list|()
 function_decl|;
 block|}
 end_interface

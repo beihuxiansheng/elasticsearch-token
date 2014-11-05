@@ -272,7 +272,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -280,9 +280,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -930,7 +932,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|File
+name|Path
 name|tempDir
 init|=
 name|createTempDir

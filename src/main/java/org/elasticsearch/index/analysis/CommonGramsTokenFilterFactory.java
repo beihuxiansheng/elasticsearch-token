@@ -281,8 +281,6 @@ name|settings
 argument_list|,
 literal|null
 argument_list|,
-name|version
-argument_list|,
 name|ignoreCase
 argument_list|)
 expr_stmt|;
@@ -321,8 +319,6 @@ init|=
 operator|new
 name|CommonGramsFilter
 argument_list|(
-name|version
-argument_list|,
 name|tokenStream
 argument_list|,
 name|words

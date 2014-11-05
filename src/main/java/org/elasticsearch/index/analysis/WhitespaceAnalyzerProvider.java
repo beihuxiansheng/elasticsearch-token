@@ -165,6 +165,13 @@ name|analyzer
 operator|=
 operator|new
 name|WhitespaceAnalyzer
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|analyzer
+operator|.
+name|setVersion
 argument_list|(
 name|version
 argument_list|)

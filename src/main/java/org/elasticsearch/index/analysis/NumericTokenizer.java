@@ -128,16 +128,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Iterator
@@ -233,9 +223,6 @@ DECL|method|NumericTokenizer
 specifier|protected
 name|NumericTokenizer
 parameter_list|(
-name|Reader
-name|reader
-parameter_list|,
 name|NumericTokenStream
 name|numericTokenStream
 parameter_list|,
@@ -255,8 +242,6 @@ name|delegatingAttributeFactory
 argument_list|(
 name|numericTokenStream
 argument_list|)
-argument_list|,
-name|reader
 argument_list|)
 expr_stmt|;
 name|this

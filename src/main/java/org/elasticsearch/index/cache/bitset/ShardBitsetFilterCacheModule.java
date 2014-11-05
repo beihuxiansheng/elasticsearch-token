@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.fixedbitset
+DECL|package|org.elasticsearch.index.cache.bitset
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|fixedbitset
+name|bitset
 package|;
 end_package
 
@@ -37,10 +37,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|ShardFixedBitSetFilterCacheModule
+DECL|class|ShardBitsetFilterCacheModule
 specifier|public
 class|class
-name|ShardFixedBitSetFilterCacheModule
+name|ShardBitsetFilterCacheModule
 extends|extends
 name|AbstractModule
 block|{
@@ -54,7 +54,7 @@ parameter_list|()
 block|{
 name|bind
 argument_list|(
-name|ShardFixedBitSetFilterCache
+name|ShardBitsetFilterCache
 operator|.
 name|class
 argument_list|)

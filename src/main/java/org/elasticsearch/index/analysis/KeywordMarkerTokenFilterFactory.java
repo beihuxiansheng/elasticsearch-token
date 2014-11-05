@@ -246,8 +246,6 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"keywords"
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 if|if
@@ -270,8 +268,6 @@ operator|=
 operator|new
 name|CharArraySet
 argument_list|(
-name|version
-argument_list|,
 name|rules
 argument_list|,
 name|ignoreCase

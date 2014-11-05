@@ -179,8 +179,6 @@ operator|=
 operator|new
 name|PersianAnalyzer
 argument_list|(
-name|version
-argument_list|,
 name|Analysis
 operator|.
 name|parseStopWords
@@ -193,9 +191,14 @@ name|PersianAnalyzer
 operator|.
 name|getDefaultStopSet
 argument_list|()
-argument_list|,
-name|version
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|analyzer
+operator|.
+name|setVersion
+argument_list|(
+name|version
 argument_list|)
 expr_stmt|;
 block|}

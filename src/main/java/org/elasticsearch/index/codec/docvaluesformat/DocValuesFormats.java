@@ -74,6 +74,20 @@ name|MapBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|Lucene
+import|;
+end_import
+
 begin_comment
 comment|/**  * This class represents the set of Elasticsearch "built-in"  * {@link DocValuesFormatProvider.Factory doc values format factories}  */
 end_comment
@@ -169,7 +183,9 @@ name|DocValuesFormat
 operator|.
 name|forName
 argument_list|(
-literal|"Lucene410"
+name|Lucene
+operator|.
+name|LATEST_DOC_VALUES_FORMAT
 argument_list|)
 argument_list|)
 argument_list|)

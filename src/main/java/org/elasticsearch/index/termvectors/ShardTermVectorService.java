@@ -1113,14 +1113,17 @@ block|}
 comment|// and must be indexed
 if|if
 condition|(
-operator|!
 name|field
 operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|indexed
+name|indexOptions
 argument_list|()
+operator|==
+name|IndexOptions
+operator|.
+name|NONE
 condition|)
 block|{
 return|return
@@ -2073,7 +2076,7 @@ return|return
 name|parallelFields
 return|;
 block|}
-comment|// Poached from Lucene ParallelAtomicReader
+comment|// Poached from Lucene ParallelLeafReader
 DECL|class|ParallelFields
 specifier|private
 specifier|static

@@ -215,8 +215,6 @@ argument_list|,
 name|CharArraySet
 operator|.
 name|EMPTY_SET
-argument_list|,
-name|version
 argument_list|)
 expr_stmt|;
 block|}

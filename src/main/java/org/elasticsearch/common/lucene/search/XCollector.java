@@ -46,11 +46,10 @@ begin_comment
 comment|/**  * An extension to {@link Collector} that allows for a callback when  * collection is done.  */
 end_comment
 
-begin_class
-DECL|class|XCollector
+begin_interface
+DECL|interface|XCollector
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|XCollector
 extends|extends
 name|Collector
@@ -62,9 +61,9 @@ name|postCollection
 parameter_list|()
 throws|throws
 name|IOException
-block|{      }
+function_decl|;
 block|}
-end_class
+end_interface
 
 end_unit
 

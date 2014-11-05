@@ -248,10 +248,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
@@ -471,10 +467,6 @@ name|IndexWriterConfig
 argument_list|(
 name|Lucene
 operator|.
-name|VERSION
-argument_list|,
-name|Lucene
-operator|.
 name|STANDARD_ANALYZER
 argument_list|)
 argument_list|)
@@ -637,7 +629,7 @@ name|equalTo
 argument_list|(
 name|PrefixQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 operator|.
 name|getClass
 argument_list|()
@@ -773,7 +765,7 @@ name|equalTo
 argument_list|(
 name|PrefixQuery
 operator|.
-name|CONSTANT_SCORE_AUTO_REWRITE_DEFAULT
+name|CONSTANT_SCORE_FILTER_REWRITE
 operator|.
 name|getClass
 argument_list|()
@@ -852,10 +844,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER
@@ -1065,10 +1053,6 @@ argument_list|,
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|Lucene
-operator|.
-name|VERSION
-argument_list|,
 name|Lucene
 operator|.
 name|STANDARD_ANALYZER

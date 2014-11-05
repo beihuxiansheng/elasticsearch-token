@@ -148,7 +148,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|DocValuesType
 import|;
 end_import
 
@@ -161,8 +161,6 @@ operator|.
 name|lucene
 operator|.
 name|index
-operator|.
-name|FieldInfo
 operator|.
 name|IndexOptions
 import|;
@@ -634,7 +632,7 @@ name|setIndexOptions
 argument_list|(
 name|IndexOptions
 operator|.
-name|DOCS_ONLY
+name|DOCS
 argument_list|)
 expr_stmt|;
 name|FIELD_TYPE
@@ -2458,8 +2456,6 @@ name|TYPE
 operator|.
 name|setDocValueType
 argument_list|(
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|BINARY
@@ -2610,8 +2606,6 @@ name|TYPE
 operator|.
 name|setDocValueType
 argument_list|(
-name|FieldInfo
-operator|.
 name|DocValuesType
 operator|.
 name|BINARY

@@ -4804,6 +4804,23 @@ name|SpatialOperation
 name|relation
 parameter_list|)
 block|{
+if|if
+condition|(
+name|relation
+operator|==
+name|SpatialOperation
+operator|.
+name|IsDisjointTo
+condition|)
+block|{
+comment|// disjoint works in terms of intersection
+name|relation
+operator|=
+name|SpatialOperation
+operator|.
+name|Intersects
+expr_stmt|;
+block|}
 try|try
 block|{
 name|GeohashPrefixTree
@@ -4872,6 +4889,11 @@ name|UnsupportedSpatialOperation
 name|e
 parameter_list|)
 block|{
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
 return|return
 literal|false
 return|;

@@ -313,8 +313,6 @@ argument_list|,
 name|settings
 argument_list|,
 literal|"word_list"
-argument_list|,
-name|version
 argument_list|)
 expr_stmt|;
 if|if

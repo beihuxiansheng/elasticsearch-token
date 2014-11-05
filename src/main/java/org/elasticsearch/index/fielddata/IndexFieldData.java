@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -66,6 +66,36 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|join
+operator|.
+name|BitDocIdSetFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BitDocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -83,20 +113,6 @@ operator|.
 name|util
 operator|.
 name|BytesRefBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|FixedBitSet
 import|;
 end_import
 
@@ -147,22 +163,6 @@ operator|.
 name|index
 operator|.
 name|IndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|cache
-operator|.
-name|fixedbitset
-operator|.
-name|FixedBitSetFilter
 import|;
 end_import
 
@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thread-safe utility class that allows to get per-segment values via the  * {@link #load(AtomicReaderContext)} method.  */
+comment|/**  * Thread-safe utility class that allows to get per-segment values via the  * {@link #load(LeafReaderContext)} method.  */
 end_comment
 
 begin_interface
@@ -436,7 +436,7 @@ DECL|method|load
 name|FD
 name|load
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 function_decl|;
@@ -445,7 +445,7 @@ DECL|method|loadDirect
 name|FD
 name|loadDirect
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|context
 parameter_list|)
 throws|throws
@@ -556,7 +556,7 @@ DECL|field|rootFilter
 DECL|field|innerFilter
 specifier|private
 specifier|final
-name|FixedBitSetFilter
+name|BitDocIdSetFilter
 name|rootFilter
 decl_stmt|,
 name|innerFilter
@@ -565,10 +565,10 @@ DECL|method|Nested
 specifier|public
 name|Nested
 parameter_list|(
-name|FixedBitSetFilter
+name|BitDocIdSetFilter
 name|rootFilter
 parameter_list|,
-name|FixedBitSetFilter
+name|BitDocIdSetFilter
 name|innerFilter
 parameter_list|)
 block|{
@@ -585,13 +585,13 @@ operator|=
 name|innerFilter
 expr_stmt|;
 block|}
-comment|/**              * Get a {@link FixedBitSet} that matches the root documents.              */
+comment|/**              * Get a {@link BitDocIdSet} that matches the root documents.              */
 DECL|method|rootDocs
 specifier|public
-name|FixedBitSet
+name|BitDocIdSet
 name|rootDocs
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 parameter_list|)
 throws|throws
@@ -603,18 +603,16 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|ctx
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}
-comment|/**              * Get a {@link FixedBitSet} that matches the inner documents.              */
+comment|/**              * Get a {@link BitDocIdSet} that matches the inner documents.              */
 DECL|method|innerDocs
 specifier|public
-name|FixedBitSet
+name|BitDocIdSet
 name|innerDocs
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|ctx
 parameter_list|)
 throws|throws
@@ -626,8 +624,6 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|ctx
-argument_list|,
-literal|null
 argument_list|)
 return|;
 block|}

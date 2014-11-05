@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|AtomicReaderContext
+name|LeafReaderContext
 import|;
 end_import
 
@@ -87,6 +87,20 @@ operator|.
 name|index
 operator|.
 name|SortedNumericDocValues
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocIdSetIterator
 import|;
 end_import
 
@@ -486,7 +500,7 @@ specifier|public
 name|void
 name|setNextReader
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -506,7 +520,7 @@ specifier|private
 name|Collector
 name|createCollector
 parameter_list|(
-name|AtomicReaderContext
+name|LeafReaderContext
 name|reader
 parameter_list|)
 block|{
@@ -1540,9 +1554,10 @@ literal|0
 argument_list|)
 init|;
 name|ord
-operator|!=
-operator|-
-literal|1
+operator|<
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 condition|;
 name|ord
 operator|=
@@ -1561,8 +1576,9 @@ operator|+
 literal|1
 argument_list|)
 else|:
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 control|)
 block|{
 specifier|final
@@ -1668,9 +1684,10 @@ literal|0
 argument_list|)
 init|;
 name|ord
-operator|!=
-operator|-
-literal|1
+operator|<
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 condition|;
 name|ord
 operator|=
@@ -1689,8 +1706,9 @@ operator|+
 literal|1
 argument_list|)
 else|:
-operator|-
-literal|1
+name|DocIdSetIterator
+operator|.
+name|NO_MORE_DOCS
 control|)
 block|{
 name|counts
