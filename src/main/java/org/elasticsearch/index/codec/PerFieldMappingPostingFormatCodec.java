@@ -224,7 +224,11 @@ operator|.
 name|class
 argument_list|)
 operator|:
-literal|"PerFieldMappingPostingFormatCodec must subclass default codec"
+literal|"PerFieldMappingPostingFormatCodec must subclass the latest lucene codec: "
+operator|+
+name|Lucene
+operator|.
+name|LATEST_CODEC
 assert|;
 block|}
 DECL|method|PerFieldMappingPostingFormatCodec

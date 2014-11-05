@@ -461,13 +461,7 @@ specifier|final
 name|String
 name|LATEST_CODEC
 init|=
-name|Codec
-operator|.
-name|getDefault
-argument_list|()
-operator|.
-name|getName
-argument_list|()
+literal|"Lucene50"
 decl_stmt|;
 static|static
 block|{
