@@ -96,20 +96,34 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// replace tabs with whitespace (yaml does not accept tabs, but many users might use it still...)
+comment|/*          * #8259: Better handling of tabs vs spaces in elasticsearch.yml          */
+if|if
+condition|(
+name|source
+operator|.
+name|indexOf
+argument_list|(
+literal|'\t'
+argument_list|)
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Tabs are illegal in YAML.  Did you mean to use whitespace character instead?"
+argument_list|)
+throw|;
+block|}
 return|return
 name|super
 operator|.
 name|load
 argument_list|(
 name|source
-operator|.
-name|replace
-argument_list|(
-literal|"\t"
-argument_list|,
-literal|"  "
-argument_list|)
 argument_list|)
 return|;
 block|}
