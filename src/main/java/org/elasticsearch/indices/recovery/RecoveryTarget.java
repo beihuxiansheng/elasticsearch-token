@@ -3256,7 +3256,7 @@ block|{
 if|if
 condition|(
 name|statusRef
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
