@@ -944,14 +944,15 @@ name|TokenStream
 name|tokenStream
 parameter_list|)
 block|{
-throw|throw
+return|return
 operator|new
-name|UnsupportedOperationException
+name|ICUCollationKeyFilter
 argument_list|(
-literal|"i was deprecated in lucene 4, and now i'm gone"
+name|tokenStream
+argument_list|,
+name|collator
 argument_list|)
-throw|;
-comment|// TODO: lucene does sort keys as binary keys since 4.x
+return|;
 block|}
 block|}
 end_class
