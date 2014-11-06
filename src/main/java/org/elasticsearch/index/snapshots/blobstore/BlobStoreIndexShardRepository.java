@@ -4483,6 +4483,14 @@ block|{
 if|if
 condition|(
 operator|!
+name|Store
+operator|.
+name|isChecksum
+argument_list|(
+name|storeFile
+argument_list|)
+operator|&&
+operator|!
 name|snapshot
 operator|.
 name|containPhysicalIndexFile
