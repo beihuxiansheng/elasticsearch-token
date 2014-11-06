@@ -1688,6 +1688,17 @@ operator|.
 name|id
 argument_list|()
 decl_stmt|;
+name|String
+name|nodeName
+init|=
+name|nodeStats
+operator|.
+name|getNode
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|logger
@@ -1720,6 +1731,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 name|nodeId
+argument_list|,
+name|nodeName
 argument_list|,
 name|total
 argument_list|,

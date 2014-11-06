@@ -72,6 +72,8 @@ name|DiskUsage
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|40
@@ -209,6 +211,8 @@ name|DiskUsage
 argument_list|(
 literal|"random"
 argument_list|,
+literal|"random"
+argument_list|,
 name|total
 argument_list|,
 name|free
@@ -235,6 +239,8 @@ init|=
 operator|new
 name|DiskUsage
 argument_list|(
+literal|"random"
+argument_list|,
 literal|"random"
 argument_list|,
 name|total

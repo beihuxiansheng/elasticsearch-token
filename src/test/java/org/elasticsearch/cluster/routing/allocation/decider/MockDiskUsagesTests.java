@@ -619,6 +619,8 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -646,6 +648,8 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
+literal|"n2"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -672,6 +676,8 @@ name|get
 argument_list|(
 literal|2
 argument_list|)
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,
@@ -702,7 +708,12 @@ name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|,
+name|randomFrom
+argument_list|(
 literal|"20b"
+argument_list|,
+literal|"80%"
+argument_list|)
 argument_list|)
 operator|.
 name|put
@@ -711,7 +722,12 @@ name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|,
+name|randomFrom
+argument_list|(
 literal|"10b"
+argument_list|,
+literal|"90%"
+argument_list|)
 argument_list|)
 operator|.
 name|put
@@ -949,6 +965,8 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -976,6 +994,8 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|,
+literal|"n2"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -1002,6 +1022,8 @@ name|get
 argument_list|(
 literal|2
 argument_list|)
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,
@@ -1439,6 +1461,8 @@ name|DiskUsage
 argument_list|(
 literal|"node_t1"
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|100
@@ -1459,6 +1483,8 @@ name|DiskUsage
 argument_list|(
 literal|"node_t2"
 argument_list|,
+literal|"n2"
+argument_list|,
 literal|100
 argument_list|,
 literal|100
@@ -1478,6 +1504,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node_t3"
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,

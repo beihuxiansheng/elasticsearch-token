@@ -500,6 +500,8 @@ name|DiskUsage
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|"node1"
+argument_list|,
 literal|100
 argument_list|,
 literal|10
@@ -516,6 +518,8 @@ argument_list|,
 operator|new
 name|DiskUsage
 argument_list|(
+literal|"node2"
+argument_list|,
 literal|"node2"
 argument_list|,
 literal|100
@@ -536,6 +540,8 @@ name|DiskUsage
 argument_list|(
 literal|"node3"
 argument_list|,
+literal|"node3"
+argument_list|,
 literal|100
 argument_list|,
 literal|60
@@ -552,6 +558,8 @@ argument_list|,
 operator|new
 name|DiskUsage
 argument_list|(
+literal|"node4"
+argument_list|,
 literal|"node4"
 argument_list|,
 literal|100
@@ -2169,6 +2177,8 @@ name|DiskUsage
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|10
@@ -2187,6 +2197,8 @@ name|DiskUsage
 argument_list|(
 literal|"node2"
 argument_list|,
+literal|"n2"
+argument_list|,
 literal|100
 argument_list|,
 literal|10
@@ -2204,6 +2216,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node3"
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,
@@ -2223,6 +2237,8 @@ name|DiskUsage
 argument_list|(
 literal|"node4"
 argument_list|,
+literal|"n4"
+argument_list|,
 literal|100
 argument_list|,
 literal|80
@@ -2240,6 +2256,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node5"
+argument_list|,
+literal|"n5"
 argument_list|,
 literal|100
 argument_list|,
@@ -2685,6 +2703,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 name|nodeWithoutPrimary
+argument_list|,
+literal|""
 argument_list|,
 literal|100
 argument_list|,
@@ -4368,6 +4388,8 @@ name|DiskUsage
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|31
@@ -4385,6 +4407,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node2"
+argument_list|,
+literal|"n2"
 argument_list|,
 literal|100
 argument_list|,
@@ -4887,6 +4911,8 @@ name|DiskUsage
 argument_list|(
 literal|"node2"
 argument_list|,
+literal|"node2"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -4903,6 +4929,8 @@ argument_list|,
 operator|new
 name|DiskUsage
 argument_list|(
+literal|"node3"
+argument_list|,
 literal|"node3"
 argument_list|,
 literal|100
@@ -5429,6 +5457,8 @@ name|DiskUsage
 argument_list|(
 literal|"node2"
 argument_list|,
+literal|"n2"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -5446,6 +5476,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node3"
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,
@@ -5550,6 +5582,8 @@ name|DiskUsage
 argument_list|(
 literal|"node2"
 argument_list|,
+literal|"n2"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -5567,6 +5601,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node3"
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,
@@ -5586,6 +5622,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node2"
+argument_list|,
+literal|"n2"
 argument_list|,
 literal|100
 argument_list|,
@@ -5683,6 +5721,8 @@ name|DiskUsage
 argument_list|(
 literal|"node1"
 argument_list|,
+literal|"n1"
+argument_list|,
 literal|100
 argument_list|,
 literal|40
@@ -5700,6 +5740,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node2"
+argument_list|,
+literal|"n2"
 argument_list|,
 literal|100
 argument_list|,
@@ -5718,6 +5760,8 @@ operator|new
 name|DiskUsage
 argument_list|(
 literal|"node3"
+argument_list|,
+literal|"n3"
 argument_list|,
 literal|100
 argument_list|,
