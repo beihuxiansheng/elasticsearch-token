@@ -120,7 +120,7 @@ throws|throws
 name|IOException
 function_decl|;
 DECL|method|deleteBlob
-name|boolean
+name|void
 name|deleteBlob
 parameter_list|(
 name|String

@@ -225,7 +225,7 @@ annotation|@
 name|Override
 DECL|method|deleteBlob
 specifier|public
-name|boolean
+name|void
 name|deleteBlob
 parameter_list|(
 name|String

@@ -1289,6 +1289,19 @@ condition|)
 block|{
 continue|continue;
 block|}
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+operator|.
+name|toPath
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|Files
 operator|.
 name|delete
@@ -1299,6 +1312,7 @@ name|toPath
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

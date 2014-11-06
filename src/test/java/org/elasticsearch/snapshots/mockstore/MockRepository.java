@@ -1424,7 +1424,7 @@ annotation|@
 name|Override
 DECL|method|deleteBlob
 specifier|public
-name|boolean
+name|void
 name|deleteBlob
 parameter_list|(
 name|String
@@ -1438,14 +1438,13 @@ argument_list|(
 name|blobName
 argument_list|)
 expr_stmt|;
-return|return
 name|super
 operator|.
 name|deleteBlob
 argument_list|(
 name|blobName
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override

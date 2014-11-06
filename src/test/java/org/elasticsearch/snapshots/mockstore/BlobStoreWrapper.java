@@ -58,6 +58,16 @@ name|BlobStore
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -120,6 +130,8 @@ parameter_list|(
 name|BlobPath
 name|path
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|delegate
 operator|.

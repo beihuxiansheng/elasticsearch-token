@@ -217,7 +217,7 @@ annotation|@
 name|Override
 DECL|method|deleteBlob
 specifier|public
-name|boolean
+name|void
 name|deleteBlob
 parameter_list|(
 name|String
@@ -226,14 +226,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-return|return
 name|delegate
 operator|.
 name|deleteBlob
 argument_list|(
 name|blobName
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override
