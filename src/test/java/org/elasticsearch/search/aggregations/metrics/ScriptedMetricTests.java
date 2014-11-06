@@ -20,6 +20,46 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -225,46 +265,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -352,7 +352,91 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|allOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -940,6 +1024,11 @@ name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|int
+name|numShardsRun
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|Object
@@ -993,12 +1082,22 @@ operator|.
 name|size
 argument_list|()
 argument_list|,
-name|equalTo
+name|lessThanOrEqualTo
 argument_list|(
 literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|map
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|1
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|map
@@ -1050,7 +1149,23 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|numShardsRun
+operator|++
+expr_stmt|;
 block|}
+block|}
+comment|// We don't know how many shards will have documents but we need to make
+comment|// sure that at least one shard ran the map script
+name|assertThat
+argument_list|(
+name|numShardsRun
+argument_list|,
+name|greaterThan
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -2071,6 +2186,9 @@ name|Number
 operator|)
 name|o
 decl_stmt|;
+comment|// A particular shard may not have any documents stored on it so
+comment|// we have to assume the lower bound may be 0. The check at the
+comment|// bottom of the test method will make sure the count is correct
 name|assertThat
 argument_list|(
 name|numberValue
@@ -2082,7 +2200,7 @@ name|allOf
 argument_list|(
 name|greaterThanOrEqualTo
 argument_list|(
-literal|1l
+literal|0l
 argument_list|)
 argument_list|,
 name|lessThanOrEqualTo
@@ -2446,6 +2564,9 @@ name|Number
 operator|)
 name|o
 decl_stmt|;
+comment|// A particular shard may not have any documents stored on it so
+comment|// we have to assume the lower bound may be 0. The check at the
+comment|// bottom of the test method will make sure the count is correct
 name|assertThat
 argument_list|(
 name|numberValue
@@ -2457,7 +2578,7 @@ name|allOf
 argument_list|(
 name|greaterThanOrEqualTo
 argument_list|(
-literal|3l
+literal|0l
 argument_list|)
 argument_list|,
 name|lessThanOrEqualTo
