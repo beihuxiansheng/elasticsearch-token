@@ -2249,30 +2249,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|RemoteTransportException
-name|e
-parameter_list|)
-block|{
-comment|// something went wrong on the other side
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"[{}] received a remote error as a response to ping {}"
-argument_list|,
-name|e
-argument_list|,
-name|sendPingsHandler
-operator|.
-name|id
-argument_list|()
-argument_list|,
-name|finalNodeToSend
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|Throwable
 name|e
 parameter_list|)
