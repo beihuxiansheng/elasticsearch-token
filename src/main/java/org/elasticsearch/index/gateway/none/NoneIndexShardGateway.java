@@ -306,6 +306,14 @@ argument_list|)
 expr_stmt|;
 comment|// in the none case, we simply start the shard
 comment|// clean the store, there should be nothing there...
+name|indexShard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 name|logger
@@ -338,6 +346,17 @@ literal|"failed to clean store before starting shard"
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|indexShard
+operator|.
+name|store
+argument_list|()
+operator|.
+name|decRef
+argument_list|()
 expr_stmt|;
 block|}
 name|indexShard
