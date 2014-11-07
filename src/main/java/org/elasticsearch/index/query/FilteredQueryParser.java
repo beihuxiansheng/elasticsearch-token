@@ -356,13 +356,6 @@ throws|throws
 name|IOException
 block|{
 comment|// CHANGE: If threshold is 0, always pass down the accept docs, don't pay the price of calling nextDoc even...
-if|if
-condition|(
-name|threshold
-operator|==
-literal|0
-condition|)
-block|{
 specifier|final
 name|Bits
 name|filterAcceptDocs
@@ -372,6 +365,13 @@ operator|.
 name|bits
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|threshold
+operator|==
+literal|0
+condition|)
+block|{
 if|if
 condition|(
 name|filterAcceptDocs
@@ -418,14 +418,21 @@ literal|1
 condition|)
 block|{
 comment|// default  value, don't iterate on only apply filter after query if its not a "fast" docIdSet
+comment|// TODO: is there a way we could avoid creating an iterator here?
 if|if
 condition|(
-operator|!
+name|filterAcceptDocs
+operator|!=
+literal|null
+operator|&&
 name|DocIdSets
 operator|.
-name|isFastIterator
+name|isBroken
 argument_list|(
 name|docIdSet
+operator|.
+name|iterator
+argument_list|()
 argument_list|)
 condition|)
 block|{

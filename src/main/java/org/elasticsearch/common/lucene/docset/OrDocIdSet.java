@@ -76,11 +76,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|XDocIdSetIterator
 import|;
 end_import
 
@@ -88,9 +94,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Collection
+name|IOException
 import|;
 end_import
 
@@ -393,7 +399,7 @@ specifier|static
 class|class
 name|IteratorBasedIterator
 extends|extends
-name|DocIdSetIterator
+name|XDocIdSetIterator
 block|{
 DECL|class|Item
 specifier|final
@@ -457,6 +463,12 @@ specifier|final
 name|long
 name|cost
 decl_stmt|;
+DECL|field|broken
+specifier|private
+specifier|final
+name|boolean
+name|broken
+decl_stmt|;
 DECL|method|IteratorBasedIterator
 name|IteratorBasedIterator
 parameter_list|(
@@ -491,6 +503,11 @@ name|cost
 init|=
 literal|0
 decl_stmt|;
+name|boolean
+name|broken
+init|=
+literal|false
+decl_stmt|;
 for|for
 control|(
 name|DocIdSet
@@ -507,6 +524,15 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+name|broken
+operator||=
+name|DocIdSets
+operator|.
+name|isBroken
+argument_list|(
+name|iterator
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|iterator
@@ -541,6 +567,12 @@ name|cost
 operator|=
 name|cost
 expr_stmt|;
+name|this
+operator|.
+name|broken
+operator|=
+name|broken
+expr_stmt|;
 if|if
 condition|(
 name|_size
@@ -553,6 +585,18 @@ name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isBroken
+specifier|public
+name|boolean
+name|isBroken
+parameter_list|()
+block|{
+return|return
+name|broken
+return|;
 block|}
 annotation|@
 name|Override
