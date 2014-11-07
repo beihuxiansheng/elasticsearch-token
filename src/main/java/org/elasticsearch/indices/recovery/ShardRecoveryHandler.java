@@ -593,6 +593,7 @@ end_comment
 begin_class
 DECL|class|ShardRecoveryHandler
 specifier|public
+specifier|final
 class|class
 name|ShardRecoveryHandler
 implements|implements
