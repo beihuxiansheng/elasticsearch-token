@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|RoutingMissingException
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -2325,8 +2337,24 @@ operator|==
 literal|null
 condition|)
 block|{
-continue|continue;
-comment|// What to do?
+comment|//Bulk update child doc, NPE error message when parent is not specified #8365
+throw|throw
+operator|new
+name|RoutingMissingException
+argument_list|(
+name|concreteIndex
+argument_list|,
+name|updateRequest
+operator|.
+name|type
+argument_list|()
+argument_list|,
+name|updateRequest
+operator|.
+name|id
+argument_list|()
+argument_list|)
+throw|;
 block|}
 name|ShardId
 name|shardId
