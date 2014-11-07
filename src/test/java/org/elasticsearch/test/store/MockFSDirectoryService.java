@@ -842,6 +842,13 @@ name|tryIncRef
 argument_list|()
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"start check index"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Directory
