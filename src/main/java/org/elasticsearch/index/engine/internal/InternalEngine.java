@@ -8195,6 +8195,13 @@ name|acquire
 argument_list|()
 init|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"close acquired writeLock"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
@@ -8227,6 +8234,13 @@ name|failedEngineListeners
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"close searcherManager"
+argument_list|)
 expr_stmt|;
 try|try
 block|{
@@ -8262,14 +8276,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|long
-name|t0
-init|=
-name|System
+name|logger
 operator|.
-name|nanoTime
-argument_list|()
-decl_stmt|;
+name|debug
+argument_list|(
+literal|"rollback indexWriter"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|indexWriter
@@ -8286,34 +8299,13 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
-name|long
-name|t1
-init|=
-name|System
-operator|.
-name|nanoTime
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"indexWriter.rollback took {} nanoseconds"
-argument_list|,
-name|t1
-operator|-
-name|t0
+literal|"rollback indexWriter done"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
