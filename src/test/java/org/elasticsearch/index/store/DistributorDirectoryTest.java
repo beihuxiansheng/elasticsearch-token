@@ -1069,6 +1069,28 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+name|assertNotNull
+argument_list|(
+name|dd
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|dd
+operator|.
+name|getDirectory
+argument_list|(
+literal|"foo.bar"
+argument_list|)
+operator|!=
+name|dd
+operator|.
+name|getDirectory
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
 try|try
 block|{
 name|dd
@@ -1082,7 +1104,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"target file already exists"
+literal|"target file already exists in a different directory"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1094,13 +1116,7 @@ parameter_list|)
 block|{
 comment|// target file already exists
 block|}
-name|theDir
-operator|.
-name|deleteFile
-argument_list|(
-name|file
-argument_list|)
-expr_stmt|;
+block|}
 name|assertTrue
 argument_list|(
 name|DistributorDirectory

@@ -78,22 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentCollections
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|store
@@ -140,9 +124,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ConcurrentMap
+name|HashMap
 import|;
 end_import
 
@@ -182,7 +164,7 @@ decl_stmt|;
 DECL|field|nameDirMapping
 specifier|private
 specifier|final
-name|ConcurrentMap
+name|HashMap
 argument_list|<
 name|String
 argument_list|,
@@ -190,9 +172,9 @@ name|Directory
 argument_list|>
 name|nameDirMapping
 init|=
-name|ConcurrentCollections
-operator|.
-name|newConcurrentMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Creates a new DistributorDirectory from multiple directories. Note: The first directory in the given array      * is used as the primary directory holding the file locks as well as the SEGMENTS_GEN file. All remaining      * directories are used in a round robin fashion.      */
@@ -345,6 +327,7 @@ annotation|@
 name|Override
 DECL|method|listAll
 specifier|public
+specifier|synchronized
 specifier|final
 name|String
 index|[]
@@ -364,7 +347,10 @@ argument_list|(
 operator|new
 name|String
 index|[
-literal|0
+name|nameDirMapping
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 return|;
@@ -373,6 +359,7 @@ annotation|@
 name|Override
 DECL|method|deleteFile
 specifier|public
+specifier|synchronized
 name|void
 name|deleteFile
 parameter_list|(
@@ -420,6 +407,7 @@ annotation|@
 name|Override
 DECL|method|fileLength
 specifier|public
+specifier|synchronized
 name|long
 name|fileLength
 parameter_list|(
@@ -445,6 +433,7 @@ annotation|@
 name|Override
 DECL|method|createOutput
 specifier|public
+specifier|synchronized
 name|IndexOutput
 name|createOutput
 parameter_list|(
@@ -489,6 +478,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// no need to sync this operation it could be long running too
 for|for
 control|(
 name|Directory
@@ -513,6 +503,7 @@ annotation|@
 name|Override
 DECL|method|renameFile
 specifier|public
+specifier|synchronized
 name|void
 name|renameFile
 parameter_list|(
@@ -525,6 +516,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|Directory
 name|directory
 init|=
@@ -533,18 +525,26 @@ argument_list|(
 name|source
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+specifier|final
+name|Directory
+name|targetDir
+init|=
 name|nameDirMapping
 operator|.
-name|putIfAbsent
+name|get
 argument_list|(
 name|dest
-argument_list|,
-name|directory
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|targetDir
 operator|!=
 literal|null
+operator|&&
+name|targetDir
+operator|!=
+name|directory
 condition|)
 block|{
 throw|throw
@@ -559,17 +559,10 @@ literal|" to: "
 operator|+
 name|dest
 operator|+
-literal|": target file already exists"
+literal|": target file already exists in a different directory"
 argument_list|)
 throw|;
 block|}
-name|boolean
-name|success
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
 name|directory
 operator|.
 name|renameFile
@@ -586,33 +579,21 @@ argument_list|(
 name|source
 argument_list|)
 expr_stmt|;
-name|success
-operator|=
-literal|true
-expr_stmt|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-operator|!
-name|success
-condition|)
-block|{
 name|nameDirMapping
 operator|.
-name|remove
+name|put
 argument_list|(
 name|dest
+argument_list|,
+name|directory
 argument_list|)
 expr_stmt|;
-block|}
-block|}
 block|}
 annotation|@
 name|Override
 DECL|method|openInput
 specifier|public
+specifier|synchronized
 name|IndexInput
 name|openInput
 parameter_list|(
@@ -643,6 +624,7 @@ annotation|@
 name|Override
 DECL|method|close
 specifier|public
+specifier|synchronized
 name|void
 name|close
 parameter_list|()
@@ -662,7 +644,6 @@ expr_stmt|;
 block|}
 comment|/**      * Returns the directory that has previously been associated with this file name.      *      * @throws IOException if the name has not yet been associated with any directory ie. fi the file does not exists      */
 DECL|method|getDirectory
-specifier|private
 name|Directory
 name|getDirectory
 parameter_list|(
@@ -672,6 +653,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// pkg private for testing
 return|return
 name|getDirectory
 argument_list|(
@@ -696,6 +678,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|Directory
 name|directory
 init|=
@@ -740,30 +723,28 @@ operator|.
 name|any
 argument_list|()
 decl_stmt|;
-name|directory
-operator|=
+assert|assert
 name|nameDirMapping
 operator|.
-name|putIfAbsent
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+operator|==
+literal|false
+assert|;
+name|nameDirMapping
+operator|.
+name|put
 argument_list|(
 name|name
 argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|directory
-operator|==
-literal|null
-condition|)
-block|{
-comment|// putIfAbsent did in fact put dir:
-name|directory
-operator|=
+return|return
 name|dir
-expr_stmt|;
-block|}
+return|;
 block|}
 return|return
 name|directory
@@ -773,6 +754,7 @@ annotation|@
 name|Override
 DECL|method|setLockFactory
 specifier|public
+specifier|synchronized
 name|void
 name|setLockFactory
 parameter_list|(
@@ -811,6 +793,7 @@ annotation|@
 name|Override
 DECL|method|getLockID
 specifier|public
+specifier|synchronized
 name|String
 name|getLockID
 parameter_list|()
@@ -829,6 +812,7 @@ annotation|@
 name|Override
 DECL|method|toString
 specifier|public
+specifier|synchronized
 name|String
 name|toString
 parameter_list|()
@@ -863,6 +847,11 @@ name|dir
 parameter_list|)
 throws|throws
 name|IOException
+block|{
+synchronized|synchronized
+init|(
+name|dir
+init|)
 block|{
 name|boolean
 name|consistent
@@ -1041,6 +1030,7 @@ return|return
 name|consistent
 return|;
 comment|// return boolean so it can be easily be used in asserts
+block|}
 block|}
 comment|/**      * This inner class is a simple wrapper around the original      * lock factory to track files written / created through the      * lock factory. For instance {@link NativeFSLockFactory} creates real      * files that we should expose for consistency reasons.      */
 DECL|class|DistributorLockFactoryWrapper
@@ -1296,6 +1286,13 @@ condition|(
 name|writesFiles
 condition|)
 block|{
+synchronized|synchronized
+init|(
+name|DistributorDirectory
+operator|.
+name|this
+init|)
+block|{
 assert|assert
 operator|(
 name|nameDirMapping
@@ -1317,15 +1314,29 @@ operator|==
 name|dir
 operator|)
 assert|;
+if|if
+condition|(
 name|nameDirMapping
 operator|.
-name|putIfAbsent
+name|get
+argument_list|(
+name|name
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|nameDirMapping
+operator|.
+name|put
 argument_list|(
 name|name
 argument_list|,
 name|dir
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 return|return
 literal|true
