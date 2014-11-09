@@ -40,6 +40,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Term
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|DocIdSet
@@ -68,9 +82,37 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|PrefixFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|Bits
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
 import|;
 end_import
 
@@ -92,6 +134,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|internal
+operator|.
+name|TypeFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -101,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that returns all root (non nested) documents.  * Root documents have an unique id, a type and optionally have a _source and other indexed and stored fields.  */
+comment|/**  * A filter that returns all root (non nested) documents.  *  * Root documents have an unique id, a type and optionally have a _source and other indexed and stored fields.  * A nested document is a sub documents that belong to a root document.  * Nested documents share the unique id and type and optionally the _source with root documents.  */
 end_comment
 
 begin_class
@@ -132,8 +190,6 @@ init|=
 operator|new
 name|NotFilter
 argument_list|(
-name|NestedDocsFilter
-operator|.
 name|nestedFilter
 argument_list|()
 argument_list|)
@@ -208,6 +264,34 @@ return|return
 name|obj
 operator|==
 name|INSTANCE
+return|;
+block|}
+comment|/**      * @return a filter that returns all nested documents.      */
+DECL|method|nestedFilter
+specifier|private
+specifier|static
+name|Filter
+name|nestedFilter
+parameter_list|()
+block|{
+return|return
+operator|new
+name|PrefixFilter
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|TypeFieldMapper
+operator|.
+name|NAME
+argument_list|,
+operator|new
+name|BytesRef
+argument_list|(
+literal|"__"
+argument_list|)
+argument_list|)
+argument_list|)
 return|;
 block|}
 block|}
