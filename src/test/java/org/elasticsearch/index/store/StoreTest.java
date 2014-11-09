@@ -766,7 +766,7 @@ init|=
 operator|new
 name|Store
 operator|.
-name|VerifyingIndexOutput
+name|LuceneVerifyingIndexOutput
 argument_list|(
 operator|new
 name|StoreFileMetaData
@@ -969,7 +969,7 @@ init|=
 operator|new
 name|Store
 operator|.
-name|VerifyingIndexOutput
+name|LuceneVerifyingIndexOutput
 argument_list|(
 operator|new
 name|StoreFileMetaData
