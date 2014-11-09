@@ -8184,6 +8184,13 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"close now acquire writeLock"
+argument_list|)
+expr_stmt|;
 try|try
 init|(
 name|InternalLock
