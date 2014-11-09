@@ -296,6 +296,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|EsRejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|zen
@@ -1533,6 +1549,20 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EsRejectedExecutionException
+name|ex
+parameter_list|)
+block|{
+comment|// TODO: remove this once ScheduledExecutor has support for AbstractRunnable
+name|sendPingsHandler
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+comment|// we are shutting down
 block|}
 catch|catch
 parameter_list|(
