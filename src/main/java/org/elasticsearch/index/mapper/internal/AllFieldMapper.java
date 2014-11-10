@@ -570,10 +570,12 @@ DECL|field|ENABLED
 specifier|public
 specifier|static
 specifier|final
-name|boolean
+name|EnabledAttributeMapper
 name|ENABLED
 init|=
-literal|true
+name|EnabledAttributeMapper
+operator|.
+name|UNSET_ENABLED
 decl_stmt|;
 DECL|field|FIELD_TYPE
 specifier|public
@@ -628,7 +630,7 @@ argument_list|>
 block|{
 DECL|field|enabled
 specifier|private
-name|boolean
+name|EnabledAttributeMapper
 name|enabled
 init|=
 name|Defaults
@@ -678,7 +680,7 @@ specifier|public
 name|Builder
 name|enabled
 parameter_list|(
-name|boolean
+name|EnabledAttributeMapper
 name|enabled
 parameter_list|)
 block|{
@@ -912,6 +914,14 @@ name|nodeBooleanValue
 argument_list|(
 name|fieldNode
 argument_list|)
+condition|?
+name|EnabledAttributeMapper
+operator|.
+name|ENABLED
+else|:
+name|EnabledAttributeMapper
+operator|.
+name|DISABLED
 argument_list|)
 expr_stmt|;
 name|iterator
@@ -952,10 +962,10 @@ name|builder
 return|;
 block|}
 block|}
-DECL|field|enabled
+DECL|field|enabledState
 specifier|private
-name|boolean
-name|enabled
+name|EnabledAttributeMapper
+name|enabledState
 decl_stmt|;
 comment|// The autoBoost flag is automatically set based on indexed docs on the mappings
 comment|// if a doc is indexed with a specific boost value and part of _all, it is automatically
@@ -1029,7 +1039,7 @@ parameter_list|,
 name|NamedAnalyzer
 name|searchAnalyzer
 parameter_list|,
-name|boolean
+name|EnabledAttributeMapper
 name|enabled
 parameter_list|,
 name|boolean
@@ -1116,7 +1126,7 @@ throw|;
 block|}
 name|this
 operator|.
-name|enabled
+name|enabledState
 operator|=
 name|enabled
 expr_stmt|;
@@ -1135,6 +1145,8 @@ parameter_list|()
 block|{
 return|return
 name|this
+operator|.
+name|enabledState
 operator|.
 name|enabled
 return|;
@@ -1340,6 +1352,8 @@ block|{
 if|if
 condition|(
 operator|!
+name|enabledState
+operator|.
 name|enabled
 condition|)
 block|{
@@ -1657,7 +1671,7 @@ if|if
 condition|(
 name|includeDefaults
 operator|||
-name|enabled
+name|enabledState
 operator|!=
 name|Defaults
 operator|.
@@ -1670,6 +1684,8 @@ name|field
 argument_list|(
 literal|"enabled"
 argument_list|,
+name|enabledState
+operator|.
 name|enabled
 argument_list|)
 expr_stmt|;
@@ -2209,6 +2225,19 @@ name|this
 operator|.
 name|enabled
 argument_list|()
+operator|&&
+operator|(
+operator|(
+name|AllFieldMapper
+operator|)
+name|mergeWith
+operator|)
+operator|.
+name|enabledState
+operator|!=
+name|Defaults
+operator|.
+name|ENABLED
 condition|)
 block|{
 name|mergeContext
