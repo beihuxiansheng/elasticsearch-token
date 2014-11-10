@@ -543,6 +543,12 @@ throw|throw
 operator|new
 name|FileNotFoundException
 argument_list|(
+literal|"Blob object ["
+operator|+
+name|blobName
+operator|+
+literal|"] not found: "
+operator|+
 name|e
 operator|.
 name|getMessage

@@ -284,6 +284,13 @@ literal|"cloud.aws.test.write_failures"
 argument_list|,
 literal|0.1
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"cloud.aws.test.read_failures"
+argument_list|,
+literal|0.1
+argument_list|)
 decl_stmt|;
 name|Environment
 name|environment
