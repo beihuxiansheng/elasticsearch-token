@@ -899,12 +899,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: should we limit this?  Do any of our ContextQuery impls really create exponential regexps?  GeoQuery looks safe (union
+comment|// of strings).
 return|return
 name|Operations
 operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 return|;
 block|}

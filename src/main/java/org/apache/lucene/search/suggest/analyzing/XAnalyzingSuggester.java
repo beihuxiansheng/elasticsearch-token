@@ -1185,6 +1185,7 @@ name|a
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// This automaton should not blow up during determinize:
 name|a
 operator|=
 name|Operations
@@ -1192,6 +1193,10 @@ operator|.
 name|determinize
 argument_list|(
 name|a
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 block|}
@@ -4762,6 +4767,7 @@ argument_list|)
 expr_stmt|;
 comment|// TODO: we can optimize this somewhat by determinizing
 comment|// while we convert
+comment|// This automaton should not blow up during determinize:
 name|automaton
 operator|=
 name|Operations
@@ -4769,6 +4775,10 @@ operator|.
 name|determinize
 argument_list|(
 name|automaton
+argument_list|,
+name|Integer
+operator|.
+name|MAX_VALUE
 argument_list|)
 expr_stmt|;
 return|return

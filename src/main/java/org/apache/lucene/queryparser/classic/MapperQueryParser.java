@@ -761,6 +761,14 @@ name|autoGeneratePhraseQueries
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setMaxDeterminizedStates
+argument_list|(
+name|settings
+operator|.
+name|maxDeterminizedStates
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setAllowLeadingWildcard
 argument_list|(
 name|settings
@@ -4953,6 +4961,8 @@ name|RegExp
 operator|.
 name|ALL
 argument_list|,
+name|maxDeterminizedStates
+argument_list|,
 name|multiTermRewriteMethod
 argument_list|,
 name|parseContext
@@ -4983,6 +4993,8 @@ argument_list|,
 name|RegExp
 operator|.
 name|ALL
+argument_list|,
+name|maxDeterminizedStates
 argument_list|,
 name|multiTermRewriteMethod
 argument_list|,

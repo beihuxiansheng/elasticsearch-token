@@ -3069,6 +3069,9 @@ parameter_list|,
 name|int
 name|flags
 parameter_list|,
+name|int
+name|maxDeterminizedStates
+parameter_list|,
 annotation|@
 name|Nullable
 name|MultiTermQuery
@@ -3100,6 +3103,8 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|flags
+argument_list|,
+name|maxDeterminizedStates
 argument_list|)
 decl_stmt|;
 if|if
@@ -3134,6 +3139,9 @@ parameter_list|,
 name|int
 name|flags
 parameter_list|,
+name|int
+name|maxDeterminizedStates
+parameter_list|,
 annotation|@
 name|Nullable
 name|QueryParseContext
@@ -3156,6 +3164,8 @@ argument_list|)
 argument_list|)
 argument_list|,
 name|flags
+argument_list|,
+name|maxDeterminizedStates
 argument_list|)
 return|;
 block|}

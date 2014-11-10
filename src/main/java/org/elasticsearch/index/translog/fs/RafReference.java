@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|FileSystemUtils
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -301,7 +287,7 @@ condition|(
 name|delete
 condition|)
 block|{
-name|FileSystemUtils
+name|IOUtils
 operator|.
 name|deleteFilesIgnoringExceptions
 argument_list|(

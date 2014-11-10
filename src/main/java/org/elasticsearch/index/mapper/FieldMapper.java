@@ -1123,6 +1123,9 @@ parameter_list|,
 name|int
 name|flags
 parameter_list|,
+name|int
+name|maxDeterminizedStates
+parameter_list|,
 annotation|@
 name|Nullable
 name|MultiTermQuery
@@ -1145,6 +1148,9 @@ name|value
 parameter_list|,
 name|int
 name|flags
+parameter_list|,
+name|int
+name|maxDeterminizedStates
 parameter_list|,
 annotation|@
 name|Nullable
