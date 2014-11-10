@@ -3080,13 +3080,21 @@ argument_list|,
 literal|"local"
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-comment|// sometime set an initial value
+comment|// set an initial value which is at least quorum to avoid split brains during initial startup
+name|int
+name|initialMinMasterNodes
+init|=
+name|randomIntBetween
+argument_list|(
+name|nodeCount
+operator|/
+literal|2
+operator|+
+literal|1
+argument_list|,
+name|nodeCount
+argument_list|)
+decl_stmt|;
 name|settings
 operator|.
 name|put
@@ -3095,22 +3103,18 @@ name|ElectMasterService
 operator|.
 name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-name|nodeCount
-argument_list|)
+name|initialMinMasterNodes
 argument_list|)
 expr_stmt|;
-block|}
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> starting [{}] nodes"
+literal|"--> starting [{}] nodes. min_master_nodes set to [{}]"
 argument_list|,
 name|nodeCount
+argument_list|,
+name|initialMinMasterNodes
 argument_list|)
 expr_stmt|;
 name|internalCluster
