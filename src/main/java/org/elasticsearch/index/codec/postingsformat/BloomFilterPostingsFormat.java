@@ -660,7 +660,7 @@ decl_stmt|;
 name|boolean
 name|load
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|Store
 operator|.

@@ -533,6 +533,8 @@ name|assertThat
 argument_list|(
 name|uidTerms
 argument_list|,
+name|not
+argument_list|(
 name|instanceOf
 argument_list|(
 name|BloomFilterPostingsFormat
@@ -540,6 +542,7 @@ operator|.
 name|BloomFilteredTerms
 operator|.
 name|class
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
