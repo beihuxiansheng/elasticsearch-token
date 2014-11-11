@@ -550,15 +550,6 @@ name|PercolatorQueriesRegistry
 extends|extends
 name|AbstractIndexShardComponent
 block|{
-DECL|field|ALLOW_UNMAPPED_FIELDS
-specifier|public
-specifier|final
-specifier|static
-name|String
-name|ALLOW_UNMAPPED_FIELDS
-init|=
-literal|"index.percolator.allow_unmapped_fields"
-decl_stmt|;
 comment|// This is a shard level service, but these below are index level service:
 DECL|field|queryParserService
 specifier|private
@@ -659,12 +650,6 @@ name|AtomicBoolean
 argument_list|(
 literal|false
 argument_list|)
-decl_stmt|;
-DECL|field|allowUnmappedFields
-specifier|private
-specifier|final
-name|boolean
-name|allowUnmappedFields
 decl_stmt|;
 DECL|field|cache
 specifier|private
@@ -789,19 +774,6 @@ operator|.
 name|shardPercolateService
 operator|=
 name|shardPercolateService
-expr_stmt|;
-name|this
-operator|.
-name|allowUnmappedFields
-operator|=
-name|indexSettings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|ALLOW_UNMAPPED_FIELDS
-argument_list|,
-literal|false
-argument_list|)
 expr_stmt|;
 name|indicesLifecycle
 operator|.
@@ -1374,11 +1346,20 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+comment|// This means that fields in the query need to exist in the mapping prior to registering this query
+comment|// The reason that this is required, is that if a field doesn't exist then the query assumes defaults, which may be undesired.
+comment|//
+comment|// Even worse when fields mentioned in percolator queries do go added to map after the queries have been registered
+comment|// then the percolator queries don't work as expected any more.
+comment|//
+comment|// Query parsing can't introduce new fields in mappings (which happens when registering a percolator query),
+comment|// because field type can't be inferred from queries (like document do) so the best option here is to disallow
+comment|// the usage of unmapped fields in percolator queries to avoid unexpected behaviour
 name|context
 operator|.
 name|setAllowUnmappedFields
 argument_list|(
-name|allowUnmappedFields
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
