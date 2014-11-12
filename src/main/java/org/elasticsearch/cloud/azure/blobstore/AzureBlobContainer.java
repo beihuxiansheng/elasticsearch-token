@@ -564,7 +564,7 @@ annotation|@
 name|Override
 DECL|method|deleteBlob
 specifier|public
-name|boolean
+name|void
 name|deleteBlob
 parameter_list|(
 name|String
@@ -593,9 +593,6 @@ name|blobName
 argument_list|)
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 catch|catch
 parameter_list|(
