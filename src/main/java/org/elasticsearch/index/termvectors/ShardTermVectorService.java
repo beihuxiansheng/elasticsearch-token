@@ -783,6 +783,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|termVectorsByField
+operator|!=
+literal|null
+operator|&&
 name|useDfs
 argument_list|(
 name|request
@@ -926,6 +930,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|termVectorsByField
+operator|!=
+literal|null
+operator|&&
 name|useDfs
 argument_list|(
 name|request

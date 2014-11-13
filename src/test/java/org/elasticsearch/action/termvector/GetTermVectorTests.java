@@ -661,8 +661,7 @@ expr_stmt|;
 name|ensureYellow
 argument_list|()
 expr_stmt|;
-comment|// when indexing a field that simply has a question mark, the term
-comment|// vectors will be null
+comment|// when indexing a field that simply has a question mark, the term vectors will be null
 name|client
 argument_list|()
 operator|.
@@ -871,8 +870,7 @@ expr_stmt|;
 name|ensureYellow
 argument_list|()
 expr_stmt|;
-comment|// when indexing a field that simply has a question mark, the term
-comment|// vectors will be null
+comment|// when indexing a field that simply has a question mark, the term vectors will be null
 name|client
 argument_list|()
 operator|.
@@ -925,12 +923,32 @@ argument_list|)
 operator|.
 name|selectedFields
 argument_list|(
+name|randomBoolean
+argument_list|()
+condition|?
 operator|new
 name|String
 index|[]
 block|{
 literal|"existingfield"
 block|}
+else|:
+literal|null
+argument_list|)
+operator|.
+name|termStatistics
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|fieldStatistics
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|dfs
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
