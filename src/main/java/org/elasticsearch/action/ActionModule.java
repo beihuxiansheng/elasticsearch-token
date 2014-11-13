@@ -2522,7 +2522,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|*
 import|;
@@ -2536,7 +2536,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|dfs
 operator|.
@@ -3540,11 +3540,11 @@ argument_list|)
 expr_stmt|;
 name|registerAction
 argument_list|(
-name|TermVectorAction
+name|TermVectorsAction
 operator|.
 name|INSTANCE
 argument_list|,
-name|TransportSingleShardTermVectorAction
+name|TransportTermVectorsAction
 operator|.
 name|class
 argument_list|,
@@ -3563,7 +3563,7 @@ name|TransportMultiTermVectorsAction
 operator|.
 name|class
 argument_list|,
-name|TransportSingleShardMultiTermsVectorAction
+name|TransportShardMultiTermsVectorAction
 operator|.
 name|class
 argument_list|)

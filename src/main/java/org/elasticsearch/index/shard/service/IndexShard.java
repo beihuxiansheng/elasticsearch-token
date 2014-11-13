@@ -544,7 +544,7 @@ name|index
 operator|.
 name|termvectors
 operator|.
-name|ShardTermVectorService
+name|ShardTermVectorsService
 import|;
 end_import
 
@@ -767,9 +767,9 @@ name|ShardPercolateService
 name|shardPercolateService
 parameter_list|()
 function_decl|;
-DECL|method|termVectorService
-name|ShardTermVectorService
-name|termVectorService
+DECL|method|termVectorsService
+name|ShardTermVectorsService
+name|termVectorsService
 parameter_list|()
 function_decl|;
 DECL|method|shardSuggestService

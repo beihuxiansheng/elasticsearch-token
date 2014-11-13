@@ -154,7 +154,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|dfs
 operator|.

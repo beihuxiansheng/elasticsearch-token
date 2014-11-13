@@ -1320,7 +1320,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|MultiTermVectorsAction
 import|;
@@ -1334,9 +1334,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorAction
+name|TermVectorsAction
 import|;
 end_import
 
@@ -2773,7 +2773,7 @@ argument_list|)
 expr_stmt|;
 name|addShardAction
 argument_list|(
-name|TermVectorAction
+name|TermVectorsAction
 operator|.
 name|NAME
 argument_list|,

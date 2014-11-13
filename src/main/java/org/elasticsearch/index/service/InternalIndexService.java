@@ -790,7 +790,7 @@ name|index
 operator|.
 name|termvectors
 operator|.
-name|ShardTermVectorModule
+name|ShardTermVectorsModule
 import|;
 end_import
 
@@ -2192,7 +2192,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ShardTermVectorModule
+name|ShardTermVectorsModule
 argument_list|()
 argument_list|)
 expr_stmt|;

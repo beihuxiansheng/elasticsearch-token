@@ -726,7 +726,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|MultiTermVectorsRequest
 import|;
@@ -740,9 +740,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorRequest
+name|TermVectorsRequest
 import|;
 end_import
 
@@ -18283,7 +18283,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|TermVectorRequest
+name|TermVectorsRequest
 name|item
 range|:
 name|items

@@ -344,9 +344,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorResponse
+name|TermVectorsResponse
 import|;
 end_import
 
@@ -461,18 +461,6 @@ operator|.
 name|decider
 operator|.
 name|EnableAllocationDecider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -6466,13 +6454,13 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|TermVectorResponse
-name|termVectorResponse
+name|TermVectorsResponse
+name|termVectorsResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareTermVector
+name|prepareTermVectors
 argument_list|(
 name|indexOrAlias
 argument_list|()
@@ -6487,7 +6475,7 @@ argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|termVectorResponse
+name|termVectorsResponse
 operator|.
 name|getIndex
 argument_list|()
@@ -6500,7 +6488,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|termVectorResponse
+name|termVectorsResponse
 operator|.
 name|isExists
 argument_list|()
@@ -6514,7 +6502,7 @@ expr_stmt|;
 name|Fields
 name|fields
 init|=
-name|termVectorResponse
+name|termVectorsResponse
 operator|.
 name|getFields
 argument_list|()

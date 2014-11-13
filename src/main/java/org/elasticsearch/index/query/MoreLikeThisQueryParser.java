@@ -146,7 +146,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|MultiTermVectorsRequest
 import|;
@@ -160,9 +160,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorRequest
+name|TermVectorsRequest
 import|;
 end_import
 
@@ -1490,7 +1490,7 @@ name|items
 operator|.
 name|add
 argument_list|(
-name|newTermVectorRequest
+name|newTermVectorsRequest
 argument_list|()
 operator|.
 name|id
@@ -1888,7 +1888,7 @@ block|{
 comment|// set default index, type and fields if not specified
 for|for
 control|(
-name|TermVectorRequest
+name|TermVectorsRequest
 name|item
 range|:
 name|items
@@ -2149,7 +2149,7 @@ return|;
 block|}
 DECL|method|parseDocument
 specifier|private
-name|TermVectorRequest
+name|TermVectorsRequest
 name|parseDocument
 parameter_list|(
 name|XContentParser
@@ -2158,23 +2158,23 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|TermVectorRequest
-name|termVectorRequest
+name|TermVectorsRequest
+name|termVectorsRequest
 init|=
-name|newTermVectorRequest
+name|newTermVectorsRequest
 argument_list|()
 decl_stmt|;
-name|TermVectorRequest
+name|TermVectorsRequest
 operator|.
 name|parseRequest
 argument_list|(
-name|termVectorRequest
+name|termVectorsRequest
 argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
 return|return
-name|termVectorRequest
+name|termVectorsRequest
 return|;
 block|}
 DECL|method|parseLikeField
@@ -2256,15 +2256,15 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|newTermVectorRequest
+DECL|method|newTermVectorsRequest
 specifier|private
-name|TermVectorRequest
-name|newTermVectorRequest
+name|TermVectorsRequest
+name|newTermVectorsRequest
 parameter_list|()
 block|{
 return|return
 operator|new
-name|TermVectorRequest
+name|TermVectorsRequest
 argument_list|()
 operator|.
 name|positions

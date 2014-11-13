@@ -1726,7 +1726,7 @@ name|rest
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|RestMultiTermVectorsAction
 import|;
@@ -1742,9 +1742,9 @@ name|rest
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|RestTermVectorAction
+name|RestTermVectorsAction
 import|;
 end_import
 
@@ -2529,7 +2529,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|RestTermVectorAction
+name|RestTermVectorsAction
 operator|.
 name|class
 argument_list|)

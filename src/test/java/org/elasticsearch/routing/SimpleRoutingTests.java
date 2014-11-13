@@ -104,7 +104,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|MultiTermVectorsResponse
 import|;
@@ -118,9 +118,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorRequest
+name|TermVectorsRequest
 import|;
 end_import
 
@@ -132,9 +132,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorResponse
+name|TermVectorsResponse
 import|;
 end_import
 
@@ -4026,13 +4026,13 @@ argument_list|(
 literal|"--> verifying term vector with id [1], with routing [0], should succeed"
 argument_list|)
 expr_stmt|;
-name|TermVectorResponse
-name|termVectorResponse
+name|TermVectorsResponse
+name|termVectorsResponse
 init|=
 name|client
 argument_list|()
 operator|.
-name|prepareTermVector
+name|prepareTermVectors
 argument_list|(
 name|indexOrAlias
 argument_list|()
@@ -4052,7 +4052,7 @@ argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|termVectorResponse
+name|termVectorsResponse
 operator|.
 name|isExists
 argument_list|()
@@ -4065,7 +4065,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|termVectorResponse
+name|termVectorsResponse
 operator|.
 name|getId
 argument_list|()
@@ -4081,7 +4081,7 @@ block|{
 name|client
 argument_list|()
 operator|.
-name|prepareTermVector
+name|prepareTermVectors
 argument_list|(
 name|indexOrAlias
 argument_list|()
@@ -4585,7 +4585,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TermVectorRequest
+name|TermVectorsRequest
 argument_list|(
 name|indexOrAlias
 argument_list|()
@@ -4604,7 +4604,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TermVectorRequest
+name|TermVectorsRequest
 argument_list|(
 name|indexOrAlias
 argument_list|()
@@ -4813,7 +4813,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TermVectorRequest
+name|TermVectorsRequest
 argument_list|(
 name|indexOrAlias
 argument_list|()
@@ -4827,7 +4827,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TermVectorRequest
+name|TermVectorsRequest
 argument_list|(
 name|indexOrAlias
 argument_list|()

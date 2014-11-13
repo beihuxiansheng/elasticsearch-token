@@ -1230,7 +1230,7 @@ name|index
 operator|.
 name|termvectors
 operator|.
-name|ShardTermVectorService
+name|ShardTermVectorsService
 import|;
 end_import
 
@@ -1584,11 +1584,11 @@ specifier|final
 name|CodecService
 name|codecService
 decl_stmt|;
-DECL|field|termVectorService
+DECL|field|termVectorsService
 specifier|private
 specifier|final
-name|ShardTermVectorService
-name|termVectorService
+name|ShardTermVectorsService
+name|termVectorsService
 decl_stmt|;
 DECL|field|indexFieldDataService
 specifier|private
@@ -1782,8 +1782,8 @@ parameter_list|,
 name|CodecService
 name|codecService
 parameter_list|,
-name|ShardTermVectorService
-name|termVectorService
+name|ShardTermVectorsService
+name|termVectorsService
 parameter_list|,
 name|IndexFieldDataService
 name|indexFieldDataService
@@ -1896,9 +1896,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|termVectorService
+name|termVectorsService
 operator|=
-name|termVectorService
+name|termVectorsService
 operator|.
 name|setIndexShard
 argument_list|(
@@ -2117,14 +2117,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|termVectorService
+DECL|method|termVectorsService
 specifier|public
-name|ShardTermVectorService
-name|termVectorService
+name|ShardTermVectorsService
+name|termVectorsService
 parameter_list|()
 block|{
 return|return
-name|termVectorService
+name|termVectorsService
 return|;
 block|}
 annotation|@

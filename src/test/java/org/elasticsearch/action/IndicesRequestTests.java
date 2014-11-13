@@ -1126,7 +1126,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|MultiTermVectorsAction
 import|;
@@ -1140,7 +1140,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
 name|MultiTermVectorsRequest
 import|;
@@ -1154,9 +1154,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorAction
+name|TermVectorsAction
 import|;
 end_import
 
@@ -1168,9 +1168,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|termvector
+name|termvectors
 operator|.
-name|TermVectorRequest
+name|TermVectorsRequest
 import|;
 end_import
 
@@ -2811,7 +2811,7 @@ block|{
 name|String
 name|termVectorShardAction
 init|=
-name|TermVectorAction
+name|TermVectorsAction
 operator|.
 name|NAME
 operator|+
@@ -2822,11 +2822,11 @@ argument_list|(
 name|termVectorShardAction
 argument_list|)
 expr_stmt|;
-name|TermVectorRequest
-name|termVectorRequest
+name|TermVectorsRequest
+name|termVectorsRequest
 init|=
 operator|new
-name|TermVectorRequest
+name|TermVectorsRequest
 argument_list|(
 name|randomIndexOrAlias
 argument_list|()
@@ -2842,9 +2842,9 @@ operator|.
 name|clientNodeClient
 argument_list|()
 operator|.
-name|termVector
+name|termVectors
 argument_list|(
-name|termVectorRequest
+name|termVectorsRequest
 argument_list|)
 operator|.
 name|actionGet
@@ -2855,7 +2855,7 @@ argument_list|()
 expr_stmt|;
 name|assertSameIndices
 argument_list|(
-name|termVectorRequest
+name|termVectorsRequest
 argument_list|,
 name|termVectorShardAction
 argument_list|)
