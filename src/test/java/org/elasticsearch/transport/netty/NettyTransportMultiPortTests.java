@@ -198,22 +198,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|Network
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -345,10 +329,6 @@ operator|.
 name|is
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -751,8 +731,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Network
 DECL|method|testThatBindingOnDifferentHostsWorks
 specifier|public
 name|void
@@ -874,7 +852,6 @@ index|]
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO, make sure one can check more settings and that they are applied correctly
 DECL|method|getRandomPorts
 specifier|private
 name|int
@@ -912,9 +889,9 @@ name|port
 init|=
 name|randomIntBetween
 argument_list|(
-literal|1025
+literal|49152
 argument_list|,
-literal|65000
+literal|65535
 argument_list|)
 decl_stmt|;
 while|while
@@ -931,9 +908,9 @@ name|port
 operator|=
 name|randomIntBetween
 argument_list|(
-literal|1025
+literal|49152
 argument_list|,
-literal|65000
+literal|65535
 argument_list|)
 expr_stmt|;
 block|}

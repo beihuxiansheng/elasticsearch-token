@@ -112,22 +112,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|Network
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|transport
 operator|.
 name|TransportModule
@@ -210,10 +194,6 @@ name|is
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -231,6 +211,10 @@ argument_list|,
 name|enableRandomBenchNodes
 operator|=
 literal|false
+argument_list|,
+name|numClientNodes
+operator|=
+literal|0
 argument_list|)
 DECL|class|NettyTransportMultiPortIntegrationTests
 specifier|public
@@ -277,9 +261,9 @@ name|randomPort
 operator|=
 name|randomIntBetween
 argument_list|(
-literal|1025
+literal|49152
 argument_list|,
-literal|65000
+literal|65525
 argument_list|)
 expr_stmt|;
 name|randomPortRange
@@ -364,8 +348,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Network
 DECL|method|testThatTransportClientCanConnect
 specifier|public
 name|void
@@ -417,6 +399,8 @@ operator|new
 name|TransportClient
 argument_list|(
 name|settings
+argument_list|,
+literal|false
 argument_list|)
 init|)
 block|{
@@ -427,7 +411,7 @@ argument_list|(
 operator|new
 name|InetSocketTransportAddress
 argument_list|(
-literal|"localhost"
+literal|"127.0.0.1"
 argument_list|,
 name|randomPort
 argument_list|)
