@@ -2097,13 +2097,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"none"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"path.data"
 argument_list|,
 literal|"data/data1,data/data2"

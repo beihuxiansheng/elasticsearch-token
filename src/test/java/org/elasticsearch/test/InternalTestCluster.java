@@ -2729,14 +2729,6 @@ operator|)
 operator|+
 literal|"ms"
 argument_list|)
-comment|// default to non gateway
-operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"none"
-argument_list|)
 operator|.
 name|put
 argument_list|(

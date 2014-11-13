@@ -56,9 +56,9 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|none
+name|local
 operator|.
-name|NoneGatewayAllocator
+name|LocalGatewayAllocator
 import|;
 end_import
 
@@ -127,7 +127,7 @@ name|GatewayAllocator
 argument_list|>
 name|gatewayAllocator
 init|=
-name|NoneGatewayAllocator
+name|LocalGatewayAllocator
 operator|.
 name|class
 decl_stmt|;

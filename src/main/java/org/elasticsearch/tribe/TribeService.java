@@ -707,16 +707,6 @@ name|sb
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"none"
-argument_list|)
-expr_stmt|;
-comment|// we shouldn't store anything locally...
-name|sb
-operator|.
-name|put
-argument_list|(
 name|TransportMasterNodeReadOperationAction
 operator|.
 name|FORCE_LOCAL_SETTING

@@ -256,11 +256,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|gateway
 operator|.
-name|none
-operator|.
-name|NoneGatewayAllocator
+name|NoopGatewayAllocator
 import|;
 end_import
 
@@ -2962,9 +2962,9 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-operator|new
-name|NoneGatewayAllocator
-argument_list|()
+name|NoopGatewayAllocator
+operator|.
+name|INSTANCE
 argument_list|,
 operator|new
 name|ShardsAllocator

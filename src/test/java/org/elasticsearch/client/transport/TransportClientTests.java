@@ -114,18 +114,6 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
 name|internal
 operator|.
 name|InternalNode
@@ -409,13 +397,6 @@ argument_list|,
 literal|true
 argument_list|)
 comment|// make sure we get what we set :)
-operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"none"
-argument_list|)
 operator|.
 name|build
 argument_list|()

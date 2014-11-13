@@ -727,13 +727,6 @@ argument_list|,
 literal|true
 argument_list|)
 comment|// make sure we get what we set :)
-operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"none"
-argument_list|)
 argument_list|)
 operator|.
 name|build

@@ -330,13 +330,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"none"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|4
