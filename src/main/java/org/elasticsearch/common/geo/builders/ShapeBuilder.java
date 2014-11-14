@@ -707,7 +707,7 @@ operator|.
 name|nextToken
 argument_list|()
 decl_stmt|;
-comment|// Base case
+comment|// Base cases
 if|if
 condition|(
 name|token
@@ -717,6 +717,22 @@ operator|.
 name|Token
 operator|.
 name|START_ARRAY
+operator|&&
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_ARRAY
+operator|&&
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|VALUE_NULL
 condition|)
 block|{
 name|double
@@ -761,6 +777,22 @@ argument_list|,
 name|lat
 argument_list|)
 argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|VALUE_NULL
+condition|)
+block|{
+return|return
+literal|null
 return|;
 block|}
 name|List
