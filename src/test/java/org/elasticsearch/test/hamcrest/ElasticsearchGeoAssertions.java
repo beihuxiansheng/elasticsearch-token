@@ -1989,13 +1989,13 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|RuntimeException
+name|Assert
+operator|.
+name|fail
 argument_list|(
 literal|"process completed successfully when parse exception expected"
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

@@ -2912,7 +2912,7 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|" - must be 0 or>= 2)"
+literal|" - must be>= 2)"
 argument_list|)
 throw|;
 block|}
@@ -3023,22 +3023,13 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|" - must be 0 or>= 4)"
+literal|" - must be>= 4)"
 argument_list|)
 throw|;
 block|}
 elseif|else
 if|if
 condition|(
-name|coordinates
-operator|.
-name|children
-operator|.
-name|size
-argument_list|()
-operator|!=
-literal|0
-operator|&&
 operator|!
 name|coordinates
 operator|.
