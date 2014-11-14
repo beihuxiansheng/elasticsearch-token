@@ -791,9 +791,13 @@ operator|.
 name|VALUE_NULL
 condition|)
 block|{
-return|return
-literal|null
-return|;
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+literal|"coordinates cannot contain NULL values)"
+argument_list|)
+throw|;
 block|}
 name|List
 argument_list|<

@@ -124,6 +124,26 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalArgumentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|geo
@@ -1257,9 +1277,13 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchGeoAssertions
 operator|.
-name|assertValidParseException
+name|assertValidException
 argument_list|(
 name|parser
+argument_list|,
+name|ElasticsearchParseException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 2: create an invalid polygon with only 1 point
@@ -1336,9 +1360,13 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchGeoAssertions
 operator|.
-name|assertValidParseException
+name|assertValidException
 argument_list|(
 name|parser
+argument_list|,
+name|ElasticsearchParseException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 3: create an invalid polygon with 0 points
@@ -1404,9 +1432,13 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchGeoAssertions
 operator|.
-name|assertValidParseException
+name|assertValidException
 argument_list|(
 name|parser
+argument_list|,
+name|ElasticsearchParseException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 4: create an invalid polygon with null value points
@@ -1478,9 +1510,13 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchGeoAssertions
 operator|.
-name|assertValidParseException
+name|assertValidException
 argument_list|(
 name|parser
+argument_list|,
+name|ElasticsearchIllegalArgumentException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 5: create an invalid polygon with 1 invalid LinearRing
@@ -1540,9 +1576,13 @@ argument_list|()
 expr_stmt|;
 name|ElasticsearchGeoAssertions
 operator|.
-name|assertValidParseException
+name|assertValidException
 argument_list|(
 name|parser
+argument_list|,
+name|ElasticsearchIllegalArgumentException
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

@@ -1970,14 +1970,17 @@ name|DEFAULT
 argument_list|)
 return|;
 block|}
-DECL|method|assertValidParseException
+DECL|method|assertValidException
 specifier|public
 specifier|static
 name|void
-name|assertValidParseException
+name|assertValidException
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|Class
+name|expectedException
 parameter_list|)
 block|{
 try|try
@@ -1993,7 +1996,14 @@ name|Assert
 operator|.
 name|fail
 argument_list|(
-literal|"process completed successfully when parse exception expected"
+literal|"process completed successfully when "
+operator|+
+name|expectedException
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" expected"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2006,11 +2016,24 @@ block|{
 assert|assert
 operator|(
 name|e
-operator|instanceof
-name|ElasticsearchParseException
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|expectedException
+argument_list|)
 operator|)
 operator|:
-literal|"expected ElasticsearchParse exception but found "
+literal|"expected "
+operator|+
+name|expectedException
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" but found "
 operator|+
 name|e
 operator|.
