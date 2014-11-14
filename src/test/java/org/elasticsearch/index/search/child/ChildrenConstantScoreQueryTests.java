@@ -795,7 +795,7 @@ argument_list|(
 name|parentFieldMapper
 argument_list|)
 decl_stmt|;
-name|BitDocIdSetFilter
+name|Filter
 name|parentFilter
 init|=
 name|wrap
@@ -833,7 +833,7 @@ name|parentFilter
 argument_list|,
 literal|12
 argument_list|,
-name|wrap
+name|wrapWithFixedBitSetFilter
 argument_list|(
 name|NonNestedDocsFilter
 operator|.
@@ -1189,7 +1189,7 @@ operator|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|BitDocIdSetFilter
+name|Filter
 name|parentFilter
 init|=
 name|wrap
@@ -2026,7 +2026,7 @@ argument_list|(
 name|parentFieldMapper
 argument_list|)
 decl_stmt|;
-name|BitDocIdSetFilter
+name|Filter
 name|parentFilter
 init|=
 name|wrap
@@ -2401,7 +2401,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-name|wrap
+name|wrapWithFixedBitSetFilter
 argument_list|(
 name|NonNestedDocsFilter
 operator|.

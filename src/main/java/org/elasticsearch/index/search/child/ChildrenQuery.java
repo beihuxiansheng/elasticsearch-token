@@ -527,7 +527,7 @@ decl_stmt|;
 DECL|field|parentFilter
 specifier|protected
 specifier|final
-name|BitDocIdSetFilter
+name|Filter
 name|parentFilter
 decl_stmt|;
 DECL|field|scoreType
@@ -588,7 +588,7 @@ parameter_list|,
 name|String
 name|childType
 parameter_list|,
-name|BitDocIdSetFilter
+name|Filter
 name|parentFilter
 parameter_list|,
 name|Query
