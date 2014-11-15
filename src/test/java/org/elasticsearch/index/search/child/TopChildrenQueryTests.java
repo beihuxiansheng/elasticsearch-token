@@ -365,7 +365,7 @@ literal|1
 argument_list|,
 literal|1
 argument_list|,
-name|wrapWithFixedBitSetFilter
+name|wrapWithBitSetFilter
 argument_list|(
 name|NonNestedDocsFilter
 operator|.

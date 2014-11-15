@@ -1302,7 +1302,10 @@ name|queryParserService
 parameter_list|()
 block|{
 return|return
-literal|null
+name|indexService
+operator|.
+name|queryParserService
+argument_list|()
 return|;
 block|}
 annotation|@
