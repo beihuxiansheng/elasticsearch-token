@@ -1235,6 +1235,15 @@ name|ShardResponse
 name|response
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"received response for {}"
+argument_list|,
+name|shard
+argument_list|)
+expr_stmt|;
 name|shardsResponses
 operator|.
 name|set

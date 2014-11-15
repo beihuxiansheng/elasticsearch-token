@@ -279,7 +279,7 @@ name|Slow
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.cluster:TRACE,cluster.service:TRACE,action.search:TRACE,indices.recovery:TRACE"
+literal|"indices.cluster:TRACE,cluster.service:TRACE,action.count:TRACE,indices.recovery:TRACE"
 argument_list|)
 DECL|method|testFullRollingRestart
 specifier|public
@@ -431,7 +431,13 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 block|}
-comment|// now start adding nodes
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> now start adding nodes"
+argument_list|)
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
@@ -484,7 +490,13 @@ literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// now start adding nodes
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> add two more nodes"
+argument_list|)
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
@@ -541,6 +553,13 @@ name|setWaitForNodes
 argument_list|(
 literal|"5"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> refreshing and checking data"
 argument_list|)
 expr_stmt|;
 name|refresh
@@ -684,6 +703,13 @@ literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> stopped two nodes, verifying data"
+argument_list|)
+expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -822,6 +848,13 @@ name|setWaitForNodes
 argument_list|(
 literal|"1"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> one node left, verifying data"
 argument_list|)
 expr_stmt|;
 name|refresh
