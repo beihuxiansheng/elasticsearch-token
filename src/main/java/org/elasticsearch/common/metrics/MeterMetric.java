@@ -26,6 +26,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|FutureUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -425,11 +441,11 @@ name|void
 name|stop
 parameter_list|()
 block|{
-name|future
+name|FutureUtils
 operator|.
 name|cancel
 argument_list|(
-literal|false
+name|future
 argument_list|)
 expr_stmt|;
 block|}
