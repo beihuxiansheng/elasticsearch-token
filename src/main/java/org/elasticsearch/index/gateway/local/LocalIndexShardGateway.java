@@ -1889,7 +1889,7 @@ try|try
 block|{
 name|Files
 operator|.
-name|delete
+name|deleteIfExists
 argument_list|(
 name|recoveringTranslogFile
 operator|.

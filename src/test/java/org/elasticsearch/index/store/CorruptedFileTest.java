@@ -966,7 +966,7 @@ operator|.
 name|builder
 argument_list|()
 comment|// we really need local GW here since this also checks for corruption etc.
-comment|// and we need to make sure primaries are not just trashed if we don'tmvn have replicas
+comment|// and we need to make sure primaries are not just trashed if we don't have replicas
 operator|.
 name|put
 argument_list|(

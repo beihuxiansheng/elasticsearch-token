@@ -52,20 +52,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|math
 operator|.
 name|MathUtils
@@ -631,6 +617,15 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+try|try
+block|{
+assert|assert
+name|assertConsistency
+argument_list|()
+assert|;
+block|}
+finally|finally
+block|{
 name|IOUtils
 operator|.
 name|close
@@ -641,6 +636,7 @@ name|all
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the directory that has previously been associated with this file name.      *      * @throws IOException if the name has not yet been associated with any directory ie. fi the file does not exists      */
 DECL|method|getDirectory
@@ -835,23 +831,13 @@ return|;
 block|}
 comment|/**      * Basic checks to ensure the internal mapping is consistent - should only be used in assertions      */
 DECL|method|assertConsistency
-specifier|static
+specifier|private
+specifier|synchronized
 name|boolean
 name|assertConsistency
-parameter_list|(
-name|ESLogger
-name|logger
-parameter_list|,
-name|DistributorDirectory
-name|dir
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
-block|{
-synchronized|synchronized
-init|(
-name|dir
-init|)
 block|{
 name|boolean
 name|consistent
@@ -869,8 +855,6 @@ name|Directory
 index|[]
 name|all
 init|=
-name|dir
-operator|.
 name|distributor
 operator|.
 name|all
@@ -899,8 +883,6 @@ specifier|final
 name|Directory
 name|directory
 init|=
-name|dir
-operator|.
 name|nameDirMapping
 operator|.
 name|get
@@ -1000,24 +982,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-if|if
-condition|(
-name|consistent
-operator|==
-literal|false
-condition|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-name|builder
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 assert|assert
 name|consistent
 operator|:
@@ -1030,7 +994,6 @@ return|return
 name|consistent
 return|;
 comment|// return boolean so it can be easily be used in asserts
-block|}
 block|}
 comment|/**      * This inner class is a simple wrapper around the original      * lock factory to track files written / created through the      * lock factory. For instance {@link NativeFSLockFactory} creates real      * files that we should expose for consistency reasons.      */
 DECL|class|DistributorLockFactoryWrapper

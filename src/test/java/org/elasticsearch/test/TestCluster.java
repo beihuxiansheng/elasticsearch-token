@@ -353,6 +353,8 @@ specifier|public
 name|void
 name|assertAfterTest
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|assertAllSearchersClosed
 argument_list|()

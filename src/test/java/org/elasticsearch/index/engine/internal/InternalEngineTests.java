@@ -176,20 +176,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|SegmentInfos
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -218,7 +204,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|AlreadyClosedException
+name|Lock
 import|;
 end_import
 
@@ -355,6 +341,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|ShardLock
 import|;
 end_import
 
@@ -779,6 +777,18 @@ operator|.
 name|fs
 operator|.
 name|FsTranslog
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|DummyShardLock
 import|;
 end_import
 
@@ -1515,6 +1525,12 @@ name|LeastUsedDistributor
 argument_list|(
 name|directoryService
 argument_list|)
+argument_list|,
+operator|new
+name|DummyShardLock
+argument_list|(
+name|shardId
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -1553,6 +1569,12 @@ operator|new
 name|LeastUsedDistributor
 argument_list|(
 name|directoryService
+argument_list|)
+argument_list|,
+operator|new
+name|DummyShardLock
+argument_list|(
+name|shardId
 argument_list|)
 argument_list|)
 return|;

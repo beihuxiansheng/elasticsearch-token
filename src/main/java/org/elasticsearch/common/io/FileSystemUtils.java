@@ -316,6 +316,9 @@ literal|false
 return|;
 block|}
 comment|/**      * Returns an array of {@link Path} build from the correspondent element      * in the input array using {@link java.io.File#toPath()}      * @param files the files to get paths for      */
+annotation|@
+name|Deprecated
+comment|// this is only a transition API
 DECL|method|toPaths
 specifier|public
 specifier|static
