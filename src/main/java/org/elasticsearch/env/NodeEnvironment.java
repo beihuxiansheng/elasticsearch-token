@@ -1411,7 +1411,7 @@ parameter_list|()
 block|{
 synchronized|synchronized
 init|(
-name|this
+name|shardLocks
 init|)
 block|{
 name|ImmutableSet
