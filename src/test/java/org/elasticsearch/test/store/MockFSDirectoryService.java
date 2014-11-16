@@ -802,15 +802,10 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|helper
-operator|.
-name|wrapAllInplace
-argument_list|(
 name|delegateService
 operator|.
 name|build
 argument_list|()
-argument_list|)
 return|;
 block|}
 annotation|@
