@@ -1849,7 +1849,7 @@ init|=
 operator|new
 name|RemoteTransportException
 argument_list|(
-literal|"File corruption occured on recovery but checksums are ok"
+literal|"File corruption occurred on recovery but checksums are ok"
 argument_list|,
 literal|null
 argument_list|)
@@ -1875,13 +1875,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} File corruption on recovery {} local checksum OK"
+literal|"{} Remote file corruption on node {}, recovering {}. local checksum OK"
 argument_list|,
 name|corruptIndexException
 argument_list|,
 name|shard
 operator|.
 name|shardId
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|targetNode
 argument_list|()
 argument_list|,
 name|md
