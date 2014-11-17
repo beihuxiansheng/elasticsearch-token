@@ -2184,6 +2184,28 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|// only connect edges if intersections are pairwise (per comment above)
+if|if
+condition|(
+name|e1
+operator|.
+name|intersect
+operator|!=
+name|Edge
+operator|.
+name|maxCoordinate
+argument_list|()
+operator|&&
+name|e2
+operator|.
+name|intersect
+operator|!=
+name|Edge
+operator|.
+name|maxCoordinate
+argument_list|()
+condition|)
+block|{
 name|connect
 argument_list|(
 name|e1
@@ -2191,6 +2213,7 @@ argument_list|,
 name|e2
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|numHoles
