@@ -925,12 +925,13 @@ argument_list|(
 name|docId
 argument_list|)
 expr_stmt|;
-name|count
-operator|=
+name|resize
+argument_list|(
 name|geoValues
 operator|.
 name|count
 argument_list|()
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -942,6 +943,7 @@ init|;
 name|i
 operator|<
 name|count
+argument_list|()
 condition|;
 operator|++
 name|i

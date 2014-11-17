@@ -86,7 +86,7 @@ extends|extends
 name|SortedNumericDocValues
 block|{
 DECL|field|count
-specifier|protected
+specifier|private
 name|int
 name|count
 decl_stmt|;
@@ -194,14 +194,21 @@ block|}
 block|}
 expr_stmt|;
 block|}
-comment|/**      * Make sure the {@link #values} array can store at least {@link #count} entries.      */
-DECL|method|grow
+comment|/**      * Set the {@link #count()} and ensure that the {@link #values} array can      * store at least that many entries.      */
+DECL|method|resize
 specifier|protected
 specifier|final
 name|void
-name|grow
-parameter_list|()
+name|resize
+parameter_list|(
+name|int
+name|newSize
+parameter_list|)
 block|{
+name|count
+operator|=
+name|newSize
+expr_stmt|;
 name|values
 operator|=
 name|ArrayUtil
