@@ -522,13 +522,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.store.type"
-argument_list|,
-literal|"ram"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"none"

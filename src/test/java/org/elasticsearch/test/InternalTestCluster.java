@@ -2710,8 +2710,6 @@ name|ImmutableSettings
 operator|.
 name|settingsBuilder
 argument_list|()
-comment|/* use RAM directories in 10% of the runs */
-comment|//.put("index.store.type", random.nextInt(10) == 0 ? MockRamIndexStoreModule.class.getName() : MockFSIndexStoreModule.class.getName())
 comment|// decrease the routing schedule so new nodes will be added quickly - some random value between 30 and 80 ms
 operator|.
 name|put

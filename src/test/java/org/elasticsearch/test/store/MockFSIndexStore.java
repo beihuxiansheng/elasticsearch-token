@@ -106,9 +106,9 @@ name|index
 operator|.
 name|store
 operator|.
-name|fs
+name|support
 operator|.
-name|FsIndexStore
+name|AbstractIndexStore
 import|;
 end_import
 
@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|MockFSIndexStore
 extends|extends
-name|FsIndexStore
+name|AbstractIndexStore
 block|{
 annotation|@
 name|Inject

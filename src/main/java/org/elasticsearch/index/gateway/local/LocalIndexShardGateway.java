@@ -944,17 +944,6 @@ block|}
 if|if
 condition|(
 name|indexShouldExists
-operator|&&
-name|indexShard
-operator|.
-name|indexService
-argument_list|()
-operator|.
-name|store
-argument_list|()
-operator|.
-name|persistent
-argument_list|()
 condition|)
 block|{
 throw|throw

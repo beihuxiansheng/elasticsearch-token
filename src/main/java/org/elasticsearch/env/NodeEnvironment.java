@@ -2734,6 +2734,16 @@ return|return
 name|paths
 return|;
 block|}
+DECL|method|getSettings
+name|Settings
+name|getSettings
+parameter_list|()
+block|{
+comment|// for testing
+return|return
+name|settings
+return|;
+block|}
 block|}
 end_class
 

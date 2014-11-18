@@ -140,6 +140,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Collections
@@ -228,7 +240,7 @@ specifier|protected
 name|Directory
 name|newFSDirectory
 parameter_list|(
-name|File
+name|Path
 name|location
 parameter_list|,
 name|LockFactory
@@ -247,9 +259,6 @@ operator|new
 name|MMapDirectory
 argument_list|(
 name|location
-operator|.
-name|toPath
-argument_list|()
 argument_list|,
 name|lockFactory
 argument_list|)
@@ -258,9 +267,6 @@ operator|new
 name|NIOFSDirectory
 argument_list|(
 name|location
-operator|.
-name|toPath
-argument_list|()
 argument_list|,
 name|lockFactory
 argument_list|)

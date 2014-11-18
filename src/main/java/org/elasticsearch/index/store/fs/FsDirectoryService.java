@@ -150,6 +150,30 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -174,7 +198,7 @@ block|{
 DECL|field|indexStore
 specifier|protected
 specifier|final
-name|FsIndexStore
+name|IndexStore
 name|indexStore
 decl_stmt|;
 DECL|field|rateLimitingTimeInNanos
@@ -214,9 +238,6 @@ name|this
 operator|.
 name|indexStore
 operator|=
-operator|(
-name|FsIndexStore
-operator|)
 name|indexStore
 expr_stmt|;
 block|}
@@ -355,7 +376,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 index|[]
 name|locations
 init|=
@@ -395,9 +416,9 @@ name|i
 operator|++
 control|)
 block|{
-name|FileSystemUtils
+name|Files
 operator|.
-name|mkdirs
+name|createDirectories
 argument_list|(
 name|locations
 index|[
@@ -445,7 +466,7 @@ specifier|abstract
 name|Directory
 name|newFSDirectory
 parameter_list|(
-name|File
+name|Path
 name|location
 parameter_list|,
 name|LockFactory

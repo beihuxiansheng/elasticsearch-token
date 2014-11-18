@@ -708,13 +708,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"index.store.type"
-argument_list|,
-literal|"ram"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"config.ignore_system_properties"
 argument_list|,
 literal|true
