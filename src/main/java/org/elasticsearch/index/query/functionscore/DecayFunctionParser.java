@@ -1680,8 +1680,6 @@ operator|.
 name|parseToMilliseconds
 argument_list|(
 name|originString
-argument_list|,
-name|parseContext
 argument_list|)
 expr_stmt|;
 block|}
