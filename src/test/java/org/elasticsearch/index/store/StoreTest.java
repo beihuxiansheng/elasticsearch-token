@@ -3945,13 +3945,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|distributorDirectory
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
+name|distributorDirectory
+operator|!=
+literal|null
+operator|&&
 name|distributorDirectory
 operator|.
 name|getDirectory
