@@ -486,6 +486,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -1628,6 +1640,18 @@ expr_stmt|;
 comment|// only do this once!
 name|decRef
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"store reference count on close: "
+operator|+
+name|refCounter
+operator|.
+name|refCount
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

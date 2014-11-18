@@ -3425,7 +3425,7 @@ name|getId
 argument_list|()
 argument_list|)
 operator|:
-literal|"Unkown shard id"
+literal|"Unknown shard id"
 assert|;
 name|listener
 operator|.

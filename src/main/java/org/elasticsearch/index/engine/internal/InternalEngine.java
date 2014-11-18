@@ -1712,7 +1712,7 @@ name|ReentrantLock
 argument_list|()
 decl_stmt|;
 DECL|field|onGoingRecoveries
-specifier|private
+specifier|protected
 specifier|final
 name|RecoveryCounter
 name|onGoingRecoveries
@@ -10263,7 +10263,7 @@ return|;
 block|}
 block|}
 DECL|class|RecoveryCounter
-specifier|private
+specifier|protected
 specifier|final
 class|class
 name|RecoveryCounter
@@ -10281,7 +10281,6 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|method|startRecovery
-specifier|public
 name|void
 name|startRecovery
 parameter_list|()
@@ -10311,7 +10310,6 @@ argument_list|()
 return|;
 block|}
 DECL|method|endRecovery
-specifier|public
 name|void
 name|endRecovery
 parameter_list|()

@@ -790,6 +790,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Ongoing recoveries after engine close: "
+operator|+
+name|onGoingRecoveries
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
