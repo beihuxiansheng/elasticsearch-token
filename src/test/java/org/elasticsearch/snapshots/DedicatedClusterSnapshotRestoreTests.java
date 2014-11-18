@@ -4916,7 +4916,6 @@ argument_list|(
 literal|"--> start 2 nodes"
 argument_list|)
 expr_stmt|;
-comment|//NO COMMIT: remove HTTP_ENABLED
 name|internalCluster
 argument_list|()
 operator|.
@@ -4930,15 +4929,6 @@ argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|InternalNode
-operator|.
-name|HTTP_ENABLED
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4955,15 +4945,6 @@ argument_list|(
 literal|"gateway.type"
 argument_list|,
 literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|InternalNode
-operator|.
-name|HTTP_ENABLED
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
