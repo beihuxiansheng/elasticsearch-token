@@ -311,7 +311,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|200
+literal|20
 condition|;
 name|i
 operator|++
