@@ -4604,6 +4604,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|long
+name|ttl
+init|=
+literal|10000
+decl_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -4647,7 +4652,7 @@ argument_list|)
 operator|.
 name|setTTL
 argument_list|(
-literal|111211211
+name|ttl
 argument_list|)
 operator|.
 name|setSource
@@ -4667,14 +4672,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|long
-name|postIndexTs
-init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-decl_stmt|;
 comment|// Update the first object and note context variables values
 name|Map
 argument_list|<
@@ -4742,13 +4739,34 @@ name|timestamp
 operator|+
 literal|"\"\n"
 operator|+
-literal|"def now = new Date().getTime()\n"
+comment|// ttl has a 3-second leeway, because it's always counting down
+literal|"assert ctx._ttl<= "
 operator|+
-literal|"assert (111211211 - ctx._ttl)<= (now - "
+name|ttl
 operator|+
-name|postIndexTs
+literal|" : \"ttl should be<= "
 operator|+
-literal|") : \"ttl is not within acceptable range\"\n"
+name|ttl
+operator|+
+literal|" but was \" + ctx._ttl\n"
+operator|+
+literal|"assert ctx._ttl>= "
+operator|+
+operator|(
+name|ttl
+operator|-
+literal|3000
+operator|)
+operator|+
+literal|" : \"ttl should be<= "
+operator|+
+operator|(
+name|ttl
+operator|-
+literal|3000
+operator|)
+operator|+
+literal|" but was \" + ctx._ttl\n"
 operator|+
 literal|"ctx._source.content = ctx._source.content + delim + ctx._source.content;\n"
 operator|+
