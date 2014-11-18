@@ -738,47 +738,12 @@ operator|+
 name|dx
 operator|)
 decl_stmt|;
-comment|// define grid limits for current level
-specifier|final
-name|int
-name|xLimit
-init|=
-operator|(
-operator|(
-name|level
-operator|%
-literal|2
-operator|)
-operator|==
-literal|0
-operator|)
-condition|?
-literal|7
-else|:
-literal|3
-decl_stmt|;
-specifier|final
-name|int
-name|yLimit
-init|=
-operator|(
-operator|(
-name|level
-operator|%
-literal|2
-operator|)
-operator|==
-literal|0
-operator|)
-condition|?
-literal|3
-else|:
-literal|7
-decl_stmt|;
 comment|// if the defined neighbor has the same parent a the current cell
 comment|// encode the cell directly. Otherwise find the cell next to this
 comment|// cell recursively. Since encoding wraps around within a cell
 comment|// it can be encoded here.
+comment|// xLimit and YLimit must always be respectively 7 and 3
+comment|// since x and y semantics are swapping on each level.
 if|if
 condition|(
 name|nx
@@ -787,7 +752,7 @@ literal|0
 operator|&&
 name|nx
 operator|<=
-name|xLimit
+literal|7
 operator|&&
 name|ny
 operator|>=
@@ -795,7 +760,7 @@ literal|0
 operator|&&
 name|ny
 operator|<=
-name|yLimit
+literal|3
 condition|)
 block|{
 return|return
