@@ -4558,11 +4558,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"test-idx-all"
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
@@ -4708,11 +4703,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"test-idx-some"
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|client
@@ -4856,11 +4846,6 @@ name|equalTo
 argument_list|(
 literal|6
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"test-idx-some"
 argument_list|)
 expr_stmt|;
 name|assertThat
