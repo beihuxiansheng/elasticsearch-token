@@ -380,13 +380,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"timeBased"
-argument_list|,
-literal|"org.apache.log4j.rolling.TimeBasedRollingPolicy"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"smtp"
 argument_list|,
 literal|"org.apache.log4j.net.SMTPAppender"
@@ -418,6 +411,14 @@ argument_list|(
 literal|"telnet"
 argument_list|,
 literal|"org.apache.log4j.net.TelnetAppender"
+argument_list|)
+comment|// policies
+operator|.
+name|put
+argument_list|(
+literal|"timeBased"
+argument_list|,
+literal|"org.apache.log4j.rolling.TimeBasedRollingPolicy"
 argument_list|)
 comment|// layouts
 operator|.
