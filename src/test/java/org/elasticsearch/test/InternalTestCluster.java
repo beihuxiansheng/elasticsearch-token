@@ -7061,11 +7061,11 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Stops a random data node in the cluster.      */
+comment|/**      * Stops a random data node in the cluster. Returns true if a node was found to stop, false otherwise.      */
 DECL|method|stopRandomDataNode
 specifier|public
 specifier|synchronized
-name|void
+name|boolean
 name|stopRandomDataNode
 parameter_list|()
 throws|throws
@@ -7121,7 +7121,13 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
+return|return
+literal|false
+return|;
 block|}
 comment|/**      * Stops a random node in the cluster that applies to the given filter or non if the non of the nodes applies to the      * filter.      */
 DECL|method|stopRandomNode
