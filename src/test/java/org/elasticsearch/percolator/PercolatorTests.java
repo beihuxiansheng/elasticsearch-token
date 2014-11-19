@@ -4949,7 +4949,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"stored"
+literal|"store"
 argument_list|,
 literal|"yes"
 argument_list|)
