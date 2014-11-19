@@ -321,6 +321,8 @@ condition|)
 block|{
 comment|// If we are an abstract runnable we can handle the rejection
 comment|// directly and don't need to rethrow it.
+try|try
+block|{
 operator|(
 operator|(
 name|AbstractRunnable
@@ -333,6 +335,20 @@ argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+operator|(
+operator|(
+name|AbstractRunnable
+operator|)
+name|command
+operator|)
+operator|.
+name|onAfter
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{

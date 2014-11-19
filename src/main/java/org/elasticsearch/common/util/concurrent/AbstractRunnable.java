@@ -84,6 +84,21 @@ name|t
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
+name|onAfter
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|/**      * This method is called in a finally block after successful execution      * or on a rejection.      */
+DECL|method|onAfter
+specifier|public
+name|void
+name|onAfter
+parameter_list|()
+block|{
+comment|// nothing by default
 block|}
 comment|/**      * This method is invoked for all exception thrown by {@link #doRun()}      */
 DECL|method|onFailure
