@@ -378,6 +378,11 @@ argument_list|(
 name|filter
 argument_list|,
 literal|null
+argument_list|,
+name|parseContext
+operator|.
+name|autoFilterCachePolicy
+argument_list|()
 argument_list|)
 return|;
 block|}

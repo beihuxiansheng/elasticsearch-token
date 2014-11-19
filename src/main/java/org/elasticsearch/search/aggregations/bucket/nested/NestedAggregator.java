@@ -86,6 +86,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|FilterCachingPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|join
 operator|.
 name|BitDocIdSetFilter
@@ -206,7 +220,63 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|*
+name|AggregationExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|Aggregator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregatorFactories
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregatorFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|InternalAggregation
 import|;
 end_import
 
@@ -349,6 +419,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|metaData
+parameter_list|,
+name|FilterCachingPolicy
+name|filterCachingPolicy
 parameter_list|)
 block|{
 name|super
@@ -461,12 +534,6 @@ literal|"] is not nested"
 argument_list|)
 throw|;
 block|}
-comment|// TODO: Revise the cache usage for childFilter
-comment|// Typical usage of the childFilter in this agg is that not all parent docs match and because this agg executes
-comment|// in order we are maybe better off not caching? We can then iterate over the posting list and benefit from skip pointers.
-comment|// Even if caching does make sense it is likely that it shouldn't be forced as is today, but based on heuristics that
-comment|// the filter cache maintains that the childFilter should be cached.
-comment|// By caching the childFilter we're consistent with other features and previous versions.
 name|childFilter
 operator|=
 name|aggregationContext
@@ -483,6 +550,10 @@ name|objectMapper
 operator|.
 name|nestedTypeFilter
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|filterCachingPolicy
 argument_list|)
 expr_stmt|;
 comment|// The childDocs need to be consumed in docId order, this ensures that:
@@ -914,6 +985,12 @@ specifier|final
 name|String
 name|path
 decl_stmt|;
+DECL|field|filterCachingPolicy
+specifier|private
+specifier|final
+name|FilterCachingPolicy
+name|filterCachingPolicy
+decl_stmt|;
 DECL|method|Factory
 specifier|public
 name|Factory
@@ -923,6 +1000,9 @@ name|name
 parameter_list|,
 name|String
 name|path
+parameter_list|,
+name|FilterCachingPolicy
+name|filterCachingPolicy
 parameter_list|)
 block|{
 name|super
@@ -942,6 +1022,12 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+name|this
+operator|.
+name|filterCachingPolicy
+operator|=
+name|filterCachingPolicy
 expr_stmt|;
 block|}
 annotation|@
@@ -984,6 +1070,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|metaData
+argument_list|,
+name|filterCachingPolicy
 argument_list|)
 return|;
 block|}

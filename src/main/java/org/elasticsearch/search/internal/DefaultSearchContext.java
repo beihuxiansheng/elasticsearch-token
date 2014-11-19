@@ -1534,6 +1534,16 @@ operator|.
 name|cache
 argument_list|(
 name|filter
+argument_list|,
+literal|null
+argument_list|,
+name|indexService
+operator|.
+name|queryParserService
+argument_list|()
+operator|.
+name|autoFilterCachePolicy
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

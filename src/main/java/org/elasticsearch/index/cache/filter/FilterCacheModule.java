@@ -22,6 +22,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|FilterCachingPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -168,6 +182,23 @@ argument_list|(
 name|Scopes
 operator|.
 name|SINGLETON
+argument_list|)
+expr_stmt|;
+comment|// the filter cache is a node-level thing, however we want the most popular filters
+comment|// to be computed on a per-index basis, that is why we don't use the SINGLETON
+comment|// scope below
+name|bind
+argument_list|(
+name|FilterCachingPolicy
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|AutoFilterCachingPolicy
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

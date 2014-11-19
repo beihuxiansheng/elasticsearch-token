@@ -770,6 +770,16 @@ name|childObjectMapper
 operator|.
 name|nestedTypeFilter
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+name|context
+operator|.
+name|queryParserService
+argument_list|()
+operator|.
+name|autoFilterCachePolicy
+argument_list|()
 argument_list|)
 decl_stmt|;
 try|try

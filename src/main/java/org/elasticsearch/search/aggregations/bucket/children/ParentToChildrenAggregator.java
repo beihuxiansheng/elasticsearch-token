@@ -548,42 +548,18 @@ name|parentType
 operator|=
 name|parentType
 expr_stmt|;
-comment|// The child filter doesn't rely on random access it just used to iterate over all docs with a specific type,
-comment|// so use the filter cache instead. When the filter cache is smarter with what filter impl to pick we can benefit
-comment|// from it here
+comment|// these two filters are cached in the parser
 name|this
 operator|.
 name|childFilter
 operator|=
-name|aggregationContext
-operator|.
-name|searchContext
-argument_list|()
-operator|.
-name|filterCache
-argument_list|()
-operator|.
-name|cache
-argument_list|(
 name|childFilter
-argument_list|)
 expr_stmt|;
 name|this
 operator|.
 name|parentFilter
 operator|=
-name|aggregationContext
-operator|.
-name|searchContext
-argument_list|()
-operator|.
-name|filterCache
-argument_list|()
-operator|.
-name|cache
-argument_list|(
 name|parentFilter
-argument_list|)
 expr_stmt|;
 name|this
 operator|.

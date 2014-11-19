@@ -1672,6 +1672,13 @@ operator|.
 name|TYPE_NAME
 argument_list|)
 argument_list|)
+argument_list|,
+literal|null
+argument_list|,
+name|queryParserService
+operator|.
+name|autoFilterCachePolicy
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;

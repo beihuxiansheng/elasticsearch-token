@@ -1006,6 +1006,11 @@ name|context
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+name|context
+operator|.
+name|autoFilterCachePolicy
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

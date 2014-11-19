@@ -62,6 +62,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|FilterCachingPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -94,9 +108,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|lucene
 operator|.
-name|XContentParser
+name|HashedBytesRef
 import|;
 end_import
 
@@ -106,15 +120,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|cache
+name|xcontent
 operator|.
-name|filter
-operator|.
-name|support
-operator|.
-name|CacheKeyFilter
+name|XContentParser
 import|;
 end_import
 
@@ -229,15 +239,15 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|boolean
+name|FilterCachingPolicy
 name|cache
 init|=
-literal|true
-decl_stmt|;
-comment|// since usually term filter is on repeating terms, cache it by default
-name|CacheKeyFilter
+name|parseContext
 operator|.
-name|Key
+name|autoFilterCachePolicy
+argument_list|()
+decl_stmt|;
+name|HashedBytesRef
 name|cacheKey
 init|=
 literal|null
@@ -429,9 +439,9 @@ condition|)
 block|{
 name|cache
 operator|=
-name|parser
+name|parseContext
 operator|.
-name|booleanValue
+name|parseFilterCachePolicy
 argument_list|()
 expr_stmt|;
 block|}
@@ -456,9 +466,7 @@ block|{
 name|cacheKey
 operator|=
 operator|new
-name|CacheKeyFilter
-operator|.
-name|Key
+name|HashedBytesRef
 argument_list|(
 name|parser
 operator|.
@@ -529,9 +537,9 @@ condition|)
 block|{
 name|cache
 operator|=
-name|parser
+name|parseContext
 operator|.
-name|booleanValue
+name|parseFilterCachePolicy
 argument_list|()
 expr_stmt|;
 block|}
@@ -556,9 +564,7 @@ block|{
 name|cacheKey
 operator|=
 operator|new
-name|CacheKeyFilter
-operator|.
-name|Key
+name|HashedBytesRef
 argument_list|(
 name|parser
 operator|.
@@ -758,6 +764,8 @@ block|}
 if|if
 condition|(
 name|cache
+operator|!=
+literal|null
 condition|)
 block|{
 name|filter
@@ -769,6 +777,8 @@ argument_list|(
 name|filter
 argument_list|,
 name|cacheKey
+argument_list|,
+name|cache
 argument_list|)
 expr_stmt|;
 block|}

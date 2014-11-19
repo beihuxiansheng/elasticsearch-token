@@ -878,6 +878,11 @@ name|typeFilter
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|parseContext
+operator|.
+name|autoFilterCachePolicy
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

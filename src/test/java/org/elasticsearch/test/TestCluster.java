@@ -811,14 +811,6 @@ name|void
 name|ensureEstimatedStats
 parameter_list|()
 function_decl|;
-comment|/**      * Return whether or not this cluster can cache filters.      */
-DECL|method|hasFilterCache
-specifier|public
-specifier|abstract
-name|boolean
-name|hasFilterCache
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the cluster name      */
 DECL|method|getClusterName
 specifier|public
