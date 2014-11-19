@@ -667,6 +667,9 @@ name|Thread
 name|thread
 parameter_list|)
 block|{
+name|ensureRefCount
+argument_list|()
+expr_stmt|;
 name|waitingRecoveryThread
 operator|.
 name|set
@@ -812,6 +815,13 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"interrupting recovery thread on canceled recovery"
+argument_list|)
+expr_stmt|;
 name|thread
 operator|.
 name|interrupt
