@@ -247,7 +247,6 @@ class|class
 name|LogConfigurator
 block|{
 DECL|field|ALLOWED_SUFFIXES
-specifier|private
 specifier|static
 specifier|final
 name|List
