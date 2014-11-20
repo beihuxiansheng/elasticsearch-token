@@ -321,6 +321,10 @@ name|loadIndex
 parameter_list|(
 name|String
 name|index
+parameter_list|,
+name|Object
+modifier|...
+name|settings
 parameter_list|)
 throws|throws
 name|Exception
@@ -335,7 +339,7 @@ name|index
 argument_list|)
 expr_stmt|;
 name|Settings
-name|settings
+name|nodeSettings
 init|=
 name|prepareBackwardsDataDir
 argument_list|(
@@ -353,6 +357,8 @@ operator|.
 name|toURI
 argument_list|()
 argument_list|)
+argument_list|,
+name|settings
 argument_list|)
 decl_stmt|;
 name|internalCluster
@@ -360,7 +366,7 @@ argument_list|()
 operator|.
 name|startNode
 argument_list|(
-name|settings
+name|nodeSettings
 argument_list|)
 expr_stmt|;
 name|ensureGreen

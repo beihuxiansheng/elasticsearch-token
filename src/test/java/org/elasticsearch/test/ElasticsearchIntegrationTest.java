@@ -10533,6 +10533,10 @@ name|prepareBackwardsDataDir
 parameter_list|(
 name|File
 name|backwardsIndex
+parameter_list|,
+name|Object
+modifier|...
+name|settings
 parameter_list|)
 throws|throws
 name|IOException
@@ -10686,6 +10690,11 @@ name|ImmutableSettings
 operator|.
 name|builder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|settings
+argument_list|)
 operator|.
 name|put
 argument_list|(
