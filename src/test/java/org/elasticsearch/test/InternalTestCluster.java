@@ -2249,7 +2249,7 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"es.logger.prefix"
+literal|"es.logger.level"
 argument_list|)
 argument_list|)
 expr_stmt|;
