@@ -4800,7 +4800,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Returns smart field mappers based on a smart name. A smart name is one that can optioannly be prefixed      * with a type (and then a '.'). If it is, then the {@link MapperService.SmartNameFieldMappers}      * will have the doc mapper set.      *<p/>      *<p>It also (without the optional type prefix) try and find the {@link FieldMappers} for the specific      * name. It will first try to find it based on the full name (with the dots if its a compound name). If      * it is not found, will try and find it based on the indexName (which can be controlled in the mapping),      * and last, will try it based no the name itself.      *<p/>      *<p>If nothing is found, returns null.      */
+comment|/**      * Returns smart field mappers based on a smart name. A smart name is one that can optionally be prefixed      * with a type (and then a '.'). If it is, then the {@link MapperService.SmartNameFieldMappers}      * will have the doc mapper set.      *<p/>      *<p>It also (without the optional type prefix) try and find the {@link FieldMappers} for the specific      * name. It will first try to find it based on the full name (with the dots if its a compound name). If      * it is not found, will try and find it based on the indexName (which can be controlled in the mapping),      * and last, will try it based no the name itself.      *<p/>      *<p>If nothing is found, returns null.      */
 DECL|method|smartName
 specifier|public
 name|SmartNameFieldMappers
