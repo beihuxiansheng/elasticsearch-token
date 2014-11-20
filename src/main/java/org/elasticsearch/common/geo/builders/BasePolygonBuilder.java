@@ -2193,8 +2193,7 @@ name|intersect
 operator|!=
 name|Edge
 operator|.
-name|maxCoordinate
-argument_list|()
+name|MAX_COORDINATE
 operator|&&
 name|e2
 operator|.
@@ -2202,8 +2201,7 @@ name|intersect
 operator|!=
 name|Edge
 operator|.
-name|maxCoordinate
-argument_list|()
+name|MAX_COORDINATE
 condition|)
 block|{
 name|connect
