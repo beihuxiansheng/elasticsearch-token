@@ -3178,6 +3178,23 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+name|cancelableThreads
+operator|.
+name|run
+argument_list|(
+operator|new
+name|Interruptable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
 try|try
 block|{
 if|if
@@ -3240,6 +3257,10 @@ literal|"interrupted while waiting for mapping to update on master"
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Send the given snapshot's operations to this handler's target node.      *      * Operations are bulked into a single request depending on an operation      * count limit or size-in-bytes limit      *      * @return the total number of translog operations that were sent      */
 DECL|method|sendSnapshot
