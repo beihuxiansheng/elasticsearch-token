@@ -836,16 +836,14 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// TODO (#8512): this should be a Set, not a List. Currently if a document has two positions that have
-comment|// the same geo hash, it will increase the doc_count for this geo hash by 2 instead of 1
-name|List
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|geoHashes
 init|=
 operator|new
-name|ArrayList
+name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
