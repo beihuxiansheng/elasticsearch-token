@@ -1854,6 +1854,17 @@ operator|.
 name|newHashMap
 argument_list|()
 decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|templateNames
+init|=
+name|Lists
+operator|.
+name|newArrayList
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Map
@@ -1940,6 +1951,16 @@ range|:
 name|templates
 control|)
 block|{
+name|templateNames
+operator|.
+name|add
+argument_list|(
+name|template
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|ObjectObjectCursor
@@ -3322,7 +3343,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] creating index, cause [{}], shards [{}]/[{}], mappings {}"
+literal|"[{}] creating index, cause [{}], templates {}, shards [{}]/[{}], mappings {}"
 argument_list|,
 name|request
 operator|.
@@ -3333,6 +3354,8 @@ name|request
 operator|.
 name|cause
 argument_list|()
+argument_list|,
+name|templateNames
 argument_list|,
 name|indexMetaData
 operator|.
@@ -3925,6 +3948,14 @@ range|:
 name|templatesFiles
 control|)
 block|{
+if|if
+condition|(
+name|templatesFile
+operator|.
+name|isFile
+argument_list|()
+condition|)
+block|{
 name|XContentParser
 name|parser
 init|=
@@ -3968,6 +3999,11 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
+argument_list|,
+name|templatesFile
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -4026,6 +4062,7 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

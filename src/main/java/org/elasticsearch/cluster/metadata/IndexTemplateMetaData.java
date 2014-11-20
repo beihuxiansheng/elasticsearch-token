@@ -1839,6 +1839,9 @@ name|fromXContent
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|String
+name|templateName
 parameter_list|)
 throws|throws
 name|IOException
@@ -1849,10 +1852,7 @@ init|=
 operator|new
 name|Builder
 argument_list|(
-name|parser
-operator|.
-name|currentName
-argument_list|()
+name|templateName
 argument_list|)
 decl_stmt|;
 name|String

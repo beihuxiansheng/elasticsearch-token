@@ -7990,6 +7990,11 @@ operator|.
 name|fromXContent
 argument_list|(
 name|parser
+argument_list|,
+name|parser
+operator|.
+name|currentName
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
