@@ -320,7 +320,7 @@ argument_list|>
 name|failures
 parameter_list|)
 function_decl|;
-comment|/**          * Invoked once the last resource using the given shard ID is released          */
+comment|/**          * Invoked once the last resource using the given shard ID is released.          * Yet, this method is called while still holding the shards lock such that          * operations on the shards data can safely be executed in this callback.          */
 DECL|method|onShardClosed
 specifier|public
 name|void
