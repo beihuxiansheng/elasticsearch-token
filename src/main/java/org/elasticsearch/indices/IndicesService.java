@@ -269,6 +269,7 @@ parameter_list|)
 throws|throws
 name|ElasticsearchException
 function_decl|;
+comment|/**      * Removes the given index from this service and releases all associated resources. Persistent parts of the index      * like the shards files, state and transaction logs are kept around in the case of a disaster recovery.      * @param index the index to remove      * @param reason  the high level reason causing this removal      */
 DECL|method|removeIndex
 name|void
 name|removeIndex
@@ -282,20 +283,16 @@ parameter_list|)
 throws|throws
 name|ElasticsearchException
 function_decl|;
-DECL|method|removeIndex
+comment|/**      * Deletes the given index. Persistent parts of the index      * like the shards files, state and transaction logs are removed once all resources are released.      *      * Equivalent to {@link #removeIndex(String, String)} but fires      * different lifecycle events to ensure pending resources of this index are immediately removed.      * @param index the index to delete      * @param reason the high level reason causing this delete      */
+DECL|method|deleteIndex
 name|void
-name|removeIndex
+name|deleteIndex
 parameter_list|(
 name|String
 name|index
 parameter_list|,
 name|String
 name|reason
-parameter_list|,
-annotation|@
-name|Nullable
-name|IndexCloseListener
-name|listener
 parameter_list|)
 throws|throws
 name|ElasticsearchException

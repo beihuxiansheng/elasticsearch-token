@@ -296,6 +296,26 @@ name|String
 name|reason
 parameter_list|)
 block|{          }
+comment|/**          * Called after the index has been deleted.          * This listener method is invoked after {@link #afterIndexClosed(org.elasticsearch.index.Index)}          * when an index is deleted          *          * @param index The index          */
+DECL|method|afterIndexDeleted
+specifier|public
+name|void
+name|afterIndexDeleted
+parameter_list|(
+name|Index
+name|index
+parameter_list|)
+block|{          }
+comment|/**          * Called before the index gets deleted.          * This listener method is invoked after          * {@link #beforeIndexClosed(org.elasticsearch.index.service.IndexService)} when an index is deleted          *          * @param indexService The index service          */
+DECL|method|beforeIndexDeleted
+specifier|public
+name|void
+name|beforeIndexDeleted
+parameter_list|(
+name|IndexService
+name|indexService
+parameter_list|)
+block|{          }
 block|}
 block|}
 end_interface
