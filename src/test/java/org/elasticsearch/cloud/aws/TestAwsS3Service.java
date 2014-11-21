@@ -174,6 +174,9 @@ name|String
 name|endpoint
 parameter_list|,
 name|String
+name|protocol
+parameter_list|,
+name|String
 name|region
 parameter_list|,
 name|String
@@ -192,6 +195,8 @@ name|client
 argument_list|(
 name|endpoint
 argument_list|,
+name|protocol
+argument_list|,
 name|region
 argument_list|,
 name|account
@@ -209,6 +214,12 @@ specifier|synchronized
 name|AmazonS3
 name|client
 parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|String
+name|protocol
+parameter_list|,
 name|String
 name|region
 parameter_list|,
@@ -229,6 +240,10 @@ name|super
 operator|.
 name|client
 argument_list|(
+name|endpoint
+argument_list|,
+name|protocol
+argument_list|,
 name|region
 argument_list|,
 name|account
