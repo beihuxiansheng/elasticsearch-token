@@ -90,6 +90,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -291,6 +305,26 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Constructs a new builder with a raw search query.      */
+DECL|method|setQuery
+specifier|public
+name|CountRequestBuilder
+name|setQuery
+parameter_list|(
+name|XContentBuilder
+name|query
+parameter_list|)
+block|{
+return|return
+name|setQuery
+argument_list|(
+name|query
+operator|.
+name|bytes
+argument_list|()
+argument_list|)
 return|;
 block|}
 comment|/**      * The source to execute.      */
