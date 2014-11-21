@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Same ad {@link MatchQueryParser} but has support for multiple fields.  */
+comment|/**  * Same as {@link MatchQueryParser} but has support for multiple fields.  */
 end_comment
 
 begin_class
@@ -1133,7 +1133,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"No text specified for match_all query"
+literal|"No text specified for multi_match query"
 argument_list|)
 throw|;
 block|}
@@ -1154,7 +1154,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"No fields specified for match_all query"
+literal|"No fields specified for multi_match query"
 argument_list|)
 throw|;
 block|}
