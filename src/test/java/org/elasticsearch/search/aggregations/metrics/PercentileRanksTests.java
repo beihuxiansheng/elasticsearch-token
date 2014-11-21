@@ -3006,7 +3006,7 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"List values = doc['values'].values; double[] res = new double[values.length]; for (int i = 0; i< res.length; i++) { res[i] = values.get(i) - dec; }; return res;"
+literal|"List values = doc['values'].values; double[] res = new double[values.size()]; for (int i = 0; i< res.length; i++) { res[i] = values.get(i) - dec; }; return res;"
 argument_list|)
 operator|.
 name|param

@@ -5427,7 +5427,7 @@ literal|"doc['"
 operator|+
 name|MULTI_VALUED_FIELD_NAME
 operator|+
-literal|"'].values"
+literal|"']"
 argument_list|)
 argument_list|)
 operator|.
@@ -5663,7 +5663,7 @@ literal|"doc['"
 operator|+
 name|MULTI_VALUED_FIELD_NAME
 operator|+
-literal|"'].values"
+literal|"']"
 argument_list|)
 operator|.
 name|subAggregation
@@ -5746,7 +5746,7 @@ literal|"doc['"
 operator|+
 name|MULTI_VALUED_FIELD_NAME
 operator|+
-literal|"'].values"
+literal|"']"
 argument_list|)
 operator|.
 name|valueType
