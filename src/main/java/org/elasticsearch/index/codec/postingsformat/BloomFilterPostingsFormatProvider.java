@@ -127,10 +127,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * @deprecated only for reading old segments  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BloomFilterPostingsFormatProvider
 specifier|public
 class|class

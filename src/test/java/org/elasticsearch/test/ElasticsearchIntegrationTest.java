@@ -3099,21 +3099,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Randomly load or don't load bloom filters:
-name|builder
-operator|.
-name|put
-argument_list|(
-name|CodecService
-operator|.
-name|INDEX_CODEC_BLOOM_LOAD
-argument_list|,
-name|random
-operator|.
-name|nextBoolean
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|random

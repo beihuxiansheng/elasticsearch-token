@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class represents the set of Elasticsearch "built-in"  * {@link PostingsFormatProvider.Factory postings format factories}  *<ul>  *<li><b>bloom_default</b>: a postings format that uses a bloom filter to  * improve term lookup performance. This is useful for primarily keys or fields  * that are used as a delete key</li>  *<li><b>default</b>: the default Elasticsearch postings format offering best  * general purpose performance. This format is used if no postings format is  * specified in the field mapping.</li>  *<li><b>***</b>: other formats from Lucene core (e.g. Lucene41 as of Lucene 4.10)  *</ul>  */
+comment|/**  * This class represents the set of Elasticsearch "built-in"  * {@link PostingsFormatProvider.Factory postings format factories}  *<ul>  *<li><b>default</b>: the default Lucene postings format offering best  * general purpose performance. This format is used if no postings format is  * specified in the field mapping.</li>  *<li><b>***</b>: other formats from Lucene core (e.g. Lucene41 as of Lucene 4.10)  *</ul>  */
 end_comment
 
 begin_class
@@ -182,9 +182,14 @@ specifier|final
 name|PostingsFormat
 name|defaultFormat
 init|=
-operator|new
-name|Elasticsearch090PostingsFormat
-argument_list|()
+name|PostingsFormat
+operator|.
+name|forName
+argument_list|(
+name|Lucene
+operator|.
+name|LATEST_POSTINGS_FORMAT
+argument_list|)
 decl_stmt|;
 name|builtInPostingFormatsX
 operator|.
@@ -204,33 +209,6 @@ operator|.
 name|DEFAULT_FORMAT
 argument_list|,
 name|defaultFormat
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|builtInPostingFormatsX
-operator|.
-name|put
-argument_list|(
-literal|"bloom_default"
-argument_list|,
-operator|new
-name|PreBuiltPostingsFormatProvider
-operator|.
-name|Factory
-argument_list|(
-literal|"bloom_default"
-argument_list|,
-name|wrapInBloom
-argument_list|(
-name|PostingsFormat
-operator|.
-name|forName
-argument_list|(
-name|Lucene
-operator|.
-name|LATEST_POSTINGS_FORMAT
-argument_list|)
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
