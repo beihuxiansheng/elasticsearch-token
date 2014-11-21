@@ -2489,6 +2489,11 @@ argument_list|)
 operator|.
 name|withTimeAtStartOfDay
 argument_list|()
+operator|.
+name|minusMillis
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
