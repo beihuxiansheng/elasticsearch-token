@@ -2739,11 +2739,6 @@ argument_list|)
 operator|.
 name|getValues
 argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
 decl_stmt|;
 name|Object
 name|expectedResult
