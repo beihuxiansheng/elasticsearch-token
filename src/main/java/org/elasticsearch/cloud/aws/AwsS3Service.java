@@ -81,6 +81,26 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
+DECL|method|client
+name|AmazonS3
+name|client
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|String
+name|region
+parameter_list|,
+name|String
+name|account
+parameter_list|,
+name|String
+name|key
+parameter_list|,
+name|Integer
+name|maxRetries
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
