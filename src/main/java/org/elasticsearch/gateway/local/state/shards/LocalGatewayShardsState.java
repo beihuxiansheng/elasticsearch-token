@@ -1061,6 +1061,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|MetaDataStateFormat
@@ -1083,7 +1085,7 @@ argument_list|()
 argument_list|,
 name|nodeEnv
 operator|.
-name|shardLocations
+name|shardPaths
 argument_list|(
 name|shardId
 argument_list|)
@@ -1156,7 +1158,7 @@ name|version
 argument_list|,
 name|nodeEnv
 operator|.
-name|shardLocations
+name|shardPaths
 argument_list|(
 name|shardId
 argument_list|)
