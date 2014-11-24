@@ -876,6 +876,16 @@ name|merge
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|maybeStall
+specifier|protected
+name|void
+name|maybeStall
+parameter_list|()
+block|{
+comment|// Don't stall here, because we do our own index throttling (in InternalEngine.IndexThrottle) when merges can't keep up
+block|}
 block|}
 DECL|class|ApplySettings
 class|class

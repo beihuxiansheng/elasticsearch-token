@@ -1748,7 +1748,7 @@ static|static
 block|{
 name|TYPE
 operator|.
-name|setDocValueType
+name|setDocValuesType
 argument_list|(
 name|DocValuesType
 operator|.

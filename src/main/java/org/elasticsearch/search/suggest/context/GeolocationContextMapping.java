@@ -3172,7 +3172,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 operator|==
 name|latField
@@ -3180,7 +3180,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 assert|;
 comment|// we write doc values fields differently: one field for all values, so we need to only care about indexed fields
@@ -3191,7 +3191,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 operator|==
 name|DocValuesType

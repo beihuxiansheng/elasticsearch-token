@@ -956,6 +956,15 @@ argument_list|)
 expr_stmt|;
 name|put
 argument_list|(
+literal|"serbiannormalization"
+argument_list|,
+name|SerbianNormalizationFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|put
+argument_list|(
 literal|"shingle"
 argument_list|,
 name|ShingleTokenFilterFactory

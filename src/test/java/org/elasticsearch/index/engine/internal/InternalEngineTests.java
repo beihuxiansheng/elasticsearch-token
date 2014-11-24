@@ -3473,6 +3473,12 @@ name|void
 name|testStartAndAcquireConcurrently
 parameter_list|()
 block|{
+comment|// Close engine from setUp (we create our own):
+name|engine
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|ConcurrentMergeSchedulerProvider
 name|mergeSchedulerProvider
 init|=
@@ -3613,6 +3619,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Close engine from setUp (we create our own):
+name|engine
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|ConcurrentMergeSchedulerProvider
 name|mergeSchedulerProvider
 init|=
@@ -11330,6 +11342,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Close engine from setUp (we create our own):
+name|engine
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 comment|// Make sure enableGCDeletes == false works:
 name|Settings
 name|settings

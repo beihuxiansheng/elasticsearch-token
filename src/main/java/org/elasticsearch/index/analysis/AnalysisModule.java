@@ -3435,6 +3435,17 @@ name|tokenFiltersBindings
 operator|.
 name|processTokenFilter
 argument_list|(
+literal|"serbian_normalization"
+argument_list|,
+name|SerbianNormalizationFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
 literal|"hunspell"
 argument_list|,
 name|HunspellTokenFilterFactory

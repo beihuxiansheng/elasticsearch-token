@@ -784,12 +784,12 @@ name|assertEquals
 argument_list|(
 name|ft1
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 argument_list|,
 name|ft2
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2849,7 +2849,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 operator|!=
 name|DocValuesType
@@ -2863,7 +2863,7 @@ operator|.
 name|fieldType
 argument_list|()
 operator|.
-name|docValueType
+name|docValuesType
 argument_list|()
 return|;
 block|}
