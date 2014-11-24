@@ -15937,9 +15937,8 @@ argument_list|,
 literal|1l
 argument_list|)
 expr_stmt|;
-name|SearchRequestBuilder
-name|builder
-init|=
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -16008,18 +16007,14 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|boolean
-name|caught
-init|=
-literal|false
-decl_stmt|;
-try|try
-block|{
-name|builder
 operator|.
-name|execute
+name|get
 argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"ElasticsearchIllegalArgumentException should have been caught"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -16028,7 +16023,7 @@ name|ElasticsearchException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 literal|"ElasticsearchIllegalArgumentException should have been caught"
 argument_list|,
@@ -16036,25 +16031,11 @@ name|e
 operator|.
 name|getDetailedMessage
 argument_list|()
-operator|.
-name|endsWith
+argument_list|,
+name|containsString
 argument_list|(
 literal|"spanNot can either use [dist] or [pre]& [post] (or none)"
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|caught
-operator|=
-literal|true
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|assertTrue
-argument_list|(
-literal|"ElasticsearchIllegalArgumentException should have been caught"
-argument_list|,
-name|caught
 argument_list|)
 expr_stmt|;
 block|}
