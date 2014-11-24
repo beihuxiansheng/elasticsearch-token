@@ -308,6 +308,10 @@ argument_list|(
 name|currentNumNodes
 argument_list|,
 name|unicastHostOrdinals
+argument_list|,
+name|Scope
+operator|.
+name|TEST
 argument_list|)
 expr_stmt|;
 comment|// start the unicast hosts
@@ -475,6 +479,10 @@ argument_list|,
 name|currentNumOfUnicastHosts
 argument_list|,
 name|settings
+argument_list|,
+name|Scope
+operator|.
+name|TEST
 argument_list|)
 expr_stmt|;
 name|List

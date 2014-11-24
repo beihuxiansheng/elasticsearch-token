@@ -1331,6 +1331,10 @@ argument_list|(
 name|numberOfNodes
 argument_list|,
 name|nodeSettings
+argument_list|,
+name|Scope
+operator|.
+name|TEST
 argument_list|)
 expr_stmt|;
 block|}
@@ -1348,6 +1352,10 @@ argument_list|,
 name|nodeSettings
 argument_list|,
 name|unicastHostsOrdinals
+argument_list|,
+name|Scope
+operator|.
+name|TEST
 argument_list|)
 expr_stmt|;
 block|}

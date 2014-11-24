@@ -307,12 +307,12 @@ name|UnicastZen
 extends|extends
 name|ClusterDiscoveryConfiguration
 block|{
-DECL|field|portRangeCounter
+DECL|field|portCounter
 specifier|private
-specifier|final
 specifier|static
+specifier|final
 name|AtomicInteger
-name|portRangeCounter
+name|portCounter
 init|=
 operator|new
 name|AtomicInteger
@@ -337,6 +337,11 @@ name|UnicastZen
 parameter_list|(
 name|int
 name|numOfNodes
+parameter_list|,
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
 parameter_list|)
 block|{
 name|this
@@ -344,6 +349,8 @@ argument_list|(
 name|numOfNodes
 argument_list|,
 name|numOfNodes
+argument_list|,
+name|scope
 argument_list|)
 expr_stmt|;
 block|}
@@ -356,6 +363,11 @@ name|numOfNodes
 parameter_list|,
 name|Settings
 name|extraSettings
+parameter_list|,
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
 parameter_list|)
 block|{
 name|this
@@ -365,6 +377,8 @@ argument_list|,
 name|numOfNodes
 argument_list|,
 name|extraSettings
+argument_list|,
+name|scope
 argument_list|)
 expr_stmt|;
 block|}
@@ -377,6 +391,11 @@ name|numOfNodes
 parameter_list|,
 name|int
 name|numOfUnicastHosts
+parameter_list|,
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
 parameter_list|)
 block|{
 name|this
@@ -388,6 +407,8 @@ argument_list|,
 name|ImmutableSettings
 operator|.
 name|EMPTY
+argument_list|,
+name|scope
 argument_list|)
 expr_stmt|;
 block|}
@@ -403,6 +424,11 @@ name|numOfUnicastHosts
 parameter_list|,
 name|Settings
 name|extraSettings
+parameter_list|,
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
 parameter_list|)
 block|{
 name|super
@@ -506,7 +532,9 @@ operator|.
 name|basePort
 operator|=
 name|calcBasePort
-argument_list|()
+argument_list|(
+name|scope
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|UnicastZen
@@ -519,6 +547,11 @@ parameter_list|,
 name|int
 index|[]
 name|unicastHostOrdinals
+parameter_list|,
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
 parameter_list|)
 block|{
 name|this
@@ -530,6 +563,8 @@ operator|.
 name|EMPTY
 argument_list|,
 name|unicastHostOrdinals
+argument_list|,
+name|scope
 argument_list|)
 expr_stmt|;
 block|}
@@ -546,6 +581,11 @@ parameter_list|,
 name|int
 index|[]
 name|unicastHostOrdinals
+parameter_list|,
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
 parameter_list|)
 block|{
 name|super
@@ -566,7 +606,9 @@ operator|.
 name|basePort
 operator|=
 name|calcBasePort
-argument_list|()
+argument_list|(
+name|scope
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|calcBasePort
@@ -574,7 +616,12 @@ specifier|private
 specifier|static
 name|int
 name|calcBasePort
-parameter_list|()
+parameter_list|(
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
+parameter_list|)
 block|{
 comment|// note that this has properly co-exist with the port logic at InternalTestCluster's constructor
 return|return
@@ -586,19 +633,58 @@ operator|(
 name|ElasticsearchIntegrationTest
 operator|.
 name|CHILD_JVM_ID
-operator|%
-literal|60
 operator|)
 operator|+
-comment|// up to 60 jvms
+comment|// up to 30 jvms
+comment|//up to 100 nodes per cluster
 literal|100
 operator|*
-name|portRangeCounter
+name|scopeId
+argument_list|(
+name|scope
+argument_list|)
+return|;
+block|}
+DECL|method|scopeId
+specifier|private
+specifier|static
+name|int
+name|scopeId
+parameter_list|(
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+name|scope
+parameter_list|)
+block|{
+switch|switch
+condition|(
+name|scope
+condition|)
+block|{
+case|case
+name|GLOBAL
+case|:
+comment|//we reserve a special base port for global clusters, as they stick around
+comment|//the assumption is that no counter is needed as there's only one global cluster per jvm
+return|return
+literal|0
+return|;
+default|default:
+comment|//ports can be reused as suite or test clusters are never run concurrently
+comment|//we don't reuse the same port immediately though but leave some time to make sure ports are freed
+comment|//reserve 0 to global cluster, prevent conflicts between jvms by never going above 9
+return|return
+literal|1
+operator|+
+name|portCounter
 operator|.
 name|incrementAndGet
 argument_list|()
+operator|%
+literal|9
 return|;
-comment|// up to 100 nodes
+block|}
 block|}
 annotation|@
 name|Override
