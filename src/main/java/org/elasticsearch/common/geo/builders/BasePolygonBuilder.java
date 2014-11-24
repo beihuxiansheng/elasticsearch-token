@@ -2184,7 +2184,15 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// only connect edges if intersections are pairwise (per comment above)
+comment|// only connect edges if intersections are pairwise
+comment|// per the comment above, the edge array is sorted by y-value of the intersection
+comment|// with the dateline.  Two edges have the same y intercept when they cross the
+comment|// dateline thus they appear sequentially (pairwise) in the edge array. Two edges
+comment|// do not have the same y intercept when we're forming a multi-poly from a poly
+comment|// that wraps the dateline (but there are 2 ordered intercepts).
+comment|// The connect method creates a new edge for these paired edges in the linked list.
+comment|// For boundary conditions (e.g., intersect but not crossing) there is no sibling edge
+comment|// to connect. Thus the following enforces the pairwise rule
 if|if
 condition|(
 name|e1
