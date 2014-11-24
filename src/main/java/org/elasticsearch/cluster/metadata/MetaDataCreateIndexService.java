@@ -1750,7 +1750,7 @@ init|=
 literal|false
 decl_stmt|;
 name|String
-name|failureReason
+name|removalReason
 init|=
 literal|null
 decl_stmt|;
@@ -2837,7 +2837,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|failureReason
+name|removalReason
 operator|=
 literal|"failed on parsing default mapping on index creation"
 expr_stmt|;
@@ -2940,7 +2940,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|failureReason
+name|removalReason
 operator|=
 literal|"failed on parsing mappings on index creation"
 expr_stmt|;
@@ -3287,7 +3287,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|failureReason
+name|removalReason
 operator|=
 literal|"failed to build index metadata"
 expr_stmt|;
@@ -3541,6 +3541,10 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+name|removalReason
+operator|=
+literal|"cleaning up after validating index on master"
+expr_stmt|;
 return|return
 name|updatedState
 return|;
@@ -3562,11 +3566,11 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|failureReason
+name|removalReason
 operator|!=
 literal|null
 condition|?
-name|failureReason
+name|removalReason
 else|:
 literal|"failed to create index"
 argument_list|)
