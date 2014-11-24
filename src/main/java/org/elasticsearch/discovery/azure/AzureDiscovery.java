@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cloud
 operator|.
 name|azure
@@ -333,6 +343,9 @@ name|electMasterService
 parameter_list|,
 name|DynamicSettings
 name|dynamicSettings
+parameter_list|,
+name|Version
+name|version
 parameter_list|)
 block|{
 name|super
@@ -438,6 +451,8 @@ argument_list|,
 name|transportService
 argument_list|,
 name|networkService
+argument_list|,
+name|version
 argument_list|)
 argument_list|)
 expr_stmt|;
