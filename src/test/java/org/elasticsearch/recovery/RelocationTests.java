@@ -4509,9 +4509,6 @@ name|IOException
 throws|,
 name|TransportException
 block|{
-comment|//            if (action.equals(RecoveryTarget.Actions.PREPARE_TRANSLOG)) {
-comment|//                logger.debug("dropped [{}] to {}", action, node);
-comment|//} else
 if|if
 condition|(
 name|action

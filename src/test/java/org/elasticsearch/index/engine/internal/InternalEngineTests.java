@@ -64,7 +64,7 @@ name|apache
 operator|.
 name|log4j
 operator|.
-name|Logger
+name|LogManager
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|apache
 operator|.
 name|log4j
 operator|.
-name|LogManager
+name|Logger
 import|;
 end_import
 
