@@ -50,6 +50,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|dataformat
+operator|.
+name|cbor
+operator|.
+name|CBORGenerator
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -175,6 +191,20 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// this trips on many mappings now...
+comment|// Enable prefixing the entire byte stream with a CBOR header ("tag")
+name|cborFactory
+operator|.
+name|configure
+argument_list|(
+name|CBORGenerator
+operator|.
+name|Feature
+operator|.
+name|WRITE_TYPE_HEADER
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|cborXContent
 operator|=
 operator|new
