@@ -58,13 +58,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|index
-operator|.
-name|CloseableIndexComponent
+name|Closeable
 import|;
 end_import
 
@@ -178,7 +176,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableIndexComponent
+name|Closeable
 argument_list|>
 argument_list|>
 name|indexServices
@@ -220,7 +218,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableIndexComponent
+name|Closeable
 argument_list|>
 argument_list|>
 name|shardServices

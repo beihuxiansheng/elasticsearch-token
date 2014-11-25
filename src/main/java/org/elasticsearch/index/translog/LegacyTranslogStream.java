@@ -116,6 +116,30 @@ name|FileChannel
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  * Version 0 of the translog format, there is no header in this file  */
 end_comment
@@ -253,19 +277,20 @@ specifier|public
 name|StreamInput
 name|openInput
 parameter_list|(
-name|File
+name|Path
 name|translogFile
 parameter_list|)
 throws|throws
-name|FileNotFoundException
+name|IOException
 block|{
 comment|// nothing to do, legacy translogs have no header
 return|return
 operator|new
 name|InputStreamStreamInput
 argument_list|(
-operator|new
-name|FileInputStream
+name|Files
+operator|.
+name|newInputStream
 argument_list|(
 name|translogFile
 argument_list|)

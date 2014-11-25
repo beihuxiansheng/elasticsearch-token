@@ -902,6 +902,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -2552,7 +2562,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|CloseableIndexComponent
+name|Closeable
 argument_list|>
 name|closeable
 range|:

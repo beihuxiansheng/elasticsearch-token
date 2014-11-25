@@ -149,6 +149,8 @@ specifier|protected
 name|Translog
 name|create
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -178,8 +180,9 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|translogFileDirectory
 argument_list|()

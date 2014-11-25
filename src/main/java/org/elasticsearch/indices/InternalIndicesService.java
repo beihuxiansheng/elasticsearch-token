@@ -22,6 +22,20 @@ name|google
 operator|.
 name|common
 operator|.
+name|base
+operator|.
+name|Function
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|*
@@ -761,6 +775,16 @@ operator|.
 name|plugins
 operator|.
 name|PluginsService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
 import|;
 end_import
 
@@ -2495,6 +2519,8 @@ parameter_list|)
 throws|throws
 name|ElasticsearchException
 block|{
+try|try
+block|{
 specifier|final
 name|IndexService
 name|indexService
@@ -2589,38 +2615,66 @@ name|indexService
 argument_list|)
 expr_stmt|;
 block|}
-for|for
-control|(
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|CloseableIndexComponent
-argument_list|>
-name|closeable
-range|:
+name|IOUtils
+operator|.
+name|close
+argument_list|(
+name|Iterables
+operator|.
+name|transform
+argument_list|(
 name|pluginsService
 operator|.
 name|indexServices
 argument_list|()
-control|)
+argument_list|,
+operator|new
+name|Function
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Closeable
+argument_list|>
+argument_list|,
+name|Closeable
+argument_list|>
+argument_list|()
 block|{
+annotation|@
+name|Override
+specifier|public
+name|Closeable
+name|apply
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Closeable
+argument_list|>
+name|input
+parameter_list|)
+block|{
+return|return
 name|indexInjector
 operator|.
 name|getInstance
 argument_list|(
-name|closeable
+name|input
 argument_list|)
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+return|;
 block|}
+block|}
+block|)
+block|)
+function|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index service"
+literal|"[{}] closing index service (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2645,7 +2699,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index cache"
+literal|"[{}] closing index cache (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2668,7 +2722,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] clearing index field data"
+literal|"[{}] clearing index field data (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2691,7 +2745,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing analysis service"
+literal|"[{}] closing analysis service (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2714,7 +2768,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index engine"
+literal|"[{}] closing index engine (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2737,7 +2791,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index gateway"
+literal|"[{}] closing index gateway (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2760,7 +2814,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing mapper service"
+literal|"[{}] closing mapper service (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2783,7 +2837,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index query parser service"
+literal|"[{}] closing index query parser service (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2806,7 +2860,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"[{}] closing index service"
+literal|"[{}] closing index service (reason [{}])"
 argument_list|,
 name|index
 argument_list|,
@@ -2828,10 +2882,10 @@ expr_stmt|;
 name|Injectors
 operator|.
 name|close
-argument_list|(
+parameter_list|(
 name|injector
-argument_list|)
-expr_stmt|;
+parameter_list|)
+constructor_decl|;
 name|logger
 operator|.
 name|debug
@@ -2870,8 +2924,32 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_catch
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"failed to remove index "
+operator|+
+name|index
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
+end_catch
+
+begin_class
+unit|}      static
 DECL|class|OldShardsStats
-specifier|static
 class|class
 name|OldShardsStats
 extends|extends
@@ -3024,8 +3102,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 

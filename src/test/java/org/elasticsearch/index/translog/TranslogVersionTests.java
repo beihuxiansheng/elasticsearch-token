@@ -87,6 +87,30 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -120,10 +144,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|translogFile
 init|=
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v0.binary"
 argument_list|)
@@ -132,10 +156,12 @@ name|assertThat
 argument_list|(
 literal|"test file should exist"
 argument_list|,
-name|translogFile
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|translogFile
+argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -391,10 +417,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|translogFile
 init|=
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1.binary"
 argument_list|)
@@ -403,10 +429,12 @@ name|assertThat
 argument_list|(
 literal|"test file should exist"
 argument_list|,
-name|translogFile
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|translogFile
+argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -676,10 +704,10 @@ name|Exception
 block|{
 try|try
 block|{
-name|File
+name|Path
 name|translogFile
 init|=
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1-corrupted-magic.binary"
 argument_list|)
@@ -688,10 +716,12 @@ name|assertThat
 argument_list|(
 literal|"test file should exist"
 argument_list|,
-name|translogFile
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|translogFile
+argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -749,10 +779,10 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|File
+name|Path
 name|translogFile
 init|=
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-invalid-first-byte.binary"
 argument_list|)
@@ -761,10 +791,12 @@ name|assertThat
 argument_list|(
 literal|"test file should exist"
 argument_list|,
-name|translogFile
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|translogFile
+argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
@@ -822,10 +854,10 @@ expr_stmt|;
 block|}
 try|try
 block|{
-name|File
+name|Path
 name|translogFile
 init|=
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1-corrupted-body.binary"
 argument_list|)
@@ -834,10 +866,12 @@ name|assertThat
 argument_list|(
 literal|"test file should exist"
 argument_list|,
-name|translogFile
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|translogFile
+argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(

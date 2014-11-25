@@ -38,35 +38,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|store
-operator|.
-name|IndicesStore
 import|;
 end_import
 
@@ -76,7 +50,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|Closeable
 import|;
 end_import
 
@@ -112,13 +86,8 @@ specifier|public
 interface|interface
 name|IndexStore
 extends|extends
-name|CloseableIndexComponent
+name|Closeable
 block|{
-DECL|method|indicesStore
-name|IndicesStore
-name|indicesStore
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the rate limiting, either of the index is explicitly configured, or      * the node level one (defaults to the node level one).      */
 DECL|method|rateLimiting
 name|StoreRateLimiting

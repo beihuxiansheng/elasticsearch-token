@@ -40,21 +40,19 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
+name|shard
+operator|.
+name|IndexShardComponent
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShardComponent
+name|Closeable
 import|;
 end_import
 
@@ -75,7 +73,7 @@ parameter_list|>
 extends|extends
 name|IndexShardComponent
 extends|,
-name|CloseableIndexComponent
+name|Closeable
 block|{
 DECL|method|getMergePolicy
 name|T

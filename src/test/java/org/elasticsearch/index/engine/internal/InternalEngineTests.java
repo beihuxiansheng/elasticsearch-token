@@ -730,38 +730,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|store
-operator|.
-name|fs
-operator|.
-name|SimpleFsDirectoryService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|fs
-operator|.
-name|SimpleFsIndexStore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|translog
 operator|.
 name|Translog
@@ -880,7 +848,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -888,9 +856,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -1672,6 +1642,8 @@ specifier|protected
 name|Translog
 name|createTranslog
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -1681,8 +1653,9 @@ name|shardId
 argument_list|,
 name|EMPTY_SETTINGS
 argument_list|,
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 literal|"work/fs-translog/primary"
 argument_list|)
@@ -1694,6 +1667,8 @@ specifier|protected
 name|Translog
 name|createTranslogReplica
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -1703,8 +1678,9 @@ name|shardId
 argument_list|,
 name|EMPTY_SETTINGS
 argument_list|,
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 literal|"work/fs-translog/replica"
 argument_list|)
@@ -3472,6 +3448,8 @@ specifier|public
 name|void
 name|testStartAndAcquireConcurrently
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// Close engine from setUp (we create our own):
 name|engine

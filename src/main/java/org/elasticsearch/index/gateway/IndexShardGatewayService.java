@@ -92,18 +92,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|engine
 operator|.
 name|Engine
@@ -211,6 +199,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -238,7 +246,7 @@ name|IndexShardGatewayService
 extends|extends
 name|AbstractIndexShardComponent
 implements|implements
-name|CloseableIndexComponent
+name|Closeable
 block|{
 DECL|field|threadPool
 specifier|private
@@ -1332,6 +1340,8 @@ specifier|synchronized
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|shardGateway
 operator|.

@@ -80,6 +80,18 @@ name|FileChannel
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  * A translog stream that will read and write operations in the  * version-specific format  */
 end_comment
@@ -139,7 +151,7 @@ specifier|public
 name|StreamInput
 name|openInput
 parameter_list|(
-name|File
+name|Path
 name|translogFile
 parameter_list|)
 throws|throws

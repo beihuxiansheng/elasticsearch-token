@@ -24,18 +24,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|IndexShardComponent
@@ -56,6 +44,16 @@ name|RecoveryState
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -68,7 +66,7 @@ name|IndexShardGateway
 extends|extends
 name|IndexShardComponent
 extends|,
-name|CloseableIndexComponent
+name|Closeable
 block|{
 DECL|method|type
 name|String

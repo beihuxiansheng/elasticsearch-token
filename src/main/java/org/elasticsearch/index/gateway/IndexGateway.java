@@ -24,19 +24,17 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
+name|IndexComponent
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|index
-operator|.
-name|IndexComponent
+name|Closeable
 import|;
 end_import
 
@@ -52,7 +50,7 @@ name|IndexGateway
 extends|extends
 name|IndexComponent
 extends|,
-name|CloseableIndexComponent
+name|Closeable
 block|{
 DECL|method|type
 name|String

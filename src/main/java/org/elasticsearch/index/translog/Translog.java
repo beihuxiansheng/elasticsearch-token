@@ -240,18 +240,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|CloseableIndexComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|VersionType
 import|;
 end_import
@@ -290,7 +278,29 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -316,7 +326,7 @@ name|Translog
 extends|extends
 name|IndexShardComponent
 extends|,
-name|CloseableIndexComponent
+name|Closeable
 extends|,
 name|Accountable
 block|{
@@ -349,11 +359,6 @@ name|ByteSizeValue
 name|bufferSize
 parameter_list|)
 function_decl|;
-DECL|method|closeWithDelete
-name|void
-name|closeWithDelete
-parameter_list|()
-function_decl|;
 comment|/**      * Returns the id of the current transaction log.      */
 DECL|method|currentId
 name|long
@@ -372,7 +377,7 @@ name|long
 name|translogSizeInBytes
 parameter_list|()
 function_decl|;
-comment|/**      * Creates a new transaction log internally.      *<p/>      *<p>Can only be called by one thread.      */
+comment|/**      * Creates a new transaction log internally.      *<p/>      *<p>Can only be called by one thread.      * @param id the translog id for the new translog      */
 DECL|method|newTranslog
 name|void
 name|newTranslog
@@ -382,6 +387,8 @@ name|id
 parameter_list|)
 throws|throws
 name|TranslogException
+throws|,
+name|IOException
 function_decl|;
 comment|/**      * Creates a new transient translog, where added ops will be added to the current one, and to      * it.      *<p/>      *<p>Can only be called by one thread.      */
 DECL|method|newTransientTranslog
@@ -399,12 +406,16 @@ DECL|method|makeTransientCurrent
 name|void
 name|makeTransientCurrent
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Reverts back to not have a transient translog.      */
 DECL|method|revertTransient
 name|void
 name|revertTransient
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Adds a create operation to the transaction log.      */
 DECL|method|add
@@ -444,7 +455,7 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 function_decl|;
-comment|/**      * Clears unreferenced transaclogs.      */
+comment|/**      * Clears unreferenced transaction logs.      */
 DECL|method|clearUnreferenced
 name|void
 name|clearUnreferenced
@@ -471,11 +482,36 @@ name|boolean
 name|syncOnEachOperation
 parameter_list|)
 function_decl|;
+comment|/**      * Returns all translog locations as absolute paths.      * These paths don't contain actual translog files they are      * directories holding the transaction logs.      */
+DECL|method|locations
+specifier|public
+name|Path
+index|[]
+name|locations
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the translog file with the given id as a Path. This      * will return a relative path.      */
+DECL|method|getPath
+name|Path
+name|getPath
+parameter_list|(
+name|long
+name|translogId
+parameter_list|)
+function_decl|;
 comment|/**      * return stats      */
 DECL|method|stats
 name|TranslogStats
 name|stats
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the largest translog id present in all locations or<tt>-1</tt> if no translog is present.      */
+DECL|method|findLargestPresentTranslogId
+name|long
+name|findLargestPresentTranslogId
+parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 DECL|class|Location
 specifier|static
