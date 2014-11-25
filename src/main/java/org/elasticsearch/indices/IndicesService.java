@@ -538,6 +538,20 @@ name|index
 operator|.
 name|settings
 operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|settings
+operator|.
 name|IndexSettingsModule
 import|;
 end_import
@@ -1141,6 +1155,11 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
+parameter_list|,
 name|List
 argument_list|<
 name|Throwable
@@ -1162,6 +1181,11 @@ name|onShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{                             }
 annotation|@
@@ -1172,6 +1196,11 @@ name|onShardCloseFailed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|,
 name|Throwable
 name|t
@@ -2207,6 +2236,11 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
+parameter_list|,
 name|List
 argument_list|<
 name|Throwable
@@ -2221,6 +2255,8 @@ operator|.
 name|deleteIndexDirectorySafe
 argument_list|(
 name|index
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2279,6 +2315,11 @@ name|onShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 try|try
@@ -2293,6 +2334,8 @@ operator|.
 name|shardPaths
 argument_list|(
 name|shardId
+argument_list|,
+name|indexSettings
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2333,6 +2376,11 @@ name|onShardCloseFailed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|,
 name|Throwable
 name|t
@@ -2923,6 +2971,11 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
+parameter_list|,
 name|List
 argument_list|<
 name|Throwable
@@ -2938,6 +2991,11 @@ name|onShardClosed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 function_decl|;
 comment|/**          * Invoked if closing the given shard failed.          */
@@ -2948,6 +3006,11 @@ name|onShardCloseFailed
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|,
 name|Throwable
 name|t
