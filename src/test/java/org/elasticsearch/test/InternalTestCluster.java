@@ -3065,12 +3065,6 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|MERGE
-argument_list|,
-name|ThreadPool
-operator|.
-name|Names
-operator|.
 name|OPTIMIZE
 argument_list|,
 name|ThreadPool

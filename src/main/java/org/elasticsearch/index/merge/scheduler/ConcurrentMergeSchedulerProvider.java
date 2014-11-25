@@ -460,10 +460,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|buildMergeScheduler
+DECL|method|newMergeScheduler
 specifier|public
 name|MergeScheduler
-name|buildMergeScheduler
+name|newMergeScheduler
 parameter_list|()
 block|{
 name|CustomConcurrentMergeScheduler
