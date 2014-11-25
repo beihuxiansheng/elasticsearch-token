@@ -172,6 +172,18 @@ name|NodeEnvironment
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1019,14 +1031,29 @@ name|Exception
 block|{
 try|try
 block|{
-name|IOUtils
-operator|.
-name|rm
-argument_list|(
+name|Path
+index|[]
+name|dataPaths
+init|=
 name|nodeEnv
 operator|.
 name|nodeDataPaths
 argument_list|()
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"removing node data paths: [{}]"
+argument_list|,
+name|dataPaths
+argument_list|)
+expr_stmt|;
+name|IOUtils
+operator|.
+name|rm
+argument_list|(
+name|dataPaths
 argument_list|)
 expr_stmt|;
 block|}
