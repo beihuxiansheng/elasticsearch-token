@@ -89,22 +89,9 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|QueryParsingException
-argument_list|(
-name|parseContext
-operator|.
-name|index
-argument_list|()
-argument_list|,
-literal|"["
-operator|+
-name|name
-operator|+
-literal|"] query and filter requires a search context"
-argument_list|)
-throw|;
+comment|// We can't do the api check, because there is no search context.
+comment|// Because the delete by query shard transport action sets the search context this isn't an issue.
+return|return;
 block|}
 if|if
 condition|(
