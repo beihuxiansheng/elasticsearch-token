@@ -2373,7 +2373,7 @@ init|=
 literal|null
 decl_stmt|;
 specifier|private
-name|HashMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -2493,7 +2493,7 @@ name|found
 operator|=
 literal|true
 expr_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -2807,7 +2807,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|HashMap
+name|Map
 operator|.
 name|Entry
 argument_list|<
