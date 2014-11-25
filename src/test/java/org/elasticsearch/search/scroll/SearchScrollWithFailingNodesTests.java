@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -673,11 +687,6 @@ name|greaterThan
 argument_list|(
 literal|0l
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|clearScroll
-argument_list|(
-literal|"_all"
 argument_list|)
 expr_stmt|;
 block|}
