@@ -69,6 +69,12 @@ name|AmazonS3
 name|client
 parameter_list|(
 name|String
+name|endpoint
+parameter_list|,
+name|String
+name|protocol
+parameter_list|,
+name|String
 name|region
 parameter_list|,
 name|String
@@ -82,6 +88,12 @@ DECL|method|client
 name|AmazonS3
 name|client
 parameter_list|(
+name|String
+name|endpoint
+parameter_list|,
+name|String
+name|protocol
+parameter_list|,
 name|String
 name|region
 parameter_list|,
