@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** An InfoStream (for Lucene's IndexWriter) that redirects  *  messages to Logger.trace. */
+comment|/** An InfoStream (for Lucene's IndexWriter) that redirects  *  messages to "lucene.iw.ifd" and "lucene.iw" Logger.trace. */
 end_comment
 
 begin_class
@@ -99,11 +99,20 @@ name|LoggerInfoStream
 extends|extends
 name|InfoStream
 block|{
+comment|/** Used for component-specific logging: */
+comment|/** Logger for everything */
 DECL|field|logger
 specifier|private
 specifier|final
 name|ESLogger
 name|logger
+decl_stmt|;
+comment|/** Logger for IndexFileDeleter */
+DECL|field|ifdLogger
+specifier|private
+specifier|final
+name|ESLogger
+name|ifdLogger
 decl_stmt|;
 DECL|method|LoggerInfoStream
 specifier|public
@@ -129,6 +138,19 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+name|ifdLogger
+operator|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+literal|"lucene.iw.ifd"
+argument_list|,
+name|settings
+argument_list|,
+name|shardId
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|message
 specifier|public
@@ -142,7 +164,10 @@ name|String
 name|message
 parameter_list|)
 block|{
-name|logger
+name|getLogger
+argument_list|(
+name|component
+argument_list|)
 operator|.
 name|trace
 argument_list|(
@@ -174,7 +199,10 @@ block|{
 comment|// TP is a special "test point" component; we don't want
 comment|// to log it:
 return|return
-name|logger
+name|getLogger
+argument_list|(
+name|component
+argument_list|)
 operator|.
 name|isTraceEnabled
 argument_list|()
@@ -188,6 +216,36 @@ argument_list|)
 operator|==
 literal|false
 return|;
+block|}
+DECL|method|getLogger
+specifier|private
+name|ESLogger
+name|getLogger
+parameter_list|(
+name|String
+name|component
+parameter_list|)
+block|{
+if|if
+condition|(
+name|component
+operator|.
+name|equals
+argument_list|(
+literal|"IFD"
+argument_list|)
+condition|)
+block|{
+return|return
+name|ifdLogger
+return|;
+block|}
+else|else
+block|{
+return|return
+name|logger
+return|;
+block|}
 block|}
 annotation|@
 name|Override

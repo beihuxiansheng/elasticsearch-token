@@ -4503,6 +4503,15 @@ try|try
 block|{
 name|store
 operator|.
+name|logDeleteFile
+argument_list|(
+literal|"restore"
+argument_list|,
+name|storeFile
+argument_list|)
+expr_stmt|;
+name|store
+operator|.
 name|directory
 argument_list|()
 operator|.

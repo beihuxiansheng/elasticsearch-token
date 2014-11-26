@@ -2777,6 +2777,15 @@ try|try
 block|{
 name|store
 operator|.
+name|logDeleteFile
+argument_list|(
+literal|"recovery CleanFilesRequestHandler"
+argument_list|,
+name|existingFile
+argument_list|)
+expr_stmt|;
+name|store
+operator|.
 name|directory
 argument_list|()
 operator|.
