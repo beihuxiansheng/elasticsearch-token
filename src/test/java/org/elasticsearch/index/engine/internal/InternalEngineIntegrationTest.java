@@ -235,6 +235,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 name|client
 argument_list|()
 operator|.
