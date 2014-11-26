@@ -236,6 +236,7 @@ name|minScore
 init|=
 literal|null
 decl_stmt|;
+comment|/**      * Creates a function_score query that executes on documents that match query a query.      * Query and filter will be wrapped into a filtered_query.      *      * @param queryBuilder the query that defines which documents the function_score query will be executed on.      */
 DECL|method|FunctionScoreQueryBuilder
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -257,6 +258,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * Creates a function_score query that executes on documents that match query a query.      * Query and filter will be wrapped into a filtered_query.      *      * @param filterBuilder the filter that defines which documents the function_score query will be executed on.      */
 DECL|method|FunctionScoreQueryBuilder
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -278,6 +280,31 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * Creates a function_score query that executes on documents that match query and filter.      * Query and filter will be wrapped into a filtered_query.      *      * @param queryBuilder a query that will; be wrapped in a filtered query.      * @param filterBuilder the filter for the filtered query.      */
+DECL|method|FunctionScoreQueryBuilder
+specifier|public
+name|FunctionScoreQueryBuilder
+parameter_list|(
+name|QueryBuilder
+name|queryBuilder
+parameter_list|,
+name|FilterBuilder
+name|filterBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterBuilder
+operator|=
+name|filterBuilder
+expr_stmt|;
+name|this
+operator|.
+name|queryBuilder
+operator|=
+name|queryBuilder
+expr_stmt|;
+block|}
 DECL|method|FunctionScoreQueryBuilder
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -296,6 +323,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|/**      * Creates a function_score query that will execute the function scoreFunctionBuilder on all documents.      *      * @param scoreFunctionBuilder score function that is executed      */
 DECL|method|FunctionScoreQueryBuilder
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -346,6 +374,7 @@ name|scoreFunctionBuilder
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Adds a score function that will will execute the function scoreFunctionBuilder on all documents matching the filter.      *      * @param filter the filter that defines which documents the function_score query will be executed on.      * @param scoreFunctionBuilder score function that is executed      */
 DECL|method|add
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -395,6 +424,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Adds a score function that will will execute the function scoreFunctionBuilder on all documents.      *      * @param scoreFunctionBuilder score function that is executed      */
 DECL|method|add
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -441,6 +471,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Score mode defines how results of individual score functions will be aggregated.      * Can be first, avg, max, sum, min, multiply      */
 DECL|method|scoreMode
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -460,6 +491,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Score mode defines how the combined result of score functions will influence the final score together with the sub query score.      * Can be replace, avg, max, sum, min, multiply      */
 DECL|method|boostMode
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -479,6 +511,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Score mode defines how the combined result of score functions will influence the final score together with the sub query score.      */
 DECL|method|boostMode
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -501,6 +534,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Tha maximum boost that will be applied by function score.      */
 DECL|method|maxBoost
 specifier|public
 name|FunctionScoreQueryBuilder
@@ -589,7 +623,6 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
 if|if
 condition|(
 name|filterBuilder
