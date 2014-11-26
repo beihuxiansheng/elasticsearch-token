@@ -956,6 +956,19 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|size
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|requests
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
