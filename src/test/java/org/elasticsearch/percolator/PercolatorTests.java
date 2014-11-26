@@ -3467,7 +3467,7 @@ name|constantScoreQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"filingcategory:s"
 argument_list|)
@@ -16305,7 +16305,7 @@ name|queryFilter
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"root"
 argument_list|)
@@ -16956,7 +16956,7 @@ literal|"query"
 argument_list|,
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"color:red"
 argument_list|)
@@ -17091,7 +17091,7 @@ literal|"query"
 argument_list|,
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"color:red"
 argument_list|)
@@ -17132,7 +17132,7 @@ literal|"query"
 argument_list|,
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"color:blue"
 argument_list|)

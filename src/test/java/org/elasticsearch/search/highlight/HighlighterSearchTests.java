@@ -6879,7 +6879,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"running scissors"
 argument_list|)
@@ -6916,7 +6916,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo.plain:running scissors"
 argument_list|)
@@ -6963,7 +6963,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"running scissors"
 argument_list|)
@@ -7000,7 +7000,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo.plain:running scissors"
 argument_list|)
@@ -7044,7 +7044,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo.plain:running scissors"
 argument_list|)
@@ -7090,7 +7090,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo.plain:running^5 scissors"
 argument_list|)
@@ -7127,7 +7127,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo.plain:running foo.plain:scissors"
 argument_list|)
@@ -7164,7 +7164,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"running scissors"
 argument_list|)
@@ -7201,7 +7201,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"run foo.plain:running^5 scissors"
 argument_list|)
@@ -7238,7 +7238,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"cats foo.plain:cats^5"
 argument_list|)
@@ -7275,7 +7275,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"cats"
 argument_list|)
@@ -7314,7 +7314,7 @@ comment|// Speaking of two fields, you can have two fields, only one of which ha
 name|QueryBuilder
 name|twoFieldsQuery
 init|=
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"cats"
 argument_list|)
@@ -7502,7 +7502,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"running scissors"
 argument_list|)
@@ -7575,7 +7575,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"running scissors"
 argument_list|)
@@ -7644,7 +7644,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"running scissors"
 argument_list|)
@@ -7720,7 +7720,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"weird"
 argument_list|)
@@ -7787,7 +7787,7 @@ name|req
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"result"
 argument_list|)
@@ -11057,7 +11057,7 @@ argument_list|()
 operator|.
 name|query
 argument_list|(
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field2"
 argument_list|,
@@ -11210,7 +11210,7 @@ argument_list|()
 operator|.
 name|query
 argument_list|(
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field2"
 argument_list|,
@@ -19615,7 +19615,7 @@ argument_list|()
 operator|.
 name|query
 argument_list|(
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field2"
 argument_list|,
@@ -20663,7 +20663,7 @@ argument_list|()
 operator|.
 name|query
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"qui*"
 argument_list|)
@@ -20969,7 +20969,7 @@ name|should
 argument_list|(
 name|filteredQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"field1:photo*"
 argument_list|)
@@ -21264,7 +21264,7 @@ name|query
 argument_list|(
 name|filteredQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"field1:photo*"
 argument_list|)
@@ -22534,7 +22534,7 @@ name|highlighterType
 argument_list|,
 literal|100f
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"highlight words together"
 argument_list|)
@@ -22544,7 +22544,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"\"highlight words together\""
 argument_list|)
@@ -22567,7 +22567,7 @@ name|highlighterType
 argument_list|,
 literal|100f
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"highlight words together"
 argument_list|)
@@ -22582,7 +22582,7 @@ argument_list|(
 literal|false
 argument_list|)
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"\"highlight words together\""
 argument_list|)
@@ -22610,7 +22610,7 @@ name|highlighterType
 argument_list|,
 literal|100f
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"highlight words together"
 argument_list|)
@@ -22625,7 +22625,7 @@ argument_list|(
 literal|"field2"
 argument_list|)
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"\"highlight words together\""
 argument_list|)
@@ -22653,7 +22653,7 @@ name|highlighterType
 argument_list|,
 literal|1f
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"highlight words together"
 argument_list|)
@@ -22663,7 +22663,7 @@ argument_list|(
 literal|"field1"
 argument_list|)
 argument_list|,
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"\"highlight words together\""
 argument_list|)

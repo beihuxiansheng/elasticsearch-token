@@ -202,7 +202,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 import|;
 end_import
 
@@ -218,7 +218,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|simpleQueryString
+name|simpleQueryStringQuery
 import|;
 end_import
 
@@ -427,7 +427,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar"
 argument_list|)
@@ -464,7 +464,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar"
 argument_list|)
@@ -509,7 +509,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"\"quux baz\" +(eggplant | spaghetti)"
 argument_list|)
@@ -544,7 +544,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"eggplants"
 argument_list|)
@@ -585,7 +585,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"spaghetti"
 argument_list|)
@@ -673,7 +673,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"spaghetti"
 argument_list|)
@@ -786,7 +786,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"Professio*"
 argument_list|)
@@ -819,7 +819,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"Professio*"
 argument_list|)
@@ -850,7 +850,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"Professionan~1"
 argument_list|)
@@ -883,7 +883,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"Professionan~1"
 argument_list|)
@@ -954,7 +954,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"BILL*"
 argument_list|)
@@ -980,7 +980,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"body:BILL*"
 argument_list|)
@@ -1006,7 +1006,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"BILL*"
 argument_list|)
@@ -1050,7 +1050,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"body:BILL*"
 argument_list|)
@@ -1212,7 +1212,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar baz"
 argument_list|)
@@ -1250,7 +1250,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar baz"
 argument_list|)
@@ -1288,7 +1288,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar baz"
 argument_list|)
@@ -1326,7 +1326,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar baz"
 argument_list|)
@@ -1502,7 +1502,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo bar"
 argument_list|)
@@ -1581,7 +1581,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo | bar"
 argument_list|)
@@ -1634,7 +1634,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo | bar"
 argument_list|)
@@ -1686,7 +1686,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"baz | egg*"
 argument_list|)
@@ -1767,7 +1767,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"baz | egg*"
 argument_list|)
@@ -1890,7 +1890,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -1933,7 +1933,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -2042,7 +2042,7 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"bar"
 argument_list|)
@@ -2243,7 +2243,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"KÃ¶ln*"
 argument_list|)

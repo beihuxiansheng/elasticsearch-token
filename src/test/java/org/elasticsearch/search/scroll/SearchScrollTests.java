@@ -1820,7 +1820,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"user:kimchy"
 argument_list|)

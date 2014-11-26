@@ -685,7 +685,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_id:XXX1"
 argument_list|)
@@ -749,7 +749,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_id:XXX*"
 argument_list|)
@@ -903,7 +903,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"field:[2010-01-03||+2d TO 2010-01-04||+2d]"
 argument_list|)
@@ -1077,7 +1077,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_id:XXY*"
 argument_list|)

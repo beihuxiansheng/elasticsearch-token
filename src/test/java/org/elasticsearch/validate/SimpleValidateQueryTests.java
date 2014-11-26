@@ -308,7 +308,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 import|;
 end_import
 
@@ -544,7 +544,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_id:1"
 argument_list|)
@@ -585,7 +585,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_i:d:1"
 argument_list|)
@@ -626,7 +626,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo:1"
 argument_list|)
@@ -667,7 +667,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"bar:hey"
 argument_list|)
@@ -708,7 +708,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"nonexistent:hello"
 argument_list|)
@@ -749,7 +749,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo:1 AND"
 argument_list|)
@@ -1176,7 +1176,7 @@ name|assertExplanation
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_id:1"
 argument_list|)
@@ -1220,7 +1220,7 @@ name|assertExplanation
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -2178,7 +2178,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -2398,7 +2398,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"past:[now-2M/d TO now/d]"
 argument_list|)

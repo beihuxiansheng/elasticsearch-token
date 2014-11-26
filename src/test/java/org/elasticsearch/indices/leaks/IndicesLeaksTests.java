@@ -832,7 +832,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"field1:value"
 argument_list|)

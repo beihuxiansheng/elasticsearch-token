@@ -2244,7 +2244,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_parent:p1"
 argument_list|)
@@ -6975,7 +6975,7 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"c_field:*"
 argument_list|)
@@ -7025,7 +7025,7 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"p_field:*"
 argument_list|)
@@ -7078,7 +7078,7 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"c_field:*"
 argument_list|)
@@ -7324,7 +7324,7 @@ argument_list|()
 operator|.
 name|should
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"c_field:*"
 argument_list|)
@@ -16910,7 +16910,7 @@ argument_list|()
 operator|.
 name|must
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"name:William*"
 argument_list|)
@@ -16971,7 +16971,7 @@ argument_list|()
 operator|.
 name|must
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"name:William*"
 argument_list|)

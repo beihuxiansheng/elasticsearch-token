@@ -605,7 +605,7 @@ name|queryBuilder
 init|=
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 name|queryString
 argument_list|)

@@ -746,7 +746,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -788,7 +788,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -831,7 +831,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -866,7 +866,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -901,7 +901,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -941,7 +941,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -1012,7 +1012,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -1047,7 +1047,7 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|commonTerms
+name|commonTermsQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -1318,7 +1318,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"value*"
 argument_list|)
@@ -1349,7 +1349,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"*ue*"
 argument_list|)
@@ -1380,7 +1380,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"*ue_1"
 argument_list|)
@@ -1411,7 +1411,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"val*e_1"
 argument_list|)
@@ -1442,7 +1442,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"v?l*e?1"
 argument_list|)
@@ -1517,7 +1517,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"VALUE_3~1"
 argument_list|)
@@ -1548,7 +1548,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"VALUE_3~1"
 argument_list|)
@@ -1579,7 +1579,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"ValUE_*"
 argument_list|)
@@ -1610,7 +1610,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"vAl*E_1"
 argument_list|)
@@ -1636,7 +1636,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"[VALUE_1 TO VALUE_3]"
 argument_list|)
@@ -1662,7 +1662,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"[VALUE_1 TO VALUE_3]"
 argument_list|)
@@ -1815,7 +1815,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"past:[now-2M/d TO now/d]"
 argument_list|)
@@ -1841,7 +1841,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"future:[now/d TO now+2M/d]"
 argument_list|)
@@ -1874,7 +1874,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"future:[now/D TO now+2M/d]"
 argument_list|)
@@ -3153,7 +3153,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_exists_:field1"
 argument_list|)
@@ -3402,7 +3402,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_missing_:field1"
 argument_list|)
@@ -5229,7 +5229,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"str:kimcy~1"
 argument_list|)
@@ -5255,7 +5255,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:11~1"
 argument_list|)
@@ -5281,7 +5281,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"date:2012-02-02~1d"
 argument_list|)
@@ -5385,7 +5385,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:>19"
 argument_list|)
@@ -5411,7 +5411,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:>20"
 argument_list|)
@@ -5437,7 +5437,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:>=20"
 argument_list|)
@@ -5463,7 +5463,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:>11"
 argument_list|)
@@ -5489,7 +5489,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:<20"
 argument_list|)
@@ -5515,7 +5515,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"num:<=20"
 argument_list|)
@@ -5541,7 +5541,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"+num:>11 +num:<20"
 argument_list|)

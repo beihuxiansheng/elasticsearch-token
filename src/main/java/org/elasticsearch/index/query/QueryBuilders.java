@@ -78,11 +78,33 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
 operator|.
 name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -144,12 +166,37 @@ name|BOOLEAN
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a common query for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+comment|/**      * @deprecated by commonTermsQuery(String, Object)      * Will be removed in elasticsearch 2.0.0      */
+annotation|@
+name|Deprecated
 DECL|method|commonTerms
 specifier|public
 specifier|static
 name|CommonTermsQueryBuilder
 name|commonTerms
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|Object
+name|text
+parameter_list|)
+block|{
+return|return
+name|commonTermsQuery
+argument_list|(
+name|name
+argument_list|,
+name|text
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a common query for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+DECL|method|commonTermsQuery
+specifier|public
+specifier|static
+name|CommonTermsQueryBuilder
+name|commonTermsQuery
 parameter_list|(
 name|String
 name|name
@@ -194,7 +241,7 @@ argument_list|)
 return|;
 comment|// BOOLEAN is the default
 block|}
-comment|/**      * Creates a text query with type "PHRASE" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhraseQuery(String, Object)} instead      */
+comment|/**      * Creates a text query with type "PHRASE" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhraseQuery(String, Object)} instead      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|textPhrase
 specifier|public
 specifier|static
@@ -283,7 +330,7 @@ name|PHRASE
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhrasePrefixQuery(String, Object)} instead      */
+comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated use {@link #textPhrasePrefixQuery(String, Object)} instead      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|textPhrasePrefix
 specifier|public
 specifier|static
@@ -306,7 +353,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated Use {@link #matchPhrasePrefixQuery(String, Object)}      */
+comment|/**      * Creates a text query with type "PHRASE_PREFIX" for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      * @deprecated Use {@link #matchPhrasePrefixQuery(String, Object)}      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|textPhrasePrefixQuery
 specifier|public
 specifier|static
@@ -715,12 +762,32 @@ name|regexp
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that parses a query string and runs it. There are two modes that this operates. The first,      * when no field is added (using {@link QueryStringQueryBuilder#field(String)}, will run the query once and non prefixed fields      * will use the {@link QueryStringQueryBuilder#defaultField(String)} set. The second, when one or more fields are added      * (using {@link QueryStringQueryBuilder#field(String)}), will run the parsed query against the provided fields, and combine      * them either using DisMax or a plain boolean query (see {@link QueryStringQueryBuilder#useDisMax(boolean)}).      *      * @param queryString The query string to run      */
+comment|/**      * @deprecated by queryStringQuery(String)      */
+annotation|@
+name|Deprecated
 DECL|method|queryString
 specifier|public
 specifier|static
 name|QueryStringQueryBuilder
 name|queryString
+parameter_list|(
+name|String
+name|queryString
+parameter_list|)
+block|{
+return|return
+name|queryStringQuery
+argument_list|(
+name|queryString
+argument_list|)
+return|;
+block|}
+comment|/**      * A query that parses a query string and runs it. There are two modes that this operates. The first,      * when no field is added (using {@link QueryStringQueryBuilder#field(String)}, will run the query once and non prefixed fields      * will use the {@link QueryStringQueryBuilder#defaultField(String)} set. The second, when one or more fields are added      * (using {@link QueryStringQueryBuilder#field(String)}), will run the parsed query against the provided fields, and combine      * them either using DisMax or a plain boolean query (see {@link QueryStringQueryBuilder#useDisMax(boolean)}).      *      * @param queryString The query string to run      */
+DECL|method|queryStringQuery
+specifier|public
+specifier|static
+name|QueryStringQueryBuilder
+name|queryStringQuery
 parameter_list|(
 name|String
 name|queryString
@@ -734,12 +801,32 @@ name|queryString
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.XSimpleQueryParser} for the full      * supported syntax.      */
+comment|/**      * @deprecated by simpleQueryStringQuery(String)      */
+annotation|@
+name|Deprecated
 DECL|method|simpleQueryString
 specifier|public
 specifier|static
 name|SimpleQueryStringBuilder
 name|simpleQueryString
+parameter_list|(
+name|String
+name|queryString
+parameter_list|)
+block|{
+return|return
+name|simpleQueryStringQuery
+argument_list|(
+name|queryString
+argument_list|)
+return|;
+block|}
+comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.XSimpleQueryParser} for the full      * supported syntax.      */
+DECL|method|simpleQueryStringQuery
+specifier|public
+specifier|static
+name|SimpleQueryStringBuilder
+name|simpleQueryStringQuery
 parameter_list|(
 name|String
 name|queryString
@@ -1000,7 +1087,7 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      * @deprecated Use filteredQuery instead (rename)      */
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      * @deprecated Use filteredQuery instead (rename)      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|filtered
 specifier|public
 specifier|static
@@ -1603,7 +1690,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1628,7 +1715,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1653,7 +1740,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1678,7 +1765,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1703,7 +1790,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1728,7 +1815,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1753,7 +1840,7 @@ name|values
 argument_list|)
 return|;
 block|}
-comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
+comment|/**      * A filer for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      * @deprecated not used      * Will be removed in elasticsearch 2.0.0      */
 DECL|method|inQuery
 specifier|public
 specifier|static
@@ -1903,6 +1990,71 @@ argument_list|,
 name|indexedShapeId
 argument_list|,
 name|indexedShapeType
+argument_list|)
+return|;
+block|}
+comment|/**      * Facilitates creating template query requests using an inline script      */
+DECL|method|templateQuery
+specifier|public
+specifier|static
+name|TemplateQueryBuilder
+name|templateQuery
+parameter_list|(
+name|String
+name|template
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|vars
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TemplateQueryBuilder
+argument_list|(
+name|template
+argument_list|,
+name|vars
+argument_list|)
+return|;
+block|}
+comment|/**      * Facilitates creating template query requests      */
+DECL|method|templateQuery
+specifier|public
+specifier|static
+name|TemplateQueryBuilder
+name|templateQuery
+parameter_list|(
+name|String
+name|template
+parameter_list|,
+name|ScriptService
+operator|.
+name|ScriptType
+name|templateType
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|vars
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TemplateQueryBuilder
+argument_list|(
+name|template
+argument_list|,
+name|templateType
+argument_list|,
+name|vars
 argument_list|)
 return|;
 block|}

@@ -4226,7 +4226,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_exists_:field1"
 argument_list|)
@@ -4475,7 +4475,7 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"_missing_:field1"
 argument_list|)

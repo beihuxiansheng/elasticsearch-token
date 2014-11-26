@@ -1096,7 +1096,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"test"
 argument_list|)
@@ -1251,7 +1251,7 @@ decl_stmt|;
 name|QueryStringQueryBuilder
 name|builder
 init|=
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"field:boosted^2"
 argument_list|)
@@ -1352,7 +1352,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|=
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"((field:boosted^2) AND (field:foo^1.5))^3"
 argument_list|)
@@ -1550,7 +1550,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"test"
 argument_list|)
@@ -1951,7 +1951,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"test"
 argument_list|)
@@ -2215,7 +2215,7 @@ name|queryParser
 operator|.
 name|parse
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"test"
 argument_list|)

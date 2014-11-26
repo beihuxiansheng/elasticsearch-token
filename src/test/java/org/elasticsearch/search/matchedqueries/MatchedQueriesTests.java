@@ -2003,7 +2003,7 @@ argument_list|)
 operator|.
 name|should
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"dolor"
 argument_list|)
@@ -2016,7 +2016,7 @@ argument_list|)
 operator|.
 name|should
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"elit"
 argument_list|)

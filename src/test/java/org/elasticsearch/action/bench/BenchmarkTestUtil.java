@@ -391,7 +391,7 @@ block|{
 return|return
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(

@@ -371,7 +371,7 @@ name|setQuery
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -416,7 +416,7 @@ name|setQuery
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -522,7 +522,7 @@ name|setQuery
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|simpleQueryString
+name|simpleQueryStringQuery
 argument_list|(
 literal|"foo"
 argument_list|)

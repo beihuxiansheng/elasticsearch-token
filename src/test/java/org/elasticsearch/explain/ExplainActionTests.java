@@ -280,7 +280,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 import|;
 end_import
 
@@ -2367,7 +2367,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"past:[now-2M/d TO now/d]"
 argument_list|)
