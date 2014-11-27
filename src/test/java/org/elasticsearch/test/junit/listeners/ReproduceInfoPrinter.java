@@ -136,20 +136,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|ElasticsearchRestTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|internal
@@ -228,35 +214,7 @@ name|randomizedtesting
 operator|.
 name|SysGlobals
 operator|.
-name|SYSPROP_ITERATIONS
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|SysGlobals
-operator|.
-name|SYSPROP_PREFIX
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|SysGlobals
-operator|.
-name|SYSPROP_TESTMETHOD
+name|*
 import|;
 end_import
 
@@ -286,39 +244,7 @@ name|rest
 operator|.
 name|ElasticsearchRestTests
 operator|.
-name|REST_TESTS_BLACKLIST
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|ElasticsearchRestTests
-operator|.
-name|REST_TESTS_SPEC
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|rest
-operator|.
-name|ElasticsearchRestTests
-operator|.
-name|REST_TESTS_SUITE
+name|*
 import|;
 end_import
 
@@ -490,15 +416,9 @@ name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//ElasticsearchRestTests is a special case as it allows for additional parameters
+comment|//Rest tests are a special case as they allow for additional parameters
 if|if
 condition|(
-name|ElasticsearchRestTests
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
 name|failure
 operator|.
 name|getDescription
@@ -506,6 +426,12 @@ argument_list|()
 operator|.
 name|getTestClass
 argument_list|()
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|Rest
+operator|.
+name|class
 argument_list|)
 condition|)
 block|{
