@@ -737,22 +737,18 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// we check for a timeout here since this method might be called from the wait_for_events
-comment|// response handler which might have timed out already.
-name|ClusterHealthResponse
-name|response
-init|=
-name|clusterHealth
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+name|getResponse
 argument_list|(
 name|request
 argument_list|,
 name|state
-argument_list|)
-decl_stmt|;
-name|response
-operator|.
-name|timedOut
-operator|=
+argument_list|,
+name|waitFor
+argument_list|,
 name|request
 operator|.
 name|timeout
@@ -762,13 +758,7 @@ name|millis
 argument_list|()
 operator|==
 literal|0
-expr_stmt|;
-comment|// no need to wait for anything
-name|listener
-operator|.
-name|onResponse
-argument_list|(
-name|response
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return;
@@ -1065,11 +1055,20 @@ name|valid
 operator|||
 name|timedOut
 assert|;
+comment|// we check for a timeout here since this method might be called from the wait_for_events
+comment|// response handler which might have timed out already.
+comment|// if the state is sufficient for what we where waiting for we don't need to mark this as timedOut.
+comment|// We spend too much time in waiting for events such that we might already reached a valid state.
+comment|// this should not mark the request as timed out
 name|response
 operator|.
 name|timedOut
 operator|=
 name|timedOut
+operator|&&
+name|valid
+operator|==
+literal|false
 expr_stmt|;
 return|return
 name|response
