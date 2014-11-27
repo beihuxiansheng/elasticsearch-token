@@ -12047,6 +12047,10 @@ operator|.
 name|addMapping
 argument_list|(
 literal|"parent"
+argument_list|,
+literal|"p_field"
+argument_list|,
+literal|"type=string"
 argument_list|)
 operator|.
 name|addMapping
@@ -12056,6 +12060,10 @@ argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"type=parent"
+argument_list|,
+literal|"c_field"
+argument_list|,
+literal|"type=string"
 argument_list|)
 argument_list|)
 expr_stmt|;
