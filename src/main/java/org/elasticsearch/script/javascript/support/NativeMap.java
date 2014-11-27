@@ -136,7 +136,7 @@ return|;
 block|}
 comment|/**      * Construct      *      * @param scope      * @param map      */
 DECL|method|NativeMap
-specifier|public
+specifier|private
 name|NativeMap
 parameter_list|(
 name|Scriptable

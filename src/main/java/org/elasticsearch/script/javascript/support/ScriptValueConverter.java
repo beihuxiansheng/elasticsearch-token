@@ -727,8 +727,9 @@ condition|)
 block|{
 name|value
 operator|=
-operator|new
 name|NativeMap
+operator|.
+name|wrap
 argument_list|(
 name|scope
 argument_list|,

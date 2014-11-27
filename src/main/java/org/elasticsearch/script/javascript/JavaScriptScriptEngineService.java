@@ -1448,8 +1448,9 @@ name|Map
 condition|)
 block|{
 return|return
-operator|new
 name|NativeMap
+operator|.
+name|wrap
 argument_list|(
 name|scope
 argument_list|,
@@ -1468,8 +1469,9 @@ name|List
 condition|)
 block|{
 return|return
-operator|new
 name|NativeList
+operator|.
+name|wrap
 argument_list|(
 name|scope
 argument_list|,
@@ -1477,6 +1479,8 @@ operator|(
 name|List
 operator|)
 name|javaObject
+argument_list|,
+name|staticType
 argument_list|)
 return|;
 block|}
