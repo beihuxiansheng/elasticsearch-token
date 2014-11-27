@@ -1465,7 +1465,7 @@ argument_list|(
 literal|"s_obj2_arr2"
 argument_list|)
 operator|.
-name|value
+name|values
 argument_list|()
 expr_stmt|;
 name|assertThat
