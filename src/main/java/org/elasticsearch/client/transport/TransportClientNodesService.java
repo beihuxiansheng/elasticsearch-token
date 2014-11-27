@@ -2023,6 +2023,9 @@ name|nodesInfoRequest
 argument_list|(
 literal|"_local"
 argument_list|)
+operator|.
+name|clear
+argument_list|()
 argument_list|)
 argument_list|,
 name|TransportRequestOptions
