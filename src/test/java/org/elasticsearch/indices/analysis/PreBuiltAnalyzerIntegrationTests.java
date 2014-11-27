@@ -339,6 +339,17 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
+specifier|final
+name|int
+name|numIndices
+init|=
+name|scaledRandomIntBetween
+argument_list|(
+literal|2
+argument_list|,
+literal|4
+argument_list|)
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -348,7 +359,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|10
+name|numIndices
 condition|;
 name|i
 operator|++
@@ -557,6 +568,17 @@ block|}
 name|ensureGreen
 argument_list|()
 expr_stmt|;
+specifier|final
+name|int
+name|numDocs
+init|=
+name|randomIntBetween
+argument_list|(
+literal|10
+argument_list|,
+literal|100
+argument_list|)
+decl_stmt|;
 comment|// index some amount of data
 for|for
 control|(
@@ -567,7 +589,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100
+name|numDocs
 condition|;
 name|i
 operator|++
@@ -620,7 +642,12 @@ literal|"foo"
 argument_list|,
 name|randomAsciiOfLength
 argument_list|(
+name|scaledRandomIntBetween
+argument_list|(
+literal|5
+argument_list|,
 literal|50
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -645,7 +672,7 @@ name|amountOfIndicesToClose
 init|=
 name|randomInt
 argument_list|(
-literal|10
+name|numIndices
 operator|-
 literal|1
 argument_list|)
