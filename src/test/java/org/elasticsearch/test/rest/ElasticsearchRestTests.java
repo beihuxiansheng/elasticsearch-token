@@ -1074,6 +1074,32 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|maximumNumberOfShards
+specifier|protected
+name|int
+name|maximumNumberOfShards
+parameter_list|()
+block|{
+return|return
+literal|3
+return|;
+comment|// never go crazy in the REST tests
+block|}
+annotation|@
+name|Override
+DECL|method|maximumNumberOfReplicas
+specifier|protected
+name|int
+name|maximumNumberOfReplicas
+parameter_list|()
+block|{
+return|return
+literal|1
+return|;
+comment|// never go crazy in the REST tests
+block|}
 comment|/**      * Used to obtain settings for the REST client that is used to send REST requests.      */
 DECL|method|restClientSettings
 specifier|protected
