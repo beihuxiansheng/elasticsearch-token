@@ -3906,15 +3906,30 @@ name|V_1_1_0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|int
+name|indexId
+init|=
+literal|0
+decl_stmt|;
+name|String
+name|indexName
+decl_stmt|;
 for|for
 control|(
 init|;
 condition|;
 control|)
 block|{
+name|indexName
+operator|=
+literal|"test_"
+operator|+
+name|indexId
+operator|++
+expr_stmt|;
 name|createIndex
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|)
 expr_stmt|;
 name|ensureYellow
@@ -3929,7 +3944,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -3989,7 +4004,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4042,7 +4057,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4095,7 +4110,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -4567,7 +4582,7 @@ argument_list|(
 name|compatibilityVersion
 argument_list|()
 argument_list|,
-literal|"test"
+name|indexName
 argument_list|)
 expr_stmt|;
 comment|// we had an old node in the cluster so we have to be on the compat version
@@ -4584,7 +4599,7 @@ argument_list|()
 operator|.
 name|prepareDelete
 argument_list|(
-literal|"test"
+name|indexName
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4595,7 +4610,7 @@ name|Version
 operator|.
 name|CURRENT
 argument_list|,
-literal|"test"
+name|indexName
 argument_list|)
 expr_stmt|;
 comment|// after upgrade we have current version
