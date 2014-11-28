@@ -459,7 +459,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"breaker was tripped exactly once"
+literal|"breaker was tripped"
 argument_list|,
 name|tripped
 operator|.
@@ -474,14 +474,14 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"breaker was tripped exactly once"
+literal|"breaker was tripped at least once"
 argument_list|,
 name|breaker
 operator|.
 name|getTrippedCount
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThanOrEqualTo
 argument_list|(
 literal|1L
 argument_list|)
@@ -846,7 +846,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"breaker was tripped exactly once"
+literal|"breaker was tripped"
 argument_list|,
 name|tripped
 operator|.
@@ -861,14 +861,14 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"breaker was tripped exactly once"
+literal|"breaker was tripped at least once"
 argument_list|,
 name|breaker
 operator|.
 name|getTrippedCount
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThanOrEqualTo
 argument_list|(
 literal|1L
 argument_list|)
@@ -1296,7 +1296,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> parent tripped: {}, total trip count: {} (expecting 2 for each)"
+literal|"--> parent tripped: {}, total trip count: {} (expecting 1-2 for each)"
 argument_list|,
 name|parentTripped
 operator|.
@@ -1344,7 +1344,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"parent breaker was tripped at least twice"
+literal|"parent breaker was tripped at least once"
 argument_list|,
 name|parentTripped
 operator|.
@@ -1353,13 +1353,13 @@ argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"total breaker was tripped at least twice"
+literal|"total breaker was tripped at least once"
 argument_list|,
 name|tripped
 operator|.
@@ -1368,7 +1368,7 @@ argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
