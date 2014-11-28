@@ -369,11 +369,6 @@ annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|SuiteScopeTest
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.admin.indices.refresh:TRACE,action.search.type:TRACE,cluster.service:TRACE"
-argument_list|)
 DECL|class|MinDocCountTests
 specifier|public
 class|class

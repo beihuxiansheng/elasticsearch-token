@@ -384,11 +384,6 @@ decl_stmt|;
 annotation|@
 name|Test
 annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE"
-argument_list|)
-annotation|@
 name|Slow
 DECL|method|recoverWhileUnderLoadAllocateBackupsTest
 specifier|public
@@ -736,11 +731,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE"
-argument_list|)
 annotation|@
 name|Slow
 DECL|method|recoverWhileUnderLoadAllocateBackupsRelocatePrimariesTest

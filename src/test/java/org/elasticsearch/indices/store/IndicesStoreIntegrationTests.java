@@ -397,11 +397,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices.store:TRACE,discovery.zen:TRACE,action:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
-argument_list|)
 DECL|method|shardsCleanup
 specifier|public
 name|void
@@ -888,11 +883,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices.store:TRACE"
-argument_list|)
 DECL|method|testShardActiveElseWhere
 specifier|public
 name|void

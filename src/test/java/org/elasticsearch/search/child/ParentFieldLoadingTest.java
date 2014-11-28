@@ -422,11 +422,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.warmer:TRACE"
-argument_list|)
 DECL|method|testEagerParentFieldLoading
 specifier|public
 name|void
@@ -1008,11 +1003,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.warmer:TRACE"
-argument_list|)
 DECL|method|testChangingEagerParentFieldLoadingAtRuntime
 specifier|public
 name|void

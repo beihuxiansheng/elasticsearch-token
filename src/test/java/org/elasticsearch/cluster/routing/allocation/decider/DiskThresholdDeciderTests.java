@@ -2202,11 +2202,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"cluster.routing.allocation.decider:TRACE"
-argument_list|)
 DECL|method|diskThresholdWithAbsoluteSizesTest
 specifier|public
 name|void

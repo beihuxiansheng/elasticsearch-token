@@ -446,11 +446,6 @@ name|TEST
 argument_list|)
 annotation|@
 name|Slow
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.shard.service:TRACE,index.gateway.local:TRACE"
-argument_list|)
 DECL|class|SimpleRecoveryLocalGatewayTests
 specifier|public
 class|class

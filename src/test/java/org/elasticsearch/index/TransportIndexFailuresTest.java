@@ -362,11 +362,6 @@ name|transportClientRatio
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action.index:TRACE,indices.recovery:TRACE"
-argument_list|)
 DECL|class|TransportIndexFailuresTest
 specifier|public
 class|class

@@ -491,11 +491,6 @@ annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|SuiteScopeTest
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices.recovery:TRACE,action.search.type:TRACE"
-argument_list|)
 DECL|class|GeoBoundsTests
 specifier|public
 class|class

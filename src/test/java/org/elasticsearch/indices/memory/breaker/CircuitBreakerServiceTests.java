@@ -713,11 +713,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices.breaker:TRACE,index.fielddata:TRACE,common.breaker:TRACE"
-argument_list|)
 DECL|method|testMemoryBreaker
 specifier|public
 name|void

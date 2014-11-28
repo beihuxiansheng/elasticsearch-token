@@ -409,11 +409,6 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action:TRACE,cluster.service:TRACE"
-argument_list|)
 DECL|method|testNoMasterActions
 specifier|public
 name|void

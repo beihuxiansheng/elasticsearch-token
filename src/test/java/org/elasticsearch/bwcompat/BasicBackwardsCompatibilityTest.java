@@ -1582,11 +1582,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search.type:TRACE,action.support.replication:TRACE,cluster.service:TRACE,indices.recovery:TRACE,index.shard.service:TRACE"
-argument_list|)
 DECL|method|testRecoverFromPreviousVersion
 specifier|public
 name|void

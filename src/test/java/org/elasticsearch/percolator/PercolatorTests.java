@@ -15626,11 +15626,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.admin.indices.mapping.delete:TRACE"
-argument_list|)
 DECL|method|testDeletePercolatorType
 specifier|public
 name|void

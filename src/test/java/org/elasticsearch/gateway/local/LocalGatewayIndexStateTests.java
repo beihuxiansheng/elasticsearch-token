@@ -430,11 +430,6 @@ literal|0
 argument_list|)
 annotation|@
 name|Slow
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search:TRACE,index.shard.service:TRACE"
-argument_list|)
 DECL|class|LocalGatewayIndexStateTests
 specifier|public
 class|class

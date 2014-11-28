@@ -1642,11 +1642,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.admin.indices.refresh:TRACE,action.search.type:TRACE,cluster.service:TRACE"
-argument_list|)
 DECL|method|testRandomExceptions
 specifier|public
 name|void

@@ -374,11 +374,6 @@ annotation|@
 name|LuceneTestCase
 operator|.
 name|Slow
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE"
-argument_list|)
 DECL|method|testReusePeerRecovery
 specifier|public
 name|void

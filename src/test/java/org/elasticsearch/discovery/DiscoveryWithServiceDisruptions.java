@@ -702,11 +702,6 @@ name|LuceneTestCase
 operator|.
 name|Slow
 annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE"
-argument_list|)
-annotation|@
 name|ClusterScope
 argument_list|(
 name|scope
@@ -1505,13 +1500,6 @@ block|}
 comment|/** Verify that nodes fault detection works after master (re) election */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-name|value
-operator|=
-literal|"cluster.service:TRACE,indices.recovery:TRACE"
-argument_list|)
 DECL|method|testNodesFDAfterMasterReelection
 specifier|public
 name|void
@@ -1621,13 +1609,6 @@ block|}
 comment|/**      * Verify that the proper block is applied when nodes loose their master      */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-name|value
-operator|=
-literal|"cluster.service:TRACE,indices.recovery:TRACE"
-argument_list|)
 DECL|method|testVerifyApiBlocksDuringPartition
 specifier|public
 name|void
@@ -1972,11 +1953,6 @@ block|}
 comment|/**      * This test isolates the master from rest of the cluster, waits for a new master to be elected, restores the partition      * and verifies that all node agree on the new cluster state      */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
-argument_list|)
 DECL|method|testIsolateMasterAndVerifyClusterStateConsensus
 specifier|public
 name|void
@@ -3372,11 +3348,6 @@ block|}
 comment|/**      * Test that cluster recovers from a long GC on master that causes other nodes to elect a new one      */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
-argument_list|)
 DECL|method|testMasterNodeGCs
 specifier|public
 name|void
@@ -3669,11 +3640,6 @@ block|}
 comment|/**      * Test that a document which is indexed on the majority side of a partition, is available from the minory side,      * once the partition is healed      *      * @throws Exception      */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE,cluster.service:TRACE,indices.recovery:TRACE,indices.cluster:TRACE"
-argument_list|)
 DECL|method|testRejoinDocumentExistsInAllShardCopies
 specifier|public
 name|void
@@ -4062,11 +4028,6 @@ block|}
 comment|/**      * A 4 node cluster with m_m_n set to 3 and each node has one unicast enpoint. One node partitions from the master node.      * The temporal unicast responses is empty. When partition is solved the one ping response contains a master node.      * The rejoining node should take this master node and connect.      */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE"
-argument_list|)
 DECL|method|unicastSinglePingResponseContainsMaster
 specifier|public
 name|void
@@ -4263,11 +4224,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE"
-argument_list|)
 DECL|method|isolatedUnicastNodes
 specifier|public
 name|void
@@ -4452,11 +4408,6 @@ block|}
 comment|/** Test cluster join with issues in cluster state publishing * */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE"
-argument_list|)
 DECL|method|testClusterJoinDespiteOfPublishingIssues
 specifier|public
 name|void
@@ -4779,11 +4730,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"discovery.zen:TRACE,action:TRACE"
-argument_list|)
 DECL|method|testClusterFormingWithASlowNode
 specifier|public
 name|void

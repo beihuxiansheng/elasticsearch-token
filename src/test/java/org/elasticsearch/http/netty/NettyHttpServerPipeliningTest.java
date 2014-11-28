@@ -703,11 +703,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:DEBUG"
-argument_list|)
 DECL|method|testThatHttpPipeliningWorksWhenEnabled
 specifier|public
 name|void
@@ -849,11 +844,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"_root:TRACE"
-argument_list|)
 DECL|method|testThatHttpPipeliningCanBeDisabled
 specifier|public
 name|void

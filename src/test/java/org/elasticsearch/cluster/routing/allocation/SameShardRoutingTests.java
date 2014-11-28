@@ -341,11 +341,6 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"cluster.routing.allocation:TRACE"
-argument_list|)
 DECL|method|sameHost
 specifier|public
 name|void

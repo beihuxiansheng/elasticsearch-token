@@ -276,11 +276,6 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices.cluster:TRACE,cluster.service:TRACE,action.count:TRACE,indices.recovery:TRACE"
-argument_list|)
 DECL|method|testFullRollingRestart
 specifier|public
 name|void

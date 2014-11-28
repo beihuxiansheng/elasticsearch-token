@@ -1544,11 +1544,6 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.percolator:TRACE,percolator:TRACE"
-argument_list|)
 DECL|method|testLoadingPercolateQueriesDuringCloseAndOpen
 specifier|public
 name|void
