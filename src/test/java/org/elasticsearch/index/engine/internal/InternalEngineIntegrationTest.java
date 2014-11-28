@@ -438,6 +438,16 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"indices segments response should contain indices"
+argument_list|,
+name|indicesSegmentResponse
+operator|.
+name|getIndices
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|IndexSegments
 name|indexSegments
 init|=
