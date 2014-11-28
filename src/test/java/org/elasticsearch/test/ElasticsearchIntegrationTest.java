@@ -988,20 +988,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|codec
-operator|.
-name|CodecService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|fielddata
 operator|.
 name|FieldDataType
@@ -1113,22 +1099,6 @@ operator|.
 name|scheduler
 operator|.
 name|MergeSchedulerModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
-name|scheduler
-operator|.
-name|MergeSchedulerProvider
 import|;
 end_import
 
@@ -8137,7 +8107,21 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
-literal|"failed to delete a dummy doc"
+literal|"failed to delete a dummy doc ["
+operator|+
+name|doc
+operator|.
+name|v1
+argument_list|()
+operator|+
+literal|"]["
+operator|+
+name|doc
+operator|.
+name|v2
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|client
 argument_list|()
