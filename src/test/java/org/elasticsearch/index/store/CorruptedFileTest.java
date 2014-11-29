@@ -2829,6 +2829,21 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+name|between
+argument_list|(
+literal|1
+argument_list|,
+literal|4
+argument_list|)
+argument_list|)
+comment|// don't go crazy here it must recovery fast
+operator|.
+name|put
+argument_list|(
 name|InternalEngine
 operator|.
 name|INDEX_FAIL_ON_CORRUPTION
