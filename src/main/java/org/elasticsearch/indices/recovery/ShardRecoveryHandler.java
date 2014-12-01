@@ -2185,23 +2185,6 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-specifier|final
-name|Set
-argument_list|<
-name|String
-argument_list|>
-name|snapshotFiles
-init|=
-name|Sets
-operator|.
-name|newHashSet
-argument_list|(
-name|snapshot
-operator|.
-name|getFiles
-argument_list|()
-argument_list|)
-decl_stmt|;
 comment|// Send the CLEAN_FILES request, which takes all of the files that
 comment|// were transferred and renames them from their temporary file
 comment|// names to the actual file names. It also writes checksums for
@@ -2238,7 +2221,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|snapshotFiles
+name|recoverySourceMetadata
 argument_list|)
 argument_list|,
 name|TransportRequestOptions

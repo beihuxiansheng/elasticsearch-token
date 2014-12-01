@@ -370,6 +370,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// we can't tell if either or is null so we return false in this case! this is why we don't use equals for this!
 return|return
 literal|false
 return|;
