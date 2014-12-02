@@ -1332,6 +1332,20 @@ name|randomizedtesting
 operator|.
 name|RandomizedTest
 operator|.
+name|frequently
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
 name|randomBoolean
 import|;
 end_import
@@ -2449,9 +2463,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|random
-operator|.
-name|nextBoolean
+name|frequently
 argument_list|()
 condition|)
 block|{
@@ -2515,6 +2527,8 @@ literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|// always reduce this - it can make tests really slow
 name|builder
 operator|.
 name|put
@@ -2535,12 +2549,11 @@ name|random
 argument_list|,
 literal|20
 argument_list|,
-literal|100
+literal|50
 argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|defaultSettings
 operator|=
 name|builder
