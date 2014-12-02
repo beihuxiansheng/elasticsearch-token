@@ -2463,8 +2463,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|frequently
-argument_list|()
+name|random
+operator|.
+name|nextInt
+argument_list|(
+literal|100
+argument_list|)
+operator|<=
+literal|90
 condition|)
 block|{
 name|builder
