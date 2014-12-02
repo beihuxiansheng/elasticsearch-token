@@ -73,7 +73,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"VerifyingIndexOutput(in="
+literal|"VerifyingIndexOutput(out="
 operator|+
 name|out
 operator|+
