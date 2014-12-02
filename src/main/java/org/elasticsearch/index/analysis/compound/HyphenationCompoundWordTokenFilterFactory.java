@@ -336,7 +336,7 @@ literal|"hyphenation_patterns_path is a required setting."
 argument_list|)
 throw|;
 block|}
-name|Path
+name|URL
 name|hyphenationPatternsFile
 init|=
 name|env
@@ -357,12 +357,10 @@ argument_list|(
 operator|new
 name|InputSource
 argument_list|(
-name|Files
-operator|.
-name|newInputStream
-argument_list|(
 name|hyphenationPatternsFile
-argument_list|)
+operator|.
+name|toExternalForm
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

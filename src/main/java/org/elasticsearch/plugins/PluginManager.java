@@ -391,30 +391,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|ZipEntry
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|zip
-operator|.
-name|ZipFile
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
