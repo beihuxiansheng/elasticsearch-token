@@ -2210,6 +2210,20 @@ operator|!=
 name|Edge
 operator|.
 name|MAX_COORDINATE
+operator|&&
+operator|(
+name|e1
+operator|.
+name|next
+operator|.
+name|next
+operator|.
+name|coordinate
+operator|!=
+name|e2
+operator|.
+name|coordinate
+operator|)
 condition|)
 block|{
 name|connect
@@ -2384,6 +2398,14 @@ operator|.
 name|next
 operator|!=
 name|out
+operator|&&
+name|in
+operator|.
+name|coordinate
+operator|!=
+name|out
+operator|.
+name|intersect
 condition|)
 block|{
 comment|// first edge intersects with dateline
