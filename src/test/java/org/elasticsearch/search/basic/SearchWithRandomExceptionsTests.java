@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Repeat
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -414,6 +428,22 @@ name|assertHitCount
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
 begin_class
 DECL|class|SearchWithRandomExceptionsTests
 specifier|public
@@ -590,6 +620,7 @@ operator|=
 literal|0d
 expr_stmt|;
 block|}
+specifier|final
 name|boolean
 name|createIndexWithoutErrors
 init|=
@@ -712,9 +743,9 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"initial"
+literal|"type"
 argument_list|,
-literal|""
+literal|"init"
 operator|+
 name|i
 argument_list|)
@@ -1460,6 +1491,8 @@ operator|.
 name|equalTo
 argument_list|(
 name|numCreated
+operator|+
+name|numInitialDocs
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1613,7 +1646,7 @@ argument_list|()
 operator|.
 name|setTypes
 argument_list|(
-literal|"initial"
+literal|"type"
 argument_list|)
 operator|.
 name|setQuery
@@ -1631,6 +1664,11 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|assertNoFailures
+argument_list|(
+name|searchResponse
+argument_list|)
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|searchResponse
