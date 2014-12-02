@@ -71,6 +71,15 @@ name|IndexOutput
 name|out
 parameter_list|)
 block|{
+name|super
+argument_list|(
+literal|"VerifyingIndexOutput(in="
+operator|+
+name|out
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|out

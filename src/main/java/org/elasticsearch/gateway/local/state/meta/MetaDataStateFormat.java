@@ -557,6 +557,16 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+specifier|final
+name|String
+name|resourceDesc
+init|=
+literal|"MetaDataStateFormat.write(path=\""
+operator|+
+name|tmpStatePath
+operator|+
+literal|"\")"
+decl_stmt|;
 try|try
 init|(
 name|OutputStreamIndexOutput
@@ -565,6 +575,8 @@ init|=
 operator|new
 name|OutputStreamIndexOutput
 argument_list|(
+name|resourceDesc
+argument_list|,
 name|Files
 operator|.
 name|newOutputStream
