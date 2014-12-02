@@ -366,9 +366,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -1934,7 +1936,7 @@ argument_list|(
 literal|"--> closing all nodes"
 argument_list|)
 expr_stmt|;
-name|File
+name|Path
 index|[]
 name|shardLocation
 init|=
@@ -1950,7 +1952,7 @@ argument_list|,
 name|node_1
 argument_list|)
 operator|.
-name|shardLocations
+name|shardPaths
 argument_list|(
 operator|new
 name|ShardId
@@ -2020,12 +2022,7 @@ name|IOUtils
 operator|.
 name|rm
 argument_list|(
-name|FileSystemUtils
-operator|.
-name|toPaths
-argument_list|(
 name|shardLocation
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger

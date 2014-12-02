@@ -668,16 +668,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -4337,12 +4327,12 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|File
+name|Path
 name|shardLoc
 range|:
 name|nodeEnvironment
 operator|.
-name|shardLocations
+name|shardPaths
 argument_list|(
 operator|new
 name|ShardId
@@ -4374,9 +4364,6 @@ operator|.
 name|walkFileTree
 argument_list|(
 name|shardLoc
-operator|.
-name|toPath
-argument_list|()
 argument_list|,
 operator|new
 name|SimpleFileVisitor
@@ -4446,9 +4433,6 @@ argument_list|(
 literal|"failed to walk file tree starting at ["
 operator|+
 name|shardLoc
-operator|.
-name|toPath
-argument_list|()
 operator|+
 literal|"]"
 argument_list|,

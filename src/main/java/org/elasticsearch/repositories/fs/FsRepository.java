@@ -184,6 +184,30 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
+import|;
+end_import
+
 begin_comment
 comment|/**  * Shared file system implementation of the BlobStoreRepository  *<p/>  * Shared file system repository supports the following settings  *<dl>  *<dt>{@code location}</dt><dd>Path to the root of repository. This is mandatory parameter.</dd>  *<dt>{@code concurrent_streams}</dt><dd>Number of concurrent read/write stream (per repository on each node). Defaults to 5.</dd>  *<dt>{@code chunk_size}</dt><dd>Large file can be divided into chunks. This parameter specifies the chunk size. Defaults to not chucked.</dd>  *<dt>{@code compress}</dt><dd>If set to true metadata files will be stored compressed. Defaults to false.</dd>  *</ol>  */
 end_comment
@@ -258,7 +282,7 @@ argument_list|,
 name|indexShardRepository
 argument_list|)
 expr_stmt|;
-name|File
+name|Path
 name|locationFile
 decl_stmt|;
 name|String
@@ -312,8 +336,9 @@ else|else
 block|{
 name|locationFile
 operator|=
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|location
 argument_list|)

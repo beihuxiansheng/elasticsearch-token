@@ -72,6 +72,16 @@ name|TimeValue
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -113,6 +123,8 @@ parameter_list|,
 name|FsProbe
 name|probe
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -171,6 +183,8 @@ name|FsStats
 name|stats
 parameter_list|()
 block|{
+try|try
+block|{
 if|if
 condition|(
 operator|(
@@ -197,6 +211,26 @@ name|probe
 operator|.
 name|stats
 argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|cachedStats
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"can't fetch fs stats"
+argument_list|,
+name|ex
+argument_list|)
 expr_stmt|;
 block|}
 return|return

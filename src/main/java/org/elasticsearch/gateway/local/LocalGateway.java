@@ -1228,15 +1228,10 @@ name|IOUtils
 operator|.
 name|rm
 argument_list|(
-name|FileSystemUtils
-operator|.
-name|toPaths
-argument_list|(
 name|nodeEnv
 operator|.
-name|nodeDataLocations
+name|nodeDataPaths
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

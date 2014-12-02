@@ -333,7 +333,7 @@ literal|true
 expr_stmt|;
 name|settingsBuilder
 operator|.
-name|loadFromUrl
+name|loadFromPath
 argument_list|(
 name|environment
 operator|.
@@ -371,7 +371,7 @@ literal|false
 expr_stmt|;
 name|settingsBuilder
 operator|.
-name|loadFromUrl
+name|loadFromPath
 argument_list|(
 name|environment
 operator|.
@@ -408,7 +408,7 @@ literal|false
 expr_stmt|;
 name|settingsBuilder
 operator|.
-name|loadFromUrl
+name|loadFromPath
 argument_list|(
 name|environment
 operator|.
@@ -434,7 +434,7 @@ try|try
 block|{
 name|settingsBuilder
 operator|.
-name|loadFromUrl
+name|loadFromPath
 argument_list|(
 name|environment
 operator|.
@@ -465,7 +465,7 @@ try|try
 block|{
 name|settingsBuilder
 operator|.
-name|loadFromUrl
+name|loadFromPath
 argument_list|(
 name|environment
 operator|.
@@ -488,7 +488,7 @@ try|try
 block|{
 name|settingsBuilder
 operator|.
-name|loadFromUrl
+name|loadFromPath
 argument_list|(
 name|environment
 operator|.
@@ -790,7 +790,10 @@ operator|.
 name|logsFile
 argument_list|()
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 argument_list|)

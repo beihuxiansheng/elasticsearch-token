@@ -18,9 +18,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -40,7 +42,7 @@ specifier|public
 name|void
 name|onFileInit
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }
@@ -50,7 +52,7 @@ specifier|public
 name|void
 name|onDirectoryInit
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }
@@ -60,7 +62,7 @@ specifier|public
 name|void
 name|onFileCreated
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }
@@ -70,7 +72,7 @@ specifier|public
 name|void
 name|onFileDeleted
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }
@@ -80,7 +82,7 @@ specifier|public
 name|void
 name|onFileChanged
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }
@@ -90,7 +92,7 @@ specifier|public
 name|void
 name|onDirectoryCreated
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }
@@ -100,7 +102,7 @@ specifier|public
 name|void
 name|onDirectoryDeleted
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{      }

@@ -18,6 +18,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -80,6 +90,8 @@ specifier|public
 name|void
 name|init
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -103,6 +115,8 @@ specifier|public
 name|void
 name|checkAndNotify
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|init
 argument_list|()
@@ -168,6 +182,8 @@ specifier|abstract
 name|void
 name|doInit
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Will be called periodically      *<p/>      * Implementing watcher should check resource and notify all {@link #listeners()}.      */
 DECL|method|doCheckAndNotify
@@ -176,6 +192,8 @@ specifier|abstract
 name|void
 name|doCheckAndNotify
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_class

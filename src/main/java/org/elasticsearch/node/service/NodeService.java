@@ -274,6 +274,16 @@ name|TransportService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -846,6 +856,8 @@ specifier|public
 name|NodeStats
 name|stats
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// for indices stats we want to include previous allocated shards stats as well (it will
 comment|// only be applied to the sensible ones to use, like refresh/merge/flush/indexing stats)

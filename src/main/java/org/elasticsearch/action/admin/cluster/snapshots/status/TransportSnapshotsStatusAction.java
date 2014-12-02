@@ -312,6 +312,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -542,7 +552,7 @@ argument_list|>
 name|listener
 parameter_list|)
 throws|throws
-name|ElasticsearchException
+name|Exception
 block|{
 name|ImmutableList
 argument_list|<
@@ -869,6 +879,8 @@ operator|.
 name|NodesSnapshotStatus
 name|nodeSnapshotStatuses
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// First process snapshot that are currently processed
 name|ImmutableList

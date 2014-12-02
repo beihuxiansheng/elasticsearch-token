@@ -224,6 +224,30 @@ name|URL
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_comment
 comment|/**  * Uses the {@link org.apache.lucene.analysis.compound.HyphenationCompoundWordTokenFilter} to decompound tokens based on hyphenation rules.  *  * @see org.apache.lucene.analysis.compound.HyphenationCompoundWordTokenFilter  */
 end_comment
@@ -312,7 +336,7 @@ literal|"hyphenation_patterns_path is a required setting."
 argument_list|)
 throw|;
 block|}
-name|URL
+name|Path
 name|hyphenationPatternsFile
 init|=
 name|env
@@ -333,10 +357,12 @@ argument_list|(
 operator|new
 name|InputSource
 argument_list|(
-name|hyphenationPatternsFile
+name|Files
 operator|.
-name|toExternalForm
-argument_list|()
+name|newInputStream
+argument_list|(
+name|hyphenationPatternsFile
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

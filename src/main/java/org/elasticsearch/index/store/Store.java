@@ -490,6 +490,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|*
@@ -1740,7 +1752,7 @@ specifier|static
 name|MetadataSnapshot
 name|readMetadataSnapshot
 parameter_list|(
-name|File
+name|Path
 index|[]
 name|indexLocations
 parameter_list|,
@@ -1794,9 +1806,6 @@ name|indexLocations
 index|[
 name|i
 index|]
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

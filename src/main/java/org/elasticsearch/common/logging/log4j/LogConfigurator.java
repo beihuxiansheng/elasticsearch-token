@@ -749,9 +749,6 @@ name|env
 operator|.
 name|configFile
 argument_list|()
-operator|.
-name|toPath
-argument_list|()
 argument_list|,
 name|EnumSet
 operator|.

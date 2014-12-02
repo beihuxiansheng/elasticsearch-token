@@ -116,6 +116,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -1298,6 +1308,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|IOException
+decl||
 name|SnapshotException
 name|ex
 parameter_list|)
@@ -2001,6 +2013,8 @@ name|String
 argument_list|>
 name|indices
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|readSnapshotMetaData
@@ -2186,6 +2200,8 @@ parameter_list|,
 name|boolean
 name|ignoreIndexErrors
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|MetaData
 name|metaData

@@ -14,6 +14,16 @@ name|watcher
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Abstract resource watcher interface.  *<p/>  * Different resource watchers can be registered with {@link ResourceWatcherService} to be called  * periodically in order to check for changes in different external resources.  */
 end_comment
@@ -29,12 +39,16 @@ DECL|method|init
 name|void
 name|init
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Called periodically by {@link ResourceWatcherService} so resource watcher can check the resource      */
 DECL|method|checkAndNotify
 name|void
 name|checkAndNotify
 parameter_list|()
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

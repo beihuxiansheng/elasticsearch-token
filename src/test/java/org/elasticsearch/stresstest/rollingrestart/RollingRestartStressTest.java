@@ -294,9 +294,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -967,7 +969,7 @@ condition|(
 literal|true
 condition|)
 block|{
-name|File
+name|Path
 index|[]
 name|nodeData
 init|=
@@ -991,7 +993,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|nodeDataLocations
+name|nodeDataPaths
 argument_list|()
 decl_stmt|;
 name|nodes
@@ -1013,12 +1015,7 @@ name|IOUtils
 operator|.
 name|rm
 argument_list|(
-name|FileSystemUtils
-operator|.
-name|toPaths
-argument_list|(
 name|nodeData
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -122,20 +122,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|FileSystemUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|logging
 operator|.
 name|ESLogger
@@ -280,9 +266,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -1369,7 +1357,7 @@ range|:
 name|nodes
 control|)
 block|{
-name|File
+name|Path
 index|[]
 name|nodeDatas
 init|=
@@ -1390,7 +1378,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|nodeDataLocations
+name|nodeDataPaths
 argument_list|()
 decl_stmt|;
 name|node
@@ -1422,12 +1410,7 @@ name|IOUtils
 operator|.
 name|rm
 argument_list|(
-name|FileSystemUtils
-operator|.
-name|toPaths
-argument_list|(
 name|nodeDatas
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

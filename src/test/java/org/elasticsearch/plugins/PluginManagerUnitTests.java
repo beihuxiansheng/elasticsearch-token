@@ -231,7 +231,10 @@ argument_list|(
 name|environment
 argument_list|)
 operator|.
-name|getCanonicalPath
+name|normalize
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -250,7 +253,13 @@ argument_list|,
 name|pluginName
 argument_list|)
 operator|.
-name|getCanonicalPath
+name|toPath
+argument_list|()
+operator|.
+name|normalize
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;

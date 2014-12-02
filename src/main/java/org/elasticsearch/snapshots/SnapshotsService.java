@@ -2722,6 +2722,8 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|ImmutableMap
 operator|.
