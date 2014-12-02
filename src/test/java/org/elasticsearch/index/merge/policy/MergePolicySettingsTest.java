@@ -1901,8 +1901,6 @@ name|shardId
 argument_list|,
 name|settings
 argument_list|,
-literal|null
-argument_list|,
 name|directoryService
 argument_list|,
 operator|new

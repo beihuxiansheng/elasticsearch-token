@@ -604,12 +604,6 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|field|codecService
-specifier|private
-specifier|final
-name|CodecService
-name|codecService
-decl_stmt|;
 DECL|field|directoryService
 specifier|private
 specifier|final
@@ -688,9 +682,6 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
-name|CodecService
-name|codecService
-parameter_list|,
 name|DirectoryService
 name|directoryService
 parameter_list|,
@@ -709,12 +700,6 @@ name|shardId
 argument_list|,
 name|indexSettings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|codecService
-operator|=
-name|codecService
 expr_stmt|;
 name|this
 operator|.
