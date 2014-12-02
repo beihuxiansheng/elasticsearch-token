@@ -426,6 +426,8 @@ literal|false
 argument_list|,
 name|shell
 argument_list|,
+literal|null
+argument_list|,
 name|edges
 argument_list|,
 literal|0
@@ -459,6 +461,8 @@ operator|+
 literal|1
 argument_list|,
 literal|true
+argument_list|,
+name|shell
 argument_list|,
 name|this
 operator|.
@@ -2185,14 +2189,17 @@ literal|null
 expr_stmt|;
 block|}
 comment|// only connect edges if intersections are pairwise
-comment|// per the comment above, the edge array is sorted by y-value of the intersection
+comment|// 1. per the comment above, the edge array is sorted by y-value of the intersection
 comment|// with the dateline.  Two edges have the same y intercept when they cross the
 comment|// dateline thus they appear sequentially (pairwise) in the edge array. Two edges
 comment|// do not have the same y intercept when we're forming a multi-poly from a poly
 comment|// that wraps the dateline (but there are 2 ordered intercepts).
 comment|// The connect method creates a new edge for these paired edges in the linked list.
 comment|// For boundary conditions (e.g., intersect but not crossing) there is no sibling edge
-comment|// to connect. Thus the following enforces the pairwise rule
+comment|// to connect. Thus the first logic check enforces the pairwise rule
+comment|// 2. the second logic ensures the two candidate edges aren't already connected by an
+comment|//    existing along the dateline - this is necessary due to a logic change that
+comment|//    computes dateline edges as valid intersect points in support of OGC standards
 if|if
 condition|(
 name|e1
@@ -2211,6 +2218,7 @@ name|Edge
 operator|.
 name|MAX_COORDINATE
 operator|&&
+operator|!
 operator|(
 name|e1
 operator|.
@@ -2219,10 +2227,41 @@ operator|.
 name|next
 operator|.
 name|coordinate
-operator|!=
+operator|.
+name|equals3D
+argument_list|(
 name|e2
 operator|.
 name|coordinate
+argument_list|)
+operator|&&
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|e1
+operator|.
+name|next
+operator|.
+name|coordinate
+operator|.
+name|x
+argument_list|)
+operator|==
+name|DATELINE
+operator|&&
+name|Math
+operator|.
+name|abs
+argument_list|(
+name|e2
+operator|.
+name|coordinate
+operator|.
+name|x
+argument_list|)
+operator|==
+name|DATELINE
 operator|)
 condition|)
 block|{
@@ -2524,7 +2563,13 @@ name|BaseLineStringBuilder
 argument_list|<
 name|?
 argument_list|>
-name|line
+name|shell
+parameter_list|,
+name|BaseLineStringBuilder
+argument_list|<
+name|?
+argument_list|>
+name|hole
 parameter_list|,
 name|Edge
 index|[]
@@ -2534,18 +2579,31 @@ name|int
 name|offset
 parameter_list|)
 block|{
+comment|// set the points array accordingly (shell or hole)
 name|Coordinate
 index|[]
 name|points
 init|=
-name|line
+operator|(
+name|hole
+operator|!=
+literal|null
+operator|)
+condition|?
+name|hole
+operator|.
+name|coordinates
+argument_list|(
+literal|false
+argument_list|)
+else|:
+name|shell
 operator|.
 name|coordinates
 argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-comment|// last point is repeated
 name|Edge
 operator|.
 name|ring
@@ -2553,6 +2611,8 @@ argument_list|(
 name|component
 argument_list|,
 name|direction
+argument_list|,
+name|shell
 argument_list|,
 name|points
 argument_list|,
