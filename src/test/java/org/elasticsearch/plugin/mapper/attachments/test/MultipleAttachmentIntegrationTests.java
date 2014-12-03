@@ -200,7 +200,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 import|;
 end_import
 
@@ -456,7 +456,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"World"
 argument_list|)
@@ -498,7 +498,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"World"
 argument_list|)

@@ -208,7 +208,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|queryString
+name|queryStringQuery
 import|;
 end_import
 
@@ -422,7 +422,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"test document"
 argument_list|)
@@ -464,7 +464,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"tests the ability"
 argument_list|)
@@ -612,7 +612,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"BeforeLimit"
 argument_list|)
@@ -654,7 +654,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"AfterLimit"
 argument_list|)
@@ -803,7 +803,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"Begin"
 argument_list|)
@@ -845,7 +845,7 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|queryString
+name|queryStringQuery
 argument_list|(
 literal|"End"
 argument_list|)
