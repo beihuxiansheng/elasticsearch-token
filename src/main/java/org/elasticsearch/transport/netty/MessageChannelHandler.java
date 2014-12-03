@@ -1368,8 +1368,6 @@ operator|.
 name|handler
 argument_list|(
 name|action
-argument_list|,
-name|version
 argument_list|)
 decl_stmt|;
 if|if
