@@ -2275,6 +2275,15 @@ comment|//   2.  the shell of the candidate hole has been translated (to preserv
 if|if
 condition|(
 operator|(
+operator|(
+name|component
+operator|==
+literal|0
+operator|&&
+name|orientation
+operator|)
+operator|&&
+operator|(
 name|rng
 operator|>
 name|DATELINE
@@ -2284,12 +2293,7 @@ operator|!=
 literal|2
 operator|*
 name|DATELINE
-operator|&&
-name|orientation
-operator|&&
-name|component
-operator|==
-literal|0
+operator|)
 operator|)
 operator|||
 operator|(
@@ -2314,11 +2318,6 @@ condition|(
 name|component
 operator|==
 literal|0
-operator|&&
-operator|!
-name|shell
-operator|.
-name|translated
 condition|)
 block|{
 name|shell
@@ -2331,13 +2330,9 @@ block|}
 comment|// correct the orientation post translation (ccw for shell, cw for holes)
 if|if
 condition|(
-operator|(
 name|component
 operator|==
 literal|0
-operator|&&
-name|orientation
-operator|)
 operator|||
 operator|(
 name|component
