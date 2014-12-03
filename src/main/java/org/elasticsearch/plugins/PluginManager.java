@@ -1495,10 +1495,6 @@ argument_list|(
 name|binFile
 argument_list|,
 name|toLocation
-argument_list|,
-name|StandardCopyOption
-operator|.
-name|ATOMIC_MOVE
 argument_list|)
 expr_stmt|;
 if|if
