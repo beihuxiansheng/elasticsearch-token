@@ -2269,8 +2269,8 @@ name|getLeft
 argument_list|()
 decl_stmt|;
 comment|// translate the points if the following is true
-comment|//   1.  range is greater than a hemisphere (180 degrees) but not spanning 2 hemispheres (translation would result in
-comment|//         a collapsed poly)
+comment|//   1.  shell orientation is cw and range is greater than a hemisphere (180 degrees) but not spanning 2 hemispheres
+comment|//       (translation would result in a collapsed poly)
 comment|//   2.  the shell of the candidate hole has been translated (to preserve the coordinate system)
 if|if
 condition|(
@@ -2286,6 +2286,10 @@ operator|*
 name|DATELINE
 operator|&&
 name|orientation
+operator|&&
+name|component
+operator|==
+literal|0
 operator|)
 operator|||
 operator|(
@@ -2299,7 +2303,7 @@ literal|0
 operator|)
 condition|)
 block|{
-name|transform
+name|translate
 argument_list|(
 name|points
 argument_list|)
@@ -2374,11 +2378,11 @@ argument_list|)
 return|;
 block|}
 comment|/**          * Transforms coordinates in the eastern hemisphere (-180:0) to a (180:360) range           * @param points          */
-DECL|method|transform
+DECL|method|translate
 specifier|protected
 specifier|static
 name|void
-name|transform
+name|translate
 parameter_list|(
 name|Coordinate
 index|[]

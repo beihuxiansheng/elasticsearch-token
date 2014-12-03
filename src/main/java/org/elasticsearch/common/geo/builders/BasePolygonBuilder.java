@@ -2197,9 +2197,10 @@ comment|// that wraps the dateline (but there are 2 ordered intercepts).
 comment|// The connect method creates a new edge for these paired edges in the linked list.
 comment|// For boundary conditions (e.g., intersect but not crossing) there is no sibling edge
 comment|// to connect. Thus the first logic check enforces the pairwise rule
-comment|// 2. the second logic ensures the two candidate edges aren't already connected by an
-comment|//    existing along the dateline - this is necessary due to a logic change that
-comment|//    computes dateline edges as valid intersect points in support of OGC standards
+comment|// 2. the second logic check ensures the two candidate edges aren't already connected by an
+comment|//    existing edge along the dateline - this is necessary due to a logic change in
+comment|//    ShapeBuilder.intersection that computes dateline edges as valid intersect points
+comment|//    in support of OGC standards
 if|if
 condition|(
 name|e1
