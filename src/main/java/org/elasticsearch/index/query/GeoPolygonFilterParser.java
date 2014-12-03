@@ -758,7 +758,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"to few points defined for geo_polygon filter"
+literal|"too few points defined for geo_polygon filter"
 argument_list|)
 throw|;
 block|}
@@ -820,7 +820,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-literal|"to few points defined for geo_polygon filter"
+literal|"too few points defined for geo_polygon filter"
 argument_list|)
 throw|;
 block|}
