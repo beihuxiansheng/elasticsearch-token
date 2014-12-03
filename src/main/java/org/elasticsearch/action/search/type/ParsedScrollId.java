@@ -89,17 +89,6 @@ name|SCAN
 init|=
 literal|"scan"
 decl_stmt|;
-DECL|field|SCROLL_SEARCH_AFTER_MINIMUM_VERSION
-specifier|public
-specifier|static
-specifier|final
-name|Version
-name|SCROLL_SEARCH_AFTER_MINIMUM_VERSION
-init|=
-name|Version
-operator|.
-name|V_1_2_0
-decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final

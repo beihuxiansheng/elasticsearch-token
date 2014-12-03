@@ -7686,22 +7686,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|clusterState
-operator|.
-name|getNodes
-argument_list|()
-operator|.
-name|smallestVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_2_0
-argument_list|)
-operator|&&
-operator|(
 name|primary
 operator|.
 name|relocating
@@ -7711,7 +7695,6 @@ name|primary
 operator|.
 name|initializing
 argument_list|()
-operator|)
 condition|)
 block|{
 comment|// The WAITING state was introduced in V1.2.0 - don't use it if there are nodes with older version in the cluster

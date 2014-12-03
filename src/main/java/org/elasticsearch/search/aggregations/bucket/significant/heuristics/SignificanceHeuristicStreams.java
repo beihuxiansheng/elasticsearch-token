@@ -124,21 +124,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|in
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_3_0
-argument_list|)
-condition|)
-block|{
 return|return
 name|stream
 argument_list|(
@@ -153,15 +138,6 @@ argument_list|(
 name|in
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-name|JLHScore
-operator|.
-name|INSTANCE
-return|;
-block|}
 block|}
 comment|/**      * A stream that knows how to read an heuristic from the input.      */
 DECL|interface|Stream

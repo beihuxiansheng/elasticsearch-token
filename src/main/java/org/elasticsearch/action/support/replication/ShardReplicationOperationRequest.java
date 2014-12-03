@@ -758,21 +758,6 @@ operator|.
 name|readSharedString
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|in
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_2_0
-argument_list|)
-condition|)
-block|{
 name|canHaveDuplicates
 operator|=
 name|in
@@ -780,7 +765,6 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
-block|}
 comment|// no need to serialize threaded* parameters, since they only matter locally
 block|}
 annotation|@
@@ -837,21 +821,6 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|out
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_2_0
-argument_list|)
-condition|)
-block|{
 name|out
 operator|.
 name|writeBoolean
@@ -859,7 +828,6 @@ argument_list|(
 name|canHaveDuplicates
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Called before the request gets forked into a local thread.      */
 DECL|method|beforeLocalFork

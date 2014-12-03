@@ -580,11 +580,6 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|readLocal
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -655,11 +650,6 @@ expr_stmt|;
 name|indicesOptions
 operator|.
 name|writeIndicesOptions
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
-name|writeLocal
 argument_list|(
 name|out
 argument_list|)

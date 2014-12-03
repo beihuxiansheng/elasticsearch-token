@@ -617,32 +617,6 @@ return|return
 literal|1
 return|;
 block|}
-annotation|@
-name|Before
-DECL|method|beforeTest
-specifier|public
-specifier|final
-name|void
-name|beforeTest
-parameter_list|()
-block|{
-comment|// 1.0.3 is too flaky - lets get stable first.
-name|assumeTrue
-argument_list|(
-literal|"BWC tests are disabled currently for version [< 1.1.0]"
-argument_list|,
-name|compatibilityVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_1_0
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|requiredSettings
 specifier|protected
 name|Settings

@@ -713,11 +713,6 @@ operator|.
 name|readString
 argument_list|()
 expr_stmt|;
-name|readLocal
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|in
@@ -861,11 +856,6 @@ operator|.
 name|writeString
 argument_list|(
 name|waitForNodes
-argument_list|)
-expr_stmt|;
-name|writeLocal
-argument_list|(
-name|out
 argument_list|)
 expr_stmt|;
 if|if
