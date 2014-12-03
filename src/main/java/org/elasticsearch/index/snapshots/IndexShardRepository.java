@@ -50,11 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|recovery
+name|shard
 operator|.
-name|RecoveryState
+name|ShardId
 import|;
 end_import
 
@@ -64,11 +64,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|indices
 operator|.
-name|shard
+name|recovery
 operator|.
-name|ShardId
+name|RecoveryState
 import|;
 end_import
 
@@ -82,7 +82,7 @@ specifier|public
 interface|interface
 name|IndexShardRepository
 block|{
-comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p/>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.internal.InternalEngine#snapshotIndex()} method.      * IndexShardRepository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p/>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param snapshotId          snapshot id      * @param shardId             shard to be snapshotted      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
+comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p/>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.internal.InternalEngineHolder#snapshotIndex()} method.      * IndexShardRepository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p/>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param snapshotId          snapshot id      * @param shardId             shard to be snapshotted      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
 DECL|method|snapshot
 name|void
 name|snapshot

@@ -304,20 +304,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ShardId
 import|;
 end_import
@@ -356,8 +342,6 @@ specifier|public
 interface|interface
 name|Engine
 extends|extends
-name|IndexShardComponent
-extends|,
 name|CloseableComponent
 block|{
 DECL|field|INDEX_CODEC
@@ -380,6 +364,11 @@ argument_list|(
 literal|"500kb"
 argument_list|)
 decl_stmt|;
+DECL|method|shardId
+name|ShardId
+name|shardId
+parameter_list|()
+function_decl|;
 comment|/**      * The default suggested refresh interval, -1 to disable it.      */
 DECL|method|defaultRefreshInterval
 name|TimeValue
@@ -414,6 +403,14 @@ comment|/**      * Starts the Engine.      *<p/>      *<p>Note, after the creati
 DECL|method|start
 name|void
 name|start
+parameter_list|()
+throws|throws
+name|EngineException
+function_decl|;
+comment|/** Stops the engine but allow to re-start it */
+DECL|method|stop
+name|void
+name|stop
 parameter_list|()
 throws|throws
 name|EngineException

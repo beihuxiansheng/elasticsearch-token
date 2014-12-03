@@ -69,7 +69,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|class
 argument_list|)

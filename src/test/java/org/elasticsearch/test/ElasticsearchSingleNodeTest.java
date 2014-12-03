@@ -282,6 +282,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|engine
+operator|.
+name|internal
+operator|.
+name|InternalEngineHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|service
 operator|.
 name|IndexService
@@ -1182,7 +1198,7 @@ block|{
 return|return
 operator|(
 call|(
-name|InternalEngine
+name|InternalEngineHolder
 call|)
 argument_list|(
 operator|(
@@ -1199,6 +1215,9 @@ operator|.
 name|engine
 argument_list|()
 operator|)
+operator|.
+name|engineSafe
+argument_list|()
 return|;
 block|}
 comment|/**      * Create a new search context.      */

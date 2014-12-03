@@ -18,15 +18,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|carrotsearch
+name|apache
 operator|.
-name|randomizedtesting
+name|lucene
 operator|.
-name|annotations
+name|index
 operator|.
-name|Repeat
+name|DirectoryReader
 import|;
 end_import
 
@@ -41,20 +41,6 @@ operator|.
 name|index
 operator|.
 name|LeafReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|DirectoryReader
 import|;
 end_import
 
@@ -266,7 +252,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockInternalEngine
+name|MockInternalEngineHolder
 import|;
 end_import
 
@@ -281,22 +267,6 @@ operator|.
 name|engine
 operator|.
 name|ThrowingLeafReaderWrapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
 import|;
 end_import
 
@@ -408,39 +378,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertHitCount
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertNoFailures
+name|*
 import|;
 end_import
 
@@ -1860,7 +1798,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|READER_WRAPPER_TYPE
 argument_list|,
@@ -1888,7 +1826,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|WRAP_READER_RATIO
 argument_list|,
@@ -2397,7 +2335,7 @@ specifier|static
 class|class
 name|RandomExceptionDirectoryReaderWrapper
 extends|extends
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|DirectoryReaderWrapper
 block|{

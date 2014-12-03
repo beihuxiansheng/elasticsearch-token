@@ -136,7 +136,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -192,7 +192,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,

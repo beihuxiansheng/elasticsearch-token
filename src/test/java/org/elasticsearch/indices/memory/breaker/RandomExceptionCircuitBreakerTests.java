@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReader
+name|DirectoryReader
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DirectoryReader
+name|LeafReader
 import|;
 end_import
 
@@ -292,7 +292,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockInternalEngine
+name|MockInternalEngineHolder
 import|;
 end_import
 
@@ -736,7 +736,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|READER_WRAPPER_TYPE
 argument_list|,
@@ -764,7 +764,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|WRAP_READER_RATIO
 argument_list|,
@@ -1386,7 +1386,7 @@ specifier|static
 class|class
 name|RandomExceptionDirectoryReaderWrapper
 extends|extends
-name|MockInternalEngine
+name|MockInternalEngineHolder
 operator|.
 name|DirectoryReaderWrapper
 block|{

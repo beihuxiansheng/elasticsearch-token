@@ -126,7 +126,7 @@ name|engine
 operator|.
 name|internal
 operator|.
-name|InternalEngine
+name|InternalEngineHolder
 import|;
 end_import
 
@@ -381,7 +381,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -399,7 +399,7 @@ name|expected2ShardsSize
 operator|&&
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard2
 operator|.
@@ -435,7 +435,7 @@ literal|"] shard1 ["
 operator|+
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -453,7 +453,7 @@ literal|"] shard2  ["
 operator|+
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard2
 operator|.
@@ -512,7 +512,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -548,7 +548,7 @@ literal|"] got ["
 operator|+
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -673,7 +673,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -716,7 +716,7 @@ literal|"] got ["
 operator|+
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -771,7 +771,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -814,7 +814,7 @@ literal|"] got ["
 operator|+
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -860,7 +860,7 @@ block|{
 return|return
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.
@@ -903,7 +903,7 @@ literal|"] got ["
 operator|+
 operator|(
 operator|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|)
 name|shard1
 operator|.

@@ -166,25 +166,11 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|codec
-operator|.
-name|CodecService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|engine
 operator|.
 name|internal
 operator|.
-name|InternalEngine
+name|InternalEngineHolder
 import|;
 end_import
 
@@ -748,7 +734,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_INDEX_CONCURRENCY
 argument_list|,
@@ -761,7 +747,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -774,7 +760,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_GC_DELETES
 argument_list|,
@@ -787,7 +773,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_CODEC
 argument_list|)
@@ -796,7 +782,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_FAIL_ON_MERGE_FAILURE
 argument_list|)
@@ -805,7 +791,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngine
+name|InternalEngineHolder
 operator|.
 name|INDEX_FAIL_ON_CORRUPTION
 argument_list|)
