@@ -2862,13 +2862,44 @@ init|=
 name|getMetadata
 argument_list|()
 decl_stmt|;
-specifier|final
-name|Store
+name|verifyAfterCleanup
+argument_list|(
+name|sourceMetaData
+argument_list|,
+name|metadataOrEmpty
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|metadataLock
 operator|.
+name|writeLock
+argument_list|()
+operator|.
+name|unlock
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+comment|// pkg private for testing
+DECL|method|verifyAfterCleanup
+specifier|final
+name|void
+name|verifyAfterCleanup
+parameter_list|(
+name|MetadataSnapshot
+name|sourceMetaData
+parameter_list|,
+name|MetadataSnapshot
+name|targetMetaData
+parameter_list|)
+block|{
+specifier|final
 name|RecoveryDiff
 name|recoveryDiff
 init|=
-name|metadataOrEmpty
+name|targetMetaData
 operator|.
 name|recoveryDiff
 argument_list|(
@@ -2913,7 +2944,7 @@ block|{
 name|StoreFileMetaData
 name|local
 init|=
-name|metadataOrEmpty
+name|targetMetaData
 operator|.
 name|get
 argument_list|(
@@ -2940,8 +2971,23 @@ comment|// if we have different files the they must have no checksums otherwise 
 comment|// we have that problem when we have an empty index is only a segments_1 file then we can't tell if it's a Lucene 4.8 file
 comment|// and therefore no checksum. That isn't much of a problem since we simply copy it over anyway but those files come out as
 comment|// different in the diff. That's why we have to double check here again if the rest of it matches.
+comment|// all is fine this file is just part of a commit or a segment that is different
+specifier|final
 name|boolean
-name|consistent
+name|same
+init|=
+name|local
+operator|.
+name|isSame
+argument_list|(
+name|remote
+argument_list|)
+decl_stmt|;
+comment|// this check ensures that the two files are consistent ie. if we don't have checksums only the rest needs to match we are just
+comment|// verifying that we are consistent on both ends source and target
+specifier|final
+name|boolean
+name|hashAndLengthEqual
 init|=
 operator|(
 name|local
@@ -2982,6 +3028,14 @@ name|length
 argument_list|()
 operator|)
 decl_stmt|;
+specifier|final
+name|boolean
+name|consistent
+init|=
+name|hashAndLengthEqual
+operator|||
+name|same
+decl_stmt|;
 if|if
 condition|(
 name|consistent
@@ -2989,6 +3043,15 @@ operator|==
 literal|false
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Files are different on the recovery target: {} "
+argument_list|,
+name|recoveryDiff
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|ElasticsearchIllegalStateException
@@ -3040,18 +3103,6 @@ literal|null
 argument_list|)
 throw|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-name|metadataLock
-operator|.
-name|writeLock
-argument_list|()
-operator|.
-name|unlock
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * This exists so {@link org.elasticsearch.index.codec.postingsformat.BloomFilterPostingsFormat} can load its boolean setting; can we find a more straightforward way?      */
