@@ -275,6 +275,9 @@ argument_list|(
 name|link
 argument_list|,
 name|parent
+operator|.
+name|getFileName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|parent
