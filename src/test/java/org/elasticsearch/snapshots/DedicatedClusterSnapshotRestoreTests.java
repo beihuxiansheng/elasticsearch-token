@@ -3003,6 +3003,16 @@ argument_list|(
 literal|"--> creating repository"
 argument_list|)
 expr_stmt|;
+name|File
+name|repo
+init|=
+name|newTempDir
+argument_list|(
+name|LifecycleScope
+operator|.
+name|TEST
+argument_list|)
+decl_stmt|;
 name|PutRepositoryResponse
 name|putRepositoryResponse
 init|=
@@ -3040,12 +3050,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDir
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|repo
 argument_list|)
 operator|.
 name|put
@@ -3099,6 +3104,14 @@ argument_list|(
 name|blockedNode
 argument_list|)
 expr_stmt|;
+name|int
+name|numberOfFilesBeforeSnapshot
+init|=
+name|numberOfFiles
+argument_list|(
+name|repo
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|info
@@ -3294,6 +3307,24 @@ argument_list|,
 name|SnapshotMissingException
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+comment|// Subtract index file from the count
+name|assertThat
+argument_list|(
+literal|"not all files were deleted during snapshot cancellation"
+argument_list|,
+name|numberOfFilesBeforeSnapshot
+argument_list|,
+name|equalTo
+argument_list|(
+name|numberOfFiles
+argument_list|(
+name|repo
+argument_list|)
+operator|-
+literal|1
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger

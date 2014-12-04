@@ -220,6 +220,30 @@ literal|"URL repository doesn't support this operation"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|move
+specifier|public
+name|void
+name|move
+parameter_list|(
+name|String
+name|from
+parameter_list|,
+name|String
+name|to
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"URL repository doesn't support this operation"
+argument_list|)
+throw|;
+block|}
 comment|/**      * This operation is not supported by URLBlobContainer      */
 annotation|@
 name|Override

@@ -119,6 +119,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Deletes a blob with giving name.      *      * If blob exist but cannot be deleted an exception has to be thrown.      */
 DECL|method|deleteBlob
 name|void
 name|deleteBlob
@@ -129,6 +130,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Deletes all blobs in the container that match the specified prefix.      */
 DECL|method|deleteBlobsByPrefix
 name|void
 name|deleteBlobsByPrefix
@@ -139,6 +141,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Deletes all blobs in the container that match the supplied filter.      */
 DECL|method|deleteBlobsByFilter
 name|void
 name|deleteBlobsByFilter
@@ -149,6 +152,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Lists all blobs in the container      */
 DECL|method|listBlobs
 name|ImmutableMap
 argument_list|<
@@ -161,6 +165,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Lists all blobs in the container that match specified prefix      */
 DECL|method|listBlobsByPrefix
 name|ImmutableMap
 argument_list|<
@@ -172,6 +177,20 @@ name|listBlobsByPrefix
 parameter_list|(
 name|String
 name|blobNamePrefix
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Atomically renames source blob into target blob      */
+DECL|method|move
+name|void
+name|move
+parameter_list|(
+name|String
+name|sourceBlobName
+parameter_list|,
+name|String
+name|targetBlobName
 parameter_list|)
 throws|throws
 name|IOException

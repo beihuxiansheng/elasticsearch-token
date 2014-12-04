@@ -1500,11 +1500,6 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|builder
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 comment|/**      * Parses JSON representation of a snapshot      *      * @param stream JSON      * @return snapshot      * @throws IOException if an IOException occurs      * */
 DECL|method|readSnapshot
@@ -2741,7 +2736,7 @@ name|FINALIZE
 argument_list|)
 expr_stmt|;
 name|String
-name|commitPointName
+name|snapshotBlobName
 init|=
 name|snapshotBlobName
 argument_list|(
@@ -2808,7 +2803,7 @@ name|blobContainer
 operator|.
 name|createOutput
 argument_list|(
-name|commitPointName
+name|snapshotBlobName
 argument_list|)
 init|)
 block|{

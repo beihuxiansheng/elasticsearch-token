@@ -6813,7 +6813,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0
+literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
