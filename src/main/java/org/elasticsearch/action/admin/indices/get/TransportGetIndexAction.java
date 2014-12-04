@@ -538,7 +538,7 @@ name|features
 init|=
 name|request
 operator|.
-name|featuresAsEnums
+name|features
 argument_list|()
 decl_stmt|;
 name|boolean
