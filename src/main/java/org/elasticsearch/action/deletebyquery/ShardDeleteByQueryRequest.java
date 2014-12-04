@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -678,7 +668,7 @@ name|originalIndices
 operator|=
 name|OriginalIndices
 operator|.
-name|readOptionalOriginalIndices
+name|readOriginalIndices
 argument_list|(
 name|in
 argument_list|)
@@ -821,7 +811,7 @@ argument_list|)
 expr_stmt|;
 name|OriginalIndices
 operator|.
-name|writeOptionalOriginalIndices
+name|writeOriginalIndices
 argument_list|(
 name|originalIndices
 argument_list|,
