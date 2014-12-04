@@ -1367,25 +1367,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|useSlowScroll
-specifier|public
-name|SearchContext
-name|useSlowScroll
-parameter_list|(
-name|boolean
-name|useSlowScroll
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Not supported"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|timeEstimateCounter
 specifier|public
 name|Counter

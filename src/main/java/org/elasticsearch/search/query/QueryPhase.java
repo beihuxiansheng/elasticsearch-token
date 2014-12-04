@@ -776,12 +776,6 @@ block|{
 comment|// Perhaps have a dedicated scroll phase?
 if|if
 condition|(
-operator|!
-name|searchContext
-operator|.
-name|useSlowScroll
-argument_list|()
-operator|&&
 name|searchContext
 operator|.
 name|request

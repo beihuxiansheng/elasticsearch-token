@@ -478,9 +478,6 @@ block|{
 name|boolean
 name|useScroll
 init|=
-operator|!
-name|useSlowScroll
-operator|&&
 name|request
 operator|.
 name|scroll

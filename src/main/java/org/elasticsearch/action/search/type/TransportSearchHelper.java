@@ -308,9 +308,6 @@ name|filteringAliases
 parameter_list|,
 name|long
 name|nowInMillis
-parameter_list|,
-name|boolean
-name|useSlowScroll
 parameter_list|)
 block|{
 return|return
@@ -322,8 +319,6 @@ argument_list|,
 name|shardRouting
 argument_list|,
 name|numberOfShards
-argument_list|,
-name|useSlowScroll
 argument_list|,
 name|filteringAliases
 argument_list|,

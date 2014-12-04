@@ -698,12 +698,6 @@ name|ScoreDoc
 index|[]
 name|sortedShardList
 decl_stmt|;
-DECL|field|useSlowScroll
-specifier|protected
-specifier|final
-name|boolean
-name|useSlowScroll
-decl_stmt|;
 DECL|method|BaseAsyncAction
 specifier|protected
 name|BaseAsyncAction
@@ -884,12 +878,6 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|useSlowScroll
-operator|=
-literal|false
 expr_stmt|;
 block|}
 DECL|method|start
@@ -1143,8 +1131,6 @@ name|filteringAliases
 argument_list|,
 name|startTime
 argument_list|()
-argument_list|,
-name|useSlowScroll
 argument_list|)
 argument_list|,
 operator|new

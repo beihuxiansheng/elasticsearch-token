@@ -198,8 +198,6 @@ name|shardRouting
 argument_list|,
 name|numberOfShards
 argument_list|,
-literal|false
-argument_list|,
 name|filteringAliases
 argument_list|,
 name|nowInMillis

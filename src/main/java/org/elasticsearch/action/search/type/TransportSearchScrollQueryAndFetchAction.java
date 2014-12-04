@@ -414,12 +414,6 @@ specifier|final
 name|SearchScrollRequest
 name|request
 decl_stmt|;
-DECL|field|useSlowScroll
-specifier|private
-specifier|volatile
-name|boolean
-name|useSlowScroll
-decl_stmt|;
 DECL|field|listener
 specifier|private
 specifier|final
@@ -1201,8 +1195,7 @@ name|searchPhaseController
 operator|.
 name|sortDocs
 argument_list|(
-operator|!
-name|useSlowScroll
+literal|true
 argument_list|,
 name|queryFetchResults
 argument_list|)

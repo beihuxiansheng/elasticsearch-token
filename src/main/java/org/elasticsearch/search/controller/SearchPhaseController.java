@@ -1077,7 +1077,7 @@ operator|+
 name|right
 return|;
 block|}
-comment|/**      * @param scrollSort Whether to ignore the from and sort all hits in each shard result. Only used for scroll search      * @param resultsArr Shard result holder      */
+comment|/**      * @param ignoreFrom Whether to ignore the from and sort all hits in each shard result.      *                   Enabled only for scroll search, because that only retrieves hits of length 'size' in the query phase.      * @param resultsArr Shard result holder      */
 DECL|method|sortDocs
 specifier|public
 name|ScoreDoc
@@ -1085,7 +1085,7 @@ index|[]
 name|sortDocs
 parameter_list|(
 name|boolean
-name|scrollSort
+name|ignoreFrom
 parameter_list|,
 name|AtomicArray
 argument_list|<
@@ -1279,7 +1279,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|scrollSort
+name|ignoreFrom
 condition|)
 block|{
 name|offset
@@ -1595,7 +1595,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|scrollSort
+name|ignoreFrom
 condition|)
 block|{
 name|from
