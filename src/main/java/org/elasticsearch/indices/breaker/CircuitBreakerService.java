@@ -98,6 +98,17 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows to register of a custom circuit breaker.      *      * @param breakerSettings      */
+DECL|method|registerBreaker
+specifier|public
+specifier|abstract
+name|void
+name|registerBreaker
+parameter_list|(
+name|BreakerSettings
+name|breakerSettings
+parameter_list|)
+function_decl|;
 comment|/**      * @return the breaker that can be used to register estimates against      */
 DECL|method|getBreaker
 specifier|public

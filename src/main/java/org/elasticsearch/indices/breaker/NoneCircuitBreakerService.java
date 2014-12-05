@@ -179,6 +179,19 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|registerBreaker
+specifier|public
+name|void
+name|registerBreaker
+parameter_list|(
+name|BreakerSettings
+name|breakerSettings
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 end_class
 

@@ -577,7 +577,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
+literal|"[{}] New used memory {} [{}] for data of [{}] would be larger than configured breaker: {} [{}], breaking"
 argument_list|,
 name|this
 operator|.
