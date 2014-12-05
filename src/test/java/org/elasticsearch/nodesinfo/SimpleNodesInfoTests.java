@@ -959,8 +959,10 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|()
 operator|.
-name|waitForGreenStatus
-argument_list|()
+name|waitForNodes
+argument_list|(
+literal|"4"
+argument_list|)
 argument_list|)
 operator|.
 name|actionGet
