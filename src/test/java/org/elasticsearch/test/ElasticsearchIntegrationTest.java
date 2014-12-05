@@ -2678,6 +2678,24 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"test using _default_ mappings: [{}]"
+argument_list|,
+name|mappings
+operator|.
+name|bytesStream
+argument_list|()
+operator|.
+name|bytes
+argument_list|()
+operator|.
+name|toUtf8
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|putTemplate
 operator|.
 name|addMapping
