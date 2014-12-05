@@ -665,6 +665,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|clusterService
+operator|.
+name|addLast
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 comment|// if we received initial state, see if we can recover within the start phase, so we hold the
 comment|// node from starting until we recovered properly
 if|if
@@ -723,13 +730,6 @@ literal|"can't wait on start for (possibly) reading state from gateway, will do 
 argument_list|)
 expr_stmt|;
 block|}
-name|clusterService
-operator|.
-name|addLast
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
