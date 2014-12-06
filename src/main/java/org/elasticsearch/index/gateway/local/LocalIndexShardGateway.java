@@ -1337,7 +1337,11 @@ name|indexShard
 operator|.
 name|postRecovery
 argument_list|(
-literal|"post recovery from gateway, no translog"
+literal|"post recovery from gateway, no translog for id ["
+operator|+
+name|translogId
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 comment|// no index, just start the shard and bail
@@ -1413,6 +1417,25 @@ operator|+
 literal|".recovering"
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"try recover from translog file {} locations: {}"
+argument_list|,
+name|translogName
+argument_list|,
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|translog
+operator|.
+name|locations
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Path
 name|recoveringTranslogFile
 init|=
@@ -1472,6 +1495,15 @@ name|tmpTranslogFile
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Translog file found in {} - renaming"
+argument_list|,
+name|translogLocation
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1506,6 +1538,23 @@ name|recoveringTranslogFile
 operator|=
 name|tmpRecoveringFile
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Renamed translog from {} to {}"
+argument_list|,
+name|tmpTranslogFile
+operator|.
+name|getFileName
+argument_list|()
+argument_list|,
+name|recoveringTranslogFile
+operator|.
+name|getFileName
+argument_list|()
+argument_list|)
+expr_stmt|;
 break|break;
 block|}
 catch|catch
@@ -1525,6 +1574,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"Translog file NOT found in {} - continue"
+argument_list|,
+name|translogLocation
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 else|else
