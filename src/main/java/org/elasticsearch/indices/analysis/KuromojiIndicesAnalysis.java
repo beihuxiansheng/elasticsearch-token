@@ -208,7 +208,7 @@ argument_list|(
 literal|"kuromoji_iteration_mark"
 argument_list|,
 operator|new
-name|KurumojiCharFilterFactoryFactory
+name|PreBuiltCharFilterFactoryFactory
 argument_list|(
 operator|new
 name|CharFilterFactory
@@ -265,7 +265,7 @@ argument_list|(
 literal|"kuromoji_tokenizer"
 argument_list|,
 operator|new
-name|KurumojiTokenizerFactoryFactory
+name|PreBuiltTokenizerFactoryFactory
 argument_list|(
 operator|new
 name|TokenizerFactory
@@ -317,7 +317,7 @@ argument_list|(
 literal|"kuromoji_baseform"
 argument_list|,
 operator|new
-name|KurumojiTokenFilterFactoryFactory
+name|PreBuiltTokenFilterFactoryFactory
 argument_list|(
 operator|new
 name|TokenFilterFactory
@@ -366,7 +366,7 @@ argument_list|(
 literal|"kuromoji_part_of_speech"
 argument_list|,
 operator|new
-name|KurumojiTokenFilterFactoryFactory
+name|PreBuiltTokenFilterFactoryFactory
 argument_list|(
 operator|new
 name|TokenFilterFactory
@@ -420,7 +420,7 @@ argument_list|(
 literal|"kuromoji_readingform"
 argument_list|,
 operator|new
-name|KurumojiTokenFilterFactoryFactory
+name|PreBuiltTokenFilterFactoryFactory
 argument_list|(
 operator|new
 name|TokenFilterFactory
@@ -471,7 +471,7 @@ argument_list|(
 literal|"kuromoji_stemmer"
 argument_list|,
 operator|new
-name|KurumojiTokenFilterFactoryFactory
+name|PreBuiltTokenFilterFactoryFactory
 argument_list|(
 operator|new
 name|TokenFilterFactory
