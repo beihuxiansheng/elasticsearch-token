@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.none
+DECL|package|org.elasticsearch.gateway.local
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|none
+name|local
 package|;
 end_package
 
@@ -172,7 +172,7 @@ name|test
 operator|.
 name|ElasticsearchIntegrationTest
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -236,7 +236,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|1
+literal|10
 argument_list|)
 decl_stmt|;
 DECL|method|waitForNoBlocksOnNode
