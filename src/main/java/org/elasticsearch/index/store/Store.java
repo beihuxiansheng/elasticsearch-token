@@ -3117,6 +3117,20 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**      * Returns the current reference count.      */
+DECL|method|refCount
+specifier|public
+name|int
+name|refCount
+parameter_list|()
+block|{
+return|return
+name|refCounter
+operator|.
+name|refCount
+argument_list|()
+return|;
+block|}
 DECL|class|StoreDirectory
 specifier|private
 specifier|static

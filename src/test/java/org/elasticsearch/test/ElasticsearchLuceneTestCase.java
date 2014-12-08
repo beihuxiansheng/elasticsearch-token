@@ -164,8 +164,16 @@ name|ThreadLeakScope
 argument_list|(
 name|Scope
 operator|.
-name|NONE
+name|SUITE
 argument_list|)
+annotation|@
+name|ThreadLeakLingering
+argument_list|(
+name|linger
+operator|=
+literal|5000
+argument_list|)
+comment|// 5 sec lingering
 annotation|@
 name|TimeoutSuite
 argument_list|(
