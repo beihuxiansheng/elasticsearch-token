@@ -4498,7 +4498,7 @@ try|try
 block|{
 name|store
 operator|.
-name|logDeleteFile
+name|deleteFile
 argument_list|(
 literal|"restore"
 argument_list|,
