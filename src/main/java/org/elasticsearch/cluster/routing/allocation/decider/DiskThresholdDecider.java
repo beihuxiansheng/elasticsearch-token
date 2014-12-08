@@ -238,16 +238,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -1253,6 +1243,95 @@ name|client
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|// For Testing
+DECL|method|newApplySettings
+name|ApplySettings
+name|newApplySettings
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ApplySettings
+argument_list|()
+return|;
+block|}
+comment|// For Testing
+DECL|method|getFreeDiskThresholdLow
+specifier|public
+name|Double
+name|getFreeDiskThresholdLow
+parameter_list|()
+block|{
+return|return
+name|freeDiskThresholdLow
+return|;
+block|}
+comment|// For Testing
+DECL|method|getFreeDiskThresholdHigh
+specifier|public
+name|Double
+name|getFreeDiskThresholdHigh
+parameter_list|()
+block|{
+return|return
+name|freeDiskThresholdHigh
+return|;
+block|}
+comment|// For Testing
+DECL|method|getFreeBytesThresholdLow
+specifier|public
+name|ByteSizeValue
+name|getFreeBytesThresholdLow
+parameter_list|()
+block|{
+return|return
+name|freeBytesThresholdLow
+return|;
+block|}
+comment|// For Testing
+DECL|method|getFreeBytesThresholdHigh
+specifier|public
+name|ByteSizeValue
+name|getFreeBytesThresholdHigh
+parameter_list|()
+block|{
+return|return
+name|freeBytesThresholdHigh
+return|;
+block|}
+comment|// For Testing
+DECL|method|isIncludeRelocations
+specifier|public
+name|boolean
+name|isIncludeRelocations
+parameter_list|()
+block|{
+return|return
+name|includeRelocations
+return|;
+block|}
+comment|// For Testing
+DECL|method|isEnabled
+specifier|public
+name|boolean
+name|isEnabled
+parameter_list|()
+block|{
+return|return
+name|enabled
+return|;
+block|}
+comment|// For Testing
+DECL|method|getRerouteInterval
+specifier|public
+name|TimeValue
+name|getRerouteInterval
+parameter_list|()
+block|{
+return|return
+name|rerouteInterval
+return|;
 block|}
 comment|/**      * Returns the size of all shards that are currently being relocated to      * the node, but may not be finished transfering yet.      *      * If subtractShardsMovingAway is set then the size of shards moving away is subtracted from the total size      * of all shards      */
 DECL|method|sizeOfRelocatingShards
