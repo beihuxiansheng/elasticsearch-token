@@ -657,26 +657,10 @@ name|Scope
 name|scope
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|scope
-condition|)
-block|{
-case|case
-name|GLOBAL
-case|:
-comment|//we reserve a special base port for global clusters, as they stick around
-comment|//the assumption is that no counter is needed as there's only one global cluster per jvm
-return|return
-literal|0
-return|;
-default|default:
 comment|//ports can be reused as suite or test clusters are never run concurrently
 comment|//we don't reuse the same port immediately though but leave some time to make sure ports are freed
-comment|//reserve 0 to global cluster, prevent conflicts between jvms by never going above 9
+comment|//prevent conflicts between jvms by never going above 9
 return|return
-literal|1
-operator|+
 name|portCounter
 operator|.
 name|incrementAndGet
@@ -684,7 +668,6 @@ argument_list|()
 operator|%
 literal|9
 return|;
-block|}
 block|}
 annotation|@
 name|Override
