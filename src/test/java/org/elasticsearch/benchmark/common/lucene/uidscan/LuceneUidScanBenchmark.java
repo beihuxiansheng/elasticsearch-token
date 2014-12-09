@@ -166,9 +166,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|File
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -226,14 +228,12 @@ name|FSDirectory
 operator|.
 name|open
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 literal|"work/test"
 argument_list|)
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexWriter

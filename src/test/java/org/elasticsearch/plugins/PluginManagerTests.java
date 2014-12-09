@@ -2333,8 +2333,9 @@ argument_list|)
 decl_stmt|;
 name|assertFileExists
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|pluginDir
 argument_list|)

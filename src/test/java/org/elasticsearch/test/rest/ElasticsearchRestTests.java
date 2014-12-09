@@ -378,6 +378,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|PathMatcher
 import|;
 end_import
@@ -789,7 +801,7 @@ name|String
 argument_list|,
 name|Set
 argument_list|<
-name|File
+name|Path
 argument_list|>
 argument_list|>
 name|yamlSuites
@@ -835,7 +847,7 @@ control|)
 block|{
 name|List
 argument_list|<
-name|File
+name|Path
 argument_list|>
 name|yamlFiles
 init|=
@@ -853,7 +865,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|File
+name|Path
 name|yamlFile
 range|:
 name|yamlFiles

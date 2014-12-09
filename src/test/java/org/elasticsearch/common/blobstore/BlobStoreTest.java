@@ -1169,15 +1169,12 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDir
+name|newTempDirPath
 argument_list|(
 name|LifecycleScope
 operator|.
 name|TEST
 argument_list|)
-operator|.
-name|toPath
-argument_list|()
 decl_stmt|;
 name|Settings
 name|settings

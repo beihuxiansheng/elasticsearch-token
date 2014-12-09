@@ -235,6 +235,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -343,8 +355,9 @@ name|nodeSettings
 init|=
 name|prepareBackwardsDataDir
 argument_list|(
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|getClass
 argument_list|()

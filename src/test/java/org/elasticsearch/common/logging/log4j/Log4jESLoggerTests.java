@@ -150,9 +150,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|net
 operator|.
-name|File
+name|URL
 import|;
 end_import
 
@@ -160,9 +160,23 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|nio
 operator|.
-name|URL
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -248,7 +262,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|File
+name|Path
 name|configDir
 init|=
 name|resolveConfigDir
@@ -269,7 +283,7 @@ literal|"path.conf"
 argument_list|,
 name|configDir
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|()
 argument_list|)
 operator|.
@@ -870,7 +884,7 @@ block|}
 DECL|method|resolveConfigDir
 specifier|private
 specifier|static
-name|File
+name|Path
 name|resolveConfigDir
 parameter_list|()
 throws|throws
@@ -889,8 +903,9 @@ literal|"config"
 argument_list|)
 decl_stmt|;
 return|return
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|url
 operator|.

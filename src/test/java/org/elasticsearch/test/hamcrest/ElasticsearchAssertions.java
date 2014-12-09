@@ -754,16 +754,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -789,6 +779,18 @@ operator|.
 name|reflect
 operator|.
 name|InvocationTargetException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
 import|;
 end_import
 
@@ -5945,7 +5947,7 @@ specifier|static
 name|void
 name|assertFileExists
 parameter_list|(
-name|File
+name|Path
 name|file
 parameter_list|)
 block|{
@@ -5957,10 +5959,12 @@ name|file
 operator|+
 literal|"] should exist."
 argument_list|,
-name|file
+name|Files
 operator|.
 name|exists
-argument_list|()
+argument_list|(
+name|file
+argument_list|)
 argument_list|,
 name|is
 argument_list|(
@@ -5972,72 +5976,44 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Check if a file exists      */
+comment|/**      * Check if a directory exists      */
 end_comment
 
 begin_function
-DECL|method|assertFileExists
+DECL|method|assertDirectoryExists
 specifier|public
 specifier|static
 name|void
-name|assertFileExists
+name|assertDirectoryExists
 parameter_list|(
 name|Path
-name|file
+name|dir
 parameter_list|)
 block|{
 name|assertFileExists
 argument_list|(
-name|file
+name|dir
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"file ["
+operator|+
+name|dir
+operator|+
+literal|"] should be a directory."
+argument_list|,
+name|Files
 operator|.
-name|toFile
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-
-begin_comment
-comment|/**      * Check if a directory exists      */
-end_comment
-
-begin_function
-DECL|method|assertDirectoryExists
-specifier|public
-specifier|static
-name|void
-name|assertDirectoryExists
-parameter_list|(
-name|File
-name|dir
-parameter_list|)
-block|{
-name|assertFileExists
+name|isDirectory
 argument_list|(
 name|dir
 argument_list|)
-expr_stmt|;
-block|}
-end_function
-
-begin_comment
-comment|/**      * Check if a directory exists      */
-end_comment
-
-begin_function
-DECL|method|assertDirectoryExists
-specifier|public
-specifier|static
-name|void
-name|assertDirectoryExists
-parameter_list|(
-name|Path
-name|dir
-parameter_list|)
-block|{
-name|assertFileExists
+argument_list|,
+name|is
 argument_list|(
-name|dir
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -176,9 +176,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|net
 operator|.
-name|File
+name|URISyntaxException
 import|;
 end_import
 
@@ -186,9 +186,23 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|nio
 operator|.
-name|URISyntaxException
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -284,11 +298,12 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|File
+name|Path
 name|pluginDir
 init|=
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|SitePluginTests
 operator|.
@@ -323,7 +338,7 @@ literal|"path.plugins"
 argument_list|,
 name|pluginDir
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|()
 argument_list|)
 operator|.

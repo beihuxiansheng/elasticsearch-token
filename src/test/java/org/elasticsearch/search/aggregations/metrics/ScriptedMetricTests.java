@@ -877,7 +877,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"/org/elasticsearch/search/aggregations/metrics/scripted/conf"
 argument_list|)

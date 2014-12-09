@@ -82,7 +82,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -90,9 +90,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -154,16 +156,16 @@ argument_list|(
 literal|10
 argument_list|)
 decl_stmt|;
-name|File
+name|Path
 name|homeFolder
 init|=
-name|newTempDir
+name|newTempDirPath
 argument_list|()
 decl_stmt|;
-name|File
+name|Path
 name|genericConfigFolder
 init|=
-name|newTempDir
+name|newTempDirPath
 argument_list|()
 decl_stmt|;
 name|Settings
@@ -245,16 +247,12 @@ name|Files
 operator|.
 name|simplifyPath
 argument_list|(
-operator|new
-name|File
-argument_list|(
 name|genericConfigFolder
-argument_list|,
+operator|.
+name|resolve
+argument_list|(
 name|pluginName
 argument_list|)
-operator|.
-name|toPath
-argument_list|()
 operator|.
 name|normalize
 argument_list|()

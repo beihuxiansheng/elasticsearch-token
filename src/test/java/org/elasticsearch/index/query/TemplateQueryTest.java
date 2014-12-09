@@ -472,13 +472,10 @@ literal|"path.conf"
 argument_list|,
 name|this
 operator|.
-name|getResource
+name|getResourcePath
 argument_list|(
 literal|"config"
 argument_list|)
-operator|.
-name|getPath
-argument_list|()
 argument_list|)
 operator|.
 name|build

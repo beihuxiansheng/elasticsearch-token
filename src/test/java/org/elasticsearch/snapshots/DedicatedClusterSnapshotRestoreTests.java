@@ -568,7 +568,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -576,9 +576,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -1283,10 +1285,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|File
+name|Path
 name|tempDir
 init|=
-name|newTempDir
+name|newTempDirPath
 argument_list|()
 decl_stmt|;
 name|logger
@@ -3003,10 +3005,10 @@ argument_list|(
 literal|"--> creating repository"
 argument_list|)
 expr_stmt|;
-name|File
+name|Path
 name|repo
 init|=
-name|newTempDir
+name|newTempDirPath
 argument_list|(
 name|LifecycleScope
 operator|.

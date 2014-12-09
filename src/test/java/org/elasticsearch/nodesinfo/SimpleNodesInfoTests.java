@@ -212,16 +212,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|URISyntaxException
@@ -235,6 +225,18 @@ operator|.
 name|net
 operator|.
 name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Paths
 import|;
 end_import
 
@@ -1333,8 +1335,9 @@ name|put
 argument_list|(
 literal|"path.plugins"
 argument_list|,
-operator|new
-name|File
+name|Paths
+operator|.
+name|get
 argument_list|(
 name|resource
 operator|.
@@ -1342,7 +1345,7 @@ name|toURI
 argument_list|()
 argument_list|)
 operator|.
-name|getAbsolutePath
+name|toAbsolutePath
 argument_list|()
 argument_list|)
 expr_stmt|;

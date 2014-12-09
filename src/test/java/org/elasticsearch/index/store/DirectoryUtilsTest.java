@@ -30,34 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Seed
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -110,7 +82,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
+name|IOException
 import|;
 end_import
 
@@ -118,9 +90,11 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|nio
 operator|.
-name|IOException
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -174,12 +148,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|File
+name|Path
 name|file
 init|=
 name|ElasticsearchTestCase
 operator|.
-name|newTempDir
+name|newTempDirPath
 argument_list|(
 name|LifecycleScope
 operator|.
@@ -219,9 +193,6 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -281,9 +252,6 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -349,9 +317,6 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -431,9 +396,6 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|FSDirectory
@@ -518,9 +480,6 @@ init|=
 name|newFSDirectory
 argument_list|(
 name|file
-operator|.
-name|toPath
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|RAMDirectory

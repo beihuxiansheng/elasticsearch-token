@@ -148,10 +148,7 @@ block|{
 name|Path
 name|dir
 init|=
-name|newTempDir
-argument_list|()
-operator|.
-name|toPath
+name|newTempDirPath
 argument_list|()
 decl_stmt|;
 name|Path
@@ -221,10 +218,7 @@ block|{
 name|Path
 name|dir
 init|=
-name|newTempDir
-argument_list|()
-operator|.
-name|toPath
+name|newTempDirPath
 argument_list|()
 decl_stmt|;
 name|Path
