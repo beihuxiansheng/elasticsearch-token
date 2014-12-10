@@ -3672,12 +3672,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-comment|// Close engine from setUp (we create our own):
-name|engine
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 name|ConcurrentMergeSchedulerProvider
 name|mergeSchedulerProvider
 init|=
@@ -3701,6 +3695,13 @@ argument_list|,
 name|EMPTY_SETTINGS
 argument_list|)
 argument_list|)
+decl_stmt|;
+specifier|final
+name|Store
+name|store
+init|=
+name|createStore
+argument_list|()
 decl_stmt|;
 specifier|final
 name|Engine
@@ -3803,6 +3804,11 @@ comment|// all good
 block|}
 block|}
 name|engine
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|store
 operator|.
 name|close
 argument_list|()
