@@ -1991,6 +1991,9 @@ name|parse
 argument_list|(
 name|parser
 argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 name|Assert
 operator|.
