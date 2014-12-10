@@ -493,18 +493,17 @@ name|version
 operator|.
 name|snapshot
 argument_list|)
-comment|// We use the lucene version from lucene constants since
-comment|// this includes bugfix release version as well and is already in
-comment|// the right format. We can also be sure that the format is maitained
-comment|// since this is also recorded in lucene segments and has BW compat
 operator|.
 name|field
 argument_list|(
 literal|"lucene_version"
 argument_list|,
-name|Constants
+name|version
 operator|.
-name|LUCENE_MAIN_VERSION
+name|luceneVersion
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 operator|.
 name|endObject
