@@ -605,7 +605,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"merge segment %s done: took %s, %,.1f MB, %,d docs"
+literal|"merge segment [%s] done: took [%s], [%,.1f MB], [%,d docs]"
 argument_list|,
 name|merge
 operator|.
