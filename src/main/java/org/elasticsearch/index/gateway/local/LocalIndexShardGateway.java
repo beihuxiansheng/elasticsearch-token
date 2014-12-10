@@ -1742,6 +1742,22 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"recovering translog file: {} length: {}"
+argument_list|,
+name|recoveringTranslogFile
+argument_list|,
+name|Files
+operator|.
+name|size
+argument_list|(
+name|recoveringTranslogFile
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|TranslogStream
 name|stream
 init|=
@@ -1775,12 +1791,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"ignoring truncation exception, the translog is either empty or half-written ([{}])"
+literal|"ignoring truncation exception, the translog is either empty or half-written"
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1840,12 +1853,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"ignoring translog EOF exception, the last operation was not properly written ([{}])"
+literal|"ignoring translog EOF exception, the last operation was not properly written"
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 break|break;
@@ -1861,12 +1871,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"ignoring translog IO exception, the last operation was not properly written ([{}])"
+literal|"ignoring translog IO exception, the last operation was not properly written"
 argument_list|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 break|break;
