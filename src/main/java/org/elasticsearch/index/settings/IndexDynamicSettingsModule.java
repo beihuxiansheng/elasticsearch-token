@@ -1253,6 +1253,25 @@ name|indexDynamicSettings
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns<code>true</code> iff the given setting is in the dynamic settings map. Otherwise<code>false</code>.      */
+DECL|method|containsSetting
+specifier|public
+name|boolean
+name|containsSetting
+parameter_list|(
+name|String
+name|setting
+parameter_list|)
+block|{
+return|return
+name|indexDynamicSettings
+operator|.
+name|hasDynamicSetting
+argument_list|(
+name|setting
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 

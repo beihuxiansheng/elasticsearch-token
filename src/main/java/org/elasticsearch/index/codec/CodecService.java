@@ -544,6 +544,30 @@ return|return
 name|codec
 return|;
 block|}
+comment|/**      * Returns all registered available codec names      */
+DECL|method|availableCodecs
+specifier|public
+name|String
+index|[]
+name|availableCodecs
+parameter_list|()
+block|{
+return|return
+name|codecs
+operator|.
+name|keySet
+argument_list|()
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|String
+index|[
+literal|0
+index|]
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
