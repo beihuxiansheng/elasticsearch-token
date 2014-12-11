@@ -120,6 +120,24 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|admin
+operator|.
+name|indices
+operator|.
+name|flush
+operator|.
+name|FlushRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -680,34 +698,30 @@ expr_stmt|;
 comment|// When the the internal engine closes we do a rollback, which removes uncommitted segments
 comment|// By doing a commit flush we perform a Lucene commit, but don't clear the translog,
 comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
+operator|(
+operator|(
+name|InternalIndexShard
+operator|)
 name|indexShard
+operator|)
+operator|.
+name|engine
+argument_list|()
 operator|.
 name|flush
 argument_list|(
-operator|new
 name|Engine
 operator|.
-name|Flush
-argument_list|()
-operator|.
-name|type
-argument_list|(
-name|Engine
-operator|.
-name|Flush
-operator|.
-name|Type
+name|FlushType
 operator|.
 name|COMMIT
-argument_list|)
-comment|// Keep translog for tests that rely on replaying it
-operator|.
-name|waitIfOngoing
-argument_list|(
+argument_list|,
+literal|false
+argument_list|,
 literal|true
 argument_list|)
-argument_list|)
 expr_stmt|;
+comment|// Keep translog for tests that rely on replaying it
 name|logger
 operator|.
 name|info

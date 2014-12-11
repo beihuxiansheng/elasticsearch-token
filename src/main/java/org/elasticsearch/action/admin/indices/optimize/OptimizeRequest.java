@@ -486,6 +486,40 @@ name|upgrade
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"OptimizeRequest{"
+operator|+
+literal|"waitForMerge="
+operator|+
+name|waitForMerge
+operator|+
+literal|", maxNumSegments="
+operator|+
+name|maxNumSegments
+operator|+
+literal|", onlyExpungeDeletes="
+operator|+
+name|onlyExpungeDeletes
+operator|+
+literal|", flush="
+operator|+
+name|flush
+operator|+
+literal|", upgrade="
+operator|+
+name|upgrade
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

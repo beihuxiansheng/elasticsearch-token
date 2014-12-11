@@ -139,7 +139,7 @@ decl_stmt|;
 DECL|method|FlushRequest
 name|FlushRequest
 parameter_list|()
-block|{      }
+block|{     }
 comment|/**      * Copy constructor that creates a new flush request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
 DECL|method|FlushRequest
 specifier|public
