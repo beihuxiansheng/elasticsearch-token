@@ -306,25 +306,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|service
-operator|.
-name|InternalIndexShard
 import|;
 end_import
 
@@ -876,7 +858,7 @@ name|void
 name|startRecovery
 parameter_list|(
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 parameter_list|,
 specifier|final

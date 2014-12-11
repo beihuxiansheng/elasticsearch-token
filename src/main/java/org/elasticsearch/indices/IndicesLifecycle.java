@@ -60,8 +60,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -103,8 +101,6 @@ operator|.
 name|index
 operator|.
 name|shard
-operator|.
-name|service
 operator|.
 name|IndexShard
 import|;
@@ -306,7 +302,7 @@ name|Index
 name|index
 parameter_list|)
 block|{          }
-comment|/**          * Called before the index gets deleted.          * This listener method is invoked after          * {@link #beforeIndexClosed(org.elasticsearch.index.service.IndexService)} when an index is deleted          *          * @param indexService The index service          */
+comment|/**          * Called before the index gets deleted.          * This listener method is invoked after          * {@link #beforeIndexClosed(org.elasticsearch.index.IndexService)} when an index is deleted          *          * @param indexService The index service          */
 DECL|method|beforeIndexDeleted
 specifier|public
 name|void

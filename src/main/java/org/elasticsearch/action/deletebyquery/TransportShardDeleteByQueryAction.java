@@ -244,8 +244,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -259,8 +257,6 @@ operator|.
 name|index
 operator|.
 name|shard
-operator|.
-name|service
 operator|.
 name|IndexShard
 import|;
@@ -863,11 +859,7 @@ name|acquireSearcher
 argument_list|(
 name|DELETE_BY_QUERY_API
 argument_list|,
-name|IndexShard
-operator|.
-name|Mode
-operator|.
-name|WRITE
+literal|true
 argument_list|)
 argument_list|,
 name|indexService

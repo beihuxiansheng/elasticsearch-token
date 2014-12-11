@@ -292,9 +292,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
-name|InternalIndexService
+name|IndexService
 import|;
 end_import
 
@@ -322,9 +320,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -861,12 +857,9 @@ parameter_list|)
 throws|throws
 name|ElasticsearchException
 block|{
-name|InternalIndexService
+name|IndexService
 name|indexService
 init|=
-operator|(
-name|InternalIndexService
-operator|)
 name|indicesService
 operator|.
 name|indexServiceSafe
@@ -880,12 +873,9 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 init|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|indexService
 operator|.
 name|shardSafe

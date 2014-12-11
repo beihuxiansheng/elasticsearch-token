@@ -52,9 +52,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -103,16 +101,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -1415,13 +1403,9 @@ name|next
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 init|=
-call|(
-name|InternalIndexShard
-call|)
-argument_list|(
 name|indicesService
 operator|.
 name|indexService
@@ -1432,7 +1416,6 @@ operator|.
 name|shardSafe
 argument_list|(
 name|shardId
-argument_list|)
 argument_list|)
 decl_stmt|;
 return|return

@@ -372,23 +372,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|service
-operator|.
-name|InternalIndexService
 import|;
 end_import
 
@@ -443,8 +427,6 @@ operator|.
 name|index
 operator|.
 name|shard
-operator|.
-name|service
 operator|.
 name|IndexShard
 import|;
@@ -732,7 +714,7 @@ specifier|public
 name|void
 name|setIndexService
 parameter_list|(
-name|InternalIndexService
+name|IndexService
 name|indexService
 parameter_list|)
 block|{

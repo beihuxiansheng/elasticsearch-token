@@ -298,8 +298,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -314,9 +312,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -1202,7 +1198,7 @@ name|InternalEngineHolder
 call|)
 argument_list|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|service
 operator|.

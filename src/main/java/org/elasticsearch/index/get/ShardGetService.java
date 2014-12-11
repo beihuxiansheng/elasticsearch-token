@@ -412,8 +412,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
 import|;
 end_import

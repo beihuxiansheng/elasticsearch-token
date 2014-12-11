@@ -190,8 +190,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -234,25 +232,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|service
-operator|.
-name|InternalIndexShard
 import|;
 end_import
 
@@ -1128,7 +1108,7 @@ try|try
 block|{
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)
@@ -1145,7 +1125,7 @@ argument_list|)
 expr_stmt|;
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)
@@ -1271,7 +1251,7 @@ name|translog
 init|=
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)
@@ -1926,7 +1906,7 @@ try|try
 block|{
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)
@@ -1941,7 +1921,7 @@ argument_list|)
 expr_stmt|;
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.service
+DECL|package|org.elasticsearch.index
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|index
-operator|.
-name|service
 package|;
 end_package
 
@@ -674,25 +672,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|service
-operator|.
-name|InternalIndexShard
 import|;
 end_import
 
@@ -1021,14 +1001,19 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|InternalIndexService
+DECL|class|IndexService
 specifier|public
 class|class
-name|InternalIndexService
+name|IndexService
 extends|extends
 name|AbstractIndexComponent
 implements|implements
-name|IndexService
+name|IndexComponent
+implements|,
+name|Iterable
+argument_list|<
+name|IndexShard
+argument_list|>
 block|{
 DECL|field|injector
 specifier|private
@@ -1178,9 +1163,9 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|InternalIndexService
+DECL|method|IndexService
 specifier|public
-name|InternalIndexService
+name|IndexService
 parameter_list|(
 name|Injector
 name|injector
@@ -1385,8 +1370,6 @@ operator|=
 name|nodeEnv
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|numberOfShards
 specifier|public
 name|int
@@ -1421,8 +1404,6 @@ name|iterator
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|hasShard
 specifier|public
 name|boolean
@@ -1441,8 +1422,9 @@ name|shardId
 argument_list|)
 return|;
 block|}
+comment|/**      * Return the shard with the provided id, or null if there is no such shard.      */
 annotation|@
-name|Override
+name|Nullable
 DECL|method|shard
 specifier|public
 name|IndexShard
@@ -1461,8 +1443,7 @@ name|shardId
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Return the shard with the provided id, or throw an exception if it doesn't exist.      */
 DECL|method|shardSafe
 specifier|public
 name|IndexShard
@@ -1507,8 +1488,6 @@ return|return
 name|indexShard
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|shardIds
 specifier|public
 name|ImmutableSet
@@ -1525,8 +1504,6 @@ name|keySet
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|injector
 specifier|public
 name|Injector
@@ -1537,8 +1514,6 @@ return|return
 name|injector
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|gateway
 specifier|public
 name|IndexGateway
@@ -1549,8 +1524,6 @@ return|return
 name|indexGateway
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|settingsService
 specifier|public
 name|IndexSettingsService
@@ -1563,8 +1536,6 @@ operator|.
 name|settingsService
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|store
 specifier|public
 name|IndexStore
@@ -1575,8 +1546,6 @@ return|return
 name|indexStore
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|cache
 specifier|public
 name|IndexCache
@@ -1587,8 +1556,6 @@ return|return
 name|indexCache
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|fieldData
 specifier|public
 name|IndexFieldDataService
@@ -1599,8 +1566,6 @@ return|return
 name|indexFieldData
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|bitsetFilterCache
 specifier|public
 name|BitsetFilterCache
@@ -1611,8 +1576,6 @@ return|return
 name|bitsetFilterCache
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|analysisService
 specifier|public
 name|AnalysisService
@@ -1625,8 +1588,6 @@ operator|.
 name|analysisService
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|mapperService
 specifier|public
 name|MapperService
@@ -1637,8 +1598,6 @@ return|return
 name|mapperService
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|queryParserService
 specifier|public
 name|IndexQueryParserService
@@ -1649,8 +1608,6 @@ return|return
 name|queryParserService
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|similarityService
 specifier|public
 name|SimilarityService
@@ -1661,8 +1618,6 @@ return|return
 name|similarityService
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|aliasesService
 specifier|public
 name|IndexAliasesService
@@ -1673,8 +1628,6 @@ return|return
 name|aliasesService
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|engine
 specifier|public
 name|IndexEngine
@@ -1784,8 +1737,9 @@ block|}
 block|}
 block|}
 block|}
+comment|/**      * Return the shard injector for the provided id, or null if there is no such shard.      */
 annotation|@
-name|Override
+name|Nullable
 DECL|method|shardInjector
 specifier|public
 name|Injector
@@ -1806,8 +1760,7 @@ name|shardId
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Return the shard injector for the provided id, or throw an exception if there is no such shard.      */
 DECL|method|shardInjectorSafe
 specifier|public
 name|Injector
@@ -1852,8 +1805,6 @@ return|return
 name|shardInjector
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|indexUUID
 specifier|public
 name|String
@@ -1875,8 +1826,6 @@ name|INDEX_UUID_NA_VALUE
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createShard
 specifier|public
 specifier|synchronized
@@ -2024,8 +1973,6 @@ argument_list|(
 operator|new
 name|IndexShardModule
 argument_list|(
-name|indexSettings
-argument_list|,
 name|shardId
 argument_list|)
 argument_list|)
@@ -2389,8 +2336,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|removeShard
 specifier|public
 name|void
@@ -2654,7 +2599,7 @@ try|try
 block|{
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)

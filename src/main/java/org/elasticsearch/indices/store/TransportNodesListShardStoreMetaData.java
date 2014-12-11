@@ -310,8 +310,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -340,9 +338,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -407,16 +403,6 @@ operator|.
 name|transport
 operator|.
 name|TransportService
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -1065,12 +1051,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 init|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|indexService
 operator|.
 name|shard

@@ -166,9 +166,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -348,7 +346,7 @@ decl_stmt|;
 DECL|field|indexShard
 specifier|private
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 decl_stmt|;
 DECL|field|state
@@ -440,7 +438,7 @@ DECL|method|RecoveryStatus
 specifier|public
 name|RecoveryStatus
 parameter_list|(
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 parameter_list|,
 name|DiscoveryNode
@@ -611,7 +609,7 @@ return|;
 block|}
 DECL|method|indexShard
 specifier|public
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 parameter_list|()
 block|{

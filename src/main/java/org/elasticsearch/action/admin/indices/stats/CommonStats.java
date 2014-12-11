@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -333,8 +323,6 @@ operator|.
 name|index
 operator|.
 name|shard
-operator|.
-name|service
 operator|.
 name|IndexShard
 import|;

@@ -462,8 +462,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
 import|;
 end_import
@@ -1642,11 +1640,7 @@ name|acquireSearcher
 argument_list|(
 literal|"percolator_load_queries"
 argument_list|,
-name|IndexShard
-operator|.
-name|Mode
-operator|.
-name|WRITE
+literal|true
 argument_list|)
 init|)
 block|{

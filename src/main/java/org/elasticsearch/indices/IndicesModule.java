@@ -443,13 +443,6 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|to
-argument_list|(
-name|InternalIndicesService
-operator|.
-name|class
-argument_list|)
-operator|.
 name|asEagerSingleton
 argument_list|()
 expr_stmt|;

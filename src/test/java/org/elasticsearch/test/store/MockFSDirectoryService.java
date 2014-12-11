@@ -120,24 +120,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|flush
-operator|.
-name|FlushRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -282,25 +264,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|service
-operator|.
-name|InternalIndexShard
 import|;
 end_import
 
@@ -397,16 +361,6 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
 import|;
 end_import
 
@@ -700,7 +654,7 @@ comment|// By doing a commit flush we perform a Lucene commit, but don't clear t
 comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)
@@ -779,7 +733,7 @@ name|checkIndex
 argument_list|(
 operator|(
 operator|(
-name|InternalIndexShard
+name|IndexShard
 operator|)
 name|indexShard
 operator|)

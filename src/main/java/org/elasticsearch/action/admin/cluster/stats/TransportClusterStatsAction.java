@@ -308,8 +308,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -323,8 +321,6 @@ operator|.
 name|index
 operator|.
 name|shard
-operator|.
-name|service
 operator|.
 name|IndexShard
 import|;

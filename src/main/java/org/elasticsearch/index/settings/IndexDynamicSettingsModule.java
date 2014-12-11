@@ -280,9 +280,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -603,7 +601,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalIndexShard
+name|IndexShard
 operator|.
 name|INDEX_REFRESH_INTERVAL
 argument_list|,

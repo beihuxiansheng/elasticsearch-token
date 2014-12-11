@@ -90,8 +90,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -106,9 +104,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -205,12 +201,9 @@ operator|new
 name|RecoveryState
 argument_list|()
 decl_stmt|;
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 init|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|service
 operator|.
 name|shard

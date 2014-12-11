@@ -140,9 +140,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -249,12 +247,9 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|shard1
 init|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|internalCluster
 argument_list|()
 operator|.
@@ -302,12 +297,9 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|shard2
 init|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|internalCluster
 argument_list|()
 operator|.
@@ -622,12 +614,9 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|shard1
 init|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|internalCluster
 argument_list|()
 operator|.

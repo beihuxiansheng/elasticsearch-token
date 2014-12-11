@@ -222,25 +222,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
 name|IndexShard
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|service
-operator|.
-name|InternalIndexShard
 import|;
 end_import
 
@@ -283,7 +265,7 @@ block|{
 DECL|field|indexShard
 specifier|private
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|indexShard
 decl_stmt|;
 DECL|field|repositoriesService
@@ -333,9 +315,6 @@ name|this
 operator|.
 name|indexShard
 operator|=
-operator|(
-name|InternalIndexShard
-operator|)
 name|indexShard
 expr_stmt|;
 name|this

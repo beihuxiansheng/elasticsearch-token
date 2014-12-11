@@ -46,20 +46,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -390,8 +376,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|service
-operator|.
 name|IndexService
 import|;
 end_import
@@ -448,9 +432,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|service
-operator|.
-name|InternalIndexShard
+name|IndexShard
 import|;
 end_import
 
@@ -637,7 +619,7 @@ comment|// Shard that is going to be recovered (the "source")
 DECL|field|shard
 specifier|private
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|shard
 decl_stmt|;
 DECL|field|indexName
@@ -779,7 +761,7 @@ specifier|public
 name|ShardRecoveryHandler
 parameter_list|(
 specifier|final
-name|InternalIndexShard
+name|IndexShard
 name|shard
 parameter_list|,
 specifier|final
