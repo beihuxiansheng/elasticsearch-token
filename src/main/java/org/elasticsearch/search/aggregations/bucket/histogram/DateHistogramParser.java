@@ -677,9 +677,9 @@ condition|)
 block|{
 name|preZone
 operator|=
-name|DateMathParser
+name|DateTimeZone
 operator|.
-name|parseZone
+name|forID
 argument_list|(
 name|parser
 operator|.
@@ -708,9 +708,9 @@ condition|)
 block|{
 name|preZone
 operator|=
-name|DateMathParser
+name|DateTimeZone
 operator|.
-name|parseZone
+name|forID
 argument_list|(
 name|parser
 operator|.
@@ -739,9 +739,9 @@ condition|)
 block|{
 name|postZone
 operator|=
-name|DateMathParser
+name|DateTimeZone
 operator|.
-name|parseZone
+name|forID
 argument_list|(
 name|parser
 operator|.

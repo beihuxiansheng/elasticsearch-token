@@ -1813,8 +1813,6 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
-operator|+
-literal|999
 argument_list|)
 operator|.
 name|getMillis
@@ -1822,7 +1820,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// +999 to include the 00-01 minute
 name|assertThat
 argument_list|(
 name|rangeFilter
@@ -2112,8 +2109,6 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
-operator|+
-literal|999
 argument_list|)
 operator|.
 name|getMillis
@@ -2121,7 +2116,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// +999 to include the 00-01 minute
 name|assertThat
 argument_list|(
 name|rangeFilter

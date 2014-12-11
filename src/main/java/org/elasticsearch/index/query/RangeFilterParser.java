@@ -675,9 +675,9 @@ condition|)
 block|{
 name|timeZone
 operator|=
-name|DateMathParser
+name|DateTimeZone
 operator|.
-name|parseZone
+name|forID
 argument_list|(
 name|parser
 operator|.
