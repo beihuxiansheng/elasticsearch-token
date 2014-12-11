@@ -1310,6 +1310,7 @@ name|dir
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: remove this, its too fragile. just use a static old index instead.
 DECL|class|OldSIMockingCodec
 specifier|private
 specifier|static
@@ -1629,6 +1630,16 @@ argument_list|(
 name|files
 argument_list|)
 expr_stmt|;
+name|output
+operator|.
+name|writeStringStringMap
+argument_list|(
+name|si
+operator|.
+name|getAttributes
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|CodecUtil
 operator|.
 name|writeFooter
@@ -1668,6 +1679,7 @@ block|}
 return|;
 block|}
 block|}
+comment|// IF THIS TEST FAILS ON UPGRADE GO LOOK AT THE OldSIMockingCodec!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 annotation|@
 name|Test
 DECL|method|testWriteLegacyChecksums
