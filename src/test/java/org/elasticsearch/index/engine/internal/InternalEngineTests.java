@@ -3880,12 +3880,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Close engine from setUp (we create our own):
-name|engine
-operator|.
-name|close
+specifier|final
+name|Store
+name|store
+init|=
+name|createStore
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|ConcurrentMergeSchedulerProvider
 name|mergeSchedulerProvider
 init|=
@@ -4615,6 +4616,11 @@ argument_list|)
 expr_stmt|;
 block|}
 name|engine
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|store
 operator|.
 name|close
 argument_list|()
@@ -11855,12 +11861,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Close engine from setUp (we create our own):
-name|engine
-operator|.
-name|close
+name|Store
+name|store
+init|=
+name|createStore
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 comment|// Make sure enableGCDeletes == false works:
 name|Settings
 name|settings
@@ -12438,6 +12444,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|engine
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|store
 operator|.
 name|close
 argument_list|()
