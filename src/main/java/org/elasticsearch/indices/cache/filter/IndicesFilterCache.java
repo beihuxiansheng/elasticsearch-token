@@ -1035,11 +1035,6 @@ operator|.
 name|invalidateAll
 argument_list|()
 expr_stmt|;
-name|cache
-operator|.
-name|cleanUp
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|cache
 specifier|public

@@ -818,7 +818,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Clearing all Bitsets because [{}]"
+literal|"clearing all bitsets because [{}]"
 argument_list|,
 name|reason
 argument_list|)
@@ -826,11 +826,6 @@ expr_stmt|;
 name|loadedFilters
 operator|.
 name|invalidateAll
-argument_list|()
-expr_stmt|;
-name|loadedFilters
-operator|.
-name|cleanUp
 argument_list|()
 expr_stmt|;
 block|}

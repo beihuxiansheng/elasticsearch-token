@@ -1093,19 +1093,6 @@ operator|!=
 literal|null
 assert|;
 block|}
-comment|/**          * Clean up the internal Guava cache          */
-DECL|method|cleanUp
-specifier|public
-name|void
-name|cleanUp
-parameter_list|()
-block|{
-name|cache
-operator|.
-name|cleanUp
-argument_list|()
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|load
@@ -1598,7 +1585,13 @@ name|void
 name|clear
 parameter_list|()
 block|{
-comment|// TODO: determine whether there is ever anything in this cache that doesn't share the index and consider .invalidateAll() instead
+comment|// Note that cache invalidation in Guava does not immediately remove
+comment|// values from the cache. In the case of a cache with a rare write or
+comment|// read rate, it's possible for values to persist longer than desired.
+comment|//
+comment|// Note this is intended by the Guava developers, see:
+comment|// https://code.google.com/p/guava-libraries/wiki/CachesExplained#Eviction
+comment|// (the "When Does Cleanup Happen" section)
 for|for
 control|(
 name|Key
@@ -1636,22 +1629,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// There is an explicit call to cache.cleanUp() here because cache
-comment|// invalidation in Guava does not immediately remove values from the
-comment|// cache. In the case of a cache with a rare write or read rate,
-comment|// it's possible for values to persist longer than desired. In the
-comment|// case of the circuit breaker, when clearing the entire cache all
-comment|// entries should immediately be evicted so that their sizes are
-comment|// removed from the breaker estimates.
-comment|//
-comment|// Note this is intended by the Guava developers, see:
-comment|// https://code.google.com/p/guava-libraries/wiki/CachesExplained#Eviction
-comment|// (the "When Does Cleanup Happen" section)
-name|cache
-operator|.
-name|cleanUp
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
