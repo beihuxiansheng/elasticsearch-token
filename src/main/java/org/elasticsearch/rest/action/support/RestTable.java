@@ -448,7 +448,7 @@ name|paramAsBoolean
 argument_list|(
 literal|"v"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 decl_stmt|;
 name|List
