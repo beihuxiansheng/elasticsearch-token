@@ -784,12 +784,12 @@ name|INDEX_FAIL_ON_CORRUPTION
 init|=
 literal|"index.fail_on_corruption"
 decl_stmt|;
-DECL|field|DEFAULT_REFRESH_ITERVAL
+DECL|field|DEFAULT_REFRESH_INTERVAL
 specifier|public
 specifier|static
 specifier|final
 name|TimeValue
-name|DEFAULT_REFRESH_ITERVAL
+name|DEFAULT_REFRESH_INTERVAL
 init|=
 operator|new
 name|TimeValue
@@ -1195,7 +1195,7 @@ name|defaultRefreshInterval
 parameter_list|()
 block|{
 return|return
-name|DEFAULT_REFRESH_ITERVAL
+name|DEFAULT_REFRESH_INTERVAL
 return|;
 block|}
 DECL|method|engineSafe

@@ -2165,7 +2165,7 @@ block|{
 return|return
 name|InternalEngineHolder
 operator|.
-name|DEFAULT_REFRESH_ITERVAL
+name|DEFAULT_REFRESH_INTERVAL
 return|;
 block|}
 comment|/** return the current indexing buffer size setting * */
@@ -7030,20 +7030,19 @@ name|SegmentsStats
 name|segmentsStats
 parameter_list|()
 block|{
-try|try
-init|(
-name|InternalLock
-name|_
+comment|// Does ensureOpen for us:
+specifier|final
+name|IndexWriter
+name|indexWriter
 init|=
-name|readLock
-operator|.
-name|acquire
+name|currentIndexWriter
 argument_list|()
-init|)
-block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
+decl_stmt|;
+assert|assert
+name|indexWriter
+operator|!=
+literal|null
+assert|;
 try|try
 init|(
 specifier|final
@@ -7212,7 +7211,6 @@ expr_stmt|;
 return|return
 name|stats
 return|;
-block|}
 block|}
 block|}
 annotation|@
