@@ -968,6 +968,9 @@ operator|.
 name|prepareHealth
 argument_list|()
 operator|.
+name|setWaitForYellowStatus
+argument_list|()
+operator|.
 name|setWaitForRelocatingShards
 argument_list|(
 literal|0
