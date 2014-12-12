@@ -36,6 +36,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|TieredMergePolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalArgumentException
@@ -125,6 +139,7 @@ name|indexSettings
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Default to Lucene's default:
 name|this
 operator|.
 name|noCFSRatio
@@ -137,14 +152,13 @@ name|get
 argument_list|(
 name|INDEX_COMPOUND_FORMAT
 argument_list|,
-name|Boolean
+name|Double
 operator|.
 name|toString
 argument_list|(
-name|store
+name|TieredMergePolicy
 operator|.
-name|suggestUseCompoundFile
-argument_list|()
+name|DEFAULT_NO_CFS_RATIO
 argument_list|)
 argument_list|)
 argument_list|)
