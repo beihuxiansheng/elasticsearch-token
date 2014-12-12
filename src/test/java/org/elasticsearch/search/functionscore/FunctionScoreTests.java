@@ -3283,6 +3283,9 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|float
 name|score
 init|=
@@ -3607,6 +3610,9 @@ literal|true
 argument_list|,
 name|docs
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|String
 name|script
