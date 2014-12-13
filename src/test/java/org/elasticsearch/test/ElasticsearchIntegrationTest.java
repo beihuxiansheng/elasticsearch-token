@@ -8156,7 +8156,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to delete a dummy doc [][]"
+literal|"failed to delete a dummy doc [{}][{}]"
 argument_list|,
 name|doc
 operator|.
