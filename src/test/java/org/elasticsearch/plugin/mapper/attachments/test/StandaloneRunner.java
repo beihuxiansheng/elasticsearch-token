@@ -383,14 +383,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class provides a simple main class which can be used to test what is extracted from a given binary file.  * You can run it using  *  -u file://URL/TO/YOUR/DOC  *  --size set extracted size (default to mapper attachment size)  *  BASE64 encoded binary  *  * Example:  *  StandaloneTest BASE64Text  *  StandaloneTest -u /tmp/mydoc.pdf  *  StandaloneTest -u /tmp/mydoc.pdf --size 1000000  */
+comment|/**  * This class provides a simple main class which can be used to test what is extracted from a given binary file.  * You can run it using  *  -u file://URL/TO/YOUR/DOC  *  --size set extracted size (default to mapper attachment size)  *  BASE64 encoded binary  *  * Example:  *  StandaloneRunner BASE64Text  *  StandaloneRunner -u /tmp/mydoc.pdf  *  StandaloneRunner -u /tmp/mydoc.pdf --size 1000000  */
 end_comment
 
 begin_class
-DECL|class|StandaloneTest
+DECL|class|StandaloneRunner
 specifier|public
 class|class
-name|StandaloneTest
+name|StandaloneRunner
 extends|extends
 name|CliTool
 block|{
@@ -407,14 +407,14 @@ name|config
 argument_list|(
 literal|"tika"
 argument_list|,
-name|StandaloneTest
+name|StandaloneRunner
 operator|.
 name|class
 argument_list|)
 operator|.
 name|cmds
 argument_list|(
-name|TikaTest
+name|TikaRunner
 operator|.
 name|CMD
 argument_list|)
@@ -422,10 +422,10 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-DECL|class|TikaTest
+DECL|class|TikaRunner
 specifier|static
 class|class
-name|TikaTest
+name|TikaRunner
 extends|extends
 name|Command
 block|{
@@ -475,7 +475,7 @@ name|cmd
 argument_list|(
 name|NAME
 argument_list|,
-name|TikaTest
+name|TikaRunner
 operator|.
 name|class
 argument_list|)
@@ -523,9 +523,9 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-DECL|method|TikaTest
+DECL|method|TikaRunner
 specifier|protected
-name|TikaTest
+name|TikaRunner
 parameter_list|(
 name|Terminal
 name|terminal
@@ -1173,7 +1173,7 @@ block|}
 block|}
 return|return
 operator|new
-name|TikaTest
+name|TikaRunner
 argument_list|(
 name|terminal
 argument_list|,
@@ -1186,9 +1186,9 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|StandaloneTest
+DECL|method|StandaloneRunner
 specifier|public
-name|StandaloneTest
+name|StandaloneRunner
 parameter_list|()
 block|{
 name|super
@@ -1208,11 +1208,11 @@ index|[]
 name|args
 parameter_list|)
 block|{
-name|StandaloneTest
+name|StandaloneRunner
 name|pluginManager
 init|=
 operator|new
-name|StandaloneTest
+name|StandaloneRunner
 argument_list|()
 decl_stmt|;
 name|pluginManager
@@ -1252,12 +1252,12 @@ argument_list|)
 condition|)
 block|{
 case|case
-name|TikaTest
+name|TikaRunner
 operator|.
 name|NAME
 case|:
 return|return
-name|TikaTest
+name|TikaRunner
 operator|.
 name|parse
 argument_list|(
