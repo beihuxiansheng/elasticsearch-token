@@ -1637,7 +1637,7 @@ name|FieldType
 name|fieldType
 decl_stmt|;
 DECL|field|docValues
-specifier|private
+specifier|protected
 specifier|final
 name|boolean
 name|docValues
