@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.shards
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|shards
 package|;
 end_package
 
@@ -141,10 +135,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|LocalGatewayShardStateTests
+DECL|class|GatewayShardStateTests
 specifier|public
 class|class
-name|LocalGatewayShardStateTests
+name|GatewayShardStateTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
@@ -165,11 +159,11 @@ name|newNodeEnvironment
 argument_list|()
 init|)
 block|{
-name|LocalGatewayShardsState
+name|GatewayShardsState
 name|state
 init|=
 operator|new
-name|LocalGatewayShardsState
+name|GatewayShardsState
 argument_list|(
 name|ImmutableSettings
 operator|.
@@ -358,11 +352,11 @@ name|newNodeEnvironment
 argument_list|()
 init|)
 block|{
-name|LocalGatewayShardsState
+name|GatewayShardsState
 name|state
 init|=
 operator|new
-name|LocalGatewayShardsState
+name|GatewayShardsState
 argument_list|(
 name|ImmutableSettings
 operator|.

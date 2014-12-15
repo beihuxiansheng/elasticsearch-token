@@ -152,9 +152,7 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|local
-operator|.
-name|LocalGatewayAllocator
+name|GatewayAllocator
 import|;
 end_import
 
@@ -614,7 +612,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|LocalGatewayAllocator
+name|GatewayAllocator
 operator|.
 name|INDEX_RECOVERY_INITIAL_SHARDS
 argument_list|)

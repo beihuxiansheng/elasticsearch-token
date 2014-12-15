@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
 package|;
 end_package
 
@@ -326,10 +324,10 @@ name|Scope
 operator|.
 name|TEST
 argument_list|)
-DECL|class|QuorumLocalGatewayTests
+DECL|class|QuorumGatewayTests
 specifier|public
 class|class
-name|QuorumLocalGatewayTests
+name|QuorumGatewayTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

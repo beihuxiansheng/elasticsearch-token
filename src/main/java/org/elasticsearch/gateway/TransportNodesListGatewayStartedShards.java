@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.shards
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|shards
 package|;
 end_package
 
@@ -322,7 +316,7 @@ name|Request
 argument_list|,
 name|TransportNodesListGatewayStartedShards
 operator|.
-name|NodesLocalGatewayStartedShards
+name|NodesGatewayStartedShards
 argument_list|,
 name|TransportNodesListGatewayStartedShards
 operator|.
@@ -330,7 +324,7 @@ name|NodeRequest
 argument_list|,
 name|TransportNodesListGatewayStartedShards
 operator|.
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|>
 block|{
 DECL|field|ACTION_NAME
@@ -344,7 +338,7 @@ literal|"internal:gateway/local/started_shards"
 decl_stmt|;
 DECL|field|shardsState
 specifier|private
-name|LocalGatewayShardsState
+name|GatewayShardsState
 name|shardsState
 decl_stmt|;
 annotation|@
@@ -394,7 +388,7 @@ DECL|method|initGateway
 name|TransportNodesListGatewayStartedShards
 name|initGateway
 parameter_list|(
-name|LocalGatewayShardsState
+name|GatewayShardsState
 name|shardsState
 parameter_list|)
 block|{
@@ -412,7 +406,7 @@ DECL|method|list
 specifier|public
 name|ActionFuture
 argument_list|<
-name|NodesLocalGatewayStartedShards
+name|NodesGatewayStartedShards
 argument_list|>
 name|list
 parameter_list|(
@@ -532,13 +526,13 @@ annotation|@
 name|Override
 DECL|method|newNodeResponse
 specifier|protected
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 name|newNodeResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|()
 return|;
 block|}
@@ -546,7 +540,7 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|protected
-name|NodesLocalGatewayStartedShards
+name|NodesGatewayStartedShards
 name|newResponse
 parameter_list|(
 name|Request
@@ -559,7 +553,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|>
 name|nodesList
 init|=
@@ -612,7 +606,7 @@ if|if
 condition|(
 name|resp
 operator|instanceof
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 condition|)
 block|{
 comment|// will also filter out null response for unallocated ones
@@ -621,7 +615,7 @@ operator|.
 name|add
 argument_list|(
 operator|(
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 operator|)
 name|resp
 argument_list|)
@@ -661,7 +655,7 @@ block|}
 block|}
 return|return
 operator|new
-name|NodesLocalGatewayStartedShards
+name|NodesGatewayStartedShards
 argument_list|(
 name|clusterName
 argument_list|,
@@ -670,7 +664,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 index|[
 name|nodesList
 operator|.
@@ -699,7 +693,7 @@ annotation|@
 name|Override
 DECL|method|nodeOperation
 specifier|protected
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 name|nodeOperation
 parameter_list|(
 name|NodeRequest
@@ -731,7 +725,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|(
 name|clusterService
 operator|.
@@ -746,7 +740,7 @@ return|;
 block|}
 return|return
 operator|new
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|(
 name|clusterService
 operator|.
@@ -940,15 +934,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|NodesLocalGatewayStartedShards
+DECL|class|NodesGatewayStartedShards
 specifier|public
 specifier|static
 class|class
-name|NodesLocalGatewayStartedShards
+name|NodesGatewayStartedShards
 extends|extends
 name|NodesOperationResponse
 argument_list|<
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|>
 block|{
 DECL|field|failures
@@ -957,18 +951,18 @@ name|FailedNodeException
 index|[]
 name|failures
 decl_stmt|;
-DECL|method|NodesLocalGatewayStartedShards
-name|NodesLocalGatewayStartedShards
+DECL|method|NodesGatewayStartedShards
+name|NodesGatewayStartedShards
 parameter_list|()
 block|{         }
-DECL|method|NodesLocalGatewayStartedShards
+DECL|method|NodesGatewayStartedShards
 specifier|public
-name|NodesLocalGatewayStartedShards
+name|NodesGatewayStartedShards
 parameter_list|(
 name|ClusterName
 name|clusterName
 parameter_list|,
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 index|[]
 name|nodes
 parameter_list|,
@@ -1025,7 +1019,7 @@ expr_stmt|;
 name|nodes
 operator|=
 operator|new
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 index|[
 name|in
 operator|.
@@ -1056,7 +1050,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 argument_list|()
 expr_stmt|;
 name|nodes
@@ -1102,7 +1096,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 name|response
 range|:
 name|nodes
@@ -1221,11 +1215,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|NodeLocalGatewayStartedShards
+DECL|class|NodeGatewayStartedShards
 specifier|public
 specifier|static
 class|class
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 extends|extends
 name|NodeOperationResponse
 block|{
@@ -1237,13 +1231,13 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|method|NodeLocalGatewayStartedShards
-name|NodeLocalGatewayStartedShards
+DECL|method|NodeGatewayStartedShards
+name|NodeGatewayStartedShards
 parameter_list|()
 block|{         }
-DECL|method|NodeLocalGatewayStartedShards
+DECL|method|NodeGatewayStartedShards
 specifier|public
-name|NodeLocalGatewayStartedShards
+name|NodeGatewayStartedShards
 parameter_list|(
 name|DiscoveryNode
 name|node
@@ -1263,19 +1257,6 @@ name|version
 operator|=
 name|version
 expr_stmt|;
-block|}
-DECL|method|hasVersion
-specifier|public
-name|boolean
-name|hasVersion
-parameter_list|()
-block|{
-return|return
-name|version
-operator|!=
-operator|-
-literal|1
-return|;
 block|}
 DECL|method|version
 specifier|public

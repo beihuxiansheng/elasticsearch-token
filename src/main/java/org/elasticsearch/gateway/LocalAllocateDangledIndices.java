@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.meta
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|meta
 package|;
 end_package
 

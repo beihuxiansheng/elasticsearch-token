@@ -660,11 +660,6 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
-name|gateway
-operator|.
-name|start
-argument_list|()
-expr_stmt|;
 name|clusterService
 operator|.
 name|addLast
@@ -748,11 +743,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|gateway
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -763,13 +753,7 @@ name|doClose
 parameter_list|()
 throws|throws
 name|ElasticsearchException
-block|{
-name|gateway
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|clusterChanged

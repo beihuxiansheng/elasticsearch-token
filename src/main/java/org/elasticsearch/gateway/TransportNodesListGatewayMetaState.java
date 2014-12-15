@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.meta
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|meta
 package|;
 end_package
 
@@ -312,7 +306,7 @@ name|Request
 argument_list|,
 name|TransportNodesListGatewayMetaState
 operator|.
-name|NodesLocalGatewayMetaState
+name|NodesGatewayMetaState
 argument_list|,
 name|TransportNodesListGatewayMetaState
 operator|.
@@ -320,7 +314,7 @@ name|NodeRequest
 argument_list|,
 name|TransportNodesListGatewayMetaState
 operator|.
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 argument_list|>
 block|{
 DECL|field|ACTION_NAME
@@ -334,7 +328,7 @@ literal|"internal:gateway/local/meta_state"
 decl_stmt|;
 DECL|field|metaState
 specifier|private
-name|LocalGatewayMetaState
+name|GatewayMetaState
 name|metaState
 decl_stmt|;
 annotation|@
@@ -384,7 +378,7 @@ DECL|method|init
 name|TransportNodesListGatewayMetaState
 name|init
 parameter_list|(
-name|LocalGatewayMetaState
+name|GatewayMetaState
 name|metaState
 parameter_list|)
 block|{
@@ -402,7 +396,7 @@ DECL|method|list
 specifier|public
 name|ActionFuture
 argument_list|<
-name|NodesLocalGatewayMetaState
+name|NodesGatewayMetaState
 argument_list|>
 name|list
 parameter_list|(
@@ -517,13 +511,13 @@ annotation|@
 name|Override
 DECL|method|newNodeResponse
 specifier|protected
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 name|newNodeResponse
 parameter_list|()
 block|{
 return|return
 operator|new
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 argument_list|()
 return|;
 block|}
@@ -531,7 +525,7 @@ annotation|@
 name|Override
 DECL|method|newResponse
 specifier|protected
-name|NodesLocalGatewayMetaState
+name|NodesGatewayMetaState
 name|newResponse
 parameter_list|(
 name|Request
@@ -544,7 +538,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 argument_list|>
 name|nodesList
 init|=
@@ -597,7 +591,7 @@ if|if
 condition|(
 name|resp
 operator|instanceof
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 condition|)
 block|{
 comment|// will also filter out null response for unallocated ones
@@ -606,7 +600,7 @@ operator|.
 name|add
 argument_list|(
 operator|(
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 operator|)
 name|resp
 argument_list|)
@@ -646,7 +640,7 @@ block|}
 block|}
 return|return
 operator|new
-name|NodesLocalGatewayMetaState
+name|NodesGatewayMetaState
 argument_list|(
 name|clusterName
 argument_list|,
@@ -655,7 +649,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 index|[
 name|nodesList
 operator|.
@@ -684,7 +678,7 @@ annotation|@
 name|Override
 DECL|method|nodeOperation
 specifier|protected
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 name|nodeOperation
 parameter_list|(
 name|NodeRequest
@@ -697,7 +691,7 @@ try|try
 block|{
 return|return
 operator|new
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 argument_list|(
 name|clusterService
 operator|.
@@ -813,15 +807,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|NodesLocalGatewayMetaState
+DECL|class|NodesGatewayMetaState
 specifier|public
 specifier|static
 class|class
-name|NodesLocalGatewayMetaState
+name|NodesGatewayMetaState
 extends|extends
 name|NodesOperationResponse
 argument_list|<
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 argument_list|>
 block|{
 DECL|field|failures
@@ -830,18 +824,18 @@ name|FailedNodeException
 index|[]
 name|failures
 decl_stmt|;
-DECL|method|NodesLocalGatewayMetaState
-name|NodesLocalGatewayMetaState
+DECL|method|NodesGatewayMetaState
+name|NodesGatewayMetaState
 parameter_list|()
 block|{         }
-DECL|method|NodesLocalGatewayMetaState
+DECL|method|NodesGatewayMetaState
 specifier|public
-name|NodesLocalGatewayMetaState
+name|NodesGatewayMetaState
 parameter_list|(
 name|ClusterName
 name|clusterName
 parameter_list|,
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 index|[]
 name|nodes
 parameter_list|,
@@ -898,7 +892,7 @@ expr_stmt|;
 name|nodes
 operator|=
 operator|new
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 index|[
 name|in
 operator|.
@@ -929,7 +923,7 @@ name|i
 index|]
 operator|=
 operator|new
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 argument_list|()
 expr_stmt|;
 name|nodes
@@ -975,7 +969,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 name|response
 range|:
 name|nodes
@@ -1065,11 +1059,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|NodeLocalGatewayMetaState
+DECL|class|NodeGatewayMetaState
 specifier|public
 specifier|static
 class|class
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 extends|extends
 name|NodeOperationResponse
 block|{
@@ -1078,13 +1072,13 @@ specifier|private
 name|MetaData
 name|metaData
 decl_stmt|;
-DECL|method|NodeLocalGatewayMetaState
-name|NodeLocalGatewayMetaState
+DECL|method|NodeGatewayMetaState
+name|NodeGatewayMetaState
 parameter_list|()
 block|{         }
-DECL|method|NodeLocalGatewayMetaState
+DECL|method|NodeGatewayMetaState
 specifier|public
-name|NodeLocalGatewayMetaState
+name|NodeGatewayMetaState
 parameter_list|(
 name|DiscoveryNode
 name|node

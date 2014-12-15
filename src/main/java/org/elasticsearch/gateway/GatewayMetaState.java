@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.meta
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|meta
 package|;
 end_package
 
@@ -517,10 +511,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|LocalGatewayMetaState
+DECL|class|GatewayMetaState
 specifier|public
 class|class
-name|LocalGatewayMetaState
+name|GatewayMetaState
 extends|extends
 name|AbstractComponent
 implements|implements
@@ -611,6 +605,43 @@ name|String
 name|DEPRECATED_SETTING_ROUTING_USE_TYPE
 init|=
 literal|"cluster.routing.operation.use_type"
+decl_stmt|;
+DECL|field|GATEWAY_DANGLING_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GATEWAY_DANGLING_TIMEOUT
+init|=
+literal|"gateway.dangling_timeout"
+decl_stmt|;
+DECL|field|GATEWAY_AUTO_IMPORT_DANGLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GATEWAY_AUTO_IMPORT_DANGLED
+init|=
+literal|"gateway.auto_import_dangled"
+decl_stmt|;
+comment|// legacy - this used to be in a different package
+DECL|field|GATEWAY_LOCAL_DANGLING_TIMEOUT
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|GATEWAY_LOCAL_DANGLING_TIMEOUT
+init|=
+literal|"gateway.local.dangling_timeout"
+decl_stmt|;
+DECL|field|GATEWAY_LOCAL_AUTO_IMPORT_DANGLED
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|GATEWAY_LOCAL_AUTO_IMPORT_DANGLED
+init|=
+literal|"gateway.local.auto_import_dangled"
 decl_stmt|;
 DECL|enum|AutoImportDangledState
 specifier|static
@@ -842,9 +873,9 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|LocalGatewayMetaState
+DECL|method|GatewayMetaState
 specifier|public
-name|LocalGatewayMetaState
+name|GatewayMetaState
 parameter_list|(
 name|Settings
 name|settings
@@ -1067,7 +1098,13 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"gateway.local.auto_import_dangled"
+name|GATEWAY_AUTO_IMPORT_DANGLED
+argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+name|GATEWAY_LOCAL_AUTO_IMPORT_DANGLED
 argument_list|,
 name|AutoImportDangledState
 operator|.
@@ -1075,6 +1112,7 @@ name|YES
 operator|.
 name|toString
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1086,7 +1124,13 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"gateway.local.dangling_timeout"
+name|GATEWAY_DANGLING_TIMEOUT
+argument_list|,
+name|settings
+operator|.
+name|getAsTime
+argument_list|(
+name|GATEWAY_LOCAL_DANGLING_TIMEOUT
 argument_list|,
 name|TimeValue
 operator|.
@@ -1095,12 +1139,13 @@ argument_list|(
 literal|2
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using gateway.local.auto_import_dangled [{}], with gateway.local.dangling_timeout [{}]"
+literal|"using gateway.local.auto_import_dangled [{}], with gateway.dangling_timeout [{}]"
 argument_list|,
 name|this
 operator|.

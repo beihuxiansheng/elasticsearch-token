@@ -254,10 +254,10 @@ name|Scope
 operator|.
 name|TEST
 argument_list|)
-DECL|class|LocalGatewayIndicesWarmerTests
+DECL|class|GatewayIndicesWarmerTests
 specifier|public
 class|class
-name|LocalGatewayIndicesWarmerTests
+name|GatewayIndicesWarmerTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
@@ -271,7 +271,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|LocalGatewayIndicesWarmerTests
+name|GatewayIndicesWarmerTests
 operator|.
 name|class
 argument_list|)

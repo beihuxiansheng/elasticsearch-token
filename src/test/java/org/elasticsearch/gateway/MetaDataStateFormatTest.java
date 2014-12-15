@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.meta
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|meta
 package|;
 end_package
 
@@ -387,16 +381,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|RandomAccessFile
 import|;
 end_import
 
@@ -2447,7 +2431,7 @@ name|MetaData
 argument_list|>
 name|format
 init|=
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|globalStateFormat
 argument_list|(
@@ -2549,7 +2533,7 @@ argument_list|(
 name|randomMeta
 argument_list|()
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 argument_list|,
@@ -2636,7 +2620,7 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 operator|+
@@ -2682,7 +2666,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,
@@ -2743,7 +2727,7 @@ name|MetaData
 argument_list|>
 name|format
 init|=
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|globalStateFormat
 argument_list|(
@@ -2909,7 +2893,7 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 operator|+
@@ -2951,7 +2935,7 @@ name|write
 argument_list|(
 name|meta
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 argument_list|,
@@ -2971,7 +2955,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,
@@ -3102,7 +3086,7 @@ name|MetaData
 argument_list|>
 name|format
 init|=
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|globalStateFormat
 argument_list|(
@@ -3340,7 +3324,7 @@ argument_list|(
 name|j
 argument_list|)
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 argument_list|,
@@ -3454,7 +3438,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,
@@ -3711,7 +3695,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|LocalGatewayMetaState
+name|GatewayMetaState
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,

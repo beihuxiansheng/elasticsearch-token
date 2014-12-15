@@ -4,19 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.gateway.local.state.meta
+DECL|package|org.elasticsearch.gateway
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|gateway
-operator|.
-name|local
-operator|.
-name|state
-operator|.
-name|meta
 package|;
 end_package
 
@@ -161,20 +155,6 @@ operator|.
 name|common
 operator|.
 name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Streams
 import|;
 end_import
 
@@ -1744,7 +1724,7 @@ return|return
 name|state
 return|;
 block|}
-comment|/**      * Filters out all {@link org.elasticsearch.gateway.local.state.meta.MetaDataStateFormat.PathAndVersion} instances with a different version than      * the given one.      */
+comment|/**      * Filters out all {@link MetaDataStateFormat.PathAndVersion} instances with a different version than      * the given one.      */
 DECL|class|VersionAndLegacyPredicate
 specifier|private
 specifier|static

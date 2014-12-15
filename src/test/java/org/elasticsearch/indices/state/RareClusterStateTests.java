@@ -196,9 +196,7 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|local
-operator|.
-name|LocalGatewayAllocator
+name|GatewayAllocator
 import|;
 end_import
 
@@ -352,7 +350,7 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-name|LocalGatewayAllocator
+name|GatewayAllocator
 name|allocator
 init|=
 name|internalCluster
@@ -360,7 +358,7 @@ argument_list|()
 operator|.
 name|getInstance
 argument_list|(
-name|LocalGatewayAllocator
+name|GatewayAllocator
 operator|.
 name|class
 argument_list|)
