@@ -1159,9 +1159,6 @@ parameter_list|,
 name|IndicesService
 name|indicesService
 parameter_list|,
-name|IndicesLifecycle
-name|indicesLifecycle
-parameter_list|,
 name|IndicesWarmer
 name|indicesWarmer
 parameter_list|,
@@ -1501,6 +1498,9 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
+name|doStop
+argument_list|()
+expr_stmt|;
 name|FutureUtils
 operator|.
 name|cancel
@@ -5398,6 +5398,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Returns the number of active contexts in this      * SearchService      */
+DECL|method|getActiveContexts
+specifier|public
+name|int
+name|getActiveContexts
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|activeContexts
+operator|.
+name|size
+argument_list|()
+return|;
 block|}
 DECL|class|NormsWarmer
 specifier|static
