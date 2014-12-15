@@ -322,6 +322,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -8030,6 +8040,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+for|for
+control|(
+name|String
+name|index
+range|:
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"idx"
+argument_list|,
+literal|"idx_unmapped"
+argument_list|)
+control|)
+block|{
 try|try
 block|{
 name|client
@@ -8037,7 +8062,7 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-literal|"idx"
+name|index
 argument_list|)
 operator|.
 name|setTypes
@@ -8104,6 +8129,7 @@ block|{
 comment|// expected
 block|}
 block|}
+block|}
 annotation|@
 name|Test
 DECL|method|singleValuedField_OrderedByNonMetricsOrMultiBucketSubAggregation
@@ -8114,6 +8140,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+for|for
+control|(
+name|String
+name|index
+range|:
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"idx"
+argument_list|,
+literal|"idx_unmapped"
+argument_list|)
+control|)
+block|{
 try|try
 block|{
 name|client
@@ -8121,7 +8162,7 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-literal|"idx"
+name|index
 argument_list|)
 operator|.
 name|setTypes
@@ -8212,6 +8253,7 @@ block|{
 comment|// expected
 block|}
 block|}
+block|}
 annotation|@
 name|Test
 DECL|method|singleValuedField_OrderedByMultiValuedSubAggregation_WithUknownMetric
@@ -8222,6 +8264,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+for|for
+control|(
+name|String
+name|index
+range|:
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"idx"
+argument_list|,
+literal|"idx_unmapped"
+argument_list|)
+control|)
+block|{
 try|try
 block|{
 name|client
@@ -8229,7 +8286,7 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-literal|"idx"
+name|index
 argument_list|)
 operator|.
 name|setTypes
@@ -8247,6 +8304,8 @@ operator|.
 name|field
 argument_list|(
 name|SINGLE_VALUED_FIELD_NAME
+operator|+
+literal|"2"
 argument_list|)
 operator|.
 name|collectMode
@@ -8311,6 +8370,7 @@ block|{
 comment|// expected
 block|}
 block|}
+block|}
 annotation|@
 name|Test
 DECL|method|singleValuedField_OrderedByMultiValuedSubAggregation_WithoutMetric
@@ -8321,6 +8381,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+for|for
+control|(
+name|String
+name|index
+range|:
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+literal|"idx"
+argument_list|,
+literal|"idx_unmapped"
+argument_list|)
+control|)
+block|{
 try|try
 block|{
 name|client
@@ -8328,7 +8403,7 @@ argument_list|()
 operator|.
 name|prepareSearch
 argument_list|(
-literal|"idx"
+name|index
 argument_list|)
 operator|.
 name|setTypes
@@ -8408,6 +8483,7 @@ name|e
 parameter_list|)
 block|{
 comment|// expected
+block|}
 block|}
 block|}
 annotation|@

@@ -1047,9 +1047,23 @@ name|aggregationContext
 argument_list|,
 name|parent
 argument_list|,
+name|factories
+argument_list|,
 name|metaData
 argument_list|)
 block|{
+block|{
+comment|// even in the case of an unmapped aggregator, validate the order
+name|InternalOrder
+operator|.
+name|validate
+parameter_list|(
+name|order
+parameter_list|,
+name|this
+parameter_list|)
+constructor_decl|;
+block|}
 annotation|@
 name|Override
 specifier|public
