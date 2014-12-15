@@ -737,7 +737,7 @@ literal|"ä»å¤ã¯ã­ãã¼ãåçã¨è©±ã�
 decl_stmt|;
 name|String
 index|[]
-name|expected_tokens_romanji
+name|expected_tokens_romaji
 init|=
 operator|new
 name|String
@@ -795,7 +795,7 @@ argument_list|(
 name|tokenizer
 argument_list|)
 argument_list|,
-name|expected_tokens_romanji
+name|expected_tokens_romaji
 argument_list|)
 expr_stmt|;
 name|tokenizer
