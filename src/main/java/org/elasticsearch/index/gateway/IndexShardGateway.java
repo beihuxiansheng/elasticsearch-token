@@ -2340,6 +2340,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"shard_gateway"
+return|;
+block|}
 block|}
 end_class
 
