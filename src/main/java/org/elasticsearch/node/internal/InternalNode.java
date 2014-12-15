@@ -2418,24 +2418,6 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndicesService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-comment|// sleep a bit to let operations finish with indices service
-comment|//        try {
-comment|//            Thread.sleep(500);
-comment|//        } catch (InterruptedException e) {
-comment|//            // ignore
-comment|//        }
-name|injector
-operator|.
-name|getInstance
-argument_list|(
 name|RoutingService
 operator|.
 name|class
@@ -2555,6 +2537,20 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+comment|// we should stop this last since it waits for resources to get released
+comment|// if we had scroll searchers etc or recovery going on we wait for to finish.
+name|injector
+operator|.
+name|getInstance
+argument_list|(
+name|IndicesService
+operator|.
+name|class
+argument_list|)
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|info
