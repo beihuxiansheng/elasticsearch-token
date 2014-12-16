@@ -9839,7 +9839,7 @@ return|return
 name|perTestRatio
 return|;
 block|}
-comment|/**      * Returns a random numeric field data format from the choices of "array",      * "compressed", or "doc_values".      */
+comment|/**      * Returns a random numeric field data format from the choices of "array" or "doc_values".      */
 DECL|method|randomNumericFieldDataFormat
 specifier|public
 specifier|static
@@ -9855,8 +9855,6 @@ operator|.
 name|asList
 argument_list|(
 literal|"array"
-argument_list|,
-literal|"compressed"
 argument_list|,
 literal|"doc_values"
 argument_list|)
