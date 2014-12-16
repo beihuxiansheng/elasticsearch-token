@@ -169,6 +169,20 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|method|BasePolygonBuilder
+specifier|public
+name|BasePolygonBuilder
+parameter_list|(
+name|Orientation
+name|orientation
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|orientation
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -422,7 +436,10 @@ name|createEdges
 argument_list|(
 literal|0
 argument_list|,
-literal|false
+name|orientation
+operator|.
+name|getValue
+argument_list|()
 argument_list|,
 name|shell
 argument_list|,
@@ -460,7 +477,10 @@ name|i
 operator|+
 literal|1
 argument_list|,
-literal|true
+name|orientation
+operator|.
+name|getValue
+argument_list|()
 argument_list|,
 name|shell
 argument_list|,
@@ -2558,7 +2578,7 @@ name|int
 name|component
 parameter_list|,
 name|boolean
-name|direction
+name|orientation
 parameter_list|,
 name|BaseLineStringBuilder
 argument_list|<
@@ -2580,6 +2600,21 @@ name|int
 name|offset
 parameter_list|)
 block|{
+comment|// inner rings (holes) have an opposite direction than the outer rings
+name|boolean
+name|direction
+init|=
+operator|(
+name|component
+operator|!=
+literal|0
+operator|)
+condition|?
+operator|!
+name|orientation
+else|:
+name|orientation
+decl_stmt|;
 comment|// set the points array accordingly (shell or hole)
 name|Coordinate
 index|[]
@@ -2612,6 +2647,8 @@ argument_list|(
 name|component
 argument_list|,
 name|direction
+argument_list|,
+name|orientation
 argument_list|,
 name|shell
 argument_list|,
