@@ -1845,8 +1845,9 @@ name|void
 name|testDatelineOGC
 parameter_list|()
 block|{
-comment|// view shape at https://gist.github.com/anonymous/7f1bb6d7e9cd72f5977c
-comment|// expect 3 polygons, 1 with a hole
+comment|// tests that the following shape (defined in counterclockwise OGC order)
+comment|// https://gist.github.com/anonymous/7f1bb6d7e9cd72f5977c crosses the dateline
+comment|// expected results: 3 polygons, 1 with a hole
 comment|// a giant c shape
 name|PolygonBuilder
 name|builder
@@ -2065,8 +2066,9 @@ name|void
 name|testDateline
 parameter_list|()
 block|{
-comment|// view shape at https://gist.github.com/anonymous/7f1bb6d7e9cd72f5977c
-comment|// expect 3 polygons, 1 with a hole
+comment|// tests that the following shape (defined in clockwise non-OGC order)
+comment|// https://gist.github.com/anonymous/7f1bb6d7e9cd72f5977c crosses the dateline
+comment|// expected results: 3 polygons, 1 with a hole
 comment|// a giant c shape
 name|PolygonBuilder
 name|builder
