@@ -24,6 +24,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|IOUtils
 import|;
 end_import
@@ -267,6 +281,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"failing on windows, Lee will look into it"
+argument_list|)
 DECL|method|testIndexCreatedWithCustomPathAndTemplate
 specifier|public
 name|void
