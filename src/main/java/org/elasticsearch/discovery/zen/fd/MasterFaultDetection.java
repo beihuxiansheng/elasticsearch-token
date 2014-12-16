@@ -202,6 +202,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|discovery
+operator|.
+name|zen
+operator|.
+name|NotMasterException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -1281,7 +1295,7 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|NoLongerMasterException
+name|NotMasterException
 condition|)
 block|{
 name|logger
@@ -1310,7 +1324,7 @@ operator|.
 name|getCause
 argument_list|()
 operator|instanceof
-name|NotMasterException
+name|ThisIsNotTheMasterYouAreLookingForException
 condition|)
 block|{
 name|logger
@@ -1464,35 +1478,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|NoLongerMasterException
+comment|/** Thrown when a ping reaches the wrong node */
+DECL|class|ThisIsNotTheMasterYouAreLookingForException
 specifier|static
 class|class
-name|NoLongerMasterException
+name|ThisIsNotTheMasterYouAreLookingForException
 extends|extends
 name|ElasticsearchIllegalStateException
 block|{
-annotation|@
-name|Override
-DECL|method|fillInStackTrace
-specifier|public
-name|Throwable
-name|fillInStackTrace
-parameter_list|()
-block|{
-return|return
-literal|null
-return|;
-block|}
-block|}
-DECL|class|NotMasterException
-specifier|static
-class|class
-name|NotMasterException
-extends|extends
-name|ElasticsearchIllegalStateException
-block|{
-DECL|method|NotMasterException
-name|NotMasterException
+DECL|method|ThisIsNotTheMasterYouAreLookingForException
+name|ThisIsNotTheMasterYouAreLookingForException
 parameter_list|(
 name|String
 name|msg
@@ -1504,8 +1499,8 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|NotMasterException
-name|NotMasterException
+DECL|method|ThisIsNotTheMasterYouAreLookingForException
+name|ThisIsNotTheMasterYouAreLookingForException
 parameter_list|()
 block|{         }
 annotation|@
@@ -1615,7 +1610,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|NotMasterException
+name|ThisIsNotTheMasterYouAreLookingForException
 argument_list|()
 throw|;
 block|}
@@ -1654,7 +1649,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|NotMasterException
+name|ThisIsNotTheMasterYouAreLookingForException
 argument_list|(
 literal|"master fault detection ping request is targeted for a different ["
 operator|+
@@ -1755,7 +1750,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|NoLongerMasterException
+name|NotMasterException
 argument_list|()
 throw|;
 block|}

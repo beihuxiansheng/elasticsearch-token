@@ -2891,7 +2891,7 @@ if|if
 condition|(
 name|unwrap
 operator|instanceof
-name|ElasticsearchIllegalStateException
+name|NotMasterException
 condition|)
 block|{
 if|if
@@ -5441,7 +5441,7 @@ name|Exception
 name|e
 init|=
 operator|new
-name|ElasticsearchIllegalStateException
+name|NotMasterException
 argument_list|(
 literal|"Node ["
 operator|+
