@@ -3589,14 +3589,18 @@ name|mapOrderedAndClose
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO it'd be nice to have a MapXContent or something that could spit out the parser for this map
 name|XContentBuilder
 name|builder
 init|=
 name|XContentFactory
 operator|.
-name|smileBuilder
+name|contentBuilder
+argument_list|(
+name|parser
+operator|.
+name|contentType
 argument_list|()
+argument_list|)
 operator|.
 name|value
 argument_list|(
@@ -3604,9 +3608,13 @@ name|transformed
 argument_list|)
 decl_stmt|;
 return|return
-name|SmileXContent
+name|parser
 operator|.
-name|smileXContent
+name|contentType
+argument_list|()
+operator|.
+name|xContent
+argument_list|()
 operator|.
 name|createParser
 argument_list|(
