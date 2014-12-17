@@ -672,8 +672,6 @@ name|getStats
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|REQUEST
 argument_list|)
 operator|.
@@ -697,8 +695,6 @@ operator|.
 name|getStats
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|FIELDDATA
 argument_list|)
@@ -1009,8 +1005,6 @@ operator|.
 name|getStats
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|FIELDDATA
 argument_list|)
@@ -1331,8 +1325,6 @@ name|getStats
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|FIELDDATA
 argument_list|)
 decl_stmt|;
@@ -1520,8 +1512,6 @@ operator|.
 name|getStats
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|REQUEST
 argument_list|)
@@ -2182,8 +2172,6 @@ operator|.
 name|getStats
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|FIELDDATA
 argument_list|)

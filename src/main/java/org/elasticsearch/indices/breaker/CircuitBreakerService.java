@@ -116,10 +116,8 @@ specifier|abstract
 name|CircuitBreaker
 name|getBreaker
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
-name|type
+name|String
+name|name
 parameter_list|)
 function_decl|;
 comment|/**      * @return stats about all breakers      */
@@ -137,9 +135,7 @@ specifier|abstract
 name|CircuitBreakerStats
 name|stats
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|name
 parameter_list|)
 function_decl|;

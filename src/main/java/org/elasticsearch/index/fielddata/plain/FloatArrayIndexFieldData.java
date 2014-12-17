@@ -511,8 +511,6 @@ name|getBreaker
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|FIELDDATA
 argument_list|)
 argument_list|)

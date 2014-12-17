@@ -81,8 +81,6 @@ name|NoopCircuitBreaker
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|FIELDDATA
 argument_list|)
 decl_stmt|;
@@ -106,9 +104,7 @@ specifier|public
 name|CircuitBreaker
 name|getBreaker
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|name
 parameter_list|)
 block|{
@@ -136,8 +132,6 @@ name|stats
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|FIELDDATA
 argument_list|)
 block|}
@@ -151,9 +145,7 @@ specifier|public
 name|CircuitBreakerStats
 name|stats
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|name
 parameter_list|)
 block|{
@@ -162,8 +154,6 @@ operator|new
 name|CircuitBreakerStats
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|FIELDDATA
 argument_list|,

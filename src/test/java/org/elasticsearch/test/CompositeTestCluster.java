@@ -1255,8 +1255,6 @@ name|getStats
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|FIELDDATA
 argument_list|)
 operator|.

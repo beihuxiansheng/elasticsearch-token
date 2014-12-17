@@ -595,10 +595,8 @@ specifier|public
 name|CircuitBreaker
 name|getBreaker
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
-name|type
+name|String
+name|name
 parameter_list|)
 block|{
 return|return
@@ -633,8 +631,6 @@ name|BreakerSettings
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|REQUEST
 argument_list|,
 operator|(
@@ -665,8 +661,6 @@ operator|)
 name|service
 argument_list|,
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|REQUEST
 argument_list|)
@@ -1012,10 +1006,8 @@ specifier|public
 name|CircuitBreaker
 name|getBreaker
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
-name|type
+name|String
+name|name
 parameter_list|)
 block|{
 return|return
@@ -1043,8 +1035,6 @@ condition|(
 name|getBreaker
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|REQUEST
 argument_list|)
@@ -1087,8 +1077,6 @@ name|BreakerSettings
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|REQUEST
 argument_list|,
 name|childLimit
@@ -1113,8 +1101,6 @@ operator|)
 name|service
 argument_list|,
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|REQUEST
 argument_list|)

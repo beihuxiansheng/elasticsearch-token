@@ -2839,8 +2839,6 @@ name|getBreaker
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|REQUEST
 argument_list|)
 operator|.
@@ -3085,8 +3083,6 @@ name|getBreaker
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|REQUEST
 argument_list|)
 operator|.
@@ -3108,8 +3104,6 @@ operator|.
 name|getBreaker
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|REQUEST
 argument_list|)

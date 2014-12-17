@@ -10141,8 +10141,6 @@ name|getBreaker
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|FIELDDATA
 argument_list|)
 decl_stmt|;
@@ -10194,8 +10192,6 @@ operator|.
 name|getBreaker
 argument_list|(
 name|CircuitBreaker
-operator|.
-name|Name
 operator|.
 name|REQUEST
 argument_list|)

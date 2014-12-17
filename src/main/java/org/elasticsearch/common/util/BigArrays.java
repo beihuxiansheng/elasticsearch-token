@@ -2197,8 +2197,6 @@ name|getBreaker
 argument_list|(
 name|CircuitBreaker
 operator|.
-name|Name
-operator|.
 name|REQUEST
 argument_list|)
 decl_stmt|;

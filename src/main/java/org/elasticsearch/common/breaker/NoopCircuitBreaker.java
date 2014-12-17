@@ -31,14 +31,14 @@ block|{
 DECL|field|name
 specifier|private
 specifier|final
-name|Name
+name|String
 name|name
 decl_stmt|;
 DECL|method|NoopCircuitBreaker
 specifier|public
 name|NoopCircuitBreaker
 parameter_list|(
-name|Name
+name|String
 name|name
 parameter_list|)
 block|{
@@ -152,7 +152,7 @@ annotation|@
 name|Override
 DECL|method|getName
 specifier|public
-name|Name
+name|String
 name|getName
 parameter_list|()
 block|{
