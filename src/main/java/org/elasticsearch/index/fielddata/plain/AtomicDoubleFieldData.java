@@ -211,8 +211,6 @@ name|Override
 specifier|public
 name|Iterable
 argument_list|<
-name|?
-extends|extends
 name|Accountable
 argument_list|>
 name|getChildResources
