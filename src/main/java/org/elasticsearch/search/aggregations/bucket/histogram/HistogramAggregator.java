@@ -796,16 +796,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// the contract of the histogram aggregation is that shards must return buckets ordered by key in ascending order
 name|CollectionUtil
 operator|.
 name|introSort
 argument_list|(
 name|buckets
 argument_list|,
-name|InternalOrder
-operator|.
-name|KEY_ASC
+name|order
 operator|.
 name|comparator
 argument_list|()
