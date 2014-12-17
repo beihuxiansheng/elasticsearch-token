@@ -548,6 +548,15 @@ name|request
 operator|.
 name|snapshots
 argument_list|)
+operator|.
+name|ignoreIdleThreads
+argument_list|(
+name|request
+operator|.
+name|request
+operator|.
+name|ignoreIdleThreads
+argument_list|)
 decl_stmt|;
 try|try
 block|{
