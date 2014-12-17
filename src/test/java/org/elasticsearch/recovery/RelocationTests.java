@@ -4339,10 +4339,6 @@ name|indexName
 argument_list|,
 literal|0
 argument_list|)
-argument_list|,
-name|ImmutableSettings
-operator|.
-name|EMPTY
 argument_list|)
 control|)
 block|{

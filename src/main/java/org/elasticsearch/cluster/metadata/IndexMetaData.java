@@ -1165,15 +1165,6 @@ name|SETTING_LEGACY_ROUTING_USE_TYPE
 init|=
 literal|"index.legacy.routing.use_type"
 decl_stmt|;
-DECL|field|SETTING_DATA_PATH
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SETTING_DATA_PATH
-init|=
-literal|"index.data_path"
-decl_stmt|;
 DECL|field|INDEX_UUID_NA_VALUE
 specifier|public
 specifier|static

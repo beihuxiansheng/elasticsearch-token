@@ -36,34 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|settings
-operator|.
-name|IndexSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|shard
@@ -133,18 +105,13 @@ argument_list|>
 name|shardDirectory
 parameter_list|()
 function_decl|;
-comment|/**      * Returns<tt>true</tt> if this shard is allocated on this node. Allocated means      * that it has storage files that can be deleted using {@code deleteUnallocated(ShardId, Settings)}.      */
+comment|/**      * Returns<tt>true</tt> if this shard is allocated on this node. Allocated means      * that it has storage files that can be deleted using {@link #deleteUnallocated(org.elasticsearch.index.shard.ShardId)}.      */
 DECL|method|canDeleteUnallocated
 name|boolean
 name|canDeleteUnallocated
 parameter_list|(
 name|ShardId
 name|shardId
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|indexSettings
 parameter_list|)
 function_decl|;
 comment|/**      * Deletes this shard store since its no longer allocated.      */
@@ -154,30 +121,14 @@ name|deleteUnallocated
 parameter_list|(
 name|ShardId
 name|shardId
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|indexSettings
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Return an array of all index folder locations for a given shard      */
 DECL|method|shardIndexLocations
 name|Path
 index|[]
 name|shardIndexLocations
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|)
-function_decl|;
-comment|/**      * Return an array of all translog folder locations for a given shard      */
-DECL|method|shardTranslogLocations
-name|Path
-index|[]
-name|shardTranslogLocations
 parameter_list|(
 name|ShardId
 name|shardId
