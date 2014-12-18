@@ -1917,6 +1917,11 @@ operator|.
 name|MAX_VALUE
 expr_stmt|;
 block|}
+name|float
+name|weightSum
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -1950,6 +1955,13 @@ index|[
 name|i
 index|]
 decl_stmt|;
+name|weightSum
+operator|+=
+name|weights
+index|[
+name|i
+index|]
+expr_stmt|;
 if|if
 condition|(
 literal|"avg"
@@ -2056,9 +2068,7 @@ condition|)
 block|{
 name|expectedScore
 operator|/=
-name|weights
-operator|.
-name|length
+name|weightSum
 expr_stmt|;
 block|}
 return|return
