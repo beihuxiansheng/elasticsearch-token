@@ -142,18 +142,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -386,20 +374,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|codec
-operator|.
-name|CodecService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -447,20 +421,6 @@ operator|.
 name|distributor
 operator|.
 name|Distributor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|recovery
-operator|.
-name|RecoveryFailedException
 import|;
 end_import
 
@@ -573,7 +533,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Store provides plain access to files written by an elasticsearch index shard. Each shard  * has a dedicated store that is uses to access Lucene's Directory which represents the lowest level  * of file abstraction in Lucene used to read and write Lucene indices.  * This class also provides access to metadata information like checksums for committed files. A committed  * file is a file that belongs to a segment written by a Lucene commit. Files that have not been committed  * ie. created during a merge or a shard refresh / NRT reopen are not considered in the MetadataSnapshot.  *  * Note: If you use a store it's reference count should be increased before using it by calling #incRef and a  * corresponding #decRef must be called in a try/finally block to release the store again ie.:  *<pre>  *      store.incRef();  *      try {  *        // use the store...  *  *      } finally {  *          store.decRef();  *      }  *</pre>  */
+comment|/**  * A Store provides plain access to files written by an elasticsearch index shard. Each shard  * has a dedicated store that is uses to access Lucene's Directory which represents the lowest level  * of file abstraction in Lucene used to read and write Lucene indices.  * This class also provides access to metadata information like checksums for committed files. A committed  * file is a file that belongs to a segment written by a Lucene commit. Files that have not been committed  * ie. created during a merge or a shard refresh / NRT reopen are not considered in the MetadataSnapshot.  *<p/>  * Note: If you use a store it's reference count should be increased before using it by calling #incRef and a  * corresponding #decRef must be called in a try/finally block to release the store again ie.:  *<pre>  *      store.incRef();  *      try {  *        // use the store...  *  *      } finally {  *          store.decRef();  *      }  *</pre>  */
 end_comment
 
 begin_class
@@ -704,12 +664,6 @@ expr_stmt|;
 block|}
 block|}
 decl_stmt|;
-DECL|field|onClose
-specifier|private
-specifier|volatile
-name|OnCloseListener
-name|onClose
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|Store
@@ -811,7 +765,7 @@ return|return
 name|directory
 return|;
 block|}
-comment|/**      * Returns the last committed segments info for this store      * @throws IOException if the index is corrupted or the segments file is not present      */
+comment|/**      * Returns the last committed segments info for this store      *      * @throws IOException if the index is corrupted or the segments file is not present      */
 DECL|method|readLastCommittedSegmentsInfo
 specifier|public
 name|SegmentInfos
@@ -830,7 +784,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the segments info for the given commit or for the latest commit if the given commit is<code>null</code>      * @throws IOException if the index is corrupted or the segments file is not present      */
+comment|/**      * Returns the segments info for the given commit or for the latest commit if the given commit is<code>null</code>      *      * @throws IOException if the index is corrupted or the segments file is not present      */
 DECL|method|readSegmentsInfo
 specifier|private
 specifier|static
@@ -955,7 +909,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      * unexpected exception when opening the index reading the segments file.      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                               unexpected exception when opening the index reading the segments file.      */
 DECL|method|getMetadataOrEmpty
 specifier|public
 name|MetadataSnapshot
@@ -1003,7 +957,7 @@ operator|.
 name|EMPTY
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      * unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException if one or more files referenced by a commit are not present.      * @throws NoSuchFileException if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1019,7 +973,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      * unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException if one or more files referenced by a commit are not present.      * @throws NoSuchFileException if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1536,7 +1490,7 @@ name|to
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *      * Note: Close can safely be called multiple times.      * @see #decRef      * @see #tryIncRef()      * @throws AlreadyClosedException iff the reference counter can not be incremented.      */
+comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p/>      * Note: Close can safely be called multiple times.      *      * @throws AlreadyClosedException iff the reference counter can not be incremented.      * @see #decRef      * @see #tryIncRef()      */
 annotation|@
 name|Override
 DECL|method|incRef
@@ -1552,7 +1506,7 @@ name|incRef
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tries to increment the refCount of this Store instance. This method will return<tt>true</tt> iff the refCount was      * incremented successfully otherwise<tt>false</tt>. RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *      * Note: Close can safely be called multiple times.      * @see #decRef()      * @see #incRef()      */
+comment|/**      * Tries to increment the refCount of this Store instance. This method will return<tt>true</tt> iff the refCount was      * incremented successfully otherwise<tt>false</tt>. RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p/>      * Note: Close can safely be called multiple times.      *      * @see #decRef()      * @see #incRef()      */
 annotation|@
 name|Override
 DECL|method|tryIncRef
@@ -1569,7 +1523,7 @@ name|tryIncRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Decreases the refCount of this Store instance.If the refCount drops to 0, then this      * store is closed.      * @see #incRef      */
+comment|/**      * Decreases the refCount of this Store instance.If the refCount drops to 0, then this      * store is closed.      *      * @see #incRef      */
 annotation|@
 name|Override
 DECL|method|decRef
@@ -1593,24 +1547,6 @@ name|void
 name|close
 parameter_list|()
 block|{
-name|close
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Closes this store and installs the given {@link org.elasticsearch.index.store.Store.OnCloseListener}      * to be notified once all references to this store are released and the store is closed.      */
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|(
-annotation|@
-name|Nullable
-name|OnCloseListener
-name|onClose
-parameter_list|)
-block|{
 if|if
 condition|(
 name|isClosed
@@ -1623,21 +1559,6 @@ literal|true
 argument_list|)
 condition|)
 block|{
-assert|assert
-name|this
-operator|.
-name|onClose
-operator|==
-literal|null
-operator|:
-literal|"OnClose listener is already set"
-assert|;
-name|this
-operator|.
-name|onClose
-operator|=
-name|onClose
-expr_stmt|;
 comment|// only do this once!
 name|decRef
 argument_list|()
@@ -1662,16 +1583,6 @@ name|void
 name|closeInternal
 parameter_list|()
 block|{
-specifier|final
-name|OnCloseListener
-name|listener
-init|=
-name|onClose
-decl_stmt|;
-name|onClose
-operator|=
-literal|null
-expr_stmt|;
 try|try
 block|{
 name|directory
@@ -1699,42 +1610,6 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-try|try
-block|{
-if|if
-condition|(
-name|listener
-operator|!=
-literal|null
-condition|)
-block|{
-name|listener
-operator|.
-name|onClose
-argument_list|(
-name|shardId
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"OnCloseListener threw an exception"
-argument_list|,
-name|ex
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
@@ -1744,8 +1619,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * Reads a MetadataSnapshot from the given index locations or returns an empty snapshot if it can't be read.      * @throws IOException if the index we try to read is corrupted      */
+comment|/**      * Reads a MetadataSnapshot from the given index locations or returns an empty snapshot if it can't be read.      *      * @throws IOException if the index we try to read is corrupted      */
 DECL|method|readMetadataSnapshot
 specifier|public
 specifier|static
@@ -1883,7 +1757,7 @@ operator|.
 name|EMPTY
 return|;
 block|}
-comment|/**      * The returned IndexOutput might validate the files checksum if the file has been written with a newer lucene version      * and the metadata holds the necessary information to detect that it was been written by Lucene 4.8 or newer. If it has only      * a legacy checksum, returned IndexOutput will not verify the checksum.      *      * Note: Checksums are calculated nevertheless since lucene does it by default sicne version 4.8.0. This method only adds the      * verification against the checksum in the given metadata and does not add any significant overhead.      */
+comment|/**      * The returned IndexOutput might validate the files checksum if the file has been written with a newer lucene version      * and the metadata holds the necessary information to detect that it was been written by Lucene 4.8 or newer. If it has only      * a legacy checksum, returned IndexOutput will not verify the checksum.      *<p/>      * Note: Checksums are calculated nevertheless since lucene does it by default sicne version 4.8.0. This method only adds the      * verification against the checksum in the given metadata and does not add any significant overhead.      */
 DECL|method|createVerifyingOutput
 specifier|public
 name|IndexOutput
@@ -2760,7 +2634,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method deletes every file in this store that is not contained in the given source meta data or is a      * legacy checksum file. After the delete it pulls the latest metadata snapshot from the store and compares it      * to the given snapshot. If the snapshots are inconsistent an illegal state exception is thrown      *      * @param reason the reason for this cleanup operation logged for each deleted file      * @param sourceMetaData the metadata used for cleanup. all files in this metadata should be kept around.      * @throws IOException if an IOException occurs      * @throws ElasticsearchIllegalStateException if the latest snapshot in this store differs from the given one after the cleanup.      */
+comment|/**      * This method deletes every file in this store that is not contained in the given source meta data or is a      * legacy checksum file. After the delete it pulls the latest metadata snapshot from the store and compares it      * to the given snapshot. If the snapshots are inconsistent an illegal state exception is thrown      *      * @param reason         the reason for this cleanup operation logged for each deleted file      * @param sourceMetaData the metadata used for cleanup. all files in this metadata should be kept around.      * @throws IOException                        if an IOException occurs      * @throws ElasticsearchIllegalStateException if the latest snapshot in this store differs from the given one after the cleanup.      */
 DECL|method|cleanupAndVerify
 specifier|public
 name|void
@@ -3288,7 +3162,7 @@ name|storeFile
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Represents a snapshot of the current directory build from the latest Lucene commit.      * Only files that are part of the last commit are considered in this datastrucutre.      * For backwards compatibility the snapshot might include legacy checksums that      * are derived from a dedicated checksum file written by older elasticsearch version pre 1.3      *      * Note: This class will ignore the<tt>segments.gen</tt> file since it's optional and might      * change concurrently for safety reasons.      *      * @see StoreFileMetaData      */
+comment|/**      * Represents a snapshot of the current directory build from the latest Lucene commit.      * Only files that are part of the last commit are considered in this datastrucutre.      * For backwards compatibility the snapshot might include legacy checksums that      * are derived from a dedicated checksum file written by older elasticsearch version pre 1.3      *<p/>      * Note: This class will ignore the<tt>segments.gen</tt> file since it's optional and might      * change concurrently for safety reasons.      *      * @see StoreFileMetaData      */
 DECL|class|MetadataSnapshot
 specifier|public
 specifier|final
@@ -3824,7 +3698,7 @@ name|build
 argument_list|()
 return|;
 block|}
-comment|/**          * Reads legacy checksum files found in the directory.          *          * Files are expected to start with _checksums- prefix          * followed by long file version. Only file with the highest version is read, all other files are ignored.          *          * @param directory the directory to read checksums from          * @return a map of file checksums and the checksum file version          * @throws IOException          */
+comment|/**          * Reads legacy checksum files found in the directory.          *<p/>          * Files are expected to start with _checksums- prefix          * followed by long file version. Only file with the highest version is read, all other files are ignored.          *          * @param directory the directory to read checksums from          * @return a map of file checksums and the checksum file version          * @throws IOException          */
 DECL|method|readLegacyChecksums
 specifier|static
 name|Tuple
@@ -3972,7 +3846,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**          * Deletes all checksum files with version lower than newVersion.          *          * @param directory the directory to clean          * @param newVersion the latest checksum file version          * @throws IOException          */
+comment|/**          * Deletes all checksum files with version lower than newVersion.          *          * @param directory  the directory to clean          * @param newVersion the latest checksum file version          * @throws IOException          */
 DECL|method|cleanLegacyChecksums
 specifier|static
 name|void
@@ -4575,7 +4449,7 @@ name|SEGMENT_INFO_EXTENSION
 init|=
 literal|"si"
 decl_stmt|;
-comment|/**          * Returns a diff between the two snapshots that can be used for recovery. The given snapshot is treated as the          * recovery target and this snapshot as the source. The returned diff will hold a list of files that are:          *<ul>          *<li>identical: they exist in both snapshots and they can be considered the same ie. they don't need to be recovered</li>          *<li>different: they exist in both snapshots but their they are not identical</li>          *<li>missing: files that exist in the source but not in the target</li>          *</ul>          * This method groups file into per-segment files and per-commit files. A file is treated as          * identical if and on if all files in it's group are identical. On a per-segment level files for a segment are treated          * as identical iff:          *<ul>          *<li>all files in this segment have the same checksum</li>          *<li>all files in this segment have the same length</li>          *<li>the segments<tt>.si</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>.si</tt> file content as it's hash</li>          *</ul>          *          * The<tt>.si</tt> file contains a lot of diagnostics including a timestamp etc. in the future there might be          * unique segment identifiers in there hardening this method further.          *          * The per-commit files handles very similar. A commit is composed of the<tt>segments_N</tt> files as well as generational files like          * deletes (<tt>_x_y.del</tt>) or field-info (<tt>_x_y.fnm</tt>) files. On a per-commit level files for a commit are treated          * as identical iff:          *<ul>          *<li>all files belonging to this commit have the same checksum</li>          *<li>all files belonging to this commit have the same length</li>          *<li>the segments file<tt>segments_N</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>segments_N</tt> file content as it's hash</li>          *</ul>          *          * NOTE: this diff will not contain the<tt>segments.gen</tt> file. This file is omitted on recovery.          */
+comment|/**          * Returns a diff between the two snapshots that can be used for recovery. The given snapshot is treated as the          * recovery target and this snapshot as the source. The returned diff will hold a list of files that are:          *<ul>          *<li>identical: they exist in both snapshots and they can be considered the same ie. they don't need to be recovered</li>          *<li>different: they exist in both snapshots but their they are not identical</li>          *<li>missing: files that exist in the source but not in the target</li>          *</ul>          * This method groups file into per-segment files and per-commit files. A file is treated as          * identical if and on if all files in it's group are identical. On a per-segment level files for a segment are treated          * as identical iff:          *<ul>          *<li>all files in this segment have the same checksum</li>          *<li>all files in this segment have the same length</li>          *<li>the segments<tt>.si</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>.si</tt> file content as it's hash</li>          *</ul>          *<p/>          * The<tt>.si</tt> file contains a lot of diagnostics including a timestamp etc. in the future there might be          * unique segment identifiers in there hardening this method further.          *<p/>          * The per-commit files handles very similar. A commit is composed of the<tt>segments_N</tt> files as well as generational files like          * deletes (<tt>_x_y.del</tt>) or field-info (<tt>_x_y.fnm</tt>) files. On a per-commit level files for a commit are treated          * as identical iff:          *<ul>          *<li>all files belonging to this commit have the same checksum</li>          *<li>all files belonging to this commit have the same length</li>          *<li>the segments file<tt>segments_N</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>segments_N</tt> file content as it's hash</li>          *</ul>          *<p/>          * NOTE: this diff will not contain the<tt>segments.gen</tt> file. This file is omitted on recovery.          */
 DECL|method|recoveryDiff
 specifier|public
 name|RecoveryDiff
@@ -5246,7 +5120,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * A class representing the diff between a recovery source and recovery target      * @see MetadataSnapshot#recoveryDiff(org.elasticsearch.index.store.Store.MetadataSnapshot)      */
+comment|/**      * A class representing the diff between a recovery source and recovery target      *      * @see MetadataSnapshot#recoveryDiff(org.elasticsearch.index.store.Store.MetadataSnapshot)      */
 DECL|class|RecoveryDiff
 specifier|public
 specifier|static
@@ -5254,7 +5128,7 @@ specifier|final
 class|class
 name|RecoveryDiff
 block|{
-comment|/**          *  Files that exist in both snapshots and they can be considered the same ie. they don't need to be recovered          */
+comment|/**          * Files that exist in both snapshots and they can be considered the same ie. they don't need to be recovered          */
 DECL|field|identical
 specifier|public
 specifier|final
@@ -6060,7 +5934,7 @@ name|length
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Index input that calculates checksum as data is read from the input.      *      * This class supports random access (it is possible to seek backward and forward) in order to accommodate retry      * mechanism that is used in some repository plugins (S3 for example). However, the checksum is only calculated on      * the first read. All consecutive reads of the same data are not used to calculate the checksum.      */
+comment|/**      * Index input that calculates checksum as data is read from the input.      *<p/>      * This class supports random access (it is possible to seek backward and forward) in order to accommodate retry      * mechanism that is used in some repository plugins (S3 for example). However, the checksum is only calculated on      * the first read. All consecutive reads of the same data are not used to calculate the checksum.      */
 DECL|class|VerifyingIndexInput
 specifier|static
 class|class
@@ -6860,24 +6734,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * A listener that is called once this store is closed and all references are released      */
-DECL|interface|OnCloseListener
-specifier|public
-specifier|static
-interface|interface
-name|OnCloseListener
-block|{
-comment|/**          * Called once the store is closed and all references are released.          *          * @param shardId the shard ID the calling store belongs to.          */
-DECL|method|onClose
-specifier|public
-name|void
-name|onClose
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|)
-function_decl|;
 block|}
 block|}
 end_class

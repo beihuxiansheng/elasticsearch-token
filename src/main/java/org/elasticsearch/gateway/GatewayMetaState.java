@@ -354,7 +354,49 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|*
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentType
 import|;
 end_import
 
@@ -615,6 +657,15 @@ name|GATEWAY_DANGLING_TIMEOUT
 init|=
 literal|"gateway.dangling_timeout"
 decl_stmt|;
+DECL|field|GATEWAY_DELETE_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GATEWAY_DELETE_TIMEOUT
+init|=
+literal|"gateway.delete_timeout"
+decl_stmt|;
 DECL|field|GATEWAY_AUTO_IMPORT_DANGLED
 specifier|public
 specifier|static
@@ -844,6 +895,12 @@ specifier|private
 specifier|final
 name|TimeValue
 name|danglingTimeout
+decl_stmt|;
+DECL|field|deleteTimeout
+specifier|private
+specifier|final
+name|TimeValue
+name|deleteTimeout
 decl_stmt|;
 DECL|field|danglingIndices
 specifier|private
@@ -1141,15 +1198,43 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|deleteTimeout
+operator|=
+name|settings
+operator|.
+name|getAsTime
+argument_list|(
+name|GATEWAY_DELETE_TIMEOUT
+argument_list|,
+name|TimeValue
+operator|.
+name|timeValueSeconds
+argument_list|(
+literal|30
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using gateway.local.auto_import_dangled [{}], with gateway.dangling_timeout [{}]"
+literal|"using {} [{}],  {} [{}], with {} [{}]"
+argument_list|,
+name|GATEWAY_AUTO_IMPORT_DANGLED
 argument_list|,
 name|this
 operator|.
 name|autoImportDangled
+argument_list|,
+name|GATEWAY_DELETE_TIMEOUT
+argument_list|,
+name|this
+operator|.
+name|deleteTimeout
+argument_list|,
+name|GATEWAY_DANGLING_TIMEOUT
 argument_list|,
 name|this
 operator|.
@@ -1643,11 +1728,19 @@ name|idx
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// it may take a couple of seconds for outstanding shard reference
+comment|// to release their refs (for example, on going recoveries)
+comment|// we are working on a better solution see: https://github.com/elasticsearch/elasticsearch/pull/8608
 name|nodeEnv
 operator|.
 name|deleteIndexDirectorySafe
 argument_list|(
 name|idx
+argument_list|,
+name|deleteTimeout
+operator|.
+name|millis
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1892,7 +1985,7 @@ try|try
 block|{
 comment|// the index deletion might not have worked due to shards still being locked
 comment|// we have three cases here:
-comment|//  - we acquired all shards locks here --> we can import the dangeling index
+comment|//  - we acquired all shards locks here --> we can import the dangling index
 comment|//  - we failed to acquire the lock --> somebody else uses it - DON'T IMPORT
 comment|//  - we acquired successfully but the lock list is empty --> no shards present - DON'T IMPORT
 comment|// in the last case we should in-fact try to delete the directory since it might be a leftover...
@@ -1908,6 +2001,8 @@ operator|.
 name|lockAllForIndex
 argument_list|(
 name|index
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 if|if
@@ -1924,6 +2019,8 @@ operator|.
 name|deleteIndexDirectorySafe
 argument_list|(
 name|index
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -2019,6 +2116,8 @@ operator|.
 name|deleteIndexDirectorySafe
 argument_list|(
 name|index
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
@@ -3517,6 +3616,8 @@ operator|.
 name|deleteIndexDirectorySafe
 argument_list|(
 name|index
+argument_list|,
+literal|0
 argument_list|)
 expr_stmt|;
 block|}
