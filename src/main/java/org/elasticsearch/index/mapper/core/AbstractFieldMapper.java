@@ -288,6 +288,22 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchNoDocsFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|RegexpFilter
 import|;
 end_import
@@ -2627,6 +2643,43 @@ name|QueryParseContext
 name|context
 parameter_list|)
 block|{
+switch|switch
+condition|(
+name|values
+operator|.
+name|size
+argument_list|()
+condition|)
+block|{
+case|case
+literal|0
+case|:
+return|return
+operator|new
+name|MatchNoDocsFilter
+argument_list|()
+return|;
+case|case
+literal|1
+case|:
+comment|// When there is a single term, it's important to return a term filter so that
+comment|// it can return a DocIdSet that is directly backed by a postings list, instead
+comment|// of loading everything into a bit set and returning an iterator based on the
+comment|// bit set
+return|return
+name|termFilter
+argument_list|(
+name|values
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|context
+argument_list|)
+return|;
+default|default:
 name|BytesRef
 index|[]
 name|bytesRefs
@@ -2685,6 +2738,7 @@ argument_list|,
 name|bytesRefs
 argument_list|)
 return|;
+block|}
 block|}
 comment|/**      * A terms filter based on the field data cache      */
 annotation|@
