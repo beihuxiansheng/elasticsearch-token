@@ -1323,6 +1323,15 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"unexpected error"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
 name|threadException
 operator|.
 name|set
