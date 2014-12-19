@@ -1455,7 +1455,7 @@ block|}
 comment|//The client needs non static info to get initialized, therefore it can't be initialized in the before class
 name|restTestExecutionContext
 operator|.
-name|resetClient
+name|initClient
 argument_list|(
 name|cluster
 argument_list|()
@@ -1543,6 +1543,21 @@ name|esVersion
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|afterTestFailed
+specifier|protected
+name|void
+name|afterTestFailed
+parameter_list|()
+block|{
+comment|//after we reset the global cluster, we have to make sure the client gets re-initialized too
+name|restTestExecutionContext
+operator|.
+name|resetClient
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|buildSkipMessage

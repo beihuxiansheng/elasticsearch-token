@@ -1409,17 +1409,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-DECL|method|httpAddresses
-specifier|public
-name|InetSocketAddress
-index|[]
-name|httpAddresses
-parameter_list|()
-block|{
-return|return
-name|addresses
-return|;
-block|}
 comment|/**      * Closes the REST client and the underlying http client      */
 annotation|@
 name|Override

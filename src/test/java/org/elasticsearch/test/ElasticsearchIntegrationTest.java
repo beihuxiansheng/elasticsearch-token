@@ -4175,22 +4175,80 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-comment|// TODO: it looks like CurrentTestFailedMarker is never set at this point, so testFailed() will always be false?
 if|if
 condition|(
 operator|!
 name|success
-operator|||
-name|CurrentTestFailedMarker
+condition|)
+block|{
+comment|// if we failed here that means that something broke horribly so we should clear all clusters
+name|afterTestRule
 operator|.
-name|testFailed
+name|forceFailure
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|afterTestTask
+specifier|protected
+specifier|final
+name|AfterTestRule
+operator|.
+name|Task
+name|afterTestTask
+parameter_list|()
+block|{
+return|return
+operator|new
+name|AfterTestRule
+operator|.
+name|Task
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onTestFailed
+parameter_list|()
+block|{
+comment|//we can't clear clusters after failure when using suite scoped tests, as we would need to call again
+comment|//initializeSuiteScope but that is static and can only be called from beforeClass
+if|if
+condition|(
+name|runTestScopeLifecycle
 argument_list|()
 condition|)
 block|{
-comment|// if we failed that means that something broke horribly so we should
-comment|// clear all clusters. we also reset everything in the case we had a failure
-comment|// in the suite to make sure subsequent tests get a new / clean cluster
+comment|// If there was a problem during the afterTest, we clear all clusters.
+comment|// We do the same in case we just had a test failure to make sure subsequent
+comment|// tests get a new / clean cluster
+try|try
+block|{
 name|clearClusters
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"unable to clear clusters"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+name|afterTestFailed
 argument_list|()
 expr_stmt|;
 name|currentCluster
@@ -4198,6 +4256,20 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|onTestFinished
+parameter_list|()
+block|{
+if|if
+condition|(
+name|runTestScopeLifecycle
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|currentCluster
@@ -4206,11 +4278,30 @@ literal|null
 condition|)
 block|{
 comment|// this can be null if the test fails due to static initialization ie. missing parameter on the cmd
+try|try
+block|{
 name|currentCluster
 operator|.
 name|afterTest
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"error during afterTest"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|currentCluster
 operator|=
 literal|null
@@ -4218,6 +4309,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+return|;
+block|}
+comment|/**      * Allows to execute some additional task after a test is failed, right after we cleared the clusters      */
+DECL|method|afterTestFailed
+specifier|protected
+name|void
+name|afterTestFailed
+parameter_list|()
+block|{      }
 DECL|method|cluster
 specifier|public
 specifier|static
