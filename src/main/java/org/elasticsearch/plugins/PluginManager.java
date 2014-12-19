@@ -1488,7 +1488,9 @@ name|toLocation
 argument_list|)
 expr_stmt|;
 block|}
-name|Files
+try|try
+block|{
+name|FileSystemUtils
 operator|.
 name|move
 argument_list|(
@@ -1497,6 +1499,31 @@ argument_list|,
 name|toLocation
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Could not move ["
+operator|+
+name|binFile
+operator|+
+literal|"] to ["
+operator|+
+name|toLocation
+operator|+
+literal|"]"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|Files
