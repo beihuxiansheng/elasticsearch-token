@@ -489,7 +489,10 @@ argument_list|<
 name|Segment
 argument_list|>
 name|segments
-parameter_list|()
+parameter_list|(
+name|boolean
+name|verbose
+parameter_list|)
 function_decl|;
 comment|/**      * Returns<tt>true</tt> if a refresh is really needed.      */
 DECL|method|refreshNeeded
