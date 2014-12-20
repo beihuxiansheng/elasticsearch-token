@@ -3184,7 +3184,11 @@ literal|"object mapping for ["
 operator|+
 name|name
 operator|+
-literal|"] tried to parse as object, but found a concrete value"
+literal|"] tried to parse field ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] as object, but found a concrete value"
 argument_list|)
 throw|;
 block|}
@@ -3463,7 +3467,11 @@ literal|"object mapping for ["
 operator|+
 name|name
 operator|+
-literal|"] tried to parse as object, but got EOF, has a concrete value been provided to it?"
+literal|"] tried to parse field ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] as object, but got EOF, has a concrete value been provided to it?"
 argument_list|)
 throw|;
 block|}
