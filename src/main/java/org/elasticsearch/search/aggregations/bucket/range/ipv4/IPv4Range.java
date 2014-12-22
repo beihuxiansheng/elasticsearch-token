@@ -46,16 +46,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -80,18 +70,7 @@ extends|extends
 name|Range
 operator|.
 name|Bucket
-block|{
-DECL|method|getFromAsString
-name|String
-name|getFromAsString
-parameter_list|()
-function_decl|;
-DECL|method|getToAsString
-name|String
-name|getToAsString
-parameter_list|()
-function_decl|;
-block|}
+block|{      }
 annotation|@
 name|Override
 DECL|method|getBuckets

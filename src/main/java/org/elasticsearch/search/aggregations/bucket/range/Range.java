@@ -42,16 +42,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -85,10 +75,22 @@ name|Number
 name|getFrom
 parameter_list|()
 function_decl|;
-comment|/**          * @return  The upper bound of the range (excluding)          */
+comment|/**          * @return The string value for the lower bound of the range          */
+DECL|method|getFromAsString
+name|String
+name|getFromAsString
+parameter_list|()
+function_decl|;
+comment|/**          * @return The upper bound of the range (excluding)          */
 DECL|method|getTo
 name|Number
 name|getTo
+parameter_list|()
+function_decl|;
+comment|/**          * @return The string value for the upper bound of the range (excluding)          */
+DECL|method|getToAsString
+name|String
+name|getToAsString
 parameter_list|()
 function_decl|;
 block|}
