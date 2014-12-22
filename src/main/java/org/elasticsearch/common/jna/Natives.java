@@ -342,6 +342,20 @@ block|}
 block|}
 catch|catch
 parameter_list|(
+name|NoClassDefFoundError
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"JNA not found: native methods and handlers will be disabled."
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
 name|UnsatisfiedLinkError
 name|e
 parameter_list|)
