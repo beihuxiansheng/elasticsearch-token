@@ -30,7 +30,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
+name|metrics
+operator|.
+name|NumericMetricsAggregation
 import|;
 end_import
 
@@ -44,9 +46,11 @@ specifier|public
 interface|interface
 name|Stats
 extends|extends
-name|Aggregation
+name|NumericMetricsAggregation
+operator|.
+name|MultiValue
 block|{
-comment|/**      * @return The number of values that were aggregated      */
+comment|/**      * @return The number of values that were aggregated.      */
 DECL|method|getCount
 name|long
 name|getCount
@@ -74,6 +78,36 @@ comment|/**      * @return The sum of aggregated values.      */
 DECL|method|getSum
 name|double
 name|getSum
+parameter_list|()
+function_decl|;
+comment|/**      * @return The number of values that were aggregated as a String.      */
+DECL|method|getCountAsString
+name|String
+name|getCountAsString
+parameter_list|()
+function_decl|;
+comment|/**      * @return The minimum value of all aggregated values as a String.      */
+DECL|method|getMinAsString
+name|String
+name|getMinAsString
+parameter_list|()
+function_decl|;
+comment|/**      * @return The maximum value of all aggregated values as a String.      */
+DECL|method|getMaxAsString
+name|String
+name|getMaxAsString
+parameter_list|()
+function_decl|;
+comment|/**      * @return The avg value over all aggregated values as a String.      */
+DECL|method|getAvgAsString
+name|String
+name|getAvgAsString
+parameter_list|()
+function_decl|;
+comment|/**      * @return The sum of aggregated values as a String.      */
+DECL|method|getSumAsString
+name|String
+name|getSumAsString
 parameter_list|()
 function_decl|;
 block|}

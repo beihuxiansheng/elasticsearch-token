@@ -30,7 +30,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
+name|metrics
+operator|.
+name|NumericMetricsAggregation
 import|;
 end_import
 
@@ -44,7 +46,9 @@ specifier|public
 interface|interface
 name|Cardinality
 extends|extends
-name|Aggregation
+name|NumericMetricsAggregation
+operator|.
+name|SingleValue
 block|{
 comment|/**      * The number of unique terms.      */
 DECL|method|getValue

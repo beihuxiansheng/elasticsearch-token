@@ -233,6 +233,11 @@ argument_list|,
 name|context
 argument_list|)
 operator|.
+name|formattable
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

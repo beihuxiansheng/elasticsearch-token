@@ -286,6 +286,11 @@ argument_list|(
 name|parent
 argument_list|)
 argument_list|,
+name|config
+operator|.
+name|formatter
+argument_list|()
+argument_list|,
 name|context
 argument_list|,
 name|parent
@@ -374,6 +379,11 @@ name|precision
 argument_list|(
 name|parent
 argument_list|)
+argument_list|,
+name|config
+operator|.
+name|formatter
+argument_list|()
 argument_list|,
 name|context
 argument_list|,

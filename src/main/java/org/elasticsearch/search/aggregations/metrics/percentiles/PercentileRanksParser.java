@@ -106,6 +106,17 @@ name|PercentileRanksParser
 extends|extends
 name|AbstractPercentilesParser
 block|{
+DECL|method|PercentileRanksParser
+specifier|public
+name|PercentileRanksParser
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|type

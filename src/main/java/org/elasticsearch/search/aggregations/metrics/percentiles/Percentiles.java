@@ -30,7 +30,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|Aggregation
+name|metrics
+operator|.
+name|NumericMetricsAggregation
 import|;
 end_import
 
@@ -44,7 +46,9 @@ specifier|public
 interface|interface
 name|Percentiles
 extends|extends
-name|Aggregation
+name|NumericMetricsAggregation
+operator|.
+name|MultiValue
 extends|,
 name|Iterable
 argument_list|<
@@ -55,6 +59,15 @@ comment|/**      * Return the value associated with the provided percentile.    
 DECL|method|percentile
 name|double
 name|percentile
+parameter_list|(
+name|double
+name|percent
+parameter_list|)
+function_decl|;
+comment|/**      * Return the value associated with the provided percentile as a String.      */
+DECL|method|percentileAsString
+name|String
+name|percentileAsString
 parameter_list|(
 name|double
 name|percent

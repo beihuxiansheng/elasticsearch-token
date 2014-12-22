@@ -94,6 +94,17 @@ name|PercentilesParser
 extends|extends
 name|AbstractPercentilesParser
 block|{
+DECL|method|PercentilesParser
+specifier|public
+name|PercentilesParser
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 DECL|field|DEFAULT_PERCENTS
 specifier|private
 specifier|final

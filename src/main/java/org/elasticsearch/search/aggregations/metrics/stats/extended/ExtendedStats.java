@@ -70,6 +70,24 @@ name|double
 name|getStdDeviation
 parameter_list|()
 function_decl|;
+comment|/**      * The sum of the squares of the collected values as a String.      */
+DECL|method|getSumOfSquaresAsString
+name|String
+name|getSumOfSquaresAsString
+parameter_list|()
+function_decl|;
+comment|/**      * The variance of the collected values as a String.      */
+DECL|method|getVarianceAsString
+name|String
+name|getVarianceAsString
+parameter_list|()
+function_decl|;
+comment|/**      * The standard deviation of the collected values as a String.      */
+DECL|method|getStdDeviationAsString
+name|String
+name|getStdDeviationAsString
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

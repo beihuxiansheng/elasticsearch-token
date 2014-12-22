@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.metrics.min
+DECL|package|org.elasticsearch.search.aggregations.metrics
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|aggregations
 operator|.
 name|metrics
-operator|.
-name|min
 package|;
 end_package
 
@@ -30,32 +28,45 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|metrics
-operator|.
-name|NumericMetricsAggregation
+name|Aggregation
 import|;
 end_import
 
-begin_comment
-comment|/**  * An aggregation that computes the minimum of the values in the current bucket.  */
-end_comment
-
 begin_interface
-DECL|interface|Min
+DECL|interface|NumericMetricsAggregation
 specifier|public
 interface|interface
-name|Min
+name|NumericMetricsAggregation
+extends|extends
+name|Aggregation
+block|{
+DECL|interface|SingleValue
+specifier|public
+specifier|static
+interface|interface
+name|SingleValue
 extends|extends
 name|NumericMetricsAggregation
-operator|.
-name|SingleValue
 block|{
-comment|/**      * The minimum.      */
-DECL|method|getValue
+DECL|method|value
 name|double
-name|getValue
+name|value
 parameter_list|()
 function_decl|;
+DECL|method|getValueAsString
+name|String
+name|getValueAsString
+parameter_list|()
+function_decl|;
+block|}
+DECL|interface|MultiValue
+specifier|public
+specifier|static
+interface|interface
+name|MultiValue
+extends|extends
+name|NumericMetricsAggregation
+block|{     }
 block|}
 end_interface
 
