@@ -437,9 +437,6 @@ argument_list|(
 literal|0
 argument_list|,
 name|orientation
-operator|.
-name|getValue
-argument_list|()
 argument_list|,
 name|shell
 argument_list|,
@@ -478,9 +475,6 @@ operator|+
 literal|1
 argument_list|,
 name|orientation
-operator|.
-name|getValue
-argument_list|()
 argument_list|,
 name|shell
 argument_list|,
@@ -2577,7 +2571,7 @@ parameter_list|(
 name|int
 name|component
 parameter_list|,
-name|boolean
+name|Orientation
 name|orientation
 parameter_list|,
 name|BaseLineStringBuilder
@@ -2601,6 +2595,7 @@ name|offset
 parameter_list|)
 block|{
 comment|// inner rings (holes) have an opposite direction than the outer rings
+comment|// XOR will invert the orientation for outer ring cases (Truth Table:, T/T = F, T/F = T, F/T = T, F/F = F)
 name|boolean
 name|direction
 init|=
@@ -2608,12 +2603,13 @@ operator|(
 name|component
 operator|!=
 literal|0
+operator|^
+name|orientation
+operator|==
+name|Orientation
+operator|.
+name|RIGHT
 operator|)
-condition|?
-operator|!
-name|orientation
-else|:
-name|orientation
 decl_stmt|;
 comment|// set the points array accordingly (shell or hole)
 name|Coordinate
@@ -2649,6 +2645,10 @@ argument_list|,
 name|direction
 argument_list|,
 name|orientation
+operator|==
+name|Orientation
+operator|.
+name|LEFT
 argument_list|,
 name|shell
 argument_list|,
