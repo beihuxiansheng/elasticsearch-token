@@ -78,20 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|TransportAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterService
@@ -146,6 +132,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndexClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|IndexMissingException
 import|;
 end_import
@@ -159,30 +157,6 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|BaseTransportRequestHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportChannel
 import|;
 end_import
 
@@ -555,11 +529,12 @@ block|}
 catch|catch
 parameter_list|(
 name|IndexMissingException
+decl||
+name|IndexClosedException
 name|e
 parameter_list|)
 block|{
-comment|// ignore this, we will notify the search response if its really the case
-comment|// from the actual action
+comment|// ignore these failures, we will notify the search response if its really the case from the actual action
 block|}
 catch|catch
 parameter_list|(
