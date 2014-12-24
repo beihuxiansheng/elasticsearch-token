@@ -32,16 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -302,7 +292,7 @@ operator|!=
 literal|0
 return|;
 block|}
-comment|/**      * @return Whether to ignore if a wildcard expression resolves to no concrete indices.      *         The `_all` string or empty list of indices count as wildcard expressions too.      */
+comment|/**      * @return Whether to ignore if a wildcard expression resolves to no concrete indices.      *         The `_all` string or empty list of indices count as wildcard expressions too.      *         Also when an alias points to a closed index this option decides if no concrete indices      *         are allowed.      */
 DECL|method|allowNoIndices
 specifier|public
 name|boolean
