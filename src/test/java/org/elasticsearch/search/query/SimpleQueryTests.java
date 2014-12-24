@@ -19968,6 +19968,11 @@ argument_list|(
 literal|"index2"
 argument_list|)
 expr_stmt|;
+name|createIndex
+argument_list|(
+literal|"index3"
+argument_list|)
+expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
