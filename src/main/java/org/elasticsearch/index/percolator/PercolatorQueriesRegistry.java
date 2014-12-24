@@ -560,6 +560,14 @@ name|AbstractIndexShardComponent
 implements|implements
 name|Closeable
 block|{
+DECL|field|MAP_UNMAPPED_FIELDS_AS_STRING
+specifier|public
+specifier|final
+name|String
+name|MAP_UNMAPPED_FIELDS_AS_STRING
+init|=
+literal|"index.percolator.map_unmapped_fields_as_string"
+decl_stmt|;
 comment|// This is a shard level service, but these below are index level service:
 DECL|field|queryParserService
 specifier|private
@@ -660,6 +668,11 @@ name|AtomicBoolean
 argument_list|(
 literal|false
 argument_list|)
+decl_stmt|;
+DECL|field|mapUnmappedFieldsAsString
+specifier|private
+name|boolean
+name|mapUnmappedFieldsAsString
 decl_stmt|;
 DECL|field|cache
 specifier|private
@@ -784,6 +797,19 @@ operator|.
 name|shardPercolateService
 operator|=
 name|shardPercolateService
+expr_stmt|;
+name|this
+operator|.
+name|mapUnmappedFieldsAsString
+operator|=
+name|indexSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|MAP_UNMAPPED_FIELDS_AS_STRING
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 name|indicesLifecycle
 operator|.
@@ -1365,10 +1391,24 @@ comment|//
 comment|// Query parsing can't introduce new fields in mappings (which happens when registering a percolator query),
 comment|// because field type can't be inferred from queries (like document do) so the best option here is to disallow
 comment|// the usage of unmapped fields in percolator queries to avoid unexpected behaviour
+comment|//
+comment|// if index.percolator.map_unmapped_fields_as_string is set to true, query can contain unmapped fields which will be mapped
+comment|// as an analyzed string.
 name|context
 operator|.
 name|setAllowUnmappedFields
 argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|setMapUnmappedFieldAsString
+argument_list|(
+name|mapUnmappedFieldsAsString
+condition|?
+literal|true
+else|:
 literal|false
 argument_list|)
 expr_stmt|;
