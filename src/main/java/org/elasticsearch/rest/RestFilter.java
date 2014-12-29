@@ -26,15 +26,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|common
-operator|.
-name|component
-operator|.
-name|CloseableComponent
+name|Closeable
 import|;
 end_import
 
@@ -49,7 +45,7 @@ specifier|abstract
 class|class
 name|RestFilter
 implements|implements
-name|CloseableComponent
+name|Closeable
 block|{
 comment|/**      * Optionally, the order of the filter. Execution is done from lowest value to highest.      * It is a good practice to allow to configure this for the relevant filter.      */
 DECL|method|order

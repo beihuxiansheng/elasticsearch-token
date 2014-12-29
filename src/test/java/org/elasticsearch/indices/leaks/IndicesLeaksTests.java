@@ -380,7 +380,7 @@ name|shardInjector
 init|=
 name|indexService
 operator|.
-name|shardInjector
+name|shardInjectorSafe
 argument_list|(
 literal|0
 argument_list|)

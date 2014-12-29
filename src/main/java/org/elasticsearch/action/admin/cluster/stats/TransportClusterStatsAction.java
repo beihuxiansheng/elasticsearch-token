@@ -861,12 +861,6 @@ name|IndexService
 name|indexService
 range|:
 name|indicesService
-operator|.
-name|indices
-argument_list|()
-operator|.
-name|values
-argument_list|()
 control|)
 block|{
 for|for

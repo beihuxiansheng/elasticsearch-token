@@ -496,6 +496,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
 import|;
 end_import
@@ -547,6 +557,8 @@ class|class
 name|PercolatorQueriesRegistry
 extends|extends
 name|AbstractIndexShardComponent
+implements|implements
+name|Closeable
 block|{
 comment|// This is a shard level service, but these below are index level service:
 DECL|field|queryParserService

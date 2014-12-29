@@ -935,7 +935,7 @@ name|gatewayService
 init|=
 name|indexService
 operator|.
-name|shardInjector
+name|shardInjectorSafe
 argument_list|(
 name|request
 operator|.

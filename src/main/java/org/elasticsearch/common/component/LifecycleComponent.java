@@ -26,6 +26,30 @@ name|ElasticsearchException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lease
+operator|.
+name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -39,7 +63,7 @@ parameter_list|<
 name|T
 parameter_list|>
 extends|extends
-name|CloseableComponent
+name|Releasable
 block|{
 DECL|method|lifecycleState
 name|Lifecycle

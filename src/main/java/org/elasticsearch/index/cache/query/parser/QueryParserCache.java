@@ -56,23 +56,19 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|component
-operator|.
-name|CloseableComponent
+name|IndexComponent
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|io
 operator|.
-name|index
-operator|.
-name|IndexComponent
+name|Closeable
 import|;
 end_import
 
@@ -88,7 +84,7 @@ name|QueryParserCache
 extends|extends
 name|IndexComponent
 extends|,
-name|CloseableComponent
+name|Closeable
 block|{
 DECL|method|get
 name|Query

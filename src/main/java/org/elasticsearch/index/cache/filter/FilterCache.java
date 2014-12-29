@@ -66,20 +66,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|component
-operator|.
-name|CloseableComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|HashedBytesRef
@@ -110,6 +96,16 @@ name|IndexService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -122,7 +118,7 @@ name|FilterCache
 extends|extends
 name|IndexComponent
 extends|,
-name|CloseableComponent
+name|Closeable
 block|{
 DECL|class|EntriesStats
 specifier|static

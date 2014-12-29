@@ -134,7 +134,7 @@ DECL|method|ShardId
 specifier|private
 name|ShardId
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|ShardId
 specifier|public
 name|ShardId

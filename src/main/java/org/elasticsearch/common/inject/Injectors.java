@@ -1351,16 +1351,6 @@ return|return
 name|keyType
 return|;
 block|}
-DECL|method|close
-specifier|public
-specifier|static
-name|void
-name|close
-parameter_list|(
-name|Injector
-name|injector
-parameter_list|)
-block|{      }
 DECL|method|cleanCaches
 specifier|public
 specifier|static

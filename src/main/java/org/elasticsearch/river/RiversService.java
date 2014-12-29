@@ -1372,13 +1372,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|Injectors
-operator|.
-name|close
-argument_list|(
-name|injector
-argument_list|)
-expr_stmt|;
 block|}
 DECL|class|ApplyRivers
 specifier|private
