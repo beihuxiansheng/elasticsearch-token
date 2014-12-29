@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.operation.plain
+DECL|package|org.elasticsearch.cluster.routing
 package|package
 name|org
 operator|.
@@ -13,10 +13,6 @@ operator|.
 name|cluster
 operator|.
 name|routing
-operator|.
-name|operation
-operator|.
-name|plain
 package|;
 end_package
 
@@ -27,20 +23,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.operation.hash
+DECL|package|org.elasticsearch.cluster.routing
 package|package
 name|org
 operator|.
@@ -13,36 +13,43 @@ operator|.
 name|cluster
 operator|.
 name|routing
-operator|.
-name|operation
-operator|.
-name|hash
 package|;
 end_package
 
 begin_comment
-comment|/**  * Simple hash function interface used for shard routing.  */
+comment|/**  * This class implements a simple hash function based on Java Build-In {@link Object#hashCode()}  */
 end_comment
 
-begin_interface
-DECL|interface|HashFunction
+begin_class
+DECL|class|SimpleHashFunction
 specifier|public
-interface|interface
+class|class
+name|SimpleHashFunction
+implements|implements
 name|HashFunction
 block|{
-comment|/**      * Calculate a hash value for routing       * @param routing String to calculate the hash value from       * @return hash value of the given routing string      */
+annotation|@
+name|Override
 DECL|method|hash
+specifier|public
 name|int
 name|hash
 parameter_list|(
 name|String
 name|routing
 parameter_list|)
-function_decl|;
-comment|/**      * Calculate a hash value for routing and its type      * @param type types name      * @param routing String to calculate the hash value from       * @return hash value of the given type and routing string      */
+block|{
+return|return
+name|routing
+operator|.
+name|hashCode
+argument_list|()
+return|;
+block|}
 annotation|@
-name|Deprecated
+name|Override
 DECL|method|hash
+specifier|public
 name|int
 name|hash
 parameter_list|(
@@ -52,9 +59,23 @@ parameter_list|,
 name|String
 name|id
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|type
+operator|.
+name|hashCode
+argument_list|()
+operator|+
+literal|31
+operator|*
+name|id
+operator|.
+name|hashCode
+argument_list|()
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

@@ -186,12 +186,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|operation
-operator|.
-name|hash
-operator|.
-name|djb
-operator|.
 name|DjbHashFunction
 import|;
 end_import

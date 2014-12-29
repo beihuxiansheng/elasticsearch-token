@@ -88,8 +88,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|operation
-operator|.
 name|OperationRouting
 import|;
 end_import

@@ -106,10 +106,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|operation
-operator|.
-name|plain
-operator|.
 name|Preference
 import|;
 end_import

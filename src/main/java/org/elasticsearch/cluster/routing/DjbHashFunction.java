@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cluster.routing.operation.hash.djb
+DECL|package|org.elasticsearch.cluster.routing
 package|package
 name|org
 operator|.
@@ -13,12 +13,6 @@ operator|.
 name|cluster
 operator|.
 name|routing
-operator|.
-name|operation
-operator|.
-name|hash
-operator|.
-name|djb
 package|;
 end_package
 
@@ -31,10 +25,6 @@ operator|.
 name|cluster
 operator|.
 name|routing
-operator|.
-name|operation
-operator|.
-name|hash
 operator|.
 name|HashFunction
 import|;

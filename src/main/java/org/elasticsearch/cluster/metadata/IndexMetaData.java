@@ -140,10 +140,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|operation
-operator|.
-name|hash
-operator|.
 name|HashFunction
 import|;
 end_import
@@ -157,12 +153,6 @@ operator|.
 name|cluster
 operator|.
 name|routing
-operator|.
-name|operation
-operator|.
-name|hash
-operator|.
-name|murmur3
 operator|.
 name|Murmur3HashFunction
 import|;

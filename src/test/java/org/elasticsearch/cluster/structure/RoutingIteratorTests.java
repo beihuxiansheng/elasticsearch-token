@@ -196,11 +196,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|operation
-operator|.
-name|plain
-operator|.
-name|PlainOperationRouting
+name|OperationRouting
 import|;
 end_import
 
@@ -2703,11 +2699,11 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|PlainOperationRouting
+name|OperationRouting
 name|operationRouting
 init|=
 operator|new
-name|PlainOperationRouting
+name|OperationRouting
 argument_list|(
 name|ImmutableSettings
 operator|.
