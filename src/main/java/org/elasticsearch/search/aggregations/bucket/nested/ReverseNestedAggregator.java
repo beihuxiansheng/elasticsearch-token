@@ -331,6 +331,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -692,6 +694,8 @@ parameter_list|(
 name|long
 name|owningBucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -709,7 +713,7 @@ argument_list|(
 name|owningBucketOrdinal
 argument_list|)
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -733,7 +737,7 @@ argument_list|,
 name|buildEmptySubAggregations
 argument_list|()
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -804,8 +808,8 @@ parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
-name|long
-name|expectedBucketsCount
+name|boolean
+name|collectsFromSingleBucket
 parameter_list|,
 name|Map
 argument_list|<
@@ -815,6 +819,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// Early validation
 name|NestedAggregator
@@ -1004,6 +1010,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -1036,7 +1044,7 @@ argument_list|,
 name|buildEmptySubAggregations
 argument_list|()
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;

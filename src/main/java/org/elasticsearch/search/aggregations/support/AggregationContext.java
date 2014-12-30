@@ -274,6 +274,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -310,8 +320,6 @@ name|SuppressWarnings
 argument_list|(
 block|{
 literal|"unchecked"
-block|,
-literal|"ForLoopReplaceableByForEach"
 block|}
 argument_list|)
 DECL|class|AggregationContext
@@ -509,6 +517,8 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|this
 operator|.
@@ -608,6 +618,8 @@ parameter_list|,
 name|int
 name|depth
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|config
@@ -852,6 +864,8 @@ name|?
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|setScorerIfNeeded
 argument_list|(
@@ -931,6 +945,8 @@ name|?
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|ConfigCacheKey
@@ -1118,6 +1134,8 @@ name|?
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|ConfigCacheKey
@@ -1372,6 +1390,8 @@ name|?
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|setScorerIfNeeded
 argument_list|(
@@ -1447,6 +1467,8 @@ name|?
 argument_list|>
 name|config
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|ConfigCacheKey
@@ -1557,6 +1579,8 @@ parameter_list|(
 name|ReaderContextAware
 name|readerContextAware
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|setReaderIfNeeded
 argument_list|(
@@ -1601,6 +1625,8 @@ parameter_list|(
 name|ReaderContextAware
 name|readerAware
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(

@@ -60,22 +60,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|Aggregator
-operator|.
-name|BucketAggregationMode
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -150,6 +134,15 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+block|{
+comment|// no-op
+block|}
+specifier|public
+name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
 block|{
 comment|// no-op
 block|}
@@ -284,6 +277,8 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -299,6 +294,30 @@ name|setNextReader
 argument_list|(
 name|reader
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+for|for
+control|(
+name|BucketCollector
+name|collector
+range|:
+name|collectors
+control|)
+block|{
+name|collector
+operator|.
+name|preCollection
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -338,6 +357,8 @@ parameter_list|,
 name|long
 name|bucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -378,6 +399,16 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Pre collection callback.      */
+DECL|method|preCollection
+specifier|public
+specifier|abstract
+name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Post collection callback.      */
 DECL|method|postCollection
 specifier|public
@@ -401,6 +432,8 @@ parameter_list|,
 name|long
 name|bucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_class

@@ -28,9 +28,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|LeafReaderContext
+name|Explanation
 import|;
 end_import
 
@@ -38,13 +38,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
+operator|.
+name|common
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|Explanation
+name|ReaderContextAware
 import|;
 end_import
 
@@ -58,6 +58,8 @@ specifier|public
 specifier|abstract
 class|class
 name|ScoreFunction
+implements|implements
+name|ReaderContextAware
 block|{
 DECL|field|scoreCombiner
 specifier|private
@@ -65,16 +67,6 @@ specifier|final
 name|CombineFunction
 name|scoreCombiner
 decl_stmt|;
-DECL|method|setNextReader
-specifier|public
-specifier|abstract
-name|void
-name|setNextReader
-parameter_list|(
-name|LeafReaderContext
-name|context
-parameter_list|)
-function_decl|;
 DECL|method|score
 specifier|public
 specifier|abstract

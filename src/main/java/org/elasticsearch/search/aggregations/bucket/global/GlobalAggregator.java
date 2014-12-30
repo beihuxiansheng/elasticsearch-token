@@ -40,6 +40,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -133,6 +143,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -200,6 +212,8 @@ parameter_list|(
 name|long
 name|owningBucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|owningBucketOrdinal
@@ -224,7 +238,7 @@ argument_list|(
 name|owningBucketOrdinal
 argument_list|)
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -287,8 +301,8 @@ parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
-name|long
-name|expectedBucketsCount
+name|boolean
+name|collectsFromSingleBucket
 parameter_list|,
 name|Map
 argument_list|<
@@ -298,6 +312,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -325,6 +341,19 @@ name|name
 operator|+
 literal|"]. Global aggregations can only be defined as top level aggregations"
 argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|collectsFromSingleBucket
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|()
 throw|;
 block|}
 return|return

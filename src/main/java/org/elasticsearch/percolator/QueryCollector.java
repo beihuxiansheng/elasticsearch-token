@@ -433,6 +433,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|this
 operator|.
@@ -835,6 +837,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -864,6 +868,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -894,6 +900,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -923,6 +931,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -1076,6 +1086,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -1393,6 +1405,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -1694,6 +1708,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -2046,6 +2062,8 @@ parameter_list|,
 name|boolean
 name|isNestedDoc
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(

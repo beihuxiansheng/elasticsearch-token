@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|DocValues
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocValues
+name|LeafReaderContext
 import|;
 end_import
 
@@ -227,20 +227,6 @@ operator|.
 name|util
 operator|.
 name|LongHash
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|ToXContent
 import|;
 end_import
 
@@ -537,9 +523,6 @@ name|FieldData
 name|valuesSource
 parameter_list|,
 name|long
-name|estimatedBucketCount
-parameter_list|,
-name|long
 name|maxOrd
 parameter_list|,
 name|Terms
@@ -573,14 +556,14 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
 name|name
 argument_list|,
 name|factories
-argument_list|,
-name|maxOrd
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -608,6 +591,11 @@ operator|.
 name|includeExclude
 operator|=
 name|includeExclude
+expr_stmt|;
+name|grow
+argument_list|(
+name|maxOrd
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getBucketOrd
@@ -981,6 +969,8 @@ parameter_list|(
 name|long
 name|owningBucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -1472,7 +1462,7 @@ literal|0
 argument_list|,
 name|otherDocCount
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -1750,9 +1740,6 @@ name|FieldData
 name|valuesSource
 parameter_list|,
 name|long
-name|estimatedBucketCount
-parameter_list|,
-name|long
 name|maxOrd
 parameter_list|,
 name|Terms
@@ -1786,8 +1773,9 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-comment|// Set maxOrd to estimatedBucketCount! To be conservative with memory.
 name|super
 argument_list|(
 name|name
@@ -1796,9 +1784,7 @@ name|factories
 argument_list|,
 name|valuesSource
 argument_list|,
-name|estimatedBucketCount
-argument_list|,
-name|estimatedBucketCount
+literal|1
 argument_list|,
 name|order
 argument_list|,
@@ -1822,7 +1808,7 @@ operator|=
 operator|new
 name|LongHash
 argument_list|(
-name|estimatedBucketCount
+literal|1
 argument_list|,
 name|aggregationContext
 operator|.
@@ -2125,9 +2111,6 @@ name|FieldData
 name|valuesSource
 parameter_list|,
 name|long
-name|estimatedBucketCount
-parameter_list|,
-name|long
 name|maxOrd
 parameter_list|,
 name|Terms
@@ -2158,6 +2141,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -2166,8 +2151,6 @@ argument_list|,
 name|factories
 argument_list|,
 name|valuesSource
-argument_list|,
-name|estimatedBucketCount
 argument_list|,
 name|maxOrd
 argument_list|,

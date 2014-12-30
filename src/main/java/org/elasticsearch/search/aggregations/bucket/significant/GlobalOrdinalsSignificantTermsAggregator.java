@@ -271,9 +271,6 @@ name|FieldData
 name|valuesSource
 parameter_list|,
 name|long
-name|estimatedBucketCount
-parameter_list|,
-name|long
 name|maxOrd
 parameter_list|,
 name|BucketCountThresholds
@@ -299,6 +296,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -307,8 +306,6 @@ argument_list|,
 name|factories
 argument_list|,
 name|valuesSource
-argument_list|,
-name|estimatedBucketCount
 argument_list|,
 name|maxOrd
 argument_list|,
@@ -377,6 +374,8 @@ parameter_list|(
 name|long
 name|owningBucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 assert|assert
 name|owningBucketOrdinal
@@ -801,7 +800,7 @@ argument_list|(
 name|list
 argument_list|)
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -877,7 +876,7 @@ operator|>
 name|emptyList
 argument_list|()
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -931,9 +930,6 @@ operator|.
 name|FieldData
 name|valuesSource
 parameter_list|,
-name|long
-name|estimatedBucketCount
-parameter_list|,
 name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
@@ -957,6 +953,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -966,9 +964,7 @@ name|factories
 argument_list|,
 name|valuesSource
 argument_list|,
-name|estimatedBucketCount
-argument_list|,
-name|estimatedBucketCount
+literal|1
 argument_list|,
 name|bucketCountThresholds
 argument_list|,
@@ -988,7 +984,7 @@ operator|=
 operator|new
 name|LongHash
 argument_list|(
-name|estimatedBucketCount
+literal|1
 argument_list|,
 name|aggregationContext
 operator|.

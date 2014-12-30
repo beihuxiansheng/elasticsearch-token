@@ -48,6 +48,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|inject
@@ -133,6 +143,16 @@ operator|.
 name|internal
 operator|.
 name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -354,6 +374,8 @@ name|fields
 argument_list|()
 control|)
 block|{
+try|try
+block|{
 name|scriptField
 operator|.
 name|script
@@ -367,6 +389,23 @@ name|readerContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"IOException while calling setNextReader"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|scriptField
 operator|.
 name|script

@@ -30,6 +30,16 @@ name|LeafReaderContext
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -48,6 +58,8 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

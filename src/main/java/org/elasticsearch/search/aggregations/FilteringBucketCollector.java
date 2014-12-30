@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filters a collection stream of docIds and related buckets using a sorted   * list of valid bucket ordinals.  */
+comment|/**  * Filters a collection stream of docIds and related buckets using a sorted  * list of valid bucket ordinals.  */
 end_comment
 
 begin_class
@@ -142,7 +142,7 @@ specifier|final
 name|BucketCollector
 name|delegate
 decl_stmt|;
-comment|/**      *       * @param the  valid BucketOrds      * @param delegate The collector that will be called for any buckets listed in sortedBucketOrds      */
+comment|/**      *      * @param the  valid BucketOrds      * @param delegate The collector that will be called for any buckets listed in sortedBucketOrds      */
 DECL|method|FilteringBucketCollector
 specifier|public
 name|FilteringBucketCollector
@@ -216,6 +216,8 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|delegate
 operator|.
@@ -272,6 +274,22 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|preCollection
+specifier|public
+name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|delegate
+operator|.
+name|preCollection
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|postCollection
 specifier|public
 specifier|final
@@ -318,6 +336,8 @@ parameter_list|,
 name|long
 name|bucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|long
 name|ordinal

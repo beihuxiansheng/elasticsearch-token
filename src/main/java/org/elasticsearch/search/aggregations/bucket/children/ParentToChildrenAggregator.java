@@ -532,6 +532,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -626,6 +628,8 @@ parameter_list|(
 name|long
 name|owningBucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -643,7 +647,7 @@ argument_list|(
 name|owningBucketOrdinal
 argument_list|)
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -667,7 +671,7 @@ argument_list|,
 name|buildEmptySubAggregations
 argument_list|()
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -1195,13 +1199,6 @@ operator|.
 name|WithOrdinals
 operator|.
 name|ParentChild
-argument_list|,
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
 argument_list|>
 block|{
 DECL|field|parentType
@@ -1305,6 +1302,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -1337,7 +1336,7 @@ argument_list|,
 name|buildEmptySubAggregations
 argument_list|()
 argument_list|,
-name|getMetaData
+name|metaData
 argument_list|()
 argument_list|)
 return|;
@@ -1347,10 +1346,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|create
+DECL|method|doCreateInternal
 specifier|protected
 name|Aggregator
-name|create
+name|doCreateInternal
 parameter_list|(
 name|ValuesSource
 operator|.
@@ -1361,14 +1360,14 @@ operator|.
 name|ParentChild
 name|valuesSource
 parameter_list|,
-name|long
-name|expectedBucketsCount
-parameter_list|,
 name|AggregationContext
 name|aggregationContext
 parameter_list|,
 name|Aggregator
 name|parent
+parameter_list|,
+name|boolean
+name|collectsFromSingleBucket
 parameter_list|,
 name|Map
 argument_list|<
@@ -1378,6 +1377,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|long
 name|maxOrd

@@ -247,6 +247,8 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|recording
 operator|.
@@ -280,6 +282,22 @@ name|docId
 argument_list|,
 name|bucketOrdinal
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|preCollection
+specifier|public
+name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|recording
+operator|.
+name|preCollection
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -325,6 +343,8 @@ parameter_list|(
 name|LeafReaderContext
 name|reader
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 comment|// Need to set AggregationContext otherwise ValueSources in aggs
 comment|// don't read any values
@@ -372,6 +392,21 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|deferred
+operator|.
+name|preCollection
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
 name|postCollection
 parameter_list|()
 throws|throws
@@ -395,6 +430,8 @@ parameter_list|,
 name|long
 name|bucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|deferred
 operator|.
@@ -488,6 +525,8 @@ parameter_list|,
 name|long
 name|bucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|filteredCollector
 operator|.

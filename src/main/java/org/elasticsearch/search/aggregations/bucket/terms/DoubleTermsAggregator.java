@@ -194,6 +194,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -242,9 +252,6 @@ name|Nullable
 name|ValueFormat
 name|format
 parameter_list|,
-name|long
-name|estimatedBucketCount
-parameter_list|,
 name|Terms
 operator|.
 name|Order
@@ -278,6 +285,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -288,8 +297,6 @@ argument_list|,
 name|valuesSource
 argument_list|,
 name|format
-argument_list|,
-name|estimatedBucketCount
 argument_list|,
 name|order
 argument_list|,
@@ -342,6 +349,8 @@ parameter_list|(
 name|long
 name|owningBucketOrdinal
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 specifier|final
 name|LongTerms

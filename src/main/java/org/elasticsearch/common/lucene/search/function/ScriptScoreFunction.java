@@ -332,6 +332,8 @@ parameter_list|(
 name|LeafReaderContext
 name|ctx
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|script
 operator|.

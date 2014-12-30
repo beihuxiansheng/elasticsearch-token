@@ -345,9 +345,6 @@ parameter_list|,
 name|String
 name|name
 parameter_list|,
-name|long
-name|estimatedBucketsCount
-parameter_list|,
 name|AggregationContext
 name|context
 parameter_list|,
@@ -362,12 +359,12 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|estimatedBucketsCount
 argument_list|,
 name|context
 argument_list|,
@@ -388,7 +385,7 @@ operator|new
 name|LongObjectPagedHashMap
 argument_list|<>
 argument_list|(
-name|estimatedBucketsCount
+literal|1
 argument_list|,
 name|context
 operator|.
@@ -1085,8 +1082,8 @@ parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
-name|long
-name|expectedBucketsCount
+name|boolean
+name|collectsFromSingleBucket
 parameter_list|,
 name|Map
 argument_list|<
@@ -1096,6 +1093,8 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -1106,8 +1105,6 @@ argument_list|,
 name|subSearchContext
 argument_list|,
 name|name
-argument_list|,
-name|expectedBucketsCount
 argument_list|,
 name|aggregationContext
 argument_list|,

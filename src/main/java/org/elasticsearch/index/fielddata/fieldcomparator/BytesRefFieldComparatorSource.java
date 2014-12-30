@@ -334,6 +334,8 @@ parameter_list|(
 name|LeafReaderContext
 name|context
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 name|indexFieldData

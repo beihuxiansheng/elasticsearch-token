@@ -641,6 +641,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|preCollection
+specifier|public
+name|void
+name|preCollection
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// nothing to do
+block|}
+annotation|@
+name|Override
 DECL|method|postCollection
 specifier|public
 name|void

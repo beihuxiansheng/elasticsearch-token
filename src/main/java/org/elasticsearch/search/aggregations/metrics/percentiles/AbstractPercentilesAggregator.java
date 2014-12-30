@@ -316,9 +316,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|long
-name|estimatedBucketsCount
-parameter_list|,
 name|ValuesSource
 operator|.
 name|Numeric
@@ -353,12 +350,12 @@ name|Object
 argument_list|>
 name|metaData
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
 name|name
-argument_list|,
-name|estimatedBucketsCount
 argument_list|,
 name|context
 argument_list|,
@@ -393,7 +390,7 @@ name|bigArrays
 operator|.
 name|newObjectArray
 argument_list|(
-name|estimatedBucketsCount
+literal|1
 argument_list|)
 expr_stmt|;
 name|this
