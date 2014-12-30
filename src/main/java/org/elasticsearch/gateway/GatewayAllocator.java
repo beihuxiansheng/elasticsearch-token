@@ -2135,6 +2135,28 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{}: node [{}] has [{}/{}] bytes of re-usable data"
+argument_list|,
+name|shard
+argument_list|,
+name|discoNode
+operator|.
+name|name
+argument_list|()
+argument_list|,
+operator|new
+name|ByteSizeValue
+argument_list|(
+name|sizeMatched
+argument_list|)
+argument_list|,
+name|sizeMatched
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|sizeMatched
@@ -2203,7 +2225,7 @@ if|if
 condition|(
 name|logger
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
@@ -2669,6 +2691,25 @@ name|response
 control|)
 block|{
 comment|// -1 version means it does not exists, which is what the API returns, and what we expect to
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] on node [{}] has version [{}] of shard"
+argument_list|,
+name|shard
+argument_list|,
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|nodeShardState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|shardStates
 operator|.
 name|put

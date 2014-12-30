@@ -1453,10 +1453,9 @@ operator|&=
 name|legacy
 expr_stmt|;
 comment|// on purpose, see NOTE below
-name|files
-operator|.
-name|add
-argument_list|(
+name|PathAndVersion
+name|pav
+init|=
 operator|new
 name|PathAndVersion
 argument_list|(
@@ -1466,6 +1465,21 @@ name|version
 argument_list|,
 name|legacy
 argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"found state file: {}"
+argument_list|,
+name|pav
+argument_list|)
+expr_stmt|;
+name|files
+operator|.
+name|add
+argument_list|(
+name|pav
 argument_list|)
 expr_stmt|;
 block|}
@@ -1641,6 +1655,20 @@ argument_list|(
 name|stateFile
 argument_list|,
 name|version
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"state version [{}] read from [{}]"
+argument_list|,
+name|version
+argument_list|,
+name|stateFile
+operator|.
+name|getFileName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1842,6 +1870,31 @@ name|legacy
 operator|=
 name|legacy
 expr_stmt|;
+block|}
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"[version:"
+operator|+
+name|version
+operator|+
+literal|", legacy:"
+operator|+
+name|legacy
+operator|+
+literal|", file:"
+operator|+
+name|file
+operator|.
+name|toAbsolutePath
+argument_list|()
+operator|+
+literal|"]"
+return|;
 block|}
 block|}
 comment|/**      * Deletes all meta state directories recursively for the given data locations      * @param dataLocations the data location to delete      */

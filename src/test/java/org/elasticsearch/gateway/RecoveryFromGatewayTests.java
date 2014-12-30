@@ -3099,21 +3099,11 @@ argument_list|(
 name|indexSettings
 argument_list|()
 argument_list|)
-operator|.
-name|put
-argument_list|(
-name|EnableAllocationDecider
-operator|.
-name|INDEX_ROUTING_REBALANCE_ENABLE
-argument_list|,
-name|EnableAllocationDecider
-operator|.
-name|Rebalance
-operator|.
-name|NONE
 argument_list|)
 argument_list|)
-argument_list|)
+expr_stmt|;
+name|ensureGreen
+argument_list|()
 expr_stmt|;
 name|logger
 operator|.
@@ -3276,17 +3266,14 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
+name|get
 argument_list|()
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> shutting down the nodes"
+literal|"--> disabling allocation while the cluster is shut down"
 argument_list|)
 expr_stmt|;
 comment|// Disable allocations while we are closing nodes
@@ -3324,6 +3311,13 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> full cluster restart"
+argument_list|)
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
@@ -3334,7 +3328,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running Cluster Health"
+literal|"--> waiting for cluster to return to green after first shutdown"
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -3344,7 +3338,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> shutting down the nodes"
+literal|"--> disabling allocation while the cluster is shut down second time"
 argument_list|)
 expr_stmt|;
 comment|// Disable allocations while we are closing nodes
@@ -3382,6 +3376,13 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> full cluster restart"
+argument_list|)
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
@@ -3392,7 +3393,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Running Cluster Health"
+literal|"--> waiting for cluster to return to green after second shutdown"
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -3455,11 +3456,27 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> shard {}, recovered {}, reuse {}"
+literal|"--> replica shard {} recovered from {} to {}, recovered {}, reuse {}"
 argument_list|,
 name|response
 operator|.
 name|getShardId
+argument_list|()
+argument_list|,
+name|recoveryState
+operator|.
+name|getSourceNode
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|recoveryState
+operator|.
+name|getTargetNode
+argument_list|()
+operator|.
+name|name
 argument_list|()
 argument_list|,
 name|recoveryState
@@ -3481,6 +3498,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"no bytes should be recovered"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex
@@ -3497,6 +3516,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"data should have been reused"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex
@@ -3513,6 +3534,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"all bytes should be reused"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex
@@ -3535,6 +3558,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"no files should be recovered"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex
@@ -3551,6 +3576,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"all files should be reused"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex
@@ -3573,6 +3600,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"> 0 files should be reused"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex
@@ -3589,6 +3618,8 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"all bytes should be reused bytes"
+argument_list|,
 name|recoveryState
 operator|.
 name|getIndex

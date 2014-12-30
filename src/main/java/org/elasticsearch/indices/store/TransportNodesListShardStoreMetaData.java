@@ -1217,9 +1217,14 @@ name|shardLocations
 init|=
 name|nodeEnv
 operator|.
-name|shardPaths
+name|shardDataPaths
 argument_list|(
 name|shardId
+argument_list|,
+name|metaData
+operator|.
+name|settings
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Path
