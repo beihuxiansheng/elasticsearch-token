@@ -1959,10 +1959,21 @@ argument_list|,
 name|edges
 argument_list|)
 decl_stmt|;
+comment|// if no intersection is found then the hole is not within the polygon, so
+comment|// don't waste time calling a binary search
 specifier|final
 name|int
 name|pos
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|intersections
+operator|==
+literal|0
+operator|||
+operator|(
+name|pos
+operator|=
 name|Arrays
 operator|.
 name|binarySearch
@@ -1977,10 +1988,7 @@ name|current
 argument_list|,
 name|INTERSECTION_ORDER
 argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|pos
+operator|)
 operator|>=
 literal|0
 condition|)
