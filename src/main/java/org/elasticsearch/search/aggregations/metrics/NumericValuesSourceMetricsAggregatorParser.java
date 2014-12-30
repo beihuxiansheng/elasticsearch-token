@@ -218,16 +218,6 @@ name|name
 argument_list|()
 return|;
 block|}
-DECL|method|requiresSortedValues
-specifier|protected
-name|boolean
-name|requiresSortedValues
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|parse
