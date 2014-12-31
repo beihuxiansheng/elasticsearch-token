@@ -1151,6 +1151,8 @@ literal|"1"
 argument_list|)
 expr_stmt|;
 comment|// _score is comparable
+comment|// NOTE: it is important to use 0.0 instead of 0 instead Groovy will do an integer comparison
+comment|// and if the score if between 0 and 1 it will be considered equal to 0 due to the cast
 name|resp
 operator|=
 name|client
@@ -1177,7 +1179,7 @@ name|add
 argument_list|(
 name|scriptFunction
 argument_list|(
-literal|"_score> 0 ? _score : 0"
+literal|"_score> 0.0 ? _score : 0"
 argument_list|,
 literal|"groovy"
 argument_list|)
