@@ -2149,7 +2149,10 @@ literal|"test1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+comment|// we need to wait until all shards are allocated since recovery from
+comment|// gateway will fail unless the majority of the replicas was allocated
+comment|// pre-closing. with lots of replicas this will fail.
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|assertAcked
@@ -6427,7 +6430,7 @@ argument_list|,
 literal|"test2"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|verify
@@ -6611,7 +6614,7 @@ argument_list|,
 literal|"barbaz"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|verify
@@ -10952,7 +10955,7 @@ argument_list|,
 literal|"barbaz"
 argument_list|)
 expr_stmt|;
-name|ensureYellow
+name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|assertAcked
