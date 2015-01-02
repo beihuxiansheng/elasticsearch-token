@@ -628,7 +628,7 @@ init|=
 literal|"delete"
 decl_stmt|;
 DECL|field|ACTION_NAME
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
