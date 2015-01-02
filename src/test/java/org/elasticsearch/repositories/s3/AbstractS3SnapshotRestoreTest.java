@@ -3289,7 +3289,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"-->  creating azure repository without any path"
+literal|"-->  creating s3 repository without any path"
 argument_list|)
 expr_stmt|;
 name|PutRepositoryResponse
@@ -3300,11 +3300,6 @@ operator|.
 name|preparePutRepository
 argument_list|(
 literal|"test-repo"
-argument_list|)
-operator|.
-name|setType
-argument_list|(
-literal|"azure"
 argument_list|)
 operator|.
 name|setType
