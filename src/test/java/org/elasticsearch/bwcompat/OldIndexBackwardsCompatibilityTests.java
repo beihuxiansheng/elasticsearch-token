@@ -188,6 +188,22 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAcked
+import|;
+end_import
+
 begin_class
 DECL|class|OldIndexBackwardsCompatibilityTests
 specifier|public
@@ -207,6 +223,8 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
+comment|// not yet: until https://github.com/elasticsearch/elasticsearch/pull/9142
+comment|// "index-0.20.6.zip",
 literal|"index-0.90.0.zip"
 argument_list|,
 literal|"index-0.90.1.zip"
@@ -391,7 +409,7 @@ argument_list|()
 decl_stmt|;
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Found "
 operator|+
@@ -427,6 +445,8 @@ name|void
 name|assertRealtimeGetWorks
 parameter_list|()
 block|{
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -458,6 +478,7 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|SearchRequestBuilder
@@ -569,6 +590,8 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -600,6 +623,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|assertNewReplicasWork
@@ -613,9 +637,9 @@ name|numReplicas
 init|=
 name|randomIntBetween
 argument_list|(
-literal|1
-argument_list|,
 literal|2
+argument_list|,
+literal|3
 argument_list|)
 decl_stmt|;
 for|for
@@ -676,6 +700,8 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -703,8 +729,12 @@ literal|"number_of_replicas"
 argument_list|,
 name|numReplicas
 argument_list|)
+argument_list|)
 operator|.
-name|build
+name|execute
+argument_list|()
+operator|.
+name|actionGet
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -714,6 +744,8 @@ literal|"test"
 argument_list|)
 expr_stmt|;
 comment|// TODO: what is the proper way to wait for new replicas to recover?
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -741,8 +773,12 @@ literal|"number_of_replicas"
 argument_list|,
 literal|0
 argument_list|)
+argument_list|)
 operator|.
-name|build
+name|execute
+argument_list|()
+operator|.
+name|actionGet
 argument_list|()
 argument_list|)
 expr_stmt|;
