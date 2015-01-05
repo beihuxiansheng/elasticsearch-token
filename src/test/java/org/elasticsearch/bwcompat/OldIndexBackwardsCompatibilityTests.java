@@ -212,6 +212,8 @@ name|OldIndexBackwardsCompatibilityTests
 extends|extends
 name|StaticIndexBackwardCompatibilityTest
 block|{
+comment|// TODO: test for proper exception on unsupported indexes (maybe via separate test?)
+comment|// We have a 0.20.6.zip etc for this.
 DECL|field|indexes
 name|List
 argument_list|<
@@ -223,8 +225,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-comment|// not yet: until https://github.com/elasticsearch/elasticsearch/pull/9142
-comment|// "index-0.20.6.zip",
 literal|"index-0.90.0.zip"
 argument_list|,
 literal|"index-0.90.1.zip"
