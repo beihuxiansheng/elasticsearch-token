@@ -1997,7 +1997,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invaild shape: Hole is not within polygon"
+literal|"Invalid shape: Hole is not within polygon"
 argument_list|)
 throw|;
 block|}
