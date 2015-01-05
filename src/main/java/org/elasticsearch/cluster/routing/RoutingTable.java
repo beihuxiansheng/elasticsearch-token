@@ -508,8 +508,7 @@ argument_list|>
 name|shardsWithState
 parameter_list|(
 name|ShardRoutingState
-modifier|...
-name|states
+name|state
 parameter_list|)
 block|{
 name|List
@@ -537,7 +536,7 @@ name|indexRoutingTable
 operator|.
 name|shardsWithState
 argument_list|(
-name|states
+name|state
 argument_list|)
 argument_list|)
 expr_stmt|;

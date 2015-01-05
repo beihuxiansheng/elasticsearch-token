@@ -1101,7 +1101,7 @@ return|return
 name|counter
 return|;
 block|}
-comment|/**      * Returns a {@link List} of shards that match one of the states listed in {@link ShardRoutingState states}      *      * @param states a set of {@link ShardRoutingState states}      * @return a {@link List} of shards that match one of the given {@link ShardRoutingState states}      */
+comment|/**      * Returns a {@link List} of shards that match one of the states listed in {@link ShardRoutingState states}      *      * @param state {@link ShardRoutingState} to retrieve      * @return a {@link List} of shards that match one of the given {@link ShardRoutingState states}      */
 DECL|method|shardsWithState
 specifier|public
 name|List
@@ -1111,8 +1111,7 @@ argument_list|>
 name|shardsWithState
 parameter_list|(
 name|ShardRoutingState
-modifier|...
-name|states
+name|state
 parameter_list|)
 block|{
 name|List
@@ -1140,7 +1139,7 @@ name|shardRoutingTable
 operator|.
 name|shardsWithState
 argument_list|(
-name|states
+name|state
 argument_list|)
 argument_list|)
 expr_stmt|;
