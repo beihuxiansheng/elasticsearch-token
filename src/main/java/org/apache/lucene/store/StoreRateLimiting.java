@@ -267,7 +267,7 @@ name|rateLimiter
 expr_stmt|;
 name|actualRateLimiter
 operator|.
-name|setMbPerSec
+name|setMBPerSec
 argument_list|(
 name|rate
 operator|.
@@ -285,7 +285,7 @@ name|actualRateLimiter
 assert|;
 name|rateLimiter
 operator|.
-name|setMbPerSec
+name|setMBPerSec
 argument_list|(
 name|rate
 operator|.

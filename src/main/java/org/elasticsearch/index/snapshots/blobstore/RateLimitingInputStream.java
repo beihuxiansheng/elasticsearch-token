@@ -145,6 +145,8 @@ parameter_list|(
 name|int
 name|bytes
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|bytesSinceLastRateLimit
 operator|+=

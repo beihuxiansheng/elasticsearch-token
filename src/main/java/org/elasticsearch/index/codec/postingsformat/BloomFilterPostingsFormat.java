@@ -453,7 +453,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>
@@ -832,7 +832,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>
@@ -1467,11 +1467,13 @@ name|FieldsConsumer
 block|{
 DECL|field|delegateFieldsConsumer
 specifier|private
+specifier|final
 name|FieldsConsumer
 name|delegateFieldsConsumer
 decl_stmt|;
 DECL|field|bloomFilters
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|FieldInfo
@@ -1487,8 +1489,16 @@ argument_list|()
 decl_stmt|;
 DECL|field|state
 specifier|private
+specifier|final
 name|SegmentWriteState
 name|state
+decl_stmt|;
+DECL|field|closed
+specifier|private
+name|boolean
+name|closed
+init|=
+literal|false
 decl_stmt|;
 comment|// private PostingsFormat delegatePostingsFormat;
 DECL|method|BloomFilteredFieldsConsumer
@@ -1725,6 +1735,17 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+return|return;
+block|}
+name|closed
+operator|=
+literal|true
+expr_stmt|;
 name|delegateFieldsConsumer
 operator|.
 name|close

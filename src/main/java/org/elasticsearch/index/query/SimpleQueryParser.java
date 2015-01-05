@@ -806,11 +806,6 @@ name|termStr
 argument_list|)
 init|)
 block|{
-name|source
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|// Use the analyzer to get all the tokens, and then build a TermQuery,
 comment|// PhraseQuery, or nothing based on the term count
 name|CachingTokenFilter

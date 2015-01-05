@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -139,6 +129,26 @@ operator|.
 name|packed
 operator|.
 name|PackedInts
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -281,7 +291,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>

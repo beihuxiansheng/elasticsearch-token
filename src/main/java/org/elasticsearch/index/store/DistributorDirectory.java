@@ -163,6 +163,13 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|closed
+specifier|private
+name|boolean
+name|closed
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Creates a new DistributorDirectory from multiple directories. Note: The first directory in the given array      * is used as the primary directory holding the file locks as well as the SEGMENTS_GEN file. All remaining      * directories are used in a round robin fashion.      */
 DECL|method|DistributorDirectory
 specifier|public
@@ -606,6 +613,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|closed
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 assert|assert
@@ -615,6 +629,10 @@ assert|;
 block|}
 finally|finally
 block|{
+name|closed
+operator|=
+literal|true
+expr_stmt|;
 name|IOUtils
 operator|.
 name|close

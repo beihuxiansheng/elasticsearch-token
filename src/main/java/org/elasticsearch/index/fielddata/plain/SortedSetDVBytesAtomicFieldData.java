@@ -26,9 +26,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|util
+name|index
 operator|.
-name|Accountable
+name|DocValues
 import|;
 end_import
 
@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocValues
+name|RandomAccessOrds
 import|;
 end_import
 
@@ -68,9 +68,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|util
 operator|.
-name|RandomAccessOrds
+name|Accountable
 import|;
 end_import
 
@@ -119,6 +119,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -248,7 +258,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>

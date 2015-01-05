@@ -92,6 +92,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|Directory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -765,6 +779,9 @@ specifier|protected
 name|void
 name|handleMergeException
 parameter_list|(
+name|Directory
+name|dir
+parameter_list|,
 name|Throwable
 name|exc
 parameter_list|)
@@ -797,6 +814,8 @@ name|super
 operator|.
 name|handleMergeException
 argument_list|(
+name|dir
+argument_list|,
 name|exc
 argument_list|)
 expr_stmt|;
@@ -882,7 +901,10 @@ DECL|method|maybeStall
 specifier|protected
 name|void
 name|maybeStall
-parameter_list|()
+parameter_list|(
+name|IndexWriter
+name|writer
+parameter_list|)
 block|{
 comment|// Don't stall here, because we do our own index throttling (in InternalEngine.IndexThrottle) when merges can't keep up
 block|}

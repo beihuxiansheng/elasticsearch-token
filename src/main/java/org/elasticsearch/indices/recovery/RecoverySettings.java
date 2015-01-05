@@ -927,7 +927,7 @@ condition|)
 block|{
 name|rateLimiter
 operator|.
-name|setMbPerSec
+name|setMBPerSec
 argument_list|(
 name|maxSizePerSec
 operator|.

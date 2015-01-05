@@ -160,6 +160,16 @@ name|FieldMapper
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  * {@link org.elasticsearch.index.fielddata.IndexFieldData} impl based on global ordinals.  */
 end_comment
@@ -460,7 +470,7 @@ annotation|@
 name|Override
 DECL|method|getChildResources
 specifier|public
-name|Iterable
+name|Collection
 argument_list|<
 name|Accountable
 argument_list|>
