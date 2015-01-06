@@ -602,11 +602,10 @@ operator|!=
 literal|null
 operator|&&
 operator|(
-operator|(
 name|writtenBy
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|writtenBy
 operator|.
 name|onOrAfter
@@ -615,7 +614,6 @@ name|Version
 operator|.
 name|LUCENE_4_8
 argument_list|)
-operator|)
 operator|==
 literal|false
 operator|)
