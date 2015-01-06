@@ -384,6 +384,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|Transports
+operator|.
+name|assertTransportThread
+argument_list|()
+expr_stmt|;
 name|Object
 name|m
 init|=

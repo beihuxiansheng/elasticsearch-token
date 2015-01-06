@@ -46,6 +46,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|Transports
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -91,7 +103,11 @@ comment|/**  * An abstract implementation of the {@link com.google.common.util.c
 end_comment
 
 begin_comment
-comment|// Same as AbstractFuture from Guava, but without the listeners
+comment|// Same as AbstractFuture from Guava, but without the listeners and with
+end_comment
+
+begin_comment
+comment|// additional assertions
 end_comment
 
 begin_class
@@ -146,6 +162,13 @@ name|TimeoutException
 throws|,
 name|ExecutionException
 block|{
+name|Transports
+operator|.
+name|assertNotTransportThread
+argument_list|(
+literal|"Blocking operation"
+argument_list|)
+expr_stmt|;
 return|return
 name|sync
 operator|.
@@ -174,6 +197,13 @@ name|InterruptedException
 throws|,
 name|ExecutionException
 block|{
+name|Transports
+operator|.
+name|assertNotTransportThread
+argument_list|(
+literal|"Blocking operation"
+argument_list|)
+expr_stmt|;
 return|return
 name|sync
 operator|.
