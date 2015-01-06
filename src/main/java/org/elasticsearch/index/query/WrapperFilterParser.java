@@ -287,6 +287,13 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+name|parseContext
+operator|.
+name|combineNamedFilters
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 return|return
 name|result
 return|;
