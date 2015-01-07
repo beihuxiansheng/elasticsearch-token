@@ -1543,15 +1543,6 @@ return|;
 block|}
 block|}
 decl_stmt|;
-DECL|field|ALLOW_TYPE_WRAPPER
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|ALLOW_TYPE_WRAPPER
-init|=
-literal|"index.mapping.allow_type_wrapper"
-decl_stmt|;
 DECL|field|index
 specifier|private
 specifier|final
@@ -2892,43 +2883,6 @@ argument_list|(
 literal|"Malformed content, after first object, either the type field or the actual properties should exist"
 argument_list|)
 throw|;
-block|}
-comment|// first field is the same as the type, this might be because the
-comment|// type is provided, and the object exists within it or because
-comment|// there is a valid field that by chance is named as the type.
-comment|// Because of this, by default wrapping a document in a type is
-comment|// disabled, but can be enabled by setting
-comment|// index.mapping.allow_type_wrapper to true
-if|if
-condition|(
-name|type
-operator|.
-name|equals
-argument_list|(
-name|parser
-operator|.
-name|currentName
-argument_list|()
-argument_list|)
-operator|&&
-name|indexSettings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|ALLOW_TYPE_WRAPPER
-argument_list|,
-literal|false
-argument_list|)
-condition|)
-block|{
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
-name|countDownTokens
-operator|++
-expr_stmt|;
 block|}
 for|for
 control|(
