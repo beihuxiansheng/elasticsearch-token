@@ -2309,8 +2309,6 @@ operator|.
 name|addFieldMapperListener
 argument_list|(
 name|fieldMapperListener
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|ObjectMapperListener
@@ -2357,8 +2355,6 @@ operator|.
 name|addObjectMapperListener
 argument_list|(
 name|objectMapperListener
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 for|for
