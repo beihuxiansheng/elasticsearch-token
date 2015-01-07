@@ -516,9 +516,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|internal
-operator|.
-name|InternalEngineHolder
+name|EngineConfig
 import|;
 end_import
 
@@ -1236,9 +1234,9 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION_SETTING
 argument_list|,
 name|failOnCorruption
 argument_list|)
@@ -1293,9 +1291,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION_SETTING
 argument_list|,
 literal|true
 argument_list|)
@@ -2079,9 +2077,9 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION_SETTING
 argument_list|,
 literal|true
 argument_list|)
@@ -2869,9 +2867,9 @@ comment|// don't go crazy here it must recovery fast
 operator|.
 name|put
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION_SETTING
 argument_list|,
 literal|true
 argument_list|)
@@ -3709,9 +3707,9 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION_SETTING
 argument_list|,
 literal|true
 argument_list|)

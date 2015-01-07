@@ -166,9 +166,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|internal
-operator|.
-name|InternalEngineHolder
+name|EngineConfig
 import|;
 end_import
 
@@ -366,9 +364,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|warmer
-operator|.
-name|InternalIndicesWarmer
+name|IndicesWarmer
 import|;
 end_import
 
@@ -730,9 +726,9 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_INDEX_CONCURRENCY
+name|INDEX_CONCURRENCY_SETTING
 argument_list|,
 name|Validator
 operator|.
@@ -743,7 +739,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
 name|INDEX_COMPOUND_ON_FLUSH
 argument_list|,
@@ -756,9 +752,9 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_GC_DELETES
+name|INDEX_GC_DELETES_SETTING
 argument_list|,
 name|Validator
 operator|.
@@ -769,27 +765,27 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_CODEC
+name|INDEX_CODEC_SETTING
 argument_list|)
 expr_stmt|;
 name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_MERGE_FAILURE
+name|INDEX_FAIL_ON_MERGE_FAILURE_SETTING
 argument_list|)
 expr_stmt|;
 name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalEngineHolder
+name|EngineConfig
 operator|.
-name|INDEX_FAIL_ON_CORRUPTION
+name|INDEX_FAIL_ON_CORRUPTION_SETTING
 argument_list|)
 expr_stmt|;
 name|indexDynamicSettings
@@ -1162,7 +1158,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|InternalIndicesWarmer
+name|IndicesWarmer
 operator|.
 name|INDEX_WARMER_ENABLED
 argument_list|)

@@ -4559,9 +4559,6 @@ argument_list|)
 expr_stmt|;
 name|indexShard
 operator|.
-name|engine
-argument_list|()
-operator|.
 name|addFailedEngineListener
 argument_list|(
 name|failedEngineHandler

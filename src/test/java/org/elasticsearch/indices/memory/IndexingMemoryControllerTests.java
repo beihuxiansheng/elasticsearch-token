@@ -124,9 +124,7 @@ name|index
 operator|.
 name|engine
 operator|.
-name|internal
-operator|.
-name|InternalEngineHolder
+name|EngineConfig
 import|;
 end_import
 
@@ -371,15 +369,10 @@ name|input
 parameter_list|)
 block|{
 return|return
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -389,15 +382,10 @@ argument_list|()
 operator|<=
 name|expected2ShardsSize
 operator|&&
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard2
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -425,15 +413,10 @@ name|expected2ShardsSize
 operator|+
 literal|"] shard1 ["
 operator|+
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -443,15 +426,10 @@ argument_list|()
 operator|+
 literal|"] shard2  ["
 operator|+
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard2
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -502,15 +480,10 @@ name|input
 parameter_list|)
 block|{
 return|return
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -538,15 +511,10 @@ name|expected1ShardSize
 operator|+
 literal|"] got ["
 operator|+
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -660,15 +628,10 @@ name|input
 parameter_list|)
 block|{
 return|return
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -676,7 +639,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|==
-name|Engine
+name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 operator|.
@@ -697,21 +660,16 @@ name|fail
 argument_list|(
 literal|"failed to update shard indexing buffer size due to inactive state. expected ["
 operator|+
-name|Engine
+name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 operator|+
 literal|"] got ["
 operator|+
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -758,15 +716,10 @@ name|input
 parameter_list|)
 block|{
 return|return
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -774,7 +727,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|>
-name|Engine
+name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 operator|.
@@ -795,21 +748,16 @@ name|fail
 argument_list|(
 literal|"failed to update shard indexing buffer size due to inactive state. expected something larger then ["
 operator|+
-name|Engine
+name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 operator|+
 literal|"] got ["
 operator|+
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -847,15 +795,10 @@ name|input
 parameter_list|)
 block|{
 return|return
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()
@@ -863,7 +806,7 @@ operator|.
 name|bytes
 argument_list|()
 operator|==
-name|Engine
+name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 operator|.
@@ -884,21 +827,16 @@ name|fail
 argument_list|(
 literal|"failed to update shard indexing buffer size due to inactive state. expected ["
 operator|+
-name|Engine
+name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
 operator|+
 literal|"] got ["
 operator|+
-operator|(
-operator|(
-name|InternalEngineHolder
-operator|)
 name|shard1
 operator|.
 name|engine
 argument_list|()
-operator|)
 operator|.
 name|indexingBufferSize
 argument_list|()

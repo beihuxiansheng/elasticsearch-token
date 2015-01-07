@@ -816,9 +816,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
+name|shard
 operator|.
-name|EngineModule
+name|IndexShardModule
 import|;
 end_import
 
@@ -1026,7 +1026,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockEngineModule
+name|MockEngineFactory
 import|;
 end_import
 
@@ -2891,16 +2891,13 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|EngineModule
+name|IndexShardModule
 operator|.
-name|ENGINE_TYPE
+name|ENGINE_FACTORY
 argument_list|,
-name|MockEngineModule
+name|MockEngineFactory
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

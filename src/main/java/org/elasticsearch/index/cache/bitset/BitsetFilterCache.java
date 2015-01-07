@@ -426,9 +426,21 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|warmer
+name|IndicesWarmer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
 operator|.
 name|IndicesWarmer
+operator|.
+name|TerminationHandle
 import|;
 end_import
 
@@ -1477,6 +1489,8 @@ annotation|@
 name|Override
 DECL|method|warmNewReaders
 specifier|public
+name|IndicesWarmer
+operator|.
 name|TerminationHandle
 name|warmNewReaders
 parameter_list|(

@@ -660,8 +660,6 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|warmer
-operator|.
 name|IndicesWarmer
 import|;
 end_import
@@ -674,11 +672,23 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|warmer
-operator|.
 name|IndicesWarmer
 operator|.
 name|WarmerContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndicesWarmer
+operator|.
+name|TerminationHandle
 import|;
 end_import
 
