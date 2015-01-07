@@ -309,26 +309,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setParent
-specifier|public
-name|UpdateRequestBuilder
-name|setParent
-parameter_list|(
-name|String
-name|parent
-parameter_list|)
-block|{
-name|request
-operator|.
-name|parent
-argument_list|(
-name|parent
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p>      * The script works with the variable<code>ctx</code>, which is bound to the entry,      * e.g.<code>ctx._source.mycounter += 1</code>.      *      * @see #setScriptLang(String)      * @see #setScriptParams(Map)      */
 DECL|method|setScript
 specifier|public

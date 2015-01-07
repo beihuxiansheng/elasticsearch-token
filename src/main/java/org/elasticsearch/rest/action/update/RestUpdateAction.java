@@ -424,19 +424,6 @@ argument_list|)
 expr_stmt|;
 name|updateRequest
 operator|.
-name|parent
-argument_list|(
-name|request
-operator|.
-name|param
-argument_list|(
-literal|"parent"
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// order is important, set it after routing, so it will set the routing
-name|updateRequest
-operator|.
 name|timeout
 argument_list|(
 name|request
