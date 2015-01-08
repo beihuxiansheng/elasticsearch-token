@@ -894,6 +894,9 @@ name|shardInfo
 operator|.
 name|status
 argument_list|()
+operator|.
+name|getStatus
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -989,6 +992,9 @@ name|shardInfo
 operator|.
 name|status
 argument_list|()
+operator|.
+name|getStatus
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,6 +1056,9 @@ argument_list|,
 name|shardInfo
 operator|.
 name|status
+argument_list|()
+operator|.
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;
