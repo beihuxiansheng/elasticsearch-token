@@ -791,6 +791,14 @@ block|}
 block|}
 else|else
 block|{
+comment|// notify with response before we process it and before we remove information about it.
+name|transportServiceAdapter
+operator|.
+name|onResponseReceived
+argument_list|(
+name|requestId
+argument_list|)
+expr_stmt|;
 name|TransportResponseHandler
 name|handler
 init|=
@@ -1336,6 +1344,15 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
+name|transportServiceAdapter
+operator|.
+name|onRequestReceived
+argument_list|(
+name|requestId
+argument_list|,
+name|action
+argument_list|)
+expr_stmt|;
 specifier|final
 name|NettyTransportChannel
 name|transportChannel
@@ -1344,6 +1361,8 @@ operator|new
 name|NettyTransportChannel
 argument_list|(
 name|transport
+argument_list|,
+name|transportServiceAdapter
 argument_list|,
 name|action
 argument_list|,
