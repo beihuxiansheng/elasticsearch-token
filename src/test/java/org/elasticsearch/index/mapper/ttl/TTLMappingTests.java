@@ -570,6 +570,9 @@ name|tokenStream
 argument_list|(
 name|docMapper
 operator|.
+name|mappers
+argument_list|()
+operator|.
 name|indexAnalyzer
 argument_list|()
 argument_list|,

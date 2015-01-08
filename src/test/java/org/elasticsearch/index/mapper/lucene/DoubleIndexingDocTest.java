@@ -379,6 +379,9 @@ argument_list|()
 argument_list|,
 name|mapper
 operator|.
+name|mappers
+argument_list|()
+operator|.
 name|indexAnalyzer
 argument_list|()
 argument_list|)
@@ -393,6 +396,9 @@ name|rootDoc
 argument_list|()
 argument_list|,
 name|mapper
+operator|.
+name|mappers
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()

@@ -1030,6 +1030,12 @@ specifier|final
 name|DocumentMapper
 name|docMapper
 decl_stmt|;
+DECL|field|analyzer
+specifier|private
+specifier|final
+name|Analyzer
+name|analyzer
+decl_stmt|;
 DECL|field|uid
 specifier|private
 specifier|final
@@ -1083,6 +1089,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1110,6 +1119,12 @@ operator|.
 name|docMapper
 operator|=
 name|docMapper
+expr_stmt|;
+name|this
+operator|.
+name|analyzer
+operator|=
+name|analyzer
 expr_stmt|;
 name|this
 operator|.
@@ -1161,6 +1176,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1171,6 +1189,8 @@ block|{
 name|this
 argument_list|(
 name|docMapper
+argument_list|,
+name|analyzer
 argument_list|,
 name|uid
 argument_list|,
@@ -1426,13 +1446,9 @@ name|analyzer
 parameter_list|()
 block|{
 return|return
-name|docMapper
+name|this
 operator|.
-name|mappers
-argument_list|()
-operator|.
-name|indexAnalyzer
-argument_list|()
+name|analyzer
 return|;
 block|}
 DECL|method|source
@@ -1514,6 +1530,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1542,6 +1561,8 @@ block|{
 name|super
 argument_list|(
 name|docMapper
+argument_list|,
+name|analyzer
 argument_list|,
 name|uid
 argument_list|,
@@ -1572,6 +1593,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1594,6 +1618,8 @@ block|{
 name|this
 argument_list|(
 name|docMapper
+argument_list|,
+name|analyzer
 argument_list|,
 name|uid
 argument_list|,
@@ -1620,6 +1646,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1630,6 +1659,8 @@ block|{
 name|super
 argument_list|(
 name|docMapper
+argument_list|,
+name|analyzer
 argument_list|,
 name|uid
 argument_list|,
@@ -1688,6 +1719,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1714,6 +1748,8 @@ name|super
 argument_list|(
 name|docMapper
 argument_list|,
+name|analyzer
+argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -1736,6 +1772,9 @@ name|Index
 parameter_list|(
 name|DocumentMapper
 name|docMapper
+parameter_list|,
+name|Analyzer
+name|analyzer
 parameter_list|,
 name|Term
 name|uid
@@ -1760,6 +1799,8 @@ name|super
 argument_list|(
 name|docMapper
 argument_list|,
+name|analyzer
+argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -1783,6 +1824,9 @@ parameter_list|(
 name|DocumentMapper
 name|docMapper
 parameter_list|,
+name|Analyzer
+name|analyzer
+parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -1793,6 +1837,8 @@ block|{
 name|super
 argument_list|(
 name|docMapper
+argument_list|,
+name|analyzer
 argument_list|,
 name|uid
 argument_list|,
