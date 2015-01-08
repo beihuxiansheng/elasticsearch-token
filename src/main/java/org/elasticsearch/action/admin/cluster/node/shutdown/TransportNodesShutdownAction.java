@@ -517,6 +517,7 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+comment|// Stopping a node impacts the cluster state, so we check for the METADATA_WRITE block here
 return|return
 name|state
 operator|.
@@ -527,7 +528,7 @@ name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 return|;
 block|}

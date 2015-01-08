@@ -728,7 +728,7 @@ name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 return|;
 block|}
@@ -760,7 +760,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|,
 name|concreteIndices
 argument_list|)

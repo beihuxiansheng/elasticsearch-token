@@ -346,6 +346,36 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+comment|// Restoring a snapshot might change the global state and create/change an index,
+comment|// so we need to check for METADATA_WRITE and WRITE blocks
+name|ClusterBlockException
+name|blockException
+init|=
+name|state
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|indexBlockedException
+argument_list|(
+name|ClusterBlockLevel
+operator|.
+name|METADATA_WRITE
+argument_list|,
+literal|""
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|blockException
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|blockException
+return|;
+block|}
 return|return
 name|state
 operator|.
@@ -356,7 +386,7 @@ name|indexBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|WRITE
 argument_list|,
 literal|""
 argument_list|)

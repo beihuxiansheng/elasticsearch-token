@@ -434,7 +434,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|,
 name|state
 operator|.
