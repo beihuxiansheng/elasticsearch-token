@@ -645,13 +645,13 @@ operator|.
 name|getNodes
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|1
-argument_list|,
 name|nodes
 operator|.
 name|length
+operator|>
+literal|0
 argument_list|)
 expr_stmt|;
 return|return

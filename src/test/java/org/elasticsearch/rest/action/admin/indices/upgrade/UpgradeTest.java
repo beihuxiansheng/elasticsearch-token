@@ -1257,6 +1257,7 @@ name|path
 return|;
 block|}
 DECL|method|assertNotUpgraded
+specifier|public
 specifier|static
 name|void
 name|assertNotUpgraded
@@ -1344,6 +1345,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|assertUpgraded
+specifier|public
 specifier|static
 name|void
 name|assertUpgraded
@@ -1682,6 +1684,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|runUpgrade
+specifier|public
 specifier|static
 name|void
 name|runUpgrade
