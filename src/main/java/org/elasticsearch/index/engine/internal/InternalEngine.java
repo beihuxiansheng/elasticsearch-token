@@ -5528,6 +5528,9 @@ name|waitForMerges
 parameter_list|(
 name|boolean
 name|flushAfter
+parameter_list|,
+name|boolean
+name|upgrade
 parameter_list|)
 block|{
 try|try
@@ -5593,6 +5596,21 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|upgrade
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Finished upgrade of "
+operator|+
+name|shardId
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -5629,6 +5647,7 @@ specifier|public
 name|void
 name|forceMerge
 parameter_list|(
+specifier|final
 name|boolean
 name|flush
 parameter_list|,
@@ -5641,6 +5660,7 @@ parameter_list|,
 name|boolean
 name|onlyExpungeDeletes
 parameter_list|,
+specifier|final
 name|boolean
 name|upgrade
 parameter_list|)
@@ -5709,6 +5729,15 @@ condition|(
 name|upgrade
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Starting upgrade of "
+operator|+
+name|shardId
+argument_list|)
+expr_stmt|;
 operator|(
 operator|(
 name|ElasticsearchMergePolicy
@@ -5805,6 +5834,8 @@ block|{
 name|waitForMerges
 argument_list|(
 name|flush
+argument_list|,
+name|upgrade
 argument_list|)
 expr_stmt|;
 block|}
@@ -5812,6 +5843,8 @@ elseif|else
 if|if
 condition|(
 name|flush
+operator|||
+name|upgrade
 condition|)
 block|{
 comment|// we only need to monitor merges for async calls if we are going to flush
@@ -5866,7 +5899,9 @@ name|Exception
 block|{
 name|waitForMerges
 argument_list|(
-literal|true
+name|flush
+argument_list|,
+name|upgrade
 argument_list|)
 expr_stmt|;
 block|}
