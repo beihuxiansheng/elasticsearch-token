@@ -513,7 +513,7 @@ operator|.
 name|next
 argument_list|()
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|Matchers
@@ -564,7 +564,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|Matchers
@@ -589,7 +589,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|Matchers

@@ -334,7 +334,71 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|*
+name|count
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|filter
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|nested
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|reverseNested
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|terms
 import|;
 end_import
 
@@ -350,7 +414,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
 import|;
 end_import
 
@@ -390,11 +454,51 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|sameInstance
 import|;
 end_import
 
@@ -1461,7 +1565,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1585,7 +1689,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1621,7 +1725,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1657,7 +1761,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1693,7 +1797,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1729,7 +1833,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1765,7 +1869,7 @@ argument_list|(
 literal|5
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1806,7 +1910,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1886,7 +1990,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1922,7 +2026,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1958,7 +2062,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1994,7 +2098,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2030,7 +2134,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2071,7 +2175,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2151,7 +2255,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2187,7 +2291,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2223,7 +2327,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2259,7 +2363,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2295,7 +2399,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2336,7 +2440,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2416,7 +2520,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2452,7 +2556,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2488,7 +2592,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2529,7 +2633,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2609,7 +2713,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2645,7 +2749,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2681,7 +2785,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2722,7 +2826,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2802,7 +2906,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2838,7 +2942,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2874,7 +2978,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2910,7 +3014,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2951,7 +3055,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3031,7 +3135,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3067,7 +3171,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3103,7 +3207,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3139,7 +3243,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3180,7 +3284,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3260,7 +3364,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3296,7 +3400,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3332,7 +3436,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3368,7 +3472,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3409,7 +3513,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3489,7 +3593,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3525,7 +3629,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3561,7 +3665,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3597,7 +3701,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4084,7 +4188,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4185,7 +4289,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4221,7 +4325,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4261,7 +4365,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4354,7 +4458,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4390,7 +4494,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4426,7 +4530,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4462,7 +4566,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4502,7 +4606,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4595,7 +4699,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4631,7 +4735,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4667,7 +4771,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4703,7 +4807,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4743,7 +4847,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4836,7 +4940,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4872,7 +4976,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4894,7 +4998,7 @@ name|assertThat
 argument_list|(
 name|bucket
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4987,7 +5091,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -5023,7 +5127,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo

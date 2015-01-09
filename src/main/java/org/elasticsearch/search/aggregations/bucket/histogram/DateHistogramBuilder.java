@@ -225,9 +225,7 @@ specifier|public
 name|DateHistogramBuilder
 name|interval
 parameter_list|(
-name|DateHistogram
-operator|.
-name|Interval
+name|DateHistogramInterval
 name|interval
 parameter_list|)
 block|{
@@ -247,7 +245,7 @@ specifier|public
 name|DateHistogramBuilder
 name|order
 parameter_list|(
-name|DateHistogram
+name|Histogram
 operator|.
 name|Order
 name|order

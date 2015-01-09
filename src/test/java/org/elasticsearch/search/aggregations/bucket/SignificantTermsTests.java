@@ -436,7 +436,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
@@ -852,6 +876,9 @@ decl_stmt|;
 name|Number
 name|topCategory
 init|=
+operator|(
+name|Number
+operator|)
 name|topTerms
 operator|.
 name|getBuckets
@@ -863,7 +890,7 @@ operator|.
 name|next
 argument_list|()
 operator|.
-name|getKeyAsNumber
+name|getKey
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1000,6 +1027,9 @@ decl_stmt|;
 name|Number
 name|topCategory
 init|=
+operator|(
+name|Number
+operator|)
 name|topTerms
 operator|.
 name|getBuckets
@@ -1011,7 +1041,7 @@ operator|.
 name|next
 argument_list|()
 operator|.
-name|getKeyAsNumber
+name|getKey
 argument_list|()
 decl_stmt|;
 name|assertTrue
@@ -1132,7 +1162,7 @@ name|add
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1324,7 +1354,7 @@ name|add
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1468,7 +1498,7 @@ name|add
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1660,7 +1690,7 @@ name|add
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2450,7 +2480,7 @@ name|add
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2676,7 +2706,7 @@ name|add
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2693,7 +2723,7 @@ name|parseInt
 argument_list|(
 name|topCategory
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|)
 operator|-
@@ -2872,7 +2902,7 @@ name|put
 argument_list|(
 name|topTerm
 operator|.
-name|getKey
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|topTerm

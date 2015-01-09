@@ -206,8 +206,6 @@ name|InternalGeoDistance
 operator|.
 name|Bucket
 argument_list|>
-implements|implements
-name|GeoDistance
 block|{
 DECL|field|TYPE
 specifier|public
@@ -427,10 +425,6 @@ class|class
 name|Bucket
 extends|extends
 name|InternalRange
-operator|.
-name|Bucket
-implements|implements
-name|GeoDistance
 operator|.
 name|Bucket
 block|{

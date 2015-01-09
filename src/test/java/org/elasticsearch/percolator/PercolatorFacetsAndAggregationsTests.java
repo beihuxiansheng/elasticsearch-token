@@ -844,10 +844,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getKeyAsText
-argument_list|()
-operator|.
-name|string
+name|getKeyAsString
 argument_list|()
 argument_list|,
 name|equalTo

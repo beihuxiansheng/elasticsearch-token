@@ -208,7 +208,39 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|*
+name|histogram
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|missing
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|terms
 import|;
 end_import
 
@@ -633,10 +665,15 @@ name|values
 operator|.
 name|remove
 argument_list|(
+operator|(
+operator|(
+name|Number
+operator|)
 name|bucket
 operator|.
-name|getKeyAsNumber
+name|getKey
 argument_list|()
+operator|)
 operator|.
 name|intValue
 argument_list|()

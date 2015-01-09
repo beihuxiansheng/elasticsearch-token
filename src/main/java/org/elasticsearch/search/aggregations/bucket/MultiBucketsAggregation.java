@@ -42,20 +42,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|text
-operator|.
-name|Text
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|Comparators
@@ -140,16 +126,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -178,16 +154,16 @@ name|ToXContent
 extends|,
 name|Streamable
 block|{
-comment|/**          * @return  The key associated with the bucket as a string          */
+comment|/**          * @return The key associated with the bucket          */
 DECL|method|getKey
-name|String
+name|Object
 name|getKey
 parameter_list|()
 function_decl|;
-comment|/**          * @return  The key associated with the bucket as text (ideal for further streaming this instance)          */
-DECL|method|getKeyAsText
-name|Text
-name|getKeyAsText
+comment|/**          * @return The key associated with the bucket as a string          */
+DECL|method|getKeyAsString
+name|String
+name|getKeyAsString
 parameter_list|()
 function_decl|;
 comment|/**          * @return The number of documents that fall within this bucket          */
@@ -355,20 +331,6 @@ name|Bucket
 argument_list|>
 name|getBuckets
 parameter_list|()
-function_decl|;
-comment|/**      * The bucket that is associated with the given key.      *      * @param key   The key of the requested bucket.      * @return      The bucket      */
-DECL|method|getBucketByKey
-parameter_list|<
-name|B
-extends|extends
-name|Bucket
-parameter_list|>
-name|B
-name|getBucketByKey
-parameter_list|(
-name|String
-name|key
-parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -355,10 +355,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKeyAsText
-argument_list|()
-operator|.
-name|string
+name|getKeyAsString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -564,10 +561,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKeyAsText
-argument_list|()
-operator|.
-name|string
+name|getKeyAsString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -775,10 +769,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKeyAsText
-argument_list|()
-operator|.
-name|string
+name|getKeyAsString
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1192,10 +1183,7 @@ name|get
 argument_list|(
 name|bucket
 operator|.
-name|getKeyAsText
-argument_list|()
-operator|.
-name|string
+name|getKeyAsString
 argument_list|()
 argument_list|)
 argument_list|)

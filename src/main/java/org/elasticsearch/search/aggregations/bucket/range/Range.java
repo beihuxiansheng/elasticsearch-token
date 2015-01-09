@@ -71,7 +71,7 @@ name|Bucket
 block|{
 comment|/**          * @return  The lower bound of the range          */
 DECL|method|getFrom
-name|Number
+name|Object
 name|getFrom
 parameter_list|()
 function_decl|;
@@ -83,7 +83,7 @@ parameter_list|()
 function_decl|;
 comment|/**          * @return The upper bound of the range (excluding)          */
 DECL|method|getTo
-name|Number
+name|Object
 name|getTo
 parameter_list|()
 function_decl|;
@@ -104,16 +104,6 @@ name|Bucket
 argument_list|>
 name|getBuckets
 parameter_list|()
-function_decl|;
-annotation|@
-name|Override
-DECL|method|getBucketByKey
-name|Bucket
-name|getBucketByKey
-parameter_list|(
-name|String
-name|key
-parameter_list|)
 function_decl|;
 block|}
 end_interface

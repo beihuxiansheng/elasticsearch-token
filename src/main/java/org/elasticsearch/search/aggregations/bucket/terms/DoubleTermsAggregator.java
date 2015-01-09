@@ -418,10 +418,15 @@ specifier|final
 name|long
 name|term
 init|=
+operator|(
+operator|(
+name|Number
+operator|)
 name|bucket
 operator|.
-name|getKeyAsNumber
+name|getKey
 argument_list|()
+operator|)
 operator|.
 name|longValue
 argument_list|()

@@ -5859,9 +5859,12 @@ name|bucket
 init|=
 name|histo
 operator|.
-name|getBucketByKey
+name|getBuckets
+argument_list|()
+operator|.
+name|get
 argument_list|(
-literal|1l
+literal|1
 argument_list|)
 decl_stmt|;
 name|assertThat

@@ -91,14 +91,7 @@ extends|extends
 name|MultiBucketsAggregation
 operator|.
 name|Bucket
-block|{
-comment|/**          * @return The key associated with the bucket (all documents that fall in this bucket were rounded to this key)          */
-DECL|method|getKeyAsNumber
-name|Number
-name|getKeyAsNumber
-parameter_list|()
-function_decl|;
-block|}
+block|{      }
 comment|/**      * @return  The buckets of this histogram (each bucket representing an interval in the histogram)      */
 DECL|method|getBuckets
 name|List
@@ -109,24 +102,6 @@ name|Bucket
 argument_list|>
 name|getBuckets
 parameter_list|()
-function_decl|;
-comment|/**      * Returns a bucket by the key associated with it.      *      * @param key The key of the bucket.      * @return The bucket that is associated with the given key.      */
-DECL|method|getBucketByKey
-name|Bucket
-name|getBucketByKey
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-function_decl|;
-comment|/**      * Returns a bucket by the key associated with it.      *      * @param key The key of the bucket.      * @return The bucket that is associated with the given key.      */
-DECL|method|getBucketByKey
-name|Bucket
-name|getBucketByKey
-parameter_list|(
-name|Number
-name|key
-parameter_list|)
 function_decl|;
 comment|/**      * A strategy defining the order in which the buckets in this histogram are ordered.      */
 DECL|class|Order

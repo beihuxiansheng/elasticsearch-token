@@ -166,13 +166,6 @@ operator|=
 name|supersetDf
 expr_stmt|;
 block|}
-DECL|method|getKeyAsNumber
-specifier|public
-specifier|abstract
-name|Number
-name|getKeyAsNumber
-parameter_list|()
-function_decl|;
 DECL|method|compareTerm
 specifier|abstract
 name|int
@@ -189,6 +182,12 @@ specifier|public
 specifier|abstract
 name|double
 name|getSignificanceScore
+parameter_list|()
+function_decl|;
+DECL|method|getKeyAsNumber
+specifier|abstract
+name|Number
+name|getKeyAsNumber
 parameter_list|()
 function_decl|;
 DECL|method|getSubsetDf
@@ -242,14 +241,13 @@ argument_list|>
 name|getBuckets
 parameter_list|()
 function_decl|;
-annotation|@
-name|Override
+comment|/**      * Get the bucket for the given term, or null if there is no such bucket.      */
 DECL|method|getBucketByKey
 name|Bucket
 name|getBucketByKey
 parameter_list|(
 name|String
-name|key
+name|term
 parameter_list|)
 function_decl|;
 block|}
