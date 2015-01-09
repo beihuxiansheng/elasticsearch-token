@@ -1134,7 +1134,7 @@ name|Version
 argument_list|(
 name|V_0_20_7_ID
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|LUCENE_3_EMULATION_VERSION
 argument_list|)
@@ -1790,7 +1790,7 @@ name|Version
 argument_list|(
 name|V_0_90_14_ID
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|org
 operator|.
@@ -1862,7 +1862,7 @@ name|Version
 argument_list|(
 name|V_1_0_0_Beta2_ID
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|org
 operator|.
@@ -2114,7 +2114,7 @@ name|Version
 argument_list|(
 name|V_1_0_4_ID
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|org
 operator|.
