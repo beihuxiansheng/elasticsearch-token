@@ -6793,15 +6793,17 @@ block|}
 block|}
 finally|finally
 block|{
+comment|// close the engine all bets are off... don't use engineSafe() here it can throw an exception
 name|IOUtils
 operator|.
 name|closeWhileHandlingException
 argument_list|(
-name|engineSafe
+name|currentEngineReference
+operator|.
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we need to close ourself - we failed all bets are off
 block|}
 block|}
 block|}
