@@ -5975,7 +5975,7 @@ argument_list|()
 operator|.
 name|updateBuffer
 argument_list|(
-name|shardIndexingBufferSize
+name|shardTranslogBufferSize
 argument_list|)
 expr_stmt|;
 block|}
