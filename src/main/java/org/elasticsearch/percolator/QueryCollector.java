@@ -1376,6 +1376,11 @@ specifier|final
 name|TopScoreDocCollector
 name|topDocsCollector
 decl_stmt|;
+DECL|field|topDocsLeafCollector
+specifier|private
+name|LeafCollector
+name|topDocsLeafCollector
+decl_stmt|;
 DECL|method|MatchAndSort
 name|MatchAndSort
 parameter_list|(
@@ -1492,7 +1497,7 @@ name|exists
 argument_list|()
 condition|)
 block|{
-name|topDocsCollector
+name|topDocsLeafCollector
 operator|.
 name|collect
 argument_list|(
@@ -1550,23 +1555,15 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|LeafCollector
-name|leafCollector
-init|=
+name|topDocsLeafCollector
+operator|=
 name|topDocsCollector
 operator|.
 name|getLeafCollector
 argument_list|(
 name|context
 argument_list|)
-decl_stmt|;
-assert|assert
-name|leafCollector
-operator|==
-name|topDocsCollector
-operator|:
-literal|"TopDocsCollector returns itself as leaf collector"
-assert|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1581,7 +1578,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|topDocsCollector
+name|topDocsLeafCollector
 operator|.
 name|setScorer
 argument_list|(

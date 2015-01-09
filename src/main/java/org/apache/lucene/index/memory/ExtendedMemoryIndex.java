@@ -38,6 +38,9 @@ parameter_list|(
 name|boolean
 name|storeOffsets
 parameter_list|,
+name|boolean
+name|storePayloads
+parameter_list|,
 name|long
 name|maxReusedBytes
 parameter_list|)
@@ -45,6 +48,8 @@ block|{
 name|super
 argument_list|(
 name|storeOffsets
+argument_list|,
+name|storePayloads
 argument_list|,
 name|maxReusedBytes
 argument_list|)

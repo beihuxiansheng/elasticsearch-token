@@ -1181,11 +1181,14 @@ name|MemoryIndex
 name|initialValue
 parameter_list|()
 block|{
+comment|// TODO: should we expose payloads as an option? should offsets be turned on always?
 return|return
 operator|new
 name|ExtendedMemoryIndex
 argument_list|(
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|maxReuseBytes
 argument_list|)

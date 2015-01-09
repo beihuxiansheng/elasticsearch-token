@@ -6531,7 +6531,7 @@ name|guardedRamBytesUsed
 argument_list|(
 name|segmentReader
 operator|.
-name|fields
+name|getPostingsReader
 argument_list|()
 argument_list|)
 argument_list|)
