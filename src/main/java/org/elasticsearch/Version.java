@@ -3035,17 +3035,9 @@ name|util
 operator|.
 name|Version
 operator|.
-name|fromBits
-argument_list|(
-literal|4
-argument_list|,
-literal|10
-argument_list|,
-literal|3
-argument_list|)
+name|LUCENE_4_10_3
 argument_list|)
 decl_stmt|;
-comment|// TODO change this to a constant once we update the snapshot
 DECL|field|V_2_0_0_ID
 specifier|public
 specifier|static
