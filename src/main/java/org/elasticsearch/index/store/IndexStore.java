@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
-name|StoreRateLimiting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -116,12 +102,6 @@ name|IndexStore
 extends|extends
 name|Closeable
 block|{
-comment|/**      * Returns the rate limiting, either of the index is explicitly configured, or      * the node level one (defaults to the node level one).      */
-DECL|method|rateLimiting
-name|StoreRateLimiting
-name|rateLimiting
-parameter_list|()
-function_decl|;
 comment|/**      * The shard store class that should be used for each shard.      */
 DECL|method|shardDirectory
 name|Class

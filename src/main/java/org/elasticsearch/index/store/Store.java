@@ -1531,11 +1531,6 @@ name|estimateSize
 argument_list|(
 name|directory
 argument_list|)
-argument_list|,
-name|directoryService
-operator|.
-name|throttleTimeInNanos
-argument_list|()
 argument_list|)
 return|;
 block|}
