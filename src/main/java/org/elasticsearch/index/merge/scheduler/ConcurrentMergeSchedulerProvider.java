@@ -554,6 +554,7 @@ operator|new
 name|MergeStats
 argument_list|()
 decl_stmt|;
+comment|// TODO: why would there be more than one CMS for a single shard...?
 for|for
 control|(
 name|CustomConcurrentMergeScheduler
@@ -610,6 +611,17 @@ name|scheduler
 operator|.
 name|totalMergeThrottledTimeMillis
 argument_list|()
+argument_list|,
+name|autoThrottle
+condition|?
+name|scheduler
+operator|.
+name|getIORateLimitMBPerSec
+argument_list|()
+else|:
+name|Double
+operator|.
+name|POSITIVE_INFINITY
 argument_list|)
 expr_stmt|;
 block|}
