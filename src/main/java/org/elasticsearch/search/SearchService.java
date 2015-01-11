@@ -450,6 +450,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|Engine
@@ -594,7 +606,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|settings
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -644,11 +658,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|IndicesQueryCache
+name|IndicesWarmer
 import|;
 end_import
 
@@ -661,6 +671,8 @@ operator|.
 name|indices
 operator|.
 name|IndicesWarmer
+operator|.
+name|TerminationHandle
 import|;
 end_import
 
@@ -686,9 +698,11 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndicesWarmer
+name|cache
 operator|.
-name|TerminationHandle
+name|query
+operator|.
+name|IndicesQueryCache
 import|;
 end_import
 
@@ -1241,6 +1255,11 @@ name|afterIndexDeleted
 parameter_list|(
 name|Index
 name|index
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 comment|// once an index is closed we can just clean up all the pending search context information

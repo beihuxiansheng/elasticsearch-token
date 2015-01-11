@@ -106,6 +106,34 @@ name|IndexShard
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|settings
+operator|.
+name|IndexSettings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
 begin_comment
 comment|/**  * A global component allowing to register for lifecycle of an index (create/closed) and  * an index shard (created/closed).  */
 end_comment
@@ -168,6 +196,11 @@ name|beforeIndexCreated
 parameter_list|(
 name|Index
 name|index
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{          }
 comment|/**          * Called after the index has been created.          */
@@ -188,6 +221,11 @@ name|beforeIndexShardCreated
 parameter_list|(
 name|ShardId
 name|shardId
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{          }
 comment|/**          * Called after the index shard has been created.          */
@@ -237,6 +275,11 @@ name|afterIndexClosed
 parameter_list|(
 name|Index
 name|index
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{          }
 comment|/**          * Called before the index shard gets closed.          *          * @param indexShard The index shard          */
@@ -252,6 +295,11 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{          }
 comment|/**          * Called after the index shard has been closed.          *          * @param shardId The shard id          */
@@ -267,6 +315,11 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{          }
 comment|/**          * Called after a shard's {@link org.elasticsearch.index.shard.IndexShardState} changes.          * The order of concurrent events is preserved. The execution must be lightweight.          *          * @param indexShard the shard the new state was applied to          * @param previousState the previous index shard state if there was one, null otherwise          * @param currentState the new shard state          * @param reason the reason for the state change if there is one, null otherwise          */
@@ -292,7 +345,7 @@ name|String
 name|reason
 parameter_list|)
 block|{          }
-comment|/**          * Called after the index has been deleted.          * This listener method is invoked after {@link #afterIndexClosed(org.elasticsearch.index.Index)}          * when an index is deleted          *          * @param index The index          */
+comment|/**          * Called after the index has been deleted.          * This listener method is invoked after {@link #afterIndexClosed(org.elasticsearch.index.Index, org.elasticsearch.common.settings.Settings)}          * when an index is deleted          *          * @param index The index          */
 DECL|method|afterIndexDeleted
 specifier|public
 name|void
@@ -300,6 +353,11 @@ name|afterIndexDeleted
 parameter_list|(
 name|Index
 name|index
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{          }
 comment|/**          * Called before the index gets deleted.          * This listener method is invoked after          * {@link #beforeIndexClosed(org.elasticsearch.index.IndexService)} when an index is deleted          *          * @param indexService The index service          */

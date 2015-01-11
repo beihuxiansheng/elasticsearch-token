@@ -142,20 +142,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|unit
-operator|.
-name|TimeValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|IndexService
@@ -170,9 +156,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|shard
+name|settings
 operator|.
-name|ShardId
+name|IndexSettings
 import|;
 end_import
 
@@ -187,6 +173,20 @@ operator|.
 name|shard
 operator|.
 name|IndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
 import|;
 end_import
 
@@ -422,6 +422,11 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 if|if

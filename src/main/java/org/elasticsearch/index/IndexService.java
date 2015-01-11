@@ -322,20 +322,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|Engine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|fielddata
 operator|.
 name|IndexFieldDataService
@@ -1862,6 +1848,8 @@ operator|.
 name|beforeIndexShardCreated
 argument_list|(
 name|shardId
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 name|logger
@@ -2441,6 +2429,8 @@ argument_list|(
 name|sId
 argument_list|,
 name|indexShard
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 for|for
@@ -2579,6 +2569,8 @@ argument_list|(
 name|sId
 argument_list|,
 name|indexShard
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}

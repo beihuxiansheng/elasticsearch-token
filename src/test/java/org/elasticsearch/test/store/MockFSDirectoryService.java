@@ -604,6 +604,11 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 if|if
@@ -652,12 +657,7 @@ expr_stmt|;
 comment|// When the the internal engine closes we do a rollback, which removes uncommitted segments
 comment|// By doing a commit flush we perform a Lucene commit, but don't clear the translog,
 comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
-operator|(
-operator|(
-name|IndexShard
-operator|)
 name|indexShard
-operator|)
 operator|.
 name|engine
 argument_list|()
@@ -699,6 +699,11 @@ annotation|@
 name|Nullable
 name|IndexShard
 name|indexShard
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
 parameter_list|)
 block|{
 if|if
@@ -731,12 +736,7 @@ literal|"Current state must be closed"
 assert|;
 name|checkIndex
 argument_list|(
-operator|(
-operator|(
-name|IndexShard
-operator|)
 name|indexShard
-operator|)
 operator|.
 name|store
 argument_list|()
