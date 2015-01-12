@@ -330,8 +330,6 @@ operator|.
 name|getGeometryFactory
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 DECL|method|testParse_simplePoint
 specifier|public
 name|void
@@ -412,8 +410,6 @@ name|pointGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_lineString
 specifier|public
 name|void
@@ -556,8 +552,6 @@ name|lineGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_multiLineString
 specifier|public
 name|void
@@ -750,8 +744,6 @@ name|multilinesGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_circle
 specifier|public
 name|void
@@ -837,8 +829,6 @@ name|multilinesGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_envelope
 specifier|public
 name|void
@@ -1200,8 +1190,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_polygonNoHoles
 specifier|public
 name|void
@@ -1449,8 +1437,6 @@ name|polygonGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_invalidPoint
 specifier|public
 name|void
@@ -1598,8 +1584,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_invalidMultipoint
 specifier|public
 name|void
@@ -1807,8 +1791,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_invalidMultiPolygon
 specifier|public
 name|void
@@ -2146,8 +2128,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_OGCPolygonWithoutHoles
 specifier|public
 name|void
@@ -2849,8 +2829,6 @@ name|shape
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_OGCPolygonWithHoles
 specifier|public
 name|void
@@ -3841,8 +3819,6 @@ name|shape
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_invalidPolygon
 specifier|public
 name|void
@@ -3854,7 +3830,7 @@ block|{
 comment|/**          * The following 3 test cases ensure proper error handling of invalid polygons           * per the GeoJSON specification          */
 comment|// test case 1: create an invalid polygon with only 2 points
 name|String
-name|invalidPoly1
+name|invalidPoly
 init|=
 name|XContentFactory
 operator|.
@@ -3934,7 +3910,7 @@ name|jsonXContent
 operator|.
 name|createParser
 argument_list|(
-name|invalidPoly1
+name|invalidPoly
 argument_list|)
 decl_stmt|;
 name|parser
@@ -3954,9 +3930,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 2: create an invalid polygon with only 1 point
-name|String
-name|invalidPoly2
-init|=
+name|invalidPoly
+operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -4008,7 +3983,7 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|parser
 operator|=
 name|JsonXContent
@@ -4017,7 +3992,7 @@ name|jsonXContent
 operator|.
 name|createParser
 argument_list|(
-name|invalidPoly2
+name|invalidPoly
 argument_list|)
 expr_stmt|;
 name|parser
@@ -4037,9 +4012,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 3: create an invalid polygon with 0 points
-name|String
-name|invalidPoly3
-init|=
+name|invalidPoly
+operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -4080,7 +4054,7 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|parser
 operator|=
 name|JsonXContent
@@ -4089,7 +4063,7 @@ name|jsonXContent
 operator|.
 name|createParser
 argument_list|(
-name|invalidPoly3
+name|invalidPoly
 argument_list|)
 expr_stmt|;
 name|parser
@@ -4109,9 +4083,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 4: create an invalid polygon with null value points
-name|String
-name|invalidPoly4
-init|=
+name|invalidPoly
+operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -4158,7 +4131,7 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|parser
 operator|=
 name|JsonXContent
@@ -4167,7 +4140,7 @@ name|jsonXContent
 operator|.
 name|createParser
 argument_list|(
-name|invalidPoly4
+name|invalidPoly
 argument_list|)
 expr_stmt|;
 name|parser
@@ -4187,9 +4160,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 5: create an invalid polygon with 1 invalid LinearRing
-name|String
-name|invalidPoly5
-init|=
+name|invalidPoly
+operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -4224,7 +4196,7 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|parser
 operator|=
 name|JsonXContent
@@ -4233,7 +4205,7 @@ name|jsonXContent
 operator|.
 name|createParser
 argument_list|(
-name|invalidPoly5
+name|invalidPoly
 argument_list|)
 expr_stmt|;
 name|parser
@@ -4253,9 +4225,8 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// test case 6: create an invalid polygon with 0 LinearRings
-name|String
-name|invalidPoly6
-init|=
+name|invalidPoly
+operator|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
@@ -4284,7 +4255,7 @@ argument_list|()
 operator|.
 name|string
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|parser
 operator|=
 name|JsonXContent
@@ -4293,7 +4264,83 @@ name|jsonXContent
 operator|.
 name|createParser
 argument_list|(
-name|invalidPoly6
+name|invalidPoly
+argument_list|)
+expr_stmt|;
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+name|ElasticsearchGeoAssertions
+operator|.
+name|assertValidException
+argument_list|(
+name|parser
+argument_list|,
+name|ElasticsearchParseException
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// test case 7: create an invalid polygon with 0 LinearRings
+name|invalidPoly
+operator|=
+name|XContentFactory
+operator|.
+name|jsonBuilder
+argument_list|()
+operator|.
+name|startObject
+argument_list|()
+operator|.
+name|field
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"polygon"
+argument_list|)
+operator|.
+name|startArray
+argument_list|(
+literal|"coordinates"
+argument_list|)
+operator|.
+name|startArray
+argument_list|()
+operator|.
+name|value
+argument_list|(
+operator|-
+literal|74.011
+argument_list|)
+operator|.
+name|value
+argument_list|(
+literal|40.753
+argument_list|)
+operator|.
+name|endArray
+argument_list|()
+operator|.
+name|endArray
+argument_list|()
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|string
+argument_list|()
+expr_stmt|;
+name|parser
+operator|=
+name|JsonXContent
+operator|.
+name|jsonXContent
+operator|.
+name|createParser
+argument_list|(
+name|invalidPoly
 argument_list|)
 expr_stmt|;
 name|parser
@@ -4313,8 +4360,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_polygonWithHole
 specifier|public
 name|void
@@ -4758,8 +4803,6 @@ name|polygonGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_selfCrossingPolygon
 specifier|public
 name|void
@@ -4953,8 +4996,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_multiPoint
 specifier|public
 name|void
@@ -5059,8 +5100,6 @@ name|multiPointGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_multiPolygon
 specifier|public
 name|void
@@ -6149,8 +6188,6 @@ name|multiPolygonGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_geometryCollection
 specifier|public
 name|void
@@ -6365,8 +6402,6 @@ name|geometryCollectionGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testThatParserExtractsCorrectTypeAndCoordinatesFromArbitraryJson
 specifier|public
 name|void
@@ -6532,8 +6567,6 @@ name|pointGeoJson
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testParse_orientationOption
 specifier|public
 name|void

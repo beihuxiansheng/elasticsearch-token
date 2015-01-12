@@ -4142,6 +4142,43 @@ condition|(
 name|coordinates
 operator|.
 name|children
+operator|==
+literal|null
+condition|)
+block|{
+name|String
+name|error
+init|=
+literal|"Invalid LinearRing found."
+decl_stmt|;
+name|error
+operator|+=
+operator|(
+name|coordinates
+operator|.
+name|coordinate
+operator|==
+literal|null
+operator|)
+condition|?
+literal|" No coordinate array provided"
+else|:
+literal|" Found a single coordinate when expecting a coordinate array"
+expr_stmt|;
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+name|error
+argument_list|)
+throw|;
+block|}
+elseif|else
+if|if
+condition|(
+name|coordinates
+operator|.
+name|children
 operator|.
 name|size
 argument_list|()
