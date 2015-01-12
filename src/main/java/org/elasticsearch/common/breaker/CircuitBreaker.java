@@ -53,7 +53,7 @@ specifier|final
 name|String
 name|PARENT
 init|=
-literal|"PARENT"
+literal|"parent"
 decl_stmt|;
 DECL|field|FIELDDATA
 specifier|public
@@ -62,7 +62,7 @@ specifier|final
 name|String
 name|FIELDDATA
 init|=
-literal|"FIELDDATA"
+literal|"fielddata"
 decl_stmt|;
 DECL|field|REQUEST
 specifier|public
@@ -71,7 +71,7 @@ specifier|final
 name|String
 name|REQUEST
 init|=
-literal|"REQUEST"
+literal|"request"
 decl_stmt|;
 DECL|enum|Type
 specifier|public
