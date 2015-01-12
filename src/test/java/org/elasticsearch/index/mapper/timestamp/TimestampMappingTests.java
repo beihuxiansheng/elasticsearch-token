@@ -3979,6 +3979,13 @@ comment|// default is "not_analyzed" which will be omitted when building the sou
 operator|.
 name|field
 argument_list|(
+literal|"doc_values"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|field
+argument_list|(
 literal|"path"
 argument_list|,
 literal|"foo"
