@@ -93,16 +93,24 @@ name|peek
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the new current nested level and moves old current nested level down      */
+comment|/**      * Sets the new current nested level and pushes old current nested level down the stack returns that level.      */
 DECL|method|nextLevel
 specifier|public
-name|void
+name|ObjectMapper
 name|nextLevel
 parameter_list|(
 name|ObjectMapper
 name|level
 parameter_list|)
 block|{
+name|ObjectMapper
+name|previous
+init|=
+name|levelStack
+operator|.
+name|peek
+argument_list|()
+decl_stmt|;
 name|levelStack
 operator|.
 name|push
@@ -110,22 +118,23 @@ argument_list|(
 name|level
 argument_list|)
 expr_stmt|;
+return|return
+name|previous
+return|;
 block|}
-comment|/**      * Sets the previous nested level as current nested level and removes the current nested level.      */
+comment|/**      * Sets the previous nested level as current nested level and removes and returns the current nested level.      */
 DECL|method|previousLevel
 specifier|public
-name|void
+name|ObjectMapper
 name|previousLevel
 parameter_list|()
 block|{
-name|ObjectMapper
-name|level
-init|=
+return|return
 name|levelStack
 operator|.
 name|pop
 argument_list|()
-decl_stmt|;
+return|;
 block|}
 block|}
 end_class
