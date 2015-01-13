@@ -86,6 +86,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|Callable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|TimeUnit
 import|;
 end_import
@@ -166,7 +178,10 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|long
+name|Callable
+argument_list|<
+name|Long
+argument_list|>
 name|now
 parameter_list|)
 block|{
@@ -183,6 +198,9 @@ literal|null
 argument_list|)
 return|;
 block|}
+comment|// Note: we take a callable here for the timestamp in order to be able to figure out
+comment|// if it has been used. For instance, the query cache does not cache queries that make
+comment|// use of `now`.
 DECL|method|parse
 specifier|public
 name|long
@@ -191,7 +209,10 @@ parameter_list|(
 name|String
 name|text
 parameter_list|,
-name|long
+name|Callable
+argument_list|<
+name|Long
+argument_list|>
 name|now
 parameter_list|,
 name|boolean
@@ -217,10 +238,32 @@ literal|"now"
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|time
 operator|=
 name|now
+operator|.
+name|call
+argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"Could not read the current timestamp"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|mathString
 operator|=
 name|text
