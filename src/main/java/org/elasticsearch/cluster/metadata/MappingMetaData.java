@@ -2289,6 +2289,10 @@ name|equals
 argument_list|(
 literal|"default"
 argument_list|)
+operator|&&
+name|fieldNode
+operator|!=
+literal|null
 condition|)
 block|{
 name|defaultTimestamp
