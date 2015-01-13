@@ -1093,21 +1093,7 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|in
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0
-argument_list|)
-condition|)
-block|{
+comment|// Added in 2.0:
 name|totalStoppedTimeInMillis
 operator|=
 name|in
@@ -1129,7 +1115,6 @@ operator|.
 name|readVLong
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -1193,21 +1178,7 @@ argument_list|(
 name|currentSizeInBytes
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|out
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0
-argument_list|)
-condition|)
-block|{
+comment|// Added in 2.0:
 name|out
 operator|.
 name|writeVLong
@@ -1229,7 +1200,6 @@ argument_list|(
 name|totalBytesPerSecAutoThrottle
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
