@@ -380,6 +380,7 @@ block|}
 block|}
 comment|/**      * The source to execute.      */
 DECL|method|source
+specifier|public
 name|BytesReference
 name|source
 parameter_list|()

@@ -394,6 +394,7 @@ comment|/**      * The name to delete.      */
 annotation|@
 name|Nullable
 DECL|method|names
+specifier|public
 name|String
 index|[]
 name|names

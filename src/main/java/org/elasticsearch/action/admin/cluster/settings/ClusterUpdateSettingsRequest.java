@@ -325,6 +325,7 @@ name|validationException
 return|;
 block|}
 DECL|method|transientSettings
+specifier|public
 name|Settings
 name|transientSettings
 parameter_list|()
@@ -334,6 +335,7 @@ name|transientSettings
 return|;
 block|}
 DECL|method|persistentSettings
+specifier|public
 name|Settings
 name|persistentSettings
 parameter_list|()

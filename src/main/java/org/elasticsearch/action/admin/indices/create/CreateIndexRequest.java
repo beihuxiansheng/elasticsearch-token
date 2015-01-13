@@ -84,16 +84,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -712,6 +702,7 @@ return|;
 block|}
 comment|/**      * The index name to create.      */
 DECL|method|index
+specifier|public
 name|String
 name|index
 parameter_list|()
@@ -741,6 +732,7 @@ return|;
 block|}
 comment|/**      * The settings to create the index with.      */
 DECL|method|settings
+specifier|public
 name|Settings
 name|settings
 parameter_list|()
@@ -751,6 +743,7 @@ return|;
 block|}
 comment|/**      * The cause for this index creation.      */
 DECL|method|cause
+specifier|public
 name|String
 name|cause
 parameter_list|()
@@ -1960,6 +1953,7 @@ name|this
 return|;
 block|}
 DECL|method|mappings
+specifier|public
 name|Map
 argument_list|<
 name|String
@@ -1976,6 +1970,7 @@ name|mappings
 return|;
 block|}
 DECL|method|aliases
+specifier|public
 name|Set
 argument_list|<
 name|Alias
@@ -2018,6 +2013,7 @@ name|this
 return|;
 block|}
 DECL|method|customs
+specifier|public
 name|Map
 argument_list|<
 name|String

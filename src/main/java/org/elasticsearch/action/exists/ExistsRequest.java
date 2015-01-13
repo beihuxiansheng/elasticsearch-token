@@ -370,6 +370,7 @@ block|}
 block|}
 comment|/**      * The minimum score of the documents to include in the count.      */
 DECL|method|minScore
+specifier|public
 name|float
 name|minScore
 parameter_list|()
@@ -491,6 +492,7 @@ return|;
 block|}
 comment|/**      * The source to execute.      */
 DECL|method|source
+specifier|public
 name|BytesReference
 name|source
 parameter_list|()

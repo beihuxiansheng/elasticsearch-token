@@ -230,6 +230,7 @@ name|this
 return|;
 block|}
 DECL|method|name
+specifier|public
 name|String
 name|name
 parameter_list|()
@@ -284,6 +285,7 @@ name|this
 return|;
 block|}
 DECL|method|searchRequest
+specifier|public
 name|SearchRequest
 name|searchRequest
 parameter_list|()

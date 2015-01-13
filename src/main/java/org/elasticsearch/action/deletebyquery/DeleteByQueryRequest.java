@@ -394,6 +394,7 @@ return|;
 block|}
 comment|/**      * The source to execute.      */
 DECL|method|source
+specifier|public
 name|BytesReference
 name|source
 parameter_list|()
@@ -677,6 +678,7 @@ return|;
 block|}
 comment|/**      * The types of documents the query will run against. Defaults to all types.      */
 DECL|method|types
+specifier|public
 name|String
 index|[]
 name|types

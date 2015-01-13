@@ -58,16 +58,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -859,6 +849,7 @@ name|this
 return|;
 block|}
 DECL|method|settings
+specifier|public
 name|Settings
 name|settings
 parameter_list|()
@@ -1122,6 +1113,7 @@ name|this
 return|;
 block|}
 DECL|method|mappings
+specifier|public
 name|Map
 argument_list|<
 name|String
@@ -1750,6 +1742,7 @@ name|this
 return|;
 block|}
 DECL|method|customs
+specifier|public
 name|Map
 argument_list|<
 name|String
@@ -1768,6 +1761,7 @@ name|customs
 return|;
 block|}
 DECL|method|aliases
+specifier|public
 name|Set
 argument_list|<
 name|Alias

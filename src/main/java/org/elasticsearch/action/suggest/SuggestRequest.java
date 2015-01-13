@@ -18,26 +18,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -188,6 +168,26 @@ name|SuggestBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  * A request to get suggestions for corrections of phrases. Best created with  * {@link org.elasticsearch.client.Requests#suggestRequest(String...)}.  *<p/>  *<p>The request requires the suggest query source to be set either using  * {@link #suggest(org.elasticsearch.common.bytes.BytesReference)} / {@link #suggest(org.elasticsearch.common.bytes.BytesReference, boolean)}  * or by using {@link #suggest(org.elasticsearch.search.suggest.SuggestBuilder)}  * (Best created using the {link @org.elasticsearch.search.suggest.SuggestBuilders)}).  *  * @see SuggestResponse  * @see org.elasticsearch.client.Client#suggest(SuggestRequest)  * @see org.elasticsearch.client.Requests#suggestRequest(String...)  * @see org.elasticsearch.search.suggest.SuggestBuilders  */
 end_comment
@@ -295,6 +295,7 @@ block|}
 block|}
 comment|/**      * The Phrase to get correction suggestions for       */
 DECL|method|suggest
+specifier|public
 name|BytesReference
 name|suggest
 parameter_list|()
