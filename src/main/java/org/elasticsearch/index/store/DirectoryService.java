@@ -170,6 +170,13 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|throttleTimeInNanos
+specifier|public
+specifier|abstract
+name|long
+name|throttleTimeInNanos
+parameter_list|()
+function_decl|;
 comment|/**      * Creates a new Directory from the given distributor.      * The default implementation returns a new {@link org.elasticsearch.index.store.DistributorDirectory}      * if there is more than one data path in the distributor.      */
 DECL|method|newFromDistributor
 specifier|public

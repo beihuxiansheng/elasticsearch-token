@@ -1880,6 +1880,17 @@ argument_list|()
 block|}
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|long
+name|throttleTimeInNanos
+parameter_list|()
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 decl_stmt|;
 return|return
