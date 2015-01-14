@@ -1467,7 +1467,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/** This is used internally only, just for compare using global ordinal instead of term bytes in the PQ */
+comment|/**      * This is used internally only, just for compare using global ordinal instead of term bytes in the PQ      */
 DECL|class|OrdBucket
 specifier|static
 class|class
@@ -2489,6 +2489,8 @@ name|i
 operator|++
 control|)
 block|{
+comment|// We use set(...) here, because we need to reset the slow to 0.
+comment|// segmentDocCounts get reused over the segments and otherwise counts would be too high.
 specifier|final
 name|int
 name|inc
