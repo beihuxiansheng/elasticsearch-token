@@ -1165,6 +1165,14 @@ block|}
 block|}
 block|}
 block|}
+comment|// Need to invoke post collection on all aggs that the children agg is wrapping,
+comment|// otherwise any post work that is required, because we started to collect buckets
+comment|// in the method will not be performed.
+name|collectableSubAggregators
+operator|.
+name|postCollection
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
