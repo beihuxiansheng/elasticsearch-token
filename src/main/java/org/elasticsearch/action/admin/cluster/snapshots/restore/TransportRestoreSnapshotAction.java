@@ -459,6 +459,16 @@ name|request
 operator|.
 name|includeAliases
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|,
+name|request
+operator|.
+name|ignoreIndexSettings
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|restoreService
