@@ -678,6 +678,7 @@ operator|.
 name|query
 argument_list|()
 decl_stmt|;
+specifier|final
 name|TopDocs
 name|topDocs
 decl_stmt|;
@@ -698,18 +699,13 @@ if|if
 condition|(
 name|searchContext
 operator|.
-name|searchType
+name|size
 argument_list|()
-operator|==
-name|SearchType
-operator|.
-name|COUNT
-operator|||
-name|numDocs
 operator|==
 literal|0
 condition|)
 block|{
+comment|// no matter what the value of from is
 name|TotalHitCountCollector
 name|collector
 init|=

@@ -472,6 +472,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|EnumSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -604,6 +614,29 @@ name|String
 name|INDICES_CACHE_QUERY_CONCURRENCY_LEVEL
 init|=
 literal|"indices.cache.query.concurrency_level"
+decl_stmt|;
+DECL|field|CACHEABLE_SEARCH_TYPES
+specifier|private
+specifier|static
+specifier|final
+name|Set
+argument_list|<
+name|SearchType
+argument_list|>
+name|CACHEABLE_SEARCH_TYPES
+init|=
+name|EnumSet
+operator|.
+name|of
+argument_list|(
+name|SearchType
+operator|.
+name|QUERY_THEN_FETCH
+argument_list|,
+name|SearchType
+operator|.
+name|QUERY_AND_FETCH
+argument_list|)
 decl_stmt|;
 DECL|field|threadPool
 specifier|private
@@ -1094,17 +1127,37 @@ return|return
 literal|false
 return|;
 block|}
-comment|// for now, only enable it for search type count
+comment|// for now, only enable it for requests with no hits
 if|if
 condition|(
 name|context
 operator|.
-name|searchType
+name|size
 argument_list|()
 operator|!=
-name|SearchType
+literal|0
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|// We cannot cache with DFS because results depend not only on the content of the index but also
+comment|// on the overridden statistics. So if you ran two queries on the same index with different stats
+comment|// (because an other shard was updated) you would get wrong results because of the scores
+comment|// (think about top_hits aggs or scripts using the score)
+if|if
+condition|(
+operator|!
+name|CACHEABLE_SEARCH_TYPES
 operator|.
-name|COUNT
+name|contains
+argument_list|(
+name|context
+operator|.
+name|searchType
+argument_list|()
+argument_list|)
 condition|)
 block|{
 return|return
