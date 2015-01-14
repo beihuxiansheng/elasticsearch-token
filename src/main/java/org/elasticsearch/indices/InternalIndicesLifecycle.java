@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * InternalIndicesLifecycle handles invoking each listener for the Index. All  * exceptions thrown by listeners are logged and then re-thrown to stop further  * index action.  */
 end_comment
 
 begin_class
@@ -368,6 +368,9 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -421,6 +424,9 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -475,6 +481,9 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -525,6 +534,9 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -575,6 +587,9 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -625,6 +640,9 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -678,6 +696,9 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -731,6 +752,9 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -788,6 +812,9 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -845,6 +872,9 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -906,6 +936,9 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -967,6 +1000,9 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
@@ -1036,6 +1072,9 @@ name|shardId
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|t
+throw|;
 block|}
 block|}
 block|}
