@@ -74,22 +74,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|support
-operator|.
-name|AggregationContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -488,21 +472,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-DECL|method|RecordingPerReaderBucketCollector
-specifier|public
-name|RecordingPerReaderBucketCollector
-parameter_list|(
-name|AggregationContext
-name|context
-parameter_list|)
-block|{
-comment|// Call this method to achieve better compression in the recorded arrays of matches
-name|context
-operator|.
-name|ensureScoreDocsInOrder
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override

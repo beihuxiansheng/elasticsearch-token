@@ -405,12 +405,6 @@ argument_list|,
 name|filterCachingPolicy
 argument_list|)
 expr_stmt|;
-comment|// The childDocs need to be consumed in docId order, this ensures that:
-name|aggregationContext
-operator|.
-name|ensureScoreDocsInOrder
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override

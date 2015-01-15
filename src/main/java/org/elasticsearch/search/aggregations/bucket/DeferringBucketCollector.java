@@ -226,9 +226,7 @@ name|recording
 operator|=
 operator|new
 name|RecordingPerReaderBucketCollector
-argument_list|(
-name|context
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

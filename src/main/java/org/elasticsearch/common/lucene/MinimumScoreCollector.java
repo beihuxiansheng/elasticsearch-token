@@ -213,21 +213,6 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|acceptsDocsOutOfOrder
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-name|leafCollector
-operator|.
-name|acceptsDocsOutOfOrder
-argument_list|()
-return|;
-block|}
 block|}
 end_class
 

@@ -401,11 +401,6 @@ argument_list|(
 literal|32
 argument_list|)
 expr_stmt|;
-name|aggregationContext
-operator|.
-name|ensureScoreDocsInOrder
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override

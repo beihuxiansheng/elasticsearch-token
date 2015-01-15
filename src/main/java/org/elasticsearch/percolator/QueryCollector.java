@@ -808,18 +808,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|acceptsDocsOutOfOrder
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|match
 specifier|static
 name|Match
@@ -1428,8 +1416,6 @@ name|context
 operator|.
 name|size
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

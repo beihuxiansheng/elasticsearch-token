@@ -563,18 +563,6 @@ literal|null
 return|;
 comment|//Query is used internally and not by users, so explain can be empty
 block|}
-annotation|@
-name|Override
-DECL|method|scoresDocsOutOfOrder
-specifier|public
-name|boolean
-name|scoresDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 block|}
 DECL|class|IncludeNestedDocsScorer
 specifier|static

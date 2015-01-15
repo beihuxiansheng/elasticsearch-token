@@ -321,17 +321,6 @@ name|IOException
 block|{
 comment|// no-op
 block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 block|}
 return|;
 block|}
@@ -411,18 +400,6 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|acceptsDocsOutOfOrder
-parameter_list|()
-block|{
-comment|// we only support iterating in order because the iterator can only advance
-return|return
-literal|false
-return|;
 block|}
 block|}
 return|;

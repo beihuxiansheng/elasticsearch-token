@@ -704,8 +704,6 @@ argument_list|()
 argument_list|,
 name|trackScores
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -734,8 +732,6 @@ operator|.
 name|create
 argument_list|(
 name|topN
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1367,8 +1363,6 @@ argument_list|()
 argument_list|,
 name|trackScores
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1397,8 +1391,6 @@ operator|.
 name|create
 argument_list|(
 name|topN
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

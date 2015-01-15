@@ -803,8 +803,6 @@ name|subSearchContext
 operator|.
 name|trackScores
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 else|:
 name|TopScoreDocCollector
@@ -812,8 +810,6 @@ operator|.
 name|create
 argument_list|(
 name|topN
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|collectors
