@@ -34,15 +34,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|vividsolutions
+name|elasticsearch
 operator|.
-name|jts
+name|common
 operator|.
-name|geom
+name|geo
 operator|.
-name|Coordinate
+name|GeoPoint
 import|;
 end_import
 
@@ -140,7 +140,7 @@ name|radius
 decl_stmt|;
 DECL|field|center
 specifier|private
-name|Coordinate
+name|GeoPoint
 name|center
 decl_stmt|;
 comment|/**      * Set the center of the circle      *       * @param center coordinate of the circles center      * @return this      */
@@ -149,7 +149,7 @@ specifier|public
 name|CircleBuilder
 name|center
 parameter_list|(
-name|Coordinate
+name|GeoPoint
 name|center
 parameter_list|)
 block|{
@@ -180,11 +180,11 @@ return|return
 name|center
 argument_list|(
 operator|new
-name|Coordinate
+name|GeoPoint
 argument_list|(
-name|lon
-argument_list|,
 name|lat
+argument_list|,
+name|lon
 argument_list|)
 argument_list|)
 return|;

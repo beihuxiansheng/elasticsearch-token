@@ -34,15 +34,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|vividsolutions
+name|elasticsearch
 operator|.
-name|jts
+name|common
 operator|.
-name|geom
+name|geo
 operator|.
-name|Coordinate
+name|GeoPoint
 import|;
 end_import
 
@@ -91,12 +91,12 @@ name|ENVELOPE
 decl_stmt|;
 DECL|field|topLeft
 specifier|protected
-name|Coordinate
+name|GeoPoint
 name|topLeft
 decl_stmt|;
 DECL|field|bottomRight
 specifier|protected
-name|Coordinate
+name|GeoPoint
 name|bottomRight
 decl_stmt|;
 DECL|method|EnvelopeBuilder
@@ -131,7 +131,7 @@ specifier|public
 name|EnvelopeBuilder
 name|topLeft
 parameter_list|(
-name|Coordinate
+name|GeoPoint
 name|topLeft
 parameter_list|)
 block|{
@@ -174,7 +174,7 @@ specifier|public
 name|EnvelopeBuilder
 name|bottomRight
 parameter_list|(
-name|Coordinate
+name|GeoPoint
 name|bottomRight
 parameter_list|)
 block|{

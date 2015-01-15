@@ -62,15 +62,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|vividsolutions
+name|elasticsearch
 operator|.
-name|jts
+name|common
 operator|.
-name|geom
+name|geo
 operator|.
-name|Coordinate
+name|GeoPoint
 import|;
 end_import
 
@@ -225,7 +225,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Coordinate
+name|GeoPoint
 name|coord
 range|:
 name|points

@@ -30,15 +30,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|vividsolutions
+name|elasticsearch
 operator|.
-name|jts
+name|common
 operator|.
-name|geom
+name|geo
 operator|.
-name|Coordinate
+name|GeoPoint
 import|;
 end_import
 
@@ -63,7 +63,7 @@ argument_list|(
 operator|new
 name|ArrayList
 argument_list|<
-name|Coordinate
+name|GeoPoint
 argument_list|>
 argument_list|()
 argument_list|,
@@ -86,7 +86,7 @@ argument_list|(
 operator|new
 name|ArrayList
 argument_list|<
-name|Coordinate
+name|GeoPoint
 argument_list|>
 argument_list|()
 argument_list|,
@@ -100,7 +100,7 @@ name|PolygonBuilder
 parameter_list|(
 name|ArrayList
 argument_list|<
-name|Coordinate
+name|GeoPoint
 argument_list|>
 name|points
 parameter_list|,
