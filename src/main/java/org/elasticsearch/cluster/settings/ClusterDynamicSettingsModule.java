@@ -765,6 +765,10 @@ argument_list|(
 name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED
+argument_list|,
+name|Validator
+operator|.
+name|BOOLEAN
 argument_list|)
 expr_stmt|;
 name|clusterDynamicSettings
@@ -774,6 +778,10 @@ argument_list|(
 name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_INCLUDE_RELOCATIONS
+argument_list|,
+name|Validator
+operator|.
+name|BOOLEAN
 argument_list|)
 expr_stmt|;
 name|clusterDynamicSettings
