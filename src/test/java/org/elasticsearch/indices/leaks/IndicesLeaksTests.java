@@ -156,6 +156,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|store
+operator|.
+name|MockDirectoryHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -580,6 +594,14 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
+name|MockDirectoryHelper
+operator|.
+name|wrappers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|// we need to clear this to allow the objects to recycle
 for|for
 control|(
 name|int
