@@ -374,6 +374,8 @@ operator|.
 name|asList
 argument_list|(
 comment|/* skipping 0.90.0.Beta1...fails to load with "java.lang.IllegalArgumentException: An SPI class of type org.apache.lucene.codecs.PostingsFormat with name 'XBloomFilter' does not exist" */
+literal|"index-0.90.0.Beta1.zip"
+argument_list|,
 literal|"index-0.90.0.RC1.zip"
 argument_list|,
 literal|"index-0.90.0.RC2.zip"
@@ -560,15 +562,6 @@ continue|continue;
 comment|// problematic indexes...see notes above
 if|if
 condition|(
-name|v
-operator|.
-name|equals
-argument_list|(
-name|Version
-operator|.
-name|V_0_90_0_Beta1
-argument_list|)
-operator|||
 name|v
 operator|.
 name|equals

@@ -129,7 +129,6 @@ annotation|@
 name|Deprecated
 DECL|class|BloomFilterPostingsFormat
 specifier|public
-specifier|final
 class|class
 name|BloomFilterPostingsFormat
 extends|extends
@@ -257,45 +256,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|delegatePostingsFormat
-operator|==
-literal|null
-condition|)
-block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Error - "
-operator|+
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" has been constructed without a choice of PostingsFormat"
+literal|"this codec can only be used for reading"
 argument_list|)
 throw|;
-block|}
-return|return
-operator|new
-name|BloomFilteredFieldsConsumer
-argument_list|(
-name|delegatePostingsFormat
-operator|.
-name|fieldsConsumer
-argument_list|(
-name|state
-argument_list|)
-argument_list|,
-name|state
-argument_list|,
-name|delegatePostingsFormat
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override
