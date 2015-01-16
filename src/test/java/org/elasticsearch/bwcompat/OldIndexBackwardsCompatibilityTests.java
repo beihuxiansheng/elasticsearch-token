@@ -373,7 +373,6 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-comment|/* skipping 0.90.0.Beta1...fails to load with "java.lang.IllegalArgumentException: An SPI class of type org.apache.lucene.codecs.PostingsFormat with name 'XBloomFilter' does not exist" */
 literal|"index-0.90.0.Beta1.zip"
 argument_list|,
 literal|"index-0.90.0.RC1.zip"
