@@ -2245,6 +2245,15 @@ name|MAX_MERGE_COUNT
 argument_list|,
 literal|"2"
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|ConcurrentMergeSchedulerProvider
+operator|.
+name|AUTO_THROTTLE
+argument_list|,
+literal|"true"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
