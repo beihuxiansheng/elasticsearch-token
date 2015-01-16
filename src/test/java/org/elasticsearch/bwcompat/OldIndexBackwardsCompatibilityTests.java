@@ -212,16 +212,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|lang
@@ -229,16 +219,6 @@ operator|.
 name|reflect
 operator|.
 name|Modifier
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
 import|;
 end_import
 
@@ -268,16 +248,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -289,16 +259,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -323,30 +283,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -363,13 +299,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-name|value
-operator|=
-literal|"index-0.90.0.Beta1.zip fails the test"
-argument_list|)
 DECL|class|OldIndexBackwardsCompatibilityTests
 specifier|public
 class|class
