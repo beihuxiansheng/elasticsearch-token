@@ -429,7 +429,8 @@ literal|"index-1.1.1.zip"
 argument_list|,
 literal|"index-1.1.2.zip"
 argument_list|,
-comment|/* skipping 1.2.0...there was a major bug with routing, and it is not even downloadable */
+literal|"index-1.2.0.zip"
+argument_list|,
 literal|"index-1.2.1.zip"
 argument_list|,
 literal|"index-1.2.2.zip"
@@ -555,19 +556,6 @@ argument_list|(
 name|Version
 operator|.
 name|V_0_20_6
-argument_list|)
-condition|)
-continue|continue;
-comment|// problematic indexes...see notes above
-if|if
-condition|(
-name|v
-operator|.
-name|equals
-argument_list|(
-name|Version
-operator|.
-name|V_1_2_0
 argument_list|)
 condition|)
 continue|continue;
