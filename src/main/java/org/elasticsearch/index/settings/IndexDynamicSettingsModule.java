@@ -441,6 +441,15 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|ConcurrentMergeSchedulerProvider
+operator|.
+name|AUTO_THROTTLE
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|FilterAllocationDecider
 operator|.
 name|INDEX_ROUTING_REQUIRE_GROUP

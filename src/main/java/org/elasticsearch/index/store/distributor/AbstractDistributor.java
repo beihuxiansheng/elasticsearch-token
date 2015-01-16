@@ -50,13 +50,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|index
+name|lucene
 operator|.
 name|store
 operator|.
-name|DirectoryUtils
+name|StoreUtils
 import|;
 end_import
 
@@ -71,6 +71,20 @@ operator|.
 name|store
 operator|.
 name|DirectoryService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|store
+operator|.
+name|DirectoryUtils
 import|;
 end_import
 
@@ -296,7 +310,7 @@ return|return
 name|name
 argument_list|()
 operator|+
-name|Arrays
+name|StoreUtils
 operator|.
 name|toString
 argument_list|(

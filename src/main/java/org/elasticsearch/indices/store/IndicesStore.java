@@ -826,7 +826,7 @@ name|ShardActiveRequestHandler
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we limit with 20MB / sec by default with a default type set to merge sice 0.90.1
+comment|// we don't limit by default (we default to CMS's auto throttle instead):
 name|this
 operator|.
 name|rateLimitingType
@@ -841,7 +841,7 @@ name|StoreRateLimiting
 operator|.
 name|Type
 operator|.
-name|MERGE
+name|NONE
 operator|.
 name|name
 argument_list|()
@@ -867,7 +867,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|20
+literal|10240
 argument_list|,
 name|ByteSizeUnit
 operator|.

@@ -605,7 +605,7 @@ name|get
 argument_list|(
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|,
-literal|"node"
+literal|"none"
 argument_list|)
 expr_stmt|;
 if|if
