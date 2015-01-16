@@ -1813,6 +1813,17 @@ condition|(
 name|tribeIndex
 operator|==
 literal|null
+operator|||
+name|tribeIndex
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexMetaData
+operator|.
+name|State
+operator|.
+name|CLOSE
 condition|)
 block|{
 name|logger
