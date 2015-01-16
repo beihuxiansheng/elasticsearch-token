@@ -929,6 +929,13 @@ name|notifyAll
 argument_list|()
 expr_stmt|;
 block|}
+name|wrappers
+operator|.
+name|remove
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|awaitClosed
