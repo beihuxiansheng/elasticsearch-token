@@ -10745,14 +10745,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-comment|// this is important we need to recover from gateway
-operator|.
-name|put
-argument_list|(
 literal|"path.data"
 argument_list|,
 name|dataDir

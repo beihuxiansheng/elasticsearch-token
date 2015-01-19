@@ -406,19 +406,11 @@ literal|"node.mode"
 argument_list|,
 literal|"network"
 argument_list|)
-comment|// we need network mode for this
-operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
 operator|.
 name|build
 argument_list|()
 decl_stmt|;
-comment|// we require local gateway to mimic upgrades of nodes
+comment|// we need network mode for this
 DECL|field|path
 specifier|private
 specifier|final
@@ -807,9 +799,6 @@ case|case
 name|DiscoveryModule
 operator|.
 name|DISCOVERY_TYPE_KEY
-case|:
-case|case
-literal|"gateway.type"
 case|:
 case|case
 name|TransportModule

@@ -227,13 +227,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"index.number_of_shards"
 argument_list|,
 literal|1

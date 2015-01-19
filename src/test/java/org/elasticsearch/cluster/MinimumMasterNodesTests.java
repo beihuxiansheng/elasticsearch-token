@@ -409,13 +409,6 @@ argument_list|,
 literal|"500ms"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -1772,13 +1765,6 @@ argument_list|,
 literal|"500ms"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -2647,13 +2633,6 @@ argument_list|,
 literal|"500ms"
 argument_list|)
 operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -3066,13 +3045,6 @@ argument_list|(
 literal|"discovery.initial_state_timeout"
 argument_list|,
 literal|"500ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
 argument_list|)
 decl_stmt|;
 comment|// set an initial value which is at least quorum to avoid split brains during initial startup

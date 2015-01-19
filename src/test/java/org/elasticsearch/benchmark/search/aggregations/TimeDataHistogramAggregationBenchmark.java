@@ -603,13 +603,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"node.local"
 argument_list|,
 literal|true
