@@ -100,6 +100,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -1175,10 +1189,17 @@ argument_list|)
 expr_stmt|;
 name|ensureGreen
 argument_list|(
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
 literal|"test"
 argument_list|)
 expr_stmt|;
-comment|// TODO: what is the proper way to wait for new replicas to recover?
+comment|// this can take a while when the number of replicas is high
 name|assertAcked
 argument_list|(
 name|client
