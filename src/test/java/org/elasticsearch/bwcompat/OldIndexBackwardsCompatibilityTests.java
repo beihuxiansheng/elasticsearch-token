@@ -1069,6 +1069,8 @@ DECL|method|assertNewReplicasWork
 name|void
 name|assertNewReplicasWork
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -1187,6 +1189,9 @@ name|actionGet
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// This can take a while when the number of replicas is greater than cluster.routing.allocation.node_concurrent_recoveries
+comment|// (which defaults to 2).  We could override that setting, but running this test on a busy box could
+comment|// still result in taking a long time to finish starting replicas, so instead we have an increased timeout
 name|ensureGreen
 argument_list|(
 name|TimeValue
@@ -1199,7 +1204,6 @@ argument_list|,
 literal|"test"
 argument_list|)
 expr_stmt|;
-comment|// this can take a while when the number of replicas is high
 name|assertAcked
 argument_list|(
 name|client
@@ -1238,6 +1242,10 @@ name|actionGet
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|waitNoPendingTasksOnAll
+argument_list|()
+expr_stmt|;
+comment|// make sure the replicas are removed before going on
 block|}
 DECL|method|assertUpgradeWorks
 name|void
