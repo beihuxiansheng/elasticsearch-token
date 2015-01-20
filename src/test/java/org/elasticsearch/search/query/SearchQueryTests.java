@@ -545,10 +545,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleQueryTests
+DECL|class|SearchQueryTests
 specifier|public
 class|class
-name|SimpleQueryTests
+name|SearchQueryTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

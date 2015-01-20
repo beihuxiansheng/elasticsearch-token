@@ -301,10 +301,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleQueryTests
+DECL|class|CountQueryTests
 specifier|public
 class|class
-name|SimpleQueryTests
+name|CountQueryTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
