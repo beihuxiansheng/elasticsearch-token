@@ -350,7 +350,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|,
 literal|"simple"
 argument_list|)
@@ -538,7 +538,7 @@ name|configMap
 operator|.
 name|get
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|)
 operator|.
 name|toString
@@ -704,7 +704,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|,
 literal|"simple"
 argument_list|)

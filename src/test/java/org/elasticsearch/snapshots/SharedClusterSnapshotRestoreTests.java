@@ -14035,7 +14035,7 @@ name|setSource
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|"type=string,search_analyzer=my_analyzer"
+literal|"type=string,analyzer=standard,search_analyzer=my_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;

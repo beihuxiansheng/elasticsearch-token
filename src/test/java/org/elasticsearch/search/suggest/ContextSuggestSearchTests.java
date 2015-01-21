@@ -1392,16 +1392,7 @@ name|mapping
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
-argument_list|,
-literal|"simple"
-argument_list|)
-expr_stmt|;
-name|mapping
-operator|.
-name|field
-argument_list|(
-literal|"search_analyzer"
+literal|"analyzer"
 argument_list|,
 literal|"simple"
 argument_list|)
@@ -9233,7 +9224,7 @@ name|mapping
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|,
 name|indexAnalyzer
 argument_list|)

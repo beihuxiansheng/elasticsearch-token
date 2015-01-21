@@ -445,7 +445,7 @@ literal|"[_all] has different store_term_vector_positions values"
 block|,
 literal|"[_all] has different store_term_vector_payloads values"
 block|,
-literal|"[_all] has different index_analyzer"
+literal|"[_all] has different analyzer"
 block|,
 literal|"[_all] has different similarity"
 block|}

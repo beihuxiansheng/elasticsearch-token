@@ -16977,7 +16977,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,index_analyzer=index,search_analyzer=search"
+literal|"type=string,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17333,7 +17333,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,index_analyzer=index,search_analyzer=search"
+literal|"type=string,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17568,7 +17568,7 @@ literal|"test"
 argument_list|,
 literal|"text"
 argument_list|,
-literal|"type=string,index_analyzer=index,search_analyzer=search"
+literal|"type=string,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -23355,7 +23355,7 @@ literal|"type=string,copy_to=meta"
 argument_list|,
 literal|"meta"
 argument_list|,
-literal|"type=string,index_analyzer=my_ngram_analyzer"
+literal|"type=string,analyzer=my_ngram_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;

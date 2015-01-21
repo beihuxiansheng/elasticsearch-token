@@ -739,7 +739,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|,
 literal|"autocomplete"
 argument_list|)
@@ -1082,7 +1082,7 @@ literal|"test"
 argument_list|,
 literal|"body"
 argument_list|,
-literal|"type=string,index_analyzer=custom_analyzer,search_analyzer=custom_analyzer,term_vector=with_positions_offsets"
+literal|"type=string,analyzer=custom_analyzer,search_analyzer=custom_analyzer,term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|setSettings
@@ -1322,7 +1322,7 @@ literal|"test"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,index_analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,"
+literal|"type=string,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -1331,7 +1331,7 @@ literal|"term_vector=with_positions_offsets"
 argument_list|,
 literal|"name2"
 argument_list|,
-literal|"type=string,index_analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,"
+literal|"type=string,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,"
 operator|+
 name|randomStoreField
 argument_list|()
@@ -1992,11 +1992,11 @@ literal|"test"
 argument_list|,
 literal|"name"
 argument_list|,
-literal|"type=string,index_analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
+literal|"type=string,analyzer=name_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
 argument_list|,
 literal|"name2"
 argument_list|,
-literal|"type=string,index_analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
+literal|"type=string,analyzer=name2_index_analyzer,search_analyzer=name_search_analyzer,term_vector=with_positions_offsets"
 argument_list|)
 operator|.
 name|setSettings

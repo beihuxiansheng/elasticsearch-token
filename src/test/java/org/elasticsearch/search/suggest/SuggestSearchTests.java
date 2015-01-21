@@ -1283,7 +1283,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|,
 literal|"biword"
 argument_list|)
@@ -1805,7 +1805,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"index_analyzer"
+literal|"analyzer"
 argument_list|,
 literal|"biword"
 argument_list|)
