@@ -1426,11 +1426,12 @@ name|analyzer
 parameter_list|()
 block|{
 return|return
-name|this
+name|docMapper
 operator|.
-name|doc
+name|mappers
+argument_list|()
 operator|.
-name|analyzer
+name|indexAnalyzer
 argument_list|()
 return|;
 block|}

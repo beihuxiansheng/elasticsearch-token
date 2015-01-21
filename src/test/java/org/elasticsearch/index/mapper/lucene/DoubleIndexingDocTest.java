@@ -377,9 +377,9 @@ operator|.
 name|rootDoc
 argument_list|()
 argument_list|,
-name|doc
+name|mapper
 operator|.
-name|analyzer
+name|indexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -392,9 +392,9 @@ operator|.
 name|rootDoc
 argument_list|()
 argument_list|,
-name|doc
+name|mapper
 operator|.
-name|analyzer
+name|indexAnalyzer
 argument_list|()
 argument_list|)
 expr_stmt|;
