@@ -70,6 +70,30 @@ name|double
 name|getStdDeviation
 parameter_list|()
 function_decl|;
+comment|/**      * The upper or lower bounds of the stdDeviation      */
+DECL|method|getStdDeviationBound
+name|double
+name|getStdDeviationBound
+parameter_list|(
+name|Bounds
+name|bound
+parameter_list|)
+function_decl|;
+comment|/**      * The standard deviation of the collected values as a String.      */
+DECL|method|getStdDeviationAsString
+name|String
+name|getStdDeviationAsString
+parameter_list|()
+function_decl|;
+comment|/**      * The upper or lower bounds of stdDev of the collected values as a String.      */
+DECL|method|getStdDeviationBoundAsString
+name|String
+name|getStdDeviationBoundAsString
+parameter_list|(
+name|Bounds
+name|bound
+parameter_list|)
+function_decl|;
 comment|/**      * The sum of the squares of the collected values as a String.      */
 DECL|method|getSumOfSquaresAsString
 name|String
@@ -82,12 +106,17 @@ name|String
 name|getVarianceAsString
 parameter_list|()
 function_decl|;
-comment|/**      * The standard deviation of the collected values as a String.      */
-DECL|method|getStdDeviationAsString
-name|String
-name|getStdDeviationAsString
-parameter_list|()
-function_decl|;
+DECL|enum|Bounds
+specifier|public
+enum|enum
+name|Bounds
+block|{
+DECL|enum constant|UPPER
+DECL|enum constant|LOWER
+name|UPPER
+block|,
+name|LOWER
+block|}
 block|}
 end_interface
 
