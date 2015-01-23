@@ -609,6 +609,11 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"twitter"
+argument_list|)
+expr_stmt|;
 name|SearchResponse
 name|search
 init|=
