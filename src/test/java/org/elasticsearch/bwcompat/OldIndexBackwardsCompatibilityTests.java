@@ -639,6 +639,9 @@ range|:
 name|indexes
 control|)
 block|{
+name|logMemoryStats
+argument_list|()
+expr_stmt|;
 name|logger
 operator|.
 name|info
