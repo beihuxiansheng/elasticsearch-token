@@ -1036,6 +1036,15 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elasticsearch/elasticsearch/issues/9270"
+argument_list|)
 DECL|method|testRamAccountingTermsEnum
 specifier|public
 name|void
