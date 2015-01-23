@@ -358,7 +358,7 @@ operator|=
 name|failures
 expr_stmt|;
 block|}
-comment|/**          * @return the total number of shards the write should go to.          */
+comment|/**          * @return the total number of shards the write should go to (replicas and primaries). This includes relocating shards, so this number can be higher than the number of shards.          */
 DECL|method|getTotal
 specifier|public
 name|int
@@ -369,7 +369,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/**          * @return the total number of shards the write succeeded on.          */
+comment|/**          * @return the total number of shards the write succeeded on (replicas and primaries). This includes relocating shards, so this number can be higher than the number of shards.          */
 DECL|method|getSuccessful
 specifier|public
 name|int

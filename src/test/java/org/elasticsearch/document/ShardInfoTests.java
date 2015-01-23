@@ -1082,7 +1082,7 @@ operator|.
 name|getTotal
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThanOrEqualTo
 argument_list|(
 name|expectedTotal
 argument_list|)
@@ -1098,7 +1098,7 @@ operator|.
 name|getSuccessful
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThanOrEqualTo
 argument_list|(
 name|expectedSuccessful
 argument_list|)

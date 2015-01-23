@@ -1720,7 +1720,7 @@ operator|.
 name|getTotal
 argument_list|()
 argument_list|,
-name|equalTo
+name|greaterThanOrEqualTo
 argument_list|(
 name|numShards
 operator|.
@@ -1739,7 +1739,7 @@ name|greaterThanOrEqualTo
 argument_list|(
 name|numShards
 operator|.
-name|numPrimaries
+name|totalNumShards
 argument_list|)
 argument_list|)
 expr_stmt|;
