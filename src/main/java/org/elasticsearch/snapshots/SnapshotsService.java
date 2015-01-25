@@ -2003,11 +2003,6 @@ name|shards
 init|=
 name|shards
 argument_list|(
-name|entry
-operator|.
-name|snapshotId
-argument_list|()
-argument_list|,
 name|currentState
 argument_list|,
 name|entry
@@ -7558,7 +7553,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Calculates the list of shards that should be included into the current snapshot      *      * @param snapshotId   snapshot id      * @param clusterState cluster state      * @param indices      list of indices to be snapshotted      * @return list of shard to be included into current snapshot      */
+comment|/**      * Calculates the list of shards that should be included into the current snapshot      *      * @param clusterState cluster state      * @param indices      list of indices to be snapshotted      * @return list of shard to be included into current snapshot      */
 DECL|method|shards
 specifier|private
 name|ImmutableMap
@@ -7571,9 +7566,6 @@ name|ShardSnapshotStatus
 argument_list|>
 name|shards
 parameter_list|(
-name|SnapshotId
-name|snapshotId
-parameter_list|,
 name|ClusterState
 name|clusterState
 parameter_list|,
@@ -7627,6 +7619,44 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexMetaData
+operator|==
+literal|null
+condition|)
+block|{
+comment|// The index was deleted before we managed to start the snapshot - mark it as missing.
+name|builder
+operator|.
+name|put
+argument_list|(
+operator|new
+name|ShardId
+argument_list|(
+name|index
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
+operator|new
+name|SnapshotMetaData
+operator|.
+name|ShardSnapshotStatus
+argument_list|(
+literal|null
+argument_list|,
+name|State
+operator|.
+name|MISSING
+argument_list|,
+literal|"missing index"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|IndexRoutingTable
 name|indexRoutingTable
 init|=
@@ -7842,6 +7872,7 @@ literal|"missing routing table"
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
