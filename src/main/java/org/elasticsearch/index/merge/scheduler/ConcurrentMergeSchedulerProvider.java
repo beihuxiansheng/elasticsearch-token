@@ -946,7 +946,7 @@ annotation|@
 name|Override
 DECL|method|maybeStall
 specifier|protected
-name|void
+name|boolean
 name|maybeStall
 parameter_list|(
 name|IndexWriter
@@ -954,6 +954,9 @@ name|writer
 parameter_list|)
 block|{
 comment|// Don't stall here, because we do our own index throttling (in InternalEngine.IndexThrottle) when merges can't keep up
+return|return
+literal|true
+return|;
 block|}
 block|}
 DECL|class|ApplySettings
