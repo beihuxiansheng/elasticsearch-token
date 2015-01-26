@@ -472,34 +472,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|DocumentMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|DocumentMapperParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|ParseContext
 operator|.
 name|Document
@@ -549,22 +521,6 @@ operator|.
 name|internal
 operator|.
 name|UidFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|object
-operator|.
-name|RootObjectMapper
 import|;
 end_import
 
@@ -944,7 +900,63 @@ name|randomizedtesting
 operator|.
 name|RandomizedTest
 operator|.
-name|*
+name|between
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|randomBoolean
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|randomDouble
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|randomIntBetween
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|randomLong
 import|;
 end_import
 
@@ -1016,7 +1028,7 @@ name|test
 operator|.
 name|ElasticsearchTestCase
 operator|.
-name|awaitBusy
+name|*
 import|;
 end_import
 
@@ -1031,20 +1043,6 @@ operator|.
 name|ElasticsearchTestCase
 operator|.
 name|randomFrom
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
-operator|.
-name|terminate
 import|;
 end_import
 
@@ -1110,6 +1108,16 @@ DECL|field|storeReplica
 specifier|private
 name|Store
 name|storeReplica
+decl_stmt|;
+DECL|field|translog
+specifier|protected
+name|Translog
+name|translog
+decl_stmt|;
+DECL|field|replicaTranslog
+specifier|protected
+name|Translog
+name|replicaTranslog
 decl_stmt|;
 DECL|field|engine
 specifier|protected
@@ -1259,6 +1267,11 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|translog
+operator|=
+name|createTranslog
+argument_list|()
+expr_stmt|;
 name|engine
 operator|=
 name|createEngine
@@ -1267,8 +1280,7 @@ name|engineSettingsService
 argument_list|,
 name|store
 argument_list|,
-name|createTranslog
-argument_list|()
+name|translog
 argument_list|)
 expr_stmt|;
 if|if
@@ -1328,6 +1340,11 @@ name|build
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|replicaTranslog
+operator|=
+name|createTranslogReplica
+argument_list|()
+expr_stmt|;
 name|replicaEngine
 operator|=
 name|createEngine
@@ -1336,8 +1353,7 @@ name|replicaSettingsService
 argument_list|,
 name|storeReplica
 argument_list|,
-name|createTranslogReplica
-argument_list|()
+name|replicaTranslog
 argument_list|)
 expr_stmt|;
 if|if
@@ -7051,6 +7067,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
 name|ParsedDocument
 name|doc
 init|=
@@ -7156,7 +7173,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"flush is not allowed in phase 3"
+literal|"flush is not allowed in phase 1"
 argument_list|,
 literal|false
 argument_list|,
@@ -7223,7 +7240,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"flush is not allowed in phase 3"
+literal|"flush is not allowed in phase 2"
 argument_list|,
 literal|false
 argument_list|,
@@ -7242,6 +7259,29 @@ parameter_list|)
 block|{
 comment|// all is well
 block|}
+comment|// but we can index
+name|engine
+operator|.
+name|index
+argument_list|(
+operator|new
+name|Engine
+operator|.
+name|Index
+argument_list|(
+literal|null
+argument_list|,
+name|analyzer
+argument_list|,
+name|newUid
+argument_list|(
+literal|"1"
+argument_list|)
+argument_list|,
+name|doc
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -7267,7 +7307,7 @@ name|TranslogSizeMatcher
 operator|.
 name|translogSize
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7312,6 +7352,24 @@ comment|// all is well
 block|}
 block|}
 block|}
+argument_list|)
+expr_stmt|;
+comment|// post recovery should flush the translog
+name|MatcherAssert
+operator|.
+name|assertThat
+argument_list|(
+name|translog
+operator|.
+name|snapshot
+argument_list|()
+argument_list|,
+name|TranslogSizeMatcher
+operator|.
+name|translogSize
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|engine
