@@ -609,11 +609,6 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ensureGreen
-argument_list|(
-literal|"twitter"
-argument_list|)
-expr_stmt|;
 name|SearchResponse
 name|search
 init|=
@@ -1733,6 +1728,7 @@ name|totalNumShards
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we do not ensure green so just make sure request succeeded at least on all primaries
 name|assertThat
 argument_list|(
 name|shardInfo
@@ -1744,7 +1740,7 @@ name|greaterThanOrEqualTo
 argument_list|(
 name|numShards
 operator|.
-name|totalNumShards
+name|numPrimaries
 argument_list|)
 argument_list|)
 expr_stmt|;
