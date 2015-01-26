@@ -201,8 +201,6 @@ name|MergeSchedulerProvider
 extends|extends
 name|AbstractIndexShardComponent
 implements|implements
-name|IndexShardComponent
-implements|,
 name|Closeable
 block|{
 DECL|interface|FailureListener

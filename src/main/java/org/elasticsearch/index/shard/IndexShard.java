@@ -1315,8 +1315,6 @@ class|class
 name|IndexShard
 extends|extends
 name|AbstractIndexShardComponent
-implements|implements
-name|IndexShardComponent
 block|{
 DECL|field|threadPool
 specifier|private
