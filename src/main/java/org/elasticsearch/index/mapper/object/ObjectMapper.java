@@ -3756,8 +3756,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
+elseif|else
 if|if
 condition|(
 name|dynamic
@@ -3776,7 +3775,6 @@ argument_list|,
 name|lastFieldName
 argument_list|)
 throw|;
-block|}
 block|}
 block|}
 DECL|method|serializeObject
