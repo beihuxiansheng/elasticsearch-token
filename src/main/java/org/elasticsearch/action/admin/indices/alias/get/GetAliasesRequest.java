@@ -52,7 +52,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|IndicesRequest
+name|AliasesRequest
 import|;
 end_import
 
@@ -155,9 +155,7 @@ argument_list|<
 name|GetAliasesRequest
 argument_list|>
 implements|implements
-name|IndicesRequest
-operator|.
-name|Replaceable
+name|AliasesRequest
 block|{
 DECL|field|indices
 specifier|private
@@ -252,6 +250,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|aliases
 specifier|public
 name|GetAliasesRequest
@@ -304,6 +304,8 @@ return|return
 name|indices
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|aliases
 specifier|public
 name|String
@@ -313,6 +315,18 @@ parameter_list|()
 block|{
 return|return
 name|aliases
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|expandAliasesWildcards
+specifier|public
+name|boolean
+name|expandAliasesWildcards
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 annotation|@

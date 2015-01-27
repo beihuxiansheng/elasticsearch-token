@@ -183,7 +183,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param index The indices      * @param alias The alias      */
+comment|/**      * Adds an alias to the index.      *      * @param indices The indices      * @param alias The alias      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -571,7 +571,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias action to the request.      *      * @param aliasAction The alias action      */
+comment|/**      * Adds an alias action to the request.      *      * @param action The alias action      */
 DECL|method|addAliasAction
 specifier|public
 name|IndicesAliasesRequestBuilder

@@ -2193,6 +2193,7 @@ return|;
 block|}
 DECL|method|matchAllAliases
 specifier|private
+specifier|static
 name|boolean
 name|matchAllAliases
 parameter_list|(
@@ -2216,7 +2217,7 @@ name|alias
 operator|.
 name|equals
 argument_list|(
-literal|"_all"
+name|ALL
 argument_list|)
 condition|)
 block|{

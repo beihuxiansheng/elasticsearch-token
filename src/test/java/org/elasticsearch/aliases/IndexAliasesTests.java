@@ -9308,21 +9308,16 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Exception text does not contain \"Property [index] was either missing or null\""
+literal|"Exception text does not contain \"Alias action [add]: [index] may not be empty string\""
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Property [index] was either missing or null"
-argument_list|)
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|true
+literal|"Alias action [add]: [index] may not be empty string"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9398,21 +9393,16 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"Exception text does not contain \"Property [index] was either missing or null\""
+literal|"Exception text does not contain \"Alias action [add]: [index] may not be empty string\""
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Property [index] was either missing or null"
-argument_list|)
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|true
+literal|"Alias action [add]: [index] may not be empty string"
 argument_list|)
 argument_list|)
 expr_stmt|;
