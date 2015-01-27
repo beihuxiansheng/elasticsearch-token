@@ -943,9 +943,11 @@ name|minDocCount
 argument_list|,
 name|extendedBounds
 argument_list|,
+operator|new
 name|InternalHistogram
 operator|.
-name|FACTORY
+name|Factory
+argument_list|()
 argument_list|)
 return|;
 block|}
