@@ -547,6 +547,17 @@ operator|.
 name|bits
 argument_list|()
 expr_stmt|;
+comment|// We need to reset the current root doc, otherwise we may emit incorrect child docs if the next segment happen to start with the same root doc id value
+name|currentRootDoc
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+name|childDocIdBuffers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

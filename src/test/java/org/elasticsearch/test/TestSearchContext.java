@@ -2100,7 +2100,15 @@ name|name
 parameter_list|)
 block|{
 return|return
-literal|null
+name|mapperService
+argument_list|()
+operator|.
+name|smartNameObjectMapper
+argument_list|(
+name|name
+argument_list|,
+name|types
+argument_list|)
 return|;
 block|}
 annotation|@
