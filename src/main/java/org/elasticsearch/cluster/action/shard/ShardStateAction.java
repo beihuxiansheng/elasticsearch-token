@@ -367,7 +367,7 @@ specifier|final
 name|String
 name|SHARD_STARTED_ACTION_NAME
 init|=
-literal|"internal:cluster/shard/failure"
+literal|"internal:cluster/shard/started"
 decl_stmt|;
 DECL|field|SHARD_FAILED_ACTION_NAME
 specifier|public
@@ -376,7 +376,7 @@ specifier|final
 name|String
 name|SHARD_FAILED_ACTION_NAME
 init|=
-literal|"internal:cluster/shard/started"
+literal|"internal:cluster/shard/failure"
 decl_stmt|;
 DECL|field|transportService
 specifier|private
