@@ -381,6 +381,7 @@ block|}
 comment|/*      * If one of the parent aggregators is a MULTI_BUCKET one, we might want to lower the precision      * because otherwise it might be memory-intensive. On the other hand, for top-level aggregators      * we try to focus on accuracy.      */
 DECL|method|defaultPrecision
 specifier|private
+specifier|static
 name|int
 name|defaultPrecision
 parameter_list|(

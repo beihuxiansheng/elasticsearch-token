@@ -4564,7 +4564,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"ElasticsearchParseException"
+literal|"ElasticsearchIllegalStateException"
 argument_list|)
 argument_list|)
 expr_stmt|;

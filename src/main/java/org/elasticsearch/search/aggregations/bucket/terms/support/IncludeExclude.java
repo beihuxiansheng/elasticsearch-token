@@ -848,10 +848,7 @@ comment|// slow option of hitting termsEnum for every term in the index.
 name|TermsEnum
 name|globalTermsEnum
 init|=
-name|valueSource
-operator|.
-name|globalOrdinalsValues
-argument_list|()
+name|globalOrdinals
 operator|.
 name|termsEnum
 argument_list|()

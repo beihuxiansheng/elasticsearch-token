@@ -773,6 +773,7 @@ name|bucketCountThresholds
 decl_stmt|;
 DECL|field|order
 specifier|protected
+specifier|final
 name|Terms
 operator|.
 name|Order
@@ -780,6 +781,7 @@ name|order
 decl_stmt|;
 DECL|field|aggsUsedForSorting
 specifier|protected
+specifier|final
 name|Set
 argument_list|<
 name|Aggregator
@@ -791,10 +793,11 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|subAggCollectMode
+DECL|field|collectMode
 specifier|protected
+specifier|final
 name|SubAggCollectionMode
-name|subAggCollectMode
+name|collectMode
 decl_stmt|;
 DECL|method|TermsAggregator
 specifier|public
@@ -821,7 +824,7 @@ name|Order
 name|order
 parameter_list|,
 name|SubAggCollectionMode
-name|subAggCollectMode
+name|collectMode
 parameter_list|,
 name|Map
 argument_list|<
@@ -868,9 +871,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|subAggCollectMode
+name|collectMode
 operator|=
-name|subAggCollectMode
+name|collectMode
 expr_stmt|;
 comment|// Don't defer any child agg if we are dependent on it for pruning results
 if|if
@@ -984,7 +987,7 @@ parameter_list|)
 block|{
 return|return
 operator|(
-name|subAggCollectMode
+name|collectMode
 operator|==
 name|SubAggCollectionMode
 operator|.

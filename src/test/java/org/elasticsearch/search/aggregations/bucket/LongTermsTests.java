@@ -5585,9 +5585,6 @@ comment|// since no type ie explicitly defined, es will assume all values return
 comment|// so the aggregation should fail, since the "sum" aggregation can only operation on numeric values.
 try|try
 block|{
-name|SearchResponse
-name|response
-init|=
 name|client
 argument_list|()
 operator|.
@@ -5642,7 +5639,7 @@ argument_list|()
 operator|.
 name|actionGet
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"expected to fail as sub-aggregation sum requires a numeric value source context, but there is none"

@@ -129,7 +129,7 @@ name|id
 argument_list|)
 return|;
 block|}
-comment|/**      * Get the id associated with<code>key</code>      */
+comment|/**      * Get the id associated with<code>key</code> or -1 if the key is not contained in the hash.      */
 DECL|method|find
 specifier|public
 name|long
