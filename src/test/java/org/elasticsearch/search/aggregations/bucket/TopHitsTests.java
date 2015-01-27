@@ -986,6 +986,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"idx"
+argument_list|,
+literal|"empty"
+argument_list|,
+literal|"articles"
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|IndexRequestBuilder
