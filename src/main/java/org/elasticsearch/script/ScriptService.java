@@ -1378,6 +1378,13 @@ argument_list|(
 literal|"groovy"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 index|[]
 name|patches
@@ -1451,6 +1458,7 @@ operator|.
 name|clearCache
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
