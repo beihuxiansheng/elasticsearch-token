@@ -483,15 +483,6 @@ block|}
 comment|/**      * Tests retry mechanism when indexing. If an exception occurs when indexing then the indexing request is tried again before finally failing.      * If auto generated ids are used this must not lead to duplicate ids      * see https://github.com/elasticsearch/elasticsearch/issues/8788      */
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/issues/8788"
-argument_list|)
 DECL|method|testRetryDueToExceptionOnNetworkLayer
 specifier|public
 name|void
