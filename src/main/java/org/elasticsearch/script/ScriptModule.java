@@ -382,6 +382,9 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 comment|// now, check for config based ones
@@ -480,6 +483,9 @@ name|to
 argument_list|(
 name|type
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 name|Multibinder
@@ -535,6 +541,9 @@ name|GroovyScriptEngineService
 operator|.
 name|class
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -585,6 +594,9 @@ name|MustacheScriptEngineService
 operator|.
 name|class
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -635,6 +647,9 @@ name|ExpressionScriptEngineService
 operator|.
 name|class
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -684,6 +699,9 @@ name|to
 argument_list|(
 name|scriptEngine
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 name|bind
