@@ -66,23 +66,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|geo
+name|xcontent
 operator|.
-name|GeoPoint
+name|XContentBuilder
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|vividsolutions
 operator|.
-name|common
+name|jts
 operator|.
-name|xcontent
+name|geom
 operator|.
-name|XContentBuilder
+name|Coordinate
 import|;
 end_import
 
@@ -112,7 +112,7 @@ specifier|protected
 specifier|final
 name|ArrayList
 argument_list|<
-name|GeoPoint
+name|Coordinate
 argument_list|>
 name|points
 decl_stmt|;
@@ -133,7 +133,7 @@ argument_list|(
 operator|new
 name|ArrayList
 argument_list|<
-name|GeoPoint
+name|Coordinate
 argument_list|>
 argument_list|()
 argument_list|)
@@ -145,7 +145,7 @@ name|PointCollection
 parameter_list|(
 name|ArrayList
 argument_list|<
-name|GeoPoint
+name|Coordinate
 argument_list|>
 name|points
 parameter_list|)
@@ -208,7 +208,7 @@ specifier|public
 name|E
 name|point
 parameter_list|(
-name|GeoPoint
+name|Coordinate
 name|coordinate
 parameter_list|)
 block|{
@@ -226,13 +226,13 @@ name|thisRef
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a array of points to the collection      *       * @param coordinates array of {@link GeoPoint}s to add      * @return this      */
+comment|/**      * Add a array of points to the collection      *       * @param coordinates array of {@link Coordinate}s to add      * @return this      */
 DECL|method|points
 specifier|public
 name|E
 name|points
 parameter_list|(
-name|GeoPoint
+name|Coordinate
 modifier|...
 name|coordinates
 parameter_list|)
@@ -251,7 +251,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a collection of points to the collection      *       * @param coordinates array of {@link GeoPoint}s to add      * @return this      */
+comment|/**      * Add a collection of points to the collection      *       * @param coordinates array of {@link Coordinate}s to add      * @return this      */
 DECL|method|points
 specifier|public
 name|E
@@ -261,7 +261,7 @@ name|Collection
 argument_list|<
 name|?
 extends|extends
-name|GeoPoint
+name|Coordinate
 argument_list|>
 name|coordinates
 parameter_list|)
@@ -283,7 +283,7 @@ block|}
 comment|/**      * Copy all points to a new Array      *       * @param closed if set to true the first point of the array is repeated as last element      * @return Array of coordinates      */
 DECL|method|coordinates
 specifier|protected
-name|GeoPoint
+name|Coordinate
 index|[]
 name|coordinates
 parameter_list|(
@@ -291,7 +291,7 @@ name|boolean
 name|closed
 parameter_list|)
 block|{
-name|GeoPoint
+name|Coordinate
 index|[]
 name|result
 init|=
@@ -300,7 +300,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|GeoPoint
+name|Coordinate
 index|[
 name|points
 operator|.
@@ -363,7 +363,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|GeoPoint
+name|Coordinate
 name|point
 range|:
 name|points
@@ -382,7 +382,7 @@ condition|(
 name|closed
 condition|)
 block|{
-name|GeoPoint
+name|Coordinate
 name|start
 init|=
 name|points
@@ -392,7 +392,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|GeoPoint
+name|Coordinate
 name|end
 init|=
 name|points
