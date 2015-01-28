@@ -441,57 +441,6 @@ argument_list|,
 literal|"Expression [MethodCallExpression] is not allowed: [doc[foo].value, 3, 4].size()"
 argument_list|)
 expr_stmt|;
-comment|// Undo the blacklist addition and make sure the scripts still work
-name|Settings
-name|emptyBlacklistSettings
-init|=
-name|ImmutableSettings
-operator|.
-name|builder
-argument_list|()
-operator|.
-name|put
-argument_list|(
-name|GroovyScriptEngineService
-operator|.
-name|GROOVY_SCRIPT_BLACKLIST_PATCH
-argument_list|,
-literal|""
-argument_list|)
-operator|.
-name|build
-argument_list|()
-decl_stmt|;
-name|client
-argument_list|()
-operator|.
-name|admin
-argument_list|()
-operator|.
-name|cluster
-argument_list|()
-operator|.
-name|prepareUpdateSettings
-argument_list|()
-operator|.
-name|setTransientSettings
-argument_list|(
-name|emptyBlacklistSettings
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|testSuccess
-argument_list|(
-literal|"[doc['foo'].value, 3, 4].isEmpty()"
-argument_list|)
-expr_stmt|;
-name|testSuccess
-argument_list|(
-literal|"[doc['foo'].value, 3, 4].size()"
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testSuccess
 specifier|public

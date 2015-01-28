@@ -273,8 +273,10 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
+name|Set
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|blacklistAdditions
 parameter_list|)
 block|{
@@ -1006,8 +1008,10 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
+name|Set
+argument_list|<
 name|String
-index|[]
+argument_list|>
 name|blacklistAdditions
 parameter_list|)
 block|{
