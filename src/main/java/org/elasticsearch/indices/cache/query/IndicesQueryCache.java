@@ -1679,6 +1679,13 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
+comment|/* BytesStreamOutput allows to pass the expected size but by default uses              * BigArrays.PAGE_SIZE_IN_BYTES which is 16k. A common cached result ie.              * a date histogram with 3 buckets is ~100byte so 16k might be very wasteful              * since we don't shrink to the actual size once we are done serializing.              * By passing 512 as the expected size we will resize the byte array in the stream              * slowly until we hit the page size and don't waste too much memory for small query              * results.*/
+specifier|final
+name|int
+name|expectedSizeInBytes
+init|=
+literal|512
+decl_stmt|;
 try|try
 init|(
 name|BytesStreamOutput
@@ -1686,7 +1693,9 @@ name|out
 init|=
 operator|new
 name|BytesStreamOutput
-argument_list|()
+argument_list|(
+name|expectedSizeInBytes
+argument_list|)
 init|)
 block|{
 name|context
