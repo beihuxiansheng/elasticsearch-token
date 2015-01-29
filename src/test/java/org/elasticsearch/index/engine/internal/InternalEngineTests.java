@@ -13681,8 +13681,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|Engine
@@ -13795,8 +13793,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|Engine
@@ -14096,8 +14092,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|Engine
@@ -14213,8 +14207,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|Engine
