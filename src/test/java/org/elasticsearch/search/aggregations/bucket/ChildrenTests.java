@@ -3349,9 +3349,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-name|childType
-operator|+
-literal|".color"
+literal|"color"
 argument_list|)
 argument_list|)
 operator|.
@@ -3364,9 +3362,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-name|childType
-operator|+
-literal|".size"
+literal|"size"
 argument_list|)
 argument_list|)
 argument_list|)
