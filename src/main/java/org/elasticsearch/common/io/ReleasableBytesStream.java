@@ -26,7 +26,7 @@ name|common
 operator|.
 name|bytes
 operator|.
-name|ReleasableBytesReference
+name|ReleasablePagedBytesReference
 import|;
 end_import
 
@@ -43,7 +43,7 @@ extends|extends
 name|BytesStream
 block|{
 DECL|method|bytes
-name|ReleasableBytesReference
+name|ReleasablePagedBytesReference
 name|bytes
 parameter_list|()
 function_decl|;

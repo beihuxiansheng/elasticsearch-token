@@ -116,7 +116,7 @@ name|common
 operator|.
 name|bytes
 operator|.
-name|ReleasableBytesReference
+name|ReleasablePagedBytesReference
 import|;
 end_import
 
@@ -4708,7 +4708,7 @@ argument_list|(
 name|action
 argument_list|)
 expr_stmt|;
-name|ReleasableBytesReference
+name|ReleasablePagedBytesReference
 name|bytes
 decl_stmt|;
 name|ChannelBuffer

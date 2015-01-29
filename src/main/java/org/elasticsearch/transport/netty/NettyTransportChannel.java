@@ -50,7 +50,7 @@ name|common
 operator|.
 name|bytes
 operator|.
-name|ReleasableBytesReference
+name|ReleasablePagedBytesReference
 import|;
 end_import
 
@@ -526,7 +526,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-name|ReleasableBytesReference
+name|ReleasablePagedBytesReference
 name|bytes
 init|=
 name|bStream
