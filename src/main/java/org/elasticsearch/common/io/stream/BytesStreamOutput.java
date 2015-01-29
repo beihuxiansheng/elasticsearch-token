@@ -501,6 +501,20 @@ name|count
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the number of bytes used by the underlying {@link org.elasticsearch.common.util.ByteArray}      * @see org.elasticsearch.common.util.ByteArray#ramBytesUsed()      */
+DECL|method|ramBytesUsed
+specifier|public
+name|long
+name|ramBytesUsed
+parameter_list|()
+block|{
+return|return
+name|bytes
+operator|.
+name|ramBytesUsed
+argument_list|()
+return|;
+block|}
 DECL|method|ensureCapacity
 specifier|private
 name|void

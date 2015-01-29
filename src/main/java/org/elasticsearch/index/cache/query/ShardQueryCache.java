@@ -242,7 +242,9 @@ name|IndicesQueryCache
 operator|.
 name|Key
 argument_list|,
-name|BytesReference
+name|IndicesQueryCache
+operator|.
+name|Value
 argument_list|>
 block|{
 DECL|field|evictionsMetric
@@ -370,7 +372,9 @@ operator|.
 name|Key
 name|key
 parameter_list|,
-name|BytesReference
+name|IndicesQueryCache
+operator|.
+name|Value
 name|value
 parameter_list|)
 block|{
@@ -385,7 +389,7 @@ argument_list|()
 operator|+
 name|value
 operator|.
-name|length
+name|ramBytesUsed
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -403,7 +407,9 @@ name|IndicesQueryCache
 operator|.
 name|Key
 argument_list|,
-name|BytesReference
+name|IndicesQueryCache
+operator|.
+name|Value
 argument_list|>
 name|removalNotification
 parameter_list|)
@@ -465,7 +471,7 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|length
+name|ramBytesUsed
 argument_list|()
 expr_stmt|;
 block|}
