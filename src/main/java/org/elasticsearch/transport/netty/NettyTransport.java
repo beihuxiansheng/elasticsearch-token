@@ -174,22 +174,6 @@ name|io
 operator|.
 name|stream
 operator|.
-name|HandlesStreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
 name|ReleasableBytesStreamOutput
 import|;
 end_import
@@ -4666,14 +4650,6 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-name|stream
-operator|=
-operator|new
-name|HandlesStreamOutput
-argument_list|(
-name|stream
-argument_list|)
-expr_stmt|;
 comment|// we pick the smallest of the 2, to support both backward and forward compatibility
 comment|// note, this is the only place we need to do this, since from here on, we use the serialized version
 comment|// as the version to use also when the node receiving this request will send the response with

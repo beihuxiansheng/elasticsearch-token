@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -755,7 +745,7 @@ name|index
 operator|=
 name|in
 operator|.
-name|readSharedString
+name|readString
 argument_list|()
 expr_stmt|;
 name|canHaveDuplicates
@@ -816,7 +806,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedString
+name|writeString
 argument_list|(
 name|index
 argument_list|)

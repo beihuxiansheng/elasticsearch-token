@@ -943,7 +943,7 @@ name|opType
 operator|=
 name|in
 operator|.
-name|readSharedString
+name|readString
 argument_list|()
 expr_stmt|;
 name|byte
@@ -1033,7 +1033,7 @@ name|fIndex
 init|=
 name|in
 operator|.
-name|readSharedString
+name|readString
 argument_list|()
 decl_stmt|;
 name|String
@@ -1041,7 +1041,7 @@ name|fType
 init|=
 name|in
 operator|.
-name|readSharedString
+name|readString
 argument_list|()
 decl_stmt|;
 name|String
@@ -1110,7 +1110,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedString
+name|writeString
 argument_list|(
 name|opType
 argument_list|)
@@ -1226,7 +1226,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedString
+name|writeString
 argument_list|(
 name|failure
 operator|.
@@ -1236,7 +1236,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedString
+name|writeString
 argument_list|(
 name|failure
 operator|.

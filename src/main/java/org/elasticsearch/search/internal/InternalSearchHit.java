@@ -2825,7 +2825,7 @@ name|type
 operator|=
 name|in
 operator|.
-name|readSharedText
+name|readText
 argument_list|()
 expr_stmt|;
 name|nestedIdentity
@@ -4098,7 +4098,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedText
+name|writeText
 argument_list|(
 name|type
 argument_list|)

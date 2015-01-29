@@ -284,7 +284,7 @@ name|name
 operator|=
 name|in
 operator|.
-name|readSharedString
+name|readString
 argument_list|()
 expr_stmt|;
 if|if
@@ -371,7 +371,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeSharedString
+name|writeString
 argument_list|(
 name|name
 argument_list|)

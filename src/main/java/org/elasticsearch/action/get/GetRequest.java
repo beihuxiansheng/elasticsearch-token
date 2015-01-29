@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -962,7 +952,7 @@ name|type
 operator|=
 name|in
 operator|.
-name|readSharedString
+name|readString
 argument_list|()
 expr_stmt|;
 name|id
@@ -1144,7 +1134,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedString
+name|writeString
 argument_list|(
 name|type
 argument_list|)

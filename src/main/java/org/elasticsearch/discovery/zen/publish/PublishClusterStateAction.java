@@ -614,9 +614,6 @@ decl_stmt|;
 name|StreamOutput
 name|stream
 init|=
-operator|new
-name|HandlesStreamOutput
-argument_list|(
 name|CompressorFactory
 operator|.
 name|defaultCompressor
@@ -625,7 +622,6 @@ operator|.
 name|streamOutput
 argument_list|(
 name|bStream
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|stream
@@ -1003,12 +999,10 @@ condition|)
 block|{
 name|in
 operator|=
-name|CachedStreamInput
-operator|.
-name|cachedHandlesCompressed
-argument_list|(
 name|compressor
-argument_list|,
+operator|.
+name|streamInput
+argument_list|(
 name|request
 operator|.
 name|bytes
@@ -1023,10 +1017,6 @@ else|else
 block|{
 name|in
 operator|=
-name|CachedStreamInput
-operator|.
-name|cachedHandles
-argument_list|(
 name|request
 operator|.
 name|bytes
@@ -1034,7 +1024,6 @@ argument_list|()
 operator|.
 name|streamInput
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|in

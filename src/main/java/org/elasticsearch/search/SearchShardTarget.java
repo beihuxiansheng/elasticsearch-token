@@ -406,7 +406,7 @@ name|nodeId
 operator|=
 name|in
 operator|.
-name|readSharedText
+name|readText
 argument_list|()
 expr_stmt|;
 block|}
@@ -414,7 +414,7 @@ name|index
 operator|=
 name|in
 operator|.
-name|readSharedText
+name|readText
 argument_list|()
 expr_stmt|;
 name|shardId
@@ -464,7 +464,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeSharedText
+name|writeText
 argument_list|(
 name|nodeId
 argument_list|)
@@ -472,7 +472,7 @@ expr_stmt|;
 block|}
 name|out
 operator|.
-name|writeSharedText
+name|writeText
 argument_list|(
 name|index
 argument_list|)
