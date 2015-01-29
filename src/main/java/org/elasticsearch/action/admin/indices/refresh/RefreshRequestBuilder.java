@@ -99,27 +99,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Forces calling refresh, overriding the check that dirty operations even happened. Defaults      * to true (note, still lightweight if no refresh is needed).      */
-DECL|method|setForce
-specifier|public
-name|RefreshRequestBuilder
-name|setForce
-parameter_list|(
-name|boolean
-name|force
-parameter_list|)
-block|{
-name|request
-operator|.
-name|force
-argument_list|(
-name|force
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|doExecute

@@ -1421,8 +1421,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"refresh_flag_index"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1738,8 +1736,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"refresh_flag_index"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

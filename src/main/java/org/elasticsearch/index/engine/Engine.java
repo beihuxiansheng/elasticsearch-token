@@ -447,16 +447,13 @@ name|boolean
 name|refreshNeeded
 parameter_list|()
 function_decl|;
-comment|/**      * Refreshes the engine for new search operations to reflect the latest      * changes. Pass<tt>true</tt> if the refresh operation should include      * all the operations performed up to this call.      */
+comment|/**      * Refreshes the engine for new search operations to reflect the latest      * changes.      */
 DECL|method|refresh
 name|void
 name|refresh
 parameter_list|(
 name|String
 name|source
-parameter_list|,
-name|boolean
-name|force
 parameter_list|)
 throws|throws
 name|EngineException

@@ -769,8 +769,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"post_gateway"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 name|recoveryState

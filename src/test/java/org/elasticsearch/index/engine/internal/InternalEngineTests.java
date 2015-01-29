@@ -2274,8 +2274,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|segments
@@ -2710,8 +2708,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|segments
@@ -3077,8 +3073,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|segments
@@ -3403,8 +3397,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|segments
@@ -3832,8 +3824,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|segments
@@ -3927,8 +3917,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|ParsedDocument
@@ -3985,8 +3973,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|segments
@@ -5094,8 +5080,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// now its there...
@@ -5457,8 +5441,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|searchResult
@@ -5688,8 +5670,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|searchResult
@@ -5936,8 +5916,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// now its there...
@@ -6258,8 +6236,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|searchResult
@@ -6500,8 +6476,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 comment|// now its there...
@@ -6581,8 +6555,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|Engine
@@ -7013,8 +6985,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"foo"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|searchResult
@@ -12361,8 +12331,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"test"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

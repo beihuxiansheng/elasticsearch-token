@@ -2018,17 +2018,6 @@ operator|.
 name|store
 return|;
 block|}
-DECL|method|engine
-specifier|public
-name|Engine
-name|engine
-parameter_list|()
-block|{
-return|return
-name|engineSafe
-argument_list|()
-return|;
-block|}
 DECL|method|translog
 specifier|public
 name|Translog
@@ -2327,14 +2316,12 @@ block|{
 comment|// we want to refresh *before* we move to internal STARTED state
 try|try
 block|{
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|refresh
 argument_list|(
 literal|"cluster_state_started"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -2882,7 +2869,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|create
@@ -3131,7 +3118,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|index
@@ -3323,7 +3310,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|delete
@@ -3550,7 +3537,7 @@ argument_list|(
 name|deleteByQuery
 argument_list|)
 expr_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|delete
@@ -3595,7 +3582,7 @@ name|readAllowed
 argument_list|()
 expr_stmt|;
 return|return
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|get
@@ -3611,9 +3598,6 @@ name|refresh
 parameter_list|(
 name|String
 name|source
-parameter_list|,
-name|boolean
-name|force
 parameter_list|)
 throws|throws
 name|ElasticsearchException
@@ -3633,11 +3617,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"refresh with soruce: {} force: {}"
+literal|"refresh with soruce: {}"
 argument_list|,
 name|source
-argument_list|,
-name|force
 argument_list|)
 expr_stmt|;
 block|}
@@ -3649,14 +3631,12 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|refresh
 argument_list|(
 name|source
-argument_list|,
-name|force
 argument_list|)
 expr_stmt|;
 name|refreshMetric
@@ -3896,7 +3876,7 @@ block|{
 name|SegmentsStats
 name|segmentsStats
 init|=
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|segmentsStats
@@ -4182,7 +4162,7 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|flush
@@ -4260,7 +4240,7 @@ name|optimize
 argument_list|)
 expr_stmt|;
 block|}
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|forceMerge
@@ -4331,7 +4311,7 @@ name|CLOSED
 condition|)
 block|{
 return|return
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|snapshotIndex
@@ -4369,7 +4349,7 @@ block|{
 name|verifyStarted
 argument_list|()
 expr_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|recover
@@ -4391,7 +4371,7 @@ name|e
 parameter_list|)
 block|{
 comment|// fail the engine. This will cause this shard to also be removed from the node's index service.
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|failEngine
@@ -4442,7 +4422,7 @@ name|searcherForWriteOperation
 argument_list|)
 expr_stmt|;
 return|return
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|acquireSearcher
@@ -4841,7 +4821,7 @@ condition|(
 name|withFlush
 condition|)
 block|{
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|flush
@@ -4864,14 +4844,12 @@ operator|.
 name|clearUnreferenced
 argument_list|()
 expr_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|refresh
 argument_list|(
 literal|"recovery_finalization"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 synchronized|synchronized
@@ -5063,7 +5041,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|create
@@ -5178,7 +5156,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|index
@@ -5222,7 +5200,7 @@ name|text
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|delete
@@ -5293,7 +5271,7 @@ name|DeleteByQuery
 operator|)
 name|operation
 decl_stmt|;
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|delete
@@ -5979,7 +5957,7 @@ block|{
 name|Engine
 name|engine
 init|=
-name|engineSafe
+name|engine
 argument_list|()
 decl_stmt|;
 name|engine
@@ -6007,7 +5985,7 @@ block|{
 name|Engine
 name|engine
 init|=
-name|engineSafe
+name|engine
 argument_list|()
 decl_stmt|;
 name|engine
@@ -6234,7 +6212,7 @@ try|try
 block|{
 if|if
 condition|(
-name|engineSafe
+name|engine
 argument_list|()
 operator|.
 name|refreshNeeded
@@ -6244,8 +6222,6 @@ block|{
 name|refresh
 argument_list|(
 literal|"schedule"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -6687,10 +6663,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|engineSafe
-specifier|private
+DECL|method|engine
+specifier|public
 name|Engine
-name|engineSafe
+name|engine
 parameter_list|()
 block|{
 name|Engine
@@ -6812,7 +6788,7 @@ block|}
 block|}
 finally|finally
 block|{
-comment|// close the engine all bets are off... don't use engineSafe() here it can throw an exception
+comment|// close the engine all bets are off... don't use engine() here it can throw an exception
 name|IOUtils
 operator|.
 name|closeWhileHandlingException

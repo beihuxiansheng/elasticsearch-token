@@ -554,10 +554,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"refresh_flag_mget"
-argument_list|,
-name|TransportGetAction
-operator|.
-name|REFRESH_FORCE
 argument_list|)
 expr_stmt|;
 block|}

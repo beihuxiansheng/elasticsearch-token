@@ -243,15 +243,6 @@ argument_list|,
 name|GetResponse
 argument_list|>
 block|{
-DECL|field|REFRESH_FORCE
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|REFRESH_FORCE
-init|=
-literal|false
-decl_stmt|;
 DECL|field|indicesService
 specifier|private
 specifier|final
@@ -615,8 +606,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"refresh_flag_get"
-argument_list|,
-name|REFRESH_FORCE
 argument_list|)
 expr_stmt|;
 block|}

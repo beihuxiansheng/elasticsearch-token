@@ -644,11 +644,6 @@ operator|.
 name|refresh
 argument_list|(
 literal|"api"
-argument_list|,
-name|request
-operator|.
-name|force
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|logger
@@ -660,11 +655,6 @@ argument_list|,
 name|indexShard
 operator|.
 name|shardId
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|force
 argument_list|()
 argument_list|)
 expr_stmt|;

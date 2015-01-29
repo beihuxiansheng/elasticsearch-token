@@ -957,15 +957,6 @@ name|closedOrFailed
 init|=
 literal|false
 decl_stmt|;
-comment|// flag indicating if a dirty operation has occurred since the last refresh
-DECL|field|dirty
-specifier|private
-specifier|volatile
-name|boolean
-name|dirty
-init|=
-literal|false
-decl_stmt|;
 DECL|field|optimizeMutex
 specifier|private
 specifier|final
@@ -1030,16 +1021,6 @@ specifier|final
 name|Object
 index|[]
 name|dirtyLocks
-decl_stmt|;
-DECL|field|refreshMutex
-specifier|private
-specifier|final
-name|Object
-name|refreshMutex
-init|=
-operator|new
-name|Object
-argument_list|()
 decl_stmt|;
 DECL|field|failedEngine
 specifier|private
@@ -2442,10 +2423,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|dirty
-operator|=
-literal|true
-expr_stmt|;
 name|flushNeeded
 operator|=
 literal|true
@@ -3165,10 +3142,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|dirty
-operator|=
-literal|true
-expr_stmt|;
 name|flushNeeded
 operator|=
 literal|true
@@ -3283,8 +3256,6 @@ block|{
 name|refresh
 argument_list|(
 literal|"version_table_full"
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3755,10 +3726,6 @@ name|delete
 argument_list|,
 name|indexWriter
 argument_list|)
-expr_stmt|;
-name|dirty
-operator|=
-literal|true
 expr_stmt|;
 name|flushNeeded
 operator|=
@@ -4314,10 +4281,6 @@ name|delete
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|dirty
-operator|=
-literal|true
-expr_stmt|;
 name|flushNeeded
 operator|=
 literal|true
@@ -4353,8 +4316,6 @@ comment|// versionMap isn't updated), so we must force a cutover to a new reader
 name|refresh
 argument_list|(
 literal|"delete_by_query"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -4560,11 +4521,7 @@ block|{
 comment|/*               we need to inc the store here since searcherManager.isSearcherCurrent()               acquires a searcher internally and that might keep a file open on the               store. this violates the assumption that all files are closed when               the store is closed so we need to make sure we increment it here              */
 try|try
 block|{
-comment|// we are either dirty due to a document added or due to a
-comment|// finished merge - either way we should refresh
 return|return
-name|dirty
-operator|||
 operator|!
 name|searcherManager
 operator|.
@@ -4628,9 +4585,6 @@ name|refresh
 parameter_list|(
 name|String
 name|source
-parameter_list|,
-name|boolean
-name|force
 parameter_list|)
 throws|throws
 name|EngineException
@@ -4651,43 +4605,11 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-comment|// maybeRefresh will only allow one refresh to execute, and the rest will "pass through",
-comment|// but, we want to make sure not to loose ant refresh calls, if one is taking time
-synchronized|synchronized
-init|(
-name|refreshMutex
-init|)
-block|{
-if|if
-condition|(
-name|refreshNeeded
-argument_list|()
-operator|||
-name|force
-condition|)
-block|{
-comment|// we set dirty to false, even though the refresh hasn't happened yet
-comment|// as the refresh only holds for data indexed before it. Any data indexed during
-comment|// the refresh will not be part of it and will set the dirty flag back to true
-name|dirty
-operator|=
-literal|false
-expr_stmt|;
-name|boolean
-name|refreshed
-init|=
 name|searcherManager
 operator|.
-name|maybeRefresh
+name|maybeRefreshBlocking
 argument_list|()
-decl_stmt|;
-assert|assert
-name|refreshed
-operator|:
-literal|"failed to refresh even though refreshMutex was acquired"
-assert|;
-block|}
-block|}
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -4890,11 +4812,6 @@ literal|"Recovery is in progress, flush is not allowed"
 argument_list|)
 throw|;
 block|}
-comment|// disable refreshing, not dirty
-name|dirty
-operator|=
-literal|false
-expr_stmt|;
 try|try
 block|{
 block|{
@@ -5177,8 +5094,6 @@ comment|// we need to refresh in order to clear older version values
 name|refresh
 argument_list|(
 literal|"version_table_flush"
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// we need to move transient to current only after we refresh
