@@ -650,7 +650,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} refresh request executed, force: [{}]"
+literal|"{} refresh request executed"
 argument_list|,
 name|indexShard
 operator|.
