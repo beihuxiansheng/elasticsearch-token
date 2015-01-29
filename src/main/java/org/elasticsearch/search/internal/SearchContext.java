@@ -1780,6 +1780,17 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Looks up the given field, but does not restrict to fields in the types set on this context.      */
+DECL|method|smartNameFieldMapperFromAnyType
+specifier|public
+specifier|abstract
+name|FieldMapper
+name|smartNameFieldMapperFromAnyType
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 DECL|method|smartNameObjectMapper
 specifier|public
 specifier|abstract

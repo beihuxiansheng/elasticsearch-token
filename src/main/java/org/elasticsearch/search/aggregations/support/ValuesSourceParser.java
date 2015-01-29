@@ -1081,10 +1081,7 @@ name|mapper
 init|=
 name|context
 operator|.
-name|mapperService
-argument_list|()
-operator|.
-name|smartNameFieldMapper
+name|smartNameFieldMapperFromAnyType
 argument_list|(
 name|input
 operator|.
