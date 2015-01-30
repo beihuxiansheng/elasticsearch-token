@@ -821,6 +821,13 @@ name|status
 operator|=
 name|status
 expr_stmt|;
+name|this
+operator|.
+name|status
+operator|.
+name|setLastAccessTime
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
