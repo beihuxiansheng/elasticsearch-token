@@ -278,6 +278,11 @@ literal|"2014-05-13T00:00:00.000Z"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureSearchable
+argument_list|(
+literal|"index"
+argument_list|)
+expr_stmt|;
 comment|// This is not a random example: serialization with time zones writes shared strings
 comment|// which used to not work well with the query cache because of the handles stream output
 comment|// see #9500
