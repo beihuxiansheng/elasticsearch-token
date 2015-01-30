@@ -312,6 +312,24 @@ name|StorageException
 throws|,
 name|ServiceException
 function_decl|;
+DECL|method|moveBlob
+name|void
+name|moveBlob
+parameter_list|(
+name|String
+name|container
+parameter_list|,
+name|String
+name|sourceBlob
+parameter_list|,
+name|String
+name|targetBlob
+parameter_list|)
+throws|throws
+name|URISyntaxException
+throws|,
+name|StorageException
+function_decl|;
 block|}
 end_interface
 
