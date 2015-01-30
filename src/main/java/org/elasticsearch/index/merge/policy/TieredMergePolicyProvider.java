@@ -630,6 +630,7 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
+specifier|final
 name|double
 name|oldExpungeDeletesPctAllowed
 init|=
@@ -638,6 +639,7 @@ operator|.
 name|getForceMergeDeletesPctAllowed
 argument_list|()
 decl_stmt|;
+specifier|final
 name|double
 name|expungeDeletesPctAllowed
 init|=
@@ -647,7 +649,7 @@ name|getAsDouble
 argument_list|(
 name|INDEX_MERGE_POLICY_EXPUNGE_DELETES_ALLOWED
 argument_list|,
-name|DEFAULT_EXPUNGE_DELETES_ALLOWED
+name|oldExpungeDeletesPctAllowed
 argument_list|)
 decl_stmt|;
 if|if
@@ -676,6 +678,7 @@ name|expungeDeletesPctAllowed
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|double
 name|oldFloorSegmentMB
 init|=
@@ -684,6 +687,7 @@ operator|.
 name|getFloorSegmentMB
 argument_list|()
 decl_stmt|;
+specifier|final
 name|ByteSizeValue
 name|floorSegment
 init|=
@@ -693,11 +697,15 @@ name|getAsBytesSize
 argument_list|(
 name|INDEX_MERGE_POLICY_FLOOR_SEGMENT
 argument_list|,
-name|DEFAULT_FLOOR_SEGMENT
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|floorSegment
+operator|!=
+literal|null
+operator|&&
 name|floorSegment
 operator|.
 name|mbFrac
@@ -728,6 +736,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|double
 name|oldSegmentsPerTier
 init|=
@@ -736,6 +745,7 @@ operator|.
 name|getSegmentsPerTier
 argument_list|()
 decl_stmt|;
+specifier|final
 name|double
 name|segmentsPerTier
 init|=
@@ -745,7 +755,7 @@ name|getAsDouble
 argument_list|(
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
-name|DEFAULT_SEGMENTS_PER_TIER
+name|oldSegmentsPerTier
 argument_list|)
 decl_stmt|;
 if|if
@@ -774,6 +784,7 @@ name|segmentsPerTier
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|int
 name|oldMaxMergeAtOnce
 init|=
@@ -791,7 +802,7 @@ name|getAsInt
 argument_list|(
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
-name|DEFAULT_MAX_MERGE_AT_ONCE
+name|oldMaxMergeAtOnce
 argument_list|)
 decl_stmt|;
 if|if
@@ -829,6 +840,7 @@ name|maxMergeAtOnce
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|int
 name|oldMaxMergeAtOnceExplicit
 init|=
@@ -837,6 +849,7 @@ operator|.
 name|getMaxMergeAtOnceExplicit
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|maxMergeAtOnceExplicit
 init|=
@@ -846,7 +859,7 @@ name|getAsInt
 argument_list|(
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE_EXPLICIT
 argument_list|,
-name|DEFAULT_MAX_MERGE_AT_ONCE_EXPLICIT
+name|oldMaxMergeAtOnceExplicit
 argument_list|)
 decl_stmt|;
 if|if
@@ -875,6 +888,7 @@ name|maxMergeAtOnceExplicit
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|double
 name|oldMaxMergedSegmentMB
 init|=
@@ -883,6 +897,7 @@ operator|.
 name|getMaxMergedSegmentMB
 argument_list|()
 decl_stmt|;
+specifier|final
 name|ByteSizeValue
 name|maxMergedSegment
 init|=
@@ -892,11 +907,15 @@ name|getAsBytesSize
 argument_list|(
 name|INDEX_MERGE_POLICY_MAX_MERGED_SEGMENT
 argument_list|,
-name|DEFAULT_MAX_MERGED_SEGMENT
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|maxMergedSegment
+operator|!=
+literal|null
+operator|&&
 name|maxMergedSegment
 operator|.
 name|mbFrac
@@ -927,6 +946,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|double
 name|oldReclaimDeletesWeight
 init|=
@@ -935,6 +955,7 @@ operator|.
 name|getReclaimDeletesWeight
 argument_list|()
 decl_stmt|;
+specifier|final
 name|double
 name|reclaimDeletesWeight
 init|=
@@ -944,7 +965,7 @@ name|getAsDouble
 argument_list|(
 name|INDEX_MERGE_POLICY_RECLAIM_DELETES_WEIGHT
 argument_list|,
-name|DEFAULT_RECLAIM_DELETES_WEIGHT
+name|oldReclaimDeletesWeight
 argument_list|)
 decl_stmt|;
 if|if

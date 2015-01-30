@@ -447,9 +447,7 @@ name|getAsInt
 argument_list|(
 name|INDEX_MERGE_POLICY_MIN_MERGE_DOCS
 argument_list|,
-name|LogDocMergePolicy
-operator|.
-name|DEFAULT_MIN_MERGE_DOCS
+name|oldMinMergeDocs
 argument_list|)
 decl_stmt|;
 if|if
@@ -495,9 +493,7 @@ name|getAsInt
 argument_list|(
 name|INDEX_MERGE_POLICY_MAX_MERGE_DOCS
 argument_list|,
-name|LogDocMergePolicy
-operator|.
-name|DEFAULT_MAX_MERGE_DOCS
+name|oldMaxMergeDocs
 argument_list|)
 decl_stmt|;
 if|if
@@ -543,9 +539,7 @@ name|getAsInt
 argument_list|(
 name|INDEX_MERGE_POLICY_MERGE_FACTOR
 argument_list|,
-name|LogDocMergePolicy
-operator|.
-name|DEFAULT_MERGE_FACTOR
+name|oldMergeFactor
 argument_list|)
 decl_stmt|;
 if|if
@@ -591,7 +585,7 @@ name|getAsBoolean
 argument_list|(
 name|INDEX_MERGE_POLICY_CALIBRATE_SIZE_BY_DELETES
 argument_list|,
-literal|true
+name|oldCalibrateSizeByDeletes
 argument_list|)
 decl_stmt|;
 if|if
