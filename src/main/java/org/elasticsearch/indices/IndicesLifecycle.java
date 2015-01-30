@@ -188,7 +188,22 @@ name|ShardRouting
 name|newRouting
 parameter_list|)
 block|{          }
-comment|/**          * Called before the index gets created.          */
+comment|/**          * Called on the Master node only before the index is created          */
+DECL|method|beforeIndexAddedToCluster
+specifier|public
+name|void
+name|beforeIndexAddedToCluster
+parameter_list|(
+name|Index
+name|index
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
+parameter_list|)
+block|{          }
+comment|/**          * Called before the index gets created. Note that this is also called          * when the index is created on data nodes          */
 DECL|method|beforeIndexCreated
 specifier|public
 name|void

@@ -1421,6 +1421,16 @@ range|:
 name|indicesService
 control|)
 block|{
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// already deleted on us, ignore it
+continue|continue;
+block|}
 name|String
 name|index
 init|=
@@ -1598,6 +1608,16 @@ range|:
 name|indicesService
 control|)
 block|{
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// got deleted already on us, skip
+continue|continue;
+block|}
 specifier|final
 name|String
 name|index
@@ -1716,6 +1736,16 @@ range|:
 name|indicesService
 control|)
 block|{
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// already deleted on us
+continue|continue;
+block|}
 name|String
 name|index
 init|=
@@ -2005,6 +2035,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|indicesService
 operator|.
 name|createIndex
@@ -2034,6 +2066,28 @@ name|id
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to create index [{}]"
+argument_list|,
+name|e
+argument_list|,
+name|indexMetaData
+operator|.
+name|index
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -2120,6 +2174,16 @@ argument_list|(
 name|index
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|indexService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// already deleted on us, ignore it
+continue|continue;
+block|}
 name|IndexSettingsService
 name|indexSettingsService
 init|=
