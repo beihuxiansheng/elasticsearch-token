@@ -338,6 +338,20 @@ argument_list|,
 literal|"Expression [MethodCallExpression] is not allowed: java.lang.Runtime.$(get + Runtime)().$methodNameec(touch /tmp/gotcha2)"
 argument_list|)
 expr_stmt|;
+name|testFailure
+argument_list|(
+literal|"def c = [doc['foo'].value, 3, 4].&size;  c()"
+argument_list|,
+literal|"Expression [MethodPointerExpression] is not allowed"
+argument_list|)
+expr_stmt|;
+name|testFailure
+argument_list|(
+literal|"[doc['foo'].value, 3, 4].invokeMethod([1,2],\\\"size\\\", new Object[0])"
+argument_list|,
+literal|"Expression [MethodCallExpression] is not allowed: [doc[foo].value, 3, 4].invokeMethod([1, 2], size, [])"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
