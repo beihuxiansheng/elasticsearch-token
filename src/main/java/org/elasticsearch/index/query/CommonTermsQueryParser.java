@@ -222,24 +222,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|support
-operator|.
-name|QueryParsers
-operator|.
-name|wrapSmartNameQuery
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1506,14 +1488,7 @@ name|highFreqMinimumShouldMatch
 argument_list|)
 expr_stmt|;
 return|return
-name|wrapSmartNameQuery
-argument_list|(
 name|query
-argument_list|,
-name|smartNameFieldMappers
-argument_list|,
-name|parseContext
-argument_list|)
 return|;
 block|}
 block|}

@@ -140,24 +140,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|support
-operator|.
-name|QueryParsers
-operator|.
-name|wrapSmartNameQuery
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -614,18 +596,6 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
-name|Query
-name|query
-init|=
-name|wrapSmartNameQuery
-argument_list|(
-name|wildcardQuery
-argument_list|,
-name|smartNameFieldMappers
-argument_list|,
-name|parseContext
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|queryName
@@ -639,12 +609,12 @@ name|addNamedQuery
 argument_list|(
 name|queryName
 argument_list|,
-name|query
+name|wildcardQuery
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|query
+name|wildcardQuery
 return|;
 block|}
 block|}

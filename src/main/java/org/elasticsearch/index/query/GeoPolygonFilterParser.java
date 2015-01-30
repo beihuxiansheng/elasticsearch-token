@@ -238,24 +238,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|support
-operator|.
-name|QueryParsers
-operator|.
-name|wrapSmartNameFilter
-import|;
-end_import
-
 begin_comment
 comment|/**  *<pre>  * {  *     "pin.location" : {  *         "points" : [  *              { "lat" : 12, "lon" : 40},  *              {}  *         ]  *     }  * }  *</pre>  */
 end_comment
@@ -996,17 +978,6 @@ name|cache
 argument_list|)
 expr_stmt|;
 block|}
-name|filter
-operator|=
-name|wrapSmartNameFilter
-argument_list|(
-name|filter
-argument_list|,
-name|smartMappers
-argument_list|,
-name|parseContext
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|filterName

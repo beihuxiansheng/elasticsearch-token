@@ -226,24 +226,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|support
-operator|.
-name|QueryParsers
-operator|.
-name|wrapSmartNameFilter
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1114,17 +1096,6 @@ return|return
 literal|null
 return|;
 block|}
-name|filter
-operator|=
-name|wrapSmartNameFilter
-argument_list|(
-name|filter
-argument_list|,
-name|nonNullFieldMappers
-argument_list|,
-name|parseContext
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|filterName

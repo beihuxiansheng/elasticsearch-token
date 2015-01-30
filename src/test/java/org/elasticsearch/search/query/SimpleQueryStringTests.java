@@ -1248,6 +1248,11 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
+name|setTypes
+argument_list|(
+literal|"type1"
+argument_list|)
+operator|.
 name|setQuery
 argument_list|(
 name|simpleQueryStringQuery
@@ -1257,7 +1262,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"type1.body"
+literal|"body"
 argument_list|)
 argument_list|)
 operator|.
@@ -1324,6 +1329,11 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
+name|setTypes
+argument_list|(
+literal|"type1"
+argument_list|)
+operator|.
 name|setQuery
 argument_list|(
 name|simpleQueryStringQuery
@@ -1333,7 +1343,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"type1.body.sub"
+literal|"body.sub"
 argument_list|)
 argument_list|)
 operator|.
