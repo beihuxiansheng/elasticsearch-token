@@ -654,13 +654,11 @@ block|}
 comment|/**      * @return the name of the breaker      */
 DECL|method|getName
 specifier|public
-name|Name
+name|String
 name|getName
 parameter_list|()
 block|{
 return|return
-name|Name
-operator|.
 name|FIELDDATA
 return|;
 block|}

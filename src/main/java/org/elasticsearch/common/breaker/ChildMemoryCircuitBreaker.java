@@ -143,7 +143,7 @@ decl_stmt|;
 DECL|field|name
 specifier|private
 specifier|final
-name|Name
+name|String
 name|name
 decl_stmt|;
 comment|/**      * Create a circuit breaker that will break if the number of estimated      * bytes grows above the limit. All estimations will be multiplied by      * the given overheadConstant. This breaker starts with 0 bytes used.      * @param settings settings to configure this breaker      * @param parent parent circuit breaker service to delegate tripped breakers to      * @param name the name of the breaker      */
@@ -160,7 +160,7 @@ parameter_list|,
 name|HierarchyCircuitBreakerService
 name|parent
 parameter_list|,
-name|Name
+name|String
 name|name
 parameter_list|)
 block|{
@@ -195,7 +195,7 @@ parameter_list|,
 name|HierarchyCircuitBreakerService
 name|parent
 parameter_list|,
-name|Name
+name|String
 name|name
 parameter_list|)
 block|{
@@ -577,7 +577,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"[{}] New used memory {} [{}] from field [{}] would be larger than configured breaker: {} [{}], breaking"
+literal|"[{}] New used memory {} [{}] for data of [{}] would be larger than configured breaker: {} [{}], breaking"
 argument_list|,
 name|this
 operator|.
@@ -795,7 +795,7 @@ block|}
 comment|/**      * @return the name of the breaker      */
 DECL|method|getName
 specifier|public
-name|Name
+name|String
 name|getName
 parameter_list|()
 block|{

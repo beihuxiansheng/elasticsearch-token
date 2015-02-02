@@ -57,9 +57,7 @@ block|{
 DECL|field|name
 specifier|private
 specifier|final
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|name
 decl_stmt|;
 DECL|field|limitBytes
@@ -86,9 +84,7 @@ DECL|method|BreakerSettings
 specifier|public
 name|BreakerSettings
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|name
 parameter_list|,
 name|long
@@ -118,9 +114,7 @@ DECL|method|BreakerSettings
 specifier|public
 name|BreakerSettings
 parameter_list|(
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|name
 parameter_list|,
 name|long
@@ -162,9 +156,7 @@ expr_stmt|;
 block|}
 DECL|method|getName
 specifier|public
-name|CircuitBreaker
-operator|.
-name|Name
+name|String
 name|getName
 parameter_list|()
 block|{
@@ -226,9 +218,6 @@ operator|+
 name|this
 operator|.
 name|name
-operator|.
-name|toString
-argument_list|()
 operator|+
 literal|",type="
 operator|+
