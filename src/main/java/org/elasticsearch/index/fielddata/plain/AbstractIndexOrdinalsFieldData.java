@@ -754,7 +754,7 @@ name|int
 name|minFreq
 init|=
 name|minFrequency
-operator|>=
+operator|>
 literal|1.0
 condition|?
 operator|(
@@ -776,7 +776,7 @@ name|int
 name|maxFreq
 init|=
 name|maxFrequency
-operator|>=
+operator|>
 literal|1.0
 condition|?
 operator|(

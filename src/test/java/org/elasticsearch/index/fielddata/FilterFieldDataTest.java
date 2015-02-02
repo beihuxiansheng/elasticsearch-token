@@ -957,7 +957,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-literal|1
+literal|2
 else|:
 literal|1d
 operator|/
