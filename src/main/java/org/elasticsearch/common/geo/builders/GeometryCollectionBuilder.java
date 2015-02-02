@@ -34,15 +34,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|spatial4j
+name|elasticsearch
 operator|.
-name|core
+name|common
 operator|.
-name|shape
+name|geo
 operator|.
-name|ShapeCollection
+name|XShapeCollection
 import|;
 end_import
 
@@ -502,7 +502,7 @@ return|;
 else|else
 return|return
 operator|new
-name|ShapeCollection
+name|XShapeCollection
 argument_list|<>
 argument_list|(
 name|shapes
