@@ -274,6 +274,12 @@ specifier|final
 name|NettyTransport
 name|transport
 decl_stmt|;
+DECL|field|profileName
+specifier|protected
+specifier|final
+name|String
+name|profileName
+decl_stmt|;
 DECL|method|MessageChannelHandler
 specifier|public
 name|MessageChannelHandler
@@ -283,6 +289,9 @@ name|transport
 parameter_list|,
 name|ESLogger
 name|logger
+parameter_list|,
+name|String
+name|profileName
 parameter_list|)
 block|{
 name|this
@@ -314,6 +323,12 @@ operator|.
 name|logger
 operator|=
 name|logger
+expr_stmt|;
+name|this
+operator|.
+name|profileName
+operator|=
+name|profileName
 expr_stmt|;
 block|}
 annotation|@
@@ -1337,6 +1352,8 @@ argument_list|,
 name|requestId
 argument_list|,
 name|version
+argument_list|,
+name|profileName
 argument_list|)
 decl_stmt|;
 try|try

@@ -837,6 +837,11 @@ operator|new
 name|TransportInfo
 argument_list|(
 name|boundTransportAddress
+argument_list|,
+name|transport
+operator|.
+name|profileBoundAddresses
+argument_list|()
 argument_list|)
 return|;
 block|}

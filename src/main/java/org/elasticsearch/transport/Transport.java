@@ -80,6 +80,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -123,6 +133,17 @@ comment|/**      * The address the transport is bound on.      */
 DECL|method|boundAddress
 name|BoundTransportAddress
 name|boundAddress
+parameter_list|()
+function_decl|;
+comment|/**      * Further profile bound addresses      * @return Should return null if transport does not support profiles, otherwise a map with name of profile and its bound transport address      */
+DECL|method|profileBoundAddresses
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|BoundTransportAddress
+argument_list|>
+name|profileBoundAddresses
 parameter_list|()
 function_decl|;
 comment|/**      * Returns an address from its string representation.      */
@@ -216,6 +237,7 @@ name|IOException
 throws|,
 name|TransportException
 function_decl|;
+comment|/**      * Returns count of currently open connections      */
 DECL|method|serverOpen
 name|long
 name|serverOpen

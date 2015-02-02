@@ -451,6 +451,15 @@ name|NettyTransportTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+comment|// static so we can use it in anonymous classes
+DECL|field|channelProfileName
+specifier|private
+specifier|static
+name|String
+name|channelProfileName
+init|=
+literal|null
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|nodeSettings
@@ -597,6 +606,18 @@ argument_list|,
 name|containsString
 argument_list|(
 literal|"MY MESSAGE"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|channelProfileName
+argument_list|,
+name|is
+argument_list|(
+name|NettyTransport
+operator|.
+name|DEFAULT_PROFILE
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -749,6 +770,10 @@ argument_list|(
 name|nettyTransport
 argument_list|,
 name|logger
+argument_list|,
+name|NettyTransport
+operator|.
+name|DEFAULT_PROFILE
 argument_list|)
 block|{
 annotation|@
@@ -797,6 +822,8 @@ argument_list|,
 name|requestId
 argument_list|,
 name|version
+argument_list|,
+name|name
 argument_list|)
 decl_stmt|;
 try|try
@@ -986,6 +1013,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|channelProfileName
+operator|=
+name|transportChannel
+operator|.
+name|getProfileName
+argument_list|()
+expr_stmt|;
 return|return
 name|action
 return|;
