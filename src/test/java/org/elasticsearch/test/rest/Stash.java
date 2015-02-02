@@ -116,6 +116,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|EMPTY
+specifier|public
+specifier|static
+specifier|final
+name|Stash
+name|EMPTY
+init|=
+operator|new
+name|Stash
+argument_list|()
+decl_stmt|;
 DECL|field|stash
 specifier|private
 specifier|final

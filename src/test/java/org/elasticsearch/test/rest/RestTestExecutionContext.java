@@ -651,6 +651,8 @@ operator|.
 name|evaluate
 argument_list|(
 name|path
+argument_list|,
+name|stash
 argument_list|)
 return|;
 block|}

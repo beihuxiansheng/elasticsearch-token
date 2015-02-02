@@ -80,6 +80,8 @@ operator|.
 name|newArrayList
 argument_list|(
 literal|"gtelte"
+argument_list|,
+literal|"stash_in_path"
 argument_list|)
 decl_stmt|;
 DECL|method|Features
