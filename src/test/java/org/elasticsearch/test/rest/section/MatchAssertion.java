@@ -94,6 +94,18 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
 name|notNullValue
 import|;
 end_import
@@ -216,6 +228,40 @@ literal|"/"
 argument_list|)
 condition|)
 block|{
+name|assertThat
+argument_list|(
+literal|"field ["
+operator|+
+name|getField
+argument_list|()
+operator|+
+literal|"] was expected to be of type String but is an instanceof ["
+operator|+
+name|actualValue
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|"]"
+argument_list|,
+name|actualValue
+argument_list|,
+name|instanceOf
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|String
+name|stringValue
+init|=
+operator|(
+name|String
+operator|)
+name|actualValue
+decl_stmt|;
 name|String
 name|regex
 init|=
@@ -239,7 +285,7 @@ name|trace
 argument_list|(
 literal|"assert that [{}] matches [{}]"
 argument_list|,
-name|actualValue
+name|stringValue
 argument_list|,
 name|regex
 argument_list|)
@@ -253,10 +299,7 @@ argument_list|()
 operator|+
 literal|"] was expected to match the provided regex but didn't"
 argument_list|,
-name|actualValue
-operator|.
-name|toString
-argument_list|()
+name|stringValue
 argument_list|,
 name|matches
 argument_list|(
