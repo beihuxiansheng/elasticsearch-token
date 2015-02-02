@@ -197,10 +197,11 @@ return|return
 name|defaultAnalyzer
 return|;
 block|}
+comment|/** NOTE: public so MapperAnalyzer can invoke: */
 annotation|@
 name|Override
 DECL|method|getWrappedAnalyzer
-specifier|protected
+specifier|public
 name|Analyzer
 name|getWrappedAnalyzer
 parameter_list|(

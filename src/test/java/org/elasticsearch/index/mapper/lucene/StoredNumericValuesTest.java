@@ -520,14 +520,6 @@ name|doc
 operator|.
 name|rootDoc
 argument_list|()
-argument_list|,
-name|mapper
-operator|.
-name|mappers
-argument_list|()
-operator|.
-name|indexAnalyzer
-argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Indexing a doc in the old way

@@ -1126,16 +1126,6 @@ argument_list|,
 literal|1
 argument_list|)
 decl_stmt|;
-DECL|field|analyzer
-specifier|protected
-specifier|final
-name|Analyzer
-name|analyzer
-init|=
-name|Lucene
-operator|.
-name|STANDARD_ANALYZER
-decl_stmt|;
 DECL|field|threadPool
 specifier|protected
 name|ThreadPool
@@ -2209,8 +2199,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -2257,8 +2245,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -2691,8 +2677,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -3381,8 +3365,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"4"
@@ -3808,8 +3790,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -3901,8 +3881,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"2"
@@ -3956,8 +3934,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -4253,8 +4229,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -4311,8 +4285,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -4398,8 +4370,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -4553,8 +4523,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -4894,8 +4862,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -5271,8 +5237,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -5818,8 +5782,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -6138,8 +6100,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -6403,8 +6363,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -6680,8 +6638,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -6969,8 +6925,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"2"
@@ -7118,8 +7072,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -7283,8 +7235,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -7454,8 +7404,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -7517,8 +7465,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -7725,8 +7671,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -7788,8 +7732,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -7930,8 +7872,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8085,8 +8025,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8123,8 +8061,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8219,8 +8155,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8273,8 +8207,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8369,8 +8301,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8407,8 +8337,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8503,8 +8431,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8551,8 +8477,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8647,8 +8571,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8686,8 +8608,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8724,8 +8644,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8781,8 +8699,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -8871,8 +8787,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8920,8 +8834,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -8968,8 +8880,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9058,8 +8968,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -9096,8 +9004,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9151,8 +9057,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -9201,8 +9105,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9291,8 +9193,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -9339,8 +9239,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9403,8 +9301,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9493,8 +9389,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -9531,8 +9425,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9726,8 +9618,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -9779,8 +9669,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -9866,8 +9754,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -9904,8 +9790,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10144,8 +10028,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -10197,8 +10079,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10284,8 +10164,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -10334,8 +10212,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10426,8 +10302,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -10491,8 +10365,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10583,8 +10455,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -10621,8 +10491,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10661,8 +10529,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10718,8 +10584,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -10773,8 +10637,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10874,8 +10736,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -10913,8 +10773,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -10966,8 +10824,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -11159,8 +11015,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -11251,8 +11105,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -11284,8 +11136,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -11338,8 +11188,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -11412,8 +11260,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -11480,8 +11326,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -11723,8 +11567,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -11776,8 +11618,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -11942,8 +11782,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -12002,8 +11840,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -12200,8 +12036,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -12424,8 +12258,6 @@ name|Index
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -12515,8 +12347,6 @@ operator|.
 name|Index
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -13502,8 +13332,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -13559,8 +13387,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -13626,8 +13452,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -13732,8 +13556,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -13905,8 +13727,6 @@ name|Create
 argument_list|(
 literal|null
 argument_list|,
-name|analyzer
-argument_list|,
 name|newUid
 argument_list|(
 literal|"1"
@@ -13965,8 +13785,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -14035,8 +13853,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
@@ -14146,8 +13962,6 @@ operator|.
 name|Create
 argument_list|(
 literal|null
-argument_list|,
-name|analyzer
 argument_list|,
 name|newUid
 argument_list|(
