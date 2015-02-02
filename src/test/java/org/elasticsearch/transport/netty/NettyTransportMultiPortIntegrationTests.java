@@ -395,7 +395,7 @@ name|put
 argument_list|(
 literal|"transport.profiles.client1.publish_host"
 argument_list|,
-literal|"10.0.254.253"
+literal|"127.0.0.7"
 argument_list|)
 operator|.
 name|put
@@ -744,7 +744,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|"10.0.254.253"
+literal|"127.0.0.7"
 argument_list|)
 argument_list|)
 expr_stmt|;
