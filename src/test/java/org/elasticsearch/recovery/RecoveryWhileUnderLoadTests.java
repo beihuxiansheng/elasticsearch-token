@@ -441,7 +441,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|200
 argument_list|,
-literal|20000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|int
@@ -789,7 +789,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|200
 argument_list|,
-literal|20000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|int
@@ -1140,7 +1140,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|200
 argument_list|,
-literal|20000
+literal|10000
 argument_list|)
 decl_stmt|;
 name|int
@@ -1712,7 +1712,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|200
 argument_list|,
-literal|50000
+literal|20000
 argument_list|)
 decl_stmt|;
 try|try
