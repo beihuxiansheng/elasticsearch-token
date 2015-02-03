@@ -44,6 +44,32 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ConcurrentCollections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -67,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default implementation of {@link ClusterStatePublishResponseHandler}, allows to  await a reply  * to a cluster state publish from all non master nodes, up to a timeout  */
+comment|/**  * Handles responses obtained when publishing a new cluster state from master to all non master nodes.  * Allows to await a reply from all non master nodes, up to a timeout  */
 end_comment
 
 begin_class
@@ -75,8 +101,6 @@ DECL|class|BlockingClusterStatePublishResponseHandler
 specifier|public
 class|class
 name|BlockingClusterStatePublishResponseHandler
-implements|implements
-name|ClusterStatePublishResponseHandler
 block|{
 DECL|field|latch
 specifier|private
@@ -84,17 +108,45 @@ specifier|final
 name|CountDownLatch
 name|latch
 decl_stmt|;
-comment|/**      * Creates a new BlockingClusterStatePublishResponseHandler      * @param nonMasterNodes number of nodes that are supposed to reply to a cluster state publish from master      */
+DECL|field|pendingNodes
+specifier|private
+specifier|final
+name|Set
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|pendingNodes
+decl_stmt|;
+comment|/**      * Creates a new BlockingClusterStatePublishResponseHandler      * @param publishingToNodes the set of nodes to which the cluster state will be published and should respond      */
 DECL|method|BlockingClusterStatePublishResponseHandler
 specifier|public
 name|BlockingClusterStatePublishResponseHandler
 parameter_list|(
-name|int
-name|nonMasterNodes
+name|Set
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|publishingToNodes
 parameter_list|)
 block|{
-comment|//Don't count the master, as it's the one that does the publish
-comment|//the master won't call onResponse either
+name|this
+operator|.
+name|pendingNodes
+operator|=
+name|ConcurrentCollections
+operator|.
+name|newConcurrentSet
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|pendingNodes
+operator|.
+name|addAll
+argument_list|(
+name|publishingToNodes
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|latch
@@ -102,12 +154,14 @@ operator|=
 operator|new
 name|CountDownLatch
 argument_list|(
-name|nonMasterNodes
+name|pendingNodes
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Called for each response obtained from non master nodes      *      * @param node the node that replied to the publish event      */
 DECL|method|onResponse
 specifier|public
 name|void
@@ -117,14 +171,32 @@ name|DiscoveryNode
 name|node
 parameter_list|)
 block|{
+name|boolean
+name|found
+init|=
+name|pendingNodes
+operator|.
+name|remove
+argument_list|(
+name|node
+argument_list|)
+decl_stmt|;
+assert|assert
+name|found
+operator|:
+literal|"node ["
+operator|+
+name|node
+operator|+
+literal|"] already responded or failed"
+assert|;
 name|latch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Called for each failure obtained from non master nodes      * @param node the node that replied to the publish event      */
 DECL|method|onFailure
 specifier|public
 name|void
@@ -137,14 +209,32 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|boolean
+name|found
+init|=
+name|pendingNodes
+operator|.
+name|remove
+argument_list|(
+name|node
+argument_list|)
+decl_stmt|;
+assert|assert
+name|found
+operator|:
+literal|"node ["
+operator|+
+name|node
+operator|+
+literal|"] already responded or failed"
+assert|;
 name|latch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/**      * Allows to wait for all non master nodes to reply to the publish event up to a timeout      * @param timeout the timeout      * @return true if the timeout expired or not, false otherwise      * @throws InterruptedException      */
 DECL|method|awaitAllNodes
 specifier|public
 name|boolean
@@ -156,7 +246,9 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-return|return
+name|boolean
+name|success
+init|=
 name|latch
 operator|.
 name|await
@@ -169,6 +261,43 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MILLISECONDS
+argument_list|)
+decl_stmt|;
+assert|assert
+operator|!
+name|success
+operator|||
+name|pendingNodes
+operator|.
+name|isEmpty
+argument_list|()
+operator|:
+literal|"response count reached 0 but still waiting for some nodes"
+assert|;
+return|return
+name|success
+return|;
+block|}
+comment|/**      * returns a list of nodes which didn't respond yet      */
+DECL|method|pendingNodes
+specifier|public
+name|DiscoveryNode
+index|[]
+name|pendingNodes
+parameter_list|()
+block|{
+comment|// we use a zero length array, because if we try to pre allocate we may need to remove trailing
+comment|// nulls if some nodes responded in the meanwhile
+return|return
+name|pendingNodes
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|DiscoveryNode
+index|[
+literal|0
+index|]
 argument_list|)
 return|;
 block|}

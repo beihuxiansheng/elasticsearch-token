@@ -56,6 +56,16 @@ name|ESLoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * Allows to wait for all nodes to reply to the publish of a new cluster state  * and notifies the {@link org.elasticsearch.discovery.Discovery.AckListener}  * so that the cluster state update can be acknowledged  */
 end_comment
@@ -95,13 +105,16 @@ operator|.
 name|AckListener
 name|ackListener
 decl_stmt|;
-comment|/**      * Creates a new AckClusterStatePublishResponseHandler      * @param nonMasterNodes number of nodes that are supposed to reply to a cluster state publish from master      * @param ackListener the {@link org.elasticsearch.discovery.Discovery.AckListener} to notify for each response      *                    gotten from non master nodes      */
+comment|/**      * Creates a new AckClusterStatePublishResponseHandler      * @param publishingToNodes the set of nodes to which the cluster state will be published and should respond      * @param ackListener the {@link org.elasticsearch.discovery.Discovery.AckListener} to notify for each response      *                    gotten from non master nodes      */
 DECL|method|AckClusterStatePublishResponseHandler
 specifier|public
 name|AckClusterStatePublishResponseHandler
 parameter_list|(
-name|int
-name|nonMasterNodes
+name|Set
+argument_list|<
+name|DiscoveryNode
+argument_list|>
+name|publishingToNodes
 parameter_list|,
 name|Discovery
 operator|.
@@ -113,7 +126,7 @@ comment|//Don't count the master as acknowledged, because it's not done yet
 comment|//otherwise we might end up with all the nodes but the master holding the latest cluster state
 name|super
 argument_list|(
-name|nonMasterNodes
+name|publishingToNodes
 argument_list|)
 expr_stmt|;
 name|this
