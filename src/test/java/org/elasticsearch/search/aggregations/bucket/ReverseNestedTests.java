@@ -5362,13 +5362,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"http://github.com/elasticsearch/elasticsearch/issues/9547"
-argument_list|)
 DECL|method|testSameParentDocHavingMultipleBuckets
 specifier|public
 name|void
