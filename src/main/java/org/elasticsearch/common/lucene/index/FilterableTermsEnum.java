@@ -562,6 +562,9 @@ name|context
 operator|.
 name|reader
 argument_list|()
+operator|.
+name|maxDoc
+argument_list|()
 argument_list|,
 name|docIdSet
 argument_list|)

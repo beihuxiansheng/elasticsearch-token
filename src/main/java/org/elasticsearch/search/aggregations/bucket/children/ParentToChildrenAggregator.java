@@ -879,11 +879,14 @@ name|parentDocs
 operator|=
 name|DocIdSets
 operator|.
-name|toSafeBits
+name|asSequentialAccessBits
 argument_list|(
 name|reader
 operator|.
 name|reader
+argument_list|()
+operator|.
+name|maxDoc
 argument_list|()
 argument_list|,
 name|parentDocIdSet
