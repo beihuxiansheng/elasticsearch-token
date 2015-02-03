@@ -294,34 +294,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|ClusterScope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|Scope
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -331,19 +303,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|ClusterScope
-argument_list|(
-name|scope
-operator|=
-name|Scope
-operator|.
-name|TEST
-argument_list|,
-name|numDataNodes
-operator|=
-literal|1
-argument_list|)
 DECL|class|NettyTransportMultiPortTests
 specifier|public
 class|class
