@@ -841,7 +841,7 @@ operator|=
 operator|new
 name|Rounding
 operator|.
-name|PrePostRounding
+name|OffsetRounding
 argument_list|(
 operator|(
 name|Rounding
@@ -849,9 +849,6 @@ operator|.
 name|Interval
 operator|)
 name|rounding
-argument_list|,
-operator|-
-name|offset
 argument_list|,
 name|offset
 argument_list|)

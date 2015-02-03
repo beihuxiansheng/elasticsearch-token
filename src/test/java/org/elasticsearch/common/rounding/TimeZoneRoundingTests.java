@@ -234,7 +234,7 @@ operator|.
 name|WEEK_OF_WEEKYEAR
 argument_list|)
 operator|.
-name|postOffset
+name|offset
 argument_list|(
 operator|-
 name|TimeValue
