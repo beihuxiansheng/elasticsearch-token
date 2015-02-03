@@ -1974,7 +1974,7 @@ if|if
 condition|(
 name|store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|md
 argument_list|)

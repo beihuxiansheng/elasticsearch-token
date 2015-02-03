@@ -4889,7 +4889,7 @@ name|assertTrue
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|lucene
 argument_list|,
@@ -4901,7 +4901,7 @@ name|assertTrue
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|legacy
 argument_list|,
@@ -4976,7 +4976,7 @@ name|assertFalse
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|lucene
 argument_list|,
@@ -4988,7 +4988,7 @@ name|assertFalse
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|legacy
 argument_list|,
@@ -5063,7 +5063,7 @@ name|assertFalse
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|lucene
 argument_list|,
@@ -5075,7 +5075,7 @@ name|assertFalse
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|legacy
 argument_list|,
@@ -5146,7 +5146,7 @@ name|assertFalse
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|lucene
 argument_list|,
@@ -5158,7 +5158,7 @@ name|assertFalse
 argument_list|(
 name|Store
 operator|.
-name|checkIntegrity
+name|checkIntegrityNoException
 argument_list|(
 name|legacy
 argument_list|,
