@@ -103,6 +103,20 @@ name|Builder
 name|settings
 parameter_list|)
 block|{
+comment|// Cloud global settings
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"cloud.azure."
+operator|+
+name|AzureComputeService
+operator|.
+name|Fields
+operator|.
+name|REFRESH
+argument_list|)
+expr_stmt|;
 comment|// Cloud management API settings
 name|settings
 operator|.
@@ -128,6 +142,19 @@ operator|.
 name|Fields
 operator|.
 name|KEYSTORE_PASSWORD
+argument_list|)
+expr_stmt|;
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"cloud.azure.management."
+operator|+
+name|AzureComputeService
+operator|.
+name|Fields
+operator|.
+name|KEYSTORE_TYPE
 argument_list|)
 expr_stmt|;
 name|settings
