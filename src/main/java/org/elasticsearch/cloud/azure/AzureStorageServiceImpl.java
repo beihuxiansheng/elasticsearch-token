@@ -388,6 +388,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|repositories
+operator|.
+name|RepositoryException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -781,6 +793,8 @@ name|URISyntaxException
 throws|,
 name|StorageException
 block|{
+try|try
+block|{
 name|CloudBlobContainer
 name|blob_container
 init|=
@@ -805,6 +819,40 @@ operator|.
 name|createIfNotExist
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"fails creating container [{}]"
+argument_list|,
+name|container
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|RepositoryException
+argument_list|(
+name|container
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1081,6 +1129,17 @@ parameter_list|)
 throws|throws
 name|ServiceException
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"reading container [{}], blob [{}]"
+argument_list|,
+name|container
+argument_list|,
+name|blob
+argument_list|)
+expr_stmt|;
 name|GetBlobResult
 name|blobResult
 init|=
@@ -1118,6 +1177,17 @@ name|URISyntaxException
 throws|,
 name|StorageException
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"writing container [{}], blob [{}]"
+argument_list|,
+name|container
+argument_list|,
+name|blob
+argument_list|)
+expr_stmt|;
 return|return
 name|client
 operator|.
@@ -1167,7 +1237,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"listBlobsByPrefix container [{}], keyPath [{}], prefix [{}]"
+literal|"listing container [{}], keyPath [{}], prefix [{}]"
 argument_list|,
 name|container
 argument_list|,
