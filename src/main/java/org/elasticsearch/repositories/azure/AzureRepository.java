@@ -22,11 +22,7 @@ name|com
 operator|.
 name|microsoft
 operator|.
-name|windowsazure
-operator|.
-name|services
-operator|.
-name|core
+name|azure
 operator|.
 name|storage
 operator|.
