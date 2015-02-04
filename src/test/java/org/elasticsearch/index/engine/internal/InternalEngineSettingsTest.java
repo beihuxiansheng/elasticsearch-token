@@ -123,7 +123,7 @@ name|assertThat
 argument_list|(
 name|engine
 operator|.
-name|currentIndexWriterConfig
+name|getCurrentIndexWriterConfig
 argument_list|()
 operator|.
 name|getUseCompoundFile
@@ -176,7 +176,7 @@ name|assertThat
 argument_list|(
 name|engine
 operator|.
-name|currentIndexWriterConfig
+name|getCurrentIndexWriterConfig
 argument_list|()
 operator|.
 name|getUseCompoundFile
@@ -229,7 +229,7 @@ name|assertThat
 argument_list|(
 name|engine
 operator|.
-name|currentIndexWriterConfig
+name|getCurrentIndexWriterConfig
 argument_list|()
 operator|.
 name|getUseCompoundFile

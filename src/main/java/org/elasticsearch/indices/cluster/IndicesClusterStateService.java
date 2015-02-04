@@ -4874,10 +4874,7 @@ parameter_list|)
 block|{
 name|indexShard
 operator|.
-name|engine
-argument_list|()
-operator|.
-name|failEngine
+name|failShard
 argument_list|(
 literal|"corrupted preexisting index"
 argument_list|,

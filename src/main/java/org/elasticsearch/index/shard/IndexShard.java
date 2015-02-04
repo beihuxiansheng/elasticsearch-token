@@ -4218,12 +4218,6 @@ argument_list|()
 operator|.
 name|flush
 argument_list|(
-name|Engine
-operator|.
-name|FlushType
-operator|.
-name|COMMIT_TRANSLOG
-argument_list|,
 name|request
 operator|.
 name|force
@@ -4861,17 +4855,7 @@ name|engine
 argument_list|()
 operator|.
 name|flush
-argument_list|(
-name|Engine
-operator|.
-name|FlushType
-operator|.
-name|COMMIT_TRANSLOG
-argument_list|,
-literal|false
-argument_list|,
-literal|false
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 comment|// clear unreferenced files

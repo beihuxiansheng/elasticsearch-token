@@ -444,20 +444,25 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Flushes the state of the engine, clearing memory.      */
+comment|/**      * Flushes the state of the engine including the transaction log, clearing memory.      * @param force if<code>true</code> a lucene commit is executed even if no changes need to be committed.      * @param waitIfOngoing if<code>true</code> this call will block until all currently running flushes have finished.      *                      Otherwise this call will return without blocking.      */
 DECL|method|flush
 name|void
 name|flush
 parameter_list|(
-name|FlushType
-name|type
-parameter_list|,
 name|boolean
 name|force
 parameter_list|,
 name|boolean
 name|waitIfOngoing
 parameter_list|)
+throws|throws
+name|EngineException
+function_decl|;
+comment|/**      * Flushes the state of the engine including the transaction log, clearing memory and persisting      * documents in the lucene index to disk including a potentially heavy and durable fsync operation.      * This operation is not going to block if another flush operation is currently running and won't write      * a lucene commit if nothing needs to be committed.      */
+DECL|method|flush
+name|void
+name|flush
+parameter_list|()
 throws|throws
 name|EngineException
 function_decl|;
@@ -712,20 +717,6 @@ name|ElasticsearchException
 block|{
 comment|// nothing to release here...
 block|}
-block|}
-DECL|enum|FlushType
-specifier|public
-specifier|static
-enum|enum
-name|FlushType
-block|{
-comment|/**          * A flush that just commits the writer, without cleaning the translog.          */
-DECL|enum constant|COMMIT
-name|COMMIT
-block|,
-comment|/**          * A flush that does a commit, as well as clears the translog.          */
-DECL|enum constant|COMMIT_TRANSLOG
-name|COMMIT_TRANSLOG
 block|}
 DECL|interface|Operation
 specifier|static

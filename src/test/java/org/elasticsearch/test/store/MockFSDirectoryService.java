@@ -662,18 +662,8 @@ operator|.
 name|engine
 argument_list|()
 operator|.
-name|flush
-argument_list|(
-name|Engine
-operator|.
-name|FlushType
-operator|.
-name|COMMIT
-argument_list|,
-literal|false
-argument_list|,
-literal|true
-argument_list|)
+name|snapshotIndex
+argument_list|()
 expr_stmt|;
 comment|// Keep translog for tests that rely on replaying it
 name|logger
