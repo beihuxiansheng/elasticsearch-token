@@ -719,10 +719,6 @@ specifier|static
 enum|enum
 name|FlushType
 block|{
-comment|/**          * A flush that causes a new writer to be created.          */
-DECL|enum constant|NEW_WRITER
-name|NEW_WRITER
-block|,
 comment|/**          * A flush that just commits the writer, without cleaning the translog.          */
 DECL|enum constant|COMMIT
 name|COMMIT

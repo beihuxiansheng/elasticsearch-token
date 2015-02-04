@@ -4218,17 +4218,6 @@ argument_list|()
 operator|.
 name|flush
 argument_list|(
-name|request
-operator|.
-name|full
-argument_list|()
-condition|?
-name|Engine
-operator|.
-name|FlushType
-operator|.
-name|NEW_WRITER
-else|:
 name|Engine
 operator|.
 name|FlushType
