@@ -3665,14 +3665,6 @@ argument_list|,
 literal|"string"
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"path"
-argument_list|,
-literal|"just_name"
-argument_list|)
-comment|// The path can't be changed / upgraded
-operator|.
 name|endObject
 argument_list|()
 operator|.
@@ -3794,13 +3786,6 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"multi_field"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"path"
-argument_list|,
-literal|"just_name"
 argument_list|)
 operator|.
 name|startObject
@@ -3991,7 +3976,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"suggest"
+name|FIELD
+operator|+
+literal|".suggest"
 argument_list|)
 operator|.
 name|text
@@ -4062,14 +4049,6 @@ literal|"type"
 argument_list|,
 literal|"string"
 argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"path"
-argument_list|,
-literal|"just_name"
-argument_list|)
-comment|// The path can't be changed / upgraded
 operator|.
 name|endObject
 argument_list|()
@@ -4193,14 +4172,6 @@ literal|"type"
 argument_list|,
 literal|"string"
 argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"path"
-argument_list|,
-literal|"just_name"
-argument_list|)
-comment|// Need to specify path again, to make sure that the `path` is known when this mapping is parsed and turned into DocumentMapper that we merge with.
 operator|.
 name|startObject
 argument_list|(
@@ -4376,7 +4347,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"suggest"
+name|FIELD
+operator|+
+literal|".suggest"
 argument_list|)
 operator|.
 name|text
