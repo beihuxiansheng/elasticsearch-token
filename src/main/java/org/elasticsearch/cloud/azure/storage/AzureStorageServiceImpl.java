@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.azure
+DECL|package|org.elasticsearch.cloud.azure.storage
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|cloud
 operator|.
 name|azure
+operator|.
+name|storage
 package|;
 end_package
 
@@ -67,6 +69,20 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cloud
+operator|.
+name|azure
+operator|.
+name|AzureSettingsFilter
 import|;
 end_import
 
@@ -289,9 +305,17 @@ name|AzureSettingsFilter
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// We try to load storage API settings from `cloud.azure.`
+comment|// We try to load storage API settings from `repositories.azure.`
 name|account
 operator|=
+name|componentSettings
+operator|.
+name|get
+argument_list|(
+name|Fields
+operator|.
+name|ACCOUNT
+argument_list|,
 name|settings
 operator|.
 name|get
@@ -300,11 +324,20 @@ literal|"cloud.azure."
 operator|+
 name|Fields
 operator|.
-name|ACCOUNT
+name|ACCOUNT_DEPRECATED
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|key
 operator|=
+name|componentSettings
+operator|.
+name|get
+argument_list|(
+name|Fields
+operator|.
+name|KEY
+argument_list|,
 name|settings
 operator|.
 name|get
@@ -313,7 +346,8 @@ literal|"cloud.azure."
 operator|+
 name|Fields
 operator|.
-name|KEY
+name|KEY_DEPRECATED
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|blob

@@ -152,6 +152,8 @@ name|cloud
 operator|.
 name|azure
 operator|.
+name|storage
+operator|.
 name|AzureStorageService
 import|;
 end_import
@@ -165,6 +167,8 @@ operator|.
 name|cloud
 operator|.
 name|azure
+operator|.
+name|storage
 operator|.
 name|AzureStorageServiceImpl
 import|;

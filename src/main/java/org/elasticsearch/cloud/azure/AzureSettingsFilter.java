@@ -22,6 +22,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cloud
+operator|.
+name|azure
+operator|.
+name|storage
+operator|.
+name|AzureStorageService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -45,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Filtering cloud.azure.* and repositories.azure.* settings  */
+comment|/**  * Filtering cloud.azure.* settings  */
 end_comment
 
 begin_class
@@ -100,33 +116,59 @@ argument_list|(
 literal|"cloud.azure.service_name"
 argument_list|)
 expr_stmt|;
-comment|// Repositories settings
+comment|// Cloud storage API settings
 name|settings
 operator|.
 name|remove
 argument_list|(
-literal|"repositories.azure.account"
+literal|"cloud.azure.storage."
+operator|+
+name|AzureStorageService
+operator|.
+name|Fields
+operator|.
+name|ACCOUNT
 argument_list|)
 expr_stmt|;
 name|settings
 operator|.
 name|remove
 argument_list|(
-literal|"repositories.azure.key"
+literal|"cloud.azure.storage."
+operator|+
+name|AzureStorageService
+operator|.
+name|Fields
+operator|.
+name|KEY
+argument_list|)
+expr_stmt|;
+comment|// Deprecated Cloud storage API settings
+comment|// TODO Remove in 3.0.0
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"cloud.azure."
+operator|+
+name|AzureStorageService
+operator|.
+name|Fields
+operator|.
+name|ACCOUNT_DEPRECATED
 argument_list|)
 expr_stmt|;
 name|settings
 operator|.
 name|remove
 argument_list|(
-literal|"repositories.azure.container"
-argument_list|)
-expr_stmt|;
-name|settings
+literal|"cloud.azure."
+operator|+
+name|AzureStorageService
 operator|.
-name|remove
-argument_list|(
-literal|"repositories.azure.base_path"
+name|Fields
+operator|.
+name|KEY_DEPRECATED
 argument_list|)
 expr_stmt|;
 block|}

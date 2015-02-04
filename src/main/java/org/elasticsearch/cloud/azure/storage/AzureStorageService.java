@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.cloud.azure
+DECL|package|org.elasticsearch.cloud.azure.storage
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|cloud
 operator|.
 name|azure
+operator|.
+name|storage
 package|;
 end_package
 
@@ -89,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Azure Storage Service interface  * @see org.elasticsearch.cloud.azure.AzureStorageServiceImpl for Azure REST API implementation  */
+comment|/**  * Azure Storage Service interface  * @see AzureStorageServiceImpl for Azure REST API implementation  */
 end_comment
 
 begin_interface
@@ -105,6 +107,28 @@ specifier|final
 class|class
 name|Fields
 block|{
+annotation|@
+name|Deprecated
+DECL|field|ACCOUNT_DEPRECATED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ACCOUNT_DEPRECATED
+init|=
+literal|"storage_account"
+decl_stmt|;
+annotation|@
+name|Deprecated
+DECL|field|KEY_DEPRECATED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KEY_DEPRECATED
+init|=
+literal|"storage_key"
+decl_stmt|;
 DECL|field|ACCOUNT
 specifier|public
 specifier|static
@@ -112,7 +136,7 @@ specifier|final
 name|String
 name|ACCOUNT
 init|=
-literal|"storage_account"
+literal|"account"
 decl_stmt|;
 DECL|field|KEY
 specifier|public
@@ -121,7 +145,7 @@ specifier|final
 name|String
 name|KEY
 init|=
-literal|"storage_key"
+literal|"key"
 decl_stmt|;
 DECL|field|CONTAINER
 specifier|public
