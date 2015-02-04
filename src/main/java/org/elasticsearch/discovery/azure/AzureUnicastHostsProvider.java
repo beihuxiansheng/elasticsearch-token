@@ -501,13 +501,6 @@ argument_list|()
 operator|)
 condition|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
@@ -584,13 +577,6 @@ name|getHostAddress
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
@@ -608,13 +594,6 @@ name|e
 parameter_list|)
 block|{
 comment|// We can't find the publish host address... Hmmm. Too bad :-(
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
@@ -662,11 +641,6 @@ condition|)
 block|{
 if|if
 condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-operator|&&
 name|instance
 operator|.
 name|getPrivateIp

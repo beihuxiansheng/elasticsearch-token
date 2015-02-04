@@ -583,18 +583,11 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"creating new Azure client for [{}], [{}], [{}], [{}]"
+literal|"creating new Azure client for [{}], [{}], [{}]"
 argument_list|,
 name|subscription_id
 argument_list|,
@@ -699,13 +692,6 @@ operator|.
 name|VERSION
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|debug
@@ -715,13 +701,6 @@ argument_list|,
 name|api
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
@@ -757,13 +736,6 @@ literal|null
 condition|)
 block|{
 comment|// Azure plugin is disabled
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
@@ -809,13 +781,6 @@ argument_list|,
 name|port_name
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace

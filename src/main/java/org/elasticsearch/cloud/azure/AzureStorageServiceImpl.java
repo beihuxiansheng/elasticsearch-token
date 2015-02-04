@@ -557,13 +557,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
 name|logger
 operator|.
 name|trace
@@ -758,14 +751,6 @@ argument_list|)
 decl_stmt|;
 comment|// TODO Should we set some timeout and retry options?
 comment|/*         BlobRequestOptions options = new BlobRequestOptions();         options.setTimeoutIntervalInMs(1000);         options.setRetryPolicyFactory(new RetryNoRetry());         blob_container.deleteIfExists(options, null);         */
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -775,7 +760,6 @@ argument_list|,
 name|container
 argument_list|)
 expr_stmt|;
-block|}
 name|blob_container
 operator|.
 name|deleteIfExists
@@ -807,14 +791,6 @@ argument_list|(
 name|container
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -824,7 +800,6 @@ argument_list|,
 name|container
 argument_list|)
 expr_stmt|;
-block|}
 name|blob_container
 operator|.
 name|createIfNotExist
@@ -851,14 +826,6 @@ name|StorageException
 throws|,
 name|ServiceException
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -870,7 +837,6 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Container name must be lower case.
 name|CloudBlobContainer
 name|blob_container
@@ -934,14 +900,6 @@ range|:
 name|blobs
 control|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -958,7 +916,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|service
 operator|.
 name|deleteBlob
@@ -1050,14 +1007,6 @@ name|URISyntaxException
 throws|,
 name|StorageException
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -1069,7 +1018,6 @@ argument_list|,
 name|blob
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Container name must be lower case.
 name|CloudBlobContainer
 name|blob_container
@@ -1089,14 +1037,6 @@ name|exists
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -1108,7 +1048,6 @@ argument_list|,
 name|blob
 argument_list|)
 expr_stmt|;
-block|}
 comment|// TODO A REVOIR
 name|CloudBlockBlob
 name|azureBlob
@@ -1302,14 +1241,6 @@ operator|.
 name|getUri
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -1319,7 +1250,6 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
 name|String
 name|blobpath
 init|=
@@ -1368,14 +1298,6 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
@@ -1392,7 +1314,6 @@ name|getContentLength
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|blobsBuilder
 operator|.
 name|put
