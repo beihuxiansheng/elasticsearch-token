@@ -1048,7 +1048,6 @@ argument_list|,
 name|blob
 argument_list|)
 expr_stmt|;
-comment|// TODO A REVOIR
 name|CloudBlockBlob
 name|azureBlob
 init|=
