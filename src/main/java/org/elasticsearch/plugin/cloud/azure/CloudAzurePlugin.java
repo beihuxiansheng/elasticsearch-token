@@ -84,7 +84,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|ESLoggerFactory
+name|Loggers
 import|;
 end_import
 
@@ -183,21 +183,18 @@ name|Settings
 name|settings
 decl_stmt|;
 DECL|field|logger
-specifier|private
+specifier|protected
 specifier|final
 name|ESLogger
 name|logger
 init|=
-name|ESLoggerFactory
+name|Loggers
 operator|.
 name|getLogger
 argument_list|(
 name|CloudAzurePlugin
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|method|CloudAzurePlugin

@@ -146,7 +146,7 @@ name|common
 operator|.
 name|logging
 operator|.
-name|ESLoggerFactory
+name|Loggers
 import|;
 end_import
 
@@ -228,16 +228,13 @@ specifier|final
 name|ESLogger
 name|logger
 init|=
-name|ESLoggerFactory
+name|Loggers
 operator|.
 name|getLogger
 argument_list|(
 name|AzureBlobContainer
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 decl_stmt|;
 DECL|field|blobStore
