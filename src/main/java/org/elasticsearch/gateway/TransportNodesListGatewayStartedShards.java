@@ -704,6 +704,17 @@ name|ElasticsearchException
 block|{
 try|try
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"loading shard state info for {}"
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|)
+expr_stmt|;
 name|ShardStateInfo
 name|shardStateInfo
 init|=
@@ -723,6 +734,19 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"{} shard state info found: [{}]"
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|,
+name|shardStateInfo
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|NodeGatewayStartedShards
@@ -738,6 +762,17 @@ name|version
 argument_list|)
 return|;
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"no shard info found for {}"
+argument_list|,
+name|request
+operator|.
+name|shardId
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|NodeGatewayStartedShards

@@ -217,17 +217,15 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"ShardStateInfo{"
-operator|+
-literal|"version="
+literal|"version ["
 operator|+
 name|version
 operator|+
-literal|", primary="
+literal|"], primary ["
 operator|+
 name|primary
 operator|+
-literal|'}'
+literal|"]"
 return|;
 block|}
 block|}

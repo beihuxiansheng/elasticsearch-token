@@ -3797,12 +3797,15 @@ catch|catch
 parameter_list|(
 name|CorruptIndexException
 decl||
+name|IndexNotFoundException
+decl||
 name|IndexFormatTooOldException
 decl||
 name|IndexFormatTooNewException
 name|ex
 parameter_list|)
 block|{
+comment|// we either know the index is corrupted or it's just not there
 throw|throw
 name|ex
 throw|;
@@ -3818,6 +3821,23 @@ block|{
 comment|// Lucene checks the checksum after it tries to lookup the codec etc.
 comment|// in that case we might get only IAE or similar exceptions while we are really corrupt...
 comment|// TODO we should check the checksum in lucene if we hit an exception
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to build store metadata. checking segment info integrity (with commit [{}])"
+argument_list|,
+name|ex
+argument_list|,
+name|commit
+operator|==
+literal|null
+condition|?
+literal|"no"
+else|:
+literal|"yes"
+argument_list|)
+expr_stmt|;
 name|Lucene
 operator|.
 name|checkSegmentInfoIntegrity
