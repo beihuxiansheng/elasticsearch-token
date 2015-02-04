@@ -46,7 +46,27 @@ name|cloud
 operator|.
 name|azure
 operator|.
+name|management
+operator|.
 name|AzureComputeService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cloud
+operator|.
+name|azure
+operator|.
+name|management
+operator|.
+name|AzureComputeService
+operator|.
+name|Fields
 import|;
 end_import
 
@@ -378,8 +398,6 @@ name|componentSettings
 operator|.
 name|getAsTime
 argument_list|(
-name|AzureComputeService
-operator|.
 name|Fields
 operator|.
 name|REFRESH
@@ -390,8 +408,6 @@ name|getAsTime
 argument_list|(
 literal|"cloud.azure."
 operator|+
-name|AzureComputeService
-operator|.
 name|Fields
 operator|.
 name|REFRESH
@@ -417,8 +433,6 @@ name|componentSettings
 operator|.
 name|get
 argument_list|(
-name|AzureComputeService
-operator|.
 name|Fields
 operator|.
 name|HOST_TYPE
@@ -429,11 +443,9 @@ name|get
 argument_list|(
 literal|"cloud.azure."
 operator|+
-name|AzureComputeService
-operator|.
 name|Fields
 operator|.
-name|HOST_TYPE
+name|HOST_TYPE_DEPRECATED
 argument_list|,
 name|HostType
 operator|.

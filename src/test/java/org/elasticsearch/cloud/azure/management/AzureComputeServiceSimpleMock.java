@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.discovery.azure
+DECL|package|org.elasticsearch.cloud.azure.management
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|cloud
 operator|.
 name|azure
+operator|.
+name|management
 package|;
 end_package
 

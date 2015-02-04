@@ -46,6 +46,8 @@ name|cloud
 operator|.
 name|azure
 operator|.
+name|management
+operator|.
 name|AzureComputeService
 import|;
 end_import

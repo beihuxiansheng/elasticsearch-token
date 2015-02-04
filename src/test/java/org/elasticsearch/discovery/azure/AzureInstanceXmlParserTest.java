@@ -26,7 +26,7 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|AzureComputeServiceImpl
+name|Instance
 import|;
 end_import
 
@@ -40,7 +40,9 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|Instance
+name|management
+operator|.
+name|AzureComputeServiceImpl
 import|;
 end_import
 
