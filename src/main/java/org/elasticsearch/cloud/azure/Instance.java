@@ -34,7 +34,7 @@ name|Status
 block|{
 DECL|enum constant|STARTED
 name|STARTED
-block|;     }
+block|}
 DECL|field|privateIp
 specifier|private
 name|String
