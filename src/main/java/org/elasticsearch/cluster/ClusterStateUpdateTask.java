@@ -22,18 +22,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|util
 operator|.
 name|concurrent
@@ -76,8 +64,6 @@ parameter_list|(
 name|String
 name|source
 parameter_list|,
-annotation|@
-name|Nullable
 name|Throwable
 name|t
 parameter_list|)
