@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.engine.internal
+DECL|package|org.elasticsearch.index.engine
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|engine
-operator|.
-name|internal
 package|;
 end_package
 
@@ -101,34 +99,6 @@ operator|.
 name|settings
 operator|.
 name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|Segment
 import|;
 end_import
 

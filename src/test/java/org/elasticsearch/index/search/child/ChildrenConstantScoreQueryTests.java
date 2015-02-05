@@ -1010,7 +1010,7 @@ argument_list|,
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ChildrenConstantScoreQueryTests
 operator|.
@@ -1818,7 +1818,7 @@ init|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ChildrenConstantScoreQueryTests
 operator|.
@@ -2068,7 +2068,7 @@ operator|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ChildrenConstantScoreQueryTests
 operator|.

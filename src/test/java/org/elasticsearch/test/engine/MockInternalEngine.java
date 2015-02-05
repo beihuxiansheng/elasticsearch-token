@@ -176,8 +176,6 @@ name|index
 operator|.
 name|engine
 operator|.
-name|internal
-operator|.
 name|InternalEngine
 import|;
 end_import
@@ -885,7 +883,7 @@ specifier|public
 specifier|final
 class|class
 name|AssertingSearcher
-implements|implements
+extends|extends
 name|Searcher
 block|{
 DECL|field|wrappedSearcher
@@ -941,6 +939,16 @@ name|ShardId
 name|shardId
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|wrappedSearcher
+operator|.
+name|source
+argument_list|()
+argument_list|,
+name|indexSearcher
+argument_list|)
+expr_stmt|;
 comment|// we only use the given index searcher here instead of the IS of the wrapped searcher. the IS might be a wrapped searcher
 comment|// with a wrapped reader.
 name|this

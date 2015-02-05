@@ -1440,7 +1440,7 @@ init|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ChildrenQueryTests
 operator|.
@@ -1706,7 +1706,7 @@ operator|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ChildrenConstantScoreQueryTests
 operator|.
@@ -2832,13 +2832,13 @@ decl_stmt|;
 comment|// setup to read the parent/child map
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 name|engineSearcher
 init|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ChildrenQueryTests
 operator|.

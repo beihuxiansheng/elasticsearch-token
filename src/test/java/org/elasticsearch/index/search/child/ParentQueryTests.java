@@ -1343,7 +1343,7 @@ init|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ParentQueryTests
 operator|.
@@ -1634,7 +1634,7 @@ operator|=
 operator|new
 name|Engine
 operator|.
-name|SimpleSearcher
+name|Searcher
 argument_list|(
 name|ParentConstantScoreQueryTests
 operator|.
