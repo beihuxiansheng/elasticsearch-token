@@ -133,36 +133,6 @@ argument_list|>
 name|shardDirectory
 parameter_list|()
 function_decl|;
-comment|/**      * Returns<tt>true</tt> if this shard is allocated on this node. Allocated means      * that it has storage files that can be deleted using {@code deleteUnallocated(ShardId, Settings)}.      */
-DECL|method|canDeleteUnallocated
-name|boolean
-name|canDeleteUnallocated
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|indexSettings
-parameter_list|)
-function_decl|;
-comment|/**      * Deletes this shard store since its no longer allocated.      */
-DECL|method|deleteUnallocated
-name|void
-name|deleteUnallocated
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|indexSettings
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 comment|/**      * Return an array of all index folder locations for a given shard      */
 DECL|method|shardIndexLocations
 name|Path

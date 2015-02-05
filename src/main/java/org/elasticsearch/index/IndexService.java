@@ -778,6 +778,18 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
+name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
 name|InternalIndicesLifecycle
 import|;
 end_import
@@ -1023,6 +1035,12 @@ specifier|final
 name|NodeEnvironment
 name|nodeEnv
 decl_stmt|;
+DECL|field|indicesServices
+specifier|private
+specifier|final
+name|IndicesService
+name|indicesServices
+decl_stmt|;
 DECL|field|shards
 specifier|private
 specifier|volatile
@@ -1117,6 +1135,9 @@ name|indexFieldData
 parameter_list|,
 name|BitsetFilterCache
 name|bitSetFilterCache
+parameter_list|,
+name|IndicesService
+name|indicesServices
 parameter_list|)
 block|{
 name|super
@@ -1210,6 +1231,12 @@ name|PluginsService
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|indicesServices
+operator|=
+name|indicesServices
 expr_stmt|;
 name|this
 operator|.
@@ -2751,10 +2778,12 @@ block|{
 comment|// we remove that shards content if this index has been deleted
 try|try
 block|{
-name|nodeEnv
+name|indicesServices
 operator|.
-name|deleteShardDirectoryUnderLock
+name|deleteShardStore
 argument_list|(
+literal|"delete index"
+argument_list|,
 name|lock
 argument_list|,
 name|indexSettings
@@ -2853,6 +2882,16 @@ name|lock
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getIndexSettings
+specifier|public
+name|Settings
+name|getIndexSettings
+parameter_list|()
+block|{
+return|return
+name|indexSettings
+return|;
 block|}
 block|}
 end_class
