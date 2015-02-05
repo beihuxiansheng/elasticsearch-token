@@ -403,6 +403,15 @@ argument_list|)
 decl_stmt|;
 name|termVectorsRequest
 operator|.
+name|startTime
+operator|=
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+expr_stmt|;
+name|termVectorsRequest
+operator|.
 name|routing
 argument_list|(
 name|clusterState
