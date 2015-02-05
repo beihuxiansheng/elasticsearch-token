@@ -608,7 +608,7 @@ condition|)
 block|{
 name|region
 operator|=
-literal|"EU"
+literal|"eu-west-1"
 expr_stmt|;
 block|}
 elseif|else
@@ -624,7 +624,7 @@ condition|)
 block|{
 name|region
 operator|=
-literal|"EU"
+literal|"eu-west-1"
 expr_stmt|;
 block|}
 elseif|else
