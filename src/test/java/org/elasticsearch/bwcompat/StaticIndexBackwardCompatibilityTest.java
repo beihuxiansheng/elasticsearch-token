@@ -218,16 +218,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -431,6 +421,11 @@ argument_list|()
 condition|)
 block|{}
 comment|// stop all data nodes
+name|ElasticsearchAssertions
+operator|.
+name|assertAllFilesClosed
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|assertIndexSanity
 name|void
