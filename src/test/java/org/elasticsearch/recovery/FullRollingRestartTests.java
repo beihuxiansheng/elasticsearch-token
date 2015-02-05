@@ -25,6 +25,20 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 operator|.
 name|Slow
 import|;
@@ -302,6 +316,15 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"see https://github.com/elasticsearch/elasticsearch/issues/9503"
+argument_list|)
 DECL|method|testFullRollingRestart
 specifier|public
 name|void
