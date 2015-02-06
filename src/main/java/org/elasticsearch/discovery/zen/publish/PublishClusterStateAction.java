@@ -1206,7 +1206,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"failed to send response on cluster state processed"
 argument_list|,
@@ -1243,7 +1243,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
 literal|"failed to send response on cluster state processed"
 argument_list|,
