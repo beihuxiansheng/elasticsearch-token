@@ -1031,7 +1031,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"failed send response for allocating dangled"
 argument_list|,
@@ -1078,7 +1078,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"failed send response for allocating dangled"
 argument_list|,
