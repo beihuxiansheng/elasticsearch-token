@@ -329,7 +329,7 @@ block|{
 comment|// TODO: we have no way to know whether scripts use the score so
 comment|// for now we assume that they do but in the future it would be
 comment|// nice to be able to know if they need scores so that the query
-comment|// would only provuce scores if required.
+comment|// would only produce scores if required.
 return|return
 name|config
 operator|.
