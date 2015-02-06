@@ -318,6 +318,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+comment|// TODO: we have no way to know whether scripts use the score so
+comment|// for now we assume that they do but in the future it would be
+comment|// nice to be able to know if they need scores so that the query
+comment|// would only provuce scores if required.
+return|return
+name|config
+operator|.
+name|script
+operator|!=
+literal|null
+operator|||
+name|super
+operator|.
+name|needsScores
+argument_list|()
+return|;
+block|}
 DECL|method|createUnmapped
 specifier|protected
 specifier|abstract

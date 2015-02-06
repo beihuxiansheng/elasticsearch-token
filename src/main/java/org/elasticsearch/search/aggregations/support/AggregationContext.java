@@ -420,6 +420,26 @@ operator|=
 name|searchContext
 expr_stmt|;
 block|}
+comment|/**      * Whether aggregators which are attached to this context need scores.      */
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+name|searchContext
+operator|.
+name|aggregations
+argument_list|()
+operator|.
+name|factories
+argument_list|()
+operator|.
+name|needsScores
+argument_list|()
+return|;
+block|}
 DECL|method|searchContext
 specifier|public
 name|SearchContext

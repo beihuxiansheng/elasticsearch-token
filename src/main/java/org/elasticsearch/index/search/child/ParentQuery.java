@@ -1360,6 +1360,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException

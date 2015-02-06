@@ -1541,14 +1541,16 @@ name|Scorer
 name|scorer
 parameter_list|)
 block|{         }
-DECL|method|acceptsDocsOutOfOrder
+annotation|@
+name|Override
+DECL|method|needsScores
 specifier|public
 name|boolean
-name|acceptsDocsOutOfOrder
+name|needsScores
 parameter_list|()
 block|{
 return|return
-literal|true
+literal|false
 return|;
 block|}
 DECL|method|collect

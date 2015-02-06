@@ -1845,6 +1845,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -1866,6 +1869,9 @@ name|getCoreCacheKey
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// We ignore the needsScores parameter here because there isn't really anything that we
+comment|// can improve by ignoring scores. Actually this query does not really make sense
+comment|// with needsScores=false...
 if|if
 condition|(
 name|readerParentDocs

@@ -396,6 +396,10 @@ begin_comment
 comment|/**  *  */
 end_comment
 
+begin_comment
+comment|// TODO: Remove me and move the logic to ChildrenQuery when needsScore=false
+end_comment
+
 begin_class
 DECL|class|ChildrenConstantScoreQuery
 specifier|public
@@ -1317,6 +1321,9 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException

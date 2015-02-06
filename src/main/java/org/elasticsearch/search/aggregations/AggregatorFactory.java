@@ -323,6 +323,19 @@ operator|=
 name|metaData
 expr_stmt|;
 block|}
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+name|factories
+operator|.
+name|needsScores
+argument_list|()
+return|;
+block|}
 comment|/**      * Utility method. Given an {@link AggregatorFactory} that creates {@link Aggregator}s that only know how      * to collect bucket<tt>0</tt>, this returns an aggregator that can collect any bucket.      */
 DECL|method|asMultiBucketAggregator
 specifier|protected
