@@ -754,6 +754,15 @@ operator|.
 name|IPv4
 argument_list|)
 decl_stmt|;
+name|assumeTrue
+argument_list|(
+literal|"No IP-v4 non-loopback address available - are you on a plane?"
+argument_list|,
+name|firstNonLoopbackAddress
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
 name|Settings
 name|settings
 init|=
