@@ -4374,7 +4374,7 @@ argument_list|)
 expr_stmt|;
 name|unassignedShardsAfterReplicasAssigned
 operator|.
-name|countDown
+name|await
 argument_list|()
 expr_stmt|;
 block|}
