@@ -24,6 +24,48 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|CorruptIndexException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexFormatTooNewException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|IndexFormatTooOldException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|AlreadyClosedException
@@ -2879,6 +2921,42 @@ argument_list|,
 name|sourceMetaData
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CorruptIndexException
+decl||
+name|IndexFormatTooNewException
+decl||
+name|IndexFormatTooOldException
+name|ex
+parameter_list|)
+block|{
+comment|// this is a fatal exception at this stage.
+comment|// this means we transferred files from the remote that have not be checksummed and they are
+comment|// broken. We have to clean up this shard entirely, remove all files and bubble it up to the
+comment|// source shard since this index might be broken there as well? The Source can handle this and checks
+comment|// its content on disk if possible.
+name|store
+operator|.
+name|deleteContent
+argument_list|()
+expr_stmt|;
+comment|// clean up and delete all files
+throw|throw
+operator|new
+name|RecoveryFailedException
+argument_list|(
+name|recoveryStatus
+operator|.
+name|state
+argument_list|()
+argument_list|,
+literal|"failed to clean after recovery"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
 block|}
 catch|catch
 parameter_list|(
