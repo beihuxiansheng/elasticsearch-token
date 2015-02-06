@@ -1412,7 +1412,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"loaded store meta data for {} (took [{}])"
+literal|"{} loaded store meta data (took [{}])"
 argument_list|,
 name|shardId
 argument_list|,
@@ -1426,7 +1426,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"loaded store meta data for {} (took [{}])"
+literal|"{} didn't find any store meta data to load (took [{}])"
 argument_list|,
 name|shardId
 argument_list|,

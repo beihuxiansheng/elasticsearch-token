@@ -708,7 +708,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"loading shard state info for {}"
+literal|"{} loading local shard state info"
 argument_list|,
 name|request
 operator|.
@@ -766,7 +766,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"no shard info found for {}"
+literal|"{} no local shard info found"
 argument_list|,
 name|request
 operator|.
