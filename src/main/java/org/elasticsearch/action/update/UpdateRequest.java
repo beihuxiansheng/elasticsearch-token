@@ -377,6 +377,13 @@ name|routing
 decl_stmt|;
 annotation|@
 name|Nullable
+DECL|field|parent
+specifier|private
+name|String
+name|parent
+decl_stmt|;
+annotation|@
+name|Nullable
 DECL|field|script
 name|String
 name|script
@@ -841,7 +848,22 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the parent id of this document. Will simply set the routing to this value, as it is only      * used for routing with delete requests.      */
+comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
+annotation|@
+name|Override
+DECL|method|routing
+specifier|public
+name|String
+name|routing
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|routing
+return|;
+block|}
+comment|/**      * The parent id is used for the upsert request and also implicitely sets the routing if not already set.      */
 DECL|method|parent
 specifier|public
 name|UpdateRequest
@@ -851,6 +873,12 @@ name|String
 name|parent
 parameter_list|)
 block|{
+name|this
+operator|.
+name|parent
+operator|=
+name|parent
+expr_stmt|;
 if|if
 condition|(
 name|routing
@@ -867,19 +895,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
-annotation|@
-name|Override
-DECL|method|routing
+DECL|method|parent
 specifier|public
 name|String
-name|routing
+name|parent
 parameter_list|()
 block|{
 return|return
-name|this
-operator|.
-name|routing
+name|parent
 return|;
 block|}
 DECL|method|shardId
@@ -2478,6 +2501,13 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
+name|parent
+operator|=
+name|in
+operator|.
+name|readOptionalString
+argument_list|()
+expr_stmt|;
 name|script
 operator|=
 name|in
@@ -2719,6 +2749,13 @@ operator|.
 name|writeOptionalString
 argument_list|(
 name|routing
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeOptionalString
+argument_list|(
+name|parent
 argument_list|)
 expr_stmt|;
 name|out
