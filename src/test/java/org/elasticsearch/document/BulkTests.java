@@ -5374,9 +5374,9 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{ \"update\" : { \"_index\" : \"test\", \"_type\" : \"child\", \"_id\" : \"child1\", \"routing\" : \"parent1\"}}\n"
+literal|"{ \"update\" : { \"_index\" : \"test\", \"_type\" : \"child\", \"_id\" : \"child1\", \"parent\" : \"parent1\"}}\n"
 operator|+
-literal|"{\"doc\" : { \"field1\" : \"value1\", \"_parent\" : \"parent1\"}, \"doc_as_upsert\" : \"true\"}\n"
+literal|"{\"doc\" : { \"field1\" : \"value1\"}, \"doc_as_upsert\" : \"true\"}\n"
 argument_list|)
 operator|.
 name|array
@@ -5600,9 +5600,9 @@ init|=
 operator|new
 name|BytesArray
 argument_list|(
-literal|"{\"update\" : { \"_id\" : \"child1\", \"_type\" : \"child\", \"_index\" : \"test\", \"routing\" : \"parent1\"} }\n"
+literal|"{\"update\" : { \"_id\" : \"child1\", \"_type\" : \"child\", \"_index\" : \"test\", \"parent\" : \"parent1\"} }\n"
 operator|+
-literal|"{ \"script\" : \"ctx._source.field2 = 'value2'\", \"upsert\" : {\"field1\" : \"value1\", \"_parent\" : \"parent1\"}}\n"
+literal|"{ \"script\" : \"ctx._source.field2 = 'value2'\", \"upsert\" : {\"field1\" : \"value1\"}}\n"
 argument_list|)
 operator|.
 name|array

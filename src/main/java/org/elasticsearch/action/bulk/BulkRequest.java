@@ -2176,6 +2176,11 @@ argument_list|(
 name|routing
 argument_list|)
 operator|.
+name|parent
+argument_list|(
+name|parent
+argument_list|)
+operator|.
 name|retryOnConflict
 argument_list|(
 name|retryOnConflict
@@ -2229,6 +2234,14 @@ argument_list|)
 expr_stmt|;
 name|upsertRequest
 operator|.
+name|parent
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+comment|// order is important, set it after routing, so it will set the routing
+name|upsertRequest
+operator|.
 name|timestamp
 argument_list|(
 name|timestamp
@@ -2278,6 +2291,14 @@ argument_list|(
 name|routing
 argument_list|)
 expr_stmt|;
+name|doc
+operator|.
+name|parent
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
+comment|// order is important, set it after routing, so it will set the routing
 name|doc
 operator|.
 name|timestamp
