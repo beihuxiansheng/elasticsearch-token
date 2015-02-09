@@ -62,20 +62,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -429,15 +415,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Boaz Leskes: disabling this until further discussion. Recent failures probably relate to #9211& #8720 (+ friends)"
-argument_list|)
 DECL|class|SearchWithRandomExceptionsTests
 specifier|public
 class|class

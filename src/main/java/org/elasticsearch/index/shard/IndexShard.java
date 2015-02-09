@@ -6944,8 +6944,6 @@ name|Throwable
 name|failure
 parameter_list|)
 block|{
-try|try
-block|{
 for|for
 control|(
 name|Engine
@@ -6986,21 +6984,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-comment|// close the engine all bets are off... don't use engine() here it can throw an exception
-name|IOUtils
-operator|.
-name|closeWhileHandlingException
-argument_list|(
-name|currentEngineReference
-operator|.
-name|get
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

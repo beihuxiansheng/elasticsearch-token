@@ -869,14 +869,6 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|field|closedOrFailed
-specifier|private
-specifier|volatile
-name|boolean
-name|closedOrFailed
-init|=
-literal|false
-decl_stmt|;
 DECL|field|optimizeMutex
 specifier|private
 specifier|final
@@ -949,7 +941,7 @@ decl_stmt|;
 DECL|field|failEngineLock
 specifier|private
 specifier|final
-name|Lock
+name|ReentrantLock
 name|failEngineLock
 init|=
 operator|new
@@ -1367,12 +1359,23 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|isClosed
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
 comment|// failure we need to dec the store reference
 name|store
 operator|.
 name|decRef
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1635,10 +1638,10 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|commitIndexWriter
+argument_list|(
 name|indexWriter
-operator|.
-name|commit
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 specifier|final
@@ -1715,9 +1718,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|e
-argument_list|,
 literal|"start"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 try|try
@@ -1786,7 +1789,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -2290,9 +2296,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|t
-argument_list|,
 literal|"create"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -2969,9 +2975,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|t
-argument_list|,
 literal|"index"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -3029,7 +3035,10 @@ try|try
 block|{
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 condition|)
 block|{
 comment|// no point...
@@ -3525,9 +3534,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|t
-argument_list|,
 literal|"delete"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4068,9 +4077,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|t
-argument_list|,
 literal|"delete_by_query"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4367,6 +4376,13 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+name|maybeFailEngine
+argument_list|(
+literal|"refresh"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -4637,10 +4653,10 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|commitIndexWriter
+argument_list|(
 name|indexWriter
-operator|.
-name|commit
-argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// we need to refresh in order to clear older version values
 name|refresh
@@ -4765,10 +4781,10 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|commitIndexWriter
+argument_list|(
 name|indexWriter
-operator|.
-name|commit
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -4804,6 +4820,11 @@ expr_stmt|;
 block|}
 block|}
 comment|// reread the last committed segment infos
+name|store
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -4834,7 +4855,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -4870,6 +4894,14 @@ throw|;
 block|}
 block|}
 block|}
+finally|finally
+block|{
+name|store
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -4879,9 +4911,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|ex
-argument_list|,
 literal|"flush"
+argument_list|,
+name|ex
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -4910,7 +4942,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 condition|)
 block|{
 throw|throw
@@ -5299,9 +5334,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|t
-argument_list|,
 literal|"optimize"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -5525,9 +5560,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|e
-argument_list|,
 literal|"recovery"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|Releasables
@@ -5569,9 +5604,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|e
-argument_list|,
 literal|"recovery phase 1"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|Releasables
@@ -5623,9 +5658,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|e
-argument_list|,
 literal|"snapshot recovery"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|Releasables
@@ -5672,9 +5707,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|e
-argument_list|,
 literal|"recovery phase 2"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 name|Releasables
@@ -5756,9 +5791,9 @@ parameter_list|)
 block|{
 name|maybeFailEngine
 argument_list|(
-name|e
-argument_list|,
 literal|"recovery phase 3"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -5805,11 +5840,11 @@ specifier|private
 name|boolean
 name|maybeFailEngine
 parameter_list|(
-name|Throwable
-name|t
-parameter_list|,
 name|String
 name|source
+parameter_list|,
+name|Throwable
+name|t
 parameter_list|)
 block|{
 if|if
@@ -5891,6 +5926,84 @@ return|return
 literal|true
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|t
+operator|instanceof
+name|AlreadyClosedException
+condition|)
+block|{
+comment|// if we are already closed due to some tragic exception
+comment|// we need to fail the engine. it might have already been failed before
+comment|// but we are double-checking it's failed and closed
+if|if
+condition|(
+name|indexWriter
+operator|.
+name|isOpen
+argument_list|()
+operator|==
+literal|false
+operator|&&
+name|indexWriter
+operator|.
+name|getTragicException
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|failEngine
+argument_list|(
+literal|"already closed by tragic event"
+argument_list|,
+name|indexWriter
+operator|.
+name|getTragicException
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+literal|true
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|t
+operator|!=
+literal|null
+operator|&&
+name|indexWriter
+operator|.
+name|isOpen
+argument_list|()
+operator|==
+literal|false
+operator|&&
+name|indexWriter
+operator|.
+name|getTragicException
+argument_list|()
+operator|==
+name|t
+condition|)
+block|{
+comment|// this spot on - we are handling the tragic event exception here so we have to fail the engine
+comment|// right away
+name|failEngine
+argument_list|(
+name|source
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
 return|return
 literal|false
 return|;
@@ -5906,7 +6019,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 condition|)
 block|{
 if|if
@@ -6706,9 +6822,20 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{
+if|if
+condition|(
+name|isClosed
+operator|.
+name|get
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// don't acquire the write lock if we are already closed
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"close now acquire writeLock"
 argument_list|)
@@ -6726,11 +6853,31 @@ init|)
 block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"close acquired writeLock"
+literal|"close now acquired writeLock"
 argument_list|)
 expr_stmt|;
+name|closeNoLock
+argument_list|(
+literal|"api"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Closes the engine without acquiring the write lock. This should only be      * called while the write lock is hold or in a disaster condition ie. if the engine      * is failed.      */
+DECL|method|closeNoLock
+specifier|private
+name|void
+name|closeNoLock
+parameter_list|(
+name|String
+name|reason
+parameter_list|)
+throws|throws
+name|ElasticsearchException
+block|{
 if|if
 condition|(
 name|isClosed
@@ -6743,12 +6890,21 @@ literal|true
 argument_list|)
 condition|)
 block|{
+assert|assert
+name|rwl
+operator|.
+name|isWriteLockedByCurrentThread
+argument_list|()
+operator|||
+name|failEngineLock
+operator|.
+name|isHeldByCurrentThread
+argument_list|()
+operator|:
+literal|"Either the write lock must be held or the engine must be currently be failing itself"
+assert|;
 try|try
 block|{
-name|closedOrFailed
-operator|=
-literal|true
-expr_stmt|;
 name|this
 operator|.
 name|versionMap
@@ -6758,7 +6914,7 @@ argument_list|()
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"close searcherManager"
 argument_list|)
@@ -6790,16 +6946,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// no need to commit in this case!, we snapshot before we close the shard, so translog and all sync'ed
-if|if
-condition|(
-name|indexWriter
-operator|!=
-literal|null
-condition|)
-block|{
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"rollback indexWriter"
 argument_list|)
@@ -6822,12 +6971,11 @@ comment|// ignore
 block|}
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"rollback indexWriter done"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -6880,7 +7028,15 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
-block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"engine closed [{}]"
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -6911,10 +7067,25 @@ name|tryLock
 argument_list|()
 condition|)
 block|{
+name|store
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
 try|try
 block|{
 try|try
 block|{
+comment|// we just go and close this engine - no way to recover
+name|closeNoLock
+argument_list|(
+literal|"engine failed on: ["
+operator|+
+name|reason
+operator|+
+literal|"]"
+argument_list|)
+expr_stmt|;
 comment|// we first mark the store as corrupted before we notify any listeners
 comment|// this must happen first otherwise we might try to reallocate so quickly
 comment|// on the same node that we don't see the corrupted marker file when
@@ -7032,45 +7203,11 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|closedOrFailed
-operator|=
-literal|true
-expr_stmt|;
-try|try
-init|(
-name|ReleasableLock
-name|_
-init|=
-name|readLock
+name|store
 operator|.
-name|acquire
-argument_list|()
-init|)
-block|{
-comment|// we take the readlock here to ensure nobody replaces this IW concurrently.
-name|indexWriter
-operator|.
-name|rollback
+name|decRef
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Rolling back indexwriter on engine failure failed"
-argument_list|,
-name|t
-argument_list|)
-expr_stmt|;
-comment|// to be on the safe side we just rollback the IW
-block|}
 block|}
 block|}
 else|else
@@ -7459,7 +7596,10 @@ block|{
 comment|// Don't fail a merge if the warm-up failed
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -7857,7 +7997,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|closedOrFailed
+name|isClosed
+operator|.
+name|get
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -8205,6 +8348,43 @@ block|{
 return|return
 name|engineConfig
 return|;
+block|}
+DECL|method|commitIndexWriter
+specifier|private
+name|void
+name|commitIndexWriter
+parameter_list|(
+name|IndexWriter
+name|writer
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+try|try
+block|{
+name|writer
+operator|.
+name|commit
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|ex
+parameter_list|)
+block|{
+name|failEngine
+argument_list|(
+literal|"lucene commit failed"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+throw|throw
+name|ex
+throw|;
+block|}
 block|}
 block|}
 end_class
