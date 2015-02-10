@@ -707,10 +707,12 @@ name|percolateRequest
 operator|.
 name|source
 argument_list|(
-name|restRequest
+name|RestActions
 operator|.
-name|content
-argument_list|()
+name|getRestContent
+argument_list|(
+name|restRequest
+argument_list|)
 argument_list|,
 name|restRequest
 operator|.
