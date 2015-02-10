@@ -1110,9 +1110,6 @@ name|forceMerge
 parameter_list|(
 name|boolean
 name|flush
-parameter_list|,
-name|boolean
-name|waitForMerge
 parameter_list|)
 function_decl|;
 comment|/**      * Triggers a forced merge on this engine      */
@@ -1124,9 +1121,6 @@ name|forceMerge
 parameter_list|(
 name|boolean
 name|flush
-parameter_list|,
-name|boolean
-name|waitForMerge
 parameter_list|,
 name|int
 name|maxNumSegments

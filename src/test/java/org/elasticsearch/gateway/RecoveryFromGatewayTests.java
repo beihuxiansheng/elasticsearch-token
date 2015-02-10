@@ -3207,11 +3207,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setWaitForMerge
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|setMaxNumSegments
 argument_list|(
 literal|100

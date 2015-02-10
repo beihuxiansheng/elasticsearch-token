@@ -1154,10 +1154,6 @@ argument_list|(
 name|httpClient
 argument_list|,
 literal|null
-argument_list|,
-literal|"wait_for_completion"
-argument_list|,
-literal|"true"
 argument_list|)
 expr_stmt|;
 name|logSegmentsState

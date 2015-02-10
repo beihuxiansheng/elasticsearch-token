@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #setWaitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #setMaxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  */
+comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #setMaxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  */
 end_comment
 
 begin_class
@@ -98,27 +98,6 @@ name|OptimizeRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
-DECL|method|setWaitForMerge
-specifier|public
-name|OptimizeRequestBuilder
-name|setWaitForMerge
-parameter_list|(
-name|boolean
-name|waitForMerge
-parameter_list|)
-block|{
-name|request
-operator|.
-name|waitForMerge
-argument_list|(
-name|waitForMerge
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Will optimize the index down to<= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
 DECL|method|setMaxNumSegments

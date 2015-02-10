@@ -4300,11 +4300,6 @@ argument_list|()
 argument_list|,
 name|optimize
 operator|.
-name|waitForMerge
-argument_list|()
-argument_list|,
-name|optimize
-operator|.
 name|maxNumSegments
 argument_list|()
 argument_list|,

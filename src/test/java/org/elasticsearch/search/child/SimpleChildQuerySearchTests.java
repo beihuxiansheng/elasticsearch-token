@@ -20464,11 +20464,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setWaitForMerge
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|get
 argument_list|()
 expr_stmt|;

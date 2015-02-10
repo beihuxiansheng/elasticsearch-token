@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #waitForMerge(boolean)} allows to control if the call will block until the optimize completes and  * defaults to<tt>true</tt>.  *<p/>  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
+comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p/>  *<p>{@link #maxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  *  * @see org.elasticsearch.client.Requests#optimizeRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#optimize(OptimizeRequest)  * @see OptimizeResponse  */
 end_comment
 
 begin_class
@@ -110,15 +110,6 @@ specifier|final
 class|class
 name|Defaults
 block|{
-DECL|field|WAIT_FOR_MERGE
-specifier|public
-specifier|static
-specifier|final
-name|boolean
-name|WAIT_FOR_MERGE
-init|=
-literal|true
-decl_stmt|;
 DECL|field|MAX_NUM_SEGMENTS
 specifier|public
 specifier|static
@@ -157,15 +148,6 @@ init|=
 literal|false
 decl_stmt|;
 block|}
-DECL|field|waitForMerge
-specifier|private
-name|boolean
-name|waitForMerge
-init|=
-name|Defaults
-operator|.
-name|WAIT_FOR_MERGE
-decl_stmt|;
 DECL|field|maxNumSegments
 specifier|private
 name|int
@@ -223,37 +205,6 @@ specifier|public
 name|OptimizeRequest
 parameter_list|()
 block|{      }
-comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
-DECL|method|waitForMerge
-specifier|public
-name|boolean
-name|waitForMerge
-parameter_list|()
-block|{
-return|return
-name|waitForMerge
-return|;
-block|}
-comment|/**      * Should the call block until the optimize completes. Defaults to<tt>true</tt>.      */
-DECL|method|waitForMerge
-specifier|public
-name|OptimizeRequest
-name|waitForMerge
-parameter_list|(
-name|boolean
-name|waitForMerge
-parameter_list|)
-block|{
-name|this
-operator|.
-name|waitForMerge
-operator|=
-name|waitForMerge
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Will optimize the index down to<= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
 DECL|method|maxNumSegments
 specifier|public
@@ -396,13 +347,6 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|waitForMerge
-operator|=
-name|in
-operator|.
-name|readBoolean
-argument_list|()
-expr_stmt|;
 name|maxNumSegments
 operator|=
 name|in
@@ -452,13 +396,6 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeBoolean
-argument_list|(
-name|waitForMerge
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
 name|writeInt
 argument_list|(
 name|maxNumSegments
@@ -497,11 +434,7 @@ block|{
 return|return
 literal|"OptimizeRequest{"
 operator|+
-literal|"waitForMerge="
-operator|+
-name|waitForMerge
-operator|+
-literal|", maxNumSegments="
+literal|"maxNumSegments="
 operator|+
 name|maxNumSegments
 operator|+
