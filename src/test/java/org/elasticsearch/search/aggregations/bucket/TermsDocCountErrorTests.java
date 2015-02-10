@@ -401,15 +401,6 @@ name|DOUBLE_FIELD_NAME
 init|=
 literal|"d_value"
 decl_stmt|;
-DECL|field|ROUTING_FIELD_NAME
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|ROUTING_FIELD_NAME
-init|=
-literal|"route"
-decl_stmt|;
 DECL|method|randomExecutionHint
 specifier|public
 specifier|static
@@ -696,11 +687,7 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
-literal|"{ \"type\" : { \"_routing\" : { \"required\" : true, \"path\" : \""
-operator|+
-name|ROUTING_FIELD_NAME
-operator|+
-literal|"\" } } }"
+literal|"{ \"type\" : { \"_routing\" : { \"required\" : true } } }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -735,6 +722,19 @@ argument_list|,
 literal|""
 operator|+
 name|i
+argument_list|)
+operator|.
+name|setRouting
+argument_list|(
+name|String
+operator|.
+name|valueOf
+argument_list|(
+name|randomInt
+argument_list|(
+name|numRoutingValues
+argument_list|)
+argument_list|)
 argument_list|)
 operator|.
 name|setSource
@@ -776,21 +776,6 @@ operator|*
 name|randomInt
 argument_list|(
 name|numUniqueTerms
-argument_list|)
-argument_list|)
-operator|.
-name|field
-argument_list|(
-name|ROUTING_FIELD_NAME
-argument_list|,
-name|String
-operator|.
-name|valueOf
-argument_list|(
-name|randomInt
-argument_list|(
-name|numRoutingValues
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
