@@ -415,7 +415,7 @@ throw|throw
 operator|new
 name|BlobStoreException
 argument_list|(
-literal|"\"Detected a buffer_size for the S3 storage lower than ["
+literal|"Detected a buffer_size for the S3 storage lower than ["
 operator|+
 name|MIN_BUFFER_SIZE
 operator|+
