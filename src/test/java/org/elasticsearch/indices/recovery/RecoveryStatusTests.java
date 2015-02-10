@@ -194,13 +194,6 @@ argument_list|(
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|RecoveryState
-name|state
-init|=
-operator|new
-name|RecoveryState
-argument_list|()
-decl_stmt|;
 name|IndexShard
 name|indexShard
 init|=
@@ -239,8 +232,6 @@ argument_list|(
 name|indexShard
 argument_list|,
 name|node
-argument_list|,
-name|state
 argument_list|,
 operator|new
 name|RecoveryTarget

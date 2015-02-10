@@ -5666,7 +5666,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
-name|reusedByteCount
+name|reusedBytes
 argument_list|()
 operator|>
 literal|0

@@ -132,9 +132,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"assert that [{}] has a true value"
+literal|"assert that [{}] has a true value (field [{}])"
 argument_list|,
 name|actualValue
+argument_list|,
+name|getField
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String

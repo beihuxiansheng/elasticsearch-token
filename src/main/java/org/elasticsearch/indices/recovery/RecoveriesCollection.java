@@ -267,9 +267,6 @@ parameter_list|,
 name|DiscoveryNode
 name|sourceNode
 parameter_list|,
-name|RecoveryState
-name|state
-parameter_list|,
 name|RecoveryTarget
 operator|.
 name|RecoveryListener
@@ -288,8 +285,6 @@ argument_list|(
 name|indexShard
 argument_list|,
 name|sourceNode
-argument_list|,
-name|state
 argument_list|,
 name|listener
 argument_list|)
@@ -727,6 +722,20 @@ block|}
 block|}
 return|return
 literal|null
+return|;
+block|}
+comment|/** the number of ongoing recoveries */
+DECL|method|size
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|onGoingRecoveries
+operator|.
+name|size
+argument_list|()
 return|;
 block|}
 comment|/** cancel all ongoing recoveries for the given shard. typically because the shards is closed */

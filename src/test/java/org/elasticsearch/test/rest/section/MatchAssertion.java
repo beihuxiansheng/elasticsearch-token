@@ -82,31 +82,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
+name|*
 import|;
 end_import
 
@@ -329,11 +305,14 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"assert that [{}] matches [{}]"
+literal|"assert that [{}] matches [{}] (field [{}])"
 argument_list|,
 name|actualValue
 argument_list|,
 name|expectedValue
+argument_list|,
+name|getField
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

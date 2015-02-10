@@ -22,7 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
+name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -32,7 +32,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
+name|cluster
+operator|.
+name|ClusterService
 import|;
 end_import
 
@@ -217,20 +219,6 @@ operator|.
 name|engine
 operator|.
 name|Engine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|EngineClosedException
 import|;
 end_import
 
@@ -688,6 +676,9 @@ name|mergePolicyProvider
 parameter_list|,
 name|EngineFactory
 name|factory
+parameter_list|,
+name|ClusterService
+name|clusterService
 parameter_list|)
 block|{
 name|super
@@ -755,6 +746,8 @@ argument_list|,
 name|mergePolicyProvider
 argument_list|,
 name|factory
+argument_list|,
+name|clusterService
 argument_list|)
 expr_stmt|;
 block|}

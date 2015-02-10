@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a length assert section:  *  *   - length:   { hits.hits: 1  }  *  */
+comment|/**  * Represents a length assert section:  *<p/>  * - length:   { hits.hits: 1  }  */
 end_comment
 
 begin_class
@@ -167,15 +167,32 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"assert that [{}] has length [{}]"
+literal|"assert that [{}] has length [{}] (field: [{}])"
 argument_list|,
 name|actualValue
 argument_list|,
 name|expectedValue
+argument_list|,
+name|getField
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"expected value of ["
+operator|+
+name|getField
+argument_list|()
+operator|+
+literal|"] is not numeric (got ["
+operator|+
+name|expectedValue
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|"]"
+argument_list|,
 name|expectedValue
 argument_list|,
 name|instanceOf

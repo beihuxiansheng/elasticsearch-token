@@ -958,7 +958,7 @@ operator|.
 name|getIndex
 argument_list|()
 operator|.
-name|recoveredByteCount
+name|recoveredBytes
 argument_list|()
 expr_stmt|;
 block|}
