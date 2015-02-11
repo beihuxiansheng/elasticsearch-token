@@ -2640,6 +2640,15 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// It could happen that Tika adds a System property `sun.font.fontmanager` which should not happen
+comment|// TODO Remove when this will be fixed in Tika. See https://issues.apache.org/jira/browse/TIKA-1548
+name|System
+operator|.
+name|clearProperty
+argument_list|(
+literal|"sun.font.fontmanager"
+argument_list|)
+expr_stmt|;
 comment|// #18: we could ignore errors when Tika does not parse data
 if|if
 condition|(
