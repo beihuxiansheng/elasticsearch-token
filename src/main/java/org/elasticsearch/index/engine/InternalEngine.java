@@ -869,16 +869,6 @@ name|flushNeeded
 init|=
 literal|false
 decl_stmt|;
-DECL|field|flushing
-specifier|private
-specifier|final
-name|AtomicInteger
-name|flushing
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
-decl_stmt|;
 DECL|field|flushLock
 specifier|private
 specifier|final
@@ -4281,9 +4271,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|updateIndexWriterSettings
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|commitTranslog
@@ -4311,52 +4298,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|int
-name|currentFlushing
-init|=
-name|flushing
-operator|.
-name|incrementAndGet
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|currentFlushing
-operator|>
-literal|1
-operator|&&
-name|waitIfOngoing
-operator|==
-literal|false
-condition|)
-block|{
-name|flushing
-operator|.
-name|decrementAndGet
-argument_list|()
-expr_stmt|;
-throw|throw
-operator|new
-name|FlushNotAllowedEngineException
-argument_list|(
-name|shardId
-argument_list|,
-literal|"already flushing..."
-argument_list|)
-throw|;
-block|}
-name|flushLock
-operator|.
-name|lock
-argument_list|()
-expr_stmt|;
-try|try
-block|{
-if|if
-condition|(
-name|commitTranslog
-condition|)
-block|{
+comment|/*          * Unfortunately the lock order is important here. We have to acquire the readlock fist otherwise          * if we are flushing at the end of the recovery while holding the write lock we can deadlock if:          *  Thread 1: flushes via API and gets the flush lock but blocks on the readlock since Thread 2 has the writeLock          *  Thread 2: flushes at the end of the recovery holding the writeLock and blocks on the flushLock owned by Thread 1          */
 try|try
 init|(
 name|ReleasableLock
@@ -4371,6 +4313,75 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
+name|updateIndexWriterSettings
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|flushLock
+operator|.
+name|tryLock
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// if we can't get the lock right away we block if needed otherwise barf
+if|if
+condition|(
+name|waitIfOngoing
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"waiting fore in-flight flush to finish"
+argument_list|)
+expr_stmt|;
+name|flushLock
+operator|.
+name|lock
+argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"acquired flush lock after blocking"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|FlushNotAllowedEngineException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"already flushing..."
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"acquired flush lock immediately"
+argument_list|)
+expr_stmt|;
+block|}
+try|try
+block|{
+if|if
+condition|(
+name|commitTranslog
+condition|)
+block|{
 if|if
 condition|(
 name|onGoingRecoveries
@@ -4500,40 +4511,11 @@ throw|;
 block|}
 block|}
 block|}
-comment|// We don't have to do this here; we do it defensively to make sure that even if wall clock time is misbehaving
-comment|// (e.g., moves backwards) we will at least still sometimes prune deleted tombstones:
-if|if
-condition|(
-name|engineConfig
-operator|.
-name|isEnableGcDeletes
-argument_list|()
-condition|)
-block|{
-name|pruneDeletedTombstones
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 else|else
 block|{
 comment|// note, its ok to just commit without cleaning the translog, its perfectly fine to replay a
 comment|// translog on an index that was opened on a committed point in time that is "in the future"
 comment|// of that translog
-try|try
-init|(
-name|ReleasableLock
-name|_
-init|=
-name|readLock
-operator|.
-name|acquire
-argument_list|()
-init|)
-block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 comment|// we allow to *just* commit if there is an ongoing recovery happening...
 comment|// its ok to use this, only a flush will cause a new translogId, and we are locked here from
 comment|// other flushes use flushLock
@@ -4591,41 +4573,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// We don't have to do this here; we do it defensively to make sure that even if wall clock time is misbehaving
-comment|// (e.g., moves backwards) we will at least still sometimes prune deleted tombstones:
-if|if
-condition|(
-name|engineConfig
-operator|.
-name|isEnableGcDeletes
-argument_list|()
-condition|)
-block|{
-name|pruneDeletedTombstones
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 comment|// reread the last committed segment infos
-name|store
-operator|.
-name|incRef
-argument_list|()
-expr_stmt|;
 try|try
-init|(
-name|ReleasableLock
-name|_
-init|=
-name|readLock
-operator|.
-name|acquire
-argument_list|()
-init|)
 block|{
-name|ensureOpen
-argument_list|()
-expr_stmt|;
 name|lastCommittedSegmentInfos
 operator|=
 name|store
@@ -4681,14 +4631,6 @@ throw|;
 block|}
 block|}
 block|}
-finally|finally
-block|{
-name|store
-operator|.
-name|decRef
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -4714,9 +4656,19 @@ operator|.
 name|unlock
 argument_list|()
 expr_stmt|;
-name|flushing
+block|}
+block|}
+comment|// We don't have to do this here; we do it defensively to make sure that even if wall clock time is misbehaving
+comment|// (e.g., moves backwards) we will at least still sometimes prune deleted tombstones:
+if|if
+condition|(
+name|engineConfig
 operator|.
-name|decrementAndGet
+name|isEnableGcDeletes
+argument_list|()
+condition|)
+block|{
+name|pruneDeletedTombstones
 argument_list|()
 expr_stmt|;
 block|}
