@@ -116,11 +116,17 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|Reducer
 import|;
 end_import
 
@@ -128,9 +134,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|util
+name|io
 operator|.
-name|Collection
+name|IOException
 import|;
 end_import
 
@@ -308,6 +314,12 @@ parameter_list|,
 name|long
 name|minDocCount
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -336,6 +348,8 @@ operator|.
 name|INSTANCE
 argument_list|,
 name|BUCKETS
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)

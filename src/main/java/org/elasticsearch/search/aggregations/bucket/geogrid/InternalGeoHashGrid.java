@@ -226,6 +226,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|Reducer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -912,6 +928,12 @@ name|Bucket
 argument_list|>
 name|buckets
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -924,6 +946,8 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -1262,6 +1286,9 @@ name|asList
 argument_list|(
 name|list
 argument_list|)
+argument_list|,
+name|reducers
+argument_list|()
 argument_list|,
 name|getMetaData
 argument_list|()
