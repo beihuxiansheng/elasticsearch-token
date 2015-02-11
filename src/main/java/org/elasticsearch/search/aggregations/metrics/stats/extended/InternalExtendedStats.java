@@ -747,10 +747,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|reduce
+DECL|method|doReduce
 specifier|public
 name|InternalExtendedStats
-name|reduce
+name|doReduce
 parameter_list|(
 name|ReduceContext
 name|reduceContext
@@ -794,7 +794,7 @@ name|stats
 init|=
 name|super
 operator|.
-name|reduce
+name|doReduce
 argument_list|(
 name|reduceContext
 argument_list|)

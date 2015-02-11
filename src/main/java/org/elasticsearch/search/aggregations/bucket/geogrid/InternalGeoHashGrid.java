@@ -985,10 +985,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|reduce
+DECL|method|doReduce
 specifier|public
 name|InternalGeoHashGrid
-name|reduce
+name|doReduce
 parameter_list|(
 name|ReduceContext
 name|reduceContext

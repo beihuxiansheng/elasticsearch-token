@@ -795,10 +795,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|reduce
+DECL|method|doReduce
 specifier|public
 name|InternalAggregation
-name|reduce
+name|doReduce
 parameter_list|(
 name|ReduceContext
 name|reduceContext
