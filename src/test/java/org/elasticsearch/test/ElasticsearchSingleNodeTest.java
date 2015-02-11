@@ -671,6 +671,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"script.disable_dynamic"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|EsExecutors
 operator|.
 name|PROCESSORS

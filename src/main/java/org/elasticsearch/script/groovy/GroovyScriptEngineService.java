@@ -526,7 +526,7 @@ name|getAsBoolean
 argument_list|(
 name|GROOVY_SCRIPT_SANDBOX_ENABLED
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 expr_stmt|;
 name|this
