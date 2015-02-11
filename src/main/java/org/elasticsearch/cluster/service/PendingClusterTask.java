@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Priority
@@ -186,6 +176,28 @@ name|boolean
 name|executing
 parameter_list|)
 block|{
+assert|assert
+name|timeInQueue
+operator|>=
+literal|0
+operator|:
+literal|"got a negative timeInQueue ["
+operator|+
+name|timeInQueue
+operator|+
+literal|"]"
+assert|;
+assert|assert
+name|insertOrder
+operator|>=
+literal|0
+operator|:
+literal|"got a negative insertOrder ["
+operator|+
+name|insertOrder
+operator|+
+literal|"]"
+assert|;
 name|this
 operator|.
 name|insertOrder
