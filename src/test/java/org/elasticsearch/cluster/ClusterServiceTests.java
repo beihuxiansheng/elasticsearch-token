@@ -1005,6 +1005,9 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|latch
@@ -1395,6 +1398,9 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|ensureGreen
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
@@ -2084,6 +2090,9 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|latch
@@ -2477,6 +2486,9 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
+expr_stmt|;
+name|ensureGreen
+argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
