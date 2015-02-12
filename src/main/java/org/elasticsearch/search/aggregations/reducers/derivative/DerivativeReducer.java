@@ -681,7 +681,8 @@ argument_list|(
 operator|new
 name|InternalSimpleValue
 argument_list|(
-name|bucketsPath
+name|name
+argument_list|()
 argument_list|,
 name|diff
 argument_list|,
@@ -744,7 +745,7 @@ name|getFormatter
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// NOCOMMIT fix key resolution for dates
+comment|// NOCOMMIT fix key resolution to deal with numbers and dates
 name|newBuckets
 operator|.
 name|add
