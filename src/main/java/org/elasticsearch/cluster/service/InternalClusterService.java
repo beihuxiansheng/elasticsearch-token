@@ -1745,10 +1745,27 @@ specifier|final
 name|long
 name|timeInQueue
 decl_stmt|;
-if|if
-condition|(
+comment|// we have to capture the task as it will be nulled after execution and we don't want to change while we check things here.
+specifier|final
+name|Object
+name|task
+init|=
 name|pending
 operator|.
+name|task
+decl_stmt|;
+if|if
+condition|(
+name|task
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
+elseif|else
+if|if
+condition|(
 name|task
 operator|instanceof
 name|TimedPrioritizedRunnable
@@ -1760,8 +1777,6 @@ init|=
 operator|(
 name|TimedPrioritizedRunnable
 operator|)
-name|pending
-operator|.
 name|task
 decl_stmt|;
 name|source
@@ -1786,8 +1801,6 @@ literal|false
 operator|:
 literal|"expected TimedPrioritizedRunnable got "
 operator|+
-name|pending
-operator|.
 name|task
 operator|.
 name|getClass
