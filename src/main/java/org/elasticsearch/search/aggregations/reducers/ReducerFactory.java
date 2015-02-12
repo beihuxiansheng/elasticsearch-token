@@ -132,6 +132,7 @@ name|void
 name|validate
 parameter_list|()
 block|{
+comment|// NOCOMMIT hook in validation
 name|doValidate
 argument_list|()
 expr_stmt|;

@@ -284,18 +284,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -598,6 +586,7 @@ name|lastBucketValue
 init|=
 literal|null
 decl_stmt|;
+comment|// NOCOMMIT this needs to be improved so that the aggs are cloned correctly to ensure aggs are fully immutable.
 for|for
 control|(
 name|InternalHistogram
@@ -710,17 +699,9 @@ name|factory
 operator|.
 name|createBucket
 argument_list|(
-operator|(
-operator|(
-name|DateTime
-operator|)
 name|bucket
 operator|.
 name|getKey
-argument_list|()
-operator|)
-operator|.
-name|getMillis
 argument_list|()
 argument_list|,
 name|bucket
@@ -745,7 +726,6 @@ name|getFormatter
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// NOCOMMIT fix key resolution to deal with numbers and dates
 name|newBuckets
 operator|.
 name|add
