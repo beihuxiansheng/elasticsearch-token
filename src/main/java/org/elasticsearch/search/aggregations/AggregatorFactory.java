@@ -355,7 +355,7 @@ name|this
 operator|.
 name|factories
 operator|.
-name|reducers
+name|createReducers
 argument_list|()
 argument_list|,
 name|this
