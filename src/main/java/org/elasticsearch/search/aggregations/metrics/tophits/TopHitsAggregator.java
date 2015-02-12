@@ -1166,6 +1166,12 @@ name|fetchResult
 operator|.
 name|hits
 argument_list|()
+argument_list|,
+name|reducers
+argument_list|()
+argument_list|,
+name|metaData
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -1201,6 +1207,12 @@ argument_list|,
 name|InternalSearchHits
 operator|.
 name|empty
+argument_list|()
+argument_list|,
+name|reducers
+argument_list|()
+argument_list|,
+name|metaData
 argument_list|()
 argument_list|)
 return|;

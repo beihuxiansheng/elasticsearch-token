@@ -892,7 +892,7 @@ name|add
 argument_list|(
 name|first
 operator|.
-name|doReduce
+name|reduce
 argument_list|(
 operator|new
 name|InternalAggregation

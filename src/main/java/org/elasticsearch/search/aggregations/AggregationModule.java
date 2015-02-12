@@ -998,6 +998,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// NOCOMMIT reducerParsers.add(FooParser.class);
 block|}
 comment|/**      * Enabling extending the get module by adding a custom aggregation parser.      *      * @param parser The parser for the custom aggregator.      */
 DECL|method|addAggregatorParser

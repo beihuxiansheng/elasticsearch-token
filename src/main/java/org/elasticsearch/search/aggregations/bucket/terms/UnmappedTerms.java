@@ -492,7 +492,7 @@ block|{
 return|return
 name|agg
 operator|.
-name|doReduce
+name|reduce
 argument_list|(
 name|reduceContext
 argument_list|)
