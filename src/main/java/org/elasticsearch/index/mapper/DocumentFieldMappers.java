@@ -573,9 +573,14 @@ argument_list|)
 return|;
 end_return
 
+begin_comment
+unit|}
+comment|// TODO: replace all uses of this with fullName, or change the meaning of name to be fullName
+end_comment
+
 begin_function
-unit|}      public
 DECL|method|name
+unit|public
 name|FieldMappers
 name|name
 parameter_list|(
@@ -586,7 +591,7 @@ block|{
 return|return
 name|fieldMappers
 operator|.
-name|name
+name|fullName
 argument_list|(
 name|name
 argument_list|)

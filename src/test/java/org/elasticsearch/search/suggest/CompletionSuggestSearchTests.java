@@ -3883,7 +3883,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"suggest"
+name|FIELD
+operator|+
+literal|".suggest"
 argument_list|)
 operator|.
 name|text
@@ -4254,7 +4256,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"suggest"
+name|FIELD
+operator|+
+literal|".suggest"
 argument_list|)
 operator|.
 name|text

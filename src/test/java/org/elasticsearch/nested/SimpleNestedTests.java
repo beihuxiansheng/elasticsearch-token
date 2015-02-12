@@ -880,7 +880,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -929,7 +929,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1094,7 +1094,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1104,7 +1104,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field2"
+literal|"nested1.n_field2"
 argument_list|,
 literal|"n_value2_1"
 argument_list|)
@@ -1168,7 +1168,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1178,7 +1178,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field2"
+literal|"nested1.n_field2"
 argument_list|,
 literal|"n_value2_1"
 argument_list|)
@@ -1238,7 +1238,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1248,7 +1248,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field2"
+literal|"nested1.n_field2"
 argument_list|,
 literal|"n_value2_1"
 argument_list|)
@@ -1347,7 +1347,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1406,7 +1406,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
