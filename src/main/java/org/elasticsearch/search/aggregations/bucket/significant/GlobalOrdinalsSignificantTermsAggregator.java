@@ -128,7 +128,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollectorBase
+name|LeafBucketCollector
 import|;
 end_import
 
@@ -142,7 +142,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollector
+name|LeafBucketCollectorBase
 import|;
 end_import
 
@@ -377,8 +377,6 @@ argument_list|,
 name|factories
 argument_list|,
 name|valuesSource
-argument_list|,
-name|maxOrd
 argument_list|,
 literal|null
 argument_list|,

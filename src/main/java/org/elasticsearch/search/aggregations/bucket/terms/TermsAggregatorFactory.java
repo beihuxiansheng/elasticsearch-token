@@ -1,14 +1,10 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
-begin_expr_stmt
-name|List
-operator|<
-end_expr_stmt
-
 begin_comment
 comment|/*  * Licensed to Elasticsearch under one or more contributor  * license agreements. See the NOTICE file distributed with  * this work for additional information regarding copyright  * ownership. Elasticsearch licenses this file to you under  * the Apache License, Version 2.0 (the "License"); you may  * not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *    http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing,  * software distributed under the License is distributed on an  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY  * KIND, either express or implied.  See the License for the  * specific language governing permissions and limitations  * under the License.  */
 end_comment
 
 begin_package
+DECL|package|org.elasticsearch.search.aggregations.bucket.terms
 package|package
 name|org
 operator|.
@@ -101,20 +97,6 @@ operator|.
 name|Aggregator
 operator|.
 name|SubAggCollectionMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|AggregatorBase
 import|;
 end_import
 
@@ -295,6 +277,7 @@ comment|/**  *  */
 end_comment
 
 begin_class
+DECL|class|TermsAggregatorFactory
 specifier|public
 class|class
 name|TermsAggregatorFactory
@@ -304,10 +287,13 @@ argument_list|<
 name|ValuesSource
 argument_list|>
 block|{
+DECL|enum|ExecutionMode
 specifier|public
 enum|enum
 name|ExecutionMode
 block|{
+DECL|method|MAP
+DECL|method|MAP
 name|MAP
 argument_list|(
 operator|new
@@ -415,6 +401,8 @@ return|;
 block|}
 block|}
 block|,
+DECL|method|GLOBAL_ORDINALS
+DECL|method|GLOBAL_ORDINALS
 name|GLOBAL_ORDINALS
 argument_list|(
 operator|new
@@ -531,6 +519,8 @@ return|;
 block|}
 block|}
 block|,
+DECL|method|GLOBAL_ORDINALS_HASH
+DECL|method|GLOBAL_ORDINALS_HASH
 name|GLOBAL_ORDINALS_HASH
 argument_list|(
 operator|new
@@ -649,6 +639,8 @@ return|;
 block|}
 block|}
 block|,
+DECL|method|GLOBAL_ORDINALS_LOW_CARDINALITY
+DECL|method|GLOBAL_ORDINALS_LOW_CARDINALITY
 name|GLOBAL_ORDINALS_LOW_CARDINALITY
 argument_list|(
 operator|new
@@ -810,6 +802,7 @@ return|;
 block|}
 block|}
 block|;
+DECL|method|fromString
 specifier|public
 specifier|static
 name|ExecutionMode
@@ -860,11 +853,13 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+DECL|field|parseField
 specifier|private
 specifier|final
 name|ParseField
 name|parseField
 decl_stmt|;
+DECL|method|ExecutionMode
 name|ExecutionMode
 parameter_list|(
 name|ParseField
@@ -878,6 +873,7 @@ operator|=
 name|parseField
 expr_stmt|;
 block|}
+DECL|method|create
 specifier|abstract
 name|Aggregator
 name|create
@@ -933,6 +929,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+DECL|method|needsGlobalOrdinals
 specifier|abstract
 name|boolean
 name|needsGlobalOrdinals
@@ -940,6 +937,7 @@ parameter_list|()
 function_decl|;
 annotation|@
 name|Override
+DECL|method|toString
 specifier|public
 name|String
 name|toString
@@ -953,6 +951,7 @@ argument_list|()
 return|;
 block|}
 block|}
+DECL|field|order
 specifier|private
 specifier|final
 name|Terms
@@ -960,21 +959,25 @@ operator|.
 name|Order
 name|order
 decl_stmt|;
+DECL|field|includeExclude
 specifier|private
 specifier|final
 name|IncludeExclude
 name|includeExclude
 decl_stmt|;
+DECL|field|executionHint
 specifier|private
 specifier|final
 name|String
 name|executionHint
 decl_stmt|;
+DECL|field|collectMode
 specifier|private
 specifier|final
 name|SubAggCollectionMode
 name|collectMode
 decl_stmt|;
+DECL|field|bucketCountThresholds
 specifier|private
 specifier|final
 name|TermsAggregator
@@ -982,11 +985,13 @@ operator|.
 name|BucketCountThresholds
 name|bucketCountThresholds
 decl_stmt|;
+DECL|field|showTermDocCountError
 specifier|private
 specifier|final
 name|boolean
 name|showTermDocCountError
 decl_stmt|;
+DECL|method|TermsAggregatorFactory
 specifier|public
 name|TermsAggregatorFactory
 parameter_list|(
@@ -1072,6 +1077,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|createUnmapped
 specifier|protected
 name|Aggregator
 name|createUnmapped
@@ -1175,6 +1181,7 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|doCreateInternal
 specifier|protected
 name|Aggregator
 name|doCreateInternal
