@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Seed
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -10795,7 +10809,7 @@ literal|"array1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"field1"
+literal|"array1.field1"
 argument_list|,
 literal|"value1"
 argument_list|)
