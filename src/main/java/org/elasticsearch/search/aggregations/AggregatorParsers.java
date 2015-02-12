@@ -824,6 +824,36 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|reducerFactory
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// TODO we would need a .type property on reducers too for this error message?
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"Found two aggregation type definitions in ["
+operator|+
+name|aggregationName
+operator|+
+literal|"]: ["
+operator|+
+name|reducerFactory
+operator|+
+literal|"] and ["
+operator|+
+name|fieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 name|Aggregator
 operator|.
 name|Parser
@@ -944,6 +974,11 @@ operator|!=
 literal|null
 condition|)
 block|{
+assert|assert
+name|reducerFactory
+operator|==
+literal|null
+assert|;
 if|if
 condition|(
 name|metaData
@@ -995,14 +1030,13 @@ name|aggFactory
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
+else|else
+block|{
+assert|assert
 name|reducerFactory
 operator|!=
 literal|null
-condition|)
-block|{
+assert|;
 if|if
 condition|(
 name|subFactories
@@ -1024,6 +1058,7 @@ literal|"] cannot define sub-aggregations"
 argument_list|)
 throw|;
 block|}
+comment|// TODO: should we validate here like aggs?
 name|factories
 operator|.
 name|addReducer
@@ -1031,22 +1066,6 @@ argument_list|(
 name|reducerFactory
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|SearchParseException
-argument_list|(
-name|context
-argument_list|,
-literal|"Found two sub aggregation definitions under ["
-operator|+
-name|aggregationName
-operator|+
-literal|"]"
-argument_list|)
-throw|;
 block|}
 block|}
 return|return
