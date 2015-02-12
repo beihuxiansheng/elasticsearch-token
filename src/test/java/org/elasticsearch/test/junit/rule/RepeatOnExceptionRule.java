@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.transport.netty
+DECL|package|org.elasticsearch.test.junit.rule
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|transport
+name|test
 operator|.
-name|netty
+name|junit
+operator|.
+name|rule
 package|;
 end_package
 
@@ -27,18 +29,6 @@ operator|.
 name|logging
 operator|.
 name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|BindTransportException
 import|;
 end_import
 
@@ -81,14 +71,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper rule to catch all BindTransportExceptions  * and rerun the test for a configured number of times  */
+comment|/**  * A helper rule to catch all BindTransportExceptions  * and rerun the test for a configured number of times  *  * Note: Be aware, that when a test is repeated, the @After and @Before  * annotated methods are not run a second time  *  */
 end_comment
 
 begin_class
-DECL|class|RepeatOnBindExceptionRule
+DECL|class|RepeatOnExceptionRule
 specifier|public
 class|class
-name|RepeatOnBindExceptionRule
+name|RepeatOnExceptionRule
 implements|implements
 name|TestRule
 block|{
@@ -102,16 +92,24 @@ specifier|private
 name|int
 name|retryCount
 decl_stmt|;
-comment|/**      *      * @param logger the es logger from the test class      * @param retryCount number of amounts to try a single test before failing      */
-DECL|method|RepeatOnBindExceptionRule
+DECL|field|expectedException
+specifier|private
+name|Class
+name|expectedException
+decl_stmt|;
+comment|/**      *      * @param logger the es logger from the test class      * @param retryCount number of amounts to try a single test before failing      * @param expectedException The exception class you want to catch      *      */
+DECL|method|RepeatOnExceptionRule
 specifier|public
-name|RepeatOnBindExceptionRule
+name|RepeatOnExceptionRule
 parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|,
 name|int
 name|retryCount
+parameter_list|,
+name|Class
+name|expectedException
 parameter_list|)
 block|{
 name|this
@@ -125,6 +123,12 @@ operator|.
 name|retryCount
 operator|=
 name|retryCount
+expr_stmt|;
+name|this
+operator|.
+name|expectedException
+operator|=
+name|expectedException
 expr_stmt|;
 block|}
 annotation|@
@@ -187,9 +191,22 @@ return|return;
 block|}
 catch|catch
 parameter_list|(
-name|BindTransportException
+name|Throwable
 name|t
 parameter_list|)
+block|{
+if|if
+condition|(
+name|t
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|expectedException
+argument_list|)
+condition|)
 block|{
 name|caughtThrowable
 operator|=
@@ -199,15 +216,24 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Bind exception occurred, rerunning the test after [{}] failures"
+literal|"Exception [{}] occurred, rerunning the test after [{}] failures"
 argument_list|,
 name|t
+argument_list|,
+name|t
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
 argument_list|,
 name|i
 operator|+
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|logger
