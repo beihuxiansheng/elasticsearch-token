@@ -6002,6 +6002,45 @@ block|}
 end_function
 
 begin_comment
+comment|/**      * Check if a file does not exist      */
+end_comment
+
+begin_function
+DECL|method|assertFileNotExists
+specifier|public
+specifier|static
+name|void
+name|assertFileNotExists
+parameter_list|(
+name|Path
+name|file
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+literal|"file/dir ["
+operator|+
+name|file
+operator|+
+literal|"] should not exist."
+argument_list|,
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+argument_list|,
+name|is
+argument_list|(
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+end_function
+
+begin_comment
 comment|/**      * Check if a directory exists      */
 end_comment
 
