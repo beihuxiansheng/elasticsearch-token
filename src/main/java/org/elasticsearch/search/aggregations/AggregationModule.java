@@ -670,6 +670,24 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|derivative
+operator|.
+name|DerivativeParser
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -998,7 +1016,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// NOCOMMIT reducerParsers.add(FooParser.class);
+name|reducerParsers
+operator|.
+name|add
+argument_list|(
+name|DerivativeParser
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Enabling extending the get module by adding a custom aggregation parser.      *      * @param parser The parser for the custom aggregator.      */
 DECL|method|addAggregatorParser
