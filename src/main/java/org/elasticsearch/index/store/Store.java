@@ -2901,13 +2901,6 @@ argument_list|,
 name|existingFile
 argument_list|)
 expr_stmt|;
-name|dir
-operator|.
-name|deleteFile
-argument_list|(
-name|existingFile
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
