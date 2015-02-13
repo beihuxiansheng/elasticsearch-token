@@ -89,6 +89,12 @@ specifier|protected
 name|String
 name|type
 decl_stmt|;
+DECL|field|bucketsPaths
+specifier|protected
+name|String
+index|[]
+name|bucketsPaths
+decl_stmt|;
 DECL|field|metaData
 specifier|protected
 name|Map
@@ -109,6 +115,10 @@ name|name
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+index|[]
+name|bucketsPaths
 parameter_list|)
 block|{
 name|this
@@ -122,6 +132,12 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|bucketsPaths
+operator|=
+name|bucketsPaths
 expr_stmt|;
 block|}
 comment|/**      * Validates the state of this factory (makes sure the factory is properly configured)      */
