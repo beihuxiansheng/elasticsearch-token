@@ -3388,24 +3388,6 @@ name|Version
 operator|.
 name|LUCENE_4_8
 decl_stmt|;
-comment|// we stopped writing legacy checksums in 1.3.0 so all segments here must use the new CRC32 version
-DECL|field|FIRST_ES_CRC32_VERSION
-specifier|private
-specifier|static
-specifier|final
-name|Version
-name|FIRST_ES_CRC32_VERSION
-init|=
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|Version
-operator|.
-name|V_1_3_0
-operator|.
-name|luceneVersion
-decl_stmt|;
 DECL|field|metadata
 specifier|private
 name|Map
