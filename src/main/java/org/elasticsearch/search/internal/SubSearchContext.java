@@ -437,6 +437,11 @@ specifier|private
 name|boolean
 name|version
 decl_stmt|;
+DECL|field|innerHitsContext
+specifier|private
+name|InnerHitsContext
+name|innerHitsContext
+decl_stmt|;
 DECL|method|SubSearchContext
 specifier|public
 name|SubSearchContext
@@ -1381,11 +1386,6 @@ literal|"Not supported"
 argument_list|)
 throw|;
 block|}
-DECL|field|innerHitsContext
-specifier|private
-name|InnerHitsContext
-name|innerHitsContext
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|innerHits
