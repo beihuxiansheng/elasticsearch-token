@@ -814,7 +814,6 @@ operator|.
 name|factories
 argument_list|)
 decl_stmt|;
-comment|// NOCOMMIT work out dependency order of reducer factories
 return|return
 operator|new
 name|AggregatorFactories
@@ -1026,17 +1025,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"ORDERED REDUCERS: "
-operator|+
-name|orderedReducerNames
-argument_list|)
-expr_stmt|;
 return|return
 name|orderedReducers
 return|;
