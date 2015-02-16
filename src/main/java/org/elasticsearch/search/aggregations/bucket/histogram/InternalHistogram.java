@@ -1845,6 +1845,16 @@ return|return
 name|factory
 return|;
 block|}
+DECL|method|getOrder
+specifier|public
+name|InternalOrder
+name|getOrder
+parameter_list|()
+block|{
+return|return
+name|order
+return|;
+block|}
 DECL|class|IteratorAndCurrent
 specifier|private
 specifier|static

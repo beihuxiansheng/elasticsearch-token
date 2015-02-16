@@ -108,6 +108,7 @@ end_comment
 
 begin_class
 DECL|class|InternalOrder
+specifier|public
 class|class
 name|InternalOrder
 extends|extends

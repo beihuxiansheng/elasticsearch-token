@@ -706,6 +706,22 @@ name|aggregations
 operator|.
 name|reducers
 operator|.
+name|InternalSimpleValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
 name|derivative
 operator|.
 name|DerivativeReducer
@@ -899,6 +915,11 @@ expr_stmt|;
 name|InternalChildren
 operator|.
 name|registerStream
+argument_list|()
+expr_stmt|;
+name|InternalSimpleValue
+operator|.
+name|registerStreams
 argument_list|()
 expr_stmt|;
 comment|// Reducers
