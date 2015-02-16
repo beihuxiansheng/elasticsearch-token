@@ -317,7 +317,7 @@ argument_list|(
 literal|"f"
 argument_list|)
 operator|.
-name|preZone
+name|timeZone
 argument_list|(
 literal|"+01:00"
 argument_list|)
@@ -429,7 +429,7 @@ argument_list|(
 literal|"f"
 argument_list|)
 operator|.
-name|preZone
+name|timeZone
 argument_list|(
 literal|"+01:00"
 argument_list|)

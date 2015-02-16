@@ -358,7 +358,7 @@ specifier|final
 name|String
 name|DATE_FORMAT
 init|=
-literal|"YY-MM-DD:hh-mm-ss"
+literal|"yyyy-MM-dd:hh-mm-ss"
 decl_stmt|;
 DECL|method|date
 specifier|private
