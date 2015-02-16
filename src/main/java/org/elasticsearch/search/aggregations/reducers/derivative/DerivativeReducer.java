@@ -54,6 +54,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -191,6 +201,20 @@ operator|.
 name|aggregations
 operator|.
 name|InternalAggregations
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|InvalidAggregationPathException
 import|;
 end_import
 
@@ -683,7 +707,7 @@ range|:
 name|buckets
 control|)
 block|{
-name|double
+name|Double
 name|thisBucketValue
 init|=
 name|resolveBucketValue
@@ -700,6 +724,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|thisBucketValue
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"FOUND GAP IN DATA"
+argument_list|)
+throw|;
+comment|// NOCOMMIT deal with gaps in data
+block|}
 name|double
 name|diff
 init|=
@@ -857,7 +897,7 @@ comment|// NOCOMMIT get order, minDocCount, emptyBucketInfo etc. from histo
 block|}
 DECL|method|resolveBucketValue
 specifier|private
-name|double
+name|Double
 name|resolveBucketValue
 parameter_list|(
 name|InternalHistogram
@@ -875,6 +915,8 @@ operator|.
 name|Bucket
 name|bucket
 parameter_list|)
+block|{
+try|try
 block|{
 name|Object
 name|propertyValue
@@ -959,9 +1001,20 @@ operator|.
 name|getPreferredName
 argument_list|()
 operator|+
-literal|"must reference either a number value or a single value numeric metric aggregation"
+literal|" must reference either a number value or a single value numeric metric aggregation"
 argument_list|)
 throw|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|InvalidAggregationPathException
+name|e
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
 block|}
 block|}
 annotation|@
