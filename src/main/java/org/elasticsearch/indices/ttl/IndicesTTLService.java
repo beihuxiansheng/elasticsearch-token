@@ -1081,7 +1081,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|(
 name|TTLFieldMapper
 operator|.

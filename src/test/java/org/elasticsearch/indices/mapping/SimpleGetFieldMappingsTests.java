@@ -160,10 +160,6 @@ name|*
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SimpleGetFieldMappingsTests
 specifier|public
@@ -172,8 +168,6 @@ name|SimpleGetFieldMappingsTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-annotation|@
-name|Test
 DECL|method|getMappingsWhereThereAreNone
 specifier|public
 name|void
@@ -354,8 +348,6 @@ name|endObject
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|simpleGetFieldMappings
 specifier|public
 name|void
@@ -650,7 +642,7 @@ name|setFields
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|get
@@ -710,7 +702,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -732,7 +724,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -800,7 +792,7 @@ argument_list|)
 operator|.
 name|setFields
 argument_list|(
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|get
@@ -816,7 +808,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -838,7 +830,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -860,7 +852,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 argument_list|,
 name|nullValue
@@ -877,7 +869,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -899,7 +891,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -921,7 +913,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 argument_list|,
 name|nullValue
@@ -947,7 +939,7 @@ argument_list|)
 operator|.
 name|setFields
 argument_list|(
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|get
@@ -963,7 +955,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -985,7 +977,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1024,7 +1016,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -1046,7 +1038,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1085,7 +1077,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 argument_list|,
 name|nullValue
@@ -1119,7 +1111,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 argument_list|,
 name|nullValue
@@ -1160,7 +1152,7 @@ argument_list|()
 operator|.
 name|setFields
 argument_list|(
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|get
@@ -1176,7 +1168,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -1198,7 +1190,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1237,7 +1229,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -1259,7 +1251,7 @@ literal|"indexa"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1298,7 +1290,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -1320,7 +1312,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeA"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1359,7 +1351,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|fullName
@@ -1381,7 +1373,7 @@ literal|"indexb"
 argument_list|,
 literal|"typeB"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1416,8 +1408,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-annotation|@
-name|Test
 DECL|method|simpleGetFieldMappingsWithDefaults
 specifier|public
 name|void
@@ -1500,7 +1490,7 @@ literal|"num"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|includeDefaults
@@ -1689,7 +1679,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1729,7 +1719,7 @@ literal|"test"
 argument_list|,
 literal|"type"
 argument_list|,
-literal|"subfield"
+literal|"obj.subfield"
 argument_list|)
 operator|.
 name|sourceAsMap
@@ -1753,8 +1743,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//fix #6552
-annotation|@
-name|Test
 DECL|method|simpleGetFieldMappingsWithPretty
 specifier|public
 name|void

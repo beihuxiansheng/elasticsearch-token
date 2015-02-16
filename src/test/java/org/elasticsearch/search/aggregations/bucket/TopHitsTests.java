@@ -405,6 +405,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -7480,7 +7490,7 @@ name|HighlightBuilder
 operator|.
 name|Field
 argument_list|(
-literal|"message"
+literal|"comments.message"
 argument_list|)
 operator|.
 name|highlightQuery
@@ -7524,7 +7534,7 @@ literal|"comments"
 argument_list|,
 name|matchQuery
 argument_list|(
-literal|"message"
+literal|"comments.message"
 argument_list|,
 literal|"comment"
 argument_list|)
@@ -7743,7 +7753,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"message"
+literal|"comments.message"
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -8001,7 +8011,7 @@ name|HighlightBuilder
 operator|.
 name|Field
 argument_list|(
-literal|"message"
+literal|"comments.message"
 argument_list|)
 operator|.
 name|highlightQuery
@@ -8261,7 +8271,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"message"
+literal|"comments.message"
 argument_list|)
 decl_stmt|;
 name|assertThat

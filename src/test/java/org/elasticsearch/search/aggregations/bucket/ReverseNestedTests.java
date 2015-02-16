@@ -5973,7 +5973,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"sku_type"
+literal|"sku.sku_type"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -6328,7 +6328,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"sku_type"
+literal|"sku.sku_type"
 argument_list|)
 argument_list|)
 argument_list|)

@@ -597,10 +597,9 @@ name|put
 argument_list|(
 literal|"f*"
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 expr_stmt|;
-comment|// foo and bar.foo, that's how the expansion works
 name|expected
 operator|.
 name|put
@@ -642,15 +641,6 @@ operator|.
 name|put
 argument_list|(
 literal|"bar.bar.bar"
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-name|expected
-operator|.
-name|put
-argument_list|(
-literal|"baz"
 argument_list|,
 literal|1
 argument_list|)

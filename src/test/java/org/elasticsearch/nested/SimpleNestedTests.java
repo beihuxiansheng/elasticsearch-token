@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Seed
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -880,7 +894,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -929,7 +943,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1094,7 +1108,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1104,7 +1118,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field2"
+literal|"nested1.n_field2"
 argument_list|,
 literal|"n_value2_1"
 argument_list|)
@@ -1168,7 +1182,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1178,7 +1192,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field2"
+literal|"nested1.n_field2"
 argument_list|,
 literal|"n_value2_1"
 argument_list|)
@@ -1238,7 +1252,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1248,7 +1262,7 @@ name|must
 argument_list|(
 name|termQuery
 argument_list|(
-literal|"n_field2"
+literal|"nested1.n_field2"
 argument_list|,
 literal|"n_value2_1"
 argument_list|)
@@ -1347,7 +1361,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -1406,7 +1420,7 @@ literal|"nested1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"n_field1"
+literal|"nested1.n_field1"
 argument_list|,
 literal|"n_value1_1"
 argument_list|)
@@ -10795,7 +10809,7 @@ literal|"array1"
 argument_list|,
 name|termQuery
 argument_list|(
-literal|"field1"
+literal|"array1.field1"
 argument_list|,
 literal|"value1"
 argument_list|)

@@ -149,22 +149,6 @@ argument_list|(
 name|indices
 argument_list|)
 expr_stmt|;
-name|indicesOptions
-argument_list|(
-name|IndicesOptions
-operator|.
-name|fromOptions
-argument_list|(
-literal|false
-argument_list|,
-literal|false
-argument_list|,
-literal|true
-argument_list|,
-literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      *<code>true</code> if detailed information about each segment should be returned,      *<code>false</code> otherwise.      */
 DECL|method|verbose

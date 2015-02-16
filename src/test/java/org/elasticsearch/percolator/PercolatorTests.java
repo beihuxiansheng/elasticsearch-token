@@ -17107,7 +17107,7 @@ name|QueryBuilders
 operator|.
 name|queryStringQuery
 argument_list|(
-literal|"color:red"
+literal|"custom.color:red"
 argument_list|)
 argument_list|)
 operator|.
@@ -17148,7 +17148,7 @@ name|QueryBuilders
 operator|.
 name|queryStringQuery
 argument_list|(
-literal|"color:blue"
+literal|"custom.color:blue"
 argument_list|)
 argument_list|)
 operator|.
