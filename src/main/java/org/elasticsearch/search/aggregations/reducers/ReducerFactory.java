@@ -244,6 +244,27 @@ operator|=
 name|metaData
 expr_stmt|;
 block|}
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|getBucketsPaths
+specifier|public
+name|String
+index|[]
+name|getBucketsPaths
+parameter_list|()
+block|{
+return|return
+name|bucketsPaths
+return|;
+block|}
 block|}
 end_class
 
