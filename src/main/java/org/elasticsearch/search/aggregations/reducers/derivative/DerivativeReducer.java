@@ -870,7 +870,10 @@ argument_list|()
 argument_list|,
 name|newBuckets
 argument_list|,
-literal|null
+name|histo
+operator|.
+name|getOrder
+argument_list|()
 argument_list|,
 literal|1
 argument_list|,
