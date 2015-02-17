@@ -2994,7 +2994,6 @@ name|bugUrl
 operator|=
 literal|"waiting for derivative to gaps"
 argument_list|)
-comment|// NOCOMMIT
 annotation|@
 name|Test
 DECL|method|singleValuedFieldWithGaps
@@ -3052,6 +3051,7 @@ literal|"_count"
 argument_list|)
 argument_list|)
 argument_list|)
+comment|// NOCOMMITadd ignore gapPolicy
 operator|.
 name|execute
 argument_list|()
@@ -3577,7 +3577,6 @@ name|bugUrl
 operator|=
 literal|"waiting for derivative to support insert_zeros gap policy"
 argument_list|)
-comment|// NOCOMMIT
 annotation|@
 name|Test
 DECL|method|singleValuedFieldWithGaps_insertZeros
@@ -4667,7 +4666,6 @@ name|bugUrl
 operator|=
 literal|"waiting for derivative to support interpolate gapPolicy"
 argument_list|)
-comment|// NOCOMMIT
 annotation|@
 name|Test
 DECL|method|singleValuedFieldWithGaps_interpolate
