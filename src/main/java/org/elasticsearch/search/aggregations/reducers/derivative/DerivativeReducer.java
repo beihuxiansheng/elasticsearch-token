@@ -696,7 +696,6 @@ name|lastBucketValue
 init|=
 literal|null
 decl_stmt|;
-comment|// NOCOMMIT this needs to be improved so that the aggs are cloned correctly to ensure aggs are fully immutable.
 for|for
 control|(
 name|InternalHistogram
@@ -871,32 +870,8 @@ argument_list|,
 name|newBuckets
 argument_list|,
 name|histo
-operator|.
-name|getOrder
-argument_list|()
-argument_list|,
-literal|1
-argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
-literal|false
-argument_list|,
-operator|new
-name|ArrayList
-argument_list|<
-name|Reducer
-argument_list|>
-argument_list|()
-argument_list|,
-name|histo
-operator|.
-name|getMetaData
-argument_list|()
 argument_list|)
 return|;
-comment|// NOCOMMIT get order, minDocCount, emptyBucketInfo etc. from histo
 block|}
 DECL|method|resolveBucketValue
 specifier|private
