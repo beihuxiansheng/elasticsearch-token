@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.fs
+DECL|package|org.elasticsearch.index.store.smbmmapfs
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|fs
+name|smbmmapfs
 package|;
 end_package
 
@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|SimpleFSDirectory
+name|MMapDirectory
 import|;
 end_import
 
@@ -146,6 +146,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|store
+operator|.
+name|fs
+operator|.
+name|FsDirectoryService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -167,18 +183,18 @@ import|;
 end_import
 
 begin_class
-DECL|class|SmbSimpleFsDirectoryService
+DECL|class|SmbMmapFsDirectoryService
 specifier|public
 class|class
-name|SmbSimpleFsDirectoryService
+name|SmbMmapFsDirectoryService
 extends|extends
 name|FsDirectoryService
 block|{
 annotation|@
 name|Inject
-DECL|method|SmbSimpleFsDirectoryService
+DECL|method|SmbMmapFsDirectoryService
 specifier|public
-name|SmbSimpleFsDirectoryService
+name|SmbMmapFsDirectoryService
 parameter_list|(
 name|ShardId
 name|shardId
@@ -222,7 +238,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"wrapping SimpleFSDirectory for SMB"
+literal|"wrapping MMapDirectory for SMB"
 argument_list|)
 expr_stmt|;
 return|return
@@ -230,11 +246,12 @@ operator|new
 name|SmbDirectoryWrapper
 argument_list|(
 operator|new
-name|SimpleFSDirectory
+name|MMapDirectory
 argument_list|(
 name|location
 argument_list|,
-name|lockFactory
+name|buildLockFactory
+argument_list|()
 argument_list|)
 argument_list|)
 return|;

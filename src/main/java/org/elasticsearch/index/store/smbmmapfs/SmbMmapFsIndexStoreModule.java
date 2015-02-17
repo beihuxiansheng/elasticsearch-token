@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.fs
+DECL|package|org.elasticsearch.index.store.smbmmapfs
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|fs
+name|smbmmapfs
 package|;
 end_package
 
