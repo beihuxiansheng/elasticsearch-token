@@ -942,6 +942,15 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|sb
+operator|.
+name|put
+argument_list|(
+literal|"config.ignore_system_properties"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|sb
@@ -981,6 +990,11 @@ operator|.
 name|client
 argument_list|(
 literal|true
+argument_list|)
+operator|.
+name|loadConfigSettings
+argument_list|(
+literal|false
 argument_list|)
 operator|.
 name|build
