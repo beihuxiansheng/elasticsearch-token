@@ -312,13 +312,6 @@ literal|"cloud.azure.service_name"
 argument_list|,
 literal|"dummy"
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"cloud.azure.refresh_interval"
-argument_list|,
-literal|"5s"
-argument_list|)
 comment|// We need the network to make the mock working
 operator|.
 name|put
@@ -326,28 +319,6 @@ argument_list|(
 literal|"node.mode"
 argument_list|,
 literal|"network"
-argument_list|)
-comment|// Make the tests run faster
-operator|.
-name|put
-argument_list|(
-literal|"discovery.zen.join.timeout"
-argument_list|,
-literal|"100ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"discovery.zen.ping.timeout"
-argument_list|,
-literal|"10ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"discovery.initial_state_timeout"
-argument_list|,
-literal|"300ms"
 argument_list|)
 decl_stmt|;
 return|return
