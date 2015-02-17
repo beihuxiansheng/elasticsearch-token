@@ -356,6 +356,20 @@ name|notNullValue
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|core
+operator|.
+name|IsNull
+operator|.
+name|nullValue
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ElasticsearchIntegrationTest
@@ -1399,14 +1413,6 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"waiting for derivative to support _count"
-argument_list|)
-comment|// NOCOMMIT
-annotation|@
 name|Test
 DECL|method|singleValuedField
 specifier|public
@@ -1523,7 +1529,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|numFirstDerivValueBuckets
+name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1536,7 +1542,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numFirstDerivValueBuckets
+name|numValueBuckets
 condition|;
 operator|++
 name|i
@@ -1637,6 +1643,13 @@ argument_list|(
 literal|"deriv"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|i
+operator|>
+literal|0
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|docCountDeriv
@@ -1660,10 +1673,24 @@ operator|)
 name|firstDerivValueCounts
 index|[
 name|i
+operator|-
+literal|1
 index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertThat
+argument_list|(
+name|docCountDeriv
+argument_list|,
+name|nullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -2033,6 +2060,19 @@ literal|1
 expr_stmt|;
 block|}
 block|}
+name|SimpleValue
+name|sumDeriv
+init|=
+name|bucket
+operator|.
+name|getAggregations
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"deriv"
+argument_list|)
+decl_stmt|;
 name|assertThat
 argument_list|(
 name|sum
@@ -2056,19 +2096,6 @@ operator|>
 literal|0
 condition|)
 block|{
-name|SimpleValue
-name|sumDeriv
-init|=
-name|bucket
-operator|.
-name|getAggregations
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|"deriv"
-argument_list|)
-decl_stmt|;
 name|assertThat
 argument_list|(
 name|sumDeriv
@@ -2200,6 +2227,17 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|assertThat
+argument_list|(
+name|sumDeriv
+argument_list|,
+name|nullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|assertThat
 argument_list|(
 operator|(
@@ -2261,14 +2299,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"waiting for derivative to support _count"
-argument_list|)
-comment|// NOCOMMIT
 annotation|@
 name|Test
 DECL|method|multiValuedField
@@ -2391,7 +2421,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|numFirstDerivValuesBuckets
+name|numValuesBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2404,7 +2434,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numFirstDerivValuesBuckets
+name|numValuesBuckets
 condition|;
 operator|++
 name|i
@@ -2485,7 +2515,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|valueCounts
+name|valuesCounts
 index|[
 name|i
 index|]
@@ -2505,6 +2535,13 @@ argument_list|(
 literal|"deriv"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|i
+operator|>
+literal|0
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|docCountDeriv
@@ -2528,20 +2565,26 @@ operator|)
 name|firstDerivValuesCounts
 index|[
 name|i
+operator|-
+literal|1
 index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|AwaitsFix
+else|else
+block|{
+name|assertThat
 argument_list|(
-name|bugUrl
-operator|=
-literal|"waiting for derivative to support _count"
+name|docCountDeriv
+argument_list|,
+name|nullValue
+argument_list|()
 argument_list|)
-comment|// NOCOMMIT
+expr_stmt|;
+block|}
+block|}
+block|}
 annotation|@
 name|Test
 DECL|method|unmapped
@@ -2656,14 +2699,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"waiting for derivative to support _count"
-argument_list|)
-comment|// NOCOMMIT
 annotation|@
 name|Test
 DECL|method|partiallyUnmapped
@@ -2788,7 +2823,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|numFirstDerivValueBuckets
+name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2801,7 +2836,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|numFirstDerivValueBuckets
+name|numValueBuckets
 condition|;
 operator|++
 name|i
@@ -2902,6 +2937,13 @@ argument_list|(
 literal|"deriv"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|i
+operator|>
+literal|0
+condition|)
+block|{
 name|assertThat
 argument_list|(
 name|docCountDeriv
@@ -2925,10 +2967,24 @@ operator|)
 name|firstDerivValueCounts
 index|[
 name|i
+operator|-
+literal|1
 index|]
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|assertThat
+argument_list|(
+name|docCountDeriv
+argument_list|,
+name|nullValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -2936,7 +2992,7 @@ name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"waiting for derivative to support _count and gaps"
+literal|"waiting for derivative to gaps"
 argument_list|)
 comment|// NOCOMMIT
 annotation|@
@@ -3519,7 +3575,7 @@ name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"waiting for derivative to support _count and insert_zeros gap policy"
+literal|"waiting for derivative to support insert_zeros gap policy"
 argument_list|)
 comment|// NOCOMMIT
 annotation|@
@@ -4609,7 +4665,7 @@ name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"waiting for derivative to support _count and interpolate gapPolicy"
+literal|"waiting for derivative to support interpolate gapPolicy"
 argument_list|)
 comment|// NOCOMMIT
 annotation|@
