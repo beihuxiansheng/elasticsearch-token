@@ -175,13 +175,9 @@ argument_list|(
 name|nodeOrdinal
 argument_list|)
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"discovery.type"
-argument_list|,
-literal|"azure"
-argument_list|)
+comment|// For now we let the user who runs tests to define if he wants or not to run discovery tests
+comment|// by setting in elasticsearch.yml: discovery.type: azure
+comment|// .put("discovery.type", "azure")
 operator|.
 name|build
 argument_list|()
