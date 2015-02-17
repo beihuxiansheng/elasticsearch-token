@@ -1099,7 +1099,6 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
-comment|// NOCOMMIT is this the right Exception to throw?
 block|}
 elseif|else
 if|if
@@ -1209,7 +1208,6 @@ operator|+
 literal|"]"
 argument_list|)
 throw|;
-comment|// NOCOMMIT is this the right Exception to throw?
 block|}
 block|}
 name|unmarkedFactories
