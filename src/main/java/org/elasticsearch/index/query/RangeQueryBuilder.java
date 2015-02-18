@@ -1074,14 +1074,14 @@ name|RangeQueryBuilder
 name|timeZone
 parameter_list|(
 name|String
-name|preZone
+name|timezone
 parameter_list|)
 block|{
 name|this
 operator|.
 name|timeZone
 operator|=
-name|preZone
+name|timezone
 expr_stmt|;
 return|return
 name|this

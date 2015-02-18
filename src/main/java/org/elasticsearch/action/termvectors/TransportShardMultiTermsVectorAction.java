@@ -170,7 +170,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -184,7 +184,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -519,6 +519,16 @@ name|getIndex
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|termVectorsResponse
+operator|.
+name|updateTookInMillis
+argument_list|(
+name|termVectorsRequest
+operator|.
+name|startTime
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|response
 operator|.
 name|add

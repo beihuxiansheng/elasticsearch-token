@@ -48,15 +48,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|common
+name|apache
 operator|.
 name|lucene
 operator|.
 name|search
 operator|.
-name|XCollector
+name|Collector
 import|;
 end_import
 
@@ -101,24 +99,8 @@ specifier|abstract
 class|class
 name|BucketCollector
 implements|implements
-name|XCollector
+name|Collector
 block|{
-comment|/**      * Used to gather a summary from a bucket      */
-DECL|interface|BucketAnalysisCollector
-specifier|public
-interface|interface
-name|BucketAnalysisCollector
-block|{
-comment|/**          * Used to ask {@link BucketCollector}s for their analysis of the content collected in a bucket          * @param analysis an object that represents the summary of a bucket as an {@link Aggregation}          */
-DECL|method|add
-name|void
-name|add
-parameter_list|(
-name|Aggregation
-name|aggregation
-parameter_list|)
-function_decl|;
-block|}
 DECL|field|NO_OP_COLLECTOR
 specifier|public
 specifier|final
@@ -398,8 +380,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-annotation|@
-name|Override
+comment|/**      * Post-collection callback.      */
 DECL|method|postCollection
 specifier|public
 specifier|abstract

@@ -220,6 +220,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|engine
+operator|.
+name|MockInternalEngine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|transport
 operator|.
 name|MockTransportService
@@ -559,6 +573,16 @@ literal|"index.refresh_interval"
 argument_list|,
 literal|"-1"
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|MockInternalEngine
+operator|.
+name|FLUSH_ON_CLOSE_RATIO
+argument_list|,
+literal|0.0d
+argument_list|)
+comment|// never flush - always recover from translog
 operator|.
 name|put
 argument_list|(
