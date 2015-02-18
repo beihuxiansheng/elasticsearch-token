@@ -770,7 +770,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"blob found. removing."
+literal|"container [{}]: blob [{}] found. removing."
 argument_list|,
 name|container
 argument_list|,
