@@ -118,6 +118,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -164,6 +178,34 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lease
+operator|.
+name|Releasable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lease
+operator|.
+name|Releasables
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|Lucene
@@ -195,6 +237,20 @@ operator|.
 name|engine
 operator|.
 name|Engine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|engine
+operator|.
+name|InternalEngine
 import|;
 end_import
 
@@ -658,15 +714,22 @@ operator|.
 name|state
 argument_list|()
 argument_list|)
+operator|&&
+name|indexShard
+operator|.
+name|engine
+argument_list|()
+operator|instanceof
+name|InternalEngine
 condition|)
 block|{
-name|canRun
-operator|=
-literal|true
-expr_stmt|;
 comment|// When the the internal engine closes we do a rollback, which removes uncommitted segments
 comment|// By doing a commit flush we perform a Lucene commit, but don't clear the translog,
 comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
+name|Releasables
+operator|.
+name|close
+argument_list|(
 name|indexShard
 operator|.
 name|engine
@@ -674,6 +737,7 @@ argument_list|()
 operator|.
 name|snapshotIndex
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// Keep translog for tests that rely on replaying it
 name|logger
@@ -682,6 +746,10 @@ name|info
 argument_list|(
 literal|"flush finished in beforeIndexShardClosed"
 argument_list|)
+expr_stmt|;
+name|canRun
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}

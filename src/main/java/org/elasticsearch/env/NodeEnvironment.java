@@ -1353,7 +1353,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/**      * Deletes an indexes data directory recursively iff all of the indexes      * shards locks were successfully acquired. If any of the indexes shard directories can't be locked      * non of the shards will be deleted      *      * @param index the index to delete      * @param lockTimeoutMS how long to wait for acquiring the indices shard locks      * @throws Exception if any of the shards data directories can't be locked or deleted      */
+comment|/**      * Deletes an indexes data directory recursively iff all of the indexes      * shards locks were successfully acquired. If any of the indexes shard directories can't be locked      * non of the shards will be deleted      *      * @param index the index to delete      * @param lockTimeoutMS how long to wait for acquiring the indices shard locks      * @param indexSettings settings for the index being deleted      * @throws Exception if any of the shards data directories can't be locked or deleted      */
 DECL|method|deleteIndexDirectorySafe
 specifier|public
 name|void

@@ -235,6 +235,8 @@ operator|.
 name|getLeafDirectory
 argument_list|(
 name|dir
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -289,6 +291,8 @@ operator|.
 name|getLeafDirectory
 argument_list|(
 name|dir
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -368,6 +372,8 @@ operator|.
 name|getLeafDirectory
 argument_list|(
 name|dir
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -452,6 +458,8 @@ operator|.
 name|getLeafDirectory
 argument_list|(
 name|dir
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 argument_list|)

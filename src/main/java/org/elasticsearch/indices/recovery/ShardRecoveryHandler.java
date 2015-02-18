@@ -681,7 +681,6 @@ end_comment
 begin_class
 DECL|class|ShardRecoveryHandler
 specifier|public
-specifier|final
 class|class
 name|ShardRecoveryHandler
 implements|implements
@@ -690,7 +689,7 @@ operator|.
 name|RecoveryHandler
 block|{
 DECL|field|logger
-specifier|private
+specifier|protected
 specifier|final
 name|ESLogger
 name|logger
@@ -2956,6 +2955,20 @@ operator|.
 name|checkForCancel
 argument_list|()
 expr_stmt|;
+name|StopWatch
+name|stopWatch
+init|=
+operator|new
+name|StopWatch
+argument_list|()
+operator|.
+name|start
+argument_list|()
+decl_stmt|;
+specifier|final
+name|int
+name|totalOperations
+decl_stmt|;
 name|logger
 operator|.
 name|trace
@@ -2972,25 +2985,14 @@ name|targetNode
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|StopWatch
-name|stopWatch
-init|=
-operator|new
-name|StopWatch
-argument_list|()
-operator|.
-name|start
-argument_list|()
-decl_stmt|;
 comment|// Send the translog operations to the target node
-name|int
 name|totalOperations
-init|=
+operator|=
 name|sendSnapshot
 argument_list|(
 name|snapshot
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|cancellableThreads
 operator|.
 name|execute
@@ -3491,7 +3493,7 @@ expr_stmt|;
 block|}
 comment|/**      * Send the given snapshot's operations to this handler's target node.      *      * Operations are bulked into a single request depending on an operation      * count limit or size-in-bytes limit      *      * @return the total number of translog operations that were sent      */
 DECL|method|sendSnapshot
-specifier|private
+specifier|protected
 name|int
 name|sendSnapshot
 parameter_list|(

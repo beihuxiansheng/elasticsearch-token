@@ -186,7 +186,7 @@ return|return
 name|files
 return|;
 block|}
-comment|/**      * Releases the current snapshot, returning<code>true</code> if it was      * actually released.      */
+comment|/**      * Releases the current snapshot.      */
 DECL|method|close
 specifier|public
 name|void
