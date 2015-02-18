@@ -1095,12 +1095,12 @@ argument_list|)
 operator|.
 name|addField
 argument_list|(
-literal|"content_type"
+literal|"file.content_type"
 argument_list|)
 operator|.
 name|addField
 argument_list|(
-literal|"name"
+literal|"file.name"
 argument_list|)
 operator|.
 name|execute
