@@ -4298,6 +4298,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Settings
+name|settings
+init|=
+name|SettingsFilter
+operator|.
+name|filterSettings
+argument_list|(
+name|params
+argument_list|,
+name|this
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -4323,6 +4335,8 @@ name|Object
 argument_list|>
 name|entry
 range|:
+name|settings
+operator|.
 name|getAsStructuredMap
 argument_list|()
 operator|.
@@ -4361,6 +4375,8 @@ name|String
 argument_list|>
 name|entry
 range|:
+name|settings
+operator|.
 name|getAsMap
 argument_list|()
 operator|.

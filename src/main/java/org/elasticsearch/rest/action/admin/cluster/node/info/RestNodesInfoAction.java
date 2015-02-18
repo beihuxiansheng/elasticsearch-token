@@ -661,6 +661,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|settingsFilter
+operator|.
+name|addFilterSettingParams
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|admin
@@ -697,13 +704,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|response
-operator|.
-name|settingsFilter
-argument_list|(
-name|settingsFilter
-argument_list|)
-expr_stmt|;
 name|builder
 operator|.
 name|startObject
