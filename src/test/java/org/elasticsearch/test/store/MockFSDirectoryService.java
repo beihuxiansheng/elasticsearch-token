@@ -402,6 +402,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|EnumSet
 import|;
 end_import
@@ -956,7 +966,17 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"check index [failure]\n{}"
+literal|"check index [failure] index files={}\n{}"
+argument_list|,
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|dir
+operator|.
+name|listAll
+argument_list|()
+argument_list|)
 argument_list|,
 operator|new
 name|String
