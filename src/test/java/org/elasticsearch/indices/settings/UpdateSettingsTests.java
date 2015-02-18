@@ -282,6 +282,20 @@ name|index
 operator|.
 name|store
 operator|.
+name|Store
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|store
+operator|.
 name|support
 operator|.
 name|AbstractIndexStore
@@ -1182,6 +1196,16 @@ name|MAX_MERGE_COUNT
 argument_list|,
 literal|"2"
 argument_list|)
+operator|.
+name|put
+argument_list|(
+name|Store
+operator|.
+name|INDEX_STORE_STATS_REFRESH_INTERVAL
+argument_list|,
+literal|0
+argument_list|)
+comment|// get stats all the time - no caching
 argument_list|)
 argument_list|)
 expr_stmt|;
