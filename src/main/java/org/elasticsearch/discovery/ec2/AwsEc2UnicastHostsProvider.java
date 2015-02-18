@@ -881,7 +881,7 @@ name|address
 operator|=
 name|instance
 operator|.
-name|getPublicDnsName
+name|getPublicIpAddress
 argument_list|()
 expr_stmt|;
 break|break;
