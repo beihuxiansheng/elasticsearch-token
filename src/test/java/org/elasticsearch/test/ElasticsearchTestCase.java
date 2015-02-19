@@ -2992,22 +2992,6 @@ name|toPath
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns 'global' temp dir (seems like a bad idea)      */
-DECL|method|globalTempDirPath
-specifier|public
-specifier|static
-name|Path
-name|globalTempDirPath
-parameter_list|()
-block|{
-return|return
-name|globalTempDir
-argument_list|()
-operator|.
-name|toPath
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns a random number of temporary paths.      */
 DECL|method|tmpPaths
 specifier|public
