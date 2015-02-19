@@ -878,7 +878,7 @@ condition|)
 block|{
 name|endpoint
 operator|=
-literal|"ec2.cn-north-1.amazonaws.com"
+literal|"ec2.cn-north-1.amazonaws.com.cn"
 expr_stmt|;
 block|}
 else|else
