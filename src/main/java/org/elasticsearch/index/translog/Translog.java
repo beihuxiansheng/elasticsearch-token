@@ -465,9 +465,9 @@ name|Snapshot
 name|snapshot
 parameter_list|)
 function_decl|;
-comment|/**      * Clears unreferenced transaction logs.      */
+comment|/**      * Clears unreferenced transaction logs.      *      * @return the number of clean up files      */
 DECL|method|clearUnreferenced
-name|void
+name|int
 name|clearUnreferenced
 parameter_list|()
 function_decl|;
