@@ -399,6 +399,8 @@ literal|"index-1.3.7.zip"
 argument_list|,
 literal|"index-1.3.8.zip"
 argument_list|,
+literal|"index-1.3.9.zip"
+argument_list|,
 literal|"index-1.4.0.Beta1.zip"
 argument_list|,
 literal|"index-1.4.0.zip"
@@ -408,6 +410,8 @@ argument_list|,
 literal|"index-1.4.2.zip"
 argument_list|,
 literal|"index-1.4.3.zip"
+argument_list|,
+literal|"index-1.4.4.zip"
 argument_list|)
 decl_stmt|;
 DECL|method|testAllVersionsTested
