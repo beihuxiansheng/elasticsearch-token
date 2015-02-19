@@ -3550,6 +3550,9 @@ operator|.
 name|get
 argument_list|(
 name|index
+operator|.
+name|name
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
