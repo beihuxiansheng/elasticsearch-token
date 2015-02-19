@@ -1029,7 +1029,10 @@ decl_stmt|;
 DECL|method|AllFieldMapper
 specifier|public
 name|AllFieldMapper
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 name|this
 argument_list|(
@@ -1061,9 +1064,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|ImmutableSettings
-operator|.
-name|EMPTY
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}

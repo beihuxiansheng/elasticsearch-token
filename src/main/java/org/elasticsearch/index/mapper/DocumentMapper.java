@@ -1226,7 +1226,9 @@ name|class
 argument_list|,
 operator|new
 name|UidFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1293,7 +1295,9 @@ name|class
 argument_list|,
 operator|new
 name|IndexFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1325,7 +1329,9 @@ name|class
 argument_list|,
 operator|new
 name|TypeFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1340,7 +1346,9 @@ name|class
 argument_list|,
 operator|new
 name|AllFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this
@@ -1406,7 +1414,9 @@ name|class
 argument_list|,
 operator|new
 name|VersionFieldMapper
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|this

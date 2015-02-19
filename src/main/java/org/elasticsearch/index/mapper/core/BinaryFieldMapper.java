@@ -694,6 +694,11 @@ name|compressThreshold
 argument_list|,
 name|fieldDataSettings
 argument_list|,
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|,
 name|multiFieldsBuilder
 operator|.
 name|build
@@ -980,6 +985,9 @@ name|Nullable
 name|Settings
 name|fieldDataSettings
 parameter_list|,
+name|Settings
+name|indexSettings
+parameter_list|,
 name|MultiFields
 name|multiFields
 parameter_list|,
@@ -1007,7 +1015,7 @@ literal|null
 argument_list|,
 name|fieldDataSettings
 argument_list|,
-literal|null
+name|indexSettings
 argument_list|,
 name|multiFields
 argument_list|,
