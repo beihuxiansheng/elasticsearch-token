@@ -972,6 +972,11 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
+name|test
+operator|.
+name|getIndexSettings
+argument_list|()
+argument_list|,
 operator|new
 name|TimeValue
 argument_list|(
@@ -1099,6 +1104,11 @@ argument_list|(
 name|test
 operator|.
 name|index
+argument_list|()
+argument_list|,
+name|test
+operator|.
+name|getIndexSettings
 argument_list|()
 argument_list|,
 operator|new
@@ -1251,6 +1261,11 @@ argument_list|(
 name|test
 operator|.
 name|index
+argument_list|()
+argument_list|,
+name|test
+operator|.
+name|getIndexSettings
 argument_list|()
 argument_list|,
 operator|new

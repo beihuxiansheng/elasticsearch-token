@@ -306,6 +306,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|ImmutableSettings
+operator|.
+name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -684,7 +700,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -695,7 +711,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|,
 name|fooLock
@@ -715,7 +731,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -758,7 +774,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"1"
+literal|"0"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -770,11 +786,34 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"2"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|Settings
+name|settings
+init|=
+name|settingsBuilder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
+argument_list|,
+name|randomIntBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|)
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 try|try
 block|{
 name|env
@@ -787,6 +826,8 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
+name|settings
+argument_list|,
 name|randomIntBetween
 argument_list|(
 literal|0
@@ -797,7 +838,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"shard 1 is locked"
+literal|"shard 0 is locked"
 argument_list|)
 expr_stmt|;
 block|}
@@ -824,7 +865,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 operator|.
@@ -847,6 +888,8 @@ argument_list|(
 literal|"foo"
 argument_list|)
 argument_list|,
+name|settings
+argument_list|,
 name|randomIntBetween
 argument_list|(
 literal|0
@@ -866,12 +909,12 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-name|randomBoolean
-argument_list|()
-condition|?
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
 literal|1
-else|:
-literal|2
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1095,7 +1138,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1106,7 +1149,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|,
 name|fooLock
@@ -1140,7 +1183,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"1"
+literal|"0"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1152,7 +1195,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"2"
+literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1168,7 +1211,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|,
 name|idxSettings
@@ -1215,7 +1258,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"1"
+literal|"0"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1230,7 +1273,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"2"
+literal|"1"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1245,7 +1288,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|2
+literal|1
 argument_list|)
 argument_list|,
 name|idxSettings
@@ -1278,7 +1321,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"1"
+literal|"0"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1293,7 +1336,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-literal|"2"
+literal|"1"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1491,7 +1534,7 @@ name|ShardId
 argument_list|(
 literal|"foo"
 argument_list|,
-literal|1
+literal|0
 argument_list|)
 argument_list|)
 init|)

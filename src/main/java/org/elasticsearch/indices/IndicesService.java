@@ -4115,6 +4115,11 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
+parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|)
@@ -4142,6 +4147,8 @@ operator|.
 name|lockAllForIndex
 argument_list|(
 name|index
+argument_list|,
+name|indexSettings
 argument_list|,
 name|timeout
 operator|.

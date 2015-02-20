@@ -480,6 +480,10 @@ name|String
 name|index
 parameter_list|,
 specifier|final
+name|Settings
+name|indexSettings
+parameter_list|,
+specifier|final
 name|String
 name|nodeId
 parameter_list|)
@@ -583,6 +587,8 @@ argument_list|,
 name|nodeId
 argument_list|,
 name|clusterState
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -692,6 +698,8 @@ argument_list|,
 name|nodeId
 argument_list|,
 name|clusterState
+argument_list|,
+name|indexSettings
 argument_list|)
 expr_stmt|;
 block|}
@@ -716,6 +724,9 @@ name|nodeId
 parameter_list|,
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|Settings
+name|indexSettings
 parameter_list|)
 throws|throws
 name|IOException
@@ -735,6 +746,8 @@ name|Index
 argument_list|(
 name|index
 argument_list|)
+argument_list|,
+name|indexSettings
 argument_list|,
 operator|new
 name|TimeValue
