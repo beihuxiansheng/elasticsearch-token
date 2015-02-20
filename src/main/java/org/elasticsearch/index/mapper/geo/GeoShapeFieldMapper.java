@@ -796,6 +796,11 @@ name|Defaults
 operator|.
 name|DISTANCE_ERROR_PCT
 decl_stmt|;
+DECL|field|distErrPctDefined
+specifier|private
+name|boolean
+name|distErrPctDefined
+decl_stmt|;
 DECL|field|orientation
 specifier|private
 name|Orientation
@@ -1131,10 +1136,8 @@ name|copyTo
 argument_list|)
 return|;
 block|}
-block|}
 DECL|method|getLevels
 specifier|private
-specifier|static
 specifier|final
 name|int
 name|getLevels
@@ -1163,6 +1166,17 @@ operator|>=
 literal|0
 condition|)
 block|{
+comment|// if the user specified a precision but not a distance error percent then zero out the distance err pct
+comment|// this is done to guarantee precision specified by the user without doing something unexpected under the covers
+if|if
+condition|(
+operator|!
+name|distErrPctDefined
+condition|)
+name|distanceErrorPct
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|Math
 operator|.
@@ -1199,6 +1213,7 @@ block|}
 return|return
 name|defaultLevels
 return|;
+block|}
 block|}
 DECL|class|TypeParser
 specifier|public
@@ -1244,6 +1259,24 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// if index was created before 1.6, this conditional should be true (this forces any index created on/or after 1.6 to use 0 for
+comment|// the default distanceErrorPct parameter).
+name|builder
+operator|.
+name|distErrPctDefined
+operator|=
+name|parserContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_1_6_0
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Iterator
@@ -1441,6 +1474,12 @@ name|toString
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|distErrPctDefined
+operator|=
+literal|true
 expr_stmt|;
 name|iterator
 operator|.
@@ -1943,18 +1982,6 @@ name|GeoShapeFieldMapper
 operator|)
 name|mergeWith
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
-operator|.
-name|simulate
-argument_list|()
-condition|)
-block|{
 specifier|final
 name|PrefixTreeStrategy
 name|mergeWithStrategy
@@ -2090,6 +2117,14 @@ name|mergeContext
 operator|.
 name|hasConflicts
 argument_list|()
+operator|||
+name|mergeContext
+operator|.
+name|mergeFlags
+argument_list|()
+operator|.
+name|simulate
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -2117,7 +2152,6 @@ name|fieldMergeWith
 operator|.
 name|shapeOrientation
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
