@@ -310,7 +310,7 @@ name|AwaitsFix
 argument_list|(
 name|bugUrl
 operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/pull/9746"
+literal|"https://issues.apache.org/jira/browse/LUCENE-6271"
 argument_list|)
 DECL|class|IndexLookupTests
 specifier|public
