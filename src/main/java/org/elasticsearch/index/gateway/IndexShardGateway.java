@@ -1460,6 +1460,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|TruncatedTranslogException
+decl||
 name|EOFException
 name|e
 parameter_list|)

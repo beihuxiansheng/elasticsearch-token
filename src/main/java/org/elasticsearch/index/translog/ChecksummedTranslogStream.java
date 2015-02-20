@@ -316,6 +316,22 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|EOFException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|TruncatedTranslogException
+argument_list|(
+literal|"reached premature end of file, translog is truncated"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|AssertionError
 decl||
 name|Exception
