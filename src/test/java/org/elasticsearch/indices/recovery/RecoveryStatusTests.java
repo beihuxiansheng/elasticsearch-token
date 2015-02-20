@@ -407,6 +407,16 @@ argument_list|(
 name|expectedFile
 argument_list|)
 expr_stmt|;
+name|indexShard
+operator|.
+name|close
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// we have to close it here otherwise rename fails since the write.lock is held by the engine
 name|status
 operator|.
 name|renameAllTempFiles

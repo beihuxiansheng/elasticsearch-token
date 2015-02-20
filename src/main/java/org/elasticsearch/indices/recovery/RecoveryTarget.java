@@ -206,6 +206,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|Lucene
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -2937,12 +2951,43 @@ comment|// this means we transferred files from the remote that have not be chec
 comment|// broken. We have to clean up this shard entirely, remove all files and bubble it up to the
 comment|// source shard since this index might be broken there as well? The Source can handle this and checks
 comment|// its content on disk if possible.
+try|try
+block|{
+name|Lucene
+operator|.
+name|cleanLuceneIndex
+argument_list|(
 name|store
 operator|.
-name|deleteContent
+name|directory
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// clean up and delete all files
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Failed to clean lucene index"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|ex
+operator|.
+name|addSuppressed
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 throw|throw
 operator|new
 name|RecoveryFailedException
