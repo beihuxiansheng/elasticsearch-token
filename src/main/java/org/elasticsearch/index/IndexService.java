@@ -2856,11 +2856,26 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|indicesServices
+operator|.
+name|addPendingDelete
+argument_list|(
+name|index
+argument_list|()
+argument_list|,
+name|lock
+operator|.
+name|getShardId
+argument_list|()
+argument_list|,
+name|indexSettings
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"{} failed to delete shard content"
+literal|"{} failed to delete shard content - scheduled a retry"
 argument_list|,
 name|e
 argument_list|,
