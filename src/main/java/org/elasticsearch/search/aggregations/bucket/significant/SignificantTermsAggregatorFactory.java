@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|IndexReader
 import|;
 end_import
 
@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|PostingsEnum
 import|;
 end_import
 
@@ -1484,9 +1484,9 @@ name|reader
 argument_list|,
 name|indexedFieldName
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|,
 name|filter
 argument_list|)

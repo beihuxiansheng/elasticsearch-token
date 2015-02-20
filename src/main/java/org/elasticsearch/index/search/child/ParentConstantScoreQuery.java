@@ -446,6 +446,9 @@ name|createWeight
 parameter_list|(
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -526,6 +529,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -580,6 +585,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -652,6 +659,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -659,6 +668,8 @@ return|return
 operator|new
 name|ChildrenWeight
 argument_list|(
+name|this
+argument_list|,
 name|childrenFilter
 argument_list|,
 name|collector
@@ -881,6 +892,9 @@ DECL|method|ChildrenWeight
 specifier|private
 name|ChildrenWeight
 parameter_list|(
+name|Query
+name|query
+parameter_list|,
 name|Filter
 name|childrenFilter
 parameter_list|,
@@ -891,6 +905,11 @@ name|IndexParentChildFieldData
 name|globalIfd
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|globalIfd
@@ -937,20 +956,6 @@ argument_list|()
 argument_list|,
 literal|"not implemented yet..."
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getQuery
-specifier|public
-name|Query
-name|getQuery
-parameter_list|()
-block|{
-return|return
-name|ParentConstantScoreQuery
-operator|.
-name|this
 return|;
 block|}
 annotation|@
@@ -1015,9 +1020,6 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
-parameter_list|,
-name|boolean
-name|needsScores
 parameter_list|)
 throws|throws
 name|IOException

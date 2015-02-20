@@ -284,6 +284,25 @@ name|NUM_BYTES_INT
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+block|{
+return|return
+literal|"limit(limit="
+operator|+
+name|limit
+operator|+
+literal|")"
+return|;
+block|}
 block|}
 end_class
 

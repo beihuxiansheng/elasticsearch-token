@@ -1793,12 +1793,12 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|termDocs
 init|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 name|atomicReader
 operator|.
@@ -1874,7 +1874,7 @@ name|termDocs
 operator|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 name|atomicReader
 operator|.

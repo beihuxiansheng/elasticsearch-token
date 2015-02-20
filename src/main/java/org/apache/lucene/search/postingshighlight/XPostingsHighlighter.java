@@ -1605,7 +1605,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// reuse in the real sense... for docs in same segment we just advance our old enum
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|postings
 index|[]
 init|=
@@ -1767,7 +1767,7 @@ expr_stmt|;
 name|postings
 operator|=
 operator|new
-name|DocsAndPositionsEnum
+name|PostingsEnum
 index|[
 name|terms
 operator|.
@@ -1891,7 +1891,7 @@ parameter_list|,
 name|TermsEnum
 name|termsEnum
 parameter_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 index|[]
 name|postings
 parameter_list|,
@@ -2003,7 +2003,7 @@ name|i
 operator|++
 control|)
 block|{
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|de
 init|=
 name|postings
@@ -2065,15 +2065,15 @@ index|]
 operator|=
 name|termsEnum
 operator|.
-name|docsAndPositions
+name|postings
 argument_list|(
 literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_OFFSETS
+name|OFFSETS
 argument_list|)
 expr_stmt|;
 if|if
@@ -2301,7 +2301,7 @@ literal|null
 condition|)
 block|{
 specifier|final
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 init|=
 name|off
@@ -2964,7 +2964,7 @@ name|OffsetsEnum
 argument_list|>
 block|{
 DECL|field|dp
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 decl_stmt|;
 DECL|field|pos
@@ -2978,7 +2978,7 @@ decl_stmt|;
 DECL|method|OffsetsEnum
 name|OffsetsEnum
 parameter_list|(
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|dp
 parameter_list|,
 name|int
@@ -3091,11 +3091,11 @@ DECL|field|EMPTY
 specifier|private
 specifier|static
 specifier|final
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|EMPTY
 init|=
 operator|new
-name|DocsAndPositionsEnum
+name|PostingsEnum
 argument_list|()
 block|{
 annotation|@

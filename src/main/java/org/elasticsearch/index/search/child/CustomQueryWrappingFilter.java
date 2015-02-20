@@ -320,6 +320,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|query
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 for|for
@@ -362,8 +364,6 @@ argument_list|(
 name|leaf
 argument_list|,
 literal|null
-argument_list|,
-literal|false
 argument_list|)
 return|;
 block|}
@@ -471,7 +471,10 @@ DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 return|return
 literal|"CustomQueryWrappingFilter("

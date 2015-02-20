@@ -2268,12 +2268,12 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|DocsEnum
+name|PostingsEnum
 name|docs
 init|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 literal|null
 argument_list|,

@@ -602,10 +602,15 @@ name|createNormalizedWeight
 parameter_list|(
 name|Query
 name|query
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: needsScores
+comment|// can we avoid dfs stuff here if we dont need scores?
 try|try
 block|{
 comment|// if its the main query, use we have dfs data, only then do it
@@ -641,6 +646,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|query
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -650,6 +657,8 @@ operator|.
 name|createNormalizedWeight
 argument_list|(
 name|query
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}

@@ -423,15 +423,6 @@ name|int
 name|hashCode
 parameter_list|()
 function_decl|;
-annotation|@
-name|Override
-DECL|method|toString
-specifier|public
-specifier|abstract
-name|String
-name|toString
-parameter_list|()
-function_decl|;
 comment|/**      * Filters on non-numeric fields.      */
 DECL|class|BytesFieldDataFilter
 specifier|protected
@@ -520,7 +511,10 @@ DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 specifier|final
 name|StringBuilder
@@ -792,7 +786,10 @@ DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 specifier|final
 name|StringBuilder
@@ -1079,7 +1076,10 @@ DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 specifier|final
 name|StringBuilder

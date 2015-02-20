@@ -1417,6 +1417,21 @@ name|bits
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+block|{
+return|return
+literal|"AnonymousResolvableFilter"
+return|;
+comment|// TODO: not sure what is going on here
+block|}
 block|}
 return|;
 block|}

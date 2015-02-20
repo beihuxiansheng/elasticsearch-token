@@ -575,10 +575,15 @@ name|createWeight
 parameter_list|(
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// TODO: needsScores
+comment|// if we dont need scores, just return the underlying Weight?
 name|Weight
 name|subQueryWeight
 init|=
@@ -587,12 +592,16 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 decl_stmt|;
 return|return
 operator|new
 name|CustomBoostFactorWeight
 argument_list|(
+name|this
+argument_list|,
 name|subQueryWeight
 argument_list|,
 name|filterFunctions
@@ -622,6 +631,9 @@ DECL|method|CustomBoostFactorWeight
 specifier|public
 name|CustomBoostFactorWeight
 parameter_list|(
+name|Query
+name|parent
+parameter_list|,
 name|Weight
 name|subQueryWeight
 parameter_list|,
@@ -631,6 +643,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|super
+argument_list|(
+name|parent
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|subQueryWeight
@@ -647,18 +664,6 @@ index|[
 name|filterFunctionLength
 index|]
 expr_stmt|;
-block|}
-DECL|method|getQuery
-specifier|public
-name|Query
-name|getQuery
-parameter_list|()
-block|{
-return|return
-name|FiltersFunctionScoreQuery
-operator|.
-name|this
-return|;
 block|}
 annotation|@
 name|Override
@@ -729,9 +734,6 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
-parameter_list|,
-name|boolean
-name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -749,8 +751,6 @@ argument_list|(
 name|context
 argument_list|,
 name|acceptDocs
-argument_list|,
-name|needsScores
 argument_list|)
 decl_stmt|;
 if|if
