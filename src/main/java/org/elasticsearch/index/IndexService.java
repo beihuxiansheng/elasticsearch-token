@@ -2883,6 +2883,9 @@ name|lock
 operator|.
 name|getShardId
 argument_list|()
+operator|.
+name|id
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

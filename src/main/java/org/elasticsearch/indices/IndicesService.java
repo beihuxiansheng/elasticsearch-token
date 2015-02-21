@@ -4126,6 +4126,15 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"{} processing pending deletes"
+argument_list|,
+name|index
+argument_list|)
+expr_stmt|;
 specifier|final
 name|long
 name|startTime
@@ -4303,6 +4312,11 @@ operator|.
 name|settings
 argument_list|)
 expr_stmt|;
+name|iterator
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -4316,12 +4330,12 @@ name|debug
 argument_list|(
 literal|"{} retry pending delete"
 argument_list|,
+name|ex
+argument_list|,
 name|shardLock
 operator|.
 name|getShardId
 argument_list|()
-argument_list|,
-name|ex
 argument_list|)
 expr_stmt|;
 block|}
@@ -4339,12 +4353,12 @@ operator|.
 name|shardId
 argument_list|)
 expr_stmt|;
-block|}
 name|iterator
 operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
