@@ -2493,6 +2493,8 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+try|try
+block|{
 name|indicesLifecycle
 operator|.
 name|beforeIndexShardClosed
@@ -2504,6 +2506,10 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// close everything else even if the beforeIndexShardClosed threw an exception
 for|for
 control|(
 name|Class
@@ -2663,6 +2669,7 @@ argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 finally|finally
 block|{
