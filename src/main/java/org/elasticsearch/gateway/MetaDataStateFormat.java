@@ -1334,14 +1334,6 @@ condition|(
 operator|!
 name|Files
 operator|.
-name|exists
-argument_list|(
-name|stateDir
-argument_list|)
-operator|||
-operator|!
-name|Files
-operator|.
 name|isDirectory
 argument_list|(
 name|stateDir

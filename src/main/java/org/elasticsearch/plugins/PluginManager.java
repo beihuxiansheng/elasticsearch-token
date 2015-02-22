@@ -1437,13 +1437,6 @@ if|if
 condition|(
 name|Files
 operator|.
-name|exists
-argument_list|(
-name|binFile
-argument_list|)
-operator|&&
-name|Files
-operator|.
 name|isDirectory
 argument_list|(
 name|binFile
@@ -1675,13 +1668,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|configFile
-argument_list|)
-operator|&&
 name|Files
 operator|.
 name|isDirectory
