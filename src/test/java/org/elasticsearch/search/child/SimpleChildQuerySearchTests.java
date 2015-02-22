@@ -28823,6 +28823,15 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elasticsearch/elasticsearch/issues/9461"
+argument_list|)
 DECL|method|testParentFieldToNonExistingType
 specifier|public
 name|void
