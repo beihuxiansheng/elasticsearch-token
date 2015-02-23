@@ -3393,31 +3393,6 @@ literal|")"
 return|;
 block|}
 block|}
-comment|/** Log that we are about to delete this file, to the index.store.deletes component. */
-DECL|method|deleteFile
-specifier|public
-name|void
-name|deleteFile
-parameter_list|(
-name|String
-name|msg
-parameter_list|,
-name|String
-name|storeFile
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|directory
-operator|.
-name|deleteFile
-argument_list|(
-name|msg
-argument_list|,
-name|storeFile
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Represents a snapshot of the current directory build from the latest Lucene commit.      * Only files that are part of the last commit are considered in this datastrucutre.      * For backwards compatibility the snapshot might include legacy checksums that      * are derived from a dedicated checksum file written by older elasticsearch version pre 1.3      *<p/>      * Note: This class will ignore the<tt>segments.gen</tt> file since it's optional and might      * change concurrently for safety reasons.      *      * @see StoreFileMetaData      */
 DECL|class|MetadataSnapshot
 specifier|public
