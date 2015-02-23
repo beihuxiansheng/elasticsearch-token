@@ -964,8 +964,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"script_file"
-argument_list|,
-literal|"file"
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_ID
@@ -979,8 +977,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"script_id"
-argument_list|,
-literal|"id"
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_INLINE
@@ -994,8 +990,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"script"
-argument_list|,
-literal|"scriptField"
 argument_list|)
 decl_stmt|;
 DECL|enum|ScriptType
@@ -2043,38 +2037,6 @@ operator|+
 name|script
 argument_list|)
 throw|;
-block|}
-block|}
-if|if
-condition|(
-name|scriptType
-operator|!=
-name|ScriptType
-operator|.
-name|INDEXED
-condition|)
-block|{
-comment|//For backwards compat attempt to load from disk
-name|compiled
-operator|=
-name|staticCache
-operator|.
-name|get
-argument_list|(
-name|script
-argument_list|)
-expr_stmt|;
-comment|//On disk scripts will be loaded into the staticCache by the listener
-if|if
-condition|(
-name|compiled
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|compiled
-return|;
 block|}
 block|}
 comment|//This is an inline script check to see if we have it in the cache
