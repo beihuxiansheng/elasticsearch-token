@@ -1610,6 +1610,14 @@ literal|null
 decl_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|logger
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1626,6 +1634,7 @@ name|recoveringTranslogFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|TranslogStream
 name|stream
 init|=
