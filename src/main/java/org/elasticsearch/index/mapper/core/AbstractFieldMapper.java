@@ -1887,11 +1887,11 @@ specifier|protected
 name|CopyTo
 name|copyTo
 decl_stmt|;
-DECL|field|writePre20Metadata
+DECL|field|writePre2xSettings
 specifier|protected
 specifier|final
 name|boolean
-name|writePre20Metadata
+name|writePre2xSettings
 decl_stmt|;
 DECL|method|AbstractFieldMapper
 specifier|protected
@@ -2223,7 +2223,7 @@ name|copyTo
 expr_stmt|;
 name|this
 operator|.
-name|writePre20Metadata
+name|writePre2xSettings
 operator|=
 name|Version
 operator|.
@@ -4305,7 +4305,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|writePre20Metadata
+name|writePre2xSettings
 operator|&&
 operator|(
 name|includeDefaults
