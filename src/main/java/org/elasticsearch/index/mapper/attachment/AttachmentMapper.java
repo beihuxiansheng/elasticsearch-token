@@ -128,7 +128,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -1194,6 +1194,11 @@ name|contentLength
 argument_list|,
 name|language
 argument_list|,
+name|context
+operator|.
+name|indexSettings
+argument_list|()
+argument_list|,
 name|multiFieldsBuilder
 operator|.
 name|build
@@ -1945,6 +1950,9 @@ parameter_list|,
 name|Mapper
 name|languageMapper
 parameter_list|,
+name|Settings
+name|indexSettings
+parameter_list|,
 name|MultiFields
 name|multiFields
 parameter_list|,
@@ -1976,9 +1984,7 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-name|ImmutableSettings
-operator|.
-name|EMPTY
+name|indexSettings
 argument_list|,
 name|multiFields
 argument_list|,
