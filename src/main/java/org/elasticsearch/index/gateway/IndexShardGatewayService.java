@@ -485,15 +485,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-specifier|final
-name|RecoveryState
-name|recoveryState
-init|=
-name|indexShard
-operator|.
-name|recoveryState
-argument_list|()
-decl_stmt|;
 name|threadPool
 operator|.
 name|generic
@@ -512,32 +503,17 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|recoveryState
-operator|.
-name|getTimer
-argument_list|()
-operator|.
-name|startTime
-argument_list|(
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|recoveryState
-operator|.
-name|setStage
-argument_list|(
-name|RecoveryState
-operator|.
-name|Stage
-operator|.
-name|INIT
-argument_list|)
-expr_stmt|;
 try|try
 block|{
+specifier|final
+name|RecoveryState
+name|recoveryState
+init|=
+name|indexShard
+operator|.
+name|recoveryState
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|indexShard
@@ -595,8 +571,8 @@ name|recoveryState
 argument_list|)
 expr_stmt|;
 block|}
-comment|// start the shard if the gateway has not started it already. Note that if the gateway
-comment|// moved shard to POST_RECOVERY, it may have been started as well if:
+comment|// Check that the gateway have set the shard to POST_RECOVERY. Note that if a shard
+comment|// is in POST_RECOVERY, it may have been started as well if:
 comment|// 1) master sent a new cluster state indicating shard is initializing
 comment|// 2) IndicesClusterStateService#applyInitializingShard will send a shard started event
 comment|// 3) Master will mark shard as started and this will be processed locally.
@@ -608,48 +584,25 @@ operator|.
 name|state
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|shardState
-operator|!=
+operator|==
 name|IndexShardState
 operator|.
 name|POST_RECOVERY
-operator|&&
+operator|||
 name|shardState
-operator|!=
+operator|==
 name|IndexShardState
 operator|.
 name|STARTED
-condition|)
-block|{
-name|indexShard
-operator|.
-name|postRecovery
-argument_list|(
-literal|"post recovery from gateway"
-argument_list|)
-expr_stmt|;
-block|}
-comment|// refresh the shard
-name|indexShard
-operator|.
-name|refresh
-argument_list|(
-literal|"post_gateway"
-argument_list|)
-expr_stmt|;
-name|recoveryState
-operator|.
-name|setStage
-argument_list|(
-name|RecoveryState
-operator|.
-name|Stage
-operator|.
-name|DONE
-argument_list|)
-expr_stmt|;
+operator|:
+literal|"recovery process didn't call post_recovery. shardState ["
+operator|+
+name|shardState
+operator|+
+literal|"]"
+assert|;
 if|if
 condition|(
 name|logger

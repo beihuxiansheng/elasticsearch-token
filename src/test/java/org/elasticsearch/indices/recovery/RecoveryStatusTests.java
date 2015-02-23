@@ -461,10 +461,26 @@ name|expectedFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we must fail the recovery because marking it as done will try to move the shard to POST_RECOVERY, which will fail because it's started
 name|status
 operator|.
-name|markAsDone
+name|fail
+argument_list|(
+operator|new
+name|RecoveryFailedException
+argument_list|(
+name|status
+operator|.
+name|state
 argument_list|()
+argument_list|,
+literal|"end of test. OK."
+argument_list|,
+literal|null
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 block|}

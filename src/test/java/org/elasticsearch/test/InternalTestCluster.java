@@ -6817,13 +6817,32 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns a reference to a random nodes {@link ClusterService}      */
+comment|/**      * Returns a reference to a random node's {@link ClusterService}      */
+DECL|method|clusterService
+specifier|public
+name|ClusterService
+name|clusterService
+parameter_list|()
+block|{
+return|return
+name|clusterService
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a reference to a node's {@link ClusterService}. If the given node is null, a random node will be selected.      */
 DECL|method|clusterService
 specifier|public
 specifier|synchronized
 name|ClusterService
 name|clusterService
-parameter_list|()
+parameter_list|(
+annotation|@
+name|Nullable
+name|String
+name|node
+parameter_list|)
 block|{
 return|return
 name|getInstance
@@ -6831,6 +6850,8 @@ argument_list|(
 name|ClusterService
 operator|.
 name|class
+argument_list|,
+name|node
 argument_list|)
 return|;
 block|}

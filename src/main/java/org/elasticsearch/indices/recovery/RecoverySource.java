@@ -745,7 +745,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 specifier|final
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 name|handler
 decl_stmt|;
 if|if
@@ -764,7 +764,7 @@ block|{
 name|handler
 operator|=
 operator|new
-name|SharedFSRecoveryHandler
+name|SharedFSRecoverySourceHandler
 argument_list|(
 name|shard
 argument_list|,
@@ -789,7 +789,7 @@ block|{
 name|handler
 operator|=
 operator|new
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 argument_list|(
 name|shard
 argument_list|,
@@ -937,7 +937,7 @@ name|IndexShard
 argument_list|,
 name|Set
 argument_list|<
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 argument_list|>
 argument_list|>
 name|ongoingRecoveries
@@ -955,13 +955,13 @@ parameter_list|(
 name|IndexShard
 name|shard
 parameter_list|,
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 name|handler
 parameter_list|)
 block|{
 name|Set
 argument_list|<
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 argument_list|>
 name|shardRecoveryHandlers
 init|=
@@ -1028,14 +1028,14 @@ parameter_list|(
 name|IndexShard
 name|shard
 parameter_list|,
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 name|handler
 parameter_list|)
 block|{
 specifier|final
 name|Set
 argument_list|<
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 argument_list|>
 name|shardRecoveryHandlers
 init|=
@@ -1108,7 +1108,7 @@ block|{
 specifier|final
 name|Set
 argument_list|<
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 argument_list|>
 name|shardRecoveryHandlers
 init|=
@@ -1140,7 +1140,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 name|handlers
 range|:
 name|shardRecoveryHandlers

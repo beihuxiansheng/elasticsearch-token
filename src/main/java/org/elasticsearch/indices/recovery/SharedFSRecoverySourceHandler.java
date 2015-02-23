@@ -144,27 +144,17 @@ name|TransportService
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A recovery handler that skips phase 1 as well as sending the snapshot. During phase 3 the shard is marked  * as relocated an closed to ensure that the engine is closed and the target can acquire the IW write lock.  */
 end_comment
 
 begin_class
-DECL|class|SharedFSRecoveryHandler
+DECL|class|SharedFSRecoverySourceHandler
 specifier|public
 class|class
-name|SharedFSRecoveryHandler
+name|SharedFSRecoverySourceHandler
 extends|extends
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 block|{
 DECL|field|shard
 specifier|private
@@ -178,9 +168,9 @@ specifier|final
 name|StartRecoveryRequest
 name|request
 decl_stmt|;
-DECL|method|SharedFSRecoveryHandler
+DECL|method|SharedFSRecoverySourceHandler
 specifier|public
-name|SharedFSRecoveryHandler
+name|SharedFSRecoverySourceHandler
 parameter_list|(
 name|IndexShard
 name|shard

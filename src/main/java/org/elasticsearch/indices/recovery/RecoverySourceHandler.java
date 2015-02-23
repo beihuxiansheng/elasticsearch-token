@@ -651,14 +651,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ShardRecoveryHandler handles the three phases of shard recovery, which is  * everything relating to copying the segment files as well as sending translog  * operations across the wire once the segments have been copied.  */
+comment|/**  * RecoverySourceHandler handles the three phases of shard recovery, which is  * everything relating to copying the segment files as well as sending translog  * operations across the wire once the segments have been copied.  */
 end_comment
 
 begin_class
-DECL|class|ShardRecoveryHandler
+DECL|class|RecoverySourceHandler
 specifier|public
 class|class
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 implements|implements
 name|Engine
 operator|.
@@ -827,9 +827,9 @@ throw|;
 block|}
 block|}
 decl_stmt|;
-DECL|method|ShardRecoveryHandler
+DECL|method|RecoverySourceHandler
 specifier|public
-name|ShardRecoveryHandler
+name|RecoverySourceHandler
 parameter_list|(
 specifier|final
 name|IndexShard
