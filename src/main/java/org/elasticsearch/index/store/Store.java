@@ -2977,9 +2977,20 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|ex
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to delete file [{}]"
+argument_list|,
+name|ex
+argument_list|,
+name|existingFile
+argument_list|)
+expr_stmt|;
 comment|// ignore, we don't really care, will get deleted later on
 block|}
 block|}
