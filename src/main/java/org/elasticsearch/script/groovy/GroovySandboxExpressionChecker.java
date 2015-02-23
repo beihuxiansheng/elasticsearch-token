@@ -540,6 +540,17 @@ name|java
 operator|.
 name|lang
 operator|.
+name|String
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+block|,
+name|java
+operator|.
+name|lang
+operator|.
 name|Integer
 operator|.
 name|class
