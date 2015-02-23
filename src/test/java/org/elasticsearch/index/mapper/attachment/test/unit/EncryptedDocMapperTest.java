@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.mapper.xcontent
+DECL|package|org.elasticsearch.index.mapper.attachment.test.unit
 package|package
 name|org
 operator|.
@@ -14,7 +14,11 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
+name|attachment
+operator|.
+name|test
+operator|.
+name|unit
 package|;
 end_package
 
@@ -115,6 +119,24 @@ operator|.
 name|attachment
 operator|.
 name|AttachmentMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|attachment
+operator|.
+name|test
+operator|.
+name|MapperTestUtils
 import|;
 end_import
 
@@ -260,7 +282,7 @@ name|mapping
 init|=
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/multipledocs/test-mapping.json"
+literal|"/org/elasticsearch/index/mapper/attachment/test/unit/encrypted/test-mapping.json"
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -279,7 +301,7 @@ name|html
 init|=
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/htmlWithValidDateMeta.html"
+literal|"/org/elasticsearch/index/mapper/attachment/test/sample-files/htmlWithValidDateMeta.html"
 argument_list|)
 decl_stmt|;
 name|byte
@@ -288,7 +310,7 @@ name|pdf
 init|=
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/encrypted.pdf"
+literal|"/org/elasticsearch/index/mapper/attachment/test/sample-files/encrypted.pdf"
 argument_list|)
 decl_stmt|;
 name|BytesReference
@@ -759,7 +781,7 @@ name|mapping
 init|=
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/multipledocs/test-mapping.json"
+literal|"/org/elasticsearch/index/mapper/attachment/test/unit/encrypted/test-mapping.json"
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -778,7 +800,7 @@ name|html
 init|=
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/htmlWithValidDateMeta.html"
+literal|"/org/elasticsearch/index/mapper/attachment/test/sample-files/htmlWithValidDateMeta.html"
 argument_list|)
 decl_stmt|;
 name|byte
@@ -787,7 +809,7 @@ name|pdf
 init|=
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/encrypted.pdf"
+literal|"/org/elasticsearch/index/mapper/attachment/test/sample-files/encrypted.pdf"
 argument_list|)
 decl_stmt|;
 name|BytesReference
@@ -1280,7 +1302,7 @@ name|mapping
 init|=
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/multipledocs/test-mapping.json"
+literal|"/org/elasticsearch/index/mapper/attachment/test/unit/encrypted/test-mapping.json"
 argument_list|)
 decl_stmt|;
 name|DocumentMapper
@@ -1299,7 +1321,7 @@ name|html
 init|=
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/htmlWithValidDateMeta.html"
+literal|"/org/elasticsearch/index/mapper/attachment/test/sample-files/htmlWithValidDateMeta.html"
 argument_list|)
 decl_stmt|;
 name|byte
@@ -1308,7 +1330,7 @@ name|pdf
 init|=
 name|copyToBytesFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/encrypted.pdf"
+literal|"/org/elasticsearch/index/mapper/attachment/test/sample-files/encrypted.pdf"
 argument_list|)
 decl_stmt|;
 name|BytesReference

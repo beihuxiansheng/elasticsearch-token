@@ -4,19 +4,21 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.mapper.attachments.test
+DECL|package|org.elasticsearch.index.mapper.attachment.test.standalone
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugin
+name|index
 operator|.
 name|mapper
 operator|.
-name|attachments
+name|attachment
 operator|.
 name|test
+operator|.
+name|standalone
 package|;
 end_package
 
@@ -216,7 +218,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
+name|attachment
+operator|.
+name|test
 operator|.
 name|MapperTestUtils
 import|;
@@ -593,7 +597,7 @@ name|mapping
 init|=
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/mapper/xcontent/test-mapping.json"
+literal|"/org/elasticsearch/index/mapper/attachment/test/standalone/standalone-mapping.json"
 argument_list|)
 decl_stmt|;
 name|docMapper

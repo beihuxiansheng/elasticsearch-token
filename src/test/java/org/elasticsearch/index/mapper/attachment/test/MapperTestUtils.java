@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.mapper.xcontent
+DECL|package|org.elasticsearch.index.mapper.attachment.test
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|xcontent
+name|attachment
+operator|.
+name|test
 package|;
 end_package
 
