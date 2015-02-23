@@ -396,6 +396,8 @@ operator|+=
 name|headerSize
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|long
@@ -408,6 +410,8 @@ operator|.
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|estimatedNumberOfOperations
 specifier|public
 name|int
@@ -418,6 +422,8 @@ return|return
 name|operationCounter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|translogSizeInBytes
 specifier|public
 name|long

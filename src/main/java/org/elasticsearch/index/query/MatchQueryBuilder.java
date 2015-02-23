@@ -309,6 +309,8 @@ name|this
 return|;
 block|}
 comment|/**      * Set the boost to apply to the query.      */
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|MatchQueryBuilder

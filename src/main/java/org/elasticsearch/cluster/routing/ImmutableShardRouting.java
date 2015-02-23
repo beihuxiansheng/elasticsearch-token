@@ -1102,6 +1102,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Writes shard information to {@link StreamOutput} without writing index name and shard id      *      * @param out {@link StreamOutput} to write shard information to      * @throws IOException if something happens during write      */
+annotation|@
+name|Override
 DECL|method|writeToThin
 specifier|public
 name|void

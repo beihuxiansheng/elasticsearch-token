@@ -290,6 +290,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|T
@@ -313,6 +315,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|putIfAbsent
 specifier|public
 name|T
@@ -336,6 +340,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|putAll
 specifier|public
 name|void
@@ -407,6 +413,8 @@ name|value
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|replace
 specifier|public
 name|boolean
@@ -435,6 +443,8 @@ name|newValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|replace
 specifier|public
 name|T

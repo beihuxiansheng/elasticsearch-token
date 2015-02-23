@@ -394,6 +394,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|readFrom
 specifier|public
 name|void
@@ -462,6 +464,8 @@ name|readBoolean
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
 name|void

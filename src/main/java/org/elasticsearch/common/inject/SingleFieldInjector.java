@@ -232,6 +232,8 @@ name|errors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjectionPoint
 specifier|public
 name|InjectionPoint
@@ -242,6 +244,8 @@ return|return
 name|injectionPoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|inject
 specifier|public
 name|void

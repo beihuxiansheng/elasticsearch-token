@@ -132,6 +132,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceClassName
 specifier|public
 name|String
@@ -151,6 +153,8 @@ return|return
 name|sourceClassName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSourceClassName
 specifier|public
 name|void
@@ -171,6 +175,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceMethodName
 specifier|public
 name|String
@@ -190,6 +196,8 @@ return|return
 name|sourceMethodName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setSourceMethodName
 specifier|public
 name|void

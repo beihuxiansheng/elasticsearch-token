@@ -108,6 +108,8 @@ operator|=
 name|end
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|SpanFirstQueryBuilder

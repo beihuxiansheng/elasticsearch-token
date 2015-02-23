@@ -861,6 +861,8 @@ name|holeCharacter
 expr_stmt|;
 block|}
 comment|/** Returns byte size of the underlying FST. */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 name|long

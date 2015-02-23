@@ -1138,6 +1138,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Forces any buffered output to be written.      */
+annotation|@
+name|Override
 DECL|method|flush
 specifier|public
 specifier|abstract
@@ -1148,6 +1150,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * Closes this stream to further operations.      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|abstract

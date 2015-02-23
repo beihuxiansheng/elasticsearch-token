@@ -886,6 +886,8 @@ name|Path
 name|dirPath
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public
@@ -1213,6 +1215,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown

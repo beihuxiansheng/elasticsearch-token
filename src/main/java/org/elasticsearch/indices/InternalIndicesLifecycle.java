@@ -218,6 +218,8 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addListener
 specifier|public
 name|void
@@ -235,6 +237,8 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|removeListener
 specifier|public
 name|void

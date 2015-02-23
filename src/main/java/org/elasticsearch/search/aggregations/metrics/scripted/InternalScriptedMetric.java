@@ -653,6 +653,8 @@ return|return
 name|TYPE
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty
 specifier|public
 name|Object

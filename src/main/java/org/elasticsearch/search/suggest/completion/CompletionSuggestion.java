@@ -456,6 +456,8 @@ name|v2
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setScore
 specifier|public
 name|void

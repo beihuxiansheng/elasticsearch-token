@@ -168,6 +168,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns an iterator over the elements in this set.  The elements      * are returned in no particular order.      *      * @return an Iterator over the elements in this set      * @see ConcurrentModificationException      */
+annotation|@
+name|Override
 DECL|method|iterator
 specifier|public
 name|Iterator
@@ -188,6 +190,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns the number of elements in this set (its cardinality).      *      * @return the number of elements in this set (its cardinality)      */
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -202,6 +206,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns<tt>true</tt> if this set contains no elements.      *      * @return<tt>true</tt> if this set contains no elements      */
+annotation|@
+name|Override
 DECL|method|isEmpty
 specifier|public
 name|boolean
@@ -216,6 +222,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns<tt>true</tt> if this set contains the specified element.      * More formally, returns<tt>true</tt> if and only if this set      * contains an element<tt>e</tt> such that      *<tt>(o==e)</tt>.      *      * @param o element whose presence in this set is to be tested      * @return<tt>true</tt> if this set contains the specified element      */
+annotation|@
+name|Override
 DECL|method|contains
 specifier|public
 name|boolean
@@ -235,6 +243,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Adds the specified element to this set if it is not already present.      * More formally, adds the specified element<tt>e</tt> to this set if      * this set contains no element<tt>e2</tt> such that      *<tt>(e==e2)</tt>.      * If this set already contains the element, the call leaves the set      * unchanged and returns<tt>false</tt>.      *      * @param e element to be added to this set      * @return<tt>true</tt> if this set did not already contain the specified      *         element      */
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 name|boolean
@@ -258,6 +268,8 @@ literal|null
 return|;
 block|}
 comment|/**      * Removes the specified element from this set if it is present.      * More formally, removes an element<tt>e</tt> such that      *<tt>(o==e)</tt>,      * if this set contains such an element.  Returns<tt>true</tt> if      * this set contained the element (or equivalently, if this set      * changed as a result of the call).  (This set will not contain the      * element once the call returns.)      *      * @param o object to be removed from this set, if present      * @return<tt>true</tt> if the set contained the specified element      */
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|boolean
@@ -279,6 +291,8 @@ name|PRESENT
 return|;
 block|}
 comment|/**      * Removes all of the elements from this set.      * The set will be empty after this call returns.      */
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -292,6 +306,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Returns a shallow copy of this<tt>HashSet</tt> instance: the elements      * themselves are not cloned.      *      * @return a shallow copy of this set      */
+annotation|@
+name|Override
 DECL|method|clone
 specifier|public
 name|Object

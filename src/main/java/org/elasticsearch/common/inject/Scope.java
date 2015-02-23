@@ -52,6 +52,8 @@ name|unscoped
 parameter_list|)
 function_decl|;
 comment|/**      * A short but useful description of this scope.  For comparison, the standard      * scopes that ship with guice use the descriptions      * {@code "Scopes.SINGLETON"}, {@code "ServletScopes.SESSION"} and      * {@code "ServletScopes.REQUEST"}.      */
+annotation|@
+name|Override
 DECL|method|toString
 name|String
 name|toString

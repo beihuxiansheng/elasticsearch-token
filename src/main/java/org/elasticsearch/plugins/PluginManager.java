@@ -642,6 +642,8 @@ operator|new
 name|X509TrustManager
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|java
 operator|.
@@ -658,7 +660,7 @@ return|return
 literal|null
 return|;
 block|}
-function|public void checkClientTrusted
+function|@Override                     public void checkClientTrusted
 parameter_list|(
 name|java
 operator|.
@@ -675,7 +677,7 @@ name|authType
 parameter_list|)
 block|{
 block|}
-function|public void checkServerTrusted
+function|@Override                     public void checkServerTrusted
 parameter_list|(
 name|java
 operator|.

@@ -117,6 +117,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|one
 specifier|protected
 name|String
@@ -127,6 +129,8 @@ return|return
 literal|"1.0"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|two
 specifier|protected
 name|String
@@ -137,6 +141,8 @@ return|return
 literal|"2.0"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|three
 specifier|protected
 name|String
@@ -147,6 +153,8 @@ return|return
 literal|"3.0"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|four
 specifier|protected
 name|String
@@ -157,6 +165,8 @@ return|return
 literal|"4.0"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|add2SingleValuedDocumentsAndDeleteOneOfThem
 specifier|protected
 name|void
@@ -949,6 +959,8 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|fillExtendedMvSet
 specifier|protected
 name|void

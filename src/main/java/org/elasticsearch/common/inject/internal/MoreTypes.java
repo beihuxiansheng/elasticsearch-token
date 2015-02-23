@@ -2625,6 +2625,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getActualTypeArguments
 specifier|public
 name|Type
@@ -2639,6 +2641,8 @@ name|clone
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getRawType
 specifier|public
 name|Type
@@ -2649,6 +2653,8 @@ return|return
 name|rawType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOwnerType
 specifier|public
 name|Type
@@ -2659,6 +2665,8 @@ return|return
 name|ownerType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isFullySpecified
 specifier|public
 name|boolean
@@ -2836,6 +2844,8 @@ name|componentType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getGenericComponentType
 specifier|public
 name|Type
@@ -2846,6 +2856,8 @@ return|return
 name|componentType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isFullySpecified
 specifier|public
 name|boolean
@@ -3100,6 +3112,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getUpperBounds
 specifier|public
 name|Type
@@ -3116,6 +3130,8 @@ name|upperBound
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getLowerBounds
 specifier|public
 name|Type
@@ -3138,6 +3154,8 @@ else|:
 name|EMPTY_TYPE_ARRAY
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isFullySpecified
 specifier|public
 name|boolean
@@ -3401,6 +3419,8 @@ name|member
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDeclaringClass
 specifier|public
 name|Class
@@ -3411,6 +3431,8 @@ return|return
 name|declaringClass
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String
@@ -3421,6 +3443,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getModifiers
 specifier|public
 name|int
@@ -3431,6 +3455,8 @@ return|return
 name|modifiers
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|isSynthetic
 specifier|public
 name|boolean

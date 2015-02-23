@@ -1888,6 +1888,8 @@ operator|=
 literal|1.0f
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|flyweight
 specifier|public
 name|boolean
@@ -1901,6 +1903,8 @@ name|flyweight
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docMapperParser
 specifier|public
 name|DocumentMapperParser
@@ -1913,6 +1917,8 @@ operator|.
 name|docMapperParser
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mappingsModified
 specifier|public
 name|boolean
@@ -1925,6 +1931,8 @@ operator|.
 name|mappingsModified
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setMappingsModified
 specifier|public
 name|void
@@ -1938,6 +1946,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setWithinNewMapper
 specifier|public
 name|void
@@ -1951,6 +1961,8 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|clearWithinNewMapper
 specifier|public
 name|void
@@ -1964,6 +1976,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isWithinNewMapper
 specifier|public
 name|boolean
@@ -1974,6 +1988,8 @@ return|return
 name|withinNewMapper
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|index
 specifier|public
 name|String
@@ -1986,6 +2002,8 @@ operator|.
 name|index
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Nullable
 DECL|method|indexSettings
@@ -2000,6 +2018,8 @@ operator|.
 name|indexSettings
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|type
 specifier|public
 name|String
@@ -2013,6 +2033,8 @@ name|type
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sourceToParse
 specifier|public
 name|SourceToParse
@@ -2025,6 +2047,8 @@ operator|.
 name|sourceToParse
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|source
 specifier|public
 name|BytesReference
@@ -2036,6 +2060,8 @@ name|source
 return|;
 block|}
 comment|// only should be used by SourceFieldMapper to update with a compressed source
+annotation|@
+name|Override
 DECL|method|source
 specifier|public
 name|void
@@ -2052,6 +2078,8 @@ operator|=
 name|source
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|path
 specifier|public
 name|ContentPath
@@ -2064,6 +2092,8 @@ operator|.
 name|path
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parser
 specifier|public
 name|XContentParser
@@ -2076,6 +2106,8 @@ operator|.
 name|parser
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|listener
 specifier|public
 name|DocumentMapper
@@ -2090,6 +2122,8 @@ operator|.
 name|listener
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rootDoc
 specifier|public
 name|Document
@@ -2105,6 +2139,8 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docs
 specifier|public
 name|List
@@ -2120,6 +2156,8 @@ operator|.
 name|documents
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
@@ -2132,6 +2170,8 @@ operator|.
 name|document
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addDoc
 specifier|public
 name|void
@@ -2151,6 +2191,8 @@ name|doc
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|root
 specifier|public
 name|RootObjectMapper
@@ -2164,6 +2206,8 @@ name|root
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docMapper
 specifier|public
 name|DocumentMapper
@@ -2176,6 +2220,8 @@ operator|.
 name|docMapper
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|analysisService
 specifier|public
 name|AnalysisService
@@ -2188,6 +2234,8 @@ operator|.
 name|analysisService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|String
@@ -2198,6 +2246,8 @@ return|return
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|ignoredValue
 specifier|public
 name|void
@@ -2220,6 +2270,8 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|ignoredValue
 specifier|public
 name|String
@@ -2239,6 +2291,8 @@ argument_list|)
 return|;
 block|}
 comment|/**          * Really, just the id mapper should set this.          */
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|void
@@ -2255,6 +2309,8 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|uid
 specifier|public
 name|Field
@@ -2268,6 +2324,8 @@ name|uid
 return|;
 block|}
 comment|/**          * Really, just the uid mapper should set this.          */
+annotation|@
+name|Override
 DECL|method|uid
 specifier|public
 name|void
@@ -2284,6 +2342,8 @@ operator|=
 name|uid
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|Field
@@ -2296,6 +2356,8 @@ operator|.
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|void
@@ -2312,6 +2374,8 @@ operator|=
 name|version
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|allEntries
 specifier|public
 name|AllEntries
@@ -2324,6 +2388,8 @@ operator|.
 name|allEntries
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docBoost
 specifier|public
 name|float
@@ -2336,6 +2402,8 @@ operator|.
 name|docBoost
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docBoost
 specifier|public
 name|void
@@ -2353,6 +2421,8 @@ name|docBoost
 expr_stmt|;
 block|}
 comment|/**          * A string builder that can be used to construct complex names for example.          * Its better to reuse the.          */
+annotation|@
+name|Override
 DECL|method|stringBuilder
 specifier|public
 name|StringBuilder

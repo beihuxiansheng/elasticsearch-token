@@ -2196,6 +2196,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|onResponse
 specifier|public
 name|void
@@ -2209,6 +2211,8 @@ name|manage
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onFailure
 specifier|public
 name|void

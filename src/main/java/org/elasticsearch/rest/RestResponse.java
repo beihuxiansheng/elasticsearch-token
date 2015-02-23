@@ -356,6 +356,8 @@ expr_stmt|;
 block|}
 comment|/**      * Returns custom headers that have been added, or null if none have been set.      */
 annotation|@
+name|Override
+annotation|@
 name|Nullable
 DECL|method|getHeaders
 specifier|public

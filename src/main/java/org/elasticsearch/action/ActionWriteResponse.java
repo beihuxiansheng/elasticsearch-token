@@ -885,6 +885,8 @@ name|Failure
 parameter_list|()
 block|{             }
 comment|/**              * @return On what index the failure occurred.              */
+annotation|@
+name|Override
 DECL|method|index
 specifier|public
 name|String
@@ -896,6 +898,8 @@ name|index
 return|;
 block|}
 comment|/**              * @return On what shard id the failure occurred.              */
+annotation|@
+name|Override
 DECL|method|shardId
 specifier|public
 name|int
@@ -920,6 +924,8 @@ name|nodeId
 return|;
 block|}
 comment|/**              * @return A text description of the failure              */
+annotation|@
+name|Override
 DECL|method|reason
 specifier|public
 name|String
@@ -931,6 +937,8 @@ name|reason
 return|;
 block|}
 comment|/**              * @return The status to report if this failure was a primary failure.              */
+annotation|@
+name|Override
 DECL|method|status
 specifier|public
 name|RestStatus

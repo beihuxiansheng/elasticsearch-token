@@ -478,6 +478,8 @@ operator|new
 name|Module
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -828,6 +830,8 @@ operator|=
 name|privateElements
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|bindScope
 specifier|public
 name|void
@@ -863,6 +867,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -896,6 +902,8 @@ name|instance
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestInjection
 specifier|public
 parameter_list|<
@@ -932,6 +940,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -982,6 +992,8 @@ name|getMembersInjector
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -1012,6 +1024,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bindListener
 specifier|public
 name|void
@@ -1049,6 +1063,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|requestStaticInjection
 specifier|public
 name|void
@@ -1089,6 +1105,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|install
 specifier|public
 name|void
@@ -1197,6 +1215,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|currentStage
 specifier|public
 name|Stage
@@ -1207,6 +1227,8 @@ return|return
 name|stage
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|public
 name|void
@@ -1242,6 +1264,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|public
 name|void
@@ -1283,6 +1307,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|public
 name|void
@@ -1300,6 +1326,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|bind
 specifier|public
 parameter_list|<
@@ -1334,6 +1362,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bind
 specifier|public
 parameter_list|<
@@ -1364,6 +1394,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bind
 specifier|public
 parameter_list|<
@@ -1394,6 +1426,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bindConstant
 specifier|public
 name|AnnotatedConstantBindingBuilder
@@ -1416,6 +1450,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -1466,6 +1502,8 @@ name|getProvider
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -1496,6 +1534,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|convertToTypes
 specifier|public
 name|void
@@ -1533,6 +1573,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|withSource
 specifier|public
 name|RecordingBinder
@@ -1555,6 +1597,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|skipSources
 specifier|public
 name|RecordingBinder
@@ -1599,6 +1643,8 @@ name|newSourceProvider
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newPrivateBinder
 specifier|public
 name|PrivateBinder
@@ -1632,6 +1678,8 @@ name|privateElements
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|expose
 specifier|public
 name|void
@@ -1650,6 +1698,8 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|expose
 specifier|public
 name|AnnotatedElementBuilder
@@ -1674,6 +1724,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|expose
 specifier|public
 name|AnnotatedElementBuilder
@@ -1734,6 +1786,8 @@ operator|new
 name|AnnotatedElementBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|annotatedWith
@@ -1747,6 +1801,8 @@ argument_list|>
 name|annotationType
 parameter_list|)
 block|{                     }
+annotation|@
+name|Override
 specifier|public
 name|void
 name|annotatedWith

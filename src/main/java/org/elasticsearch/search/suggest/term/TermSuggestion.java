@@ -467,6 +467,8 @@ operator|=
 name|sort
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getType
 specifier|public
 name|int
@@ -583,6 +585,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newEntry
 specifier|protected
 name|Entry

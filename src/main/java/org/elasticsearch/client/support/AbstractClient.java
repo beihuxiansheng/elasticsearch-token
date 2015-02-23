@@ -1807,6 +1807,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Delete an indexed script      *      * @param request The put request      * @return The result future      */
+annotation|@
+name|Override
 DECL|method|deleteIndexedScript
 specifier|public
 name|ActionFuture
@@ -1831,6 +1833,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Delete an indexed script      */
+annotation|@
+name|Override
 DECL|method|prepareDeleteIndexedScript
 specifier|public
 name|DeleteIndexedScriptRequestBuilder
@@ -1849,6 +1853,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Delete an indexed script      * @param scriptLang      * @param id      * @return      */
+annotation|@
+name|Override
 DECL|method|prepareDeleteIndexedScript
 specifier|public
 name|DeleteIndexedScriptRequestBuilder

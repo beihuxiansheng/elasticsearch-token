@@ -1367,6 +1367,8 @@ name|valueKey
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|configure
 specifier|public
 name|void
@@ -1577,6 +1579,8 @@ name|providerMapMutable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1594,6 +1598,8 @@ return|return
 name|providerMap
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1655,6 +1661,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -1751,6 +1759,8 @@ name|map
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Set
 argument_list|<
@@ -1890,6 +1900,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|K
@@ -1900,6 +1912,8 @@ return|return
 name|key
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|V
@@ -1910,6 +1924,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setValue
 specifier|public
 name|V

@@ -559,6 +559,8 @@ operator|=
 name|timeZone
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|format
 specifier|public
 name|String

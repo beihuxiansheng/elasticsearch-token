@@ -103,6 +103,8 @@ block|}
 block|}
 decl_stmt|;
 comment|/**      * The memory size this ordinals take.      */
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 specifier|abstract

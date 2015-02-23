@@ -740,6 +740,8 @@ operator|.
 name|logger
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPipeline
 specifier|public
 name|ChannelPipeline

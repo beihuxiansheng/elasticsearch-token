@@ -139,6 +139,8 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|doStart
 specifier|protected
 name|void
@@ -147,6 +149,8 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{     }
+annotation|@
+name|Override
 DECL|method|doStop
 specifier|protected
 name|void
@@ -155,6 +159,8 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{     }
+annotation|@
+name|Override
 DECL|method|doClose
 specifier|protected
 name|void

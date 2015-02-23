@@ -548,6 +548,8 @@ name|ReverseNestedTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+annotation|@
+name|Override
 DECL|method|setupSuiteScopeCluster
 specifier|public
 name|void

@@ -2311,6 +2311,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newParent
 specifier|protected
 name|void
@@ -2422,6 +2424,8 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newParent
 specifier|protected
 name|void
@@ -3659,6 +3663,8 @@ operator|.
 name|occurrences
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptAndScore
 specifier|protected
 name|boolean

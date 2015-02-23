@@ -91,6 +91,8 @@ literal|"name"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|value
 specifier|public
 name|String
@@ -103,6 +105,8 @@ operator|.
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int
@@ -126,6 +130,8 @@ name|hashCode
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -169,6 +175,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -192,6 +200,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|annotationType
 specifier|public
 name|Class

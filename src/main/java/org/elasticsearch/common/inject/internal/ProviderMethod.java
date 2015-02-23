@@ -429,6 +429,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|T
@@ -541,6 +543,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getDependencies
 specifier|public
 name|Set

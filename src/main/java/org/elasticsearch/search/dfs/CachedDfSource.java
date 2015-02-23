@@ -294,6 +294,8 @@ operator|.
 name|maxDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|rewrite
 specifier|public
 name|Query
@@ -311,6 +313,8 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|Document
@@ -326,6 +330,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|doc
 specifier|public
 name|void
@@ -346,6 +352,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|Explanation

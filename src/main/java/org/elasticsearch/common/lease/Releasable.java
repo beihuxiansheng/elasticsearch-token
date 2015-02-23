@@ -38,6 +38,8 @@ name|Releasable
 extends|extends
 name|AutoCloseable
 block|{
+annotation|@
+name|Override
 DECL|method|close
 name|void
 name|close

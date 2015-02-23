@@ -676,6 +676,8 @@ return|;
 block|}
 comment|//-----------------------------------------------------------------------
 comment|/**      * Gets the milliseconds of the datetime instant from the Java epoch      * of 1970-01-01T00:00:00Z.      *      * @return the number of milliseconds since 1970-01-01T00:00:00Z      */
+annotation|@
+name|Override
 DECL|method|getMillis
 specifier|public
 name|long
@@ -687,6 +689,8 @@ name|iMillis
 return|;
 block|}
 comment|/**      * Gets the chronology of the datetime.      *      * @return the Chronology that the datetime is using      */
+annotation|@
+name|Override
 DECL|method|getChronology
 specifier|public
 name|Chronology

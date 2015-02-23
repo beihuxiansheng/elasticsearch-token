@@ -1268,6 +1268,8 @@ argument_list|(
 name|terms
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|Query
 name|topLevelQuery
@@ -1401,6 +1403,8 @@ argument_list|(
 name|terms
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|Query
 name|topLevelQuery
@@ -1709,6 +1713,8 @@ argument_list|(
 name|terms
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|Query
 name|topLevelQuery

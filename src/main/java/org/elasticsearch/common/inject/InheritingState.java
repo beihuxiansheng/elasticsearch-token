@@ -340,6 +340,8 @@ name|lock
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parent
 specifier|public
 name|State
@@ -350,6 +352,8 @@ return|return
 name|parent
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -408,6 +412,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExplicitBindingsThisLevel
 specifier|public
 name|Map
@@ -429,6 +435,8 @@ return|return
 name|explicitBindings
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|putBinding
 specifier|public
 name|void
@@ -457,6 +465,8 @@ name|binding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getScope
 specifier|public
 name|Scope
@@ -496,6 +506,8 @@ name|annotationType
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|putAnnotation
 specifier|public
 name|void
@@ -523,6 +535,8 @@ name|scope
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConvertersThisLevel
 specifier|public
 name|Iterable
@@ -536,6 +550,8 @@ return|return
 name|converters
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addConverter
 specifier|public
 name|void
@@ -553,6 +569,8 @@ name|matcherAndConverter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConverter
 specifier|public
 name|MatcherAndConverter
@@ -658,6 +676,8 @@ return|return
 name|matchingConverter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addTypeListener
 specifier|public
 name|void
@@ -675,6 +695,8 @@ name|listenerBinding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getTypeListenerBindings
 specifier|public
 name|List
@@ -731,6 +753,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|blacklist
 specifier|public
 name|void
@@ -758,6 +782,8 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isBlacklisted
 specifier|public
 name|boolean
@@ -944,6 +970,8 @@ name|x
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lock
 specifier|public
 name|Object

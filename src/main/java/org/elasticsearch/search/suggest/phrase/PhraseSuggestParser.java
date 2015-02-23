@@ -281,6 +281,8 @@ operator|=
 name|suggester
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|SuggestionSearchContext

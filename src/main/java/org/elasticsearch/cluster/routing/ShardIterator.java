@@ -54,6 +54,8 @@ name|shardId
 parameter_list|()
 function_decl|;
 comment|/**      * Resets the iterator.      */
+annotation|@
+name|Override
 DECL|method|reset
 name|void
 name|reset

@@ -310,6 +310,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Prepares the appender for use.      */
+annotation|@
+name|Override
 DECL|method|activateOptions
 specifier|public
 name|void
@@ -400,6 +402,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * {@inheritDoc}      */
+annotation|@
+name|Override
 specifier|protected
 DECL|method|closeWriter
 specifier|final
@@ -433,12 +437,16 @@ specifier|public
 name|SystemErrStream
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
 name|close
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|flush
 specifier|public
 name|void
@@ -453,6 +461,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -487,6 +497,8 @@ name|b
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -533,6 +545,8 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -581,12 +595,16 @@ specifier|public
 name|SystemOutStream
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
 name|close
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|flush
 specifier|public
 name|void
@@ -601,6 +619,8 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -635,6 +655,8 @@ name|b
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -681,6 +703,8 @@ name|len
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void

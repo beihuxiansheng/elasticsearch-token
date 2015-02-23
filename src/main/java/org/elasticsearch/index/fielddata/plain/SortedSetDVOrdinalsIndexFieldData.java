@@ -267,6 +267,8 @@ operator|=
 name|breakerService
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|comparatorSource
 specifier|public
 name|org

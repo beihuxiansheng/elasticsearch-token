@@ -1421,6 +1421,8 @@ name|addresses
 return|;
 block|}
 comment|/**      * Closes the REST client and the underlying http client      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

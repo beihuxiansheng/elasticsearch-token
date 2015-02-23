@@ -261,6 +261,8 @@ name|primary
 expr_stmt|;
 block|}
 comment|/**      * Called by Lucene. Same as {@link #onCommit(java.util.List)}.      */
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -296,6 +298,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Called by Lucene.. Wraps the provided commits with {@link SnapshotIndexCommit}      * and delegates to the wrapped deletion policy.      */
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

@@ -91,6 +91,8 @@ name|stop
 parameter_list|()
 function_decl|;
 comment|/**      * Closes the node (and {@link #stop}s if its running).      */
+annotation|@
+name|Override
 DECL|method|close
 name|void
 name|close

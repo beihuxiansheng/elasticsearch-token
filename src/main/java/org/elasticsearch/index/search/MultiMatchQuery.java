@@ -967,6 +967,8 @@ name|tieBreaker
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildGroupedQueries
 specifier|public
 name|List
@@ -1389,6 +1391,8 @@ else|:
 name|queries
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|forceAnalyzeQueryString
 specifier|public
 name|boolean
@@ -1401,6 +1405,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|blendTerm
 specifier|public
 name|Query
@@ -1710,6 +1716,8 @@ argument_list|)
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|forceAnalyzeQueryString
 specifier|protected
 name|boolean

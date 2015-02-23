@@ -79,6 +79,8 @@ specifier|private
 name|UTF8SortedAsUnicodeComparator
 parameter_list|()
 block|{     }
+annotation|@
+name|Override
 DECL|method|compare
 specifier|public
 name|int

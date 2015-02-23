@@ -42,6 +42,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 specifier|final

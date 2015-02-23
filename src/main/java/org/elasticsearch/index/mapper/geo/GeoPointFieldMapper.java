@@ -1115,6 +1115,8 @@ operator|=
 name|this
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|multiFieldPathType
 specifier|public
 name|Builder
@@ -1231,6 +1233,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fieldDataSettings
 specifier|public
 name|Builder

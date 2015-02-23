@@ -172,6 +172,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|annotatedWith
 specifier|public
 name|void
@@ -221,6 +223,8 @@ name|annotationType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|annotatedWith
 specifier|public
 name|void

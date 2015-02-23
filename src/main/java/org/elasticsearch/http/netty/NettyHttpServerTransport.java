@@ -1602,6 +1602,8 @@ operator|.
 name|settings
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|httpServerAdapter
 specifier|public
 name|void
@@ -2189,6 +2191,8 @@ parameter_list|()
 throws|throws
 name|ElasticsearchException
 block|{     }
+annotation|@
+name|Override
 DECL|method|boundAddress
 specifier|public
 name|BoundTransportAddress

@@ -633,6 +633,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|canAllocate
 specifier|public
 name|Decision
@@ -733,6 +735,8 @@ return|return
 name|ret
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|canAllocate
 specifier|public
 name|Decision

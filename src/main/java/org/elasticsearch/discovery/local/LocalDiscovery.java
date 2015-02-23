@@ -1652,6 +1652,8 @@ name|id
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|publish
 specifier|public
 name|void

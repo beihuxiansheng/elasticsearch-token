@@ -815,6 +815,8 @@ name|analyzer
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

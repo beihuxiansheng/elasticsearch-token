@@ -1476,6 +1476,8 @@ init|=
 operator|-
 literal|8167713675442491871L
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|DurationField
 name|getField
@@ -1523,6 +1525,8 @@ init|=
 operator|-
 literal|5677872459807379123L
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|DurationFieldType
 name|getDurationType
@@ -1532,6 +1536,8 @@ return|return
 name|Quarters
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DurationFieldType
 name|getRangeDurationType
@@ -1544,6 +1550,8 @@ name|years
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|DateTimeField
 name|getField

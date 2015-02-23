@@ -134,6 +134,8 @@ operator|-
 literal|1
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resize
 specifier|protected
 name|void

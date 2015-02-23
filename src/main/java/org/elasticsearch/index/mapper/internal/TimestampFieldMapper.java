@@ -1642,6 +1642,8 @@ operator|.
 name|ignoreMissing
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dateTimeFormatter
 specifier|public
 name|FormatDateTimeFormatter

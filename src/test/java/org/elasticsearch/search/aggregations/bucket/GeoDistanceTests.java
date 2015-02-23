@@ -524,6 +524,8 @@ name|source
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setupSuiteScopeCluster
 specifier|public
 name|void

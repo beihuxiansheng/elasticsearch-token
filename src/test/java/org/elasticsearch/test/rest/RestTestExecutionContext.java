@@ -807,6 +807,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Closes the execution context and releases the underlying resources      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

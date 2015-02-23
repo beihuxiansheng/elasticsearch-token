@@ -5141,6 +5141,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasDocValues
 specifier|public
 name|boolean
@@ -6745,6 +6747,8 @@ block|}
 block|}
 block|}
 comment|/**      * Returns if this field is only generated when indexing. For example, the field of type token_count      */
+annotation|@
+name|Override
 DECL|method|isGenerated
 specifier|public
 name|boolean

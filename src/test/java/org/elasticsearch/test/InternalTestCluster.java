@@ -7076,6 +7076,8 @@ name|NodeAndClient
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|apply
@@ -8150,6 +8152,8 @@ operator|new
 name|RestartCallback
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Settings
 name|onNodeStopped

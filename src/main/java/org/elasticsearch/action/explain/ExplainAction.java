@@ -90,6 +90,8 @@ name|NAME
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newRequestBuilder
 specifier|public
 name|ExplainRequestBuilder
@@ -107,6 +109,8 @@ name|client
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newResponse
 specifier|public
 name|ExplainResponse

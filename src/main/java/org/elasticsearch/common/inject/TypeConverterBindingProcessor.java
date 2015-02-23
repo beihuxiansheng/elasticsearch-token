@@ -326,6 +326,8 @@ operator|new
 name|TypeConverter
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|convert
@@ -404,6 +406,8 @@ name|TypeConverter
 argument_list|()
 block|{
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -465,6 +469,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|matches
@@ -504,6 +510,8 @@ operator|new
 name|TypeConverter
 argument_list|()
 block|{
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -636,6 +644,8 @@ operator|new
 name|TypeConverter
 argument_list|()
 block|{
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -816,6 +826,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|matches

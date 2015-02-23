@@ -149,6 +149,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|keysFieldName
 specifier|protected
 name|String
@@ -159,6 +161,8 @@ return|return
 literal|"percents"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildFactory
 specifier|protected
 name|AggregatorFactory

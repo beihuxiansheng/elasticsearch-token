@@ -247,6 +247,8 @@ operator|=
 name|providerKey
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptTargetVisitor
 specifier|public
 parameter_list|<
@@ -275,6 +277,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProviderKey
 specifier|public
 name|Key
@@ -295,6 +299,8 @@ return|return
 name|providerKey
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withScoping
 specifier|public
 name|BindingImpl
@@ -324,6 +330,8 @@ name|providerKey
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withKey
 specifier|public
 name|BindingImpl
@@ -356,6 +364,8 @@ name|providerKey
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void

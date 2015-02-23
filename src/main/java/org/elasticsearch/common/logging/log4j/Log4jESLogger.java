@@ -128,6 +128,8 @@ return|return
 name|logger
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setLevel
 specifier|public
 name|void

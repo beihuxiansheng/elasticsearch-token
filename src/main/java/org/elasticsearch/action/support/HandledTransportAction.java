@@ -218,6 +218,8 @@ name|Request
 argument_list|>
 block|{
 comment|/**          * Call to get an instance of type Request          * @return Request          */
+annotation|@
+name|Override
 DECL|method|newInstance
 specifier|public
 specifier|abstract

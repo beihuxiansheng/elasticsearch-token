@@ -1076,6 +1076,8 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDependencies
 specifier|public
 name|Set
@@ -1163,6 +1165,8 @@ name|dependencies
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|F
@@ -1176,6 +1180,8 @@ operator|new
 name|InvocationHandler
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|invoke

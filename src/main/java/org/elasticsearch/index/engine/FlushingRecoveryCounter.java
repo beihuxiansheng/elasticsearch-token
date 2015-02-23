@@ -124,6 +124,8 @@ operator|=
 name|logger
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|endRecovery
 name|int
 name|endRecovery

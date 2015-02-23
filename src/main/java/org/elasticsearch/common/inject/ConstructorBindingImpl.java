@@ -329,6 +329,8 @@ name|errors
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptTargetVisitor
 specifier|public
 parameter_list|<
@@ -368,6 +370,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getConstructor
 specifier|public
 name|InjectionPoint
@@ -397,6 +401,8 @@ name|getInjectionPoint
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjectableMembers
 specifier|public
 name|Set
@@ -426,6 +432,8 @@ name|getInjectableMembers
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDependencies
 specifier|public
 name|Set
@@ -469,6 +477,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void
@@ -553,6 +563,8 @@ name|T
 argument_list|>
 name|constructorInjector
 decl_stmt|;
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

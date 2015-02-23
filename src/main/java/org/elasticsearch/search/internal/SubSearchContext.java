@@ -584,6 +584,8 @@ literal|"Not supported"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|highlight
 specifier|public
 name|SearchContextHighlight
@@ -594,6 +596,8 @@ return|return
 name|highlight
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|highlight
 specifier|public
 name|void

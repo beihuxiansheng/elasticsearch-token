@@ -346,6 +346,8 @@ name|indexFieldTerm
 return|;
 block|}
 comment|/*      * Returns a TermInfo object that can be used to access information on      * specific terms. flags can be set as described in TermInfo.      */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|IndexFieldTerm

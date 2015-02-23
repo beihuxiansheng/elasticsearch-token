@@ -423,6 +423,8 @@ return|return
 name|docCount
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocCountError
 specifier|public
 name|long
@@ -854,6 +856,8 @@ name|term
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDocCountError
 specifier|public
 name|long

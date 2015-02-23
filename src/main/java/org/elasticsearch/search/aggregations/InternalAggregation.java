@@ -530,6 +530,8 @@ name|ReduceContext
 name|reduceContext
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|getProperty
 specifier|public
 name|Object
@@ -644,6 +646,8 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMetaData
 specifier|public
 name|Map
@@ -742,6 +746,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
 specifier|final
@@ -786,6 +792,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
 DECL|method|readFrom
 specifier|public
 specifier|final

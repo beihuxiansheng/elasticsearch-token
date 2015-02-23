@@ -1776,6 +1776,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newCollector
 specifier|protected
 name|LeafBucketCollector
@@ -2182,6 +2184,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// bucketOrd is ord + 1 to avoid a branch to deal with the missing ord
+annotation|@
+name|Override
 DECL|method|newCollector
 specifier|protected
 name|LeafBucketCollector

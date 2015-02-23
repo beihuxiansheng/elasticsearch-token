@@ -677,6 +677,8 @@ argument_list|>
 argument_list|>
 name|expectedMultiSortBuckets
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|setupSuiteScopeCluster
 specifier|public
 name|void

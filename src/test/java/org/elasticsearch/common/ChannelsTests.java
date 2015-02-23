@@ -300,6 +300,8 @@ name|FileChannel
 name|fileChannel
 decl_stmt|;
 annotation|@
+name|Override
+annotation|@
 name|Before
 DECL|method|setUp
 specifier|public
@@ -364,6 +366,8 @@ literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|After
 DECL|method|tearDown

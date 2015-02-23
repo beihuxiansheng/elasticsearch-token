@@ -344,6 +344,8 @@ return|return
 name|min
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|double

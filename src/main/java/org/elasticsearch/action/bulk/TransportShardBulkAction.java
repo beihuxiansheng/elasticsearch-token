@@ -4227,6 +4227,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|shardOperationOnReplica
 specifier|protected
 name|void

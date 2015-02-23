@@ -1283,6 +1283,8 @@ operator|=
 name|parentType
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void

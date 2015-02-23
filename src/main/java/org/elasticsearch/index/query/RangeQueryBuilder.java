@@ -1028,6 +1028,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|RangeQueryBuilder

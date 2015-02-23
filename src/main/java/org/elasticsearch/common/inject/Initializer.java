@@ -566,6 +566,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**          * Reentrant. If {@code instance} was registered for injection at injector-creation time, this          * method will ensure that all its members have been injected before returning.          */
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|T

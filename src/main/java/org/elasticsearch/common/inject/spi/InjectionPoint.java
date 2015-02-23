@@ -1732,6 +1732,8 @@ name|Field
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Field
 index|[]
@@ -1751,6 +1753,8 @@ name|getDeclaredFields
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|InjectionPoint
 name|create
@@ -1794,6 +1798,8 @@ name|Method
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Method
 index|[]
@@ -1813,6 +1819,8 @@ name|getDeclaredMethods
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|InjectionPoint
 name|create

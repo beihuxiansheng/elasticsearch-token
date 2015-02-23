@@ -286,6 +286,8 @@ operator|=
 name|scoping
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|Key
@@ -299,6 +301,8 @@ return|return
 name|key
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|Object
@@ -318,6 +322,8 @@ name|T
 argument_list|>
 name|provider
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 name|Provider
@@ -401,6 +407,8 @@ operator|instanceof
 name|InstanceBinding
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptVisitor
 specifier|public
 parameter_list|<
@@ -425,6 +433,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptScopingVisitor
 specifier|public
 parameter_list|<

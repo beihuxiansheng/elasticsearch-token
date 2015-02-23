@@ -349,6 +349,8 @@ operator|=
 name|shardFailures
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|status
 specifier|public
 name|RestStatus

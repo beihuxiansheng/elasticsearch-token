@@ -349,6 +349,8 @@ name|class
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|resetNodeAfterTest
 specifier|protected
 name|boolean

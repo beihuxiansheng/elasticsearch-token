@@ -901,6 +901,8 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1532,6 +1534,8 @@ specifier|public
 name|ExpiredDocsCollector
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -1553,6 +1557,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -1662,6 +1668,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doSetNextReader
 specifier|public
 name|void

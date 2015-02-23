@@ -385,6 +385,8 @@ implements|implements
 name|DownloadProgress
 block|{
 comment|/**          * begin a download          */
+annotation|@
+name|Override
 DECL|method|beginDownload
 specifier|public
 name|void
@@ -392,6 +394,8 @@ name|beginDownload
 parameter_list|()
 block|{          }
 comment|/**          * tick handler          */
+annotation|@
+name|Override
 DECL|method|onTick
 specifier|public
 name|void
@@ -399,6 +403,8 @@ name|onTick
 parameter_list|()
 block|{         }
 comment|/**          * end a download          */
+annotation|@
+name|Override
 DECL|method|endDownload
 specifier|public
 name|void
@@ -465,6 +471,8 @@ name|writer
 expr_stmt|;
 block|}
 comment|/**          * begin a download          */
+annotation|@
+name|Override
 DECL|method|beginDownload
 specifier|public
 name|void
@@ -484,6 +492,8 @@ literal|0
 expr_stmt|;
 block|}
 comment|/**          * tick handler          */
+annotation|@
+name|Override
 DECL|method|onTick
 specifier|public
 name|void
@@ -517,6 +527,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**          * end a download          */
+annotation|@
+name|Override
 DECL|method|endDownload
 specifier|public
 name|void
@@ -658,6 +670,8 @@ operator|=
 name|p
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void

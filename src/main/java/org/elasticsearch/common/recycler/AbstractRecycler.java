@@ -61,6 +61,8 @@ operator|=
 name|c
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|obtain
 specifier|public
 name|V

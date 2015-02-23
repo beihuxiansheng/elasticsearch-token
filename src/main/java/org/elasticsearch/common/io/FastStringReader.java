@@ -443,6 +443,8 @@ name|mark
 expr_stmt|;
 block|}
 comment|/**      * Closes the stream and releases any system resources associated with      * it. Once the stream has been closed, further read(),      * ready(), mark(), or reset() invocations will throw an IOException.      * Closing a previously closed stream has no effect.      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

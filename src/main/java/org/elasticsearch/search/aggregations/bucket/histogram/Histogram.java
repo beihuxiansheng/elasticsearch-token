@@ -93,6 +93,8 @@ operator|.
 name|Bucket
 block|{      }
 comment|/**      * @return  The buckets of this histogram (each bucket representing an interval in the histogram)      */
+annotation|@
+name|Override
 DECL|method|getBuckets
 name|List
 argument_list|<

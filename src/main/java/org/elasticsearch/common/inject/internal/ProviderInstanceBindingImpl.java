@@ -283,6 +283,8 @@ operator|=
 name|providerInstance
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptTargetVisitor
 specifier|public
 parameter_list|<
@@ -311,6 +313,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProviderInstance
 specifier|public
 name|Provider
@@ -326,6 +330,8 @@ return|return
 name|providerInstance
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjectionPoints
 specifier|public
 name|Set
@@ -339,6 +345,8 @@ return|return
 name|injectionPoints
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDependencies
 specifier|public
 name|Set
@@ -379,6 +387,8 @@ name|injectionPoints
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withScoping
 specifier|public
 name|BindingImpl
@@ -410,6 +420,8 @@ name|providerInstance
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withKey
 specifier|public
 name|BindingImpl
@@ -444,6 +456,8 @@ name|providerInstance
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void

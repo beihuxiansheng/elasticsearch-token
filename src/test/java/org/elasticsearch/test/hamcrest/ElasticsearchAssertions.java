@@ -4906,6 +4906,8 @@ name|Object
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|apply
@@ -5840,6 +5842,8 @@ name|PluginInfo
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|apply
@@ -5876,6 +5880,8 @@ name|PluginInfo
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|apply
@@ -5916,6 +5922,8 @@ name|String
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|apply
@@ -5956,6 +5964,8 @@ name|String
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|apply
@@ -5996,6 +6006,8 @@ name|String
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|apply
@@ -6036,6 +6048,8 @@ name|String
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|apply

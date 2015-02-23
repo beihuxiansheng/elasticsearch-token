@@ -872,6 +872,8 @@ name|fieldName
 expr_stmt|;
 block|}
 comment|/**          * @return the number of bytes for the term based on the length and ordinal overhead          */
+annotation|@
+name|Override
 DECL|method|bytesPerValue
 specifier|public
 name|long
@@ -1084,6 +1086,8 @@ literal|0
 return|;
 block|}
 comment|/**          * Determine whether the BlockTreeTermsReader.FieldReader can be used          * for estimating the field data, adding the estimate to the circuit          * breaker if it can, otherwise wrapping the terms in a          * RamAccountingTermsEnum to be estimated on a per-term basis.          *          * @param terms terms to be estimated          * @return A possibly wrapped TermsEnum for the terms          * @throws IOException          */
+annotation|@
+name|Override
 DECL|method|beforeLoad
 specifier|public
 name|TermsEnum
@@ -1293,6 +1297,8 @@ return|;
 block|}
 block|}
 comment|/**          * Adjust the circuit breaker now that terms have been loaded, getting          * the actual used either from the parameter (if estimation worked for          * the entire set), or from the TermsEnum if it has been wrapped in a          * RamAccountingTermsEnum.          *          * @param termsEnum  terms that were loaded          * @param actualUsed actual field data memory usage          */
+annotation|@
+name|Override
 DECL|method|afterLoad
 specifier|public
 name|void

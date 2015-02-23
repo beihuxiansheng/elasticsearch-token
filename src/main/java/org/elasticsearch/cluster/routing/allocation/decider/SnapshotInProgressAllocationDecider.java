@@ -308,6 +308,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Returns a {@link Decision} whether the given shard routing can be      * re-balanced to the given allocation. The default is      * {@link Decision#ALWAYS}.      */
+annotation|@
+name|Override
 DECL|method|canRebalance
 specifier|public
 name|Decision
@@ -330,6 +332,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns a {@link Decision} whether the given shard routing can be      * allocated on the given node. The default is {@link Decision#ALWAYS}.      */
+annotation|@
+name|Override
 DECL|method|canAllocate
 specifier|public
 name|Decision

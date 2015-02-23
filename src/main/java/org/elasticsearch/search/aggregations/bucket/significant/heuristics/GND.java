@@ -515,6 +515,8 @@ name|getAllNamesIncludedDeprecated
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newHeuristic
 specifier|protected
 name|SignificanceHeuristic

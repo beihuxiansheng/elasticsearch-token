@@ -134,6 +134,8 @@ operator|=
 name|parentQuery
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|HasParentQueryBuilder
@@ -213,6 +215,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|doXContent
 specifier|protected
 name|void

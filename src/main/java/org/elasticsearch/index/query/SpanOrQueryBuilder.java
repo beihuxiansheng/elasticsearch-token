@@ -125,6 +125,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|SpanOrQueryBuilder

@@ -241,6 +241,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Method used to trip the breaker      * @throws CircuitBreakingException      */
+annotation|@
+name|Override
 DECL|method|circuitBreak
 specifier|public
 name|void
@@ -300,6 +302,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Add a number of bytes, tripping the circuit breaker if the aggregated      * estimates are above the limit. Automatically trips the breaker if the      * memory limit is set to 0. Will never trip the breaker if the limit is      * set< 0, but can still be used to aggregate estimations.      * @param bytes number of bytes to add to the breaker      * @return number of "used" bytes so far      * @throws CircuitBreakingException      */
+annotation|@
+name|Override
 DECL|method|addEstimateBytesAndMaybeBreak
 specifier|public
 name|double
@@ -539,6 +543,8 @@ name|newUsed
 return|;
 block|}
 comment|/**      * Add an<b>exact</b> number of bytes, not checking for tripping the      * circuit breaker. This bypasses the overheadConstant multiplication.      * @param bytes number of bytes to add to the breaker      * @return number of "used" bytes so far      */
+annotation|@
+name|Override
 DECL|method|addWithoutBreaking
 specifier|public
 name|long
@@ -594,6 +600,8 @@ name|u
 return|;
 block|}
 comment|/**      * @return the number of aggregated "used" bytes so far      */
+annotation|@
+name|Override
 DECL|method|getUsed
 specifier|public
 name|long
@@ -610,6 +618,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * @return the number of bytes that can be added before the breaker trips      */
+annotation|@
+name|Override
 DECL|method|getLimit
 specifier|public
 name|long
@@ -623,6 +633,8 @@ name|memoryBytesLimit
 return|;
 block|}
 comment|/**      * @return the constant multiplier the breaker uses for aggregations      */
+annotation|@
+name|Override
 DECL|method|getOverhead
 specifier|public
 name|double
@@ -636,6 +648,8 @@ name|overheadConstant
 return|;
 block|}
 comment|/**      * @return the number of times the breaker has been tripped      */
+annotation|@
+name|Override
 DECL|method|getTrippedCount
 specifier|public
 name|long
@@ -652,6 +666,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * @return the name of the breaker      */
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String

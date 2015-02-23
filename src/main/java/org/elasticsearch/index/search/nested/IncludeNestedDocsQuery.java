@@ -735,6 +735,8 @@ name|getChildren
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -837,6 +839,8 @@ return|return
 name|currentDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -968,6 +972,8 @@ return|return
 name|currentDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|score
 specifier|public
 name|float
@@ -983,6 +989,8 @@ name|score
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|freq
 specifier|public
 name|int
@@ -1066,6 +1074,8 @@ name|getPayload
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docID
 specifier|public
 name|int

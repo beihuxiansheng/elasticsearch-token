@@ -2801,6 +2801,8 @@ return|return
 name|locations
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|tmpPaths
 specifier|public
 name|String
@@ -2864,6 +2866,8 @@ return|return
 name|absPaths
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newNodeEnvironment
 specifier|public
 name|NodeEnvironment
@@ -2881,6 +2885,8 @@ name|EMPTY
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|newNodeEnvironment
 specifier|public
 name|NodeEnvironment

@@ -303,6 +303,8 @@ name|RecoveryBackwardsCompatibilityTests
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{
+annotation|@
+name|Override
 DECL|method|nodeSettings
 specifier|protected
 name|Settings
@@ -346,6 +348,8 @@ name|build
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|minExternalNodes
 specifier|protected
 name|int
@@ -356,6 +360,8 @@ return|return
 literal|2
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|maxExternalNodes
 specifier|protected
 name|int

@@ -606,6 +606,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BytesRef
 name|value
@@ -654,6 +656,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setTopValue

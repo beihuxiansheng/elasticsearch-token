@@ -314,6 +314,8 @@ name|injectionListeners
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|register
 specifier|public
 name|void
@@ -358,6 +360,8 @@ name|membersInjector
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|register
 specifier|public
 name|void
@@ -402,6 +406,8 @@ name|injectionListener
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|public
 name|void
@@ -432,6 +438,8 @@ name|arguments
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|public
 name|void
@@ -463,6 +471,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|public
 name|void
@@ -487,6 +497,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -521,6 +533,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -551,6 +565,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -585,6 +601,8 @@ name|typeLiteral
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<

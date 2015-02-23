@@ -136,6 +136,8 @@ literal|"type"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|Object
@@ -180,6 +182,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void
@@ -203,6 +207,8 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptVisitor
 specifier|public
 parameter_list|<

@@ -562,6 +562,8 @@ name|cluster
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildTestCluster
 specifier|protected
 name|TestCluster
@@ -807,6 +809,8 @@ operator|.
 name|REQUIRED_SETTINGS
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nodeSettings
 specifier|protected
 name|Settings

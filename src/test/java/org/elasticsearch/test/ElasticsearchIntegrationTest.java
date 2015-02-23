@@ -6272,6 +6272,8 @@ name|Object
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|apply
@@ -8960,6 +8962,8 @@ operator|=
 name|builder
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|addError
 specifier|protected
 name|void

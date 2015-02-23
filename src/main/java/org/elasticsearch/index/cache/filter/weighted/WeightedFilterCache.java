@@ -1288,6 +1288,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1327,6 +1329,8 @@ name|filter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

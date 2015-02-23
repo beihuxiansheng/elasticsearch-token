@@ -6326,6 +6326,8 @@ name|this
 return|;
 block|}
 comment|/**          * Builds a {@link Settings} (underlying uses {@link ImmutableSettings}) based on everything          * set on this builder.          */
+annotation|@
+name|Override
 DECL|method|build
 specifier|public
 name|Settings

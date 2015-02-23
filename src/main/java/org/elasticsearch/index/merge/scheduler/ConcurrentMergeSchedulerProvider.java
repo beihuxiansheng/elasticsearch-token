@@ -682,6 +682,8 @@ name|applySettings
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMaxMerges
 specifier|public
 name|int

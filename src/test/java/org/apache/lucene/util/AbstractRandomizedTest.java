@@ -1558,6 +1558,8 @@ comment|// -----------------------------------------------------------------
 comment|// Test facilities and facades for subclasses.
 comment|// -----------------------------------------------------------------
 comment|/**      * Registers a {@link Closeable} resource that should be closed after the test      * completes.      *      * @return<code>resource</code> (for call chaining).      */
+annotation|@
+name|Override
 DECL|method|closeAfterTest
 specifier|public
 parameter_list|<

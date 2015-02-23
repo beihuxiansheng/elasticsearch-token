@@ -843,6 +843,8 @@ argument_list|,
 name|metaData
 argument_list|)
 block|{
+annotation|@
+name|Override
 specifier|public
 name|InternalAggregation
 name|buildEmptyAggregation

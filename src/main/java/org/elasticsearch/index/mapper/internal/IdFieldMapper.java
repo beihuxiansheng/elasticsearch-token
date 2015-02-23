@@ -830,6 +830,8 @@ name|builder
 return|;
 block|}
 comment|// if we are indexed we use DOCS
+annotation|@
+name|Override
 DECL|method|getDefaultIndexOption
 specifier|protected
 name|IndexOptions
@@ -2091,6 +2093,8 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|regexpFilter
 specifier|public
 name|Filter

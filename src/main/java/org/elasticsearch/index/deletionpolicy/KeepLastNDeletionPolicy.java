@@ -197,6 +197,8 @@ name|numToKeep
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -220,6 +222,8 @@ name|commits
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

@@ -717,6 +717,8 @@ name|this
 return|;
 block|}
 comment|// if we are indexed we use DOCS_ONLY
+annotation|@
+name|Override
 DECL|method|getDefaultIndexOption
 specifier|protected
 name|IndexOptions

@@ -366,6 +366,8 @@ DECL|field|delegate
 name|T
 name|delegate
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|invoke
 specifier|public
 name|Object

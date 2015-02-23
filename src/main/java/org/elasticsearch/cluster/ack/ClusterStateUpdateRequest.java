@@ -62,6 +62,8 @@ name|TimeValue
 name|masterNodeTimeout
 decl_stmt|;
 comment|/**      * Returns the maximum time interval to wait for acknowledgements      */
+annotation|@
+name|Override
 DECL|method|ackTimeout
 specifier|public
 name|TimeValue
@@ -101,6 +103,8 @@ name|this
 return|;
 block|}
 comment|/**      * Returns the maximum time interval to wait for the request to      * be completed on the master node      */
+annotation|@
+name|Override
 DECL|method|masterNodeTimeout
 specifier|public
 name|TimeValue

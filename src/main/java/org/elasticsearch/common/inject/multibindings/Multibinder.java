@@ -870,6 +870,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -1130,6 +1132,8 @@ operator|==
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Set
@@ -1235,6 +1239,8 @@ return|return
 name|setKey
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDependencies
 specifier|public
 name|Set

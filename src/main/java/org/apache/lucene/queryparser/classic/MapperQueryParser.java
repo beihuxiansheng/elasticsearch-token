@@ -5059,6 +5059,8 @@ return|return
 name|fields
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 name|Query

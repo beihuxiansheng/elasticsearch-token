@@ -455,6 +455,8 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|TokenStream

@@ -1469,6 +1469,8 @@ else|:
 name|shardSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|canAllocate
 specifier|public
 name|Decision
@@ -2456,6 +2458,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|canRemain
 specifier|public
 name|Decision
