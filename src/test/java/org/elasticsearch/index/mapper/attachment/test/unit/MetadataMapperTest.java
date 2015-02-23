@@ -158,18 +158,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -256,7 +244,7 @@ specifier|public
 class|class
 name|MetadataMapperTest
 extends|extends
-name|ElasticsearchTestCase
+name|AttachmentUnitTestCase
 block|{
 DECL|method|checkMeta
 specifier|protected

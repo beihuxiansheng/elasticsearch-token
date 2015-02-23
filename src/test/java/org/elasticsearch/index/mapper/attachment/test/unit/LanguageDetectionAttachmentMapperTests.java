@@ -146,18 +146,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -266,7 +254,7 @@ specifier|public
 class|class
 name|LanguageDetectionAttachmentMapperTests
 extends|extends
-name|ElasticsearchTestCase
+name|AttachmentUnitTestCase
 block|{
 DECL|field|docMapper
 specifier|private

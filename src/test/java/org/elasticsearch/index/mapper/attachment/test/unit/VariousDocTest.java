@@ -26,6 +26,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|tika
+operator|.
+name|Tika
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -123,18 +135,6 @@ operator|.
 name|test
 operator|.
 name|MapperTestUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -270,7 +270,7 @@ specifier|public
 class|class
 name|VariousDocTest
 extends|extends
-name|ElasticsearchTestCase
+name|AttachmentUnitTestCase
 block|{
 comment|/**      * Test for https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/104      */
 annotation|@
@@ -422,6 +422,21 @@ name|boolean
 name|errorExpected
 parameter_list|)
 block|{
+name|Tika
+name|tika
+init|=
+name|tika
+argument_list|()
+decl_stmt|;
+name|assumeTrue
+argument_list|(
+literal|"Tika has been disabled. Ignoring test..."
+argument_list|,
+name|tika
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
 try|try
 init|(
 name|InputStream
@@ -443,7 +458,6 @@ name|String
 name|parsedContent
 init|=
 name|tika
-argument_list|()
 operator|.
 name|parseToString
 argument_list|(

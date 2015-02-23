@@ -262,7 +262,7 @@ specifier|public
 class|class
 name|MultifieldAttachmentMapperTests
 extends|extends
-name|ElasticsearchTestCase
+name|AttachmentUnitTestCase
 block|{
 DECL|field|mapperParser
 specifier|private

@@ -226,7 +226,7 @@ specifier|public
 class|class
 name|SimpleAttachmentMapperTests
 extends|extends
-name|ElasticsearchTestCase
+name|AttachmentUnitTestCase
 block|{
 DECL|field|mapperParser
 specifier|private
