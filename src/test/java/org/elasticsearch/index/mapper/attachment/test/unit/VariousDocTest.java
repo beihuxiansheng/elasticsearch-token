@@ -144,7 +144,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -304,15 +304,13 @@ name|AttachmentUnitTestCase
 block|{
 DECL|field|docMapper
 specifier|protected
-specifier|static
 name|DocumentMapper
 name|docMapper
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|createMapper
 specifier|public
-specifier|static
 name|void
 name|createMapper
 parameter_list|()
