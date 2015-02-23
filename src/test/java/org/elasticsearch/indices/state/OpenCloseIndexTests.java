@@ -2725,7 +2725,7 @@ name|prepareIndex
 argument_list|(
 literal|"test"
 argument_list|,
-literal|"initial"
+literal|"type"
 argument_list|,
 literal|""
 operator|+
@@ -2839,7 +2839,7 @@ argument_list|()
 operator|.
 name|setTypes
 argument_list|(
-literal|"initial"
+literal|"type"
 argument_list|)
 operator|.
 name|setQuery
