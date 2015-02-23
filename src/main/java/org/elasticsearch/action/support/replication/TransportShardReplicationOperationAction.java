@@ -869,6 +869,8 @@ parameter_list|,
 name|PrimaryOperationRequest
 name|shardRequest
 parameter_list|)
+throws|throws
+name|Throwable
 function_decl|;
 DECL|method|shardOperationOnReplica
 specifier|protected
