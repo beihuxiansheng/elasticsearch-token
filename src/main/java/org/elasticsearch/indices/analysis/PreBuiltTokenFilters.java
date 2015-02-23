@@ -878,7 +878,7 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"deprecated"
+literal|"deprecation"
 argument_list|)
 specifier|final
 name|TokenStream
@@ -960,7 +960,7 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"deprecated"
+literal|"deprecation"
 argument_list|)
 specifier|final
 name|TokenStream
@@ -1108,7 +1108,7 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"deprecated"
+literal|"deprecation"
 argument_list|)
 specifier|final
 name|TokenStream
@@ -1420,7 +1420,7 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"deprecated"
+literal|"deprecation"
 argument_list|)
 specifier|final
 name|TokenStream
@@ -1504,7 +1504,7 @@ block|{
 annotation|@
 name|SuppressWarnings
 argument_list|(
-literal|"deprecated"
+literal|"deprecation"
 argument_list|)
 specifier|final
 name|TokenStream

@@ -1461,6 +1461,8 @@ literal|null
 expr_stmt|;
 block|}
 comment|/**      * @deprecated Replaced by {@link #setOutput(OutputStream)}      */
+annotation|@
+name|Deprecated
 DECL|method|setOutputStream
 specifier|public
 name|UTF8StreamWriter

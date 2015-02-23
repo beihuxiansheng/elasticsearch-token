@@ -1625,7 +1625,7 @@ if|if
 condition|(
 name|fileSize
 operator|>
-name|recoverySettings
+name|RecoverySettings
 operator|.
 name|SMALL_FILE_CUTOFF_BYTES
 condition|)

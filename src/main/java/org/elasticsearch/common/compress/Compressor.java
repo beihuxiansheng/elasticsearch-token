@@ -237,6 +237,8 @@ throws|throws
 name|IOException
 function_decl|;
 comment|/**      * @deprecated Used for backward comp. since we now use Lucene compressed codec.      */
+annotation|@
+name|Deprecated
 DECL|method|indexInput
 name|CompressedIndexInput
 name|indexInput

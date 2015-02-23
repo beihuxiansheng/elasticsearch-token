@@ -1171,6 +1171,10 @@ name|NANOSECONDS
 argument_list|)
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|cache
+operator|=
 name|cacheBuilder
 operator|.
 name|removalListener
@@ -1179,12 +1183,6 @@ operator|new
 name|ScriptCacheRemovalListener
 argument_list|()
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|cache
-operator|=
-name|cacheBuilder
 operator|.
 name|build
 argument_list|()
