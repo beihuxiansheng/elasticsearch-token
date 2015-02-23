@@ -1706,15 +1706,6 @@ extends|extends
 name|ElasticsearchTestCase
 block|{
 comment|/** node names of the corresponding clusters will start with these prefixes */
-DECL|field|GLOBAL_CLUSTER_NODE_PREFIX
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|GLOBAL_CLUSTER_NODE_PREFIX
-init|=
-literal|"node_"
-decl_stmt|;
 DECL|field|SUITE_CLUSTER_NODE_PREFIX
 specifier|public
 specifier|static

@@ -108,17 +108,6 @@ name|quote
 argument_list|(
 name|ElasticsearchIntegrationTest
 operator|.
-name|GLOBAL_CLUSTER_NODE_PREFIX
-argument_list|)
-operator|+
-literal|"|"
-operator|+
-name|Pattern
-operator|.
-name|quote
-argument_list|(
-name|ElasticsearchIntegrationTest
-operator|.
 name|SUITE_CLUSTER_NODE_PREFIX
 argument_list|)
 operator|+
