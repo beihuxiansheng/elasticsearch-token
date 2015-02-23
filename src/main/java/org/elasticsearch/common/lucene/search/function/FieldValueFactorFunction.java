@@ -344,7 +344,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|float
+name|Explanation
 name|subQueryScore
 parameter_list|)
 block|{
@@ -377,6 +377,9 @@ argument_list|(
 name|docId
 argument_list|,
 name|subQueryScore
+operator|.
+name|getValue
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|exp

@@ -54,13 +54,13 @@ name|ExplainableSearchScript
 extends|extends
 name|SearchScript
 block|{
-comment|/**      * Build the explanation of the current document being scored      *      * @param score the score      */
+comment|/**      * Build the explanation of the current document being scored      * The script score needs the Explanation of the sub query score because it might use _score and      * want to explain how that was computed.      *      * @param subQueryScore the Explanation for _score      */
 DECL|method|explain
 name|Explanation
 name|explain
 parameter_list|(
-name|float
-name|score
+name|Explanation
+name|subQueryScore
 parameter_list|)
 throws|throws
 name|IOException

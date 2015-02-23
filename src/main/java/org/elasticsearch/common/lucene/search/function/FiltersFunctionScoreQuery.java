@@ -1010,9 +1010,6 @@ argument_list|(
 name|doc
 argument_list|,
 name|subQueryExpl
-operator|.
-name|getValue
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|double

@@ -274,8 +274,8 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|float
-name|score
+name|Explanation
+name|subQueryScore
 parameter_list|)
 throws|throws
 name|IOException
@@ -292,7 +292,7 @@ name|explainScore
 argument_list|(
 name|docId
 argument_list|,
-name|score
+name|subQueryScore
 argument_list|)
 decl_stmt|;
 name|functionScoreExplanation
@@ -423,7 +423,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|float
+name|Explanation
 name|subQueryScore
 parameter_list|)
 block|{

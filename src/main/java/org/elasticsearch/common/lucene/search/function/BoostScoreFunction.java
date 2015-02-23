@@ -160,7 +160,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|float
+name|Explanation
 name|subQueryScore
 parameter_list|)
 block|{
