@@ -1459,8 +1459,6 @@ literal|"_default_"
 operator|+
 literal|"\":{\n"
 operator|+
-literal|"        \"_id\" : {\"index\": \"not_analyzed\"},"
-operator|+
 literal|"        \"properties\" : {\n"
 operator|+
 literal|"            \"query\" : {\n"
