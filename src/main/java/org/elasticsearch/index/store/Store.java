@@ -653,12 +653,6 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|field|directoryService
-specifier|private
-specifier|final
-name|DirectoryService
-name|directoryService
-decl_stmt|;
 DECL|field|directory
 specifier|private
 specifier|final
@@ -803,12 +797,6 @@ name|shardId
 argument_list|,
 name|indexSettings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|directoryService
-operator|=
-name|directoryService
 expr_stmt|;
 name|this
 operator|.

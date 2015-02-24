@@ -2867,9 +2867,6 @@ name|indicesServices
 operator|.
 name|addPendingDelete
 argument_list|(
-name|index
-argument_list|()
-argument_list|,
 name|lock
 operator|.
 name|getShardId
