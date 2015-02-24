@@ -646,21 +646,6 @@ end_comment
 
 begin_class
 annotation|@
-name|ThreadLeakFilters
-argument_list|(
-name|defaultFilters
-operator|=
-literal|true
-argument_list|,
-name|filters
-operator|=
-block|{
-name|ElasticsearchThreadFilter
-operator|.
-name|class
-block|}
-argument_list|)
-annotation|@
 name|ThreadLeakScope
 argument_list|(
 name|Scope

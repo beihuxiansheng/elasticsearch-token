@@ -419,15 +419,10 @@ name|NODE
 operator|!=
 literal|null
 assert|;
-name|node
-argument_list|()
-operator|.
-name|stop
+name|stopNode
 argument_list|()
 expr_stmt|;
-name|NODE
-operator|=
-name|newNode
+name|startNode
 argument_list|()
 expr_stmt|;
 block|}
