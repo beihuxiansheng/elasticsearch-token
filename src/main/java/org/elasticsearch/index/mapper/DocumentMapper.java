@@ -2657,6 +2657,11 @@ operator|.
 name|type
 operator|+
 literal|"]"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2763,6 +2768,11 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"Malformed content, must start with an object"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2812,6 +2822,11 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"Malformed content, after first object, either the type field or the actual properties should exist"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2930,6 +2945,11 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"failed to parse, document is empty"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2940,6 +2960,11 @@ argument_list|(
 literal|"failed to parse"
 argument_list|,
 name|e
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}

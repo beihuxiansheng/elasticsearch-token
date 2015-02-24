@@ -2521,6 +2521,11 @@ operator|+
 literal|"]"
 argument_list|,
 name|e
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -6606,6 +6611,11 @@ operator|+
 name|field
 operator|+
 literal|"]"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
