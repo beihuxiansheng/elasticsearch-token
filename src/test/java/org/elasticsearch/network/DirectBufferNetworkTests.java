@@ -34,20 +34,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|TestUtil
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -55,18 +41,6 @@ operator|.
 name|index
 operator|.
 name|IndexRequestBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -174,9 +148,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|Node
 import|;
 end_import
 
@@ -319,7 +291,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|InternalNode
+name|Node
 operator|.
 name|HTTP_ENABLED
 argument_list|,

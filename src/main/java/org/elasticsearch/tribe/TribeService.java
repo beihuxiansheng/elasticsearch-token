@@ -364,7 +364,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeBuilder
+name|Node
 import|;
 end_import
 
@@ -376,9 +376,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|NodeBuilder
 import|;
 end_import
 
@@ -801,7 +799,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|InternalNode
+name|Node
 argument_list|>
 name|nodes
 init|=
@@ -970,9 +968,6 @@ name|nodes
 operator|.
 name|add
 argument_list|(
-operator|(
-name|InternalNode
-operator|)
 name|NodeBuilder
 operator|.
 name|nodeBuilder
@@ -1128,7 +1123,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|InternalNode
+name|Node
 name|node
 range|:
 name|nodes
@@ -1201,7 +1196,7 @@ name|ElasticsearchException
 block|{
 for|for
 control|(
-name|InternalNode
+name|Node
 name|node
 range|:
 name|nodes
@@ -1224,7 +1219,7 @@ block|{
 comment|// calling close is safe for non started nodes, we can just iterate over all
 for|for
 control|(
-name|InternalNode
+name|Node
 name|otherNode
 range|:
 name|nodes
@@ -1298,7 +1293,7 @@ name|ElasticsearchException
 block|{
 for|for
 control|(
-name|InternalNode
+name|Node
 name|node
 range|:
 name|nodes
@@ -1344,7 +1339,7 @@ name|ElasticsearchException
 block|{
 for|for
 control|(
-name|InternalNode
+name|Node
 name|node
 range|:
 name|nodes
@@ -1387,7 +1382,7 @@ block|{
 DECL|field|tribeNode
 specifier|private
 specifier|final
-name|InternalNode
+name|Node
 name|tribeNode
 decl_stmt|;
 DECL|field|tribeName
@@ -1399,7 +1394,7 @@ decl_stmt|;
 DECL|method|TribeClusterStateListener
 name|TribeClusterStateListener
 parameter_list|(
-name|InternalNode
+name|Node
 name|tribeNode
 parameter_list|)
 block|{

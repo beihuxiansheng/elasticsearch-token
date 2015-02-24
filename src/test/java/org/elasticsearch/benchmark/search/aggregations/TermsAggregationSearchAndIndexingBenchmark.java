@@ -290,9 +290,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|Node
 import|;
 end_import
 
@@ -559,7 +557,7 @@ literal|5
 decl_stmt|;
 DECL|field|nodes
 specifier|static
-name|InternalNode
+name|Node
 index|[]
 name|nodes
 decl_stmt|;
@@ -624,7 +622,7 @@ decl_stmt|;
 name|nodes
 operator|=
 operator|new
-name|InternalNode
+name|Node
 index|[
 literal|1
 index|]
@@ -651,9 +649,6 @@ index|[
 name|i
 index|]
 operator|=
-operator|(
-name|InternalNode
-operator|)
 name|nodeBuilder
 argument_list|()
 operator|.
@@ -1770,7 +1765,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|InternalNode
+name|Node
 name|node
 range|:
 name|nodes
