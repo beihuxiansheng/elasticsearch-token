@@ -130,16 +130,11 @@ name|TestAwsS3Service
 parameter_list|(
 name|Settings
 name|settings
-parameter_list|,
-name|SettingsFilter
-name|settingsFilter
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|settingsFilter
 argument_list|)
 expr_stmt|;
 block|}
