@@ -291,6 +291,12 @@ argument_list|>
 name|pendingTasks
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the number of currently pending tasks.      */
+DECL|method|numberOfPendingTasks
+name|int
+name|numberOfPendingTasks
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
