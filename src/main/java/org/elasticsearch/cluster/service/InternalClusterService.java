@@ -1095,17 +1095,12 @@ name|onClose
 argument_list|()
 expr_stmt|;
 block|}
-name|updateTasksExecutor
+name|ThreadPool
 operator|.
-name|shutdown
-argument_list|()
-expr_stmt|;
-try|try
-block|{
-name|updateTasksExecutor
-operator|.
-name|awaitTermination
+name|terminate
 argument_list|(
+name|updateTasksExecutor
+argument_list|,
 literal|10
 argument_list|,
 name|TimeUnit
@@ -1113,15 +1108,6 @@ operator|.
 name|SECONDS
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|InterruptedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-block|}
 name|remove
 argument_list|(
 name|localNodeMasterListeners
