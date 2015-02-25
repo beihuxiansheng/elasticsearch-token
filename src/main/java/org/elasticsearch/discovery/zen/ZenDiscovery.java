@@ -1553,8 +1553,6 @@ name|NewClusterStateListener
 argument_list|()
 argument_list|,
 name|discoverySettings
-argument_list|,
-name|clusterName
 argument_list|)
 expr_stmt|;
 name|this

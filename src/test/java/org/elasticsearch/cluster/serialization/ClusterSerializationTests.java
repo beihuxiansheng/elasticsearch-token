@@ -402,12 +402,6 @@ name|newNode
 argument_list|(
 literal|"node1"
 argument_list|)
-argument_list|,
-operator|new
-name|ClusterName
-argument_list|(
-literal|"clusterName2"
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertThat

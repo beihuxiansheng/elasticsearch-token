@@ -3385,7 +3385,7 @@ name|toBytes
 argument_list|()
 return|;
 block|}
-comment|/**          * @param data               input bytes          * @param localNode          used to set the local node in the cluster state.          * @param defaultClusterName this cluster name will be used of if the deserialized cluster state does not have a name set          *                           (which is only introduced in version 1.1.1)          */
+comment|/**          * @param data               input bytes          * @param localNode          used to set the local node in the cluster state.          */
 DECL|method|fromBytes
 specifier|public
 specifier|static
@@ -3398,9 +3398,6 @@ name|data
 parameter_list|,
 name|DiscoveryNode
 name|localNode
-parameter_list|,
-name|ClusterName
-name|defaultClusterName
 parameter_list|)
 throws|throws
 name|IOException
@@ -3417,8 +3414,6 @@ literal|false
 argument_list|)
 argument_list|,
 name|localNode
-argument_list|,
-name|defaultClusterName
 argument_list|)
 return|;
 block|}
@@ -3437,26 +3432,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-name|state
-operator|.
-name|clusterName
-operator|!=
-literal|null
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|state
-operator|.
-name|clusterName
-operator|!=
-literal|null
-condition|)
-block|{
 name|state
 operator|.
 name|clusterName
@@ -3466,7 +3441,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 name|out
 operator|.
 name|writeLong
@@ -3589,7 +3563,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * @param in                 input stream          * @param localNode          used to set the local node in the cluster state. can be null.          * @param defaultClusterName this cluster name will be used of receiving a cluster state from a node on version older than 1.1.1          *                           or if the sending node did not set a cluster name          */
+comment|/**          * @param in                 input stream          * @param localNode          used to set the local node in the cluster state. can be null.          */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -3603,11 +3577,6 @@ annotation|@
 name|Nullable
 name|DiscoveryNode
 name|localNode
-parameter_list|,
-annotation|@
-name|Nullable
-name|ClusterName
-name|defaultClusterName
 parameter_list|)
 throws|throws
 name|IOException
@@ -3615,26 +3584,13 @@ block|{
 name|ClusterName
 name|clusterName
 init|=
-name|defaultClusterName
-decl_stmt|;
-if|if
-condition|(
-name|in
-operator|.
-name|readBoolean
-argument_list|()
-condition|)
-block|{
-name|clusterName
-operator|=
 name|ClusterName
 operator|.
 name|readClusterName
 argument_list|(
 name|in
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|Builder
 name|builder
 init|=
