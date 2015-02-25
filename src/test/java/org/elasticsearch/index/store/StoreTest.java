@@ -8594,6 +8594,13 @@ name|isChecksum
 argument_list|(
 name|file
 argument_list|)
+operator|||
+name|file
+operator|.
+name|equals
+argument_list|(
+literal|"write.lock"
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -8690,6 +8697,8 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
+name|file
+argument_list|,
 name|secondMeta
 operator|.
 name|contains
@@ -8702,6 +8711,13 @@ operator|.
 name|isChecksum
 argument_list|(
 name|file
+argument_list|)
+operator|||
+name|file
+operator|.
+name|equals
+argument_list|(
+literal|"write.lock"
 argument_list|)
 argument_list|)
 expr_stmt|;
