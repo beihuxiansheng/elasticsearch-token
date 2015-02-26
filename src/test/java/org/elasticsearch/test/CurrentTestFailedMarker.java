@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RunListener} that detects  test failures. We need it because we need  * to reset the global / suite level cluster if a test fails but don't wanna reset it  * for every subsequent test.  */
+comment|/**  * A {@link RunListener} that detects  test failures. We need it because we need  * to reset the suite level cluster if a test fails but don't wanna reset it  * for every subsequent test.  */
 end_comment
 
 begin_class

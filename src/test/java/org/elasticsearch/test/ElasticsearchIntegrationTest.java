@@ -1772,7 +1772,7 @@ name|DEFAULT_MAX_NUM_SHARDS
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * The current cluster depending on the configured {@link Scope}.      * By default if no {@link ClusterScope} is configured this will hold a reference to the global cluster carried      * on across test suites.      */
+comment|/**      * The current cluster depending on the configured {@link Scope}.      * By default if no {@link ClusterScope} is configured this will hold a reference to the suite cluster.      */
 DECL|field|currentCluster
 specifier|private
 specifier|static
@@ -4127,10 +4127,8 @@ argument_list|()
 condition|)
 block|{
 comment|// if we failed that means that something broke horribly so we should
-comment|// clear all clusters and if the current cluster is the global we shut that one
-comment|// down as well to prevent subsequent tests from failing due to the same problem.
-comment|// we also reset everything in the case we had a failure in the suite to make sure subsequent
-comment|// tests get a new / clean cluster
+comment|// clear all clusters. we also reset everything in the case we had a failure
+comment|// in the suite to make sure subsequent tests get a new / clean cluster
 name|clearClusters
 argument_list|()
 expr_stmt|;

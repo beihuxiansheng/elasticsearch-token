@@ -697,7 +697,7 @@ block|}
 else|else
 block|{
 comment|//re-initialize the REST client if the addresses have changed
-comment|//happens if there's a failure since we restart the global cluster due to that
+comment|//happens if there's a failure since we restart the suite cluster due to that
 name|Set
 argument_list|<
 name|InetSocketAddress
