@@ -2271,6 +2271,16 @@ name|Version
 operator|.
 name|V_1_3_0
 argument_list|)
+operator|&&
+name|compatibilityVersion
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
 condition|)
 block|{
 comment|// some tests rely on this BWC version behavior that we wanna keep

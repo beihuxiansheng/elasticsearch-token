@@ -11310,7 +11310,13 @@ name|fieldsList
 init|=
 block|{
 literal|"_all"
-block|,
+block|}
+decl_stmt|;
+name|String
+index|[]
+name|alwaysNotStoredFieldsList
+init|=
+block|{
 literal|"_field_names"
 block|}
 decl_stmt|;
@@ -11339,6 +11345,18 @@ argument_list|,
 name|fieldsList
 argument_list|)
 expr_stmt|;
+name|assertGetFieldsNull
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysNotStoredFieldsList
+argument_list|)
+expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -11355,6 +11373,18 @@ argument_list|,
 name|fieldsList
 argument_list|)
 expr_stmt|;
+name|assertGetFieldsNull
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysNotStoredFieldsList
+argument_list|)
+expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;
@@ -11369,6 +11399,18 @@ argument_list|,
 literal|"1"
 argument_list|,
 name|fieldsList
+argument_list|)
+expr_stmt|;
+name|assertGetFieldsNull
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysNotStoredFieldsList
 argument_list|)
 expr_stmt|;
 block|}
@@ -11416,12 +11458,6 @@ operator|+
 literal|"},"
 operator|+
 literal|"      \"_all\" : {\"enabled\" : true, \"store\":\""
-operator|+
-name|storedString
-operator|+
-literal|"\" },"
-operator|+
-literal|"      \"_field_names\" : {\"store\":\""
 operator|+
 name|storedString
 operator|+

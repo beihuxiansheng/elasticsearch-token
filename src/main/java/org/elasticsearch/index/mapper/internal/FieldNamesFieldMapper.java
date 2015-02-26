@@ -610,6 +610,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|Deprecated
 DECL|method|index
 specifier|public
 name|Builder
@@ -766,6 +768,21 @@ init|=
 name|fieldNames
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|parserContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+condition|)
+block|{
 name|parseField
 argument_list|(
 name|builder
@@ -779,6 +796,7 @@ argument_list|,
 name|parserContext
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|Iterator
@@ -1552,6 +1570,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|writePre2xSettings
+operator|&&
+operator|(
 name|includeDefaults
 operator|||
 name|fieldType
@@ -1565,6 +1586,7 @@ name|FIELD_TYPE
 argument_list|)
 operator|==
 literal|false
+operator|)
 condition|)
 block|{
 name|super
