@@ -10892,8 +10892,6 @@ name|fieldsList
 init|=
 block|{
 literal|"_timestamp"
-block|,
-literal|"_size"
 block|}
 decl_stmt|;
 name|String
@@ -10902,6 +10900,8 @@ name|alwaysStoredFieldsList
 init|=
 block|{
 literal|"_routing"
+block|,
+literal|"_size"
 block|}
 decl_stmt|;
 comment|// before refresh - document is only in translog
@@ -11132,12 +11132,6 @@ operator|+
 literal|"      },\n"
 operator|+
 literal|"      \"_size\": {\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\",\n"
 operator|+
 literal|"        \"enabled\": true\n"
 operator|+
