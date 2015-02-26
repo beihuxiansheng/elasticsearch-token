@@ -852,8 +852,6 @@ literal|"_all"
 argument_list|,
 literal|"_analyzer"
 argument_list|,
-literal|"_boost"
-argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"_routing"

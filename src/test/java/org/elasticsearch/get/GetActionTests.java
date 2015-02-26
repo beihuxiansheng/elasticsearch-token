@@ -10611,9 +10611,7 @@ name|String
 index|[]
 name|fieldsList
 init|=
-block|{
-literal|"my_boost"
-block|}
+block|{}
 decl_stmt|;
 comment|// before refresh - document is only in translog
 name|assertGetFieldsAlwaysNull
@@ -10704,9 +10702,7 @@ name|String
 index|[]
 name|fieldsList
 init|=
-block|{
-literal|"my_boost"
-block|}
+block|{}
 decl_stmt|;
 comment|// before refresh - document is only in translog
 name|assertGetFieldsAlwaysWorks
@@ -10798,20 +10794,6 @@ operator|+
 name|sourceEnabled
 operator|+
 literal|"\n"
-operator|+
-literal|"      },\n"
-operator|+
-literal|"      \"_boost\": {\n"
-operator|+
-literal|"        \"name\": \"my_boost\",\n"
-operator|+
-literal|"        \"null_value\": 1,\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\"\n"
 operator|+
 literal|"      }\n"
 operator|+
