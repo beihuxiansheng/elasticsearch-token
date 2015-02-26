@@ -424,24 +424,6 @@ name|ttl
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|TypeParsers
-operator|.
-name|parseField
-import|;
-end_import
-
 begin_class
 DECL|class|TTLFieldMapper
 specifier|public
@@ -744,19 +726,6 @@ init|=
 name|ttl
 argument_list|()
 decl_stmt|;
-name|parseField
-argument_list|(
-name|builder
-argument_list|,
-name|builder
-operator|.
-name|name
-argument_list|,
-name|node
-argument_list|,
-name|parserContext
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|Iterator

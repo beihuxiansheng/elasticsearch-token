@@ -483,13 +483,6 @@ argument_list|,
 literal|true
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"store"
-argument_list|,
-literal|"yes"
-argument_list|)
-operator|.
 name|endObject
 argument_list|()
 operator|.
@@ -549,13 +542,6 @@ argument_list|(
 literal|"enabled"
 argument_list|,
 literal|true
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"store"
-argument_list|,
-literal|"yes"
 argument_list|)
 operator|.
 name|field
