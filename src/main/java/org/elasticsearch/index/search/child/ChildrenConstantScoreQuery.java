@@ -581,6 +581,13 @@ argument_list|>
 name|terms
 parameter_list|)
 block|{
+if|if
+condition|(
+name|rewrittenChildQuery
+operator|!=
+literal|null
+condition|)
+block|{
 name|rewrittenChildQuery
 operator|.
 name|extractTerms
@@ -588,6 +595,7 @@ argument_list|(
 name|terms
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

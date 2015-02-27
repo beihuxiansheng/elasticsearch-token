@@ -88,6 +88,16 @@ name|ShardId
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.lucene.index.FilterDirectoryReader} that exposes  * Elasticsearch internal per shard / index information like the shard ID.  */
 end_comment
@@ -130,6 +140,8 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|super
 argument_list|(
@@ -174,6 +186,8 @@ parameter_list|(
 name|DirectoryReader
 name|in
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -200,6 +214,8 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
