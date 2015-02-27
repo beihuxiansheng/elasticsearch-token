@@ -246,8 +246,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"plugins."
-operator|+
 name|PluginsService
 operator|.
 name|LOAD_PLUGIN_FROM_CLASSPATH

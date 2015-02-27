@@ -100,12 +100,12 @@ specifier|public
 interface|interface
 name|AzureStorageService
 block|{
-DECL|class|Fields
+DECL|class|Storage
 specifier|static
 specifier|public
 specifier|final
 class|class
-name|Fields
+name|Storage
 block|{
 annotation|@
 name|Deprecated
@@ -116,7 +116,7 @@ specifier|final
 name|String
 name|ACCOUNT_DEPRECATED
 init|=
-literal|"storage_account"
+literal|"cloud.azure.storage_account"
 decl_stmt|;
 annotation|@
 name|Deprecated
@@ -127,7 +127,16 @@ specifier|final
 name|String
 name|KEY_DEPRECATED
 init|=
-literal|"storage_key"
+literal|"cloud.azure.storage_key"
+decl_stmt|;
+DECL|field|API_IMPLEMENTATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|API_IMPLEMENTATION
+init|=
+literal|"cloud.azure.storage.api.impl"
 decl_stmt|;
 DECL|field|ACCOUNT
 specifier|public
@@ -136,7 +145,7 @@ specifier|final
 name|String
 name|ACCOUNT
 init|=
-literal|"account"
+literal|"cloud.azure.storage.account"
 decl_stmt|;
 DECL|field|KEY
 specifier|public
@@ -145,7 +154,7 @@ specifier|final
 name|String
 name|KEY
 init|=
-literal|"key"
+literal|"cloud.azure.storage.key"
 decl_stmt|;
 DECL|field|CONTAINER
 specifier|public
@@ -154,7 +163,7 @@ specifier|final
 name|String
 name|CONTAINER
 init|=
-literal|"container"
+literal|"repositories.azure.container"
 decl_stmt|;
 DECL|field|BASE_PATH
 specifier|public
@@ -163,7 +172,7 @@ specifier|final
 name|String
 name|BASE_PATH
 init|=
-literal|"base_path"
+literal|"repositories.azure.base_path"
 decl_stmt|;
 DECL|field|CHUNK_SIZE
 specifier|public
@@ -172,7 +181,7 @@ specifier|final
 name|String
 name|CHUNK_SIZE
 init|=
-literal|"chunk_size"
+literal|"repositories.azure.chunk_size"
 decl_stmt|;
 DECL|field|COMPRESS
 specifier|public
@@ -181,7 +190,7 @@ specifier|final
 name|String
 name|COMPRESS
 init|=
-literal|"compress"
+literal|"repositories.azure.compress"
 decl_stmt|;
 block|}
 DECL|method|doesContainerExist

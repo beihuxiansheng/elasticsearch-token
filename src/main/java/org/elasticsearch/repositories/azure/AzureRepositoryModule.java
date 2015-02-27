@@ -36,11 +36,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|cloud
 operator|.
-name|inject
+name|azure
 operator|.
-name|AbstractModule
+name|storage
+operator|.
+name|AzureStorageSettingsFilter
 import|;
 end_import
 
@@ -54,7 +56,7 @@ name|common
 operator|.
 name|inject
 operator|.
-name|Inject
+name|AbstractModule
 import|;
 end_import
 
@@ -165,8 +167,6 @@ specifier|private
 name|Settings
 name|settings
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|AzureRepositoryModule
 specifier|public
 name|AzureRepositoryModule
@@ -208,6 +208,16 @@ name|void
 name|configure
 parameter_list|()
 block|{
+name|bind
+argument_list|(
+name|AzureStorageSettingsFilter
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|AzureModule

@@ -102,7 +102,25 @@ name|management
 operator|.
 name|AzureComputeService
 operator|.
-name|Fields
+name|Discovery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cloud
+operator|.
+name|azure
+operator|.
+name|management
+operator|.
+name|AzureComputeService
+operator|.
+name|Management
 import|;
 end_import
 
@@ -592,11 +610,11 @@ name|this
 operator|.
 name|refreshInterval
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-name|Fields
+name|Discovery
 operator|.
 name|REFRESH
 argument_list|,
@@ -604,11 +622,9 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"cloud.azure."
-operator|+
-name|Fields
+name|Discovery
 operator|.
-name|REFRESH
+name|REFRESH_DEPRECATED
 argument_list|,
 name|TimeValue
 operator|.
@@ -622,11 +638,11 @@ expr_stmt|;
 name|String
 name|strHostType
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-name|Fields
+name|Discovery
 operator|.
 name|HOST_TYPE
 argument_list|,
@@ -634,9 +650,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"cloud.azure."
-operator|+
-name|Fields
+name|Discovery
 operator|.
 name|HOST_TYPE_DEPRECATED
 argument_list|,
@@ -675,7 +689,7 @@ name|warn
 argument_list|(
 literal|"wrong value for [{}]: [{}]. falling back to [{}]..."
 argument_list|,
-name|Fields
+name|Discovery
 operator|.
 name|HOST_TYPE
 argument_list|,
@@ -713,9 +727,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"cloud.azure."
-operator|+
-name|Fields
+name|Discovery
 operator|.
 name|PORT_NAME_DEPRECATED
 argument_list|)
@@ -733,11 +745,11 @@ name|warn
 argument_list|(
 literal|"setting [{}] has been deprecated. please replace with [{}]."
 argument_list|,
-name|Fields
+name|Discovery
 operator|.
 name|PORT_NAME_DEPRECATED
 argument_list|,
-name|Fields
+name|Discovery
 operator|.
 name|ENDPOINT_NAME
 argument_list|)
@@ -755,11 +767,11 @@ name|this
 operator|.
 name|publicEndpointName
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-name|Fields
+name|Discovery
 operator|.
 name|ENDPOINT_NAME
 argument_list|,
@@ -767,15 +779,17 @@ literal|"elasticsearch"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Deployment name could be set with discovery.azure.deployment.name
+comment|// Default to cloud.azure.management.cloud.service.name
 name|this
 operator|.
 name|deploymentName
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-name|Fields
+name|Discovery
 operator|.
 name|DEPLOYMENT_NAME
 argument_list|,
@@ -783,9 +797,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"cloud.azure.management."
-operator|+
-name|Fields
+name|Management
 operator|.
 name|SERVICE_NAME
 argument_list|,
@@ -793,9 +805,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"cloud.azure."
-operator|+
-name|Fields
+name|Management
 operator|.
 name|SERVICE_NAME_DEPRECATED
 argument_list|)
@@ -806,11 +816,11 @@ comment|// Reading deployment_slot
 name|String
 name|strDeployment
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-name|Fields
+name|Discovery
 operator|.
 name|DEPLOYMENT_SLOT
 argument_list|,
@@ -844,7 +854,7 @@ name|warn
 argument_list|(
 literal|"wrong value for [{}]: [{}]. falling back to [{}]..."
 argument_list|,
-name|Fields
+name|Discovery
 operator|.
 name|DEPLOYMENT_SLOT
 argument_list|,
