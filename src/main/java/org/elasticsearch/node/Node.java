@@ -2243,7 +2243,7 @@ name|this
 return|;
 block|}
 DECL|method|stop
-specifier|public
+specifier|private
 name|Node
 name|stop
 parameter_list|()

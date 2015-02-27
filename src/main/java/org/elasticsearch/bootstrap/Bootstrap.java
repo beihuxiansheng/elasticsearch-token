@@ -708,9 +708,7 @@ name|void
 name|stop
 parameter_list|()
 block|{
-name|node
-operator|.
-name|stop
+name|destroy
 argument_list|()
 expr_stmt|;
 block|}

@@ -1454,7 +1454,7 @@ name|length
 argument_list|()
 condition|)
 block|{
-comment|// ignore this one
+comment|// ignore this. one
 continue|continue;
 block|}
 name|builder

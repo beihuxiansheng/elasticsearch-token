@@ -1310,7 +1310,7 @@ argument_list|()
 expr_stmt|;
 name|node
 operator|.
-name|stop
+name|close
 argument_list|()
 expr_stmt|;
 block|}
