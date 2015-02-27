@@ -319,11 +319,11 @@ name|this
 operator|.
 name|notifyOnMergeFailure
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"notify_on_failure"
+literal|"index.merge.scheduler.notify_on_failure"
 argument_list|,
 literal|true
 argument_list|)

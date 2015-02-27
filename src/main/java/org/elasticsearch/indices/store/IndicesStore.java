@@ -795,11 +795,11 @@ name|this
 operator|.
 name|rateLimitingType
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-literal|"throttle.type"
+literal|"indices.store.throttle.type"
 argument_list|,
 name|StoreRateLimiting
 operator|.
@@ -822,11 +822,11 @@ name|this
 operator|.
 name|rateLimitingThrottle
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"throttle.max_bytes_per_sec"
+literal|"indices.store.throttle.max_bytes_per_sec"
 argument_list|,
 operator|new
 name|ByteSizeValue

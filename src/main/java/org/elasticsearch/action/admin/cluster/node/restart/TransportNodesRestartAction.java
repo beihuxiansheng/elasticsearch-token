@@ -415,11 +415,13 @@ name|node
 expr_stmt|;
 name|disabled
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"disabled"
+literal|"admin.cluster.node.restart.disabled"
 argument_list|,
 literal|false
 argument_list|)

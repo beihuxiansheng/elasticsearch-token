@@ -178,11 +178,11 @@ name|this
 operator|.
 name|numToKeep
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"num_to_keep"
+literal|"index.deletionpolicy.num_to_keep"
 argument_list|,
 literal|5
 argument_list|)

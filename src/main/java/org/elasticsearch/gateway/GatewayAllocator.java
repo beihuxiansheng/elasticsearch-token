@@ -586,11 +586,11 @@ name|this
 operator|.
 name|listTimeout
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"list_timeout"
+literal|"gateway.list_timeout"
 argument_list|,
 name|settings
 operator|.
@@ -611,11 +611,11 @@ name|this
 operator|.
 name|initialShards
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-literal|"initial_shards"
+literal|"gateway.initial_shards"
 argument_list|,
 name|settings
 operator|.

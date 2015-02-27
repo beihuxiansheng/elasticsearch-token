@@ -975,11 +975,13 @@ name|this
 operator|.
 name|sendRefreshMapping
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"send_refresh_mapping"
+literal|"indices.cluster.send_refresh_mapping"
 argument_list|,
 literal|true
 argument_list|)

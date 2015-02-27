@@ -263,11 +263,11 @@ name|this
 operator|.
 name|maxSize
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"max_size"
+literal|"index.cache.query.parser.resident.max_size"
 argument_list|,
 literal|100
 argument_list|)
@@ -276,11 +276,11 @@ name|this
 operator|.
 name|expire
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"expire"
+literal|"index.cache.query.parser.resident.expire"
 argument_list|,
 literal|null
 argument_list|)

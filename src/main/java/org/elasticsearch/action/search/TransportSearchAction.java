@@ -374,11 +374,13 @@ name|this
 operator|.
 name|optimizeSingleShard
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"optimize_single_shard"
+literal|"action.search.optimize_single_shard"
 argument_list|,
 literal|true
 argument_list|)

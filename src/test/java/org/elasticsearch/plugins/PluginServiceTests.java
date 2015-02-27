@@ -264,8 +264,6 @@ comment|// Defines a plugin in classpath
 operator|.
 name|put
 argument_list|(
-literal|"plugins."
-operator|+
 name|PluginsService
 operator|.
 name|LOAD_PLUGIN_FROM_CLASSPATH
@@ -275,8 +273,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"plugins."
-operator|+
 name|PluginsService
 operator|.
 name|ES_PLUGIN_PROPERTIES_FILE_KEY

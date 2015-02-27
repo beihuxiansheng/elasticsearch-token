@@ -207,7 +207,7 @@ specifier|final
 name|String
 name|TYPE
 init|=
-literal|"page.type"
+literal|"recycler.page.type"
 decl_stmt|;
 DECL|field|LIMIT_HEAP
 specifier|public
@@ -216,16 +216,7 @@ specifier|final
 name|String
 name|LIMIT_HEAP
 init|=
-literal|"page.limit.heap"
-decl_stmt|;
-DECL|field|LIMIT_PER_THREAD
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|LIMIT_PER_THREAD
-init|=
-literal|"page.limit.per_thread"
+literal|"recycler.page.limit.heap"
 decl_stmt|;
 DECL|field|WEIGHT
 specifier|public
@@ -234,7 +225,7 @@ specifier|final
 name|String
 name|WEIGHT
 init|=
-literal|"page.weight"
+literal|"recycler.page.weight"
 decl_stmt|;
 DECL|field|bytePage
 specifier|private
@@ -437,7 +428,7 @@ name|Type
 operator|.
 name|parse
 argument_list|(
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
@@ -449,7 +440,7 @@ specifier|final
 name|long
 name|limit
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsMemory
 argument_list|(
@@ -500,7 +491,7 @@ specifier|final
 name|double
 name|bytesWeight
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsDouble
 argument_list|(
@@ -515,7 +506,7 @@ specifier|final
 name|double
 name|intsWeight
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsDouble
 argument_list|(
@@ -530,7 +521,7 @@ specifier|final
 name|double
 name|longsWeight
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsDouble
 argument_list|(
@@ -546,7 +537,7 @@ specifier|final
 name|double
 name|objectsWeight
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsDouble
 argument_list|(

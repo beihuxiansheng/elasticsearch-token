@@ -684,11 +684,13 @@ name|this
 operator|.
 name|allowIdGeneration
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"action.allow_id_generation"
+literal|"action.bulk.action.allow_id_generation"
 argument_list|,
 literal|true
 argument_list|)

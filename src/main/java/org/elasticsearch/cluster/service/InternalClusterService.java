@@ -759,11 +759,13 @@ name|this
 operator|.
 name|reconnectInterval
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"reconnect_interval"
+literal|"cluster.service.reconnect_interval"
 argument_list|,
 name|TimeValue
 operator|.

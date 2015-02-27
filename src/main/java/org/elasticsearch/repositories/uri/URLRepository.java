@@ -168,18 +168,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|threadpool
-operator|.
-name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -282,11 +270,11 @@ name|get
 argument_list|(
 literal|"url"
 argument_list|,
-name|componentSettings
+name|settings
 operator|.
 name|get
 argument_list|(
-literal|"url"
+literal|"repositories.uri.url"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -332,11 +320,11 @@ name|getAsBoolean
 argument_list|(
 literal|"list_directories"
 argument_list|,
-name|componentSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"list_directories"
+literal|"repositories.uri.list_directories"
 argument_list|,
 literal|true
 argument_list|)
@@ -347,7 +335,7 @@ operator|=
 operator|new
 name|URLBlobStore
 argument_list|(
-name|componentSettings
+name|settings
 argument_list|,
 name|url
 argument_list|)

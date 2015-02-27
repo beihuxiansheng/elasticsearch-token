@@ -638,11 +638,11 @@ name|this
 operator|.
 name|waitForMappingUpdatePostRecovery
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"wait_for_mapping_update_post_recovery"
+literal|"index.gateway.wait_for_mapping_update_post_recovery"
 argument_list|,
 name|TimeValue
 operator|.
@@ -654,11 +654,11 @@ argument_list|)
 expr_stmt|;
 name|syncInterval
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"sync"
+literal|"index.gateway.sync"
 argument_list|,
 name|TimeValue
 operator|.

@@ -2372,7 +2372,7 @@ name|getAsBytesSize
 argument_list|(
 name|setting
 argument_list|,
-name|componentSettings
+name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
