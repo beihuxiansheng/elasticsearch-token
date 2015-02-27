@@ -70,20 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|SettingsFilter
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -283,7 +269,7 @@ name|TestAmazonS3
 argument_list|(
 name|client
 argument_list|,
-name|componentSettings
+name|settings
 argument_list|)
 expr_stmt|;
 name|clients
