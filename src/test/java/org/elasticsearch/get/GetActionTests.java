@@ -10403,16 +10403,6 @@ throws|throws
 name|IOException
 block|{
 name|String
-name|storedString
-init|=
-name|randomBoolean
-argument_list|()
-condition|?
-literal|"yes"
-else|:
-literal|"no"
-decl_stmt|;
-name|String
 name|createIndexSource
 init|=
 literal|"{\n"
@@ -10450,13 +10440,7 @@ literal|"      },\n"
 operator|+
 literal|"      \"_ttl\": {\n"
 operator|+
-literal|"        \"enabled\": true,\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\"\n"
+literal|"        \"enabled\": true\n"
 operator|+
 literal|"      }\n"
 operator|+
