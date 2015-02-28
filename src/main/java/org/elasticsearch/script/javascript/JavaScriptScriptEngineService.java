@@ -282,11 +282,11 @@ name|this
 operator|.
 name|optimizationLevel
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"optimization_level"
+literal|"script.javascript.optimization_level"
 argument_list|,
 literal|1
 argument_list|)
