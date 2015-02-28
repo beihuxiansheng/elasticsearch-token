@@ -1266,6 +1266,16 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|translog
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|replicaTranslog
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 name|primaryEngine
 operator|.
 name|close
