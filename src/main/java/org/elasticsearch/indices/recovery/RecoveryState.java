@@ -2310,7 +2310,6 @@ name|Streamable
 block|{
 DECL|field|startTime
 specifier|protected
-specifier|volatile
 name|long
 name|startTime
 init|=
@@ -2318,7 +2317,6 @@ literal|0
 decl_stmt|;
 DECL|field|time
 specifier|protected
-specifier|volatile
 name|long
 name|time
 init|=
@@ -2327,7 +2325,6 @@ literal|1
 decl_stmt|;
 DECL|field|stopTime
 specifier|protected
-specifier|volatile
 name|long
 name|stopTime
 init|=
@@ -2335,6 +2332,7 @@ literal|0
 decl_stmt|;
 DECL|method|start
 specifier|public
+specifier|synchronized
 name|void
 name|start
 parameter_list|()
@@ -2356,6 +2354,7 @@ expr_stmt|;
 block|}
 DECL|method|startTime
 specifier|public
+specifier|synchronized
 name|long
 name|startTime
 parameter_list|()
@@ -2366,6 +2365,7 @@ return|;
 block|}
 DECL|method|time
 specifier|public
+specifier|synchronized
 name|long
 name|time
 parameter_list|()
@@ -2410,6 +2410,7 @@ return|;
 block|}
 DECL|method|stopTime
 specifier|public
+specifier|synchronized
 name|long
 name|stopTime
 parameter_list|()
@@ -2420,6 +2421,7 @@ return|;
 block|}
 DECL|method|stop
 specifier|public
+specifier|synchronized
 name|void
 name|stop
 parameter_list|()
@@ -2459,6 +2461,7 @@ assert|;
 block|}
 DECL|method|reset
 specifier|public
+specifier|synchronized
 name|void
 name|reset
 parameter_list|()
@@ -2481,6 +2484,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
+specifier|synchronized
 name|void
 name|readFrom
 parameter_list|(
@@ -2516,6 +2520,7 @@ annotation|@
 name|Override
 DECL|method|writeTo
 specifier|public
+specifier|synchronized
 name|void
 name|writeTo
 parameter_list|(
