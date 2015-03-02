@@ -4843,7 +4843,7 @@ name|nodes
 init|=
 name|startUnicastCluster
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 operator|new
 name|int
@@ -4980,7 +4980,7 @@ expr_stmt|;
 comment|// Wait until elected master has removed that the unlucky node...
 name|ensureStableCluster
 argument_list|(
-literal|2
+literal|3
 argument_list|,
 name|nodes
 operator|.
@@ -5004,7 +5004,7 @@ expr_stmt|;
 comment|// Wait until the master node sees all 3 nodes again.
 name|ensureStableCluster
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
 block|}
