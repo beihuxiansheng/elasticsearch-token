@@ -702,7 +702,7 @@ argument_list|()
 expr_stmt|;
 name|store
 operator|.
-name|renameFilesSafe
+name|renameTempFilesSafe
 argument_list|(
 name|tempFileNames
 argument_list|)

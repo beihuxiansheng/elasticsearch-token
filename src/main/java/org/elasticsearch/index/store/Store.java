@@ -1192,10 +1192,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Renames all the given files form the key of the map to the      * value of the map. All successfully renamed files are removed from the map in-place.      */
-DECL|method|renameFilesSafe
+DECL|method|renameTempFilesSafe
 specifier|public
 name|void
-name|renameFilesSafe
+name|renameTempFilesSafe
 parameter_list|(
 name|Map
 argument_list|<
