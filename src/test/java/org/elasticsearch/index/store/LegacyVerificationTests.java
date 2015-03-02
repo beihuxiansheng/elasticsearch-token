@@ -115,10 +115,10 @@ end_comment
 begin_class
 annotation|@
 name|Deprecated
-DECL|class|TestLegacyVerification
+DECL|class|LegacyVerificationTests
 specifier|public
 class|class
-name|TestLegacyVerification
+name|LegacyVerificationTests
 extends|extends
 name|ElasticsearchLuceneTestCase
 block|{

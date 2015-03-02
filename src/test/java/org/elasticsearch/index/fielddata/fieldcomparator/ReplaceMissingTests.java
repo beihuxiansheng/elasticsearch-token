@@ -131,10 +131,10 @@ literal|"Lucene42"
 block|}
 argument_list|)
 comment|// these codecs dont support missing values
-DECL|class|TestReplaceMissing
+DECL|class|ReplaceMissingTests
 specifier|public
 class|class
-name|TestReplaceMissing
+name|ReplaceMissingTests
 extends|extends
 name|ElasticsearchLuceneTestCase
 block|{
