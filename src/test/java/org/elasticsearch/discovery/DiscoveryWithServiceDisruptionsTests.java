@@ -714,10 +714,10 @@ name|transportClientRatio
 operator|=
 literal|0
 argument_list|)
-DECL|class|DiscoveryWithServiceDisruptions
+DECL|class|DiscoveryWithServiceDisruptionsTests
 specifier|public
 class|class
-name|DiscoveryWithServiceDisruptions
+name|DiscoveryWithServiceDisruptionsTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
