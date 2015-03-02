@@ -3574,6 +3574,7 @@ block|{
 comment|// TODO: on mac OS multicast threads are shared between nodes and we therefore we can't simulate GC and stop pinging for just one node
 comment|// find a way to block thread creation in the generic thread pool to avoid this.
 comment|// 3 node cluster with unicast discovery and minimum_master_nodes set to 2:
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -4023,11 +4024,31 @@ argument_list|(
 name|nodes
 argument_list|)
 expr_stmt|;
+comment|// Use assertBusy(...) because the unfrozen node may take a while to actually join the cluster.
+comment|// The assertDiscoveryCompleted(...) can't know if the joining has finished or still needs to begin.
+comment|// (the discovery only kicks in when unfrozen node steps down, which isn't immediately)
+name|assertBusy
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|assertMaster
 argument_list|(
 name|newMasterNode
 argument_list|,
 name|nodes
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|assertThat
