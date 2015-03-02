@@ -6483,16 +6483,19 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-literal|"wrong master on node ["
-operator|+
-name|node
-operator|+
-literal|"]. "
-operator|+
-name|failMsgSuffix
-argument_list|,
+name|String
+name|otherMasterNodeName
+init|=
+name|state
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+operator|!=
+literal|null
+condition|?
 name|state
 operator|.
 name|nodes
@@ -6503,6 +6506,20 @@ argument_list|()
 operator|.
 name|name
 argument_list|()
+else|:
+literal|null
+decl_stmt|;
+name|assertThat
+argument_list|(
+literal|"wrong master on node ["
+operator|+
+name|node
+operator|+
+literal|"]. "
+operator|+
+name|failMsgSuffix
+argument_list|,
+name|otherMasterNodeName
 argument_list|,
 name|equalTo
 argument_list|(
