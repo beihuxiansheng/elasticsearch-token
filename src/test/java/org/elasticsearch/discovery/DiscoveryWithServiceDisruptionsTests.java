@@ -4822,6 +4822,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"discovery.zen:TRACE,cluster.service:TRACE"
+argument_list|)
 DECL|method|isolatedUnicastNodes
 specifier|public
 name|void
