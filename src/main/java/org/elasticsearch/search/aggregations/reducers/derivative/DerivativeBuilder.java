@@ -52,6 +52,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -62,21 +72,9 @@ name|aggregations
 operator|.
 name|reducers
 operator|.
-name|derivative
-operator|.
-name|DerivativeReducer
+name|BucketHelpers
 operator|.
 name|GapPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
