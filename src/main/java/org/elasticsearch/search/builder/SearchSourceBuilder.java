@@ -96,6 +96,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|client
 operator|.
 name|Requests
@@ -2261,10 +2271,12 @@ block|{
 return|return
 literal|"{ \"error\" : \""
 operator|+
-name|e
+name|ExceptionsHelper
 operator|.
-name|getMessage
-argument_list|()
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
 operator|+
 literal|"\"}"
 return|;
