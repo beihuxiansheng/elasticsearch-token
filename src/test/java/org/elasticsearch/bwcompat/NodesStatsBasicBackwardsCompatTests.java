@@ -200,10 +200,10 @@ name|numClientNodes
 operator|=
 literal|0
 argument_list|)
-DECL|class|NodesStatsBasicBackwardsCompat
+DECL|class|NodesStatsBasicBackwardsCompatTests
 specifier|public
 class|class
-name|NodesStatsBasicBackwardsCompat
+name|NodesStatsBasicBackwardsCompatTests
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

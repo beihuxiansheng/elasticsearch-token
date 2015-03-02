@@ -161,10 +161,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ClusterStateBackwardsCompat
+DECL|class|ClusterStateBackwardsCompatTests
 specifier|public
 class|class
-name|ClusterStateBackwardsCompat
+name|ClusterStateBackwardsCompatTests
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{
