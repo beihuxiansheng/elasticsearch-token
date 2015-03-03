@@ -3563,15 +3563,6 @@ block|}
 comment|/**      * Tests that emulates a frozen elected master node that unfreezes and pushes his cluster state to other nodes      * that already are following another elected master node. These nodes should reject this cluster state and prevent      * them from following the stale master.      */
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elasticsearch/elasticsearch/pull/9963"
-argument_list|)
 DECL|method|testStaleMasterNotHijackingMajority
 specifier|public
 name|void
@@ -3945,28 +3936,28 @@ name|startDisrupting
 argument_list|()
 expr_stmt|;
 comment|// Wait for the majority side to get stable
-name|ensureStableCluster
+name|assertDifferentMaster
 argument_list|(
-literal|2
-argument_list|,
 name|majoritySide
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+name|oldMasterNode
 argument_list|)
 expr_stmt|;
-name|ensureStableCluster
+name|assertDifferentMaster
 argument_list|(
-literal|2
-argument_list|,
 name|majoritySide
 operator|.
 name|get
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+name|oldMasterNode
 argument_list|)
 expr_stmt|;
 comment|// The old master node is frozen, but here we submit a cluster state update task that doesn't get executed,

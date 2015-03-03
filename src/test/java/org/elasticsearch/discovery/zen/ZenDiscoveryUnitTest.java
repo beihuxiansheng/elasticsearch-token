@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchIllegalStateException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|ClusterName
@@ -124,7 +134,7 @@ name|zen
 operator|.
 name|ZenDiscovery
 operator|.
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 import|;
 end_import
 
@@ -271,7 +281,7 @@ name|assertTrue
 argument_list|(
 literal|"should ignore, because new state's version is lower to current state's version"
 argument_list|,
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 argument_list|(
 name|logger
 argument_list|,
@@ -305,7 +315,7 @@ name|assertFalse
 argument_list|(
 literal|"should not ignore, because new state's version is equal to current state's version"
 argument_list|,
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 argument_list|(
 name|logger
 argument_list|,
@@ -339,7 +349,7 @@ name|assertFalse
 argument_list|(
 literal|"should not ignore, because new state's version is higher to current state's version"
 argument_list|,
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 argument_list|(
 name|logger
 argument_list|,
@@ -415,11 +425,9 @@ argument_list|(
 name|currentNodes
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"should ignore, because current state's master is not equal to new state's master"
-argument_list|,
-name|shouldIgnoreNewClusterState
+try|try
+block|{
+name|shouldIgnoreOrRejectNewClusterState
 argument_list|(
 name|logger
 argument_list|,
@@ -433,8 +441,33 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"should ignore, because current state's master is not equal to new state's master"
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchIllegalStateException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|containsString
+argument_list|(
+literal|"cluster state from a different master then the current one, rejecting"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|currentNodes
 operator|=
 name|DiscoveryNodes
@@ -499,7 +532,7 @@ name|assertFalse
 argument_list|(
 literal|"should not ignore, because current state doesn't have a master"
 argument_list|,
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 argument_list|(
 name|logger
 argument_list|,
