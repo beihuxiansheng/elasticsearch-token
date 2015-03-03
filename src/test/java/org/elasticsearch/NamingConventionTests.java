@@ -785,9 +785,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|Class
+name|Thread
 operator|.
-name|forName
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+operator|.
+name|loadClass
 argument_list|(
 name|pkg
 operator|.
