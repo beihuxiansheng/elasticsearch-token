@@ -3849,6 +3849,70 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
+name|CountDownLatch
+name|oldMasterNodeSteppedDown
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+decl_stmt|;
+name|internalCluster
+argument_list|()
+operator|.
+name|getInstance
+argument_list|(
+name|ClusterService
+operator|.
+name|class
+argument_list|,
+name|oldMasterNode
+argument_list|)
+operator|.
+name|add
+argument_list|(
+operator|new
+name|ClusterStateListener
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|clusterChanged
+parameter_list|(
+name|ClusterChangedEvent
+name|event
+parameter_list|)
+block|{
+if|if
+condition|(
+name|event
+operator|.
+name|state
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNodeId
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|oldMasterNodeSteppedDown
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
@@ -4018,6 +4082,17 @@ operator|.
 name|stopDisrupting
 argument_list|()
 expr_stmt|;
+name|oldMasterNodeSteppedDown
+operator|.
+name|await
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+expr_stmt|;
 comment|// Make sure that the end state is consistent on all nodes:
 name|assertDiscoveryCompleted
 argument_list|(
@@ -4025,8 +4100,7 @@ name|nodes
 argument_list|)
 expr_stmt|;
 comment|// Use assertBusy(...) because the unfrozen node may take a while to actually join the cluster.
-comment|// The assertDiscoveryCompleted(...) can't know if the joining has finished or still needs to begin.
-comment|// (the discovery only kicks in when unfrozen node steps down, which isn't immediately)
+comment|// The assertDiscoveryCompleted(...) can't know if all nodes have the old master node in all of the local cluster states
 name|assertBusy
 argument_list|(
 operator|new
@@ -4211,7 +4285,7 @@ literal|"["
 operator|+
 name|nodeName
 operator|+
-literal|"] jSecond transition's current master should be ["
+literal|"] Second transition's current master should be ["
 operator|+
 name|newMasterNode
 operator|+
