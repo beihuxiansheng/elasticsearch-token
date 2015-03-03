@@ -198,32 +198,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -802,7 +776,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> restarting both nodes"
+literal|"--> restarting all nodes"
 argument_list|)
 expr_stmt|;
 if|if
@@ -862,6 +836,11 @@ name|get
 argument_list|()
 expr_stmt|;
 name|ensureGreen
+argument_list|(
+name|IDX
+argument_list|)
+expr_stmt|;
+name|flushAndRefresh
 argument_list|(
 name|IDX
 argument_list|)
