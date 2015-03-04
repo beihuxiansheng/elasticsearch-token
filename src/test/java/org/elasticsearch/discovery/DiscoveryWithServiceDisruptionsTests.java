@@ -3563,6 +3563,15 @@ block|}
 comment|/**      * Tests that emulates a frozen elected master node that unfreezes and pushes his cluster state to other nodes      * that already are following another elected master node. These nodes should reject this cluster state and prevent      * them from following the stale master.      */
 annotation|@
 name|Test
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elasticsearch/elasticsearch/pull/9963"
+argument_list|)
 DECL|method|testStaleMasterNotHijackingMajority
 specifier|public
 name|void
