@@ -216,22 +216,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|object
-operator|.
-name|ObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|support
@@ -945,9 +929,6 @@ name|MIN
 expr_stmt|;
 block|}
 comment|// If nested_path is specified, then wrap the `fieldComparatorSource` in a `NestedFieldComparatorSource`
-name|ObjectMapper
-name|objectMapper
-decl_stmt|;
 specifier|final
 name|Nested
 name|nested

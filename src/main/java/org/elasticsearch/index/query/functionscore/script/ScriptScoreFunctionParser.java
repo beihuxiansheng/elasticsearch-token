@@ -273,11 +273,6 @@ name|script
 init|=
 literal|null
 decl_stmt|;
-name|String
-name|scriptLang
-init|=
-literal|null
-decl_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -475,13 +470,6 @@ name|scriptType
 argument_list|()
 expr_stmt|;
 block|}
-name|scriptLang
-operator|=
-name|scriptParameterParser
-operator|.
-name|lang
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|script
@@ -526,7 +514,10 @@ operator|.
 name|lookup
 argument_list|()
 argument_list|,
-name|scriptLang
+name|scriptParameterParser
+operator|.
+name|lang
+argument_list|()
 argument_list|,
 name|script
 argument_list|,

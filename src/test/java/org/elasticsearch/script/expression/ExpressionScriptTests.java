@@ -34,9 +34,9 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|get
+name|search
 operator|.
-name|GetRequestBuilder
+name|SearchPhaseExecutionException
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|action
 operator|.
 name|search
 operator|.
-name|*
+name|SearchRequestBuilder
 import|;
 end_import
 
@@ -60,11 +60,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|xcontent
+name|search
 operator|.
-name|ToXContent
+name|SearchResponse
 import|;
 end_import
 
@@ -74,11 +74,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|xcontent
+name|search
 operator|.
-name|XContentBuilder
+name|SearchType
 import|;
 end_import
 
@@ -182,20 +182,6 @@ name|search
 operator|.
 name|sort
 operator|.
-name|SortBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|sort
-operator|.
 name|SortBuilders
 import|;
 end_import
@@ -237,26 +223,6 @@ operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -2065,7 +2031,9 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"expression"
+name|ExpressionScriptEngineService
+operator|.
+name|NAME
 argument_list|)
 argument_list|)
 operator|.
@@ -2090,7 +2058,9 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"expression"
+name|ExpressionScriptEngineService
+operator|.
+name|NAME
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2316,7 +2286,9 @@ argument_list|)
 operator|.
 name|lang
 argument_list|(
-literal|"expression"
+name|ExpressionScriptEngineService
+operator|.
+name|NAME
 argument_list|)
 argument_list|)
 expr_stmt|;

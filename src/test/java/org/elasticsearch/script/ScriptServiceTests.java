@@ -545,7 +545,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"the script test_script should no longe exist"
+literal|"the script test_script should no longer exist"
 argument_list|)
 expr_stmt|;
 block|}

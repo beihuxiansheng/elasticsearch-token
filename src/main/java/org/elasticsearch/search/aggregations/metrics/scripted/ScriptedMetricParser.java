@@ -303,8 +303,6 @@ name|IOException
 block|{
 name|String
 name|scriptLang
-init|=
-literal|null
 decl_stmt|;
 name|Map
 argument_list|<

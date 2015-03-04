@@ -99,6 +99,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|mustache
+operator|.
+name|MustacheScriptEngineService
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -177,7 +191,9 @@ name|request
 parameter_list|)
 block|{
 return|return
-literal|"mustache"
+name|MustacheScriptEngineService
+operator|.
+name|NAME
 return|;
 block|}
 annotation|@
