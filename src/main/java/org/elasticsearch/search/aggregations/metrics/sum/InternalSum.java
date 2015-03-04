@@ -377,6 +377,8 @@ return|return
 name|sum
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|double

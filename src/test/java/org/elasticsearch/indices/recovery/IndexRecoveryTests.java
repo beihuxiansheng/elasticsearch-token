@@ -3539,7 +3539,7 @@ name|assertThat
 argument_list|(
 name|indexState
 operator|.
-name|percentFilesRecovered
+name|recoveredFilesPercent
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -3552,7 +3552,7 @@ name|assertThat
 argument_list|(
 name|indexState
 operator|.
-name|percentFilesRecovered
+name|recoveredFilesPercent
 argument_list|()
 argument_list|,
 name|lessThanOrEqualTo
@@ -3565,7 +3565,7 @@ name|assertThat
 argument_list|(
 name|indexState
 operator|.
-name|percentBytesRecovered
+name|recoveredBytesPercent
 argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
@@ -3578,7 +3578,7 @@ name|assertThat
 argument_list|(
 name|indexState
 operator|.
-name|percentBytesRecovered
+name|recoveredBytesPercent
 argument_list|()
 argument_list|,
 name|lessThanOrEqualTo
@@ -4377,6 +4377,8 @@ operator|=
 name|requestBlocked
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|sendRequest
 specifier|public
 name|void

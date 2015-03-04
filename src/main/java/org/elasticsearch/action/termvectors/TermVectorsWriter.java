@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|DocIdSetIterator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|TermStatistics
 import|;
 end_import
@@ -323,12 +337,12 @@ name|iterator
 init|=
 literal|null
 decl_stmt|;
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|docsAndPosEnum
 init|=
 literal|null
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|docsEnum
 init|=
 literal|null
@@ -649,7 +663,7 @@ block|}
 else|else
 block|{
 comment|// if we do not have the positions stored, we need to
-comment|// get the frequency from a DocsEnum.
+comment|// get the frequency from a PostingsEnum.
 name|docsEnum
 operator|=
 name|writeTermWithDocsOnly
@@ -822,13 +836,13 @@ return|;
 block|}
 DECL|method|writeTermWithDocsOnly
 specifier|private
-name|DocsEnum
+name|PostingsEnum
 name|writeTermWithDocsOnly
 parameter_list|(
 name|TermsEnum
 name|iterator
 parameter_list|,
-name|DocsEnum
+name|PostingsEnum
 name|docsEnum
 parameter_list|)
 throws|throws
@@ -838,7 +852,7 @@ name|docsEnum
 operator|=
 name|iterator
 operator|.
-name|docs
+name|postings
 argument_list|(
 literal|null
 argument_list|,
@@ -856,7 +870,7 @@ decl_stmt|;
 assert|assert
 name|nextDoc
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 assert|;
@@ -878,7 +892,7 @@ expr_stmt|;
 assert|assert
 name|nextDoc
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 assert|;
@@ -888,13 +902,13 @@ return|;
 block|}
 DECL|method|writeTermWithDocsAndPos
 specifier|private
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|writeTermWithDocsAndPos
 parameter_list|(
 name|TermsEnum
 name|iterator
 parameter_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|docsAndPosEnum
 parameter_list|,
 name|boolean
@@ -913,11 +927,15 @@ name|docsAndPosEnum
 operator|=
 name|iterator
 operator|.
-name|docsAndPositions
+name|postings
 argument_list|(
 literal|null
 argument_list|,
 name|docsAndPosEnum
+argument_list|,
+name|PostingsEnum
+operator|.
+name|ALL
 argument_list|)
 expr_stmt|;
 comment|// for each term (iterator next) in this field (field)
@@ -933,7 +951,7 @@ decl_stmt|;
 assert|assert
 name|nextDoc
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 assert|;
@@ -1029,7 +1047,7 @@ expr_stmt|;
 assert|assert
 name|nextDoc
 operator|==
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 assert|;

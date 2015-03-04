@@ -65,6 +65,8 @@ argument_list|,
 name|V
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|isEmpty
 specifier|public
 name|boolean
@@ -79,6 +81,8 @@ literal|"entrySet() not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|V
@@ -99,6 +103,8 @@ literal|"put(Object, Object) not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|putAll
 specifier|public
 name|void
@@ -125,6 +131,8 @@ literal|"putAll(Map<? extends K, ? extends V>) not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|V
@@ -142,6 +150,8 @@ literal|"remove(Object) not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -156,6 +166,8 @@ literal|"clear() not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|keySet
 specifier|public
 name|Set
@@ -173,6 +185,8 @@ literal|"keySet() not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|values
 specifier|public
 name|Collection
@@ -190,6 +204,8 @@ literal|"values() not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|entrySet
 specifier|public
 name|Set
@@ -212,6 +228,8 @@ literal|"entrySet() not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|containsValue
 specifier|public
 name|boolean
@@ -229,6 +247,8 @@ literal|"containsValue(Object) not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -243,6 +263,8 @@ literal|"size() not supported!"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|containsKey
 specifier|public
 name|boolean

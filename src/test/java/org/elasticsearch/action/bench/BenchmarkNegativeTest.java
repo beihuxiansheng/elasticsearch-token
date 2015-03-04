@@ -126,6 +126,8 @@ name|INDEX_NAME
 init|=
 literal|"test_index"
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|nodeSettings
 specifier|protected
 name|Settings

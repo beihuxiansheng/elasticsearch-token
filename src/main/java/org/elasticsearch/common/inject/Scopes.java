@@ -113,6 +113,8 @@ operator|new
 name|Scope
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -151,6 +153,8 @@ name|T
 name|instance
 decl_stmt|;
 comment|// DCL on a volatile is safe as of Java 5, which we obviously require.
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -197,6 +201,8 @@ return|return
 name|instance
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|String
 name|toString
@@ -247,6 +253,8 @@ operator|new
 name|Scope
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T

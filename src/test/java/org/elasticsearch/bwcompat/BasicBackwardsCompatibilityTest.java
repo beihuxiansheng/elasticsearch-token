@@ -72,6 +72,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|Version
 import|;
 end_import
@@ -2509,6 +2519,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|assertAllShardsOnNodes
 specifier|public
 name|void
@@ -3796,17 +3808,21 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|ExceptionsHelper
+operator|.
+name|detailedMessage
+argument_list|(
 name|ex
+argument_list|)
 operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
+name|contains
+argument_list|(
+literal|"type=_field_names is not supported on indices created before version 1.3.0"
+argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"type=_field_names is not supported on indices created before version 1.3.0 is your cluster running multiple datanode versions?"
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

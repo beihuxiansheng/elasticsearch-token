@@ -154,27 +154,6 @@ name|Settings
 extends|extends
 name|ToXContent
 block|{
-comment|/**      * Component settings for a specific component. Returns all the settings for the given class, where the      * FQN of the class is used, without the<tt>org.elasticsearch<tt> prefix. If there is no<tt>org.elasticsearch</tt>      * prefix, then the prefix used is the first part of the package name (<tt>org</tt> /<tt>com</tt> / ...)      */
-DECL|method|getComponentSettings
-name|Settings
-name|getComponentSettings
-parameter_list|(
-name|Class
-name|component
-parameter_list|)
-function_decl|;
-comment|/**      * Component settings for a specific component. Returns all the settings for the given class, where the      * FQN of the class is used, without provided prefix.      */
-DECL|method|getComponentSettings
-name|Settings
-name|getComponentSettings
-parameter_list|(
-name|String
-name|prefix
-parameter_list|,
-name|Class
-name|component
-parameter_list|)
-function_decl|;
 comment|/**      * A settings that are filtered (and key is removed) with the specified prefix.      */
 DECL|method|getByPrefix
 name|Settings

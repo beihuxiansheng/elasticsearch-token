@@ -135,6 +135,8 @@ operator|=
 name|privateElements
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify
 specifier|public
 name|void
@@ -207,6 +209,8 @@ operator|=
 name|explicitBinding
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|T

@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|Fields
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Fields
+name|PostingsEnum
 import|;
 end_import
 
@@ -1454,16 +1454,20 @@ name|termIter
 argument_list|)
 expr_stmt|;
 comment|// finally write the term vectors
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|posEnum
 init|=
 name|termIter
 operator|.
-name|docsAndPositions
+name|postings
 argument_list|(
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|PostingsEnum
+operator|.
+name|ALL
 argument_list|)
 decl_stmt|;
 name|int
@@ -1805,7 +1809,7 @@ parameter_list|(
 name|Terms
 name|curTerms
 parameter_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|posEnum
 parameter_list|,
 name|int

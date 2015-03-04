@@ -80,6 +80,8 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|withSource
 name|PrivateBinder
 name|withSource
@@ -88,6 +90,8 @@ name|Object
 name|source
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|skipSources
 name|PrivateBinder
 name|skipSources

@@ -460,6 +460,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * The list of {@link Aggregation}s.      */
+annotation|@
+name|Override
 DECL|method|asList
 specifier|public
 name|List
@@ -481,6 +483,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the {@link Aggregation}s keyed by map.      */
+annotation|@
+name|Override
 DECL|method|asMap
 specifier|public
 name|Map
@@ -498,6 +502,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns the {@link Aggregation}s keyed by map.      */
+annotation|@
+name|Override
 DECL|method|getAsMap
 specifier|public
 name|Map
@@ -601,6 +607,8 @@ name|name
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProperty
 specifier|public
 name|Object

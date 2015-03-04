@@ -463,6 +463,8 @@ name|this
 return|;
 block|}
 comment|/**      * The replication type to use with this operation.      */
+annotation|@
+name|Override
 DECL|method|setReplicationType
 specifier|public
 name|DeleteByQueryRequestBuilder
@@ -484,6 +486,8 @@ name|this
 return|;
 block|}
 comment|/**      * The replication type to use with this operation.      */
+annotation|@
+name|Override
 DECL|method|setReplicationType
 specifier|public
 name|DeleteByQueryRequestBuilder
@@ -504,6 +508,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setConsistencyLevel
 specifier|public
 name|DeleteByQueryRequestBuilder

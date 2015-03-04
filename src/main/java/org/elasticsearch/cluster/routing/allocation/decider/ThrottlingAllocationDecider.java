@@ -432,6 +432,8 @@ name|allocation
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|canAllocate
 specifier|public
 name|Decision

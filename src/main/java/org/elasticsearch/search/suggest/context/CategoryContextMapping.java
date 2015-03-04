@@ -1634,6 +1634,8 @@ operator|=
 name|values
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toAutomaton
 specifier|public
 name|Automaton

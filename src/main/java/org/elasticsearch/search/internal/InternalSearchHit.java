@@ -1001,6 +1001,8 @@ name|nestedIdentity
 return|;
 block|}
 comment|/**      * Returns bytes reference, also un compress the source if needed.      */
+annotation|@
+name|Override
 DECL|method|sourceRef
 specifier|public
 name|BytesReference
@@ -1778,6 +1780,8 @@ operator|.
 name|matchedQueries
 return|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

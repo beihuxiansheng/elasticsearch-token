@@ -426,6 +426,8 @@ name|httpAddresses
 parameter_list|()
 function_decl|;
 comment|/**      * Closes the current cluster      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|abstract

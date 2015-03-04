@@ -724,6 +724,8 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 name|byte
 name|id

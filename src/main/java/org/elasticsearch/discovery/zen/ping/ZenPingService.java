@@ -405,11 +405,13 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"multicast.enabled"
+literal|"discovery.zen.ping.multicast.enabled"
 argument_list|,
 literal|true
 argument_list|)

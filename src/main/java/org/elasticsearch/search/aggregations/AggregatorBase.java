@@ -729,6 +729,8 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * @return  The name of the aggregation.      */
+annotation|@
+name|Override
 DECL|method|name
 specifier|public
 name|String
@@ -740,6 +742,8 @@ name|name
 return|;
 block|}
 comment|/**      * @return  The parent aggregator of this aggregator. The addAggregation are hierarchical in the sense that some can      *          be composed out of others (more specifically, bucket addAggregation can define other addAggregation that will      *          be aggregated per bucket). This method returns the direct parent aggregator that contains this aggregator, or      *          {@code null} if there is none (meaning, this aggregator is a top level one)      */
+annotation|@
+name|Override
 DECL|method|parent
 specifier|public
 name|Aggregator
@@ -761,6 +765,8 @@ return|return
 name|subAggregators
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|subAggregator
 specifier|public
 name|Aggregator
@@ -835,6 +841,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @return  The current aggregation context.      */
+annotation|@
+name|Override
 DECL|method|context
 specifier|public
 name|AggregationContext

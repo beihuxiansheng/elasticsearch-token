@@ -70,6 +70,8 @@ operator|.
 name|Bucket
 block|{     }
 comment|/**      * The buckets created by this aggregation.      */
+annotation|@
+name|Override
 DECL|method|getBuckets
 name|List
 argument_list|<

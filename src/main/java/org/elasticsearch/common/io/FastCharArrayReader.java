@@ -221,6 +221,8 @@ argument_list|)
 throw|;
 block|}
 comment|/**      * Reads a single character.      *      * @throws IOException If an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -252,6 +254,8 @@ index|]
 return|;
 block|}
 comment|/**      * Reads characters into a portion of an array.      *      * @param b   Destination buffer      * @param off Offset at which to start storing characters      * @param len Maximum number of characters to read      * @return The actual number of characters read, or -1 if      *         the end of the stream has been reached      * @throws IOException If an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|int
@@ -399,6 +403,8 @@ name|len
 return|;
 block|}
 comment|/**      * Skips characters.  Returns the number of characters that were skipped.      *<p/>      *<p>The<code>n</code> parameter may be negative, even though the      *<code>skip</code> method of the {@link Reader} superclass throws      * an exception in this case. If<code>n</code> is negative, then      * this method does nothing and returns<code>0</code>.      *      * @param n The number of characters to skip      * @return The number of characters actually skipped      * @throws IOException If the stream is closed, or an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|skip
 specifier|public
 name|long
@@ -449,6 +455,8 @@ name|n
 return|;
 block|}
 comment|/**      * Tells whether this stream is ready to be read.  Character-array readers      * are always ready to be read.      *      * @throws IOException If an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|ready
 specifier|public
 name|boolean
@@ -471,6 +479,8 @@ literal|0
 return|;
 block|}
 comment|/**      * Tells whether this stream supports the mark() operation, which it does.      */
+annotation|@
+name|Override
 DECL|method|markSupported
 specifier|public
 name|boolean
@@ -482,6 +492,8 @@ literal|true
 return|;
 block|}
 comment|/**      * Marks the present position in the stream.  Subsequent calls to reset()      * will reposition the stream to this point.      *      * @param readAheadLimit Limit on the number of characters that may be      *                       read while still preserving the mark.  Because      *                       the stream's input comes from a character array,      *                       there is no actual limit; hence this argument is      *                       ignored.      * @throws IOException If an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|mark
 specifier|public
 name|void
@@ -502,6 +514,8 @@ name|pos
 expr_stmt|;
 block|}
 comment|/**      * Resets the stream to the most recent mark, or to the beginning if it has      * never been marked.      *      * @throws IOException If an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void
@@ -519,6 +533,8 @@ name|markedPos
 expr_stmt|;
 block|}
 comment|/**      * Closes the stream and releases any system resources associated with      * it.  Once the stream has been closed, further read(), ready(),      * mark(), reset(), or skip() invocations will throw an IOException.      * Closing a previously closed stream has no effect.      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

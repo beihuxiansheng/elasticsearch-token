@@ -216,6 +216,8 @@ name|key
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|annotatedWith
 specifier|public
 name|BindingBuilder
@@ -242,6 +244,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|annotatedWith
 specifier|public
 name|BindingBuilder
@@ -263,6 +267,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|to
 specifier|public
 name|BindingBuilder
@@ -292,6 +298,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|to
 specifier|public
 name|BindingBuilder
@@ -321,6 +329,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|to
 specifier|public
 name|BindingBuilder
@@ -386,6 +396,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toInstance
 specifier|public
 name|void
@@ -515,6 +527,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|toProvider
 specifier|public
 name|BindingBuilder
@@ -637,6 +651,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toProvider
 specifier|public
 name|BindingBuilder
@@ -671,6 +687,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toProvider
 specifier|public
 name|BindingBuilder

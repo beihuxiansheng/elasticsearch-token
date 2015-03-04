@@ -1292,6 +1292,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Should be called before executing the main query and after all other parameters have been set.      */
+annotation|@
+name|Override
 DECL|method|preProcess
 specifier|public
 name|void
@@ -1508,6 +1510,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|searchFilter
 specifier|public
 name|Filter
@@ -1589,6 +1593,8 @@ name|filter
 return|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|long
@@ -1601,6 +1607,8 @@ operator|.
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|source
 specifier|public
 name|String
@@ -1614,6 +1622,8 @@ name|source
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|request
 specifier|public
 name|ShardSearchRequest
@@ -1626,6 +1636,8 @@ operator|.
 name|request
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|searchType
 specifier|public
 name|SearchType
@@ -1638,6 +1650,8 @@ operator|.
 name|searchType
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|searchType
 specifier|public
 name|SearchContext
@@ -1657,6 +1671,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|shardTarget
 specifier|public
 name|SearchShardTarget
@@ -1669,6 +1685,8 @@ operator|.
 name|shardTarget
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|numberOfShards
 specifier|public
 name|int
@@ -1682,6 +1700,8 @@ name|numberOfShards
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasTypes
 specifier|public
 name|boolean
@@ -1706,6 +1726,8 @@ operator|>
 literal|0
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|types
 specifier|public
 name|String
@@ -1720,6 +1742,8 @@ name|types
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryBoost
 specifier|public
 name|float
@@ -1730,6 +1754,8 @@ return|return
 name|queryBoost
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryBoost
 specifier|public
 name|SearchContext
@@ -1749,6 +1775,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|nowInMillisImpl
 specifier|protected
 name|long
@@ -1762,6 +1790,8 @@ name|nowInMillis
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scroll
 specifier|public
 name|Scroll
@@ -1774,6 +1804,8 @@ operator|.
 name|scroll
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scroll
 specifier|public
 name|SearchContext
@@ -1826,6 +1858,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|highlight
 specifier|public
 name|SearchContextHighlight
@@ -1836,6 +1870,8 @@ return|return
 name|highlight
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|highlight
 specifier|public
 name|void
@@ -1852,6 +1888,8 @@ operator|=
 name|highlight
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|suggest
 specifier|public
 name|SuggestionSearchContext
@@ -1862,6 +1900,8 @@ return|return
 name|suggest
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|suggest
 specifier|public
 name|void
@@ -1878,6 +1918,8 @@ operator|=
 name|suggest
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|rescore
 specifier|public
 name|List
@@ -1905,6 +1947,8 @@ return|return
 name|rescore
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|addRescore
 specifier|public
 name|void
@@ -1943,6 +1987,8 @@ name|rescore
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasFieldDataFields
 specifier|public
 name|boolean
@@ -1955,6 +2001,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fieldDataFields
 specifier|public
 name|FieldDataFieldsContext
@@ -1981,6 +2029,8 @@ operator|.
 name|fieldDataFields
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasScriptFields
 specifier|public
 name|boolean
@@ -1993,6 +2043,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scriptFields
 specifier|public
 name|ScriptFieldsContext
@@ -2020,6 +2072,8 @@ name|scriptFields
 return|;
 block|}
 comment|/**      * A shortcut function to see whether there is a fetchSourceContext and it says the source is requested.      *      * @return      */
+annotation|@
+name|Override
 DECL|method|sourceRequested
 specifier|public
 name|boolean
@@ -2037,6 +2091,8 @@ name|fetchSource
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasFetchSourceContext
 specifier|public
 name|boolean
@@ -2049,6 +2105,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fetchSourceContext
 specifier|public
 name|FetchSourceContext
@@ -2061,6 +2119,8 @@ operator|.
 name|fetchSourceContext
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fetchSourceContext
 specifier|public
 name|SearchContext
@@ -2080,6 +2140,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|searcher
 specifier|public
 name|ContextIndexSearcher
@@ -2092,6 +2154,8 @@ operator|.
 name|searcher
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|indexShard
 specifier|public
 name|IndexShard
@@ -2104,6 +2168,8 @@ operator|.
 name|indexShard
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|mapperService
 specifier|public
 name|MapperService
@@ -2117,6 +2183,8 @@ name|mapperService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|analysisService
 specifier|public
 name|AnalysisService
@@ -2130,6 +2198,8 @@ name|analysisService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryParserService
 specifier|public
 name|IndexQueryParserService
@@ -2143,6 +2213,8 @@ name|queryParserService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|similarityService
 specifier|public
 name|SimilarityService
@@ -2156,6 +2228,8 @@ name|similarityService
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scriptService
 specifier|public
 name|ScriptService
@@ -2166,6 +2240,8 @@ return|return
 name|scriptService
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|pageCacheRecycler
 specifier|public
 name|PageCacheRecycler
@@ -2176,6 +2252,8 @@ return|return
 name|pageCacheRecycler
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|bigArrays
 specifier|public
 name|BigArrays
@@ -2186,6 +2264,8 @@ return|return
 name|bigArrays
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|filterCache
 specifier|public
 name|FilterCache
@@ -2217,6 +2297,8 @@ name|bitsetFilterCache
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fieldData
 specifier|public
 name|IndexFieldDataService
@@ -2230,6 +2312,8 @@ name|fieldData
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|timeoutInMillis
 specifier|public
 name|long
@@ -2240,6 +2324,8 @@ return|return
 name|timeoutInMillis
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|timeoutInMillis
 specifier|public
 name|void
@@ -2286,6 +2372,8 @@ operator|=
 name|terminateAfter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|minimumScore
 specifier|public
 name|SearchContext
@@ -2305,6 +2393,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|minimumScore
 specifier|public
 name|Float
@@ -2317,6 +2407,8 @@ operator|.
 name|minimumScore
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sort
 specifier|public
 name|SearchContext
@@ -2336,6 +2428,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sort
 specifier|public
 name|Sort
@@ -2348,6 +2442,8 @@ operator|.
 name|sort
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|trackScores
 specifier|public
 name|SearchContext
@@ -2367,6 +2463,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|trackScores
 specifier|public
 name|boolean
@@ -2379,6 +2477,8 @@ operator|.
 name|trackScores
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parsedPostFilter
 specifier|public
 name|SearchContext
@@ -2398,6 +2498,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parsedPostFilter
 specifier|public
 name|ParsedFilter
@@ -2410,6 +2512,8 @@ operator|.
 name|postFilter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|aliasFilter
 specifier|public
 name|Filter
@@ -2420,6 +2524,8 @@ return|return
 name|aliasFilter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parsedQuery
 specifier|public
 name|SearchContext
@@ -2452,6 +2558,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parsedQuery
 specifier|public
 name|ParsedQuery
@@ -2465,6 +2573,8 @@ name|originalQuery
 return|;
 block|}
 comment|/**      * The query to execute, might be rewritten.      */
+annotation|@
+name|Override
 DECL|method|query
 specifier|public
 name|Query
@@ -2478,6 +2588,8 @@ name|query
 return|;
 block|}
 comment|/**      * Has the query been rewritten already?      */
+annotation|@
+name|Override
 DECL|method|queryRewritten
 specifier|public
 name|boolean
@@ -2489,6 +2601,8 @@ name|queryRewritten
 return|;
 block|}
 comment|/**      * Rewrites the query and updates it. Only happens once.      */
+annotation|@
+name|Override
 DECL|method|updateRewriteQuery
 specifier|public
 name|SearchContext
@@ -2510,6 +2624,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|from
 specifier|public
 name|int
@@ -2520,6 +2636,8 @@ return|return
 name|from
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|from
 specifier|public
 name|SearchContext
@@ -2539,6 +2657,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -2549,6 +2669,8 @@ return|return
 name|size
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|SearchContext
@@ -2568,6 +2690,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasFieldNames
 specifier|public
 name|boolean
@@ -2580,6 +2704,8 @@ operator|!=
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fieldNames
 specifier|public
 name|List
@@ -2608,6 +2734,8 @@ return|return
 name|fieldNames
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|emptyFieldNames
 specifier|public
 name|void
@@ -2624,6 +2752,8 @@ name|of
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|boolean
@@ -2634,6 +2764,8 @@ return|return
 name|explain
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|explain
 specifier|public
 name|void
@@ -2651,6 +2783,8 @@ name|explain
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Nullable
 DECL|method|groupStats
 specifier|public
@@ -2667,6 +2801,8 @@ operator|.
 name|groupStats
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|groupStats
 specifier|public
 name|void
@@ -2686,6 +2822,8 @@ operator|=
 name|groupStats
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|boolean
@@ -2696,6 +2834,8 @@ return|return
 name|version
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|version
 specifier|public
 name|void
@@ -2712,6 +2852,8 @@ operator|=
 name|version
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|docIdsToLoad
 specifier|public
 name|int
@@ -2723,6 +2865,8 @@ return|return
 name|docIdsToLoad
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docIdsToLoadFrom
 specifier|public
 name|int
@@ -2733,6 +2877,8 @@ return|return
 name|docsIdsToLoadFrom
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docIdsToLoadSize
 specifier|public
 name|int
@@ -2743,6 +2889,8 @@ return|return
 name|docsIdsToLoadSize
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|docIdsToLoad
 specifier|public
 name|SearchContext
@@ -2781,6 +2929,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|accessed
 specifier|public
 name|void
@@ -2797,6 +2947,8 @@ operator|=
 name|accessTime
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|lastAccessTime
 specifier|public
 name|long
@@ -2809,6 +2961,8 @@ operator|.
 name|lastAccessTime
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|keepAlive
 specifier|public
 name|long
@@ -2821,6 +2975,8 @@ operator|.
 name|keepAlive
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|keepAlive
 specifier|public
 name|void
@@ -2867,6 +3023,8 @@ return|return
 name|lastEmittedDoc
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|lookup
 specifier|public
 name|SearchLookup
@@ -2903,6 +3061,8 @@ return|return
 name|searchLookup
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|dfsResult
 specifier|public
 name|DfsSearchResult
@@ -2913,6 +3073,8 @@ return|return
 name|dfsResult
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryResult
 specifier|public
 name|QuerySearchResult
@@ -2923,6 +3085,8 @@ return|return
 name|queryResult
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fetchResult
 specifier|public
 name|FetchSearchResult
@@ -2933,6 +3097,8 @@ return|return
 name|fetchResult
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|scanContext
 specifier|public
 name|ScanContext

@@ -1006,6 +1006,8 @@ name|this
 return|;
 block|}
 comment|/**      * The type of the indexed document.      */
+annotation|@
+name|Override
 DECL|method|type
 specifier|public
 name|String
@@ -1037,6 +1039,8 @@ name|this
 return|;
 block|}
 comment|/**      * The id of the indexed document. If not set, will be automatically generated.      */
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|String
@@ -1068,6 +1072,8 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
+annotation|@
+name|Override
 DECL|method|routing
 specifier|public
 name|IndexRequest
@@ -1112,6 +1118,8 @@ name|this
 return|;
 block|}
 comment|/**      * Controls the shard routing of the request. Using this value to hash the shard      * and not the id.      */
+annotation|@
+name|Override
 DECL|method|routing
 specifier|public
 name|String

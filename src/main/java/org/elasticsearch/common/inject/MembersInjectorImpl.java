@@ -268,6 +268,8 @@ return|return
 name|memberInjectors
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|injectMembers
 specifier|public
 name|void
@@ -354,6 +356,8 @@ name|Void
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|call

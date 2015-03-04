@@ -189,6 +189,8 @@ DECL|field|binder
 name|Binder
 name|binder
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|configure
 specifier|public
 specifier|final

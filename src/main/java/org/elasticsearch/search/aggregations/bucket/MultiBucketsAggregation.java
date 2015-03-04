@@ -173,6 +173,8 @@ name|getDocCount
 parameter_list|()
 function_decl|;
 comment|/**          * @return  The sub-aggregations of this bucket          */
+annotation|@
+name|Override
 DECL|method|getAggregations
 name|Aggregations
 name|getAggregations

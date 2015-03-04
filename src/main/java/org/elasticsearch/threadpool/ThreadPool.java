@@ -1621,11 +1621,11 @@ block|}
 name|TimeValue
 name|estimatedTimeInterval
 init|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"estimated_time_interval"
+literal|"threadpool.estimated_time_interval"
 argument_list|,
 name|TimeValue
 operator|.

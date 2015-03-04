@@ -285,6 +285,8 @@ name|object
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|configure
 specifier|public
 specifier|synchronized

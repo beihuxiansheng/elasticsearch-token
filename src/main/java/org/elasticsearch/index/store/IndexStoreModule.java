@@ -221,6 +221,8 @@ block|{
 DECL|enum constant|NIOFS
 name|NIOFS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|match
@@ -250,6 +252,8 @@ block|,
 DECL|enum constant|MMAPFS
 name|MMAPFS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|match
@@ -279,6 +283,8 @@ block|,
 DECL|enum constant|SIMPLEFS
 name|SIMPLEFS
 block|{
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|match

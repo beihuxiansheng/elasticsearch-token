@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
+name|Fields
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|Fields
+name|PostingsEnum
 import|;
 end_import
 
@@ -979,7 +979,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|DocsAndPositionsEnum
+name|PostingsEnum
 name|docsEnum
 init|=
 literal|null
@@ -1048,15 +1048,15 @@ name|docsEnum
 operator|=
 name|termsEnum
 operator|.
-name|docsAndPositions
+name|postings
 argument_list|(
 literal|null
 argument_list|,
 name|docsEnum
 argument_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 expr_stmt|;
 name|builder

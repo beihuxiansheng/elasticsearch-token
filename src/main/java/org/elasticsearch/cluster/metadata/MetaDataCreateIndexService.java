@@ -3994,13 +3994,6 @@ if|if
 condition|(
 name|Files
 operator|.
-name|exists
-argument_list|(
-name|templatesDir
-argument_list|)
-operator|&&
-name|Files
-operator|.
 name|isDirectory
 argument_list|(
 name|templatesDir

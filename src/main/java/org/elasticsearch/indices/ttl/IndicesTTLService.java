@@ -660,11 +660,13 @@ expr_stmt|;
 name|TimeValue
 name|interval
 init|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"interval"
+literal|"indices.ttl.interval"
 argument_list|,
 name|TimeValue
 operator|.
@@ -684,11 +686,13 @@ name|this
 operator|.
 name|bulkSize
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"bulk_size"
+literal|"indices.ttl.bulk_size"
 argument_list|,
 literal|10000
 argument_list|)
@@ -901,6 +905,8 @@ name|interval
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|run
 specifier|public
 name|void
@@ -1532,6 +1538,8 @@ specifier|public
 name|ExpiredDocsCollector
 parameter_list|()
 block|{         }
+annotation|@
+name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -1553,6 +1561,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|collect
 specifier|public
 name|void
@@ -1662,6 +1672,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|doSetNextReader
 specifier|public
 name|void

@@ -73,6 +73,8 @@ name|getPrivateElements
 parameter_list|()
 function_decl|;
 comment|/**      * Unsupported. Always throws {@link UnsupportedOperationException}.      */
+annotation|@
+name|Override
 DECL|method|applyTo
 name|void
 name|applyTo

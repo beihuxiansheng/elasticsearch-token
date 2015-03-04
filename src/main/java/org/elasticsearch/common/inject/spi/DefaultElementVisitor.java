@@ -65,6 +65,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -81,6 +83,8 @@ name|message
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 parameter_list|<
@@ -103,6 +107,8 @@ name|binding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -119,6 +125,8 @@ name|scopeBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -135,6 +143,8 @@ name|typeConverterBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 parameter_list|<
@@ -157,6 +167,8 @@ name|providerLookup
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -173,6 +185,8 @@ name|injectionRequest
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -189,6 +203,8 @@ name|staticInjectionRequest
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -205,6 +221,8 @@ name|privateElements
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 parameter_list|<
@@ -227,6 +245,8 @@ name|lookup
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V

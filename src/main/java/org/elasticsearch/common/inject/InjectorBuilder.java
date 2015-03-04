@@ -768,6 +768,8 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|call
@@ -888,6 +890,8 @@ operator|=
 name|delegateInjector
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|injectMembers
 specifier|public
 name|void
@@ -905,6 +909,8 @@ literal|"Injector.injectMembers(Object) is not supported in Stage.TOOL"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBindings
 specifier|public
 name|Map
@@ -931,6 +937,8 @@ name|getBindings
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBinding
 specifier|public
 parameter_list|<
@@ -960,6 +968,8 @@ name|key
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBinding
 specifier|public
 parameter_list|<
@@ -989,6 +999,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|findBindingsByType
 specifier|public
 parameter_list|<
@@ -1021,6 +1033,8 @@ name|type
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParent
 specifier|public
 name|Injector
@@ -1034,6 +1048,8 @@ name|getParent
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createChildInjector
 specifier|public
 name|Injector
@@ -1057,6 +1073,8 @@ name|modules
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createChildInjector
 specifier|public
 name|Injector
@@ -1076,6 +1094,8 @@ name|modules
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -1102,6 +1122,8 @@ literal|"Injector.getProvider(Key<T>) is not supported in Stage.TOOL"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -1128,6 +1150,8 @@ literal|"Injector.getProvider(Class<T>) is not supported in Stage.TOOL"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -1154,6 +1178,8 @@ literal|"Injector.getMembersInjector(TypeLiteral<T>) is not supported in Stage.T
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -1180,6 +1206,8 @@ literal|"Injector.getMembersInjector(Class<T>) is not supported in Stage.TOOL"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInstance
 specifier|public
 parameter_list|<
@@ -1203,6 +1231,8 @@ literal|"Injector.getInstance(Key<T>) is not supported in Stage.TOOL"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInstance
 specifier|public
 parameter_list|<

@@ -33,6 +33,8 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|newInstance
 specifier|public
 specifier|abstract
@@ -43,6 +45,8 @@ name|int
 name|sizing
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|recycle
 specifier|public
 specifier|abstract
@@ -53,6 +57,8 @@ name|T
 name|value
 parameter_list|)
 function_decl|;
+annotation|@
+name|Override
 DECL|method|destroy
 specifier|public
 name|void

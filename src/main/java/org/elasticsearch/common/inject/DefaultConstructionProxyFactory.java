@@ -106,6 +106,8 @@ operator|=
 name|injectionPoint
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|create
 specifier|public
 name|ConstructionProxy
@@ -171,6 +173,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|newInstance
@@ -224,6 +228,8 @@ throw|;
 comment|// a security manager is blocking us, we're hosed
 block|}
 block|}
+annotation|@
+name|Override
 specifier|public
 name|InjectionPoint
 name|getInjectionPoint
@@ -233,6 +239,8 @@ return|return
 name|injectionPoint
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Constructor
 argument_list|<

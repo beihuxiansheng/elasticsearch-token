@@ -716,6 +716,8 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testEmptyAggregation
 specifier|public
@@ -919,6 +921,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testUnmapped
 specifier|public
@@ -1098,6 +1102,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testSingleValuedField
 specifier|public
@@ -1201,6 +1207,8 @@ name|maxValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testSingleValuedField_getProperty
@@ -1418,6 +1426,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testSingleValuedField_PartiallyUnmapped
 specifier|public
@@ -1523,6 +1533,8 @@ name|maxValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testSingleValuedField_WithValueScript
@@ -1636,6 +1648,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testSingleValuedField_WithValueScript_WithParams
@@ -1757,6 +1771,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testMultiValuedField
 specifier|public
@@ -1860,6 +1876,8 @@ name|maxValues
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testMultiValuedField_WithValueScript
@@ -2085,6 +2103,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testMultiValuedField_WithValueScript_WithParams
 specifier|public
@@ -2205,6 +2225,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testScript_SingleValued
 specifier|public
@@ -2308,6 +2330,8 @@ name|maxValue
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testScript_SingleValued_WithParams
@@ -2424,6 +2448,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testScript_ExplicitSingleValued_WithParams
 specifier|public
@@ -2539,6 +2565,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testScript_MultiValued
 specifier|public
@@ -2643,6 +2671,8 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+annotation|@
 name|Test
 DECL|method|testScript_ExplicitMultiValued
 specifier|public
@@ -2746,6 +2776,8 @@ name|maxValues
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 annotation|@
 name|Test
 DECL|method|testScript_MultiValued_WithParams

@@ -184,7 +184,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|HashFunction
+name|DjbHashFunction
 import|;
 end_import
 
@@ -198,7 +198,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|DjbHashFunction
+name|HashFunction
 import|;
 end_import
 
@@ -464,7 +464,31 @@ name|nio
 operator|.
 name|file
 operator|.
-name|*
+name|DirectoryStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 

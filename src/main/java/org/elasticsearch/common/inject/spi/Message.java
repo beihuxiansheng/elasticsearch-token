@@ -268,6 +268,8 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|String
@@ -334,6 +336,8 @@ name|message
 return|;
 block|}
 comment|/**      * @since 2.0      */
+annotation|@
+name|Override
 DECL|method|acceptVisitor
 specifier|public
 parameter_list|<
@@ -461,6 +465,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @since 2.0      */
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void

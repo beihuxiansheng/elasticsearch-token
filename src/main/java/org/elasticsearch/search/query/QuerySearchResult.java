@@ -280,6 +280,8 @@ return|return
 name|this
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|long
@@ -292,6 +294,8 @@ operator|.
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|shardTarget
 specifier|public
 name|SearchShardTarget

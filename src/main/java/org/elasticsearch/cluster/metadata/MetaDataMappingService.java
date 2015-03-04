@@ -2327,6 +2327,8 @@ name|MappingTask
 argument_list|>
 name|allTasks
 decl_stmt|;
+annotation|@
+name|Override
 specifier|public
 name|void
 name|onFailure

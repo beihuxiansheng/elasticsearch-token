@@ -394,6 +394,8 @@ name|getIndexReader
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 name|MultiReader
 name|mReader
 init|=
@@ -405,8 +407,6 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|LeafReader
 name|slowReader
 init|=

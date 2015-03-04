@@ -278,7 +278,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"buffer_size"
+literal|"repositories.fs.buffer_size"
 argument_list|,
 operator|new
 name|ByteSizeValue

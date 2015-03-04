@@ -92,6 +92,8 @@ operator|=
 name|initializable
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|T
@@ -118,6 +120,8 @@ name|errors
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

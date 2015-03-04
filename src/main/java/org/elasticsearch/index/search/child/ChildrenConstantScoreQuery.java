@@ -581,6 +581,13 @@ argument_list|>
 name|terms
 parameter_list|)
 block|{
+if|if
+condition|(
+name|rewrittenChildQuery
+operator|!=
+literal|null
+condition|)
+block|{
 name|rewrittenChildQuery
 operator|.
 name|extractTerms
@@ -588,6 +595,7 @@ argument_list|(
 name|terms
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -649,6 +657,9 @@ name|createWeight
 parameter_list|(
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -737,6 +748,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -791,6 +804,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -868,6 +883,8 @@ operator|.
 name|createWeight
 argument_list|(
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -911,6 +928,8 @@ return|return
 operator|new
 name|ParentWeight
 argument_list|(
+name|this
+argument_list|,
 name|parentFilter
 argument_list|,
 name|globalIfd
@@ -1171,6 +1190,9 @@ DECL|method|ParentWeight
 specifier|public
 name|ParentWeight
 parameter_list|(
+name|Query
+name|query
+parameter_list|,
 name|Filter
 name|parentFilter
 parameter_list|,
@@ -1187,6 +1209,11 @@ name|long
 name|remaining
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|query
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|parentFilter
@@ -1243,20 +1270,6 @@ argument_list|()
 argument_list|,
 literal|"not implemented yet..."
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getQuery
-specifier|public
-name|Query
-name|getQuery
-parameter_list|()
-block|{
-return|return
-name|ChildrenConstantScoreQuery
-operator|.
-name|this
 return|;
 block|}
 annotation|@
@@ -1321,9 +1334,6 @@ name|context
 parameter_list|,
 name|Bits
 name|acceptDocs
-parameter_list|,
-name|boolean
-name|needsScores
 parameter_list|)
 throws|throws
 name|IOException

@@ -704,6 +704,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Close the channel.      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1515,6 +1517,8 @@ operator|.
 name|config
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|send
 specifier|public
 name|void

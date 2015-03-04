@@ -195,6 +195,8 @@ operator|=
 name|fetchResult
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|long
@@ -208,6 +210,8 @@ name|id
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|shardTarget
 specifier|public
 name|SearchShardTarget
@@ -259,6 +263,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|queryResult
 specifier|public
 name|QuerySearchResult
@@ -269,6 +275,8 @@ return|return
 name|queryResult
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fetchResult
 specifier|public
 name|FetchSearchResult

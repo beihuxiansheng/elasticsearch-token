@@ -646,21 +646,6 @@ end_comment
 
 begin_class
 annotation|@
-name|ThreadLeakFilters
-argument_list|(
-name|defaultFilters
-operator|=
-literal|true
-argument_list|,
-name|filters
-operator|=
-block|{
-name|ElasticsearchThreadFilter
-operator|.
-name|class
-block|}
-argument_list|)
-annotation|@
 name|ThreadLeakScope
 argument_list|(
 name|Scope
@@ -2987,22 +2972,6 @@ name|newTempDir
 argument_list|(
 name|scope
 argument_list|)
-operator|.
-name|toPath
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns 'global' temp dir (seems like a bad idea)      */
-DECL|method|globalTempDirPath
-specifier|public
-specifier|static
-name|Path
-name|globalTempDirPath
-parameter_list|()
-block|{
-return|return
-name|globalTempDir
-argument_list|()
 operator|.
 name|toPath
 argument_list|()

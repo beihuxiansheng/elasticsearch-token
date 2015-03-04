@@ -700,9 +700,39 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|Uid
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|internal
 operator|.
 name|IdFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|internal
+operator|.
+name|UidFieldMapper
 import|;
 end_import
 
@@ -1067,10 +1097,6 @@ operator|.
 name|matchAndScore
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|PercolatorService
@@ -5312,7 +5338,7 @@ name|FieldMapper
 argument_list|<
 name|?
 argument_list|>
-name|idMapper
+name|uidMapper
 init|=
 name|context
 operator|.
@@ -5321,7 +5347,7 @@ argument_list|()
 operator|.
 name|smartNameFieldMapper
 argument_list|(
-name|IdFieldMapper
+name|UidFieldMapper
 operator|.
 name|NAME
 argument_list|)
@@ -5331,7 +5357,7 @@ name|IndexFieldData
 argument_list|<
 name|?
 argument_list|>
-name|idFieldData
+name|uidFieldData
 init|=
 name|context
 operator|.
@@ -5340,7 +5366,7 @@ argument_list|()
 operator|.
 name|getForField
 argument_list|(
-name|idMapper
+name|uidMapper
 argument_list|)
 decl_stmt|;
 name|int
@@ -5397,7 +5423,7 @@ decl_stmt|;
 name|SortedBinaryDocValues
 name|values
 init|=
-name|idFieldData
+name|uidFieldData
 operator|.
 name|load
 argument_list|(
@@ -5443,12 +5469,20 @@ assert|;
 name|BytesRef
 name|bytes
 init|=
+name|Uid
+operator|.
+name|splitUidIntoTypeAndId
+argument_list|(
 name|values
 operator|.
 name|valueAt
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+index|[
+literal|1
+index|]
 decl_stmt|;
 name|matches
 operator|.

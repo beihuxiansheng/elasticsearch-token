@@ -192,6 +192,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|IndexShard
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|monitor
 operator|.
 name|fs
@@ -581,6 +595,16 @@ operator|.
 name|FLUSH_ON_CLOSE_RATIO
 argument_list|,
 literal|0.0d
+argument_list|)
+comment|// never flush - always recover from translog
+operator|.
+name|put
+argument_list|(
+name|IndexShard
+operator|.
+name|INDEX_FLUSH_ON_CLOSE
+argument_list|,
+literal|false
 argument_list|)
 comment|// never flush - always recover from translog
 operator|.

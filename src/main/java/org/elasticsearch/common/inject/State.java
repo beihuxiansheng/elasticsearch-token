@@ -159,6 +159,8 @@ operator|new
 name|State
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|State
 name|parent
@@ -170,6 +172,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|T
@@ -191,6 +195,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Map
 argument_list|<
@@ -213,6 +219,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|putBinding
@@ -236,6 +244,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Scope
 name|getScope
@@ -253,6 +263,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|putAnnotation
@@ -275,6 +287,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addConverter
@@ -289,6 +303,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|MatcherAndConverter
 name|getConverter
@@ -315,6 +331,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Iterable
 argument_list|<
@@ -330,6 +348,8 @@ name|of
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|addTypeListener
@@ -344,6 +364,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|List
 argument_list|<
@@ -359,6 +381,8 @@ name|of
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|blacklist
@@ -370,6 +394,8 @@ argument_list|>
 name|key
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
 specifier|public
 name|boolean
 name|isBlacklisted
@@ -402,6 +428,8 @@ name|Injector
 name|injector
 parameter_list|)
 block|{         }
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|lock

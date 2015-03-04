@@ -84,20 +84,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|OperationRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -114,9 +100,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|Node
 import|;
 end_import
 
@@ -178,11 +162,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|InternalNode
+name|Node
 name|node
 init|=
 operator|new
-name|InternalNode
+name|Node
 argument_list|()
 decl_stmt|;
 try|try

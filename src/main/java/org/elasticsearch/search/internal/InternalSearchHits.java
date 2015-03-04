@@ -525,6 +525,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|totalHits
 specifier|public
 name|long
@@ -575,6 +577,8 @@ name|maxScore
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hits
 specifier|public
 name|SearchHit

@@ -552,6 +552,17 @@ literal|"field1"
 argument_list|,
 literal|"type=string"
 argument_list|)
+operator|.
+name|addMapping
+argument_list|(
+name|PercolatorService
+operator|.
+name|TYPE_NAME
+argument_list|,
+literal|"color"
+argument_list|,
+literal|"type=string"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger

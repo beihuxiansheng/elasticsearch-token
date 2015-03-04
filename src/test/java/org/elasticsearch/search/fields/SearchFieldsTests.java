@@ -596,11 +596,26 @@ name|startObject
 argument_list|(
 literal|"type1"
 argument_list|)
-comment|// _timestamp is randomly enabled via templates but we don't want it here to test stored fields behaviour
+comment|// _timestamp and _size are randomly enabled via templates but we don't want it here to test stored fields behaviour
 operator|.
 name|startObject
 argument_list|(
 literal|"_timestamp"
+argument_list|)
+operator|.
+name|field
+argument_list|(
+literal|"enabled"
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|endObject
+argument_list|()
+operator|.
+name|startObject
+argument_list|(
+literal|"_size"
 argument_list|)
 operator|.
 name|field

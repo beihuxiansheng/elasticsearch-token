@@ -183,6 +183,31 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Makes the request to return the current snapshot      *      * @return this builder      */
+DECL|method|setCurrentSnapshot
+specifier|public
+name|GetSnapshotsRequestBuilder
+name|setCurrentSnapshot
+parameter_list|()
+block|{
+name|request
+operator|.
+name|snapshots
+argument_list|(
+operator|new
+name|String
+index|[]
+block|{
+name|GetSnapshotsRequest
+operator|.
+name|CURRENT_SNAPSHOT
+block|}
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Adds additional snapshots to the list of snapshots to return      *      * @param snapshots additional snapshots      * @return this builder      */
 DECL|method|addSnapshots
 specifier|public

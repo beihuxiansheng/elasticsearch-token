@@ -97,6 +97,13 @@ argument_list|)
 expr_stmt|;
 name|registerStream
 argument_list|(
+name|PercentageScore
+operator|.
+name|STREAM
+argument_list|)
+expr_stmt|;
+name|registerStream
+argument_list|(
 name|MutualInformation
 operator|.
 name|STREAM

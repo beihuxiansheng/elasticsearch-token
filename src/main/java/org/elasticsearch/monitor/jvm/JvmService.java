@@ -138,7 +138,9 @@ name|this
 operator|.
 name|refreshInterval
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsTime
 argument_list|(

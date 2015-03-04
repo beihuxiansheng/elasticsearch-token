@@ -214,6 +214,8 @@ operator|=
 name|source
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|notify
 specifier|public
 name|void
@@ -260,6 +262,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|T

@@ -1088,15 +1088,6 @@ name|toString
 argument_list|()
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"_boost"
-argument_list|,
-name|age
-operator|*
-literal|10
-argument_list|)
-operator|.
 name|endObject
 argument_list|()
 return|;

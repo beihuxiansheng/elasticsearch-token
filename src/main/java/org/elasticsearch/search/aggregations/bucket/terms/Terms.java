@@ -339,6 +339,8 @@ comment|/**      * Return the sorted list of the buckets in this terms aggregati
 end_comment
 
 begin_function_decl
+annotation|@
+name|Override
 DECL|method|getBuckets
 name|List
 argument_list|<

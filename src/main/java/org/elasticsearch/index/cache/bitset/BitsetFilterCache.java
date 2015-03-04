@@ -806,6 +806,8 @@ name|ownerCoreCacheKey
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -1435,11 +1437,16 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 return|return
 literal|"random_access("
@@ -1449,6 +1456,8 @@ operator|+
 literal|")"
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|equals
 specifier|public
 name|boolean
@@ -1488,6 +1497,8 @@ name|filter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|hashCode
 specifier|public
 name|int

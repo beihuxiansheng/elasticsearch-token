@@ -74,6 +74,8 @@ name|listener
 expr_stmt|;
 block|}
 comment|/**      * Calls the action listeners {@link ActionListener#onFailure(Throwable)} method with the given exception.      * This method is invoked for all exception thrown by {@link #doRun()}      */
+annotation|@
+name|Override
 DECL|method|onFailure
 specifier|public
 name|void

@@ -394,6 +394,8 @@ operator|.
 name|shardTarget
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|status
 specifier|public
 name|RestStatus
@@ -462,6 +464,8 @@ literal|1
 return|;
 block|}
 comment|/**      * The reason of the failure.      */
+annotation|@
+name|Override
 DECL|method|reason
 specifier|public
 name|String

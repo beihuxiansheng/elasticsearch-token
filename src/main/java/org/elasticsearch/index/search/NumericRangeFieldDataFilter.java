@@ -311,7 +311,10 @@ specifier|public
 specifier|final
 name|String
 name|toString
-parameter_list|()
+parameter_list|(
+name|String
+name|field
+parameter_list|)
 block|{
 specifier|final
 name|StringBuilder

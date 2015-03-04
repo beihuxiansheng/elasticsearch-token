@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -221,16 +207,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
 import|;
 end_import
 
@@ -656,11 +632,11 @@ name|stash
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates or updates the embedded REST client when needed. Needs to be called before each test.      */
-DECL|method|resetClient
+comment|/**      * Creates the embedded REST client when needed. Needs to be called before each test.      */
+DECL|method|initClient
 specifier|public
 name|void
-name|resetClient
+name|initClient
 parameter_list|(
 name|InetSocketAddress
 index|[]
@@ -694,49 +670,12 @@ name|addresses
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|//re-initialize the REST client if the addresses have changed
-comment|//happens if there's a failure since we restart the global cluster due to that
-name|Set
-argument_list|<
-name|InetSocketAddress
-argument_list|>
-name|newAddresses
-init|=
-name|Sets
-operator|.
-name|newHashSet
-argument_list|(
-name|addresses
-argument_list|)
-decl_stmt|;
-name|Set
-argument_list|<
-name|InetSocketAddress
-argument_list|>
-name|previousAddresses
-init|=
-name|Sets
-operator|.
-name|newHashSet
-argument_list|(
-name|restClient
-operator|.
-name|httpAddresses
-argument_list|()
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|newAddresses
-operator|.
-name|equals
-argument_list|(
-name|previousAddresses
-argument_list|)
-condition|)
+block|}
+DECL|method|resetClient
+specifier|public
+name|void
+name|resetClient
+parameter_list|()
 block|{
 name|restClient
 operator|.
@@ -745,18 +684,8 @@ argument_list|()
 expr_stmt|;
 name|restClient
 operator|=
-operator|new
-name|RestClient
-argument_list|(
-name|restSpec
-argument_list|,
-name|settings
-argument_list|,
-name|addresses
-argument_list|)
+literal|null
 expr_stmt|;
-block|}
-block|}
 block|}
 comment|/**      * Clears the last obtained response and the stashed fields      */
 DECL|method|clear
@@ -807,6 +736,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Closes the execution context and releases the underlying resources      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

@@ -10403,16 +10403,6 @@ throws|throws
 name|IOException
 block|{
 name|String
-name|storedString
-init|=
-name|randomBoolean
-argument_list|()
-condition|?
-literal|"yes"
-else|:
-literal|"no"
-decl_stmt|;
-name|String
 name|createIndexSource
 init|=
 literal|"{\n"
@@ -10450,13 +10440,7 @@ literal|"      },\n"
 operator|+
 literal|"      \"_ttl\": {\n"
 operator|+
-literal|"        \"enabled\": true,\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\"\n"
+literal|"        \"enabled\": true\n"
 operator|+
 literal|"      }\n"
 operator|+
@@ -10611,9 +10595,7 @@ name|String
 index|[]
 name|fieldsList
 init|=
-block|{
-literal|"my_boost"
-block|}
+block|{}
 decl_stmt|;
 comment|// before refresh - document is only in translog
 name|assertGetFieldsAlwaysNull
@@ -10704,9 +10686,7 @@ name|String
 index|[]
 name|fieldsList
 init|=
-block|{
-literal|"my_boost"
-block|}
+block|{}
 decl_stmt|;
 comment|// before refresh - document is only in translog
 name|assertGetFieldsAlwaysWorks
@@ -10798,20 +10778,6 @@ operator|+
 name|sourceEnabled
 operator|+
 literal|"\n"
-operator|+
-literal|"      },\n"
-operator|+
-literal|"      \"_boost\": {\n"
-operator|+
-literal|"        \"name\": \"my_boost\",\n"
-operator|+
-literal|"        \"null_value\": 1,\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\"\n"
 operator|+
 literal|"      }\n"
 operator|+
@@ -10910,10 +10876,16 @@ name|fieldsList
 init|=
 block|{
 literal|"_timestamp"
+block|}
+decl_stmt|;
+name|String
+index|[]
+name|alwaysStoredFieldsList
+init|=
+block|{
+literal|"_routing"
 block|,
 literal|"_size"
-block|,
-literal|"_routing"
 block|}
 decl_stmt|;
 comment|// before refresh - document is only in translog
@@ -10927,6 +10899,20 @@ argument_list|,
 literal|"1"
 argument_list|,
 name|fieldsList
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertGetFieldsAlwaysWorks
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysStoredFieldsList
 argument_list|,
 literal|"1"
 argument_list|)
@@ -10949,6 +10935,20 @@ argument_list|,
 literal|"1"
 argument_list|)
 expr_stmt|;
+name|assertGetFieldsAlwaysWorks
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysStoredFieldsList
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;
@@ -10963,6 +10963,20 @@ argument_list|,
 literal|"1"
 argument_list|,
 name|fieldsList
+argument_list|,
+literal|"1"
+argument_list|)
+expr_stmt|;
+name|assertGetFieldsAlwaysWorks
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysStoredFieldsList
 argument_list|,
 literal|"1"
 argument_list|)
@@ -11101,23 +11115,7 @@ literal|"        \"enabled\": true\n"
 operator|+
 literal|"      },\n"
 operator|+
-literal|"      \"_routing\": {\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\"\n"
-operator|+
-literal|"      },\n"
-operator|+
 literal|"      \"_size\": {\n"
-operator|+
-literal|"        \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\",\n"
 operator|+
 literal|"        \"enabled\": true\n"
 operator|+
@@ -11290,7 +11288,13 @@ name|fieldsList
 init|=
 block|{
 literal|"_all"
-block|,
+block|}
+decl_stmt|;
+name|String
+index|[]
+name|alwaysNotStoredFieldsList
+init|=
+block|{
 literal|"_field_names"
 block|}
 decl_stmt|;
@@ -11319,6 +11323,18 @@ argument_list|,
 name|fieldsList
 argument_list|)
 expr_stmt|;
+name|assertGetFieldsNull
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysNotStoredFieldsList
+argument_list|)
+expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -11335,6 +11351,18 @@ argument_list|,
 name|fieldsList
 argument_list|)
 expr_stmt|;
+name|assertGetFieldsNull
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysNotStoredFieldsList
+argument_list|)
+expr_stmt|;
 name|flush
 argument_list|()
 expr_stmt|;
@@ -11349,6 +11377,18 @@ argument_list|,
 literal|"1"
 argument_list|,
 name|fieldsList
+argument_list|)
+expr_stmt|;
+name|assertGetFieldsNull
+argument_list|(
+name|indexOrAlias
+argument_list|()
+argument_list|,
+literal|"doc"
+argument_list|,
+literal|"1"
+argument_list|,
+name|alwaysNotStoredFieldsList
 argument_list|)
 expr_stmt|;
 block|}
@@ -11396,12 +11436,6 @@ operator|+
 literal|"},"
 operator|+
 literal|"      \"_all\" : {\"enabled\" : true, \"store\":\""
-operator|+
-name|storedString
-operator|+
-literal|"\" },"
-operator|+
-literal|"      \"_field_names\" : {\"store\":\""
 operator|+
 name|storedString
 operator|+

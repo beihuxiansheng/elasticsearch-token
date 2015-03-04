@@ -42,20 +42,6 @@ name|Settings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|internal
-operator|.
-name|InternalNode
-import|;
-end_import
-
 begin_comment
 comment|/**  * A node builder is used to construct a {@link Node} instance.  *<p/>  *<p>Settings will be loaded relative to the ES home (with or without<tt>config/</tt> prefix) and if not found,  * within the classpath (with or without<tt>config/<tt> prefix). The settings file loaded can either be named  *<tt>elasticsearch.yml</tt> or<tt>elasticsearch.json</tt>). Loading settings can be disabled by calling  * {@link #loadConfigSettings(boolean)} with<tt>false<tt>.  *<p/>  *<p>Explicit settings can be passed by using the {@link #settings(Settings)} method.  *<p/>  *<p>In any case, settings will be resolved from system properties as well that are either prefixed with<tt>es.</tt>  * or<tt>elasticsearch.</tt>.  *<p/>  *<p>An example for creating a simple node with optional settings loaded from the classpath:  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder().node();  *</pre>  *<p/>  *<p>An example for creating a node with explicit settings (in this case, a node in the cluster that does not hold  * data):  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder()  *                      .settings(ImmutableSettings.settingsBuilder().put("node.data", false)  *                      .node();  *</pre>  *<p/>  *<p>When done with the node, make sure you call {@link Node#close()} on it.  *  *  */
 end_comment
@@ -292,7 +278,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|InternalNode
+name|Node
 argument_list|(
 name|settings
 operator|.

@@ -740,6 +740,8 @@ operator|.
 name|logger
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getPipeline
 specifier|public
 name|ChannelPipeline
@@ -814,6 +816,8 @@ operator|new
 name|NettyTransportChannel
 argument_list|(
 name|transport
+argument_list|,
+name|transportServiceAdapter
 argument_list|,
 name|action
 argument_list|,

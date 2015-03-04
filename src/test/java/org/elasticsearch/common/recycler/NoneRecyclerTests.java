@@ -48,6 +48,8 @@ name|RECYCLER_C
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|assertRecycled
 specifier|protected
 name|void
@@ -60,6 +62,8 @@ parameter_list|)
 block|{
 comment|// will never match
 block|}
+annotation|@
+name|Override
 DECL|method|assertDead
 specifier|protected
 name|void

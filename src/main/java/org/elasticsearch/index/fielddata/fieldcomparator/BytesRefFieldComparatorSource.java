@@ -84,6 +84,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|FieldComparator
 import|;
 end_import
@@ -518,7 +532,7 @@ name|bits
 argument_list|()
 decl_stmt|;
 specifier|final
-name|BitSet
+name|DocIdSet
 name|innerDocs
 init|=
 name|nested
@@ -527,9 +541,6 @@ name|innerDocs
 argument_list|(
 name|context
 argument_list|)
-operator|.
-name|bits
-argument_list|()
 decl_stmt|;
 name|selectedValues
 operator|=
@@ -595,6 +606,8 @@ name|scorer
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|BytesRef
 name|value
@@ -643,6 +656,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|setTopValue
@@ -785,7 +800,7 @@ name|bits
 argument_list|()
 decl_stmt|;
 specifier|final
-name|BitSet
+name|DocIdSet
 name|innerDocs
 init|=
 name|nested
@@ -794,9 +809,6 @@ name|innerDocs
 argument_list|(
 name|context
 argument_list|)
-operator|.
-name|bits
-argument_list|()
 decl_stmt|;
 name|selectedValues
 operator|=

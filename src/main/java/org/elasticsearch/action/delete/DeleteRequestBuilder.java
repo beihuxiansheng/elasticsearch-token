@@ -318,6 +318,8 @@ name|this
 return|;
 block|}
 comment|/**      * Set the replication type for this operation.      */
+annotation|@
+name|Override
 DECL|method|setReplicationType
 specifier|public
 name|DeleteRequestBuilder
@@ -339,6 +341,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the consistency level. Defaults to {@link org.elasticsearch.action.WriteConsistencyLevel#DEFAULT}.      */
+annotation|@
+name|Override
 DECL|method|setConsistencyLevel
 specifier|public
 name|DeleteRequestBuilder

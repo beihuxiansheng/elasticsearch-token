@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|IndexReader
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|PostingsEnum
 import|;
 end_import
 
@@ -281,13 +281,13 @@ name|field
 argument_list|,
 name|needTotalTermFreq
 condition|?
-name|DocsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_FREQS
+name|FREQS
 else|:
-name|DocsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|,
 name|filter
 argument_list|)

@@ -92,6 +92,8 @@ name|getSourceKey
 parameter_list|()
 function_decl|;
 comment|/**      * Returns a singleton set containing only the converted key.      */
+annotation|@
+name|Override
 DECL|method|getDependencies
 name|Set
 argument_list|<

@@ -50,6 +50,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BytesRef
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -343,6 +357,8 @@ operator|*
 operator|-
 literal|1.0f
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -405,6 +421,8 @@ return|return
 name|currentScore
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int
@@ -468,6 +486,8 @@ name|AnyNextDoc
 implements|implements
 name|NextDoc
 block|{
+annotation|@
+name|Override
 DECL|method|nextDoc
 specifier|public
 name|int
@@ -498,6 +518,8 @@ name|innerScore
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|advance
 specifier|public
 name|int

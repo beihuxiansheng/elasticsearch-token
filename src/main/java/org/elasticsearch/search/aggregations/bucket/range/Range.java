@@ -95,6 +95,8 @@ parameter_list|()
 function_decl|;
 block|}
 comment|/**      * Return the buckets of this range aggregation.      */
+annotation|@
+name|Override
 DECL|method|getBuckets
 name|List
 argument_list|<

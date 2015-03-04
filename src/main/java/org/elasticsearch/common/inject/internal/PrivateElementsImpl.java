@@ -321,6 +321,8 @@ literal|"source"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|Object
@@ -331,6 +333,8 @@ return|return
 name|source
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getElements
 specifier|public
 name|List
@@ -365,6 +369,8 @@ return|return
 name|elements
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjector
 specifier|public
 name|Injector
@@ -407,6 +413,8 @@ literal|"injector"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getExposedKeys
 specifier|public
 name|Set
@@ -490,6 +498,8 @@ name|keySet
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptVisitor
 specifier|public
 parameter_list|<
@@ -547,6 +557,8 @@ name|exposureBuilder
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void
@@ -631,6 +643,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|getExposedSource
 specifier|public
 name|Object

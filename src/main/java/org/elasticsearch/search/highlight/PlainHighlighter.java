@@ -319,6 +319,8 @@ literal|"highlighter"
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|highlight
 specifier|public
 name|HighlightField
@@ -1037,6 +1039,8 @@ name|TextFragment
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|compare

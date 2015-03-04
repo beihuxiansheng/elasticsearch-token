@@ -430,6 +430,8 @@ operator|=
 name|numericType
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|comparatorSource
 specifier|public
 name|org

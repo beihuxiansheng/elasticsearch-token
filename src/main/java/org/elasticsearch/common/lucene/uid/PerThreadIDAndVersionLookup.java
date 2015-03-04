@@ -58,34 +58,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsAndPositionsEnum
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|DocsEnum
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Fields
 import|;
 end_import
@@ -142,6 +114,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|PostingsEnum
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|Terms
 import|;
 end_import
@@ -157,6 +143,20 @@ operator|.
 name|index
 operator|.
 name|TermsEnum
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|DocIdSetIterator
 import|;
 end_import
 
@@ -277,7 +277,7 @@ decl_stmt|;
 DECL|field|docsEnums
 specifier|private
 specifier|final
-name|DocsEnum
+name|PostingsEnum
 index|[]
 name|docsEnums
 decl_stmt|;
@@ -285,7 +285,7 @@ comment|// Only used for back compat, to lookup a version from payload:
 DECL|field|posEnums
 specifier|private
 specifier|final
-name|DocsAndPositionsEnum
+name|PostingsEnum
 index|[]
 name|posEnums
 decl_stmt|;
@@ -378,7 +378,7 @@ expr_stmt|;
 name|docsEnums
 operator|=
 operator|new
-name|DocsEnum
+name|PostingsEnum
 index|[
 name|leaves
 operator|.
@@ -389,7 +389,7 @@ expr_stmt|;
 name|posEnums
 operator|=
 operator|new
-name|DocsAndPositionsEnum
+name|PostingsEnum
 index|[
 name|leaves
 operator|.
@@ -667,9 +667,9 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// Use NDV to retrieve the version, in which case we only need DocsEnum:
+comment|// Use NDV to retrieve the version, in which case we only need PostingsEnum:
 comment|// there may be more than one matching docID, in the case of nested docs, so we want the last one:
-name|DocsEnum
+name|PostingsEnum
 name|docs
 init|=
 name|docsEnums
@@ -682,7 +682,7 @@ index|[
 name|seg
 index|]
 operator|.
-name|docs
+name|postings
 argument_list|(
 name|liveDocs
 index|[
@@ -700,7 +700,7 @@ decl_stmt|;
 name|int
 name|docID
 init|=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 decl_stmt|;
@@ -716,7 +716,7 @@ argument_list|()
 init|;
 name|d
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|;
@@ -737,7 +737,7 @@ if|if
 condition|(
 name|docID
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|)
@@ -798,8 +798,8 @@ assert|;
 continue|continue;
 block|}
 block|}
-comment|// ... but used to be stored as payloads; in this case we must use DocsAndPositionsEnum
-name|DocsAndPositionsEnum
+comment|// ... but used to be stored as payloads; in this case we must use PostingsEnum
+name|PostingsEnum
 name|dpe
 init|=
 name|posEnums
@@ -812,7 +812,7 @@ index|[
 name|seg
 index|]
 operator|.
-name|docsAndPositions
+name|postings
 argument_list|(
 name|liveDocs
 index|[
@@ -824,9 +824,9 @@ index|[
 name|seg
 index|]
 argument_list|,
-name|DocsAndPositionsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_PAYLOADS
+name|PAYLOADS
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -835,13 +835,6 @@ operator|!=
 literal|null
 assert|;
 comment|// terms has payloads
-name|int
-name|docID
-init|=
-name|DocsEnum
-operator|.
-name|NO_MORE_DOCS
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -854,7 +847,7 @@ argument_list|()
 init|;
 name|d
 operator|!=
-name|DocsEnum
+name|DocIdSetIterator
 operator|.
 name|NO_MORE_DOCS
 condition|;
@@ -866,10 +859,6 @@ name|nextDoc
 argument_list|()
 control|)
 block|{
-name|docID
-operator|=
-name|d
-expr_stmt|;
 name|dpe
 operator|.
 name|nextPosition

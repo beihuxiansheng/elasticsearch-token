@@ -384,6 +384,8 @@ name|pageMask
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 specifier|final
@@ -412,6 +414,8 @@ name|int
 name|numBytesPerElement
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|ramBytesUsed
 specifier|public
 specifier|final

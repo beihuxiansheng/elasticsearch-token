@@ -1400,6 +1400,8 @@ block|{
 DECL|enum constant|INSTANCE
 name|INSTANCE
 block|;
+annotation|@
+name|Override
 DECL|method|hasAttributes
 specifier|public
 name|boolean
@@ -1410,6 +1412,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withoutAttributes
 specifier|public
 name|AnnotationStrategy
@@ -1424,6 +1428,8 @@ literal|"Key already has no attributes."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotation
 specifier|public
 name|Annotation
@@ -1434,6 +1440,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotationType
 specifier|public
 name|Class
@@ -1494,6 +1502,8 @@ literal|"annotation"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasAttributes
 specifier|public
 name|boolean
@@ -1504,6 +1514,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withoutAttributes
 specifier|public
 name|AnnotationStrategy
@@ -1521,6 +1533,8 @@ name|annotation
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotation
 specifier|public
 name|Annotation
@@ -1531,6 +1545,8 @@ return|return
 name|annotation
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotationType
 specifier|public
 name|Class
@@ -1680,6 +1696,8 @@ operator|=
 name|annotation
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|hasAttributes
 specifier|public
 name|boolean
@@ -1690,6 +1708,8 @@ return|return
 literal|false
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|withoutAttributes
 specifier|public
 name|AnnotationStrategy
@@ -1704,6 +1724,8 @@ literal|"Key already has no attributes."
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotation
 specifier|public
 name|Annotation
@@ -1714,6 +1736,8 @@ return|return
 name|annotation
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getAnnotationType
 specifier|public
 name|Class

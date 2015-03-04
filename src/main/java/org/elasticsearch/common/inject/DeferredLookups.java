@@ -180,6 +180,8 @@ name|lookups
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -227,6 +229,8 @@ name|getProvider
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<

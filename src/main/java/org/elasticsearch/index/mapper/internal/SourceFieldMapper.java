@@ -1462,10 +1462,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
-literal|null
-argument_list|,
 name|indexSettings
 argument_list|)
 expr_stmt|;

@@ -374,6 +374,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|DocumentAlreadyExistsException
@@ -402,7 +414,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|shard
+operator|.
+name|IndexShard
 import|;
 end_import
 
@@ -417,20 +431,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShard
 import|;
 end_import
 
@@ -869,6 +869,8 @@ parameter_list|,
 name|PrimaryOperationRequest
 name|shardRequest
 parameter_list|)
+throws|throws
+name|Throwable
 function_decl|;
 DECL|method|shardOperationOnReplica
 specifier|protected
@@ -3367,6 +3369,33 @@ name|replicaRequest
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// If the replicas use shadow replicas, there is no reason to
+comment|// perform the action on the replica, so skip it and
+comment|// immediately return
+if|if
+condition|(
+name|IndexMetaData
+operator|.
+name|isIndexUsingShadowReplicas
+argument_list|(
+name|indexMetaData
+operator|.
+name|settings
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// this delays mapping updates on replicas because they have
+comment|// to wait until they get the new mapping through the cluster
+comment|// state, which is why we recommend pre-defined mappings for
+comment|// indices using shadow replicas
+name|state
+operator|.
+name|onReplicaSuccess
+argument_list|()
+expr_stmt|;
+return|return;
+block|}
 if|if
 condition|(
 operator|!

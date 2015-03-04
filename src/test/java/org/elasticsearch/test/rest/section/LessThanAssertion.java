@@ -82,6 +82,18 @@ name|assertThat
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|fail
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a lt assert section:  *  *  - lt:    { fields._ttl: 20000}  *  */
 end_comment
@@ -152,15 +164,32 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"assert that [{}] is less than [{}]"
+literal|"assert that [{}] is less than [{}] (field: [{}])"
 argument_list|,
 name|actualValue
 argument_list|,
 name|expectedValue
+argument_list|,
+name|getField
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"value of ["
+operator|+
+name|getField
+argument_list|()
+operator|+
+literal|"] is not comparable (got ["
+operator|+
+name|actualValue
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|"])"
+argument_list|,
 name|actualValue
 argument_list|,
 name|instanceOf
@@ -173,6 +202,20 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+literal|"expected value of ["
+operator|+
+name|getField
+argument_list|()
+operator|+
+literal|"] is not comparable (got ["
+operator|+
+name|expectedValue
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|"])"
+argument_list|,
 name|expectedValue
 argument_list|,
 name|instanceOf
@@ -183,6 +226,8 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|assertThat
 argument_list|(
 name|errorMessage
@@ -202,6 +247,26 @@ name|expectedValue
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ClassCastException
+name|e
+parameter_list|)
+block|{
+name|fail
+argument_list|(
+literal|"cast error while checking ("
+operator|+
+name|errorMessage
+argument_list|()
+operator|+
+literal|"): "
+operator|+
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|errorMessage
 specifier|private

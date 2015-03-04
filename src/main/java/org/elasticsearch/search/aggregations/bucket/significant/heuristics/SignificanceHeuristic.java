@@ -160,7 +160,9 @@ throw|throw
 operator|new
 name|ElasticsearchIllegalArgumentException
 argument_list|(
-literal|"subsetFreq> subsetSize, in JLHScore.score(..)"
+literal|"subsetFreq> subsetSize, in "
+operator|+
+name|scoreFunctionName
 argument_list|)
 throw|;
 block|}
@@ -175,7 +177,9 @@ throw|throw
 operator|new
 name|ElasticsearchIllegalArgumentException
 argument_list|(
-literal|"supersetFreq> supersetSize, in JLHScore.score(..)"
+literal|"supersetFreq> supersetSize, in "
+operator|+
+name|scoreFunctionName
 argument_list|)
 throw|;
 block|}

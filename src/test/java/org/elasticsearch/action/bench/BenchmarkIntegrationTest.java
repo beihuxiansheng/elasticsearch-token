@@ -450,6 +450,8 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|nodeSettings
 specifier|protected
 specifier|synchronized

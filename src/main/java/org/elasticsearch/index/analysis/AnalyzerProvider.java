@@ -74,6 +74,8 @@ name|AnalyzerScope
 name|scope
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
 DECL|method|get
 name|T
 name|get

@@ -344,6 +344,8 @@ index|[]
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|protected
 name|Object
 index|[]
@@ -422,6 +424,8 @@ name|binding
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|findBindingsByType
 specifier|public
 parameter_list|<
@@ -453,6 +457,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Returns the binding for {@code key}      */
+annotation|@
+name|Override
 DECL|method|getBinding
 specifier|public
 parameter_list|<
@@ -589,6 +595,8 @@ name|errors
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getBinding
 specifier|public
 parameter_list|<
@@ -619,6 +627,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getParent
 specifier|public
 name|Injector
@@ -629,6 +639,8 @@ return|return
 name|parent
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createChildInjector
 specifier|public
 name|Injector
@@ -662,6 +674,8 @@ name|build
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|createChildInjector
 specifier|public
 name|Injector
@@ -1270,6 +1284,8 @@ argument_list|>
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Provider
 argument_list|<
@@ -1294,6 +1310,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProvidedKey
 specifier|public
 name|Key
@@ -1312,6 +1330,8 @@ name|getKey
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptTargetVisitor
 specifier|public
 parameter_list|<
@@ -1343,6 +1363,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void
@@ -1792,6 +1814,8 @@ return|return
 name|provider
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptTargetVisitor
 specifier|public
 parameter_list|<
@@ -1820,6 +1844,8 @@ name|this
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|T
@@ -1830,6 +1856,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSourceKey
 specifier|public
 name|Key
@@ -1846,6 +1874,8 @@ name|getKey
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getDependencies
 specifier|public
 name|Set
@@ -1879,6 +1909,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void
@@ -2722,6 +2754,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|get
@@ -3053,6 +3087,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|get
@@ -3542,6 +3578,8 @@ comment|// not test-covered
 end_comment
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getBindings
 specifier|public
 name|Map
@@ -3990,6 +4028,8 @@ end_decl_stmt
 
 begin_function
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -4026,6 +4066,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -4095,6 +4137,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getMembersInjector
 specifier|public
 parameter_list|<
@@ -4128,6 +4172,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -4291,6 +4337,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|get
@@ -4320,6 +4368,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|call
@@ -4423,6 +4473,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getProvider
 specifier|public
 parameter_list|<
@@ -4506,6 +4558,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getInstance
 specifier|public
 parameter_list|<
@@ -4534,6 +4588,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|getInstance
 specifier|public
 parameter_list|<
@@ -4673,6 +4729,8 @@ block|}
 end_function
 
 begin_function
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String

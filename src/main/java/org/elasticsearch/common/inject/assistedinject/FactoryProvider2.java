@@ -285,6 +285,8 @@ operator|new
 name|Assisted
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|String
 name|value
@@ -294,6 +296,8 @@ return|return
 literal|""
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Class
 argument_list|<
@@ -744,6 +748,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|F
@@ -991,6 +997,8 @@ name|AbstractModule
 argument_list|()
 block|{
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
@@ -1123,6 +1131,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * When a factory method is invoked, we create a child injector that binds all parameters, then      * use that to get an instance of the return type.      */
+annotation|@
+name|Override
 DECL|method|invoke
 specifier|public
 name|Object

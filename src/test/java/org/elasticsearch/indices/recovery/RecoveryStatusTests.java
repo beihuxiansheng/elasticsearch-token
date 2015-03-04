@@ -194,13 +194,6 @@ argument_list|(
 literal|"foo"
 argument_list|)
 decl_stmt|;
-name|RecoveryState
-name|state
-init|=
-operator|new
-name|RecoveryState
-argument_list|()
-decl_stmt|;
 name|IndexShard
 name|indexShard
 init|=
@@ -239,8 +232,6 @@ argument_list|(
 name|indexShard
 argument_list|,
 name|node
-argument_list|,
-name|state
 argument_list|,
 operator|new
 name|RecoveryTarget
@@ -407,6 +398,16 @@ argument_list|(
 name|expectedFile
 argument_list|)
 expr_stmt|;
+name|indexShard
+operator|.
+name|close
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// we have to close it here otherwise rename fails since the write.lock is held by the engine
 name|status
 operator|.
 name|renameAllTempFiles
@@ -460,10 +461,26 @@ name|expectedFile
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we must fail the recovery because marking it as done will try to move the shard to POST_RECOVERY, which will fail because it's started
 name|status
 operator|.
-name|markAsDone
+name|fail
+argument_list|(
+operator|new
+name|RecoveryFailedException
+argument_list|(
+name|status
+operator|.
+name|state
 argument_list|()
+argument_list|,
+literal|"end of test. OK."
+argument_list|,
+literal|null
+argument_list|)
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
 block|}

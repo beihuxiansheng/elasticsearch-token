@@ -120,9 +120,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|Node
 import|;
 end_import
 
@@ -250,7 +248,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|InternalNode
+name|Node
 operator|.
 name|HTTP_ENABLED
 argument_list|,

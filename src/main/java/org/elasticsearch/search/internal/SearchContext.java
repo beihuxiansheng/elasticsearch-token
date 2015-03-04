@@ -802,6 +802,8 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 specifier|final

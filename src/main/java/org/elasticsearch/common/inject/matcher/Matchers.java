@@ -177,6 +177,8 @@ argument_list|>
 implements|implements
 name|Serializable
 block|{
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -306,6 +308,8 @@ literal|"delegate"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -533,6 +537,8 @@ name|annotationType
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -700,6 +706,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -880,6 +888,8 @@ literal|"superclass"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -1036,6 +1046,8 @@ literal|"value"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -1190,6 +1202,8 @@ literal|"value"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -1356,6 +1370,8 @@ name|getName
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -1529,6 +1545,8 @@ operator|=
 name|targetPackageName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -1727,6 +1745,8 @@ literal|"return type matcher"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean

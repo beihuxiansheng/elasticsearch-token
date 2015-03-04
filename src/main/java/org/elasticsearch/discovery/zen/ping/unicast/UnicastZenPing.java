@@ -784,11 +784,13 @@ name|this
 operator|.
 name|concurrentConnects
 operator|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"concurrent_connects"
+literal|"discovery.zen.ping.unicast.concurrent_connects"
 argument_list|,
 literal|10
 argument_list|)
@@ -797,11 +799,13 @@ name|String
 index|[]
 name|hostArr
 init|=
-name|componentSettings
+name|this
+operator|.
+name|settings
 operator|.
 name|getAsArray
 argument_list|(
-literal|"hosts"
+literal|"discovery.zen.ping.unicast.hosts"
 argument_list|)
 decl_stmt|;
 comment|// trim the hosts
@@ -1688,6 +1692,8 @@ return|return
 name|pingCollection
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

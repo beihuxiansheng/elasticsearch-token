@@ -38,18 +38,6 @@ name|sun
 operator|.
 name|jna
 operator|.
-name|Library
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jna
-operator|.
 name|Native
 import|;
 end_import
@@ -141,11 +129,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|internal
-specifier|private
-name|Kernel32
-name|internal
-decl_stmt|;
+comment|// Callbacks must be kept around in order to be able to be called later,
+comment|// when the Windows ConsoleCtrlHandler sends an event.
 DECL|field|callbacks
 specifier|private
 name|List
@@ -159,6 +144,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// Native library instance must be kept around for the same reason.
 DECL|class|Holder
 specifier|private
 specifier|final
@@ -185,28 +171,11 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|internal
-operator|=
-operator|(
-name|Kernel32
-operator|)
 name|Native
 operator|.
-name|synchronizedLibrary
-argument_list|(
-operator|(
-name|Kernel32
-operator|)
-name|Native
-operator|.
-name|loadLibrary
+name|register
 argument_list|(
 literal|"kernel32"
-argument_list|,
-name|Kernel32
-operator|.
-name|class
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|logger
@@ -259,6 +228,7 @@ operator|.
 name|instance
 return|;
 block|}
+comment|/**      * Adds a Console Ctrl Handler.      *      * @param handler      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
 DECL|method|addConsoleCtrlHandler
 specifier|public
 name|boolean
@@ -268,21 +238,6 @@ name|ConsoleCtrlHandler
 name|handler
 parameter_list|)
 block|{
-if|if
-condition|(
-name|internal
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"windows/Kernel32 library not loaded, console ctrl handler cannot be set"
-argument_list|)
-throw|;
-block|}
 name|boolean
 name|result
 init|=
@@ -306,8 +261,6 @@ argument_list|)
 decl_stmt|;
 name|result
 operator|=
-name|internal
-operator|.
 name|SetConsoleCtrlHandler
 argument_list|(
 name|callback
@@ -357,15 +310,10 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|interface|Kernel32
-interface|interface
-name|Kernel32
-extends|extends
-name|Library
-block|{
-comment|/**          * Registers a Console Ctrl Handler.          *          * @param handler          * @param add          * @return true if the handler is correctly set          */
+comment|/**      * Native call to the Kernel32 API to set a new Console Ctrl Handler.      *      * @param handler      * @param add      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
 DECL|method|SetConsoleCtrlHandler
 specifier|public
+specifier|native
 name|boolean
 name|SetConsoleCtrlHandler
 parameter_list|(
@@ -378,7 +326,6 @@ name|boolean
 name|add
 parameter_list|)
 function_decl|;
-block|}
 comment|/**      * Handles consoles event with WIN API      *<p/>      * See http://msdn.microsoft.com/en-us/library/windows/desktop/ms683242%28v=vs.85%29.aspx      */
 DECL|class|NativeHandlerCallback
 class|class

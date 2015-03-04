@@ -145,6 +145,8 @@ operator|new
 name|Internal
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|value
@@ -154,6 +156,8 @@ return|return
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Class
 argument_list|<

@@ -74,6 +74,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -95,6 +97,8 @@ name|instanceBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -116,6 +120,8 @@ name|providerInstanceBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -137,6 +143,8 @@ name|providerKeyBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -158,6 +166,8 @@ name|linkedKeyBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -179,6 +189,8 @@ name|exposedBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -200,6 +212,8 @@ name|untargettedBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -221,6 +235,8 @@ name|constructorBinding
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visit
 specifier|public
 name|V
@@ -243,6 +259,8 @@ argument_list|)
 return|;
 block|}
 comment|// javac says it's an error to cast ProviderBinding<? extends T> to Binding<? extends T>
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DocsEnum
+name|LeafReaderContext
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|PostingsEnum
 import|;
 end_import
 
@@ -1076,7 +1076,7 @@ name|bits
 argument_list|()
 expr_stmt|;
 block|}
-name|DocsEnum
+name|PostingsEnum
 name|docsEnum
 init|=
 literal|null
@@ -1152,15 +1152,15 @@ name|docsEnum
 operator|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 name|acceptDocs
 argument_list|,
 name|docsEnum
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 if|if
@@ -1342,6 +1342,28 @@ name|BitDocIdSet
 argument_list|(
 name|result
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|(
+name|String
+name|field
+parameter_list|)
+block|{
+return|return
+literal|"parentsFilter(type="
+operator|+
+name|parentTypeBr
+operator|.
+name|utf8ToString
+argument_list|()
+operator|+
+literal|")"
 return|;
 block|}
 block|}

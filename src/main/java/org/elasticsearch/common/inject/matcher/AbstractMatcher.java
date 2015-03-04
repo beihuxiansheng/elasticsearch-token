@@ -47,6 +47,8 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|and
 specifier|public
 name|Matcher
@@ -76,6 +78,8 @@ name|other
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|or
 specifier|public
 name|Matcher
@@ -168,6 +172,8 @@ operator|=
 name|b
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean
@@ -356,6 +362,8 @@ operator|=
 name|b
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|matches
 specifier|public
 name|boolean

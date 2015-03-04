@@ -280,6 +280,8 @@ operator|new
 name|MethodInvoker
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Object
 name|invoke
@@ -310,6 +312,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getInjectionPoint
 specifier|public
 name|InjectionPoint
@@ -320,6 +324,8 @@ return|return
 name|injectionPoint
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|inject
 specifier|public
 name|void

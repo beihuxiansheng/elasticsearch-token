@@ -1202,6 +1202,8 @@ name|indexReader
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|indexShard
 specifier|public
 name|IndexShard

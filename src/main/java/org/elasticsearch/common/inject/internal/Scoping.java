@@ -141,6 +141,8 @@ operator|new
 name|Scoping
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|V
@@ -191,6 +193,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyTo
@@ -214,6 +218,8 @@ operator|new
 name|Scoping
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|V
@@ -273,6 +279,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyTo
@@ -304,6 +312,8 @@ operator|new
 name|Scoping
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|V
@@ -358,6 +368,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyTo
@@ -389,6 +401,8 @@ operator|new
 name|Scoping
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|V
@@ -434,6 +448,8 @@ return|return
 literal|"eager singleton"
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyTo
@@ -484,6 +500,8 @@ operator|new
 name|Scoping
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|V
@@ -537,6 +555,8 @@ name|getName
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyTo
@@ -585,6 +605,8 @@ operator|new
 name|Scoping
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 parameter_list|<
 name|V
@@ -633,6 +655,8 @@ name|toString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|void
 name|applyTo

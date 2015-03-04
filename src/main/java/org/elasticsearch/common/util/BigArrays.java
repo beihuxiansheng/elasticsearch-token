@@ -588,6 +588,8 @@ operator|=
 name|size
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 specifier|final

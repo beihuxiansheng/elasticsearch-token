@@ -2283,6 +2283,8 @@ operator|=
 name|origin
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setNextReader
 specifier|public
 name|void

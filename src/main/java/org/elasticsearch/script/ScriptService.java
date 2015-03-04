@@ -789,6 +789,15 @@ name|DEFAULT_LANG
 init|=
 literal|"groovy"
 decl_stmt|;
+DECL|field|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
+init|=
+literal|"script.auto_reload_enabled"
+decl_stmt|;
 DECL|field|defaultLang
 specifier|private
 specifier|final
@@ -964,8 +973,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"script_file"
-argument_list|,
-literal|"file"
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_ID
@@ -979,8 +986,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"script_id"
-argument_list|,
-literal|"id"
 argument_list|)
 decl_stmt|;
 DECL|field|SCRIPT_INLINE
@@ -994,8 +999,6 @@ operator|new
 name|ParseField
 argument_list|(
 literal|"script"
-argument_list|,
-literal|"scriptField"
 argument_list|)
 decl_stmt|;
 DECL|enum|ScriptType
@@ -1710,11 +1713,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|componentSettings
+name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"auto_reload_enabled"
+name|SCRIPT_AUTO_RELOAD_ENABLED_SETTING
 argument_list|,
 literal|true
 argument_list|)
@@ -2043,38 +2046,6 @@ operator|+
 name|script
 argument_list|)
 throw|;
-block|}
-block|}
-if|if
-condition|(
-name|scriptType
-operator|!=
-name|ScriptType
-operator|.
-name|INDEXED
-condition|)
-block|{
-comment|//For backwards compat attempt to load from disk
-name|compiled
-operator|=
-name|staticCache
-operator|.
-name|get
-argument_list|(
-name|script
-argument_list|)
-expr_stmt|;
-comment|//On disk scripts will be loaded into the staticCache by the listener
-if|if
-condition|(
-name|compiled
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|compiled
-return|;
 block|}
 block|}
 comment|//This is an inline script check to see if we have it in the cache

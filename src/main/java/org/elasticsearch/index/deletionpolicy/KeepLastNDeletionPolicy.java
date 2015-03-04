@@ -178,11 +178,11 @@ name|this
 operator|.
 name|numToKeep
 operator|=
-name|componentSettings
+name|indexSettings
 operator|.
 name|getAsInt
 argument_list|(
-literal|"num_to_keep"
+literal|"index.deletionpolicy.num_to_keep"
 argument_list|,
 literal|5
 argument_list|)
@@ -197,6 +197,8 @@ name|numToKeep
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onInit
 specifier|public
 name|void
@@ -220,6 +222,8 @@ name|commits
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onCommit
 specifier|public
 name|void

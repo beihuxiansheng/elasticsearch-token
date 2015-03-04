@@ -58,6 +58,8 @@ name|AliasedIndexDocumentActionsTests
 extends|extends
 name|DocumentActionsTests
 block|{
+annotation|@
+name|Override
 DECL|method|createIndex
 specifier|protected
 name|void

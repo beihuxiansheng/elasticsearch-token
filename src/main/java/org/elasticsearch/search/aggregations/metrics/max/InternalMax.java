@@ -378,6 +378,8 @@ return|return
 name|max
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getValue
 specifier|public
 name|double

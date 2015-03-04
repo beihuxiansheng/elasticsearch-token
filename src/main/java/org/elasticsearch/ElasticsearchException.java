@@ -741,6 +741,8 @@ name|of
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getHeaders
 specifier|public
 name|ImmutableMap

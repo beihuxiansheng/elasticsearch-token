@@ -73,6 +73,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visitEagerSingleton
 specifier|public
 name|V
@@ -84,6 +86,8 @@ name|visitOther
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visitScope
 specifier|public
 name|V
@@ -98,6 +102,8 @@ name|visitOther
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visitScopeAnnotation
 specifier|public
 name|V
@@ -117,6 +123,8 @@ name|visitOther
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|visitNoScoping
 specifier|public
 name|V

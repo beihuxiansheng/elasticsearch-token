@@ -267,6 +267,8 @@ specifier|private
 name|SignificanceHeuristic
 name|significanceHeuristic
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|getDefaultBucketCountThresholds
 specifier|public
 name|TermsAggregator

@@ -481,6 +481,8 @@ name|store
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|assertAvgScoreMode
 specifier|protected
 name|void

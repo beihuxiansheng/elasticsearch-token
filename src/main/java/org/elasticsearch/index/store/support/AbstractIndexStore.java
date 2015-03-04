@@ -761,6 +761,8 @@ name|rateLimiting
 return|;
 block|}
 comment|/**      * Return an array of all index folder locations for a given shard. Uses      * the index settings to determine if a custom data path is set for the      * index and uses that if applicable.      */
+annotation|@
+name|Override
 DECL|method|shardIndexLocations
 specifier|public
 name|Path
@@ -843,6 +845,8 @@ name|locations
 return|;
 block|}
 comment|/**      * Return an array of all translog folder locations for a given shard. Uses      * the index settings to determine if a custom data path is set for the      * index and uses that if applicable.      */
+annotation|@
+name|Override
 DECL|method|shardTranslogLocations
 specifier|public
 name|Path

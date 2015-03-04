@@ -318,11 +318,11 @@ name|this
 operator|.
 name|schedule
 operator|=
-name|componentSettings
+name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"schedule"
+literal|"cluster.routing.schedule"
 argument_list|,
 name|timeValueSeconds
 argument_list|(

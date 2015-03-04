@@ -94,7 +94,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|NodeBuilder
+name|Node
 import|;
 end_import
 
@@ -106,9 +106,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|NodeBuilder
 import|;
 end_import
 
@@ -129,12 +127,9 @@ index|[]
 name|args
 parameter_list|)
 block|{
-name|InternalNode
+name|Node
 name|node
 init|=
-operator|(
-name|InternalNode
-operator|)
 name|NodeBuilder
 operator|.
 name|nodeBuilder

@@ -1845,7 +1845,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|DocsEnum
+name|PostingsEnum
 name|docsEnum
 init|=
 literal|null
@@ -1892,7 +1892,7 @@ name|docsEnum
 operator|=
 name|termsEnum
 operator|.
-name|docs
+name|postings
 argument_list|(
 name|slowLeafReader
 operator|.
@@ -1901,9 +1901,9 @@ argument_list|()
 argument_list|,
 name|docsEnum
 argument_list|,
-name|DocsEnum
+name|PostingsEnum
 operator|.
-name|FLAG_NONE
+name|NONE
 argument_list|)
 expr_stmt|;
 name|expectedResult

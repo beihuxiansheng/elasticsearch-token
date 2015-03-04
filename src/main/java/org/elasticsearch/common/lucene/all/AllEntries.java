@@ -463,6 +463,8 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset
 specifier|public
 name|void

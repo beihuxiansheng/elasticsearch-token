@@ -392,12 +392,6 @@ specifier|final
 name|DiscoverySettings
 name|discoverySettings
 decl_stmt|;
-DECL|field|clusterName
-specifier|private
-specifier|final
-name|ClusterName
-name|clusterName
-decl_stmt|;
 DECL|method|PublishClusterStateAction
 specifier|public
 name|PublishClusterStateAction
@@ -416,9 +410,6 @@ name|listener
 parameter_list|,
 name|DiscoverySettings
 name|discoverySettings
-parameter_list|,
-name|ClusterName
-name|clusterName
 parameter_list|)
 block|{
 name|super
@@ -449,12 +440,6 @@ operator|.
 name|discoverySettings
 operator|=
 name|discoverySettings
-expr_stmt|;
-name|this
-operator|.
-name|clusterName
-operator|=
-name|clusterName
 expr_stmt|;
 name|transportService
 operator|.
@@ -1133,8 +1118,6 @@ argument_list|()
 operator|.
 name|localNode
 argument_list|()
-argument_list|,
-name|clusterName
 argument_list|)
 decl_stmt|;
 name|clusterState

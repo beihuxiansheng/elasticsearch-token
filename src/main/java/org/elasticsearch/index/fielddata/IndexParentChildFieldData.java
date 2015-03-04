@@ -48,6 +48,8 @@ name|AtomicParentChildFieldData
 argument_list|>
 block|{
 comment|/**      * Load a global view of the ordinals for the given {@link IndexReader},      * potentially from a cache.      */
+annotation|@
+name|Override
 DECL|method|loadGlobal
 name|IndexParentChildFieldData
 name|loadGlobal
@@ -57,6 +59,8 @@ name|indexReader
 parameter_list|)
 function_decl|;
 comment|/**      * Load a global view of the ordinals for the given {@link IndexReader}.      */
+annotation|@
+name|Override
 DECL|method|localGlobalDirect
 name|IndexParentChildFieldData
 name|localGlobalDirect

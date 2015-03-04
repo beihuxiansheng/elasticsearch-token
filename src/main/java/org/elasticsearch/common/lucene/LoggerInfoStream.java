@@ -117,6 +117,8 @@ literal|".lucene.iw.ifd"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|message
 specifier|public
 name|void
@@ -152,6 +154,8 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEnabled
 specifier|public
 name|boolean

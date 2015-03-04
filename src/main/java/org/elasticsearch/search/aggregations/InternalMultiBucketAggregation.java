@@ -221,6 +221,8 @@ name|InternalBucket
 implements|implements
 name|Bucket
 block|{
+annotation|@
+name|Override
 DECL|method|getProperty
 specifier|public
 name|Object

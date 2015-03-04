@@ -398,6 +398,8 @@ return|return
 name|getResult
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|readFrom
 specifier|public
 name|void
@@ -479,6 +481,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|writeTo
 specifier|public
 name|void

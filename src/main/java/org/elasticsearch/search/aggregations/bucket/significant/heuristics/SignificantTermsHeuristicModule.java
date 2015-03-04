@@ -118,6 +118,15 @@ argument_list|)
 expr_stmt|;
 name|registerParser
 argument_list|(
+name|PercentageScore
+operator|.
+name|PercentageScoreParser
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|registerParser
+argument_list|(
 name|MutualInformation
 operator|.
 name|MutualInformationParser

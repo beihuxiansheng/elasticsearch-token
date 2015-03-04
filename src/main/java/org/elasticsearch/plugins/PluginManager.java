@@ -642,6 +642,8 @@ operator|new
 name|X509TrustManager
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|java
 operator|.
@@ -658,7 +660,7 @@ return|return
 literal|null
 return|;
 block|}
-function|public void checkClientTrusted
+function|@Override                     public void checkClientTrusted
 parameter_list|(
 name|java
 operator|.
@@ -675,7 +677,7 @@ name|authType
 parameter_list|)
 block|{
 block|}
-function|public void checkServerTrusted
+function|@Override                     public void checkServerTrusted
 parameter_list|(
 name|java
 operator|.
@@ -1437,13 +1439,6 @@ if|if
 condition|(
 name|Files
 operator|.
-name|exists
-argument_list|(
-name|binFile
-argument_list|)
-operator|&&
-name|Files
-operator|.
 name|isDirectory
 argument_list|(
 name|binFile
@@ -1675,13 +1670,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|configFile
-argument_list|)
-operator|&&
 name|Files
 operator|.
 name|isDirectory
@@ -2353,23 +2341,6 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-if|if
-condition|(
-operator|!
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|initialSettings
-operator|.
-name|v2
-argument_list|()
-operator|.
-name|pluginsFile
-argument_list|()
-argument_list|)
-condition|)
-block|{
 name|Files
 operator|.
 name|createDirectories
@@ -2383,7 +2354,6 @@ name|pluginsFile
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(

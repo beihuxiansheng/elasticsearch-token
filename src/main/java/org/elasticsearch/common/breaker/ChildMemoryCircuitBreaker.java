@@ -793,6 +793,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * @return the name of the breaker      */
+annotation|@
+name|Override
 DECL|method|getName
 specifier|public
 name|String

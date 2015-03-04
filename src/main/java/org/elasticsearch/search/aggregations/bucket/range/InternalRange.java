@@ -671,6 +671,8 @@ operator|=
 name|aggregations
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKey
 specifier|public
 name|String
@@ -682,6 +684,8 @@ name|getKeyAsString
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getKeyAsString
 specifier|public
 name|String

@@ -159,6 +159,8 @@ operator|=
 name|internalFactory
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|T
@@ -189,6 +191,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|call

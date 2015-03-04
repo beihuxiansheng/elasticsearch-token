@@ -354,6 +354,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Compile a template string to (in this case) a Mustache object than can      * later be re-used for execution to fill in missing parameter values.      *      * @param template      *            a string representing the template to compile.      * @return a compiled template object for later execution.      * */
+annotation|@
+name|Override
 DECL|method|compile
 specifier|public
 name|Object
@@ -384,6 +386,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Execute a compiled template object (as retrieved from the compile method)      * and fill potential place holders with the variables given.      *      * @param template      *            compiled template object.      * @param vars      *            map of variables to use during substitution.      *      * @return the processed string with all given variables substitued.      * */
+annotation|@
+name|Override
 DECL|method|execute
 specifier|public
 name|Object

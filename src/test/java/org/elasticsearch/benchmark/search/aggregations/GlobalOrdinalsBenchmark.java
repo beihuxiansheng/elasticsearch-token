@@ -280,9 +280,7 @@ name|elasticsearch
 operator|.
 name|node
 operator|.
-name|internal
-operator|.
-name|InternalNode
+name|Node
 import|;
 end_import
 
@@ -508,7 +506,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|node
 specifier|static
-name|InternalNode
+name|Node
 name|node
 decl_stmt|;
 DECL|field|client
@@ -601,9 +599,6 @@ argument_list|()
 decl_stmt|;
 name|node
 operator|=
-operator|(
-name|InternalNode
-operator|)
 name|nodeBuilder
 argument_list|()
 operator|.

@@ -128,6 +128,8 @@ argument_list|>
 argument_list|()
 block|{
 annotation|@
+name|Override
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"

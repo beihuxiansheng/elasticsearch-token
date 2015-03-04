@@ -912,6 +912,8 @@ operator|=
 name|injector
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Injector
@@ -936,6 +938,8 @@ return|return
 name|injector
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Injector
@@ -946,6 +950,8 @@ return|return
 name|injector
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1045,6 +1051,8 @@ argument_list|<
 name|Logger
 argument_list|>
 block|{
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Logger
@@ -1098,6 +1106,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|get
 specifier|public
 name|Logger
@@ -1111,6 +1121,8 @@ name|getAnonymousLogger
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|toString
 specifier|public
 name|String
@@ -1155,6 +1167,8 @@ literal|"stage"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|configure
 specifier|public
 name|void

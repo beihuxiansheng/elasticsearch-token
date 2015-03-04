@@ -240,6 +240,8 @@ name|char
 name|_highSurrogate
 decl_stmt|;
 comment|/**      * Writes a character given its 31-bits Unicode.      *      * @param code the 31 bits Unicode of the character to be written.      * @throws IOException if an I/O error occurs.      */
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -1076,6 +1078,8 @@ throw|;
 block|}
 block|}
 comment|/**      * Writes a portion of an array of characters.      *      * @param cbuf the array of characters.      * @param off  the offset from which to start writing characters.      * @param len  the number of characters to write.      * @throws IOException if an I/O error occurs.      */
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -1167,6 +1171,8 @@ block|}
 block|}
 block|}
 comment|/**      * Writes a portion of a string.      *      * @param str a String.      * @param off the offset from which to start writing characters.      * @param len the number of characters to write.      * @throws IOException if an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|write
 specifier|public
 name|void
@@ -1346,6 +1352,8 @@ block|}
 block|}
 block|}
 comment|/**      * Flushes the stream.  If the stream has saved any characters from the      * various write() methods in a buffer, write them immediately to their      * intended destination.  Then, if that destination is another character or      * byte stream, flush it.  Thus one flush() invocation will flush all the      * buffers in a chain of Writers and OutputStreams.      *      * @throws IOException if an I/O error occurs.      */
+annotation|@
+name|Override
 DECL|method|flush
 specifier|public
 name|void
@@ -1364,6 +1372,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Closes and {@link #reset resets} this writer for reuse.      *      * @throws IOException if an I/O error occurs      */
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void

@@ -218,6 +218,8 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 name|SpanTermQueryBuilder

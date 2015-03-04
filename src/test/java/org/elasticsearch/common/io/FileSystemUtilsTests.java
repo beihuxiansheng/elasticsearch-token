@@ -542,7 +542,7 @@ block|{
 name|Path
 name|dest
 init|=
-name|globalTempDirPath
+name|newTempDirPath
 argument_list|()
 decl_stmt|;
 name|FileSystemUtils

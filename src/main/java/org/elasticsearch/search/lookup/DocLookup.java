@@ -456,6 +456,8 @@ return|return
 name|scriptValues
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|containsKey
 specifier|public
 name|boolean
@@ -519,6 +521,8 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|size
 specifier|public
 name|int
@@ -531,6 +535,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|isEmpty
 specifier|public
 name|boolean
@@ -543,6 +549,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|containsValue
 specifier|public
 name|boolean
@@ -558,6 +566,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|put
 specifier|public
 name|Object
@@ -576,6 +586,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|remove
 specifier|public
 name|Object
@@ -591,6 +603,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|putAll
 specifier|public
 name|void
@@ -606,6 +620,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|clear
 specifier|public
 name|void
@@ -618,6 +634,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|keySet
 specifier|public
 name|Set
@@ -630,6 +648,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|values
 specifier|public
 name|Collection
@@ -642,6 +662,8 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
+annotation|@
+name|Override
 DECL|method|entrySet
 specifier|public
 name|Set

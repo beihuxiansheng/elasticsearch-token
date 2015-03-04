@@ -52,6 +52,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BitDocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|BytesRef
 import|;
 end_import
@@ -135,6 +149,16 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -291,6 +315,8 @@ specifier|public
 name|void
 name|testSingleValuedLongs
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -478,6 +504,8 @@ specifier|public
 name|void
 name|testMultiValuedLongs
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -874,6 +902,8 @@ parameter_list|,
 name|FixedBitSet
 name|innerDocs
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -916,7 +946,11 @@ name|missingValue
 argument_list|,
 name|rootDocs
 argument_list|,
+operator|new
+name|BitDocIdSet
+argument_list|(
 name|innerDocs
+argument_list|)
 argument_list|,
 name|maxDoc
 argument_list|)
@@ -1125,6 +1159,8 @@ specifier|public
 name|void
 name|testSingleValuedDoubles
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -1312,6 +1348,8 @@ specifier|public
 name|void
 name|testMultiValuedDoubles
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -1710,6 +1748,8 @@ parameter_list|,
 name|FixedBitSet
 name|innerDocs
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -1752,7 +1792,11 @@ name|missingValue
 argument_list|,
 name|rootDocs
 argument_list|,
+operator|new
+name|BitDocIdSet
+argument_list|(
 name|innerDocs
+argument_list|)
 argument_list|,
 name|maxDoc
 argument_list|)
@@ -1963,6 +2007,8 @@ specifier|public
 name|void
 name|testSingleValuedStrings
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -2177,6 +2223,8 @@ specifier|public
 name|void
 name|testMultiValuedStrings
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -2636,6 +2684,8 @@ parameter_list|,
 name|FixedBitSet
 name|innerDocs
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -2699,7 +2749,11 @@ name|missingValue
 argument_list|,
 name|rootDocs
 argument_list|,
+operator|new
+name|BitDocIdSet
+argument_list|(
 name|innerDocs
+argument_list|)
 argument_list|,
 name|maxDoc
 argument_list|)
@@ -2929,6 +2983,8 @@ specifier|public
 name|void
 name|testSingleValuedOrds
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -3110,6 +3166,8 @@ specifier|public
 name|void
 name|testMultiValuedOrds
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 specifier|final
 name|int
@@ -3542,6 +3600,8 @@ parameter_list|,
 name|FixedBitSet
 name|innerDocs
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 for|for
 control|(
@@ -3574,7 +3634,11 @@ name|values
 argument_list|,
 name|rootDocs
 argument_list|,
+operator|new
+name|BitDocIdSet
+argument_list|(
 name|innerDocs
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|int

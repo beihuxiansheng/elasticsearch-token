@@ -391,6 +391,8 @@ operator|+=
 name|headerSize
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|id
 specifier|public
 name|long
@@ -403,6 +405,8 @@ operator|.
 name|id
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|estimatedNumberOfOperations
 specifier|public
 name|int
@@ -413,6 +417,8 @@ return|return
 name|operationCounter
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|translogSizeInBytes
 specifier|public
 name|long
@@ -423,6 +429,8 @@ return|return
 name|lastWrittenPosition
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|add
 specifier|public
 name|Translog
@@ -514,6 +522,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|read
 specifier|public
 name|byte
@@ -570,6 +580,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|close
 specifier|public
 name|void
@@ -607,6 +619,8 @@ block|}
 block|}
 block|}
 comment|/**      * Returns a snapshot on this file,<tt>null</tt> if it failed to snapshot.      */
+annotation|@
+name|Override
 DECL|method|snapshot
 specifier|public
 name|FsChannelSnapshot
@@ -767,6 +781,8 @@ name|file
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|sync
 specifier|public
 name|void

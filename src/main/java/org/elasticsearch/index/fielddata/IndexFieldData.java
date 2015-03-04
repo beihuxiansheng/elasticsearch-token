@@ -553,12 +553,15 @@ class|class
 name|Nested
 block|{
 DECL|field|rootFilter
-DECL|field|innerFilter
 specifier|private
 specifier|final
 name|BitDocIdSetFilter
 name|rootFilter
-decl_stmt|,
+decl_stmt|;
+DECL|field|innerFilter
+specifier|private
+specifier|final
+name|Filter
 name|innerFilter
 decl_stmt|;
 DECL|method|Nested
@@ -568,7 +571,7 @@ parameter_list|(
 name|BitDocIdSetFilter
 name|rootFilter
 parameter_list|,
-name|BitDocIdSetFilter
+name|Filter
 name|innerFilter
 parameter_list|)
 block|{
@@ -606,10 +609,10 @@ name|ctx
 argument_list|)
 return|;
 block|}
-comment|/**              * Get a {@link BitDocIdSet} that matches the inner documents.              */
+comment|/**              * Get a {@link DocIdSet} that matches the inner documents.              */
 DECL|method|innerDocs
 specifier|public
-name|BitDocIdSet
+name|DocIdSet
 name|innerDocs
 parameter_list|(
 name|LeafReaderContext
@@ -624,6 +627,8 @@ operator|.
 name|getDocIdSet
 argument_list|(
 name|ctx
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}

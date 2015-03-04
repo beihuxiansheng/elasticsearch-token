@@ -137,9 +137,12 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"assert that [{}] doesn't have a true value"
+literal|"assert that [{}] doesn't have a true value (field: [{}])"
 argument_list|,
 name|actualValue
+argument_list|,
+name|getField
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

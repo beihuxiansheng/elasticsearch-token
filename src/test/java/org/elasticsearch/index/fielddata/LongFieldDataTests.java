@@ -220,6 +220,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|add2SingleValuedDocumentsAndDeleteOneOfThem
 specifier|protected
 name|void
@@ -1401,6 +1403,8 @@ name|d
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|fillExtendedMvSet
 specifier|protected
 name|void
@@ -1990,6 +1994,8 @@ block|{
 DECL|enum constant|SINGLE_VALUED_DENSE_ENUM
 name|SINGLE_VALUED_DENSE_ENUM
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues
@@ -2028,6 +2034,8 @@ block|,
 DECL|enum constant|SINGLE_VALUED_DENSE_DATE
 name|SINGLE_VALUED_DENSE_DATE
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues
@@ -2075,6 +2083,8 @@ block|,
 DECL|enum constant|MULTI_VALUED_DATE
 name|MULTI_VALUED_DATE
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues
@@ -2127,6 +2137,8 @@ block|,
 DECL|enum constant|MULTI_VALUED_ENUM
 name|MULTI_VALUED_ENUM
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues
@@ -2170,6 +2182,8 @@ block|,
 DECL|enum constant|SINGLE_VALUED_SPARSE_RANDOM
 name|SINGLE_VALUED_SPARSE_RANDOM
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues
@@ -2213,6 +2227,8 @@ block|,
 DECL|enum constant|MULTI_VALUED_SPARSE_RANDOM
 name|MULTI_VALUED_SPARSE_RANDOM
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues
@@ -2263,6 +2279,8 @@ block|,
 DECL|enum constant|MULTI_VALUED_DENSE_RANDOM
 name|MULTI_VALUED_DENSE_RANDOM
 block|{
+annotation|@
+name|Override
 specifier|public
 name|int
 name|numValues

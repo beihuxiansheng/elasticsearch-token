@@ -183,6 +183,8 @@ operator|new
 name|Module
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -301,6 +303,8 @@ operator|new
 name|Module
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
@@ -413,6 +417,8 @@ name|baseModules
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|with
 specifier|public
 name|Module
@@ -435,6 +441,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|with
 specifier|public
 name|Module
@@ -1026,6 +1034,8 @@ name|Scope
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Scope
 name|visitScope

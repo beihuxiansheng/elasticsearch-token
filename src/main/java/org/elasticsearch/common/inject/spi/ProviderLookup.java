@@ -168,6 +168,8 @@ literal|"key"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getSource
 specifier|public
 name|Object
@@ -191,6 +193,8 @@ return|return
 name|key
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|acceptVisitor
 specifier|public
 parameter_list|<
@@ -251,6 +255,8 @@ literal|"delegate"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|applyTo
 specifier|public
 name|void
@@ -309,6 +315,8 @@ name|T
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|T
 name|get

@@ -130,6 +130,8 @@ operator|=
 name|compression
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|compression
 specifier|public
 name|double

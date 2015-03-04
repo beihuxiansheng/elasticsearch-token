@@ -518,6 +518,8 @@ name|Bytes
 extends|extends
 name|ValuesSource
 block|{
+annotation|@
+name|Override
 DECL|method|docsWithValue
 specifier|public
 name|Bits
@@ -612,6 +614,8 @@ name|WithOrdinals
 extends|extends
 name|Bytes
 block|{
+annotation|@
+name|Override
 DECL|method|docsWithValue
 specifier|public
 name|Bits

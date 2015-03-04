@@ -82,6 +82,8 @@ name|string
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the string representation of the text, might be converted to a string on the fly.      */
+annotation|@
+name|Override
 DECL|method|toString
 name|String
 name|toString

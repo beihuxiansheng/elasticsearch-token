@@ -101,6 +101,8 @@ operator|=
 name|setName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|setName
 specifier|public
 name|String
@@ -111,6 +113,8 @@ return|return
 name|setName
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|uniqueId
 specifier|public
 name|int
@@ -121,6 +125,8 @@ return|return
 name|uniqueId
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|annotationType
 specifier|public
 name|Class

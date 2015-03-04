@@ -733,6 +733,8 @@ name|ForceQueuePolicy
 implements|implements
 name|XRejectedExecutionHandler
 block|{
+annotation|@
+name|Override
 DECL|method|rejectedExecution
 specifier|public
 name|void

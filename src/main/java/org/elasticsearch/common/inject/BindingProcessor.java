@@ -342,6 +342,8 @@ name|Void
 argument_list|>
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -453,6 +455,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -584,6 +588,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -692,6 +698,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -805,6 +813,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -924,6 +934,8 @@ operator|new
 name|Runnable
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|run
@@ -979,6 +991,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -1000,6 +1014,8 @@ literal|"Cannot apply a non-module element"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -1021,6 +1037,8 @@ literal|"Cannot apply a non-module element"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit
@@ -1042,6 +1060,8 @@ literal|"Cannot apply a non-module element"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
 specifier|public
 name|Void
 name|visit

@@ -576,6 +576,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|settingsFilter
+operator|.
+name|addFilterSettingParams
+argument_list|(
+name|request
+argument_list|)
+expr_stmt|;
 name|client
 operator|.
 name|admin
@@ -638,11 +645,6 @@ name|response
 operator|.
 name|getState
 argument_list|()
-operator|.
-name|settingsFilter
-argument_list|(
-name|settingsFilter
-argument_list|)
 operator|.
 name|toXContent
 argument_list|(

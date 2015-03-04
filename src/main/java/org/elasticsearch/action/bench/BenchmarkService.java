@@ -2219,6 +2219,8 @@ name|size
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|newInstance
 specifier|public
 specifier|abstract
@@ -2307,6 +2309,8 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|executor
 specifier|public
 name|String
@@ -3748,6 +3752,8 @@ operator|=
 name|patterns
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|match
 specifier|protected
 name|boolean
