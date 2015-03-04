@@ -3289,10 +3289,7 @@ name|indices
 operator|.
 name|containsKey
 argument_list|(
-name|metaData
-operator|.
-name|index
-argument_list|()
+name|indexName
 argument_list|)
 condition|)
 block|{
@@ -3303,10 +3300,7 @@ name|indices
 operator|.
 name|get
 argument_list|(
-name|metaData
-operator|.
-name|index
-argument_list|()
+name|indexName
 argument_list|)
 operator|.
 name|v1
@@ -3321,10 +3315,7 @@ name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Can't delete index store for ["
 operator|+
-name|metaData
-operator|.
-name|getIndex
-argument_list|()
+name|indexName
 operator|+
 literal|"] - it's still part of the indices service ["
 operator|+
@@ -3360,8 +3351,25 @@ name|hasIndex
 argument_list|(
 name|indexName
 argument_list|)
+operator|&&
+operator|(
+name|clusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|localNode
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+operator|==
+literal|true
+operator|)
 condition|)
 block|{
+comment|// we do not delete the store if it is a master eligible node and the index is still in the cluster state
+comment|// because we want to keep the meta data for indices around even if no shards are left here
 specifier|final
 name|IndexMetaData
 name|index
