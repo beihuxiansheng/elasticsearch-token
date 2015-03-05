@@ -2491,6 +2491,27 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+comment|// TODO: remove once refresh doesn't fail immediately if there a master block:
+comment|// https://github.com/elasticsearch/elasticsearch/issues/9997
+name|client
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareHealth
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|setWaitForYellowStatus
+argument_list|()
+operator|.
+name|get
+argument_list|()
+expr_stmt|;
 name|client
 operator|.
 name|admin
