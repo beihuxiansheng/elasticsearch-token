@@ -2376,14 +2376,14 @@ condition|)
 block|{
 name|action
 operator|=
-name|holder
+name|timeoutInfoHolder
 operator|.
 name|action
 argument_list|()
 expr_stmt|;
 name|sourceNode
 operator|=
-name|holder
+name|timeoutInfoHolder
 operator|.
 name|node
 argument_list|()
