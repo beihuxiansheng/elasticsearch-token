@@ -604,6 +604,12 @@ argument_list|(
 literal|"flush"
 argument_list|)
 expr_stmt|;
+comment|/*          * we have to inc-ref the store here since if the engine is closed by a tragic event          * we don't acquire the write lock and wait until we have exclusive access. This might also          * dec the store reference which can essentially close the store and unless we can inc the reference          * we can't use it.          */
+name|store
+operator|.
+name|incRef
+argument_list|()
+expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -615,6 +621,7 @@ name|acquire
 argument_list|()
 init|)
 block|{
+comment|// reread the last committed segment infos
 name|lastCommittedSegmentInfos
 operator|=
 name|store
@@ -669,6 +676,14 @@ argument_list|)
 throw|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
+name|store
+operator|.
+name|decRef
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 annotation|@
