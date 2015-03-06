@@ -2431,7 +2431,7 @@ name|MetaData
 argument_list|>
 name|format
 init|=
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|globalStateFormat
 argument_list|(
@@ -2533,7 +2533,7 @@ argument_list|(
 name|randomMeta
 argument_list|()
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 argument_list|,
@@ -2620,7 +2620,7 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 operator|+
@@ -2666,7 +2666,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,
@@ -2727,7 +2727,7 @@ name|MetaData
 argument_list|>
 name|format
 init|=
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|globalStateFormat
 argument_list|(
@@ -2893,7 +2893,7 @@ argument_list|)
 operator|.
 name|resolve
 argument_list|(
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 operator|+
@@ -2935,7 +2935,7 @@ name|write
 argument_list|(
 name|meta
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 argument_list|,
@@ -2955,7 +2955,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,
@@ -3086,7 +3086,7 @@ name|MetaData
 argument_list|>
 name|format
 init|=
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|globalStateFormat
 argument_list|(
@@ -3324,7 +3324,7 @@ argument_list|(
 name|j
 argument_list|)
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PREFIX
 argument_list|,
@@ -3438,7 +3438,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,
@@ -3695,7 +3695,7 @@ name|logger
 argument_list|,
 name|format
 argument_list|,
-name|GatewayMetaState
+name|MetaStateService
 operator|.
 name|GLOBAL_STATE_FILE_PATTERN
 argument_list|,

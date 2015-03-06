@@ -1564,7 +1564,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|randomXContentType
-specifier|private
+specifier|public
 specifier|static
 name|XContentType
 name|randomXContentType
