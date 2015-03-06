@@ -613,7 +613,7 @@ expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -755,7 +755,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -831,7 +831,7 @@ comment|// since it flushes the index as well (though, in terms of concurrency, 
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.

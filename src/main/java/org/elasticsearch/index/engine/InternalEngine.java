@@ -1352,7 +1352,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -1564,7 +1564,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -2243,7 +2243,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -2840,7 +2840,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -3265,7 +3265,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -3516,7 +3516,7 @@ comment|// since it flushes the index as well (though, in terms of concurrency, 
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -3697,7 +3697,7 @@ comment|/*          * Unfortunately the lock order is important here. We have to
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -4313,7 +4313,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -4484,7 +4484,7 @@ expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
@@ -4537,7 +4537,7 @@ comment|// this means that next commits will not be allowed once the lock is rel
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|writeLock
 operator|.
@@ -5039,7 +5039,7 @@ block|{
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|readLock
 operator|.
