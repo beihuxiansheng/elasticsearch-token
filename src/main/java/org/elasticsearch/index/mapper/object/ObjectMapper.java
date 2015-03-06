@@ -3218,11 +3218,6 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"] as object, but found a concrete value"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3506,11 +3501,6 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"] as object, but got EOF, has a concrete value been provided to it?"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3783,11 +3773,6 @@ operator|+
 name|lastFieldName
 operator|+
 literal|"]"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3817,11 +3802,6 @@ argument_list|(
 name|fullPath
 argument_list|,
 name|lastFieldName
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3867,11 +3847,6 @@ name|textOrNull
 argument_list|()
 operator|+
 literal|"]"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -3953,11 +3928,6 @@ argument_list|(
 name|fullPath
 argument_list|,
 name|currentFieldName
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4263,11 +4233,6 @@ argument_list|(
 name|fullPath
 argument_list|,
 name|arrayFieldName
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4729,11 +4694,6 @@ operator|+
 name|arrayFieldName
 operator|+
 literal|"] tried to parse as array, but got EOF, is there a mismatch in types for the same field?"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4797,11 +4757,6 @@ name|textOrNull
 argument_list|()
 operator|+
 literal|"]"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4904,11 +4859,6 @@ argument_list|(
 name|fullPath
 argument_list|,
 name|currentFieldName
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -2360,11 +2360,6 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"No id found while parsing the content source"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2506,11 +2501,6 @@ operator|+
 name|id
 operator|+
 literal|"]"
-argument_list|,
-name|context
-operator|.
-name|mappingsModified
-argument_list|()
 argument_list|)
 throw|;
 block|}
