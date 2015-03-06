@@ -1613,6 +1613,11 @@ argument_list|(
 literal|"closed index no longer part of the metadata"
 argument_list|,
 name|metaData
+argument_list|,
+name|event
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

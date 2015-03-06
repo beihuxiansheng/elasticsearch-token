@@ -1921,6 +1921,8 @@ argument_list|(
 literal|"no longer used"
 argument_list|,
 name|indexMeta
+argument_list|,
+name|currentState
 argument_list|)
 expr_stmt|;
 block|}

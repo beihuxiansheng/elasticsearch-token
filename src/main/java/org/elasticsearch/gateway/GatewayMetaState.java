@@ -116,6 +116,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|ClusterState
 import|;
 end_import
@@ -926,6 +938,12 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
+DECL|field|clusterService
+specifier|private
+specifier|final
+name|ClusterService
+name|clusterService
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|GatewayMetaState
@@ -949,6 +967,9 @@ name|allocateDangledIndices
 parameter_list|,
 name|IndicesService
 name|indicesService
+parameter_list|,
+name|ClusterService
+name|clusterService
 parameter_list|)
 throws|throws
 name|Exception
@@ -1330,6 +1351,12 @@ operator|.
 name|indicesService
 operator|=
 name|indicesService
+expr_stmt|;
+name|this
+operator|.
+name|clusterService
+operator|=
+name|clusterService
 expr_stmt|;
 block|}
 DECL|method|loadMetaState
@@ -1797,6 +1824,8 @@ argument_list|(
 literal|"dangling index with timeout set to 0"
 argument_list|,
 name|indexMetaData
+argument_list|,
+name|state
 argument_list|)
 expr_stmt|;
 block|}
@@ -3309,6 +3338,11 @@ argument_list|(
 literal|"deleting dangling index"
 argument_list|,
 name|metaData
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
