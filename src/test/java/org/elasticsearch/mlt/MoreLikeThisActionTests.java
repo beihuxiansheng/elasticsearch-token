@@ -6206,7 +6206,7 @@ name|randomIntBetween
 argument_list|(
 literal|5
 argument_list|,
-literal|35
+literal|10
 argument_list|)
 decl_stmt|;
 name|logger
