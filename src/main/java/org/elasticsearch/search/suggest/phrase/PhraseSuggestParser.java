@@ -191,6 +191,20 @@ operator|.
 name|script
 operator|.
 name|ScriptService
+operator|.
+name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptContext
 import|;
 end_import
 
@@ -1213,11 +1227,13 @@ name|NAME
 argument_list|,
 name|templateNameOrTemplateContent
 argument_list|,
-name|ScriptService
-operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+name|ScriptContext
+operator|.
+name|SEARCH
 argument_list|)
 decl_stmt|;
 if|if

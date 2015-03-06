@@ -136,7 +136,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptParameterParser
+name|*
 import|;
 end_import
 
@@ -522,6 +522,10 @@ argument_list|,
 name|script
 argument_list|,
 name|scriptType
+argument_list|,
+name|ScriptContext
+operator|.
+name|SEARCH
 argument_list|,
 name|vars
 argument_list|)
