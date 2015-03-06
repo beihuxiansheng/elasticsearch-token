@@ -3796,6 +3796,25 @@ name|currentMaster
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"node {} received new cluster state: {} \n and had previous cluster state: {}"
+argument_list|,
+name|node
+argument_list|,
+name|event
+operator|.
+name|state
+argument_list|()
+argument_list|,
+name|event
+operator|.
+name|previousState
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|previousMasterNodeName
 init|=
