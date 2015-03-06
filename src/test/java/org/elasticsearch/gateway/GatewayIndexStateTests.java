@@ -865,6 +865,17 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+comment|// we need this until we have  https://github.com/elasticsearch/elasticsearch/issues/8688
+comment|// the test rarely fails else because the master does not apply the new mapping quick enough and it is lost
+name|waitForConcreteMappingsOnAll
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"type1"
+argument_list|,
+literal|"field1"
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|info
