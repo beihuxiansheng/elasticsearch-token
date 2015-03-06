@@ -3979,6 +3979,11 @@ argument_list|,
 name|oldMasterNode
 argument_list|)
 expr_stmt|;
+name|assertDiscoveryCompleted
+argument_list|(
+name|majoritySide
+argument_list|)
+expr_stmt|;
 comment|// The old master node is frozen, but here we submit a cluster state update task that doesn't get executed,
 comment|// but will be queued and once the old master node un-freezes it gets executed.
 comment|// The old master node will send this update + the cluster state where he is flagged as master to the other
