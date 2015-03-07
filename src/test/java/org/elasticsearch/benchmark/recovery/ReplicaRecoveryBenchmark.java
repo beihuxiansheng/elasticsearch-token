@@ -932,7 +932,7 @@ operator|.
 name|getTranslog
 argument_list|()
 operator|.
-name|currentTranslogOperations
+name|recoveredOperations
 argument_list|()
 expr_stmt|;
 name|bytes

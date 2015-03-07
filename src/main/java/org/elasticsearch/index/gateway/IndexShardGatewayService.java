@@ -855,7 +855,7 @@ operator|.
 name|getTranslog
 argument_list|()
 operator|.
-name|currentTranslogOperations
+name|recoveredOperations
 argument_list|()
 argument_list|)
 operator|.
