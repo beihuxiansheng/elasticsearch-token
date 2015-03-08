@@ -3106,6 +3106,8 @@ argument_list|(
 literal|"script"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|injector
 operator|.
 name|getInstance
@@ -3118,6 +3120,23 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"ScriptService close failed"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|stopWatch
 operator|.
 name|stop

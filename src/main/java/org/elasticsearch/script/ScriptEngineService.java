@@ -44,6 +44,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -59,6 +69,8 @@ DECL|interface|ScriptEngineService
 specifier|public
 interface|interface
 name|ScriptEngineService
+extends|extends
+name|Closeable
 block|{
 DECL|method|types
 name|String
@@ -147,11 +159,6 @@ parameter_list|(
 name|Object
 name|value
 parameter_list|)
-function_decl|;
-DECL|method|close
-name|void
-name|close
-parameter_list|()
 function_decl|;
 comment|/**      * Handler method called when a script is removed from the Guava cache.      *      * The passed script may be null if it has already been garbage collected.      * */
 DECL|method|scriptRemoved
