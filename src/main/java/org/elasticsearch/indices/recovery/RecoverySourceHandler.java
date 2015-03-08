@@ -2768,11 +2768,6 @@ operator|.
 name|targetNode
 argument_list|()
 argument_list|,
-name|request
-operator|.
-name|targetNode
-argument_list|()
-argument_list|,
 name|stopWatch
 operator|.
 name|totalTime
