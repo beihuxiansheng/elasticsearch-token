@@ -2029,6 +2029,13 @@ operator|.
 name|State
 operator|.
 name|STARTED
+operator|:
+literal|"expected lifecycle to be started but was: "
+operator|+
+name|clusterService
+operator|.
+name|lifecycleState
+argument_list|()
 assert|;
 comment|// otherwise localNode is still none;
 name|this
