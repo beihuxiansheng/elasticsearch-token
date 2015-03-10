@@ -2333,14 +2333,13 @@ name|checkVersionMapRefresh
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Forces a refresh if the versionMap is using too much RAM (currently> 25% of IndexWriter's RAM buffer).      */
+comment|/**      * Forces a refresh if the versionMap is using too much RAM      */
 DECL|method|checkVersionMapRefresh
 specifier|private
 name|void
 name|checkVersionMapRefresh
 parameter_list|()
 block|{
-comment|// TODO: we force refresh when versionMap is using> 25% of IW's RAM buffer; should we make this separately configurable?
 if|if
 condition|(
 name|versionMap
@@ -2348,11 +2347,10 @@ operator|.
 name|ramBytesUsedForRefresh
 argument_list|()
 operator|>
-literal|0.25
-operator|*
-name|engineConfig
+name|config
+argument_list|()
 operator|.
-name|getIndexingBufferSize
+name|getVersionMapSize
 argument_list|()
 operator|.
 name|bytes

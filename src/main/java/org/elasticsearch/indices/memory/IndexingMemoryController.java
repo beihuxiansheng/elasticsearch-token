@@ -148,6 +148,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|EngineClosedException
@@ -190,7 +202,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|shard
+operator|.
+name|IndexShard
 import|;
 end_import
 
@@ -219,20 +233,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShard
 import|;
 end_import
 
@@ -405,6 +405,10 @@ name|EnumSet
 operator|.
 name|of
 argument_list|(
+name|IndexShardState
+operator|.
+name|RECOVERING
+argument_list|,
 name|IndexShardState
 operator|.
 name|POST_RECOVERY
