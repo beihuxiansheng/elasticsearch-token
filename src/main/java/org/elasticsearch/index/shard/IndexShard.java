@@ -2021,23 +2021,18 @@ expr_stmt|;
 assert|assert
 name|clusterService
 operator|.
-name|lifecycleState
+name|localNode
 argument_list|()
-operator|==
-name|Lifecycle
-operator|.
-name|State
-operator|.
-name|STARTED
+operator|!=
+literal|null
 operator|:
-literal|"expected lifecycle to be started but was: "
+literal|"Local node is null lifecycle state is: "
 operator|+
 name|clusterService
 operator|.
 name|lifecycleState
 argument_list|()
 assert|;
-comment|// otherwise localNode is still none;
 name|this
 operator|.
 name|localNode
