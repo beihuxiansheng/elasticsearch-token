@@ -821,6 +821,11 @@ name|queryStringQuery
 argument_list|(
 literal|"_id:XXX*"
 argument_list|)
+operator|.
+name|lowercaseExpandedTerms
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 operator|.
 name|execute
