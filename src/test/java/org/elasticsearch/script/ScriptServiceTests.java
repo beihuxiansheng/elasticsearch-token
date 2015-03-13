@@ -612,7 +612,7 @@ throws|throws
 name|IOException
 block|{
 name|Path
-name|testFileNoExt
+name|groovyScriptPath
 init|=
 name|scriptsFilePath
 operator|.
@@ -622,7 +622,7 @@ literal|"script.groovy"
 argument_list|)
 decl_stmt|;
 name|Path
-name|testFileWithExt
+name|expScriptPath
 init|=
 name|scriptsFilePath
 operator|.
@@ -646,7 +646,7 @@ name|Files
 operator|.
 name|newOutputStream
 argument_list|(
-name|testFileNoExt
+name|groovyScriptPath
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -665,7 +665,7 @@ name|Files
 operator|.
 name|newOutputStream
 argument_list|(
-name|testFileWithExt
+name|expScriptPath
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -813,7 +813,7 @@ throws|throws
 name|IOException
 block|{
 name|Path
-name|testFileWithExt
+name|scriptPath
 init|=
 name|scriptsFilePath
 operator|.
@@ -837,7 +837,7 @@ name|Files
 operator|.
 name|newOutputStream
 argument_list|(
-name|testFileWithExt
+name|scriptPath
 argument_list|)
 argument_list|)
 expr_stmt|;
