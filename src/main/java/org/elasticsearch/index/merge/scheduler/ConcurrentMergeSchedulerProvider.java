@@ -837,7 +837,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|warn
+name|error
 argument_list|(
 literal|"failed to merge"
 argument_list|,
@@ -859,15 +859,9 @@ name|dir
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|handleMergeException
-argument_list|(
-name|dir
-argument_list|,
-name|exc
-argument_list|)
-expr_stmt|;
+comment|// NOTE: do not call super.handleMergeException here, which would just re-throw the exception
+comment|// and let Java's thread exc handler see it / log it to stderr, but we already 1) logged it
+comment|// and 2) handled the exception by failing the engine
 block|}
 annotation|@
 name|Override
