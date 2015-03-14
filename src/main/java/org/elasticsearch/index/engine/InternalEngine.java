@@ -6256,14 +6256,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-elseif|else
-if|if
-condition|(
-name|engineConfig
-operator|.
-name|isFailOnMergeFailure
-argument_list|()
-condition|)
+else|else
 block|{
 name|failEngine
 argument_list|(

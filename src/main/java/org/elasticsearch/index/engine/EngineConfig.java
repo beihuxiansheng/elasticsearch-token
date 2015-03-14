@@ -355,14 +355,6 @@ specifier|final
 name|ShardId
 name|shardId
 decl_stmt|;
-DECL|field|failOnMergeFailure
-specifier|private
-specifier|volatile
-name|boolean
-name|failOnMergeFailure
-init|=
-literal|true
-decl_stmt|;
 DECL|field|failEngineOnCorruption
 specifier|private
 specifier|volatile
@@ -542,16 +534,6 @@ name|String
 name|INDEX_GC_DELETES_SETTING
 init|=
 literal|"index.gc_deletes"
-decl_stmt|;
-comment|/**      * Index setting to enable / disable engine failures on merge exceptions. Default is<code>true</code> /<tt>enabled</tt>.      * This setting is realtime updateable.      */
-DECL|field|INDEX_FAIL_ON_MERGE_FAILURE_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_FAIL_ON_MERGE_FAILURE_SETTING
-init|=
-literal|"index.fail_on_merge_failure"
 decl_stmt|;
 comment|/**      * Index setting to enable / disable engine failures on detected index corruptions. Default is<code>true</code> /<tt>enabled</tt>.      * This setting is realtime updateable.      */
 DECL|field|INDEX_FAIL_ON_CORRUPTION_SETTING
@@ -893,17 +875,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|failOnMergeFailure
-operator|=
-name|indexSettings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|INDEX_FAIL_ON_MERGE_FAILURE_SETTING
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|gcDeletesInMillis
 operator|=
 name|indexSettings
@@ -954,17 +925,6 @@ name|enableGcDeletes
 operator|=
 name|enableGcDeletes
 expr_stmt|;
-block|}
-comment|/**      * Returns<code>true</code> iff the engine should be failed if a merge error is hit. Defaults to<code>true</code>      */
-DECL|method|isFailOnMergeFailure
-specifier|public
-name|boolean
-name|isFailOnMergeFailure
-parameter_list|()
-block|{
-return|return
-name|failOnMergeFailure
-return|;
 block|}
 comment|/**      * Returns<code>true</code> if the engine should be failed in the case of a corrupted index. Defaults to<code>true</code>      */
 DECL|method|isFailEngineOnCorruption
@@ -1258,23 +1218,6 @@ operator|.
 name|failEngineOnCorruption
 operator|=
 name|failEngineOnCorruption
-expr_stmt|;
-block|}
-comment|/**      * Sets if the engine should be failed if a merge error is hit. Defaults to<code>true</code>      */
-DECL|method|setFailOnMergeFailure
-specifier|public
-name|void
-name|setFailOnMergeFailure
-parameter_list|(
-name|boolean
-name|failOnMergeFailure
-parameter_list|)
-block|{
-name|this
-operator|.
-name|failOnMergeFailure
-operator|=
-name|failOnMergeFailure
 expr_stmt|;
 block|}
 block|}
