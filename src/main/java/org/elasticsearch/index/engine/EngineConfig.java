@@ -355,14 +355,6 @@ specifier|final
 name|ShardId
 name|shardId
 decl_stmt|;
-DECL|field|failEngineOnCorruption
-specifier|private
-specifier|volatile
-name|boolean
-name|failEngineOnCorruption
-init|=
-literal|true
-decl_stmt|;
 DECL|field|indexingBufferSize
 specifier|private
 specifier|volatile
@@ -534,16 +526,6 @@ name|String
 name|INDEX_GC_DELETES_SETTING
 init|=
 literal|"index.gc_deletes"
-decl_stmt|;
-comment|/**      * Index setting to enable / disable engine failures on detected index corruptions. Default is<code>true</code> /<tt>enabled</tt>.      * This setting is realtime updateable.      */
-DECL|field|INDEX_FAIL_ON_CORRUPTION_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_FAIL_ON_CORRUPTION_SETTING
-init|=
-literal|"index.fail_on_corruption"
 decl_stmt|;
 comment|/**      * Index setting to control the initial index buffer size.      * This setting is<b>not</b> realtime updateable.      */
 DECL|field|INDEX_BUFFER_SIZE_SETTING
@@ -864,17 +846,6 @@ argument_list|,
 name|DEFAUTL_INDEX_BUFFER_SIZE
 argument_list|)
 expr_stmt|;
-name|failEngineOnCorruption
-operator|=
-name|indexSettings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|INDEX_FAIL_ON_CORRUPTION_SETTING
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 name|gcDeletesInMillis
 operator|=
 name|indexSettings
@@ -925,17 +896,6 @@ name|enableGcDeletes
 operator|=
 name|enableGcDeletes
 expr_stmt|;
-block|}
-comment|/**      * Returns<code>true</code> if the engine should be failed in the case of a corrupted index. Defaults to<code>true</code>      */
-DECL|method|isFailEngineOnCorruption
-specifier|public
-name|boolean
-name|isFailEngineOnCorruption
-parameter_list|()
-block|{
-return|return
-name|failEngineOnCorruption
-return|;
 block|}
 comment|/**      * Returns the initial index buffer size. This setting is only read on startup and otherwise controlled by {@link org.elasticsearch.indices.memory.IndexingMemoryController}      */
 DECL|method|getIndexingBufferSize
@@ -1201,23 +1161,6 @@ operator|.
 name|compoundOnFlush
 operator|=
 name|compoundOnFlush
-expr_stmt|;
-block|}
-comment|/**      * Sets if the engine should be failed in the case of a corrupted index. Defaults to<code>true</code>      */
-DECL|method|setFailEngineOnCorruption
-specifier|public
-name|void
-name|setFailEngineOnCorruption
-parameter_list|(
-name|boolean
-name|failEngineOnCorruption
-parameter_list|)
-block|{
-name|this
-operator|.
-name|failEngineOnCorruption
-operator|=
-name|failEngineOnCorruption
 expr_stmt|;
 block|}
 block|}

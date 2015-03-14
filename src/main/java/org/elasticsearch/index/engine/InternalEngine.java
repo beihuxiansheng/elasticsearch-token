@@ -6218,14 +6218,6 @@ name|e
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|engineConfig
-operator|.
-name|isFailEngineOnCorruption
-argument_list|()
-condition|)
-block|{
 name|failEngine
 argument_list|(
 literal|"corrupt file detected source: [merge]"
@@ -6233,28 +6225,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"corrupt file detected source: [merge] but [{}] is set to [{}]"
-argument_list|,
-name|e
-argument_list|,
-name|EngineConfig
-operator|.
-name|INDEX_FAIL_ON_CORRUPTION_SETTING
-argument_list|,
-name|engineConfig
-operator|.
-name|isFailEngineOnCorruption
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{

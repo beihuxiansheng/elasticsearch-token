@@ -2664,14 +2664,6 @@ name|t
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|engineConfig
-operator|.
-name|isFailEngineOnCorruption
-argument_list|()
-condition|)
-block|{
 name|failEngine
 argument_list|(
 literal|"corrupt file detected source: ["
@@ -2686,30 +2678,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"corrupt file detected source: [{}] but [{}] is set to [{}]"
-argument_list|,
-name|t
-argument_list|,
-name|source
-argument_list|,
-name|EngineConfig
-operator|.
-name|INDEX_FAIL_ON_CORRUPTION_SETTING
-argument_list|,
-name|engineConfig
-operator|.
-name|isFailEngineOnCorruption
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 elseif|else
 if|if
