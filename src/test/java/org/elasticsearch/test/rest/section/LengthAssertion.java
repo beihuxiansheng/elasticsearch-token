@@ -316,13 +316,10 @@ name|UnsupportedOperationException
 argument_list|(
 literal|"value is of unsupported type ["
 operator|+
+name|safeClass
+argument_list|(
 name|actualValue
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
+argument_list|)
 operator|+
 literal|"]"
 argument_list|)

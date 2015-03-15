@@ -3617,6 +3617,11 @@ name|req
 operator|.
 name|totalTranslogOps
 argument_list|()
+argument_list|,
+name|req
+operator|.
+name|sourceThrottleTimeInNanos
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

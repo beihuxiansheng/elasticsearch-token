@@ -297,6 +297,32 @@ name|Object
 name|expectedValue
 parameter_list|)
 function_decl|;
+comment|/**      * a utility to get the class of an object, protecting for null (i.e., returning null if the input is null)      */
+DECL|method|safeClass
+specifier|protected
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|safeClass
+parameter_list|(
+name|Object
+name|o
+parameter_list|)
+block|{
+return|return
+name|o
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|o
+operator|.
+name|getClass
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

@@ -266,18 +266,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|metadata
 operator|.
 name|IndexMetaData
@@ -961,6 +949,20 @@ operator|.
 name|query
 operator|.
 name|IndexQueryParserService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|recovery
+operator|.
+name|RecoveryStats
 import|;
 end_import
 
@@ -1675,6 +1677,16 @@ DECL|field|recoveryState
 specifier|private
 name|RecoveryState
 name|recoveryState
+decl_stmt|;
+DECL|field|recoveryStats
+specifier|private
+specifier|final
+name|RecoveryStats
+name|recoveryStats
+init|=
+operator|new
+name|RecoveryStats
+argument_list|()
 decl_stmt|;
 DECL|field|applyRefreshSettings
 specifier|private
@@ -5244,6 +5256,17 @@ name|INIT
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/** returns stats about ongoing recoveries, both source and target */
+DECL|method|recoveryStats
+specifier|public
+name|RecoveryStats
+name|recoveryStats
+parameter_list|()
+block|{
+return|return
+name|recoveryStats
+return|;
 block|}
 comment|/**      * Returns the current {@link RecoveryState} if this shard is recovering or has been recovering.      * Returns null if the recovery has not yet started or shard was not recovered (created via an API).      */
 DECL|method|recoveryState

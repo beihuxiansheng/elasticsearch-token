@@ -178,10 +178,10 @@ argument_list|()
 operator|+
 literal|"] is not comparable (got ["
 operator|+
+name|safeClass
+argument_list|(
 name|actualValue
-operator|.
-name|getClass
-argument_list|()
+argument_list|)
 operator|+
 literal|"])"
 argument_list|,

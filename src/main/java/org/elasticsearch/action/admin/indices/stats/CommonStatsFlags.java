@@ -918,6 +918,12 @@ name|QueryCache
 argument_list|(
 literal|"query_cache"
 argument_list|)
+block|,
+DECL|enum constant|Recovery
+name|Recovery
+argument_list|(
+literal|"recovery"
+argument_list|)
 block|;
 DECL|field|restName
 specifier|private
