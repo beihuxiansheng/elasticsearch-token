@@ -5459,9 +5459,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|5000
+literal|1000
 argument_list|,
-literal|6000
+literal|2000
 argument_list|)
 decl_stmt|;
 comment|// don't wait for initial state, wat want to add the disruption while the cluster is forming..
