@@ -7410,6 +7410,11 @@ operator|.
 name|prepareOptimize
 argument_list|()
 operator|.
+name|setMaxNumSegments
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|execute
 argument_list|()
 operator|.
