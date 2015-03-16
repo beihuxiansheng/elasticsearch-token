@@ -35,16 +35,16 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|OptimizeFailedEngineException
+DECL|class|ForceMergeFailedEngineException
 specifier|public
 class|class
-name|OptimizeFailedEngineException
+name|ForceMergeFailedEngineException
 extends|extends
 name|EngineException
 block|{
-DECL|method|OptimizeFailedEngineException
+DECL|method|ForceMergeFailedEngineException
 specifier|public
-name|OptimizeFailedEngineException
+name|ForceMergeFailedEngineException
 parameter_list|(
 name|ShardId
 name|shardId
@@ -57,7 +57,7 @@ name|super
 argument_list|(
 name|shardId
 argument_list|,
-literal|"Optimize failed"
+literal|"force merge failed"
 argument_list|,
 name|t
 argument_list|)

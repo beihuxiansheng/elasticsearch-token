@@ -1707,6 +1707,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|setMaxNumSegments
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|get
 argument_list|()
 expr_stmt|;
