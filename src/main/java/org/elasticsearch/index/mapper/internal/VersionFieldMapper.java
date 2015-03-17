@@ -664,7 +664,7 @@ name|Defaults
 operator|.
 name|FIELD_TYPE
 argument_list|,
-literal|null
+literal|true
 argument_list|,
 literal|null
 argument_list|,
@@ -976,18 +976,6 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|hasDocValues
-specifier|public
-name|boolean
-name|hasDocValues
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class

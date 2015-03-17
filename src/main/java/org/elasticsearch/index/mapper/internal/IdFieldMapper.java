@@ -2623,7 +2623,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|==
 literal|false
 condition|)

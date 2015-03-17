@@ -504,6 +504,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -1978,7 +1992,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=long"
+literal|"type=long,doc_values=true"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2496,46 +2510,19 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|assertMatchCount
-argument_list|(
-name|response
-argument_list|,
-literal|2l
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|response
+name|ElasticsearchAssertions
 operator|.
-name|getMatches
-argument_list|()
-argument_list|,
-name|arrayWithSize
-argument_list|(
-literal|2
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|convertFromTextArray
+name|assertFailures
 argument_list|(
 name|response
-operator|.
-name|getMatches
-argument_list|()
-argument_list|,
-literal|"test"
-argument_list|)
-argument_list|,
-name|arrayContainingInAnyOrder
-argument_list|(
-literal|"test1"
-argument_list|,
-literal|"test3"
-argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: with doc values by default, fielddata execution mode causes a doc values
+comment|// lookup, but memory index doesn't have doc values. we should consider just removing
+comment|// execution mode.
+comment|//assertMatchCount(response, 2l);
+comment|//assertThat(response.getMatches(), arrayWithSize(2));
+comment|//assertThat(convertFromTextArray(response.getMatches(), "test"), arrayContainingInAnyOrder("test1", "test3"));
 block|}
 annotation|@
 name|Test
@@ -2567,7 +2554,7 @@ literal|"type1"
 argument_list|,
 literal|"field1"
 argument_list|,
-literal|"type=long"
+literal|"type=long,doc_values=false"
 argument_list|)
 operator|.
 name|get

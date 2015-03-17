@@ -356,8 +356,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|nullValue
-argument_list|()
+literal|"2130706433"
 argument_list|)
 argument_list|)
 expr_stmt|;

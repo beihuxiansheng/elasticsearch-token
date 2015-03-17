@@ -549,6 +549,14 @@ argument_list|,
 literal|"not_analyzed"
 argument_list|)
 operator|.
+name|field
+argument_list|(
+literal|"doc_values"
+argument_list|,
+name|randomBoolean
+argument_list|()
+argument_list|)
+operator|.
 name|startObject
 argument_list|(
 literal|"fielddata"

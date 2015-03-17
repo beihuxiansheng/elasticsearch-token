@@ -920,7 +920,7 @@ literal|1.0f
 argument_list|,
 name|fieldType
 argument_list|,
-literal|null
+literal|false
 argument_list|,
 name|Lucene
 operator|.
@@ -980,18 +980,6 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|hasDocValues
-specifier|public
-name|boolean
-name|hasDocValues
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 DECL|method|markAsRequired
@@ -1378,7 +1366,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|&&
 operator|(
 name|includeDefaults
@@ -1409,7 +1397,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|&&
 operator|(
 name|includeDefaults
@@ -1464,7 +1452,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|&&
 operator|(
 name|includeDefaults

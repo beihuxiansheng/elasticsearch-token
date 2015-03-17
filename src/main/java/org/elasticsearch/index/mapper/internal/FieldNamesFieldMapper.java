@@ -1608,7 +1608,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|&&
 operator|(
 name|includeDefaults

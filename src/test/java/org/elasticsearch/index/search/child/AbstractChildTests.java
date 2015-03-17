@@ -438,7 +438,7 @@ name|parentType
 argument_list|,
 name|CHILD_SCORE_NAME
 argument_list|,
-literal|"type=double"
+literal|"type=double,doc_values=false"
 argument_list|)
 operator|.
 name|string
