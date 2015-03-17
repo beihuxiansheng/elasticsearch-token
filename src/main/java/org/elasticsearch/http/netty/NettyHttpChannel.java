@@ -458,11 +458,16 @@ name|request
 parameter_list|,
 name|Pattern
 name|corsPattern
+parameter_list|,
+name|boolean
+name|detailedErrorsEnabled
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|request
+argument_list|,
+name|detailedErrorsEnabled
 argument_list|)
 expr_stmt|;
 name|this
@@ -511,6 +516,9 @@ name|corsPattern
 parameter_list|,
 name|OrderedUpstreamMessageEvent
 name|orderedUpstreamMessageEvent
+parameter_list|,
+name|boolean
+name|detailedErrorsEnabled
 parameter_list|)
 block|{
 name|this
@@ -520,6 +528,8 @@ argument_list|,
 name|request
 argument_list|,
 name|corsPattern
+argument_list|,
+name|detailedErrorsEnabled
 argument_list|)
 expr_stmt|;
 name|this

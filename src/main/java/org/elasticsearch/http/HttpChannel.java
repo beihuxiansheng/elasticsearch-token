@@ -57,11 +57,16 @@ name|HttpChannel
 parameter_list|(
 name|RestRequest
 name|request
+parameter_list|,
+name|boolean
+name|detailedErrorsEnabled
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|request
+argument_list|,
+name|detailedErrorsEnabled
 argument_list|)
 expr_stmt|;
 block|}
