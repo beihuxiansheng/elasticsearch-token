@@ -941,10 +941,10 @@ name|boolean
 name|resolveIndex
 parameter_list|()
 function_decl|;
-comment|/**      * Resolves the request, by default doing nothing. If the resolve      * means a different execution, then return false here to indicate not to continue and execute this request.      */
+comment|/**      * Resolves the request, by default doing nothing. Can be subclassed to do      * additional processing or validation depending on the incoming request      */
 DECL|method|resolveRequest
 specifier|protected
-name|boolean
+name|void
 name|resolveRequest
 parameter_list|(
 name|ClusterState
@@ -959,11 +959,7 @@ name|Response
 argument_list|>
 name|listener
 parameter_list|)
-block|{
-return|return
-literal|true
-return|;
-block|}
+block|{     }
 DECL|method|transportOptions
 specifier|protected
 name|TransportRequestOptions
@@ -1829,10 +1825,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// check if we need to execute, and if not, return
-if|if
-condition|(
-operator|!
 name|resolveRequest
 argument_list|(
 name|observer
@@ -1844,10 +1836,7 @@ name|internalRequest
 argument_list|,
 name|listener
 argument_list|)
-condition|)
-block|{
-return|return;
-block|}
+expr_stmt|;
 name|blockException
 operator|=
 name|checkRequestBlock
