@@ -481,7 +481,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets index settings that should be added or replaced during restore       * @param settings index settings      * @return this builder      */
+comment|/**      * Sets index settings that should be added or replaced during restore      * @param settings index settings      * @return this builder      */
 DECL|method|setIndexSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
