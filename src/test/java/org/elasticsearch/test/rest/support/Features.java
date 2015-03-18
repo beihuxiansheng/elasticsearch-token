@@ -79,8 +79,6 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-literal|"gtelte"
-argument_list|,
 literal|"stash_in_path"
 argument_list|,
 literal|"groovy_scripting"
