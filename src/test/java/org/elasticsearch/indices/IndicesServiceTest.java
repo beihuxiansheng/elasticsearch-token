@@ -477,6 +477,11 @@ argument_list|(
 literal|"boom"
 argument_list|,
 name|firstMetaData
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -732,6 +737,11 @@ argument_list|(
 literal|"boom"
 argument_list|,
 name|secondMetaData
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -775,6 +785,11 @@ argument_list|(
 literal|"boom"
 argument_list|,
 name|firstMetaData
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail

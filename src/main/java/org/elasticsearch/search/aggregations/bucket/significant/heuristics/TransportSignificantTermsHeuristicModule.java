@@ -123,6 +123,13 @@ operator|.
 name|STREAM
 argument_list|)
 expr_stmt|;
+name|registerStream
+argument_list|(
+name|ScriptHeuristic
+operator|.
+name|STREAM
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|registerStream
 specifier|public

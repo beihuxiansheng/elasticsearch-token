@@ -571,11 +571,8 @@ name|recoveryState
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Check that the gateway have set the shard to POST_RECOVERY. Note that if a shard
-comment|// is in POST_RECOVERY, it may have been started as well if:
-comment|// 1) master sent a new cluster state indicating shard is initializing
-comment|// 2) IndicesClusterStateService#applyInitializingShard will send a shard started event
-comment|// 3) Master will mark shard as started and this will be processed locally.
+comment|// Check that the gateway didn't leave the shard in init or recovering stage. it is up to the gateway
+comment|// to call post recovery.
 name|IndexShardState
 name|shardState
 init|=
@@ -586,18 +583,22 @@ argument_list|()
 decl_stmt|;
 assert|assert
 name|shardState
-operator|==
+operator|!=
 name|IndexShardState
 operator|.
-name|POST_RECOVERY
-operator|||
+name|CREATED
+operator|&&
 name|shardState
-operator|==
+operator|!=
 name|IndexShardState
 operator|.
-name|STARTED
+name|RECOVERING
 operator|:
-literal|"recovery process didn't call post_recovery. shardState ["
+literal|"recovery process of "
+operator|+
+name|shardId
+operator|+
+literal|" didn't get to post_recovery. shardState ["
 operator|+
 name|shardState
 operator|+
@@ -854,7 +855,7 @@ operator|.
 name|getTranslog
 argument_list|()
 operator|.
-name|currentTranslogOperations
+name|recoveredOperations
 argument_list|()
 argument_list|)
 operator|.

@@ -1192,12 +1192,6 @@ specifier|final
 name|NodeEnvironment
 name|nodeEnv
 decl_stmt|;
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
 DECL|field|indices
 specifier|private
 specifier|volatile
@@ -1268,9 +1262,6 @@ name|injector
 parameter_list|,
 name|NodeEnvironment
 name|nodeEnv
-parameter_list|,
-name|ClusterService
-name|clusterService
 parameter_list|)
 block|{
 name|super
@@ -1286,12 +1277,6 @@ operator|(
 name|InternalIndicesLifecycle
 operator|)
 name|indicesLifecycle
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
 expr_stmt|;
 name|this
 operator|.
@@ -3129,6 +3114,9 @@ name|reason
 parameter_list|,
 name|IndexMetaData
 name|metaData
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 block|{
 if|if
@@ -3149,14 +3137,6 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|ClusterState
-name|clusterState
-init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|clusterState
@@ -3215,6 +3195,8 @@ argument_list|(
 name|reason
 argument_list|,
 name|metaData
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
@@ -3258,6 +3240,9 @@ name|reason
 parameter_list|,
 name|IndexMetaData
 name|metaData
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 throws|throws
 name|IOException
@@ -3289,10 +3274,7 @@ name|indices
 operator|.
 name|containsKey
 argument_list|(
-name|metaData
-operator|.
-name|index
-argument_list|()
+name|indexName
 argument_list|)
 condition|)
 block|{
@@ -3303,10 +3285,7 @@ name|indices
 operator|.
 name|get
 argument_list|(
-name|metaData
-operator|.
-name|index
-argument_list|()
+name|indexName
 argument_list|)
 operator|.
 name|v1
@@ -3321,10 +3300,7 @@ name|ElasticsearchIllegalStateException
 argument_list|(
 literal|"Can't delete index store for ["
 operator|+
-name|metaData
-operator|.
-name|getIndex
-argument_list|()
+name|indexName
 operator|+
 literal|"] - it's still part of the indices service ["
 operator|+
@@ -3341,14 +3317,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|ClusterState
-name|clusterState
-init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|clusterState
@@ -3360,8 +3328,25 @@ name|hasIndex
 argument_list|(
 name|indexName
 argument_list|)
+operator|&&
+operator|(
+name|clusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|localNode
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+operator|==
+literal|true
+operator|)
 condition|)
 block|{
+comment|// we do not delete the store if it is a master eligible node and the index is still in the cluster state
+comment|// because we want to keep the meta data for indices around even if no shards are left here
 specifier|final
 name|IndexMetaData
 name|index

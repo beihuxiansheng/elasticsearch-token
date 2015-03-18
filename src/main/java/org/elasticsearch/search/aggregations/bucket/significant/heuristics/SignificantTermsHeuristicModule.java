@@ -152,6 +152,15 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|registerParser
+argument_list|(
+name|ScriptHeuristic
+operator|.
+name|ScriptHeuristicParser
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|registerParser
 specifier|public

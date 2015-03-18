@@ -20459,6 +20459,11 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|setMaxNumSegments
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|setFlush
 argument_list|(
 literal|true

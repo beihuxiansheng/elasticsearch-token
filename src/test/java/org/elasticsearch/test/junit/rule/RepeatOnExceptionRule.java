@@ -234,6 +234,12 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+name|t
+throw|;
+block|}
 block|}
 block|}
 name|logger

@@ -243,7 +243,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Disables<tt>Similarity#coord(int,int)</tt> in scoring. Defualts to<tt>false</tt>.      */
+comment|/**      * Disables<tt>Similarity#coord(int,int)</tt> in scoring. Defaults to<tt>false</tt>.      */
 DECL|method|disableCoord
 specifier|public
 name|BoolQueryBuilder

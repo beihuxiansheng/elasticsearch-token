@@ -316,6 +316,15 @@ name|AbstractComponent
 implements|implements
 name|ScriptEngineService
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"expression"
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|ExpressionScriptEngineService
@@ -346,7 +355,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"expression"
+name|NAME
 block|}
 return|;
 block|}
@@ -364,7 +373,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"expression"
+name|NAME
 block|}
 return|;
 block|}

@@ -314,6 +314,11 @@ specifier|protected
 name|ObjectMapper
 name|nestedObjectMapper
 decl_stmt|;
+DECL|field|parentObjectMapper
+specifier|private
+name|ObjectMapper
+name|parentObjectMapper
+decl_stmt|;
 DECL|method|NestedInnerQueryParseSupport
 specifier|public
 name|NestedInnerQueryParseSupport
@@ -889,6 +894,16 @@ return|return
 name|filterFound
 return|;
 block|}
+DECL|method|getParentObjectMapper
+specifier|public
+name|ObjectMapper
+name|getParentObjectMapper
+parameter_list|()
+block|{
+return|return
+name|parentObjectMapper
+return|;
+block|}
 DECL|method|setPathLevel
 specifier|private
 name|void
@@ -952,6 +967,8 @@ name|nestedTypeFilter
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|parentObjectMapper
+operator|=
 name|parseContext
 operator|.
 name|nestedScope

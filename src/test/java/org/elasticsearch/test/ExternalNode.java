@@ -334,18 +334,6 @@ end_import
 
 begin_import
 import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -943,7 +931,7 @@ try|try
 block|{
 name|logger
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"starting external node [{}] with: {}"
 argument_list|,
@@ -992,6 +980,28 @@ name|nodeInfo
 operator|!=
 literal|null
 assert|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"external node {} found, version [{}], build {}"
+argument_list|,
+name|nodeInfo
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|nodeInfo
+operator|.
+name|getVersion
+argument_list|()
+argument_list|,
+name|nodeInfo
+operator|.
+name|getBuild
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{

@@ -4529,28 +4529,6 @@ argument_list|)
 operator|:
 literal|"received a cluster state with a master block"
 assert|;
-name|ClusterState
-name|currentState
-init|=
-name|clusterService
-operator|.
-name|state
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|shouldIgnoreNewClusterState
-argument_list|(
-name|logger
-argument_list|,
-name|currentState
-argument_list|,
-name|newClusterState
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 name|clusterService
 operator|.
 name|submitStateUpdateTask
@@ -4622,7 +4600,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 argument_list|(
 name|logger
 argument_list|,
@@ -5145,11 +5123,11 @@ operator|.
 name|clusterState
 return|;
 block|}
-comment|/**      * In the case we follow an elected master the new cluster state needs to have the same elected master and      * the new cluster state version needs to be equal or higher than our cluster state version. If either conditions      * are true then the cluster state is dated and we should ignore it.      */
-DECL|method|shouldIgnoreNewClusterState
+comment|/**      * In the case we follow an elected master the new cluster state needs to have the same elected master and      * the new cluster state version needs to be equal or higher than our cluster state version.      * If the first condition fails we reject the cluster state and throw an error.      * If the second condition fails we ignore the cluster state.      */
+DECL|method|shouldIgnoreOrRejectNewClusterState
 specifier|static
 name|boolean
-name|shouldIgnoreNewClusterState
+name|shouldIgnoreOrRejectNewClusterState
 parameter_list|(
 name|ESLogger
 name|logger
@@ -5205,7 +5183,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"received a cluster state from a different master then the current one, ignoring (received {}, current {})"
+literal|"received a cluster state from a different master then the current one, rejecting (received {}, current {})"
 argument_list|,
 name|newClusterState
 operator|.
@@ -5224,9 +5202,33 @@ name|masterNode
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"cluster state from a different master then the current one, rejecting (received "
+operator|+
+name|newClusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+operator|+
+literal|", current "
+operator|+
+name|currentState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNode
+argument_list|()
+operator|+
+literal|")"
+argument_list|)
+throw|;
 block|}
 elseif|else
 if|if

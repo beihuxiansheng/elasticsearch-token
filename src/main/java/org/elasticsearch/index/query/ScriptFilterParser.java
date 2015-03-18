@@ -380,8 +380,6 @@ literal|null
 decl_stmt|;
 name|String
 name|scriptLang
-init|=
-literal|null
 decl_stmt|;
 name|Map
 argument_list|<
@@ -776,14 +774,6 @@ specifier|final
 name|SearchScript
 name|searchScript
 decl_stmt|;
-DECL|field|scriptType
-specifier|private
-specifier|final
-name|ScriptService
-operator|.
-name|ScriptType
-name|scriptType
-decl_stmt|;
 DECL|method|ScriptFilter
 specifier|public
 name|ScriptFilter
@@ -825,12 +815,6 @@ operator|.
 name|params
 operator|=
 name|params
-expr_stmt|;
-name|this
-operator|.
-name|scriptType
-operator|=
-name|scriptType
 expr_stmt|;
 name|this
 operator|.

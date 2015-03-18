@@ -1240,7 +1240,7 @@ decl_stmt|;
 try|try
 init|(
 name|IndexWriter
-name|_
+name|writer
 init|=
 operator|new
 name|IndexWriter
@@ -1389,7 +1389,7 @@ block|}
 try|try
 init|(
 name|IndexWriter
-name|_
+name|writer
 init|=
 operator|new
 name|IndexWriter

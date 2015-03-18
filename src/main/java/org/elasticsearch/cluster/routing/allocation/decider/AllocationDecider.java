@@ -221,6 +221,22 @@ operator|.
 name|ALWAYS
 return|;
 block|}
+comment|/**      * Returns a {@link Decision} whether the cluster can execute      * re-balanced operations at all.      * {@link Decision#ALWAYS}.      */
+DECL|method|canRebalance
+specifier|public
+name|Decision
+name|canRebalance
+parameter_list|(
+name|RoutingAllocation
+name|allocation
+parameter_list|)
+block|{
+return|return
+name|Decision
+operator|.
+name|ALWAYS
+return|;
+block|}
 block|}
 end_class
 

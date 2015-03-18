@@ -3796,6 +3796,25 @@ name|currentMaster
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"node {} received new cluster state: {} \n and had previous cluster state: {}"
+argument_list|,
+name|node
+argument_list|,
+name|event
+operator|.
+name|state
+argument_list|()
+argument_list|,
+name|event
+operator|.
+name|previousState
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|previousMasterNodeName
 init|=
@@ -3936,28 +3955,33 @@ name|startDisrupting
 argument_list|()
 expr_stmt|;
 comment|// Wait for the majority side to get stable
-name|ensureStableCluster
+name|assertDifferentMaster
 argument_list|(
-literal|2
-argument_list|,
 name|majoritySide
 operator|.
 name|get
 argument_list|(
 literal|0
 argument_list|)
+argument_list|,
+name|oldMasterNode
 argument_list|)
 expr_stmt|;
-name|ensureStableCluster
+name|assertDifferentMaster
 argument_list|(
-literal|2
-argument_list|,
 name|majoritySide
 operator|.
 name|get
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+name|oldMasterNode
+argument_list|)
+expr_stmt|;
+name|assertDiscoveryCompleted
+argument_list|(
+name|majoritySide
 argument_list|)
 expr_stmt|;
 comment|// The old master node is frozen, but here we submit a cluster state update task that doesn't get executed,
@@ -5435,9 +5459,9 @@ literal|0
 argument_list|,
 literal|0
 argument_list|,
-literal|5000
+literal|1000
 argument_list|,
-literal|6000
+literal|2000
 argument_list|)
 decl_stmt|;
 comment|// don't wait for initial state, wat want to add the disruption while the cluster is forming..

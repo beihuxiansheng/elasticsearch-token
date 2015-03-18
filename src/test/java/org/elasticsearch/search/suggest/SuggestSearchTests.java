@@ -6053,7 +6053,7 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"type1"
+literal|"type2"
 argument_list|)
 operator|.
 name|startObject
@@ -6121,7 +6121,7 @@ name|builder
 operator|.
 name|addMapping
 argument_list|(
-literal|"type1"
+literal|"type2"
 argument_list|,
 name|mapping
 argument_list|)

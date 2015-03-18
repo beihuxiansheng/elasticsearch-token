@@ -244,6 +244,15 @@ name|AbstractComponent
 implements|implements
 name|ScriptEngineService
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"mustache"
+decl_stmt|;
 comment|/** Thread local UTF8StreamWriter to store template execution results in, thread local to save object creation.*/
 DECL|field|utf8StreamWriter
 specifier|private
@@ -509,7 +518,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"mustache"
+name|NAME
 block|}
 return|;
 block|}
@@ -527,7 +536,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"mustache"
+name|NAME
 block|}
 return|;
 block|}
@@ -703,8 +712,14 @@ literal|null
 condition|?
 name|Collections
 operator|.
-name|EMPTY_MAP
-else|:
+expr|<
+name|String
+operator|,
+name|Object
+operator|>
+name|emptyMap
+argument_list|()
+operator|:
 name|vars
 expr_stmt|;
 block|}
@@ -760,12 +775,7 @@ argument_list|(
 name|result
 argument_list|)
 decl_stmt|;
-operator|(
-operator|(
-name|Mustache
-operator|)
 name|mustache
-operator|)
 operator|.
 name|execute
 argument_list|(

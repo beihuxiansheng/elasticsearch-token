@@ -282,6 +282,16 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -380,8 +390,10 @@ specifier|public
 name|void
 name|allocateDangled
 parameter_list|(
+name|Collection
+argument_list|<
 name|IndexMetaData
-index|[]
+argument_list|>
 name|indices
 parameter_list|,
 specifier|final
@@ -440,6 +452,18 @@ name|localNode
 argument_list|()
 argument_list|,
 name|indices
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|IndexMetaData
+index|[
+name|indices
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|transportService

@@ -543,7 +543,7 @@ name|convertLocalToUTC
 argument_list|(
 name|rounded
 argument_list|,
-literal|true
+literal|false
 argument_list|,
 name|utcMillis
 argument_list|)
@@ -616,7 +616,7 @@ name|convertLocalToUTC
 argument_list|(
 name|nextInLocalTime
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -841,7 +841,7 @@ name|convertLocalToUTC
 argument_list|(
 name|rounded
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
@@ -907,7 +907,7 @@ name|convertLocalToUTC
 argument_list|(
 name|next
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 return|;
 block|}
