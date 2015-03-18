@@ -2111,7 +2111,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-literal|"Primary shard is not active or isn't assigned is a known node."
+literal|"Primary shard is not active or isn't assigned to a known node."
 argument_list|)
 expr_stmt|;
 return|return;
