@@ -269,6 +269,11 @@ specifier|private
 name|boolean
 name|explain
 decl_stmt|;
+DECL|field|rewrite
+specifier|private
+name|boolean
+name|rewrite
+decl_stmt|;
 DECL|field|types
 specifier|private
 name|String
@@ -628,6 +633,34 @@ return|return
 name|explain
 return|;
 block|}
+comment|/**      * Indicates whether the query should be rewritten into primitive queries      */
+DECL|method|rewrite
+specifier|public
+name|void
+name|rewrite
+parameter_list|(
+name|boolean
+name|rewrite
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rewrite
+operator|=
+name|rewrite
+expr_stmt|;
+block|}
+comment|/**      * Indicates whether the query should be rewritten into primitive queries      */
+DECL|method|rewrite
+specifier|public
+name|boolean
+name|rewrite
+parameter_list|()
+block|{
+return|return
+name|rewrite
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -712,6 +745,13 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|rewrite
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -770,6 +810,13 @@ operator|.
 name|writeBoolean
 argument_list|(
 name|explain
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|rewrite
 argument_list|)
 expr_stmt|;
 block|}
@@ -834,6 +881,10 @@ operator|+
 literal|"], explain:"
 operator|+
 name|explain
+operator|+
+literal|", rewrite:"
+operator|+
+name|rewrite
 return|;
 block|}
 block|}
