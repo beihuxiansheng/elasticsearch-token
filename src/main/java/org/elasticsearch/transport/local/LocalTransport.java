@@ -1382,8 +1382,6 @@ operator|new
 name|BytesStreamInput
 argument_list|(
 name|data
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|stream
