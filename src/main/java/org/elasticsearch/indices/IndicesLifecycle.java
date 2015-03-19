@@ -346,6 +346,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
+annotation|@
+name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
@@ -359,6 +361,8 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
+annotation|@
+name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|)
