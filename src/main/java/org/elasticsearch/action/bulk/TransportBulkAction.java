@@ -2576,16 +2576,6 @@ argument_list|)
 decl_stmt|;
 name|bulkShardRequest
 operator|.
-name|replicationType
-argument_list|(
-name|bulkRequest
-operator|.
-name|replicationType
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|bulkShardRequest
-operator|.
 name|consistencyLevel
 argument_list|(
 name|bulkRequest

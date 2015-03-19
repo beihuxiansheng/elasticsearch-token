@@ -221,14 +221,6 @@ operator|.
 name|id
 argument_list|()
 expr_stmt|;
-name|replicationType
-argument_list|(
-name|request
-operator|.
-name|replicationType
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|consistencyLevel
 argument_list|(
 name|request

@@ -97,11 +97,6 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|replicationType
-argument_list|()
-argument_list|,
-name|request
-operator|.
 name|consistencyLevel
 argument_list|()
 argument_list|,

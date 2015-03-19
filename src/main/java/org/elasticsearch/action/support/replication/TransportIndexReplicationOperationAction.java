@@ -755,8 +755,6 @@ argument_list|()
 argument_list|,
 literal|0
 argument_list|,
-literal|0
-argument_list|,
 name|failure
 argument_list|)
 argument_list|)
@@ -805,11 +803,6 @@ argument_list|()
 decl_stmt|;
 name|int
 name|total
-init|=
-literal|0
-decl_stmt|;
-name|int
-name|pending
 init|=
 literal|0
 decl_stmt|;
@@ -900,13 +893,6 @@ operator|+=
 name|sf
 operator|.
 name|getTotal
-argument_list|()
-expr_stmt|;
-name|pending
-operator|+=
-name|sf
-operator|.
-name|getPending
 argument_list|()
 expr_stmt|;
 name|successful
@@ -1007,8 +993,6 @@ argument_list|(
 name|total
 argument_list|,
 name|successful
-argument_list|,
-name|pending
 argument_list|,
 name|failures
 argument_list|)
