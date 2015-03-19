@@ -782,9 +782,7 @@ name|shardsResponses
 operator|=
 operator|new
 name|AtomicReferenceArray
-argument_list|<
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|(
 name|expectedOps
 argument_list|)
