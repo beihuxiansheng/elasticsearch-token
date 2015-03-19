@@ -9420,6 +9420,24 @@ literal|"script.inline"
 argument_list|,
 literal|"on"
 argument_list|)
+comment|// wait short time for other active shards before actually deleting, default 30s not needed in tests
+operator|.
+name|put
+argument_list|(
+name|IndicesStore
+operator|.
+name|INDICES_STORE_DELETE_SHARD_TIMEOUT
+argument_list|,
+operator|new
+name|TimeValue
+argument_list|(
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|)
 operator|.
 name|build
 argument_list|()
