@@ -453,6 +453,28 @@ decl_stmt|;
 if|if
 condition|(
 name|dataLen
+operator|==
+name|NettyHeader
+operator|.
+name|PING_DATA_SIZE
+condition|)
+block|{
+comment|// discard the messages we read and continue, this is achieved by skipping the bytes
+comment|// and returning null
+name|buffer
+operator|.
+name|skipBytes
+argument_list|(
+literal|6
+argument_list|)
+expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+if|if
+condition|(
+name|dataLen
 operator|<=
 literal|0
 condition|)

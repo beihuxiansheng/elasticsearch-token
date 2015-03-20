@@ -838,6 +838,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|netty
+operator|.
+name|NettyTransport
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -1042,6 +1056,16 @@ name|settings
 init|=
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|NettyTransport
+operator|.
+name|PING_SCHEDULE
+argument_list|,
+literal|"5s"
+argument_list|)
+comment|// enable by default the transport schedule ping interval
 operator|.
 name|put
 argument_list|(
