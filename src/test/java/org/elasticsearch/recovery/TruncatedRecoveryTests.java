@@ -1084,6 +1084,25 @@ name|RecoveryFileChunkRequest
 operator|)
 name|request
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"file chunk ["
+operator|+
+name|req
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"] lastChunk: "
+operator|+
+name|req
+operator|.
+name|lastChunk
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|(
