@@ -2787,6 +2787,15 @@ comment|// the actual names, its ok if we have a corrupted index here, since we 
 comment|// to recover from in case of a full cluster shutdown just when this code executes...
 name|recoveryStatus
 operator|.
+name|indexShard
+argument_list|()
+operator|.
+name|deleteShardState
+argument_list|()
+expr_stmt|;
+comment|// we have to delete it first since even if we fail to rename the shard might be invalid
+name|recoveryStatus
+operator|.
 name|renameAllTempFiles
 argument_list|()
 expr_stmt|;
