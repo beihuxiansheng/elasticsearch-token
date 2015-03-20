@@ -114,7 +114,7 @@ name|StringTokenizer
 argument_list|(
 name|Constants
 operator|.
-name|JAVA_VERSION
+name|JVM_SPEC_VERSION
 argument_list|,
 literal|"."
 argument_list|)
