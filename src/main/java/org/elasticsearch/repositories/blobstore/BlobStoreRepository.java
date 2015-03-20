@@ -807,7 +807,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|20
+literal|40
 argument_list|,
 name|ByteSizeUnit
 operator|.
@@ -826,7 +826,7 @@ argument_list|,
 operator|new
 name|ByteSizeValue
 argument_list|(
-literal|20
+literal|40
 argument_list|,
 name|ByteSizeUnit
 operator|.
