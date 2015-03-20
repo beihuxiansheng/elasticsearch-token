@@ -544,18 +544,6 @@ operator|.
 name|incCurrentAsTarget
 argument_list|()
 expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"--> incremented recoveries {}"
-argument_list|,
-name|indexShard
-operator|.
-name|recoveryStats
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 DECL|field|tempFileNames
 specifier|private
