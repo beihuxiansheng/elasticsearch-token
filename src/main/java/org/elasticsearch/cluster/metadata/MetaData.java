@@ -687,17 +687,6 @@ operator|.
 name|FACTORY
 argument_list|)
 expr_stmt|;
-name|registerFactory
-argument_list|(
-name|BenchmarkMetaData
-operator|.
-name|TYPE
-argument_list|,
-name|BenchmarkMetaData
-operator|.
-name|FACTORY
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Register a custom index meta data factory. Make sure to call it from a static block.      */
 DECL|method|registerFactory

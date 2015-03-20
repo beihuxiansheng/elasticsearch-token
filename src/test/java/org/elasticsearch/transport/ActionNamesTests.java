@@ -277,14 +277,6 @@ name|or
 argument_list|(
 name|startsWith
 argument_list|(
-literal|"indices:data/benchmark"
-argument_list|)
-argument_list|)
-operator|.
-name|or
-argument_list|(
-name|startsWith
-argument_list|(
 literal|"cluster:admin"
 argument_list|)
 argument_list|)

@@ -264,10 +264,6 @@ name|numDataNodes
 operator|=
 literal|1
 argument_list|,
-name|enableRandomBenchNodes
-operator|=
-literal|false
-argument_list|,
 name|numClientNodes
 operator|=
 literal|0
