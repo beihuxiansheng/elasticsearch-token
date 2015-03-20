@@ -439,8 +439,6 @@ argument_list|,
 name|offset
 argument_list|,
 name|length
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -819,8 +817,6 @@ argument_list|,
 name|offset
 argument_list|,
 name|length
-argument_list|,
-literal|false
 argument_list|)
 argument_list|)
 decl_stmt|;

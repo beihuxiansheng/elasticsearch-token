@@ -642,8 +642,6 @@ argument_list|()
 operator|.
 name|toBytes
 argument_list|()
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|RoutingTable
