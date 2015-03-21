@@ -1684,16 +1684,19 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|handler
-operator|.
-name|executor
-argument_list|()
-operator|==
 name|ThreadPool
 operator|.
 name|Names
 operator|.
 name|SAME
+operator|.
+name|equals
+argument_list|(
+name|handler
+operator|.
+name|executor
+argument_list|()
+argument_list|)
 condition|)
 block|{
 comment|//noinspection unchecked
