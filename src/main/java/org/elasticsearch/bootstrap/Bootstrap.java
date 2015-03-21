@@ -1073,6 +1073,12 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
+comment|// fail if using broken version
+name|JVMCheck
+operator|.
+name|check
+argument_list|()
+expr_stmt|;
 name|bootstrap
 operator|.
 name|setup
