@@ -8177,22 +8177,6 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// we only support the ping message format since 1.6
-if|if
-condition|(
-name|node
-operator|.
-name|version
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_1_6_0
-argument_list|)
-condition|)
-block|{
 for|for
 control|(
 name|Channel
@@ -8292,7 +8276,6 @@ argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
