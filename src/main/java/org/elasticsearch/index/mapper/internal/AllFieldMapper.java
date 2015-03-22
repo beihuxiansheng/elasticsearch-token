@@ -1618,6 +1618,14 @@ argument_list|,
 name|bytesStreamOutput
 argument_list|)
 decl_stmt|;
+name|b
+operator|.
+name|startObject
+argument_list|()
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
 name|long
 name|pos
 init|=
