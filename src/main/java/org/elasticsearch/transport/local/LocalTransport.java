@@ -1436,21 +1436,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// notify with response before we process it and before we remove information about it.
-name|transportServiceAdapter
-operator|.
-name|onResponseReceived
-argument_list|(
-name|requestId
-argument_list|)
-expr_stmt|;
 specifier|final
 name|TransportResponseHandler
 name|handler
 init|=
 name|transportServiceAdapter
 operator|.
-name|remove
+name|onResponseReceived
 argument_list|(
 name|requestId
 argument_list|)
@@ -1514,7 +1506,7 @@ name|handler
 init|=
 name|transportServiceAdapter
 operator|.
-name|remove
+name|onResponseReceived
 argument_list|(
 name|sendRequestId
 argument_list|)
