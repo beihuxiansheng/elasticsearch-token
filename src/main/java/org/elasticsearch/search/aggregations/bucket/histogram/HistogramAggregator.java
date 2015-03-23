@@ -1179,6 +1179,16 @@ operator|=
 name|histogramFactory
 expr_stmt|;
 block|}
+DECL|method|minDocCount
+specifier|public
+name|long
+name|minDocCount
+parameter_list|()
+block|{
+return|return
+name|minDocCount
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createUnmapped

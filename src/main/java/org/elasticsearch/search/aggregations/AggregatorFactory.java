@@ -263,6 +263,16 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|name
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
 comment|/**      * Validates the state of this factory (makes sure the factory is properly configured)      */
 DECL|method|validate
 specifier|public
