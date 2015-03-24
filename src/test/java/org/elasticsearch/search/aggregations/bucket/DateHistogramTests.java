@@ -5693,6 +5693,7 @@ literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -5703,7 +5704,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.

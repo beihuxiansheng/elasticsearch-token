@@ -350,6 +350,7 @@ operator|.
 name|getScopeInstance
 argument_list|()
 decl_stmt|;
+comment|// TODO: use diamond operator once JI-9019884 is fixed
 name|Provider
 argument_list|<
 name|T
@@ -364,7 +365,9 @@ name|key
 argument_list|,
 operator|new
 name|ProviderToInternalFactoryAdapter
-argument_list|<>
+argument_list|<
+name|T
+argument_list|>
 argument_list|(
 name|injector
 argument_list|,

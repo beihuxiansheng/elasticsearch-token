@@ -556,11 +556,14 @@ operator|instanceof
 name|Collection
 condition|)
 block|{
+comment|// TODO: use diamond operator once JI-9019884 is fixed
 name|values
 operator|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 operator|(
 name|Collection

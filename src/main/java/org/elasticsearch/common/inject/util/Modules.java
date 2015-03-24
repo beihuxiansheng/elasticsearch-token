@@ -284,6 +284,7 @@ argument_list|>
 name|modules
 parameter_list|)
 block|{
+comment|// TODO: infer type once JI-9019884 is fixed
 specifier|final
 name|Set
 argument_list|<
@@ -293,6 +294,9 @@ name|modulesSet
 init|=
 name|ImmutableSet
 operator|.
+expr|<
+name|Module
+operator|>
 name|copyOf
 argument_list|(
 name|modules
@@ -405,12 +409,16 @@ argument_list|>
 name|baseModules
 parameter_list|)
 block|{
+comment|// TODO: infer type once JI-9019884 is fixed
 name|this
 operator|.
 name|baseModules
 operator|=
 name|ImmutableSet
 operator|.
+expr|<
+name|Module
+operator|>
 name|copyOf
 argument_list|(
 name|baseModules
