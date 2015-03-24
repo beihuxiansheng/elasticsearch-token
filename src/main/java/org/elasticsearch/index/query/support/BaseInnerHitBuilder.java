@@ -301,6 +301,31 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      * Add a stored field to be loaded and returned with the inner hit.      */
+DECL|method|field
+specifier|public
+name|T
+name|field
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|field
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|T
+operator|)
+name|this
+return|;
+block|}
 comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
 DECL|method|setNoFields
 specifier|public

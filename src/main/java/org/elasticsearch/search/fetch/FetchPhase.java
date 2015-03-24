@@ -2348,6 +2348,17 @@ decl_stmt|;
 if|if
 condition|(
 name|extractedValue
+operator|==
+literal|null
+condition|)
+block|{
+comment|// The nested objects may not exist in the _source, because it was filtered because of _source filtering
+break|break;
+block|}
+elseif|else
+if|if
+condition|(
+name|extractedValue
 operator|instanceof
 name|List
 condition|)
