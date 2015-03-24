@@ -627,6 +627,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"id"
+argument_list|,
+literal|"default:false;desc:unique id node where it lives"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"segment"
 argument_list|,
 literal|"default:true;alias:seg;desc:segment name"
@@ -893,6 +902,19 @@ argument_list|()
 argument_list|)
 operator|.
 name|getHostAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|shardSegment
+operator|.
+name|getShardRouting
+argument_list|()
+operator|.
+name|currentNodeId
 argument_list|()
 argument_list|)
 expr_stmt|;
