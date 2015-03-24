@@ -429,11 +429,19 @@ block|{
 name|String
 name|mappings
 init|=
-literal|"{\"doc\": {\"properties\":{\"text\": {\"type\":\""
+literal|"{\"doc\": {\"properties\":{\""
+operator|+
+name|TEXT_FIELD
+operator|+
+literal|"\": {\"type\":\""
 operator|+
 name|type
 operator|+
-literal|"\"}}}}"
+literal|"\"},\""
+operator|+
+name|CLASS_FIELD
+operator|+
+literal|"\": {\"type\":\"string\"}}}}"
 decl_stmt|;
 name|assertAcked
 argument_list|(
