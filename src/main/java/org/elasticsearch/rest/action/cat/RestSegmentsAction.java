@@ -629,7 +629,7 @@ name|addCell
 argument_list|(
 literal|"id"
 argument_list|,
-literal|"default:false;desc:unique id node where it lives"
+literal|"default:false;desc:unique id of node where it lives"
 argument_list|)
 expr_stmt|;
 name|table
