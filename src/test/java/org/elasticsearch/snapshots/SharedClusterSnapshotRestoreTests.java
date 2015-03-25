@@ -14870,7 +14870,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|INDEX_REFRESH_INTERVAL
+literal|"refresh_interval"
 argument_list|,
 literal|"5s"
 argument_list|)
