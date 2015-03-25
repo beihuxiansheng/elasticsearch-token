@@ -64,6 +64,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionListener
@@ -2449,6 +2459,74 @@ name|buildConflicts
 argument_list|()
 argument_list|)
 throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// TODO: can we find a better place for this validation?
+comment|// The reason this validation is here is that the mapper service doesn't learn about
+comment|// new types all at once , which can create a false error.
+comment|// For example in MapperService we can't distinguish between a create index api call
+comment|// and a put mapping api call, so we don't which type did exist before.
+comment|// Also the order of the mappings may be backwards.
+if|if
+condition|(
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|indexService
+operator|.
+name|getIndexSettings
+argument_list|()
+argument_list|)
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+operator|&&
+name|newMapper
+operator|.
+name|parentFieldMapper
+argument_list|()
+operator|.
+name|active
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|indexService
+operator|.
+name|mapperService
+argument_list|()
+operator|.
+name|types
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|newMapper
+operator|.
+name|parentFieldMapper
+argument_list|()
+operator|.
+name|type
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"can't add a _parent field that points to an already existing type"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}

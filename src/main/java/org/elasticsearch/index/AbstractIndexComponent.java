@@ -188,6 +188,16 @@ operator|.
 name|index
 return|;
 block|}
+DECL|method|indexSettings
+specifier|public
+name|Settings
+name|indexSettings
+parameter_list|()
+block|{
+return|return
+name|indexSettings
+return|;
+block|}
 DECL|method|nodeName
 specifier|public
 name|String
