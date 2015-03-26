@@ -87,7 +87,7 @@ name|description
 parameter_list|()
 block|{
 return|return
-literal|"Python plugin allowing to add javascript scripting support"
+literal|"Adds support for writing scripts in Python"
 return|;
 block|}
 DECL|method|onModule
