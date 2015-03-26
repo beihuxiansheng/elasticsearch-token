@@ -752,6 +752,14 @@ name|AbstractComponent
 implements|implements
 name|Closeable
 block|{
+DECL|field|DISABLE_DYNAMIC_SCRIPTING_SETTING
+specifier|static
+specifier|final
+name|String
+name|DISABLE_DYNAMIC_SCRIPTING_SETTING
+init|=
+literal|"script.disable_dynamic"
+decl_stmt|;
 DECL|field|DEFAULT_SCRIPTING_LANGUAGE_SETTING
 specifier|public
 specifier|static
@@ -760,15 +768,6 @@ name|String
 name|DEFAULT_SCRIPTING_LANGUAGE_SETTING
 init|=
 literal|"script.default_lang"
-decl_stmt|;
-DECL|field|DISABLE_DYNAMIC_SCRIPTING_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DISABLE_DYNAMIC_SCRIPTING_SETTING
-init|=
-literal|"script.disable_dynamic"
 decl_stmt|;
 DECL|field|SCRIPT_CACHE_SIZE_SETTING
 specifier|public
@@ -906,86 +905,6 @@ name|client
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * Enum defining the different dynamic settings for scripting, either      * ONLY_DISK_ALLOWED (scripts must be placed on disk), EVERYTHING_ALLOWED      * (all dynamic scripting is enabled), or SANDBOXED_ONLY (only sandboxed      * scripting languages are allowed)      */
-DECL|enum|DynamicScriptDisabling
-enum|enum
-name|DynamicScriptDisabling
-block|{
-DECL|enum constant|EVERYTHING_ALLOWED
-name|EVERYTHING_ALLOWED
-block|,
-DECL|enum constant|ONLY_DISK_ALLOWED
-name|ONLY_DISK_ALLOWED
-block|,
-DECL|enum constant|SANDBOXED_ONLY
-name|SANDBOXED_ONLY
-block|;
-DECL|method|parse
-specifier|static
-name|DynamicScriptDisabling
-name|parse
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-switch|switch
-condition|(
-name|s
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ROOT
-argument_list|)
-condition|)
-block|{
-comment|// true for "disable_dynamic" means only on-disk scripts are enabled
-case|case
-literal|"true"
-case|:
-case|case
-literal|"all"
-case|:
-return|return
-name|ONLY_DISK_ALLOWED
-return|;
-comment|// false for "disable_dynamic" means all scripts are enabled
-case|case
-literal|"false"
-case|:
-case|case
-literal|"none"
-case|:
-return|return
-name|EVERYTHING_ALLOWED
-return|;
-comment|// only sandboxed scripting is enabled
-case|case
-literal|"sandbox"
-case|:
-case|case
-literal|"sandboxed"
-case|:
-return|return
-name|SANDBOXED_ONLY
-return|;
-default|default:
-throw|throw
-operator|new
-name|ElasticsearchIllegalArgumentException
-argument_list|(
-literal|"Unrecognized script allowance setting: ["
-operator|+
-name|s
-operator|+
-literal|"]"
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
 DECL|field|SCRIPT_LANG
 specifier|public
 specifier|static
@@ -1072,6 +991,33 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
+name|settings
+operator|.
+name|get
+argument_list|(
+name|DISABLE_DYNAMIC_SCRIPTING_SETTING
+argument_list|)
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalArgumentException
+argument_list|(
+name|DISABLE_DYNAMIC_SCRIPTING_SETTING
+operator|+
+literal|" is not a supported setting, replace with fine-grained script settings. \n"
+operator|+
+literal|"Dynamic scripts can be enabled for all languages and all operations by replacing `script.disable_dynamic: false` with `script.inline: on` and `script.indexed: on` in elasticsearch.yml"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|scriptEngines
@@ -1298,8 +1244,6 @@ operator|.
 name|scriptEnginesByLang
 argument_list|,
 name|settings
-argument_list|,
-name|logger
 argument_list|)
 expr_stmt|;
 comment|// add file watcher for static scripts
