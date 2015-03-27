@@ -491,6 +491,16 @@ operator|<=
 name|toIndex
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|fromIndex
+operator|==
+name|toIndex
+condition|)
+block|{
+return|return;
+comment|// empty range
+block|}
 specifier|final
 name|int
 name|fromPage
