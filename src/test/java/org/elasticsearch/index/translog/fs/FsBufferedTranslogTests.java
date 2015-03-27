@@ -38,11 +38,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|translog
+name|util
 operator|.
-name|AbstractSimpleTranslogTests
+name|BigArrays
 import|;
 end_import
 
@@ -52,11 +52,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|translog
+name|junit
 operator|.
-name|Translog
+name|annotations
+operator|.
+name|TestLogging
 import|;
 end_import
 
@@ -70,40 +72,30 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"index.translog.fs:TRACE"
+argument_list|)
 DECL|class|FsBufferedTranslogTests
 specifier|public
 class|class
 name|FsBufferedTranslogTests
 extends|extends
-name|AbstractSimpleTranslogTests
+name|AbstractTranslogTests
 block|{
 annotation|@
 name|Override
 DECL|method|create
 specifier|protected
-name|Translog
+name|FsTranslog
 name|create
-parameter_list|(
-name|Path
-name|translogDir
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -148,6 +140,10 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+argument_list|,
+name|BigArrays
+operator|.
+name|NON_RECYCLING_INSTANCE
 argument_list|,
 name|translogDir
 argument_list|)

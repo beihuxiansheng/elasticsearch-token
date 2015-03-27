@@ -106,16 +106,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|lucene
@@ -195,6 +185,20 @@ operator|.
 name|shard
 operator|.
 name|IndexShardException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|Translog
 import|;
 end_import
 
@@ -765,6 +769,22 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|translog
+specifier|public
+name|Translog
+name|translog
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"shard engines don't have translogs"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
 DECL|method|segments
 specifier|public
 name|List
@@ -923,27 +943,9 @@ DECL|method|snapshotIndex
 specifier|public
 name|SnapshotIndexCommit
 name|snapshotIndex
-parameter_list|()
-throws|throws
-name|EngineException
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Can not take snapshot from a shadow engine"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
-DECL|method|recover
-specifier|public
-name|void
-name|recover
 parameter_list|(
-name|RecoveryHandler
-name|recoveryHandler
+name|boolean
+name|flushFirst
 parameter_list|)
 throws|throws
 name|EngineException
@@ -952,7 +954,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Can not recover from a shadow engine"
+literal|"Can not take snapshot from a shadow engine"
 argument_list|)
 throw|;
 block|}

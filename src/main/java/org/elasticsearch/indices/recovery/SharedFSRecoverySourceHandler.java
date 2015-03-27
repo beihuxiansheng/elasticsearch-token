@@ -228,6 +228,12 @@ name|phase1
 parameter_list|(
 name|SnapshotIndexCommit
 name|snapshot
+parameter_list|,
+specifier|final
+name|Translog
+operator|.
+name|View
+name|translogView
 parameter_list|)
 block|{
 if|if
@@ -281,7 +287,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase2] to {}: skipping phase 1 for shared filesystem"
+literal|"{} recovery [phase1] to {}: skipping phase 1 for shared filesystem"
 argument_list|,
 name|request
 operator|.
@@ -292,6 +298,11 @@ name|request
 operator|.
 name|targetNode
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|prepareTargetForTranslog
+argument_list|(
+name|translogView
 argument_list|)
 expr_stmt|;
 block|}
@@ -312,7 +323,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} recovery [phase3] to {}: skipping transaction log operations for file sync"
+literal|"{} recovery [phase2] to {}: skipping transaction log operations for file sync"
 argument_list|,
 name|shard
 operator|.

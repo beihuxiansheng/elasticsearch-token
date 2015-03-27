@@ -590,16 +590,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -940,6 +930,8 @@ specifier|protected
 name|void
 name|afterIfSuccessful
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
 comment|// TODO: Parent/child and other things does not work with the query cache
 comment|// We must disable query cache for both suite and test to override lucene, but LTC resets it after the suite

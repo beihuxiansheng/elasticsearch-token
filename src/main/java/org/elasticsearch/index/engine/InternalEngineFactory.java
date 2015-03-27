@@ -16,6 +16,22 @@ name|engine
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|fs
+operator|.
+name|FsTranslog
+import|;
+end_import
+
 begin_class
 DECL|class|InternalEngineFactory
 specifier|public
@@ -34,6 +50,9 @@ parameter_list|(
 name|EngineConfig
 name|config
 parameter_list|,
+name|FsTranslog
+name|translog
+parameter_list|,
 name|boolean
 name|skipTranslogRecovery
 parameter_list|)
@@ -43,6 +62,8 @@ operator|new
 name|InternalEngine
 argument_list|(
 name|config
+argument_list|,
+name|translog
 argument_list|,
 name|skipTranslogRecovery
 argument_list|)

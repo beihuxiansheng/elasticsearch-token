@@ -235,6 +235,17 @@ name|get
 argument_list|()
 return|;
 block|}
+comment|/** gets the name of this instance */
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
 DECL|method|closeInternal
 specifier|protected
 specifier|abstract

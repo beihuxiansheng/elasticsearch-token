@@ -286,6 +286,20 @@ name|index
 operator|.
 name|store
 operator|.
+name|FsDirectoryService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|store
+operator|.
 name|IndexStore
 import|;
 end_import
@@ -324,20 +338,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|FsDirectoryService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesLifecycle
@@ -364,7 +364,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -376,7 +376,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -919,7 +919,9 @@ name|engine
 argument_list|()
 operator|.
 name|snapshotIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Keep translog for tests that rely on replaying it

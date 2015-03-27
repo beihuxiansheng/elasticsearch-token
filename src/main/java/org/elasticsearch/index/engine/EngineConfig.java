@@ -294,20 +294,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesWarmer
@@ -461,12 +447,6 @@ specifier|final
 name|SnapshotDeletionPolicy
 name|deletionPolicy
 decl_stmt|;
-DECL|field|translog
-specifier|private
-specifier|final
-name|Translog
-name|translog
-decl_stmt|;
 DECL|field|mergePolicyProvider
 specifier|private
 specifier|final
@@ -504,6 +484,12 @@ name|Engine
 operator|.
 name|FailedEngineListener
 name|failedEngineListener
+decl_stmt|;
+DECL|field|ignoreUnknownTranslog
+specifier|private
+specifier|final
+name|boolean
+name|ignoreUnknownTranslog
 decl_stmt|;
 comment|/**      * Index setting for index concurrency / number of threadstates in the indexwriter.      * The default is depending on the number of CPUs in the system. We use a 0.65 the number of CPUs or at least {@value org.apache.lucene.index.IndexWriterConfig#DEFAULT_MAX_THREAD_STATES}      * This setting is<b>not</b> realtime updateable      */
 DECL|field|INDEX_CONCURRENCY_SETTING
@@ -574,6 +560,16 @@ name|String
 name|INDEX_VERSION_MAP_SIZE
 init|=
 literal|"index.version_map_size"
+decl_stmt|;
+comment|/** if set to true the engine will start even if the translog id in the commit point can not be found */
+DECL|field|INDEX_IGNORE_UNKNOWN_TRANSLOG
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_IGNORE_UNKNOWN_TRANSLOG
+init|=
+literal|"index.engine.ignore_unknown_translog"
 decl_stmt|;
 DECL|field|DEFAULT_REFRESH_INTERVAL
 specifier|public
@@ -681,9 +677,6 @@ parameter_list|,
 name|SnapshotDeletionPolicy
 name|deletionPolicy
 parameter_list|,
-name|Translog
-name|translog
-parameter_list|,
 name|MergePolicyProvider
 name|mergePolicyProvider
 parameter_list|,
@@ -749,12 +742,6 @@ operator|.
 name|deletionPolicy
 operator|=
 name|deletionPolicy
-expr_stmt|;
-name|this
-operator|.
-name|translog
-operator|=
-name|translog
 expr_stmt|;
 name|this
 operator|.
@@ -928,6 +915,19 @@ name|translogRecoveryPerformer
 operator|=
 name|translogRecoveryPerformer
 expr_stmt|;
+name|this
+operator|.
+name|ignoreUnknownTranslog
+operator|=
+name|indexSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|INDEX_IGNORE_UNKNOWN_TRANSLOG
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 comment|/** updates {@link #versionMapSize} based on current setting and {@link #indexingBufferSize} */
 DECL|method|updateVersionMapSize
@@ -1038,6 +1038,17 @@ parameter_list|()
 block|{
 return|return
 name|versionMapSizeSetting
+return|;
+block|}
+comment|/** if true the engine will start even if the translog id in the commit point can not be found */
+DECL|method|getIgnoreUnknownTranslog
+specifier|public
+name|boolean
+name|getIgnoreUnknownTranslog
+parameter_list|()
+block|{
+return|return
+name|ignoreUnknownTranslog
 return|;
 block|}
 comment|/**      * returns the size of the version map that should trigger a refresh      */
@@ -1225,17 +1236,6 @@ parameter_list|()
 block|{
 return|return
 name|deletionPolicy
-return|;
-block|}
-comment|/**      * Returns a {@link Translog instance}      */
-DECL|method|getTranslog
-specifier|public
-name|Translog
-name|getTranslog
-parameter_list|()
-block|{
-return|return
-name|translog
 return|;
 block|}
 comment|/**      * Returns the {@link org.elasticsearch.index.merge.policy.MergePolicyProvider} used to obtain      * a {@link org.apache.lucene.index.MergePolicy} for the engines {@link org.apache.lucene.index.IndexWriter}      */

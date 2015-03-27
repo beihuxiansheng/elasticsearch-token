@@ -156,7 +156,8 @@ specifier|private
 name|int
 name|estimatedNumberOfOperations
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|TranslogStats
 specifier|public
@@ -175,22 +176,11 @@ name|translogSizeInBytes
 parameter_list|)
 block|{
 assert|assert
-name|estimatedNumberOfOperations
-operator|>=
-literal|0
-operator|:
-literal|"estimatedNumberOfOperations must be>=0, got ["
-operator|+
-name|estimatedNumberOfOperations
-operator|+
-literal|"]"
-assert|;
-assert|assert
 name|translogSizeInBytes
 operator|>=
 literal|0
 operator|:
-literal|"translogSizeInBytes must be>=0, got ["
+literal|"translogSizeInBytes must be>= 0, got ["
 operator|+
 name|translogSizeInBytes
 operator|+

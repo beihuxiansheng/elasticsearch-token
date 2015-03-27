@@ -436,13 +436,16 @@ throw|;
 block|}
 try|try
 block|{
+comment|// we flush first to make sure we get the latest writes snapshotted
 name|SnapshotIndexCommit
 name|snapshotIndexCommit
 init|=
 name|indexShard
 operator|.
 name|snapshotIndex
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 try|try
 block|{

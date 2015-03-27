@@ -58,6 +58,22 @@ name|EngineFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|fs
+operator|.
+name|FsTranslog
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -81,6 +97,9 @@ parameter_list|(
 name|EngineConfig
 name|config
 parameter_list|,
+name|FsTranslog
+name|translog
+parameter_list|,
 name|boolean
 name|skipTranslogRecovery
 parameter_list|)
@@ -90,6 +109,8 @@ operator|new
 name|MockInternalEngine
 argument_list|(
 name|config
+argument_list|,
+name|translog
 argument_list|,
 name|skipTranslogRecovery
 argument_list|)
