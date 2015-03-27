@@ -2122,7 +2122,7 @@ name|assertValidException
 argument_list|(
 name|parser
 argument_list|,
-name|ElasticsearchParseException
+name|InvalidShapeException
 operator|.
 name|class
 argument_list|)
