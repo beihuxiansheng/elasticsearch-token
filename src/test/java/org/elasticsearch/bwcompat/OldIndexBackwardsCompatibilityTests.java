@@ -718,6 +718,7 @@ name|snapshot
 argument_list|()
 condition|)
 continue|continue;
+comment|// snapshots are unreleased, so there is no backcompat yet
 if|if
 condition|(
 name|v
@@ -730,6 +731,20 @@ name|V_0_20_6
 argument_list|)
 condition|)
 continue|continue;
+comment|// we can only test back one major lucene version
+if|if
+condition|(
+name|v
+operator|.
+name|equals
+argument_list|(
+name|Version
+operator|.
+name|CURRENT
+argument_list|)
+condition|)
+continue|continue;
+comment|// the current version is always compatible with itself
 name|expectedVersions
 operator|.
 name|add
