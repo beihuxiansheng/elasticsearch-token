@@ -3527,7 +3527,7 @@ name|Fields
 operator|.
 name|RECOVERED
 argument_list|,
-name|length
+name|recovered
 argument_list|)
 expr_stmt|;
 name|builder
