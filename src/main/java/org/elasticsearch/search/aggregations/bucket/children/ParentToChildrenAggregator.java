@@ -376,6 +376,7 @@ name|multipleBucketsPerParentOrd
 init|=
 literal|false
 decl_stmt|;
+comment|// This needs to be a Set to avoid duplicate reader context entries via (#setNextReader(...), it can get invoked multiple times with the same reader context)
 DECL|field|replay
 specifier|private
 name|Set
