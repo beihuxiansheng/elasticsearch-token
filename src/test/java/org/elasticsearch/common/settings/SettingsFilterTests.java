@@ -52,6 +52,8 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
 name|rest
 operator|.
 name|FakeRestRequest
