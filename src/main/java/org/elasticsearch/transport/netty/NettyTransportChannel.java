@@ -858,6 +858,17 @@ name|error
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Returns the underlying netty channel. This method is intended be used for access to netty to get additional      * details when processing the request and may be used by plugins. Responses should be sent using the methods      * defined in this class and not directly on the channel.      * @return underlying netty channel      */
+DECL|method|getChannel
+specifier|public
+name|Channel
+name|getChannel
+parameter_list|()
+block|{
+return|return
+name|channel
+return|;
+block|}
 block|}
 end_class
 
