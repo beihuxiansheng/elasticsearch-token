@@ -14302,7 +14302,7 @@ name|void
 name|testDeletesAloneCanTriggerRefresh
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// Tiny indexing buffer:
 name|Settings
@@ -14358,6 +14358,7 @@ operator|=
 name|createTranslog
 argument_list|()
 init|;
+name|final
 name|Engine
 name|engine
 operator|=
@@ -14496,6 +14497,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 decl_stmt|;
+specifier|final
 name|long
 name|version1
 init|=
@@ -14584,15 +14586,30 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|s
-operator|=
+comment|// We must assertBusy because refresh due to version map being full is done in background (REFRESH) thread pool:
+name|assertBusy
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+name|Searcher
+name|s2
+init|=
 name|engine
 operator|.
 name|acquireSearcher
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|long
 name|version2
 init|=
@@ -14600,7 +14617,7 @@ operator|(
 operator|(
 name|DirectoryReader
 operator|)
-name|s
+name|s2
 operator|.
 name|reader
 argument_list|()
@@ -14609,7 +14626,7 @@ operator|.
 name|getVersion
 argument_list|()
 decl_stmt|;
-name|s
+name|s2
 operator|.
 name|close
 argument_list|()
@@ -14623,6 +14640,10 @@ name|greaterThan
 argument_list|(
 name|version1
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
