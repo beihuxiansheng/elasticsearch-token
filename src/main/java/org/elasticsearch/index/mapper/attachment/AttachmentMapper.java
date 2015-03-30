@@ -2609,6 +2609,15 @@ operator|!
 name|ignoreErrors
 condition|)
 block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"exception caught"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|MapperParsingException
@@ -2621,9 +2630,12 @@ literal|"] characters of text for ["
 operator|+
 name|name
 operator|+
-literal|"]"
-argument_list|,
+literal|"] : "
+operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 throw|;
 block|}
