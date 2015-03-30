@@ -10592,6 +10592,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Deleting indices is going to clear search contexts implicitely so we
+comment|// need to check that there are no more in-flight search contexts before
+comment|// we remove indices
+name|super
+operator|.
+name|ensureAllSearchContextsReleased
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|runTestScopeLifecycle

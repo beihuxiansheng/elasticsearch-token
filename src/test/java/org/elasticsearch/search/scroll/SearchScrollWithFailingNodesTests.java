@@ -654,6 +654,14 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|clearScroll
+argument_list|(
+name|searchResponse
+operator|.
+name|getScrollId
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
