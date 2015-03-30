@@ -2880,6 +2880,9 @@ block|}
 name|maybePruneDeletedTombstones
 argument_list|()
 expr_stmt|;
+name|checkVersionMapRefresh
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|maybePruneDeletedTombstones
 specifier|private
