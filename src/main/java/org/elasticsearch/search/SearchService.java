@@ -2171,6 +2171,13 @@ operator|.
 name|length
 operator|==
 literal|0
+operator|&&
+name|context
+operator|.
+name|scroll
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 name|freeContext
@@ -2587,6 +2594,13 @@ operator|.
 name|length
 operator|==
 literal|0
+operator|&&
+name|context
+operator|.
+name|scroll
+argument_list|()
+operator|==
+literal|null
 condition|)
 block|{
 comment|// no hits, we can release the context since there will be no fetch phase
