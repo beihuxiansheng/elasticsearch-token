@@ -348,15 +348,6 @@ argument_list|(
 name|r1
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|r1
-argument_list|)
-expr_stmt|;
 comment|// The cached is actually used
 name|assertThat
 argument_list|(
