@@ -4066,12 +4066,6 @@ name|SearchType
 operator|.
 name|SCAN
 operator|||
-name|searchType
-operator|!=
-name|SearchType
-operator|.
-name|COUNT
-operator|&&
 name|randomBoolean
 argument_list|()
 condition|)

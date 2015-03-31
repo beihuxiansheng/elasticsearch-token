@@ -1530,11 +1530,9 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|setSearchType
+name|setSize
 argument_list|(
-name|SearchType
-operator|.
-name|COUNT
+literal|0
 argument_list|)
 operator|.
 name|setQuery
@@ -1671,11 +1669,9 @@ argument_list|(
 name|INDEX_NAME
 argument_list|)
 operator|.
-name|setSearchType
+name|setSize
 argument_list|(
-name|SearchType
-operator|.
-name|COUNT
+literal|0
 argument_list|)
 operator|.
 name|setQuery

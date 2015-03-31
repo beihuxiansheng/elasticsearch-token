@@ -1967,11 +1967,9 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|setSearchType
+name|setSize
 argument_list|(
-name|SearchType
-operator|.
-name|COUNT
+literal|0
 argument_list|)
 operator|.
 name|setQuery
@@ -2149,11 +2147,9 @@ operator|.
 name|prepareSearch
 argument_list|()
 operator|.
-name|setSearchType
+name|setSize
 argument_list|(
-name|SearchType
-operator|.
-name|COUNT
+literal|0
 argument_list|)
 operator|.
 name|setQuery

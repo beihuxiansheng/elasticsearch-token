@@ -437,7 +437,7 @@ name|equalTo
 argument_list|(
 name|SearchType
 operator|.
-name|COUNT
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -745,7 +745,7 @@ name|equalTo
 argument_list|(
 name|SearchType
 operator|.
-name|COUNT
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1132,7 +1132,7 @@ name|equalTo
 argument_list|(
 name|SearchType
 operator|.
-name|COUNT
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 expr_stmt|;

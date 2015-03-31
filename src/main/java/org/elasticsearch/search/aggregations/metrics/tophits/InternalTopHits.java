@@ -967,8 +967,6 @@ argument_list|(
 name|out
 argument_list|,
 name|topDocs
-argument_list|,
-literal|0
 argument_list|)
 expr_stmt|;
 name|searchHits
