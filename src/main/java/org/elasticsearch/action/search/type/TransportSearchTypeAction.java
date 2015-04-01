@@ -1007,11 +1007,6 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|request
-operator|.
-name|beforeStart
-argument_list|()
-expr_stmt|;
 name|int
 name|shardIndex
 init|=

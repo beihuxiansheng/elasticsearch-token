@@ -270,9 +270,6 @@ name|BytesArray
 argument_list|(
 literal|"{\"test_field\" : \"foobar\"}"
 argument_list|)
-argument_list|,
-name|randomBoolean
-argument_list|()
 argument_list|)
 block|,
 name|client

@@ -842,11 +842,6 @@ expr_stmt|;
 block|}
 return|return;
 block|}
-name|request
-operator|.
-name|beforeStart
-argument_list|()
-expr_stmt|;
 comment|// count the local operations, and perform the non local ones
 name|int
 name|shardIndex

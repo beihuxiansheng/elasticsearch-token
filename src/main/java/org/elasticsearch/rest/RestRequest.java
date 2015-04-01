@@ -282,14 +282,6 @@ name|boolean
 name|hasContent
 parameter_list|()
 function_decl|;
-comment|/**      * Is the byte array content safe or unsafe for usage on other threads      */
-DECL|method|contentUnsafe
-specifier|public
-specifier|abstract
-name|boolean
-name|contentUnsafe
-parameter_list|()
-function_decl|;
 DECL|method|content
 specifier|public
 specifier|abstract

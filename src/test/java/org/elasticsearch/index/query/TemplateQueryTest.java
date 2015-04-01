@@ -1012,8 +1012,6 @@ operator|.
 name|templateSource
 argument_list|(
 name|bytesRef
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|SearchResponse
@@ -1084,8 +1082,6 @@ operator|.
 name|templateSource
 argument_list|(
 name|bytesRef
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|client
@@ -1132,8 +1128,6 @@ operator|.
 name|templateSource
 argument_list|(
 name|bytesRef
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|SearchResponse

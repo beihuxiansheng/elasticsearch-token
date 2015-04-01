@@ -586,9 +586,6 @@ name|setSource
 parameter_list|(
 name|BytesReference
 name|source
-parameter_list|,
-name|boolean
-name|unsafe
 parameter_list|)
 block|{
 name|request
@@ -597,8 +594,6 @@ operator|.
 name|source
 argument_list|(
 name|source
-argument_list|,
-name|unsafe
 argument_list|)
 expr_stmt|;
 return|return

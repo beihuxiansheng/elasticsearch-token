@@ -952,11 +952,6 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-name|request
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 name|getAction
 operator|.
 name|execute
@@ -1554,11 +1549,6 @@ argument_list|(
 name|request
 operator|.
 name|searchSource
-argument_list|()
-argument_list|,
-name|request
-operator|.
-name|searchSourceUnsafe
 argument_list|()
 argument_list|)
 expr_stmt|;

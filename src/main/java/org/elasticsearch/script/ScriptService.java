@@ -2276,7 +2276,7 @@ name|validate
 argument_list|(
 name|request
 operator|.
-name|safeSource
+name|source
 argument_list|()
 argument_list|,
 name|scriptLang
@@ -2329,10 +2329,8 @@ name|source
 argument_list|(
 name|request
 operator|.
-name|safeSource
+name|source
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|opType

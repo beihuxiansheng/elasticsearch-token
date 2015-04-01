@@ -714,13 +714,6 @@ name|canHaveDuplicates
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Called before the request gets forked into a local thread.      */
-DECL|method|beforeLocalFork
-specifier|public
-name|void
-name|beforeLocalFork
-parameter_list|()
-block|{      }
 block|}
 end_class
 

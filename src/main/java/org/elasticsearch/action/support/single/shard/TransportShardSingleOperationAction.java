@@ -1131,14 +1131,6 @@ name|operationThreaded
 argument_list|()
 condition|)
 block|{
-name|internalRequest
-operator|.
-name|request
-argument_list|()
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 name|threadPool
 operator|.
 name|executor

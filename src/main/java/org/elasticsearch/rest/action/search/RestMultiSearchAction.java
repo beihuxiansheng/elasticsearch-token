@@ -405,11 +405,6 @@ argument_list|(
 name|request
 argument_list|)
 argument_list|,
-name|request
-operator|.
-name|contentUnsafe
-argument_list|()
-argument_list|,
 name|indices
 argument_list|,
 name|types

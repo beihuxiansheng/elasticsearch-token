@@ -571,13 +571,6 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// TODO for now, we fork operations on shardIt of the index
-name|shardRequest
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
-comment|// optimize for local fork
 name|shardRequest
 operator|.
 name|operationThreaded

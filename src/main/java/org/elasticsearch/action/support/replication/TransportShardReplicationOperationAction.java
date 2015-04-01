@@ -2102,14 +2102,6 @@ name|operationThreaded
 argument_list|()
 condition|)
 block|{
-name|internalRequest
-operator|.
-name|request
-argument_list|()
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 name|threadPool
 operator|.
 name|executor
@@ -2422,14 +2414,6 @@ expr_stmt|;
 return|return;
 block|}
 comment|// make it threaded operation so we fork on the discovery listener thread
-name|internalRequest
-operator|.
-name|request
-argument_list|()
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 name|internalRequest
 operator|.
 name|request
@@ -3500,14 +3484,6 @@ name|operationThreaded
 argument_list|()
 condition|)
 block|{
-name|internalRequest
-operator|.
-name|request
-argument_list|()
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 try|try
 block|{
 name|threadPool

@@ -373,12 +373,6 @@ operator|)
 name|this
 return|;
 block|}
-DECL|method|beforeLocalFork
-specifier|protected
-name|void
-name|beforeLocalFork
-parameter_list|()
-block|{     }
 annotation|@
 name|Override
 DECL|method|readFrom

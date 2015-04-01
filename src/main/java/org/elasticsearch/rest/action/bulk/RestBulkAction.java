@@ -556,11 +556,6 @@ operator|.
 name|content
 argument_list|()
 argument_list|,
-name|request
-operator|.
-name|contentUnsafe
-argument_list|()
-argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType

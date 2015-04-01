@@ -140,8 +140,6 @@ name|data
 operator|.
 name|length
 argument_list|,
-literal|false
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -522,8 +520,6 @@ name|data
 operator|.
 name|length
 argument_list|,
-literal|false
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -829,8 +825,6 @@ argument_list|,
 name|data
 operator|.
 name|length
-argument_list|,
-literal|false
 argument_list|,
 literal|null
 argument_list|,

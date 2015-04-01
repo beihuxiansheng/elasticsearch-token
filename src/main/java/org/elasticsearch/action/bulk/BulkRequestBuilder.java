@@ -375,9 +375,6 @@ name|from
 parameter_list|,
 name|int
 name|length
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|)
 throws|throws
 name|Exception
@@ -391,8 +388,6 @@ argument_list|,
 name|from
 argument_list|,
 name|length
-argument_list|,
-name|contentUnsafe
 argument_list|,
 literal|null
 argument_list|,
@@ -419,9 +414,6 @@ parameter_list|,
 name|int
 name|length
 parameter_list|,
-name|boolean
-name|contentUnsafe
-parameter_list|,
 annotation|@
 name|Nullable
 name|String
@@ -444,8 +436,6 @@ argument_list|,
 name|from
 argument_list|,
 name|length
-argument_list|,
-name|contentUnsafe
 argument_list|,
 name|defaultIndex
 argument_list|,

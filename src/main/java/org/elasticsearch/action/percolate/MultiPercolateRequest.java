@@ -483,9 +483,6 @@ name|from
 parameter_list|,
 name|int
 name|length
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|)
 throws|throws
 name|Exception
@@ -503,8 +500,6 @@ argument_list|,
 name|length
 argument_list|)
 argument_list|,
-name|contentUnsafe
-argument_list|,
 literal|true
 argument_list|)
 return|;
@@ -517,9 +512,6 @@ name|add
 parameter_list|(
 name|BytesReference
 name|data
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 name|boolean
 name|allowExplicitIndex
@@ -886,8 +878,6 @@ name|nextMarker
 operator|-
 name|from
 argument_list|)
-argument_list|,
-name|contentUnsafe
 argument_list|)
 expr_stmt|;
 comment|// move pointers

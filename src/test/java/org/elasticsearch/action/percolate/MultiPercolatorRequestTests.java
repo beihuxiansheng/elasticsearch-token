@@ -165,8 +165,6 @@ argument_list|,
 name|data
 operator|.
 name|length
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1380,8 +1378,6 @@ argument_list|,
 name|data
 operator|.
 name|length
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat

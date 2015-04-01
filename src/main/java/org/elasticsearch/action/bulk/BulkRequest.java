@@ -552,11 +552,6 @@ name|IndexRequest
 name|request
 parameter_list|)
 block|{
-name|request
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 return|return
 name|internalAdd
 argument_list|(
@@ -580,11 +575,6 @@ name|Object
 name|payload
 parameter_list|)
 block|{
-name|request
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 return|return
 name|internalAdd
 argument_list|(
@@ -1046,9 +1036,6 @@ name|from
 parameter_list|,
 name|int
 name|length
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|)
 throws|throws
 name|Exception
@@ -1061,8 +1048,6 @@ argument_list|,
 name|from
 argument_list|,
 name|length
-argument_list|,
-name|contentUnsafe
 argument_list|,
 literal|null
 argument_list|,
@@ -1085,9 +1070,6 @@ name|from
 parameter_list|,
 name|int
 name|length
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1115,8 +1097,6 @@ argument_list|,
 name|length
 argument_list|)
 argument_list|,
-name|contentUnsafe
-argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType
@@ -1131,9 +1111,6 @@ name|add
 parameter_list|(
 name|BytesReference
 name|data
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1152,8 +1129,6 @@ return|return
 name|add
 argument_list|(
 name|data
-argument_list|,
-name|contentUnsafe
 argument_list|,
 name|defaultIndex
 argument_list|,
@@ -1176,9 +1151,6 @@ parameter_list|(
 name|BytesReference
 name|data
 parameter_list|,
-name|boolean
-name|contentUnsafe
-parameter_list|,
 annotation|@
 name|Nullable
 name|String
@@ -1200,8 +1172,6 @@ name|add
 argument_list|(
 name|data
 argument_list|,
-name|contentUnsafe
-argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType
@@ -1221,9 +1191,6 @@ name|add
 parameter_list|(
 name|BytesReference
 name|data
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1914,7 +1881,7 @@ break|break;
 block|}
 comment|// order is important, we set parent after routing, so routing will be set to parent if not set explicitly
 comment|// we use internalAdd so we don't fork here, this allows us not to copy over the big byte array to small chunks
-comment|// of index request. All index requests are still unsafe if applicable.
+comment|// of index request.
 if|if
 condition|(
 literal|"index"
@@ -1986,8 +1953,6 @@ name|nextMarker
 operator|-
 name|from
 argument_list|)
-argument_list|,
-name|contentUnsafe
 argument_list|)
 argument_list|,
 name|payload
@@ -2060,8 +2025,6 @@ name|nextMarker
 operator|-
 name|from
 argument_list|)
-argument_list|,
-name|contentUnsafe
 argument_list|)
 argument_list|,
 name|payload
@@ -2139,8 +2102,6 @@ name|nextMarker
 operator|-
 name|from
 argument_list|)
-argument_list|,
-name|contentUnsafe
 argument_list|)
 argument_list|,
 name|payload
