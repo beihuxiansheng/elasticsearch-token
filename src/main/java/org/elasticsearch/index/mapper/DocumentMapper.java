@@ -674,6 +674,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
 import|;
 end_import
@@ -686,7 +698,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
+name|ScriptService
+operator|.
+name|ScriptType
 import|;
 end_import
 
@@ -805,20 +819,6 @@ operator|.
 name|Lists
 operator|.
 name|newArrayList
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
-name|*
 import|;
 end_import
 
@@ -4432,6 +4432,8 @@ argument_list|,
 name|scriptType
 argument_list|,
 name|ScriptContext
+operator|.
+name|Standard
 operator|.
 name|MAPPING
 argument_list|,

@@ -726,6 +726,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
 import|;
 end_import
@@ -738,7 +750,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
+name|ScriptContextRegistry
 import|;
 end_import
 
@@ -4529,6 +4541,8 @@ argument_list|()
 argument_list|,
 name|ScriptContext
 operator|.
+name|Standard
+operator|.
 name|SEARCH
 argument_list|,
 name|request
@@ -4830,6 +4844,8 @@ name|scriptType
 argument_list|()
 argument_list|,
 name|ScriptContext
+operator|.
+name|Standard
 operator|.
 name|SEARCH
 argument_list|,

@@ -179,6 +179,9 @@ name|ScriptEngineService
 argument_list|>
 name|scriptEngines
 parameter_list|,
+name|ScriptContextRegistry
+name|scriptContextRegistry
+parameter_list|,
 name|Settings
 name|settings
 parameter_list|)
@@ -218,11 +221,14 @@ argument_list|(
 name|settings
 argument_list|,
 name|filteredEngines
+argument_list|,
+name|scriptContextRegistry
 argument_list|)
 expr_stmt|;
 block|}
 DECL|method|buildScriptModeSettingsMap
 specifier|private
+specifier|static
 name|ImmutableMap
 argument_list|<
 name|String
@@ -241,6 +247,9 @@ argument_list|,
 name|ScriptEngineService
 argument_list|>
 name|scriptEngines
+parameter_list|,
+name|ScriptContextRegistry
+name|scriptContextRegistry
 parameter_list|)
 block|{
 name|HashMap
@@ -264,6 +273,8 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
+name|scriptContextRegistry
+argument_list|,
 name|ScriptType
 operator|.
 name|FILE
@@ -282,6 +293,8 @@ name|scriptEngines
 operator|.
 name|keySet
 argument_list|()
+argument_list|,
+name|scriptContextRegistry
 argument_list|,
 name|ScriptType
 operator|.
@@ -302,6 +315,8 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
+name|scriptContextRegistry
+argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
@@ -319,6 +334,8 @@ name|settings
 argument_list|,
 name|scriptEngines
 argument_list|,
+name|scriptContextRegistry
+argument_list|,
 name|scriptModesMap
 argument_list|)
 expr_stmt|;
@@ -328,6 +345,8 @@ name|settings
 argument_list|,
 name|scriptEngines
 argument_list|,
+name|scriptContextRegistry
+argument_list|,
 name|scriptModesMap
 argument_list|)
 expr_stmt|;
@@ -336,6 +355,8 @@ argument_list|(
 name|settings
 argument_list|,
 name|scriptEngines
+argument_list|,
+name|scriptContextRegistry
 argument_list|,
 name|scriptModesMap
 argument_list|)
@@ -365,6 +386,9 @@ argument_list|,
 name|ScriptEngineService
 argument_list|>
 name|scriptEngines
+parameter_list|,
+name|ScriptContextRegistry
+name|scriptContextRegistry
 parameter_list|,
 name|Map
 argument_list|<
@@ -426,6 +450,8 @@ operator|.
 name|keySet
 argument_list|()
 argument_list|,
+name|scriptContextRegistry
+argument_list|,
 name|scriptType
 argument_list|,
 name|scriptTypeMode
@@ -453,6 +479,9 @@ name|ScriptEngineService
 argument_list|>
 name|scriptEngines
 parameter_list|,
+name|ScriptContextRegistry
+name|scriptContextRegistry
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -469,9 +498,9 @@ control|(
 name|ScriptContext
 name|scriptContext
 range|:
-name|ScriptContext
+name|scriptContextRegistry
 operator|.
-name|values
+name|scriptContexts
 argument_list|()
 control|)
 block|{
@@ -527,6 +556,9 @@ argument_list|,
 name|ScriptEngineService
 argument_list|>
 name|scriptEngines
+parameter_list|,
+name|ScriptContextRegistry
+name|scriptContextRegistry
 parameter_list|,
 name|Map
 argument_list|<
@@ -593,22 +625,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|String
-name|enginePrefix
-init|=
-name|ScriptModes
-operator|.
-name|ENGINE_SETTINGS_PREFIX
-operator|+
-literal|"."
-operator|+
-name|langSettings
-operator|.
-name|getKey
-argument_list|()
-operator|+
-literal|"."
-decl_stmt|;
 for|for
 control|(
 name|ScriptType
@@ -632,9 +648,9 @@ control|(
 name|ScriptContext
 name|scriptContext
 range|:
-name|ScriptContext
+name|scriptContextRegistry
 operator|.
-name|values
+name|scriptContexts
 argument_list|()
 control|)
 block|{
@@ -705,6 +721,9 @@ argument_list|(
 name|prefix
 operator|+
 name|scriptContext
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -742,6 +761,9 @@ name|String
 argument_list|>
 name|langs
 parameter_list|,
+name|ScriptContextRegistry
+name|scriptContextRegistry
+parameter_list|,
 name|ScriptType
 name|scriptType
 parameter_list|,
@@ -770,9 +792,9 @@ control|(
 name|ScriptContext
 name|scriptContext
 range|:
-name|ScriptContext
+name|scriptContextRegistry
 operator|.
-name|values
+name|scriptContexts
 argument_list|()
 control|)
 block|{
@@ -952,12 +974,15 @@ operator|+
 literal|"."
 operator|+
 name|scriptContext
+operator|.
+name|getKey
+argument_list|()
 argument_list|,
 name|scriptMode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns the script mode for a script of a certain written in a certain language,      * of a certain type and executing as part of a specific operation/api.      *      * @param lang the language that the script is written in      * @param scriptType the type of the script      * @param scriptContext the api that requires the execution of the script      * @return whether scripts are on, off, or enabled only for sandboxed languages      */
+comment|/**      * Returns the script mode for a script of a certain written in a certain language,      * of a certain type and executing as part of a specific operation/api.      *      * @param lang the language that the script is written in      * @param scriptType the type of the script      * @param scriptContext the operation that requires the execution of the script      * @return whether scripts are on, off, or enabled only for sandboxed languages      */
 DECL|method|getScriptMode
 specifier|public
 name|ScriptMode
@@ -1012,6 +1037,9 @@ operator|+
 literal|"."
 operator|+
 name|scriptContext
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1036,6 +1064,9 @@ operator|+
 literal|"], operation ["
 operator|+
 name|scriptContext
+operator|.
+name|getKey
+argument_list|()
 operator|+
 literal|"]"
 argument_list|)

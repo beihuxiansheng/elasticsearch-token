@@ -525,6 +525,8 @@ name|scriptType
 argument_list|,
 name|ScriptContext
 operator|.
+name|Standard
+operator|.
 name|SEARCH
 argument_list|,
 name|vars

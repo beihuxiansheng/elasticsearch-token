@@ -96,9 +96,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
-operator|.
-name|ScriptType
+name|ScriptContext
 import|;
 end_import
 
@@ -110,7 +108,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
+name|ScriptService
+operator|.
+name|ScriptType
 import|;
 end_import
 
@@ -596,6 +596,8 @@ operator|.
 name|scriptType
 argument_list|,
 name|ScriptContext
+operator|.
+name|Standard
 operator|.
 name|AGGS
 argument_list|,

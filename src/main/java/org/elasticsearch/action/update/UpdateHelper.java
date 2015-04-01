@@ -788,6 +788,8 @@ name|scriptType
 argument_list|,
 name|ScriptContext
 operator|.
+name|Standard
+operator|.
 name|UPDATE
 argument_list|,
 name|request
@@ -1638,6 +1640,8 @@ operator|.
 name|scriptType
 argument_list|,
 name|ScriptContext
+operator|.
+name|Standard
 operator|.
 name|UPDATE
 argument_list|,
