@@ -4499,6 +4499,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
+specifier|synchronized
 name|void
 name|readFrom
 parameter_list|(
@@ -4579,6 +4580,7 @@ annotation|@
 name|Override
 DECL|method|writeTo
 specifier|public
+specifier|synchronized
 name|void
 name|writeTo
 parameter_list|(
