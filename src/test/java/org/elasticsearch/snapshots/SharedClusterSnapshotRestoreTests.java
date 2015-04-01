@@ -2337,9 +2337,10 @@ argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
-argument_list|,
-literal|2
-argument_list|,
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
 name|ImmutableSettings
 operator|.
 name|builder
