@@ -70,20 +70,6 @@ specifier|public
 interface|interface
 name|BlobContainer
 block|{
-DECL|interface|BlobNameFilter
-interface|interface
-name|BlobNameFilter
-block|{
-comment|/**          * Return<tt>false</tt> if the blob should be filtered.          */
-DECL|method|accept
-name|boolean
-name|accept
-parameter_list|(
-name|String
-name|blobName
-parameter_list|)
-function_decl|;
-block|}
 DECL|method|path
 name|BlobPath
 name|path
@@ -137,17 +123,6 @@ name|deleteBlobsByPrefix
 parameter_list|(
 name|String
 name|blobNamePrefix
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-comment|/**      * Deletes all blobs in the container that match the supplied filter.      */
-DECL|method|deleteBlobsByFilter
-name|void
-name|deleteBlobsByFilter
-parameter_list|(
-name|BlobNameFilter
-name|filter
 parameter_list|)
 throws|throws
 name|IOException
