@@ -4102,7 +4102,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"refresh with soruce: {}"
+literal|"refresh with source: {}"
 argument_list|,
 name|source
 argument_list|)

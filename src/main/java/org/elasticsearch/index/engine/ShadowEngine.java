@@ -464,6 +464,13 @@ name|ex
 argument_list|)
 throw|;
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"created new ShadowEngine"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

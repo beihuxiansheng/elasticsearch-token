@@ -2024,7 +2024,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"creating Index [{}], shards [{}]/[{}]"
+literal|"creating Index [{}], shards [{}]/[{}{}]"
 argument_list|,
 name|sIndexName
 argument_list|,
@@ -2041,6 +2041,17 @@ name|get
 argument_list|(
 name|SETTING_NUMBER_OF_REPLICAS
 argument_list|)
+argument_list|,
+name|IndexMetaData
+operator|.
+name|isIndexUsingShadowReplicas
+argument_list|(
+name|settings
+argument_list|)
+condition|?
+literal|"s"
+else|:
+literal|""
 argument_list|)
 expr_stmt|;
 name|Settings
