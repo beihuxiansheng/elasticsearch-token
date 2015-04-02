@@ -7173,13 +7173,13 @@ argument_list|)
 operator|.
 name|value
 argument_list|()
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"T"
+operator|(
+name|Object
+operator|)
+literal|1L
 argument_list|)
 argument_list|)
 expr_stmt|;
