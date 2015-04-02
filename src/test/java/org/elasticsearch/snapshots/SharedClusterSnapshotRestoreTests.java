@@ -815,7 +815,7 @@ name|Test
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"action:TRACE"
+literal|"action.count:TRACE"
 argument_list|)
 DECL|method|basicWorkFlowTest
 specifier|public
