@@ -212,9 +212,10 @@ return|;
 block|}
 comment|// when the reader changes, we have to get the posting list for this term
 comment|// and reader
-DECL|method|setNextReader
+DECL|method|setReader
+specifier|private
 name|void
-name|setNextReader
+name|setReader
 parameter_list|(
 name|LeafReader
 name|reader
@@ -634,10 +635,10 @@ name|freq
 init|=
 literal|0
 decl_stmt|;
-DECL|method|setNextDoc
+DECL|method|setDocument
 specifier|public
 name|void
-name|setNextDoc
+name|setDocument
 parameter_list|(
 name|int
 name|docId
@@ -733,7 +734,7 @@ parameter_list|,
 name|String
 name|fieldName
 parameter_list|,
-name|IndexLookup
+name|LeafIndexLookup
 name|indexLookup
 parameter_list|,
 name|int
@@ -827,7 +828,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-name|setNextReader
+name|setReader
 argument_list|(
 name|indexLookup
 operator|.
@@ -835,7 +836,7 @@ name|getReader
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setNextDoc
+name|setDocument
 argument_list|(
 name|indexLookup
 operator|.

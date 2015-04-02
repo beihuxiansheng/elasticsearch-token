@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.lucene
+DECL|package|org.elasticsearch.common.lucene.search.function
 package|package
 name|org
 operator|.
@@ -13,6 +13,10 @@ operator|.
 name|common
 operator|.
 name|lucene
+operator|.
+name|search
+operator|.
+name|function
 package|;
 end_package
 
@@ -24,9 +28,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|LeafReaderContext
+name|Explanation
 import|;
 end_import
 
@@ -41,28 +45,46 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/** Per-leaf {@link ScoreFunction}. */
 end_comment
 
-begin_interface
-DECL|interface|ReaderContextAware
+begin_class
+DECL|class|LeafScoreFunction
 specifier|public
-interface|interface
-name|ReaderContextAware
+specifier|abstract
+class|class
+name|LeafScoreFunction
 block|{
-DECL|method|setNextReader
+DECL|method|score
 specifier|public
-name|void
-name|setNextReader
+specifier|abstract
+name|double
+name|score
 parameter_list|(
-name|LeafReaderContext
-name|reader
+name|int
+name|docId
+parameter_list|,
+name|float
+name|subQueryScore
+parameter_list|)
+function_decl|;
+DECL|method|explainScore
+specifier|public
+specifier|abstract
+name|Explanation
+name|explainScore
+parameter_list|(
+name|int
+name|docId
+parameter_list|,
+name|Explanation
+name|subQueryScore
 parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 

@@ -48,16 +48,6 @@ name|Explanation
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -121,20 +111,22 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
+DECL|method|getLeafScoreFunction
 specifier|public
-name|void
-name|setNextReader
+name|LeafScoreFunction
+name|getLeafScoreFunction
 parameter_list|(
 name|LeafReaderContext
-name|context
+name|ctx
 parameter_list|)
 block|{
-comment|// nothing to do here...
-block|}
+return|return
+operator|new
+name|LeafScoreFunction
+argument_list|()
+block|{
 annotation|@
 name|Override
-DECL|method|score
 specifier|public
 name|double
 name|score
@@ -152,7 +144,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|explainScore
 specifier|public
 name|Explanation
 name|explainScore
@@ -190,6 +181,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|exp
+return|;
+block|}
+block|}
 return|;
 block|}
 annotation|@

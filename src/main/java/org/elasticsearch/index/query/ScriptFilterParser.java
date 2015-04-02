@@ -1061,13 +1061,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|LeafSearchScript
+name|leafScript
+init|=
 name|searchScript
 operator|.
-name|setNextReader
+name|getLeafSearchScript
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// LUCENE 4 UPGRADE: we can simply wrap this here since it is not cacheable and if we are not top level we will get a null passed anyway
 return|return
 name|BitsFilteredDocIdSet
@@ -1087,7 +1091,7 @@ argument_list|()
 argument_list|,
 name|acceptDocs
 argument_list|,
-name|searchScript
+name|leafScript
 argument_list|)
 argument_list|,
 name|acceptDocs
@@ -1104,7 +1108,7 @@ block|{
 DECL|field|searchScript
 specifier|private
 specifier|final
-name|SearchScript
+name|LeafSearchScript
 name|searchScript
 decl_stmt|;
 DECL|method|ScriptDocSet
@@ -1119,7 +1123,7 @@ name|Nullable
 name|Bits
 name|acceptDocs
 parameter_list|,
-name|SearchScript
+name|LeafSearchScript
 name|searchScript
 parameter_list|)
 block|{
@@ -1150,7 +1154,7 @@ parameter_list|)
 block|{
 name|searchScript
 operator|.
-name|setNextDocId
+name|setDocument
 argument_list|(
 name|doc
 argument_list|)

@@ -132,7 +132,8 @@ decl_stmt|;
 comment|/*      * The holds the current reader. We need it to populate the field      * statistics. We just delegate all requests there      */
 DECL|field|indexLookup
 specifier|private
-name|IndexLookup
+specifier|final
+name|LeafIndexLookup
 name|indexLookup
 decl_stmt|;
 comment|/*      * General field statistics such as number of documents containing the      * field.      */
@@ -142,35 +143,6 @@ specifier|final
 name|CollectionStatistics
 name|fieldStats
 decl_stmt|;
-comment|/*      * Uodate posting lists in all TermInfo objects      */
-DECL|method|setReader
-name|void
-name|setReader
-parameter_list|(
-name|LeafReader
-name|reader
-parameter_list|)
-block|{
-for|for
-control|(
-name|IndexFieldTerm
-name|ti
-range|:
-name|terms
-operator|.
-name|values
-argument_list|()
-control|)
-block|{
-name|ti
-operator|.
-name|setNextReader
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|/*      * Represents a field in a document. Can be used to return information on      * statistics of this field. Information on specific terms in this field can      * be accessed by calling get(String term).      */
 DECL|method|IndexField
 specifier|public
@@ -179,7 +151,7 @@ parameter_list|(
 name|String
 name|fieldName
 parameter_list|,
-name|IndexLookup
+name|LeafIndexLookup
 name|indexLookup
 parameter_list|)
 throws|throws
@@ -391,7 +363,7 @@ control|)
 block|{
 name|ti
 operator|.
-name|setNextDoc
+name|setDocument
 argument_list|(
 name|docId
 argument_list|)

@@ -250,6 +250,22 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -660,6 +676,11 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|rsp
+argument_list|)
+expr_stmt|;
 name|SearchHits
 name|hits
 init|=
