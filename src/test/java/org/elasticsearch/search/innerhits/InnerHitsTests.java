@@ -2001,6 +2001,16 @@ argument_list|,
 name|requestBuilders
 argument_list|)
 expr_stmt|;
+name|int
+name|size
+init|=
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+name|numDocs
+argument_list|)
+decl_stmt|;
 name|SearchResponse
 name|searchResponse
 decl_stmt|;
@@ -2060,7 +2070,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 comment|// Sort order is DESC, because we reverse the inner objects during indexing!
@@ -2091,7 +2101,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 operator|.
@@ -2148,7 +2158,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2187,7 +2197,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2231,7 +2241,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2273,7 +2283,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2313,6 +2323,11 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
+name|assertNoFailures
+argument_list|(
+name|searchResponse
+argument_list|)
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|searchResponse
@@ -2411,6 +2426,10 @@ name|field1InnerObjects
 index|[
 name|i
 index|]
+operator|&&
+name|j
+operator|<
+name|size
 condition|;
 name|j
 operator|++
@@ -2520,6 +2539,10 @@ name|field2InnerObjects
 index|[
 name|i
 index|]
+operator|&&
+name|j
+operator|<
+name|size
 condition|;
 name|j
 operator|++
@@ -4065,6 +4088,16 @@ argument_list|,
 name|requestBuilders
 argument_list|)
 expr_stmt|;
+name|int
+name|size
+init|=
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+name|numDocs
+argument_list|)
+decl_stmt|;
 name|SearchResponse
 name|searchResponse
 decl_stmt|;
@@ -4129,7 +4162,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 operator|.
@@ -4159,7 +4192,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 operator|.
@@ -4216,7 +4249,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4255,7 +4288,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4299,7 +4332,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4341,7 +4374,7 @@ argument_list|)
 operator|.
 name|setSize
 argument_list|(
-name|numDocs
+name|size
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4386,6 +4419,11 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
+name|assertNoFailures
+argument_list|(
+name|searchResponse
+argument_list|)
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|searchResponse
@@ -4531,6 +4569,10 @@ name|child1InnerObjects
 index|[
 name|parent
 index|]
+operator|&&
+name|child
+operator|<
+name|size
 condition|;
 name|child
 operator|++
@@ -4653,6 +4695,10 @@ name|child2InnerObjects
 index|[
 name|parent
 index|]
+operator|&&
+name|child
+operator|<
+name|size
 condition|;
 name|child
 operator|++
