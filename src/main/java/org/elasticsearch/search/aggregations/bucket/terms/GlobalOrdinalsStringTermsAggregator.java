@@ -484,6 +484,8 @@ DECL|field|includeExclude
 specifier|protected
 specifier|final
 name|IncludeExclude
+operator|.
+name|OrdinalsFilter
 name|includeExclude
 decl_stmt|;
 comment|// TODO: cache the acceptedglobalValues per aggregation definition.
@@ -530,6 +532,8 @@ name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
 name|IncludeExclude
+operator|.
+name|OrdinalsFilter
 name|includeExclude
 parameter_list|,
 name|AggregationContext
@@ -1712,6 +1716,8 @@ name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
 name|IncludeExclude
+operator|.
+name|OrdinalsFilter
 name|includeExclude
 parameter_list|,
 name|AggregationContext

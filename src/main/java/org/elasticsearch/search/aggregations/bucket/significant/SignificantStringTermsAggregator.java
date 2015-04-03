@@ -296,6 +296,8 @@ name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
 name|IncludeExclude
+operator|.
+name|StringFilter
 name|includeExclude
 parameter_list|,
 name|AggregationContext
