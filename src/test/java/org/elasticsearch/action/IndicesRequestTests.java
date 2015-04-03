@@ -1795,10 +1795,15 @@ name|AnalyzeRequest
 argument_list|(
 name|randomIndexOrAlias
 argument_list|()
-argument_list|,
-literal|"text"
 argument_list|)
 decl_stmt|;
+name|analyzeRequest
+operator|.
+name|text
+argument_list|(
+literal|"text"
+argument_list|)
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
