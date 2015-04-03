@@ -390,10 +390,7 @@ argument_list|()
 throw|;
 block|}
 return|return
-name|collector
-operator|.
-name|needsScores
-argument_list|()
+literal|false
 return|;
 block|}
 comment|/** Set the deferred collectors. */
@@ -686,6 +683,22 @@ operator|.
 name|preCollection
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|collector
+operator|.
+name|needsScores
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchIllegalStateException
+argument_list|(
+literal|"Cannot defer if scores are needed"
+argument_list|)
+throw|;
+block|}
 for|for
 control|(
 name|Entry
