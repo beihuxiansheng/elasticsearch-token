@@ -72,16 +72,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|block
@@ -1371,6 +1361,12 @@ DECL|enum constant|ROUTING_TABLE
 name|ROUTING_TABLE
 argument_list|(
 literal|"routing_table"
+argument_list|)
+block|,
+DECL|enum constant|ROUTING_NODES
+name|ROUTING_NODES
+argument_list|(
+literal|"routing_nodes"
 argument_list|)
 block|,
 DECL|enum constant|CUSTOMS
@@ -2668,6 +2664,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// routing nodes
+comment|// gets printed out even if only routing_table was requested for bw comp reasons
 if|if
 condition|(
 name|metrics
@@ -2677,6 +2674,15 @@ argument_list|(
 name|Metric
 operator|.
 name|ROUTING_TABLE
+argument_list|)
+operator|||
+name|metrics
+operator|.
+name|contains
+argument_list|(
+name|Metric
+operator|.
+name|ROUTING_NODES
 argument_list|)
 condition|)
 block|{
