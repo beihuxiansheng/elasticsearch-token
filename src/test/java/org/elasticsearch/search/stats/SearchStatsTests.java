@@ -1495,6 +1495,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|searchResponse
+argument_list|)
+expr_stmt|;
 name|indicesStats
 operator|=
 name|client
