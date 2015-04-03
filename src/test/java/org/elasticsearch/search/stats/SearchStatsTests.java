@@ -1355,6 +1355,11 @@ argument_list|(
 literal|"test1"
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"test1"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|docs
