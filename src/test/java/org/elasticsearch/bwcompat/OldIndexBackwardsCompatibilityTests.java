@@ -1557,9 +1557,9 @@ name|numReplicas
 init|=
 name|randomIntBetween
 argument_list|(
-literal|2
+literal|1
 argument_list|,
-literal|3
+literal|2
 argument_list|)
 decl_stmt|;
 name|logger
