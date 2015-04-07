@@ -998,9 +998,17 @@ name|put
 argument_list|(
 literal|"size"
 argument_list|,
+operator|(
+operator|(
 name|availableProcessors
 operator|*
 literal|3
+operator|)
+operator|/
+literal|2
+operator|)
+operator|+
+literal|1
 argument_list|)
 operator|.
 name|put

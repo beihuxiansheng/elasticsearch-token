@@ -344,9 +344,9 @@ operator|<=
 literal|0
 condition|)
 block|{
-comment|// happens with cached thread pools, let's assume there are at most 3x ${number of processors} threads
+comment|// happens with cached thread pools, let's assume there are at most 2x ${number of processors} threads
 return|return
-literal|3
+literal|2
 operator|*
 name|EsExecutors
 operator|.
