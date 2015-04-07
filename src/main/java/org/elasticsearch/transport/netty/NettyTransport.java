@@ -4578,6 +4578,7 @@ name|boundAddress
 return|;
 block|}
 DECL|method|exceptionCaught
+specifier|protected
 name|void
 name|exceptionCaught
 parameter_list|(
