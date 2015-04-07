@@ -136,20 +136,6 @@ name|lucene
 operator|.
 name|store
 operator|.
-name|FilterDirectory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|store
-operator|.
 name|MockDirectoryWrapper
 import|;
 end_import
@@ -311,20 +297,6 @@ operator|.
 name|deletionpolicy
 operator|.
 name|SnapshotDeletionPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|deletionpolicy
-operator|.
-name|SnapshotIndexCommit
 import|;
 end_import
 
@@ -1874,6 +1846,8 @@ name|translog
 argument_list|,
 name|mergeSchedulerProvider
 argument_list|)
+argument_list|,
+literal|true
 argument_list|)
 return|;
 block|}
@@ -1994,6 +1968,8 @@ block|{
 comment|// we don't need to notify anybody in this test
 block|}
 block|}
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 return|return

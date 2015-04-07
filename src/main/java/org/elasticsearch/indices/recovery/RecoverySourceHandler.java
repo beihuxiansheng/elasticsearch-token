@@ -3593,8 +3593,6 @@ operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|int
 name|ops
@@ -3629,12 +3627,34 @@ name|Translog
 operator|.
 name|Operation
 name|operation
-init|=
+decl_stmt|;
+try|try
+block|{
+name|operation
+operator|=
 name|snapshot
 operator|.
 name|next
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+comment|// this ex should bubble up
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"failed to get next operation from translog"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|TransportRequestOptions
 name|recoveryOptions
@@ -3845,6 +3865,8 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
+try|try
+block|{
 name|operation
 operator|=
 name|snapshot
@@ -3852,6 +3874,24 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+comment|// this ex should bubble up
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"failed to get next operation from translog"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 block|}
 comment|// send the leftover
 if|if

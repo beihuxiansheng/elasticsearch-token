@@ -80,6 +80,9 @@ name|newReadWriteEngine
 parameter_list|(
 name|EngineConfig
 name|config
+parameter_list|,
+name|boolean
+name|skipTranslogRecovery
 parameter_list|)
 block|{
 return|return
@@ -87,6 +90,8 @@ operator|new
 name|MockInternalEngine
 argument_list|(
 name|config
+argument_list|,
+name|skipTranslogRecovery
 argument_list|)
 return|;
 block|}

@@ -3463,6 +3463,49 @@ operator|.
 name|recoveryState
 argument_list|()
 decl_stmt|;
+name|long
+name|recovered
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|RecoveryState
+operator|.
+name|File
+name|file
+range|:
+name|recoveryState
+operator|.
+name|getIndex
+argument_list|()
+operator|.
+name|fileDetails
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|file
+operator|.
+name|name
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"segments"
+argument_list|)
+condition|)
+block|{
+name|recovered
+operator|+=
+name|file
+operator|.
+name|length
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 if|if
 condition|(
 operator|!
@@ -3530,7 +3573,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0l
+name|recovered
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3552,9 +3595,10 @@ literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we have to recover the segments file since we commit the translog ID on engine startup
 name|assertThat
 argument_list|(
-literal|"all bytes should be reused"
+literal|"all bytes should be reused except of the segments file"
 argument_list|,
 name|recoveryState
 operator|.
@@ -3573,12 +3617,14 @@ argument_list|()
 operator|.
 name|totalBytes
 argument_list|()
+operator|-
+name|recovered
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"no files should be recovered"
+literal|"no files should be recovered except of the segments file"
 argument_list|,
 name|recoveryState
 operator|.
@@ -3590,13 +3636,13 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"all files should be reused"
+literal|"all files should be reused except of the segments file"
 argument_list|,
 name|recoveryState
 operator|.
@@ -3615,6 +3661,8 @@ argument_list|()
 operator|.
 name|totalFileCount
 argument_list|()
+operator|-
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;

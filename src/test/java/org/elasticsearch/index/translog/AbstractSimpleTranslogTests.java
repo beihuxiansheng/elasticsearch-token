@@ -2120,6 +2120,8 @@ specifier|public
 name|void
 name|testSnapshot
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Translog
 operator|.
@@ -3167,6 +3169,8 @@ specifier|public
 name|void
 name|testSnapshotWithSeekTo
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|Translog
 operator|.

@@ -794,7 +794,7 @@ argument_list|)
 expr_stmt|;
 name|indexShard
 operator|.
-name|prepareForTranslogRecovery
+name|skipTranslogRecovery
 argument_list|()
 expr_stmt|;
 name|indexShard

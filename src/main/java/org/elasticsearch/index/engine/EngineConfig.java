@@ -268,6 +268,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|shard
+operator|.
+name|TranslogRecoveryPerformer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|store
 operator|.
 name|Store
@@ -340,6 +354,12 @@ specifier|private
 specifier|final
 name|ShardId
 name|shardId
+decl_stmt|;
+DECL|field|translogRecoveryPerformer
+specifier|private
+specifier|final
+name|TranslogRecoveryPerformer
+name|translogRecoveryPerformer
 decl_stmt|;
 DECL|field|indexingBufferSize
 specifier|private
@@ -545,16 +565,6 @@ name|INDEX_CODEC_SETTING
 init|=
 literal|"index.codec"
 decl_stmt|;
-comment|/**      * Index setting to enable / disable checksum checks on merge      * This setting is realtime updateable.      */
-DECL|field|INDEX_CHECKSUM_ON_MERGE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_CHECKSUM_ON_MERGE
-init|=
-literal|"index.checksum_on_merge"
-decl_stmt|;
 comment|/**      * The maximum size the version map should grow to before issuing a refresh. Can be an absolute value or a percentage of      * the current index memory buffer (defaults to 25%)      */
 DECL|field|INDEX_VERSION_MAP_SIZE
 specifier|public
@@ -696,6 +706,9 @@ name|Engine
 operator|.
 name|FailedEngineListener
 name|failedEngineListener
+parameter_list|,
+name|TranslogRecoveryPerformer
+name|translogRecoveryPerformer
 parameter_list|)
 block|{
 name|this
@@ -902,6 +915,12 @@ argument_list|)
 expr_stmt|;
 name|updateVersionMapSize
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|translogRecoveryPerformer
+operator|=
+name|translogRecoveryPerformer
 expr_stmt|;
 block|}
 comment|/** updates {@link #versionMapSize} based on current setting and {@link #indexingBufferSize} */
@@ -1328,6 +1347,17 @@ name|compoundOnFlush
 operator|=
 name|compoundOnFlush
 expr_stmt|;
+block|}
+comment|/**      * Returns the {@link org.elasticsearch.index.shard.TranslogRecoveryPerformer} for this engine. This class is used      * to apply transaction log operations to the engine. It encapsulates all the logic to transfer the translog entry into      * an indexing operation.      */
+DECL|method|getTranslogRecoveryPerformer
+specifier|public
+name|TranslogRecoveryPerformer
+name|getTranslogRecoveryPerformer
+parameter_list|()
+block|{
+return|return
+name|translogRecoveryPerformer
+return|;
 block|}
 block|}
 end_class

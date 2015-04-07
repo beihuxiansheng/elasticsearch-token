@@ -210,6 +210,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|ESLogger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lucene
 operator|.
 name|uid
@@ -279,6 +293,16 @@ operator|.
 name|io
 operator|.
 name|Closeable
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|EOFException
 import|;
 end_import
 
@@ -523,6 +547,38 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns an OperationIterator to iterate over all translog entries in the given translog ID.      * @throws java.io.FileNotFoundException if the file for the translog ID can not be found      */
+DECL|method|openIterator
+name|OperationIterator
+name|openIterator
+parameter_list|(
+name|long
+name|translogId
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Iterator for translog operations.      */
+DECL|interface|OperationIterator
+specifier|public
+specifier|static
+interface|interface
+name|OperationIterator
+extends|extends
+name|Releasable
+block|{
+comment|/**          * Returns the next operation in the translog or<code>null</code> if we reached the end of the stream.          */
+DECL|method|next
+specifier|public
+name|Translog
+operator|.
+name|Operation
+name|next
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+block|}
 DECL|class|Location
 specifier|static
 class|class
@@ -654,7 +710,7 @@ specifier|static
 interface|interface
 name|Snapshot
 extends|extends
-name|Releasable
+name|OperationIterator
 block|{
 comment|/**          * The id of the translog the snapshot was taken with.          */
 DECL|method|translogId
@@ -678,12 +734,6 @@ comment|/**          * The total number of operations in the translog.          
 DECL|method|estimatedTotalOperations
 name|int
 name|estimatedTotalOperations
-parameter_list|()
-function_decl|;
-comment|/**          * Returns the next operation, or null when no more operations are found          */
-DECL|method|next
-name|Operation
-name|next
 parameter_list|()
 function_decl|;
 comment|/**          * Seek to the specified position in the translog stream          */
