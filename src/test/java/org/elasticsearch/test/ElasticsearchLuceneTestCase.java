@@ -341,24 +341,6 @@ name|max
 argument_list|)
 return|;
 block|}
-annotation|@
-name|AfterClass
-DECL|method|clearDefaultQueryCache
-specifier|public
-specifier|static
-name|void
-name|clearDefaultQueryCache
-parameter_list|()
-block|{
-comment|// TODO: remove me when https://issues.apache.org/jira/browse/LUCENE-6406 is fixed
-name|IndexSearcher
-operator|.
-name|setDefaultQueryCache
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
