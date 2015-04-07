@@ -222,15 +222,6 @@ control|)
 block|{
 specifier|final
 name|int
-name|numOps
-init|=
-name|randomInt
-argument_list|(
-literal|5000
-argument_list|)
-decl_stmt|;
-specifier|final
-name|int
 name|valueBits
 init|=
 name|randomIntBetween
@@ -247,6 +238,21 @@ init|=
 name|randomInt
 argument_list|(
 name|valueBits
+argument_list|)
+decl_stmt|;
+comment|// we compute the total number of ops based on the bits of the hash
+comment|// since the test is much heavier when few bits are used for the hash
+specifier|final
+name|int
+name|numOps
+init|=
+name|randomInt
+argument_list|(
+literal|10
+operator|+
+name|hashBits
+operator|*
+literal|100
 argument_list|)
 decl_stmt|;
 name|Map
