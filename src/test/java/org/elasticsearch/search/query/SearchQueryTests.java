@@ -1646,7 +1646,7 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"field \"field1\" was indexed without position data; cannot run PhraseQuery (term=quick"
+literal|"field \"field1\" was indexed without position data; cannot run PhraseQuery"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4988,9 +4988,9 @@ operator|.
 name|getMessage
 argument_list|()
 operator|.
-name|endsWith
+name|contains
 argument_list|(
-literal|"IllegalStateException[field \"field1\" was indexed without position data; cannot run PhraseQuery (term=quick)]; }"
+literal|"IllegalStateException[field \"field1\" was indexed without position data; cannot run PhraseQuery"
 argument_list|)
 argument_list|)
 expr_stmt|;

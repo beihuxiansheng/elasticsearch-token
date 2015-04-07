@@ -814,9 +814,10 @@ name|PAYLOADS
 argument_list|)
 expr_stmt|;
 assert|assert
-name|dpe
-operator|!=
-literal|null
+name|terms
+operator|.
+name|hasPayloads
+argument_list|()
 operator|:
 literal|"field has payloads"
 assert|;
