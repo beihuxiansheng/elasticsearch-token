@@ -348,7 +348,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -362,7 +362,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -386,7 +386,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|ScriptContext
 import|;
 end_import
 
@@ -398,7 +398,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
+name|ScriptService
 import|;
 end_import
 
@@ -2388,7 +2388,7 @@ argument_list|()
 decl_stmt|;
 name|sourceLookup
 operator|.
-name|setNextSource
+name|setSource
 argument_list|(
 name|source
 argument_list|)
