@@ -3087,10 +3087,9 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_10_3
+name|LUCENE_4_10_4
 argument_list|)
 decl_stmt|;
-comment|// TODO 1.4.5 -> 1.6 is lucene 4.10.4 we need the constant here
 DECL|field|V_1_5_0_ID
 specifier|public
 specifier|static
@@ -3124,7 +3123,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_10_3
+name|LUCENE_4_10_4
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_5_1_ID
@@ -3160,7 +3159,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_10_3
+name|LUCENE_4_10_4
 argument_list|)
 decl_stmt|;
 DECL|field|V_1_6_0_ID
@@ -3196,7 +3195,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_4_10_3
+name|LUCENE_4_10_4
 argument_list|)
 decl_stmt|;
 DECL|field|V_2_0_0_ID
