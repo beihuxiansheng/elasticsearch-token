@@ -82,17 +82,7 @@ name|UPDATE
 argument_list|(
 literal|"update"
 argument_list|)
-block|,
-comment|/**          * Generic custom operation exposed via plugin          *          * @deprecated create a new {@link org.elasticsearch.script.ScriptContext.Plugin} instance instead          */
-DECL|enum constant|Deprecated
-annotation|@
-name|Deprecated
-DECL|enum constant|GENERIC_PLUGIN
-name|GENERIC_PLUGIN
-argument_list|(
-literal|"plugin"
-argument_list|)
-decl_stmt|;
+block|;
 DECL|field|key
 specifier|private
 specifier|final
