@@ -2664,18 +2664,8 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// routing nodes
-comment|// gets printed out even if only routing_table was requested for bw comp reasons
 if|if
 condition|(
-name|metrics
-operator|.
-name|contains
-argument_list|(
-name|Metric
-operator|.
-name|ROUTING_TABLE
-argument_list|)
-operator|||
 name|metrics
 operator|.
 name|contains
