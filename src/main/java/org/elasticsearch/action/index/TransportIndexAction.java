@@ -602,12 +602,6 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|request
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
-comment|// we fork on another thread...
 name|CreateIndexRequest
 name|createIndexRequest
 init|=
@@ -775,7 +769,7 @@ annotation|@
 name|Override
 DECL|method|resolveRequest
 specifier|protected
-name|boolean
+name|void
 name|resolveRequest
 parameter_list|(
 name|ClusterState
@@ -863,9 +857,6 @@ name|concreteIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 DECL|method|innerExecute
 specifier|private

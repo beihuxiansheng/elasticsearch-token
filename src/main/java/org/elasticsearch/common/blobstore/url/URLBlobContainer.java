@@ -220,6 +220,33 @@ literal|"URL repository doesn't support this operation"
 argument_list|)
 throw|;
 block|}
+comment|/**      * This operation is not supported by URLBlobContainer      */
+annotation|@
+name|Override
+DECL|method|listBlobsByPrefix
+specifier|public
+name|ImmutableMap
+argument_list|<
+name|String
+argument_list|,
+name|BlobMetaData
+argument_list|>
+name|listBlobsByPrefix
+parameter_list|(
+name|String
+name|blobNamePrefix
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"URL repository doesn't support this operation"
+argument_list|)
+throw|;
+block|}
 annotation|@
 name|Override
 DECL|method|move

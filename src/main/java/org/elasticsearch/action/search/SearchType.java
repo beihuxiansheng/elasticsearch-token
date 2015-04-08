@@ -26,6 +26,18 @@ name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseField
+import|;
+end_import
+
 begin_comment
 comment|/**  * Search type represent the manner at which the search operation is executed.  *  *  */
 end_comment
@@ -86,7 +98,10 @@ operator|)
 literal|4
 argument_list|)
 block|,
-comment|/**      * Only counts the results, will still execute aggregations and the like.      */
+comment|/**      * Only counts the results, will still execute aggregations and the like.      * @deprecated does not any improvements compared to {@link #QUERY_THEN_FETCH} with a `size` of {@code 0}      */
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enum constant|COUNT
 name|COUNT
 argument_list|(
@@ -95,7 +110,7 @@ name|byte
 operator|)
 literal|5
 argument_list|)
-block|;
+decl_stmt|;
 comment|/**      * The default search type ({@link #QUERY_THEN_FETCH}.      */
 DECL|field|DEFAULT
 specifier|public
@@ -105,6 +120,24 @@ name|SearchType
 name|DEFAULT
 init|=
 name|QUERY_THEN_FETCH
+decl_stmt|;
+DECL|field|COUNT_VALUE
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|COUNT_VALUE
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"count"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"query_then_fetch"
+argument_list|)
 decl_stmt|;
 DECL|field|id
 specifier|private
@@ -348,9 +381,9 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"count"
+name|COUNT_VALUE
 operator|.
-name|equals
+name|match
 argument_list|(
 name|searchType
 argument_list|)

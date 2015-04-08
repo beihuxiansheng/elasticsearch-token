@@ -54,6 +54,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|document
+operator|.
+name|SortedNumericDocValuesField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|index
 operator|.
 name|IndexOptions
@@ -395,11 +409,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
-end_comment
-
-begin_comment
-comment|// TODO this can be made better, maybe storing a byte for it?
+comment|/**  * A field mapper for boolean fields.  */
 end_comment
 
 begin_class
@@ -651,6 +661,8 @@ name|boost
 argument_list|,
 name|fieldType
 argument_list|,
+name|docValues
+argument_list|,
 name|nullValue
 argument_list|,
 name|similarity
@@ -867,6 +879,9 @@ name|FieldType
 name|fieldType
 parameter_list|,
 name|Boolean
+name|docValues
+parameter_list|,
+name|Boolean
 name|nullValue
 parameter_list|,
 name|SimilarityProvider
@@ -898,7 +913,7 @@ name|boost
 argument_list|,
 name|fieldType
 argument_list|,
-literal|null
+name|docValues
 argument_list|,
 name|Lucene
 operator|.
@@ -955,7 +970,7 @@ return|return
 operator|new
 name|FieldDataType
 argument_list|(
-literal|"string"
+name|CONTENT_TYPE
 argument_list|)
 return|;
 block|}
@@ -1310,6 +1325,10 @@ argument_list|()
 operator|.
 name|stored
 argument_list|()
+operator|&&
+operator|!
+name|hasDocValues
+argument_list|()
 condition|)
 block|{
 return|return;
@@ -1415,6 +1434,33 @@ name|fieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|hasDocValues
+argument_list|()
+condition|)
+block|{
+name|fields
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SortedNumericDocValuesField
+argument_list|(
+name|names
+operator|.
+name|indexName
+argument_list|()
+argument_list|,
+name|value
+condition|?
+literal|1
+else|:
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1548,18 +1594,6 @@ name|nullValue
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|hasDocValues
-specifier|public
-name|boolean
-name|hasDocValues
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class

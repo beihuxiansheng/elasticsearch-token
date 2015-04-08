@@ -62,6 +62,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|log4j
+operator|.
+name|rolling
+operator|.
+name|SizeBasedTriggeringPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -419,6 +433,13 @@ argument_list|(
 literal|"timeBased"
 argument_list|,
 literal|"org.apache.log4j.rolling.TimeBasedRollingPolicy"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"sizeBased"
+argument_list|,
+literal|"org.apache.log4j.rolling.SizeBasedTriggeringPolicy"
 argument_list|)
 comment|// layouts
 operator|.

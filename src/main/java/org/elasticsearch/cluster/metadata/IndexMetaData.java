@@ -1047,6 +1047,15 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|field|INDEX_SETTING_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_SETTING_PREFIX
+init|=
+literal|"index."
+decl_stmt|;
 DECL|field|SETTING_NUMBER_OF_SHARDS
 specifier|public
 specifier|static

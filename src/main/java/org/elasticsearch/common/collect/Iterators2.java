@@ -115,6 +115,7 @@ argument_list|>
 name|comparator
 parameter_list|)
 block|{
+comment|// TODO: infer type once JI-9019884 is fixed
 specifier|final
 name|PeekingIterator
 argument_list|<
@@ -124,6 +125,9 @@ name|it
 init|=
 name|Iterators
 operator|.
+expr|<
+name|T
+operator|>
 name|peekingIterator
 argument_list|(
 name|iterator

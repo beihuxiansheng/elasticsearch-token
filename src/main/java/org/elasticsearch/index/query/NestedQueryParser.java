@@ -931,8 +931,7 @@ operator|.
 name|v2
 argument_list|()
 argument_list|,
-name|getInnerQuery
-argument_list|()
+name|innerQuery
 argument_list|,
 literal|null
 argument_list|,

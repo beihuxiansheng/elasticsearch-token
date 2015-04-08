@@ -538,19 +538,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|contentUnsafe
-specifier|public
-name|boolean
-name|contentUnsafe
-parameter_list|()
-block|{
-comment|// Netty http decoder always copies over the http content
-return|return
-literal|false
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|content
 specifier|public
 name|BytesReference

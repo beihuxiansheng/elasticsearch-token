@@ -135,11 +135,6 @@ name|?
 argument_list|>
 name|uidFieldData
 decl_stmt|;
-DECL|field|uidByteData
-specifier|private
-name|SortedBinaryDocValues
-name|uidByteData
-decl_stmt|;
 comment|/**      * Default constructor. Only useful for constructing as a placeholder, but should not be used for actual scoring.      */
 DECL|method|RandomScoreFunction
 specifier|public
@@ -219,13 +214,13 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
+DECL|method|getLeafScoreFunction
 specifier|public
-name|void
-name|setNextReader
+name|LeafScoreFunction
+name|getLeafScoreFunction
 parameter_list|(
 name|LeafReaderContext
-name|context
+name|ctx
 parameter_list|)
 block|{
 name|AtomicFieldData
@@ -235,16 +230,18 @@ name|uidFieldData
 operator|.
 name|load
 argument_list|(
-name|context
+name|ctx
 argument_list|)
 decl_stmt|;
+specifier|final
+name|SortedBinaryDocValues
 name|uidByteData
-operator|=
+init|=
 name|leafData
 operator|.
 name|getBytesValues
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|uidByteData
@@ -258,10 +255,13 @@ argument_list|(
 literal|"failed to get uid byte data"
 argument_list|)
 throw|;
-block|}
+return|return
+operator|new
+name|LeafScoreFunction
+argument_list|()
+block|{
 annotation|@
 name|Override
-DECL|method|score
 specifier|public
 name|double
 name|score
@@ -317,7 +317,6 @@ comment|// only use the lower 24 bits to construct a float from 0.0-1.0
 block|}
 annotation|@
 name|Override
-DECL|method|explainScore
 specifier|public
 name|Explanation
 name|explainScore
@@ -325,7 +324,7 @@ parameter_list|(
 name|int
 name|docId
 parameter_list|,
-name|float
+name|Explanation
 name|subQueryScore
 parameter_list|)
 block|{
@@ -349,6 +348,9 @@ argument_list|)
 expr_stmt|;
 return|return
 name|exp
+return|;
+block|}
+block|}
 return|;
 block|}
 block|}

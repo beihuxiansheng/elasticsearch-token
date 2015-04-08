@@ -460,11 +460,6 @@ name|getRestContent
 argument_list|(
 name|restRequest
 argument_list|)
-argument_list|,
-name|restRequest
-operator|.
-name|contentUnsafe
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|percolateRequest
@@ -713,11 +708,6 @@ name|getRestContent
 argument_list|(
 name|restRequest
 argument_list|)
-argument_list|,
-name|restRequest
-operator|.
-name|contentUnsafe
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|percolateRequest

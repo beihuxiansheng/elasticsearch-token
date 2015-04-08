@@ -382,51 +382,11 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThanOrEqualTo
+name|*
 import|;
 end_import
 
@@ -3387,7 +3347,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
-literal|10
+literal|5
 argument_list|)
 operator|.
 name|put
@@ -3539,7 +3499,7 @@ argument_list|(
 name|IDX
 argument_list|)
 expr_stmt|;
-comment|// start a third node, with 10 shards each on the other nodes, they
+comment|// start a third node, with 5 shards each on the other nodes, they
 comment|// should relocate some to the third node
 specifier|final
 name|String
@@ -3627,7 +3587,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> node has {} shards"
+literal|"--> node has {} shards (needs at least 2)"
 argument_list|,
 name|node
 operator|.
@@ -3637,7 +3597,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"at least 5 shards on node"
+literal|"at least 2 shards on node"
 argument_list|,
 name|node
 operator|.
@@ -3646,7 +3606,7 @@ argument_list|()
 argument_list|,
 name|greaterThanOrEqualTo
 argument_list|(
-literal|5
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3655,7 +3615,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|ensureGreen
+name|ensureYellow
 argument_list|(
 name|IDX
 argument_list|)

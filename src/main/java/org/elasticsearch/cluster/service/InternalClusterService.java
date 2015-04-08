@@ -1056,6 +1056,15 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|transportService
+operator|.
+name|setLocalNode
+argument_list|(
+name|localNode
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

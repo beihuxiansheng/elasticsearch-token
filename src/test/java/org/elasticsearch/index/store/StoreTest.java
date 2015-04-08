@@ -1471,7 +1471,7 @@ name|writeInt
 argument_list|(
 name|si
 operator|.
-name|getDocCount
+name|maxDoc
 argument_list|()
 argument_list|)
 expr_stmt|;

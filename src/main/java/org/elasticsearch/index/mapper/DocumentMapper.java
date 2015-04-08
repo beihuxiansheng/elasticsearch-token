@@ -674,6 +674,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
 import|;
 end_import
@@ -2657,6 +2669,11 @@ operator|.
 name|type
 operator|+
 literal|"]"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2763,6 +2780,11 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"Malformed content, must start with an object"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2812,6 +2834,11 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"Malformed content, after first object, either the type field or the actual properties should exist"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2930,6 +2957,11 @@ operator|new
 name|MapperParsingException
 argument_list|(
 literal|"failed to parse, document is empty"
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -2940,6 +2972,11 @@ argument_list|(
 literal|"failed to parse"
 argument_list|,
 name|e
+argument_list|,
+name|context
+operator|.
+name|mappingsModified
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -4393,6 +4430,12 @@ argument_list|,
 name|script
 argument_list|,
 name|scriptType
+argument_list|,
+name|ScriptContext
+operator|.
+name|Standard
+operator|.
+name|MAPPING
 argument_list|,
 name|parameters
 argument_list|)

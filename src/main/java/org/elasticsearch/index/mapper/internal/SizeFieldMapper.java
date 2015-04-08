@@ -774,7 +774,7 @@ name|BOOST
 argument_list|,
 name|fieldType
 argument_list|,
-literal|null
+literal|false
 argument_list|,
 name|Defaults
 operator|.
@@ -810,18 +810,6 @@ name|enabledState
 operator|=
 name|enabled
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|hasDocValues
-specifier|public
-name|boolean
-name|hasDocValues
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 annotation|@
 name|Override
@@ -1015,7 +1003,7 @@ operator|.
 name|ENABLED_STATE
 operator|&&
 operator|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|==
 literal|false
 operator|||
@@ -1066,7 +1054,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|writePre2xSettings
+name|indexCreatedBefore2x
 operator|&&
 operator|(
 name|includeDefaults

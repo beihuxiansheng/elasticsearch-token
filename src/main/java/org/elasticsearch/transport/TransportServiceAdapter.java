@@ -108,9 +108,9 @@ name|Throwable
 name|t
 parameter_list|)
 function_decl|;
-comment|/**      * called by the {@link Transport) implementation when a response or an exception has been recieved for a previously      * sent request (before any processing or deserialization was done      */
+comment|/**      * called by the {@link Transport) implementation when a response or an exception has been recieved for a previously      * sent request (before any processing or deserialization was done). Returns the appropriate response handler or null if not      * found.      */
 DECL|method|onResponseReceived
-name|void
+name|TransportResponseHandler
 name|onResponseReceived
 parameter_list|(
 name|long
@@ -135,14 +135,6 @@ name|handler
 parameter_list|(
 name|String
 name|action
-parameter_list|)
-function_decl|;
-DECL|method|remove
-name|TransportResponseHandler
-name|remove
-parameter_list|(
-name|long
-name|requestId
 parameter_list|)
 function_decl|;
 DECL|method|raiseNodeConnected

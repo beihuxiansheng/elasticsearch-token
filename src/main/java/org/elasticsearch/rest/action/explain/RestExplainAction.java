@@ -515,11 +515,6 @@ name|request
 operator|.
 name|content
 argument_list|()
-argument_list|,
-name|request
-operator|.
-name|contentUnsafe
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -545,8 +540,6 @@ argument_list|(
 literal|"source"
 argument_list|)
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

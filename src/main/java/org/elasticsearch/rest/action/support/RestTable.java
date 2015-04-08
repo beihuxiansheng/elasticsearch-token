@@ -694,8 +694,6 @@ name|bytesOut
 operator|.
 name|bytes
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 return|;
 block|}

@@ -314,6 +314,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|rest
+operator|.
+name|FakeRestRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -2096,12 +2110,7 @@ name|client
 operator|.
 name|prepareMultiGet
 argument_list|()
-block|,
-name|client
-operator|.
-name|prepareBenchStatus
-argument_list|()
-block|}
+block|,         }
 decl_stmt|;
 for|for
 control|(

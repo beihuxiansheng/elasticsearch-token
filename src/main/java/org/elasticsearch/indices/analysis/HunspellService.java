@@ -60,6 +60,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|UncheckedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -172,7 +188,7 @@ name|java
 operator|.
 name|io
 operator|.
-name|*
+name|IOException
 import|;
 end_import
 
@@ -180,9 +196,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
+name|io
 operator|.
-name|MalformedURLException
+name|InputStream
 import|;
 end_import
 
@@ -654,6 +670,8 @@ argument_list|()
 condition|)
 block|{
 comment|// just making sure it's indeed a dictionary dir
+try|try
+block|{
 name|dictionaries
 operator|.
 name|getUnchecked
@@ -667,6 +685,30 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UncheckedExecutionException
+name|e
+parameter_list|)
+block|{
+comment|// The cache loader throws unchecked exception (see #loadDictionary()),
+comment|// here we simply report the exception and continue loading the dictionaries
+name|logger
+operator|.
+name|error
+argument_list|(
+literal|"exception while loading dictionary {}"
+argument_list|,
+name|file
+operator|.
+name|getFileName
+argument_list|()
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

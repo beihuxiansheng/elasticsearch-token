@@ -679,7 +679,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"[field \"field1\" was indexed without position data; cannot run PhraseQuery (term=quick)]"
+literal|"[field \"field1\" was indexed without position data; cannot run PhraseQuery"
 argument_list|)
 argument_list|)
 expr_stmt|;

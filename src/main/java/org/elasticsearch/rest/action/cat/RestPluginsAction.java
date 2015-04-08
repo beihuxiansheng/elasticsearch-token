@@ -563,6 +563,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"id"
+argument_list|,
+literal|"default:false;desc:unique node id"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"name"
 argument_list|,
 literal|"alias:n;desc:node name"
@@ -698,6 +707,16 @@ name|table
 operator|.
 name|startRow
 argument_list|()
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|node
+operator|.
+name|id
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|table
 operator|.

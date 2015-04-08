@@ -282,18 +282,6 @@ operator|)
 name|this
 return|;
 block|}
-DECL|method|beforeStart
-specifier|protected
-name|void
-name|beforeStart
-parameter_list|()
-block|{      }
-DECL|method|beforeLocalFork
-specifier|protected
-name|void
-name|beforeLocalFork
-parameter_list|()
-block|{      }
 annotation|@
 name|Override
 DECL|method|writeTo

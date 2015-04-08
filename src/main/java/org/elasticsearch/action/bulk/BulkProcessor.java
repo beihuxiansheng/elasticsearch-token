@@ -1116,9 +1116,6 @@ parameter_list|(
 name|BytesReference
 name|data
 parameter_list|,
-name|boolean
-name|contentUnsafe
-parameter_list|,
 annotation|@
 name|Nullable
 name|String
@@ -1137,8 +1134,6 @@ name|add
 argument_list|(
 name|data
 argument_list|,
-name|contentUnsafe
-argument_list|,
 name|defaultIndex
 argument_list|,
 name|defaultType
@@ -1155,9 +1150,6 @@ name|add
 parameter_list|(
 name|BytesReference
 name|data
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1182,8 +1174,6 @@ operator|.
 name|add
 argument_list|(
 name|data
-argument_list|,
-name|contentUnsafe
 argument_list|,
 name|defaultIndex
 argument_list|,

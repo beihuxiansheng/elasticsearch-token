@@ -40,20 +40,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|LeafReaderContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Scorer
@@ -82,7 +68,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|SearchScript
+name|LeafSearchScript
 import|;
 end_import
 
@@ -196,7 +182,7 @@ specifier|static
 class|class
 name|FakeSearchScript
 implements|implements
-name|SearchScript
+name|LeafSearchScript
 block|{
 DECL|field|values
 specifier|private
@@ -326,17 +312,6 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNextReader
-specifier|public
-name|void
-name|setNextReader
-parameter_list|(
-name|LeafReaderContext
-name|reader
-parameter_list|)
-block|{         }
-annotation|@
-name|Override
 DECL|method|setScorer
 specifier|public
 name|void
@@ -348,10 +323,10 @@ parameter_list|)
 block|{         }
 annotation|@
 name|Override
-DECL|method|setNextDocId
+DECL|method|setDocument
 specifier|public
 name|void
-name|setNextDocId
+name|setDocument
 parameter_list|(
 name|int
 name|doc
@@ -364,10 +339,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setNextSource
+DECL|method|setSource
 specifier|public
 name|void
-name|setNextSource
+name|setSource
 parameter_list|(
 name|Map
 argument_list|<

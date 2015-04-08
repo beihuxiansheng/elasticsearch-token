@@ -9178,6 +9178,7 @@ argument_list|(
 literal|"ip_range"
 argument_list|)
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Range
@@ -9188,7 +9189,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Range
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|range
 operator|.

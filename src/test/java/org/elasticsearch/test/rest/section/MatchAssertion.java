@@ -213,10 +213,10 @@ argument_list|()
 operator|+
 literal|"] was expected to be of type String but is an instanceof ["
 operator|+
+name|safeClass
+argument_list|(
 name|actualValue
-operator|.
-name|getClass
-argument_list|()
+argument_list|)
 operator|+
 literal|"]"
 argument_list|,
@@ -325,10 +325,10 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
+name|safeClass
+argument_list|(
 name|expectedValue
-operator|.
-name|getClass
-argument_list|()
+argument_list|)
 argument_list|)
 condition|)
 block|{

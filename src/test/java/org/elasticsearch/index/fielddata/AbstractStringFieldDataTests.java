@@ -3563,6 +3563,9 @@ argument_list|(
 name|fieldDataType
 argument_list|,
 literal|"value"
+argument_list|,
+name|hasDocValues
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexOrdinalsFieldData
@@ -4716,6 +4719,9 @@ argument_list|(
 name|fieldDataType
 argument_list|,
 literal|"value"
+argument_list|,
+name|hasDocValues
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|IndexOrdinalsFieldData
@@ -4744,6 +4750,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// 3 b/c 1 segment level caches and 1 top level cache
+comment|// in case of doc values, we don't cache atomic FD, so only the top-level cache is there
 name|assertThat
 argument_list|(
 name|indicesFieldDataCache
@@ -4756,7 +4763,12 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|4l
+name|hasDocValues
+argument_list|()
+condition|?
+literal|1L
+else|:
+literal|4L
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4827,7 +4839,12 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3l
+name|hasDocValues
+argument_list|()
+condition|?
+literal|0L
+else|:
+literal|3L
 argument_list|)
 argument_list|)
 expr_stmt|;

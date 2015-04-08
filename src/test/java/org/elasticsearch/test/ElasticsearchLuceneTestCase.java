@@ -120,6 +120,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|IndexSearcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|LuceneTestCase
@@ -185,6 +199,16 @@ operator|.
 name|listeners
 operator|.
 name|ReproduceInfoPrinter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|AfterClass
 import|;
 end_import
 

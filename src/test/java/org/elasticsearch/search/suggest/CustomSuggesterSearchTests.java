@@ -466,6 +466,7 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+comment|// TODO: infer type once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Suggest
@@ -489,6 +490,24 @@ name|suggestions
 init|=
 name|Lists
 operator|.
+expr|<
+name|Suggest
+operator|.
+name|Suggestion
+operator|.
+name|Entry
+argument_list|<
+name|?
+extends|extends
+name|Suggest
+operator|.
+name|Suggestion
+operator|.
+name|Entry
+operator|.
+name|Option
+argument_list|>
+operator|>
 name|newArrayList
 argument_list|(
 name|searchResponse

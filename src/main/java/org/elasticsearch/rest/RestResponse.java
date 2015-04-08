@@ -142,14 +142,6 @@ name|String
 name|contentType
 parameter_list|()
 function_decl|;
-comment|/**      * Can the content byte[] be used only with this thread (<tt>false</tt>), or by any thread (<tt>true</tt>).      */
-DECL|method|contentThreadSafe
-specifier|public
-specifier|abstract
-name|boolean
-name|contentThreadSafe
-parameter_list|()
-function_decl|;
 comment|/**      * The response content. Note, if the content is {@link org.elasticsearch.common.lease.Releasable} it      * should automatically be released when done by the channel sending it.      */
 DECL|method|content
 specifier|public

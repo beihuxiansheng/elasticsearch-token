@@ -502,6 +502,24 @@ literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertThat
+argument_list|(
+name|searchResponse
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|getHits
+argument_list|()
+operator|.
+name|length
+argument_list|,
+name|equalTo
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// start scrolling, until we get not results
 while|while
 condition|(

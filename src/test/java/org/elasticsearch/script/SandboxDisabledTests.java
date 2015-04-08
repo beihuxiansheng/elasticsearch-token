@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|settings
@@ -86,7 +96,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
+name|containsString
 import|;
 end_import
 
@@ -153,11 +163,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ScriptService
-operator|.
-name|DISABLE_DYNAMIC_SCRIPTING_SETTING
+literal|"script.inline"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 operator|.
 name|build
@@ -233,19 +241,16 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-name|e
+name|ExceptionsHelper
 operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|contains
+name|detailedMessage
 argument_list|(
-literal|"dynamic scripting for [groovy] disabled"
+name|e
 argument_list|)
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|true
+literal|"scripts of type [inline], operation [search] and lang [groovy] are disabled"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -1128,6 +1128,9 @@ block|{
 name|super
 argument_list|(
 name|transport
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

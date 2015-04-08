@@ -1008,6 +1008,13 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"created new InternalEngine"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createSearcherManager
 specifier|private
@@ -2878,6 +2885,9 @@ argument_list|)
 throw|;
 block|}
 name|maybePruneDeletedTombstones
+argument_list|()
+expr_stmt|;
+name|checkVersionMapRefresh
 argument_list|()
 expr_stmt|;
 block|}

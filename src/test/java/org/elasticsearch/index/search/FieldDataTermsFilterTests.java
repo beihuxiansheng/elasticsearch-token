@@ -613,6 +613,11 @@ argument_list|(
 literal|"str_value"
 argument_list|)
 operator|.
+name|docValues
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|build
 argument_list|(
 operator|new
@@ -640,6 +645,11 @@ argument_list|(
 literal|"lng_value"
 argument_list|)
 operator|.
+name|docValues
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|build
 argument_list|(
 operator|new
@@ -665,6 +675,11 @@ operator|.
 name|Builder
 argument_list|(
 literal|"dbl_value"
+argument_list|)
+operator|.
+name|docValues
+argument_list|(
+literal|false
 argument_list|)
 operator|.
 name|build

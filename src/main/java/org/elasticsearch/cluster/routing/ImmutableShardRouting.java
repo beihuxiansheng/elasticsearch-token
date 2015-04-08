@@ -1366,9 +1366,11 @@ name|currentNodeId
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|index
@@ -1418,9 +1420,11 @@ name|relocatingNodeId
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 if|if
 condition|(
 name|state
@@ -1456,9 +1460,11 @@ name|restoreSource
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 literal|true
 return|;

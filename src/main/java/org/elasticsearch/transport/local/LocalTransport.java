@@ -1382,8 +1382,6 @@ operator|new
 name|BytesStreamInput
 argument_list|(
 name|data
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|stream
@@ -1438,21 +1436,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// notify with response before we process it and before we remove information about it.
-name|transportServiceAdapter
-operator|.
-name|onResponseReceived
-argument_list|(
-name|requestId
-argument_list|)
-expr_stmt|;
 specifier|final
 name|TransportResponseHandler
 name|handler
 init|=
 name|transportServiceAdapter
 operator|.
-name|remove
+name|onResponseReceived
 argument_list|(
 name|requestId
 argument_list|)
@@ -1516,7 +1506,7 @@ name|handler
 init|=
 name|transportServiceAdapter
 operator|.
-name|remove
+name|onResponseReceived
 argument_list|(
 name|sendRequestId
 argument_list|)
@@ -1686,16 +1676,19 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|handler
-operator|.
-name|executor
-argument_list|()
-operator|==
 name|ThreadPool
 operator|.
 name|Names
 operator|.
 name|SAME
+operator|.
+name|equals
+argument_list|(
+name|handler
+operator|.
+name|executor
+argument_list|()
+argument_list|)
 condition|)
 block|{
 comment|//noinspection unchecked

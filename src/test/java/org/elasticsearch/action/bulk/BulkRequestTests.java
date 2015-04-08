@@ -293,8 +293,6 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -451,8 +449,6 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -517,8 +513,6 @@ operator|.
 name|length
 argument_list|()
 argument_list|,
-literal|true
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -582,8 +576,6 @@ name|bulkAction
 operator|.
 name|length
 argument_list|()
-argument_list|,
-literal|true
 argument_list|,
 literal|null
 argument_list|,
@@ -954,8 +946,6 @@ name|UTF_8
 argument_list|)
 argument_list|)
 argument_list|,
-literal|true
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -998,8 +988,6 @@ operator|.
 name|UTF_8
 argument_list|)
 argument_list|)
-argument_list|,
-literal|true
 argument_list|,
 literal|"test"
 argument_list|,

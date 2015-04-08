@@ -196,34 +196,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -279,16 +251,6 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -2259,7 +2221,9 @@ name|actionGet
 argument_list|()
 expr_stmt|;
 name|fail
-argument_list|()
+argument_list|(
+literal|"index with missing routing when routing is required should fail"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2346,9 +2310,11 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> deleting with no routing, should broadcast the delete since _routing is required"
+literal|"--> deleting with no routing, should fail"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|client
 argument_list|()
 operator|.
@@ -2373,6 +2339,34 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"delete with missing routing when routing is required should fail"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ElasticsearchException
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|unwrapCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|RoutingMissingException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|int
@@ -2413,7 +2407,9 @@ name|isExists
 argument_list|()
 expr_stmt|;
 name|fail
-argument_list|()
+argument_list|(
+literal|"get with missing routing when routing is required should fail"
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -2482,7 +2478,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

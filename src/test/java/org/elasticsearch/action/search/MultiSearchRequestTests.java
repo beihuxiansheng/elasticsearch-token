@@ -140,8 +140,6 @@ name|data
 operator|.
 name|length
 argument_list|,
-literal|false
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -437,7 +435,7 @@ name|equalTo
 argument_list|(
 name|SearchType
 operator|.
-name|COUNT
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -522,8 +520,6 @@ name|data
 operator|.
 name|length
 argument_list|,
-literal|false
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -745,7 +741,7 @@ name|equalTo
 argument_list|(
 name|SearchType
 operator|.
-name|COUNT
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -829,8 +825,6 @@ argument_list|,
 name|data
 operator|.
 name|length
-argument_list|,
-literal|false
 argument_list|,
 literal|null
 argument_list|,
@@ -1132,7 +1126,7 @@ name|equalTo
 argument_list|(
 name|SearchType
 operator|.
-name|COUNT
+name|DFS_QUERY_THEN_FETCH
 argument_list|)
 argument_list|)
 expr_stmt|;

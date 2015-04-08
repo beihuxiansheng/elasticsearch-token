@@ -1355,6 +1355,11 @@ argument_list|(
 literal|"test1"
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|(
+literal|"test1"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|int
 name|docs
@@ -1495,6 +1500,11 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
+name|assertSearchResponse
+argument_list|(
+name|searchResponse
+argument_list|)
+expr_stmt|;
 name|indicesStats
 operator|=
 name|client

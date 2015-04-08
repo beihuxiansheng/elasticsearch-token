@@ -1809,6 +1809,7 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -1819,7 +1820,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -2015,6 +2020,7 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -2025,7 +2031,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -2232,6 +2242,7 @@ operator|new
 name|LongOpenHashSet
 argument_list|()
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -2242,7 +2253,11 @@ name|histoBuckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -2488,6 +2503,7 @@ operator|new
 name|LongOpenHashSet
 argument_list|()
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -2498,7 +2514,11 @@ name|histoBuckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -2786,6 +2806,7 @@ argument_list|(
 literal|"sum.value"
 argument_list|)
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -2796,7 +2817,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -3147,6 +3172,7 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -3157,7 +3183,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -3482,6 +3512,7 @@ name|Double
 operator|.
 name|NEGATIVE_INFINITY
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -3492,7 +3523,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -3846,6 +3881,7 @@ name|Double
 operator|.
 name|POSITIVE_INFINITY
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -3856,7 +3892,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -4205,6 +4245,7 @@ name|Double
 operator|.
 name|NEGATIVE_INFINITY
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -4215,7 +4256,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -4569,6 +4614,7 @@ name|Double
 operator|.
 name|POSITIVE_INFINITY
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -4579,7 +4625,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -4959,6 +5009,7 @@ name|Double
 operator|.
 name|POSITIVE_INFINITY
 decl_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -4969,7 +5020,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -5746,6 +5801,7 @@ name|numValuesBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -5756,7 +5812,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.
@@ -6939,6 +6999,7 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: use diamond once JI-9019884 is fixed
 name|List
 argument_list|<
 name|Histogram
@@ -6949,7 +7010,11 @@ name|buckets
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Histogram
+operator|.
+name|Bucket
+argument_list|>
 argument_list|(
 name|histo
 operator|.

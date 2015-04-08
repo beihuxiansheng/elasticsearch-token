@@ -1025,7 +1025,7 @@ literal|true
 expr_stmt|;
 name|reason
 operator|=
-literal|"recovery_after_time was set to ["
+literal|"recover_after_time was set to ["
 operator|+
 name|recoverAfterTime
 operator|+
@@ -1291,7 +1291,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"recovery_after_time [{}] elapsed. performing state recovery..."
+literal|"recover_after_time [{}] elapsed. performing state recovery..."
 argument_list|,
 name|recoverAfterTime
 argument_list|)

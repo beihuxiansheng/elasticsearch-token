@@ -382,9 +382,6 @@ parameter_list|,
 name|int
 name|length
 parameter_list|,
-name|boolean
-name|contentUnsafe
-parameter_list|,
 annotation|@
 name|Nullable
 name|String
@@ -418,8 +415,6 @@ argument_list|,
 name|length
 argument_list|)
 argument_list|,
-name|contentUnsafe
-argument_list|,
 name|indices
 argument_list|,
 name|types
@@ -444,9 +439,6 @@ name|add
 parameter_list|(
 name|BytesReference
 name|data
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 annotation|@
 name|Nullable
@@ -476,8 +468,6 @@ name|add
 argument_list|(
 name|data
 argument_list|,
-name|contentUnsafe
-argument_list|,
 name|indices
 argument_list|,
 name|types
@@ -499,9 +489,6 @@ name|add
 parameter_list|(
 name|BytesReference
 name|data
-parameter_list|,
-name|boolean
-name|contentUnsafe
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1410,8 +1397,6 @@ name|nextMarker
 operator|-
 name|from
 argument_list|)
-argument_list|,
-name|contentUnsafe
 argument_list|)
 expr_stmt|;
 comment|// move pointers

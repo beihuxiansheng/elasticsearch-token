@@ -174,6 +174,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndicesService
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|nio
@@ -209,12 +221,6 @@ specifier|private
 specifier|final
 name|NodeEnvironment
 name|nodeEnv
-decl_stmt|;
-DECL|field|shardsState
-specifier|private
-specifier|final
-name|GatewayShardsState
-name|shardsState
 decl_stmt|;
 DECL|field|metaState
 specifier|private
@@ -254,9 +260,6 @@ name|clusterService
 parameter_list|,
 name|NodeEnvironment
 name|nodeEnv
-parameter_list|,
-name|GatewayShardsState
-name|shardsState
 parameter_list|,
 name|GatewayMetaState
 name|metaState
@@ -302,12 +305,6 @@ operator|.
 name|clusterName
 operator|=
 name|clusterName
-expr_stmt|;
-name|this
-operator|.
-name|shardsState
-operator|=
-name|shardsState
 expr_stmt|;
 name|clusterService
 operator|.
@@ -1089,13 +1086,6 @@ block|{
 comment|// order is important, first metaState, and then shardsState
 comment|// so dangling indices will be recorded
 name|metaState
-operator|.
-name|clusterChanged
-argument_list|(
-name|event
-argument_list|)
-expr_stmt|;
-name|shardsState
 operator|.
 name|clusterChanged
 argument_list|(

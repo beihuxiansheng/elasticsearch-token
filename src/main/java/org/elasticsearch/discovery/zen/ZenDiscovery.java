@@ -1394,8 +1394,6 @@ name|SETTING_JOIN_RETRY_ATTEMPTS
 operator|+
 literal|"' must be a positive number. got ["
 operator|+
-name|this
-operator|.
 name|SETTING_JOIN_RETRY_ATTEMPTS
 operator|+
 literal|"]"

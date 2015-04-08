@@ -182,6 +182,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|uid
+operator|.
+name|Versions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -6106,7 +6122,6 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// From translog:
-comment|// version 0 means ignore version, which is the default
 name|response
 operator|=
 name|client
@@ -6124,7 +6139,9 @@ argument_list|)
 operator|.
 name|setVersion
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 operator|.
 name|get
@@ -6270,7 +6287,6 @@ comment|// From Lucene index:
 name|refresh
 argument_list|()
 expr_stmt|;
-comment|// version 0 means ignore version, which is the default
 name|response
 operator|=
 name|client
@@ -6288,7 +6304,9 @@ argument_list|)
 operator|.
 name|setVersion
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 operator|.
 name|setRealtime
@@ -6505,7 +6523,6 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// From translog:
-comment|// version 0 means ignore version, which is the default
 name|response
 operator|=
 name|client
@@ -6523,7 +6540,9 @@ argument_list|)
 operator|.
 name|setVersion
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 operator|.
 name|get
@@ -6695,7 +6714,6 @@ comment|// From Lucene index:
 name|refresh
 argument_list|()
 expr_stmt|;
-comment|// version 0 means ignore version, which is the default
 name|response
 operator|=
 name|client
@@ -6713,7 +6731,9 @@ argument_list|)
 operator|.
 name|setVersion
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 operator|.
 name|setRealtime
@@ -7073,7 +7093,9 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 argument_list|)
 operator|.
@@ -7442,7 +7464,9 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 argument_list|)
 operator|.
@@ -7820,7 +7844,9 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 argument_list|)
 operator|.
@@ -8208,7 +8234,9 @@ argument_list|)
 operator|.
 name|version
 argument_list|(
-literal|0
+name|Versions
+operator|.
+name|MATCH_ANY
 argument_list|)
 argument_list|)
 operator|.

@@ -464,7 +464,13 @@ block|{
 throw|throw
 operator|new
 name|ElasticsearchIllegalStateException
-argument_list|()
+argument_list|(
+literal|"search_type ["
+operator|+
+name|searchType
+operator|+
+literal|"] not supported"
+argument_list|)
 throw|;
 block|}
 block|}
