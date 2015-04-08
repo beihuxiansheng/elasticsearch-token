@@ -589,6 +589,15 @@ argument_list|,
 literal|"abstain refrain desist"
 argument_list|)
 expr_stmt|;
+name|match
+argument_list|(
+literal|"synonymAnalyzerWithsettings"
+argument_list|,
+literal|"kimchy"
+argument_list|,
+literal|"sha hay"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|match
 specifier|private
