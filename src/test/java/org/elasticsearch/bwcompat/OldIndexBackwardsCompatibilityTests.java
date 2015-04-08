@@ -893,7 +893,7 @@ argument_list|()
 operator|.
 name|startNodesAsync
 argument_list|(
-literal|2
+literal|1
 argument_list|)
 decl_stmt|;
 comment|// for replicas
@@ -2386,12 +2386,7 @@ specifier|final
 name|int
 name|numReplicas
 init|=
-name|randomIntBetween
-argument_list|(
 literal|1
-argument_list|,
-literal|2
-argument_list|)
 decl_stmt|;
 specifier|final
 name|long
