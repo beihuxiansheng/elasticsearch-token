@@ -2453,6 +2453,13 @@ argument_list|)
 expr_stmt|;
 name|ensureGreen
 argument_list|(
+name|TimeValue
+operator|.
+name|timeValueMinutes
+argument_list|(
+literal|1
+argument_list|)
+argument_list|,
 name|indexName
 argument_list|)
 expr_stmt|;
