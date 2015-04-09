@@ -1056,7 +1056,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                               unexpected exception when opening the index reading the segments file.      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                               unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException  if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException  if the lucene index is too new to be opened.      */
 DECL|method|getMetadataOrEmpty
 specifier|public
 name|MetadataSnapshot
@@ -1104,7 +1104,7 @@ operator|.
 name|EMPTY
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException  if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException  if the lucene index is too new to be opened.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1120,7 +1120,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException  if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException  if the lucene index is too new to be opened.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -2853,9 +2853,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|failIfCorrupted
-argument_list|()
-expr_stmt|;
 name|metadataLock
 operator|.
 name|writeLock

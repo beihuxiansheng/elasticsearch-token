@@ -6601,7 +6601,7 @@ return|return
 name|flushOnClose
 return|;
 block|}
-comment|/**      * Deletes the shards metadata state. This method can only be executed if the shard is not active.      * @throws IOException if the delete fails      */
+comment|/**      * Deletes the shards metadata state. This method can only be executed if the shard is not active.      *      * @throws IOException if the delete fails      */
 DECL|method|deleteShardState
 specifier|public
 name|void
@@ -6632,7 +6632,7 @@ throw|throw
 operator|new
 name|ElasticsearchIllegalStateException
 argument_list|(
-literal|"Can't delete shard state on a active shard"
+literal|"Can't delete shard state on an active shard"
 argument_list|)
 throw|;
 block|}
@@ -7828,6 +7828,38 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// delete the shard state so this folder will not be reused
+name|MetaDataStateFormat
+operator|.
+name|deleteMetaState
+argument_list|(
+name|nodeEnv
+operator|.
+name|shardPaths
+argument_list|(
+name|shardId
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to delete shard state"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 for|for
 control|(
 name|Engine
@@ -7868,31 +7900,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-try|try
-block|{
-name|deleteShardState
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to delete shard state"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

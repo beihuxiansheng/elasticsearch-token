@@ -1077,7 +1077,6 @@ argument_list|,
 name|recoveryStatus
 argument_list|)
 expr_stmt|;
-specifier|final
 name|Map
 argument_list|<
 name|String
@@ -1104,15 +1103,43 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|IOException
 name|e
 parameter_list|)
 block|{
 name|logger
 operator|.
-name|debug
+name|warn
 argument_list|(
-literal|"error while listing local files, recovery as if there are none"
+literal|"error while listing local files, recover as if there are none"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|existingFiles
+operator|=
+name|Store
+operator|.
+name|MetadataSnapshot
+operator|.
+name|EMPTY
+operator|.
+name|asMap
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// this will be logged as warning later on...
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"unexpected error while listing local files, failing recovery"
 argument_list|,
 name|e
 argument_list|)
