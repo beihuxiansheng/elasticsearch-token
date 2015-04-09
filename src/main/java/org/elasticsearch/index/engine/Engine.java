@@ -747,9 +747,11 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|getClass
-argument_list|()
+name|Engine
+operator|.
+name|class
 argument_list|,
+comment|// we use the engine class directly here to make sure all subclasses have the same logger name
 name|engineConfig
 operator|.
 name|getIndexSettings
