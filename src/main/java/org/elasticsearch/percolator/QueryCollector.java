@@ -701,6 +701,11 @@ argument_list|(
 name|aggregatorCollectors
 argument_list|)
 expr_stmt|;
+name|aggregatorCollector
+operator|.
+name|preCollection
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|postMatch
 specifier|public

@@ -1132,6 +1132,11 @@ name|aggs
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|collector
+operator|.
+name|preCollection
+argument_list|()
+expr_stmt|;
 comment|// A regular search always exclude nested docs, so we use NonNestedDocsFilter.INSTANCE here (otherwise MatchAllDocsQuery would be sufficient)
 comment|// We exclude root doc with uid type#2, this will trigger the bug if we don't reset the root doc when we process a new segment, because
 comment|// root doc type#3 and root doc type#1 have the same segment docid
