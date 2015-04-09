@@ -3842,9 +3842,23 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"starting commit for flush"
+argument_list|)
+expr_stmt|;
 name|commitIndexWriter
 argument_list|(
 name|indexWriter
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
 comment|// we need to refresh in order to clear older version values
