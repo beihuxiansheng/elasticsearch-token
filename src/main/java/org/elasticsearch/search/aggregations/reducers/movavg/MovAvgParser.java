@@ -347,6 +347,19 @@ argument_list|(
 literal|"settings"
 argument_list|)
 decl_stmt|;
+DECL|field|PREDICT
+specifier|public
+specifier|static
+specifier|final
+name|ParseField
+name|PREDICT
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"predict"
+argument_list|)
+decl_stmt|;
 DECL|field|movAvgModelParserMapper
 specifier|private
 specifier|final
@@ -454,6 +467,11 @@ name|model
 init|=
 literal|"simple"
 decl_stmt|;
+name|int
+name|predict
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 operator|(
@@ -520,6 +538,87 @@ operator|.
 name|intValue
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|window
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] value must be a positive, "
+operator|+
+literal|"non-zero integer.  Value supplied was ["
+operator|+
+name|predict
+operator|+
+literal|"] in ["
+operator|+
+name|reducerName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|PREDICT
+operator|.
+name|match
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|predict
+operator|=
+name|parser
+operator|.
+name|intValue
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|predict
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|SearchParseException
+argument_list|(
+name|context
+argument_list|,
+literal|"["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] value must be a positive, "
+operator|+
+literal|"non-zero integer.  Value supplied was ["
+operator|+
+name|predict
+operator|+
+literal|"] in ["
+operator|+
+name|reducerName
+operator|+
+literal|"]."
+argument_list|)
+throw|;
+block|}
 block|}
 else|else
 block|{
@@ -875,7 +974,7 @@ operator|.
 name|getPreferredName
 argument_list|()
 operator|+
-literal|"] for smooth aggregation ["
+literal|"] for movingAvg aggregation ["
 operator|+
 name|reducerName
 operator|+
@@ -976,6 +1075,8 @@ argument_list|,
 name|gapPolicy
 argument_list|,
 name|window
+argument_list|,
+name|predict
 argument_list|,
 name|movAvgModel
 argument_list|)

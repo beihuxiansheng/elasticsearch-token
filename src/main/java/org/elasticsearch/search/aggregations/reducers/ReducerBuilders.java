@@ -122,12 +122,12 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|smooth
+DECL|method|movingAvg
 specifier|public
 specifier|static
 specifier|final
 name|MovAvgBuilder
-name|smooth
+name|movingAvg
 parameter_list|(
 name|String
 name|name
