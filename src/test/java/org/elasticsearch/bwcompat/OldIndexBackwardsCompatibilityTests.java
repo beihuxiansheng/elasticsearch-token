@@ -2447,7 +2447,7 @@ name|TimeValue
 operator|.
 name|timeValueMinutes
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|,
 name|indexName
