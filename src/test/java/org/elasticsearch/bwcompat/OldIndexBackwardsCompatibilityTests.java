@@ -1282,16 +1282,6 @@ argument_list|(
 name|indexName
 argument_list|)
 operator|.
-name|setTimeout
-argument_list|(
-name|TimeValue
-operator|.
-name|timeValueMinutes
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-operator|.
 name|get
 argument_list|()
 argument_list|)
