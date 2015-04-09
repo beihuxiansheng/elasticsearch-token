@@ -15,10 +15,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Allows to import data into elasticsearch via plugin  * Gets allocated on a node and eventually automatically re-allocated if needed  */
+comment|/**  * Allows to import data into elasticsearch via plugin  * Gets allocated on a node and eventually automatically re-allocated if needed  * @deprecated See blog post https://www.elastic.co/blog/deprecating_rivers  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|River
 specifier|public
 interface|interface
