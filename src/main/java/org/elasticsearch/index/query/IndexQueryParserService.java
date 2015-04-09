@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|Query
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -633,7 +633,7 @@ name|bitsetFilterCache
 decl_stmt|;
 DECL|field|autoFilterCachePolicy
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 decl_stmt|;
 DECL|field|queryParsers
@@ -715,7 +715,7 @@ parameter_list|,
 name|BitsetFilterCache
 name|bitsetFilterCache
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 parameter_list|,
 annotation|@
@@ -1206,7 +1206,7 @@ return|;
 block|}
 DECL|method|autoFilterCachePolicy
 specifier|public
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 parameter_list|()
 block|{

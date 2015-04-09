@@ -110,6 +110,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BooleanQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|ConstantScoreQuery
 import|;
 end_import
@@ -452,7 +466,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|XBooleanFilter
+name|Queries
 import|;
 end_import
 
@@ -5896,11 +5910,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|XBooleanFilter
+name|BooleanQuery
 name|booleanFilter
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
 name|booleanFilter
@@ -5934,7 +5948,12 @@ argument_list|)
 expr_stmt|;
 name|filter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 name|booleanFilter
+argument_list|)
 expr_stmt|;
 block|}
 else|else

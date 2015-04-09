@@ -156,7 +156,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -809,7 +809,7 @@ name|Nullable
 name|HashedBytesRef
 name|cacheKey
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 parameter_list|)
 block|{
@@ -902,7 +902,7 @@ decl_stmt|;
 DECL|field|cachePolicy
 specifier|private
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 decl_stmt|;
 DECL|field|cache
@@ -920,7 +920,7 @@ parameter_list|,
 name|Object
 name|cacheKey
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 parameter_list|,
 name|WeightedFilterCache
@@ -1073,8 +1073,6 @@ argument_list|(
 name|filter
 argument_list|,
 name|context
-argument_list|,
-name|uncached
 argument_list|)
 condition|)
 block|{

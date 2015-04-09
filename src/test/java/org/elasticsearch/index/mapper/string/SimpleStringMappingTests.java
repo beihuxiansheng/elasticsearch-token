@@ -126,7 +126,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermFilter
+name|TermsQuery
 import|;
 end_import
 
@@ -138,9 +138,23 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermsFilter
+name|QueryWrapperFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
 import|;
 end_import
 
@@ -4546,7 +4560,8 @@ name|assertEquals
 argument_list|(
 name|Queries
 operator|.
-name|MATCH_NO_FILTER
+name|newMatchNoDocsFilter
+argument_list|()
 argument_list|,
 name|mapper
 operator|.
@@ -4564,7 +4579,10 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 operator|new
-name|TermFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|TermQuery
 argument_list|(
 operator|new
 name|Term
@@ -4572,6 +4590,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"value"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -4593,7 +4612,10 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 operator|new
-name|TermsFilter
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|TermsQuery
 argument_list|(
 operator|new
 name|Term
@@ -4609,6 +4631,7 @@ argument_list|(
 literal|"field"
 argument_list|,
 literal|"value2"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,

@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
-operator|.
-name|TermFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|ConstantScoreQuery
@@ -69,6 +55,20 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
 import|;
 end_import
 
@@ -135,6 +135,22 @@ operator|.
 name|inject
 operator|.
 name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -448,7 +464,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -462,7 +478,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -1709,8 +1725,12 @@ argument_list|()
 operator|.
 name|cache
 argument_list|(
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 operator|new
 name|Term
@@ -1722,6 +1742,7 @@ argument_list|,
 name|PercolatorService
 operator|.
 name|TYPE_NAME
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,

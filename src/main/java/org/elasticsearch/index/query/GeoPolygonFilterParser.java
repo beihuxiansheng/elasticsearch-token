@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -318,7 +318,7 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext

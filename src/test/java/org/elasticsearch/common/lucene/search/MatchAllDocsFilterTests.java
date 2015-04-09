@@ -398,7 +398,8 @@ name|ConstantScoreQuery
 argument_list|(
 name|Queries
 operator|.
-name|MATCH_ALL_FILTER
+name|newMatchAllFilter
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|long

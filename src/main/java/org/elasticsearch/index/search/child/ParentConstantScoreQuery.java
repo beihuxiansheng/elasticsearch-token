@@ -499,9 +499,8 @@ argument_list|()
 condition|)
 block|{
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight
@@ -555,9 +554,8 @@ literal|0
 condition|)
 block|{
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight
@@ -629,9 +627,8 @@ literal|0
 condition|)
 block|{
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight

@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermFilter
+name|Filter
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|TermQuery
 import|;
 end_import
 
@@ -195,6 +195,22 @@ operator|.
 name|joda
 operator|.
 name|FormatDateTimeFormatter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -2731,8 +2747,12 @@ name|this
 operator|.
 name|nestedTypeFilter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 operator|new
 name|Term
@@ -2742,6 +2762,7 @@ operator|.
 name|NAME
 argument_list|,
 name|nestedTypePathAsBytes
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

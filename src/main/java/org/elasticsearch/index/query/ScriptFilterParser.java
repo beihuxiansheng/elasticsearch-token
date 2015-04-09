@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptParameterParser
+name|LeafSearchScript
 import|;
 end_import
 
@@ -198,7 +198,19 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|*
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptParameterParser
 import|;
 end_import
 
@@ -371,7 +383,7 @@ operator|.
 name|Token
 name|token
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext

@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermRangeFilter
+name|TermRangeQuery
 import|;
 end_import
 
@@ -125,6 +125,22 @@ operator|.
 name|lucene
 operator|.
 name|HashedBytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -293,7 +309,7 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext
@@ -1232,8 +1248,12 @@ condition|)
 block|{
 name|filter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermRangeFilter
+name|TermRangeQuery
 argument_list|(
 name|fieldName
 argument_list|,
@@ -1254,6 +1274,7 @@ argument_list|,
 name|includeLower
 argument_list|,
 name|includeUpper
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

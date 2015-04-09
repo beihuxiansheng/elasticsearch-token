@@ -65,10 +65,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that matches documents matching boolean combinations of other filters.  *  *  */
+comment|/**  * A filter that matches documents matching boolean combinations of other filters.  * @deprecated Use {@link BoolFilterBuilder} instead  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AndFilterBuilder
 specifier|public
 class|class
