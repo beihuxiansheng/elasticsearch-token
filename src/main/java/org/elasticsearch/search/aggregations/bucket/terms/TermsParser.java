@@ -293,15 +293,7 @@ operator|new
 name|IncludeExclude
 operator|.
 name|Parser
-argument_list|(
-name|aggregationName
-argument_list|,
-name|StringTerms
-operator|.
-name|TYPE
-argument_list|,
-name|context
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|aggParser
 operator|.
