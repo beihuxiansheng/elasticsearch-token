@@ -3846,7 +3846,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"starting commit for flush"
+literal|"starting commit for flush; commitTranslog=true"
 argument_list|)
 expr_stmt|;
 name|commitIndexWriter
@@ -3955,9 +3955,23 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"starting commit for flush; commitTranslog=false"
+argument_list|)
+expr_stmt|;
 name|commitIndexWriter
 argument_list|(
 name|indexWriter
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
 block|}
