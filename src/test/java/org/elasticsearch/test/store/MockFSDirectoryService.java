@@ -709,7 +709,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Shard state before potentially flushing is {}"
+literal|"{} shard state before potentially flushing is {}"
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
 argument_list|,
 name|indexShard
 operator|.
@@ -742,6 +747,18 @@ block|{
 comment|// When the the internal engine closes we do a rollback, which removes uncommitted segments
 comment|// By doing a commit flush we perform a Lucene commit, but don't clear the translog,
 comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"{} flushing in order to run checkindex"
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Releasables
 operator|.
 name|close
@@ -760,7 +777,12 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"flush finished in beforeIndexShardClosed"
+literal|"{} flush finished in beforeIndexShardClosed"
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|canRun

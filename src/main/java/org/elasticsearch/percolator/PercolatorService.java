@@ -6237,8 +6237,6 @@ argument_list|,
 operator|new
 name|ReduceContext
 argument_list|(
-literal|null
-argument_list|,
 name|bigArrays
 argument_list|,
 name|scriptService
@@ -6325,8 +6323,6 @@ argument_list|,
 operator|new
 name|ReduceContext
 argument_list|(
-literal|null
-argument_list|,
 name|bigArrays
 argument_list|,
 name|scriptService

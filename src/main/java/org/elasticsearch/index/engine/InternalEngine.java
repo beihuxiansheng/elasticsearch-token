@@ -3842,9 +3842,23 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"starting commit for flush; commitTranslog=true"
+argument_list|)
+expr_stmt|;
 name|commitIndexWriter
 argument_list|(
 name|indexWriter
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
 comment|// we need to refresh in order to clear older version values
@@ -3941,9 +3955,23 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"starting commit for flush; commitTranslog=false"
+argument_list|)
+expr_stmt|;
 name|commitIndexWriter
 argument_list|(
 name|indexWriter
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4437,6 +4465,13 @@ name|EngineException
 block|{
 comment|// we have to flush outside of the readlock otherwise we might have a problem upgrading
 comment|// the to a write lock when we fail the engine in this operation
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"start flush for snapshot"
+argument_list|)
+expr_stmt|;
 name|flush
 argument_list|(
 literal|false
@@ -4444,6 +4479,13 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"finish flush for snapshot"
 argument_list|)
 expr_stmt|;
 try|try
@@ -4459,6 +4501,13 @@ init|)
 block|{
 name|ensureOpen
 argument_list|()
+expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"pulling snapshot"
+argument_list|)
 expr_stmt|;
 return|return
 name|deletionPolicy
@@ -5145,6 +5194,28 @@ literal|"Either the write lock must be held or the engine must be currently be f
 assert|;
 try|try
 block|{
+try|try
+block|{
+name|translog
+operator|.
+name|sync
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failed to sync translog"
+argument_list|)
+expr_stmt|;
+block|}
 name|this
 operator|.
 name|versionMap

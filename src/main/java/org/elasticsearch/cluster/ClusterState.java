@@ -72,16 +72,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|block
@@ -1371,6 +1361,12 @@ DECL|enum constant|ROUTING_TABLE
 name|ROUTING_TABLE
 argument_list|(
 literal|"routing_table"
+argument_list|)
+block|,
+DECL|enum constant|ROUTING_NODES
+name|ROUTING_NODES
+argument_list|(
+literal|"routing_nodes"
 argument_list|)
 block|,
 DECL|enum constant|CUSTOMS
@@ -2676,7 +2672,7 @@ name|contains
 argument_list|(
 name|Metric
 operator|.
-name|ROUTING_TABLE
+name|ROUTING_NODES
 argument_list|)
 condition|)
 block|{

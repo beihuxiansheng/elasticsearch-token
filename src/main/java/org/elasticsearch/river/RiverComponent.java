@@ -15,10 +15,12 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * @deprecated See blog post https://www.elastic.co/blog/deprecating_rivers  */
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|RiverComponent
 specifier|public
 interface|interface

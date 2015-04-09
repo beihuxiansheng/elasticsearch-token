@@ -811,6 +811,13 @@ return|return;
 block|}
 name|logger
 operator|.
+name|info
+argument_list|(
+literal|"rivers have been deprecated. Read https://www.elastic.co/blog/deprecating_rivers"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
 name|debug
 argument_list|(
 literal|"creating river [{}][{}]"

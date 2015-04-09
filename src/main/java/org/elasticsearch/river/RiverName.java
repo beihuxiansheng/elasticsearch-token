@@ -25,10 +25,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * @deprecated See blog post https://www.elastic.co/blog/deprecating_rivers  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RiverName
 specifier|public
 class|class

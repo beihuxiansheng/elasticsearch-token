@@ -330,6 +330,8 @@ DECL|field|includeExclude
 specifier|private
 specifier|final
 name|IncludeExclude
+operator|.
+name|StringFilter
 name|includeExclude
 decl_stmt|;
 DECL|method|StringTermsAggregator
@@ -354,6 +356,8 @@ name|BucketCountThresholds
 name|bucketCountThresholds
 parameter_list|,
 name|IncludeExclude
+operator|.
+name|StringFilter
 name|includeExclude
 parameter_list|,
 name|AggregationContext

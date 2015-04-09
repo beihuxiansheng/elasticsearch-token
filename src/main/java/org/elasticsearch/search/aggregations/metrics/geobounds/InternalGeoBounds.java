@@ -402,6 +402,12 @@ specifier|public
 name|InternalAggregation
 name|doReduce
 parameter_list|(
+name|List
+argument_list|<
+name|InternalAggregation
+argument_list|>
+name|aggregations
+parameter_list|,
 name|ReduceContext
 name|reduceContext
 parameter_list|)
@@ -453,10 +459,7 @@ control|(
 name|InternalAggregation
 name|aggregation
 range|:
-name|reduceContext
-operator|.
 name|aggregations
-argument_list|()
 control|)
 block|{
 name|InternalGeoBounds

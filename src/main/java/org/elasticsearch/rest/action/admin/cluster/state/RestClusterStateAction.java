@@ -527,6 +527,7 @@ name|MASTER_NODE
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//there is no distinction in Java api between routing_table and routing_nodes, it's the same info set over the wire, one single flag to ask for it
 name|clusterStateRequest
 operator|.
 name|routingTable
@@ -540,6 +541,17 @@ operator|.
 name|Metric
 operator|.
 name|ROUTING_TABLE
+argument_list|)
+operator|||
+name|metrics
+operator|.
+name|contains
+argument_list|(
+name|ClusterState
+operator|.
+name|Metric
+operator|.
+name|ROUTING_NODES
 argument_list|)
 argument_list|)
 expr_stmt|;
