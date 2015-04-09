@@ -1515,7 +1515,7 @@ block|}
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"indices.recovery:TRACE"
+literal|"test.engine:TRACE,index.engine:TRACE,test.engine.lucene:INFO,index.engine.lucene:INFO"
 argument_list|)
 DECL|method|testOldIndexes
 specifier|public
