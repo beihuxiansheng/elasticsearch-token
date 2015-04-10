@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -111,7 +125,9 @@ name|MatchAllFilterBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * A filter that limits the results to the provided limit value (per shard!).      */
+comment|/**      * A filter that limits the results to the provided limit value (per shard!).      * @deprecated Use {@link SearchRequestBuilder#setTerminateAfter(int)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|limitFilter
 specifier|public
 specifier|static

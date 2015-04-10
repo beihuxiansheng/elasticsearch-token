@@ -2948,9 +2948,10 @@ name|assertHitCount
 argument_list|(
 name|countResponse
 argument_list|,
-literal|2l
+literal|4l
 argument_list|)
 expr_stmt|;
+comment|// limit is a no-op
 block|}
 annotation|@
 name|Test
