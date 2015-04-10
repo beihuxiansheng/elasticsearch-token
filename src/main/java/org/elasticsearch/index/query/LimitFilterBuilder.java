@@ -22,6 +22,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|search
+operator|.
+name|SearchRequestBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -40,7 +54,13 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * @deprecated Use {@link SearchRequestBuilder#setTerminateAfter(int)} instead.  */
+end_comment
+
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|LimitFilterBuilder
 specifier|public
 class|class
