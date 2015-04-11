@@ -3586,7 +3586,7 @@ return|return
 name|table
 return|;
 block|}
-comment|/**      * Calculate the percentage of {@code used} from the {@code max} number.      * @param used The currently used number.      * @param max The maximum number.      * @return 0 if {@code max} is 0. Otherwise 100 * {@code used} / {@code max}.      */
+comment|/**      * Calculate the percentage of {@code used} from the {@code max} number.      * @param used The currently used number.      * @param max The maximum number.      * @return 0 if {@code max} is<= 0. Otherwise 100 * {@code used} / {@code max}.      */
 DECL|method|calculatePercentage
 specifier|private
 name|short
@@ -3601,7 +3601,7 @@ parameter_list|)
 block|{
 return|return
 name|max
-operator|==
+operator|<=
 literal|0
 condition|?
 literal|0
