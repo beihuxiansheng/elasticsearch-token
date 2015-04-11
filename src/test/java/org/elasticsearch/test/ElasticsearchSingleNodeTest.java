@@ -599,6 +599,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"[{}#{}]: cleaning up after test"
+argument_list|,
+name|getTestClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|,
+name|getTestName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|tearDown
