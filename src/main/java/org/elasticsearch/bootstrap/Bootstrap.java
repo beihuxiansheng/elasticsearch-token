@@ -1010,7 +1010,7 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|vmName
+name|getVmName
 argument_list|()
 operator|.
 name|toLowerCase

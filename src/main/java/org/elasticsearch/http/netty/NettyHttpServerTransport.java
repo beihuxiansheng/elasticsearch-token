@@ -1338,10 +1338,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|directMemoryMax
+name|getDirectMemoryMax
 argument_list|()
 operator|.
 name|bytes
@@ -1366,10 +1366,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|directMemoryMax
+name|getDirectMemoryMax
 argument_list|()
 operator|.
 name|bytes

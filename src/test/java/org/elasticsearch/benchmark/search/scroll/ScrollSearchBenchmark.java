@@ -930,7 +930,7 @@ operator|.
 name|jvmStats
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 decl_stmt|;
 name|System
@@ -980,7 +980,7 @@ argument_list|()
 argument_list|,
 name|mem
 operator|.
-name|getHeapUsedPrecent
+name|getHeapUsedPercent
 argument_list|()
 argument_list|)
 expr_stmt|;
