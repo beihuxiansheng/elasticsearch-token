@@ -1247,7 +1247,7 @@ operator|)
 name|serviceA
 operator|)
 operator|.
-name|getLocalNodeId
+name|getLocalNode
 argument_list|()
 operator|!=
 literal|null
