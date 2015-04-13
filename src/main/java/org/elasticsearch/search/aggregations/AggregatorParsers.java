@@ -1058,7 +1058,6 @@ literal|"] cannot define sub-aggregations"
 argument_list|)
 throw|;
 block|}
-comment|// TODO: should we validate here like aggs?
 name|factories
 operator|.
 name|addReducer

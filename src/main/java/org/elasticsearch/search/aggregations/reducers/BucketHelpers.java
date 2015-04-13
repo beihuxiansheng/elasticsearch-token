@@ -625,7 +625,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|aggPathsList
+name|aggPathAsList
 parameter_list|,
 name|GapPolicy
 name|gapPolicy
@@ -645,7 +645,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|aggPathsList
+name|aggPathAsList
 argument_list|)
 decl_stmt|;
 if|if
