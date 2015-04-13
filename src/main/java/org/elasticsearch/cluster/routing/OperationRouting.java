@@ -140,6 +140,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -1782,6 +1794,13 @@ return|return
 name|indexShard
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Math#abs is trappy"
+argument_list|)
 DECL|method|shardId
 specifier|private
 name|int

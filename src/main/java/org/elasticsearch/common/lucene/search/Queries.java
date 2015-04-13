@@ -50,6 +50,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -707,53 +719,16 @@ operator|)
 return|;
 block|}
 comment|/**      * Wraps a query in a filter.      *      * If a filter has an anti per segment execution / caching nature then @{@link CustomQueryWrappingFilter} is returned      * otherwise the standard {@link org.apache.lucene.search.QueryWrapperFilter} is returned.      */
-DECL|method|wrap
-specifier|public
-specifier|static
-name|Filter
-name|wrap
-parameter_list|(
-name|Query
-name|query
-parameter_list|,
-name|QueryParseContext
-name|context
-parameter_list|)
-block|{
-return|return
-name|FACTORY
-operator|.
-name|wrap
+annotation|@
+name|SuppressForbidden
 argument_list|(
-name|query
-argument_list|,
-name|context
+name|reason
+operator|=
+literal|"QueryWrapperFilter cachability"
 argument_list|)
-return|;
-block|}
-DECL|field|FACTORY
-specifier|private
-specifier|static
-specifier|final
-name|QueryWrapperFilterFactory
-name|FACTORY
-init|=
-operator|new
-name|QueryWrapperFilterFactory
-argument_list|()
-decl_stmt|;
-comment|// NOTE: This is a separate class since we added QueryWrapperFilter as a forbidden API
-comment|// that way we can exclude only the inner class without excluding the entire Queries class
-comment|// and potentially miss a forbidden API usage!
-DECL|class|QueryWrapperFilterFactory
-specifier|private
-specifier|static
-specifier|final
-class|class
-name|QueryWrapperFilterFactory
-block|{
 DECL|method|wrap
 specifier|public
+specifier|static
 name|Filter
 name|wrap
 parameter_list|(
@@ -796,7 +771,6 @@ argument_list|(
 name|query
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 block|}

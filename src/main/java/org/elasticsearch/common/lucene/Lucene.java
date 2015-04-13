@@ -498,6 +498,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -3890,6 +3902,13 @@ name|defaultValue
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Version#parseLeniently() used in a central place"
+argument_list|)
 DECL|class|LenientParser
 specifier|private
 specifier|static

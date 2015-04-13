@@ -72,6 +72,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -423,6 +435,13 @@ parameter_list|()
 block|{          }
 block|}
 comment|/**      * verbose progress system prints to some output stream      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#out"
+argument_list|)
 DECL|class|VerboseProgress
 specifier|public
 specifier|static
