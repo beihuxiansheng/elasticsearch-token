@@ -72,6 +72,18 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -171,8 +183,9 @@ parameter_list|(
 name|FieldInfo
 name|fieldInfo
 parameter_list|,
-name|String
-name|value
+name|byte
+index|[]
+name|bytes
 parameter_list|)
 throws|throws
 name|IOException
@@ -193,8 +206,17 @@ condition|)
 block|{
 name|routing
 operator|=
-name|value
+operator|new
+name|String
+argument_list|(
+name|bytes
+argument_list|,
+name|StandardCharsets
+operator|.
+name|UTF_8
+argument_list|)
 expr_stmt|;
+empty_stmt|;
 block|}
 else|else
 block|{
@@ -204,7 +226,7 @@ name|stringField
 argument_list|(
 name|fieldInfo
 argument_list|,
-name|value
+name|bytes
 argument_list|)
 expr_stmt|;
 block|}
