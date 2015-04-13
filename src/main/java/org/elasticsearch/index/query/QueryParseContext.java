@@ -1657,17 +1657,14 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Nullable
-DECL|method|parseInnerQuery
+comment|/**      * @return a new QueryBuilder based on the current state of the parser      * @throws IOException      */
+DECL|method|parseInnerQueryBuilder
 specifier|public
-name|Query
-name|parseInnerQuery
+name|QueryBuilder
+name|parseInnerQueryBuilder
 parameter_list|()
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 comment|// move to START object
 name|XContentParser
@@ -1822,12 +1819,12 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-name|Query
+name|QueryBuilder
 name|result
 init|=
 name|queryParser
 operator|.
-name|parse
+name|fromXContent
 argument_list|(
 name|this
 argument_list|)
@@ -1864,9 +1861,62 @@ name|nextToken
 argument_list|()
 expr_stmt|;
 block|}
+return|return
+name|result
+return|;
+block|}
+comment|/**      * @deprecated replaced by calls to parseInnerQueryBuilder() and checkCachable() for the resulting queries      */
+annotation|@
+name|Nullable
+annotation|@
+name|Deprecated
+DECL|method|parseInnerQuery
+specifier|public
+name|Query
+name|parseInnerQuery
+parameter_list|()
+throws|throws
+name|IOException
+throws|,
+name|QueryParsingException
+block|{
+name|QueryBuilder
+name|builder
+init|=
+name|parseInnerQueryBuilder
+argument_list|()
+decl_stmt|;
+name|Query
+name|result
+init|=
+name|builder
+operator|.
+name|toQuery
+argument_list|(
+name|this
+argument_list|)
+decl_stmt|;
+name|checkCachable
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
+comment|/**      * Checks if the given lucene query should be cached or wrapped, sets flags in this QueryParseContext accordingly      * @param query      */
+DECL|method|checkCachable
+name|void
+name|checkCachable
+parameter_list|(
+name|Query
+name|query
+parameter_list|)
+block|{
 if|if
 condition|(
-name|result
+name|query
 operator|instanceof
 name|NoCacheQuery
 condition|)
@@ -1882,7 +1932,7 @@ name|CustomQueryWrappingFilter
 operator|.
 name|shouldUseCustomQueryWrappingFilter
 argument_list|(
-name|result
+name|query
 argument_list|)
 condition|)
 block|{
@@ -1890,14 +1940,14 @@ name|requireCustomQueryWrappingFilter
 operator|=
 literal|true
 expr_stmt|;
-comment|// If later on, either directly or indirectly this query gets wrapped in a query filter it must never
-comment|// get cached even if a filter higher up the chain is configured to do this. This will happen, because
-comment|// the result filter will be instance of NoCacheFilter (CustomQueryWrappingFilter) which will in
+comment|// If later on, either directly or indirectly this query gets
+comment|// wrapped in a query filter it must never
+comment|// get cached even if a filter higher up the chain is configured to
+comment|// do this. This will happen, because
+comment|// the result filter will be instance of NoCacheFilter
+comment|// (CustomQueryWrappingFilter) which will in
 comment|// #executeFilterParser() set propagateNoCache to true.
 block|}
-return|return
-name|result
-return|;
 block|}
 annotation|@
 name|Nullable

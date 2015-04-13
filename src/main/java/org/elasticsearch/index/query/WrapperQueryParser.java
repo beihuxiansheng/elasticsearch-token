@@ -91,8 +91,8 @@ DECL|class|WrapperQueryParser
 specifier|public
 class|class
 name|WrapperQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

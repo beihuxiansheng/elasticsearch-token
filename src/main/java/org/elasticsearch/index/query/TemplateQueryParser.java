@@ -201,8 +201,8 @@ DECL|class|TemplateQueryParser
 specifier|public
 class|class
 name|TemplateQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 comment|/** Name to reference this type of query. */
 DECL|field|NAME

@@ -149,8 +149,8 @@ DECL|class|WildcardQueryParser
 specifier|public
 class|class
 name|WildcardQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

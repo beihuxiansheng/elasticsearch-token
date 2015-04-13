@@ -319,8 +319,8 @@ DECL|class|GeoShapeQueryParser
 specifier|public
 class|class
 name|GeoShapeQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

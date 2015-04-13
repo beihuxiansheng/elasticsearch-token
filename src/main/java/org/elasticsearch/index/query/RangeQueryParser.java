@@ -189,8 +189,8 @@ DECL|class|RangeQueryParser
 specifier|public
 class|class
 name|RangeQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

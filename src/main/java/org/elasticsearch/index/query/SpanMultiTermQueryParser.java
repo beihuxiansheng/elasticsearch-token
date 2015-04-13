@@ -135,8 +135,8 @@ DECL|class|SpanMultiTermQueryParser
 specifier|public
 class|class
 name|SpanMultiTermQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

@@ -163,8 +163,8 @@ DECL|class|PrefixQueryParser
 specifier|public
 class|class
 name|PrefixQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

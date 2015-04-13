@@ -243,8 +243,8 @@ DECL|class|SimpleQueryStringParser
 specifier|public
 class|class
 name|SimpleQueryStringParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

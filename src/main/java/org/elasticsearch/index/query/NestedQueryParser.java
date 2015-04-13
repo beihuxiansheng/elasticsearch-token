@@ -247,8 +247,8 @@ DECL|class|NestedQueryParser
 specifier|public
 class|class
 name|NestedQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

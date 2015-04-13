@@ -315,8 +315,8 @@ DECL|class|QueryStringQueryParser
 specifier|public
 class|class
 name|QueryStringQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

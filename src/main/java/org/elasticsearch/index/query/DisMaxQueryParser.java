@@ -129,8 +129,8 @@ DECL|class|DisMaxQueryParser
 specifier|public
 class|class
 name|DisMaxQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

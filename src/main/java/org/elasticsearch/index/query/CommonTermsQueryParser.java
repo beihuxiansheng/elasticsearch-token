@@ -231,8 +231,8 @@ DECL|class|CommonTermsQueryParser
 specifier|public
 class|class
 name|CommonTermsQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

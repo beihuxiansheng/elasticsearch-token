@@ -351,8 +351,8 @@ DECL|class|HasChildQueryParser
 specifier|public
 class|class
 name|HasChildQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

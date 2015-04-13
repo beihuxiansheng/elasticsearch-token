@@ -147,8 +147,8 @@ DECL|class|SpanNearQueryParser
 specifier|public
 class|class
 name|SpanNearQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

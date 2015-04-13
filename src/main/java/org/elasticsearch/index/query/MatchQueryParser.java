@@ -179,8 +179,8 @@ DECL|class|MatchQueryParser
 specifier|public
 class|class
 name|MatchQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

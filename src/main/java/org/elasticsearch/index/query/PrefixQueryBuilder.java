@@ -308,6 +308,19 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|parserName
+specifier|final
+specifier|protected
+name|String
+name|parserName
+parameter_list|()
+block|{
+return|return
+name|PrefixQueryParser
+operator|.
+name|NAME
+return|;
+block|}
 block|}
 end_class
 

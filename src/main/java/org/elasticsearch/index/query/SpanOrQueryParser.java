@@ -147,8 +147,8 @@ DECL|class|SpanOrQueryParser
 specifier|public
 class|class
 name|SpanOrQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

@@ -223,8 +223,8 @@ DECL|class|IdsQueryParser
 specifier|public
 class|class
 name|IdsQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

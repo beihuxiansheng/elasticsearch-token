@@ -91,8 +91,8 @@ DECL|class|BoostingQueryParser
 specifier|public
 class|class
 name|BoostingQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public

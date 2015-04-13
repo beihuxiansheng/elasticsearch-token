@@ -261,8 +261,8 @@ DECL|class|TopChildrenQueryParser
 specifier|public
 class|class
 name|TopChildrenQueryParser
-implements|implements
-name|QueryParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public
