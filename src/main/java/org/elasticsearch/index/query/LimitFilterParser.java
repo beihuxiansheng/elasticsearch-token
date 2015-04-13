@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|LimitFilter
+name|Queries
 import|;
 end_import
 
@@ -271,12 +271,11 @@ literal|"No value specified for limit filter"
 argument_list|)
 throw|;
 block|}
+comment|// this filter is deprecated and parses to a filter that matches everything
 return|return
-operator|new
-name|LimitFilter
-argument_list|(
-name|limit
-argument_list|)
+name|Queries
+operator|.
+name|MATCH_ALL_FILTER
 return|;
 block|}
 block|}

@@ -118,20 +118,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -194,20 +180,6 @@ name|common
 operator|.
 name|lease
 operator|.
-name|Releasable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lease
-operator|.
 name|Releasables
 import|;
 end_import
@@ -237,34 +209,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|Engine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|InternalEngine
 import|;
 end_import
 
@@ -747,6 +691,18 @@ block|{
 comment|// When the the internal engine closes we do a rollback, which removes uncommitted segments
 comment|// By doing a commit flush we perform a Lucene commit, but don't clear the translog,
 comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
+if|if
+condition|(
+name|indexShard
+operator|.
+name|engine
+argument_list|()
+operator|.
+name|hasUncommittedChanges
+argument_list|()
+condition|)
+block|{
+comment|// only if we have any changes
 name|logger
 operator|.
 name|info
@@ -773,6 +729,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Keep translog for tests that rely on replaying it
+block|}
 name|logger
 operator|.
 name|info

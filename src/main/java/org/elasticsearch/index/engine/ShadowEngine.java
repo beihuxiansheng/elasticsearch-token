@@ -1023,6 +1023,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|hasUncommittedChanges
+specifier|public
+name|boolean
+name|hasUncommittedChanges
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
