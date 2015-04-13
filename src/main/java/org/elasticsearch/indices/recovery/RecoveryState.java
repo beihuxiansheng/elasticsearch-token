@@ -311,9 +311,9 @@ operator|)
 literal|1
 argument_list|)
 block|,
-comment|/** starting up the engine, potentially running checks */
-DECL|enum constant|START
-name|START
+comment|/** potentially running check index */
+DECL|enum constant|VERIFY_INDEX
+name|VERIFY_INDEX
 argument_list|(
 operator|(
 name|byte
@@ -321,7 +321,7 @@ operator|)
 literal|2
 argument_list|)
 block|,
-comment|/** replaying the translog */
+comment|/**  starting up the engine, replaying the translog */
 DECL|enum constant|TRANSLOG
 name|TRANSLOG
 argument_list|(
@@ -687,14 +687,14 @@ operator|new
 name|Translog
 argument_list|()
 decl_stmt|;
-DECL|field|start
+DECL|field|verifyIndex
 specifier|private
 specifier|final
-name|Start
-name|start
+name|VerifyIndex
+name|verifyIndex
 init|=
 operator|new
-name|Start
+name|VerifyIndex
 argument_list|()
 decl_stmt|;
 DECL|field|timer
@@ -992,7 +992,7 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
-name|getStart
+name|getVerifyIndex
 argument_list|()
 operator|.
 name|reset
@@ -1025,7 +1025,7 @@ argument_list|()
 expr_stmt|;
 break|break;
 case|case
-name|START
+name|VERIFY_INDEX
 case|:
 name|validateAndSetStage
 argument_list|(
@@ -1042,7 +1042,7 @@ operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-name|getStart
+name|getVerifyIndex
 argument_list|()
 operator|.
 name|start
@@ -1056,12 +1056,12 @@ name|validateAndSetStage
 argument_list|(
 name|Stage
 operator|.
-name|START
+name|VERIFY_INDEX
 argument_list|,
 name|stage
 argument_list|)
 expr_stmt|;
-name|getStart
+name|getVerifyIndex
 argument_list|()
 operator|.
 name|stop
@@ -1139,16 +1139,16 @@ return|return
 name|index
 return|;
 block|}
-DECL|method|getStart
+DECL|method|getVerifyIndex
 specifier|public
-name|Start
-name|getStart
+name|VerifyIndex
+name|getVerifyIndex
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|start
+name|verifyIndex
 return|;
 block|}
 DECL|method|getTranslog
@@ -1355,7 +1355,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|start
+name|verifyIndex
 operator|.
 name|readFrom
 argument_list|(
@@ -1469,7 +1469,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|start
+name|verifyIndex
 operator|.
 name|writeTo
 argument_list|(
@@ -1870,10 +1870,10 @@ name|startObject
 argument_list|(
 name|Fields
 operator|.
-name|START
+name|VERIFY_INDEX
 argument_list|)
 expr_stmt|;
-name|start
+name|verifyIndex
 operator|.
 name|toXContent
 argument_list|(
@@ -2125,16 +2125,16 @@ argument_list|(
 literal|"total_on_start"
 argument_list|)
 decl_stmt|;
-DECL|field|START
+DECL|field|VERIFY_INDEX
 specifier|static
 specifier|final
 name|XContentBuilderString
-name|START
+name|VERIFY_INDEX
 init|=
 operator|new
 name|XContentBuilderString
 argument_list|(
-literal|"start"
+literal|"verify_index"
 argument_list|)
 decl_stmt|;
 DECL|field|RECOVERED
@@ -2609,11 +2609,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|class|Start
+DECL|class|VerifyIndex
 specifier|public
 specifier|static
 class|class
-name|Start
+name|VerifyIndex
 extends|extends
 name|Timer
 implements|implements
