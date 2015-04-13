@@ -470,12 +470,16 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// we use a timeout of 0 to by pass assertion forbidding to call actionGet() (blocking) on a network thread.
+comment|// here we know we will never block
 name|listener
 operator|.
 name|onResponse
 argument_list|(
 name|actionGet
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
