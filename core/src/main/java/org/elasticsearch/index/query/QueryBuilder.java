@@ -253,7 +253,7 @@ name|queryId
 argument_list|()
 return|;
 block|}
-comment|/**      * Converts this QueryBuilder to a lucene {@link Query}      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
+comment|/**      * Converts this QueryBuilder to a lucene {@link Query}.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param parseContext additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryParsingException      * @throws IOException      */
 comment|//norelease to be made abstract once all query builders override toQuery providing their own specific implementation.
 DECL|method|toQuery
 specifier|public
