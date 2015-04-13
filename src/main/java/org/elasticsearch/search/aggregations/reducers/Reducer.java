@@ -226,7 +226,7 @@ init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"bucketsPath"
+literal|"buckets_path"
 argument_list|)
 decl_stmt|;
 comment|/**          * @return The reducer type this parser is associated with.          */
