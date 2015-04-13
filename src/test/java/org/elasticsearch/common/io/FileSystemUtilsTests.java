@@ -86,9 +86,9 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|net
 operator|.
-name|InputStream
+name|URISyntaxException
 import|;
 end_import
 
@@ -129,16 +129,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Properties
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -167,18 +157,6 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertFileNotExists
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|containsString
 import|;
 end_import
 
@@ -237,6 +215,8 @@ name|copySourceFilesToTarget
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|URISyntaxException
 block|{
 name|src
 operator|=
@@ -264,54 +244,32 @@ argument_list|)
 expr_stmt|;
 comment|// We first copy sources test files from src/test/resources
 comment|// Because after when the test runs, src files are moved to their destination
-name|Properties
-name|props
+specifier|final
+name|Path
+name|path
 init|=
-operator|new
-name|Properties
-argument_list|()
-decl_stmt|;
-try|try
-init|(
-name|InputStream
-name|is
-init|=
+name|Paths
+operator|.
+name|get
+argument_list|(
 name|FileSystemUtilsTests
 operator|.
 name|class
 operator|.
 name|getResource
 argument_list|(
-literal|"rootdir.properties"
+literal|"/org/elasticsearch/common/io/copyappend"
 argument_list|)
 operator|.
-name|openStream
+name|toURI
 argument_list|()
-init|)
-block|{
-name|props
-operator|.
-name|load
-argument_list|(
-name|is
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|FileSystemUtils
 operator|.
 name|copyDirectoryRecursively
 argument_list|(
-name|Paths
-operator|.
-name|get
-argument_list|(
-name|props
-operator|.
-name|getProperty
-argument_list|(
-literal|"copyappend.root.dir"
-argument_list|)
-argument_list|)
+name|path
 argument_list|,
 name|src
 argument_list|)
