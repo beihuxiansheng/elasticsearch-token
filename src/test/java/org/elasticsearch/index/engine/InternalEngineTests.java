@@ -2264,9 +2264,6 @@ name|EngineConfig
 argument_list|(
 name|shardId
 argument_list|,
-literal|false
-comment|/*per default optimization for auto generated ids is disabled*/
-argument_list|,
 name|threadPool
 argument_list|,
 operator|new

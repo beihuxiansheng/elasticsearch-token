@@ -968,6 +968,7 @@ name|operationProcessed
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Called once for every processed operation by this recovery performer.      * This can be used to get progress information on the translog execution.      */
 DECL|method|operationProcessed
 specifier|protected
 name|void
