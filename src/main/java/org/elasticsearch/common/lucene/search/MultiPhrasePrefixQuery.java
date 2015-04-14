@@ -695,11 +695,6 @@ name|IOException
 block|{
 comment|// SlowCompositeReaderWrapper could be used... but this would merge all terms from each segment into one terms
 comment|// instance, which is very expensive. Therefore I think it is better to iterate over each leaf individually.
-name|TermsEnum
-name|termsEnum
-init|=
-literal|null
-decl_stmt|;
 name|List
 argument_list|<
 name|LeafReaderContext
@@ -741,15 +736,14 @@ condition|)
 block|{
 continue|continue;
 block|}
+name|TermsEnum
 name|termsEnum
-operator|=
+init|=
 name|_terms
 operator|.
 name|iterator
-argument_list|(
-name|termsEnum
-argument_list|)
-expr_stmt|;
+argument_list|()
+decl_stmt|;
 name|TermsEnum
 operator|.
 name|SeekStatus

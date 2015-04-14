@@ -1579,9 +1579,7 @@ literal|"_id"
 argument_list|)
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|termDocs
 operator|.
@@ -1784,9 +1782,7 @@ init|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|termsEnum
 operator|.
@@ -1861,9 +1857,7 @@ operator|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-name|termsEnum
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|termsEnum
 operator|.
