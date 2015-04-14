@@ -552,7 +552,35 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|*
+name|DocumentMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|DocumentMapperParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MapperAnalyzer
 import|;
 end_import
 
@@ -569,6 +597,20 @@ operator|.
 name|ParseContext
 operator|.
 name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|ParsedDocument
 import|;
 end_import
 
@@ -1027,20 +1069,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
-name|AtomicLong
-import|;
-end_import
-
-begin_import
 import|import static
 name|com
 operator|.
@@ -1051,20 +1079,6 @@ operator|.
 name|RandomizedTest
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|randomBoolean
 import|;
 end_import
 
@@ -15098,7 +15112,6 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-block|}
 name|boolean
 name|started
 init|=
@@ -15223,6 +15236,20 @@ operator|==
 literal|false
 condition|)
 block|{
+name|engine
+operator|=
+name|createEngine
+argument_list|(
+name|store
+argument_list|,
+name|translog
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// no mock directory, no fun.
 name|engine
 operator|=
 name|createEngine
