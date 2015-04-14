@@ -927,11 +927,6 @@ name|setQuery
 argument_list|(
 name|matchAllQuery
 argument_list|()
-operator|.
-name|normsField
-argument_list|(
-literal|"field"
-argument_list|)
 argument_list|)
 operator|.
 name|execute
