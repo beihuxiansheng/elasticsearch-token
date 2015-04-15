@@ -2391,7 +2391,7 @@ annotation|@
 name|Override
 DECL|method|getPath
 specifier|public
-name|Path
+name|String
 name|getPath
 parameter_list|(
 name|long
@@ -2399,14 +2399,9 @@ name|translogId
 parameter_list|)
 block|{
 return|return
-name|Paths
-operator|.
-name|get
-argument_list|(
 name|TRANSLOG_FILE_PREFIX
 operator|+
 name|translogId
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -2629,7 +2624,7 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|Path
+name|String
 name|translogName
 init|=
 name|getPath
@@ -2684,9 +2679,6 @@ argument_list|(
 name|translogLocation
 argument_list|,
 name|translogName
-operator|.
-name|getFileName
-argument_list|()
 operator|+
 literal|"{.recovering,}"
 argument_list|)

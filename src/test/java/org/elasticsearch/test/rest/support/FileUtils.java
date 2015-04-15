@@ -60,6 +60,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -572,7 +586,7 @@ return|;
 block|}
 block|}
 return|return
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -674,7 +688,7 @@ block|{
 name|Path
 name|file
 init|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -694,7 +708,7 @@ condition|)
 block|{
 name|file
 operator|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(

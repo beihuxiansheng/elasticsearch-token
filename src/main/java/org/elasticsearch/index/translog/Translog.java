@@ -524,9 +524,9 @@ index|[]
 name|locations
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the translog file with the given id as a Path. This      * will return a relative path.      */
+comment|/**      * Returns the translog file with the given id as a Path. This      * will return a filename.      */
 DECL|method|getPath
-name|Path
+name|String
 name|getPath
 parameter_list|(
 name|long

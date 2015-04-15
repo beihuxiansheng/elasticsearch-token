@@ -904,11 +904,14 @@ block|{
 comment|// If it already exists we try to copy this new version appending suffix to its name
 name|path
 operator|=
-name|Paths
+name|path
 operator|.
-name|get
+name|resolveSibling
 argument_list|(
 name|path
+operator|.
+name|getFileName
+argument_list|()
 operator|.
 name|toString
 argument_list|()

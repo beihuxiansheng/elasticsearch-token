@@ -74,6 +74,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -489,7 +503,7 @@ index|]
 operator|.
 name|startsWith
 argument_list|(
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2273,7 +2287,7 @@ operator|new
 name|Path
 index|[]
 block|{
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2396,7 +2410,7 @@ operator|new
 name|Path
 index|[]
 block|{
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2505,7 +2519,7 @@ index|[
 name|i
 index|]
 operator|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(

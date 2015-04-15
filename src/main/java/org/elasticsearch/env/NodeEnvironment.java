@@ -208,6 +208,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -790,6 +804,7 @@ name|dirIndex
 operator|++
 control|)
 block|{
+comment|// TODO: wtf with resolve(get())
 name|Path
 name|dir
 init|=
@@ -803,7 +818,7 @@ index|]
 operator|.
 name|resolve
 argument_list|(
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -3095,6 +3110,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// TODO: wtf with resolve(get())
 name|shardLocations
 index|[
 name|i
@@ -3109,7 +3125,7 @@ name|path
 operator|.
 name|resolve
 argument_list|(
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -3629,7 +3645,7 @@ name|addNodeId
 condition|)
 block|{
 return|return
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -3649,7 +3665,7 @@ block|}
 else|else
 block|{
 return|return
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
