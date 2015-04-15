@@ -134,6 +134,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TimeUnits
 import|;
 end_import
@@ -693,6 +707,14 @@ name|LoggingListener
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// we aren't ready for this yet.
 DECL|class|ElasticsearchTestCase
 specifier|public
 specifier|abstract
