@@ -438,7 +438,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -3795,7 +3831,8 @@ name|put
 argument_list|(
 literal|"path.data"
 argument_list|,
-literal|"data/data1"
+name|newTempDirPath
+argument_list|()
 argument_list|)
 operator|.
 name|build
@@ -3839,7 +3876,8 @@ name|put
 argument_list|(
 literal|"path.data"
 argument_list|,
-literal|"data/data2"
+name|newTempDirPath
+argument_list|()
 argument_list|)
 operator|.
 name|build

@@ -1046,6 +1046,9 @@ operator|.
 name|startsWith
 argument_list|(
 name|siteFile
+operator|.
+name|toAbsolutePath
+argument_list|()
 argument_list|)
 condition|)
 block|{

@@ -357,6 +357,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"path.home"
+argument_list|,
+name|newTempDirPath
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"node.name"
 argument_list|,
 literal|"testNodeVersionIsUpdated"

@@ -500,6 +500,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"path.home"
+argument_list|,
+name|newTempDirPath
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"path.conf"
 argument_list|,
 name|configDir
