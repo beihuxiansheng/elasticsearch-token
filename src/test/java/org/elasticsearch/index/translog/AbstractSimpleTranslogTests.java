@@ -3048,7 +3048,7 @@ name|resolve
 argument_list|(
 name|translog
 operator|.
-name|getPath
+name|getFilename
 argument_list|(
 name|id
 argument_list|)
@@ -3063,7 +3063,7 @@ name|fail
 argument_list|(
 name|translog
 operator|.
-name|getPath
+name|getFilename
 argument_list|(
 name|id
 argument_list|)
@@ -3117,7 +3117,7 @@ name|resolve
 argument_list|(
 name|translog
 operator|.
-name|getPath
+name|getFilename
 argument_list|(
 name|id
 argument_list|)
