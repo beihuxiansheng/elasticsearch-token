@@ -210,20 +210,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|lucene
 operator|.
 name|uid
@@ -293,16 +279,6 @@ operator|.
 name|io
 operator|.
 name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|EOFException
 import|;
 end_import
 
@@ -524,10 +500,10 @@ index|[]
 name|locations
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the translog file with the given id as a Path. This      * will return a filename.      */
-DECL|method|getPath
+comment|/**      * Returns the translog filename for the given id.      */
+DECL|method|getFilename
 name|String
-name|getPath
+name|getFilename
 parameter_list|(
 name|long
 name|translogId

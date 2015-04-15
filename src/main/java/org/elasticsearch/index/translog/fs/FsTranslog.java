@@ -1460,7 +1460,7 @@ name|location
 operator|.
 name|resolve
 argument_list|(
-name|getPath
+name|getFilename
 argument_list|(
 name|id
 argument_list|)
@@ -1629,7 +1629,7 @@ name|location
 operator|.
 name|resolve
 argument_list|(
-name|getPath
+name|getFilename
 argument_list|(
 name|id
 argument_list|)
@@ -2389,10 +2389,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|getPath
+DECL|method|getFilename
 specifier|public
 name|String
-name|getPath
+name|getFilename
 parameter_list|(
 name|long
 name|translogId
@@ -2627,7 +2627,7 @@ specifier|final
 name|String
 name|translogName
 init|=
-name|getPath
+name|getFilename
 argument_list|(
 name|translogId
 argument_list|)
