@@ -126,6 +126,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|commons
+operator|.
+name|lang3
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|impl
@@ -11330,7 +11344,16 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Backwards index must contain exactly one cluster"
+literal|"Backwards index must contain exactly one cluster\n"
+operator|+
+name|StringUtils
+operator|.
+name|join
+argument_list|(
+name|list
+argument_list|,
+literal|"\n"
+argument_list|)
 argument_list|)
 throw|;
 block|}

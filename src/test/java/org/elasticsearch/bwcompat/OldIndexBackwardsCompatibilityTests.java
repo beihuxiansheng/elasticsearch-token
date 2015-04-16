@@ -842,7 +842,7 @@ name|get
 argument_list|(
 name|dirUrl
 operator|.
-name|toURI
+name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -1387,7 +1387,7 @@ argument_list|(
 name|indexFile
 argument_list|)
 operator|.
-name|toURI
+name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;

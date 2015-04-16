@@ -1011,7 +1011,7 @@ name|get
 argument_list|(
 name|url
 operator|.
-name|toURI
+name|getPath
 argument_list|()
 argument_list|)
 return|;

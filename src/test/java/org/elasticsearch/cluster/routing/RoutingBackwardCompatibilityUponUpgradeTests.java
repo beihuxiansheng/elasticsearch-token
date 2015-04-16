@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -256,6 +270,14 @@ name|maxNumDataNodes
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// extra files break the single data cluster expectation when unzipping the static index
 DECL|class|RoutingBackwardCompatibilityUponUpgradeTests
 specifier|public
 class|class
@@ -344,7 +366,7 @@ operator|+
 literal|".zip"
 argument_list|)
 operator|.
-name|toURI
+name|getPath
 argument_list|()
 argument_list|)
 decl_stmt|;

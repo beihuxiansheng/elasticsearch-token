@@ -494,7 +494,7 @@ argument_list|(
 literal|"elasticsearch.yml"
 argument_list|)
 operator|.
-name|toURI
+name|getPath
 argument_list|()
 argument_list|)
 operator|.
