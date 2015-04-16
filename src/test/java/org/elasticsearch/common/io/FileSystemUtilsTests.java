@@ -273,7 +273,7 @@ argument_list|(
 literal|"/org/elasticsearch/common/io/copyappend"
 argument_list|)
 operator|.
-name|getPath
+name|toURI
 argument_list|()
 argument_list|)
 decl_stmt|;

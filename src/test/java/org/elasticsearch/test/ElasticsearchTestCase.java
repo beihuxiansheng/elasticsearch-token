@@ -591,6 +591,13 @@ comment|/**  * Base testcase for randomized unit testing with Elasticsearch  */
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
 DECL|class|ElasticsearchTestCase
 specifier|public
 specifier|abstract
@@ -1179,10 +1186,12 @@ name|String
 name|relativePath
 parameter_list|)
 block|{
-return|return
-name|PathUtils
+name|URI
+name|uri
+init|=
+name|URI
 operator|.
-name|get
+name|create
 argument_list|(
 name|getClass
 argument_list|()
@@ -1192,8 +1201,16 @@ argument_list|(
 name|relativePath
 argument_list|)
 operator|.
-name|getPath
+name|toString
 argument_list|()
+argument_list|)
+decl_stmt|;
+return|return
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|uri
 argument_list|)
 return|;
 block|}
