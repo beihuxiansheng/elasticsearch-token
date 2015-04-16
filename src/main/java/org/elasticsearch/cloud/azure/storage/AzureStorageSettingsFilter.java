@@ -135,22 +135,6 @@ argument_list|(
 name|KEY
 argument_list|)
 expr_stmt|;
-comment|// Deprecated Cloud storage API settings needed to be hidden
-comment|// TODO Remove in 3.0.0
-name|settingsFilter
-operator|.
-name|addFilter
-argument_list|(
-name|ACCOUNT_DEPRECATED
-argument_list|)
-expr_stmt|;
-name|settingsFilter
-operator|.
-name|addFilter
-argument_list|(
-name|KEY_DEPRECATED
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -293,13 +293,6 @@ operator|.
 name|get
 argument_list|(
 name|ACCOUNT
-argument_list|,
-name|settings
-operator|.
-name|get
-argument_list|(
-name|ACCOUNT_DEPRECATED
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|key
@@ -309,13 +302,6 @@ operator|.
 name|get
 argument_list|(
 name|KEY
-argument_list|,
-name|settings
-operator|.
-name|get
-argument_list|(
-name|KEY_DEPRECATED
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|blob

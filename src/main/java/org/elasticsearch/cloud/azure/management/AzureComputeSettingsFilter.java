@@ -149,29 +149,6 @@ argument_list|(
 name|SUBSCRIPTION_ID
 argument_list|)
 expr_stmt|;
-comment|// Deprecated Cloud management API settings we need to hide
-comment|// TODO Remove in 3.0.0
-name|settingsFilter
-operator|.
-name|addFilter
-argument_list|(
-name|KEYSTORE_DEPRECATED
-argument_list|)
-expr_stmt|;
-name|settingsFilter
-operator|.
-name|addFilter
-argument_list|(
-name|PASSWORD_DEPRECATED
-argument_list|)
-expr_stmt|;
-name|settingsFilter
-operator|.
-name|addFilter
-argument_list|(
-name|SUBSCRIPTION_ID_DEPRECATED
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

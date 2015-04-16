@@ -176,22 +176,6 @@ name|azure
 operator|.
 name|AzureModule
 operator|.
-name|checkDeprecated
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|AzureModule
-operator|.
 name|isSnapshotReady
 import|;
 end_import
@@ -248,13 +232,6 @@ operator|.
 name|trace
 argument_list|(
 literal|"starting azure plugin..."
-argument_list|)
-expr_stmt|;
-name|checkDeprecated
-argument_list|(
-name|settings
-argument_list|,
-name|logger
 argument_list|)
 expr_stmt|;
 block|}
