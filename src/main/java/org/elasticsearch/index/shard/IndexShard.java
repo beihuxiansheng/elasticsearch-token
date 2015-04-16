@@ -4888,6 +4888,11 @@ name|optimize
 operator|.
 name|upgrade
 argument_list|()
+argument_list|,
+name|optimize
+operator|.
+name|upgradeOnlyAncientSegments
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

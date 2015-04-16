@@ -6511,19 +6511,9 @@ name|prettyPrint
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|fail
 argument_list|(
 literal|"timed out waiting for green state"
-argument_list|,
-name|actionGet
-operator|.
-name|isTimedOut
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

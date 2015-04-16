@@ -9502,6 +9502,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -9616,6 +9618,8 @@ argument_list|,
 literal|10
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -9773,6 +9777,8 @@ argument_list|(
 literal|true
 argument_list|,
 literal|10
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -10095,6 +10101,9 @@ literal|false
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -10167,6 +10176,9 @@ argument_list|,
 literal|1
 argument_list|,
 literal|false
+argument_list|,
+name|randomBoolean
+argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
@@ -14688,6 +14700,8 @@ argument_list|(
 literal|true
 argument_list|,
 literal|1
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,

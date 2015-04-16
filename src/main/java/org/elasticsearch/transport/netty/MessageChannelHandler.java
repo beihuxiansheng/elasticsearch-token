@@ -758,11 +758,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Message not fully read (request) for [{}] and action [{}], resetting"
+literal|"Message not fully read (request) for requestId [{}], action [{}], readerIndex [{}] vs expected [{}]; resetting"
 argument_list|,
 name|requestId
 argument_list|,
 name|action
+argument_list|,
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+argument_list|,
+name|expectedIndexReader
 argument_list|)
 expr_stmt|;
 block|}
@@ -772,11 +779,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Message read past expected size (request) for [{}] and action [{}], resetting"
+literal|"Message read past expected size (request) for requestId=[{}], action [{}], readerIndex [{}] vs expected [{}]; resetting"
 argument_list|,
 name|requestId
 argument_list|,
 name|action
+argument_list|,
+name|buffer
+operator|.
+name|readerIndex
+argument_list|()
+argument_list|,
+name|expectedIndexReader
 argument_list|)
 expr_stmt|;
 block|}
