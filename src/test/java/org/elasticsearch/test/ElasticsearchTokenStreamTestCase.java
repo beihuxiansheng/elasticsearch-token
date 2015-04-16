@@ -219,6 +219,14 @@ name|ElasticsearchTokenStreamTestCase
 extends|extends
 name|BaseTokenStreamTestCase
 block|{
+static|static
+block|{
+name|SecurityHack
+operator|.
+name|ensureInitialized
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|randomVersion
 specifier|public
 specifier|static

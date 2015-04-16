@@ -253,6 +253,14 @@ name|ElasticsearchLuceneTestCase
 extends|extends
 name|LuceneTestCase
 block|{
+static|static
+block|{
+name|SecurityHack
+operator|.
+name|ensureInitialized
+argument_list|()
+expr_stmt|;
+block|}
 DECL|field|DEFAULT_CODEC
 specifier|private
 specifier|static
