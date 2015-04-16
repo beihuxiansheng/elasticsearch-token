@@ -3886,7 +3886,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/*          * Unfortunately the lock order is important here. We have to acquire the readlock fist otherwise          * if we are flushing at the end of the recovery while holding the write lock we can deadlock if:          *  Thread 1: flushes via API and gets the flush lock but blocks on the readlock since Thread 2 has the writeLock          *  Thread 2: flushes at the end of the recovery holding the writeLock and blocks on the flushLock owned by Thread 1          */
+comment|/*          * Unfortunately the lock order is important here. We have to acquire the readlock first otherwise          * if we are flushing at the end of the recovery while holding the write lock we can deadlock if:          *  Thread 1: flushes via API and gets the flush lock but blocks on the readlock since Thread 2 has the writeLock          *  Thread 2: flushes at the end of the recovery holding the writeLock and blocks on the flushLock owned by Thread 1          */
 try|try
 init|(
 name|ReleasableLock
@@ -4426,6 +4426,10 @@ parameter_list|,
 specifier|final
 name|boolean
 name|upgrade
+parameter_list|,
+specifier|final
+name|boolean
+name|upgradeOnlyAncientSegments
 parameter_list|)
 throws|throws
 name|EngineException
@@ -4491,7 +4495,9 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"starting segment upgrade"
+literal|"starting segment upgrade upgradeOnlyAncientSegments={}"
+argument_list|,
+name|upgradeOnlyAncientSegments
 argument_list|)
 expr_stmt|;
 name|mp
@@ -4499,6 +4505,8 @@ operator|.
 name|setUpgradeInProgress
 argument_list|(
 literal|true
+argument_list|,
+name|upgradeOnlyAncientSegments
 argument_list|)
 expr_stmt|;
 block|}
@@ -4635,6 +4643,8 @@ name|mp
 operator|.
 name|setUpgradeInProgress
 argument_list|(
+literal|false
+argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;

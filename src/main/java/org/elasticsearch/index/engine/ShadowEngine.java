@@ -711,6 +711,9 @@ name|onlyExpungeDeletes
 parameter_list|,
 name|boolean
 name|upgrade
+parameter_list|,
+name|boolean
+name|upgradeOnlyAncientSegments
 parameter_list|)
 throws|throws
 name|EngineException

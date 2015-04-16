@@ -1625,7 +1625,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1677,7 +1677,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|null
+return|;
 block|}
 name|shape
 operator|=
@@ -1711,7 +1713,9 @@ operator|==
 literal|0
 condition|)
 block|{
-return|return;
+return|return
+literal|null
+return|;
 block|}
 for|for
 control|(
@@ -1789,6 +1793,9 @@ name|e
 argument_list|)
 throw|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override

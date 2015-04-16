@@ -1094,7 +1094,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1104,6 +1104,9 @@ throws|throws
 name|IOException
 block|{
 comment|// nothing to do here, we either do it in post parse, or in pre parse.
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override

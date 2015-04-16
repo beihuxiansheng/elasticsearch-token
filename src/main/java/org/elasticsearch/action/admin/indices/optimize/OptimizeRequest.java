@@ -147,6 +147,15 @@ name|UPGRADE
 init|=
 literal|false
 decl_stmt|;
+DECL|field|UPGRADE_ONLY_ANCIENT_SEGMENTS
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|UPGRADE_ONLY_ANCIENT_SEGMENTS
+init|=
+literal|false
+decl_stmt|;
 block|}
 DECL|field|maxNumSegments
 specifier|private
@@ -183,6 +192,15 @@ init|=
 name|Defaults
 operator|.
 name|UPGRADE
+decl_stmt|;
+DECL|field|upgradeOnlyAncientSegments
+specifier|private
+name|boolean
+name|upgradeOnlyAncientSegments
+init|=
+name|Defaults
+operator|.
+name|UPGRADE_ONLY_ANCIENT_SEGMENTS
 decl_stmt|;
 comment|/**      * Constructs an optimization request over one or more indices.      *      * @param indices The indices to optimize, no indices passed means all indices will be optimized.      */
 DECL|method|OptimizeRequest
@@ -377,6 +395,13 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
+name|upgradeOnlyAncientSegments
+operator|=
+name|in
+operator|.
+name|readBoolean
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -426,6 +451,44 @@ argument_list|(
 name|upgrade
 argument_list|)
 expr_stmt|;
+name|out
+operator|.
+name|writeBoolean
+argument_list|(
+name|upgradeOnlyAncientSegments
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Should the merge upgrade only the ancient (older major version of Lucene) segments?      * Defaults to<tt>false</tt>.      */
+DECL|method|upgradeOnlyAncientSegments
+specifier|public
+name|boolean
+name|upgradeOnlyAncientSegments
+parameter_list|()
+block|{
+return|return
+name|upgradeOnlyAncientSegments
+return|;
+block|}
+comment|/**      * See {@link #upgradeOnlyAncientSegments()}      */
+DECL|method|upgradeOnlyAncientSegments
+specifier|public
+name|OptimizeRequest
+name|upgradeOnlyAncientSegments
+parameter_list|(
+name|boolean
+name|upgradeOnlyAncientSegments
+parameter_list|)
+block|{
+name|this
+operator|.
+name|upgradeOnlyAncientSegments
+operator|=
+name|upgradeOnlyAncientSegments
+expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override
@@ -453,6 +516,10 @@ operator|+
 literal|", upgrade="
 operator|+
 name|upgrade
+operator|+
+literal|", upgradeOnlyAncientSegments="
+operator|+
+name|upgradeOnlyAncientSegments
 operator|+
 literal|'}'
 return|;

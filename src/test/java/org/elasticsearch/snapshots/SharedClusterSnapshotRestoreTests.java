@@ -812,11 +812,6 @@ name|AbstractSnapshotTests
 block|{
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.count:TRACE"
-argument_list|)
 DECL|method|basicWorkFlowTest
 specifier|public
 name|void
@@ -1512,6 +1507,9 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|int
@@ -1648,6 +1646,9 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureGreen
+argument_list|()
 expr_stmt|;
 for|for
 control|(

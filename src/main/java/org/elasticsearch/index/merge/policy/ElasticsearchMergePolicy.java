@@ -172,11 +172,19 @@ specifier|final
 name|MergePolicy
 name|delegate
 decl_stmt|;
+comment|// True if the next merge request should do segment upgrades:
 DECL|field|upgradeInProgress
 specifier|private
 specifier|volatile
 name|boolean
 name|upgradeInProgress
+decl_stmt|;
+comment|// True if the next merge request should only upgrade ancient (an older Lucene major version than current) segments;
+DECL|field|upgradeOnlyAncientSegments
+specifier|private
+specifier|volatile
+name|boolean
+name|upgradeOnlyAncientSegments
 decl_stmt|;
 DECL|field|MAX_CONCURRENT_UPGRADE_MERGES
 specifier|private
@@ -448,6 +456,102 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|shouldUpgrade
+specifier|private
+name|boolean
+name|shouldUpgrade
+parameter_list|(
+name|SegmentCommitInfo
+name|info
+parameter_list|)
+block|{
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+name|old
+init|=
+name|info
+operator|.
+name|info
+operator|.
+name|getVersion
+argument_list|()
+decl_stmt|;
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+name|cur
+init|=
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|luceneVersion
+decl_stmt|;
+comment|// Something seriously wrong if this trips:
+assert|assert
+name|old
+operator|.
+name|major
+operator|<=
+name|cur
+operator|.
+name|major
+assert|;
+if|if
+condition|(
+name|cur
+operator|.
+name|major
+operator|>
+name|old
+operator|.
+name|major
+condition|)
+block|{
+comment|// Always upgrade segment if Lucene's major version is too old
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|upgradeOnlyAncientSegments
+operator|==
+literal|false
+operator|&&
+name|cur
+operator|.
+name|minor
+operator|>
+name|old
+operator|.
+name|minor
+condition|)
+block|{
+comment|// If it's only a minor version difference, and we are not upgrading only ancient segments,
+comment|// also upgrade:
+return|return
+literal|true
+return|;
+block|}
+comment|// Version matches, or segment is not ancient and we are only upgrading ancient segments:
+return|return
+literal|false
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|findForcedMerges
@@ -495,66 +599,12 @@ range|:
 name|segmentInfos
 control|)
 block|{
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-name|old
-init|=
-name|info
-operator|.
-name|info
-operator|.
-name|getVersion
-argument_list|()
-decl_stmt|;
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-name|cur
-init|=
-name|Version
-operator|.
-name|CURRENT
-operator|.
-name|luceneVersion
-decl_stmt|;
 if|if
 condition|(
-name|cur
-operator|.
-name|major
-operator|>
-name|old
-operator|.
-name|major
-operator|||
-name|cur
-operator|.
-name|major
-operator|==
-name|old
-operator|.
-name|major
-operator|&&
-name|cur
-operator|.
-name|minor
-operator|>
-name|old
-operator|.
-name|minor
+name|shouldUpgrade
+argument_list|(
+name|info
+argument_list|)
 condition|)
 block|{
 comment|// TODO: Use IndexUpgradeMergePolicy instead.  We should be comparing codecs,
@@ -591,6 +641,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: we could check IndexWriter.getMergingSegments and avoid adding merges that IW will just reject?
 if|if
 condition|(
 name|spec
@@ -626,10 +677,6 @@ return|;
 block|}
 block|}
 comment|// We must have less than our max upgrade merges, so the next return will be our last in upgrading mode.
-name|upgradeInProgress
-operator|=
-literal|false
-expr_stmt|;
 if|if
 condition|(
 name|spec
@@ -646,7 +693,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Return "
+literal|"Returning "
 operator|+
 name|spec
 operator|.
@@ -662,6 +709,13 @@ return|return
 name|spec
 return|;
 block|}
+comment|// Only set this once there are 0 segments needing upgrading, because when we return a
+comment|// spec, IndexWriter may (silently!) reject that merge if some of the segments we asked
+comment|// to be merged were already being (naturally) merged:
+name|upgradeInProgress
+operator|=
+literal|false
+expr_stmt|;
 comment|// fall through, so when we don't have any segments to upgrade, the delegate policy
 comment|// has a chance to decide what to do (e.g. collapse the segments to satisfy maxSegmentCount)
 block|}
@@ -753,6 +807,9 @@ name|setUpgradeInProgress
 parameter_list|(
 name|boolean
 name|upgrade
+parameter_list|,
+name|boolean
+name|onlyAncientSegments
 parameter_list|)
 block|{
 name|this
@@ -760,6 +817,12 @@ operator|.
 name|upgradeInProgress
 operator|=
 name|upgrade
+expr_stmt|;
+name|this
+operator|.
+name|upgradeOnlyAncientSegments
+operator|=
+name|onlyAncientSegments
 expr_stmt|;
 block|}
 annotation|@
