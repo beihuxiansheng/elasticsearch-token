@@ -1075,6 +1075,9 @@ operator|.
 name|merge
 argument_list|(
 name|mapperWithTtl
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|)
@@ -1312,6 +1315,9 @@ operator|.
 name|merge
 argument_list|(
 name|updatedMapper
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|)
@@ -1435,6 +1441,9 @@ operator|.
 name|merge
 argument_list|(
 name|updatedMapper
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|)
@@ -1937,6 +1946,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2034,6 +2046,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2141,6 +2156,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2307,6 +2325,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2460,6 +2481,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2607,6 +2631,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2755,6 +2782,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -2888,6 +2918,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -3016,6 +3049,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.

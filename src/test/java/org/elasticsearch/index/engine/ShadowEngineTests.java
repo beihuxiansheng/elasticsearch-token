@@ -384,6 +384,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|Mapping
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|ParseContext
 import|;
 end_import
@@ -1360,8 +1374,8 @@ parameter_list|,
 name|BytesReference
 name|source
 parameter_list|,
-name|boolean
-name|mappingsModified
+name|Mapping
+name|mappingsUpdate
 parameter_list|)
 block|{
 name|Field
@@ -1433,7 +1447,7 @@ argument_list|)
 argument_list|,
 name|source
 argument_list|,
-name|mappingsModified
+name|mappingsUpdate
 argument_list|)
 return|;
 block|}
@@ -2158,7 +2172,7 @@ argument_list|()
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -2205,7 +2219,7 @@ argument_list|()
 argument_list|,
 name|B_2
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -2874,7 +2888,7 @@ argument_list|()
 argument_list|,
 name|B_3
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -3913,7 +3927,7 @@ argument_list|()
 argument_list|,
 name|B_3
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -4340,7 +4354,7 @@ argument_list|()
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -4431,7 +4445,7 @@ argument_list|()
 argument_list|,
 name|B_2
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -4485,7 +4499,7 @@ argument_list|()
 argument_list|,
 name|B_3
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -4729,7 +4743,7 @@ name|document
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 try|try
@@ -4919,7 +4933,7 @@ name|document
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 try|try
@@ -5108,7 +5122,7 @@ name|document
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 name|primaryEngine
@@ -5608,7 +5622,7 @@ name|document
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -6132,7 +6146,7 @@ name|document
 argument_list|,
 name|B_2
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 name|primaryEngine
@@ -6825,7 +6839,7 @@ name|document
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 name|primaryEngine
@@ -7281,7 +7295,7 @@ name|document
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 expr_stmt|;
 name|primaryEngine
@@ -7633,7 +7647,7 @@ argument_list|()
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -8040,7 +8054,7 @@ argument_list|()
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine
@@ -8292,7 +8306,7 @@ argument_list|()
 argument_list|,
 name|B_1
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 decl_stmt|;
 name|primaryEngine

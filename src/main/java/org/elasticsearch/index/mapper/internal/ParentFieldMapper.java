@@ -2493,7 +2493,17 @@ name|mergeContext
 operator|.
 name|addConflict
 argument_list|(
-literal|"The _parent field's type option can't be changed"
+literal|"The _parent field's type option can't be changed: ["
+operator|+
+name|type
+operator|+
+literal|"]->["
+operator|+
+name|other
+operator|.
+name|type
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}

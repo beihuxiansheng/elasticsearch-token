@@ -6865,7 +6865,7 @@ expr_stmt|;
 block|}
 name|context
 operator|.
-name|addRootObjectUpdate
+name|addDynamicMappingsUpdate
 argument_list|(
 operator|(
 name|RootObjectMapper

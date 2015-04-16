@@ -1299,6 +1299,9 @@ operator|.
 name|merge
 argument_list|(
 name|mapperDisabled
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -1342,6 +1345,9 @@ operator|.
 name|merge
 argument_list|(
 name|mapperEnabled
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
