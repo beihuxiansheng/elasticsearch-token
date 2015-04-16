@@ -517,9 +517,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|forceDefaultCodec
-argument_list|()
-expr_stmt|;
 name|SearchContext
 operator|.
 name|setCurrent

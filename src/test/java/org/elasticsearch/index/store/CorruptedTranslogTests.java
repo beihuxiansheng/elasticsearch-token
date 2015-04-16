@@ -703,6 +703,8 @@ name|fullRestart
 argument_list|()
 expr_stmt|;
 comment|// node needs time to start recovery and discover the translog corruption
+name|Thread
+operator|.
 name|sleep
 argument_list|(
 literal|1000

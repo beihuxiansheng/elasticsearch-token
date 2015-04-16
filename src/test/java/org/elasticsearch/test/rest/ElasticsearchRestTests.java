@@ -108,20 +108,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|AbstractRandomizedTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|TimeUnits
 import|;
 end_import
@@ -189,6 +175,18 @@ operator|.
 name|node
 operator|.
 name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
 import|;
 end_import
 
@@ -432,7 +430,7 @@ end_comment
 
 begin_class
 annotation|@
-name|AbstractRandomizedTest
+name|ESTestCase
 operator|.
 name|Rest
 annotation|@

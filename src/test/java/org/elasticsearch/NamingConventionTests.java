@@ -86,7 +86,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -704,7 +704,7 @@ argument_list|(
 name|clazz
 argument_list|)
 operator|||
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
@@ -958,7 +958,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 argument_list|,
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
@@ -1078,7 +1078,7 @@ specifier|final
 class|class
 name|WrongNameTheSecond
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 block|{}
 DECL|class|PlainUnit
 specifier|public

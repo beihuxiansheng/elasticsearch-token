@@ -1036,7 +1036,10 @@ argument_list|()
 operator|==
 literal|false
 operator|&&
-name|randomBoolean
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
 argument_list|()
 condition|)
 block|{

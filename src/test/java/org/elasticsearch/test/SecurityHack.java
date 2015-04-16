@@ -53,6 +53,7 @@ name|SecurityHack
 block|{
 static|static
 block|{
+comment|// for IDEs, we check that security.policy is set
 if|if
 condition|(
 name|systemPropertyAsBoolean
@@ -61,6 +62,15 @@ literal|"tests.security.manager"
 argument_list|,
 literal|true
 argument_list|)
+operator|&&
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.security.policy"
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|System

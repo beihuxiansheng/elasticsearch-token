@@ -98,6 +98,18 @@ name|java
 operator|.
 name|nio
 operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
 name|file
 operator|.
 name|Files
@@ -1060,7 +1072,9 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|,
-name|UTF8
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 decl_stmt|;
 comment|// trim the string content to prevent different handling on windows vs. unix and CR chars...

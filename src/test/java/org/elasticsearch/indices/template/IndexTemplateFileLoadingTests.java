@@ -292,11 +292,7 @@ name|Path
 name|directory
 init|=
 name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|settingsBuilder
 operator|.

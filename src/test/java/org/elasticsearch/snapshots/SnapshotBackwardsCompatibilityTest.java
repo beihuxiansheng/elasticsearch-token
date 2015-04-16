@@ -498,11 +498,7 @@ argument_list|(
 literal|"location"
 argument_list|,
 name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+argument_list|()
 operator|.
 name|toAbsolutePath
 argument_list|()
@@ -1773,11 +1769,7 @@ name|Path
 name|tempDir
 init|=
 name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+argument_list|()
 operator|.
 name|toAbsolutePath
 argument_list|()

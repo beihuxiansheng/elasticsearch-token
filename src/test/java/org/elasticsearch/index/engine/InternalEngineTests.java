@@ -327,6 +327,22 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
 import|;
 end_import
 
@@ -1006,7 +1022,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -1294,21 +1310,22 @@ name|nullValue
 import|;
 end_import
 
+begin_comment
+comment|// TODO: this guy isn't ready for mock filesystems yet
+end_comment
+
 begin_class
 annotation|@
-name|LuceneTestCase
-operator|.
 name|SuppressFileSystems
 argument_list|(
 literal|"*"
 argument_list|)
-comment|// mock FS causes translog issues recovering sometimes because of their use of globs, see LUCENE-6424
 DECL|class|InternalEngineTests
 specifier|public
 class|class
 name|InternalEngineTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 block|{
 DECL|field|shardId
 specifier|protected

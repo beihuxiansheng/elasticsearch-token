@@ -344,7 +344,10 @@ argument_list|,
 name|lat1
 operator|+
 operator|(
-name|randomDouble
+name|random
+argument_list|()
+operator|.
+name|nextDouble
 argument_list|()
 operator|-
 literal|0.5
@@ -366,7 +369,10 @@ init|=
 name|lon1
 operator|+
 operator|(
-name|randomDouble
+name|random
+argument_list|()
+operator|.
+name|nextDouble
 argument_list|()
 operator|-
 literal|0.5
@@ -566,7 +572,7 @@ comment|// crop pole areas, sine we now there the function
 comment|// is not accurate around lat(89Â°, 90Â°) and lat(-90Â°, -89Â°)
 return|return
 operator|(
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextDouble
@@ -588,7 +594,7 @@ parameter_list|()
 block|{
 return|return
 operator|(
-name|getRandom
+name|random
 argument_list|()
 operator|.
 name|nextDouble

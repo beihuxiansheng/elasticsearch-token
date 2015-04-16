@@ -1170,11 +1170,7 @@ name|Path
 name|tempDir
 init|=
 name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Settings
 name|settings

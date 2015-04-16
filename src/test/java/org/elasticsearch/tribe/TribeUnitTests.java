@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -197,18 +185,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -310,12 +286,8 @@ name|put
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+name|createTempDir
+argument_list|()
 argument_list|)
 operator|.
 name|build

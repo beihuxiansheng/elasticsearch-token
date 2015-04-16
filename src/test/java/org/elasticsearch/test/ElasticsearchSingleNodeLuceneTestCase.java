@@ -107,7 +107,7 @@ specifier|abstract
 class|class
 name|ElasticsearchSingleNodeLuceneTestCase
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|After

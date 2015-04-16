@@ -110,16 +110,25 @@ specifier|private
 name|PathUtils
 parameter_list|()
 block|{}
+comment|/** the actual JDK default */
+DECL|field|ACTUAL_DEFAULT
+specifier|static
+specifier|final
+name|FileSystem
+name|ACTUAL_DEFAULT
+init|=
+name|FileSystems
+operator|.
+name|getDefault
+argument_list|()
+decl_stmt|;
 comment|/** can be changed by tests */
 DECL|field|DEFAULT
 specifier|static
 name|FileSystem
 name|DEFAULT
 init|=
-name|FileSystems
-operator|.
-name|getDefault
-argument_list|()
+name|ACTUAL_DEFAULT
 decl_stmt|;
 comment|/**       * Returns a {@code Path} from name components.      *<p>      * This works just like {@code Paths.get()}.      * Remember: just like {@code Paths.get()} this is NOT A STRING CONCATENATION      * UTILITY FUNCTION.      *<p>      * Remember: this should almost never be used. Usually resolve      * a path against an existing one!      */
 DECL|method|get

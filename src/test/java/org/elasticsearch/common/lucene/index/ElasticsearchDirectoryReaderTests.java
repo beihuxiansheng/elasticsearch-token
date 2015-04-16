@@ -192,7 +192,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -206,7 +206,7 @@ specifier|public
 class|class
 name|ElasticsearchDirectoryReaderTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 block|{
 comment|/** Test that core cache key (needed for NRT) is working */
 DECL|method|testCoreCacheKey

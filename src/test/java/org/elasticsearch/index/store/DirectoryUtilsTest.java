@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -50,19 +38,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -136,7 +112,7 @@ specifier|public
 class|class
 name|DirectoryUtilsTest
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Test
@@ -151,14 +127,8 @@ block|{
 name|Path
 name|file
 init|=
-name|ElasticsearchTestCase
-operator|.
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 specifier|final
 name|int

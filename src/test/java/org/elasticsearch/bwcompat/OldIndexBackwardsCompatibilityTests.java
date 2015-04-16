@@ -999,11 +999,7 @@ name|Path
 name|baseTempDir
 init|=
 name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+argument_list|()
 decl_stmt|;
 comment|// start single data path node
 name|ImmutableSettings

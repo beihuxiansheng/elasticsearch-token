@@ -104,7 +104,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -120,7 +120,7 @@ specifier|public
 class|class
 name|LegacyVerificationTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ESTestCase
 block|{
 DECL|method|testAdler32
 specifier|public
