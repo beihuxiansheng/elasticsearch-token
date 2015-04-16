@@ -392,7 +392,7 @@ name|b
 operator|.
 name|append
 argument_list|(
-literal|"REPRODUCE WITH  : mvn clean test"
+literal|"REPRODUCE WITH  : mvn test -Pdev"
 argument_list|)
 expr_stmt|;
 name|MavenMessageBuilder
