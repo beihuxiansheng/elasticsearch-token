@@ -144,7 +144,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -152,7 +152,11 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+return|return
+literal|null
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|merge

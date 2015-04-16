@@ -1124,7 +1124,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1136,6 +1136,9 @@ block|{
 comment|// no need ot parse here, we either get the routing in the sourceToParse
 comment|// or we don't have routing, if we get it in sourceToParse, we process it in preParse
 comment|// which will always be called
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override

@@ -464,7 +464,7 @@ block|,
 literal|"[_all] has different similarity"
 block|}
 decl_stmt|;
-comment|// auto_boost and fielddata and search_analyzer should not report conflict
+comment|// fielddata and search_analyzer should not report conflict
 name|testConflict
 argument_list|(
 name|mapping
