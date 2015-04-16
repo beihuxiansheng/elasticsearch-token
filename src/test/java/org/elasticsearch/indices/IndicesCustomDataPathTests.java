@@ -32,6 +32,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -253,6 +267,14 @@ comment|/**  * Tests for custom data path locations and templates  */
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
+comment|//nocommit: assertPathHasBeenCleared seems like a bad method altogether, should it be agnostic to extra files that already existed?
 DECL|class|IndicesCustomDataPathTests
 specifier|public
 class|class

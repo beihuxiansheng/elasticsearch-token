@@ -590,15 +590,10 @@ name|PathUtils
 operator|.
 name|get
 argument_list|(
-name|URI
-operator|.
-name|create
-argument_list|(
 name|resource
 operator|.
-name|toString
+name|getPath
 argument_list|()
-argument_list|)
 argument_list|)
 return|;
 block|}

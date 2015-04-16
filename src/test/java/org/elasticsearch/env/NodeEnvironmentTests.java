@@ -46,6 +46,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
@@ -333,6 +347,14 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// nocommit: equality of paths with mockfs doesn't seem to work right, the got/expected are printed exactly the same...
 DECL|class|NodeEnvironmentTests
 specifier|public
 class|class

@@ -20,18 +20,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -67,6 +55,20 @@ operator|.
 name|util
 operator|.
 name|BytesRefBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 import|;
 end_import
 
@@ -267,6 +269,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
 DECL|class|BlobStoreTest
 specifier|public
 class|class

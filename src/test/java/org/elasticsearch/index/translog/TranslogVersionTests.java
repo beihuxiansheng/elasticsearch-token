@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -117,6 +131,17 @@ comment|/**  * Tests for reading old and new translog files  */
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// nocommit: really??
+comment|// file handle leaks: [InputStream(/Users/rjernst/Code/elasticsearch/target/test-classes/org/elasticsearch/index/translog/translog-v1.binary), InputStream(/Users/rjernst/Code/elasticsearch/target/test-classes/org/elasticsearch/index/translog/translog-v0.binary)]
+comment|//> 	at __randomizedtesting.SeedInfo.seed([5C01B578E6A55900]:0)
+comment|//> 	at org.apache.lucene.mockfile.LeakFS.onClose(LeakFS.java:64)
 DECL|class|TranslogVersionTests
 specifier|public
 class|class

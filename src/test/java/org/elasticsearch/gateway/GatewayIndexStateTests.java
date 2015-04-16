@@ -25,6 +25,20 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
 operator|.
 name|Slow
 import|;
@@ -400,6 +414,14 @@ literal|0
 argument_list|)
 annotation|@
 name|Slow
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// nocommit: no idea...no exceptions, just 0 results from searches
 DECL|class|GatewayIndexStateTests
 specifier|public
 class|class

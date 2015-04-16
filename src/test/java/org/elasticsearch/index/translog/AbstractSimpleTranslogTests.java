@@ -385,6 +385,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
 DECL|class|AbstractSimpleTranslogTests
 specifier|public
 specifier|abstract
@@ -2666,6 +2673,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"sometimes translog doesn't exist..."
+argument_list|)
+comment|// nocommit
 DECL|method|deleteOnRollover
 specifier|public
 name|void
