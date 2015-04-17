@@ -169,7 +169,7 @@ parameter_list|()
 block|{
 return|return
 operator|new
-name|MatchNoDocsQuery
+name|BooleanQuery
 argument_list|()
 return|;
 block|}
