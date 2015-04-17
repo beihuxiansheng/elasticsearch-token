@@ -593,9 +593,11 @@ name|LuceneTestCase
 operator|.
 name|SuppressFileSystems
 argument_list|(
-literal|"ExtrasFS"
+literal|"*"
 argument_list|)
 comment|// TODO: clean up this test to allow extra files
+comment|// TODO: jimfs is really broken here (throws wrong exception from detection method).
+comment|// if its in your classpath, then do not use plugins!!!!!!
 DECL|class|PluginManagerTests
 specifier|public
 class|class
