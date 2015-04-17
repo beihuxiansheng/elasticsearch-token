@@ -274,7 +274,7 @@ name|SuppressFileSystems
 argument_list|(
 literal|"ExtrasFS"
 argument_list|)
-comment|//nocommit: assertPathHasBeenCleared seems like a bad method altogether, should it be agnostic to extra files that already existed?
+comment|//TODO: assertPathHasBeenCleared seems like a bad method altogether, should it be agnostic to extra files that already existed?
 DECL|class|IndicesCustomDataPathTests
 specifier|public
 class|class

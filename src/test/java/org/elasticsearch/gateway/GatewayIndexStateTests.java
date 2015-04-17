@@ -414,14 +414,6 @@ literal|0
 argument_list|)
 annotation|@
 name|Slow
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
-argument_list|(
-literal|"*"
-argument_list|)
-comment|// nocommit: no idea...no exceptions, just 0 results from searches
 DECL|class|GatewayIndexStateTests
 specifier|public
 class|class

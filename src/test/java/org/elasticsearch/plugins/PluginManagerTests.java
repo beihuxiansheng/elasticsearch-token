@@ -593,9 +593,9 @@ name|LuceneTestCase
 operator|.
 name|SuppressFileSystems
 argument_list|(
-literal|"*"
+literal|"ExtrasFS"
 argument_list|)
-comment|// nocommit: lots of failures here, some with provider mismatches...
+comment|// TODO: clean up this test to allow extra files
 DECL|class|PluginManagerTests
 specifier|public
 class|class

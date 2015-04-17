@@ -229,14 +229,6 @@ comment|/**  * Simple class that ensures that all subclasses concrete of Elastic
 end_comment
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
-argument_list|(
-literal|"*"
-argument_list|)
-comment|// nocommit: ignore rules aren't working for some reason with mockfs
 DECL|class|NamingConventionTests
 specifier|public
 class|class

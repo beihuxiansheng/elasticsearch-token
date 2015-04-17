@@ -18,18 +18,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -640,9 +628,9 @@ name|LuceneTestCase
 operator|.
 name|SuppressFileSystems
 argument_list|(
-literal|"*"
+literal|"ExtrasFS"
 argument_list|)
-comment|// nocommit: lots of checks on number of files in a dir here, but suppressing ExtraFS doesn't seem to work?
+comment|// TODO: fix test to work with ExtrasFS
 DECL|class|MetaDataStateFormatTest
 specifier|public
 class|class

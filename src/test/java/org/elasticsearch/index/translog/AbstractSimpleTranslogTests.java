@@ -2673,14 +2673,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"sometimes translog doesn't exist..."
-argument_list|)
-comment|// nocommit
 DECL|method|deleteOnRollover
 specifier|public
 name|void

@@ -338,12 +338,6 @@ name|Scope
 operator|.
 name|TEST
 argument_list|)
-annotation|@
-name|SuppressFileSystems
-argument_list|(
-literal|"*"
-argument_list|)
-comment|// nocommit: no idea what is happening here...
 DECL|class|QuorumGatewayTests
 specifier|public
 class|class

@@ -352,9 +352,9 @@ name|LuceneTestCase
 operator|.
 name|SuppressFileSystems
 argument_list|(
-literal|"*"
+literal|"ExtrasFS"
 argument_list|)
-comment|// nocommit: equality of paths with mockfs doesn't seem to work right, the got/expected are printed exactly the same...
+comment|// TODO: fix test to allow extras
 DECL|class|NodeEnvironmentTests
 specifier|public
 class|class
