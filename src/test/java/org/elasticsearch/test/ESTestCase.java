@@ -605,8 +605,10 @@ literal|"Direct"
 block|}
 argument_list|)
 comment|// slow ones
-comment|// LUCENE-6432
-comment|//@LuceneTestCase.SuppressReproduceLine
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressReproduceLine
 DECL|class|ESTestCase
 specifier|public
 specifier|abstract
