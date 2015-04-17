@@ -331,7 +331,7 @@ specifier|final
 name|Path
 name|startPath
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 name|path
 argument_list|)

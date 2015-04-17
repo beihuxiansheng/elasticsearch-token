@@ -324,7 +324,7 @@ block|{
 name|Path
 name|zippedIndexDir
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/cluster/routing/"
 operator|+

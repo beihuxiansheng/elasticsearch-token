@@ -498,6 +498,28 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|NoSuchFileException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -1192,27 +1214,43 @@ index|]
 return|;
 block|}
 comment|/**      * Returns a {@link java.nio.file.Path} pointing to the class path relative resource given      * as the first argument. In contrast to      *<code>getClass().getResource(...).getFile()</code> this method will not      * return URL encoded paths if the parent path contains spaces or other      * non-standard characters.      */
-DECL|method|getResourcePath
+annotation|@
+name|Override
+DECL|method|getDataPath
 specifier|public
 name|Path
-name|getResourcePath
+name|getDataPath
 parameter_list|(
 name|String
 name|relativePath
 parameter_list|)
 block|{
+comment|// we override LTC behavior here: wrap even resources with mockfilesystems,
+comment|// because some code is buggy when it comes to multiple nio.2 filesystems
+comment|// (e.g. FileSystemUtils, and likely some tests)
 try|try
 block|{
 return|return
-name|getDataPath
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|getClass
+argument_list|()
+operator|.
+name|getResource
 argument_list|(
 name|relativePath
+argument_list|)
+operator|.
+name|toURI
+argument_list|()
 argument_list|)
 return|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -1220,6 +1258,10 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
+literal|"resource not found: "
+operator|+
+name|relativePath
+argument_list|,
 name|e
 argument_list|)
 throw|;

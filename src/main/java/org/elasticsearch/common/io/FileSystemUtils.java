@@ -1111,6 +1111,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// TODO: note that this will fail if source and target are on different NIO.2 filesystems.
 DECL|class|TreeCopier
 specifier|static
 class|class

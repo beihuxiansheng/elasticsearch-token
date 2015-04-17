@@ -198,7 +198,7 @@ name|put
 argument_list|(
 literal|"path.plugins"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 name|pluginDir
 argument_list|)

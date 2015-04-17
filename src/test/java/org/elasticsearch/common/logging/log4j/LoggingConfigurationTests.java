@@ -314,7 +314,7 @@ block|{
 name|Path
 name|configDir
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"config"
 argument_list|)

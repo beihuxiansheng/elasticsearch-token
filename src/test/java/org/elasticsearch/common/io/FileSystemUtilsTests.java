@@ -260,7 +260,7 @@ specifier|final
 name|Path
 name|path
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/common/io/copyappend"
 argument_list|)

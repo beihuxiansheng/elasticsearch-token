@@ -486,7 +486,7 @@ literal|"path.conf"
 argument_list|,
 name|this
 operator|.
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"config"
 argument_list|)

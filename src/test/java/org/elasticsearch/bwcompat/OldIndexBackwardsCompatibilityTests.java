@@ -763,7 +763,7 @@ expr_stmt|;
 name|Path
 name|dir
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"."
 argument_list|)
@@ -1293,7 +1293,7 @@ comment|// decompress the index
 name|Path
 name|backwardsIndex
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 name|indexFile
 argument_list|)

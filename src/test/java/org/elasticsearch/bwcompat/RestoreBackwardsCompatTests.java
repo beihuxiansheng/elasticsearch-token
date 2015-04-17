@@ -696,7 +696,7 @@ decl_stmt|;
 name|Path
 name|repoFiles
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"."
 argument_list|)

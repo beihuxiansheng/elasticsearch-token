@@ -257,7 +257,7 @@ name|Files
 operator|.
 name|newInputStream
 argument_list|(
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/cluster/routing/issue_9023.zip"
 argument_list|)

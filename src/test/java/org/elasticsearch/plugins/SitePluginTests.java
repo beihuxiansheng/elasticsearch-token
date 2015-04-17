@@ -313,7 +313,7 @@ block|{
 name|Path
 name|pluginDir
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/plugins"
 argument_list|)

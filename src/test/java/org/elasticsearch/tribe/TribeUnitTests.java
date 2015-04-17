@@ -467,7 +467,7 @@ block|{
 name|Path
 name|pathConf
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"elasticsearch.yml"
 argument_list|)
