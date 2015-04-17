@@ -46,6 +46,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -129,18 +145,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -201,6 +205,12 @@ comment|/**  * Unit tests for {@link org.elasticsearch.common.io.FileSystemUtils
 end_comment
 
 begin_class
+annotation|@
+name|SuppressFileSystems
+argument_list|(
+literal|"WindowsFS"
+argument_list|)
+comment|// tries to move away open file handles
 DECL|class|FileSystemUtilsTests
 specifier|public
 class|class
