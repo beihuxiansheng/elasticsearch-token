@@ -269,7 +269,7 @@ specifier|public
 class|class
 name|PluginServiceTests
 extends|extends
-name|ElasticsearchIntegrationTest
+name|PluginTestCase
 block|{
 annotation|@
 name|Test
@@ -322,8 +322,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|SimpleNodesInfoTests
-operator|.
 name|startNodeWithPlugins
 argument_list|(
 name|settings
