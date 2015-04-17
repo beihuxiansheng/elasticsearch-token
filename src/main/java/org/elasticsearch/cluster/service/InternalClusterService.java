@@ -3091,6 +3091,7 @@ name|TimeValue
 name|timeout
 decl_stmt|;
 DECL|field|future
+specifier|volatile
 name|ScheduledFuture
 name|future
 decl_stmt|;
@@ -3141,6 +3142,10 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|future
+operator|!=
+literal|null
+operator|&&
 name|future
 operator|.
 name|isCancelled
