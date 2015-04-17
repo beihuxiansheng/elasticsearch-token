@@ -204,6 +204,10 @@ argument_list|)
 annotation|@
 name|LuceneTestCase
 operator|.
+name|SuppressReproduceLine
+annotation|@
+name|LuceneTestCase
+operator|.
 name|SuppressSysoutChecks
 argument_list|(
 name|bugUrl
