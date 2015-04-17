@@ -565,6 +565,15 @@ name|Engine
 implements|implements
 name|Closeable
 block|{
+DECL|field|SYNC_COMMIT_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYNC_COMMIT_ID
+init|=
+literal|"sync_id"
+decl_stmt|;
 DECL|field|shardId
 specifier|protected
 specifier|final
@@ -1231,6 +1240,23 @@ name|delete
 parameter_list|(
 name|DeleteByQuery
 name|delete
+parameter_list|)
+throws|throws
+name|EngineException
+function_decl|;
+comment|/**      * Attempts to do a special commit where the given syncID is put into the commit data. The attempt      * succeeds if there are not pending writes in lucene and the current point is equal to the expected one.      * @param syncId id of this sync      * @param expectedCommitId the expected value of      * @return true if the sync commit was made, false o.w.      */
+DECL|method|syncCommitIfNoPendingChanges
+specifier|public
+specifier|abstract
+name|boolean
+name|syncCommitIfNoPendingChanges
+parameter_list|(
+name|String
+name|syncId
+parameter_list|,
+name|byte
+index|[]
+name|expectedCommitId
 parameter_list|)
 throws|throws
 name|EngineException
@@ -2367,11 +2393,12 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Flushes the state of the engine including the transaction log, clearing memory.      * @param force if<code>true</code> a lucene commit is executed even if no changes need to be committed.      * @param waitIfOngoing if<code>true</code> this call will block until all currently running flushes have finished.      *                      Otherwise this call will return without blocking.      */
+comment|/**      * Flushes the state of the engine including the transaction log, clearing memory.      * @param force if<code>true</code> a lucene commit is executed even if no changes need to be committed.      * @param waitIfOngoing if<code>true</code> this call will block until all currently running flushes have finished.      *                      Otherwise this call will return without blocking.      * @return the commit Id for the resulting commit      */
 DECL|method|flush
 specifier|public
 specifier|abstract
-name|void
+name|byte
+index|[]
 name|flush
 parameter_list|(
 name|boolean
@@ -2383,11 +2410,12 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Flushes the state of the engine including the transaction log, clearing memory and persisting      * documents in the lucene index to disk including a potentially heavy and durable fsync operation.      * This operation is not going to block if another flush operation is currently running and won't write      * a lucene commit if nothing needs to be committed.      */
+comment|/**      * Flushes the state of the engine including the transaction log, clearing memory and persisting      * documents in the lucene index to disk including a potentially heavy and durable fsync operation.      * This operation is not going to block if another flush operation is currently running and won't write      * a lucene commit if nothing needs to be committed.      *      * @return the commit Id for the resulting commit      */
 DECL|method|flush
 specifier|public
 specifier|abstract
-name|void
+name|byte
+index|[]
 name|flush
 parameter_list|()
 throws|throws
