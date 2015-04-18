@@ -479,8 +479,6 @@ literal|0
 argument_list|,
 literal|false
 argument_list|,
-name|CHILD_JVM_ID
-argument_list|,
 name|SECOND_CLUSTER_NODE_PREFIX
 argument_list|)
 expr_stmt|;

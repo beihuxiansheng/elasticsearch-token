@@ -132,6 +132,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|omg
+operator|.
+name|CORBA
+operator|.
+name|INTERNAL
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -680,17 +692,12 @@ name|int
 name|calcBasePort
 parameter_list|()
 block|{
-comment|// note that this has properly co-exist with the port logic at InternalTestCluster's constructor
 return|return
 literal|30000
 operator|+
-literal|1000
-operator|*
-operator|(
-name|ElasticsearchIntegrationTest
+name|InternalTestCluster
 operator|.
-name|CHILD_JVM_ID
-operator|)
+name|BASE_PORT
 return|;
 block|}
 annotation|@

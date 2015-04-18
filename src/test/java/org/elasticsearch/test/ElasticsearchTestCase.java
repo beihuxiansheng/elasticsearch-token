@@ -608,20 +608,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
-operator|.
-name|store
-operator|.
-name|MockDirectoryHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -1330,30 +1316,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// old shit:
-comment|/**      * The child JVM ordinal of this JVM. Default is<tt>0</tt>      */
-DECL|field|CHILD_JVM_ID
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|CHILD_JVM_ID
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-name|SysGlobals
-operator|.
-name|CHILDVM_SYSPROP_JVM_ID
-argument_list|,
-literal|"0"
-argument_list|)
-argument_list|)
-decl_stmt|;
 comment|/**      * Annotation for REST tests      */
 annotation|@
 name|Inherited
