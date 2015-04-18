@@ -2572,6 +2572,8 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
+literal|"download.elasticsearch.org is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"download.elasticsearch.org"
@@ -2605,6 +2607,8 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
+literal|"search.maven.org is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"search.maven.org"
@@ -2617,6 +2621,8 @@ argument_list|)
 expr_stmt|;
 name|assumeTrue
 argument_list|(
+literal|"repo1.maven.org is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"repo1.maven.org"
@@ -2650,6 +2656,8 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
+literal|"github.com is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"github.com"

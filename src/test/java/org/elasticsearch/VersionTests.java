@@ -217,9 +217,13 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|assumeNotNull
+name|assumeTrue
 argument_list|(
+literal|"tests.version is set"
+argument_list|,
 name|property
+operator|!=
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals

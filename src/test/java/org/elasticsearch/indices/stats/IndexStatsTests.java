@@ -6550,6 +6550,8 @@ argument_list|)
 expr_stmt|;
 name|assumeTrue
 argument_list|(
+literal|"test doesn't work with 4.6.0"
+argument_list|,
 name|org
 operator|.
 name|elasticsearch
