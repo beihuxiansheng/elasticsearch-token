@@ -186,7 +186,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -430,7 +430,7 @@ end_comment
 
 begin_class
 annotation|@
-name|ESTestCase
+name|ElasticsearchTestCase
 operator|.
 name|Rest
 annotation|@

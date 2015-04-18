@@ -278,7 +278,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -370,7 +370,7 @@ specifier|public
 class|class
 name|FreqTermsEnumTests
 extends|extends
-name|ESTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|terms
 specifier|private

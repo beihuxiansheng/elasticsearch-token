@@ -648,7 +648,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -836,7 +836,7 @@ specifier|public
 class|class
 name|ShadowEngineTests
 extends|extends
-name|ESTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|shardId
 specifier|protected

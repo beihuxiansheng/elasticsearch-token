@@ -2152,7 +2152,7 @@ begin_class
 annotation|@
 name|Ignore
 annotation|@
-name|ESTestCase
+name|ElasticsearchTestCase
 operator|.
 name|Integration
 DECL|class|ElasticsearchIntegrationTest

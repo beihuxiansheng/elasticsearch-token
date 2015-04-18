@@ -1022,7 +1022,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -1325,7 +1325,7 @@ specifier|public
 class|class
 name|InternalEngineTests
 extends|extends
-name|ESTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|shardId
 specifier|protected

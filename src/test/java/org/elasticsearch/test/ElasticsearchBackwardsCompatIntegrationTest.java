@@ -328,7 +328,7 @@ end_comment
 
 begin_class
 annotation|@
-name|ESTestCase
+name|ElasticsearchTestCase
 operator|.
 name|Backwards
 annotation|@

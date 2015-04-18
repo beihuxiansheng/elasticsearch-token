@@ -196,7 +196,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -260,7 +260,7 @@ specifier|public
 class|class
 name|CustomPostingsHighlighterTests
 extends|extends
-name|ESTestCase
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test

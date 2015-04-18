@@ -110,7 +110,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|ShardUtilsTests
 extends|extends
-name|ESTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|method|testExtractShardId
 specifier|public

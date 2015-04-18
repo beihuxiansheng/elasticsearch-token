@@ -360,7 +360,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -934,7 +934,7 @@ name|dir
 argument_list|)
 condition|)
 block|{
-name|ESTestCase
+name|ElasticsearchTestCase
 operator|.
 name|checkIndexFailed
 operator|=
@@ -1017,7 +1017,7 @@ operator|.
 name|clean
 condition|)
 block|{
-name|ESTestCase
+name|ElasticsearchTestCase
 operator|.
 name|checkIndexFailed
 operator|=

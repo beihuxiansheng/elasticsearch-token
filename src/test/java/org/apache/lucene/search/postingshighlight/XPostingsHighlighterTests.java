@@ -168,7 +168,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -270,7 +270,7 @@ specifier|public
 class|class
 name|XPostingsHighlighterTests
 extends|extends
-name|ESTestCase
+name|ElasticsearchTestCase
 block|{
 comment|/*     Tests changes needed to make possible to perform discrete highlighting.     We want to highlight every field value separately in case of multiple values, at least when needing to return the whole field content     This is needed to be able to get back a single snippet per value when number_of_fragments=0      */
 annotation|@
