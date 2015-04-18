@@ -6521,10 +6521,10 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testSyncCommit
+DECL|method|testSyncedFlush
 specifier|public
 name|void
-name|testSyncCommit
+name|testSyncedFlush
 parameter_list|()
 throws|throws
 name|IOException
@@ -6637,11 +6637,11 @@ index|]
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"should fail to sync commit with wrong id (but no docs)"
+literal|"should fail to sync flush with wrong id (but no docs)"
 argument_list|,
 name|engine
 operator|.
-name|syncCommitIfNoPendingChanges
+name|syncFlushIfNoPendingChanges
 argument_list|(
 name|syncId
 operator|+
@@ -6673,11 +6673,11 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-literal|"should fail to sync commit with right id but pending doc"
+literal|"should fail to sync flush with right id but pending doc"
 argument_list|,
 name|engine
 operator|.
-name|syncCommitIfNoPendingChanges
+name|syncFlushIfNoPendingChanges
 argument_list|(
 name|syncId
 operator|+
@@ -6696,11 +6696,11 @@ argument_list|()
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"should succeed to sync commit with right id and no pending doc"
+literal|"should succeed to flush commit with right id and no pending doc"
 argument_list|,
 name|engine
 operator|.
-name|syncCommitIfNoPendingChanges
+name|syncFlushIfNoPendingChanges
 argument_list|(
 name|syncId
 argument_list|,

@@ -3796,10 +3796,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|syncCommitIfNoPendingChanges
+DECL|method|syncFlushIfNoPendingChanges
 specifier|public
 name|boolean
-name|syncCommitIfNoPendingChanges
+name|syncFlushIfNoPendingChanges
 parameter_list|(
 name|String
 name|syncId

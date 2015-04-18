@@ -4744,10 +4744,10 @@ return|return
 name|completionStats
 return|;
 block|}
-DECL|method|syncCommitIfNoPendingChanges
+DECL|method|syncFlushIfNoPendingChanges
 specifier|public
 name|boolean
-name|syncCommitIfNoPendingChanges
+name|syncFlushIfNoPendingChanges
 parameter_list|(
 name|String
 name|syncId
@@ -4764,7 +4764,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"tryimg to sync commit. sync id [{}]. expected commit id [{}]]"
+literal|"trying to sync flush. sync id [{}]. expected commit id [{}]]"
 argument_list|,
 name|syncId
 argument_list|,
@@ -4775,7 +4775,7 @@ return|return
 name|engine
 argument_list|()
 operator|.
-name|syncCommitIfNoPendingChanges
+name|syncFlushIfNoPendingChanges
 argument_list|(
 name|syncId
 argument_list|,
