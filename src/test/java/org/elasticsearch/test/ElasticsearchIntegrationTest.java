@@ -3197,8 +3197,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|setRandomSettings
-specifier|private
-specifier|static
+specifier|protected
 name|ImmutableSettings
 operator|.
 name|Builder
@@ -3662,33 +3661,6 @@ literal|1
 argument_list|,
 literal|32
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|globalCompatibilityVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_1_3_2
-argument_list|)
-condition|)
-block|{
-comment|// if we test against nodes before 1.3.2 we disable all the compression due to a known bug
-comment|// see #7210
-name|builder
-operator|.
-name|put
-argument_list|(
-name|RecoverySettings
-operator|.
-name|INDICES_RECOVERY_COMPRESS
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}

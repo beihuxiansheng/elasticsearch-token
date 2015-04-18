@@ -118,7 +118,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ElasticsearchBackwardsCompatIntegrationTest
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ElasticsearchIntegrationTest
 import|;
 end_import
 
@@ -241,7 +241,7 @@ operator|.
 name|SUITE
 argument_list|)
 annotation|@
-name|ElasticsearchTestCase
+name|ElasticsearchBackwardsCompatIntegrationTest
 operator|.
 name|CompatibilityVersion
 argument_list|(
