@@ -22,18 +22,6 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
 name|RandomizedContext
 import|;
 end_import
@@ -47,18 +35,6 @@ operator|.
 name|randomizedtesting
 operator|.
 name|RandomizedTest
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|SysGlobals
 import|;
 end_import
 
@@ -128,7 +104,9 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|TimeoutSuite
+name|ThreadLeakScope
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -142,9 +120,7 @@ name|randomizedtesting
 operator|.
 name|annotations
 operator|.
-name|ThreadLeakScope
-operator|.
-name|Scope
+name|TimeoutSuite
 import|;
 end_import
 
@@ -240,20 +216,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|store
-operator|.
-name|MockDirectoryWrapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|uninverting
 operator|.
 name|UninvertingReader
@@ -284,6 +246,22 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -299,22 +277,6 @@ operator|.
 name|util
 operator|.
 name|TimeUnits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
 import|;
 end_import
 
@@ -1014,8 +976,6 @@ operator|=
 literal|"we log a lot on purpose"
 argument_list|)
 annotation|@
-name|Ignore
-annotation|@
 name|SuppressCodecs
 argument_list|(
 block|{
@@ -1316,82 +1276,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// old shit:
-comment|/**      * Annotation for REST tests      */
-annotation|@
-name|Inherited
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|Target
-argument_list|(
-name|ElementType
-operator|.
-name|TYPE
-argument_list|)
-annotation|@
-name|TestGroup
-argument_list|(
-name|enabled
-operator|=
-literal|true
-argument_list|,
-name|sysProperty
-operator|=
-name|TESTS_REST
-argument_list|)
-DECL|interface|Rest
-specifier|public
-annotation_defn|@interface
-name|Rest
-block|{     }
-comment|/**      * Property that allows to control whether the REST tests are run (default) or not      */
-DECL|field|TESTS_REST
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TESTS_REST
-init|=
-literal|"tests.rest"
-decl_stmt|;
-comment|/**      * Annotation for integration tests      */
-annotation|@
-name|Inherited
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|Target
-argument_list|(
-name|ElementType
-operator|.
-name|TYPE
-argument_list|)
-annotation|@
-name|TestGroup
-argument_list|(
-name|enabled
-operator|=
-literal|true
-argument_list|,
-name|sysProperty
-operator|=
-name|SYSPROP_INTEGRATION
-argument_list|)
-DECL|interface|Integration
-specifier|public
-annotation_defn|@interface
-name|Integration
-block|{     }
 comment|// --------------------------------------------------------------------
 comment|// Test groups, system properties and other annotations modifying tests
 comment|// --------------------------------------------------------------------
@@ -1414,15 +1298,6 @@ name|String
 name|SYSPROP_FAILFAST
 init|=
 literal|"tests.failfast"
-decl_stmt|;
-DECL|field|SYSPROP_INTEGRATION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SYSPROP_INTEGRATION
-init|=
-literal|"tests.integration"
 decl_stmt|;
 comment|// -----------------------------------------------------------------
 comment|// Suite and test case setup/ cleanup.

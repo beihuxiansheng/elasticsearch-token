@@ -70,6 +70,20 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
+name|annotations
+operator|.
+name|TestGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
 name|generators
 operator|.
 name|RandomInts
@@ -221,16 +235,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|Version
 import|;
 end_import
 
@@ -2054,20 +2058,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
-operator|.
-name|clusterName
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -2164,7 +2154,7 @@ begin_class
 annotation|@
 name|Ignore
 annotation|@
-name|ElasticsearchTestCase
+name|ElasticsearchIntegrationTest
 operator|.
 name|Integration
 DECL|class|ElasticsearchIntegrationTest
@@ -2175,6 +2165,51 @@ name|ElasticsearchIntegrationTest
 extends|extends
 name|ElasticsearchTestCase
 block|{
+comment|/**      * Property that allows to control whether the Integration tests are run (default) or not      */
+DECL|field|SYSPROP_INTEGRATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_INTEGRATION
+init|=
+literal|"tests.integration"
+decl_stmt|;
+comment|/**      * Annotation for integration tests      */
+annotation|@
+name|Inherited
+annotation|@
+name|Retention
+argument_list|(
+name|RetentionPolicy
+operator|.
+name|RUNTIME
+argument_list|)
+annotation|@
+name|Target
+argument_list|(
+name|ElementType
+operator|.
+name|TYPE
+argument_list|)
+annotation|@
+name|TestGroup
+argument_list|(
+name|enabled
+operator|=
+literal|true
+argument_list|,
+name|sysProperty
+operator|=
+name|ElasticsearchIntegrationTest
+operator|.
+name|SYSPROP_INTEGRATION
+argument_list|)
+DECL|interface|Integration
+specifier|public
+annotation_defn|@interface
+name|Integration
+block|{     }
 comment|/** node names of the corresponding clusters will start with these prefixes */
 DECL|field|SUITE_CLUSTER_NODE_PREFIX
 specifier|public
@@ -9089,7 +9124,6 @@ block|}
 comment|/**      * The scope of a test cluster used together with      * {@link org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope} annotations on {@link org.elasticsearch.test.ElasticsearchIntegrationTest} subclasses.      */
 DECL|enum|Scope
 specifier|public
-specifier|static
 enum|enum
 name|Scope
 block|{
