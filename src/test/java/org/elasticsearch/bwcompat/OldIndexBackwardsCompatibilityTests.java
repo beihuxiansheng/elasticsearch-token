@@ -916,7 +916,7 @@ comment|// for replicas
 name|Path
 name|baseTempDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 comment|// start single data path node
@@ -1257,7 +1257,7 @@ block|{
 name|Path
 name|unzipDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path

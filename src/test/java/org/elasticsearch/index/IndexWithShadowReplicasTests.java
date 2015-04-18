@@ -493,7 +493,7 @@ specifier|final
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Settings
@@ -655,7 +655,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1066,7 +1066,7 @@ specifier|final
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Settings
@@ -1634,7 +1634,7 @@ decl_stmt|;
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|String
@@ -2290,7 +2290,7 @@ decl_stmt|;
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|String
@@ -2996,7 +2996,7 @@ expr_stmt|;
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|String
@@ -3346,7 +3346,7 @@ expr_stmt|;
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|String
@@ -3749,7 +3749,7 @@ expr_stmt|;
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|String

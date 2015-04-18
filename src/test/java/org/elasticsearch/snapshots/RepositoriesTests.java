@@ -393,7 +393,7 @@ decl_stmt|;
 name|Path
 name|location
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|logger
@@ -668,7 +668,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1182,7 +1182,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
@@ -1267,7 +1267,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
@@ -1421,7 +1421,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
@@ -1550,7 +1550,7 @@ expr_stmt|;
 name|Path
 name|location
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|logger
@@ -1665,7 +1665,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
@@ -1794,7 +1794,7 @@ expr_stmt|;
 name|Path
 name|location
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|logger

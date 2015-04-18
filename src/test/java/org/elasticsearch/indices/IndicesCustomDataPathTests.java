@@ -297,7 +297,7 @@ parameter_list|()
 block|{
 name|path
 operator|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath
@@ -354,7 +354,7 @@ decl_stmt|;
 name|Path
 name|root
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path

@@ -245,7 +245,7 @@ block|{
 name|Path
 name|tmp
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 try|try

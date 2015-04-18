@@ -159,13 +159,13 @@ decl_stmt|;
 name|Path
 name|homeFolder
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path
 name|genericConfigFolder
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Settings

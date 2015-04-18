@@ -1610,71 +1610,6 @@ block|}
 comment|// -----------------------------------------------------------------
 comment|// Test facilities and facades for subclasses.
 comment|// -----------------------------------------------------------------
-comment|/**      * Registers a {@link Closeable} resource that should be closed after the test      * completes.      *      * @return<code>resource</code> (for call chaining).      */
-annotation|@
-name|Override
-DECL|method|closeAfterTest
-specifier|public
-parameter_list|<
-name|T
-extends|extends
-name|Closeable
-parameter_list|>
-name|T
-name|closeAfterTest
-parameter_list|(
-name|T
-name|resource
-parameter_list|)
-block|{
-return|return
-name|RandomizedContext
-operator|.
-name|current
-argument_list|()
-operator|.
-name|closeAtEnd
-argument_list|(
-name|resource
-argument_list|,
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
-return|;
-block|}
-comment|/**      * Registers a {@link Closeable} resource that should be closed after the suite      * completes.      *      * @return<code>resource</code> (for call chaining).      */
-DECL|method|closeAfterSuite
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-extends|extends
-name|Closeable
-parameter_list|>
-name|T
-name|closeAfterSuite
-parameter_list|(
-name|T
-name|resource
-parameter_list|)
-block|{
-return|return
-name|RandomizedContext
-operator|.
-name|current
-argument_list|()
-operator|.
-name|closeAtEnd
-argument_list|(
-name|resource
-argument_list|,
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
-return|;
-block|}
 comment|// old helper stuff, a lot of it is bad news and we should see if its all used
 comment|/**      * Returns a "scaled" random number between min and max (inclusive).      * @see RandomizedTest#scaledRandomIntBetween(int, int);      */
 DECL|method|scaledRandomIntBetween
@@ -4441,34 +4376,6 @@ name|SECONDS
 argument_list|)
 return|;
 block|}
-comment|// TODO: these method names stink, but are a temporary solution.
-comment|// see https://github.com/carrotsearch/randomizedtesting/pull/178
-comment|/**      * Returns a temporary file      * @throws IOException       */
-DECL|method|newTempFilePath
-specifier|public
-name|Path
-name|newTempFilePath
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-name|createTempFile
-argument_list|()
-return|;
-block|}
-comment|/**      * Returns a temporary directory      */
-DECL|method|newTempDirPath
-specifier|public
-name|Path
-name|newTempDirPath
-parameter_list|()
-block|{
-return|return
-name|createTempDir
-argument_list|()
-return|;
-block|}
 comment|/**      * Returns a random number of temporary paths.      */
 DECL|method|tmpPaths
 specifier|public
@@ -4524,7 +4431,7 @@ index|[
 name|i
 index|]
 operator|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath
@@ -4583,7 +4490,7 @@ name|put
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath

@@ -319,7 +319,7 @@ expr_stmt|;
 name|Path
 name|tmpFile
 init|=
-name|newTempFilePath
+name|createTempFile
 argument_list|()
 decl_stmt|;
 name|FileChannel

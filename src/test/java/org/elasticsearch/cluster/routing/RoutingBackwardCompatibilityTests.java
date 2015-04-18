@@ -191,7 +191,7 @@ block|{
 name|Path
 name|baseDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Node

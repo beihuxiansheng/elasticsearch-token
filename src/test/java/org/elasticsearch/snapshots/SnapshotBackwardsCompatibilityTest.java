@@ -497,7 +497,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath
@@ -1768,7 +1768,7 @@ specifier|final
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath

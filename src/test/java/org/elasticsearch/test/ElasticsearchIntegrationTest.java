@@ -70,18 +70,6 @@ name|carrotsearch
 operator|.
 name|randomizedtesting
 operator|.
-name|SysGlobals
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
 name|generators
 operator|.
 name|RandomInts
@@ -2295,30 +2283,6 @@ name|int
 name|DEFAULT_MAX_NUM_SHARDS
 init|=
 literal|10
-decl_stmt|;
-comment|/**      * The child JVM ordinal of this JVM. Default is<tt>0</tt>      */
-DECL|field|CHILD_JVM_ID
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|CHILD_JVM_ID
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-name|SysGlobals
-operator|.
-name|CHILDVM_SYSPROP_JVM_ID
-argument_list|,
-literal|"0"
-argument_list|)
-argument_list|)
 decl_stmt|;
 comment|/**      * The current cluster depending on the configured {@link Scope}.      * By default if no {@link ClusterScope} is configured this will hold a reference to the suite cluster.      */
 DECL|field|currentCluster
@@ -5143,7 +5107,7 @@ specifier|final
 name|Path
 name|dataPath
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|logger
@@ -10207,7 +10171,7 @@ name|InternalTestCluster
 argument_list|(
 name|seed
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|,
 name|minNumDataNodes
@@ -11246,7 +11210,7 @@ block|{
 name|Path
 name|indexDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path

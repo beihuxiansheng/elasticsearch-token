@@ -1536,7 +1536,7 @@ block|{
 name|Path
 name|wordListFile
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|resolve

@@ -1160,7 +1160,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1641,7 +1641,7 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|logger
@@ -3008,7 +3008,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
@@ -3347,7 +3347,7 @@ expr_stmt|;
 name|Path
 name|repo
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|PutRepositoryResponse
@@ -4068,7 +4068,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -5269,7 +5269,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -5837,7 +5837,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -5888,7 +5888,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 argument_list|)
@@ -6019,7 +6019,7 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
