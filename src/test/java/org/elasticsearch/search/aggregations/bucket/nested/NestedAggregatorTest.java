@@ -366,7 +366,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeLuceneTestCase
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -432,7 +432,7 @@ specifier|public
 class|class
 name|NestedAggregatorTest
 extends|extends
-name|ElasticsearchSingleNodeLuceneTestCase
+name|ElasticsearchSingleNodeTest
 block|{
 annotation|@
 name|Test

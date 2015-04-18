@@ -340,7 +340,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeLuceneTestCase
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -425,7 +425,7 @@ specifier|abstract
 class|class
 name|AbstractChildTests
 extends|extends
-name|ElasticsearchSingleNodeLuceneTestCase
+name|ElasticsearchSingleNodeTest
 block|{
 comment|/**      * The name of the field within the child type that stores a score to use in test queries.      *<p />      * Its type is {@code double}.      */
 DECL|field|CHILD_SCORE_NAME
