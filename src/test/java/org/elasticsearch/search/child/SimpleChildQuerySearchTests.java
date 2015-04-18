@@ -34,22 +34,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -1446,8 +1430,6 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
-annotation|@
-name|Slow
 DECL|class|SimpleChildQuerySearchTests
 specifier|public
 class|class
@@ -18023,6 +18005,8 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Slow
 comment|// The SimpleIdReaderTypeCache#docById method used lget, which can't be used if a map is shared.
 DECL|method|testTopChildrenBug_concurrencyIssue
 specifier|public

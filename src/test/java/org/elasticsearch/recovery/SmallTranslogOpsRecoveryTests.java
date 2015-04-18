@@ -18,22 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -63,8 +47,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Slow
 DECL|class|SmallTranslogOpsRecoveryTests
 specifier|public
 class|class

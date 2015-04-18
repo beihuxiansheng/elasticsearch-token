@@ -18,22 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -267,8 +251,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|Slow
 DECL|class|IndexActionTests
 specifier|public
 class|class
@@ -279,6 +261,8 @@ block|{
 comment|/**      * This test tries to simulate load while creating an index and indexing documents      * while the index is being created.      */
 annotation|@
 name|Test
+annotation|@
+name|Slow
 DECL|method|testAutoGenerateIdNoDuplicates
 specifier|public
 name|void
