@@ -270,6 +270,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -403,6 +419,8 @@ comment|/**  * Note, when talking to tribe client, no need to set the local flag
 end_comment
 
 begin_class
+annotation|@
+name|Slow
 DECL|class|TribeTests
 specifier|public
 class|class

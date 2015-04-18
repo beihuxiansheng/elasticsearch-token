@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -297,6 +313,8 @@ operator|=
 literal|false
 argument_list|)
 comment|// this test takes a long time to delete the idx if all fields are eager loading
+annotation|@
+name|Slow
 DECL|class|ConcurrentDynamicTemplateTests
 specifier|public
 class|class

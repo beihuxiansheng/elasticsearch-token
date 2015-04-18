@@ -517,6 +517,8 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Slow
 DECL|class|HighlighterSearchTests
 specifier|public
 class|class

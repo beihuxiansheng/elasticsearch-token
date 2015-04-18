@@ -477,6 +477,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Slow
 DECL|class|UpdateTests
 specifier|public
 class|class

@@ -41,6 +41,8 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+operator|.
+name|Slow
 import|;
 end_import
 
@@ -448,6 +450,8 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|Slow
 DECL|class|IndicesStoreIntegrationTests
 specifier|public
 class|class
