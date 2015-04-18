@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Seed
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -75,11 +61,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Seed
-argument_list|(
-literal|"E619863BE07FF5CB"
-argument_list|)
 DECL|class|VersionUtilsTests
 specifier|public
 class|class
