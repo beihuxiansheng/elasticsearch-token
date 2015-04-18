@@ -818,14 +818,6 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
-argument_list|(
-literal|"ExtrasFS"
-argument_list|)
-comment|// not ready for this yet
 DECL|class|DedicatedClusterSnapshotRestoreTests
 specifier|public
 class|class

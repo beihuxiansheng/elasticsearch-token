@@ -443,13 +443,6 @@ operator|=
 literal|0
 argument_list|)
 annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
-argument_list|(
-literal|"ExtrasFS"
-argument_list|)
-annotation|@
 name|Slow
 DECL|class|IndexWithShadowReplicasTests
 specifier|public

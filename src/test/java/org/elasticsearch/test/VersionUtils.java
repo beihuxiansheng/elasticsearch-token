@@ -471,6 +471,8 @@ name|SORTED_VERSIONS
 operator|.
 name|size
 argument_list|()
+operator|-
+literal|1
 decl_stmt|;
 if|if
 condition|(

@@ -1004,14 +1004,6 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
-argument_list|(
-literal|"ExtrasFS"
-argument_list|)
-comment|// TODO: need to only do the checksum check on lucene files
 DECL|class|CorruptedFileTest
 specifier|public
 class|class

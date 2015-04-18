@@ -214,6 +214,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -2157,6 +2171,14 @@ annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|Integration
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
+comment|// doesn't work with potential multi data path from test cluster yet
 DECL|class|ElasticsearchIntegrationTest
 specifier|public
 specifier|abstract
