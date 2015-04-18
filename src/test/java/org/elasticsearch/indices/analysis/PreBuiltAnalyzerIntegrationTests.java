@@ -206,6 +206,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+operator|.
+name|randomVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -432,7 +446,10 @@ name|Version
 name|randomVersion
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -829,7 +846,10 @@ init|=
 name|settings
 argument_list|(
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|put

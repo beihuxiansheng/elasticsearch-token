@@ -132,6 +132,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -420,6 +432,8 @@ control|(
 name|Version
 name|version
 range|:
+name|VersionTestUtil
+operator|.
 name|allVersions
 argument_list|()
 control|)

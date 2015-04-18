@@ -242,6 +242,32 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|Version
+operator|.
+name|CURRENT
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+operator|.
+name|randomVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -1283,12 +1309,13 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-name|Version
-operator|.
 name|CURRENT
 else|:
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|ClusterState
 operator|.
@@ -1600,12 +1627,13 @@ init|=
 name|randomBoolean
 argument_list|()
 condition|?
-name|Version
-operator|.
 name|CURRENT
 else|:
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|clusterState
 operator|.

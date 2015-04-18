@@ -222,18 +222,6 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
 name|ElasticsearchTestCase
 import|;
 end_import
@@ -327,6 +315,20 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+operator|.
+name|randomVersion
 import|;
 end_import
 
@@ -552,10 +554,11 @@ expr_stmt|;
 name|Version
 name|version
 init|=
-name|ElasticsearchIntegrationTest
-operator|.
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|InternalSignificantTerms
 index|[]

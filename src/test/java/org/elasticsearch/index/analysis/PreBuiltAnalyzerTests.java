@@ -234,6 +234,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+operator|.
+name|randomVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -595,7 +609,10 @@ expr_stmt|;
 name|version
 operator|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -924,7 +941,10 @@ expr_stmt|;
 name|version
 operator|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1123,7 +1143,10 @@ name|Version
 name|randomVersion
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|Settings
 name|indexSettings

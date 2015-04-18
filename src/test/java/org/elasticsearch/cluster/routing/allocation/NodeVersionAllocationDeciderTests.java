@@ -214,6 +214,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -279,6 +291,20 @@ operator|.
 name|ImmutableSettings
 operator|.
 name|settingsBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+operator|.
+name|randomVersion
 import|;
 end_import
 
@@ -1316,6 +1342,8 @@ name|newNode
 argument_list|(
 literal|"node3"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
@@ -2247,6 +2275,8 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 condition|?
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 else|:
@@ -2273,7 +2303,10 @@ operator|++
 operator|)
 argument_list|,
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2744,6 +2777,8 @@ name|newNode
 argument_list|(
 literal|"old0"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
@@ -2755,6 +2790,8 @@ name|newNode
 argument_list|(
 literal|"old1"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
@@ -2766,6 +2803,8 @@ name|newNode
 argument_list|(
 literal|"old2"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
@@ -2806,6 +2845,8 @@ name|newNode
 argument_list|(
 literal|"old0"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
@@ -2817,6 +2858,8 @@ name|newNode
 argument_list|(
 literal|"old1"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)
@@ -2865,6 +2908,8 @@ name|newNode
 argument_list|(
 literal|"node0"
 argument_list|,
+name|VersionTestUtil
+operator|.
 name|getPreviousVersion
 argument_list|()
 argument_list|)

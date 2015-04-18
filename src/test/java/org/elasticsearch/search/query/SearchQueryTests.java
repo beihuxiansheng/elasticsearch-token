@@ -444,22 +444,6 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_NUMBER_OF_REPLICAS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
 name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
@@ -543,6 +527,20 @@ operator|.
 name|ScoreFunctionBuilders
 operator|.
 name|scriptFunction
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+operator|.
+name|randomVersion
 import|;
 end_import
 
@@ -5070,7 +5068,10 @@ block|}
 name|version
 operator|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}

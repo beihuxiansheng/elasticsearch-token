@@ -152,6 +152,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionTestUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -276,6 +288,8 @@ control|(
 name|Version
 name|v
 range|:
+name|VersionTestUtil
+operator|.
 name|allVersions
 argument_list|()
 control|)
@@ -470,6 +484,8 @@ control|(
 name|Version
 name|v
 range|:
+name|VersionTestUtil
+operator|.
 name|allVersions
 argument_list|()
 control|)
