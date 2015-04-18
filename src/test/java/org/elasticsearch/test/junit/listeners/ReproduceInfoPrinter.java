@@ -240,7 +240,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ElasticsearchRestTests
+name|ElasticsearchRestTestCase
 operator|.
 name|*
 import|;
