@@ -96,7 +96,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 import|;
 end_import
 
@@ -235,7 +235,7 @@ decl_stmt|;
 name|Version
 name|testVersion
 init|=
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(

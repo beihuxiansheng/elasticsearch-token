@@ -184,7 +184,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|randomVersion
 import|;

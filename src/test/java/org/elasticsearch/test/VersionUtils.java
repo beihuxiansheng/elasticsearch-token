@@ -123,14 +123,14 @@ import|;
 end_import
 
 begin_comment
-comment|/** Utilities for selection versions in tests */
+comment|/** Utilities for selecting versions in tests */
 end_comment
 
 begin_class
-DECL|class|VersionTestUtil
+DECL|class|VersionUtils
 specifier|public
 class|class
-name|VersionTestUtil
+name|VersionUtils
 block|{
 DECL|field|SORTED_VERSIONS
 specifier|private
@@ -281,13 +281,6 @@ argument_list|(
 name|idList
 argument_list|)
 expr_stmt|;
-name|Collections
-operator|.
-name|reverse
-argument_list|(
-name|idList
-argument_list|)
-expr_stmt|;
 name|ImmutableList
 operator|.
 name|Builder
@@ -365,7 +358,12 @@ name|SORTED_VERSIONS
 operator|.
 name|get
 argument_list|(
-literal|1
+name|SORTED_VERSIONS
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|2
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -380,6 +378,23 @@ argument_list|)
 assert|;
 return|return
 name|version
+return|;
+block|}
+comment|/** Returns the oldest {@link Version} */
+DECL|method|getFirstVersion
+specifier|public
+specifier|static
+name|Version
+name|getFirstVersion
+parameter_list|()
+block|{
+return|return
+name|SORTED_VERSIONS
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
 return|;
 block|}
 comment|/** Returns a random {@link Version} from all available versions. */
@@ -430,10 +445,7 @@ block|{
 name|int
 name|minVersionIndex
 init|=
-name|SORTED_VERSIONS
-operator|.
-name|size
-argument_list|()
+literal|0
 decl_stmt|;
 if|if
 condition|(
@@ -455,7 +467,10 @@ block|}
 name|int
 name|maxVersionIndex
 init|=
-literal|0
+name|SORTED_VERSIONS
+operator|.
+name|size
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -515,24 +530,48 @@ literal|"] does not exist."
 argument_list|)
 throw|;
 block|}
+elseif|else
+if|if
+condition|(
+name|minVersionIndex
+operator|>
+name|maxVersionIndex
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"maxVersion ["
+operator|+
+name|maxVersion
+operator|+
+literal|"] cannot be less than minVersion ["
+operator|+
+name|minVersion
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 else|else
 block|{
 comment|// minVersionIndex is inclusive so need to add 1 to this index
 name|int
 name|range
 init|=
-name|minVersionIndex
+name|maxVersionIndex
 operator|+
 literal|1
 operator|-
-name|maxVersionIndex
+name|minVersionIndex
 decl_stmt|;
 return|return
 name|SORTED_VERSIONS
 operator|.
 name|get
 argument_list|(
-name|maxVersionIndex
+name|minVersionIndex
 operator|+
 name|random
 operator|.

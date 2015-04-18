@@ -156,7 +156,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 import|;
 end_import
 
@@ -288,7 +288,7 @@ control|(
 name|Version
 name|v
 range|:
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|allVersions
 argument_list|()
@@ -484,7 +484,7 @@ control|(
 name|Version
 name|v
 range|:
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|allVersions
 argument_list|()

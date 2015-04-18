@@ -218,7 +218,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 import|;
 end_import
 
@@ -302,7 +302,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|randomVersion
 import|;
@@ -1342,7 +1342,7 @@ name|newNode
 argument_list|(
 literal|"node3"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2275,7 +2275,7 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 condition|?
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2777,7 +2777,7 @@ name|newNode
 argument_list|(
 literal|"old0"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2790,7 +2790,7 @@ name|newNode
 argument_list|(
 literal|"old1"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2803,7 +2803,7 @@ name|newNode
 argument_list|(
 literal|"old2"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2845,7 +2845,7 @@ name|newNode
 argument_list|(
 literal|"old0"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2858,7 +2858,7 @@ name|newNode
 argument_list|(
 literal|"old1"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()
@@ -2908,7 +2908,7 @@ name|newNode
 argument_list|(
 literal|"node0"
 argument_list|,
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()

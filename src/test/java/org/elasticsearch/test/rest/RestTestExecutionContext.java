@@ -36,6 +36,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|logging
@@ -724,7 +734,7 @@ block|}
 comment|/**      * Returns the current es version as a string      */
 DECL|method|esVersion
 specifier|public
-name|String
+name|Version
 name|esVersion
 parameter_list|()
 block|{

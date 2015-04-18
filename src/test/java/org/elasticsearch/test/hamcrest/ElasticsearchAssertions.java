@@ -698,7 +698,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 import|;
 end_import
 
@@ -906,7 +906,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|randomVersion
 import|;
@@ -4623,7 +4623,7 @@ name|CURRENT
 operator|.
 name|after
 argument_list|(
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|getPreviousVersion
 argument_list|()

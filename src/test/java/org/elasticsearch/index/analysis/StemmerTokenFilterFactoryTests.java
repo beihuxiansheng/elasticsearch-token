@@ -150,7 +150,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 import|;
 end_import
 
@@ -276,7 +276,7 @@ block|{
 name|Version
 name|v
 init|=
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(
@@ -508,7 +508,7 @@ block|{
 name|Version
 name|v
 init|=
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|randomVersion
 argument_list|(

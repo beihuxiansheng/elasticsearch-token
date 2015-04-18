@@ -424,7 +424,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|VersionTestUtil
+name|VersionUtils
 import|;
 end_import
 
@@ -508,16 +508,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -533,18 +523,6 @@ operator|.
 name|io
 operator|.
 name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Modifier
 import|;
 end_import
 
@@ -1792,7 +1770,7 @@ control|(
 name|Version
 name|v
 range|:
-name|VersionTestUtil
+name|VersionUtils
 operator|.
 name|allVersions
 argument_list|()
