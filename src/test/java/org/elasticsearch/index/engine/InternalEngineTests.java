@@ -12230,6 +12230,13 @@ name|void
 name|testIndexWriterInfoStream
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"who tests the tester?"
+argument_list|,
+name|VERBOSE
+argument_list|)
+expr_stmt|;
 name|MockAppender
 name|mockAppender
 init|=
@@ -12399,6 +12406,13 @@ name|void
 name|testIndexWriterIFDInfoStream
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"who tests the tester?"
+argument_list|,
+name|VERBOSE
+argument_list|)
+expr_stmt|;
 name|MockAppender
 name|mockAppender
 init|=
