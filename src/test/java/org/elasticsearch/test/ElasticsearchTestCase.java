@@ -847,6 +847,8 @@ name|bugUrl
 operator|=
 literal|"we log a lot on purpose"
 argument_list|)
+comment|// we suppress pretty much all the lucene codecs for now, except asserting
+comment|// assertingcodec is the winner for a codec here: it finds bugs and gives clear exceptions.
 annotation|@
 name|SuppressCodecs
 argument_list|(
@@ -858,9 +860,28 @@ block|,
 literal|"CheapBastard"
 block|,
 literal|"Direct"
+block|,
+literal|"Compressing"
+block|,
+literal|"FST50"
+block|,
+literal|"FSTOrd50"
+block|,
+literal|"TestBloomFilteredLucenePostings"
+block|,
+literal|"MockRandom"
+block|,
+literal|"BlockTreeOrds"
+block|,
+literal|"LuceneFixedGap"
+block|,
+literal|"LuceneVarGapFixedInterval"
+block|,
+literal|"LuceneVarGapDocFreqInterval"
+block|,
+literal|"Lucene50"
 block|}
 argument_list|)
-comment|// slow ones
 annotation|@
 name|LuceneTestCase
 operator|.

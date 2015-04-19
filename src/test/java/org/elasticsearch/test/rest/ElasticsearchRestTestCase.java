@@ -126,6 +126,22 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
+name|SuppressCodecs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
 name|SuppressFsync
 import|;
 end_import
@@ -610,6 +626,12 @@ name|Slow
 annotation|@
 name|SuppressFsync
 comment|// we aren't trying to test this here, and it can make the test slow
+annotation|@
+name|SuppressCodecs
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// requires custom completion postings format
 annotation|@
 name|ClusterScope
 argument_list|(

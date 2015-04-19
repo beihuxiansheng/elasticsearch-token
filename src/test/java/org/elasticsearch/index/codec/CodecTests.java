@@ -286,7 +286,9 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|TestUtil
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
 import|;
 end_import
 
@@ -348,16 +350,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -375,6 +367,12 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|SuppressCodecs
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// we test against default codec so never get a random one here!
 DECL|class|CodecTests
 specifier|public
 class|class
@@ -382,35 +380,6 @@ name|CodecTests
 extends|extends
 name|ElasticsearchSingleNodeTest
 block|{
-annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|Codec
-operator|.
-name|setDefault
-argument_list|(
-name|TestUtil
-operator|.
-name|getDefaultCodec
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// we test against default codec so never get a random one here!
-block|}
 annotation|@
 name|Test
 DECL|method|testResolveDefaultCodecs
