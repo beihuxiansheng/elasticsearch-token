@@ -628,6 +628,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|FileSystem
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|Path
 import|;
 end_import
@@ -954,18 +966,33 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|field
-operator|.
-name|set
-argument_list|(
-literal|null
-argument_list|,
+name|FileSystem
+name|mock
+init|=
 name|LuceneTestCase
 operator|.
 name|getBaseTempDirForTestClass
 argument_list|()
 operator|.
 name|getFileSystem
+argument_list|()
+decl_stmt|;
+name|field
+operator|.
+name|set
+argument_list|(
+literal|null
+argument_list|,
+name|mock
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|mock
+argument_list|,
+name|PathUtils
+operator|.
+name|getDefaultFileSystem
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1230,6 +1257,9 @@ name|DEFAULT_SYSPROP
 argument_list|)
 expr_stmt|;
 block|}
+comment|// check some things (like MockDirectoryWrappers) are closed where we currently
+comment|// manage them. TODO: can we add these to LuceneTestCase.closeAfterSuite directly?
+comment|// or something else simpler instead of the fake closeables?
 annotation|@
 name|BeforeClass
 DECL|method|setAfterSuiteAssertions
@@ -1371,6 +1401,8 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// mockdirectorywrappers currently set this boolean if checkindex fails
+comment|// TODO: can we do this cleaner???
 comment|/** MockFSDirectoryService sets this: */
 DECL|field|checkIndexFailed
 specifier|public
