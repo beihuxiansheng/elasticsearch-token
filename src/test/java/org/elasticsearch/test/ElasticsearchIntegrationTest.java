@@ -11099,10 +11099,7 @@ name|?
 argument_list|>
 name|targetClass
 init|=
-name|getContext
-argument_list|()
-operator|.
-name|getTargetClass
+name|getTestClass
 argument_list|()
 decl_stmt|;
 comment|/**          * Note we create these test class instance via reflection          * since JUnit creates a new instance per test and that is also          * the reason why INSTANCE is static since this entire method          * must be executed in a static context.          */
