@@ -469,10 +469,8 @@ index|[]
 block|{
 name|lower
 operator|.
-name|equals
-argument_list|(
-literal|"0"
-argument_list|)
+name|isEmpty
+argument_list|()
 condition|?
 name|VersionUtils
 operator|.
@@ -488,10 +486,8 @@ argument_list|)
 block|,
 name|upper
 operator|.
-name|equals
-argument_list|(
-literal|"999"
-argument_list|)
+name|isEmpty
+argument_list|()
 condition|?
 name|Version
 operator|.

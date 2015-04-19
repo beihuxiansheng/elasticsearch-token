@@ -168,7 +168,7 @@ name|yamlXContent
 operator|.
 name|createParser
 argument_list|(
-literal|"version:     \"0 - 0.90.2\"\n"
+literal|"version:     \" - 0.90.2\"\n"
 operator|+
 literal|"reason:      Delete ignores the parent param"
 argument_list|)
@@ -554,7 +554,7 @@ name|yamlXContent
 operator|.
 name|createParser
 argument_list|(
-literal|"version:     \"0 - 0.90.2\"\n"
+literal|"version:     \" - 0.90.2\"\n"
 operator|+
 literal|"features:     regex\n"
 operator|+
@@ -609,7 +609,7 @@ name|yamlXContent
 operator|.
 name|createParser
 argument_list|(
-literal|"version:     \"0 - 0.90.2\"\n"
+literal|"version:     \" - 0.90.2\"\n"
 argument_list|)
 expr_stmt|;
 name|SkipSectionParser

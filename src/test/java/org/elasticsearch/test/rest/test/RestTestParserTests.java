@@ -361,7 +361,7 @@ literal|"\n"
 operator|+
 literal|"  - skip:\n"
 operator|+
-literal|"      version:     \"0.90.9 - 999\"\n"
+literal|"      version:     \"0.90.9 - \"\n"
 operator|+
 literal|"      reason:      \"for newer versions the index name is always returned\"\n"
 operator|+
