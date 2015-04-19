@@ -397,7 +397,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"age"
 argument_list|)
@@ -413,7 +413,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"obj1.prop1"
 argument_list|)
@@ -462,7 +462,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"age"
 argument_list|)
@@ -478,7 +478,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"obj1.prop1"
 argument_list|)

@@ -368,7 +368,7 @@ name|assertThat
 argument_list|(
 name|mappers
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"s"
 argument_list|)
@@ -387,13 +387,10 @@ name|NONE
 argument_list|,
 name|mappers
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"s"
 argument_list|)
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|fieldType
 argument_list|()
@@ -406,7 +403,7 @@ name|assertThat
 argument_list|(
 name|mappers
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"l"
 argument_list|)
@@ -425,13 +422,10 @@ name|NONE
 argument_list|,
 name|mappers
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 literal|"l"
 argument_list|)
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|fieldType
 argument_list|()

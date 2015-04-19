@@ -54,20 +54,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ForwardingSet
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Maps
 import|;
 end_import
@@ -130,6 +116,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -144,16 +140,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -164,8 +150,8 @@ specifier|public
 specifier|final
 class|class
 name|DocumentFieldMappers
-extends|extends
-name|ForwardingSet
+implements|implements
+name|Iterable
 argument_list|<
 name|FieldMapper
 argument_list|<
@@ -695,7 +681,6 @@ end_comment
 
 begin_function
 DECL|method|smartName
-specifier|public
 name|FieldMappers
 name|smartName
 parameter_list|(
@@ -821,22 +806,23 @@ block|}
 end_function
 
 begin_function
-annotation|@
-name|Override
-DECL|method|delegate
-specifier|protected
-name|Set
+DECL|method|iterator
+specifier|public
+name|Iterator
 argument_list|<
 name|FieldMapper
 argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|delegate
+name|iterator
 parameter_list|()
 block|{
 return|return
 name|fieldMappers
+operator|.
+name|iterator
+argument_list|()
 return|;
 block|}
 end_function

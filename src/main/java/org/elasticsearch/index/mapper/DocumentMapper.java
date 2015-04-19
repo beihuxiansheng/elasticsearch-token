@@ -2940,7 +2940,7 @@ comment|// simulate on the first time to check if the mapping update is applicab
 name|MergeContext
 name|mergeContext
 init|=
-name|newMmergeContext
+name|newMergeContext
 argument_list|(
 operator|new
 name|MergeFlags
@@ -2996,7 +2996,7 @@ literal|true
 expr_stmt|;
 name|mergeContext
 operator|=
-name|newMmergeContext
+name|newMergeContext
 argument_list|(
 operator|new
 name|MergeFlags
@@ -3956,10 +3956,10 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|newMmergeContext
+DECL|method|newMergeContext
 specifier|private
 name|MergeContext
-name|newMmergeContext
+name|newMergeContext
 parameter_list|(
 name|MergeFlags
 name|mergeFlags
@@ -4105,7 +4105,7 @@ specifier|final
 name|MergeContext
 name|mergeContext
 init|=
-name|newMmergeContext
+name|newMergeContext
 argument_list|(
 name|mergeFlags
 argument_list|)
