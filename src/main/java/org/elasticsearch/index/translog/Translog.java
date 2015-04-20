@@ -493,11 +493,10 @@ name|syncOnEachOperation
 parameter_list|)
 function_decl|;
 comment|/**      * Returns all translog locations as absolute paths.      * These paths don't contain actual translog files they are      * directories holding the transaction logs.      */
-DECL|method|locations
+DECL|method|location
 specifier|public
 name|Path
-index|[]
-name|locations
+name|location
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the translog filename for the given id.      */

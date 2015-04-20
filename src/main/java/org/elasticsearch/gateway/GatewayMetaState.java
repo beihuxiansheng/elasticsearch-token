@@ -252,9 +252,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|common
 operator|.
-name|Discovery
+name|util
+operator|.
+name|MultiDataPathUpgrader
 import|;
 end_import
 
@@ -441,6 +443,15 @@ block|{
 name|ensureNoPre019ShardState
 argument_list|(
 name|nodeEnv
+argument_list|)
+expr_stmt|;
+name|MultiDataPathUpgrader
+operator|.
+name|upgradeMultiDataPath
+argument_list|(
+name|nodeEnv
+argument_list|,
+name|logger
 argument_list|)
 expr_stmt|;
 block|}

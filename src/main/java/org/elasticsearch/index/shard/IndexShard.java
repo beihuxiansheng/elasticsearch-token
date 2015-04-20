@@ -1424,22 +1424,6 @@ name|AtomicReference
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|SourceToParse
-operator|.
-name|source
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1789,6 +1773,12 @@ name|INDEX_FLUSH_ON_CLOSE
 init|=
 literal|"index.flush_on_close"
 decl_stmt|;
+DECL|field|path
+specifier|private
+specifier|final
+name|ShardPath
+name|path
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|IndexShard
@@ -1895,6 +1885,9 @@ name|clusterService
 parameter_list|,
 name|NodeEnvironment
 name|nodeEnv
+parameter_list|,
+name|ShardPath
+name|path
 parameter_list|)
 block|{
 name|super
@@ -2207,6 +2200,12 @@ name|MapperAnalyzer
 argument_list|(
 name|mapperService
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|path
+operator|=
+name|path
 expr_stmt|;
 comment|/* create engine config */
 name|logger
@@ -6385,14 +6384,23 @@ name|MetaDataStateFormat
 operator|.
 name|deleteMetaState
 argument_list|(
-name|nodeEnv
+name|shardPath
+argument_list|()
 operator|.
-name|shardPaths
-argument_list|(
-name|shardId
-argument_list|)
+name|getDataPath
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|shardPath
+specifier|public
+name|ShardPath
+name|shardPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
 block|}
 DECL|class|ApplyRefreshSettings
 specifier|private
@@ -7588,7 +7596,7 @@ name|deleteMetaState
 argument_list|(
 name|nodeEnv
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shardId
 argument_list|)
@@ -7960,12 +7968,11 @@ name|newShardStateMetadata
 operator|.
 name|version
 argument_list|,
-name|nodeEnv
+name|shardPath
+argument_list|()
 operator|.
-name|shardPaths
-argument_list|(
-name|shardId
-argument_list|)
+name|getShardStatePath
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

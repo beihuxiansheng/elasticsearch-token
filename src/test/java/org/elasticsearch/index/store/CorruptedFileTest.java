@@ -4736,6 +4736,17 @@ argument_list|(
 name|relativeDataLocationPath
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// multi data path might only have one path in use
 try|try
 init|(
 name|DirectoryStream
@@ -4808,6 +4819,7 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -5679,6 +5691,17 @@ operator|+
 literal|"/index"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// multi data path might only have one path in use
 try|try
 init|(
 name|DirectoryStream
@@ -5710,6 +5733,7 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

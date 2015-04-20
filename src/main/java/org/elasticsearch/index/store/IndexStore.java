@@ -133,26 +133,6 @@ argument_list|>
 name|shardDirectory
 parameter_list|()
 function_decl|;
-comment|/**      * Return an array of all index folder locations for a given shard      */
-DECL|method|shardIndexLocations
-name|Path
-index|[]
-name|shardIndexLocations
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|)
-function_decl|;
-comment|/**      * Return an array of all translog folder locations for a given shard      */
-DECL|method|shardTranslogLocations
-name|Path
-index|[]
-name|shardTranslogLocations
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
