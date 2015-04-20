@@ -4783,13 +4783,6 @@ comment|// afterTestRule.forceFailure();
 block|}
 block|}
 block|}
-comment|/**      * Allows to execute some additional task after a test is failed, right after we cleared the clusters      */
-DECL|method|afterTestFailed
-specifier|protected
-name|void
-name|afterTestFailed
-parameter_list|()
-block|{      }
 DECL|method|cluster
 specifier|public
 specifier|static
