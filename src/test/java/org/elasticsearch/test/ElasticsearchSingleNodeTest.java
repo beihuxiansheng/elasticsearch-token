@@ -773,8 +773,15 @@ name|ClusterName
 operator|.
 name|SETTING
 argument_list|,
+name|InternalTestCluster
+operator|.
 name|clusterName
+argument_list|(
+literal|"single-node-cluster"
+argument_list|,
+name|randomLong
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|put
@@ -906,18 +913,6 @@ parameter_list|()
 block|{
 return|return
 literal|"node_s_0"
-return|;
-block|}
-comment|/**      * Returns the name of the cluster used for the single test node.      */
-DECL|method|clusterName
-specifier|public
-specifier|static
-name|String
-name|clusterName
-parameter_list|()
-block|{
-return|return
-literal|"single-node-cluster"
 return|;
 block|}
 comment|/**      * Return a reference to the singleton node.      */
