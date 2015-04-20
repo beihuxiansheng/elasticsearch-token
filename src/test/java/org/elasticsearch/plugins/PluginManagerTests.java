@@ -62,6 +62,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -139,6 +153,20 @@ operator|.
 name|collect
 operator|.
 name|Tuple
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|PathUtils
 import|;
 end_import
 
@@ -560,6 +588,16 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// TODO: clean up this test to allow extra files
+comment|// TODO: jimfs is really broken here (throws wrong exception from detection method).
+comment|// if its in your classpath, then do not use plugins!!!!!!
 DECL|class|PluginManagerTests
 specifier|public
 class|class
@@ -1673,7 +1711,7 @@ name|put
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
@@ -2534,6 +2572,8 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
+literal|"download.elasticsearch.org is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"download.elasticsearch.org"
@@ -2567,6 +2607,8 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
+literal|"search.maven.org is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"search.maven.org"
@@ -2579,6 +2621,8 @@ argument_list|)
 expr_stmt|;
 name|assumeTrue
 argument_list|(
+literal|"repo1.maven.org is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"repo1.maven.org"
@@ -2612,6 +2656,8 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
+literal|"github.com is accessible"
+argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
 literal|"github.com"

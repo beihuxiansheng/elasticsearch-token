@@ -60,6 +60,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -669,6 +685,12 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|SuppressCodecs
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// requires custom completion format
 DECL|class|CompletionSuggestSearchTests
 specifier|public
 class|class

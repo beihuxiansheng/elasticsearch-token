@@ -385,6 +385,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
 DECL|class|AbstractSimpleTranslogTests
 specifier|public
 specifier|abstract
@@ -440,7 +447,7 @@ argument_list|()
 expr_stmt|;
 name|translogDir
 operator|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 expr_stmt|;
 name|translog

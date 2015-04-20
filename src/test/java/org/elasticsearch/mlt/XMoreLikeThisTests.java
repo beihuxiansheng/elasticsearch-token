@@ -192,7 +192,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -252,7 +252,7 @@ specifier|public
 class|class
 name|XMoreLikeThisTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|method|addDoc
 specifier|private

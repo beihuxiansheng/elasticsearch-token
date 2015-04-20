@@ -24,6 +24,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|xcontent
@@ -31,6 +41,18 @@ operator|.
 name|yaml
 operator|.
 name|YamlXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
 import|;
 end_import
 
@@ -146,7 +168,7 @@ name|yamlXContent
 operator|.
 name|createParser
 argument_list|(
-literal|"version:     \"0 - 0.90.2\"\n"
+literal|"version:     \" - 0.90.2\"\n"
 operator|+
 literal|"reason:      Delete ignores the parent param"
 argument_list|)
@@ -188,12 +210,30 @@ name|assertThat
 argument_list|(
 name|skipSection
 operator|.
-name|getVersion
+name|getLowerVersion
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"0 - 0.90.2"
+name|VersionUtils
+operator|.
+name|getFirstVersion
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|skipSection
+operator|.
+name|getUpperVersion
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+name|Version
+operator|.
+name|V_0_90_2
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -285,11 +325,13 @@ name|assertThat
 argument_list|(
 name|skipSection
 operator|.
-name|getVersion
+name|isVersionCheck
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -396,11 +438,13 @@ name|assertThat
 argument_list|(
 name|skipSection
 operator|.
-name|getVersion
+name|isVersionCheck
 argument_list|()
 argument_list|,
-name|nullValue
-argument_list|()
+name|equalTo
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -510,7 +554,7 @@ name|yamlXContent
 operator|.
 name|createParser
 argument_list|(
-literal|"version:     \"0 - 0.90.2\"\n"
+literal|"version:     \" - 0.90.2\"\n"
 operator|+
 literal|"features:     regex\n"
 operator|+
@@ -565,7 +609,7 @@ name|yamlXContent
 operator|.
 name|createParser
 argument_list|(
-literal|"version:     \"0 - 0.90.2\"\n"
+literal|"version:     \" - 0.90.2\"\n"
 argument_list|)
 expr_stmt|;
 name|SkipSectionParser

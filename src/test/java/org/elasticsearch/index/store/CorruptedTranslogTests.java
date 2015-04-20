@@ -166,6 +166,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|io
+operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -689,6 +703,8 @@ name|fullRestart
 argument_list|()
 expr_stmt|;
 comment|// node needs time to start recovery and discover the translog corruption
+name|Thread
+operator|.
 name|sleep
 argument_list|(
 literal|1000
@@ -934,7 +950,7 @@ decl_stmt|;
 name|Path
 name|file
 init|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(

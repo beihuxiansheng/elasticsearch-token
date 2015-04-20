@@ -143,7 +143,7 @@ argument_list|>
 block|{
 comment|/**      * Sub classes implement this call to get new instance of a Request object      * @return Request      */
 DECL|method|newRequestInstance
-specifier|public
+specifier|protected
 specifier|abstract
 name|Request
 name|newRequestInstance
@@ -207,7 +207,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|TransportHandler
-specifier|private
 specifier|abstract
 class|class
 name|TransportHandler

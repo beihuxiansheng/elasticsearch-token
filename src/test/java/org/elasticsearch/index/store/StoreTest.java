@@ -360,7 +360,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -498,7 +498,7 @@ specifier|public
 class|class
 name|StoreTest
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test
@@ -1721,7 +1721,9 @@ operator|new
 name|OldSIMockingCodec
 argument_list|()
 else|:
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2569,7 +2571,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3203,7 +3207,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 argument_list|)
@@ -6660,7 +6666,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -6907,7 +6915,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -7274,7 +7284,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -7590,7 +7602,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7914,7 +7928,9 @@ argument_list|)
 operator|.
 name|setCodec
 argument_list|(
-name|actualDefaultCodec
+name|TestUtil
+operator|.
+name|getDefaultCodec
 argument_list|()
 argument_list|)
 decl_stmt|;

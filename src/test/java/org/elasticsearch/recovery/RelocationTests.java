@@ -3849,6 +3849,8 @@ block|}
 annotation|@
 name|Test
 annotation|@
+name|Slow
+annotation|@
 name|TestLogging
 argument_list|(
 literal|"cluster.service:TRACE,indices.recovery:TRACE"

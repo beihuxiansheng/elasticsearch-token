@@ -457,10 +457,10 @@ comment|// compress since the metadata can become large
 block|}
 annotation|@
 name|Override
-DECL|method|newRequest
+DECL|method|newRequestInstance
 specifier|protected
 name|Request
-name|newRequest
+name|newRequestInstance
 parameter_list|()
 block|{
 return|return

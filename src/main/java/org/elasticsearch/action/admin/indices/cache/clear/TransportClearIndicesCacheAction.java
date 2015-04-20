@@ -455,10 +455,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|newRequest
+DECL|method|newRequestInstance
 specifier|protected
 name|ClearIndicesCacheRequest
-name|newRequest
+name|newRequestInstance
 parameter_list|()
 block|{
 return|return

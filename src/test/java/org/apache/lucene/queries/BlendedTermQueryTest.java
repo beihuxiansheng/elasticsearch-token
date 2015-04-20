@@ -352,7 +352,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -460,7 +460,7 @@ specifier|public
 class|class
 name|BlendedTermQueryTest
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test

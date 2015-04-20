@@ -1780,7 +1780,7 @@ decl_stmt|;
 name|Path
 name|tFile
 init|=
-name|newTempFilePath
+name|createTempFile
 argument_list|()
 decl_stmt|;
 try|try
@@ -2019,7 +2019,7 @@ decl_stmt|;
 name|Path
 name|tFile
 init|=
-name|newTempFilePath
+name|createTempFile
 argument_list|()
 decl_stmt|;
 try|try

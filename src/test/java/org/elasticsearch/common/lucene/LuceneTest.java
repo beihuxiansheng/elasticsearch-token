@@ -150,7 +150,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -204,7 +204,7 @@ specifier|public
 class|class
 name|LuceneTest
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 comment|/*      * simple test that ensures that we bump the version on Upgrade      */
 annotation|@

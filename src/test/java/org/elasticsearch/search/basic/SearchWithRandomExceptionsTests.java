@@ -425,6 +425,9 @@ block|{
 annotation|@
 name|Test
 annotation|@
+name|Slow
+comment|// maybe due to all the logging?
+annotation|@
 name|TestLogging
 argument_list|(
 literal|"action.search.type:TRACE,index.shard:TRACE"

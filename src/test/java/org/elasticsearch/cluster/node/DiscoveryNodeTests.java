@@ -176,6 +176,20 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+operator|.
+name|randomVersion
+import|;
+end_import
+
 begin_class
 DECL|class|DiscoveryNodeTests
 specifier|public
@@ -338,7 +352,10 @@ name|Version
 name|version
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|DiscoveryNode
 name|discoveryNode

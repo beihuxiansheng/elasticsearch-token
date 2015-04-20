@@ -174,6 +174,8 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|Slow
 DECL|class|SpecificMasterNodesTests
 specifier|public
 class|class
