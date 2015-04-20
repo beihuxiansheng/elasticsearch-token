@@ -339,11 +339,17 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|lang
 argument_list|,
 literal|"test"
 argument_list|,
 name|scriptType
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 operator|new
 name|ScriptContext
@@ -402,6 +408,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"expression"
 argument_list|,
 literal|"1"
@@ -411,6 +420,9 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 operator|new
 name|ScriptContext
@@ -460,6 +472,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"expression"
 argument_list|,
 literal|"1"
@@ -469,6 +484,9 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 name|randomFrom
 argument_list|(
@@ -495,6 +513,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"mustache"
 argument_list|,
 literal|"1"
@@ -504,6 +525,9 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 operator|new
 name|ScriptContext
@@ -538,6 +562,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|lang
 argument_list|,
 literal|"1"
@@ -547,6 +574,9 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 operator|new
 name|ScriptContext
@@ -596,6 +626,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|randomFrom
 argument_list|(
 name|LANG_SET
@@ -623,6 +656,9 @@ name|ScriptType
 operator|.
 name|values
 argument_list|()
+argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 operator|new
@@ -690,6 +726,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|randomFrom
 argument_list|(
 name|LANG_SET
@@ -717,6 +756,9 @@ name|ScriptType
 operator|.
 name|values
 argument_list|()
+argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 operator|new

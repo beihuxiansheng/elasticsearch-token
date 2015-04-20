@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  *  */
+comment|/**  * CompiledScript holds all the parameters necessary to execute a previously compiled script.  */
 end_comment
 
 begin_class
@@ -24,11 +24,11 @@ specifier|public
 class|class
 name|CompiledScript
 block|{
-DECL|field|type
+DECL|field|lang
 specifier|private
 specifier|final
 name|String
-name|type
+name|lang
 decl_stmt|;
 DECL|field|compiled
 specifier|private
@@ -36,12 +36,13 @@ specifier|final
 name|Object
 name|compiled
 decl_stmt|;
+comment|/**      * Constructor for CompiledScript.      * @param lang The language of the script to be executed.      * @param compiled The compiled script Object that is executable.      */
 DECL|method|CompiledScript
 specifier|public
 name|CompiledScript
 parameter_list|(
 name|String
-name|type
+name|lang
 parameter_list|,
 name|Object
 name|compiled
@@ -49,9 +50,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|type
+name|lang
 operator|=
-name|type
+name|lang
 expr_stmt|;
 name|this
 operator|.
@@ -60,6 +61,7 @@ operator|=
 name|compiled
 expr_stmt|;
 block|}
+comment|/**      * Method to get the language.      * @return The language of the script to be executed.      */
 DECL|method|lang
 specifier|public
 name|String
@@ -67,9 +69,10 @@ name|lang
 parameter_list|()
 block|{
 return|return
-name|type
+name|lang
 return|;
 block|}
+comment|/**      * Method to get the compiled script object.      * @return The compiled script Object that is executable.      */
 DECL|method|compiled
 specifier|public
 name|Object
