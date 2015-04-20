@@ -359,7 +359,7 @@ name|put
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 argument_list|)
 operator|.

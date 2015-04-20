@@ -1062,7 +1062,7 @@ name|IOException
 block|{
 name|super
 argument_list|(
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|resolve

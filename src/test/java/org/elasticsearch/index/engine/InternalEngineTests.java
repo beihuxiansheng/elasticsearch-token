@@ -327,6 +327,8 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
 import|;
 end_import
 
@@ -1006,7 +1008,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -1120,48 +1122,6 @@ end_import
 
 begin_import
 import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|randomBoolean
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|randomDouble
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|RandomizedTest
-operator|.
-name|randomIntBetween
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -1222,34 +1182,6 @@ begin_import
 import|import static
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
-operator|.
-name|assertBusy
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
-operator|.
-name|terminate
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -1294,21 +1226,22 @@ name|nullValue
 import|;
 end_import
 
+begin_comment
+comment|// TODO: this guy isn't ready for mock filesystems yet
+end_comment
+
 begin_class
 annotation|@
-name|LuceneTestCase
-operator|.
 name|SuppressFileSystems
 argument_list|(
 literal|"*"
 argument_list|)
-comment|// mock FS causes translog issues recovering sometimes because of their use of globs, see LUCENE-6424
 DECL|class|InternalEngineTests
 specifier|public
 class|class
 name|InternalEngineTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|shardId
 specifier|protected
@@ -12297,6 +12230,13 @@ name|void
 name|testIndexWriterInfoStream
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"who tests the tester?"
+argument_list|,
+name|VERBOSE
+argument_list|)
+expr_stmt|;
 name|MockAppender
 name|mockAppender
 init|=
@@ -12466,6 +12406,13 @@ name|void
 name|testIndexWriterIFDInfoStream
 parameter_list|()
 block|{
+name|assumeFalse
+argument_list|(
+literal|"who tests the tester?"
+argument_list|,
+name|VERBOSE
+argument_list|)
+expr_stmt|;
 name|MockAppender
 name|mockAppender
 init|=

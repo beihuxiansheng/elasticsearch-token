@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|VersionUtils
 import|;
 end_import
 
@@ -307,7 +307,7 @@ name|ElasticsearchAssertions
 operator|.
 name|assertVersionSerializable
 argument_list|(
-name|ElasticsearchTestCase
+name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(
@@ -366,7 +366,7 @@ name|ElasticsearchAssertions
 operator|.
 name|assertVersionSerializable
 argument_list|(
-name|ElasticsearchTestCase
+name|VersionUtils
 operator|.
 name|randomVersionBetween
 argument_list|(

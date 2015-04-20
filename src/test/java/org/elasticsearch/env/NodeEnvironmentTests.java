@@ -46,6 +46,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalStateException
@@ -63,6 +77,20 @@ operator|.
 name|metadata
 operator|.
 name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|PathUtils
 import|;
 end_import
 
@@ -319,6 +347,14 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
+comment|// TODO: fix test to allow extras
 DECL|class|NodeEnvironmentTests
 specifier|public
 class|class
@@ -489,7 +525,7 @@ index|]
 operator|.
 name|startsWith
 argument_list|(
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2273,7 +2309,7 @@ operator|new
 name|Path
 index|[]
 block|{
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2396,7 +2432,7 @@ operator|new
 name|Path
 index|[]
 block|{
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2505,7 +2541,7 @@ index|[
 name|i
 index|]
 operator|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -2573,7 +2609,7 @@ index|[
 name|i
 index|]
 operator|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath
@@ -2636,7 +2672,7 @@ name|put
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath
@@ -2712,7 +2748,7 @@ name|put
 argument_list|(
 literal|"path.home"
 argument_list|,
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 operator|.
 name|toAbsolutePath

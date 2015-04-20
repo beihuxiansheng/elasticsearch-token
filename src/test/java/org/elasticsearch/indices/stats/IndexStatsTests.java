@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -584,6 +600,12 @@ name|randomDynamicTemplates
 operator|=
 literal|false
 argument_list|)
+annotation|@
+name|SuppressCodecs
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// requires custom completion format
 DECL|class|IndexStatsTests
 specifier|public
 class|class
@@ -6550,6 +6572,8 @@ argument_list|)
 expr_stmt|;
 name|assumeTrue
 argument_list|(
+literal|"test doesn't work with 4.6.0"
+argument_list|,
 name|org
 operator|.
 name|elasticsearch

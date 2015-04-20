@@ -18005,6 +18005,8 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Slow
 comment|// The SimpleIdReaderTypeCache#docById method used lget, which can't be used if a map is shared.
 DECL|method|testTopChildrenBug_concurrencyIssue
 specifier|public

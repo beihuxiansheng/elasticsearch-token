@@ -102,6 +102,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -4436,8 +4448,7 @@ name|numIDs
 decl_stmt|;
 if|if
 condition|(
-name|isNightly
-argument_list|()
+name|TEST_NIGHTLY
 condition|)
 block|{
 name|numIDs
@@ -4533,8 +4544,7 @@ argument_list|,
 name|numIDs
 operator|*
 operator|(
-name|isNightly
-argument_list|()
+name|TEST_NIGHTLY
 condition|?
 literal|8
 else|:
@@ -4881,8 +4891,7 @@ name|random
 argument_list|,
 literal|1
 argument_list|,
-name|isNightly
-argument_list|()
+name|TEST_NIGHTLY
 condition|?
 literal|20
 else|:

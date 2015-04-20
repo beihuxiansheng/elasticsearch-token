@@ -150,11 +150,25 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -251,29 +265,12 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressCodecs
-argument_list|(
-block|{
-literal|"MockFixedIntBlock"
-block|,
-literal|"MockVariableIntBlock"
-block|,
-literal|"MockSep"
-block|,
-literal|"MockRandom"
-block|,
-literal|"Lucene3x"
-block|}
-argument_list|)
 DECL|class|XPostingsHighlighterTests
 specifier|public
 class|class
 name|XPostingsHighlighterTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 comment|/*     Tests changes needed to make possible to perform discrete highlighting.     We want to highlight every field value separately in case of multiple values, at least when needing to return the whole field content     This is needed to be able to get back a single snippet per value when number_of_fragments=0      */
 annotation|@

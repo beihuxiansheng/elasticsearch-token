@@ -114,9 +114,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|boolean
+name|enabled
+init|=
+literal|false
+decl_stmt|;
+assert|assert
+name|enabled
+operator|=
+literal|true
+assert|;
 name|assumeTrue
 argument_list|(
-name|ASSERTIONS_ENABLED
+literal|"assertions enabled"
+argument_list|,
+name|enabled
 argument_list|)
 expr_stmt|;
 name|ObjectOpenHashSet

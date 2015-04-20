@@ -904,11 +904,14 @@ block|{
 comment|// If it already exists we try to copy this new version appending suffix to its name
 name|path
 operator|=
-name|Paths
+name|path
 operator|.
-name|get
+name|resolveSibling
 argument_list|(
 name|path
+operator|.
+name|getFileName
+argument_list|()
 operator|.
 name|toString
 argument_list|()
@@ -1108,6 +1111,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// TODO: note that this will fail if source and target are on different NIO.2 filesystems.
 DECL|class|TreeCopier
 specifier|static
 class|class

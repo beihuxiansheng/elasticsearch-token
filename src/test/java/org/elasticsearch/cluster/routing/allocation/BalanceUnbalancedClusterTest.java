@@ -36,6 +36,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -225,6 +241,8 @@ comment|/**  * see issue #9023  */
 end_comment
 
 begin_class
+annotation|@
+name|Slow
 DECL|class|BalanceUnbalancedClusterTest
 specifier|public
 class|class
@@ -245,7 +263,7 @@ block|{
 name|Path
 name|tmp
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 try|try
@@ -257,7 +275,7 @@ name|Files
 operator|.
 name|newInputStream
 argument_list|(
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/cluster/routing/issue_9023.zip"
 argument_list|)

@@ -206,6 +206,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|TestUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -224,7 +238,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -340,7 +354,7 @@ specifier|public
 class|class
 name|XBooleanFilterTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|field|directory
 specifier|private

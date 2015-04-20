@@ -132,6 +132,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -191,7 +203,7 @@ block|{
 name|Path
 name|baseDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Node
@@ -420,6 +432,8 @@ control|(
 name|Version
 name|version
 range|:
+name|VersionUtils
+operator|.
 name|allVersions
 argument_list|()
 control|)
