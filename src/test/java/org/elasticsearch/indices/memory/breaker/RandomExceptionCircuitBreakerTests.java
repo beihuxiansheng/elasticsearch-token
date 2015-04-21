@@ -308,7 +308,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockInternalEngine
+name|MockEngineSupport
 import|;
 end_import
 
@@ -758,7 +758,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|READER_WRAPPER_TYPE
 argument_list|,
@@ -786,7 +786,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|WRAP_READER_RATIO
 argument_list|,
@@ -1443,7 +1443,7 @@ specifier|static
 class|class
 name|RandomExceptionDirectoryReaderWrapper
 extends|extends
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|DirectoryReaderWrapper
 block|{

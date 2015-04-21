@@ -250,7 +250,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockInternalEngine
+name|MockEngineSupport
 import|;
 end_import
 
@@ -577,7 +577,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|FLUSH_ON_CLOSE_RATIO
 argument_list|,
