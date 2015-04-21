@@ -86,6 +86,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|support
+operator|.
+name|AggregationPath
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -292,7 +308,7 @@ return|return
 name|reducers
 return|;
 block|}
-comment|/**      * Create all aggregators so that they can be consumed with multiple buckets.      */
+comment|/**      * Create all aggregators so that they can be consumed with multiple      * buckets.      */
 DECL|method|createSubAggregators
 specifier|public
 name|Aggregator
@@ -803,7 +819,7 @@ name|orderedReducers
 argument_list|)
 return|;
 block|}
-comment|/*          * L â Empty list that will contain the sorted nodes          * while there are unmarked nodes do          *     select an unmarked node n          *     visit(n)           * function visit(node n)          *     if n has a temporary mark then stop (not a DAG)          *     if n is not marked (i.e. has not been visited yet) then          *         mark n temporarily          *         for each node m with an edge from n to m do          *             visit(m)          *         mark n permanently          *         unmark n temporarily          *         add n to head of L          */
+comment|/*          * L â Empty list that will contain the sorted nodes while there are          * unmarked nodes do select an unmarked node n visit(n) function          * visit(node n) if n has a temporary mark then stop (not a DAG) if n is          * not marked (i.e. has not been visited yet) then mark n temporarily          * for each node m with an edge from n to m do visit(m) mark n          * permanently unmark n temporarily add n to head of L          */
 DECL|method|resolveReducerOrder
 specifier|private
 name|List
@@ -1097,33 +1113,30 @@ range|:
 name|bucketsPaths
 control|)
 block|{
-name|int
-name|aggSepIndex
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|bucketsPathElements
 init|=
-name|bucketsPath
+name|AggregationPath
 operator|.
-name|indexOf
+name|parse
 argument_list|(
-literal|'>'
+name|bucketsPath
 argument_list|)
+operator|.
+name|getPathElementsAsStringList
+argument_list|()
 decl_stmt|;
 name|String
 name|firstAggName
 init|=
-name|aggSepIndex
-operator|==
-operator|-
-literal|1
-condition|?
-name|bucketsPath
-else|:
-name|bucketsPath
+name|bucketsPathElements
 operator|.
-name|substring
+name|get
 argument_list|(
 literal|0
-argument_list|,
-name|aggSepIndex
 argument_list|)
 decl_stmt|;
 if|if
