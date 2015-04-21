@@ -4536,13 +4536,10 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"field"
 argument_list|)
-operator|.
-name|mapper
-argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(

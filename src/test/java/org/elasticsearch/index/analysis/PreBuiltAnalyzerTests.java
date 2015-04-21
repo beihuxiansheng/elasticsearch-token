@@ -1275,13 +1275,10 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|name
+name|getMapper
 argument_list|(
 literal|"field"
 argument_list|)
-operator|.
-name|mapper
-argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(

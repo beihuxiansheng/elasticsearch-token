@@ -569,7 +569,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|indexName
+name|fullName
 argument_list|(
 name|FieldNamesFieldMapper
 operator|.

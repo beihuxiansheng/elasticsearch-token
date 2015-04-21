@@ -1231,7 +1231,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|indexName
+name|fullName
 argument_list|(
 literal|"empty_field"
 argument_list|)

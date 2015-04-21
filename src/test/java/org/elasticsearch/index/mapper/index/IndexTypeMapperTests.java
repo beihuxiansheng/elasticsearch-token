@@ -283,13 +283,10 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|indexName
+name|getMapper
 argument_list|(
 literal|"_index"
 argument_list|)
-operator|.
-name|mapper
-argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(

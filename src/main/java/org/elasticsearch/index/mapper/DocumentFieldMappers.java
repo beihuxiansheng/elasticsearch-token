@@ -561,31 +561,12 @@ end_return
 
 begin_comment
 unit|}
-comment|// TODO: replace all uses of this with fullName, or change the meaning of name to be fullName
+comment|/**      * Looks up a field by its index name.      *      * Overriding index name for a field is no longer possibly, and only supported for backcompat.      * This function first attempts to lookup the field by full name, and only when that fails,      * does a full scan of all field mappers, collecting those with this index name.      *      * This will be removed in 3.0, once backcompat for overriding index name is removed.      * @deprecated Use {@link #getMapper(String)}      */
 end_comment
 
 begin_function
-DECL|method|name
-unit|public
-name|FieldMappers
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|fieldMappers
-operator|.
-name|fullName
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
-end_function
-
-begin_function
+unit|@
+name|Deprecated
 DECL|method|indexName
 specifier|public
 name|FieldMappers
@@ -606,22 +587,26 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/** Returns the mapper for the given field */
+end_comment
+
 begin_function
-DECL|method|fullName
+DECL|method|getMapper
 specifier|public
-name|FieldMappers
-name|fullName
+name|FieldMapper
+name|getMapper
 parameter_list|(
 name|String
-name|fullName
+name|field
 parameter_list|)
 block|{
 return|return
 name|fieldMappers
 operator|.
-name|fullName
+name|get
 argument_list|(
-name|fullName
+name|field
 argument_list|)
 return|;
 block|}
@@ -629,7 +614,6 @@ end_function
 
 begin_function
 DECL|method|simpleMatchToIndexNames
-specifier|public
 name|List
 argument_list|<
 name|String
@@ -676,7 +660,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Tries to find first based on {@link #fullName(String)}, then by {@link #indexName(String)}, and last      * by {@link #name(String)}.      */
+comment|/**      * Tries to find first based on fullName, then by indexName.      */
 end_comment
 
 begin_function
