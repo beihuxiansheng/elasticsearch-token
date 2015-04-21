@@ -668,79 +668,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|emptyArray
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|sameInstance
+name|*
 import|;
 end_import
 
@@ -7545,13 +7473,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/10661"
-argument_list|)
 DECL|method|testNestedFetchFeatures
 specifier|public
 name|void
@@ -7930,8 +7851,10 @@ operator|.
 name|matchedQueries
 argument_list|()
 argument_list|,
-name|emptyArray
-argument_list|()
+name|arrayContaining
+argument_list|(
+literal|"test"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|SearchHitField
