@@ -834,6 +834,24 @@ name|aggregations
 operator|.
 name|reducers
 operator|.
+name|derivative
+operator|.
+name|InternalDerivative
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
 name|movavg
 operator|.
 name|MovAvgReducer
@@ -1061,6 +1079,11 @@ argument_list|()
 expr_stmt|;
 comment|// Reducers
 name|DerivativeReducer
+operator|.
+name|registerStreams
+argument_list|()
+expr_stmt|;
+name|InternalDerivative
 operator|.
 name|registerStreams
 argument_list|()
