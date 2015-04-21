@@ -275,6 +275,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|ClusterHealthRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -319,20 +323,6 @@ return|return
 literal|null
 return|;
 comment|// we want users to be able to call this even when there are global blocks, just to check the health (are there blocks?)
-block|}
-annotation|@
-name|Override
-DECL|method|newRequest
-specifier|protected
-name|ClusterHealthRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClusterHealthRequest
-argument_list|()
-return|;
 block|}
 annotation|@
 name|Override

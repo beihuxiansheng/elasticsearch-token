@@ -194,6 +194,12 @@ name|threadPool
 parameter_list|,
 name|ActionFilters
 name|actionFilters
+parameter_list|,
+name|Class
+argument_list|<
+name|Request
+argument_list|>
+name|request
 parameter_list|)
 block|{
 name|super
@@ -209,6 +215,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|request
 argument_list|)
 expr_stmt|;
 block|}
