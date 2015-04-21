@@ -208,7 +208,8 @@ block|{         }
 return|return
 name|Queries
 operator|.
-name|MATCH_ALL_FILTER
+name|newMatchAllFilter
+argument_list|()
 return|;
 block|}
 block|}

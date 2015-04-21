@@ -717,9 +717,8 @@ condition|)
 block|{
 comment|// No docs of the specified type don't exist on this shard
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight
@@ -819,9 +818,8 @@ literal|0
 condition|)
 block|{
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight

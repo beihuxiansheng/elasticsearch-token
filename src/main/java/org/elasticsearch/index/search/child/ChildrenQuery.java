@@ -98,6 +98,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BooleanQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|CollectionTerminatedException
 import|;
 end_import
@@ -1128,9 +1142,8 @@ condition|)
 block|{
 comment|// No docs of the specified type exist on this shard
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight
@@ -1365,9 +1378,8 @@ literal|0
 condition|)
 block|{
 return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
+operator|new
+name|BooleanQuery
 argument_list|()
 operator|.
 name|createWeight

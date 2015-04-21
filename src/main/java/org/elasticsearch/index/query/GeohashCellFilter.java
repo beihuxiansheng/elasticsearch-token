@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -997,7 +997,7 @@ name|neighbors
 init|=
 literal|false
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext

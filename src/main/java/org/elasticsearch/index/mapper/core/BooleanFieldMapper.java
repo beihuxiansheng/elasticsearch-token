@@ -82,9 +82,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermFilter
+name|Filter
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|TermQuery
 import|;
 end_import
 
@@ -173,6 +173,22 @@ operator|.
 name|lucene
 operator|.
 name|Lucene
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -1267,8 +1283,12 @@ literal|null
 return|;
 block|}
 return|return
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 name|names
 argument_list|()
@@ -1284,6 +1304,7 @@ else|:
 name|Values
 operator|.
 name|FALSE
+argument_list|)
 argument_list|)
 argument_list|)
 return|;

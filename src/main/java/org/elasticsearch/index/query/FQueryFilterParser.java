@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|Query
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -205,7 +205,7 @@ name|queryFound
 init|=
 literal|false
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext

@@ -84,7 +84,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|AutoFilterCachingPolicy
+name|FilterCacheModule
 import|;
 end_import
 
@@ -101,6 +101,8 @@ operator|.
 name|filter
 operator|.
 name|FilterCacheModule
+operator|.
+name|FilterCacheSettings
 import|;
 end_import
 
@@ -230,7 +232,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|filteredQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -339,9 +373,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|AutoFilterCachingPolicy
+name|FilterCacheSettings
 operator|.
-name|AGGRESSIVE_CACHING_SETTINGS
+name|FILTER_CACHE_EVERYTHING
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|build
