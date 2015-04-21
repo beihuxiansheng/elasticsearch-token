@@ -397,6 +397,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper2
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -435,6 +438,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper2
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -648,6 +654,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper3
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -686,6 +695,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper3
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -845,6 +857,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper4
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -883,6 +898,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper4
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -1193,6 +1211,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper2
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -1231,6 +1252,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper2
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -1444,6 +1468,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper3
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -1482,6 +1509,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper3
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -1641,6 +1671,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper4
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -1713,6 +1746,9 @@ operator|.
 name|merge
 argument_list|(
 name|docMapper4
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()

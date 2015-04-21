@@ -4227,6 +4227,9 @@ name|parse
 argument_list|(
 name|updatedMapping
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|MergeFlags
 operator|.
@@ -4388,6 +4391,9 @@ name|parse
 argument_list|(
 name|updatedMapping
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|MergeFlags
 operator|.

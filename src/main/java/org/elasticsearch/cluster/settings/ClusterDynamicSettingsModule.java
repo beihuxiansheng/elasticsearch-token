@@ -536,7 +536,7 @@ name|addDynamicSetting
 argument_list|(
 name|MappingUpdatedAction
 operator|.
-name|INDICES_MAPPING_ADDITIONAL_MAPPING_CHANGE_TIME
+name|INDICES_MAPPING_DYNAMIC_TIMEOUT
 argument_list|,
 name|Validator
 operator|.

@@ -360,6 +360,9 @@ operator|.
 name|merge
 argument_list|(
 name|stage2
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
@@ -417,6 +420,9 @@ operator|.
 name|merge
 argument_list|(
 name|stage2
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|mergeFlags
 argument_list|()
