@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BooleanQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|ConstantScoreQuery
 import|;
 end_import
@@ -211,22 +225,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|XBooleanFilter
 import|;
 end_import
 
@@ -1118,11 +1116,11 @@ condition|)
 block|{
 comment|// this strategy doesn't support disjoint anymore: but it did before, including creating lucene fieldcache (!)
 comment|// in this case, execute disjoint as exists&& !intersects
-name|XBooleanFilter
+name|BooleanQuery
 name|bool
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
 name|Filter

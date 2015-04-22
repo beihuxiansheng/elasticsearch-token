@@ -121,7 +121,10 @@ operator|new
 name|AnalyzeRequest
 argument_list|(
 name|index
-argument_list|,
+argument_list|)
+operator|.
+name|text
+argument_list|(
 name|text
 argument_list|)
 argument_list|)

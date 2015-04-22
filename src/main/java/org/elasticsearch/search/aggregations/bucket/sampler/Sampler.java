@@ -4,17 +4,19 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.store.distributor
+DECL|package|org.elasticsearch.search.aggregations.bucket.sampler
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|store
+name|aggregations
 operator|.
-name|distributor
+name|bucket
+operator|.
+name|sampler
 package|;
 end_package
 
@@ -22,58 +24,30 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|search
 operator|.
-name|store
+name|aggregations
 operator|.
-name|Directory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|bucket
 operator|.
-name|io
-operator|.
-name|IOException
+name|SingleBucketAggregation
 import|;
 end_import
 
 begin_comment
-comment|/**  * Keeps track of available directories and selects a directory  * based on some distribution strategy  */
+comment|/**  * A {@code filter} aggregation that defines a single bucket to hold a sample of  * top-matching documents. Computation of child aggregations is deferred until  * the top-matching documents on a shard have been determined.  */
 end_comment
 
 begin_interface
-DECL|interface|Distributor
+DECL|interface|Sampler
 specifier|public
 interface|interface
-name|Distributor
-block|{
-comment|/**      * Returns primary directory (typically first directory in the list)      */
-DECL|method|primary
-name|Directory
-name|primary
-parameter_list|()
-function_decl|;
-comment|/**      * Returns all directories      */
-DECL|method|all
-name|Directory
-index|[]
-name|all
-parameter_list|()
-function_decl|;
-comment|/**      * Selects one of the directories based on distribution strategy      */
-DECL|method|any
-name|Directory
-name|any
-parameter_list|()
-throws|throws
-name|IOException
-function_decl|;
-block|}
+name|Sampler
+extends|extends
+name|SingleBucketAggregation
+block|{ }
 end_interface
 
 end_unit

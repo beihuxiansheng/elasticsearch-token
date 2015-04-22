@@ -2693,7 +2693,7 @@ name|value
 init|=
 literal|null
 decl_stmt|;
-name|FieldMappers
+name|FieldMapper
 name|fieldMapper
 init|=
 name|docMapper
@@ -2701,7 +2701,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 name|field
 argument_list|)
@@ -2748,9 +2748,6 @@ condition|(
 operator|!
 name|fieldMapper
 operator|.
-name|mapper
-argument_list|()
-operator|.
 name|fieldType
 argument_list|()
 operator|.
@@ -2759,9 +2756,6 @@ argument_list|()
 operator|&&
 operator|!
 name|fieldMapper
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|isGenerated
 argument_list|()
@@ -2873,9 +2867,6 @@ argument_list|(
 name|i
 argument_list|,
 name|fieldMapper
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|valueForSearch
 argument_list|(

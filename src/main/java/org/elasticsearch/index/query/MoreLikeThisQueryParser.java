@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|TermsQuery
 import|;
 end_import
 
@@ -97,20 +97,6 @@ operator|.
 name|search
 operator|.
 name|BooleanQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|ConstantScoreQuery
 import|;
 end_import
 
@@ -2675,11 +2661,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|TermsFilter
-name|filter
+name|TermsQuery
+name|query
 init|=
 operator|new
-name|TermsFilter
+name|TermsQuery
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -2695,15 +2681,6 @@ index|[
 literal|0
 index|]
 argument_list|)
-argument_list|)
-decl_stmt|;
-name|ConstantScoreQuery
-name|query
-init|=
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|filter
 argument_list|)
 decl_stmt|;
 name|boolQuery

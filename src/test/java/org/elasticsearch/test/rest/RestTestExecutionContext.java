@@ -681,22 +681,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|resetClient
-specifier|public
-name|void
-name|resetClient
-parameter_list|()
-block|{
-name|restClient
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-name|restClient
-operator|=
-literal|null
-expr_stmt|;
-block|}
 comment|/**      * Clears the last obtained response and the stashed fields      */
 DECL|method|clear
 specifier|public

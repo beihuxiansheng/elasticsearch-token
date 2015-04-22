@@ -54,20 +54,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ForwardingSet
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Maps
 import|;
 end_import
@@ -130,6 +116,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -144,16 +140,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -164,8 +150,8 @@ specifier|public
 specifier|final
 class|class
 name|DocumentFieldMappers
-extends|extends
-name|ForwardingSet
+implements|implements
+name|Iterable
 argument_list|<
 name|FieldMapper
 argument_list|<
@@ -575,31 +561,12 @@ end_return
 
 begin_comment
 unit|}
-comment|// TODO: replace all uses of this with fullName, or change the meaning of name to be fullName
+comment|/**      * Looks up a field by its index name.      *      * Overriding index name for a field is no longer possibly, and only supported for backcompat.      * This function first attempts to lookup the field by full name, and only when that fails,      * does a full scan of all field mappers, collecting those with this index name.      *      * This will be removed in 3.0, once backcompat for overriding index name is removed.      * @deprecated Use {@link #getMapper(String)}      */
 end_comment
 
 begin_function
-DECL|method|name
-unit|public
-name|FieldMappers
-name|name
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|fieldMappers
-operator|.
-name|fullName
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
-end_function
-
-begin_function
+unit|@
+name|Deprecated
 DECL|method|indexName
 specifier|public
 name|FieldMappers
@@ -620,22 +587,26 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/** Returns the mapper for the given field */
+end_comment
+
 begin_function
-DECL|method|fullName
+DECL|method|getMapper
 specifier|public
-name|FieldMappers
-name|fullName
+name|FieldMapper
+name|getMapper
 parameter_list|(
 name|String
-name|fullName
+name|field
 parameter_list|)
 block|{
 return|return
 name|fieldMappers
 operator|.
-name|fullName
+name|get
 argument_list|(
-name|fullName
+name|field
 argument_list|)
 return|;
 block|}
@@ -643,7 +614,6 @@ end_function
 
 begin_function
 DECL|method|simpleMatchToIndexNames
-specifier|public
 name|List
 argument_list|<
 name|String
@@ -690,12 +660,11 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Tries to find first based on {@link #fullName(String)}, then by {@link #indexName(String)}, and last      * by {@link #name(String)}.      */
+comment|/**      * Tries to find first based on fullName, then by indexName.      */
 end_comment
 
 begin_function
 DECL|method|smartName
-specifier|public
 name|FieldMappers
 name|smartName
 parameter_list|(
@@ -821,22 +790,23 @@ block|}
 end_function
 
 begin_function
-annotation|@
-name|Override
-DECL|method|delegate
-specifier|protected
-name|Set
+DECL|method|iterator
+specifier|public
+name|Iterator
 argument_list|<
 name|FieldMapper
 argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|delegate
+name|iterator
 parameter_list|()
 block|{
 return|return
 name|fieldMappers
+operator|.
+name|iterator
+argument_list|()
 return|;
 block|}
 end_function

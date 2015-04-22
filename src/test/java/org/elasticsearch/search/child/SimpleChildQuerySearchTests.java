@@ -326,7 +326,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|AutoFilterCachingPolicy
+name|FilterCacheModule
 import|;
 end_import
 
@@ -343,6 +343,8 @@ operator|.
 name|filter
 operator|.
 name|FilterCacheModule
+operator|.
+name|FilterCacheSettings
 import|;
 end_import
 
@@ -1480,9 +1482,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|AutoFilterCachingPolicy
+name|FilterCacheSettings
 operator|.
-name|AGGRESSIVE_CACHING_SETTINGS
+name|FILTER_CACHE_EVERYTHING
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|build
@@ -9176,12 +9180,12 @@ operator|.
 name|getExplanation
 argument_list|()
 operator|.
-name|getDescription
+name|toString
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"not implemented yet..."
+literal|"1.0 = (MATCH) sum of:\n  1.0 = not implemented yet...\n  0.0 = match on required clause, product of:\n    0.0 = # clause\n    0.0 = (MATCH) Match on id 0\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12475,7 +12479,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"ConstantScore(BooleanFilter("
+literal|"ConstantScore(CustomQueryWrappingFilter("
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -12574,7 +12578,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"ConstantScore(BooleanFilter("
+literal|"ConstantScore(CustomQueryWrappingFilter("
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17997,7 +18001,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Merge failed with failures {[The _parent field's type option can't be changed]}"
+literal|"Merge failed with failures {[The _parent field's type option can't be changed: [null]->[parent]]}"
 argument_list|)
 argument_list|)
 expr_stmt|;

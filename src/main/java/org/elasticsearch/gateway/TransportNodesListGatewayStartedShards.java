@@ -758,7 +758,6 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
-specifier|final
 name|ShardStateMetaData
 name|shardStateMetaData
 init|=
@@ -772,7 +771,7 @@ name|logger
 argument_list|,
 name|nodeEnv
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|request
 operator|.

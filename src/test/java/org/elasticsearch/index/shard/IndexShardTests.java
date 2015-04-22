@@ -496,7 +496,7 @@ name|state1
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -511,7 +511,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -543,7 +543,7 @@ name|state2
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -557,7 +557,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -591,7 +591,7 @@ name|state3
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -605,7 +605,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -694,7 +694,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -749,7 +749,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -833,7 +833,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -917,7 +917,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1031,7 +1031,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1115,7 +1115,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1206,7 +1206,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1349,7 +1349,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1437,7 +1437,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.

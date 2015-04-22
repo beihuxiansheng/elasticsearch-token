@@ -780,6 +780,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|lastCommittedSegmentInfos
 specifier|private
+specifier|volatile
 name|SegmentInfos
 name|lastCommittedSegmentInfos
 decl_stmt|;
@@ -5200,6 +5201,18 @@ return|;
 block|}
 return|return
 literal|false
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getLastCommittedSegmentInfos
+specifier|protected
+name|SegmentInfos
+name|getLastCommittedSegmentInfos
+parameter_list|()
+block|{
+return|return
+name|lastCommittedSegmentInfos
 return|;
 block|}
 annotation|@

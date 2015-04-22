@@ -128,7 +128,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|Query
 import|;
 end_import
 
@@ -142,7 +142,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -1155,7 +1155,7 @@ return|;
 block|}
 DECL|method|autoFilterCachePolicy
 specifier|public
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 parameter_list|()
 block|{
@@ -1168,7 +1168,7 @@ return|;
 block|}
 DECL|method|parseFilterCachePolicy
 specifier|public
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|parseFilterCachePolicy
 parameter_list|()
 throws|throws
@@ -1215,7 +1215,7 @@ comment|// cache without conditions on how many times the filter has been
 comment|// used or what the produced DocIdSet looks like, but ONLY on large
 comment|// segments to not pollute the cache
 return|return
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 operator|.
 name|CacheOnLargeSegments
 operator|.
@@ -1297,7 +1297,7 @@ name|HashedBytesRef
 name|cacheKey
 parameter_list|,
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 parameter_list|)
 block|{

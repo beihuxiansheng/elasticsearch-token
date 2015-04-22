@@ -250,7 +250,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockInternalEngine
+name|MockEngineSupport
 import|;
 end_import
 
@@ -577,7 +577,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|FLUSH_ON_CLOSE_RATIO
 argument_list|,
@@ -962,6 +962,16 @@ argument_list|(
 name|relativeDataLocationPath
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
 name|logger
 operator|.
 name|info
@@ -1034,6 +1044,7 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

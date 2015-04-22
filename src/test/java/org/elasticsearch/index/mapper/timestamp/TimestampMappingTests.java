@@ -1423,6 +1423,9 @@ operator|.
 name|merge
 argument_list|(
 name|disabledMapper
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -4172,6 +4175,9 @@ name|parse
 argument_list|(
 name|mapping
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -4332,14 +4338,6 @@ argument_list|)
 operator|.
 name|endObject
 argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"properties"
-argument_list|)
 operator|.
 name|endObject
 argument_list|()
@@ -4874,6 +4872,9 @@ name|parse
 argument_list|(
 name|mapping
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -5175,6 +5176,9 @@ name|parse
 argument_list|(
 name|mapping
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -5583,6 +5587,9 @@ name|parse
 argument_list|(
 name|mapping2
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.

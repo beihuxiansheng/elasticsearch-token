@@ -261,7 +261,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|" to the JVM_OPTS environment variable."
+literal|" to the JAVA_OPTS environment variable."
 argument_list|)
 expr_stmt|;
 name|sb
