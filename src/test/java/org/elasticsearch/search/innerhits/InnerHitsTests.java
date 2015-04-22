@@ -1686,7 +1686,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"(MATCH) weight(comments.message:fox in"
+literal|"weight(comments.message:fox in"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3729,7 +3729,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"(MATCH) weight(message:fox"
+literal|"weight(message:fox"
 argument_list|)
 argument_list|)
 expr_stmt|;

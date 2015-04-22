@@ -9185,7 +9185,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"1.0 = (MATCH) sum of:\n  1.0 = not implemented yet...\n  0.0 = match on required clause, product of:\n    0.0 = # clause\n    0.0 = (MATCH) Match on id 0\n"
+literal|"1.0 = sum of:\n  1.0 = not implemented yet...\n  0.0 = match on required clause, product of:\n    0.0 = # clause\n    0.0 = Match on id 0\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
