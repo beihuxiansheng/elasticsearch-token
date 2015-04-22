@@ -4768,7 +4768,8 @@ return|;
 block|}
 DECL|method|flush
 specifier|public
-name|void
+name|byte
+index|[]
 name|flush
 parameter_list|(
 name|FlushRequest
@@ -4777,12 +4778,22 @@ parameter_list|)
 throws|throws
 name|ElasticsearchException
 block|{
-comment|// we allows flush while recovering, since we allow for operations to happen
-comment|// while recovering, and we want to keep the translog at bay (up to deletes, which
-comment|// we don't gc).
-name|verifyStartedOrRecovering
+name|boolean
+name|waitIfOngoing
+init|=
+name|request
+operator|.
+name|waitIfOngoing
 argument_list|()
-expr_stmt|;
+decl_stmt|;
+name|boolean
+name|force
+init|=
+name|request
+operator|.
+name|force
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|logger
@@ -4801,6 +4812,12 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we allows flush while recovering, since we allow for operations to happen
+comment|// while recovering, and we want to keep the translog at bay (up to deletes, which
+comment|// we don't gc).
+name|verifyStartedOrRecovering
+argument_list|()
+expr_stmt|;
 name|long
 name|time
 init|=
@@ -4809,22 +4826,20 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
+name|byte
+index|[]
+name|commitId
+init|=
 name|engine
 argument_list|()
 operator|.
 name|flush
 argument_list|(
-name|request
-operator|.
 name|force
-argument_list|()
 argument_list|,
-name|request
-operator|.
 name|waitIfOngoing
-argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|flushMetric
 operator|.
 name|inc
@@ -4837,6 +4852,9 @@ operator|-
 name|time
 argument_list|)
 expr_stmt|;
+return|return
+name|commitId
+return|;
 block|}
 DECL|method|optimize
 specifier|public

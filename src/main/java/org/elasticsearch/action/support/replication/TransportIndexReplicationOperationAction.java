@@ -238,6 +238,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponse
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -320,6 +332,10 @@ parameter_list|,
 name|ShardResponse
 extends|extends
 name|ActionWriteResponse
+parameter_list|,
+name|ReplicaResponse
+extends|extends
+name|TransportResponse
 parameter_list|>
 extends|extends
 name|TransportAction
@@ -345,6 +361,8 @@ argument_list|,
 name|ShardRequest
 argument_list|,
 name|ShardResponse
+argument_list|,
+name|ReplicaResponse
 argument_list|>
 name|shardAction
 decl_stmt|;
@@ -371,6 +389,8 @@ argument_list|,
 name|ShardRequest
 argument_list|,
 name|ShardResponse
+argument_list|,
+name|ReplicaResponse
 argument_list|>
 name|shardAction
 parameter_list|,

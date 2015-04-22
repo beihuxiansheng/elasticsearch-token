@@ -3825,7 +3825,7 @@ parameter_list|)
 throws|throws
 name|EngineException
 block|{
-comment|// best effort attempt before we aquire locks
+comment|// best effort attempt before we acquire locks
 name|ensureOpen
 argument_list|()
 expr_stmt|;
@@ -4022,6 +4022,13 @@ literal|"successfully sync committed. sync id [{}]."
 argument_list|,
 name|syncId
 argument_list|)
+expr_stmt|;
+name|lastCommittedSegmentInfos
+operator|=
+name|store
+operator|.
+name|readLastCommittedSegmentsInfo
+argument_list|()
 expr_stmt|;
 return|return
 literal|true

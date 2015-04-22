@@ -166,6 +166,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportResponse
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -193,6 +205,10 @@ argument_list|,
 name|ShardDeleteByQueryRequest
 argument_list|,
 name|ShardDeleteByQueryResponse
+argument_list|,
+name|TransportResponse
+operator|.
+name|Empty
 argument_list|>
 block|{
 DECL|field|ACTION_NAME
