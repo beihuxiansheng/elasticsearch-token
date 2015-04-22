@@ -1656,7 +1656,7 @@ comment|// TODO: move somewhere more "util"?  But, this is somewhat hacky code .
 comment|// NOTE: poached from Lucene's IOUtils:
 comment|/** Files.getFileStore(Path) useless here!  Don't complain, just try it yourself. */
 DECL|method|getFileStore
-specifier|private
+specifier|public
 specifier|static
 name|FileStore
 name|getFileStore
@@ -1737,7 +1737,7 @@ block|}
 comment|// NOTE: poached from Lucene's IOUtils:
 comment|// these are hacks that are not guaranteed
 DECL|method|getMountPoint
-specifier|private
+specifier|public
 specifier|static
 name|String
 name|getMountPoint
