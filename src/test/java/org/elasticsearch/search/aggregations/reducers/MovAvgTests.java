@@ -266,7 +266,23 @@ name|aggregations
 operator|.
 name|AggregationBuilders
 operator|.
-name|*
+name|histogram
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|AggregationBuilders
+operator|.
+name|sum
 import|;
 end_import
 
@@ -495,21 +511,13 @@ argument_list|)
 expr_stmt|;
 name|gapPolicy
 operator|=
-name|randomBoolean
-argument_list|()
-condition|?
-name|BucketHelpers
-operator|.
-name|GapPolicy
-operator|.
-name|IGNORE
-else|:
 name|BucketHelpers
 operator|.
 name|GapPolicy
 operator|.
 name|INSERT_ZEROS
 expr_stmt|;
+comment|// TODO randomBoolean() ? BucketHelpers.GapPolicy.IGNORE : BucketHelpers.GapPolicy.INSERT_ZEROS;
 name|docCounts
 operator|=
 operator|new
