@@ -156,6 +156,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|rules
+operator|.
+name|TestRuleAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -554,7 +568,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
+name|*
 import|;
 end_import
 
@@ -564,27 +578,9 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|rules
 operator|.
-name|junit
-operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
+name|RuleChain
 import|;
 end_import
 
@@ -650,67 +646,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Formatter
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Random
+name|*
 import|;
 end_import
 
@@ -919,6 +855,108 @@ decl_stmt|;
 comment|// -----------------------------------------------------------------
 comment|// Suite and test case setup/cleanup.
 comment|// -----------------------------------------------------------------
+annotation|@
+name|Rule
+DECL|field|failureAndSuccessEvents
+specifier|public
+name|RuleChain
+name|failureAndSuccessEvents
+init|=
+name|RuleChain
+operator|.
+name|outerRule
+argument_list|(
+operator|new
+name|TestRuleAdapter
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|afterIfSuccessful
+parameter_list|()
+throws|throws
+name|Throwable
+block|{
+name|ElasticsearchTestCase
+operator|.
+name|this
+operator|.
+name|afterIfSuccessful
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|afterAlways
+parameter_list|(
+name|List
+argument_list|<
+name|Throwable
+argument_list|>
+name|errors
+parameter_list|)
+throws|throws
+name|Throwable
+block|{
+if|if
+condition|(
+name|errors
+operator|!=
+literal|null
+operator|&&
+name|errors
+operator|.
+name|isEmpty
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+name|ElasticsearchTestCase
+operator|.
+name|this
+operator|.
+name|afterIfFailed
+argument_list|(
+name|errors
+argument_list|)
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|afterAlways
+argument_list|(
+name|errors
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|)
+decl_stmt|;
+comment|/** called when a test fails, supplying the errors it generated */
+DECL|method|afterIfFailed
+specifier|protected
+name|void
+name|afterIfFailed
+parameter_list|(
+name|List
+argument_list|<
+name|Throwable
+argument_list|>
+name|errors
+parameter_list|)
+block|{     }
+comment|/** called after a test is finished, but only if succesfull */
+DECL|method|afterIfSuccessful
+specifier|protected
+name|void
+name|afterIfSuccessful
+parameter_list|()
+block|{     }
 comment|// TODO: Parent/child and other things does not work with the query cache
 comment|// We must disable query cache for both suite and test to override lucene, but LTC resets it after the suite
 annotation|@
@@ -1486,7 +1524,7 @@ name|random
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a "scaled" random number between min and max (inclusive).      * @see RandomizedTest#scaledRandomIntBetween(int, int);      */
+comment|/**      * Returns a "scaled" random number between min and max (inclusive).      *      * @see RandomizedTest#scaledRandomIntBetween(int, int);      */
 DECL|method|scaledRandomIntBetween
 specifier|public
 specifier|static
@@ -1511,7 +1549,7 @@ name|max
 argument_list|)
 return|;
 block|}
-comment|/**       * A random integer from<code>min</code> to<code>max</code> (inclusive).      * @see #scaledRandomIntBetween(int, int)      */
+comment|/**      * A random integer from<code>min</code> to<code>max</code> (inclusive).      *      * @see #scaledRandomIntBetween(int, int)      */
 DECL|method|randomIntBetween
 specifier|public
 specifier|static
@@ -1539,7 +1577,7 @@ name|max
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a "scaled" number of iterations for loops which can have a variable      * iteration count. This method is effectively       * an alias to {@link #scaledRandomIntBetween(int, int)}.      */
+comment|/**      * Returns a "scaled" number of iterations for loops which can have a variable      * iteration count. This method is effectively      * an alias to {@link #scaledRandomIntBetween(int, int)}.      */
 DECL|method|iterations
 specifier|public
 specifier|static
@@ -1562,7 +1600,7 @@ name|max
 argument_list|)
 return|;
 block|}
-comment|/**       * An alias for {@link #randomIntBetween(int, int)}.       *       * @see #scaledRandomIntBetween(int, int)      */
+comment|/**      * An alias for {@link #randomIntBetween(int, int)}.      *      * @see #scaledRandomIntBetween(int, int)      */
 DECL|method|between
 specifier|public
 specifier|static
@@ -3154,6 +3192,7 @@ operator|.
 name|isAlive
 argument_list|()
 condition|)
+block|{
 name|f
 operator|.
 name|format
@@ -3179,6 +3218,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|e
