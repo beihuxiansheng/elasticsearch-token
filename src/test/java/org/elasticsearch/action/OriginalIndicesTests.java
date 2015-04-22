@@ -96,6 +96,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+operator|.
+name|randomVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -203,7 +217,10 @@ operator|.
 name|setVersion
 argument_list|(
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|OriginalIndices

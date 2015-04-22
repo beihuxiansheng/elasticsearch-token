@@ -1469,13 +1469,10 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 name|fieldName
 argument_list|)
-operator|.
-name|mapper
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

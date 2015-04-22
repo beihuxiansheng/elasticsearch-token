@@ -148,7 +148,7 @@ block|{
 name|Path
 name|dir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path
@@ -218,7 +218,7 @@ block|{
 name|Path
 name|dir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path

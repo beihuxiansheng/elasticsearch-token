@@ -264,7 +264,9 @@ operator|=
 name|values
 expr_stmt|;
 block|}
-comment|/**      * Sets the execution mode for the terms filter. Cane be either "plain", "bool"      * "and". Defaults to "plain".      */
+comment|/**      * Sets the execution mode for the terms filter. Cane be either "plain", "bool"      * "and". Defaults to "plain".      * @deprecated elasticsearch now makes better decisions on its own      */
+annotation|@
+name|Deprecated
 DECL|method|execution
 specifier|public
 name|TermsFilterBuilder

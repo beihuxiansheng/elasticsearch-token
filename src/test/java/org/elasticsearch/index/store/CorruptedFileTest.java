@@ -156,6 +156,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -433,6 +447,20 @@ operator|.
 name|bytes
 operator|.
 name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|PathUtils
 import|;
 end_import
 
@@ -4271,12 +4299,8 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+name|createTempDir
+argument_list|()
 operator|.
 name|toAbsolutePath
 argument_list|()
@@ -4700,7 +4724,7 @@ decl_stmt|;
 name|Path
 name|file
 init|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -4712,6 +4736,17 @@ argument_list|(
 name|relativeDataLocationPath
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// multi data path might only have one path in use
 try|try
 init|(
 name|DirectoryStream
@@ -4784,6 +4819,7 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -5631,7 +5667,7 @@ decl_stmt|;
 name|Path
 name|file
 init|=
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -5655,6 +5691,17 @@ operator|+
 literal|"/index"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|file
+argument_list|)
+condition|)
+block|{
+comment|// multi data path might only have one path in use
 try|try
 init|(
 name|DirectoryStream
@@ -5686,6 +5733,7 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

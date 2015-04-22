@@ -1457,6 +1457,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/10661"
+argument_list|)
 DECL|method|simpleNestedMatchQueries
 specifier|public
 name|void
@@ -4321,12 +4328,12 @@ name|assertThat
 argument_list|(
 name|explanation
 operator|.
-name|getDescription
+name|toString
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Score based on child doc range from 0 to 1"
+literal|"2.0 = (MATCH) sum of:\n  2.0 = (MATCH) Score based on child doc range from 0 to 1\n  0.0 = match on required clause, product of:\n    0.0 = # clause\n    0.0 = (MATCH) Match on id 2\n"
 argument_list|)
 argument_list|)
 expr_stmt|;

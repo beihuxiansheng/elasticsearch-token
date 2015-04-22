@@ -1268,6 +1268,8 @@ name|Exception
 block|{
 name|assumeTrue
 argument_list|(
+literal|"requires a 64-bit JRE ... ?!"
+argument_list|,
 name|Constants
 operator|.
 name|JRE_IS_64BIT

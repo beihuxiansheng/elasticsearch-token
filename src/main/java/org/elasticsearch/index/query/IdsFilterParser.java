@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|TermsQuery
 import|;
 end_import
 
@@ -631,7 +631,8 @@ block|{
 return|return
 name|Queries
 operator|.
-name|MATCH_NO_FILTER
+name|newMatchNoDocsFilter
+argument_list|()
 return|;
 block|}
 if|if
@@ -690,11 +691,15 @@ name|types
 argument_list|()
 expr_stmt|;
 block|}
-name|TermsFilter
+name|Filter
 name|filter
 init|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermsFilter
+name|TermsQuery
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -707,6 +712,7 @@ argument_list|(
 name|types
 argument_list|,
 name|ids
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

@@ -301,12 +301,8 @@ block|{
 name|Path
 name|directory
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|settingsBuilder
 operator|.

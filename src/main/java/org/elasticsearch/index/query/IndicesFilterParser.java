@@ -255,7 +255,8 @@ name|noMatchFilter
 init|=
 name|Queries
 operator|.
-name|MATCH_ALL_FILTER
+name|newMatchAllFilter
+argument_list|()
 decl_stmt|;
 name|boolean
 name|filterFound
@@ -685,7 +686,8 @@ name|noMatchFilter
 operator|=
 name|Queries
 operator|.
-name|MATCH_ALL_FILTER
+name|newMatchAllFilter
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -703,7 +705,8 @@ name|noMatchFilter
 operator|=
 name|Queries
 operator|.
-name|MATCH_NO_FILTER
+name|newMatchNoDocsFilter
+argument_list|()
 expr_stmt|;
 block|}
 block|}

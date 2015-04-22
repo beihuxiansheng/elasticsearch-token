@@ -3747,12 +3747,8 @@ name|put
 argument_list|(
 literal|"location"
 argument_list|,
-name|newTempDir
-argument_list|(
-name|LifecycleScope
-operator|.
-name|SUITE
-argument_list|)
+name|createTempDir
+argument_list|()
 argument_list|)
 operator|.
 name|put

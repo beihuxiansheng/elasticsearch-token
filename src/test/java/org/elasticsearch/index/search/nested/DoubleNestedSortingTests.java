@@ -246,7 +246,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NotFilter
+name|Queries
 import|;
 end_import
 
@@ -507,10 +507,16 @@ decl_stmt|;
 name|Filter
 name|childFilter
 init|=
-operator|new
-name|NotFilter
+name|Queries
+operator|.
+name|wrap
+argument_list|(
+name|Queries
+operator|.
+name|not
 argument_list|(
 name|parentFilter
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|XFieldComparatorSource

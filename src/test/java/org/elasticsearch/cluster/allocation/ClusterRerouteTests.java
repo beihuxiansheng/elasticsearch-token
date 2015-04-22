@@ -1931,7 +1931,7 @@ argument_list|,
 name|node_1
 argument_list|)
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 operator|new
 name|ShardId

@@ -1727,6 +1727,8 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Slow
 DECL|method|multipleNodesShutdownNonMasterNodes
 specifier|public
 name|void

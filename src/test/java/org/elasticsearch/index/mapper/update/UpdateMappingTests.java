@@ -914,6 +914,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.
@@ -1197,6 +1200,9 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|mapping
+argument_list|()
 argument_list|,
 name|DocumentMapper
 operator|.

@@ -230,20 +230,6 @@ name|search
 operator|.
 name|action
 operator|.
-name|SearchServiceListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|action
-operator|.
 name|SearchServiceTransportAction
 import|;
 end_import
@@ -609,7 +595,7 @@ parameter_list|,
 name|ShardSearchTransportRequest
 name|request
 parameter_list|,
-name|SearchServiceListener
+name|ActionListener
 argument_list|<
 name|DfsSearchResult
 argument_list|>
@@ -769,7 +755,7 @@ argument_list|,
 name|querySearchRequest
 argument_list|,
 operator|new
-name|SearchServiceListener
+name|ActionListener
 argument_list|<
 name|QuerySearchResult
 argument_list|>
@@ -779,7 +765,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onResult
+name|onResponse
 parameter_list|(
 name|QuerySearchResult
 name|result
@@ -1189,7 +1175,7 @@ argument_list|,
 name|fetchSearchRequest
 argument_list|,
 operator|new
-name|SearchServiceListener
+name|ActionListener
 argument_list|<
 name|FetchSearchResult
 argument_list|>
@@ -1199,7 +1185,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onResult
+name|onResponse
 parameter_list|(
 name|FetchSearchResult
 name|result

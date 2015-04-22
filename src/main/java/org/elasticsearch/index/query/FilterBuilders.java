@@ -1399,6 +1399,9 @@ name|BoolFilterBuilder
 argument_list|()
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #boolFilter()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|andFilter
 specifier|public
 specifier|static
@@ -1418,6 +1421,9 @@ name|filters
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #boolFilter()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|orFilter
 specifier|public
 specifier|static

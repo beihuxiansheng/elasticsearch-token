@@ -255,7 +255,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/conf_dir"
 argument_list|)
@@ -343,7 +343,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/conf_dir"
 argument_list|)
@@ -478,7 +478,7 @@ name|put
 argument_list|(
 name|HUNSPELL_LOCATION
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/conf_dir/hunspell"
 argument_list|)
@@ -544,7 +544,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/no_aff_conf_dir"
 argument_list|)
@@ -658,7 +658,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/two_aff_conf_dir"
 argument_list|)

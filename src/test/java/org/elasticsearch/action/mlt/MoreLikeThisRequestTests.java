@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|search
@@ -167,6 +157,20 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+operator|.
+name|randomVersion
 import|;
 end_import
 
@@ -568,7 +572,10 @@ operator|.
 name|setVersion
 argument_list|(
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|mltRequest

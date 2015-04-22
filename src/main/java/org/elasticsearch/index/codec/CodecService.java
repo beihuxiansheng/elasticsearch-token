@@ -243,6 +243,16 @@ name|BEST_COMPRESSION_CODEC
 init|=
 literal|"best_compression"
 decl_stmt|;
+comment|/** the raw unfiltered lucene default. useful for testing */
+DECL|field|LUCENE_DEFAULT_CODEC
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|LUCENE_DEFAULT_CODEC
+init|=
+literal|"lucene_default"
+decl_stmt|;
 DECL|method|CodecService
 specifier|public
 name|CodecService
@@ -410,6 +420,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|codecs
+operator|.
+name|put
+argument_list|(
+name|LUCENE_DEFAULT_CODEC
+argument_list|,
+name|Codec
+operator|.
+name|getDefault
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String

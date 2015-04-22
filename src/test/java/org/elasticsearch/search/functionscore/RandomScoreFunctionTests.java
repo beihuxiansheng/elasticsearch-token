@@ -244,6 +244,8 @@ name|RandomScoreFunctionTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
+annotation|@
+name|Slow
 DECL|method|testConsistentHitsWithSameSeed
 specifier|public
 name|void

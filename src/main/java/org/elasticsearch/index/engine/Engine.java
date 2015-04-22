@@ -1014,6 +1014,13 @@ return|return
 name|engineConfig
 return|;
 block|}
+DECL|method|getLastCommittedSegmentInfos
+specifier|protected
+specifier|abstract
+name|SegmentInfos
+name|getLastCommittedSegmentInfos
+parameter_list|()
+function_decl|;
 comment|/** A throttling class that can be activated, causing the      * {@code acquireThrottle} method to block on a lock when throttling      * is enabled      */
 DECL|class|IndexThrottle
 specifier|protected
@@ -1630,6 +1637,22 @@ name|failedEngine
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/** get commits stats for the last commit */
+DECL|method|commitStats
+specifier|public
+name|CommitStats
+name|commitStats
+parameter_list|()
+block|{
+return|return
+operator|new
+name|CommitStats
+argument_list|(
+name|getLastCommittedSegmentInfos
+argument_list|()
+argument_list|)
+return|;
 block|}
 comment|/**      * Global stats on segments.      */
 DECL|method|segmentsStats

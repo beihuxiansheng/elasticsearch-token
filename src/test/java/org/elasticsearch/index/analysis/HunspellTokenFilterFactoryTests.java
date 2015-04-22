@@ -130,7 +130,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/conf_dir"
 argument_list|)
@@ -215,7 +215,7 @@ name|put
 argument_list|(
 literal|"path.conf"
 argument_list|,
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/indices/analyze/conf_dir"
 argument_list|)
