@@ -802,9 +802,21 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+operator|!
+operator|(
 name|thisBucketValue
-operator|!=
+operator|==
 literal|null
+operator|||
+name|thisBucketValue
+operator|.
+name|equals
+argument_list|(
+name|Double
+operator|.
+name|NaN
+argument_list|)
+operator|)
 condition|)
 block|{
 name|values
@@ -814,7 +826,6 @@ argument_list|(
 name|thisBucketValue
 argument_list|)
 expr_stmt|;
-comment|// TODO handle "edge policy"
 name|double
 name|movavg
 init|=
