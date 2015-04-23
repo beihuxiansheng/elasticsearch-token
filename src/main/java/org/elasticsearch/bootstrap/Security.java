@@ -409,17 +409,6 @@ name|dataFiles
 argument_list|()
 control|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"datapath="
-operator|+
-name|path
-argument_list|)
-expr_stmt|;
 name|paths
 operator|.
 name|add
