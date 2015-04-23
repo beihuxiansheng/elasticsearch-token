@@ -409,6 +409,17 @@ name|dataFiles
 argument_list|()
 control|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"datapath="
+operator|+
+name|path
+argument_list|)
+expr_stmt|;
 name|paths
 operator|.
 name|add
@@ -527,6 +538,14 @@ range|:
 name|paths
 control|)
 block|{
+comment|// data paths actually may not exist yet.
+name|Files
+operator|.
+name|createDirectories
+argument_list|(
+name|path
+argument_list|)
+expr_stmt|;
 comment|// add each path twice: once for itself, again for files underneath it
 name|addPath
 argument_list|(
