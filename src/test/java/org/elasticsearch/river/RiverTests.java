@@ -251,6 +251,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"occasionally fails apparently due to synchronous mappings updates"
+argument_list|)
 DECL|method|testMultipleRiversStart
 specifier|public
 name|void
