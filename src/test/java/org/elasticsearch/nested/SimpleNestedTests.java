@@ -4331,9 +4331,9 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
-literal|"2.0 = (MATCH) sum of:\n  2.0 = (MATCH) Score based on child doc range from 0 to 1\n  0.0 = match on required clause, product of:\n    0.0 = # clause\n    0.0 = (MATCH) Match on id 2\n"
+literal|"2.0 = sum of:\n  2.0 = Score based on child doc range from 0 to 1\n"
 argument_list|)
 argument_list|)
 expr_stmt|;

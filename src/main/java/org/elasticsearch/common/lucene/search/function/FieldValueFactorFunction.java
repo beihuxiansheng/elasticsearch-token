@@ -339,13 +339,6 @@ name|Explanation
 name|subQueryScore
 parameter_list|)
 block|{
-name|Explanation
-name|exp
-init|=
-operator|new
-name|Explanation
-argument_list|()
-decl_stmt|;
 name|String
 name|modifierStr
 init|=
@@ -373,9 +366,10 @@ name|getValue
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|exp
+return|return
+name|Explanation
 operator|.
-name|setValue
+name|match
 argument_list|(
 name|CombineFunction
 operator|.
@@ -383,12 +377,7 @@ name|toFloat
 argument_list|(
 name|score
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|exp
-operator|.
-name|setDescription
-argument_list|(
+argument_list|,
 literal|"field value function: "
 operator|+
 name|modifierStr
@@ -405,9 +394,6 @@ name|boostFactor
 operator|+
 literal|")"
 argument_list|)
-expr_stmt|;
-return|return
-name|exp
 return|;
 block|}
 block|}

@@ -3481,11 +3481,6 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
-argument_list|,
 name|documentMapper
 operator|.
 name|type
@@ -3494,6 +3489,11 @@ argument_list|,
 name|documentMapper
 operator|.
 name|mapping
+argument_list|()
+argument_list|,
+name|recoverySettings
+operator|.
+name|internalActionTimeout
 argument_list|()
 argument_list|,
 name|listener

@@ -6885,7 +6885,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"no translog file found for ID: "
 operator|+

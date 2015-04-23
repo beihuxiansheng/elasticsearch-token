@@ -857,6 +857,8 @@ parameter_list|(
 name|ReplicaOperationRequest
 name|shardRequest
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 DECL|method|shards
 specifier|protected
