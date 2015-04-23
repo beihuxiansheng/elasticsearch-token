@@ -26,6 +26,20 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|annotations
+operator|.
+name|Seed
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|google
 operator|.
 name|common
@@ -33,22 +47,6 @@ operator|.
 name|collect
 operator|.
 name|EvictingQueue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
 import|;
 end_import
 
@@ -576,18 +574,6 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|Matchers
-operator|.
-name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
 name|core
 operator|.
 name|IsNull
@@ -615,13 +601,6 @@ annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|SuiteScopeTest
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Gap test logic seems to fail a lot of the time on CI build"
-argument_list|)
 DECL|class|MovAvgTests
 specifier|public
 class|class
@@ -5176,7 +5155,7 @@ name|IGNORE
 argument_list|)
 condition|)
 block|{
-comment|// If we ignore missing, there will only be two values in this histo, so movavg will stay the same
+comment|// if we are ignoring, movavg could go up (double_exp) or stay the same (simple, linear, single_exp)
 name|assertThat
 argument_list|(
 name|Double
@@ -5188,7 +5167,7 @@ argument_list|,
 name|currentValue
 argument_list|)
 argument_list|,
-name|equalTo
+name|lessThanOrEqualTo
 argument_list|(
 literal|0
 argument_list|)
