@@ -633,7 +633,7 @@ else|else
 block|{
 name|logger
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"security disabled"
 argument_list|)
