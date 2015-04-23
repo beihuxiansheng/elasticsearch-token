@@ -1153,14 +1153,11 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|indexService
-operator|.
-name|indexUUID
-argument_list|()
-argument_list|,
 name|type
 argument_list|,
 name|update
+argument_list|,
+name|waitForMappingUpdatePostRecovery
 argument_list|,
 operator|new
 name|MappingUpdatedAction

@@ -2359,11 +2359,6 @@ operator|.
 name|getIndex
 argument_list|()
 argument_list|,
-name|documentIndexService
-operator|.
-name|indexUUID
-argument_list|()
-argument_list|,
 name|request
 operator|.
 name|documentType
