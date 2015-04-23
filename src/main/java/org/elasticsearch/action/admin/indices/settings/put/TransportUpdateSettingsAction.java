@@ -336,7 +336,7 @@ name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 decl_stmt|;
 if|if
@@ -410,7 +410,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|,
 name|state
 operator|.

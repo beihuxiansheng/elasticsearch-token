@@ -794,7 +794,7 @@ name|WRITE
 argument_list|,
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -890,7 +890,11 @@ name|of
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
+argument_list|,
+name|ClusterBlockLevel
+operator|.
+name|METADATA_READ
 argument_list|)
 argument_list|)
 decl_stmt|;

@@ -359,7 +359,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_READ
 argument_list|,
 name|clusterService
 operator|.

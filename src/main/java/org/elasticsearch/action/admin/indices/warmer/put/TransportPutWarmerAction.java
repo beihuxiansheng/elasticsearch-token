@@ -503,6 +503,36 @@ name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ClusterBlockException
+name|status
+init|=
+name|state
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|indicesBlockedException
+argument_list|(
+name|ClusterBlockLevel
+operator|.
+name|METADATA_WRITE
+argument_list|,
+name|concreteIndices
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|status
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|status
+return|;
+block|}
+comment|// PutWarmer executes a SearchQuery before adding the new warmer to the cluster state,
+comment|// so we need to check the same block as TransportSearchTypeAction here
 return|return
 name|state
 operator|.
@@ -513,7 +543,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|READ
 argument_list|,
 name|concreteIndices
 argument_list|)
