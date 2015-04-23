@@ -1687,7 +1687,11 @@ argument_list|(
 name|store
 argument_list|)
 decl_stmt|;
-comment|// find the "matching" FileStore from system list, it's the one we want.
+name|FileStore
+name|sameMountPoint
+init|=
+literal|null
+decl_stmt|;
 for|for
 control|(
 name|FileStore
@@ -1715,10 +1719,46 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
-return|return
+if|if
+condition|(
+name|sameMountPoint
+operator|==
+literal|null
+condition|)
+block|{
+name|sameMountPoint
+operator|=
 name|fs
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// more than one filesystem has the same mount point; something is wrong!
+comment|// fall back to crappy one we got from Files.getFileStore
+return|return
+name|store
 return|;
 block|}
+block|}
+block|}
+if|if
+condition|(
+name|sameMountPoint
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// ok, we found only one, use it:
+return|return
+name|sameMountPoint
+return|;
+block|}
+else|else
+block|{
+comment|// fall back to crappy one we got from Files.getFileStore
+return|return
+name|store
+return|;
 block|}
 block|}
 catch|catch
@@ -1754,6 +1794,24 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+name|int
+name|index
+init|=
+name|desc
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|" ("
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|index
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 return|return
 name|desc
 operator|.
@@ -1761,16 +1819,16 @@ name|substring
 argument_list|(
 literal|0
 argument_list|,
-name|desc
-operator|.
-name|lastIndexOf
-argument_list|(
-literal|'('
-argument_list|)
-operator|-
-literal|1
+name|index
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+name|desc
+return|;
+block|}
 block|}
 comment|/**      * Deletes a shard data directory iff the shards locks were successfully acquired.      *      * @param shardId the id of the shard to delete to delete      * @throws IOException if an IOException occurs      */
 DECL|method|deleteShardDirectorySafe

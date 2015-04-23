@@ -780,6 +780,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|lastCommittedSegmentInfos
 specifier|private
+specifier|volatile
 name|SegmentInfos
 name|lastCommittedSegmentInfos
 decl_stmt|;
@@ -5204,6 +5205,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getLastCommittedSegmentInfos
+specifier|protected
+name|SegmentInfos
+name|getLastCommittedSegmentInfos
+parameter_list|()
+block|{
+return|return
+name|lastCommittedSegmentInfos
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|writerSegmentStats
 specifier|protected
 specifier|final
@@ -6872,7 +6885,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"no translog file found for ID: "
 operator|+

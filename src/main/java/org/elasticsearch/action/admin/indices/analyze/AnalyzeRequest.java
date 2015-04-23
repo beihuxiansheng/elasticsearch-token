@@ -199,34 +199,13 @@ DECL|method|AnalyzeRequest
 name|AnalyzeRequest
 parameter_list|()
 block|{      }
-comment|/**      * Constructs a new analyzer request for the provided text.      *      * @param text The text to analyze      */
+comment|/**      * Constructs a new analyzer request for the provided index.      *      * @param index The text to analyze      */
 DECL|method|AnalyzeRequest
 specifier|public
 name|AnalyzeRequest
 parameter_list|(
-name|String
-name|text
-parameter_list|)
-block|{
-name|this
-operator|.
-name|text
-operator|=
-name|text
-expr_stmt|;
-block|}
-comment|/**      * Constructs a new analyzer request for the provided index and text.      *      * @param index The index name      * @param text  The text to analyze      */
-DECL|method|AnalyzeRequest
-specifier|public
-name|AnalyzeRequest
-parameter_list|(
-annotation|@
-name|Nullable
 name|String
 name|index
-parameter_list|,
-name|String
-name|text
 parameter_list|)
 block|{
 name|this
@@ -235,12 +214,6 @@ name|index
 argument_list|(
 name|index
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|text
-operator|=
-name|text
 expr_stmt|;
 block|}
 DECL|method|text
@@ -253,6 +226,25 @@ return|return
 name|this
 operator|.
 name|text
+return|;
+block|}
+DECL|method|text
+specifier|public
+name|AnalyzeRequest
+name|text
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+name|this
+operator|.
+name|text
+operator|=
+name|text
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 DECL|method|analyzer

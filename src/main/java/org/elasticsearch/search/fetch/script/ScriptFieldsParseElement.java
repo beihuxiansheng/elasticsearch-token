@@ -365,6 +365,9 @@ operator|.
 name|lookup
 argument_list|()
 argument_list|,
+operator|new
+name|Script
+argument_list|(
 name|scriptParameterParser
 operator|.
 name|lang
@@ -374,13 +377,14 @@ name|script
 argument_list|,
 name|scriptType
 argument_list|,
+name|params
+argument_list|)
+argument_list|,
 name|ScriptContext
 operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|params
 argument_list|)
 decl_stmt|;
 name|context

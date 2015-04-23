@@ -384,6 +384,9 @@ name|scriptService
 operator|.
 name|executable
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|NativeScriptEngineService
 operator|.
 name|NAME
@@ -394,13 +397,14 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
+literal|null
+argument_list|)
+argument_list|,
 name|ScriptContext
 operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -658,6 +662,9 @@ name|scriptService
 operator|.
 name|compile
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|NativeScriptEngineService
 operator|.
 name|NAME
@@ -667,6 +674,9 @@ argument_list|,
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|)
 argument_list|,
 name|scriptContext
 argument_list|)

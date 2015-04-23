@@ -1008,7 +1008,6 @@ name|void
 name|ensureOpen
 parameter_list|()
 block|{
-comment|// for testing
 if|if
 condition|(
 name|this
