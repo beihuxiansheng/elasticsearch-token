@@ -1261,10 +1261,6 @@ argument_list|)
 return|;
 block|}
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Double
 operator|.
 name|parseDouble
@@ -1352,10 +1348,6 @@ block|{
 name|double
 name|iValue
 init|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Double
 operator|.
 name|parseDouble
@@ -1816,10 +1808,6 @@ else|else
 block|{
 name|value
 operator|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Double
 operator|.
 name|parseDouble
@@ -1868,10 +1856,6 @@ operator|.
 name|fullName
 argument_list|()
 argument_list|,
-name|java
-operator|.
-name|lang
-operator|.
 name|Double
 operator|.
 name|toString
@@ -2727,10 +2711,6 @@ name|numericAsString
 parameter_list|()
 block|{
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Double
 operator|.
 name|toString

@@ -1271,10 +1271,6 @@ argument_list|)
 return|;
 block|}
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|parseFloat
@@ -1372,10 +1368,6 @@ name|BytesRef
 condition|)
 block|{
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|parseFloat
@@ -1393,10 +1385,6 @@ argument_list|)
 return|;
 block|}
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|parseFloat
@@ -1434,10 +1422,6 @@ block|{
 name|float
 name|iValue
 init|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|parseFloat
@@ -1854,10 +1838,6 @@ else|else
 block|{
 name|value
 operator|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|parseFloat
@@ -1906,10 +1886,6 @@ operator|.
 name|fullName
 argument_list|()
 argument_list|,
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|toString
@@ -2765,10 +2741,6 @@ name|numericAsString
 parameter_list|()
 block|{
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Float
 operator|.
 name|toString

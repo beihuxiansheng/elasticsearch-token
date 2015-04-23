@@ -1217,10 +1217,6 @@ argument_list|)
 return|;
 block|}
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Long
 operator|.
 name|parseLong
@@ -1298,10 +1294,6 @@ block|{
 name|long
 name|iValue
 init|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Long
 operator|.
 name|parseLong
@@ -1718,10 +1710,6 @@ else|else
 block|{
 name|value
 operator|=
-name|java
-operator|.
-name|lang
-operator|.
 name|Long
 operator|.
 name|parseLong
@@ -1770,10 +1758,6 @@ operator|.
 name|fullName
 argument_list|()
 argument_list|,
-name|java
-operator|.
-name|lang
-operator|.
 name|Long
 operator|.
 name|toString
@@ -2537,10 +2521,6 @@ name|numericAsString
 parameter_list|()
 block|{
 return|return
-name|java
-operator|.
-name|lang
-operator|.
 name|Long
 operator|.
 name|toString
