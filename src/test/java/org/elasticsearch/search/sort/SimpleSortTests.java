@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1274,12 +1260,6 @@ argument_list|)
 operator|+
 literal|"/01"
 argument_list|)
-operator|.
-name|cache
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1408,12 +1388,6 @@ argument_list|)
 argument_list|)
 operator|+
 literal|"/01"
-argument_list|)
-operator|.
-name|cache
-argument_list|(
-name|randomBoolean
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
