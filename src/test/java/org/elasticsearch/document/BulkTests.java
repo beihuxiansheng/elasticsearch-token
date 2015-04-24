@@ -1685,7 +1685,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"DocumentMissingException"
+literal|"document missing"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2339,7 +2339,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Version"
+literal|"version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2789,7 +2789,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Version"
+literal|"version conflict"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4469,7 +4469,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"DocumentMissingException"
+literal|"document missing"
 argument_list|)
 argument_list|)
 expr_stmt|;

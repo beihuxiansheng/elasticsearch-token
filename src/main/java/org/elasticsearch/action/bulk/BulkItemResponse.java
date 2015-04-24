@@ -238,12 +238,10 @@ name|this
 operator|.
 name|message
 operator|=
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|t
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 expr_stmt|;
 name|this
 operator|.

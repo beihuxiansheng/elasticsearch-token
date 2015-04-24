@@ -74,7 +74,7 @@ name|super
 argument_list|(
 name|index
 argument_list|,
-literal|"missing"
+literal|"no such index"
 argument_list|)
 expr_stmt|;
 block|}

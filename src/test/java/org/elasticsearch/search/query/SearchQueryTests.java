@@ -5001,7 +5001,7 @@ name|assertTrue
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -5721,7 +5721,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -24697,12 +24697,12 @@ literal|"query could not be parsed due to bad format: "
 operator|+
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains

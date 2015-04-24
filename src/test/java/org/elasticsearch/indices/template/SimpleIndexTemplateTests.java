@@ -4656,7 +4656,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test] No filter registered for [invalid]"
+literal|"No filter registered for [invalid]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4848,7 +4848,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test] Invalid alias name [index], an index exists with the same name as the alias"
+literal|"Invalid alias name [index], an index exists with the same name as the alias"
 argument_list|)
 argument_list|)
 expr_stmt|;

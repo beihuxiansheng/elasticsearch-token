@@ -12059,12 +12059,12 @@ name|assertThat
 argument_list|(
 name|shardSearchFailure
 operator|.
-name|reason
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Parse Failure [No mapping found for [kkk] in order to sort on]"
+literal|"[No mapping found for [kkk] in order to sort on]"
 argument_list|)
 argument_list|)
 expr_stmt|;
