@@ -916,18 +916,6 @@ operator|new
 name|FakeRestRequest
 argument_list|()
 decl_stmt|;
-name|request
-operator|.
-name|params
-argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"pretty"
-argument_list|,
-literal|"true"
-argument_list|)
-expr_stmt|;
 name|RestChannel
 name|channel
 init|=
@@ -1046,53 +1034,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\n"
-operator|+
-literal|"  \"error\" : {\n"
-operator|+
-literal|"    \"root_cause\" : [ {\n"
-operator|+
-literal|"      \"type\" : \"query_parsing_exception\",\n"
-operator|+
-literal|"      \"reason\" : \"foobar\",\n"
-operator|+
-literal|"      \"index\" : \"foo\"\n"
-operator|+
-literal|"    } ],\n"
-operator|+
-literal|"    \"type\" : \"search_phase_execution_exception\",\n"
-operator|+
-literal|"    \"reason\" : \"all shards failed\",\n"
-operator|+
-literal|"    \"phase\" : \"search\",\n"
-operator|+
-literal|"    \"grouped\" : true,\n"
-operator|+
-literal|"    \"failed_shards\" : [ {\n"
-operator|+
-literal|"      \"shard\" : 1,\n"
-operator|+
-literal|"      \"index\" : \"foo\",\n"
-operator|+
-literal|"      \"node\" : \"node_1\",\n"
-operator|+
-literal|"      \"reason\" : {\n"
-operator|+
-literal|"        \"type\" : \"query_parsing_exception\",\n"
-operator|+
-literal|"        \"reason\" : \"foobar\",\n"
-operator|+
-literal|"        \"index\" : \"foo\"\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    } ]\n"
-operator|+
-literal|"  },\n"
-operator|+
-literal|"  \"status\" : 400\n"
-operator|+
-literal|"}"
+literal|"{\"error\":{\"root_cause\":[{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]},\"status\":400}"
 decl_stmt|;
 name|assertEquals
 argument_list|(

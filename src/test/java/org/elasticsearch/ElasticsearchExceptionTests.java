@@ -1068,9 +1068,6 @@ name|XContentFactory
 operator|.
 name|jsonBuilder
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -1096,37 +1093,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\n"
-operator|+
-literal|"  \"type\" : \"search_phase_execution_exception\",\n"
-operator|+
-literal|"  \"reason\" : \"all shards failed\",\n"
-operator|+
-literal|"  \"phase\" : \"search\",\n"
-operator|+
-literal|"  \"grouped\" : true,\n"
-operator|+
-literal|"  \"failed_shards\" : [ {\n"
-operator|+
-literal|"    \"shard\" : 1,\n"
-operator|+
-literal|"    \"index\" : \"foo\",\n"
-operator|+
-literal|"    \"node\" : \"node_1\",\n"
-operator|+
-literal|"    \"reason\" : {\n"
-operator|+
-literal|"      \"type\" : \"query_parsing_exception\",\n"
-operator|+
-literal|"      \"reason\" : \"foobar\",\n"
-operator|+
-literal|"      \"index\" : \"foo\"\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  } ]\n"
-operator|+
-literal|"}"
+literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1256,9 +1223,6 @@ name|XContentFactory
 operator|.
 name|jsonBuilder
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -1284,55 +1248,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\n"
-operator|+
-literal|"  \"type\" : \"search_phase_execution_exception\",\n"
-operator|+
-literal|"  \"reason\" : \"all shards failed\",\n"
-operator|+
-literal|"  \"phase\" : \"search\",\n"
-operator|+
-literal|"  \"grouped\" : true,\n"
-operator|+
-literal|"  \"failed_shards\" : [ {\n"
-operator|+
-literal|"    \"shard\" : 1,\n"
-operator|+
-literal|"    \"index\" : \"foo\",\n"
-operator|+
-literal|"    \"node\" : \"node_1\",\n"
-operator|+
-literal|"    \"reason\" : {\n"
-operator|+
-literal|"      \"type\" : \"query_parsing_exception\",\n"
-operator|+
-literal|"      \"reason\" : \"foobar\",\n"
-operator|+
-literal|"      \"index\" : \"foo\"\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  }, {\n"
-operator|+
-literal|"    \"shard\" : 1,\n"
-operator|+
-literal|"    \"index\" : \"foo1\",\n"
-operator|+
-literal|"    \"node\" : \"node_1\",\n"
-operator|+
-literal|"    \"reason\" : {\n"
-operator|+
-literal|"      \"type\" : \"query_parsing_exception\",\n"
-operator|+
-literal|"      \"reason\" : \"foobar\",\n"
-operator|+
-literal|"      \"index\" : \"foo1\"\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  } ]\n"
-operator|+
-literal|"}"
+literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}},{\"shard\":1,\"index\":\"foo1\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo1\"}}]}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1506,9 +1422,6 @@ name|XContentFactory
 operator|.
 name|jsonBuilder
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -1534,37 +1447,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\n"
-operator|+
-literal|"  \"type\" : \"exception\",\n"
-operator|+
-literal|"  \"reason\" : \"foo\",\n"
-operator|+
-literal|"  \"caused_by\" : {\n"
-operator|+
-literal|"    \"type\" : \"exception\",\n"
-operator|+
-literal|"    \"reason\" : \"bar\",\n"
-operator|+
-literal|"    \"caused_by\" : {\n"
-operator|+
-literal|"      \"type\" : \"illegal_argument_exception\",\n"
-operator|+
-literal|"      \"reason\" : \"index is closed\",\n"
-operator|+
-literal|"      \"caused_by\" : {\n"
-operator|+
-literal|"        \"type\" : \"runtime_exception\",\n"
-operator|+
-literal|"        \"reason\" : \"foobar\"\n"
-operator|+
-literal|"      }\n"
-operator|+
-literal|"    }\n"
-operator|+
-literal|"  }\n"
-operator|+
-literal|"}"
+literal|"{\"type\":\"exception\",\"reason\":\"foo\",\"caused_by\":{\"type\":\"exception\",\"reason\":\"bar\",\"caused_by\":{\"type\":\"illegal_argument_exception\",\"reason\":\"index is closed\",\"caused_by\":{\"type\":\"runtime_exception\",\"reason\":\"foobar\"}}}}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1612,9 +1495,6 @@ name|XContentFactory
 operator|.
 name|jsonBuilder
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -1642,13 +1522,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\n"
-operator|+
-literal|"  \"type\" : \"file_not_found_exception\",\n"
-operator|+
-literal|"  \"reason\" : \"foo not found\"\n"
-operator|+
-literal|"}"
+literal|"{\"type\":\"file_not_found_exception\",\"reason\":\"foo not found\"}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1685,9 +1559,6 @@ name|XContentFactory
 operator|.
 name|jsonBuilder
 argument_list|()
-operator|.
-name|prettyPrint
-argument_list|()
 decl_stmt|;
 name|builder
 operator|.
@@ -1718,9 +1589,6 @@ init|=
 name|XContentFactory
 operator|.
 name|jsonBuilder
-argument_list|()
-operator|.
-name|prettyPrint
 argument_list|()
 decl_stmt|;
 name|otherBuilder
