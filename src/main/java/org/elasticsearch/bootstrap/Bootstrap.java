@@ -576,6 +576,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**       * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
+DECL|field|SECURITY_SETTING
+specifier|static
+specifier|final
+name|String
+name|SECURITY_SETTING
+init|=
+literal|"security.manager.enabled"
+decl_stmt|;
 DECL|method|setupSecurity
 specifier|private
 name|void
@@ -596,7 +605,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"security.manager.enabled"
+name|SECURITY_SETTING
 argument_list|,
 literal|true
 argument_list|)
