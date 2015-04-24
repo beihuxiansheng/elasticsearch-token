@@ -596,7 +596,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"security.enabled"
+literal|"security.manager.enabled"
 argument_list|,
 literal|true
 argument_list|)
