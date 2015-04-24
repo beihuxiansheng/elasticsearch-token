@@ -590,18 +590,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|Bootstrap
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 if|if
 condition|(
 name|settings
@@ -619,23 +607,6 @@ operator|.
 name|configure
 argument_list|(
 name|environment
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"security enabled"
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"security disabled"
 argument_list|)
 expr_stmt|;
 block|}
