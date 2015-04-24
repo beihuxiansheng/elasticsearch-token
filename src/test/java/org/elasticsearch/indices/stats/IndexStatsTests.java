@@ -428,9 +428,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|support
-operator|.
-name|AbstractIndexStore
+name|IndexStore
 import|;
 end_import
 
@@ -4264,7 +4262,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|,
@@ -4526,7 +4524,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|,

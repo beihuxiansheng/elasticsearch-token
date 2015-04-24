@@ -70,22 +70,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchIllegalArgumentException
@@ -296,7 +280,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|Store
+name|IndexStore
 import|;
 end_import
 
@@ -310,9 +294,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|support
-operator|.
-name|AbstractIndexStore
+name|Store
 import|;
 end_import
 
@@ -1160,7 +1142,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|,
@@ -1431,7 +1413,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|,
@@ -1440,7 +1422,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC
 argument_list|,
@@ -1480,7 +1462,7 @@ name|getSetting
 argument_list|(
 literal|"test"
 argument_list|,
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|)
@@ -1698,7 +1680,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|,

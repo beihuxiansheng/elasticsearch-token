@@ -708,12 +708,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|field|nodeEnv
-specifier|private
-specifier|final
-name|NodeEnvironment
-name|nodeEnv
-decl_stmt|;
 DECL|field|nodeSettingsService
 specifier|private
 specifier|final
@@ -784,9 +778,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|NodeEnvironment
-name|nodeEnv
-parameter_list|,
 name|NodeSettingsService
 name|nodeSettingsService
 parameter_list|,
@@ -804,12 +795,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|nodeEnv
-operator|=
-name|nodeEnv
 expr_stmt|;
 name|this
 operator|.
@@ -959,10 +944,6 @@ name|ImmutableSettings
 operator|.
 name|EMPTY
 argument_list|)
-expr_stmt|;
-name|nodeEnv
-operator|=
-literal|null
 expr_stmt|;
 name|nodeSettingsService
 operator|=

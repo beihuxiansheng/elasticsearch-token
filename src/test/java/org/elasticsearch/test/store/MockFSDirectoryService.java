@@ -264,8 +264,6 @@ name|index
 operator|.
 name|store
 operator|.
-name|fs
-operator|.
 name|FsDirectoryService
 import|;
 end_import
@@ -447,10 +445,6 @@ DECL|method|MockFSDirectoryService
 specifier|public
 name|MockFSDirectoryService
 parameter_list|(
-specifier|final
-name|ShardId
-name|shardId
-parameter_list|,
 annotation|@
 name|IndexSettings
 name|Settings
@@ -470,8 +464,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|shardId
-argument_list|,
 name|indexSettings
 argument_list|,
 name|indexStore
