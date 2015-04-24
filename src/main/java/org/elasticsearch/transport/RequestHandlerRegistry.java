@@ -157,6 +157,12 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+assert|assert
+name|newRequest
+argument_list|()
+operator|!=
+literal|null
+assert|;
 name|this
 operator|.
 name|handler
