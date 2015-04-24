@@ -244,11 +244,10 @@ argument_list|)
 expr_stmt|;
 name|snapshotFiles
 operator|=
+operator|new
 name|Store
 operator|.
 name|MetadataSnapshot
-operator|.
-name|read
 argument_list|(
 name|in
 argument_list|)

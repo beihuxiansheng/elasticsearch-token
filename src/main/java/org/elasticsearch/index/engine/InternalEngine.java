@@ -650,7 +650,7 @@ specifier|final
 name|MergeSchedulerListener
 name|mergeSchedulerListener
 decl_stmt|;
-comment|/** When we last pruned expired tombstones from versionMap.deletes: */
+comment|/**      * When we last pruned expired tombstones from versionMap.deletes:      */
 DECL|field|lastDeleteVersionPruneTimeMSec
 specifier|private
 specifier|volatile
@@ -1118,6 +1118,7 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// recovering from local store
 name|recoverFromTranslog
 argument_list|(
 name|translogId
@@ -1131,6 +1132,25 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// recovering from a different source
+comment|// nocommit
+comment|// when we create the Engine on a target shard after recovery we must make sure that
+comment|// if a sync id is there then it is not overwritten by a forced flush
+if|if
+condition|(
+name|lastCommittedSegmentInfos
+operator|.
+name|getUserData
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|SYNC_COMMIT_ID
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
 name|flush
 argument_list|(
 literal|true
@@ -1138,6 +1158,43 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|SyncedFlushResult
+name|syncedFlushResult
+init|=
+name|syncFlushIfNoPendingChanges
+argument_list|(
+name|lastCommittedSegmentInfos
+operator|.
+name|getUserData
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|SYNC_COMMIT_ID
+argument_list|)
+argument_list|,
+name|lastCommittedSegmentInfos
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+decl_stmt|;
+assert|assert
+name|syncedFlushResult
+operator|.
+name|equals
+argument_list|(
+name|SyncedFlushResult
+operator|.
+name|SUCCESS
+argument_list|)
+operator|:
+literal|"skipped translog recovery but synced flush failed"
+assert|;
+block|}
 block|}
 block|}
 catch|catch
@@ -6113,7 +6170,7 @@ parameter_list|(
 name|Throwable
 name|ignore
 parameter_list|)
-block|{}
+block|{             }
 name|iwc
 operator|.
 name|setInfoStream
@@ -6408,7 +6465,7 @@ name|ex
 throw|;
 block|}
 block|}
-comment|/** Extended SearcherFactory that warms the segments if needed when acquiring a new searcher */
+comment|/**      * Extended SearcherFactory that warms the segments if needed when acquiring a new searcher      */
 DECL|class|SearchFactory
 class|class
 name|SearchFactory
@@ -7243,13 +7300,11 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|flush
-argument_list|(
-literal|true
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
+comment|// nocommit:  when we recover from gateway we recover ops from the translog we found and then create a new translog with new id.
+comment|// we flush here because we need to write a new translog id after recovery.
+comment|// we need to make sure here that an existing sync id is not overwritten by this flush if one exists.
+comment|// so, in case the old translog did not contain any ops, we should use the old sync id for flushing.
+comment|// nocommit because not sure if this here is the best solution for this...
 if|if
 condition|(
 name|operationsRecovered
@@ -7257,11 +7312,78 @@ operator|>
 literal|0
 condition|)
 block|{
+name|flush
+argument_list|(
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|refresh
 argument_list|(
 literal|"translog recovery"
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|lastCommittedSegmentInfos
+operator|.
+name|getUserData
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|SYNC_COMMIT_ID
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|flush
+argument_list|(
+literal|true
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|SyncedFlushResult
+name|syncedFlushResult
+init|=
+name|syncFlushIfNoPendingChanges
+argument_list|(
+name|lastCommittedSegmentInfos
+operator|.
+name|getUserData
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|SYNC_COMMIT_ID
+argument_list|)
+argument_list|,
+name|lastCommittedSegmentInfos
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+decl_stmt|;
+assert|assert
+name|syncedFlushResult
+operator|.
+name|equals
+argument_list|(
+name|SyncedFlushResult
+operator|.
+name|SUCCESS
+argument_list|)
+operator|:
+literal|"no operations during translog recovery but synced flush failed"
+assert|;
 block|}
 name|translog
 operator|.

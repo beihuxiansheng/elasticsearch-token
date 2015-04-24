@@ -1244,7 +1244,6 @@ argument_list|(
 name|basePath
 argument_list|)
 decl_stmt|;
-empty_stmt|;
 name|DiscoveryNode
 name|localNode
 init|=
@@ -1427,7 +1426,7 @@ name|getSnapshot
 argument_list|()
 return|;
 block|}
-comment|/**      * Serializes snapshot to JSON      *      * @param snapshot snapshot      * @param stream the stream to output the snapshot JSON represetation to      * @throws IOException if an IOException occurs      */
+comment|/**      * Serializes snapshot to JSON      *      * @param snapshot snapshot      * @param stream   the stream to output the snapshot JSON represetation to      * @throws IOException if an IOException occurs      */
 DECL|method|writeSnapshot
 specifier|public
 specifier|static
@@ -1479,7 +1478,7 @@ name|flush
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Parses JSON representation of a snapshot      *      * @param stream JSON      * @return snapshot      * @throws IOException if an IOException occurs      * */
+comment|/**      * Parses JSON representation of a snapshot      *      * @param stream JSON      * @return snapshot      * @throws IOException if an IOException occurs      */
 DECL|method|readSnapshot
 specifier|public
 specifier|static
@@ -3958,6 +3957,10 @@ operator|.
 name|MetadataSnapshot
 argument_list|(
 name|snapshotMetaData
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_MAP
 argument_list|)
 decl_stmt|;
 specifier|final
