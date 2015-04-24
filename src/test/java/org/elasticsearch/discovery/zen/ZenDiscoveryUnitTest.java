@@ -673,8 +673,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -827,8 +825,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|queue
@@ -863,8 +859,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|queue
@@ -899,8 +893,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|queue
@@ -946,8 +938,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -977,8 +967,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
