@@ -3974,12 +3974,12 @@ literal|"got "
 operator|+
 name|ex
 operator|.
-name|getDetailedMessage
+name|toString
 argument_list|()
 argument_list|,
 name|ex
 operator|.
-name|getDetailedMessage
+name|toString
 argument_list|()
 operator|.
 name|indexOf
