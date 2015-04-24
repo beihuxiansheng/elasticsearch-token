@@ -68,7 +68,7 @@ specifier|final
 name|String
 name|PROJECT
 init|=
-literal|"project_id"
+literal|"cloud.gce.project_id"
 decl_stmt|;
 DECL|field|ZONE
 specifier|public
@@ -77,7 +77,7 @@ specifier|final
 name|String
 name|ZONE
 init|=
-literal|"zone"
+literal|"cloud.gce.zone"
 decl_stmt|;
 DECL|field|REFRESH
 specifier|public
@@ -86,7 +86,16 @@ specifier|final
 name|String
 name|REFRESH
 init|=
-literal|"refresh_interval"
+literal|"cloud.gce.refresh_interval"
+decl_stmt|;
+DECL|field|TAGS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TAGS
+init|=
+literal|"discovery.gce.tags"
 decl_stmt|;
 DECL|field|VERSION
 specifier|public
