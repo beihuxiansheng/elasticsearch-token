@@ -140,6 +140,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{     }
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"_dummy_addr_"
+return|;
+block|}
 block|}
 end_class
 

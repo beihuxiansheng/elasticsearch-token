@@ -1665,23 +1665,16 @@ name|assertThat
 argument_list|(
 literal|"Exception: "
 operator|+
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 operator|+
 literal|" should contain a CircuitBreakingException"
 argument_list|,
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
 name|e
-argument_list|)
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -1837,23 +1830,16 @@ name|assertThat
 argument_list|(
 literal|"Exception: "
 operator|+
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 operator|+
 literal|" should contain a CircuitBreakingException"
 argument_list|,
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
 name|e
-argument_list|)
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -2087,23 +2073,16 @@ name|assertThat
 argument_list|(
 literal|"Exception: "
 operator|+
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 operator|+
 literal|" should contain a CircuitBreakingException"
 argument_list|,
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
 name|e
-argument_list|)
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains

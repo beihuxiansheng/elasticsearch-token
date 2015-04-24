@@ -241,12 +241,10 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(

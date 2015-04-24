@@ -11461,7 +11461,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test] [terms] query does not support multiple fields"
+literal|"[terms] query does not support multiple fields"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11582,7 +11582,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test] [terms] filter does not support multiple fields"
+literal|"[terms] filter does not support multiple fields"
 argument_list|)
 argument_list|)
 expr_stmt|;

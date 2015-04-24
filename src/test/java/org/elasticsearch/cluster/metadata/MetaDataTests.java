@@ -3108,10 +3108,23 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-name|containsString
+name|equalTo
 argument_list|(
-literal|"[foofoo-closed] closed"
+literal|"closed"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|e
+operator|.
+name|index
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+literal|"foofoo-closed"
 argument_list|)
 expr_stmt|;
 block|}
