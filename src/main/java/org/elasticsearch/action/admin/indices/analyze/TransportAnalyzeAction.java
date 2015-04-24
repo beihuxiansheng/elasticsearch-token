@@ -1598,7 +1598,8 @@ decl_stmt|;
 name|int
 name|position
 init|=
-literal|0
+operator|-
+literal|1
 decl_stmt|;
 while|while
 condition|(
