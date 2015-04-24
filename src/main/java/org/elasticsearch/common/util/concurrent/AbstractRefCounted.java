@@ -109,22 +109,9 @@ operator|==
 literal|false
 condition|)
 block|{
-throw|throw
-operator|new
-name|AlreadyClosedException
-argument_list|(
-name|name
-operator|+
-literal|" is already closed can't increment refCount current count ["
-operator|+
-name|refCount
-operator|.
-name|get
+name|alreadyClosed
 argument_list|()
-operator|+
-literal|"]"
-argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -218,6 +205,29 @@ name|closeInternal
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+DECL|method|alreadyClosed
+specifier|protected
+name|void
+name|alreadyClosed
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|AlreadyClosedException
+argument_list|(
+name|name
+operator|+
+literal|" is already closed can't increment refCount current count ["
+operator|+
+name|refCount
+operator|.
+name|get
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 comment|/**      * Returns the current reference count.      */
 DECL|method|refCount
