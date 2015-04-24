@@ -237,10 +237,6 @@ return|return
 operator|new
 name|MockBigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 name|recycler
 argument_list|,
 operator|new
@@ -2761,10 +2757,6 @@ init|=
 operator|new
 name|BigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 literal|null
 argument_list|,
 name|hcbs
@@ -2932,10 +2924,6 @@ init|=
 operator|new
 name|BigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 literal|null
 argument_list|,
 name|hcbs
