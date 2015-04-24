@@ -520,8 +520,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException

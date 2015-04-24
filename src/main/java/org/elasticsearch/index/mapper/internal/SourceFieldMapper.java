@@ -2697,8 +2697,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -2714,10 +2714,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

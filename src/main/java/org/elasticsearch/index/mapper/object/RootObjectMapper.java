@@ -1593,8 +1593,8 @@ parameter_list|(
 name|ObjectMapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 block|{
 name|RootObjectMapper
@@ -1608,10 +1608,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()
