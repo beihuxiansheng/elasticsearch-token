@@ -395,6 +395,11 @@ block|{
 name|super
 argument_list|(
 name|shardSize
+argument_list|,
+name|context
+operator|.
+name|bigArrays
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
