@@ -475,7 +475,7 @@ annotation|@
 name|Override
 DECL|method|syncFlushIfNoPendingChanges
 specifier|public
-name|boolean
+name|SyncedFlushResult
 name|syncFlushIfNoPendingChanges
 parameter_list|(
 name|String

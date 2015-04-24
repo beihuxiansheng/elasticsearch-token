@@ -3812,7 +3812,7 @@ annotation|@
 name|Override
 DECL|method|syncFlushIfNoPendingChanges
 specifier|public
-name|boolean
+name|SyncedFlushResult
 name|syncFlushIfNoPendingChanges
 parameter_list|(
 name|String
@@ -3847,7 +3847,9 @@ name|syncId
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|SyncedFlushResult
+operator|.
+name|FAILED_PENDING_OPERATIONS
 return|;
 block|}
 if|if
@@ -3877,7 +3879,9 @@ name|syncId
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|SyncedFlushResult
+operator|.
+name|FAILED_COMMIT_MISMATCH
 return|;
 block|}
 try|try
@@ -3912,7 +3916,9 @@ name|syncId
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|SyncedFlushResult
+operator|.
+name|FAILED_PENDING_OPERATIONS
 return|;
 block|}
 if|if
@@ -3942,7 +3948,9 @@ name|syncId
 argument_list|)
 expr_stmt|;
 return|return
-literal|false
+name|SyncedFlushResult
+operator|.
+name|FAILED_COMMIT_MISMATCH
 return|;
 block|}
 name|logger
@@ -4031,7 +4039,9 @@ name|readLastCommittedSegmentsInfo
 argument_list|()
 expr_stmt|;
 return|return
-literal|true
+name|SyncedFlushResult
+operator|.
+name|SUCCESS
 return|;
 block|}
 catch|catch

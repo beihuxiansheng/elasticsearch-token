@@ -6797,7 +6797,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
-name|assertFalse
+name|assertThat
 argument_list|(
 literal|"should fail to sync flush with wrong id (but no docs)"
 argument_list|,
@@ -6810,6 +6810,15 @@ operator|+
 literal|"1"
 argument_list|,
 name|fakeId
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+name|Engine
+operator|.
+name|SyncedFlushResult
+operator|.
+name|FAILED_COMMIT_MISMATCH
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6833,7 +6842,7 @@ name|doc
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertThat
 argument_list|(
 literal|"should fail to sync flush with right id but pending doc"
 argument_list|,
@@ -6847,6 +6856,15 @@ literal|"2"
 argument_list|,
 name|commitID
 argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+name|Engine
+operator|.
+name|SyncedFlushResult
+operator|.
+name|FAILED_PENDING_OPERATIONS
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|commitID
@@ -6856,7 +6874,7 @@ operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 literal|"should succeed to flush commit with right id and no pending doc"
 argument_list|,
@@ -6867,6 +6885,15 @@ argument_list|(
 name|syncId
 argument_list|,
 name|commitID
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+name|Engine
+operator|.
+name|SyncedFlushResult
+operator|.
+name|SUCCESS
 argument_list|)
 argument_list|)
 expr_stmt|;

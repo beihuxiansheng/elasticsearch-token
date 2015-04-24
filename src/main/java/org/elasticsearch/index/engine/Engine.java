@@ -1255,7 +1255,7 @@ comment|/**      * Attempts to do a special commit where the given syncID is put
 DECL|method|syncFlushIfNoPendingChanges
 specifier|public
 specifier|abstract
-name|boolean
+name|SyncedFlushResult
 name|syncFlushIfNoPendingChanges
 parameter_list|(
 name|String
@@ -1268,6 +1268,20 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+DECL|enum|SyncedFlushResult
+specifier|public
+enum|enum
+name|SyncedFlushResult
+block|{
+DECL|enum constant|SUCCESS
+name|SUCCESS
+block|,
+DECL|enum constant|FAILED_COMMIT_MISMATCH
+name|FAILED_COMMIT_MISMATCH
+block|,
+DECL|enum constant|FAILED_PENDING_OPERATIONS
+name|FAILED_PENDING_OPERATIONS
+block|}
 DECL|method|getFromSearcher
 specifier|final
 specifier|protected
