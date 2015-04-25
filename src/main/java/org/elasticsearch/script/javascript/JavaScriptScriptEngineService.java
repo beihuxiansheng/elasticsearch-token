@@ -200,6 +200,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|mozilla
+operator|.
+name|javascript
+operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
