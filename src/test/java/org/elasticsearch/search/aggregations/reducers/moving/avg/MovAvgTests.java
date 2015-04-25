@@ -26,20 +26,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Seed
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -224,7 +210,7 @@ name|aggregations
 operator|.
 name|reducers
 operator|.
-name|ReducerTestHelpers
+name|ReducerHelperTests
 import|;
 end_import
 
@@ -676,7 +662,7 @@ DECL|field|mockHisto
 specifier|static
 name|List
 argument_list|<
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 argument_list|>
@@ -888,7 +874,7 @@ argument_list|)
 expr_stmt|;
 name|mockHisto
 operator|=
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|generateHistogram
 argument_list|(
@@ -945,7 +931,7 @@ block|}
 block|}
 for|for
 control|(
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 name|mockBucket
@@ -1143,7 +1129,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 name|mockBucket
@@ -1230,7 +1216,7 @@ else|else
 block|{
 name|metricValue
 operator|=
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|calculateMetric
 argument_list|(
@@ -1255,7 +1241,7 @@ operator|.
 name|VALUE
 argument_list|)
 condition|?
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|calculateMetric
 argument_list|(
@@ -1948,7 +1934,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 argument_list|>
@@ -2008,7 +1994,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 name|expected
@@ -2374,7 +2360,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 argument_list|>
@@ -2434,7 +2420,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 name|expected
@@ -2810,7 +2796,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 argument_list|>
@@ -2870,7 +2856,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 name|expected
@@ -3256,7 +3242,7 @@ argument_list|()
 decl_stmt|;
 name|Iterator
 argument_list|<
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 argument_list|>
@@ -3316,7 +3302,7 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|ReducerTestHelpers
+name|ReducerHelperTests
 operator|.
 name|MockBucket
 name|expected

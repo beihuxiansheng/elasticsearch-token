@@ -133,10 +133,10 @@ comment|/**  * Provides helper methods and classes for use in Reducer tests, suc
 end_comment
 
 begin_class
-DECL|class|ReducerTestHelpers
+DECL|class|ReducerHelperTests
 specifier|public
 class|class
-name|ReducerTestHelpers
+name|ReducerHelperTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
