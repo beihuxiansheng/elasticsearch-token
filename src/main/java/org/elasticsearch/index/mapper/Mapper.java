@@ -502,17 +502,6 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-comment|/**      * Parse using the provided {@link ParseContext} and return a mapping      * update if dynamic mappings modified the mappings, or {@code null} if      * mappings were not modified.      */
-DECL|method|parse
-name|Mapper
-name|parse
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|merge
 name|void
 name|merge
