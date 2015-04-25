@@ -2148,7 +2148,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -2565,7 +2565,9 @@ operator|.
 name|JAVA_VERSION
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|null
+return|;
 block|}
 block|}
 comment|// Set the maximum length of strings returned by the parseToString method, -1 sets no limit
@@ -2667,7 +2669,9 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-return|return;
+return|return
+literal|null
+return|;
 block|}
 name|context
 operator|=
@@ -3346,6 +3350,9 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -3376,8 +3383,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
