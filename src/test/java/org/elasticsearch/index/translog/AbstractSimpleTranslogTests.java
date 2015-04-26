@@ -2753,7 +2753,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"translog is already closed"
+literal|"current translog is already closed"
 argument_list|)
 expr_stmt|;
 block|}
