@@ -2734,6 +2734,11 @@ operator|.
 name|snapshot
 argument_list|()
 decl_stmt|;
+name|fail
+argument_list|(
+literal|"translog is closed"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
