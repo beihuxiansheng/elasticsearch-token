@@ -3391,7 +3391,7 @@ return|;
 block|}
 DECL|method|create
 specifier|public
-name|ParsedDocument
+name|void
 name|create
 parameter_list|(
 name|Engine
@@ -3507,12 +3507,6 @@ argument_list|(
 name|create
 argument_list|)
 expr_stmt|;
-return|return
-name|create
-operator|.
-name|parsedDoc
-argument_list|()
-return|;
 block|}
 DECL|method|prepareIndex
 specifier|public
@@ -3695,9 +3689,10 @@ name|canHaveDuplicates
 argument_list|)
 return|;
 block|}
+comment|/**      * Index a document and return whether it was created, as opposed to just      * updated.      */
 DECL|method|index
 specifier|public
-name|ParsedDocument
+name|boolean
 name|index
 parameter_list|(
 name|Engine
@@ -3735,6 +3730,10 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
+specifier|final
+name|boolean
+name|created
+decl_stmt|;
 try|try
 block|{
 if|if
@@ -3768,6 +3767,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|created
+operator|=
 name|engine
 argument_list|()
 operator|.
@@ -3814,10 +3815,7 @@ name|index
 argument_list|)
 expr_stmt|;
 return|return
-name|index
-operator|.
-name|parsedDoc
-argument_list|()
+name|created
 return|;
 block|}
 DECL|method|prepareDelete
