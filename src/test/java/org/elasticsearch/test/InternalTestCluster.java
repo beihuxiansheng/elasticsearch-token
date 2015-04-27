@@ -2391,16 +2391,6 @@ name|builder
 operator|.
 name|put
 argument_list|(
-literal|"network.address.serialization.resolve"
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-comment|// this makes adresses in the clusterstate consistent
-name|builder
-operator|.
-name|put
-argument_list|(
 literal|"http.pipelining"
 argument_list|,
 name|enableHttpPipelining
