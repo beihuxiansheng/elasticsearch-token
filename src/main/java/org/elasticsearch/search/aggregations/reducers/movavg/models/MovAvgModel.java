@@ -196,10 +196,6 @@ return|return
 name|predictions
 return|;
 block|}
-comment|// nocommit
-comment|// I don't like that it creates a new queue here
-comment|// The alternative to this is to just use `values` directly, but that would "consume" values
-comment|// and potentially change state elsewhere.  Maybe ok?
 name|Collection
 argument_list|<
 name|Number
