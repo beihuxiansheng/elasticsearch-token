@@ -639,12 +639,8 @@ name|put
 argument_list|(
 literal|"index.number_of_replicas"
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
+name|numberOfReplicas
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|logger

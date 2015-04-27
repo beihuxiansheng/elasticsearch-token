@@ -241,6 +241,15 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|minNumDataNodes
+operator|=
+literal|2
+argument_list|)
 DECL|class|UpdateNumberOfReplicasTests
 specifier|public
 class|class

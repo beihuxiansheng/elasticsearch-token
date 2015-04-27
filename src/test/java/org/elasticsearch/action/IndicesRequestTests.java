@@ -1509,6 +1509,10 @@ argument_list|,
 name|numClientNodes
 operator|=
 literal|1
+argument_list|,
+name|minNumDataNodes
+operator|=
+literal|2
 argument_list|)
 annotation|@
 name|Slow

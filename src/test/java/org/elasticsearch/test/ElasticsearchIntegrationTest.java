@@ -9394,25 +9394,21 @@ default|default
 operator|-
 literal|1
 function_decl|;
-comment|/**          * Returns the minimum number of nodes in the cluster. Default is {@link InternalTestCluster#DEFAULT_MIN_NUM_DATA_NODES}.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
-DECL|field|InternalTestCluster.DEFAULT_MIN_NUM_DATA_NODES
+comment|/**          * Returns the minimum number of nodes in the cluster. Default is<tt>-1</tt>.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
 name|int
 name|minNumDataNodes
 parameter_list|()
 default|default
-name|InternalTestCluster
-operator|.
-name|DEFAULT_MIN_NUM_DATA_NODES
+operator|-
+literal|1
 function_decl|;
-comment|/**          * Returns the maximum number of nodes in the cluster.  Default is {@link InternalTestCluster#DEFAULT_MAX_NUM_DATA_NODES}.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
-DECL|field|InternalTestCluster.DEFAULT_MAX_NUM_DATA_NODES
+comment|/**          * Returns the maximum number of nodes in the cluster.  Default is<tt>-1</tt>.          * Ignored when {@link ClusterScope#numDataNodes()} is set.          */
 name|int
 name|maxNumDataNodes
 parameter_list|()
 default|default
-name|InternalTestCluster
-operator|.
-name|DEFAULT_MAX_NUM_DATA_NODES
+operator|-
+literal|1
 function_decl|;
 comment|/**          * Returns the number of client nodes in the cluster. Default is {@link InternalTestCluster#DEFAULT_NUM_CLIENT_NODES}, a          * negative value means that the number of client nodes will be randomized.          */
 DECL|field|InternalTestCluster.DEFAULT_NUM_CLIENT_NODES
@@ -9860,6 +9856,14 @@ return|return
 name|annotation
 operator|==
 literal|null
+operator|||
+name|annotation
+operator|.
+name|minNumDataNodes
+argument_list|()
+operator|==
+operator|-
+literal|1
 condition|?
 name|InternalTestCluster
 operator|.
@@ -9892,6 +9896,14 @@ return|return
 name|annotation
 operator|==
 literal|null
+operator|||
+name|annotation
+operator|.
+name|maxNumDataNodes
+argument_list|()
+operator|==
+operator|-
+literal|1
 condition|?
 name|InternalTestCluster
 operator|.

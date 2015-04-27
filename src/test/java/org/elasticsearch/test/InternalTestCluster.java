@@ -1780,7 +1780,7 @@ specifier|final
 name|int
 name|DEFAULT_MIN_NUM_DATA_NODES
 init|=
-literal|2
+literal|1
 decl_stmt|;
 DECL|field|DEFAULT_MAX_NUM_DATA_NODES
 specifier|static
@@ -1788,7 +1788,11 @@ specifier|final
 name|int
 name|DEFAULT_MAX_NUM_DATA_NODES
 init|=
+name|TEST_NIGHTLY
+condition|?
 literal|6
+else|:
+literal|3
 decl_stmt|;
 DECL|field|DEFAULT_NUM_CLIENT_NODES
 specifier|static

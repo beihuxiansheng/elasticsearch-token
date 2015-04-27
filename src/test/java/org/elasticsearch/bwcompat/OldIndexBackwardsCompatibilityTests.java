@@ -678,6 +678,10 @@ name|greaterThanOrEqualTo
 import|;
 end_import
 
+begin_comment
+comment|// needs at least 2 nodes since it bumps replicas to 1
+end_comment
+
 begin_class
 annotation|@
 name|ElasticsearchIntegrationTest
