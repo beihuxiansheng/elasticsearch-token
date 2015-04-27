@@ -861,6 +861,8 @@ operator|+
 name|name
 operator|+
 literal|"] can only be used inside a [nested] aggregation"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}

@@ -1355,9 +1355,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[mlt] query does not support ["
 operator|+
@@ -1737,9 +1734,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[mlt] query does not support ["
 operator|+
@@ -1824,9 +1818,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[mlt] query does not support ["
 operator|+
@@ -1856,9 +1847,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"more_like_this requires 'like' to be specified"
 argument_list|)
@@ -1881,9 +1869,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"more_like_this requires 'fields' to be non-empty"
 argument_list|)
@@ -2124,9 +2109,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"ambiguous type for item with id: "
 operator|+

@@ -66,7 +66,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|Script
 import|;
 end_import
 
@@ -78,7 +78,19 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|*
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptService
 import|;
 end_import
 
@@ -93,6 +105,18 @@ operator|.
 name|ScriptService
 operator|.
 name|ScriptType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|SearchScript
 import|;
 end_import
 
@@ -146,20 +170,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollectorBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|InternalAggregation
 import|;
 end_import
@@ -175,6 +185,20 @@ operator|.
 name|aggregations
 operator|.
 name|LeafBucketCollector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|LeafBucketCollectorBase
 import|;
 end_import
 
@@ -1418,6 +1442,8 @@ argument_list|()
 operator|.
 name|getCanonicalName
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}

@@ -581,6 +581,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -651,6 +656,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -708,6 +718,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -729,6 +744,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -74,7 +74,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParsingException
+name|TestQueryParsingException
 import|;
 end_import
 
@@ -977,7 +977,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|QueryParsingException
+name|TestQueryParsingException
 argument_list|(
 operator|new
 name|Index
@@ -986,6 +986,8 @@ literal|"foo"
 argument_list|)
 argument_list|,
 literal|"foobar"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 operator|new
@@ -1006,7 +1008,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|QueryParsingException
+name|TestQueryParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1015,6 +1017,8 @@ literal|"foo"
 argument_list|)
 argument_list|,
 literal|"foobar"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 operator|new
@@ -1079,7 +1083,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"error\":{\"root_cause\":[{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]},\"status\":400}"
+literal|"{\"error\":{\"root_cause\":[{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]},\"status\":400}"
 decl_stmt|;
 name|assertEquals
 argument_list|(

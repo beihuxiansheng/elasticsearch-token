@@ -403,9 +403,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] filter does not support ["
 operator|+
@@ -540,9 +537,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] filter does not support ["
 operator|+

@@ -611,9 +611,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Unknown shape operation ["
 operator|+
@@ -799,9 +796,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"ID for indexed shape not provided"
 argument_list|)
@@ -820,9 +814,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Type for indexed shape not provided"
 argument_list|)
@@ -851,9 +842,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_shape] filter does not support ["
 operator|+
@@ -942,9 +930,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_shape] filter does not support ["
 operator|+
@@ -968,9 +953,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No Shape defined"
 argument_list|)
@@ -989,9 +971,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No Shape Relation defined"
 argument_list|)
@@ -1027,9 +1006,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Failed to find geo_shape field ["
 operator|+
@@ -1063,9 +1039,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Field ["
 operator|+

@@ -194,6 +194,8 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}

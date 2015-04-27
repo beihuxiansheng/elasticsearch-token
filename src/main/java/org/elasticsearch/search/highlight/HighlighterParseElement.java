@@ -317,6 +317,11 @@ argument_list|(
 name|context
 argument_list|,
 literal|"Error while trying to parse Highlighter element in request"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -443,6 +443,11 @@ operator|+
 literal|"\" for aggregation \""
 operator|+
 name|aggregationName
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -498,6 +503,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -517,6 +527,11 @@ operator|+
 literal|"\" for aggregation \""
 operator|+
 name|aggregationName
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -580,6 +595,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"\""
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

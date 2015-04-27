@@ -583,9 +583,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[or] filter does not support ["
 operator|+
@@ -609,9 +606,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[or] filter requires 'filters' to be set on it'"
 argument_list|)

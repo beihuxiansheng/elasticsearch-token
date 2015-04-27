@@ -1657,6 +1657,8 @@ operator|+
 name|fieldName
 operator|+
 literal|"] in order to sort on"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1681,6 +1683,8 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}

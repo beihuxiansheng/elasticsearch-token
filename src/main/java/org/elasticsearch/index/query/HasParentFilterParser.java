@@ -490,9 +490,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] filter does not support ["
 operator|+
@@ -603,9 +600,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] filter does not support ["
 operator|+
@@ -631,9 +625,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] filter requires 'query' or 'filter' field"
 argument_list|)
@@ -651,9 +642,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] filter requires 'parent_type' field"
 argument_list|)

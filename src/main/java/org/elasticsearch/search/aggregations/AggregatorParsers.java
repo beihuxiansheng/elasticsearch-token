@@ -385,6 +385,11 @@ operator|+
 name|token
 operator|+
 literal|" in [aggs]: aggregations definitions must start with the name of the aggregation."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -422,6 +427,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]. Aggregation names must be alpha-numeric and can only contain '_' and '-'"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -466,6 +476,11 @@ operator|.
 name|START_OBJECT
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -549,6 +564,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -606,6 +626,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -649,6 +674,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -695,6 +725,11 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -730,6 +765,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -766,6 +806,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
