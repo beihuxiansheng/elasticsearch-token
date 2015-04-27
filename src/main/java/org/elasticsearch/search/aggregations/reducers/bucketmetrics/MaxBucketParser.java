@@ -273,7 +273,7 @@ name|gapPolicy
 init|=
 name|GapPolicy
 operator|.
-name|IGNORE
+name|SKIP
 decl_stmt|;
 while|while
 condition|(

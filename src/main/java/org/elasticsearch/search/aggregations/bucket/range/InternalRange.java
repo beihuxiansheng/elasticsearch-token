@@ -1318,15 +1318,6 @@ parameter_list|,
 name|R
 parameter_list|>
 parameter_list|>
-extends|extends
-name|InternalMultiBucketAggregation
-operator|.
-name|Factory
-argument_list|<
-name|R
-argument_list|,
-name|B
-argument_list|>
 block|{
 DECL|method|type
 specifier|public
@@ -1452,8 +1443,6 @@ name|formatter
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|create
 specifier|public
 name|R
@@ -1502,8 +1491,6 @@ name|metaData
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createBucket
 specifier|public
 name|B

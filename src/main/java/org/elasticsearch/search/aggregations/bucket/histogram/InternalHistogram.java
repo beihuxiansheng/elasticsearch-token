@@ -1448,18 +1448,6 @@ name|InternalHistogram
 operator|.
 name|Bucket
 parameter_list|>
-extends|extends
-name|InternalMultiBucketAggregation
-operator|.
-name|Factory
-argument_list|<
-name|InternalHistogram
-argument_list|<
-name|B
-argument_list|>
-argument_list|,
-name|B
-argument_list|>
 block|{
 DECL|method|Factory
 specifier|protected
@@ -1555,8 +1543,6 @@ name|metaData
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|create
 specifier|public
 name|InternalHistogram
@@ -1622,8 +1608,6 @@ name|metaData
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|createBucket
 specifier|public
 name|B

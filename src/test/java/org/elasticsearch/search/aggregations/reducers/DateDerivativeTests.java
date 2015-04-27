@@ -419,7 +419,6 @@ annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|SuiteScopeTest
-comment|//@AwaitsFix(bugUrl = "Fix factory selection for serialisation of Internal derivative")
 DECL|class|DateDerivativeTests
 specifier|public
 class|class

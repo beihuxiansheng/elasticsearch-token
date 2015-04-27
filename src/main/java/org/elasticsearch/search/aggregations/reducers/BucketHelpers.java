@@ -248,7 +248,7 @@ enum|enum
 name|GapPolicy
 block|{
 DECL|enum constant|INSERT_ZEROS
-DECL|enum constant|IGNORE
+DECL|enum constant|SKIP
 name|INSERT_ZEROS
 argument_list|(
 operator|(
@@ -259,14 +259,14 @@ argument_list|,
 literal|"insert_zeros"
 argument_list|)
 block|,
-name|IGNORE
+name|SKIP
 argument_list|(
 operator|(
 name|byte
 operator|)
 literal|1
 argument_list|,
-literal|"ignore"
+literal|"skip"
 argument_list|)
 block|;
 comment|/**          * Parse a string GapPolicy into the byte enum          *          * @param context SearchContext this is taking place in          * @param text    GapPolicy in string format (e.g. "ignore")          * @return        GapPolicy enum          */
@@ -801,7 +801,7 @@ return|return
 literal|0.0
 return|;
 case|case
-name|IGNORE
+name|SKIP
 case|:
 default|default:
 return|return

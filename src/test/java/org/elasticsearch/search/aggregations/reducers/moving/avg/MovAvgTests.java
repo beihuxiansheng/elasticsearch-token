@@ -855,7 +855,7 @@ name|BucketHelpers
 operator|.
 name|GapPolicy
 operator|.
-name|IGNORE
+name|SKIP
 else|:
 name|BucketHelpers
 operator|.
@@ -1178,7 +1178,7 @@ name|BucketHelpers
 operator|.
 name|GapPolicy
 operator|.
-name|IGNORE
+name|SKIP
 argument_list|)
 condition|)
 block|{
@@ -4723,7 +4723,7 @@ name|BucketHelpers
 operator|.
 name|GapPolicy
 operator|.
-name|IGNORE
+name|SKIP
 argument_list|)
 condition|)
 block|{
@@ -5137,7 +5137,7 @@ name|BucketHelpers
 operator|.
 name|GapPolicy
 operator|.
-name|IGNORE
+name|SKIP
 argument_list|)
 condition|)
 block|{

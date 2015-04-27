@@ -419,7 +419,7 @@ name|gapPolicy
 init|=
 name|GapPolicy
 operator|.
-name|IGNORE
+name|SKIP
 decl_stmt|;
 name|int
 name|window
