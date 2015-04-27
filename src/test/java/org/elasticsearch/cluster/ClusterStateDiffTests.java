@@ -384,9 +384,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
+name|test
 operator|.
 name|XContentTestUtils
 operator|.
@@ -400,9 +398,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|xcontent
+name|test
 operator|.
 name|XContentTestUtils
 operator|.
