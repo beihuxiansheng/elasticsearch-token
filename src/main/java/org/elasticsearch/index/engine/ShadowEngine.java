@@ -511,7 +511,7 @@ annotation|@
 name|Override
 DECL|method|index
 specifier|public
-name|void
+name|boolean
 name|index
 parameter_list|(
 name|Index
