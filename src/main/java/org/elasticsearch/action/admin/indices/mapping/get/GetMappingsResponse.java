@@ -339,6 +339,8 @@ argument_list|()
 argument_list|,
 name|MappingMetaData
 operator|.
+name|PROTO
+operator|.
 name|readFrom
 argument_list|(
 name|in
@@ -460,14 +462,12 @@ operator|.
 name|key
 argument_list|)
 expr_stmt|;
-name|MappingMetaData
-operator|.
-name|writeTo
-argument_list|(
 name|typeEntry
 operator|.
 name|value
-argument_list|,
+operator|.
+name|writeTo
+argument_list|(
 name|out
 argument_list|)
 expr_stmt|;

@@ -1162,14 +1162,10 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|MetaData
-operator|.
-name|Builder
+name|metaData
 operator|.
 name|writeTo
 argument_list|(
-name|metaData
-argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

@@ -2296,15 +2296,8 @@ argument_list|(
 name|newClusterState
 argument_list|)
 operator|.
-name|version
-argument_list|(
-name|newClusterState
-operator|.
-name|version
+name|incrementVersion
 argument_list|()
-operator|+
-literal|1
-argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -2735,7 +2728,7 @@ name|discoveryService
 operator|.
 name|publish
 argument_list|(
-name|newClusterState
+name|clusterChangedEvent
 argument_list|,
 name|ackListener
 argument_list|)
@@ -2964,13 +2957,18 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"processing [{}]: done applying updated cluster_state (version: {})"
+literal|"processing [{}]: done applying updated cluster_state (version: {}, uuid: {})"
 argument_list|,
 name|source
 argument_list|,
 name|newClusterState
 operator|.
 name|version
+argument_list|()
+argument_list|,
+name|newClusterState
+operator|.
+name|uuid
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2995,6 +2993,19 @@ argument_list|(
 name|newClusterState
 operator|.
 name|version
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"], uuid ["
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|newClusterState
+operator|.
+name|uuid
 argument_list|()
 argument_list|)
 operator|.

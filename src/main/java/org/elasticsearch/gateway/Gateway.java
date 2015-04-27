@@ -174,18 +174,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndicesService
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
