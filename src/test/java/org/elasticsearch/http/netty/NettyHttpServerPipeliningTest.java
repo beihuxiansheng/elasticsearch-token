@@ -652,10 +652,6 @@ operator|=
 operator|new
 name|MockBigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 name|mockPageCacheRecycler
 argument_list|,
 operator|new

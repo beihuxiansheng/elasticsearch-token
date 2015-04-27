@@ -1330,91 +1330,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|anyOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|startsWith
+name|*
 import|;
 end_import
 
@@ -17717,10 +17633,10 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
 literal|"Can't specify parent if no parent field has been configured"
 argument_list|)
@@ -17770,10 +17686,10 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
 literal|"Can't specify parent if no parent field has been configured"
 argument_list|)
@@ -17996,10 +17912,10 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
 literal|"Merge failed with failures {[The _parent field's type option can't be changed: [null]->[parent]]}"
 argument_list|)
@@ -24469,7 +24385,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -25562,7 +25478,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -26655,7 +26571,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -27748,7 +27664,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -28821,7 +28737,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString

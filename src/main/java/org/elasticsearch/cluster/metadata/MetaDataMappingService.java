@@ -306,6 +306,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MergeResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndexMissingException
@@ -371,24 +385,6 @@ operator|.
 name|Maps
 operator|.
 name|newHashMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|DocumentMapper
-operator|.
-name|MergeFlags
-operator|.
-name|mergeFlags
 import|;
 end_import
 
@@ -2419,8 +2415,6 @@ literal|null
 condition|)
 block|{
 comment|// first, simulate
-name|DocumentMapper
-operator|.
 name|MergeResult
 name|mergeResult
 init|=
@@ -2433,13 +2427,7 @@ operator|.
 name|mapping
 argument_list|()
 argument_list|,
-name|mergeFlags
-argument_list|()
-operator|.
-name|simulate
-argument_list|(
 literal|true
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// if we have conflicts, and we are not supposed to ignore them, throw an exception
@@ -2463,7 +2451,7 @@ name|MergeMappingException
 argument_list|(
 name|mergeResult
 operator|.
-name|conflicts
+name|buildConflicts
 argument_list|()
 argument_list|)
 throw|;

@@ -1373,6 +1373,8 @@ specifier|public
 name|void
 name|add
 parameter_list|(
+annotation|@
+name|Nullable
 specifier|final
 name|TimeValue
 name|timeout
@@ -1421,6 +1423,13 @@ name|void
 name|run
 parameter_list|()
 block|{
+if|if
+condition|(
+name|timeout
+operator|!=
+literal|null
+condition|)
+block|{
 name|NotifyTimeout
 name|notifyTimeout
 init|=
@@ -1458,6 +1467,7 @@ argument_list|(
 name|notifyTimeout
 argument_list|)
 expr_stmt|;
+block|}
 name|postAppliedListeners
 operator|.
 name|add

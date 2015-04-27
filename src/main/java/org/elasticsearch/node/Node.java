@@ -1336,7 +1336,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using home [{}], config [{}], data [{}], logs [{}], work [{}], plugins [{}]"
+literal|"using home [{}], config [{}], data [{}], logs [{}], plugins [{}]"
 argument_list|,
 name|env
 operator|.
@@ -1361,11 +1361,6 @@ argument_list|,
 name|env
 operator|.
 name|logsFile
-argument_list|()
-argument_list|,
-name|env
-operator|.
-name|workFile
 argument_list|()
 argument_list|,
 name|env

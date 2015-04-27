@@ -760,24 +760,6 @@ name|newMapBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|DocumentMapper
-operator|.
-name|MergeFlags
-operator|.
-name|mergeFlags
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -2167,8 +2149,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|DocumentMapper
-operator|.
 name|MergeResult
 name|result
 init|=
@@ -2181,13 +2161,7 @@ operator|.
 name|mapping
 argument_list|()
 argument_list|,
-name|mergeFlags
-argument_list|()
-operator|.
-name|simulate
-argument_list|(
 literal|false
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -2224,7 +2198,7 @@ name|toString
 argument_list|(
 name|result
 operator|.
-name|conflicts
+name|buildConflicts
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2491,7 +2465,7 @@ specifier|private
 name|void
 name|addFieldMappers
 parameter_list|(
-name|List
+name|Collection
 argument_list|<
 name|FieldMapper
 argument_list|<
@@ -5119,7 +5093,7 @@ specifier|public
 name|void
 name|fieldMappers
 parameter_list|(
-name|List
+name|Collection
 argument_list|<
 name|FieldMapper
 argument_list|<

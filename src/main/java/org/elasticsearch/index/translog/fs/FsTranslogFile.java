@@ -397,6 +397,12 @@ name|Path
 name|getPath
 parameter_list|()
 function_decl|;
+DECL|method|closed
+specifier|public
+name|boolean
+name|closed
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

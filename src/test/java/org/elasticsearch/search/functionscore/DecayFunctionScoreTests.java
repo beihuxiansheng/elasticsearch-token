@@ -8833,7 +8833,7 @@ name|assertTrue
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -8846,7 +8846,7 @@ name|assertFalse
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -8945,7 +8945,7 @@ name|assertTrue
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -8958,7 +8958,7 @@ name|assertFalse
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -8971,7 +8971,7 @@ name|assertTrue
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -9021,7 +9021,7 @@ name|assertTrue
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -9073,7 +9073,7 @@ name|assertTrue
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -9120,7 +9120,7 @@ name|assertTrue
 argument_list|(
 name|failure
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains

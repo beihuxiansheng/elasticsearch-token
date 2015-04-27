@@ -866,6 +866,23 @@ name|TranslogException
 block|{
 comment|// nothing to do here...
 block|}
+annotation|@
+name|Override
+DECL|method|closed
+specifier|public
+name|boolean
+name|closed
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|closed
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

@@ -257,8 +257,6 @@ DECL|class|BigArrays
 specifier|public
 class|class
 name|BigArrays
-extends|extends
-name|AbstractComponent
 block|{
 DECL|field|NON_RECYCLING_INSTANCE
 specifier|public
@@ -270,10 +268,6 @@ init|=
 operator|new
 name|BigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 literal|null
 argument_list|,
 literal|null
@@ -2132,9 +2126,6 @@ DECL|method|BigArrays
 specifier|public
 name|BigArrays
 parameter_list|(
-name|Settings
-name|settings
-parameter_list|,
 name|PageCacheRecycler
 name|recycler
 parameter_list|,
@@ -2148,8 +2139,6 @@ block|{
 comment|// Checking the breaker is disabled if not specified
 name|this
 argument_list|(
-name|settings
-argument_list|,
 name|recycler
 argument_list|,
 name|breakerService
@@ -2162,9 +2151,6 @@ DECL|method|BigArrays
 specifier|public
 name|BigArrays
 parameter_list|(
-name|Settings
-name|settings
-parameter_list|,
 name|PageCacheRecycler
 name|recycler
 parameter_list|,
@@ -2178,11 +2164,6 @@ name|boolean
 name|checkBreaker
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|settings
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|checkBreaker
@@ -2321,10 +2302,6 @@ return|return
 operator|new
 name|BigArrays
 argument_list|(
-name|this
-operator|.
-name|settings
-argument_list|,
 name|this
 operator|.
 name|recycler

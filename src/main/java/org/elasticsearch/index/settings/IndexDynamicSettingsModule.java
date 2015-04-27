@@ -290,9 +290,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|support
-operator|.
-name|AbstractIndexStore
+name|IndexStore
 import|;
 end_import
 
@@ -401,7 +399,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC
 argument_list|,
@@ -414,7 +412,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|AbstractIndexStore
+name|IndexStore
 operator|.
 name|INDEX_STORE_THROTTLE_TYPE
 argument_list|)

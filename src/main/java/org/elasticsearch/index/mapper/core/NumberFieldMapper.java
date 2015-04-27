@@ -218,20 +218,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Filter
 import|;
 end_import
@@ -472,7 +458,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -1709,9 +1695,7 @@ name|QueryParseContext
 name|context
 parameter_list|)
 block|{
-name|TermQuery
-name|scoringQuery
-init|=
+return|return
 operator|new
 name|TermQuery
 argument_list|(
@@ -1728,13 +1712,6 @@ argument_list|(
 name|value
 argument_list|)
 argument_list|)
-argument_list|)
-decl_stmt|;
-return|return
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|scoringQuery
 argument_list|)
 return|;
 block|}
@@ -2223,8 +2200,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -2235,7 +2212,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
@@ -2260,10 +2237,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

@@ -420,7 +420,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -5987,8 +5987,8 @@ name|Mapper
 name|mergeWith
 parameter_list|,
 specifier|final
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -6003,7 +6003,7 @@ name|ObjectMapper
 operator|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -6053,7 +6053,7 @@ name|isNested
 argument_list|()
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -6081,7 +6081,7 @@ name|isNested
 argument_list|()
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -6099,10 +6099,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()
@@ -6131,7 +6128,7 @@ name|doMerge
 argument_list|(
 name|mergeWithObject
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 name|List
@@ -6209,10 +6206,7 @@ comment|// no mapping, simply add it if not simulating
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()
@@ -6249,7 +6243,7 @@ name|merge
 argument_list|(
 name|mergeWithMapper
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 block|}
@@ -6265,7 +6259,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addFieldMappers
 argument_list|(
@@ -6286,7 +6280,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addObjectMappers
 argument_list|(
@@ -6320,8 +6314,8 @@ parameter_list|(
 name|ObjectMapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 block|{      }
 annotation|@

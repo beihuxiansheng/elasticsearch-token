@@ -67,11 +67,7 @@ name|super
 argument_list|(
 name|context
 argument_list|,
-literal|"Parse Failure ["
-operator|+
 name|msg
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -93,11 +89,7 @@ name|super
 argument_list|(
 name|context
 argument_list|,
-literal|"Parse Failure ["
-operator|+
 name|msg
-operator|+
-literal|"]"
 argument_list|,
 name|cause
 argument_list|)

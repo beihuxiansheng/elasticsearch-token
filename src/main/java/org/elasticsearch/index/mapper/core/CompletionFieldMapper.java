@@ -382,7 +382,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -3668,8 +3668,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -3680,7 +3680,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 name|CompletionFieldMapper
@@ -3700,7 +3700,7 @@ operator|.
 name|payloads
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -3724,7 +3724,7 @@ operator|.
 name|preservePositionIncrements
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -3748,7 +3748,7 @@ operator|.
 name|preserveSeparators
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -3780,7 +3780,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -3798,10 +3798,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

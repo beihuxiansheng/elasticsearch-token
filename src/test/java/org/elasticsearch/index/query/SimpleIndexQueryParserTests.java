@@ -4707,8 +4707,6 @@ init|=
 name|unwrapTermQuery
 argument_list|(
 name|parsedQuery
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -4769,8 +4767,6 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -4801,41 +4797,8 @@ name|unwrapTermQuery
 parameter_list|(
 name|Query
 name|q
-parameter_list|,
-name|boolean
-name|expectConstantWrapper
 parameter_list|)
 block|{
-if|if
-condition|(
-name|expectConstantWrapper
-condition|)
-block|{
-name|assertThat
-argument_list|(
-name|q
-argument_list|,
-name|instanceOf
-argument_list|(
-name|ConstantScoreQuery
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|q
-operator|=
-operator|(
-operator|(
-name|ConstantScoreQuery
-operator|)
-name|q
-operator|)
-operator|.
-name|getQuery
-argument_list|()
-expr_stmt|;
-block|}
 name|assertThat
 argument_list|(
 name|q
@@ -5416,8 +5379,6 @@ init|=
 name|unwrapTermQuery
 argument_list|(
 name|parsedQuery
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -5538,8 +5499,6 @@ init|=
 name|unwrapTermQuery
 argument_list|(
 name|parsedQuery
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -11461,7 +11420,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test] [terms] query does not support multiple fields"
+literal|"[terms] query does not support multiple fields"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -11582,7 +11541,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"[test] [terms] filter does not support multiple fields"
+literal|"[terms] filter does not support multiple fields"
 argument_list|)
 argument_list|)
 expr_stmt|;

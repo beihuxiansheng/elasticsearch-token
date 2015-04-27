@@ -379,6 +379,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|ClusterStateRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -425,20 +429,6 @@ comment|// in, we need to make sure we allow those calls
 comment|// return state.blocks().globalBlockedException(ClusterBlockLevel.METADATA);
 return|return
 literal|null
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|newRequest
-specifier|protected
-name|ClusterStateRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClusterStateRequest
-argument_list|()
 return|;
 block|}
 annotation|@

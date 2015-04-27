@@ -178,6 +178,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MergeResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchSingleNodeTest
@@ -221,24 +235,6 @@ operator|.
 name|util
 operator|.
 name|Arrays
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|DocumentMapper
-operator|.
-name|MergeFlags
-operator|.
-name|mergeFlags
 import|;
 end_import
 
@@ -2664,8 +2660,6 @@ argument_list|(
 name|stage2Mapping
 argument_list|)
 decl_stmt|;
-name|DocumentMapper
-operator|.
 name|MergeResult
 name|mergeResult
 init|=
@@ -2678,13 +2672,7 @@ operator|.
 name|mapping
 argument_list|()
 argument_list|,
-name|mergeFlags
-argument_list|()
-operator|.
-name|simulate
-argument_list|(
 literal|false
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// check correct conflicts
@@ -2705,7 +2693,7 @@ name|assertThat
 argument_list|(
 name|mergeResult
 operator|.
-name|conflicts
+name|buildConflicts
 argument_list|()
 operator|.
 name|length
@@ -2729,7 +2717,7 @@ name|asList
 argument_list|(
 name|mergeResult
 operator|.
-name|conflicts
+name|buildConflicts
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2973,13 +2961,7 @@ operator|.
 name|mapping
 argument_list|()
 argument_list|,
-name|mergeFlags
-argument_list|()
-operator|.
-name|simulate
-argument_list|(
 literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// verify mapping changes, and ensure no failures

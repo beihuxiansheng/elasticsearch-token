@@ -179,8 +179,6 @@ name|copyAndAddAll
 parameter_list|(
 name|Collection
 argument_list|<
-name|?
-extends|extends
 name|FieldMapper
 argument_list|<
 name|?

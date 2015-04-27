@@ -29,11 +29,6 @@ extends|extends
 name|TransportRequest
 parameter_list|>
 block|{
-DECL|method|newInstance
-name|T
-name|newInstance
-parameter_list|()
-function_decl|;
 DECL|method|messageReceived
 name|void
 name|messageReceived
@@ -46,17 +41,6 @@ name|channel
 parameter_list|)
 throws|throws
 name|Exception
-function_decl|;
-DECL|method|executor
-name|String
-name|executor
-parameter_list|()
-function_decl|;
-comment|/**      * See {@link org.elasticsearch.common.util.concurrent.AbstractRunnable#isForceExecution()}.      */
-DECL|method|isForceExecution
-name|boolean
-name|isForceExecution
-parameter_list|()
 function_decl|;
 block|}
 end_interface
