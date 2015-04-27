@@ -618,10 +618,14 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
-name|source
+name|RoutingTable
+operator|.
+name|Builder
 operator|.
 name|writeTo
 argument_list|(
+name|source
+argument_list|,
 name|outStream
 argument_list|)
 expr_stmt|;

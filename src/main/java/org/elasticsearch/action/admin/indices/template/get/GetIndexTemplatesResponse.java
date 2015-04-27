@@ -276,10 +276,14 @@ range|:
 name|indexTemplates
 control|)
 block|{
-name|indexTemplate
+name|IndexTemplateMetaData
+operator|.
+name|Builder
 operator|.
 name|writeTo
 argument_list|(
+name|indexTemplate
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

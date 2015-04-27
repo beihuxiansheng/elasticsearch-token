@@ -1164,10 +1164,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|metaData
+name|MetaData
+operator|.
+name|Builder
 operator|.
 name|writeTo
 argument_list|(
+name|metaData
+argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
