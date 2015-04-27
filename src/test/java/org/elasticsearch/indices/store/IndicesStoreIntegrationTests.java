@@ -304,6 +304,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -451,6 +461,19 @@ operator|.
 name|build
 argument_list|()
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|ensureClusterStateConsistency
+specifier|protected
+name|void
+name|ensureClusterStateConsistency
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// testShardActiveElseWhere might change the state of a non-master node
+comment|// so we cannot check state consistency of this cluster
 block|}
 annotation|@
 name|Test

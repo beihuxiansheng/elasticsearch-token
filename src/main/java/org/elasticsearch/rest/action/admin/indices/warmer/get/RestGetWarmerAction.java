@@ -593,8 +593,6 @@ control|)
 block|{
 name|IndexWarmersMetaData
 operator|.
-name|FACTORY
-operator|.
 name|toXContent
 argument_list|(
 name|warmerEntry

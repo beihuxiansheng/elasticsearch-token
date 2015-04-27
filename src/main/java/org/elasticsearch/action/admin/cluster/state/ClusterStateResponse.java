@@ -243,14 +243,10 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|ClusterState
-operator|.
-name|Builder
+name|clusterState
 operator|.
 name|writeTo
 argument_list|(
-name|clusterState
-argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

@@ -60,6 +60,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|AbstractDiffable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -158,6 +170,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|EnumSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -171,6 +193,13 @@ DECL|class|RestoreMetaData
 specifier|public
 class|class
 name|RestoreMetaData
+extends|extends
+name|AbstractDiffable
+argument_list|<
+name|MetaData
+operator|.
+name|Custom
+argument_list|>
 implements|implements
 name|MetaData
 operator|.
@@ -185,15 +214,15 @@ name|TYPE
 init|=
 literal|"restore"
 decl_stmt|;
-DECL|field|FACTORY
+DECL|field|PROTO
 specifier|public
 specifier|static
 specifier|final
-name|Factory
-name|FACTORY
+name|RestoreMetaData
+name|PROTO
 init|=
 operator|new
-name|Factory
+name|RestoreMetaData
 argument_list|()
 decl_stmt|;
 DECL|field|entries
@@ -1272,23 +1301,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Restore metadata factory      */
-DECL|class|Factory
-specifier|public
-specifier|static
-class|class
-name|Factory
-extends|extends
-name|MetaData
-operator|.
-name|Custom
-operator|.
-name|Factory
-argument_list|<
-name|RestoreMetaData
-argument_list|>
-block|{
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|type
@@ -1301,7 +1314,7 @@ return|return
 name|TYPE
 return|;
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -1520,7 +1533,7 @@ name|entries
 argument_list|)
 return|;
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -1528,9 +1541,6 @@ specifier|public
 name|void
 name|writeTo
 parameter_list|(
-name|RestoreMetaData
-name|repositories
-parameter_list|,
 name|StreamOutput
 name|out
 parameter_list|)
@@ -1541,10 +1551,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|repositories
-operator|.
 name|entries
-argument_list|()
 operator|.
 name|size
 argument_list|()
@@ -1555,10 +1562,7 @@ control|(
 name|Entry
 name|entry
 range|:
-name|repositories
-operator|.
 name|entries
-argument_list|()
 control|)
 block|{
 name|entry
@@ -1673,7 +1677,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|fromXContent
@@ -1693,17 +1697,33 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/**          * {@inheritDoc}          */
+annotation|@
+name|Override
+DECL|method|context
+specifier|public
+name|EnumSet
+argument_list|<
+name|MetaData
+operator|.
+name|XContentContext
+argument_list|>
+name|context
+parameter_list|()
+block|{
+return|return
+name|MetaData
+operator|.
+name|API_ONLY
+return|;
+block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|toXContent
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
-name|RestoreMetaData
-name|customIndexMetaData
-parameter_list|,
 name|XContentBuilder
 name|builder
 parameter_list|,
@@ -1727,10 +1747,7 @@ control|(
 name|Entry
 name|entry
 range|:
-name|customIndexMetaData
-operator|.
 name|entries
-argument_list|()
 control|)
 block|{
 name|toXContent
@@ -1748,8 +1765,11 @@ operator|.
 name|endArray
 argument_list|()
 expr_stmt|;
+return|return
+name|builder
+return|;
 block|}
-comment|/**          * Serializes single restore operation          *          * @param entry   restore operation metadata          * @param builder XContent builder          * @param params  serialization parameters          * @throws IOException          */
+comment|/**      * Serializes single restore operation      *      * @param entry   restore operation metadata      * @param builder XContent builder      * @param params  serialization parameters      * @throws IOException      */
 DECL|method|toXContent
 specifier|public
 name|void
@@ -1953,7 +1973,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class
