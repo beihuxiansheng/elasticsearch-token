@@ -186,6 +186,18 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
 name|equalTo
 import|;
 end_import
@@ -455,9 +467,9 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
-name|equalTo
+name|containsString
 argument_list|(
-literal|"{\n  \"query\":{ \"match_all\" : {} }\n}"
+literal|"\"query\":{ \"match_all\" : {} }"
 argument_list|)
 argument_list|)
 expr_stmt|;
