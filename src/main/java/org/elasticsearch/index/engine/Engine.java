@@ -1244,6 +1244,9 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
+annotation|@
+name|Deprecated
 DECL|method|delete
 specifier|public
 specifier|abstract

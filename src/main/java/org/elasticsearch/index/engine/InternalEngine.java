@@ -3478,6 +3478,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
+annotation|@
+name|Deprecated
 annotation|@
 name|Override
 DECL|method|delete

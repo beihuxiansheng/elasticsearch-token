@@ -634,20 +634,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|deletebyquery
-operator|.
-name|DeleteByQueryRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|exists
 operator|.
 name|ExistsRequest
@@ -847,26 +833,6 @@ return|return
 operator|new
 name|BulkRequest
 argument_list|()
-return|;
-block|}
-comment|/**      * Creates a delete by query request. Note, the query itself must be set either by setting the JSON source      * of the query, or by using a {@link org.elasticsearch.index.query.QueryBuilder} (using {@link org.elasticsearch.index.query.QueryBuilders}).      *      * @param indices The indices the delete by query against. Use<tt>null</tt> or<tt>_all</tt> to execute against all indices      * @return The delete by query request      * @see org.elasticsearch.client.Client#deleteByQuery(org.elasticsearch.action.deletebyquery.DeleteByQueryRequest)      */
-DECL|method|deleteByQueryRequest
-specifier|public
-specifier|static
-name|DeleteByQueryRequest
-name|deleteByQueryRequest
-parameter_list|(
-name|String
-modifier|...
-name|indices
-parameter_list|)
-block|{
-return|return
-operator|new
-name|DeleteByQueryRequest
-argument_list|(
-name|indices
-argument_list|)
 return|;
 block|}
 comment|/**      * Creates a get request to get the JSON source from an index based on a type and id. Note, the      * {@link GetRequest#type(String)} and {@link GetRequest#id(String)} must be set.      *      * @param index The index to get the JSON source from      * @return The get request      * @see org.elasticsearch.client.Client#get(org.elasticsearch.action.get.GetRequest)      */

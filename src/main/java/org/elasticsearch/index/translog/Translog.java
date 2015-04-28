@@ -2751,6 +2751,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** @deprecated Delete-by-query is removed in 2.0, but we keep this so translog can replay on upgrade. */
+annotation|@
+name|Deprecated
 DECL|class|DeleteByQuery
 specifier|static
 class|class
