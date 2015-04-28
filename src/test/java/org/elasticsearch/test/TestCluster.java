@@ -356,12 +356,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|assertAllSearchersClosed
-argument_list|()
-expr_stmt|;
-name|assertAllFilesClosed
-argument_list|()
-expr_stmt|;
 name|ensureEstimatedStats
 argument_list|()
 expr_stmt|;

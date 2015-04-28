@@ -336,20 +336,6 @@ name|test
 operator|.
 name|store
 operator|.
-name|MockDirectoryHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|store
-operator|.
 name|MockFSDirectoryService
 import|;
 end_import
@@ -828,7 +814,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE
 argument_list|,
@@ -837,7 +823,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 argument_list|,
@@ -897,7 +883,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE
 argument_list|,
@@ -906,7 +892,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 argument_list|,
@@ -1575,7 +1561,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE
 argument_list|,
@@ -1584,7 +1570,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 argument_list|,

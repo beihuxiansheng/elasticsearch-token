@@ -1818,11 +1818,6 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ElasticsearchAssertions
-operator|.
-name|assertAllFilesClosed
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|testAllVersionsTested
 specifier|public
