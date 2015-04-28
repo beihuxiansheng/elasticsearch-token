@@ -16,16 +16,13 @@ name|query
 package|;
 end_package
 
-begin_class
-DECL|class|SpanQueryBuilder
+begin_interface
+DECL|interface|SpanQueryBuilder
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|SpanQueryBuilder
-extends|extends
-name|QueryBuilder
 block|{  }
-end_class
+end_interface
 
 end_unit
 
