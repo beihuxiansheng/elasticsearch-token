@@ -70,21 +70,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -1386,7 +1386,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"'"
 operator|+
@@ -1411,7 +1411,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"'"
 operator|+
@@ -2226,7 +2226,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Shouldn't publish state when not master"
 argument_list|)
@@ -4271,7 +4271,7 @@ operator|.
 name|onNewClusterStateFailed
 argument_list|(
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"received state from a node that is not part of the cluster"
 argument_list|)
@@ -4457,7 +4457,7 @@ operator|.
 name|onNewClusterStateFailed
 argument_list|(
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"received state from a node that is not part of the cluster"
 argument_list|)
@@ -5188,7 +5188,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"cluster state from a different master then the current one, rejecting (received "
 operator|+

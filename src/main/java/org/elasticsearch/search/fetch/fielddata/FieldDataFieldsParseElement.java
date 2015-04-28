@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -198,7 +198,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Expected either a VALUE_STRING or an START_ARRAY but got "
 operator|+

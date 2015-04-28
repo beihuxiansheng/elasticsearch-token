@@ -32,11 +32,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -1056,7 +1056,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"can't change the number of shards for an index"
 argument_list|)
@@ -1204,7 +1204,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"can't process the settings: "
 operator|+
@@ -1443,7 +1443,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|String
 operator|.

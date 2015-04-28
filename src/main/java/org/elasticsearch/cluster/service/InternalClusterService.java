@@ -42,11 +42,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -822,7 +822,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 if|if
 condition|(
@@ -834,7 +834,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"can't set initial block when started"
 argument_list|)
@@ -859,7 +859,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 if|if
 condition|(
@@ -871,7 +871,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"can't set initial block when started"
 argument_list|)

@@ -106,16 +106,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -4103,7 +4093,7 @@ block|{
 comment|// TODO how do we identify dynamically that its a binary value?
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't handle serializing a dynamic type with content token ["
 operator|+
@@ -4586,7 +4576,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"["
 operator|+

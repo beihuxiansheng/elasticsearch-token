@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -213,7 +213,7 @@ block|{
 comment|// if we are here, the thread already has the lock
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Lock already acquired in Thread"
 operator|+
@@ -367,7 +367,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Lock not acquired"
 argument_list|)
@@ -642,7 +642,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Lock not acquired"
 argument_list|)

@@ -44,11 +44,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -408,7 +408,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Deferred collectors cannot be collected directly. They must be collected through the recording wrapper."
 argument_list|)
@@ -426,7 +426,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Deferred collectors cannot be collected directly. They must be collected through the recording wrapper."
 argument_list|)
@@ -444,7 +444,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Deferred collectors cannot be collected directly. They must be collected through the recording wrapper."
 argument_list|)

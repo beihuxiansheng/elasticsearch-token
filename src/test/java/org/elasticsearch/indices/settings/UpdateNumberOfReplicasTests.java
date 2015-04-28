@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -3161,7 +3161,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

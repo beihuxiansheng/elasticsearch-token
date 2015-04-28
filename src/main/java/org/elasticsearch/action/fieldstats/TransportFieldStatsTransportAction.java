@@ -70,21 +70,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -697,7 +697,7 @@ block|{
 comment|// should already have been catched by the FieldStatsRequest#validate(...)
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Illegal level option ["
 operator|+
@@ -816,7 +816,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to merge the field stats of field ["
 operator|+

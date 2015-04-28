@@ -72,21 +72,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -1024,7 +1024,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Failed to obtain node lock, is the following location writable?: "
 operator|+
@@ -2713,7 +2713,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Returns an array of all of the nodes data locations.      * @throws org.elasticsearch.ElasticsearchIllegalStateException if the node is not configured to store local locations      */
+comment|/**      * Returns an array of all of the nodes data locations.      * @throws IllegalStateException if the node is not configured to store local locations      */
 DECL|method|nodeDataPaths
 specifier|public
 name|Path
@@ -2738,7 +2738,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"node is not configured to store local location"
 argument_list|)
@@ -2815,7 +2815,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"node is not configured to store local location"
 argument_list|)
@@ -2991,7 +2991,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"node is not configured to store local location"
 argument_list|)
@@ -3230,7 +3230,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * This method tries to write an empty file and moves it using an atomic move operation.      * This method throws an {@link ElasticsearchIllegalStateException} if this operation is      * not supported by the filesystem. This test is executed on each of the data directories.      * This method cleans up all files even in the case of an error.      */
+comment|/**      * This method tries to write an empty file and moves it using an atomic move operation.      * This method throws an {@link IllegalStateException} if this operation is      * not supported by the filesystem. This test is executed on each of the data directories.      * This method cleans up all files even in the case of an error.      */
 DECL|method|ensureAtomicMoveSupported
 specifier|public
 name|void
@@ -3328,7 +3328,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"atomic_move is not supported by the filesystem on path ["
 operator|+
@@ -3489,7 +3489,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"no custom "
 operator|+

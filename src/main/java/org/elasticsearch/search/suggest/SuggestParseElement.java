@@ -32,11 +32,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -369,7 +369,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[suggest] does not support ["
 operator|+
@@ -475,7 +475,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[suggest] does not support ["
 operator|+
@@ -507,7 +507,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Suggestion must have name"
 argument_list|)
@@ -527,7 +527,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Suggester["
 operator|+

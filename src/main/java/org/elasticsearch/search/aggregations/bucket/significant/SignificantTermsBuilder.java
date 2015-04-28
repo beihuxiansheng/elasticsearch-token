@@ -22,11 +22,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -461,7 +461,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"exclude clause must be an array of strings or a regex, not both"
 argument_list|)
@@ -503,7 +503,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"include clause must be an array of exact values or a regex, not both"
 argument_list|)
@@ -539,7 +539,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"include clause must be an array of exact values or a regex, not both"
 argument_list|)
@@ -659,7 +659,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"exclude clause must be an array of strings or a regex, not both"
 argument_list|)
@@ -701,7 +701,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"exclude clause must be an array of strings or a regex, not both"
 argument_list|)
@@ -737,7 +737,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"exclude clause must be an array of longs or a regex, not both"
 argument_list|)

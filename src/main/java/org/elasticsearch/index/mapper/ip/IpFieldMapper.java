@@ -174,11 +174,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -740,7 +740,7 @@ name|String
 name|ip
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 try|try
 block|{
@@ -757,7 +757,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse ip ["
 operator|+
@@ -789,7 +789,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse ip ["
 operator|+
@@ -863,19 +863,19 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|)
 name|e
 throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse ip ["
 operator|+
@@ -1693,7 +1693,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

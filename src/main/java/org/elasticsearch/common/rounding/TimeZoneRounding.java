@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -254,7 +254,7 @@ literal|1
 condition|)
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Zero or negative time interval not supported"
 argument_list|)
@@ -756,7 +756,7 @@ literal|1
 condition|)
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Zero or negative time interval not supported"
 argument_list|)

@@ -28,11 +28,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -267,11 +267,11 @@ block|{
 comment|// here we simply fail the primary shard since we can't move them (have 2 writers open at the same time)
 comment|// by failing the shard we play safe and just go through the entire reallocation procedure of the primary
 comment|// it would be ideal to make sure we flushed the translog here but that is not possible in the current design.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|exception
 init|=
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't relocate primary - failing"
 argument_list|)

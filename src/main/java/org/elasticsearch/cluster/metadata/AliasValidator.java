@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -216,7 +216,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows to validate an {@link org.elasticsearch.cluster.metadata.AliasAction} and make sure      * it's valid before it gets added to the index metadata. Doesn't validate the alias filter.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the alias is not valid      */
+comment|/**      * Allows to validate an {@link org.elasticsearch.cluster.metadata.AliasAction} and make sure      * it's valid before it gets added to the index metadata. Doesn't validate the alias filter.      * @throws IllegalArgumentException if the alias is not valid      */
 DECL|method|validateAliasAction
 specifier|public
 name|void
@@ -250,7 +250,7 @@ name|metaData
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows to validate an {@link org.elasticsearch.action.admin.indices.alias.Alias} and make sure      * it's valid before it gets added to the index metadata. Doesn't validate the alias filter.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the alias is not valid      */
+comment|/**      * Allows to validate an {@link org.elasticsearch.action.admin.indices.alias.Alias} and make sure      * it's valid before it gets added to the index metadata. Doesn't validate the alias filter.      * @throws IllegalArgumentException if the alias is not valid      */
 DECL|method|validateAlias
 specifier|public
 name|void
@@ -284,7 +284,7 @@ name|metaData
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows to validate an {@link org.elasticsearch.cluster.metadata.AliasMetaData} and make sure      * it's valid before it gets added to the index metadata. Doesn't validate the alias filter.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the alias is not valid      */
+comment|/**      * Allows to validate an {@link org.elasticsearch.cluster.metadata.AliasMetaData} and make sure      * it's valid before it gets added to the index metadata. Doesn't validate the alias filter.      * @throws IllegalArgumentException if the alias is not valid      */
 DECL|method|validateAliasMetaData
 specifier|public
 name|void
@@ -318,7 +318,7 @@ name|metaData
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows to partially validate an alias, without knowing which index it'll get applied to.      * Useful with index templates containing aliases. Checks also that it is possible to parse      * the alias filter via {@link org.elasticsearch.common.xcontent.XContentParser},      * without validating it as a filter though.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the alias is not valid      */
+comment|/**      * Allows to partially validate an alias, without knowing which index it'll get applied to.      * Useful with index templates containing aliases. Checks also that it is possible to parse      * the alias filter via {@link org.elasticsearch.common.xcontent.XContentParser},      * without validating it as a filter though.      * @throws IllegalArgumentException if the alias is not valid      */
 DECL|method|validateAliasStandalone
 specifier|public
 name|void
@@ -391,7 +391,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse filter for alias ["
 operator|+
@@ -446,7 +446,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index name is required"
 argument_list|)
@@ -509,7 +509,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"alias name is required"
 argument_list|)
@@ -534,7 +534,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"alias ["
 operator|+
@@ -545,7 +545,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Validates an alias filter by parsing it using the      * provided {@link org.elasticsearch.index.query.IndexQueryParserService}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the filter is not valid      */
+comment|/**      * Validates an alias filter by parsing it using the      * provided {@link org.elasticsearch.index.query.IndexQueryParserService}      * @throws IllegalArgumentException if the filter is not valid      */
 DECL|method|validateAliasFilter
 specifier|public
 name|void
@@ -599,7 +599,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse filter for alias ["
 operator|+
@@ -612,7 +612,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Validates an alias filter by parsing it using the      * provided {@link org.elasticsearch.index.query.IndexQueryParserService}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the filter is not valid      */
+comment|/**      * Validates an alias filter by parsing it using the      * provided {@link org.elasticsearch.index.query.IndexQueryParserService}      * @throws IllegalArgumentException if the filter is not valid      */
 DECL|method|validateAliasFilter
 specifier|public
 name|void
@@ -667,7 +667,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse filter for alias ["
 operator|+

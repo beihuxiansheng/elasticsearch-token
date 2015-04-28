@@ -58,11 +58,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -3756,7 +3756,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)

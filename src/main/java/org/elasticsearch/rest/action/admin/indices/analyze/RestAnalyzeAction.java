@@ -38,11 +38,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -104,20 +104,6 @@ name|common
 operator|.
 name|bytes
 operator|.
-name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|bytes
-operator|.
 name|BytesReference
 import|;
 end_import
@@ -147,20 +133,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
 import|;
 end_import
 
@@ -644,7 +616,7 @@ name|AnalyzeRequest
 name|analyzeRequest
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 try|try
 init|(
@@ -675,7 +647,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Malforrmed content, must start with an object"
 argument_list|)
@@ -949,7 +921,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|currentFieldName
 operator|+
@@ -1045,7 +1017,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|currentFieldName
 operator|+
@@ -1085,7 +1057,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown parameter ["
 operator|+
@@ -1110,7 +1082,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to parse request body"
 argument_list|,

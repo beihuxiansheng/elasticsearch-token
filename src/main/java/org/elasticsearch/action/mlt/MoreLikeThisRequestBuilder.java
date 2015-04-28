@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -636,7 +636,7 @@ name|String
 name|searchType
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 name|request
 operator|.

@@ -32,21 +32,21 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -977,7 +977,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[allocate] failed to find "
 operator|+
@@ -1030,7 +1030,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[allocate] trying to allocate a primary shard "
 operator|+
@@ -1104,7 +1104,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Allocation can only be done on data nodes, not ["
 operator|+
@@ -1148,7 +1148,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Could not find ["
 operator|+
@@ -1207,7 +1207,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[allocate] allocation of "
 operator|+

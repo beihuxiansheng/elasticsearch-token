@@ -16,11 +16,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -793,7 +793,7 @@ name|assertTrue
 argument_list|(
 name|ex
 operator|instanceof
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|)
 expr_stmt|;
 block|}

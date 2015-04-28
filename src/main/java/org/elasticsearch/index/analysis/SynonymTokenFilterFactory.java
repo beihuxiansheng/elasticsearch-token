@@ -156,11 +156,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -205,20 +205,6 @@ operator|.
 name|io
 operator|.
 name|FastStringReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|Lucene
 import|;
 end_import
 
@@ -516,7 +502,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"synonym requires either `synonyms` or `synonyms_path` to be configured"
 argument_list|)
@@ -595,7 +581,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to find tokenizer ["
 operator|+
@@ -784,7 +770,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to build synonyms"
 argument_list|,

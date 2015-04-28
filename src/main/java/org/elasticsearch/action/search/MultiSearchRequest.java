@@ -32,21 +32,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchParseException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -121,18 +111,6 @@ operator|.
 name|common
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Strings
 import|;
 end_import
 
@@ -851,7 +829,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"explicit index in multi percolate is not allowed"
 argument_list|)

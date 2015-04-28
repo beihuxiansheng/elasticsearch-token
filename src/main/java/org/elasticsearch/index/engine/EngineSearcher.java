@@ -70,11 +70,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -89,20 +89,6 @@ operator|.
 name|logging
 operator|.
 name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|Engine
 import|;
 end_import
 
@@ -265,7 +251,7 @@ argument_list|(
 literal|"Searcher was released twice"
 argument_list|,
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Double release"
 argument_list|)
@@ -294,7 +280,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot close"
 argument_list|,

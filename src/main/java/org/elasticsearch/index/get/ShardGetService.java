@@ -70,11 +70,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -1897,7 +1897,7 @@ block|{
 comment|// Only fail if we know it is a object field, missing paths / fields shouldn't fail.
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
@@ -2731,7 +2731,7 @@ block|{
 comment|// Only fail if we know it is a object field, missing paths / fields shouldn't fail.
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+

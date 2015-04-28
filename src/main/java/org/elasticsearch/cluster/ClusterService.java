@@ -16,11 +16,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -178,7 +178,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 function_decl|;
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
@@ -189,7 +189,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 function_decl|;
 comment|/**      * The operation routing.      */
 DECL|method|operationRouting

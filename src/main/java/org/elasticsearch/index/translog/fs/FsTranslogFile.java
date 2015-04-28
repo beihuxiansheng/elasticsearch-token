@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -257,7 +257,7 @@ name|String
 name|type
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -296,7 +296,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No translog fs type ["
 operator|+

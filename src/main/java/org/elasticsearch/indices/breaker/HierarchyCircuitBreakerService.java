@@ -18,11 +18,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -1003,7 +1003,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Validate that child settings are valid      * @throws ElasticsearchIllegalStateException      */
+comment|/**      * Validate that child settings are valid      * @throws IllegalStateException      */
 DECL|method|validateSettings
 specifier|public
 specifier|static
@@ -1015,7 +1015,7 @@ index|[]
 name|childrenSettings
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 for|for
 control|(
@@ -1051,7 +1051,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Child breaker overhead "
 operator|+

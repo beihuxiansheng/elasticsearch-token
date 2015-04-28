@@ -18,31 +18,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchParseException
+name|IllegalStateException
 import|;
 end_import
 
@@ -111,20 +101,6 @@ operator|.
 name|search
 operator|.
 name|SearchType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|ShardSearchFailure
 import|;
 end_import
 
@@ -4882,7 +4858,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -9013,7 +8989,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|failure
 parameter_list|)
 block|{
@@ -9065,7 +9041,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|failure
 parameter_list|)
 block|{
@@ -9112,7 +9088,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|failure
 parameter_list|)
 block|{

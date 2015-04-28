@@ -86,11 +86,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -919,7 +919,7 @@ return|return
 name|minNonClientNodeVersion
 return|;
 block|}
-comment|/**      * Resolve a node with a given id      *      * @param node id of the node to discover      * @return discovered node matching the given id      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if more than one node matches the request or no nodes have been resolved      */
+comment|/**      * Resolve a node with a given id      *      * @param node id of the node to discover      * @return discovered node matching the given id      * @throws IllegalArgumentException if more than one node matches the request or no nodes have been resolved      */
 DECL|method|resolveNode
 specifier|public
 name|DiscoveryNode
@@ -949,7 +949,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"resolved ["
 operator|+
@@ -976,7 +976,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to resolve ["
 operator|+

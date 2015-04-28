@@ -58,11 +58,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -687,7 +687,7 @@ name|String
 name|type
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 name|Custom
 operator|.
@@ -713,7 +713,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No custom state factory registered for type ["
 operator|+
@@ -1538,7 +1538,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown metric ["
 operator|+

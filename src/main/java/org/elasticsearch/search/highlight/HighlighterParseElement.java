@@ -62,11 +62,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -316,7 +316,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
@@ -746,7 +746,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"If highlighter fields is an array it must contain objects containing a single field"
 argument_list|)
@@ -798,7 +798,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"If highlighter fields is an array it must contain objects containing a single field"
 argument_list|)
@@ -1465,7 +1465,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Highlighter global preTags are set, but global postTags are not set"
 argument_list|)

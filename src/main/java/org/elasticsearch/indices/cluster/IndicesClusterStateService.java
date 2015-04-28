@@ -94,21 +94,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ExceptionsHelper
+name|IllegalStateException
 import|;
 end_import
 
@@ -5123,7 +5113,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to find source node for peer recovery when routing state means no peer recovery: "
 operator|+

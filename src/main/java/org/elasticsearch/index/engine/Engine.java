@@ -142,11 +142,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -825,7 +825,7 @@ name|ramBytesUsed
 argument_list|()
 return|;
 block|}
-comment|/**      * Tries to extract a segment reader from the given index reader.      * If no SegmentReader can be extracted an {@link org.elasticsearch.ElasticsearchIllegalStateException} is thrown.      */
+comment|/**      * Tries to extract a segment reader from the given index reader.      * If no SegmentReader can be extracted an {@link IllegalStateException} is thrown.      */
 DECL|method|segmentReader
 specifier|protected
 specifier|static
@@ -882,7 +882,7 @@ block|}
 comment|// hard fail - we can't get a SegmentReader
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can not extract segment reader from given index reader ["
 operator|+

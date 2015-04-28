@@ -28,11 +28,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -213,7 +213,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Future got interrupted"
 argument_list|,
@@ -365,7 +365,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Future got interrupted"
 argument_list|,
@@ -389,7 +389,7 @@ block|}
 block|}
 DECL|method|rethrowExecutionException
 specifier|static
-name|ElasticsearchException
+name|RuntimeException
 name|rethrowExecutionException
 parameter_list|(
 name|ExecutionException
@@ -439,6 +439,21 @@ operator|)
 name|root
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|root
+operator|instanceof
+name|RuntimeException
+condition|)
+block|{
+return|return
+operator|(
+name|RuntimeException
+operator|)
+name|root
+return|;
+block|}
 return|return
 operator|new
 name|UncategorizedExecutionException
@@ -447,6 +462,27 @@ literal|"Failed execution"
 argument_list|,
 name|root
 argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|RuntimeException
+condition|)
+block|{
+return|return
+operator|(
+name|RuntimeException
+operator|)
+name|e
+operator|.
+name|getCause
+argument_list|()
 return|;
 block|}
 else|else

@@ -44,25 +44,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|lang
 operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|IOUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -213,20 +199,6 @@ operator|.
 name|inject
 operator|.
 name|Injector
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|Injectors
 import|;
 end_import
 
@@ -2420,7 +2392,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to modify or unregister repository that is currently used "
 argument_list|)

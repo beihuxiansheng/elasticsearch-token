@@ -32,11 +32,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -1002,7 +1002,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[move_allocation] can't move "
 operator|+
@@ -1082,7 +1082,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[move_allocation] can't move "
 operator|+
@@ -1230,7 +1230,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[move_allocation] can't move "
 operator|+

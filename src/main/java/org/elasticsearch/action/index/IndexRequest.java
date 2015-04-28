@@ -52,11 +52,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -488,7 +488,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No type match for ["
 operator|+
@@ -509,7 +509,7 @@ name|String
 name|sOpType
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 name|String
 name|lowersOpType
@@ -547,7 +547,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"opType ["
 operator|+
@@ -1220,7 +1220,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"TTL value must be> 0. Illegal value provided ["
 operator|+
@@ -2011,7 +2011,7 @@ name|String
 name|opType
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 return|return
 name|opType
@@ -2512,7 +2512,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Can't specify parent if no parent field has been configured"
 argument_list|)
@@ -2530,7 +2530,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Can't specify parent if no parent field has been configured"
 argument_list|)

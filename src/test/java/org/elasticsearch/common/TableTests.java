@@ -16,11 +16,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -79,7 +79,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -107,7 +107,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -135,7 +135,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -165,7 +165,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -196,7 +196,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -225,7 +225,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -304,7 +304,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)

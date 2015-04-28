@@ -20,20 +20,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Nightly
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -76,22 +62,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -100,11 +70,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -951,7 +921,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -984,7 +954,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -1073,7 +1043,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -1106,7 +1076,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{

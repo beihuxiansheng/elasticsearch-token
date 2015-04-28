@@ -56,20 +56,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Iterators
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Lists
 import|;
 end_import
@@ -86,11 +72,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -2742,7 +2728,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"illegal state for a failed shard, relocating node id is set, but state does not match: "
 operator|+

@@ -88,7 +88,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IndexException
-specifier|protected
+specifier|public
 name|IndexException
 parameter_list|(
 name|Index

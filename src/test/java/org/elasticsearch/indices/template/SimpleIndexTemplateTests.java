@@ -46,11 +46,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -237,18 +237,6 @@ operator|.
 name|metadata
 operator|.
 name|AliasMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Priority
 import|;
 end_import
 
@@ -4608,7 +4596,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -4715,7 +4703,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -4911,7 +4899,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -4991,7 +4979,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -6111,7 +6099,7 @@ argument_list|)
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)

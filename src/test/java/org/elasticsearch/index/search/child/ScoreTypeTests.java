@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -246,13 +246,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Should throw {@link ElasticsearchIllegalArgumentException} instead of NPE.      */
+comment|/**      * Should throw {@link IllegalArgumentException} instead of NPE.      */
 annotation|@
 name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -276,7 +276,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)

@@ -30,11 +30,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -1496,7 +1496,7 @@ specifier|static
 class|class
 name|ThisIsNotTheMasterYouAreLookingForException
 extends|extends
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 DECL|method|ThisIsNotTheMasterYouAreLookingForException
 name|ThisIsNotTheMasterYouAreLookingForException
@@ -1533,7 +1533,7 @@ specifier|static
 class|class
 name|NodeDoesNotExistOnMasterException
 extends|extends
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 annotation|@
 name|Override
@@ -1749,7 +1749,9 @@ block|{
 throw|throw
 operator|new
 name|NotMasterException
-argument_list|()
+argument_list|(
+literal|"local node is not master"
+argument_list|)
 throw|;
 block|}
 if|if

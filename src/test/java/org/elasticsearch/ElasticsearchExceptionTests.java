@@ -50,20 +50,6 @@ name|common
 operator|.
 name|io
 operator|.
-name|BytesStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
 name|stream
 operator|.
 name|BytesStreamInput
@@ -148,9 +134,33 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|IndexClosedException
 import|;
 end_import
 
@@ -479,8 +489,14 @@ argument_list|(
 literal|"bar"
 argument_list|,
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IndexException
 argument_list|(
+operator|new
+name|Index
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|,
 literal|"index is closed"
 argument_list|,
 operator|new
@@ -522,7 +538,7 @@ literal|0
 index|]
 argument_list|)
 argument_list|,
-literal|"illegal_argument_exception"
+literal|"index_exception"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1372,7 +1388,7 @@ argument_list|(
 literal|"bar"
 argument_list|,
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index is closed"
 argument_list|,
@@ -1436,7 +1452,7 @@ argument_list|(
 literal|"bar"
 argument_list|,
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index is closed"
 argument_list|,
@@ -1451,7 +1467,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"ElasticsearchException[foo]; nested: ElasticsearchException[bar]; nested: ElasticsearchIllegalArgumentException[index is closed]; nested: RuntimeException[foobar];"
+literal|"ElasticsearchException[foo]; nested: ElasticsearchException[bar]; nested: IllegalArgumentException[index is closed]; nested: RuntimeException[foobar];"
 argument_list|,
 name|exception
 operator|.
@@ -1483,7 +1499,7 @@ argument_list|(
 literal|"bar"
 argument_list|,
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index is closed"
 argument_list|,

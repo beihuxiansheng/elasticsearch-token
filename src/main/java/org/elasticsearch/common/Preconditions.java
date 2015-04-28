@@ -16,21 +16,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|elasticsearch
+name|lang
 operator|.
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 import|;
 end_import
 
@@ -70,7 +70,7 @@ specifier|private
 name|Preconditions
 parameter_list|()
 block|{     }
-comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression a boolean expression      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression a boolean expression      * @throws IllegalArgumentException      *          if {@code expression} is false      */
 DECL|method|checkArgument
 specifier|public
 specifier|static
@@ -89,12 +89,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws IllegalArgumentException      *          if {@code expression} is false      */
 DECL|method|checkArgument
 specifier|public
 specifier|static
@@ -116,7 +116,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|String
 operator|.
@@ -128,7 +128,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
+comment|/**      * Ensures the truth of an expression involving one or more parameters to the      * calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws IllegalArgumentException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
 DECL|method|checkArgument
 specifier|public
 specifier|static
@@ -154,7 +154,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|format
 argument_list|(
@@ -166,7 +166,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression a boolean expression      * @throws org.elasticsearch.ElasticsearchIllegalStateException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression a boolean expression      * @throws IllegalStateException      *          if {@code expression} is false      */
 DECL|method|checkState
 specifier|public
 specifier|static
@@ -185,12 +185,12 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|()
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws org.elasticsearch.ElasticsearchIllegalStateException      *          if {@code expression} is false      */
+comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression   a boolean expression      * @param errorMessage the exception message to use if the check fails; will      *                     be converted to a string using {@link String#valueOf(Object)}      * @throws IllegalStateException      *          if {@code expression} is false      */
 DECL|method|checkState
 specifier|public
 specifier|static
@@ -212,7 +212,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 name|String
 operator|.
@@ -224,7 +224,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws org.elasticsearch.ElasticsearchIllegalStateException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
+comment|/**      * Ensures the truth of an expression involving the state of the calling      * instance, but not involving any parameters to the calling method.      *      * @param expression           a boolean expression      * @param errorMessageTemplate a template for the exception message should the      *                             check fail. The message is formed by replacing each {@code %s}      *                             placeholder in the template with an argument. These are matched by      *                             position - the first {@code %s} gets {@code errorMessageArgs[0]}, etc.      *                             Unmatched arguments will be appended to the formatted message in square      *                             braces. Unmatched placeholders will be left as-is.      * @param errorMessageArgs     the arguments to be substituted into the message      *                             template. Arguments are converted to strings using      *                             {@link String#valueOf(Object)}.      * @throws IllegalStateException      *          if {@code expression} is false      * @throws org.elasticsearch.ElasticsearchNullPointerException      *          if the check fails and either {@code      *          errorMessageTemplate} or {@code errorMessageArgs} is null (don't let      *          this happen)      */
 DECL|method|checkState
 specifier|public
 specifier|static
@@ -250,7 +250,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 name|format
 argument_list|(

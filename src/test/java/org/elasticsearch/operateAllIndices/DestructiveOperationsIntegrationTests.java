@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|support
@@ -63,20 +53,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
 import|;
 end_import
 
@@ -294,10 +270,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|client
@@ -323,10 +299,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 name|settings
 operator|=
 name|ImmutableSettings
@@ -545,10 +521,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|assertAcked
@@ -577,7 +553,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{         }
@@ -606,10 +582,10 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
-block|{}
+block|{         }
 try|try
 block|{
 name|assertAcked
@@ -638,7 +614,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{         }

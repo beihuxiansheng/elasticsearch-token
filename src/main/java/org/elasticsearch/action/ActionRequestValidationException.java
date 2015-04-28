@@ -20,7 +20,17 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|lang
+operator|.
+name|IllegalArgumentException
 import|;
 end_import
 
@@ -54,7 +64,7 @@ specifier|public
 class|class
 name|ActionRequestValidationException
 extends|extends
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 DECL|field|validationErrors
 specifier|private
@@ -77,7 +87,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-literal|null
+literal|"validation failed"
 argument_list|)
 expr_stmt|;
 block|}
