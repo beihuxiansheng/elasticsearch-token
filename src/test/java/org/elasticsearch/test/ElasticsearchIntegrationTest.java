@@ -7479,6 +7479,17 @@ argument_list|)
 operator|.
 name|length
 decl_stmt|;
+name|String
+name|masterId
+init|=
+name|masterClusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|masterNodeId
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|Client
@@ -7563,6 +7574,7 @@ name|localClusterStateBytes
 operator|.
 name|length
 decl_stmt|;
+comment|// Check that the non-master node has the same version of the cluster state as the master and that this node didn't disconnect from the master
 if|if
 condition|(
 name|masterClusterState
@@ -7574,6 +7586,19 @@ name|localClusterState
 operator|.
 name|version
 argument_list|()
+operator|&&
+name|localClusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|masterId
+argument_list|)
 condition|)
 block|{
 try|try
