@@ -2572,11 +2572,11 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
-literal|"download.elasticsearch.org is accessible"
+literal|"download.elastic.co is accessible"
 argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
-literal|"download.elasticsearch.org"
+literal|"download.elastic.co"
 argument_list|,
 literal|80
 argument_list|,
