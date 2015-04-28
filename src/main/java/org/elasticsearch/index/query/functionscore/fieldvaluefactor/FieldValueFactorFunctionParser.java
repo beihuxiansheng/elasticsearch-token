@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses out a function_score function that looks like:  *  *<pre>  *     {  *         "field_value_factor": {  *             "field": "myfield",  *             "factor": 1.5,  *             "modifier": "square"  *         }  *     }  *</pre>  */
+comment|/**  * Parses out a function_score function that looks like:  *  *<pre>  *     {  *         "field_value_factor": {  *             "field": "myfield",  *             "factor": 1.5,  *             "modifier": "square",  *             "missing": 1  *         }  *     }  *</pre>  */
 end_comment
 
 begin_class
@@ -254,6 +254,11 @@ operator|.
 name|Modifier
 operator|.
 name|NONE
+decl_stmt|;
+name|Double
+name|missing
+init|=
+literal|null
 decl_stmt|;
 name|XContentParser
 operator|.
@@ -374,6 +379,25 @@ operator|.
 name|ROOT
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"missing"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|missing
+operator|=
+name|parser
+operator|.
+name|doubleValue
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -527,6 +551,8 @@ argument_list|,
 name|boostFactor
 argument_list|,
 name|modifier
+argument_list|,
+name|missing
 argument_list|,
 operator|(
 name|IndexNumericFieldData
