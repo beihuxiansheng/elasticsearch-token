@@ -40,17 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -398,7 +388,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"geohash filter needs geohash_prefix to be enabled"
 argument_list|)
@@ -997,7 +987,7 @@ name|neighbors
 init|=
 literal|false
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext
@@ -1334,9 +1324,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"no geohash value provided to geohash_cell filter"
 argument_list|)
@@ -1372,9 +1359,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"failed to find geo_point field ["
 operator|+
@@ -1410,9 +1394,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"field ["
 operator|+
@@ -1446,9 +1427,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"can't execute geohash_cell on field ["
 operator|+

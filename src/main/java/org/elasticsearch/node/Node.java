@@ -40,16 +40,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -1150,8 +1140,6 @@ DECL|method|Node
 specifier|public
 name|Node
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -1175,8 +1163,6 @@ parameter_list|,
 name|boolean
 name|loadConfigSettings
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|Settings
@@ -1336,7 +1322,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using home [{}], config [{}], data [{}], logs [{}], work [{}], plugins [{}]"
+literal|"using home [{}], config [{}], data [{}], logs [{}], plugins [{}]"
 argument_list|,
 name|env
 operator|.
@@ -1361,11 +1347,6 @@ argument_list|,
 name|env
 operator|.
 name|logsFile
-argument_list|()
-argument_list|,
-name|env
-operator|.
-name|workFile
 argument_list|()
 argument_list|,
 name|env
@@ -1452,7 +1433,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Failed to created node environment"
 argument_list|,
@@ -1979,8 +1960,10 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|start
-argument_list|()
+name|setClient
+argument_list|(
+name|client
+argument_list|)
 expr_stmt|;
 name|injector
 operator|.
@@ -2313,18 +2296,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-name|injector
-operator|.
-name|getInstance
-argument_list|(
-name|MappingUpdatedAction
-operator|.
-name|class
-argument_list|)
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 name|injector
 operator|.
 name|getInstance

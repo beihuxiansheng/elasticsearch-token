@@ -277,7 +277,7 @@ block|{
 name|Path
 name|configDir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path
@@ -496,6 +496,14 @@ argument_list|(
 literal|"node.name"
 argument_list|,
 name|NAME
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
 argument_list|)
 operator|.
 name|put

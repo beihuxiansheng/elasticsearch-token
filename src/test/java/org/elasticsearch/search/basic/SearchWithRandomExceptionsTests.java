@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|index
 operator|.
+name|FilterDirectoryReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
 name|LeafReader
 import|;
 end_import
@@ -278,7 +292,7 @@ name|test
 operator|.
 name|engine
 operator|.
-name|MockInternalEngine
+name|MockEngineSupport
 import|;
 end_import
 
@@ -309,20 +323,6 @@ operator|.
 name|annotations
 operator|.
 name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|store
-operator|.
-name|MockDirectoryHelper
 import|;
 end_import
 
@@ -424,6 +424,9 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Slow
+comment|// maybe due to all the logging?
 annotation|@
 name|TestLogging
 argument_list|(
@@ -622,12 +625,8 @@ name|put
 argument_list|(
 literal|"index.number_of_replicas"
 argument_list|,
-name|randomIntBetween
-argument_list|(
-literal|0
-argument_list|,
-literal|1
-argument_list|)
+name|numberOfReplicas
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|logger
@@ -815,7 +814,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE
 argument_list|,
@@ -824,7 +823,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 argument_list|,
@@ -884,7 +883,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE
 argument_list|,
@@ -893,7 +892,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 argument_list|,
@@ -1562,7 +1561,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE
 argument_list|,
@@ -1571,7 +1570,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_IO_EXCEPTION_RATE_ON_OPEN
 argument_list|,
@@ -1975,7 +1974,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|READER_WRAPPER_TYPE
 argument_list|,
@@ -2003,7 +2002,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|WRAP_READER_RATIO
 argument_list|,
@@ -2509,7 +2508,7 @@ specifier|static
 class|class
 name|RandomExceptionDirectoryReaderWrapper
 extends|extends
-name|MockInternalEngine
+name|MockEngineSupport
 operator|.
 name|DirectoryReaderWrapper
 block|{
@@ -2524,6 +2523,8 @@ specifier|static
 class|class
 name|ThrowingSubReaderWrapper
 extends|extends
+name|FilterDirectoryReader
+operator|.
 name|SubReaderWrapper
 implements|implements
 name|ThrowingLeafReaderWrapper

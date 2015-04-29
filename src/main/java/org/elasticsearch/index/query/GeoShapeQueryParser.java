@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|BooleanQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|ConstantScoreQuery
 import|;
 end_import
@@ -142,16 +156,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -211,22 +215,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|XBooleanFilter
 import|;
 end_import
 
@@ -645,9 +633,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Unknown shape operation ["
 operator|+
@@ -814,9 +799,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"ID for indexed shape not provided"
 argument_list|)
@@ -835,9 +817,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Type for indexed shape not provided"
 argument_list|)
@@ -866,9 +845,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_shape] query does not support ["
 operator|+
@@ -934,9 +910,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_shape] query does not support ["
 operator|+
@@ -960,9 +933,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No Shape defined"
 argument_list|)
@@ -981,9 +951,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No Shape Relation defined"
 argument_list|)
@@ -1019,9 +986,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Failed to find geo_shape field ["
 operator|+
@@ -1055,9 +1019,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Field ["
 operator|+
@@ -1118,11 +1079,11 @@ condition|)
 block|{
 comment|// this strategy doesn't support disjoint anymore: but it did before, including creating lucene fieldcache (!)
 comment|// in this case, execute disjoint as exists&& !intersects
-name|XBooleanFilter
+name|BooleanQuery
 name|bool
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
 name|Filter
@@ -1333,7 +1294,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|""
 argument_list|)

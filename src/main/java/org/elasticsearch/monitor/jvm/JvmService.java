@@ -193,7 +193,7 @@ argument_list|()
 operator|-
 name|jvmStats
 operator|.
-name|timestamp
+name|getTimestamp
 argument_list|()
 operator|)
 operator|>

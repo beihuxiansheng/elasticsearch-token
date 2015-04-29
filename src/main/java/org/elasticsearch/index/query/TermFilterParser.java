@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
-operator|.
-name|TermFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|Filter
@@ -68,7 +54,21 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
 import|;
 end_import
 
@@ -111,6 +111,22 @@ operator|.
 name|lucene
 operator|.
 name|HashedBytesRef
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -221,7 +237,7 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext
@@ -464,9 +480,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[term] filter does not support ["
 operator|+
@@ -583,9 +596,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No field specified for term filter"
 argument_list|)
@@ -603,9 +613,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for term filter"
 argument_list|)
@@ -664,8 +671,12 @@ condition|)
 block|{
 name|filter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 operator|new
 name|Term
@@ -677,6 +688,7 @@ operator|.
 name|toBytesRef
 argument_list|(
 name|value
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

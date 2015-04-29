@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Preconditions
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -81,32 +95,6 @@ operator|.
 name|netty
 operator|.
 name|NettyHttpServerTransport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|Plugin
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -309,6 +297,8 @@ name|String
 name|source
 parameter_list|)
 block|{
+name|Preconditions
+operator|.
 name|checkNotNull
 argument_list|(
 name|httpServerTransport
@@ -316,6 +306,8 @@ argument_list|,
 literal|"Configured http server transport may not be null"
 argument_list|)
 expr_stmt|;
+name|Preconditions
+operator|.
 name|checkNotNull
 argument_list|(
 name|source

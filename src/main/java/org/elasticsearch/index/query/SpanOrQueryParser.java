@@ -343,9 +343,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanOr [clauses] must be of type span query"
 argument_list|)
@@ -370,9 +367,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[span_or] query does not support ["
 operator|+
@@ -429,9 +423,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[span_or] query does not support ["
 operator|+
@@ -456,9 +447,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanOr must include [clauses]"
 argument_list|)

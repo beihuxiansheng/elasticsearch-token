@@ -161,7 +161,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"first1"
 argument_list|)
@@ -177,7 +177,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"name1.first1"
 argument_list|)
@@ -193,7 +193,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"last1"
 argument_list|)
@@ -209,7 +209,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"i_last_1"
 argument_list|)
@@ -225,7 +225,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"name1.last1"
 argument_list|)
@@ -241,7 +241,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"name1.i_last_1"
 argument_list|)
@@ -257,7 +257,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"first2"
 argument_list|)
@@ -273,7 +273,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"name2.first2"
 argument_list|)
@@ -289,7 +289,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"last2"
 argument_list|)
@@ -305,7 +305,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"i_last_2"
 argument_list|)
@@ -321,7 +321,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"name2.i_last_2"
 argument_list|)
@@ -337,7 +337,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|fullName
+name|getMapper
 argument_list|(
 literal|"name2.last2"
 argument_list|)

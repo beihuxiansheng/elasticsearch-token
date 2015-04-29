@@ -49,9 +49,6 @@ name|path
 parameter_list|,
 name|String
 name|fieldName
-parameter_list|,
-name|boolean
-name|mappingsModified
 parameter_list|)
 block|{
 name|super
@@ -65,8 +62,6 @@ operator|+
 name|path
 operator|+
 literal|"] is not allowed"
-argument_list|,
-name|mappingsModified
 argument_list|)
 expr_stmt|;
 block|}

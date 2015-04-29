@@ -1338,10 +1338,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|directMemoryMax
+name|getDirectMemoryMax
 argument_list|()
 operator|.
 name|bytes
@@ -1366,10 +1366,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|directMemoryMax
+name|getDirectMemoryMax
 argument_list|()
 operator|.
 name|bytes
@@ -1666,8 +1666,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|this
 operator|.
@@ -2162,8 +2160,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -2227,8 +2223,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override

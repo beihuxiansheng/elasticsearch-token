@@ -16,16 +16,6 @@ name|component
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Lifecycle state. Allows the following transitions:  *<ul>  *<li>INITIALIZED -> STARTED, STOPPED, CLOSED</li>  *<li>STARTED     -> STOPPED</li>  *<li>STOPPED     -> STARTED, CLOSED</li>  *<li>CLOSED      -></li>  *</ul>  *<p/>  *<p>Also allows to stay in the same state. For example, when calling stop on a component, the  * following logic can be applied:  *<p/>  *<pre>  * public void stop() {  *  if (!lifeccycleState.moveToStopped()) {  *      return;  *  }  * // continue with stop logic  * }  *</pre>  *<p/>  *<p>Note, closed is only allowed to be called when stopped, so make sure to stop the component first.  * Here is how the logic can be applied:  *<p/>  *<pre>  * public void close() {  *  if (lifecycleState.started()) {  *      stop();  *  }  *  if (!lifecycleState.moveToClosed()) {  *      return;  *  }  *  // perofrm close logic here  * }  *</pre>  */
 end_comment
@@ -171,7 +161,7 @@ name|boolean
 name|canMoveToStarted
 parameter_list|()
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 name|State
 name|localState
@@ -223,7 +213,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started state when closed"
 argument_list|)
@@ -231,7 +221,7 @@ throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started with unknown state"
 argument_list|)
@@ -243,7 +233,7 @@ name|boolean
 name|moveToStarted
 parameter_list|()
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 name|State
 name|localState
@@ -301,7 +291,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started state when closed"
 argument_list|)
@@ -309,7 +299,7 @@ throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started with unknown state"
 argument_list|)
@@ -321,7 +311,7 @@ name|boolean
 name|canMoveToStopped
 parameter_list|()
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 name|State
 name|localState
@@ -371,7 +361,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started state when closed"
 argument_list|)
@@ -379,7 +369,7 @@ throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started with unknown state"
 argument_list|)
@@ -391,7 +381,7 @@ name|boolean
 name|moveToStopped
 parameter_list|()
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 name|State
 name|localState
@@ -447,7 +437,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started state when closed"
 argument_list|)
@@ -455,7 +445,7 @@ throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to started with unknown state"
 argument_list|)
@@ -467,7 +457,7 @@ name|boolean
 name|canMoveToClosed
 parameter_list|()
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 name|State
 name|localState
@@ -498,7 +488,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to closed before moving to stopped mode"
 argument_list|)
@@ -514,7 +504,7 @@ name|boolean
 name|moveToClosed
 parameter_list|()
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 name|State
 name|localState
@@ -545,7 +535,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't move to closed before moving to stopped mode"
 argument_list|)

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -2415,6 +2427,13 @@ name|l
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Math#abs is trappy"
+argument_list|)
 DECL|method|abs
 specifier|public
 specifier|static
@@ -2434,6 +2453,13 @@ name|a
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Math#abs is trappy"
+argument_list|)
 DECL|method|abs
 specifier|public
 specifier|static
@@ -2453,6 +2479,13 @@ name|a
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Math#abs is trappy"
+argument_list|)
 DECL|method|abs
 specifier|public
 specifier|static
@@ -2472,6 +2505,13 @@ name|a
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Math#abs is trappy"
+argument_list|)
 DECL|method|abs
 specifier|public
 specifier|static

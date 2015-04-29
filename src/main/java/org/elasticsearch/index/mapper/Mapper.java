@@ -502,16 +502,6 @@ name|String
 name|name
 parameter_list|()
 function_decl|;
-DECL|method|parse
-name|void
-name|parse
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
 DECL|method|merge
 name|void
 name|merge
@@ -519,8 +509,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException

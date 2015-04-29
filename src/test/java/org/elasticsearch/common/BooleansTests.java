@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
@@ -793,7 +783,7 @@ name|assertTrue
 argument_list|(
 name|ex
 operator|instanceof
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|)
 expr_stmt|;
 block|}

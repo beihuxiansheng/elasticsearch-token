@@ -52,20 +52,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Iterables
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Iterators
 import|;
 end_import
@@ -91,6 +77,18 @@ operator|.
 name|elasticsearch
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
 import|;
 end_import
 
@@ -146,20 +144,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|Streams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -189,18 +173,6 @@ operator|.
 name|env
 operator|.
 name|Environment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|Index
 import|;
 end_import
 
@@ -263,26 +235,6 @@ operator|.
 name|ssl
 operator|.
 name|X509TrustManager
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileOutputStream
 import|;
 end_import
 
@@ -363,20 +315,6 @@ operator|.
 name|attribute
 operator|.
 name|PosixFileAttributeView
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|attribute
-operator|.
-name|PosixFileAttributes
 import|;
 end_import
 
@@ -773,7 +711,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"plugin name must be supplied with --install [name]."
 argument_list|)
@@ -1854,7 +1792,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"plugin name must be supplied with --remove [name]."
 argument_list|)
@@ -2146,7 +2084,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Illegal plugin name: "
 operator|+
@@ -2884,7 +2822,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -3040,7 +2978,7 @@ expr_stmt|;
 comment|// exit here!
 block|}
 block|}
-comment|/**      * Get the value for the {@code flag} at the specified {@code arg} of the command line {@code args}.      *<p />      * This is useful to avoid having to check for multiple forms of unset (e.g., "   " versus "" versus {@code null}).      * @param args Incoming command line arguments.      * @param arg Expected argument containing the value.      * @param flag The flag whose value is being retrieved.      * @return Never {@code null}. The trimmed value.      * @throws NullPointerException if {@code args} is {@code null}.      * @throws ArrayIndexOutOfBoundsException if {@code arg} is negative.      * @throws ElasticsearchIllegalStateException if {@code arg} is&gt;= {@code args.length}.      * @throws ElasticsearchIllegalArgumentException if the value evaluates to blank ({@code null} or only whitespace)      */
+comment|/**      * Get the value for the {@code flag} at the specified {@code arg} of the command line {@code args}.      *<p />      * This is useful to avoid having to check for multiple forms of unset (e.g., "   " versus "" versus {@code null}).      * @param args Incoming command line arguments.      * @param arg Expected argument containing the value.      * @param flag The flag whose value is being retrieved.      * @return Never {@code null}. The trimmed value.      * @throws NullPointerException if {@code args} is {@code null}.      * @throws ArrayIndexOutOfBoundsException if {@code arg} is negative.      * @throws IllegalStateException if {@code arg} is&gt;= {@code args.length}.      * @throws IllegalArgumentException if the value evaluates to blank ({@code null} or only whitespace)      */
 DECL|method|getCommandValue
 specifier|private
 specifier|static
@@ -3069,7 +3007,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"missing value for "
 operator|+
@@ -3110,7 +3048,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"value for "
 operator|+
@@ -3321,6 +3259,13 @@ name|line
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#out"
+argument_list|)
 DECL|class|SysOut
 specifier|static
 class|class

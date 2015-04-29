@@ -70,6 +70,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -156,6 +168,20 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|VersionUtils
+operator|.
+name|randomVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|CoreMatchers
@@ -217,9 +243,13 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-name|assumeNotNull
+name|assumeTrue
 argument_list|(
+literal|"tests.version is set"
+argument_list|,
 name|property
+operator|!=
+literal|null
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -505,7 +535,10 @@ name|Version
 name|version
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
@@ -583,7 +616,10 @@ name|Version
 name|version
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -662,7 +698,10 @@ name|Version
 name|version
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
@@ -802,7 +841,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -1017,7 +1056,10 @@ name|Version
 name|version
 init|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|String
 name|stringVersion
@@ -1036,7 +1078,10 @@ argument_list|()
 operator|==
 literal|false
 operator|&&
-name|randomBoolean
+name|random
+argument_list|()
+operator|.
+name|nextBoolean
 argument_list|()
 condition|)
 block|{
@@ -1104,6 +1149,8 @@ control|(
 name|Version
 name|version
 range|:
+name|VersionUtils
+operator|.
 name|allVersions
 argument_list|()
 control|)

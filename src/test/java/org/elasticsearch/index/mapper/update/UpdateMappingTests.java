@@ -140,6 +140,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MergeResult
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchSingleNodeTest
@@ -877,8 +891,6 @@ name|mapping
 argument_list|)
 decl_stmt|;
 comment|// simulate like in MetaDataMappingService#putMapping
-name|DocumentMapper
-operator|.
 name|MergeResult
 name|mergeResult
 init|=
@@ -914,18 +926,11 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-argument_list|,
-name|DocumentMapper
 operator|.
-name|MergeFlags
-operator|.
-name|mergeFlags
+name|mapping
 argument_list|()
-operator|.
-name|simulate
-argument_list|(
+argument_list|,
 literal|false
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// assure we have no conflicts
@@ -933,7 +938,7 @@ name|assertThat
 argument_list|(
 name|mergeResult
 operator|.
-name|conflicts
+name|buildConflicts
 argument_list|()
 operator|.
 name|length
@@ -1160,8 +1165,6 @@ name|mappingSource
 argument_list|()
 decl_stmt|;
 comment|// simulate like in MetaDataMappingService#putMapping
-name|DocumentMapper
-operator|.
 name|MergeResult
 name|mergeResult
 init|=
@@ -1197,18 +1200,11 @@ argument_list|)
 argument_list|,
 literal|true
 argument_list|)
-argument_list|,
-name|DocumentMapper
 operator|.
-name|MergeFlags
-operator|.
-name|mergeFlags
+name|mapping
 argument_list|()
-operator|.
-name|simulate
-argument_list|(
+argument_list|,
 literal|true
-argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// assure we have conflicts
@@ -1216,7 +1212,7 @@ name|assertThat
 argument_list|(
 name|mergeResult
 operator|.
-name|conflicts
+name|buildConflicts
 argument_list|()
 operator|.
 name|length

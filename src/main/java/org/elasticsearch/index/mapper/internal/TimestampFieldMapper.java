@@ -240,7 +240,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -1709,7 +1709,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1719,6 +1719,9 @@ throws|throws
 name|IOException
 block|{
 comment|// nothing to do here, we call the parent in preParse
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -2284,8 +2287,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -2304,16 +2307,13 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()
@@ -2371,7 +2371,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -2395,7 +2395,7 @@ operator|==
 literal|null
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -2418,7 +2418,7 @@ name|defaultTimestamp
 argument_list|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -2462,7 +2462,7 @@ operator|==
 literal|false
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -2502,7 +2502,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(

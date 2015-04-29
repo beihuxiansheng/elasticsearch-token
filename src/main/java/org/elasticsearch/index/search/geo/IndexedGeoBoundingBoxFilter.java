@@ -44,7 +44,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|BooleanQuery
 import|;
 end_import
 
@@ -52,9 +52,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
 import|;
 end_import
 
@@ -84,7 +88,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|XBooleanFilter
+name|Queries
 import|;
 end_import
 
@@ -141,7 +145,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"lat/lon is not enabled (indexed) for field ["
 operator|+
@@ -209,13 +213,20 @@ name|GeoPointFieldMapper
 name|fieldMapper
 parameter_list|)
 block|{
-name|XBooleanFilter
+name|BooleanQuery
 name|filter
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
+name|filter
+operator|.
+name|setMinimumNumberShouldMatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|filter
 operator|.
 name|add
@@ -304,7 +315,12 @@ name|MUST
 argument_list|)
 expr_stmt|;
 return|return
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 name|filter
+argument_list|)
 return|;
 block|}
 DECL|method|eastGeoBoundingBoxFilter
@@ -323,11 +339,11 @@ name|GeoPointFieldMapper
 name|fieldMapper
 parameter_list|)
 block|{
-name|XBooleanFilter
+name|BooleanQuery
 name|filter
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
 name|filter
@@ -393,7 +409,12 @@ name|MUST
 argument_list|)
 expr_stmt|;
 return|return
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 name|filter
+argument_list|)
 return|;
 block|}
 block|}

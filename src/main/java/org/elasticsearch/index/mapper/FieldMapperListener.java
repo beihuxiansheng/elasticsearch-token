@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -113,7 +123,7 @@ specifier|public
 name|void
 name|fieldMappers
 parameter_list|(
-name|List
+name|Collection
 argument_list|<
 name|FieldMapper
 argument_list|<

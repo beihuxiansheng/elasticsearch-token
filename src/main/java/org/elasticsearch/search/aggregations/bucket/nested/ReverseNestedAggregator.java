@@ -140,6 +140,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|mapper
@@ -161,22 +177,6 @@ operator|.
 name|object
 operator|.
 name|ObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|nested
-operator|.
-name|NonNestedDocsFilter
 import|;
 end_import
 
@@ -470,9 +470,10 @@ argument_list|()
 operator|.
 name|getBitDocIdSetFilter
 argument_list|(
-name|NonNestedDocsFilter
+name|Queries
 operator|.
-name|INSTANCE
+name|newNonNestedFilter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -906,6 +907,8 @@ operator|+
 name|name
 operator|+
 literal|"] can only be used inside a [nested] aggregation"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}

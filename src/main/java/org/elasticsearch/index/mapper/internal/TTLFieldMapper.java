@@ -216,7 +216,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -1182,7 +1182,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1296,6 +1296,9 @@ name|ttl
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -1618,8 +1621,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -1673,7 +1676,7 @@ operator|.
 name|DISABLED
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -1686,10 +1689,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()
@@ -1721,10 +1721,7 @@ comment|// (it does not make a difference though as everything that is not build
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

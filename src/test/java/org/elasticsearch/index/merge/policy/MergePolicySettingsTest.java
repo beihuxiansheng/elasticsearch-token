@@ -54,20 +54,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|TieredMergePolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -85,16 +71,6 @@ operator|.
 name|store
 operator|.
 name|RAMDirectory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -219,22 +195,6 @@ operator|.
 name|store
 operator|.
 name|Store
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|distributor
-operator|.
-name|LeastUsedDistributor
 import|;
 end_import
 
@@ -1335,7 +1295,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }
@@ -1369,7 +1329,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }
@@ -1403,7 +1363,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }
@@ -3815,21 +3775,15 @@ annotation|@
 name|Override
 specifier|public
 name|Directory
-index|[]
-name|build
+name|newDirectory
 parameter_list|()
 throws|throws
 name|IOException
 block|{
 return|return
 operator|new
-name|Directory
-index|[]
-block|{
-operator|new
 name|RAMDirectory
 argument_list|()
-block|}
 return|;
 block|}
 annotation|@
@@ -3854,12 +3808,6 @@ argument_list|,
 name|settings
 argument_list|,
 name|directoryService
-argument_list|,
-operator|new
-name|LeastUsedDistributor
-argument_list|(
-name|directoryService
-argument_list|)
 argument_list|,
 operator|new
 name|DummyShardLock

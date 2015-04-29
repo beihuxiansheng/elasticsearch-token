@@ -100,16 +100,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|lease
@@ -520,28 +510,6 @@ block|}
 return|return
 name|q
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|extractTerms
-specifier|public
-name|void
-name|extractTerms
-parameter_list|(
-name|Set
-argument_list|<
-name|Term
-argument_list|>
-name|terms
-parameter_list|)
-block|{
-name|rewrittenChildQuery
-operator|.
-name|extractTerms
-argument_list|(
-name|terms
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1066,9 +1034,7 @@ init|=
 name|terms
 operator|.
 name|iterator
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -1784,6 +1750,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|extractTerms
+specifier|public
+name|void
+name|extractTerms
+parameter_list|(
+name|Set
+argument_list|<
+name|Term
+argument_list|>
+name|terms
+parameter_list|)
+block|{         }
+annotation|@
+name|Override
 DECL|method|getValueForNormalization
 specifier|public
 name|float
@@ -1835,8 +1815,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{         }
 annotation|@
 name|Override
@@ -2086,7 +2064,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No support for score type ["
 operator|+
@@ -2121,8 +2099,9 @@ throws|throws
 name|IOException
 block|{
 return|return
-operator|new
 name|Explanation
+operator|.
+name|match
 argument_list|(
 name|getBoost
 argument_list|()

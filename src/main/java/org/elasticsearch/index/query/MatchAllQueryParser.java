@@ -282,9 +282,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[match_all] query does not support ["
 operator|+
@@ -310,8 +307,6 @@ name|newMatchAllQuery
 argument_list|()
 return|;
 block|}
-comment|//LUCENE 4 UPGRADE norms field is not supported anymore need to find another way or drop the functionality
-comment|//MatchAllDocsQuery query = new MatchAllDocsQuery(normsField);
 name|MatchAllDocsQuery
 name|query
 init|=

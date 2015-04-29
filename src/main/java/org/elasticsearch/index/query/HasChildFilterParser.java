@@ -122,6 +122,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -276,22 +292,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|nested
-operator|.
-name|NonNestedDocsFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|fetch
@@ -323,22 +323,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParserUtils
-operator|.
-name|ensureNotDeleteByQuery
 import|;
 end_import
 
@@ -426,13 +410,6 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
-name|ensureNotDeleteByQuery
-argument_list|(
-name|NAME
-argument_list|,
-name|parseContext
-argument_list|)
-expr_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -669,9 +646,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter does not support ["
 operator|+
@@ -857,9 +831,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter does not support ["
 operator|+
@@ -885,9 +856,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter requires 'query' or 'filter' field"
 argument_list|)
@@ -905,9 +873,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter requires 'type' field"
 argument_list|)
@@ -979,9 +944,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No mapping for for type ["
 operator|+
@@ -1069,9 +1031,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Type ["
 operator|+
@@ -1140,9 +1099,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child]  Type ["
 operator|+
@@ -1172,9 +1128,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] 'max_children' is less than 'min_children'"
 argument_list|)
@@ -1199,9 +1152,10 @@ name|parseContext
 operator|.
 name|bitsetFilter
 argument_list|(
-name|NonNestedDocsFilter
+name|Queries
 operator|.
-name|INSTANCE
+name|newNonNestedFilter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

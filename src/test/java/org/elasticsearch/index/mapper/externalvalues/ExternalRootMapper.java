@@ -142,19 +142,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parse
-specifier|public
-name|void
-name|parse
-parameter_list|(
-name|ParseContext
-name|context
-parameter_list|)
-throws|throws
-name|IOException
-block|{     }
-annotation|@
-name|Override
 DECL|method|merge
 specifier|public
 name|void
@@ -163,8 +150,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -179,7 +166,7 @@ name|ExternalRootMapper
 operator|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(

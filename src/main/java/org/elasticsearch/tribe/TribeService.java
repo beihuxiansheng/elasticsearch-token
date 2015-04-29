@@ -475,7 +475,11 @@ name|of
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_READ
+argument_list|,
+name|ClusterBlockLevel
+operator|.
+name|METADATA_WRITE
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1205,8 +1209,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -1302,8 +1304,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|doClose
 argument_list|()
@@ -1316,8 +1316,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(

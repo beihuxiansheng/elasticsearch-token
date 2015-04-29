@@ -92,15 +92,11 @@ DECL|method|start
 name|T
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|stop
 name|T
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

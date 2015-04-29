@@ -531,7 +531,7 @@ comment|//files can be loaded from classpath and from file system too
 name|Path
 name|dir
 init|=
-name|newTempDirPath
+name|createTempDir
 argument_list|()
 decl_stmt|;
 name|Path

@@ -2170,7 +2170,7 @@ operator|.
 name|getMem
 argument_list|()
 operator|.
-name|getHeapUsedPrecent
+name|getHeapUsedPercent
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2391,7 +2391,7 @@ literal|null
 else|:
 name|jvmStats
 operator|.
-name|uptime
+name|getUptime
 argument_list|()
 argument_list|)
 expr_stmt|;

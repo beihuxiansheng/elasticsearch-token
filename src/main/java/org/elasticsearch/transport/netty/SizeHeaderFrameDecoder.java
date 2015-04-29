@@ -196,10 +196,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|heapMax
+name|getHeapMax
 argument_list|()
 operator|.
 name|bytes

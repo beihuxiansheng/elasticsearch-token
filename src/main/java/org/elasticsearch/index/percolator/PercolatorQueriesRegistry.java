@@ -38,20 +38,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
-operator|.
-name|TermFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|ConstantScoreQuery
@@ -69,6 +55,20 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
 import|;
 end_import
 
@@ -135,6 +135,22 @@ operator|.
 name|inject
 operator|.
 name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -448,7 +464,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -462,7 +478,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -1433,10 +1449,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|queryParserService
-operator|.
-name|index
-argument_list|()
+name|context
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1709,8 +1722,12 @@ argument_list|()
 operator|.
 name|cache
 argument_list|(
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 operator|new
 name|Term
@@ -1722,6 +1739,7 @@ argument_list|,
 name|PercolatorService
 operator|.
 name|TYPE_NAME
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|,
@@ -2092,13 +2110,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Updating the live percolate queries for a delete by query is tricky with the current way delete by queries
-comment|// are handled. It is only possible if we put a big lock around the post delete by query hook...
-comment|// If we implement delete by query, that just runs a query and generates delete operations in a bulk, then
-comment|// updating the live percolator is automatically supported for delete by query.
-comment|//        @Override
-comment|//        public void postDeleteByQuery(Engine.DeleteByQuery deleteByQuery) {
-comment|//        }
 block|}
 block|}
 end_class

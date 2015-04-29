@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|TermsQuery
 import|;
 end_import
 
@@ -405,9 +405,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for term filter"
 argument_list|)
@@ -485,9 +482,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No type specified for term filter"
 argument_list|)
@@ -509,9 +503,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] filter does not support ["
 operator|+
@@ -587,9 +578,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] filter does not support ["
 operator|+
@@ -612,9 +600,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] filter requires providing a values element"
 argument_list|)
@@ -631,7 +616,8 @@ block|{
 return|return
 name|Queries
 operator|.
-name|MATCH_NO_FILTER
+name|newMatchNoDocsFilter
+argument_list|()
 return|;
 block|}
 if|if
@@ -690,11 +676,15 @@ name|types
 argument_list|()
 expr_stmt|;
 block|}
-name|TermsFilter
+name|Filter
 name|filter
 init|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermsFilter
+name|TermsQuery
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -707,6 +697,7 @@ argument_list|(
 name|types
 argument_list|,
 name|ids
+argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

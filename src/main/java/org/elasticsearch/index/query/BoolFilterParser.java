@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|FilterClause
+name|BooleanClause
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
+name|BooleanQuery
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -112,7 +112,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|XBooleanFilter
+name|Queries
 import|;
 end_import
 
@@ -209,14 +209,14 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|XBooleanFilter
+name|BooleanQuery
 name|boolFilter
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext
@@ -332,7 +332,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FilterClause
+name|BooleanClause
 argument_list|(
 name|filter
 argument_list|,
@@ -340,7 +340,7 @@ name|BooleanClause
 operator|.
 name|Occur
 operator|.
-name|MUST
+name|FILTER
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -388,7 +388,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FilterClause
+name|BooleanClause
 argument_list|(
 name|filter
 argument_list|,
@@ -434,10 +434,17 @@ condition|)
 block|{
 name|boolFilter
 operator|.
+name|setMinimumNumberShouldMatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|boolFilter
+operator|.
 name|add
 argument_list|(
 operator|new
-name|FilterClause
+name|BooleanClause
 argument_list|(
 name|filter
 argument_list|,
@@ -458,9 +465,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[bool] filter does not support ["
 operator|+
@@ -535,7 +539,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FilterClause
+name|BooleanClause
 argument_list|(
 name|filter
 argument_list|,
@@ -610,7 +614,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|FilterClause
+name|BooleanClause
 argument_list|(
 name|filter
 argument_list|,
@@ -675,10 +679,17 @@ condition|)
 block|{
 name|boolFilter
 operator|.
+name|setMinimumNumberShouldMatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|boolFilter
+operator|.
 name|add
 argument_list|(
 operator|new
-name|FilterClause
+name|BooleanClause
 argument_list|(
 name|filter
 argument_list|,
@@ -700,9 +711,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[bool] filter does not support ["
 operator|+
@@ -796,9 +804,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[bool] filter does not support ["
 operator|+
@@ -821,9 +826,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[bool] filter has no inner should/must/must_not elements"
 argument_list|)
@@ -848,7 +850,12 @@ block|}
 name|Filter
 name|filter
 init|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 name|boolFilter
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

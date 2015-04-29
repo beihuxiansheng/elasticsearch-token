@@ -167,34 +167,6 @@ name|Delete
 name|delete
 parameter_list|)
 block|{      }
-DECL|method|preDeleteByQuery
-specifier|public
-name|Engine
-operator|.
-name|DeleteByQuery
-name|preDeleteByQuery
-parameter_list|(
-name|Engine
-operator|.
-name|DeleteByQuery
-name|deleteByQuery
-parameter_list|)
-block|{
-return|return
-name|deleteByQuery
-return|;
-block|}
-DECL|method|postDeleteByQuery
-specifier|public
-name|void
-name|postDeleteByQuery
-parameter_list|(
-name|Engine
-operator|.
-name|DeleteByQuery
-name|deleteByQuery
-parameter_list|)
-block|{      }
 block|}
 end_class
 

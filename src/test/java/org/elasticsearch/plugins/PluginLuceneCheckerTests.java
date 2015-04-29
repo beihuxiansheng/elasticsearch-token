@@ -175,7 +175,7 @@ specifier|public
 class|class
 name|PluginLuceneCheckerTests
 extends|extends
-name|ElasticsearchIntegrationTest
+name|PluginTestCase
 block|{
 comment|/**      * We check that no Lucene version checking is done      * when we set `"plugins.check_lucene":false`      */
 annotation|@
@@ -191,8 +191,6 @@ block|{
 name|String
 name|serverNodeId
 init|=
-name|SimpleNodesInfoTests
-operator|.
 name|startNodeWithPlugins
 argument_list|(
 name|settingsBuilder
@@ -340,8 +338,6 @@ block|{
 name|String
 name|serverNodeId
 init|=
-name|SimpleNodesInfoTests
-operator|.
 name|startNodeWithPlugins
 argument_list|(
 name|settingsBuilder

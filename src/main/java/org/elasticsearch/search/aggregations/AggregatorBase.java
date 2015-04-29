@@ -42,6 +42,22 @@ name|aggregations
 operator|.
 name|bucket
 operator|.
+name|BestBucketsDeferringCollector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
 name|DeferringBucketCollector
 import|;
 end_import
@@ -622,8 +638,7 @@ condition|)
 block|{
 name|recordingWrapper
 operator|=
-operator|new
-name|DeferringBucketCollector
+name|getDeferringCollector
 argument_list|()
 expr_stmt|;
 block|}
@@ -706,6 +721,20 @@ operator|.
 name|preCollection
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getDeferringCollector
+specifier|public
+name|DeferringBucketCollector
+name|getDeferringCollector
+parameter_list|()
+block|{
+comment|// Default impl is a collector that selects the best buckets
+comment|// but an alternative defer policy may be based on best docs.
+return|return
+operator|new
+name|BestBucketsDeferringCollector
+argument_list|()
+return|;
 block|}
 comment|/**      * This method should be overidden by subclasses that want to defer calculation      * of a child aggregation until a first pass is complete and a set of buckets has      * been pruned.      * Deferring collection will require the recording of all doc/bucketIds from the first      * pass and then the sub class should call {@link #runDeferredCollections(long...)}      * for the selected set of buckets that survive the pruning.      * @param aggregator the child aggregator      * @return true if the aggregator should be deferred      * until a first pass at collection has completed      */
 DECL|method|shouldDefer

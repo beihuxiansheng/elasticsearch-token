@@ -798,7 +798,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"    start    : took ["
+literal|"    verify_index    : took ["
 argument_list|)
 operator|.
 name|append
@@ -809,7 +809,7 @@ name|timeValueMillis
 argument_list|(
 name|recoveryState
 operator|.
-name|getStart
+name|getVerifyIndex
 argument_list|()
 operator|.
 name|time
@@ -828,7 +828,7 @@ name|timeValueMillis
 argument_list|(
 name|recoveryState
 operator|.
-name|getStart
+name|getVerifyIndex
 argument_list|()
 operator|.
 name|checkIndexTime

@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
+name|TermsQuery
 import|;
 end_import
 
@@ -110,20 +110,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -139,16 +125,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -1379,9 +1355,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[mlt] query does not support ["
 operator|+
@@ -1569,7 +1542,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"ids array element should only contain ids"
 argument_list|)
@@ -1642,7 +1615,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"docs array element should include an object"
 argument_list|)
@@ -1761,9 +1734,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[mlt] query does not support ["
 operator|+
@@ -1848,9 +1818,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[mlt] query does not support ["
 operator|+
@@ -1880,9 +1847,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"more_like_this requires 'like' to be specified"
 argument_list|)
@@ -1905,9 +1869,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"more_like_this requires 'fields' to be non-empty"
 argument_list|)
@@ -2148,9 +2109,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"ambiguous type for item with id: "
 operator|+
@@ -2463,7 +2421,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Content of 'like' parameter should either be a string or an object"
 argument_list|)
@@ -2579,7 +2537,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"more_like_this doesn't support binary/numeric fields: ["
 operator|+
@@ -2675,11 +2633,11 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|TermsFilter
-name|filter
+name|TermsQuery
+name|query
 init|=
 operator|new
-name|TermsFilter
+name|TermsQuery
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -2695,15 +2653,6 @@ index|[
 literal|0
 index|]
 argument_list|)
-argument_list|)
-decl_stmt|;
-name|ConstantScoreQuery
-name|query
-init|=
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|filter
 argument_list|)
 decl_stmt|;
 name|boolQuery

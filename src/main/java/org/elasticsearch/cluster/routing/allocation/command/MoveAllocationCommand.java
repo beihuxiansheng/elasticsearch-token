@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -882,8 +872,6 @@ parameter_list|,
 name|boolean
 name|explain
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|DiscoveryNode
 name|fromDiscoNode
@@ -1002,7 +990,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[move_allocation] can't move "
 operator|+
@@ -1082,7 +1070,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[move_allocation] can't move "
 operator|+
@@ -1230,7 +1218,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[move_allocation] can't move "
 operator|+

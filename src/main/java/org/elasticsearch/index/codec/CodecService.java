@@ -84,16 +84,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|collect
@@ -242,6 +232,16 @@ name|String
 name|BEST_COMPRESSION_CODEC
 init|=
 literal|"best_compression"
+decl_stmt|;
+comment|/** the raw unfiltered lucene default. useful for testing */
+DECL|field|LUCENE_DEFAULT_CODEC
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|LUCENE_DEFAULT_CODEC
+init|=
+literal|"lucene_default"
 decl_stmt|;
 DECL|method|CodecService
 specifier|public
@@ -410,6 +410,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|codecs
+operator|.
+name|put
+argument_list|(
+name|LUCENE_DEFAULT_CODEC
+argument_list|,
+name|Codec
+operator|.
+name|getDefault
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -464,8 +476,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 name|Codec
 name|codec
@@ -486,7 +496,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to find codec ["
 operator|+

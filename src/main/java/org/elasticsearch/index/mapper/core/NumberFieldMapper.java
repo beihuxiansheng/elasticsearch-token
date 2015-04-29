@@ -202,6 +202,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|Term
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|Filter
@@ -230,6 +244,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|TermQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|store
 operator|.
 name|ByteArrayDataOutput
@@ -247,16 +275,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -430,7 +448,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -1466,8 +1484,6 @@ block|}
 catch|catch
 parameter_list|(
 name|IllegalArgumentException
-decl||
-name|ElasticsearchIllegalArgumentException
 name|e1
 parameter_list|)
 block|{
@@ -1650,11 +1666,11 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Numeric field level query are basically range queries with same value and included. That's the recommended      * way to execute it.      */
 annotation|@
 name|Override
 DECL|method|termQuery
 specifier|public
+specifier|final
 name|Query
 name|termQuery
 parameter_list|(
@@ -1668,25 +1684,30 @@ name|context
 parameter_list|)
 block|{
 return|return
-name|rangeQuery
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+name|names
+operator|.
+name|indexName
+argument_list|()
+argument_list|,
+name|indexedValueForSearch
 argument_list|(
 name|value
-argument_list|,
-name|value
-argument_list|,
-literal|true
-argument_list|,
-literal|true
-argument_list|,
-name|context
+argument_list|)
+argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Numeric field level filter are basically range queries with same value and included. That's the recommended      * way to execute it.      */
 annotation|@
 name|Override
 DECL|method|termFilter
 specifier|public
+specifier|final
 name|Filter
 name|termFilter
 parameter_list|(
@@ -1699,16 +1720,15 @@ name|QueryParseContext
 name|context
 parameter_list|)
 block|{
+comment|// Made this method final because previously many subclasses duplicated
+comment|// the same code, returning a NumericRangeFilter, which should be less
+comment|// efficient than super's default impl of a single TermFilter.
 return|return
-name|rangeFilter
+name|super
+operator|.
+name|termFilter
 argument_list|(
 name|value
-argument_list|,
-name|value
-argument_list|,
-literal|true
-argument_list|,
-literal|true
 argument_list|,
 name|context
 argument_list|)
@@ -2168,8 +2188,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -2180,7 +2200,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
@@ -2205,10 +2225,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

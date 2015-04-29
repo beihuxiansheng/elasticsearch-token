@@ -160,16 +160,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -216,9 +206,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
+name|settings
 operator|.
-name|Lucene
+name|ImmutableSettings
 import|;
 end_import
 
@@ -502,7 +492,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"synonym requires either `synonyms` or `synonyms_path` to be configured"
 argument_list|)
@@ -581,7 +571,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to find tokenizer ["
 operator|+
@@ -601,7 +591,23 @@ name|create
 argument_list|(
 name|tokenizerName
 argument_list|,
+name|ImmutableSettings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
 name|indexSettings
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|settings
+argument_list|)
+operator|.
+name|build
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Analyzer
@@ -754,7 +760,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to build synonyms"
 argument_list|,

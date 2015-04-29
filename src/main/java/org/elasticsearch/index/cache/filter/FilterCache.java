@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -188,7 +188,7 @@ name|Nullable
 name|HashedBytesRef
 name|cacheKey
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|policy
 parameter_list|)
 function_decl|;

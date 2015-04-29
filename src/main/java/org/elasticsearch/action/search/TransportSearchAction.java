@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -336,6 +326,10 @@ argument_list|,
 name|transportService
 argument_list|,
 name|actionFilters
+argument_list|,
+name|SearchRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -704,7 +698,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Unknown search type: ["
 operator|+
@@ -717,20 +711,6 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|newRequestInstance
-specifier|public
-name|SearchRequest
-name|newRequestInstance
-parameter_list|()
-block|{
-return|return
-operator|new
-name|SearchRequest
-argument_list|()
-return|;
 block|}
 block|}
 end_class

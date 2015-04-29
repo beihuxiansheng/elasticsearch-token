@@ -169,6 +169,11 @@ name|ignoreIdleThreads
 init|=
 literal|true
 decl_stmt|;
+comment|// for serialization
+DECL|method|NodesHotThreadsRequest
+name|NodesHotThreadsRequest
+parameter_list|()
+block|{      }
 comment|/**      * Get hot threads from nodes based on the nodes ids specified. If none are passed, hot      * threads for all nodes is used.      */
 DECL|method|NodesHotThreadsRequest
 specifier|public

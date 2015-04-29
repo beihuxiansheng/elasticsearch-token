@@ -1134,14 +1134,14 @@ expr_stmt|;
 return|return;
 block|}
 comment|// poor mans request cloning...
-name|TransportRequestHandler
-name|handler
+name|RequestHandlerRegistry
+name|reg
 init|=
 name|MockTransportService
 operator|.
 name|this
 operator|.
-name|getHandler
+name|getRequestHandler
 argument_list|(
 name|action
 argument_list|)
@@ -1164,9 +1164,9 @@ specifier|final
 name|TransportRequest
 name|clonedRequest
 init|=
-name|handler
+name|reg
 operator|.
-name|newInstance
+name|newRequest
 argument_list|()
 decl_stmt|;
 name|clonedRequest
@@ -1826,8 +1826,6 @@ specifier|public
 name|Transport
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transport
 operator|.
@@ -1845,8 +1843,6 @@ specifier|public
 name|Transport
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transport
 operator|.
@@ -1864,8 +1860,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transport
 operator|.

@@ -130,16 +130,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -448,22 +438,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|distributor
-operator|.
-name|Distributor
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -735,9 +709,6 @@ parameter_list|,
 name|DirectoryService
 name|directoryService
 parameter_list|,
-name|Distributor
-name|distributor
-parameter_list|,
 name|ShardLock
 name|shardLock
 parameter_list|)
@@ -751,8 +722,6 @@ argument_list|,
 name|indexSettings
 argument_list|,
 name|directoryService
-argument_list|,
-name|distributor
 argument_list|,
 name|shardLock
 argument_list|,
@@ -779,9 +748,6 @@ parameter_list|,
 name|DirectoryService
 name|directoryService
 parameter_list|,
-name|Distributor
-name|distributor
-parameter_list|,
 name|ShardLock
 name|shardLock
 parameter_list|,
@@ -807,10 +773,8 @@ name|StoreDirectory
 argument_list|(
 name|directoryService
 operator|.
-name|newFromDistributor
-argument_list|(
-name|distributor
-argument_list|)
+name|newDirectory
+argument_list|()
 argument_list|,
 name|Loggers
 operator|.
@@ -1034,7 +998,6 @@ name|void
 name|ensureOpen
 parameter_list|()
 block|{
-comment|// for testing
 if|if
 condition|(
 name|this
@@ -1056,7 +1019,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                               unexpected exception when opening the index reading the segments file.      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store or      * an empty snapshot if no index exists or can not be opened.      *      * @throws CorruptIndexException if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                               unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException  if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException  if the lucene index is too new to be opened.      */
 DECL|method|getMetadataOrEmpty
 specifier|public
 name|MetadataSnapshot
@@ -1104,7 +1067,7 @@ operator|.
 name|EMPTY
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the latest commit in this store.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException  if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException  if the lucene index is too new to be opened.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if no index / valid commit-point can be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1120,7 +1083,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
+comment|/**      * Returns a new MetadataSnapshot for the given commit. If the given commit is<code>null</code>      * the latest commit point is used.      *      * @throws CorruptIndexException  if the lucene index is corrupted. This can be caused by a checksum mismatch or an      *                                unexpected exception when opening the index reading the segments file.      * @throws IndexFormatTooOldException  if the lucene index is too old to be opened.      * @throws IndexFormatTooNewException  if the lucene index is too new to be opened.      * @throws FileNotFoundException  if one or more files referenced by a commit are not present.      * @throws NoSuchFileException    if one or more files referenced by a commit are not present.      * @throws IndexNotFoundException if the commit point can't be found in this store      */
 DECL|method|getMetadata
 specifier|public
 name|MetadataSnapshot
@@ -1729,8 +1692,7 @@ name|MetadataSnapshot
 name|readMetadataSnapshot
 parameter_list|(
 name|Path
-index|[]
-name|indexLocations
+name|indexLocation
 parameter_list|,
 name|ESLogger
 name|logger
@@ -1738,62 +1700,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|Directory
-index|[]
-name|dirs
-init|=
-operator|new
-name|Directory
-index|[
-name|indexLocations
-operator|.
-name|length
-index|]
-decl_stmt|;
 try|try
-block|{
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-name|indexLocations
-operator|.
-name|length
-condition|;
-name|i
-operator|++
-control|)
-block|{
-name|dirs
-index|[
-name|i
-index|]
-operator|=
-operator|new
-name|SimpleFSDirectory
-argument_list|(
-name|indexLocations
-index|[
-name|i
-index|]
-argument_list|)
-expr_stmt|;
-block|}
-name|DistributorDirectory
+init|(
+name|Directory
 name|dir
 init|=
 operator|new
-name|DistributorDirectory
+name|SimpleFSDirectory
 argument_list|(
-name|dirs
+name|indexLocation
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|failIfCorrupted
 argument_list|(
 name|dir
@@ -1840,16 +1758,6 @@ operator|.
 name|info
 argument_list|(
 literal|"Failed to open / find files while reading metadata snapshot"
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-name|IOUtils
-operator|.
-name|close
-argument_list|(
-name|dirs
 argument_list|)
 expr_stmt|;
 block|}
@@ -2838,7 +2746,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method deletes every file in this store that is not contained in the given source meta data or is a      * legacy checksum file. After the delete it pulls the latest metadata snapshot from the store and compares it      * to the given snapshot. If the snapshots are inconsistent an illegal state exception is thrown      *      * @param reason         the reason for this cleanup operation logged for each deleted file      * @param sourceMetaData the metadata used for cleanup. all files in this metadata should be kept around.      * @throws IOException                        if an IOException occurs      * @throws ElasticsearchIllegalStateException if the latest snapshot in this store differs from the given one after the cleanup.      */
+comment|/**      * This method deletes every file in this store that is not contained in the given source meta data or is a      * legacy checksum file. After the delete it pulls the latest metadata snapshot from the store and compares it      * to the given snapshot. If the snapshots are inconsistent an illegal state exception is thrown      *      * @param reason         the reason for this cleanup operation logged for each deleted file      * @param sourceMetaData the metadata used for cleanup. all files in this metadata should be kept around.      * @throws IOException                        if an IOException occurs      * @throws IllegalStateException if the latest snapshot in this store differs from the given one after the cleanup.      */
 DECL|method|cleanupAndVerify
 specifier|public
 name|void
@@ -2853,9 +2761,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|failIfCorrupted
-argument_list|()
-expr_stmt|;
 name|metadataLock
 operator|.
 name|writeLock
@@ -2994,7 +2899,7 @@ comment|// TODO do we need to also fail this if we can't delete the pending comm
 comment|// if one of those files can't be deleted we better fail the cleanup otherwise we might leave an old commit point around?
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete "
 operator|+
@@ -3221,7 +3126,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"local version: "
 operator|+
@@ -3250,7 +3155,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Files are missing on the recovery target: [different="
 operator|+

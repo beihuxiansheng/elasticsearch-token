@@ -236,9 +236,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[limit] filter does not support ["
 operator|+
@@ -263,9 +260,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for limit filter"
 argument_list|)
@@ -275,7 +269,8 @@ comment|// this filter is deprecated and parses to a filter that matches everyth
 return|return
 name|Queries
 operator|.
-name|MATCH_ALL_FILTER
+name|newMatchAllFilter
+argument_list|()
 return|;
 block|}
 block|}

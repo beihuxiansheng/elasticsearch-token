@@ -586,42 +586,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|closeTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|*
 import|;
 end_import
@@ -726,7 +690,7 @@ literal|"path.conf"
 argument_list|,
 name|this
 operator|.
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"config"
 argument_list|)

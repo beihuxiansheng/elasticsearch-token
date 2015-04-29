@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|IndexOptions
+name|BooleanClause
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
+name|BooleanQuery
 import|;
 end_import
 
@@ -68,7 +68,21 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermRangeFilter
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermRangeQuery
 import|;
 end_import
 
@@ -112,39 +126,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NotFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Queries
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|XBooleanFilter
 import|;
 end_import
 
@@ -471,9 +453,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[missing] filter does not support ["
 operator|+
@@ -497,9 +476,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"missing must be provided with a [field]"
 argument_list|)
@@ -556,9 +532,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"missing must have either existence, or null_value, or both set to true"
 argument_list|)
@@ -573,7 +546,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|indexName
+name|fullName
 argument_list|(
 name|FieldNamesFieldMapper
 operator|.
@@ -654,7 +627,8 @@ comment|// if we ask for existence of fields, and we found none, then we should 
 return|return
 name|Queries
 operator|.
-name|MATCH_ALL_FILTER
+name|newMatchAllFilter
+argument_list|()
 return|;
 block|}
 return|return
@@ -683,11 +657,11 @@ condition|(
 name|existence
 condition|)
 block|{
-name|XBooleanFilter
+name|BooleanQuery
 name|boolFilter
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
 for|for
@@ -722,7 +696,7 @@ operator|=
 name|smartNameFieldMappers
 expr_stmt|;
 block|}
-name|Filter
+name|Query
 name|filter
 init|=
 literal|null
@@ -836,7 +810,7 @@ block|{
 name|filter
 operator|=
 operator|new
-name|TermRangeFilter
+name|TermRangeQuery
 argument_list|(
 name|field
 argument_list|,
@@ -868,11 +842,20 @@ comment|// we always cache this one, really does not change... (exists)
 comment|// its ok to cache under the fieldName cacheKey, since its per segment and the mapping applies to this data on this segment...
 name|existenceFilter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
+name|boolFilter
+argument_list|)
+expr_stmt|;
+name|existenceFilter
+operator|=
 name|parseContext
 operator|.
 name|cacheFilter
 argument_list|(
-name|boolFilter
+name|existenceFilter
 argument_list|,
 operator|new
 name|HashedBytesRef
@@ -890,10 +873,16 @@ argument_list|)
 expr_stmt|;
 name|existenceFilter
 operator|=
-operator|new
-name|NotFilter
+name|Queries
+operator|.
+name|wrap
+argument_list|(
+name|Queries
+operator|.
+name|not
 argument_list|(
 name|existenceFilter
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// cache the not filter as well, so it will be faster
@@ -1018,11 +1007,11 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|XBooleanFilter
+name|BooleanQuery
 name|combined
 init|=
 operator|new
-name|XBooleanFilter
+name|BooleanQuery
 argument_list|()
 decl_stmt|;
 name|combined
@@ -1058,7 +1047,12 @@ name|parseContext
 operator|.
 name|cacheFilter
 argument_list|(
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 name|combined
+argument_list|)
 argument_list|,
 literal|null
 argument_list|,

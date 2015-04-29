@@ -224,7 +224,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -797,9 +797,12 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
-name|Mapper
+name|FieldMapper
 name|stringMapper
 init|=
+operator|(
+name|FieldMapper
+operator|)
 name|stringBuilder
 operator|.
 name|build
@@ -1104,7 +1107,7 @@ decl_stmt|;
 DECL|field|stringMapper
 specifier|private
 specifier|final
-name|Mapper
+name|FieldMapper
 name|stringMapper
 decl_stmt|;
 DECL|method|ExternalMapper
@@ -1134,7 +1137,7 @@ parameter_list|,
 name|GeoShapeFieldMapper
 name|shapeMapper
 parameter_list|,
-name|Mapper
+name|FieldMapper
 name|stringMapper
 parameter_list|,
 name|Settings
@@ -1249,7 +1252,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1385,21 +1388,9 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|copyTo
-operator|!=
+return|return
 literal|null
-condition|)
-block|{
-name|copyTo
-operator|.
-name|parse
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
-block|}
+return|;
 block|}
 annotation|@
 name|Override
@@ -1436,8 +1427,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException

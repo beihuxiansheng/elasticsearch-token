@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
+name|search
 operator|.
-name|TermFilter
+name|Filter
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|TermQuery
 import|;
 end_import
 
@@ -83,6 +83,22 @@ operator|.
 name|inject
 operator|.
 name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -231,9 +247,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[type] filter should have a value field, and the type name"
 argument_list|)
@@ -263,9 +276,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[type] filter should have a value field, and the type name"
 argument_list|)
@@ -294,9 +304,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[type] filter should have a value field, and the type name"
 argument_list|)
@@ -345,8 +352,12 @@ condition|)
 block|{
 name|filter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 operator|new
 name|Term
@@ -356,6 +367,7 @@ operator|.
 name|NAME
 argument_list|,
 name|type
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

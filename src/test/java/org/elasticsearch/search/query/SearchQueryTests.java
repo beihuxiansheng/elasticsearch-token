@@ -34,6 +34,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -428,22 +444,6 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_NUMBER_OF_REPLICAS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
 name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
@@ -538,6 +538,20 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|VersionUtils
+operator|.
+name|randomVersion
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -559,6 +573,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Slow
 DECL|class|SearchQueryTests
 specifier|public
 class|class
@@ -4985,7 +5001,7 @@ name|assertTrue
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains
@@ -5052,7 +5068,10 @@ block|}
 name|version
 operator|=
 name|randomVersion
+argument_list|(
+name|random
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -5702,7 +5721,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -14985,8 +15004,6 @@ name|void
 name|testMustNot
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -15192,8 +15209,6 @@ name|void
 name|testSimpleSpan
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -15386,8 +15401,6 @@ name|void
 name|testSpanMultiTermQuery
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|createIndex
@@ -15721,8 +15734,6 @@ name|void
 name|testSpanNot
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -16124,8 +16135,6 @@ name|void
 name|testSimpleDFSQuery
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -24678,12 +24687,12 @@ literal|"query could not be parsed due to bad format: "
 operator|+
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 operator|.
 name|contains

@@ -352,10 +352,6 @@ operator|=
 operator|new
 name|BigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 literal|null
 argument_list|,
 operator|new
@@ -1780,7 +1776,7 @@ decl_stmt|;
 name|Path
 name|tFile
 init|=
-name|newTempFilePath
+name|createTempFile
 argument_list|()
 decl_stmt|;
 try|try
@@ -2019,7 +2015,7 @@ decl_stmt|;
 name|Path
 name|tFile
 init|=
-name|newTempFilePath
+name|createTempFile
 argument_list|()
 decl_stmt|;
 try|try

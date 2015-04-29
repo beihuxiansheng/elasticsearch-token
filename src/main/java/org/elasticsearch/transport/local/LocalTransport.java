@@ -699,8 +699,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|String
 name|address
@@ -789,8 +787,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transports
 operator|.
@@ -864,8 +860,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|ThreadPool
 operator|.
@@ -1617,19 +1611,19 @@ decl_stmt|;
 try|try
 block|{
 specifier|final
-name|TransportRequestHandler
-name|handler
+name|RequestHandlerRegistry
+name|reg
 init|=
 name|transportServiceAdapter
 operator|.
-name|handler
+name|getRequestHandler
 argument_list|(
 name|action
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|handler
+name|reg
 operator|==
 literal|null
 condition|)
@@ -1650,9 +1644,9 @@ specifier|final
 name|TransportRequest
 name|request
 init|=
-name|handler
+name|reg
 operator|.
-name|newInstance
+name|newRequest
 argument_list|()
 decl_stmt|;
 name|request
@@ -1684,15 +1678,18 @@ name|SAME
 operator|.
 name|equals
 argument_list|(
-name|handler
+name|reg
 operator|.
-name|executor
+name|getExecutor
 argument_list|()
 argument_list|)
 condition|)
 block|{
 comment|//noinspection unchecked
-name|handler
+name|reg
+operator|.
+name|getHandler
+argument_list|()
 operator|.
 name|messageReceived
 argument_list|(
@@ -1708,9 +1705,9 @@ name|threadPool
 operator|.
 name|executor
 argument_list|(
-name|handler
+name|reg
 operator|.
-name|executor
+name|getExecutor
 argument_list|()
 argument_list|)
 operator|.
@@ -1730,7 +1727,10 @@ throws|throws
 name|Exception
 block|{
 comment|//noinspection unchecked
-name|handler
+name|reg
+operator|.
+name|getHandler
+argument_list|()
 operator|.
 name|messageReceived
 argument_list|(
@@ -1748,7 +1748,7 @@ name|isForceExecution
 parameter_list|()
 block|{
 return|return
-name|handler
+name|reg
 operator|.
 name|isForceExecution
 argument_list|()

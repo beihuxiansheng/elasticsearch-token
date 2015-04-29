@@ -122,16 +122,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -274,7 +264,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -2106,7 +2096,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"unknown property ["
 operator|+
@@ -2163,8 +2153,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -2175,7 +2165,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
@@ -2200,10 +2190,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()
@@ -2359,9 +2346,19 @@ name|searchQuotedAnalyzer
 operator|!=
 literal|null
 operator|&&
-name|searchAnalyzer
-operator|!=
+operator|!
 name|searchQuotedAnalyzer
+operator|.
+name|name
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|searchAnalyzer
+operator|.
+name|name
+argument_list|()
+argument_list|)
 condition|)
 block|{
 name|builder

@@ -70,7 +70,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|NotFilter
+name|Queries
 import|;
 end_import
 
@@ -401,9 +401,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[not] filter does not support ["
 operator|+
@@ -426,9 +423,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"filter is required when using `not` filter"
 argument_list|)
@@ -448,10 +442,16 @@ block|}
 name|Filter
 name|notFilter
 init|=
-operator|new
-name|NotFilter
+name|Queries
+operator|.
+name|wrap
+argument_list|(
+name|Queries
+operator|.
+name|not
 argument_list|(
 name|filter
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if

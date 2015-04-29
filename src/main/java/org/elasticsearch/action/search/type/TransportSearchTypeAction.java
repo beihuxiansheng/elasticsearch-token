@@ -64,16 +64,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -389,20 +379,6 @@ operator|.
 name|search
 operator|.
 name|SearchShardTarget
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|action
-operator|.
-name|SearchServiceListener
 import|;
 end_import
 
@@ -1213,7 +1189,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 operator|new
-name|SearchServiceListener
+name|ActionListener
 argument_list|<
 name|FirstResult
 argument_list|>
@@ -1223,7 +1199,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onResult
+name|onResponse
 parameter_list|(
 name|FirstResult
 name|result
@@ -1426,7 +1402,7 @@ block|{
 name|raiseEarlyFailure
 argument_list|(
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"unexpected higher total ops ["
 operator|+
@@ -2490,7 +2466,7 @@ parameter_list|,
 name|ShardSearchTransportRequest
 name|request
 parameter_list|,
-name|SearchServiceListener
+name|ActionListener
 argument_list|<
 name|FirstResult
 argument_list|>

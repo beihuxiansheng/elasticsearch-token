@@ -1158,6 +1158,16 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+comment|// like limittokencount, but by offset
+name|put
+argument_list|(
+literal|"limittokenoffset"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// like limittokencount, but by position
 name|put
 argument_list|(

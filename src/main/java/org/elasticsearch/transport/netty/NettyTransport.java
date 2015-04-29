@@ -816,20 +816,6 @@ name|concurrent
 operator|.
 name|atomic
 operator|.
-name|AtomicLong
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|atomic
-operator|.
 name|AtomicReference
 import|;
 end_import
@@ -1667,7 +1653,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"can't set [connection_per_node.reg] to 0"
 argument_list|)
@@ -1684,7 +1670,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"can't set [connection_per_node.ping] to 0"
 argument_list|)
@@ -1701,7 +1687,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"can't set [connection_per_node.state] to 0"
 argument_list|)
@@ -1721,10 +1707,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|directMemoryMax
+name|getDirectMemoryMax
 argument_list|()
 operator|.
 name|bytes
@@ -1749,10 +1735,10 @@ operator|.
 name|jvmInfo
 argument_list|()
 operator|.
-name|mem
+name|getMem
 argument_list|()
 operator|.
-name|directMemoryMax
+name|getDirectMemoryMax
 argument_list|()
 operator|.
 name|bytes
@@ -2004,8 +1990,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|boolean
 name|success
@@ -3836,8 +3820,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|CountDownLatch
@@ -4234,8 +4216,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -5397,7 +5377,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"can't add nodes to a stopped transport"
 argument_list|)
@@ -5453,7 +5433,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"can't add nodes to a stopped transport"
 argument_list|)
@@ -8014,7 +7994,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"no type channel for ["
 operator|+

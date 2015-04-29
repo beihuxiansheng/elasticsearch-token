@@ -136,7 +136,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -146,7 +146,7 @@ specifier|public
 class|class
 name|AndDocIdSetTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|method|randomBitSet
 specifier|private

@@ -256,8 +256,6 @@ parameter_list|,
 name|boolean
 name|explain
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

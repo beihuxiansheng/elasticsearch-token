@@ -96,7 +96,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -111,16 +111,6 @@ operator|.
 name|util
 operator|.
 name|Bits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -186,7 +176,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptParameterParser
+name|LeafSearchScript
 import|;
 end_import
 
@@ -198,7 +188,31 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|*
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptParameterParser
 import|;
 end_import
 
@@ -371,7 +385,7 @@ operator|.
 name|Token
 name|token
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext
@@ -494,9 +508,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[script] filter does not support ["
 operator|+
@@ -604,9 +615,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[script] filter does not support ["
 operator|+
@@ -667,9 +675,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"script must be provided with a [script] filter"
 argument_list|)
@@ -838,22 +843,26 @@ name|search
 argument_list|(
 name|searchLookup
 argument_list|,
+operator|new
+name|Script
+argument_list|(
 name|scriptLang
 argument_list|,
 name|script
 argument_list|,
 name|scriptType
 argument_list|,
+name|newHashMap
+argument_list|(
+name|params
+argument_list|)
+argument_list|)
+argument_list|,
 name|ScriptContext
 operator|.
 name|Standard
 operator|.
 name|SEARCH
-argument_list|,
-name|newHashMap
-argument_list|(
-name|params
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1217,7 +1226,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Can't handle type ["
 operator|+

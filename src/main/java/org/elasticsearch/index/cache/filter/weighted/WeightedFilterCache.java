@@ -156,7 +156,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -575,8 +575,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|clear
 argument_list|(
@@ -809,7 +807,7 @@ name|Nullable
 name|HashedBytesRef
 name|cacheKey
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 parameter_list|)
 block|{
@@ -902,7 +900,7 @@ decl_stmt|;
 DECL|field|cachePolicy
 specifier|private
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 decl_stmt|;
 DECL|field|cache
@@ -920,7 +918,7 @@ parameter_list|,
 name|Object
 name|cacheKey
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 parameter_list|,
 name|WeightedFilterCache
@@ -1073,8 +1071,6 @@ argument_list|(
 name|filter
 argument_list|,
 name|context
-argument_list|,
-name|uncached
 argument_list|)
 condition|)
 block|{
@@ -1301,12 +1297,14 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
-operator|(
+name|super
+operator|.
+name|equals
+argument_list|(
 name|o
-operator|instanceof
-name|FilterCacheFilterWrapper
-operator|)
+argument_list|)
+operator|==
+literal|false
 condition|)
 return|return
 literal|false
@@ -1338,12 +1336,17 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
+literal|31
+operator|*
+name|super
+operator|.
+name|hashCode
+argument_list|()
+operator|+
 name|filter
 operator|.
 name|hashCode
 argument_list|()
-operator|^
-literal|0x1117BF25
 return|;
 block|}
 block|}

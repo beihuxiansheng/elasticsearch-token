@@ -20,6 +20,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Description
@@ -43,6 +53,16 @@ operator|.
 name|hamcrest
 operator|.
 name|TypeSafeMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -131,6 +151,22 @@ name|size
 operator|==
 name|count
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"failed to advance iterator"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
 block|}
 finally|finally
 block|{

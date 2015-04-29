@@ -54,21 +54,7 @@ name|lucene
 operator|.
 name|queries
 operator|.
-name|TermsFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|ConstantScoreQuery
+name|TermsQuery
 import|;
 end_import
 
@@ -451,9 +437,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for term filter"
 argument_list|)
@@ -474,9 +457,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Illegal value for id, expecting a string or number, got: "
 operator|+
@@ -549,9 +529,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No type specified for term filter"
 argument_list|)
@@ -573,9 +550,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] query does not support ["
 operator|+
@@ -670,9 +644,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] query does not support ["
 operator|+
@@ -695,9 +666,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] query, no ids values provided"
 argument_list|)
@@ -774,11 +742,11 @@ name|types
 argument_list|()
 expr_stmt|;
 block|}
-name|TermsFilter
-name|filter
+name|TermsQuery
+name|query
 init|=
 operator|new
-name|TermsFilter
+name|TermsQuery
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -792,16 +760,6 @@ name|types
 argument_list|,
 name|ids
 argument_list|)
-argument_list|)
-decl_stmt|;
-comment|// no need for constant score filter, since we don't cache the filter, and it always takes deletes into account
-name|ConstantScoreQuery
-name|query
-init|=
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|filter
 argument_list|)
 decl_stmt|;
 name|query

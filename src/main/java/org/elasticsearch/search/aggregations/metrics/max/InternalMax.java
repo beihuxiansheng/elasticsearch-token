@@ -580,6 +580,15 @@ operator|&&
 name|valueFormatter
 operator|!=
 literal|null
+operator|&&
+operator|!
+operator|(
+name|valueFormatter
+operator|instanceof
+name|ValueFormatter
+operator|.
+name|Raw
+operator|)
 condition|)
 block|{
 name|builder

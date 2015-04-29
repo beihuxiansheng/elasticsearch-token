@@ -32,16 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -365,7 +355,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{      }
 annotation|@
 name|Override
@@ -378,7 +368,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{      }
 annotation|@
 name|Override
@@ -573,8 +563,6 @@ specifier|public
 name|ClusterService
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 literal|null
@@ -587,8 +575,6 @@ specifier|public
 name|ClusterService
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 literal|null
@@ -601,8 +587,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{      }
 block|}
 end_class

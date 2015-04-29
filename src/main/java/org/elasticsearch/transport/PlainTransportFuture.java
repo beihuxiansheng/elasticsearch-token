@@ -30,16 +30,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchTimeoutException
 import|;
 end_import
@@ -160,8 +150,6 @@ specifier|public
 name|V
 name|txGet
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -186,7 +174,7 @@ argument_list|()
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Future got interrupted"
 argument_list|,
@@ -247,8 +235,6 @@ parameter_list|,
 name|TimeUnit
 name|unit
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -286,7 +272,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Future got interrupted"
 argument_list|,

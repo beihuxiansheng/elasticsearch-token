@@ -100,26 +100,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -852,7 +832,7 @@ name|nio
 operator|.
 name|file
 operator|.
-name|Path
+name|Files
 import|;
 end_import
 
@@ -1178,8 +1158,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1188,8 +1166,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableSet
 argument_list|<
@@ -1360,8 +1336,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|IOUtils
 operator|.
@@ -1957,8 +1931,6 @@ parameter_list|,
 name|String
 name|localNodeId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -1971,7 +1943,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't create an index ["
 operator|+
@@ -2349,8 +2321,6 @@ parameter_list|,
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|removeIndex
 argument_list|(
@@ -2376,8 +2346,6 @@ parameter_list|,
 name|boolean
 name|delete
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -3077,7 +3045,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete closed index store for ["
 operator|+
@@ -3207,7 +3175,7 @@ argument_list|()
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete index store for ["
 operator|+
@@ -3274,7 +3242,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete closed index store for ["
 operator|+
@@ -3568,7 +3536,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete shard "
 operator|+
@@ -3830,28 +3798,48 @@ name|hasNodeFile
 argument_list|()
 condition|)
 block|{
-specifier|final
-name|Path
-index|[]
-name|shardLocations
-init|=
-name|nodeEnv
+if|if
+condition|(
+name|NodeEnvironment
 operator|.
-name|shardDataPaths
+name|hasCustomDataPath
 argument_list|(
-name|shardId
-argument_list|,
 name|indexSettings
 argument_list|)
-decl_stmt|;
+condition|)
+block|{
+return|return
+name|Files
+operator|.
+name|exists
+argument_list|(
+name|nodeEnv
+operator|.
+name|resolveCustomLocation
+argument_list|(
+name|indexSettings
+argument_list|,
+name|shardId
+argument_list|)
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|FileSystemUtils
 operator|.
 name|exists
 argument_list|(
-name|shardLocations
+name|nodeEnv
+operator|.
+name|availableShardPaths
+argument_list|(
+name|shardId
+argument_list|)
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 else|else
@@ -3947,7 +3935,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"shardId must not be null"
 argument_list|)
@@ -3962,7 +3950,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"settings must not be null"
 argument_list|)

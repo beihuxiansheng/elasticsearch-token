@@ -160,20 +160,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|IndexOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -276,7 +262,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -358,7 +344,7 @@ specifier|public
 class|class
 name|VersionsTests
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 DECL|method|reopen
 specifier|public

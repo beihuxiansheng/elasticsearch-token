@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|index
@@ -55,6 +65,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
 import|;
 end_import
 
@@ -1686,7 +1710,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"(MATCH) weight(comments.message:fox in"
+literal|"weight(comments.message:fox in"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3729,7 +3753,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"(MATCH) weight(message:fox"
+literal|"weight(message:fox"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8775,6 +8799,19 @@ argument_list|(
 literal|"articles"
 argument_list|)
 operator|.
+name|setSettings
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
+argument_list|)
+operator|.
 name|addMapping
 argument_list|(
 literal|"article"
@@ -9249,6 +9286,19 @@ argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"articles"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
 argument_list|)
 operator|.
 name|addMapping

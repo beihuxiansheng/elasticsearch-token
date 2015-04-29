@@ -40,6 +40,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|MatchAllDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -508,7 +522,7 @@ literal|"path.conf"
 argument_list|,
 name|this
 operator|.
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"config"
 argument_list|)
@@ -806,7 +820,7 @@ literal|"Parsing template query failed."
 argument_list|,
 name|query
 operator|instanceof
-name|ConstantScoreQuery
+name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}
@@ -875,7 +889,7 @@ literal|"Parsing template query failed."
 argument_list|,
 name|query
 operator|instanceof
-name|ConstantScoreQuery
+name|MatchAllDocsQuery
 argument_list|)
 expr_stmt|;
 block|}

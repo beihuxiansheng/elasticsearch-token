@@ -451,8 +451,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// We need to clear the docIdSets, otherwise this is leaved unused
 comment|// DocIdSets around and can potentially become a memory leak.

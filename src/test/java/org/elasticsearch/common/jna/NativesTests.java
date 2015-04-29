@@ -166,6 +166,18 @@ name|void
 name|saveProperties
 parameter_list|()
 block|{
+name|assumeTrue
+argument_list|(
+literal|"Natives can't load libraries from path if security manager is enabled."
+argument_list|,
+name|System
+operator|.
+name|getSecurityManager
+argument_list|()
+operator|==
+literal|null
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|String

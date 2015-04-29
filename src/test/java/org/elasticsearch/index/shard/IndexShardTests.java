@@ -22,26 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -414,7 +394,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }
@@ -496,7 +476,7 @@ name|state1
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -511,7 +491,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -543,7 +523,7 @@ name|state2
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -557,7 +537,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -591,7 +571,7 @@ name|state3
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -605,7 +585,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|id
 argument_list|)
@@ -694,7 +674,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -749,7 +729,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -833,7 +813,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -917,7 +897,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1031,7 +1011,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1115,7 +1095,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1206,7 +1186,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1326,7 +1306,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -1349,7 +1329,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.
@@ -1437,7 +1417,7 @@ name|logger
 argument_list|,
 name|env
 operator|.
-name|shardPaths
+name|availableShardPaths
 argument_list|(
 name|shard
 operator|.

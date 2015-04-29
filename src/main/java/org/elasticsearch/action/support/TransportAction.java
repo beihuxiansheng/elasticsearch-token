@@ -235,8 +235,6 @@ parameter_list|(
 name|Request
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|PlainActionFuture
 argument_list|<

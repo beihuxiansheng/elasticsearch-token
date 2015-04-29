@@ -137,7 +137,7 @@ block|{
 name|Path
 name|translogFile
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v0.binary"
 argument_list|)
@@ -396,6 +396,11 @@ parameter_list|)
 block|{
 comment|// success
 block|}
+name|in
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -410,7 +415,7 @@ block|{
 name|Path
 name|translogFile
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1.binary"
 argument_list|)
@@ -681,6 +686,11 @@ literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|in
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -697,7 +707,7 @@ block|{
 name|Path
 name|translogFile
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1-corrupted-magic.binary"
 argument_list|)
@@ -772,7 +782,7 @@ block|{
 name|Path
 name|translogFile
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-invalid-first-byte.binary"
 argument_list|)
@@ -847,7 +857,7 @@ block|{
 name|Path
 name|translogFile
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1-corrupted-body.binary"
 argument_list|)
@@ -971,7 +981,7 @@ block|{
 name|Path
 name|translogFile
 init|=
-name|getResourcePath
+name|getDataPath
 argument_list|(
 literal|"/org/elasticsearch/index/translog/translog-v1-truncated.binary"
 argument_list|)

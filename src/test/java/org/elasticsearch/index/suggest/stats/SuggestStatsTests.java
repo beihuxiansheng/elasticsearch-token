@@ -286,6 +286,22 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
+operator|.
+name|SUITE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
@@ -327,6 +343,15 @@ comment|/**  */
 end_comment
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|minNumDataNodes
+operator|=
+literal|2
+argument_list|)
 DECL|class|SuggestStatsTests
 specifier|public
 class|class

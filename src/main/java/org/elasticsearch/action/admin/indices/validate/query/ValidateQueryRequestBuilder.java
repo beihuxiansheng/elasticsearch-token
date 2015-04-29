@@ -257,6 +257,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Indicates whether the query should be rewritten into primitive queries      */
+DECL|method|setRewrite
+specifier|public
+name|ValidateQueryRequestBuilder
+name|setRewrite
+parameter_list|(
+name|boolean
+name|rewrite
+parameter_list|)
+block|{
+name|request
+operator|.
+name|rewrite
+argument_list|(
+name|rewrite
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doExecute

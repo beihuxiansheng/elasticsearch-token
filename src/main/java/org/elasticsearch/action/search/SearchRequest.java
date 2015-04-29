@@ -32,16 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequest
@@ -674,7 +664,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"indices must not be null"
 argument_list|)
@@ -711,7 +701,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"indices["
 operator|+
@@ -917,8 +907,6 @@ parameter_list|(
 name|String
 name|searchType
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 return|return
 name|searchType

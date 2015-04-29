@@ -60,9 +60,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|ExceptionsHelper
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|SuppressCodecs
 import|;
 end_import
 
@@ -462,20 +468,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -669,6 +661,12 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|SuppressCodecs
+argument_list|(
+literal|"*"
+argument_list|)
+comment|// requires custom completion format
 DECL|class|CompletionSuggestSearchTests
 specifier|public
 class|class
@@ -1498,12 +1496,10 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -1825,12 +1821,10 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -1940,12 +1934,10 @@ parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
@@ -6141,7 +6133,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -8882,7 +8874,7 @@ name|assertTrue
 argument_list|(
 name|e
 operator|.
-name|getDetailedMessage
+name|toString
 argument_list|()
 operator|.
 name|contains

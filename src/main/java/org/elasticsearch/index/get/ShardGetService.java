@@ -74,16 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -770,8 +760,6 @@ parameter_list|,
 name|boolean
 name|ignoreErrorsOnGeneratedFields
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|currentMetric
 operator|.
@@ -1178,8 +1166,6 @@ parameter_list|,
 name|boolean
 name|ignoreErrorsOnGeneratedFields
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|fetchSourceContext
 operator|=
@@ -1897,7 +1883,7 @@ block|{
 comment|// Only fail if we know it is a object field, missing paths / fields shouldn't fail.
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
@@ -2693,7 +2679,7 @@ name|value
 init|=
 literal|null
 decl_stmt|;
-name|FieldMappers
+name|FieldMapper
 name|fieldMapper
 init|=
 name|docMapper
@@ -2701,7 +2687,7 @@ operator|.
 name|mappers
 argument_list|()
 operator|.
-name|smartName
+name|smartNameFieldMapper
 argument_list|(
 name|field
 argument_list|)
@@ -2731,7 +2717,7 @@ block|{
 comment|// Only fail if we know it is a object field, missing paths / fields shouldn't fail.
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"field ["
 operator|+
@@ -2748,9 +2734,6 @@ condition|(
 operator|!
 name|fieldMapper
 operator|.
-name|mapper
-argument_list|()
-operator|.
 name|fieldType
 argument_list|()
 operator|.
@@ -2759,9 +2742,6 @@ argument_list|()
 operator|&&
 operator|!
 name|fieldMapper
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|isGenerated
 argument_list|()
@@ -2873,9 +2853,6 @@ argument_list|(
 name|i
 argument_list|,
 name|fieldMapper
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|valueForSearch
 argument_list|(

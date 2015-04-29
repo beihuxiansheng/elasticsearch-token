@@ -16,13 +16,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|carrotsearch
+name|apache
 operator|.
-name|randomizedtesting
+name|lucene
 operator|.
-name|LifecycleScope
+name|util
+operator|.
+name|IOUtils
 import|;
 end_import
 
@@ -36,7 +38,7 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|IOUtils
+name|LuceneTestCase
 import|;
 end_import
 
@@ -164,15 +166,42 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|contains
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasSize
+import|;
+end_import
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
 DECL|class|FileWatcherTest
 specifier|public
 class|class
@@ -440,12 +469,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes
@@ -635,12 +660,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes
@@ -1139,12 +1160,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes
@@ -1526,12 +1543,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes
@@ -1777,12 +1790,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes
@@ -1923,12 +1932,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes
@@ -2063,12 +2068,8 @@ block|{
 name|Path
 name|tempDir
 init|=
-name|newTempDirPath
-argument_list|(
-name|LifecycleScope
-operator|.
-name|TEST
-argument_list|)
+name|createTempDir
+argument_list|()
 decl_stmt|;
 name|RecordingChangeListener
 name|changes

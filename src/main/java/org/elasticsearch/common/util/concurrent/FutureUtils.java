@@ -24,7 +24,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|common
+operator|.
+name|SuppressForbidden
 import|;
 end_import
 
@@ -50,6 +52,13 @@ specifier|public
 class|class
 name|FutureUtils
 block|{
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Future#cancel()"
+argument_list|)
 DECL|method|cancel
 specifier|public
 specifier|static

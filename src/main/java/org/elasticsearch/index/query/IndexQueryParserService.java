@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|Query
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -633,7 +633,7 @@ name|bitsetFilterCache
 decl_stmt|;
 DECL|field|autoFilterCachePolicy
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 decl_stmt|;
 DECL|field|queryParsers
@@ -715,7 +715,7 @@ parameter_list|,
 name|BitsetFilterCache
 name|bitsetFilterCache
 parameter_list|,
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 parameter_list|,
 annotation|@
@@ -1206,7 +1206,7 @@ return|;
 block|}
 DECL|method|autoFilterCachePolicy
 specifier|public
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 parameter_list|()
 block|{
@@ -1270,8 +1270,6 @@ parameter_list|(
 name|QueryBuilder
 name|queryBuilder
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1334,7 +1332,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1368,8 +1367,6 @@ name|byte
 index|[]
 name|source
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|parse
@@ -1399,8 +1396,6 @@ parameter_list|,
 name|int
 name|length
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1463,7 +1458,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1496,8 +1492,6 @@ parameter_list|(
 name|BytesReference
 name|source
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|parse
@@ -1522,8 +1516,6 @@ parameter_list|,
 name|BytesReference
 name|source
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1575,7 +1567,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|context
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1664,7 +1656,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse ["
 operator|+
@@ -1747,7 +1740,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|context
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -2127,7 +2120,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
 argument_list|()
 argument_list|,
 literal|"request does not support ["
@@ -2172,7 +2165,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -2184,7 +2178,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
 argument_list|()
 argument_list|,
 literal|"Required query is missing"

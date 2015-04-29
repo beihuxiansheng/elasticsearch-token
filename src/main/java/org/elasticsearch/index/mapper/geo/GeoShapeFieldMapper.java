@@ -154,6 +154,24 @@ name|prefix
 operator|.
 name|tree
 operator|.
+name|PackedQuadPrefixTree
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|spatial
+operator|.
+name|prefix
+operator|.
+name|tree
+operator|.
 name|QuadPrefixTree
 import|;
 end_import
@@ -182,7 +200,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|Version
 import|;
 end_import
 
@@ -368,7 +386,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -768,6 +786,11 @@ name|Defaults
 operator|.
 name|DISTANCE_ERROR_PCT
 decl_stmt|;
+DECL|field|distErrPctDefined
+specifier|private
+name|boolean
+name|distErrPctDefined
+decl_stmt|;
 DECL|field|orientation
 specifier|private
 name|Orientation
@@ -989,6 +1012,21 @@ name|tree
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|context
+operator|.
+name|indexCreatedVersion
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_1_6_0
+argument_list|)
+condition|)
+block|{
 name|prefixTree
 operator|=
 operator|new
@@ -1015,9 +1053,36 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|prefixTree
+operator|=
+operator|new
+name|PackedQuadPrefixTree
+argument_list|(
+name|ShapeBuilder
+operator|.
+name|SPATIAL_CONTEXT
+argument_list|,
+name|getLevels
+argument_list|(
+name|treeLevels
+argument_list|,
+name|precisionInMeters
+argument_list|,
+name|Defaults
+operator|.
+name|QUADTREE_LEVELS
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown prefix tree type ["
 operator|+
@@ -1061,10 +1126,8 @@ name|copyTo
 argument_list|)
 return|;
 block|}
-block|}
 DECL|method|getLevels
 specifier|private
-specifier|static
 specifier|final
 name|int
 name|getLevels
@@ -1093,6 +1156,17 @@ operator|>=
 literal|0
 condition|)
 block|{
+comment|// if the user specified a precision but not a distance error percent then zero out the distance err pct
+comment|// this is done to guarantee precision specified by the user without doing something unexpected under the covers
+if|if
+condition|(
+operator|!
+name|distErrPctDefined
+condition|)
+name|distanceErrorPct
+operator|=
+literal|0
+expr_stmt|;
 return|return
 name|Math
 operator|.
@@ -1129,6 +1203,7 @@ block|}
 return|return
 name|defaultLevels
 return|;
+block|}
 block|}
 DECL|class|TypeParser
 specifier|public
@@ -1174,6 +1249,24 @@ argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
+comment|// if index was created before 1.6, this conditional should be true (this forces any index created on/or after 1.6 to use 0 for
+comment|// the default distanceErrorPct parameter).
+name|builder
+operator|.
+name|distErrPctDefined
+operator|=
+name|parserContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_1_6_0
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Iterator
@@ -1372,6 +1465,12 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|builder
+operator|.
+name|distErrPctDefined
+operator|=
+literal|true
+expr_stmt|;
 name|iterator
 operator|.
 name|remove
@@ -1557,6 +1656,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|recursiveStrategy
+operator|.
+name|setPruneLeafyBranches
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
 name|termStrategy
 operator|=
 operator|new
@@ -1625,7 +1733,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1677,7 +1785,9 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return;
+return|return
+literal|null
+return|;
 block|}
 name|shape
 operator|=
@@ -1711,7 +1821,9 @@ operator|==
 literal|0
 condition|)
 block|{
-return|return;
+return|return
+literal|null
+return|;
 block|}
 for|for
 control|(
@@ -1789,6 +1901,9 @@ name|e
 argument_list|)
 throw|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -1800,8 +1915,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -1812,7 +1927,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
@@ -1832,7 +1947,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -1857,18 +1972,6 @@ name|GeoShapeFieldMapper
 operator|)
 name|mergeWith
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
-operator|.
-name|simulate
-argument_list|()
-condition|)
-block|{
 specifier|final
 name|PrefixTreeStrategy
 name|mergeWithStrategy
@@ -1899,7 +2002,7 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -1952,7 +2055,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -1982,7 +2085,7 @@ name|getMaxLevels
 argument_list|()
 condition|)
 block|{
-name|mergeContext
+name|mergeResult
 operator|.
 name|addConflict
 argument_list|(
@@ -2000,9 +2103,14 @@ block|}
 comment|// bail if there were merge conflicts
 if|if
 condition|(
-name|mergeContext
+name|mergeResult
 operator|.
 name|hasConflicts
+argument_list|()
+operator|||
+name|mergeResult
+operator|.
+name|simulate
 argument_list|()
 condition|)
 block|{
@@ -2031,7 +2139,6 @@ name|fieldMergeWith
 operator|.
 name|shapeOrientation
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -2364,7 +2471,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown prefix tree strategy ["
 operator|+

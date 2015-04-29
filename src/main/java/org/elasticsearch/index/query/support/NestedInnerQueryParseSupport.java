@@ -84,6 +84,22 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentFactory
@@ -187,22 +203,6 @@ operator|.
 name|query
 operator|.
 name|QueryParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|nested
-operator|.
-name|NonNestedDocsFilter
 import|;
 end_import
 
@@ -524,9 +524,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires 'path' field"
 argument_list|)
@@ -543,9 +540,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires either 'query' or 'filter' field"
 argument_list|)
@@ -648,9 +642,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires 'path' field"
 argument_list|)
@@ -667,9 +658,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires either 'query' or 'filter' field"
 argument_list|)
@@ -774,9 +762,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] failed to find nested object under path ["
 operator|+
@@ -812,9 +797,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] failed to find nested object under path ["
 operator|+
@@ -841,9 +823,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] nested object under path ["
 operator|+
@@ -934,9 +913,10 @@ name|parseContext
 operator|.
 name|bitsetFilter
 argument_list|(
-name|NonNestedDocsFilter
+name|Queries
 operator|.
-name|INSTANCE
+name|newNonNestedFilter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

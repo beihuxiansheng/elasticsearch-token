@@ -54,7 +54,21 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|QueryCachingPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|RegexpQuery
 import|;
 end_import
 
@@ -128,7 +142,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|RegexpFilter
+name|Queries
 import|;
 end_import
 
@@ -239,7 +253,7 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cache
 init|=
 name|parseContext
@@ -484,9 +498,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[regexp] filter does not support ["
 operator|+
@@ -612,9 +623,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for regexp filter"
 argument_list|)
@@ -677,8 +685,12 @@ condition|)
 block|{
 name|filter
 operator|=
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|RegexpFilter
+name|RegexpQuery
 argument_list|(
 operator|new
 name|Term
@@ -696,6 +708,7 @@ argument_list|,
 name|flagsValue
 argument_list|,
 name|maxDeterminizedStates
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

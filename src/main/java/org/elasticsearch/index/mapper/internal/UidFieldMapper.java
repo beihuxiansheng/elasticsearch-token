@@ -246,7 +246,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -871,18 +871,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|defaultPostingFormat
-specifier|protected
-name|String
-name|defaultPostingFormat
-parameter_list|()
-block|{
-return|return
-literal|"default"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|preParse
 specifier|public
 name|void
@@ -1094,7 +1082,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1104,6 +1092,9 @@ throws|throws
 name|IOException
 block|{
 comment|// nothing to do here, we either do it in post parse, or in pre parse.
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -1430,8 +1421,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException

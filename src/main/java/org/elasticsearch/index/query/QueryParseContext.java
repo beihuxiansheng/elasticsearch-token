@@ -128,7 +128,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilterCachingPolicy
+name|Query
 import|;
 end_import
 
@@ -142,7 +142,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -394,13 +394,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
+name|fielddata
 operator|.
-name|query
-operator|.
-name|parser
-operator|.
-name|QueryParserCache
+name|IndexFieldData
 import|;
 end_import
 
@@ -412,9 +408,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
+name|mapper
 operator|.
-name|IndexFieldData
+name|ContentPath
 import|;
 end_import
 
@@ -470,20 +466,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MapperBuilders
 import|;
 end_import
@@ -498,7 +480,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ContentPath
+name|MapperService
 import|;
 end_import
 
@@ -636,7 +618,57 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EnumSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -1125,21 +1157,6 @@ else|:
 literal|null
 return|;
 block|}
-DECL|method|queryParserCache
-specifier|public
-name|QueryParserCache
-name|queryParserCache
-parameter_list|()
-block|{
-return|return
-name|indexQueryParser
-operator|.
-name|indexCache
-operator|.
-name|queryParserCache
-argument_list|()
-return|;
-block|}
 DECL|method|defaultField
 specifier|public
 name|String
@@ -1155,7 +1172,7 @@ return|;
 block|}
 DECL|method|autoFilterCachePolicy
 specifier|public
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|autoFilterCachePolicy
 parameter_list|()
 block|{
@@ -1168,7 +1185,7 @@ return|;
 block|}
 DECL|method|parseFilterCachePolicy
 specifier|public
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|parseFilterCachePolicy
 parameter_list|()
 throws|throws
@@ -1215,7 +1232,7 @@ comment|// cache without conditions on how many times the filter has been
 comment|// used or what the produced DocIdSet looks like, but ONLY on large
 comment|// segments to not pollute the cache
 return|return
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 operator|.
 name|CacheOnLargeSegments
 operator|.
@@ -1297,7 +1314,7 @@ name|HashedBytesRef
 name|cacheKey
 parameter_list|,
 specifier|final
-name|FilterCachingPolicy
+name|QueryCachingPolicy
 name|cachePolicy
 parameter_list|)
 block|{
@@ -1711,7 +1728,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] query malformed, must start with start_object"
 argument_list|)
@@ -1740,7 +1757,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] query malformed, no field after start_object"
 argument_list|)
@@ -1785,7 +1802,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] query malformed, no field after start_object"
 argument_list|)
@@ -1812,7 +1829,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"No query registered for ["
 operator|+
@@ -1953,7 +1970,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] filter malformed, must start with start_object"
 argument_list|)
@@ -2006,7 +2023,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] filter malformed, no field after start_object"
 argument_list|)
@@ -2051,7 +2068,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] filter malformed, no field after start_object"
 argument_list|)
@@ -2078,7 +2095,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"No filter registered for ["
 operator|+
@@ -2166,7 +2183,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"No filter registered for ["
 operator|+
@@ -2572,7 +2589,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"Strict field resolution and no field mapping can be found for the field with name ["
 operator|+

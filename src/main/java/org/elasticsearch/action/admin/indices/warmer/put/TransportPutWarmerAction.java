@@ -405,6 +405,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|PutWarmerRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -428,20 +432,6 @@ operator|.
 name|Names
 operator|.
 name|SAME
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|newRequest
-specifier|protected
-name|PutWarmerRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|PutWarmerRequest
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -503,6 +493,36 @@ name|indices
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|ClusterBlockException
+name|status
+init|=
+name|state
+operator|.
+name|blocks
+argument_list|()
+operator|.
+name|indicesBlockedException
+argument_list|(
+name|ClusterBlockLevel
+operator|.
+name|METADATA_WRITE
+argument_list|,
+name|concreteIndices
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|status
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|status
+return|;
+block|}
+comment|// PutWarmer executes a SearchQuery before adding the new warmer to the cluster state,
+comment|// so we need to check the same block as TransportSearchTypeAction here
 return|return
 name|state
 operator|.
@@ -513,7 +533,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|READ
 argument_list|,
 name|concreteIndices
 argument_list|)
@@ -541,8 +561,6 @@ name|PutWarmerResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// first execute the search request, see that its ok...
 name|SearchRequest

@@ -237,8 +237,6 @@ parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|interface|PingListener
 specifier|public

@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -85,6 +75,18 @@ operator|.
 name|script
 operator|.
 name|ExecutableScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
 import|;
 end_import
 
@@ -615,6 +617,9 @@ argument_list|()
 operator|.
 name|executable
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|firstAggregation
 operator|.
 name|scriptLang
@@ -627,13 +632,14 @@ name|firstAggregation
 operator|.
 name|scriptType
 argument_list|,
+name|params
+argument_list|)
+argument_list|,
 name|ScriptContext
 operator|.
 name|Standard
 operator|.
 name|AGGS
-argument_list|,
-name|params
 argument_list|)
 decl_stmt|;
 name|aggregation
@@ -755,7 +761,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"path not supported for ["
 operator|+

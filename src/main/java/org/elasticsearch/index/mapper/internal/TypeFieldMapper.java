@@ -96,20 +96,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|queries
-operator|.
-name|TermFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|ConstantScoreQuery
@@ -140,7 +126,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|PrefixFilter
+name|PrefixQuery
 import|;
 end_import
 
@@ -155,6 +141,20 @@ operator|.
 name|search
 operator|.
 name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|TermQuery
 import|;
 end_import
 
@@ -219,6 +219,22 @@ operator|.
 name|lucene
 operator|.
 name|Lucene
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -316,7 +332,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -974,8 +990,12 @@ name|NONE
 condition|)
 block|{
 return|return
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|PrefixFilter
+name|PrefixQuery
 argument_list|(
 operator|new
 name|Term
@@ -997,11 +1017,16 @@ argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
+argument_list|)
 return|;
 block|}
 return|return
+name|Queries
+operator|.
+name|wrap
+argument_list|(
 operator|new
-name|TermFilter
+name|TermQuery
 argument_list|(
 name|names
 argument_list|()
@@ -1013,6 +1038,7 @@ operator|.
 name|toBytesRef
 argument_list|(
 name|value
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1068,7 +1094,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|void
+name|Mapper
 name|parse
 parameter_list|(
 name|ParseContext
@@ -1078,6 +1104,9 @@ throws|throws
 name|IOException
 block|{
 comment|// we parse in pre parse
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override
@@ -1369,8 +1398,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException

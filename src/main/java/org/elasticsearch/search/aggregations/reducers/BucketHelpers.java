@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|ParseField
@@ -69,6 +59,20 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentLocation
 import|;
 end_import
 
@@ -281,6 +285,9 @@ name|context
 parameter_list|,
 name|String
 name|text
+parameter_list|,
+name|XContentLocation
+name|tokenLocation
 parameter_list|)
 block|{
 name|GapPolicy
@@ -325,7 +332,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Text can be parsed to 2 different gap policies: text=["
 operator|+
@@ -400,6 +407,8 @@ operator|+
 literal|"], accepted values: "
 operator|+
 name|validNames
+argument_list|,
+name|tokenLocation
 argument_list|)
 throw|;
 block|}

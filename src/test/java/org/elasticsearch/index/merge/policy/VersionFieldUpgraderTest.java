@@ -266,7 +266,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -280,7 +280,7 @@ specifier|public
 class|class
 name|VersionFieldUpgraderTest
 extends|extends
-name|ElasticsearchLuceneTestCase
+name|ElasticsearchTestCase
 block|{
 comment|/** Simple test: one doc in the old format, check that it looks correct */
 DECL|method|testUpgradeOneDocument

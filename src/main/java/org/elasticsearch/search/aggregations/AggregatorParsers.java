@@ -234,7 +234,7 @@ name|Parser
 argument_list|>
 name|reducerParsers
 decl_stmt|;
-comment|/**      * Constructs the AggregatorParsers out of all the given parsers      *       * @param aggParsers      *            The available aggregator parsers (dynamically injected by the      *            {@link org.elasticsearch.search.aggregations.AggregationModule}      *            ).      */
+comment|/**      * Constructs the AggregatorParsers out of all the given parsers      *      * @param aggParsers      *            The available aggregator parsers (dynamically injected by the      *            {@link org.elasticsearch.search.aggregations.AggregationModule}      *            ).      */
 annotation|@
 name|Inject
 DECL|method|AggregatorParsers
@@ -506,6 +506,11 @@ operator|+
 name|token
 operator|+
 literal|" in [aggs]: aggregations definitions must start with the name of the aggregation."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -543,6 +548,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]. Aggregation names must be alpha-numeric and can only contain '_' and '-'"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -587,6 +597,11 @@ operator|.
 name|START_OBJECT
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -675,6 +690,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -732,6 +752,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -775,6 +800,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -821,6 +851,11 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -851,6 +886,11 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -903,6 +943,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -963,6 +1008,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1055,6 +1105,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"] cannot define sub-aggregations"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

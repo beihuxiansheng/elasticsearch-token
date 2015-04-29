@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -55,6 +67,13 @@ comment|/** * */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#out"
+argument_list|)
 DECL|class|Terminal
 specifier|public
 specifier|abstract
@@ -730,6 +749,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#out"
+argument_list|)
 DECL|class|SystemTerminal
 specifier|private
 specifier|static

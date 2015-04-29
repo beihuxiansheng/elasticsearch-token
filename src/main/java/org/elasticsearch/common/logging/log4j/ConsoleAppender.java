@@ -64,6 +64,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|logging
 operator|.
 name|Loggers
@@ -312,6 +324,13 @@ block|}
 comment|/**      * Prepares the appender for use.      */
 annotation|@
 name|Override
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#out"
+argument_list|)
 DECL|method|activateOptions
 specifier|public
 name|void
@@ -424,6 +443,13 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * An implementation of OutputStream that redirects to the      * current System.err.      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#err"
+argument_list|)
 DECL|class|SystemErrStream
 specifier|private
 specifier|static
@@ -582,6 +608,13 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * An implementation of OutputStream that redirects to the      * current System.out.      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#err"
+argument_list|)
 DECL|class|SystemOutStream
 specifier|private
 specifier|static

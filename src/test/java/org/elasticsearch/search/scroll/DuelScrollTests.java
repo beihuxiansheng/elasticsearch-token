@@ -1087,8 +1087,10 @@ decl_stmt|;
 name|int
 name|numMissingDocs
 init|=
-name|atMost
+name|scaledRandomIntBetween
 argument_list|(
+literal|0
+argument_list|,
 name|numDocs
 operator|/
 literal|100

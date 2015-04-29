@@ -74,26 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -493,17 +473,16 @@ name|syncOnEachOperation
 parameter_list|)
 function_decl|;
 comment|/**      * Returns all translog locations as absolute paths.      * These paths don't contain actual translog files they are      * directories holding the transaction logs.      */
-DECL|method|locations
+DECL|method|location
 specifier|public
 name|Path
-index|[]
-name|locations
+name|location
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the translog file with the given id as a Path. This      * will return a relative path.      */
-DECL|method|getPath
-name|Path
-name|getPath
+comment|/**      * Returns the translog filename for the given id.      */
+DECL|method|getFilename
+name|String
+name|getFilename
 parameter_list|(
 name|long
 name|translogId
@@ -523,6 +502,38 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns an OperationIterator to iterate over all translog entries in the given translog ID.      * @throws java.io.FileNotFoundException if the file for the translog ID can not be found      */
+DECL|method|openIterator
+name|OperationIterator
+name|openIterator
+parameter_list|(
+name|long
+name|translogId
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Iterator for translog operations.      */
+DECL|interface|OperationIterator
+specifier|public
+specifier|static
+interface|interface
+name|OperationIterator
+extends|extends
+name|Releasable
+block|{
+comment|/**          * Returns the next operation in the translog or<code>null</code> if we reached the end of the stream.          */
+DECL|method|next
+specifier|public
+name|Translog
+operator|.
+name|Operation
+name|next
+parameter_list|()
+throws|throws
+name|IOException
+function_decl|;
+block|}
 DECL|class|Location
 specifier|static
 class|class
@@ -654,7 +665,7 @@ specifier|static
 interface|interface
 name|Snapshot
 extends|extends
-name|Releasable
+name|OperationIterator
 block|{
 comment|/**          * The id of the translog the snapshot was taken with.          */
 DECL|method|translogId
@@ -678,12 +689,6 @@ comment|/**          * The total number of operations in the translog.          
 DECL|method|estimatedTotalOperations
 name|int
 name|estimatedTotalOperations
-parameter_list|()
-function_decl|;
-comment|/**          * Returns the next operation, or null when no more operations are found          */
-DECL|method|next
-name|Operation
-name|next
 parameter_list|()
 function_decl|;
 comment|/**          * Seek to the specified position in the translog stream          */
@@ -826,7 +831,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No type mapped for ["
 operator|+
@@ -2575,7 +2580,7 @@ parameter_list|()
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to read doc source from delete operation"
 argument_list|)
@@ -2726,6 +2731,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** @deprecated Delete-by-query is removed in 2.0, but we keep this so translog can replay on upgrade. */
+annotation|@
+name|Deprecated
 DECL|class|DeleteByQuery
 specifier|static
 class|class
@@ -2919,7 +2927,7 @@ parameter_list|()
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to read doc source from delete_by_query operation"
 argument_list|)

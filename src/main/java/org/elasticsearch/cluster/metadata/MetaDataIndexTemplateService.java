@@ -88,16 +88,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -723,7 +713,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index_template must provide a name"
 argument_list|)
@@ -745,7 +735,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index_template must provide a template"
 argument_list|)
@@ -1159,8 +1149,6 @@ parameter_list|(
 name|PutRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(

@@ -84,7 +84,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|AutoFilterCachingPolicy
+name|FilterCacheModule
 import|;
 end_import
 
@@ -101,6 +101,8 @@ operator|.
 name|filter
 operator|.
 name|FilterCacheModule
+operator|.
+name|FilterCacheSettings
 import|;
 end_import
 
@@ -119,20 +121,6 @@ operator|.
 name|weighted
 operator|.
 name|WeightedFilterCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|groovy
-operator|.
-name|GroovyScriptEngineService
 import|;
 end_import
 
@@ -230,7 +218,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|filteredQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -313,15 +333,6 @@ argument_list|(
 name|nodeOrdinal
 argument_list|)
 argument_list|)
-operator|.
-name|put
-argument_list|(
-name|GroovyScriptEngineService
-operator|.
-name|GROOVY_SCRIPT_SANDBOX_ENABLED
-argument_list|,
-literal|false
-argument_list|)
 comment|// aggressive filter caching so that we can assert on the number of iterations of the script filters
 operator|.
 name|put
@@ -339,9 +350,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|AutoFilterCachingPolicy
+name|FilterCacheSettings
 operator|.
-name|AGGRESSIVE_CACHING_SETTINGS
+name|FILTER_CACHE_EVERYTHING
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|build

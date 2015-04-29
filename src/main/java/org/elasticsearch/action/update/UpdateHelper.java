@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|delete
@@ -387,6 +377,18 @@ operator|.
 name|script
 operator|.
 name|ScriptContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
 import|;
 end_import
 
@@ -774,6 +776,9 @@ name|scriptService
 operator|.
 name|executable
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|request
 operator|.
 name|scriptLang
@@ -786,15 +791,16 @@ name|request
 operator|.
 name|scriptType
 argument_list|,
+name|request
+operator|.
+name|scriptParams
+argument_list|)
+argument_list|,
 name|ScriptContext
 operator|.
 name|Standard
 operator|.
 name|UPDATE
-argument_list|,
-name|request
-operator|.
-name|scriptParams
 argument_list|)
 decl_stmt|;
 name|script
@@ -838,7 +844,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to execute script"
 argument_list|,
@@ -1627,6 +1633,9 @@ name|scriptService
 operator|.
 name|executable
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 name|request
 operator|.
 name|scriptLang
@@ -1639,15 +1648,16 @@ name|request
 operator|.
 name|scriptType
 argument_list|,
+name|request
+operator|.
+name|scriptParams
+argument_list|)
+argument_list|,
 name|ScriptContext
 operator|.
 name|Standard
 operator|.
 name|UPDATE
-argument_list|,
-name|request
-operator|.
-name|scriptParams
 argument_list|)
 decl_stmt|;
 name|script
@@ -1691,7 +1701,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to execute script"
 argument_list|,
