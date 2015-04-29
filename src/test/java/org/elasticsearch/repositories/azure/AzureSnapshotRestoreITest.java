@@ -2604,7 +2604,7 @@ name|prepareCreateSnapshot
 argument_list|(
 literal|"test-repo"
 argument_list|,
-literal|"test-snap"
+literal|"test-snap-26"
 argument_list|)
 operator|.
 name|setWaitForCompletion
@@ -2668,7 +2668,7 @@ name|prepareDeleteSnapshot
 argument_list|(
 literal|"test-repo"
 argument_list|,
-literal|"test-snap"
+literal|"test-snap-26"
 argument_list|)
 operator|.
 name|get
@@ -2792,7 +2792,7 @@ name|prepareCreateSnapshot
 argument_list|(
 literal|"test-repo"
 argument_list|,
-literal|"test-snap"
+literal|"test-snap-26"
 argument_list|)
 operator|.
 name|setWaitForCompletion
