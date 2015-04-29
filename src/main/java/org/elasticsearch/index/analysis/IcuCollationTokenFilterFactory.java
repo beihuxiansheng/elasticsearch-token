@@ -78,16 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|base
@@ -383,7 +373,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to load collation rules"
 argument_list|,
@@ -399,7 +389,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to load collation rules"
 argument_list|,
@@ -433,7 +423,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to resolve collation rules location"
 argument_list|,
@@ -445,7 +435,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to parse collation rules"
 argument_list|,
@@ -696,7 +686,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid strength: "
 operator|+
@@ -768,7 +758,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid decomposition: "
 operator|+
@@ -844,7 +834,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid alternate: "
 operator|+
@@ -938,7 +928,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Invalid caseFirst: "
 operator|+
