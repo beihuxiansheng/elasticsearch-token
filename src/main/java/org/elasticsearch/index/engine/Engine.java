@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Preconditions
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -136,16 +150,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -159,18 +163,6 @@ operator|.
 name|common
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
 import|;
 end_import
 
