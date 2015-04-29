@@ -48,24 +48,6 @@ name|allocation
 operator|.
 name|allocator
 operator|.
-name|EvenShardsCountAllocator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|allocator
-operator|.
 name|ShardsAllocator
 import|;
 end_import
@@ -257,10 +239,9 @@ name|ShardsAllocatorModule
 operator|.
 name|TYPE_KEY
 argument_list|,
-name|ShardsAllocatorModule
-operator|.
-name|EVEN_SHARD_COUNT_ALLOCATOR_KEY
+literal|"even_shard"
 argument_list|)
+comment|// legacy just to make sure we don't barf
 operator|.
 name|build
 argument_list|()
@@ -269,7 +250,7 @@ name|assertAllocatorInstance
 argument_list|(
 name|build
 argument_list|,
-name|EvenShardsCountAllocator
+name|BalancedShardsAllocator
 operator|.
 name|class
 argument_list|)
@@ -323,7 +304,7 @@ name|ShardsAllocatorModule
 operator|.
 name|TYPE_KEY
 argument_list|,
-literal|"EvenShardsCount"
+literal|"BalancedShards"
 argument_list|)
 operator|.
 name|build
@@ -333,7 +314,7 @@ name|assertAllocatorInstance
 argument_list|(
 name|build
 argument_list|,
-name|EvenShardsCountAllocator
+name|BalancedShardsAllocator
 operator|.
 name|class
 argument_list|)
@@ -349,7 +330,7 @@ name|ShardsAllocatorModule
 operator|.
 name|TYPE_KEY
 argument_list|,
-literal|"org.elasticsearch.cluster.routing.allocation.allocator.EvenShardsCountAllocator"
+literal|"org.elasticsearch.cluster.routing.allocation.allocator.BalancedShardsAllocator"
 argument_list|)
 operator|.
 name|build
@@ -359,7 +340,7 @@ name|assertAllocatorInstance
 argument_list|(
 name|build
 argument_list|,
-name|EvenShardsCountAllocator
+name|BalancedShardsAllocator
 operator|.
 name|class
 argument_list|)
