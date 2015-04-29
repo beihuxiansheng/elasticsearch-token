@@ -422,11 +422,6 @@ specifier|final
 name|LongHash
 name|bucketOrds
 decl_stmt|;
-DECL|field|values
-specifier|private
-name|SortedNumericDocValues
-name|values
-decl_stmt|;
 DECL|method|HistogramAggregator
 specifier|public
 name|HistogramAggregator
