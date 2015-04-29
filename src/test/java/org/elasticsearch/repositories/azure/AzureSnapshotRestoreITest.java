@@ -330,7 +330,7 @@ name|test
 operator|.
 name|store
 operator|.
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 import|;
 end_import
 
@@ -591,7 +591,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_PREVENT_DOUBLE_WRITE
 argument_list|,
@@ -600,7 +600,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_NO_DELETE_OPEN_FILE
 argument_list|,
