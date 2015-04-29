@@ -52,18 +52,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|NodeEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|Index
@@ -78,7 +66,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|settings
+operator|.
+name|IndexSettings
 import|;
 end_import
 
@@ -92,7 +82,7 @@ name|index
 operator|.
 name|settings
 operator|.
-name|IndexSettings
+name|IndexSettingsService
 import|;
 end_import
 
@@ -120,9 +110,7 @@ name|index
 operator|.
 name|store
 operator|.
-name|support
-operator|.
-name|AbstractIndexStore
+name|IndexStore
 import|;
 end_import
 
@@ -146,7 +134,7 @@ specifier|public
 class|class
 name|SmbMmapFsIndexStore
 extends|extends
-name|AbstractIndexStore
+name|IndexStore
 block|{
 annotation|@
 name|Inject
@@ -162,14 +150,11 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
-name|IndexService
-name|indexService
+name|IndexSettingsService
+name|indexSettingsService
 parameter_list|,
 name|IndicesStore
 name|indicesStore
-parameter_list|,
-name|NodeEnvironment
-name|nodeEnv
 parameter_list|)
 block|{
 name|super
@@ -178,11 +163,9 @@ name|index
 argument_list|,
 name|indexSettings
 argument_list|,
-name|indexService
+name|indexSettingsService
 argument_list|,
 name|indicesStore
-argument_list|,
-name|nodeEnv
 argument_list|)
 expr_stmt|;
 block|}
