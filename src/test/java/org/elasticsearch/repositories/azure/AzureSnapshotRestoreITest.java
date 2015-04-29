@@ -20,6 +20,18 @@ begin_import
 import|import
 name|com
 operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|microsoft
 operator|.
 name|azure
@@ -493,6 +505,8 @@ literal|"snapshot-itest-"
 operator|.
 name|concat
 argument_list|(
+name|RandomizedTest
+operator|.
 name|getContext
 argument_list|()
 operator|.
