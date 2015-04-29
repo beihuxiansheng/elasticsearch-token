@@ -144,24 +144,6 @@ name|cleanPath
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-import|;
-end_import
-
 begin_comment
 comment|/**  * The environment of where things exists.  */
 end_comment
@@ -286,17 +268,6 @@ block|}
 DECL|method|Environment
 specifier|public
 name|Environment
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|EMPTY_SETTINGS
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|Environment
-specifier|public
-name|Environment
 parameter_list|(
 name|Settings
 name|settings
@@ -340,20 +311,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|homeFile
-operator|=
-name|PathUtils
-operator|.
-name|get
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"user.dir"
+literal|"path.home is not configured"
 argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 if|if
 condition|(
