@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
+operator|.
+name|base
 operator|.
 name|Preconditions
 import|;
@@ -673,7 +675,6 @@ block|}
 comment|/**      * Strategy interface used to resolve replacement values for placeholders contained in Strings.      *      * @see PropertyPlaceholder      */
 DECL|interface|PlaceholderResolver
 specifier|public
-specifier|static
 interface|interface
 name|PlaceholderResolver
 block|{
