@@ -1952,8 +1952,6 @@ name|void
 name|testRandomSorting
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|InterruptedException
@@ -11091,8 +11089,6 @@ name|void
 name|testSortMissingStrings
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -16484,8 +16480,6 @@ name|void
 name|testSortOnRareField
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -18150,8 +18144,6 @@ name|void
 name|testNestedSort
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|InterruptedException

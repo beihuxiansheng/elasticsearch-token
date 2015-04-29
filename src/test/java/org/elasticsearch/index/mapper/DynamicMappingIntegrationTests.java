@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.mapper.dynamic
+DECL|package|org.elasticsearch.index.mapper
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|mapper
-operator|.
-name|dynamic
 package|;
 end_package
 
@@ -77,20 +75,6 @@ operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperParsingException
 import|;
 end_import
 

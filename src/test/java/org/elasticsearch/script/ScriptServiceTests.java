@@ -48,16 +48,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -115,20 +105,6 @@ operator|.
 name|env
 operator|.
 name|Environment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|settings
-operator|.
-name|NodeSettingsService
 import|;
 end_import
 
@@ -785,12 +761,6 @@ name|scriptEngineServices
 argument_list|,
 name|resourceWatcherService
 argument_list|,
-operator|new
-name|NodeSettingsService
-argument_list|(
-name|finalSettings
-argument_list|)
-argument_list|,
 name|scriptContextRegistry
 argument_list|)
 block|{
@@ -862,7 +832,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -1091,7 +1061,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{
@@ -2749,7 +2719,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

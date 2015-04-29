@@ -64,26 +64,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -721,8 +701,6 @@ parameter_list|(
 name|String
 name|type
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 name|Custom
 operator|.
@@ -748,7 +726,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No custom index metadata factoy registered for type ["
 operator|+
@@ -989,7 +967,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No state match for id ["
 operator|+
@@ -1040,7 +1018,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No state match for ["
 operator|+
@@ -1654,7 +1632,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Cannot instantiate hash function"
 argument_list|,

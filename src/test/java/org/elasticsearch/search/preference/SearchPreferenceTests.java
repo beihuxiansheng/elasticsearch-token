@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -55,20 +45,6 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchType
 import|;
 end_import
 
@@ -205,6 +181,15 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|minNumDataNodes
+operator|=
+literal|2
+argument_list|)
 DECL|class|SearchPreferenceTests
 specifier|public
 class|class
@@ -1052,7 +1037,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)

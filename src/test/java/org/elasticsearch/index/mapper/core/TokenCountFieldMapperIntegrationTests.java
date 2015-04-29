@@ -416,8 +416,6 @@ name|void
 name|searchReturnsTokenCount
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|init
@@ -493,8 +491,6 @@ name|void
 name|searchByTokenCount
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|init
@@ -597,8 +593,6 @@ name|void
 name|facetByTokenCount
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|init
@@ -727,8 +721,6 @@ name|void
 name|init
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|prepareCreate

@@ -561,8 +561,6 @@ name|PutWarmerResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// first execute the search request, see that its ok...
 name|SearchRequest

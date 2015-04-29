@@ -211,8 +211,6 @@ specifier|public
 name|T
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -279,8 +277,6 @@ specifier|abstract
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 annotation|@
 name|SuppressWarnings
@@ -296,8 +292,6 @@ specifier|public
 name|T
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -364,8 +358,6 @@ specifier|abstract
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 annotation|@
 name|Override
@@ -374,8 +366,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -443,8 +433,6 @@ specifier|abstract
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_class

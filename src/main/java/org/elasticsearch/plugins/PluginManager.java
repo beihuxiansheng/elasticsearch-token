@@ -711,7 +711,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"plugin name must be supplied with --install [name]."
 argument_list|)
@@ -1792,7 +1792,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"plugin name must be supplied with --remove [name]."
 argument_list|)
@@ -2084,7 +2084,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Illegal plugin name: "
 operator|+
@@ -2822,7 +2822,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -2978,7 +2978,7 @@ expr_stmt|;
 comment|// exit here!
 block|}
 block|}
-comment|/**      * Get the value for the {@code flag} at the specified {@code arg} of the command line {@code args}.      *<p />      * This is useful to avoid having to check for multiple forms of unset (e.g., "   " versus "" versus {@code null}).      * @param args Incoming command line arguments.      * @param arg Expected argument containing the value.      * @param flag The flag whose value is being retrieved.      * @return Never {@code null}. The trimmed value.      * @throws NullPointerException if {@code args} is {@code null}.      * @throws ArrayIndexOutOfBoundsException if {@code arg} is negative.      * @throws ElasticsearchIllegalStateException if {@code arg} is&gt;= {@code args.length}.      * @throws ElasticsearchIllegalArgumentException if the value evaluates to blank ({@code null} or only whitespace)      */
+comment|/**      * Get the value for the {@code flag} at the specified {@code arg} of the command line {@code args}.      *<p />      * This is useful to avoid having to check for multiple forms of unset (e.g., "   " versus "" versus {@code null}).      * @param args Incoming command line arguments.      * @param arg Expected argument containing the value.      * @param flag The flag whose value is being retrieved.      * @return Never {@code null}. The trimmed value.      * @throws NullPointerException if {@code args} is {@code null}.      * @throws ArrayIndexOutOfBoundsException if {@code arg} is negative.      * @throws IllegalStateException if {@code arg} is&gt;= {@code args.length}.      * @throws IllegalArgumentException if the value evaluates to blank ({@code null} or only whitespace)      */
 DECL|method|getCommandValue
 specifier|private
 specifier|static
@@ -3007,7 +3007,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"missing value for "
 operator|+
@@ -3048,7 +3048,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"value for "
 operator|+

@@ -160,16 +160,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -295,7 +285,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"mising or empty [common_words] or [common_words_path] configuration for common_grams token filter"
 argument_list|)

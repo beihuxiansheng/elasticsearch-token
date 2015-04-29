@@ -56,20 +56,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Iterators
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Lists
 import|;
 end_import
@@ -81,16 +67,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -800,8 +776,6 @@ parameter_list|,
 name|boolean
 name|explain
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|RoutingNodes
 name|routingNodes
@@ -2742,7 +2716,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"illegal state for a failed shard, relocating node id is set, but state does not match: "
 operator|+

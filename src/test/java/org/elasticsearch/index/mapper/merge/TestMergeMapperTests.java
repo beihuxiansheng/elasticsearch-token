@@ -535,7 +535,7 @@ argument_list|(
 name|objectMapping
 argument_list|)
 decl_stmt|;
-name|assertThat
+name|assertNull
 argument_list|(
 name|mapper
 operator|.
@@ -544,15 +544,6 @@ argument_list|()
 operator|.
 name|dynamic
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|ObjectMapper
-operator|.
-name|Dynamic
-operator|.
-name|TRUE
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|String

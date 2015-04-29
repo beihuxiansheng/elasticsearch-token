@@ -14,16 +14,6 @@ name|common
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -524,7 +514,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"value cannot be parsed to boolean [ true/1/on/yes OR false/0/off/no ]  "
 argument_list|)

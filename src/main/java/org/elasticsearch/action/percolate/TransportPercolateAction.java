@@ -1188,8 +1188,6 @@ parameter_list|(
 name|PercolateShardRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{

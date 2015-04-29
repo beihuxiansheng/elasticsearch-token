@@ -332,8 +332,6 @@ name|void
 name|testSimpleTermVectors
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|XContentBuilder

@@ -31,10 +31,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/** @deprecated Delete-by-query is removed in 2.0, but we keep this so translog can replay on upgrade. */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|DeleteByQueryFailedEngineException
 specifier|public
 class|class

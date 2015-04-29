@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -108,8 +98,6 @@ DECL|method|buildAsBytes
 name|BytesReference
 name|buildAsBytes
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|buildAsBytes
 name|BytesReference
@@ -118,8 +106,6 @@ parameter_list|(
 name|XContentType
 name|contentType
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 comment|/**      * Create a {@link Query} based on this QueryBuilder      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
 DECL|method|toQuery

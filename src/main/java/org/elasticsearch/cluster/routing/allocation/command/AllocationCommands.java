@@ -26,26 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -348,8 +328,6 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 name|AllocationCommand
 operator|.
@@ -375,7 +353,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No allocation command factory registered for name ["
 operator|+
@@ -541,8 +519,6 @@ parameter_list|,
 name|boolean
 name|explain
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|RoutingExplanations
 name|explanations

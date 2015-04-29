@@ -100,26 +100,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -1178,8 +1158,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1188,8 +1166,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableSet
 argument_list|<
@@ -1360,8 +1336,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|IOUtils
 operator|.
@@ -1957,8 +1931,6 @@ parameter_list|,
 name|String
 name|localNodeId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -1971,7 +1943,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't create an index ["
 operator|+
@@ -2349,8 +2321,6 @@ parameter_list|,
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|removeIndex
 argument_list|(
@@ -2376,8 +2346,6 @@ parameter_list|,
 name|boolean
 name|delete
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -3077,7 +3045,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete closed index store for ["
 operator|+
@@ -3207,7 +3175,7 @@ argument_list|()
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete index store for ["
 operator|+
@@ -3274,7 +3242,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete closed index store for ["
 operator|+
@@ -3568,7 +3536,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete shard "
 operator|+
@@ -3967,7 +3935,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"shardId must not be null"
 argument_list|)
@@ -3982,7 +3950,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"settings must not be null"
 argument_list|)

@@ -130,8 +130,6 @@ DECL|method|endRecovery
 name|int
 name|endRecovery
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|int
 name|left

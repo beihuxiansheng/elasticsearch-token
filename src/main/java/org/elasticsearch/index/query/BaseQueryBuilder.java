@@ -180,8 +180,6 @@ specifier|public
 name|BytesReference
 name|buildAsBytes
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|buildAsBytes
@@ -202,8 +200,6 @@ parameter_list|(
 name|XContentType
 name|contentType
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{

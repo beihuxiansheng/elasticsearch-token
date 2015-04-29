@@ -146,16 +146,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -825,7 +815,7 @@ name|ramBytesUsed
 argument_list|()
 return|;
 block|}
-comment|/**      * Tries to extract a segment reader from the given index reader.      * If no SegmentReader can be extracted an {@link org.elasticsearch.ElasticsearchIllegalStateException} is thrown.      */
+comment|/**      * Tries to extract a segment reader from the given index reader.      * If no SegmentReader can be extracted an {@link IllegalStateException} is thrown.      */
 DECL|method|segmentReader
 specifier|protected
 specifier|static
@@ -882,7 +872,7 @@ block|}
 comment|// hard fail - we can't get a SegmentReader
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can not extract segment reader from given index reader ["
 operator|+
@@ -1244,6 +1234,9 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
+comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
+annotation|@
+name|Deprecated
 DECL|method|delete
 specifier|public
 specifier|abstract
@@ -2837,8 +2830,6 @@ parameter_list|(
 name|SnapshotIndexCommit
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|phase2
 name|void
@@ -2849,8 +2840,6 @@ operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|phase3
 name|void
@@ -2861,8 +2850,6 @@ operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 DECL|class|Searcher
@@ -2950,8 +2937,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// Nothing to close here
 block|}
@@ -4955,8 +4940,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|flushAndClose
 specifier|public

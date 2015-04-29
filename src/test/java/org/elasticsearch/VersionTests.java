@@ -841,7 +841,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)

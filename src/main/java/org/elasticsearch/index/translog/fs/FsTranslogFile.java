@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|bytes
@@ -256,8 +246,6 @@ parameter_list|(
 name|String
 name|type
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 if|if
 condition|(
@@ -296,7 +284,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No translog fs type ["
 operator|+

@@ -1011,8 +1011,6 @@ name|void
 name|testHighTermFrequencyDoc
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -1162,8 +1160,6 @@ name|void
 name|testNgramHighlightingWithBrokenPositions
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -1542,8 +1538,6 @@ name|void
 name|testMultiPhraseCutoff
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 comment|/*          * MultiPhraseQuery can literally kill an entire node if there are too many terms in the          * query. We cut off and extract terms if there are more than 16 terms in the query          */
@@ -1783,8 +1777,6 @@ name|void
 name|testNgramHighlightingPreLucene42
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -2453,8 +2445,6 @@ name|void
 name|testNgramHighlighting
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -11108,8 +11098,6 @@ name|void
 name|testBoostingQueryTermVector
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -11415,8 +11403,6 @@ name|void
 name|testCommonTermsTermVector
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -11568,8 +11554,6 @@ name|void
 name|testPhrasePrefix
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|Builder
@@ -19656,8 +19640,6 @@ name|void
 name|testPostingsHighlighterBoostingQuery
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -19820,8 +19802,6 @@ name|void
 name|testPostingsHighlighterCommonTermsQuery
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked

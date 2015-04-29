@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|breaker
@@ -1003,7 +993,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Validate that child settings are valid      * @throws ElasticsearchIllegalStateException      */
+comment|/**      * Validate that child settings are valid      * @throws IllegalStateException      */
 DECL|method|validateSettings
 specifier|public
 specifier|static
@@ -1015,7 +1005,7 @@ index|[]
 name|childrenSettings
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 block|{
 for|for
 control|(
@@ -1051,7 +1041,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Child breaker overhead "
 operator|+

@@ -284,16 +284,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -1494,8 +1484,6 @@ block|}
 catch|catch
 parameter_list|(
 name|IllegalArgumentException
-decl||
-name|ElasticsearchIllegalArgumentException
 name|e1
 parameter_list|)
 block|{

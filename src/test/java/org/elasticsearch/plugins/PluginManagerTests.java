@@ -88,16 +88,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchTimeoutException
 import|;
 end_import
@@ -164,20 +154,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|PathUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|ImmutableSettings
@@ -221,18 +197,6 @@ operator|.
 name|env
 operator|.
 name|Environment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|http
-operator|.
-name|HttpServerTransport
 import|;
 end_import
 
@@ -610,7 +574,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -2572,11 +2536,11 @@ name|IOException
 block|{
 name|assumeTrue
 argument_list|(
-literal|"download.elasticsearch.org is accessible"
+literal|"download.elastic.co is accessible"
 argument_list|,
 name|isDownloadServiceWorking
 argument_list|(
-literal|"download.elasticsearch.org"
+literal|"download.elastic.co"
 argument_list|,
 literal|80
 argument_list|,
@@ -2839,7 +2803,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -2870,7 +2834,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -2994,7 +2958,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{

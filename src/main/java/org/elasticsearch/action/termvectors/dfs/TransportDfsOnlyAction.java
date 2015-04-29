@@ -926,8 +926,6 @@ parameter_list|(
 name|ShardDfsOnlyRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|DfsSearchResult
 name|dfsSearchResult

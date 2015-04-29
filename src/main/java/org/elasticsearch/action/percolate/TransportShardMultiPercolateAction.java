@@ -500,8 +500,6 @@ parameter_list|,
 name|InternalRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|clusterService
@@ -548,8 +546,6 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// TODO: Look into combining the shard req's docs into one in memory index.
 name|Response

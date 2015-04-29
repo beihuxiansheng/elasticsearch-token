@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -635,8 +625,6 @@ parameter_list|(
 name|String
 name|searchType
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 name|request
 operator|.

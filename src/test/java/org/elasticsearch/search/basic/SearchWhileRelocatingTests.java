@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Nightly
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -293,6 +279,15 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|minNumDataNodes
+operator|=
+literal|2
+argument_list|)
 DECL|class|SearchWhileRelocatingTests
 specifier|public
 class|class

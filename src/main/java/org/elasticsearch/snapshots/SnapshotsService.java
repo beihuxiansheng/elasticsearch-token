@@ -1493,8 +1493,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|RepositoriesMetaData
 name|repositoriesMetaData
@@ -8351,8 +8349,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{      }
 annotation|@
 name|Override
@@ -8361,8 +8357,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|shutdownLock
 operator|.
@@ -8425,8 +8419,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{      }
 comment|/**      * Listener for create snapshot operation      */
 DECL|interface|CreateSnapshotListener

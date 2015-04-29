@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|block
@@ -178,7 +168,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 function_decl|;
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
@@ -189,7 +179,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 function_decl|;
 comment|/**      * The operation routing.      */
 DECL|method|operationRouting

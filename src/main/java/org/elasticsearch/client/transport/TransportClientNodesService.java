@@ -88,16 +88,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -963,7 +953,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"transport client is closed, can't add an address"
 argument_list|)
@@ -1165,7 +1155,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"transport client is closed, can't remove an address"
 argument_list|)
@@ -1264,8 +1254,6 @@ name|Response
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableList
 argument_list|<

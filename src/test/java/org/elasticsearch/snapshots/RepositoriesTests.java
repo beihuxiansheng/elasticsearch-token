@@ -276,6 +276,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -367,6 +379,15 @@ comment|/**  */
 end_comment
 
 begin_class
+annotation|@
+name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
+argument_list|(
+name|minNumDataNodes
+operator|=
+literal|2
+argument_list|)
 DECL|class|RepositoriesTests
 specifier|public
 class|class

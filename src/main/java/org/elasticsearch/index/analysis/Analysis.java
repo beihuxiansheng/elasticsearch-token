@@ -634,30 +634,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -786,16 +762,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|InputStreamReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|Reader
 import|;
 end_import
@@ -807,42 +773,6 @@ operator|.
 name|net
 operator|.
 name|URL
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|Charset
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
 import|;
 end_import
 
@@ -1879,7 +1809,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Fetches a list of words from the specified settings file. The list should either be available at the key      * specified by settingsPrefix or in a file specified by settingsPrefix + _path.      *      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          If the word list cannot be found at either key.      */
+comment|/**      * Fetches a list of words from the specified settings file. The list should either be available at the key      * specified by settingsPrefix or in a file specified by settingsPrefix + _path.      *      * @throws IllegalArgumentException      *          If the word list cannot be found at either key.      */
 DECL|method|getWordList
 specifier|public
 specifier|static
@@ -2022,7 +1952,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|message
 argument_list|)
@@ -2166,7 +2096,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @return null If no settings set for "settingsPrefix" then return<code>null</code>.      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException      *          If the Reader can not be instantiated.      */
+comment|/**      * @return null If no settings set for "settingsPrefix" then return<code>null</code>.      * @throws IllegalArgumentException      *          If the Reader can not be instantiated.      */
 DECL|method|getReaderFromFile
 specifier|public
 specifier|static
@@ -2261,7 +2191,7 @@ argument_list|)
 decl_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|message
 argument_list|)

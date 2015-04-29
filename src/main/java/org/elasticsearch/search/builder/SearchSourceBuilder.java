@@ -86,7 +86,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|ExceptionsHelper
 import|;
 end_import
 
@@ -1231,7 +1231,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"terminateAfter must be> 0"
 argument_list|)
@@ -2261,10 +2261,12 @@ block|{
 return|return
 literal|"{ \"error\" : \""
 operator|+
-name|e
+name|ExceptionsHelper
 operator|.
-name|getMessage
-argument_list|()
+name|detailedMessage
+argument_list|(
+name|e
+argument_list|)
 operator|+
 literal|"\"}"
 return|;

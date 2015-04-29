@@ -388,8 +388,6 @@ name|GetRepositoriesResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|MetaData
 name|metaData

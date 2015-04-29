@@ -8567,8 +8567,6 @@ name|void
 name|testSimpleSpan
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|createIndex

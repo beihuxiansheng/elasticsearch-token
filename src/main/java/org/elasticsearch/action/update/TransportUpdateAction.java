@@ -46,16 +46,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -1092,8 +1082,6 @@ parameter_list|,
 name|InternalRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -1261,8 +1249,6 @@ name|UpdateResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|shardOperation
 argument_list|(
@@ -1294,8 +1280,6 @@ specifier|final
 name|int
 name|retryCount
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexService
 name|indexService
@@ -2183,7 +2167,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Illegal operation "
 operator|+
