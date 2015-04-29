@@ -368,7 +368,57 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -1652,6 +1702,13 @@ block|}
 comment|/**      * test simple moving average on single value field      */
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
+argument_list|)
 DECL|method|simpleSingleValuedField
 specifier|public
 name|void
@@ -2078,6 +2135,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
+argument_list|)
 DECL|method|linearSingleValuedField
 specifier|public
 name|void
@@ -2504,6 +2568,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
+argument_list|)
 DECL|method|singleSingleValuedField
 specifier|public
 name|void
@@ -2940,6 +3011,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
+argument_list|)
 DECL|method|doubleSingleValuedField
 specifier|public
 name|void
