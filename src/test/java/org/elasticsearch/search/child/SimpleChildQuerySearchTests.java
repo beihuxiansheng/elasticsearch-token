@@ -42,16 +42,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1929,8 +1919,6 @@ name|void
 name|test6722
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -2090,8 +2078,6 @@ name|void
 name|test2744
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -14957,8 +14943,6 @@ name|void
 name|testHasChildNotBeingCached
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -15897,8 +15881,6 @@ name|void
 name|indexChildDocWithNoParentMapping
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -16066,8 +16048,6 @@ name|void
 name|testAddingParentToExistingMapping
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|createIndex

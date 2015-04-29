@@ -26,16 +26,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -160,8 +150,6 @@ specifier|public
 name|V
 name|txGet
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -247,8 +235,6 @@ parameter_list|,
 name|TimeUnit
 name|unit
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{

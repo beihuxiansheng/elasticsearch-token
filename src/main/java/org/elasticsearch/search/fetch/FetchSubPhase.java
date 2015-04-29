@@ -505,8 +505,6 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|hitsExecutionNeeded
 name|boolean
@@ -527,8 +525,6 @@ name|InternalSearchHit
 index|[]
 name|hits
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

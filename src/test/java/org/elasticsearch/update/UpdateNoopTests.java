@@ -1316,8 +1316,6 @@ modifier|...
 name|fields
 parameter_list|)
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertEquals

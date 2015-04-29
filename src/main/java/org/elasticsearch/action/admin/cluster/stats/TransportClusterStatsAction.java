@@ -755,8 +755,6 @@ parameter_list|(
 name|ClusterStatsNodeRequest
 name|nodeRequest
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|NodeInfo
 name|nodeInfo

@@ -16,16 +16,6 @@ name|routing
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the current state of a {@link ShardRouting} as defined by the  * cluster.  */
 end_comment

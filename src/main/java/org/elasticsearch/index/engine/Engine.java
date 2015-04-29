@@ -142,16 +142,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -2840,8 +2830,6 @@ parameter_list|(
 name|SnapshotIndexCommit
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|phase2
 name|void
@@ -2852,8 +2840,6 @@ operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|phase3
 name|void
@@ -2864,8 +2850,6 @@ operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 DECL|class|Searcher
@@ -2953,8 +2937,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// Nothing to close here
 block|}
@@ -4958,8 +4940,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|flushAndClose
 specifier|public

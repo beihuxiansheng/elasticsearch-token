@@ -260,8 +260,6 @@ name|Response
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|String
 index|[]
@@ -320,8 +318,6 @@ name|Response
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_class

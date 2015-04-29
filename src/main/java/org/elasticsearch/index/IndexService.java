@@ -82,16 +82,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1717,8 +1707,6 @@ parameter_list|,
 name|boolean
 name|primary
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|/*          * TODO: we execute this in parallel but it's a synced method. Yet, we might          * be able to serialize the execution via the cluster state in the future. for now we just          * keep it synced.          */
 if|if
@@ -2337,8 +2325,6 @@ parameter_list|,
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|ShardId

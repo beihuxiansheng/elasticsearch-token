@@ -1990,8 +1990,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|boolean
 name|success
@@ -3822,8 +3820,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|CountDownLatch
@@ -4220,8 +4216,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override

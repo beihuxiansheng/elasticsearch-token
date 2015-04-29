@@ -329,8 +329,6 @@ specifier|final
 name|NodeMappingRefreshRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|DiscoveryNodes

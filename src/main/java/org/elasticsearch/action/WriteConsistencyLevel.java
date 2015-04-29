@@ -14,16 +14,6 @@ name|action
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Write Consistency Level control how many replicas should be active for a write operation to occur (a write operation  * can be index, or delete).  *  *  */
 end_comment

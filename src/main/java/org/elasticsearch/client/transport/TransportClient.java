@@ -911,8 +911,6 @@ DECL|method|TransportClient
 specifier|public
 name|TransportClient
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -978,8 +976,6 @@ parameter_list|,
 name|boolean
 name|loadConfigSettings
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -1003,8 +999,6 @@ parameter_list|,
 name|boolean
 name|loadConfigSettings
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|Tuple
 argument_list|<

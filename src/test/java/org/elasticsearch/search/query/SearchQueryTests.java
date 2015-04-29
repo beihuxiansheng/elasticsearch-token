@@ -15004,8 +15004,6 @@ name|void
 name|testMustNot
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -15211,8 +15209,6 @@ name|void
 name|testSimpleSpan
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -15405,8 +15401,6 @@ name|void
 name|testSpanMultiTermQuery
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|createIndex
@@ -15740,8 +15734,6 @@ name|void
 name|testSpanNot
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -16143,8 +16135,6 @@ name|void
 name|testSimpleDFSQuery
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked

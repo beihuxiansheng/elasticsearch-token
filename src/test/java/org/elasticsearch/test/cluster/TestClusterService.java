@@ -28,16 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1084,8 +1074,6 @@ specifier|public
 name|ClusterService
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 throw|throw
 operator|new
@@ -1100,8 +1088,6 @@ specifier|public
 name|ClusterService
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 throw|throw
 operator|new
@@ -1116,8 +1102,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 throw|throw
 operator|new

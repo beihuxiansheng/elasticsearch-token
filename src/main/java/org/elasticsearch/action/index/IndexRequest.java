@@ -52,16 +52,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -508,8 +498,6 @@ parameter_list|(
 name|String
 name|sOpType
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 name|String
 name|lowersOpType
@@ -2010,8 +1998,6 @@ parameter_list|(
 name|String
 name|opType
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 return|return
 name|opType
@@ -2202,8 +2188,6 @@ parameter_list|,
 name|String
 name|concreteIndex
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// resolve the routing if needed
 name|routing

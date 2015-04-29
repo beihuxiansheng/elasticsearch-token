@@ -833,8 +833,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|this
 operator|.
@@ -878,8 +876,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 comment|/**      * {@inheritDoc}      */
 annotation|@
@@ -889,8 +885,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{

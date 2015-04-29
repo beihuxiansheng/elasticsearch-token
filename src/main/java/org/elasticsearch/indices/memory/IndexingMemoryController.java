@@ -984,8 +984,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 comment|// its fine to run it on the scheduler thread, no busy work
 name|this
@@ -1011,8 +1009,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|FutureUtils
 operator|.
@@ -1033,8 +1029,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 comment|/**      * returns the current budget for the total amount of indexing buffers of      * active shards on this node      */
 DECL|method|indexingBufferSize

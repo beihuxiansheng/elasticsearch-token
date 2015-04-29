@@ -28,16 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -239,8 +229,6 @@ parameter_list|(
 name|SnapshotIndexCommit
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -319,8 +307,6 @@ operator|.
 name|Snapshot
 name|snapshot
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|logger
 operator|.

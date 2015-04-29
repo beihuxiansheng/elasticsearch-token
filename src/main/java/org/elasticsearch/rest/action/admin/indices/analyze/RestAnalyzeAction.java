@@ -38,16 +38,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -615,8 +605,6 @@ parameter_list|,
 name|AnalyzeRequest
 name|analyzeRequest
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 try|try
 init|(

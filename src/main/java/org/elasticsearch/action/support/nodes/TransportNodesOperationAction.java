@@ -459,8 +459,6 @@ parameter_list|(
 name|NodeRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|accumulateExceptions
 specifier|protected

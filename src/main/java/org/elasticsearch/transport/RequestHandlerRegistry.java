@@ -20,16 +20,6 @@ name|java
 operator|.
 name|lang
 operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
 name|reflect
 operator|.
 name|Constructor

@@ -112,16 +112,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1249,8 +1239,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -4147,8 +4135,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|validateIndexName
 argument_list|(

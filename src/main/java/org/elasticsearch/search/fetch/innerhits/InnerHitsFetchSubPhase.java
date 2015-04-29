@@ -481,8 +481,6 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|Map
 argument_list|<
@@ -802,8 +800,6 @@ name|InternalSearchHit
 index|[]
 name|hits
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{     }
 comment|// To get around cyclic dependency issue
 DECL|method|setFetchPhase

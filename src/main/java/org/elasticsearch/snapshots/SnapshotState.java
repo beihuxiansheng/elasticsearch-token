@@ -14,16 +14,6 @@ name|snapshots
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the state that a snapshot can be in  */
 end_comment

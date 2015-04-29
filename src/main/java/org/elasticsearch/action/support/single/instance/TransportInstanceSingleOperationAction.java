@@ -491,8 +491,6 @@ name|Response
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|newResponse
 specifier|protected
@@ -613,8 +611,6 @@ parameter_list|,
 name|InternalRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|class|AsyncSingleAction
 class|class
@@ -727,8 +723,6 @@ specifier|protected
 name|boolean
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|nodes
 operator|=

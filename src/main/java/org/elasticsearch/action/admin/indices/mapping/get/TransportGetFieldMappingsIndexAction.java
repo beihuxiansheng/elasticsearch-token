@@ -634,8 +634,6 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 assert|assert
 name|shardId
@@ -1086,8 +1084,6 @@ parameter_list|,
 name|GetFieldMappingsIndexRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|MapBuilder
 argument_list|<

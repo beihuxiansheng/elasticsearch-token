@@ -613,8 +613,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -623,8 +621,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -633,8 +629,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override

@@ -809,8 +809,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|unblock
 argument_list|()

@@ -148,16 +148,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1532,8 +1522,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1542,8 +1530,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -1574,8 +1560,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|doStop
 argument_list|()
@@ -1596,8 +1580,6 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -1683,8 +1665,6 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -1860,8 +1840,6 @@ parameter_list|(
 name|InternalScrollSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -2119,8 +2097,6 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -2314,8 +2290,6 @@ parameter_list|(
 name|InternalScrollSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -2474,8 +2448,6 @@ parameter_list|(
 name|QuerySearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -2722,8 +2694,6 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -2995,8 +2965,6 @@ parameter_list|(
 name|QuerySearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -3336,8 +3304,6 @@ parameter_list|(
 name|InternalScrollSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -3626,8 +3592,6 @@ parameter_list|(
 name|ShardFetchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SearchContext
@@ -3878,8 +3842,6 @@ parameter_list|(
 name|ShardSearchRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|SearchContext
 name|context
@@ -3958,8 +3920,6 @@ operator|.
 name|Searcher
 name|searcher
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexService
 name|indexService

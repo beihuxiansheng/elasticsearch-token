@@ -978,8 +978,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(

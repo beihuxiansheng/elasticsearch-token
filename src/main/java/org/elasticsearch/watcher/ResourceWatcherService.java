@@ -26,16 +26,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -422,8 +412,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -480,8 +468,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -520,8 +506,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 comment|/**      * Register new resource watcher that will be checked in default {@link Frequency#MEDIUM MEDIUM} frequency      */
 DECL|method|add

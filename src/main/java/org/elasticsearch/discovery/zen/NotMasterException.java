@@ -16,16 +16,6 @@ name|zen
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Thrown when a node join request or a master ping reaches a node which is not  * currently acting as a master.  */
 end_comment

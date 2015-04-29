@@ -36,16 +36,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1150,8 +1140,6 @@ DECL|method|Node
 specifier|public
 name|Node
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|this
 argument_list|(
@@ -1175,8 +1163,6 @@ parameter_list|,
 name|boolean
 name|loadConfigSettings
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|Settings

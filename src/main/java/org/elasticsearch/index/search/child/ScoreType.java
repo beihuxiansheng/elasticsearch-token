@@ -18,16 +18,6 @@ name|child
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Defines how scores from child documents are mapped into the parent document.  */
 end_comment

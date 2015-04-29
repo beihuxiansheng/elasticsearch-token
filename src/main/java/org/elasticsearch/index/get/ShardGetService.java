@@ -70,16 +70,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -770,8 +760,6 @@ parameter_list|,
 name|boolean
 name|ignoreErrorsOnGeneratedFields
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|currentMetric
 operator|.
@@ -1178,8 +1166,6 @@ parameter_list|,
 name|boolean
 name|ignoreErrorsOnGeneratedFields
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|fetchSourceContext
 operator|=

@@ -86,8 +86,6 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

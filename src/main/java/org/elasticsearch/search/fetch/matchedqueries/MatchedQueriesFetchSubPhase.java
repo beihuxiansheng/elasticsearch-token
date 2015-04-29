@@ -315,8 +315,6 @@ name|InternalSearchHit
 index|[]
 name|hits
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -377,8 +375,6 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|List
 argument_list|<

@@ -16,16 +16,6 @@ name|component
 package|;
 end_package
 
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Lifecycle state. Allows the following transitions:  *<ul>  *<li>INITIALIZED -> STARTED, STOPPED, CLOSED</li>  *<li>STARTED     -> STOPPED</li>  *<li>STOPPED     -> STARTED, CLOSED</li>  *<li>CLOSED      -></li>  *</ul>  *<p/>  *<p>Also allows to stay in the same state. For example, when calling stop on a component, the  * following logic can be applied:  *<p/>  *<pre>  * public void stop() {  *  if (!lifeccycleState.moveToStopped()) {  *      return;  *  }  * // continue with stop logic  * }  *</pre>  *<p/>  *<p>Note, closed is only allowed to be called when stopped, so make sure to stop the component first.  * Here is how the logic can be applied:  *<p/>  *<pre>  * public void close() {  *  if (lifecycleState.started()) {  *      stop();  *  }  *  if (!lifecycleState.moveToClosed()) {  *      return;  *  }  *  // perofrm close logic here  * }  *</pre>  */
 end_comment

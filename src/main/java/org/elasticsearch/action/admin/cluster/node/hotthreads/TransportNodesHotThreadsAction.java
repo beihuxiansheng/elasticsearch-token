@@ -473,8 +473,6 @@ parameter_list|(
 name|NodeRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|HotThreads
 name|hotThreads

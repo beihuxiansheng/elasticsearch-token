@@ -70,16 +70,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -3138,8 +3128,6 @@ name|void
 name|testStopwordsOnlyPhraseSuggest
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -3266,8 +3254,6 @@ name|void
 name|testPrefixLength
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 comment|// Stopped here
@@ -3681,8 +3667,6 @@ name|void
 name|testMarvelHerosPhraseSuggest
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|CreateIndexRequestBuilder
@@ -5177,8 +5161,6 @@ name|void
 name|testPhraseBoundaryCases
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|CreateIndexRequestBuilder
@@ -6595,8 +6577,6 @@ name|void
 name|testSearchForRarePhrase
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 comment|// If there isn't enough chaf per shard then shards can become unbalanced, making the cutoff recheck this is testing do more harm then good.

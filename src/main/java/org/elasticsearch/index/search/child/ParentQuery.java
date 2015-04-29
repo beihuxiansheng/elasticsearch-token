@@ -1286,8 +1286,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|Releasables
 operator|.

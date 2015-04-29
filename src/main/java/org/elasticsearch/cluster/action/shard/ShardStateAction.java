@@ -541,8 +541,6 @@ specifier|final
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|DiscoveryNode
 name|masterNode
@@ -609,8 +607,6 @@ specifier|final
 name|DiscoveryNode
 name|masterNode
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|logger
 operator|.
@@ -739,8 +735,6 @@ specifier|final
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|DiscoveryNode
 name|masterNode
@@ -806,8 +800,6 @@ specifier|final
 name|DiscoveryNode
 name|masterNode
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|ShardRoutingEntry
 name|shardRoutingEntry

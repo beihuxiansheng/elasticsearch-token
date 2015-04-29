@@ -488,8 +488,6 @@ parameter_list|(
 name|NodeStatsRequest
 name|nodeStatsRequest
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|NodesStatsRequest
 name|request

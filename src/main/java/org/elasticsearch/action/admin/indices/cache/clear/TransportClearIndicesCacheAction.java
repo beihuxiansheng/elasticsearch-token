@@ -640,8 +640,6 @@ parameter_list|(
 name|ShardClearIndicesCacheRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexService
 name|service

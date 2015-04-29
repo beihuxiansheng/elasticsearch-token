@@ -74,26 +74,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -1049,8 +1029,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1059,8 +1037,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1069,8 +1045,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transportService
 operator|.
@@ -1299,8 +1273,6 @@ specifier|final
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SendPingsHandler

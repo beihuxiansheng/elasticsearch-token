@@ -32,26 +32,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -449,8 +429,6 @@ parameter_list|(
 name|byte
 name|id
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -626,8 +604,6 @@ parameter_list|(
 name|byte
 name|id
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 if|if
 condition|(

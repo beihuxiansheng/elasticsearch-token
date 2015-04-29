@@ -44,16 +44,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -541,8 +531,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -566,8 +554,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -591,8 +577,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -722,8 +706,6 @@ parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableList
 argument_list|<

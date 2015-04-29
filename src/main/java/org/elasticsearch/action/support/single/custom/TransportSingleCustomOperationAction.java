@@ -448,8 +448,6 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|newResponse
 specifier|protected

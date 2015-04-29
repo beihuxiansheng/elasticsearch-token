@@ -174,16 +174,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|IllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -739,8 +729,6 @@ parameter_list|(
 name|String
 name|ip
 parameter_list|)
-throws|throws
-name|IllegalArgumentException
 block|{
 try|try
 block|{
@@ -858,7 +846,6 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{
 if|if
 condition|(
 name|e
@@ -888,6 +875,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|Defaults
 specifier|public
 specifier|static
@@ -933,6 +923,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|Builder
 specifier|public
 specifier|static
@@ -1100,6 +1093,9 @@ name|fieldMapper
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|TypeParser
 specifier|public
 specifier|static
@@ -1270,11 +1266,17 @@ name|builder
 return|;
 block|}
 block|}
-DECL|field|nullValue
+end_class
+
+begin_decl_stmt
+DECL|external variable declarations|nullValue
 specifier|private
 name|String
 name|nullValue
 decl_stmt|;
+end_decl_stmt
+
+begin_constructor
 DECL|method|IpFieldMapper
 specifier|protected
 name|IpFieldMapper
@@ -1394,6 +1396,9 @@ operator|=
 name|nullValue
 expr_stmt|;
 block|}
+end_constructor
+
+begin_function
 annotation|@
 name|Override
 DECL|method|defaultFieldType
@@ -1408,6 +1413,9 @@ operator|.
 name|FIELD_TYPE
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|defaultFieldDataType
@@ -1424,6 +1432,9 @@ literal|"long"
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|maxPrecisionStep
@@ -1436,6 +1447,9 @@ return|return
 literal|64
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|value
@@ -1506,7 +1520,13 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * IPs should return as a string.      */
+end_comment
+
+begin_function
 annotation|@
 name|Override
 DECL|method|valueForSearch
@@ -1544,6 +1564,9 @@ name|val
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|indexedValueForSearch
@@ -1584,6 +1607,9 @@ name|get
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|parseValue
 specifier|private
 name|long
@@ -1644,6 +1670,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|fuzzyQuery
@@ -1731,6 +1760,9 @@ literal|true
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|rangeQuery
@@ -1796,6 +1828,9 @@ name|includeUpper
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|rangeFilter
@@ -1866,6 +1901,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|rangeFilter
@@ -1937,6 +1975,9 @@ name|includeUpper
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|nullValueFilter
@@ -1992,6 +2033,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|innerParseCreateField
@@ -2193,6 +2237,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|contentType
@@ -2205,6 +2252,9 @@ return|return
 name|CONTENT_TYPE
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|merge
@@ -2273,6 +2323,9 @@ name|nullValue
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|doXContentBody
@@ -2377,6 +2430,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|NumericIpAnalyzer
 specifier|public
 specifier|static
@@ -2434,6 +2490,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_class
 DECL|class|NumericIpTokenizer
 specifier|public
 specifier|static
@@ -2496,8 +2555,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
