@@ -44,8 +44,6 @@ DECL|method|close
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

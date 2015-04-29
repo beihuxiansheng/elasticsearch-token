@@ -658,16 +658,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|termvectors
@@ -22889,7 +22879,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -22897,7 +22887,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getDetailedMessage
+name|getMessage
 argument_list|()
 argument_list|,
 name|containsString
@@ -23093,8 +23083,6 @@ name|void
 name|testEmptyBoolSubClausesIsMatchAll
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|String

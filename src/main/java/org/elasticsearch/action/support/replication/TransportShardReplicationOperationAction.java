@@ -1017,8 +1017,6 @@ parameter_list|,
 name|InternalRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|checkWriteConsistency
 specifier|protected

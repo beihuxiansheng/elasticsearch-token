@@ -48,16 +48,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|aggregations
@@ -282,8 +272,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|in
 operator|.
@@ -408,7 +396,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Deferred collectors cannot be collected directly. They must be collected through the recording wrapper."
 argument_list|)
@@ -426,7 +414,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Deferred collectors cannot be collected directly. They must be collected through the recording wrapper."
 argument_list|)
@@ -444,7 +432,7 @@ name|IOException
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Deferred collectors cannot be collected directly. They must be collected through the recording wrapper."
 argument_list|)

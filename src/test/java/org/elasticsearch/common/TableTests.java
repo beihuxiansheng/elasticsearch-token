@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
@@ -79,7 +69,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -107,7 +97,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -135,7 +125,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -165,7 +155,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -196,7 +186,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -225,7 +215,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -304,7 +294,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)

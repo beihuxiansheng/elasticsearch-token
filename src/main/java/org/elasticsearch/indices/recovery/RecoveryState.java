@@ -36,26 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|node
@@ -449,8 +429,6 @@ parameter_list|(
 name|byte
 name|id
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 if|if
 condition|(
@@ -467,7 +445,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No mapping for id ["
 operator|+
@@ -626,8 +604,6 @@ parameter_list|(
 name|byte
 name|id
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 if|if
 condition|(
@@ -644,7 +620,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No mapping for id ["
 operator|+
@@ -935,7 +911,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"can't move recovery to stage ["
 operator|+
@@ -1115,7 +1091,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"unknown RecoveryState.Stage ["
 operator|+

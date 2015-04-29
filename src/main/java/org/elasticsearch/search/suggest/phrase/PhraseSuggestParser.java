@@ -80,16 +80,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|xcontent
@@ -477,7 +467,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"real_word_error_likelihood must be> 0.0"
 argument_list|)
@@ -517,7 +507,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"confidence must be>= 0.0"
 argument_list|)
@@ -590,7 +580,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"max_error must be> 0.0"
 argument_list|)
@@ -637,7 +627,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"gram_size must be>= 1"
 argument_list|)
@@ -712,7 +702,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"token_limit must be>= 1"
 argument_list|)
@@ -730,7 +720,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase] doesn't support field ["
 operator|+
@@ -871,7 +861,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase]  doesn't support array field ["
 operator|+
@@ -1030,7 +1020,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][highlight] doesn't support field ["
 operator|+
@@ -1173,7 +1163,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][collate] no query/filter found in collate object"
 argument_list|)
@@ -1191,7 +1181,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][collate] filter already set, doesn't support additional ["
 operator|+
@@ -1213,7 +1203,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][collate] query already set, doesn't support additional ["
 operator|+
@@ -1363,7 +1353,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][collate] prune must be either 'true' or 'false'"
 argument_list|)
@@ -1374,7 +1364,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][collate] doesn't support field ["
 operator|+
@@ -1390,7 +1380,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase]  doesn't support array field ["
 operator|+
@@ -1405,7 +1395,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase] doesn't support field ["
 operator|+
@@ -1428,7 +1418,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The required field option is missing"
 argument_list|)
@@ -1456,7 +1446,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No mapping found for field ["
 operator|+
@@ -1615,7 +1605,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The default analyzer for field: ["
 operator|+
@@ -1668,7 +1658,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The default candidate generator for phrase suggest can't operate on field: ["
 operator|+
@@ -1878,7 +1868,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"trigram_lambda must be positive"
 argument_list|)
@@ -1925,7 +1915,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"bigram_lambda must be positive"
 argument_list|)
@@ -1972,7 +1962,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"unigram_lambda must be positive"
 argument_list|)
@@ -1983,7 +1973,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase][smoothing][linear] doesn't support field ["
 operator|+
@@ -2041,7 +2031,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"linear smoothing lambdas must sum to 1"
 argument_list|)
@@ -2411,7 +2401,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"suggester[phrase] doesn't support object field ["
 operator|+
@@ -2445,7 +2435,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"only one smoothing model supported"
 argument_list|)
@@ -2476,7 +2466,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The required field option is missing"
 argument_list|)
@@ -2557,7 +2547,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No mapping found for field ["
 operator|+
@@ -2641,7 +2631,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Analyzer ["
 operator|+
@@ -2707,7 +2697,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Analyzer ["
 operator|+
@@ -2729,7 +2719,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"CandidateGenerator doesn't support ["
 operator|+

@@ -74,26 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -851,7 +831,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No type mapped for ["
 operator|+
@@ -2600,7 +2580,7 @@ parameter_list|()
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to read doc source from delete operation"
 argument_list|)
@@ -2751,6 +2731,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** @deprecated Delete-by-query is removed in 2.0, but we keep this so translog can replay on upgrade. */
+annotation|@
+name|Deprecated
 DECL|class|DeleteByQuery
 specifier|static
 class|class
@@ -2944,7 +2927,7 @@ parameter_list|()
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to read doc source from delete_by_query operation"
 argument_list|)

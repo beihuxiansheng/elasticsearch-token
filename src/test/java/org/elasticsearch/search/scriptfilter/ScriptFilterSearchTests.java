@@ -130,20 +130,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|script
-operator|.
-name|groovy
-operator|.
-name|GroovyScriptEngineService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|sort
@@ -346,15 +332,6 @@ name|nodeSettings
 argument_list|(
 name|nodeOrdinal
 argument_list|)
-argument_list|)
-operator|.
-name|put
-argument_list|(
-name|GroovyScriptEngineService
-operator|.
-name|GROOVY_SCRIPT_SANDBOX_ENABLED
-argument_list|,
-literal|false
 argument_list|)
 comment|// aggressive filter caching so that we can assert on the number of iterations of the script filters
 operator|.

@@ -78,16 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|collect
@@ -706,8 +696,6 @@ block|}
 catch|catch
 parameter_list|(
 name|IllegalArgumentException
-decl||
-name|ElasticsearchIllegalArgumentException
 name|ilae
 parameter_list|)
 block|{

@@ -144,8 +144,6 @@ DECL|method|endRecovery
 name|int
 name|endRecovery
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|store
 operator|.
@@ -186,8 +184,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|endRecovery
 argument_list|()

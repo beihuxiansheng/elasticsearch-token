@@ -1081,8 +1081,6 @@ specifier|public
 name|HttpServerTransport
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|executorService
 operator|.

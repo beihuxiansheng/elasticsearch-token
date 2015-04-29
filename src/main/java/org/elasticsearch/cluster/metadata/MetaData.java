@@ -102,16 +102,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|support
@@ -764,8 +754,6 @@ parameter_list|(
 name|String
 name|type
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 name|Custom
 operator|.
@@ -791,7 +779,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No custom index metadata factory registered for type ["
 operator|+
@@ -3071,7 +3059,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Alias ["
 operator|+
@@ -3149,7 +3137,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Alias ["
 operator|+
@@ -3201,7 +3189,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"index/alias ["
 operator|+
@@ -4110,7 +4098,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Translates the provided indices or aliases, eventually containing wildcard expressions, into actual indices.      *      * @param indicesOptions how the aliases or indices need to be resolved to concrete indices      * @param aliasesOrIndices the aliases or indices to be resolved to concrete indices      * @return the obtained concrete indices      * @throws IndexMissingException if one of the aliases or indices is missing and the provided indices options      * don't allow such a case, or if the final result of the indices resolution is no indices and the indices options      * don't allow such a case.      * @throws ElasticsearchIllegalArgumentException if one of the aliases resolve to multiple indices and the provided      * indices options don't allow such a case.      */
+comment|/**      * Translates the provided indices or aliases, eventually containing wildcard expressions, into actual indices.      *      * @param indicesOptions how the aliases or indices need to be resolved to concrete indices      * @param aliasesOrIndices the aliases or indices to be resolved to concrete indices      * @return the obtained concrete indices      * @throws IndexMissingException if one of the aliases or indices is missing and the provided indices options      * don't allow such a case, or if the final result of the indices resolution is no indices and the indices options      * don't allow such a case.      * @throws IllegalArgumentException if one of the aliases resolve to multiple indices and the provided      * indices options don't allow such a case.      */
 DECL|method|concreteIndices
 specifier|public
 name|String
@@ -4127,7 +4115,7 @@ parameter_list|)
 throws|throws
 name|IndexMissingException
 throws|,
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -4261,7 +4249,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"no indices were specified and wildcard expansion is disabled."
 argument_list|)
@@ -4572,7 +4560,7 @@ index|]
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method that allows to resolve an index or alias to its corresponding single concrete index.      * Callers should make sure they provide proper {@link org.elasticsearch.action.support.IndicesOptions}      * that require a single index as a result. The indices resolution must in fact return a single index when      * using this method, an {@link org.elasticsearch.ElasticsearchIllegalArgumentException} gets thrown otherwise.      *      * @param indexOrAlias   the index or alias to be resolved to concrete index      * @param indicesOptions the indices options to be used for the index resolution      * @return the concrete index obtained as a result of the index resolution      * @throws IndexMissingException                 if the index or alias provided doesn't exist      * @throws ElasticsearchIllegalArgumentException if the index resolution lead to more than one index      */
+comment|/**      * Utility method that allows to resolve an index or alias to its corresponding single concrete index.      * Callers should make sure they provide proper {@link org.elasticsearch.action.support.IndicesOptions}      * that require a single index as a result. The indices resolution must in fact return a single index when      * using this method, an {@link IllegalArgumentException} gets thrown otherwise.      *      * @param indexOrAlias   the index or alias to be resolved to concrete index      * @param indicesOptions the indices options to be used for the index resolution      * @return the concrete index obtained as a result of the index resolution      * @throws IndexMissingException                 if the index or alias provided doesn't exist      * @throws IllegalArgumentException if the index resolution lead to more than one index      */
 DECL|method|concreteSingleIndex
 specifier|public
 name|String
@@ -4587,7 +4575,7 @@ parameter_list|)
 throws|throws
 name|IndexMissingException
 throws|,
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 name|String
 index|[]
@@ -4611,7 +4599,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"unable to return a single index as the index and options provided got resolved to multiple indices"
 argument_list|)
@@ -4642,7 +4630,7 @@ parameter_list|)
 throws|throws
 name|IndexMissingException
 throws|,
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 name|boolean
 name|failClosed
@@ -4796,7 +4784,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Alias ["
 operator|+

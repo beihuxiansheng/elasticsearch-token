@@ -386,8 +386,6 @@ name|GetWarmersResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableOpenMap
 argument_list|<

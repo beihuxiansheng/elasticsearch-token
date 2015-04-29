@@ -74,26 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -697,7 +677,7 @@ block|{
 comment|// should already have been catched by the FieldStatsRequest#validate(...)
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Illegal level option ["
 operator|+
@@ -816,7 +796,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to merge the field stats of field ["
 operator|+
@@ -941,8 +921,6 @@ parameter_list|(
 name|FieldStatsShardRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|ShardId
 name|shardId

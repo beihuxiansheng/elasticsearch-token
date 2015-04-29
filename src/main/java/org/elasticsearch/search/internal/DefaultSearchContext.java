@@ -1276,8 +1276,6 @@ specifier|public
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(

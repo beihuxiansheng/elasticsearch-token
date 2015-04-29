@@ -25,16 +25,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -119,7 +109,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The parameter script (String) must not be null in Script."
 argument_list|)
@@ -134,7 +124,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The parameter type (ScriptType) must not be null in Script."
 argument_list|)

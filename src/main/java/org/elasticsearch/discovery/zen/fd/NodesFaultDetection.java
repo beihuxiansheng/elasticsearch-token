@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterName
@@ -1212,7 +1202,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Got pinged as node ["
 operator|+
@@ -1254,7 +1244,7 @@ block|{
 comment|// Don't introduce new exception for bwc reasons
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Got pinged with cluster name ["
 operator|+

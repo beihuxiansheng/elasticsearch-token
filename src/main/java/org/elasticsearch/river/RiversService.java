@@ -615,8 +615,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -625,8 +623,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableSet
 argument_list|<
@@ -757,8 +753,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 DECL|method|createRiver
 specifier|public
@@ -777,8 +771,6 @@ name|Object
 argument_list|>
 name|settings
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -1237,8 +1229,6 @@ parameter_list|(
 name|RiverName
 name|riverName
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|Injector
 name|riverInjector

@@ -86,16 +86,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -1717,8 +1707,6 @@ parameter_list|,
 name|boolean
 name|primary
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|/*          * TODO: we execute this in parallel but it's a synced method. Yet, we might          * be able to serialize the execution via the cluster state in the future. for now we just          * keep it synced.          */
 if|if
@@ -1731,7 +1719,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't create shard ["
 operator|+
@@ -1992,8 +1980,6 @@ argument_list|(
 operator|new
 name|StoreModule
 argument_list|(
-name|indexSettings
-argument_list|,
 name|injector
 operator|.
 name|getInstance
@@ -2337,8 +2323,6 @@ parameter_list|,
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|ShardId

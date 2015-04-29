@@ -80,16 +80,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|xcontent
@@ -844,7 +834,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No matching token for number_type ["
 operator|+
@@ -968,7 +958,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No matching token for json_token ["
 operator|+

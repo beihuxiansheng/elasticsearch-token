@@ -54,20 +54,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|TieredMergePolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|store
 operator|.
 name|Directory
@@ -85,16 +71,6 @@ operator|.
 name|store
 operator|.
 name|RAMDirectory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -1319,7 +1295,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }
@@ -1353,7 +1329,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }
@@ -1387,7 +1363,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|ex
 parameter_list|)
 block|{          }

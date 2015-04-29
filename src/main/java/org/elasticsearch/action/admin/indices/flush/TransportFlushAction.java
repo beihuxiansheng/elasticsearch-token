@@ -579,8 +579,6 @@ parameter_list|(
 name|ShardFlushRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexShard
 name|indexShard

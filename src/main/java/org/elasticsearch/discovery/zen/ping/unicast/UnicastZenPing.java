@@ -78,26 +78,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -958,7 +938,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to resolve address for ["
 operator|+
@@ -1049,8 +1029,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1059,8 +1037,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -1069,8 +1045,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transportService
 operator|.
@@ -1299,8 +1273,6 @@ specifier|final
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|SendPingsHandler
@@ -1460,6 +1432,19 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|listener
+operator|.
+name|onPing
+argument_list|(
+name|sendPingsHandler
+operator|.
+name|pingCollection
+argument_list|()
+operator|.
+name|toArray
+argument_list|()
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|DiscoveryNode
@@ -1492,19 +1477,6 @@ name|node
 argument_list|)
 expr_stmt|;
 block|}
-name|listener
-operator|.
-name|onPing
-argument_list|(
-name|sendPingsHandler
-operator|.
-name|pingCollection
-argument_list|()
-operator|.
-name|toArray
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2773,7 +2745,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"received ping request while not started"
 argument_list|)

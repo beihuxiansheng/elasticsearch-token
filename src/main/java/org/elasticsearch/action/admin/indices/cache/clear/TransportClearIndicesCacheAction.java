@@ -640,8 +640,6 @@ parameter_list|(
 name|ShardClearIndicesCacheRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexService
 name|service
@@ -682,18 +680,6 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// we always clear the query cache
-name|service
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|queryParserCache
-argument_list|()
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
 name|boolean
 name|clearedAtLeastOne
 init|=

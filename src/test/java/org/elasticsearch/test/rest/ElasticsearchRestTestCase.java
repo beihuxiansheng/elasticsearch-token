@@ -1547,10 +1547,11 @@ name|int
 name|maximumNumberOfReplicas
 parameter_list|()
 block|{
+comment|// hardcoded 1 since this is what clients also do and our tests must expect that we have only node
+comment|// with replicas set to 1 ie. the cluster won't be green
 return|return
 literal|1
 return|;
-comment|// never go crazy in the REST tests
 block|}
 comment|/**      * Used to obtain settings for the REST client that is used to send REST requests.      */
 DECL|method|restClientSettings

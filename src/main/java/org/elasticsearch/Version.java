@@ -4021,7 +4021,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Return the {@link Version} of Elasticsearch that has been used to create an index given its settings.      *      * @throws ElasticsearchIllegalStateException if the given index settings doesn't contain a value for the key {@value IndexMetaData#SETTING_VERSION_CREATED}      */
+comment|/**      * Return the {@link Version} of Elasticsearch that has been used to create an index given its settings.      *      * @throws IllegalStateException if the given index settings doesn't contain a value for the key {@value IndexMetaData#SETTING_VERSION_CREATED}      */
 DECL|method|indexCreated
 specifier|public
 specifier|static
@@ -4056,7 +4056,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"["
 operator|+

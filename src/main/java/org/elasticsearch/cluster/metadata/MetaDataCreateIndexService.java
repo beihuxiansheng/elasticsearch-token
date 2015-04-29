@@ -116,16 +116,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -1249,8 +1239,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -4147,8 +4135,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|validateIndexName
 argument_list|(
@@ -4322,7 +4308,7 @@ name|indexName
 argument_list|)
 argument_list|,
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|getMessage
 argument_list|(

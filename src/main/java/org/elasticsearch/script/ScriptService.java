@@ -118,26 +118,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -546,20 +526,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|node
-operator|.
-name|settings
-operator|.
-name|NodeSettingsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|script
 operator|.
 name|groovy
@@ -874,12 +840,6 @@ specifier|final
 name|Path
 name|scriptsDirectory
 decl_stmt|;
-DECL|field|fileWatcher
-specifier|private
-specifier|final
-name|FileWatcher
-name|fileWatcher
-decl_stmt|;
 DECL|field|scriptModes
 specifier|private
 specifier|final
@@ -974,9 +934,6 @@ parameter_list|,
 name|ResourceWatcherService
 name|resourceWatcherService
 parameter_list|,
-name|NodeSettingsService
-name|nodeSettingsService
-parameter_list|,
 name|ScriptContextRegistry
 name|scriptContextRegistry
 parameter_list|)
@@ -1005,7 +962,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|DISABLE_DYNAMIC_SCRIPTING_SETTING
 operator|+
@@ -1282,16 +1239,15 @@ name|scriptsDirectory
 argument_list|)
 expr_stmt|;
 block|}
-name|this
-operator|.
+name|FileWatcher
 name|fileWatcher
-operator|=
+init|=
 operator|new
 name|FileWatcher
 argument_list|(
 name|scriptsDirectory
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|fileWatcher
 operator|.
 name|addListener
@@ -1331,15 +1287,6 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
-name|nodeSettingsService
-operator|.
-name|addListener
-argument_list|(
-operator|new
-name|ApplySettings
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|//This isn't set in the ctor because doing so creates a guice circular
 annotation|@
@@ -1383,52 +1330,6 @@ name|scriptEngines
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Clear both the in memory and on disk compiled script caches. Files on      * disk will be treated as if they are new and recompiled.      * */
-DECL|method|clearCache
-specifier|public
-name|void
-name|clearCache
-parameter_list|()
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"clearing script cache"
-argument_list|)
-expr_stmt|;
-comment|// Clear the in-memory script caches
-name|this
-operator|.
-name|cache
-operator|.
-name|invalidateAll
-argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|cache
-operator|.
-name|cleanUp
-argument_list|()
-expr_stmt|;
-comment|// Clear the cache of on-disk scripts
-name|this
-operator|.
-name|staticCache
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-comment|// Clear the file watcher's state so it re-compiles on-disk scripts
-name|this
-operator|.
-name|fileWatcher
-operator|.
-name|clearState
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|getScriptEngineServiceForLang
 specifier|private
 name|ScriptEngineService
@@ -1457,7 +1358,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"script_lang not supported ["
 operator|+
@@ -1499,7 +1400,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"script file extension not supported ["
 operator|+
@@ -1535,7 +1436,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The parameter script (Script) must not be null."
 argument_list|)
@@ -1550,7 +1451,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The parameter scriptContext (ScriptContext) must not be null."
 argument_list|)
@@ -1655,7 +1556,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"The parameter script (Script) must not be null."
 argument_list|)
@@ -1762,7 +1663,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unable to find on disk script "
 operator|+
@@ -2003,7 +1904,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"script_lang not supported ["
 operator|+
@@ -2037,7 +1938,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Got an indexed script with no Client registered."
 argument_list|)
@@ -2093,7 +1994,7 @@ return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unable to find script ["
 operator|+
@@ -2226,7 +2127,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unable to parse ["
 operator|+
@@ -2270,7 +2171,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unable to parse ["
 operator|+
@@ -2294,7 +2195,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unable to find script in : "
 operator|+
@@ -2314,7 +2215,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse template script"
 argument_list|,
@@ -2630,7 +2531,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Unable to parse "
 operator|+
@@ -2712,7 +2613,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Unable to parse "
 operator|+
@@ -2934,7 +2835,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"script context ["
 operator|+
@@ -2990,7 +2891,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"script mode ["
 operator|+
@@ -3636,7 +3537,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unexpected value read for ScriptType got ["
 operator|+
@@ -3722,7 +3623,7 @@ return|return;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Unknown ScriptType "
 operator|+
@@ -3986,7 +3887,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Illegal index script format ["
 operator|+
@@ -4018,7 +3919,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Conflicting script language, found ["
 operator|+
@@ -4045,120 +3946,6 @@ name|parts
 index|[
 literal|2
 index|]
-expr_stmt|;
-block|}
-block|}
-block|}
-block|}
-DECL|class|ApplySettings
-specifier|private
-class|class
-name|ApplySettings
-implements|implements
-name|NodeSettingsService
-operator|.
-name|Listener
-block|{
-annotation|@
-name|Override
-DECL|method|onRefreshSettings
-specifier|public
-name|void
-name|onRefreshSettings
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-block|{
-name|GroovyScriptEngineService
-name|engine
-init|=
-operator|(
-name|GroovyScriptEngineService
-operator|)
-name|ScriptService
-operator|.
-name|this
-operator|.
-name|scriptEnginesByLang
-operator|.
-name|get
-argument_list|(
-name|GroovyScriptEngineService
-operator|.
-name|NAME
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|engine
-operator|!=
-literal|null
-condition|)
-block|{
-name|String
-index|[]
-name|patches
-init|=
-name|settings
-operator|.
-name|getAsArray
-argument_list|(
-name|GroovyScriptEngineService
-operator|.
-name|GROOVY_SCRIPT_BLACKLIST_PATCH
-argument_list|,
-name|Strings
-operator|.
-name|EMPTY_ARRAY
-argument_list|)
-decl_stmt|;
-name|boolean
-name|blacklistChanged
-init|=
-name|engine
-operator|.
-name|addToBlacklist
-argument_list|(
-name|patches
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|blacklistChanged
-condition|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"adding {} to [{}], new blacklisted methods: {}"
-argument_list|,
-name|patches
-argument_list|,
-name|GroovyScriptEngineService
-operator|.
-name|GROOVY_SCRIPT_BLACKLIST_PATCH
-argument_list|,
-name|engine
-operator|.
-name|blacklistAdditions
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|engine
-operator|.
-name|reloadConfig
-argument_list|()
-expr_stmt|;
-comment|// Because the GroovyScriptEngineService knows nothing about the
-comment|// cache, we need to clear it here if the setting changes
-name|ScriptService
-operator|.
-name|this
-operator|.
-name|clearCache
-argument_list|()
 expr_stmt|;
 block|}
 block|}

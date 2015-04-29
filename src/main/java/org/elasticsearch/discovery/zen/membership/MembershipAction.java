@@ -506,8 +506,6 @@ parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|transportService
 operator|.
@@ -587,8 +585,6 @@ parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|transportService
 operator|.
@@ -634,8 +630,6 @@ parameter_list|,
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|transportService
 operator|.

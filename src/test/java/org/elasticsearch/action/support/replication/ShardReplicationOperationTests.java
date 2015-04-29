@@ -4142,8 +4142,6 @@ parameter_list|,
 name|InternalRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|clusterState

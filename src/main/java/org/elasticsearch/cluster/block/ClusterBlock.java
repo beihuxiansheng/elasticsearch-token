@@ -584,7 +584,7 @@ control|)
 block|{
 name|levels
 operator|.
-name|addAll
+name|add
 argument_list|(
 name|ClusterBlockLevel
 operator|.
@@ -684,13 +684,8 @@ name|writeVInt
 argument_list|(
 name|level
 operator|.
-name|toId
-argument_list|(
-name|out
-operator|.
-name|getVersion
+name|id
 argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

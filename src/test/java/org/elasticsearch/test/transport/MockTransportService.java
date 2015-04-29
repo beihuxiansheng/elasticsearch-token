@@ -1826,8 +1826,6 @@ specifier|public
 name|Transport
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transport
 operator|.
@@ -1845,8 +1843,6 @@ specifier|public
 name|Transport
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transport
 operator|.
@@ -1864,8 +1860,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|transport
 operator|.

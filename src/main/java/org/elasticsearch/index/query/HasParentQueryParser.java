@@ -356,22 +356,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParserUtils
-operator|.
-name|ensureNotDeleteByQuery
-import|;
-end_import
-
 begin_class
 DECL|class|HasParentQueryParser
 specifier|public
@@ -452,13 +436,6 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
-name|ensureNotDeleteByQuery
-argument_list|(
-name|NAME
-argument_list|,
-name|parseContext
-argument_list|)
-expr_stmt|;
 name|XContentParser
 name|parser
 init|=

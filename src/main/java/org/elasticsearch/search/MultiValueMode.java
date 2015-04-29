@@ -118,16 +118,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|fielddata
@@ -1116,7 +1106,7 @@ return|return
 name|a
 return|;
 block|}
-comment|/**      * A case insensitive version of {@link #valueOf(String)}      *      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if the given string doesn't match a sort mode or is<code>null</code>.      */
+comment|/**      * A case insensitive version of {@link #valueOf(String)}      *      * @throws IllegalArgumentException if the given string doesn't match a sort mode or is<code>null</code>.      */
 DECL|method|fromString
 specifier|public
 specifier|static
@@ -1151,7 +1141,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Illegal sort_mode "
 operator|+
@@ -2293,7 +2283,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unsupported sort mode: "
 operator|+
@@ -2877,7 +2867,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unsupported sort mode: "
 operator|+

@@ -337,6 +337,10 @@ argument_list|(
 name|scope
 operator|=
 name|TEST
+argument_list|,
+name|minNumDataNodes
+operator|=
+literal|2
 argument_list|)
 DECL|class|AckClusterUpdateSettingsTests
 specifier|public

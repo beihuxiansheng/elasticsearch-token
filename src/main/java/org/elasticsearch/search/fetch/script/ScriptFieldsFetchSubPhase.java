@@ -48,16 +48,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -333,8 +323,6 @@ name|InternalSearchHit
 index|[]
 name|hits
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -367,8 +355,6 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 for|for
 control|(
@@ -415,7 +401,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Failed to load script"
 argument_list|,

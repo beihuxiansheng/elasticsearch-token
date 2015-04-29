@@ -306,8 +306,6 @@ specifier|public
 name|Response
 name|get
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|execute
@@ -326,8 +324,6 @@ parameter_list|(
 name|TimeValue
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|execute
@@ -348,8 +344,6 @@ parameter_list|(
 name|String
 name|timeout
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|execute

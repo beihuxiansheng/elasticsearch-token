@@ -74,16 +74,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|component
@@ -159,20 +149,6 @@ operator|.
 name|mapper
 operator|.
 name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperService
 import|;
 end_import
 
@@ -384,8 +360,6 @@ name|InternalSearchHit
 index|[]
 name|hits
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -420,8 +394,6 @@ parameter_list|,
 name|HitContext
 name|hitContext
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|Map
 argument_list|<
@@ -565,7 +537,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"source is forced for fields "
 operator|+
@@ -721,7 +693,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"unknown highlighter type ["
 operator|+

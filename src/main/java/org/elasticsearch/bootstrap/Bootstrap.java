@@ -400,13 +400,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|setupSecurity
-argument_list|(
-name|settings
-argument_list|,
-name|environment
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|settings
@@ -558,6 +551,14 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// install SM after natives, JNA can require strange permissions
+name|setupSecurity
+argument_list|(
+name|settings
+argument_list|,
+name|environment
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**       * option for elasticsearch.yml etc to turn off our security manager completely,      * for example if you want to have your own configuration or just disable.      */
 DECL|field|SECURITY_SETTING

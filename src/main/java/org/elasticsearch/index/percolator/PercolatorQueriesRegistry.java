@@ -2113,13 +2113,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Updating the live percolate queries for a delete by query is tricky with the current way delete by queries
-comment|// are handled. It is only possible if we put a big lock around the post delete by query hook...
-comment|// If we implement delete by query, that just runs a query and generates delete operations in a bulk, then
-comment|// updating the live percolator is automatically supported for delete by query.
-comment|//        @Override
-comment|//        public void postDeleteByQuery(Engine.DeleteByQuery deleteByQuery) {
-comment|//        }
 block|}
 block|}
 end_class

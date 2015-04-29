@@ -1154,8 +1154,6 @@ parameter_list|(
 name|ShardValidateQueryRequest
 name|request
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexService
 name|indexService

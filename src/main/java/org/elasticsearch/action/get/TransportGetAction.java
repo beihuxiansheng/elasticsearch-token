@@ -651,8 +651,6 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|IndexService
 name|indexService

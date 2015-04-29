@@ -1270,8 +1270,6 @@ parameter_list|(
 name|QueryBuilder
 name|queryBuilder
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1368,8 +1366,6 @@ name|byte
 index|[]
 name|source
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|parse
@@ -1399,8 +1395,6 @@ parameter_list|,
 name|int
 name|length
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser
@@ -1496,8 +1490,6 @@ parameter_list|(
 name|BytesReference
 name|source
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 name|parse
@@ -1522,8 +1514,6 @@ parameter_list|,
 name|BytesReference
 name|source
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|XContentParser
 name|parser

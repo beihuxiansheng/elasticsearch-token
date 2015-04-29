@@ -484,8 +484,6 @@ parameter_list|(
 name|NodeInfoRequest
 name|nodeRequest
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|NodesInfoRequest
 name|request

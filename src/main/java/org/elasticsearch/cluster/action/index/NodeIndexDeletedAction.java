@@ -478,8 +478,6 @@ specifier|final
 name|String
 name|nodeId
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|DiscoveryNodes

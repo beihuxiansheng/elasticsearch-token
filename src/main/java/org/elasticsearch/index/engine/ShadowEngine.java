@@ -553,6 +553,9 @@ literal|" delete operation not allowed on shadow engine"
 argument_list|)
 throw|;
 block|}
+comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
+annotation|@
+name|Deprecated
 annotation|@
 name|Override
 DECL|method|delete
@@ -975,8 +978,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(

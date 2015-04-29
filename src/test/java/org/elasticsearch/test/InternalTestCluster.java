@@ -282,16 +282,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -1506,22 +1496,6 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
-name|random
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
 name|rarely
 import|;
 end_import
@@ -1780,7 +1754,7 @@ specifier|final
 name|int
 name|DEFAULT_MIN_NUM_DATA_NODES
 init|=
-literal|2
+literal|1
 decl_stmt|;
 DECL|field|DEFAULT_MAX_NUM_DATA_NODES
 specifier|static
@@ -1788,7 +1762,11 @@ specifier|final
 name|int
 name|DEFAULT_MAX_NUM_DATA_NODES
 init|=
+name|TEST_NIGHTLY
+condition|?
 literal|6
+else|:
+literal|3
 decl_stmt|;
 DECL|field|DEFAULT_NUM_CLIENT_NODES
 specifier|static
@@ -2999,7 +2977,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Tests must not set a '"
 operator|+
