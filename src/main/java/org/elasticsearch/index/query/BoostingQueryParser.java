@@ -294,9 +294,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[boosting] query does not support ["
 operator|+
@@ -367,9 +364,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[boosting] query does not support ["
 operator|+
@@ -396,9 +390,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[boosting] query requires 'positive' query to be set'"
 argument_list|)
@@ -419,9 +410,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[boosting] query requires 'negative' query to be set'"
 argument_list|)
@@ -440,9 +428,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[boosting] query requires 'negative_boost' to be set'"
 argument_list|)

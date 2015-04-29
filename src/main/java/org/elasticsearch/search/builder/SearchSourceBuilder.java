@@ -274,6 +274,22 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|ReducerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|fetch
 operator|.
 name|innerhits
@@ -447,7 +463,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A search source builder allowing to easily build search source. Simple construction  * using {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
+comment|/**  * A search source builder allowing to easily build search source. Simple  * construction using  * {@link org.elasticsearch.search.builder.SearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#source(SearchSourceBuilder)  */
 end_comment
 
 begin_class
@@ -860,7 +876,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets a filter that will be executed after the query has been executed and only has affect on the search hits      * (not aggregations). This filter is always executed as last filtering mechanism.      */
+comment|/**      * Sets a filter that will be executed after the query has been executed and      * only has affect on the search hits (not aggregations). This filter is      * always executed as last filtering mechanism.      */
 DECL|method|postFilter
 specifier|public
 name|SearchSourceBuilder
@@ -1119,7 +1135,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with an      * explanation of the hit (ranking).      */
+comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with      * an explanation of the hit (ranking).      */
 DECL|method|explain
 specifier|public
 name|SearchSourceBuilder
@@ -1139,7 +1155,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with a version      * associated with it.      */
+comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with a      * version associated with it.      */
 DECL|method|version
 specifier|public
 name|SearchSourceBuilder
@@ -1212,7 +1228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * An optional terminate_after to terminate the search after      * collecting<code>terminateAfter</code> documents      */
+comment|/**      * An optional terminate_after to terminate the search after collecting      *<code>terminateAfter</code> documents      */
 DECL|method|terminateAfter
 specifier|public
 name|SearchSourceBuilder
@@ -1247,7 +1263,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a sort against the given field name and the sort ordering.      *      * @param name  The name of the field      * @param order The sort ordering      */
+comment|/**      * Adds a sort against the given field name and the sort ordering.      *      * @param name      *            The name of the field      * @param order      *            The sort ordering      */
 DECL|method|sort
 specifier|public
 name|SearchSourceBuilder
@@ -1277,7 +1293,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Add a sort against the given field name.      *      * @param name The name of the field to sort by      */
+comment|/**      * Add a sort against the given field name.      *      * @param name      *            The name of the field to sort by      */
 DECL|method|sort
 specifier|public
 name|SearchSourceBuilder
@@ -1335,7 +1351,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Applies when sorting, and controls if scores will be tracked as well. Defaults to      *<tt>false</tt>.      */
+comment|/**      * Applies when sorting, and controls if scores will be tracked as well.      * Defaults to<tt>false</tt>.      */
 DECL|method|trackScores
 specifier|public
 name|SearchSourceBuilder
@@ -1487,7 +1503,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the rescore window size for rescores that don't specify their window.      * @param defaultRescoreWindowSize      * @return      */
+comment|/**      * Set the rescore window size for rescores that don't specify their window.      *       * @param defaultRescoreWindowSize      * @return      */
 DECL|method|defaultRescoreWindowSize
 specifier|public
 name|SearchSourceBuilder
@@ -1709,7 +1725,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Indicates whether the response should contain the stored _source for every hit      *      * @param fetch      * @return      */
+comment|/**      * Indicates whether the response should contain the stored _source for      * every hit      *      * @param fetch      * @return      */
 DECL|method|fetchSource
 specifier|public
 name|SearchSourceBuilder
@@ -1755,7 +1771,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Indicate that _source should be returned with every hit, with an "include" and/or "exclude" set which can include simple wildcard      * elements.      *      * @param include An optional include (optionally wildcarded) pattern to filter the returned _source      * @param exclude An optional exclude (optionally wildcarded) pattern to filter the returned _source      */
+comment|/**      * Indicate that _source should be returned with every hit, with an      * "include" and/or "exclude" set which can include simple wildcard      * elements.      *      * @param include      *            An optional include (optionally wildcarded) pattern to filter      *            the returned _source      * @param exclude      *            An optional exclude (optionally wildcarded) pattern to filter      *            the returned _source      */
 DECL|method|fetchSource
 specifier|public
 name|SearchSourceBuilder
@@ -1807,7 +1823,7 @@ block|}
 argument_list|)
 return|;
 block|}
-comment|/**      * Indicate that _source should be returned with every hit, with an "include" and/or "exclude" set which can include simple wildcard      * elements.      *      * @param includes An optional list of include (optionally wildcarded) pattern to filter the returned _source      * @param excludes An optional list of exclude (optionally wildcarded) pattern to filter the returned _source      */
+comment|/**      * Indicate that _source should be returned with every hit, with an      * "include" and/or "exclude" set which can include simple wildcard      * elements.      *      * @param includes      *            An optional list of include (optionally wildcarded) pattern to      *            filter the returned _source      * @param excludes      *            An optional list of exclude (optionally wildcarded) pattern to      *            filter the returned _source      */
 DECL|method|fetchSource
 specifier|public
 name|SearchSourceBuilder
@@ -1862,7 +1878,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned per field.      */
+comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned      * per field.      */
 DECL|method|noFields
 specifier|public
 name|SearchSourceBuilder
@@ -1882,7 +1898,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the fields to load and return as part of the search request. If none are specified,      * the source of the document will be returned.      */
+comment|/**      * Sets the fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      */
 DECL|method|fields
 specifier|public
 name|SearchSourceBuilder
@@ -1905,7 +1921,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds the fields to load and return as part of the search request. If none are specified,      * the source of the document will be returned.      */
+comment|/**      * Adds the fields to load and return as part of the search request. If none      * are specified, the source of the document will be returned.      */
 DECL|method|fields
 specifier|public
 name|SearchSourceBuilder
@@ -1951,7 +1967,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a field to load and return (note, it must be stored) as part of the search request.      * If none are specified, the source of the document will be return.      */
+comment|/**      * Adds a field to load and return (note, it must be stored) as part of the      * search request. If none are specified, the source of the document will be      * return.      */
 DECL|method|field
 specifier|public
 name|SearchSourceBuilder
@@ -1987,7 +2003,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a field to load from the field data cache and return as part of the search request.      */
+comment|/**      * Adds a field to load from the field data cache and return as part of the      * search request.      */
 DECL|method|fieldDataField
 specifier|public
 name|SearchSourceBuilder
@@ -2023,7 +2039,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a script field under the given name with the provided script.      *      * @param name   The name of the field      * @param script The script      */
+comment|/**      * Adds a script field under the given name with the provided script.      *      * @param name      *            The name of the field      * @param script      *            The script      */
 DECL|method|scriptField
 specifier|public
 name|SearchSourceBuilder
@@ -2049,7 +2065,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a script field.      *      * @param name   The name of the field      * @param script The script to execute      * @param params The script parameters      */
+comment|/**      * Adds a script field.      *      * @param name      *            The name of the field      * @param script      *            The script to execute      * @param params      *            The script parameters      */
 DECL|method|scriptField
 specifier|public
 name|SearchSourceBuilder
@@ -2083,7 +2099,7 @@ name|params
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a script field.      *      * @param name   The name of the field      * @param lang   The language of the script      * @param script The script to execute      * @param params The script parameters (can be<tt>null</tt>)      */
+comment|/**      * Adds a script field.      *      * @param name      *            The name of the field      * @param lang      *            The language of the script      * @param script      *            The script to execute      * @param params      *            The script parameters (can be<tt>null</tt>)      */
 DECL|method|scriptField
 specifier|public
 name|SearchSourceBuilder
@@ -2143,7 +2159,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the boost a specific index will receive when the query is executeed against it.      *      * @param index      The index to apply the boost against      * @param indexBoost The boost to apply to the index      */
+comment|/**      * Sets the boost a specific index will receive when the query is executeed      * against it.      *      * @param index      *            The index to apply the boost against      * @param indexBoost      *            The boost to apply to the index      */
 DECL|method|indexBoost
 specifier|public
 name|SearchSourceBuilder
@@ -3578,155 +3594,6 @@ parameter_list|()
 block|{
 return|return
 name|params
-return|;
-block|}
-block|}
-DECL|class|PartialField
-specifier|private
-specifier|static
-class|class
-name|PartialField
-block|{
-DECL|field|name
-specifier|private
-specifier|final
-name|String
-name|name
-decl_stmt|;
-DECL|field|includes
-specifier|private
-specifier|final
-name|String
-index|[]
-name|includes
-decl_stmt|;
-DECL|field|excludes
-specifier|private
-specifier|final
-name|String
-index|[]
-name|excludes
-decl_stmt|;
-DECL|method|PartialField
-specifier|private
-name|PartialField
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-index|[]
-name|includes
-parameter_list|,
-name|String
-index|[]
-name|excludes
-parameter_list|)
-block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-name|this
-operator|.
-name|includes
-operator|=
-name|includes
-expr_stmt|;
-name|this
-operator|.
-name|excludes
-operator|=
-name|excludes
-expr_stmt|;
-block|}
-DECL|method|PartialField
-specifier|private
-name|PartialField
-parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-name|include
-parameter_list|,
-name|String
-name|exclude
-parameter_list|)
-block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
-name|this
-operator|.
-name|includes
-operator|=
-name|include
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-operator|new
-name|String
-index|[]
-block|{
-name|include
-block|}
-expr_stmt|;
-name|this
-operator|.
-name|excludes
-operator|=
-name|exclude
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-operator|new
-name|String
-index|[]
-block|{
-name|exclude
-block|}
-expr_stmt|;
-block|}
-DECL|method|name
-specifier|public
-name|String
-name|name
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
-DECL|method|includes
-specifier|public
-name|String
-index|[]
-name|includes
-parameter_list|()
-block|{
-return|return
-name|includes
-return|;
-block|}
-DECL|method|excludes
-specifier|public
-name|String
-index|[]
-name|excludes
-parameter_list|()
-block|{
-return|return
-name|excludes
 return|;
 block|}
 block|}

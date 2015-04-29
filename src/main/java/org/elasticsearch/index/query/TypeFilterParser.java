@@ -247,9 +247,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[type] filter should have a value field, and the type name"
 argument_list|)
@@ -279,9 +276,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[type] filter should have a value field, and the type name"
 argument_list|)
@@ -310,9 +304,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[type] filter should have a value field, and the type name"
 argument_list|)

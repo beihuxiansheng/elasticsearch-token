@@ -314,9 +314,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[field_masking_span] query] must be of type span query"
 argument_list|)
@@ -337,9 +334,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[field_masking_span] query does not support ["
 operator|+
@@ -415,9 +409,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[field_masking_span] query does not support ["
 operator|+
@@ -441,9 +432,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"field_masking_span must have [query] span query clause"
 argument_list|)
@@ -461,9 +449,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"field_masking_span must have [field] set for it"
 argument_list|)

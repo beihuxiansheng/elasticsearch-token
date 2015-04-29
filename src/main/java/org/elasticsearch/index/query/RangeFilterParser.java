@@ -736,9 +736,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] filter does not support ["
 operator|+
@@ -853,9 +850,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] filter does not support ["
 operator|+
@@ -879,9 +873,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] filter no field specified for range filter"
 argument_list|)
@@ -966,9 +957,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] time_zone when using ms since epoch format as it's UTC based can not be applied to ["
 operator|+
@@ -1019,9 +1007,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] time_zone can not be applied to non date field ["
 operator|+
@@ -1084,9 +1069,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] filter field ["
 operator|+
@@ -1125,9 +1107,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] time_zone when using ms since epoch format as it's UTC based can not be applied to ["
 operator|+
@@ -1180,9 +1159,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] time_zone can not be applied to non date field ["
 operator|+
@@ -1225,9 +1201,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] filter doesn't support ["
 operator|+

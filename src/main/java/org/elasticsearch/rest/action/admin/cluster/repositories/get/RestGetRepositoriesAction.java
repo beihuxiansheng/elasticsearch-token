@@ -422,8 +422,6 @@ control|)
 block|{
 name|RepositoriesMetaData
 operator|.
-name|FACTORY
-operator|.
 name|toXContent
 argument_list|(
 name|repositoryMetaData

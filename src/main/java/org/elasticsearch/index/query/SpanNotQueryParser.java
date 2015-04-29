@@ -315,9 +315,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanNot [include] must be of type span query"
 argument_list|)
@@ -365,9 +362,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanNot [exclude] must be of type span query"
 argument_list|)
@@ -388,9 +382,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[span_not] query does not support ["
 operator|+
@@ -504,9 +495,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[span_not] query does not support ["
 operator|+
@@ -530,9 +518,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanNot must have [include] span query clause"
 argument_list|)
@@ -550,9 +535,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanNot must have [exclude] span query clause"
 argument_list|)
@@ -580,9 +562,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanNot can either use [dist] or [pre]& [post] (or none)"
 argument_list|)

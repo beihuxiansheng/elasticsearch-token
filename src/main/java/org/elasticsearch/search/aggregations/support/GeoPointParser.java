@@ -358,6 +358,11 @@ operator|+
 name|aggType
 operator|+
 literal|" aggregation. a geo point array must be of the form [lon, lat]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -527,6 +532,11 @@ operator|+
 name|aggType
 operator|+
 literal|" aggregation"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

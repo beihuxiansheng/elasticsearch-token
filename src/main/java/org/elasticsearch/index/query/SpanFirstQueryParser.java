@@ -301,9 +301,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanFirst [match] must be of type span query"
 argument_list|)
@@ -324,9 +321,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[span_first] query does not support ["
 operator|+
@@ -402,9 +396,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[span_first] query does not support ["
 operator|+
@@ -428,9 +419,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanFirst must have [match] span query clause"
 argument_list|)
@@ -449,9 +437,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"spanFirst must have [end] set for it"
 argument_list|)

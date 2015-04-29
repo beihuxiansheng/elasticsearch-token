@@ -125,6 +125,17 @@ operator|=
 name|resolveAddress
 expr_stmt|;
 block|}
+DECL|method|getResolveAddress
+specifier|public
+specifier|static
+name|boolean
+name|getResolveAddress
+parameter_list|()
+block|{
+return|return
+name|resolveAddress
+return|;
+block|}
 DECL|field|address
 specifier|private
 name|InetSocketAddress

@@ -82,20 +82,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|TermRangeQuery
 import|;
 end_import
@@ -467,9 +453,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[missing] filter does not support ["
 operator|+
@@ -493,9 +476,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"missing must be provided with a [field]"
 argument_list|)
@@ -552,9 +532,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"missing must have either existence, or null_value, or both set to true"
 argument_list|)

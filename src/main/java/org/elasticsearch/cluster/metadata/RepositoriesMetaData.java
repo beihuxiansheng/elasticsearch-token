@@ -46,6 +46,34 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|AbstractDiffable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|MetaData
+operator|.
+name|Custom
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -217,6 +245,11 @@ DECL|class|RepositoriesMetaData
 specifier|public
 class|class
 name|RepositoriesMetaData
+extends|extends
+name|AbstractDiffable
+argument_list|<
+name|Custom
+argument_list|>
 implements|implements
 name|MetaData
 operator|.
@@ -231,15 +264,15 @@ name|TYPE
 init|=
 literal|"repositories"
 decl_stmt|;
-DECL|field|FACTORY
+DECL|field|PROTO
 specifier|public
 specifier|static
 specifier|final
-name|Factory
-name|FACTORY
+name|RepositoriesMetaData
+name|PROTO
 init|=
 operator|new
-name|Factory
+name|RepositoriesMetaData
 argument_list|()
 decl_stmt|;
 DECL|field|repositories
@@ -329,23 +362,78 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Repository metadata factory      */
-DECL|class|Factory
+annotation|@
+name|Override
+DECL|method|equals
 specifier|public
-specifier|static
-class|class
-name|Factory
-extends|extends
-name|MetaData
-operator|.
-name|Custom
-operator|.
-name|Factory
-argument_list|<
-name|RepositoriesMetaData
-argument_list|>
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|o
+parameter_list|)
 block|{
-comment|/**          * {@inheritDoc}          */
+if|if
+condition|(
+name|this
+operator|==
+name|o
+condition|)
+return|return
+literal|true
+return|;
+if|if
+condition|(
+name|o
+operator|==
+literal|null
+operator|||
+name|getClass
+argument_list|()
+operator|!=
+name|o
+operator|.
+name|getClass
+argument_list|()
+condition|)
+return|return
+literal|false
+return|;
+name|RepositoriesMetaData
+name|that
+init|=
+operator|(
+name|RepositoriesMetaData
+operator|)
+name|o
+decl_stmt|;
+return|return
+name|repositories
+operator|.
+name|equals
+argument_list|(
+name|that
+operator|.
+name|repositories
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+return|return
+name|repositories
+operator|.
+name|hashCode
+argument_list|()
+return|;
+block|}
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|type
@@ -358,12 +446,12 @@ return|return
 name|TYPE
 return|;
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|RepositoriesMetaData
+name|Custom
 name|readFrom
 parameter_list|(
 name|StreamInput
@@ -423,7 +511,7 @@ name|repository
 argument_list|)
 return|;
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|writeTo
@@ -431,9 +519,6 @@ specifier|public
 name|void
 name|writeTo
 parameter_list|(
-name|RepositoriesMetaData
-name|repositories
-parameter_list|,
 name|StreamOutput
 name|out
 parameter_list|)
@@ -446,9 +531,6 @@ name|writeVInt
 argument_list|(
 name|repositories
 operator|.
-name|repositories
-argument_list|()
-operator|.
 name|size
 argument_list|()
 argument_list|)
@@ -459,9 +541,6 @@ name|RepositoryMetaData
 name|repository
 range|:
 name|repositories
-operator|.
-name|repositories
-argument_list|()
 control|)
 block|{
 name|repository
@@ -473,7 +552,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|fromXContent
@@ -822,17 +901,14 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**          * {@inheritDoc}          */
+comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|toXContent
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
-name|RepositoriesMetaData
-name|customIndexMetaData
-parameter_list|,
 name|XContentBuilder
 name|builder
 parameter_list|,
@@ -849,10 +925,7 @@ control|(
 name|RepositoryMetaData
 name|repository
 range|:
-name|customIndexMetaData
-operator|.
 name|repositories
-argument_list|()
 control|)
 block|{
 name|toXContent
@@ -865,6 +938,9 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|builder
+return|;
 block|}
 annotation|@
 name|Override
@@ -885,9 +961,10 @@ operator|.
 name|API_AND_GATEWAY
 return|;
 block|}
-comment|/**          * Serializes information about a single repository          *          * @param repository repository metadata          * @param builder    XContent builder          * @param params     serialization parameters          * @throws IOException          */
+comment|/**      * Serializes information about a single repository      *      * @param repository repository metadata      * @param builder    XContent builder      * @param params     serialization parameters      * @throws IOException      */
 DECL|method|toXContent
 specifier|public
+specifier|static
 name|void
 name|toXContent
 parameter_list|(
@@ -990,7 +1067,6 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

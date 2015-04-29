@@ -1332,7 +1332,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1457,7 +1458,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1565,7 +1567,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|context
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1654,7 +1656,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse ["
 operator|+
@@ -1737,7 +1740,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|context
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -2117,7 +2120,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
 argument_list|()
 argument_list|,
 literal|"request does not support ["
@@ -2162,7 +2165,8 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -2174,7 +2178,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|getParseContext
 argument_list|()
 argument_list|,
 literal|"Required query is missing"

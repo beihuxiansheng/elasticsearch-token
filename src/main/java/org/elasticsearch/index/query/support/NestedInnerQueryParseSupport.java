@@ -524,9 +524,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires 'path' field"
 argument_list|)
@@ -543,9 +540,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires either 'query' or 'filter' field"
 argument_list|)
@@ -648,9 +642,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires 'path' field"
 argument_list|)
@@ -667,9 +658,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] requires either 'query' or 'filter' field"
 argument_list|)
@@ -774,9 +762,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] failed to find nested object under path ["
 operator|+
@@ -812,9 +797,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] failed to find nested object under path ["
 operator|+
@@ -841,9 +823,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[nested] nested object under path ["
 operator|+

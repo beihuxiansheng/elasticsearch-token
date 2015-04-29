@@ -1249,14 +1249,10 @@ range|:
 name|indices
 control|)
 block|{
-name|IndexMetaData
-operator|.
-name|Builder
+name|indexMetaData
 operator|.
 name|writeTo
 argument_list|(
-name|indexMetaData
-argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

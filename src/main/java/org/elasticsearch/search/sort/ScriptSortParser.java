@@ -917,6 +917,11 @@ argument_list|(
 name|context
 argument_list|,
 literal|"_script sorting requires setting the script to sort by"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -934,6 +939,11 @@ argument_list|(
 name|context
 argument_list|,
 literal|"_script sorting requires setting the type of the script"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1007,6 +1017,11 @@ operator|+
 name|sortMode
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1412,6 +1427,11 @@ operator|+
 name|type
 operator|+
 literal|"] not supported"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

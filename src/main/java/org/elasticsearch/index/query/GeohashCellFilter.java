@@ -1324,9 +1324,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"no geohash value provided to geohash_cell filter"
 argument_list|)
@@ -1362,9 +1359,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"failed to find geo_point field ["
 operator|+
@@ -1400,9 +1394,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"field ["
 operator|+
@@ -1436,9 +1427,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"can't execute geohash_cell on field ["
 operator|+

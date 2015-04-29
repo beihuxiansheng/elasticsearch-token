@@ -1449,10 +1449,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|queryParserService
-operator|.
-name|index
-argument_list|()
+name|context
 argument_list|,
 literal|"Failed to parse"
 argument_list|,

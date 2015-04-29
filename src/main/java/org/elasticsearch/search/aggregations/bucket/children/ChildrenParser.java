@@ -359,6 +359,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -380,6 +385,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -402,6 +412,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -491,6 +506,11 @@ argument_list|(
 name|context
 argument_list|,
 literal|"[children] _parent field not configured"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
