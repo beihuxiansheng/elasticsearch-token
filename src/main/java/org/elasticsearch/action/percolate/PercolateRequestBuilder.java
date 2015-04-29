@@ -162,7 +162,37 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|AbstractAggregationBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|AggregationBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|ReducerBuilder
 import|;
 end_import
 
@@ -558,13 +588,13 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Delegates to {@link PercolateSourceBuilder#addAggregation(AggregationBuilder)}      */
+comment|/**      * Delegates to {@link PercolateSourceBuilder#addAggregation(AbstractAggregationBuilder)}      */
 DECL|method|addAggregation
 specifier|public
 name|PercolateRequestBuilder
 name|addAggregation
 parameter_list|(
-name|AggregationBuilder
+name|AbstractAggregationBuilder
 name|aggregationBuilder
 parameter_list|)
 block|{
