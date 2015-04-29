@@ -38,16 +38,6 @@ name|SignerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
 begin_class
 DECL|class|AwsSigner
 specifier|public
@@ -59,7 +49,7 @@ specifier|private
 name|AwsSigner
 parameter_list|()
 block|{      }
-comment|/**      * Add a AWS API Signer.      * @param signer Signer to use      * @param configuration AWS Client configuration      * @throws ElasticsearchIllegalArgumentException if signer does not exist      */
+comment|/**      * Add a AWS API Signer.      * @param signer Signer to use      * @param configuration AWS Client configuration      * @throws IllegalArgumentException if signer does not exist      */
 DECL|method|configureSigner
 specifier|public
 specifier|static
@@ -73,7 +63,7 @@ name|ClientConfiguration
 name|configuration
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -84,7 +74,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"[null] signer set"
 argument_list|)
@@ -119,7 +109,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"wrong signer set ["
 operator|+
