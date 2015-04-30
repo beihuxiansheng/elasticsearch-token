@@ -427,9 +427,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] filter does not support ["
 operator|+
@@ -472,9 +469,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] indices or index already specified"
 argument_list|)
@@ -529,9 +523,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] no value specified for 'indices' entry"
 argument_list|)
@@ -580,9 +571,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] filter does not support ["
 operator|+
@@ -622,9 +610,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] indices or index already specified"
 argument_list|)
@@ -736,9 +721,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] filter does not support ["
 operator|+
@@ -761,9 +743,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] requires 'filter' element"
 argument_list|)
@@ -780,9 +759,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[indices] requires 'indices' or 'index' element"
 argument_list|)

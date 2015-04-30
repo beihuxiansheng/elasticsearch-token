@@ -954,9 +954,6 @@ operator|.
 name|get
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 name|currentFieldName
 argument_list|)
@@ -1444,9 +1441,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 name|NAME
 operator|+
@@ -1555,9 +1549,6 @@ operator|.
 name|get
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 name|currentFieldName
 argument_list|)
@@ -1789,9 +1780,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 name|NAME
 operator|+
@@ -1848,9 +1836,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 name|NAME
 operator|+

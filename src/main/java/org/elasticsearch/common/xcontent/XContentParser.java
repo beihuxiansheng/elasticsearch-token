@@ -545,6 +545,12 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Used for error reporting to highlight where syntax errors occur in      * content being parsed.      *       * @return last token's location or null if cannot be determined      */
+DECL|method|getTokenLocation
+name|XContentLocation
+name|getTokenLocation
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

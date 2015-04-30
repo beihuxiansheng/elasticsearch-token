@@ -407,9 +407,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"random_score seed must be an int, long or string, not '"
 operator|+
@@ -453,9 +450,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"random_score seed must be an int/long or string, not '"
 operator|+
@@ -476,9 +470,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 name|NAMES
 index|[

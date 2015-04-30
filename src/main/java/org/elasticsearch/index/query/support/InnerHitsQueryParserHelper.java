@@ -472,9 +472,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parserContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Failed to parse [_inner_hits]"
 argument_list|,

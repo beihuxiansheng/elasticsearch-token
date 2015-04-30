@@ -732,7 +732,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"high disk watermark [{}] exceeded on {}, shards will be relocated away from this node"
+literal|"high disk watermark [{} free] exceeded on {}, shards will be relocated away from this node"
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -766,7 +766,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"low disk watermark [{}] exceeded on {}, replicas will not be assigned to this node"
+literal|"low disk watermark [{} free] exceeded on {}, replicas will not be assigned to this node"
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -797,7 +797,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"high disk watermark [{}] exceeded on {}, shards will be relocated away from this node"
+literal|"high disk watermark [{} free] exceeded on {}, shards will be relocated away from this node"
 argument_list|,
 name|Strings
 operator|.
@@ -835,7 +835,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"low disk watermark [{}] exceeded on {}, replicas will not be assigned to this node"
+literal|"low disk watermark [{} free] exceeded on {}, replicas will not be assigned to this node"
 argument_list|,
 name|Strings
 operator|.

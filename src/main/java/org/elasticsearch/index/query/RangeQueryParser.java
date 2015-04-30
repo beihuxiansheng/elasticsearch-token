@@ -275,9 +275,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] query malformed, no field to indicate field name"
 argument_list|)
@@ -314,9 +311,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] query malformed, after field missing start object"
 argument_list|)
@@ -711,9 +705,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] query does not support ["
 operator|+
@@ -749,9 +740,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] query malformed, does not end with an object"
 argument_list|)
@@ -826,9 +814,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] time_zone when using ms since epoch format as it's UTC based can not be applied to ["
 operator|+
@@ -879,9 +864,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[range] time_zone can not be applied to non date field ["
 operator|+

@@ -1980,8 +1980,6 @@ argument_list|(
 operator|new
 name|StoreModule
 argument_list|(
-name|indexSettings
-argument_list|,
 name|injector
 operator|.
 name|getInstance

@@ -68,7 +68,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -183,8 +185,8 @@ specifier|public
 name|ScoreFunctionParser
 name|get
 parameter_list|(
-name|Index
-name|index
+name|QueryParseContext
+name|parseContext
 parameter_list|,
 name|String
 name|parserName
@@ -209,13 +211,15 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|parseContext
 argument_list|,
 literal|"No function with the name ["
 operator|+
 name|parserName
 operator|+
 literal|"] is registered."
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}

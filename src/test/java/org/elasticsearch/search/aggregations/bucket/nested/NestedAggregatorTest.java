@@ -1110,7 +1110,7 @@ argument_list|()
 decl_stmt|;
 name|builder
 operator|.
-name|add
+name|addAggregator
 argument_list|(
 operator|new
 name|NestedAggregator

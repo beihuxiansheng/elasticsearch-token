@@ -288,9 +288,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[fuzzy] query malformed, no field"
 argument_list|)
@@ -617,9 +614,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[fuzzy] query does not support ["
 operator|+
@@ -665,9 +659,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for fuzzy query"
 argument_list|)

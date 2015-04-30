@@ -16,21 +16,15 @@ end_package
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
-name|action
+name|common
 operator|.
-name|admin
+name|base
 operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|liveness
-operator|.
-name|TransportLivenessAction
+name|Preconditions
 import|;
 end_import
 
@@ -110,18 +104,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|Plugin
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|transport
 operator|.
 name|local
@@ -141,20 +123,6 @@ operator|.
 name|netty
 operator|.
 name|NettyTransport
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -499,6 +467,8 @@ name|String
 name|source
 parameter_list|)
 block|{
+name|Preconditions
+operator|.
 name|checkNotNull
 argument_list|(
 name|transportService
@@ -506,6 +476,8 @@ argument_list|,
 literal|"Configured transport service may not be null"
 argument_list|)
 expr_stmt|;
+name|Preconditions
+operator|.
 name|checkNotNull
 argument_list|(
 name|source
@@ -543,6 +515,8 @@ name|String
 name|source
 parameter_list|)
 block|{
+name|Preconditions
+operator|.
 name|checkNotNull
 argument_list|(
 name|transport
@@ -550,6 +524,8 @@ argument_list|,
 literal|"Configured transport may not be null"
 argument_list|)
 expr_stmt|;
+name|Preconditions
+operator|.
 name|checkNotNull
 argument_list|(
 name|source

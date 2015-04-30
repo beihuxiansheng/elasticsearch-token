@@ -1725,7 +1725,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] query malformed, must start with start_object"
 argument_list|)
@@ -1754,7 +1754,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] query malformed, no field after start_object"
 argument_list|)
@@ -1799,7 +1799,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] query malformed, no field after start_object"
 argument_list|)
@@ -1826,7 +1826,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"No query registered for ["
 operator|+
@@ -2020,7 +2020,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] filter malformed, must start with start_object"
 argument_list|)
@@ -2073,7 +2073,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] filter malformed, no field after start_object"
 argument_list|)
@@ -2118,7 +2118,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"[_na] filter malformed, no field after start_object"
 argument_list|)
@@ -2145,7 +2145,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"No filter registered for ["
 operator|+
@@ -2233,7 +2233,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"No filter registered for ["
 operator|+
@@ -2639,7 +2639,7 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
-name|index
+name|this
 argument_list|,
 literal|"Strict field resolution and no field mapping can be found for the field with name ["
 operator|+

@@ -531,9 +531,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter does not support multiple fields"
 argument_list|)
@@ -581,9 +578,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for terms filter"
 argument_list|)
@@ -761,9 +755,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter does not support ["
 operator|+
@@ -787,9 +778,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter lookup element requires specifying the type"
 argument_list|)
@@ -807,9 +795,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter lookup element requires specifying the id"
 argument_list|)
@@ -827,9 +812,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter lookup element requires specifying the path"
 argument_list|)
@@ -932,9 +914,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter does not support ["
 operator|+
@@ -958,9 +937,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"terms filter requires a field name, followed by array of terms"
 argument_list|)

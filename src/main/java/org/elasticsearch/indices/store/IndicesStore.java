@@ -2115,6 +2115,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
 comment|// create observer here. we need to register it here because we need to capture the current cluster state
 comment|// which will then be compared to the one that is applied when we call waitForNextChange(). if we create it
 comment|// later we might miss an update and wait forever in case no new cluster state comes in.
@@ -2349,6 +2351,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|shardActive

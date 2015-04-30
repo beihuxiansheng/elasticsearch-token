@@ -646,9 +646,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter does not support ["
 operator|+
@@ -834,9 +831,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter does not support ["
 operator|+
@@ -862,9 +856,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter requires 'query' or 'filter' field"
 argument_list|)
@@ -882,9 +873,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] filter requires 'type' field"
 argument_list|)
@@ -956,9 +944,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No mapping for for type ["
 operator|+
@@ -1046,9 +1031,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Type ["
 operator|+
@@ -1117,9 +1099,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child]  Type ["
 operator|+
@@ -1149,9 +1128,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_child] 'max_children' is less than 'min_children'"
 argument_list|)

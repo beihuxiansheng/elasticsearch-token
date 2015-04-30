@@ -361,9 +361,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[constant_score] query does not support ["
 operator|+
@@ -457,9 +454,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[constant_score] query does not support ["
 operator|+
@@ -485,9 +479,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[constant_score] requires either 'filter' or 'query' element"
 argument_list|)
