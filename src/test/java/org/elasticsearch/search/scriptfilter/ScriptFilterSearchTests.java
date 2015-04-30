@@ -1111,6 +1111,13 @@ return|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/pull/10897"
+argument_list|)
 DECL|method|testCustomScriptCache
 specifier|public
 name|void
