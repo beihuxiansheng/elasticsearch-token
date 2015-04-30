@@ -438,13 +438,6 @@ argument_list|(
 literal|"_field_names"
 argument_list|)
 operator|.
-name|field
-argument_list|(
-literal|"store"
-argument_list|,
-literal|"yes"
-argument_list|)
-operator|.
 name|endObject
 argument_list|()
 operator|.
