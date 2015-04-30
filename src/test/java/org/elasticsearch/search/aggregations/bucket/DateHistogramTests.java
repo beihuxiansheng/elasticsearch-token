@@ -1489,6 +1489,11 @@ operator|.
 name|DAY
 argument_list|)
 operator|.
+name|minDocCount
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|timeZone
 argument_list|(
 literal|"+01:00"
