@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.reducers.bucketmetrics
+DECL|package|org.elasticsearch.search.aggregations.reducers.bucketmetrics.max
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|reducers
 operator|.
 name|bucketmetrics
+operator|.
+name|max
 package|;
 end_package
 
