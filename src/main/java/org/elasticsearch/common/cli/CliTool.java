@@ -407,6 +407,8 @@ argument_list|(
 name|EMPTY_SETTINGS
 argument_list|,
 literal|true
+argument_list|,
+name|terminal
 argument_list|)
 decl_stmt|;
 name|settings
