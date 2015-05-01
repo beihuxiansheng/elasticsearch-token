@@ -325,6 +325,20 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|parserName
+specifier|protected
+name|String
+name|parserName
+parameter_list|()
+block|{
+return|return
+name|OrFilterParser
+operator|.
+name|NAME
+return|;
+block|}
 block|}
 end_class
 

@@ -205,6 +205,20 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|parserName
+specifier|protected
+name|String
+name|parserName
+parameter_list|()
+block|{
+return|return
+name|WrapperFilterParser
+operator|.
+name|NAME
+return|;
+block|}
 block|}
 end_class
 

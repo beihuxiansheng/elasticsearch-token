@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filer for a field based on several terms matching on any of them.  */
+comment|/**  * A filter for a field based on several terms matching on any of them.  */
 end_comment
 
 begin_class
@@ -465,6 +465,20 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|parserName
+specifier|protected
+name|String
+name|parserName
+parameter_list|()
+block|{
+return|return
+name|TermsFilterParser
+operator|.
+name|NAME
+return|;
 block|}
 block|}
 end_class

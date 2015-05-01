@@ -105,8 +105,8 @@ DECL|class|MatchAllFilterParser
 specifier|public
 class|class
 name|MatchAllFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

@@ -163,8 +163,8 @@ DECL|class|NestedFilterParser
 specifier|public
 class|class
 name|NestedFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

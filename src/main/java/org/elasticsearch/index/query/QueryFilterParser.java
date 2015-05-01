@@ -93,8 +93,8 @@ DECL|class|QueryFilterParser
 specifier|public
 class|class
 name|QueryFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

@@ -217,8 +217,8 @@ DECL|class|MissingFilterParser
 specifier|public
 class|class
 name|MissingFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

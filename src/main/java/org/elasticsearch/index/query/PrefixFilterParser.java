@@ -177,8 +177,8 @@ DECL|class|PrefixFilterParser
 specifier|public
 class|class
 name|PrefixFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

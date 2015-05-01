@@ -20,9 +20,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|ElasticsearchException
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
 import|;
 end_import
 
@@ -68,9 +72,15 @@ name|XContentType
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
 
 begin_interface
 DECL|interface|FilterBuilder
@@ -92,6 +102,17 @@ parameter_list|(
 name|XContentType
 name|contentType
 parameter_list|)
+function_decl|;
+comment|/**      * Converts this FilterBuilder to a lucene {@link Filter}      * @param parseContext additional information needed to construct the filter      * @return the {@link Filter}      * @throws IOException      */
+DECL|method|toFilter
+name|Filter
+name|toFilter
+parameter_list|(
+name|QueryParseContext
+name|parseContext
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 end_interface

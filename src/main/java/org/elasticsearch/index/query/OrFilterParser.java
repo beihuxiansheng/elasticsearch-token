@@ -177,8 +177,8 @@ DECL|class|OrFilterParser
 specifier|public
 class|class
 name|OrFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

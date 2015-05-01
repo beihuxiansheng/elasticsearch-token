@@ -195,8 +195,8 @@ DECL|class|HasParentFilterParser
 specifier|public
 class|class
 name|HasParentFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

@@ -149,8 +149,8 @@ DECL|class|BoolFilterParser
 specifier|public
 class|class
 name|BoolFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

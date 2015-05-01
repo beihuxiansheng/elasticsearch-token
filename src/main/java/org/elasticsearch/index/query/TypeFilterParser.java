@@ -161,8 +161,8 @@ DECL|class|TypeFilterParser
 specifier|public
 class|class
 name|TypeFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

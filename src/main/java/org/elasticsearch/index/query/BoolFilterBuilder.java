@@ -580,6 +580,20 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|parserName
+specifier|protected
+name|String
+name|parserName
+parameter_list|()
+block|{
+return|return
+name|BoolFilterParser
+operator|.
+name|NAME
+return|;
+block|}
 block|}
 end_class
 

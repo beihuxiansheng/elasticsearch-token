@@ -193,8 +193,8 @@ DECL|class|RegexpFilterParser
 specifier|public
 class|class
 name|RegexpFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public

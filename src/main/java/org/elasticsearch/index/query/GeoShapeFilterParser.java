@@ -301,8 +301,8 @@ DECL|class|GeoShapeFilterParser
 specifier|public
 class|class
 name|GeoShapeFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseFilterParserTemp
 block|{
 DECL|field|NAME
 specifier|public
