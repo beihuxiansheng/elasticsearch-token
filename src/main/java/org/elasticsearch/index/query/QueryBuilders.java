@@ -700,7 +700,7 @@ name|queryString
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.XSimpleQueryParser} for the full      * supported syntax.      */
+comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.simple.SimpleQueryParser} for the full      * supported syntax.      */
 DECL|method|simpleQueryStringQuery
 specifier|public
 specifier|static
@@ -1481,6 +1481,25 @@ specifier|static
 name|WrapperQueryBuilder
 name|wrapperQuery
 parameter_list|(
+name|BytesReference
+name|source
+parameter_list|)
+block|{
+return|return
+operator|new
+name|WrapperQueryBuilder
+argument_list|(
+name|source
+argument_list|)
+return|;
+block|}
+comment|/**      * A Query builder which allows building a query thanks to a JSON string or binary data.      */
+DECL|method|wrapperQuery
+specifier|public
+specifier|static
+name|WrapperQueryBuilder
+name|wrapperQuery
+parameter_list|(
 name|byte
 index|[]
 name|source
@@ -2156,25 +2175,6 @@ operator|new
 name|NotQueryBuilder
 argument_list|(
 name|filter
-argument_list|)
-return|;
-block|}
-comment|/**      * Constructs a bytes filter to generate a filter from a {@link BytesReference} source      *      * @param source The filter source      */
-DECL|method|bytesQuery
-specifier|public
-specifier|static
-name|BytesQueryBuilder
-name|bytesQuery
-parameter_list|(
-name|BytesReference
-name|source
-parameter_list|)
-block|{
-return|return
-operator|new
-name|BytesQueryBuilder
-argument_list|(
-name|source
 argument_list|)
 return|;
 block|}
