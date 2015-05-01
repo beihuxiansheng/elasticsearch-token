@@ -868,6 +868,34 @@ name|SpanOrQueryBuilder
 argument_list|()
 return|;
 block|}
+comment|/** Creates a new {@code span_within} builder. */
+DECL|method|spanWithinQuery
+specifier|public
+specifier|static
+name|SpanWithinQueryBuilder
+name|spanWithinQuery
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SpanWithinQueryBuilder
+argument_list|()
+return|;
+block|}
+comment|/** Creates a new {@code span_containing} builder. */
+DECL|method|spanContainingQuery
+specifier|public
+specifier|static
+name|SpanContainingQueryBuilder
+name|spanContainingQuery
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SpanContainingQueryBuilder
+argument_list|()
+return|;
+block|}
 comment|/**      * Creates a {@link SpanQueryBuilder} which allows having a sub query      * which implements {@link MultiTermQueryBuilder}. This is useful for      * having e.g. wildcard or fuzzy queries inside spans.      *      * @param multiTermQueryBuilder The {@link MultiTermQueryBuilder} that      *                              backs the created builder.      * @return      */
 DECL|method|spanMultiTermQueryBuilder
 specifier|public
