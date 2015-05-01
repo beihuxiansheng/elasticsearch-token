@@ -80,7 +80,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
+name|Version
 import|;
 end_import
 
@@ -123,6 +123,20 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
 import|;
 end_import
 
@@ -987,10 +1001,6 @@ operator|.
 name|startsWith
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 annotation|@
@@ -5054,10 +5064,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testForceSourceWithSourceDisabled
+DECL|method|testForceSourceWithSourceDisabledBackcompat
 specifier|public
 name|void
-name|testForceSourceWithSourceDisabled
+name|testForceSourceWithSourceDisabledBackcompat
 parameter_list|()
 throws|throws
 name|Exception
@@ -5067,6 +5077,19 @@ argument_list|(
 name|prepareCreate
 argument_list|(
 literal|"test"
+argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
 argument_list|)
 operator|.
 name|addMapping
@@ -18791,22 +18814,6 @@ name|startObject
 argument_list|(
 literal|"type1"
 argument_list|)
-comment|//just to make sure that we hit the stored fields rather than the _source
-operator|.
-name|startObject
-argument_list|(
-literal|"_source"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"enabled"
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|startObject
 argument_list|(
@@ -18996,17 +19003,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|assertThat
-argument_list|(
-name|hit
-operator|.
-name|source
-argument_list|()
-argument_list|,
-name|nullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|//stopwords are not highlighted since not indexed
 name|assertHighlight
 argument_list|(

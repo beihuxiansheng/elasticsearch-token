@@ -2615,10 +2615,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|realtimeGetWithCompress
+DECL|method|realtimeGetWithCompressBackcompat
 specifier|public
 name|void
-name|realtimeGetWithCompress
+name|realtimeGetWithCompressBackcompat
 parameter_list|()
 throws|throws
 name|Exception
@@ -2643,6 +2643,19 @@ literal|"index.refresh_interval"
 argument_list|,
 operator|-
 literal|1
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
 argument_list|)
 argument_list|)
 operator|.
@@ -2852,21 +2865,6 @@ argument_list|(
 literal|"type1"
 argument_list|)
 operator|.
-name|startObject
-argument_list|(
-literal|"_source"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"enabled"
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
 name|endObject
 argument_list|()
 operator|.
@@ -2888,21 +2886,6 @@ name|startObject
 argument_list|(
 literal|"type2"
 argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"_source"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"enabled"
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|startObject
 argument_list|(
@@ -4169,21 +4152,6 @@ operator|.
 name|endObject
 argument_list|()
 operator|.
-name|startObject
-argument_list|(
-literal|"_source"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"enabled"
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
 name|endObject
 argument_list|()
 operator|.
@@ -4984,10 +4952,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testThatGetFromTranslogShouldWorkWithExclude
+DECL|method|testThatGetFromTranslogShouldWorkWithExcludeBackcompat
 specifier|public
 name|void
-name|testThatGetFromTranslogShouldWorkWithExclude
+name|testThatGetFromTranslogShouldWorkWithExcludeBackcompat
 parameter_list|()
 throws|throws
 name|Exception
@@ -5243,10 +5211,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testThatGetFromTranslogShouldWorkWithInclude
+DECL|method|testThatGetFromTranslogShouldWorkWithIncludeBackcompat
 specifier|public
 name|void
-name|testThatGetFromTranslogShouldWorkWithInclude
+name|testThatGetFromTranslogShouldWorkWithIncludeBackcompat
 parameter_list|()
 throws|throws
 name|Exception
@@ -5493,10 +5461,10 @@ literal|"unchecked"
 argument_list|)
 annotation|@
 name|Test
-DECL|method|testThatGetFromTranslogShouldWorkWithIncludeExcludeAndFields
+DECL|method|testThatGetFromTranslogShouldWorkWithIncludeExcludeAndFieldsBackcompat
 specifier|public
 name|void
-name|testThatGetFromTranslogShouldWorkWithIncludeExcludeAndFields
+name|testThatGetFromTranslogShouldWorkWithIncludeExcludeAndFieldsBackcompat
 parameter_list|()
 throws|throws
 name|Exception
@@ -10302,17 +10270,6 @@ literal|"  \"mappings\": {\n"
 operator|+
 literal|"    \"doc\": {\n"
 operator|+
-literal|"      \"_source\": {\n"
-operator|+
-literal|"        \"enabled\": \""
-operator|+
-name|randomBoolean
-argument_list|()
-operator|+
-literal|"\"\n"
-operator|+
-literal|"      },\n"
-operator|+
 literal|"      \"properties\": {\n"
 operator|+
 literal|"        \"suggest\": {\n"
@@ -10469,17 +10426,6 @@ literal|"    \"parentdoc\": {},\n"
 operator|+
 literal|"    \"doc\": {\n"
 operator|+
-literal|"      \"_source\": {\n"
-operator|+
-literal|"        \"enabled\": "
-operator|+
-name|randomBoolean
-argument_list|()
-operator|+
-literal|"\n"
-operator|+
-literal|"      },\n"
-operator|+
 literal|"      \"_parent\": {\n"
 operator|+
 literal|"        \"type\": \"parentdoc\"\n"
@@ -10624,10 +10570,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testUngeneratedFieldsPartOfSourceUnstoredSourceDisabled
+DECL|method|testUngeneratedFieldsPartOfSourceUnstoredSourceDisabledBackcompat
 specifier|public
 name|void
-name|testUngeneratedFieldsPartOfSourceUnstoredSourceDisabled
+name|testUngeneratedFieldsPartOfSourceUnstoredSourceDisabledBackcompat
 parameter_list|()
 throws|throws
 name|IOException
@@ -10693,10 +10639,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testUngeneratedFieldsPartOfSourceEitherStoredOrSourceEnabled
+DECL|method|testUngeneratedFieldsPartOfSourceEitherStoredOrSourceEnabledBackcompat
 specifier|public
 name|void
-name|testUngeneratedFieldsPartOfSourceEitherStoredOrSourceEnabled
+name|testUngeneratedFieldsPartOfSourceEitherStoredOrSourceEnabledBackcompat
 parameter_list|()
 throws|throws
 name|IOException
@@ -10811,7 +10757,23 @@ literal|"  \"settings\": {\n"
 operator|+
 literal|"    \"index.translog.disable_flush\": true,\n"
 operator|+
-literal|"    \"refresh_interval\": \"-1\"\n"
+literal|"    \"refresh_interval\": \"-1\",\n"
+operator|+
+literal|"    \""
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+operator|+
+literal|"\": "
+operator|+
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
+operator|+
+literal|"\n"
 operator|+
 literal|"  },\n"
 operator|+
@@ -11469,7 +11431,23 @@ literal|"  \"settings\": {\n"
 operator|+
 literal|"    \"index.translog.disable_flush\": true,\n"
 operator|+
-literal|"    \"refresh_interval\": \"-1\"\n"
+literal|"    \"refresh_interval\": \"-1\",\n"
+operator|+
+literal|"    \""
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+operator|+
+literal|"\": "
+operator|+
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
+operator|+
+literal|"\n"
 operator|+
 literal|"  },\n"
 operator|+
@@ -11740,7 +11718,23 @@ literal|"  \"settings\": {\n"
 operator|+
 literal|"    \"index.translog.disable_flush\": true,\n"
 operator|+
-literal|"    \"refresh_interval\": \"-1\"\n"
+literal|"    \"refresh_interval\": \"-1\",\n"
+operator|+
+literal|"    \""
+operator|+
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+operator|+
+literal|"\": "
+operator|+
+name|Version
+operator|.
+name|V_1_4_2
+operator|.
+name|id
+operator|+
+literal|"\n"
 operator|+
 literal|"  },\n"
 operator|+

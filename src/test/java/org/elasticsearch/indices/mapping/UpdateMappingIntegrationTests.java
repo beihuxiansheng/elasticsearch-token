@@ -1065,7 +1065,7 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"{\"_source\":{\"enabled\":false},\"properties\":{\"date\":{\"type\":\"integer\"}}}"
+literal|"{\"properties\":{\"date\":{\"type\":\"integer\"}}}"
 argument_list|)
 operator|.
 name|execute
@@ -1135,7 +1135,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"doc\":{\"_source\":{\"enabled\":false},\"properties\":{\"date\":{\"type\":\"integer\"}}}}"
+literal|"{\"doc\":{\"properties\":{\"date\":{\"type\":\"integer\"}}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
