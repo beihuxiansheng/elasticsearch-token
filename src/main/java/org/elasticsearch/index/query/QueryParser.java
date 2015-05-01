@@ -70,6 +70,7 @@ name|names
 parameter_list|()
 function_decl|;
 comment|/**      * Parses the into a query from the current parser location. Will be at      * "START_OBJECT" location, and should end when the token is at the matching      * "END_OBJECT".      *<p/>      * Returns<tt>null</tt> if this query should be ignored in the context of      * the DSL.      */
+comment|//norelease can be removed in favour of fromXContent once search requests can be parsed on the coordinating node
 annotation|@
 name|Nullable
 DECL|method|parse

@@ -41,7 +41,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class with method impl is an intermediate step in the filter parsers refactoring.  * Provides a fromXContent default implementation for filter parsers that don't have yet a  * specific fromXContent implementation that returns a FilterBuilder.  * To be removed once all filters are moved over to extend {@link BaseFilterParser}.  */
+comment|/**  * This class with method impl is an intermediate step in the filter parsers refactoring.  * Provides a fromXContent default implementation for filter parsers that don't have yet a  * specific fromXContent implementation that returns a FilterBuilder.  */
+end_comment
+
+begin_comment
+comment|//norelease to be removed once all filters are moved over to extend BaseFilterParser
 end_comment
 
 begin_class

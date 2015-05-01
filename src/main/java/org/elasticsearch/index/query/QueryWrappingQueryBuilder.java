@@ -55,7 +55,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link #toQuery(QueryParseContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  * Will be removed once all queries support separate fromXContent and toQuery methods.  */
+comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link #toQuery(QueryParseContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  */
+end_comment
+
+begin_comment
+comment|//norelease to be removed once all queries support separate fromXContent and toQuery methods
 end_comment
 
 begin_class

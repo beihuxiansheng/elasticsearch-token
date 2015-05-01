@@ -41,7 +41,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used during the query parsers refactoring.  * All query parsers that have a refactored "fromXContent" method can be changed to extend this instead of {@link BaseQueryParserTemp}.  * Keeps old {@link QueryParser#parse(QueryParseContext)} method as a stub delegating to  * {@link QueryParser#fromXContent(QueryParseContext)} and {@link QueryBuilder#toQuery(QueryParseContext)}}  */
+comment|/**  * Class used during the query parsers refactoring. Will be removed once we can parse search requests on the coordinating node.  * All query parsers that have a refactored "fromXContent" method can be changed to extend this instead of {@link BaseQueryParserTemp}.  * Keeps old {@link QueryParser#parse(QueryParseContext)} method as a stub delegating to  * {@link QueryParser#fromXContent(QueryParseContext)} and {@link QueryBuilder#toQuery(QueryParseContext)}}  */
+end_comment
+
+begin_comment
+comment|//norelease needs to be removed once we parse search requests on the coordinating node, as the parse method is not needed anymore at that point.
 end_comment
 
 begin_class

@@ -41,7 +41,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used during the filter parsers refactoring.  * All filter parsers that have a refactored "fromXContent" method can be changed to extend this instead of {@link BaseFilterParserTemp}.  * Keeps old {@link FilterParser#parse(QueryParseContext)} method as a stub delegating to  * {@link FilterParser#fromXContent(QueryParseContext)} and {@link FilterBuilder#toFilter(QueryParseContext)}}  */
+comment|/**  * Class used during the filter parsers refactoring. Will be removed once we can parse search requests on the coordinating node.  * All filter parsers that have a refactored "fromXContent" method can be changed to extend this instead of {@link BaseFilterParserTemp}.  * Keeps old {@link FilterParser#parse(QueryParseContext)} method as a stub delegating to  * {@link FilterParser#fromXContent(QueryParseContext)} and {@link FilterBuilder#toFilter(QueryParseContext)}}  */
+end_comment
+
+begin_comment
+comment|//norelease needs to be removed once we parse search requests on the coordinating node, as the parse method is not needed anymore at that point.
 end_comment
 
 begin_class

@@ -41,7 +41,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class with method impl is an intermediate step in the query parsers refactoring.  * Provides a fromXContent default implementation for query parsers that don't have yet a  * specific fromXContent implementation that returns a QueryBuilder.  * To be removed once all filters are moved over to extend {@link BaseQueryParser}.  */
+comment|/**  * This class with method impl is an intermediate step in the query parsers refactoring.  * Provides a fromXContent default implementation for query parsers that don't have yet a  * specific fromXContent implementation that returns a QueryBuilder.  */
+end_comment
+
+begin_comment
+comment|//norelease to be removed once all queries are moved over to extend BaseQueryParser
 end_comment
 
 begin_class

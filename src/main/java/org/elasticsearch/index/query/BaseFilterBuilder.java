@@ -292,7 +292,8 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Temporary default implementation for toFilter that parses the filter using its filter parser      * Will be removed once all filters override toFilter with their own specific implementation.      */
+comment|/**      * Temporary default implementation for toFilter that parses the filter using its filter parser      */
+comment|//norelease to be removed once all filter builders override toFilter providing their own specific implementation.
 annotation|@
 name|Override
 DECL|method|toFilter
@@ -324,7 +325,8 @@ name|parseContext
 argument_list|)
 return|;
 block|}
-comment|/**      * Temporary method that allows to retrieve the parser for each filter.      * Won't be needed anymore once all filter builders properly implement {@link #toFilter(QueryParseContext)}      * @return the name of the parser class the default {@link #toFilter(QueryParseContext)} method delegates to      */
+comment|/**      * Temporary method that allows to retrieve the parser for each filter.      * @return the name of the parser class the default {@link #toFilter(QueryParseContext)} method delegates to      */
+comment|//norelease to be removed once all filter builders override toFilter providing their own specific implementation.
 DECL|method|parserName
 specifier|protected
 specifier|abstract
