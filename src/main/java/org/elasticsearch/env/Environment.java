@@ -144,24 +144,6 @@ name|cleanPath
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-import|;
-end_import
-
 begin_comment
 comment|/**  * The environment of where things exists.  */
 end_comment
@@ -286,17 +268,6 @@ block|}
 DECL|method|Environment
 specifier|public
 name|Environment
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|EMPTY_SETTINGS
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|Environment
-specifier|public
-name|Environment
 parameter_list|(
 name|Settings
 name|settings
@@ -340,20 +311,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|homeFile
-operator|=
-name|PathUtils
-operator|.
-name|get
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"user.dir"
+literal|"path.home is not configured"
 argument_list|)
-argument_list|)
-expr_stmt|;
+throw|;
 block|}
 if|if
 condition|(
@@ -736,88 +700,9 @@ parameter_list|)
 throws|throws
 name|FailedToResolveConfigException
 block|{
-name|String
-name|origPath
-init|=
-name|path
-decl_stmt|;
-comment|// first, try it as a path on the file system
+comment|// first, try it as a path in the config directory
 name|Path
-name|f1
-init|=
-name|PathUtils
-operator|.
-name|get
-argument_list|(
-name|path
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|Files
-operator|.
-name|exists
-argument_list|(
-name|f1
-argument_list|)
-condition|)
-block|{
-try|try
-block|{
-return|return
-name|f1
-operator|.
-name|toUri
-argument_list|()
-operator|.
-name|toURL
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|MalformedURLException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|FailedToResolveConfigException
-argument_list|(
-literal|"Failed to resolve path ["
-operator|+
-name|f1
-operator|+
-literal|"]"
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-if|if
-condition|(
-name|path
-operator|.
-name|startsWith
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
-block|{
-name|path
-operator|=
-name|path
-operator|.
-name|substring
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
-comment|// next, try it relative to the config location
-name|Path
-name|f2
+name|f
 init|=
 name|configFile
 operator|.
@@ -832,14 +717,14 @@ name|Files
 operator|.
 name|exists
 argument_list|(
-name|f2
+name|f
 argument_list|)
 condition|)
 block|{
 try|try
 block|{
 return|return
-name|f2
+name|f
 operator|.
 name|toUri
 argument_list|()
@@ -860,7 +745,7 @@ name|FailedToResolveConfigException
 argument_list|(
 literal|"Failed to resolve path ["
 operator|+
-name|f1
+name|f
 operator|+
 literal|"]"
 argument_list|,
@@ -938,17 +823,13 @@ name|FailedToResolveConfigException
 argument_list|(
 literal|"Failed to resolve config path ["
 operator|+
-name|origPath
+name|path
 operator|+
-literal|"], tried file path ["
+literal|"], tried config path ["
 operator|+
-name|f1
+name|f
 operator|+
-literal|"], path file ["
-operator|+
-name|f2
-operator|+
-literal|"], and classpath"
+literal|"] and classpath"
 argument_list|)
 throw|;
 block|}
