@@ -53,6 +53,8 @@ name|BaseQueryParser
 implements|implements
 name|QueryParser
 block|{
+annotation|@
+name|Override
 DECL|method|parse
 specifier|public
 specifier|final

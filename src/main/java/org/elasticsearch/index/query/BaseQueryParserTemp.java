@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class with method impl is an intermediate step in the refactoring.  * Method should be should be overwritten for all queries that already implement the toQuery/fromXContent split correctly.  * To be removed once all queries are refactored.  */
+comment|/**  * This class with method impl is an intermediate step in the query parsers refactoring.  * Provides a fromXContent default implementation for query parsers that don't have yet a  * specific fromXContent implementation that returns a QueryBuilder.  * To be removed once all filters are moved over to extend {@link BaseQueryParser}.  */
 end_comment
 
 begin_class
@@ -53,6 +53,8 @@ name|BaseQueryParserTemp
 implements|implements
 name|QueryParser
 block|{
+annotation|@
+name|Override
 DECL|method|fromXContent
 specifier|public
 name|QueryBuilder

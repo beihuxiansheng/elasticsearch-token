@@ -281,6 +281,7 @@ return|return
 name|builder
 return|;
 block|}
+comment|/**      * Temporary default implementation for toQuery that parses the query using its query parser      * Will be removed once all queries override toQuery with their own specific implementation.      */
 DECL|method|toQuery
 specifier|public
 name|Query
@@ -312,7 +313,7 @@ name|parseContext
 argument_list|)
 return|;
 block|}
-comment|/**      * @return the name of the parser class the default toQuery() method delegates to      */
+comment|/**      * Temporary method that allows to retrieve the parser for each query.      * Won't be needed anymore once all query builders properly implement {@link #toQuery(QueryParseContext)}      * @return the name of the parser class the default {@link #toQuery(QueryParseContext)} method delegates to      */
 DECL|method|parserName
 specifier|protected
 specifier|abstract

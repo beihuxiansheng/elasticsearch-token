@@ -107,7 +107,7 @@ name|XContentType
 name|contentType
 parameter_list|)
 function_decl|;
-comment|/**      * Create a {@link Query} based on this QueryBuilder      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
+comment|/**      * Converts this QueryBuilder to a lucene {@link Query}      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
 DECL|method|toQuery
 name|Query
 name|toQuery

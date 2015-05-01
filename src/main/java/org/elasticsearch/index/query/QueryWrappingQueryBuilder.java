@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Temporary wrapper for keeping pre-parsed lucene query in a QueryBuilder field in nested queries.  * Can be removed after query refactoring is done.  */
+comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link #toQuery(QueryParseContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  * Will be removed once all queries support separate fromXContent and toQuery methods.  */
 end_comment
 
 begin_class
@@ -129,9 +129,11 @@ operator|.
 name|query
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|parserName
-specifier|final
 specifier|protected
+specifier|final
 name|String
 name|parserName
 parameter_list|()

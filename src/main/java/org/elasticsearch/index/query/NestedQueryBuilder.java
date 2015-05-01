@@ -412,9 +412,11 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|parserName
-specifier|final
 specifier|protected
+specifier|final
 name|String
 name|parserName
 parameter_list|()
