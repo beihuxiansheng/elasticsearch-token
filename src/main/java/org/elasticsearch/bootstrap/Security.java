@@ -222,6 +222,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"java.io.tmpdir: {}"
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// init lucene random seed. it will use /dev/urandom where available.
 name|StringHelper
 operator|.
