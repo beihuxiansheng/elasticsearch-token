@@ -356,6 +356,20 @@ argument_list|,
 name|permissions
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"java.io.tmpdir: {}"
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|System
 operator|.
 name|setSecurityManager
@@ -382,6 +396,20 @@ name|SecurityException
 name|broken
 parameter_list|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"java.io.tmpdir: {}"
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|log
 operator|.
 name|error
