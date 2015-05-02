@@ -140,46 +140,6 @@ name|Path
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|NoSuchAlgorithmException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|PermissionCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|Policy
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|security
-operator|.
-name|URIParameter
-import|;
-end_import
-
 begin_comment
 comment|/**   * Initializes securitymanager with necessary permissions.  *<p>  * We use a template file (the one we test with), and add additional   * permissions based on the environment (data paths, etc)  */
 end_comment
@@ -222,8 +182,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//String prop = System.getProperty("java.io.tmpdir");
-comment|//log.trace("java.io.tmpdir {}", prop);
 comment|// init lucene random seed. it will use /dev/urandom where available.
 name|StringHelper
 operator|.
@@ -279,71 +237,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// retrieve the parsed policy we created: its useful if something goes wrong
-name|Policy
-name|policy
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|policy
-operator|=
-name|Policy
-operator|.
-name|getInstance
-argument_list|(
-literal|"JavaPolicy"
-argument_list|,
-operator|new
-name|URIParameter
-argument_list|(
-name|newConfig
-operator|.
-name|toUri
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NoSuchAlgorithmException
-name|impossible
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|impossible
-argument_list|)
-throw|;
-block|}
-name|PermissionCollection
-name|permissions
-init|=
-name|policy
-operator|.
-name|getPermissions
-argument_list|(
-name|Security
-operator|.
-name|class
-operator|.
-name|getProtectionDomain
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"generated permissions: {}"
-argument_list|,
-name|permissions
-argument_list|)
-expr_stmt|;
 name|System
 operator|.
 name|setSecurityManager
@@ -374,9 +267,7 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"unable to properly access temporary files, permissions: {}"
-argument_list|,
-name|permissions
+literal|"unable to properly access temporary files, run with -Djava.security.debug=policy for more information"
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -550,6 +441,20 @@ argument_list|,
 name|environment
 operator|.
 name|pluginsFile
+argument_list|()
+argument_list|,
+literal|"read,readlink,write,delete"
+argument_list|)
+expr_stmt|;
+comment|// generate explicit perms for actual temp dir:
+comment|// (in case there is java.io.tmpdir sheistiness on windows)
+name|addPath
+argument_list|(
+name|writer
+argument_list|,
+name|processed
+operator|.
+name|getParent
 argument_list|()
 argument_list|,
 literal|"read,readlink,write,delete"
