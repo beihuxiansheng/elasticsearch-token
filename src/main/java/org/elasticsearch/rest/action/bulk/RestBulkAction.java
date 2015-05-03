@@ -447,13 +447,6 @@ operator|.
 name|bulkRequest
 argument_list|()
 decl_stmt|;
-name|bulkRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|String
 name|defaultIndex
 init|=

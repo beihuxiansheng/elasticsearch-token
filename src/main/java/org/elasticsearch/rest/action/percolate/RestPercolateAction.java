@@ -754,14 +754,6 @@ name|Client
 name|client
 parameter_list|)
 block|{
-comment|// we just send a response, no need to fork
-name|percolateRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|client
 operator|.
 name|percolate

@@ -326,13 +326,6 @@ argument_list|)
 expr_stmt|;
 name|recoveryRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|recoveryRequest
-operator|.
 name|indicesOptions
 argument_list|(
 name|IndicesOptions

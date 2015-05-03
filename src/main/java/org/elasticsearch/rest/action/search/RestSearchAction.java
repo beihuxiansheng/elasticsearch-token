@@ -615,13 +615,6 @@ argument_list|(
 name|request
 argument_list|)
 expr_stmt|;
-name|searchRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|client
 operator|.
 name|search

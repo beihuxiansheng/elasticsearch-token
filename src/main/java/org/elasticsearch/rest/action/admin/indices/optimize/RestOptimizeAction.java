@@ -353,13 +353,6 @@ argument_list|)
 decl_stmt|;
 name|optimizeRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|optimizeRequest
-operator|.
 name|indicesOptions
 argument_list|(
 name|IndicesOptions
