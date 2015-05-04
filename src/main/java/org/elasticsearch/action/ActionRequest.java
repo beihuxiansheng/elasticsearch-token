@@ -86,13 +86,6 @@ parameter_list|>
 extends|extends
 name|TransportRequest
 block|{
-DECL|field|listenerThreaded
-specifier|private
-name|boolean
-name|listenerThreaded
-init|=
-literal|false
-decl_stmt|;
 DECL|method|ActionRequest
 specifier|protected
 name|ActionRequest
@@ -118,49 +111,6 @@ expr_stmt|;
 comment|// this does not set the listenerThreaded API, if needed, its up to the caller to set it
 comment|// since most times, we actually want it to not be threaded...
 comment|//this.listenerThreaded = request.listenerThreaded();
-block|}
-comment|/**      * Should the response listener be executed on a thread or not.      *<p/>      *<p>When not executing on a thread, it will either be executed on the calling thread, or      * on an expensive, IO based, thread.      */
-DECL|method|listenerThreaded
-specifier|public
-specifier|final
-name|boolean
-name|listenerThreaded
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|listenerThreaded
-return|;
-block|}
-comment|/**      * Sets if the response listener be executed on a thread or not.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|listenerThreaded
-specifier|public
-specifier|final
-name|T
-name|listenerThreaded
-parameter_list|(
-name|boolean
-name|listenerThreaded
-parameter_list|)
-block|{
-name|this
-operator|.
-name|listenerThreaded
-operator|=
-name|listenerThreaded
-expr_stmt|;
-return|return
-operator|(
-name|T
-operator|)
-name|this
-return|;
 block|}
 DECL|method|validate
 specifier|public

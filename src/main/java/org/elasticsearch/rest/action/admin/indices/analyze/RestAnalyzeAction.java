@@ -399,13 +399,6 @@ argument_list|)
 expr_stmt|;
 name|analyzeRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|analyzeRequest
-operator|.
 name|preferLocal
 argument_list|(
 name|request

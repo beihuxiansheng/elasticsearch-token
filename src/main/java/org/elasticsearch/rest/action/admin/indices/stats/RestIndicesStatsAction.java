@@ -346,13 +346,6 @@ argument_list|()
 decl_stmt|;
 name|indicesStatsRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|indicesStatsRequest
-operator|.
 name|indicesOptions
 argument_list|(
 name|IndicesOptions

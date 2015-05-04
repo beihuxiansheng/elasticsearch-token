@@ -461,6 +461,14 @@ literal|"config.ignore_system_properties"
 argument_list|,
 literal|true
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
+argument_list|)
 decl_stmt|;
 try|try
 init|(
@@ -615,11 +623,6 @@ operator|new
 name|PlainListenableActionFuture
 argument_list|<>
 argument_list|(
-name|clusterStateRequest
-operator|.
-name|listenerThreaded
-argument_list|()
-argument_list|,
 name|transportClient
 operator|.
 name|threadPool

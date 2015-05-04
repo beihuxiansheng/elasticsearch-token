@@ -492,11 +492,6 @@ argument_list|(
 literal|"id"
 argument_list|)
 argument_list|)
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 name|putRequest
 operator|.

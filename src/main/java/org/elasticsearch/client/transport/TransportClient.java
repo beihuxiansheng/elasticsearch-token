@@ -863,7 +863,7 @@ extends|extends
 name|AbstractClient
 block|{
 DECL|field|CLIENT_TYPE
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String
@@ -906,24 +906,6 @@ specifier|final
 name|InternalTransportClient
 name|internalClient
 decl_stmt|;
-comment|/**      * Constructs a new transport client with settings loaded either from the classpath or the file system (the      *<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with<tt>config/</tt>).      */
-DECL|method|TransportClient
-specifier|public
-name|TransportClient
-parameter_list|()
-block|{
-name|this
-argument_list|(
-name|ImmutableSettings
-operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Constructs a new transport client with explicit settings and settings loaded either from the classpath or the file      * system (the<tt>elasticsearch.(yml|json)</tt> files optionally prefixed with<tt>config/</tt>).      */
 DECL|method|TransportClient
 specifier|public

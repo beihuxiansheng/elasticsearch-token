@@ -483,13 +483,6 @@ argument_list|)
 decl_stmt|;
 name|indexRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|indexRequest
-operator|.
 name|operationThreaded
 argument_list|(
 literal|true

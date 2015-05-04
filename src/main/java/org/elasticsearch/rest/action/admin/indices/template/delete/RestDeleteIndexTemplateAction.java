@@ -221,13 +221,6 @@ argument_list|)
 decl_stmt|;
 name|deleteIndexTemplateRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|deleteIndexTemplateRequest
-operator|.
 name|masterNodeTimeout
 argument_list|(
 name|request

@@ -261,13 +261,6 @@ argument_list|)
 decl_stmt|;
 name|closeIndexRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|closeIndexRequest
-operator|.
 name|masterNodeTimeout
 argument_list|(
 name|request

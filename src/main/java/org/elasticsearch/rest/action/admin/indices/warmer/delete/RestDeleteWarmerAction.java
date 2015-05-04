@@ -312,13 +312,6 @@ argument_list|)
 decl_stmt|;
 name|deleteWarmerRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|deleteWarmerRequest
-operator|.
 name|timeout
 argument_list|(
 name|request
