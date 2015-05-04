@@ -75,17 +75,12 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.translog.fs:TRACE"
-argument_list|)
-DECL|class|FsBufferedTranslogTests
+DECL|class|BufferedTranslogTests
 specifier|public
 class|class
-name|FsBufferedTranslogTests
+name|BufferedTranslogTests
 extends|extends
-name|AbstractTranslogTests
+name|TranslogTests
 block|{
 annotation|@
 name|Override
