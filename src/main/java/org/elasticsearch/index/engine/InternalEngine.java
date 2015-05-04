@@ -4033,7 +4033,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"waiting fore in-flight flush to finish"
+literal|"waiting for in-flight flush to finish"
 argument_list|)
 expr_stmt|;
 name|flushLock

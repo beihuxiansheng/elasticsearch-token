@@ -793,7 +793,7 @@ name|MappingUpdatedAction
 name|mappingUpdatedAction
 decl_stmt|;
 DECL|field|response
-specifier|private
+specifier|protected
 specifier|final
 name|RecoveryResponse
 name|response

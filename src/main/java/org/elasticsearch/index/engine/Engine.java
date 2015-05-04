@@ -4910,6 +4910,7 @@ name|SearcherManager
 name|getSearcherManager
 parameter_list|()
 function_decl|;
+comment|/**      * Method to close the engine while the write lock is held.      */
 DECL|method|closeNoLock
 specifier|protected
 specifier|abstract
@@ -4920,6 +4921,7 @@ name|String
 name|reason
 parameter_list|)
 function_decl|;
+comment|/**      * Flush the engine (committing segments to disk and truncating the      * translog) and close it.      */
 DECL|method|flushAndClose
 specifier|public
 name|void

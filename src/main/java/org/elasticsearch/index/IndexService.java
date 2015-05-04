@@ -2886,7 +2886,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} failed to delete shard content - scheduled a retry"
+literal|"[{}] failed to delete shard content - scheduled a retry"
 argument_list|,
 name|e
 argument_list|,
