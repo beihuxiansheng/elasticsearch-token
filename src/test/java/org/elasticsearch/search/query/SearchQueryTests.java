@@ -8004,11 +8004,6 @@ literal|"field1"
 argument_list|,
 literal|"value1"
 argument_list|)
-operator|.
-name|cacheKey
-argument_list|(
-literal|"test1"
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -8041,11 +8036,6 @@ argument_list|(
 literal|"field1"
 argument_list|,
 literal|"value1"
-argument_list|)
-operator|.
-name|cacheKey
-argument_list|(
-literal|"test1"
 argument_list|)
 argument_list|)
 argument_list|)

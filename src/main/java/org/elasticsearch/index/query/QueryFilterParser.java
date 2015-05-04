@@ -48,13 +48,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|inject
+name|search
 operator|.
-name|Inject
+name|QueryWrapperFilter
 import|;
 end_import
 
@@ -66,11 +66,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
+name|inject
 operator|.
-name|search
-operator|.
-name|Queries
+name|Inject
 import|;
 end_import
 
@@ -165,13 +163,10 @@ literal|null
 return|;
 block|}
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|query
-argument_list|,
-name|parseContext
 argument_list|)
 return|;
 block|}

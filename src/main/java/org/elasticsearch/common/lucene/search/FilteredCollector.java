@@ -107,7 +107,7 @@ decl_stmt|;
 DECL|field|filter
 specifier|private
 specifier|final
-name|Filter
+name|Weight
 name|filter
 decl_stmt|;
 DECL|method|FilteredCollector
@@ -117,7 +117,7 @@ parameter_list|(
 name|Collector
 name|collector
 parameter_list|,
-name|Filter
+name|Weight
 name|filter
 parameter_list|)
 block|{
@@ -148,12 +148,12 @@ throws|throws
 name|IOException
 block|{
 specifier|final
-name|DocIdSet
-name|set
+name|Scorer
+name|filterScorer
 init|=
 name|filter
 operator|.
-name|getDocIdSet
+name|scorer
 argument_list|(
 name|context
 argument_list|,
@@ -187,7 +187,7 @@ operator|.
 name|maxDoc
 argument_list|()
 argument_list|,
-name|set
+name|filterScorer
 argument_list|)
 decl_stmt|;
 return|return

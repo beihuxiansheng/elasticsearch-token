@@ -322,14 +322,6 @@ argument_list|(
 name|aggregationName
 argument_list|,
 name|path
-argument_list|,
-name|context
-operator|.
-name|queryParserService
-argument_list|()
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
 argument_list|)
 return|;
 block|}

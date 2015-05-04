@@ -3360,11 +3360,6 @@ name|execution
 argument_list|(
 literal|"bool"
 argument_list|)
-operator|.
-name|cache
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
