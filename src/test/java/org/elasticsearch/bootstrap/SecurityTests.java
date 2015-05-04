@@ -204,7 +204,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// its filesystem root
+comment|// its parent
 name|assertFalse
 argument_list|(
 name|permissions
