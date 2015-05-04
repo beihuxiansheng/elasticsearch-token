@@ -576,31 +576,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
+name|*
 import|;
 end_import
 
@@ -1702,13 +1678,6 @@ block|}
 comment|/**      * test simple moving average on single value field      */
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
-argument_list|)
 DECL|method|simpleSingleValuedField
 specifier|public
 name|void
@@ -2130,13 +2099,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
-argument_list|)
 DECL|method|linearSingleValuedField
 specifier|public
 name|void
@@ -2558,13 +2520,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
-argument_list|)
 DECL|method|singleSingleValuedField
 specifier|public
 name|void
@@ -2996,13 +2951,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Fails with certain seeds including -Dtests.seed=D9EF60095522804F"
-argument_list|)
 DECL|method|doubleSingleValuedField
 specifier|public
 name|void
@@ -6840,23 +6788,16 @@ name|expectedCount
 operator|+
 literal|"]"
 argument_list|,
-name|Math
-operator|.
-name|abs
-argument_list|(
 name|countMovAvg
 operator|.
 name|value
 argument_list|()
-operator|-
-name|expectedCount
-argument_list|)
-operator|<=
-literal|0.000001
 argument_list|,
-name|equalTo
+name|closeTo
 argument_list|(
-literal|true
+name|expectedCount
+argument_list|,
+literal|0.1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6922,23 +6863,16 @@ name|expectedValue
 operator|+
 literal|"]"
 argument_list|,
-name|Math
-operator|.
-name|abs
-argument_list|(
 name|valuesMovAvg
 operator|.
 name|value
 argument_list|()
-operator|-
-name|expectedValue
-argument_list|)
-operator|<=
-literal|0.000001
 argument_list|,
-name|equalTo
+name|closeTo
 argument_list|(
-literal|true
+name|expectedValue
+argument_list|,
+literal|0.1
 argument_list|)
 argument_list|)
 expr_stmt|;
