@@ -18,20 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|StringHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|env
@@ -174,12 +160,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// init lucene random seed. it will use /dev/urandom where available:
-name|StringHelper
-operator|.
-name|randomId
-argument_list|()
-expr_stmt|;
 comment|// enable security policy: union of template and environment-based paths.
 name|URI
 name|template
