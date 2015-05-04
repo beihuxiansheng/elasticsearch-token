@@ -127,8 +127,6 @@ argument_list|(
 name|createPermissions
 argument_list|(
 name|environment
-argument_list|,
-literal|true
 argument_list|)
 argument_list|)
 argument_list|)
@@ -156,9 +154,6 @@ name|createPermissions
 parameter_list|(
 name|Environment
 name|environment
-parameter_list|,
-name|boolean
-name|addTempDir
 parameter_list|)
 throws|throws
 name|IOException
@@ -172,11 +167,6 @@ operator|new
 name|Permissions
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|addTempDir
-condition|)
-block|{
 name|addPath
 argument_list|(
 name|policy
@@ -196,7 +186,6 @@ argument_list|,
 literal|"read,readlink,write,delete"
 argument_list|)
 expr_stmt|;
-block|}
 name|addPath
 argument_list|(
 name|policy
