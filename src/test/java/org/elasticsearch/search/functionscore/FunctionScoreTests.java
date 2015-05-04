@@ -1360,11 +1360,6 @@ name|TEXT_FIELD
 argument_list|,
 literal|"value"
 argument_list|)
-operator|.
-name|cache
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 operator|.
 name|add
@@ -1483,11 +1478,6 @@ argument_list|(
 name|TEXT_FIELD
 argument_list|,
 literal|"value"
-argument_list|)
-operator|.
-name|cache
-argument_list|(
-literal|false
 argument_list|)
 argument_list|)
 operator|.

@@ -52,17 +52,12 @@ DECL|method|PlainListenableActionFuture
 specifier|public
 name|PlainListenableActionFuture
 parameter_list|(
-name|boolean
-name|listenerThreaded
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|listenerThreaded
-argument_list|,
 name|threadPool
 argument_list|)
 expr_stmt|;

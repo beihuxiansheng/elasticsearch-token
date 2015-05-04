@@ -233,11 +233,6 @@ operator|.
 name|clusterStateRequest
 argument_list|()
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-operator|.
 name|routingTable
 argument_list|(
 literal|false

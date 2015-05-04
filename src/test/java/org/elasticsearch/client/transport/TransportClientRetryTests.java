@@ -623,11 +623,6 @@ operator|new
 name|PlainListenableActionFuture
 argument_list|<>
 argument_list|(
-name|clusterStateRequest
-operator|.
-name|listenerThreaded
-argument_list|()
-argument_list|,
 name|transportClient
 operator|.
 name|threadPool

@@ -394,13 +394,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|getIndexTemplatesRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 specifier|final
 name|boolean
 name|implicitAll

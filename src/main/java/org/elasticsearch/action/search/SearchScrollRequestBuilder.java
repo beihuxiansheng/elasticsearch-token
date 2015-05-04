@@ -140,27 +140,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Should the listener be called on a separate thread if needed.      */
-DECL|method|listenerThreaded
-specifier|public
-name|SearchScrollRequestBuilder
-name|listenerThreaded
-parameter_list|(
-name|boolean
-name|threadedListener
-parameter_list|)
-block|{
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-name|threadedListener
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * The scroll id to use to continue scrolling.      */
 DECL|method|setScrollId
 specifier|public

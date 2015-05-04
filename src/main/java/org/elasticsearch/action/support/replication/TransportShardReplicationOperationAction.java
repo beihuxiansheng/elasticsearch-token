@@ -1251,14 +1251,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// no need to have a threaded listener since we just send back a response
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 comment|// if we have a local operation, execute it on a thread since we don't spawn
 name|request
 operator|.

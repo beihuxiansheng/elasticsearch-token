@@ -863,7 +863,7 @@ extends|extends
 name|AbstractClient
 block|{
 DECL|field|CLIENT_TYPE
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 name|String

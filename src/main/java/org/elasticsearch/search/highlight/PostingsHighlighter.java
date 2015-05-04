@@ -1029,7 +1029,7 @@ name|filteredQueryTerms
 argument_list|,
 name|hitContext
 operator|.
-name|searcher
+name|reader
 argument_list|()
 argument_list|,
 name|hitContext

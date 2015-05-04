@@ -340,13 +340,6 @@ argument_list|()
 decl_stmt|;
 name|multiGetRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|multiGetRequest
-operator|.
 name|refresh
 argument_list|(
 name|request
