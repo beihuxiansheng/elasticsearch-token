@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|IndicesAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -117,16 +117,17 @@ argument_list|,
 name|UpdateSettingsResponse
 argument_list|,
 name|UpdateSettingsRequestBuilder
-argument_list|,
-name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|UpdateSettingsRequestBuilder
 specifier|public
 name|UpdateSettingsRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
-name|indicesClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|UpdateSettingsAction
+name|action
 parameter_list|,
 name|String
 modifier|...
@@ -135,7 +136,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|indicesClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|UpdateSettingsRequest
@@ -167,7 +170,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *      * For example indices that don't exist.      */
+comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *<p/>      * For example indices that don't exist.      */
 DECL|method|setIndicesOptions
 specifier|public
 name|UpdateSettingsRequestBuilder
@@ -278,30 +281,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|UpdateSettingsResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|updateSettings
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

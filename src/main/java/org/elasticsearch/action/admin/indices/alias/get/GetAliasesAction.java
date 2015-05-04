@@ -30,11 +30,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|IndicesAction
+name|Action
 import|;
 end_import
 
@@ -46,7 +42,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|IndicesAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -60,7 +56,7 @@ specifier|public
 class|class
 name|GetAliasesAction
 extends|extends
-name|IndicesAction
+name|Action
 argument_list|<
 name|GetAliasesRequest
 argument_list|,
@@ -107,7 +103,7 @@ specifier|public
 name|GetAliasesRequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
+name|ElasticsearchClient
 name|client
 parameter_list|)
 block|{
@@ -116,6 +112,8 @@ operator|new
 name|GetAliasesRequestBuilder
 argument_list|(
 name|client
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}

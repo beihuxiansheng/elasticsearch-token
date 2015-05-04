@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ClientAction
+name|Action
 import|;
 end_import
 
@@ -40,6 +40,18 @@ name|Client
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|client
+operator|.
+name|ElasticsearchClient
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -50,7 +62,7 @@ specifier|public
 class|class
 name|MultiTermVectorsAction
 extends|extends
-name|ClientAction
+name|Action
 argument_list|<
 name|MultiTermVectorsRequest
 argument_list|,
@@ -111,7 +123,7 @@ specifier|public
 name|MultiTermVectorsRequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|Client
+name|ElasticsearchClient
 name|client
 parameter_list|)
 block|{
@@ -120,6 +132,8 @@ operator|new
 name|MultiTermVectorsRequestBuilder
 argument_list|(
 name|client
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}

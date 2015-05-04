@@ -30,18 +30,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|search
 operator|.
 name|SearchRequest
@@ -86,12 +74,12 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|IndicesAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for {@link PutWarmerRequest}  * @see PutWarmerRequest for details  */
+comment|/**  * Builder for {@link PutWarmerRequest}  *  * @see PutWarmerRequest for details  */
 end_comment
 
 begin_class
@@ -107,8 +95,6 @@ argument_list|,
 name|PutWarmerResponse
 argument_list|,
 name|PutWarmerRequestBuilder
-argument_list|,
-name|IndicesAdminClient
 argument_list|>
 block|{
 comment|/**      * Creates a new {@link PutWarmerRequestBuilder} with a given name.      */
@@ -116,8 +102,11 @@ DECL|method|PutWarmerRequestBuilder
 specifier|public
 name|PutWarmerRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
-name|indicesClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|PutWarmerAction
+name|action
 parameter_list|,
 name|String
 name|name
@@ -125,7 +114,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|indicesClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|PutWarmerRequest
@@ -143,13 +134,18 @@ DECL|method|PutWarmerRequestBuilder
 specifier|public
 name|PutWarmerRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
-name|indicesClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|PutWarmerAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|indicesClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|PutWarmerRequest
@@ -219,30 +215,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|PutWarmerResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|putWarmer
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

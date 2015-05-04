@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ClientAction
+name|Action
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|DeleteIndexedScriptAction
 extends|extends
-name|ClientAction
+name|Action
 argument_list|<
 name|DeleteIndexedScriptRequest
 argument_list|,
@@ -113,7 +113,7 @@ specifier|public
 name|DeleteIndexedScriptRequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|Client
+name|ElasticsearchClient
 name|client
 parameter_list|)
 block|{
@@ -122,6 +122,8 @@ operator|new
 name|DeleteIndexedScriptRequestBuilder
 argument_list|(
 name|client
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}

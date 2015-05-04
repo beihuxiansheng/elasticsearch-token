@@ -440,12 +440,11 @@ decl_stmt|;
 name|MultiTermVectorsRequestBuilder
 name|mtvBuilder
 init|=
-operator|new
-name|MultiTermVectorsRequestBuilder
-argument_list|(
 name|client
 argument_list|()
-argument_list|)
+operator|.
+name|prepareMultiTermVectors
+argument_list|()
 decl_stmt|;
 name|mtvBuilder
 operator|.

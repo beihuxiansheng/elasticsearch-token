@@ -293,6 +293,18 @@ return|return
 name|listener
 return|;
 block|}
+comment|// already threaded...
+if|if
+condition|(
+name|listener
+operator|instanceof
+name|ThreadedActionListener
+condition|)
+block|{
+return|return
+name|listener
+return|;
+block|}
 return|return
 operator|new
 name|ThreadedActionListener
