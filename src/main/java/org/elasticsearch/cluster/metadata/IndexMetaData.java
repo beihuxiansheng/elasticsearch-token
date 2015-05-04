@@ -1199,6 +1199,15 @@ name|SETTING_DATA_PATH
 init|=
 literal|"index.data_path"
 decl_stmt|;
+DECL|field|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
+init|=
+literal|"index.shared_filesystem.recover_on_any_node"
+decl_stmt|;
 DECL|field|INDEX_UUID_NA_VALUE
 specifier|public
 specifier|static
