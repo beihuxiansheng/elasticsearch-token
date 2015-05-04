@@ -54,6 +54,32 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|bootstrap
+operator|.
+name|Security
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|security
@@ -87,14 +113,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Installs test security manager (ensures it happens regardless of which  * test case happens to be first, test ordering, etc).   *<p>  * Note that this is BS, this should be done by the jvm (by passing -Djava.security.manager).  * turning it on/off needs to be the role of maven, not this stuff.  */
+comment|/**   * Installs test security manager (ensures it happens regardless of which  * test case happens to be first, test ordering, etc).   *<p>  * The idea is to mimic as much as possible what happens with ES in production  * mode (e.g. assign permissions and install security manager the same way)  */
 end_comment
 
 begin_class
-DECL|class|SecurityHack
+DECL|class|SecurityBootstrap
 class|class
-name|SecurityHack
+name|SecurityBootstrap
 block|{
+comment|// TODO: can we share more code with the non-test side here
+comment|// without making things complex???
 static|static
 block|{
 comment|// just like bootstrap, initialize natives, then SM
@@ -120,6 +148,35 @@ condition|)
 block|{
 try|try
 block|{
+comment|// initialize tmpdir the same exact way as bootstrap.
+name|Permissions
+name|perms
+init|=
+operator|new
+name|Permissions
+argument_list|()
+decl_stmt|;
+name|Security
+operator|.
+name|addPath
+argument_list|(
+name|perms
+argument_list|,
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
+argument_list|,
+literal|"read,readlink,write,delete"
+argument_list|)
+expr_stmt|;
 name|Policy
 operator|.
 name|setPolicy
@@ -127,9 +184,7 @@ argument_list|(
 operator|new
 name|ESPolicy
 argument_list|(
-operator|new
-name|Permissions
-argument_list|()
+name|perms
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -141,6 +196,11 @@ operator|new
 name|TestSecurityManager
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|Security
+operator|.
+name|selfTest
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch

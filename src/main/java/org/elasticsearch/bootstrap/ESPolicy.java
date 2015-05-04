@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|SuppressForbidden
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -117,13 +105,6 @@ specifier|final
 name|PermissionCollection
 name|dynamic
 decl_stmt|;
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"ok"
-argument_list|)
 DECL|method|ESPolicy
 specifier|public
 name|ESPolicy
@@ -148,22 +129,6 @@ operator|.
 name|toURI
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"temp="
-operator|+
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|template
@@ -190,13 +155,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"ok"
-argument_list|)
 DECL|method|implies
 specifier|public
 name|boolean
@@ -209,7 +167,6 @@ name|Permission
 name|permission
 parameter_list|)
 block|{
-comment|//System.out.println("domain=" + domain);
 return|return
 name|template
 operator|.

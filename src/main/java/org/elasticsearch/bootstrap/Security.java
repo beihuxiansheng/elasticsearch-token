@@ -20,6 +20,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -33,16 +47,6 @@ operator|.
 name|io
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
 import|;
 end_import
 
@@ -96,6 +100,7 @@ end_comment
 
 begin_class
 DECL|class|Security
+specifier|public
 class|class
 name|Security
 block|{
@@ -122,6 +127,8 @@ argument_list|(
 name|createPermissions
 argument_list|(
 name|environment
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 argument_list|)
@@ -149,6 +156,9 @@ name|createPermissions
 parameter_list|(
 name|Environment
 name|environment
+parameter_list|,
+name|boolean
+name|addTempDir
 parameter_list|)
 throws|throws
 name|IOException
@@ -162,6 +172,31 @@ operator|new
 name|Permissions
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|addTempDir
+condition|)
+block|{
+name|addPath
+argument_list|(
+name|policy
+argument_list|,
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
+argument_list|,
+literal|"read,readlink,write,delete"
+argument_list|)
+expr_stmt|;
+block|}
 name|addPath
 argument_list|(
 name|policy
@@ -258,6 +293,7 @@ return|;
 block|}
 comment|/** Add access to path (and all files underneath it */
 DECL|method|addPath
+specifier|public
 specifier|static
 name|void
 name|addPath
@@ -328,6 +364,7 @@ expr_stmt|;
 block|}
 comment|/** Simple checks that everything is ok */
 DECL|method|selfTest
+specifier|public
 specifier|static
 name|void
 name|selfTest

@@ -171,6 +171,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
+comment|// we pass false to not include temp (or it will grant permissions to everything here)
 name|Permissions
 name|permissions
 init|=
@@ -179,6 +180,8 @@ operator|.
 name|createPermissions
 argument_list|(
 name|environment
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// the fake es home
@@ -201,7 +204,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// its parent
+comment|// its filesystem root
 name|assertFalse
 argument_list|(
 name|permissions
@@ -392,6 +395,8 @@ operator|.
 name|createPermissions
 argument_list|(
 name|environment
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// check that all directories got permissions:
