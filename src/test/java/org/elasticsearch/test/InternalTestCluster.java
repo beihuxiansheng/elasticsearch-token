@@ -856,9 +856,9 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|none
+name|index
 operator|.
-name|NoneFilterCache
+name|IndexFilterCache
 import|;
 end_import
 
@@ -874,9 +874,9 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|weighted
+name|none
 operator|.
-name|WeightedFilterCache
+name|NoneFilterCache
 import|;
 end_import
 
@@ -3808,7 +3808,7 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-name|WeightedFilterCache
+name|IndexFilterCache
 operator|.
 name|class
 else|:

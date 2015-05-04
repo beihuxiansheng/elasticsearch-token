@@ -1160,16 +1160,6 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// inject workarounds for cyclic dep
-name|indexCache
-operator|.
-name|filter
-argument_list|()
-operator|.
-name|setIndexService
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|indexFieldData
 operator|.
 name|setIndexService

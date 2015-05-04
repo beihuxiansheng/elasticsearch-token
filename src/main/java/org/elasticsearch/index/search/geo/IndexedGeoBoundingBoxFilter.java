@@ -66,13 +66,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|geo
+name|search
 operator|.
-name|GeoPoint
+name|QueryWrapperFilter
 import|;
 end_import
 
@@ -84,11 +84,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
+name|geo
 operator|.
-name|search
-operator|.
-name|Queries
+name|GeoPoint
 import|;
 end_import
 
@@ -315,9 +313,8 @@ name|MUST
 argument_list|)
 expr_stmt|;
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|filter
 argument_list|)
@@ -409,9 +406,8 @@ name|MUST
 argument_list|)
 expr_stmt|;
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|filter
 argument_list|)
