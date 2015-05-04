@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -275,6 +265,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|ClusterHealthRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -322,20 +316,6 @@ comment|// we want users to be able to call this even when there are global bloc
 block|}
 annotation|@
 name|Override
-DECL|method|newRequest
-specifier|protected
-name|ClusterHealthRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|ClusterHealthRequest
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|newResponse
 specifier|protected
 name|ClusterHealthResponse
@@ -370,8 +350,6 @@ name|ClusterHealthResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -828,7 +806,7 @@ operator|.
 name|onFailure
 argument_list|(
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"ClusterService was close during health call"
 argument_list|)

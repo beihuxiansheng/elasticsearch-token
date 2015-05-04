@@ -128,7 +128,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollectorBase
+name|LeafBucketCollector
 import|;
 end_import
 
@@ -142,7 +142,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollector
+name|LeafBucketCollectorBase
 import|;
 end_import
 
@@ -181,6 +181,22 @@ operator|.
 name|support
 operator|.
 name|IncludeExclude
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|Reducer
 import|;
 end_import
 
@@ -266,6 +282,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -329,6 +355,12 @@ parameter_list|,
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -363,6 +395,8 @@ operator|.
 name|DEPTH_FIRST
 argument_list|,
 literal|false
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -874,6 +908,9 @@ argument_list|(
 name|list
 argument_list|)
 argument_list|,
+name|reducers
+argument_list|()
+argument_list|,
 name|metaData
 argument_list|()
 argument_list|)
@@ -950,6 +987,9 @@ operator|>
 name|emptyList
 argument_list|()
 argument_list|,
+name|reducers
+argument_list|()
+argument_list|,
 name|metaData
 argument_list|()
 argument_list|)
@@ -1021,6 +1061,12 @@ parameter_list|,
 name|SignificantTermsAggregatorFactory
 name|termsAggFactory
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -1049,6 +1095,8 @@ argument_list|,
 name|parent
 argument_list|,
 name|termsAggFactory
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)

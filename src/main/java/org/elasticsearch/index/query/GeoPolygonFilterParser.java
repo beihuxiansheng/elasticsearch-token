@@ -48,20 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryCachingPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -97,20 +83,6 @@ operator|.
 name|inject
 operator|.
 name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|HashedBytesRef
 import|;
 end_import
 
@@ -318,19 +290,6 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
-name|QueryCachingPolicy
-name|cache
-init|=
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-decl_stmt|;
-name|HashedBytesRef
-name|cacheKey
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|fieldName
 init|=
@@ -408,6 +367,19 @@ operator|.
 name|currentName
 argument_list|()
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|parseContext
+operator|.
+name|isDeprecatedSetting
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+comment|// skip
 block|}
 elseif|else
 if|if
@@ -521,9 +493,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_polygon] filter does not support ["
 operator|+
@@ -541,9 +510,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_polygon] filter does not support token type ["
 operator|+
@@ -592,55 +558,6 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"_cache"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|cache
-operator|=
-name|parseContext
-operator|.
-name|parseFilterCachePolicy
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"_cache_key"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-operator|||
-literal|"_cacheKey"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|cacheKey
-operator|=
-operator|new
-name|HashedBytesRef
-argument_list|(
-name|parser
-operator|.
-name|text
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 literal|"normalize"
 operator|.
 name|equals
@@ -671,9 +588,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_polygon] filter does not support ["
 operator|+
@@ -691,9 +605,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_polygon] unexpected token type ["
 operator|+
@@ -720,9 +631,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"no points defined for geo_polygon filter"
 argument_list|)
@@ -745,9 +653,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"too few points defined for geo_polygon filter"
 argument_list|)
@@ -807,9 +712,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"too few points defined for geo_polygon filter"
 argument_list|)
@@ -874,9 +776,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"failed to find geo_point field ["
 operator|+
@@ -912,9 +811,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"field ["
 operator|+
@@ -957,27 +853,6 @@ index|]
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|cache
-operator|!=
-literal|null
-condition|)
-block|{
-name|filter
-operator|=
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
-name|filter
-argument_list|,
-name|cacheKey
-argument_list|,
-name|cache
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|filterName

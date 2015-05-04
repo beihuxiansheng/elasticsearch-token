@@ -76,24 +76,6 @@ name|FilterCacheModule
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|parser
-operator|.
-name|QueryParserCacheModule
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -137,18 +119,6 @@ parameter_list|()
 block|{
 operator|new
 name|FilterCacheModule
-argument_list|(
-name|settings
-argument_list|)
-operator|.
-name|configure
-argument_list|(
-name|binder
-argument_list|()
-argument_list|)
-expr_stmt|;
-operator|new
-name|QueryParserCacheModule
 argument_list|(
 name|settings
 argument_list|)

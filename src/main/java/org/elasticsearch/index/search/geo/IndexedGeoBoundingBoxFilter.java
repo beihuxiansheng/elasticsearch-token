@@ -66,9 +66,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|lucene
+operator|.
+name|search
+operator|.
+name|QueryWrapperFilter
 import|;
 end_import
 
@@ -83,22 +87,6 @@ operator|.
 name|geo
 operator|.
 name|GeoPoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
 import|;
 end_import
 
@@ -155,7 +143,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"lat/lon is not enabled (indexed) for field ["
 operator|+
@@ -325,9 +313,8 @@ name|MUST
 argument_list|)
 expr_stmt|;
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|filter
 argument_list|)
@@ -419,9 +406,8 @@ name|MUST
 argument_list|)
 expr_stmt|;
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|filter
 argument_list|)

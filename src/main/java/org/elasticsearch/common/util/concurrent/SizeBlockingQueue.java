@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -553,7 +543,7 @@ block|{
 comment|// note, not used in ThreadPoolExecutor
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"offer with timeout not allowed on size queue"
 argument_list|)
@@ -575,7 +565,7 @@ block|{
 comment|// note, not used in ThreadPoolExecutor
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"put not allowed on size queue"
 argument_list|)

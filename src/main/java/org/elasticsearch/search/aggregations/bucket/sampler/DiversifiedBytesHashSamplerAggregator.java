@@ -122,16 +122,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|fielddata
@@ -210,6 +200,22 @@ name|search
 operator|.
 name|aggregations
 operator|.
+name|reducers
+operator|.
+name|Reducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
 name|support
 operator|.
 name|AggregationContext
@@ -239,6 +245,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -293,6 +309,12 @@ parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -321,6 +343,8 @@ argument_list|,
 name|aggregationContext
 argument_list|,
 name|parent
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -509,7 +533,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Sample diversifying key must be a single valued-field"
 argument_list|)

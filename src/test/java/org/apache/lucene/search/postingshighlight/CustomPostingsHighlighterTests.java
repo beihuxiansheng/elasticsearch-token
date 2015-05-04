@@ -541,8 +541,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|Sort
@@ -627,7 +625,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -672,7 +670,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -717,7 +715,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -793,7 +791,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -838,7 +836,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -883,7 +881,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -1234,8 +1232,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|Sort
@@ -1354,7 +1350,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -1517,7 +1513,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -2041,8 +2037,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|Sort
@@ -2161,7 +2155,7 @@ literal|"body"
 argument_list|,
 name|queryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -2738,8 +2732,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|Sort
@@ -2856,7 +2848,7 @@ literal|"body"
 argument_list|,
 name|filteredQueryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -2921,7 +2913,7 @@ literal|"body"
 argument_list|,
 name|filteredQueryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -3169,8 +3161,6 @@ name|search
 argument_list|(
 name|query
 argument_list|,
-literal|null
-argument_list|,
 literal|10
 argument_list|,
 name|Sort
@@ -3281,7 +3271,7 @@ literal|"body"
 argument_list|,
 name|filteredQueryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,
@@ -3335,7 +3325,7 @@ literal|"body"
 argument_list|,
 name|filteredQueryTerms
 argument_list|,
-name|searcher
+name|ir
 argument_list|,
 name|docId
 argument_list|,

@@ -352,10 +352,6 @@ operator|=
 operator|new
 name|BigArrays
 argument_list|(
-name|ImmutableSettings
-operator|.
-name|EMPTY
-argument_list|,
 literal|null
 argument_list|,
 operator|new

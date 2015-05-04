@@ -803,9 +803,19 @@ name|transportService
 expr_stmt|;
 name|transportService
 operator|.
-name|registerHandler
+name|registerRequestHandler
 argument_list|(
 name|UPDATE_SNAPSHOT_ACTION_NAME
+argument_list|,
+name|UpdateIndexShardSnapshotStatusRequest
+operator|.
+name|class
+argument_list|,
+name|ThreadPool
+operator|.
+name|Names
+operator|.
+name|SAME
 argument_list|,
 operator|new
 name|UpdateSnapshotStateRequestHandler
@@ -1483,8 +1493,6 @@ parameter_list|,
 name|ClusterState
 name|state
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|RepositoriesMetaData
 name|repositoriesMetaData
@@ -8341,8 +8349,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{      }
 annotation|@
 name|Override
@@ -8351,8 +8357,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|shutdownLock
 operator|.
@@ -8415,8 +8419,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{      }
 comment|/**      * Listener for create snapshot operation      */
 DECL|interface|CreateSnapshotListener
@@ -9028,29 +9030,14 @@ block|}
 block|}
 comment|/**      * Transport request handler that is used to send changes in snapshot status to master      */
 DECL|class|UpdateSnapshotStateRequestHandler
-specifier|private
 class|class
 name|UpdateSnapshotStateRequestHandler
-extends|extends
-name|BaseTransportRequestHandler
+implements|implements
+name|TransportRequestHandler
 argument_list|<
 name|UpdateIndexShardSnapshotStatusRequest
 argument_list|>
 block|{
-annotation|@
-name|Override
-DECL|method|newInstance
-specifier|public
-name|UpdateIndexShardSnapshotStatusRequest
-name|newInstance
-parameter_list|()
-block|{
-return|return
-operator|new
-name|UpdateIndexShardSnapshotStatusRequest
-argument_list|()
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|messageReceived
@@ -9084,22 +9071,6 @@ operator|.
 name|INSTANCE
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|executor
-specifier|public
-name|String
-name|executor
-parameter_list|()
-block|{
-return|return
-name|ThreadPool
-operator|.
-name|Names
-operator|.
-name|SAME
-return|;
 block|}
 block|}
 block|}

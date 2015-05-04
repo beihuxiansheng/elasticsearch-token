@@ -24,7 +24,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|Reducer
 import|;
 end_import
 
@@ -109,6 +115,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -121,6 +133,8 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -224,7 +238,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"path not supported for ["
 operator|+
@@ -264,6 +278,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -276,6 +296,8 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -389,7 +411,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"path not supported for ["
 operator|+
@@ -417,6 +439,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -429,6 +457,8 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)

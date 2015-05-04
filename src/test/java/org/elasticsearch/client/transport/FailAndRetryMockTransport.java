@@ -769,8 +769,6 @@ specifier|public
 name|Transport
 name|start
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 literal|null
@@ -783,8 +781,6 @@ specifier|public
 name|Transport
 name|stop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 return|return
 literal|null
@@ -797,8 +793,6 @@ specifier|public
 name|void
 name|close
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{      }
 annotation|@
 name|Override

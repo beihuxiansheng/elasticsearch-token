@@ -20,20 +20,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Nightly
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -76,35 +62,9 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
 import|;
 end_import
 
@@ -951,7 +911,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -984,7 +944,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -1073,7 +1033,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 operator|.
 name|class
 argument_list|)
@@ -1106,7 +1066,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -3168,8 +3128,6 @@ name|void
 name|testStopwordsOnlyPhraseSuggest
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -3296,8 +3254,6 @@ name|void
 name|testPrefixLength
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 comment|// Stopped here
@@ -3711,8 +3667,6 @@ name|void
 name|testMarvelHerosPhraseSuggest
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|CreateIndexRequestBuilder
@@ -5207,8 +5161,6 @@ name|void
 name|testPhraseBoundaryCases
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|CreateIndexRequestBuilder
@@ -6625,8 +6577,6 @@ name|void
 name|testSearchForRarePhrase
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 comment|// If there isn't enough chaf per shard then shards can become unbalanced, making the cutoff recheck this is testing do more harm then good.

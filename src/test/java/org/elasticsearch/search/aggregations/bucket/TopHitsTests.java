@@ -4477,7 +4477,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -4580,7 +4580,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
@@ -7811,17 +7811,12 @@ operator|.
 name|explanation
 argument_list|()
 decl_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
 name|explanation
 operator|.
-name|toString
+name|isMatch
 argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"Not a match"
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Returns the version of the root document. Nested docs don't have a separate version

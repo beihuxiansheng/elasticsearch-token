@@ -42,16 +42,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -146,20 +136,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentHelper
 import|;
 end_import
@@ -201,6 +177,22 @@ operator|.
 name|rest
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|rest
+operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|RestActions
 import|;
 end_import
 
@@ -508,23 +500,22 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|request
+name|RestActions
 operator|.
-name|hasContent
-argument_list|()
+name|hasBodyContent
+argument_list|(
+name|request
+argument_list|)
 condition|)
 block|{
 name|XContentType
 name|type
 init|=
-name|XContentFactory
+name|RestActions
 operator|.
-name|xContentType
+name|guessBodyContentType
 argument_list|(
 name|request
-operator|.
-name|content
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -543,10 +534,12 @@ condition|)
 block|{
 name|text
 operator|=
-name|request
+name|RestActions
 operator|.
-name|content
-argument_list|()
+name|getRestContent
+argument_list|(
+name|request
+argument_list|)
 operator|.
 name|toUtf8
 argument_list|()
@@ -565,10 +558,12 @@ block|{
 comment|// NOTE: if rest request with xcontent body has request parameters, the parameters does not override xcontent values
 name|buildFromContent
 argument_list|(
-name|request
+name|RestActions
 operator|.
-name|content
-argument_list|()
+name|getRestContent
+argument_list|(
+name|request
+argument_list|)
 argument_list|,
 name|analyzeRequest
 argument_list|)
@@ -610,8 +605,6 @@ parameter_list|,
 name|AnalyzeRequest
 name|analyzeRequest
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 try|try
 init|(
@@ -642,7 +635,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Malforrmed content, must start with an object"
 argument_list|)
@@ -916,7 +909,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|currentFieldName
 operator|+
@@ -1012,7 +1005,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 name|currentFieldName
 operator|+
@@ -1052,7 +1045,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown parameter ["
 operator|+
@@ -1077,7 +1070,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to parse request body"
 argument_list|,

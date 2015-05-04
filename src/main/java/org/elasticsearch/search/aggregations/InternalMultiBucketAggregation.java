@@ -22,7 +22,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
+name|search
+operator|.
+name|aggregations
+operator|.
+name|bucket
+operator|.
+name|MultiBucketsAggregation
 import|;
 end_import
 
@@ -36,9 +42,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|bucket
+name|reducers
 operator|.
-name|MultiBucketsAggregation
+name|Reducer
 import|;
 end_import
 
@@ -68,6 +74,17 @@ specifier|public
 specifier|abstract
 class|class
 name|InternalMultiBucketAggregation
+parameter_list|<
+name|A
+extends|extends
+name|InternalMultiBucketAggregation
+parameter_list|,
+name|B
+extends|extends
+name|InternalMultiBucketAggregation
+operator|.
+name|InternalBucket
+parameter_list|>
 extends|extends
 name|InternalAggregation
 implements|implements
@@ -85,6 +102,12 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -98,10 +121,40 @@ name|super
 argument_list|(
 name|name
 argument_list|,
+name|reducers
+argument_list|,
 name|metaData
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Create a new copy of this {@link Aggregation} with the same settings as      * this {@link Aggregation} and contains the provided buckets.      *       * @param buckets      *            the buckets to use in the new {@link Aggregation}      * @return the new {@link Aggregation}      */
+DECL|method|create
+specifier|public
+specifier|abstract
+name|A
+name|create
+parameter_list|(
+name|List
+argument_list|<
+name|B
+argument_list|>
+name|buckets
+parameter_list|)
+function_decl|;
+comment|/**      * Create a new {@link InternalBucket} using the provided prototype bucket      * and aggregations.      *       * @param aggregations      *            the aggregations for the new bucket      * @param prototype      *            the bucket to use as a prototype      * @return the new bucket      */
+DECL|method|createBucket
+specifier|public
+specifier|abstract
+name|B
+name|createBucket
+parameter_list|(
+name|InternalAggregations
+name|aggregations
+parameter_list|,
+name|B
+name|prototype
+parameter_list|)
+function_decl|;
 annotation|@
 name|Override
 DECL|method|getProperty
@@ -274,7 +327,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|InvalidAggregationPathException
 argument_list|(
 literal|"_count must be the last element in the path"
 argument_list|)
@@ -308,7 +361,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|InvalidAggregationPathException
 argument_list|(
 literal|"_key must be the last element in the path"
 argument_list|)
@@ -338,7 +391,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|InvalidAggregationPathException
 argument_list|(
 literal|"Cannot find an aggregation named ["
 operator|+

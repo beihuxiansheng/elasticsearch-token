@@ -108,16 +108,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -133,6 +123,22 @@ operator|.
 name|common
 operator|.
 name|ParseField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -257,22 +263,6 @@ operator|.
 name|support
 operator|.
 name|NestedInnerQueryParseSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|nested
-operator|.
-name|NonNestedDocsFilter
 import|;
 end_import
 
@@ -724,7 +714,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"malformed sort format, within the sort array, an object, or an actual string are allowed"
 argument_list|)
@@ -793,7 +783,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"malformed sort format, either start with array, object, or an actual string"
 argument_list|)
@@ -1067,7 +1057,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"sort direction ["
 operator|+
@@ -1401,7 +1391,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"sort option ["
 operator|+
@@ -1469,7 +1459,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"sort option ["
 operator|+
@@ -1667,6 +1657,8 @@ operator|+
 name|fieldName
 operator|+
 literal|"] in order to sort on"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1691,6 +1683,8 @@ operator|+
 name|fieldName
 operator|+
 literal|"]"
+argument_list|,
+literal|null
 argument_list|)
 throw|;
 block|}
@@ -1858,9 +1852,10 @@ argument_list|()
 operator|.
 name|getBitDocIdSetFilter
 argument_list|(
-name|NonNestedDocsFilter
+name|Queries
 operator|.
-name|INSTANCE
+name|newNonNestedFilter
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Filter
@@ -1876,41 +1871,16 @@ condition|)
 block|{
 name|innerDocumentsFilter
 operator|=
-name|context
-operator|.
-name|filterCache
-argument_list|()
-operator|.
-name|cache
-argument_list|(
 name|nestedHelper
 operator|.
 name|getInnerFilter
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-name|context
-operator|.
-name|queryParserService
-argument_list|()
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
 name|innerDocumentsFilter
 operator|=
-name|context
-operator|.
-name|filterCache
-argument_list|()
-operator|.
-name|cache
-argument_list|(
 name|nestedHelper
 operator|.
 name|getNestedObjectMapper
@@ -1918,17 +1888,6 @@ argument_list|()
 operator|.
 name|nestedTypeFilter
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-name|context
-operator|.
-name|queryParserService
-argument_list|()
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|nested

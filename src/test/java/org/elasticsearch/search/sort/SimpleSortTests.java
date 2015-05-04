@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1274,12 +1260,6 @@ argument_list|)
 operator|+
 literal|"/01"
 argument_list|)
-operator|.
-name|cache
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1408,12 +1388,6 @@ argument_list|)
 argument_list|)
 operator|+
 literal|"/01"
-argument_list|)
-operator|.
-name|cache
-argument_list|(
-name|randomBoolean
-argument_list|()
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1952,8 +1926,6 @@ name|void
 name|testRandomSorting
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|InterruptedException
@@ -11091,8 +11063,6 @@ name|void
 name|testSortMissingStrings
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -12059,12 +12029,12 @@ name|assertThat
 argument_list|(
 name|shardSearchFailure
 operator|.
-name|reason
+name|toString
 argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Parse Failure [No mapping found for [kkk] in order to sort on]"
+literal|"[No mapping found for [kkk] in order to sort on]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -16484,8 +16454,6 @@ name|void
 name|testSortOnRareField
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|assertAcked
@@ -18150,8 +18118,6 @@ name|void
 name|testNestedSort
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|InterruptedException

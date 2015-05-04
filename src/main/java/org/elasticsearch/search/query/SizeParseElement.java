@@ -140,6 +140,11 @@ operator|+
 name|size
 operator|+
 literal|"] and is expected to be higher or equal to 0"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -16,16 +16,6 @@ name|routing
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the current state of a {@link ShardRouting} as defined by the  * cluster.  */
 end_comment
@@ -150,7 +140,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No routing state mapped for ["
 operator|+

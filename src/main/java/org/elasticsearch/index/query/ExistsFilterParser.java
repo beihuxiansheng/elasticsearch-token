@@ -96,20 +96,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermRangeFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|TermRangeQuery
 import|;
 end_import
@@ -415,9 +401,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[exists] filter does not support ["
 operator|+
@@ -441,9 +424,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"exists must be provided with a [field]"
 argument_list|)
@@ -737,37 +717,12 @@ block|}
 name|Filter
 name|filter
 init|=
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|boolFilter
 argument_list|)
 decl_stmt|;
-comment|// we always cache this one, really does not change... (exists)
-comment|// its ok to cache under the fieldName cacheKey, since its per segment and the mapping applies to this data on this segment...
-name|filter
-operator|=
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
-name|filter
-argument_list|,
-operator|new
-name|HashedBytesRef
-argument_list|(
-literal|"$exists$"
-operator|+
-name|fieldPattern
-argument_list|)
-argument_list|,
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|filterName

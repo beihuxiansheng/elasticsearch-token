@@ -888,9 +888,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[query_string] query does not support ["
 operator|+
@@ -1058,9 +1055,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Query default operator ["
 operator|+
@@ -1110,9 +1104,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[query_string] analyzer ["
 operator|+
@@ -1179,9 +1170,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[query_string] quote_analyzer ["
 operator|+
@@ -1810,9 +1798,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[query_string] time_zone ["
 operator|+
@@ -1852,9 +1837,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[query_string] query does not support ["
 operator|+
@@ -1881,9 +1863,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"query_string must be provided with a [query]"
 argument_list|)
@@ -1959,47 +1938,6 @@ name|queryTypes
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Query
-name|query
-init|=
-name|parseContext
-operator|.
-name|queryParserCache
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|qpSettings
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|query
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|queryName
-operator|!=
-literal|null
-condition|)
-block|{
-name|parseContext
-operator|.
-name|addNamedQuery
-argument_list|(
-name|queryName
-argument_list|,
-name|query
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|query
-return|;
-block|}
 name|MapperQueryParser
 name|queryParser
 init|=
@@ -2012,8 +1950,9 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|Query
 name|query
-operator|=
+init|=
 name|queryParser
 operator|.
 name|parse
@@ -2023,7 +1962,7 @@ operator|.
 name|queryString
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|query
@@ -2093,18 +2032,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|parseContext
-operator|.
-name|queryParserCache
-argument_list|()
-operator|.
-name|put
-argument_list|(
-name|qpSettings
-argument_list|,
-name|query
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|queryName
@@ -2147,9 +2074,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Failed to parse query ["
 operator|+

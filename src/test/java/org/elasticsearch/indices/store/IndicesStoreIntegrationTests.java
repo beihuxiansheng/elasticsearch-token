@@ -194,6 +194,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|DiscoveryService
@@ -304,6 +318,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -343,6 +367,18 @@ operator|.
 name|concurrent
 operator|.
 name|Future
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -447,10 +483,43 @@ literal|"path.data"
 argument_list|,
 literal|""
 argument_list|)
+comment|// by default this value is 1 sec in tests (30 sec in practice) but we adding disruption here
+comment|// which is between 1 and 2 sec can cause each of the shard deletion requests to timeout.
+comment|// to prevent this we are setting the timeout here to something highish ie. the default in practice
+operator|.
+name|put
+argument_list|(
+name|IndicesStore
+operator|.
+name|INDICES_STORE_DELETE_SHARD_TIMEOUT
+argument_list|,
+operator|new
+name|TimeValue
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|)
 operator|.
 name|build
 argument_list|()
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|ensureClusterStateConsistency
+specifier|protected
+name|void
+name|ensureClusterStateConsistency
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+comment|// testShardActiveElseWhere might change the state of a non-master node
+comment|// so we cannot check state consistency of this cluster
 block|}
 annotation|@
 name|Test
@@ -881,19 +950,17 @@ argument_list|(
 literal|"--> move shard from node_1 to node_3, and wait for relocation to finish"
 argument_list|)
 expr_stmt|;
-name|SlowClusterStateProcessing
-name|disruption
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|randomBoolean
 argument_list|()
 condition|)
 block|{
+comment|// sometimes add cluster-state delay to trigger observers in IndicesStore.ShardActiveRequestHandler
+specifier|final
+name|SlowClusterStateProcessing
 name|disruption
-operator|=
+init|=
 operator|new
 name|SlowClusterStateProcessing
 argument_list|(
@@ -910,7 +977,7 @@ literal|1000
 argument_list|,
 literal|2000
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|internalCluster
 argument_list|()
 operator|.

@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|block
@@ -77,6 +67,18 @@ operator|.
 name|service
 operator|.
 name|PendingClusterTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
 import|;
 end_import
 
@@ -166,7 +168,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 function_decl|;
 comment|/**      * Remove an initial block to be set on the first cluster state created.      */
 DECL|method|removeInitialStateBlock
@@ -177,7 +179,7 @@ name|ClusterBlock
 name|block
 parameter_list|)
 throws|throws
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 function_decl|;
 comment|/**      * The operation routing.      */
 DECL|method|operationRouting
@@ -239,11 +241,13 @@ name|LocalNodeMasterListener
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Adds a cluster state listener that will timeout after the provided timeout,      * and is executed after the clusterstate has been successfully applied ie. is      * in state {@link org.elasticsearch.cluster.ClusterState.ClusterStateStatus#APPLIED}      */
+comment|/**      * Adds a cluster state listener that will timeout after the provided timeout,      * and is executed after the clusterstate has been successfully applied ie. is      * in state {@link org.elasticsearch.cluster.ClusterState.ClusterStateStatus#APPLIED}      * NOTE: a {@code null} timeout means that the listener will never be removed      * automatically      */
 DECL|method|add
 name|void
 name|add
 parameter_list|(
+annotation|@
+name|Nullable
 name|TimeValue
 name|timeout
 parameter_list|,

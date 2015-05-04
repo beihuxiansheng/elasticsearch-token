@@ -50,16 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -346,6 +336,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|GetIndexRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -390,7 +384,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_READ
 argument_list|,
 name|state
 operator|.
@@ -410,20 +404,6 @@ name|indices
 argument_list|()
 argument_list|)
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|newRequest
-specifier|protected
-name|GetIndexRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|GetIndexRequest
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -466,8 +446,6 @@ name|GetIndexResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 name|ImmutableOpenMap
 argument_list|<
@@ -742,7 +720,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"feature ["
 operator|+

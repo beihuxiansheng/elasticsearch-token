@@ -80,6 +80,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|QueryWrapperFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -405,9 +419,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for term filter"
 argument_list|)
@@ -485,9 +496,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No type specified for term filter"
 argument_list|)
@@ -509,9 +517,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] filter does not support ["
 operator|+
@@ -587,9 +592,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] filter does not support ["
 operator|+
@@ -612,9 +614,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[ids] filter requires providing a values element"
 argument_list|)
@@ -694,9 +693,8 @@ block|}
 name|Filter
 name|filter
 init|=
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 operator|new
 name|TermsQuery

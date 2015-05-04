@@ -71,8 +71,6 @@ DECL|method|txGet
 name|V
 name|txGet
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 comment|/**      * Waits if necessary for at most the given time for the computation      * to complete, and then retrieves its result, if available.      */
 DECL|method|txGet
@@ -85,8 +83,6 @@ parameter_list|,
 name|TimeUnit
 name|unit
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

@@ -2438,7 +2438,7 @@ annotation|@
 name|Override
 DECL|method|index
 specifier|public
-name|void
+name|boolean
 name|index
 parameter_list|(
 name|Index
@@ -2447,6 +2447,10 @@ parameter_list|)
 throws|throws
 name|EngineException
 block|{
+specifier|final
+name|boolean
+name|created
+decl_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -2476,6 +2480,8 @@ name|RECOVERY
 condition|)
 block|{
 comment|// Don't throttle recovery operations
+name|created
+operator|=
 name|innerIndex
 argument_list|(
 name|index
@@ -2495,6 +2501,8 @@ name|acquireThrottle
 argument_list|()
 init|)
 block|{
+name|created
+operator|=
 name|innerIndex
 argument_list|(
 name|index
@@ -2539,6 +2547,9 @@ block|}
 name|checkVersionMapRefresh
 argument_list|()
 expr_stmt|;
+return|return
+name|created
+return|;
 block|}
 comment|/**      * Forces a refresh if the versionMap is using too much RAM      */
 DECL|method|checkVersionMapRefresh
@@ -2647,7 +2658,7 @@ block|}
 block|}
 DECL|method|innerIndex
 specifier|private
-name|void
+name|boolean
 name|innerIndex
 parameter_list|(
 name|Index
@@ -2799,7 +2810,9 @@ operator|.
 name|RECOVERY
 condition|)
 block|{
-return|return;
+return|return
+literal|false
+return|;
 block|}
 else|else
 block|{
@@ -2840,6 +2853,10 @@ argument_list|,
 name|expectedVersion
 argument_list|)
 expr_stmt|;
+specifier|final
+name|boolean
+name|created
+decl_stmt|;
 name|index
 operator|.
 name|updateVersion
@@ -2857,12 +2874,9 @@ name|NOT_FOUND
 condition|)
 block|{
 comment|// document does not exists, we can optimize for create
-name|index
-operator|.
 name|created
-argument_list|(
+operator|=
 literal|true
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -2916,17 +2930,21 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|index
-operator|.
 name|created
-argument_list|(
+operator|=
 name|versionValue
 operator|.
 name|delete
 argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// we have a delete which is not GC'ed...
+block|}
+else|else
+block|{
+name|created
+operator|=
+literal|false
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -3027,6 +3045,9 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
+return|return
+name|created
+return|;
 block|}
 block|}
 annotation|@
@@ -3457,6 +3478,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/** @deprecated This was removed, but we keep this API so translog can replay any DBQs on upgrade. */
+annotation|@
+name|Deprecated
 annotation|@
 name|Override
 DECL|method|delete
@@ -5680,8 +5704,6 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -6256,10 +6278,13 @@ name|Searcher
 argument_list|(
 literal|"warmer"
 argument_list|,
-operator|new
-name|IndexSearcher
+name|searcherFactory
+operator|.
+name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -6422,22 +6447,15 @@ block|{
 name|IndexSearcher
 name|searcher
 init|=
-operator|new
-name|IndexSearcher
+name|super
+operator|.
+name|newSearcher
 argument_list|(
 name|reader
+argument_list|,
+name|previousReader
 argument_list|)
 decl_stmt|;
-name|searcher
-operator|.
-name|setSimilarity
-argument_list|(
-name|engineConfig
-operator|.
-name|getSimilarity
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|warmer
@@ -6602,11 +6620,9 @@ argument_list|()
 condition|)
 block|{
 comment|// we don't want to close the inner readers, just increase ref on them
-name|newSearcher
-operator|=
-operator|new
-name|IndexSearcher
-argument_list|(
+name|IndexReader
+name|newReader
+init|=
 operator|new
 name|MultiReader
 argument_list|(
@@ -6626,6 +6642,16 @@ argument_list|)
 argument_list|,
 literal|false
 argument_list|)
+decl_stmt|;
+name|newSearcher
+operator|=
+name|super
+operator|.
+name|newSearcher
+argument_list|(
+name|newReader
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|closeNewSearcher
@@ -7167,7 +7193,7 @@ parameter_list|)
 block|{
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"no translog file found for ID: "
 operator|+

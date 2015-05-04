@@ -322,7 +322,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 expr_stmt|;
 block|}
@@ -452,7 +452,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -530,7 +530,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -575,7 +575,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -745,7 +745,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -827,7 +827,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -872,7 +872,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -954,7 +954,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -999,7 +999,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1044,7 +1044,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1246,7 +1246,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1328,7 +1328,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1373,7 +1373,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1455,7 +1455,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1500,7 +1500,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem
@@ -1545,7 +1545,7 @@ name|global
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|)
 argument_list|,
 name|hasItem

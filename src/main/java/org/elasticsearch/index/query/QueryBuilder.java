@@ -84,8 +84,6 @@ DECL|method|buildAsBytes
 name|BytesReference
 name|buildAsBytes
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 function_decl|;
 DECL|method|buildAsBytes
 name|BytesReference
@@ -94,8 +92,6 @@ parameter_list|(
 name|XContentType
 name|contentType
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 function_decl|;
 block|}
 end_interface

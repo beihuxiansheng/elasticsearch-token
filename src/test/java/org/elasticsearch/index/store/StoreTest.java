@@ -2054,6 +2054,13 @@ name|IndexFileNames
 operator|.
 name|OLD_SEGMENTS_GEN
 argument_list|)
+operator|||
+name|file
+operator|.
+name|startsWith
+argument_list|(
+literal|"extra"
+argument_list|)
 condition|)
 block|{
 continue|continue;

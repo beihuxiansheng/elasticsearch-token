@@ -180,34 +180,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * This is a noop since has_parent can't be cached.      */
-DECL|method|cache
-specifier|public
-name|HasParentFilterBuilder
-name|cache
-parameter_list|(
-name|boolean
-name|cache
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
-comment|/**      * This is a noop since has_parent can't be cached.      */
-DECL|method|cacheKey
-specifier|public
-name|HasParentFilterBuilder
-name|cacheKey
-parameter_list|(
-name|String
-name|cacheKey
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets inner hit definition in the scope of this filter and reusing the defined type and query.      */
 DECL|method|innerHit
 specifier|public

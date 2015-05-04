@@ -347,6 +347,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|IndicesAliasesRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -371,20 +375,6 @@ operator|.
 name|Names
 operator|.
 name|SAME
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|newRequest
-specifier|protected
-name|IndicesAliasesRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|IndicesAliasesRequest
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -467,7 +457,7 @@ name|indicesBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_WRITE
 argument_list|,
 name|indices
 operator|.
@@ -507,8 +497,6 @@ name|IndicesAliasesResponse
 argument_list|>
 name|listener
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|//Expand the indices names
 name|List

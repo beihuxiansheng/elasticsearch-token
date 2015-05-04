@@ -100,9 +100,9 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|weighted
+name|index
 operator|.
-name|WeightedFilterCache
+name|IndexFilterCache
 import|;
 end_import
 
@@ -191,7 +191,7 @@ name|FilterCacheSettings
 operator|.
 name|FILTER_CACHE_TYPE
 argument_list|,
-name|WeightedFilterCache
+name|IndexFilterCache
 operator|.
 name|class
 argument_list|,

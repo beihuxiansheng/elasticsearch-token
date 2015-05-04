@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -99,6 +89,22 @@ operator|.
 name|aggregations
 operator|.
 name|InternalAggregations
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|Reducer
 import|;
 end_import
 
@@ -187,6 +193,12 @@ parameter_list|,
 name|InternalAggregations
 name|aggregations
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -199,6 +211,8 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -259,10 +273,10 @@ parameter_list|)
 function_decl|;
 annotation|@
 name|Override
-DECL|method|reduce
+DECL|method|doReduce
 specifier|public
 name|InternalAggregation
-name|reduce
+name|doReduce
 parameter_list|(
 name|List
 argument_list|<
@@ -426,7 +440,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"_count must be the last element in the path"
 argument_list|)
@@ -456,7 +470,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Cannot find an aggregation named ["
 operator|+

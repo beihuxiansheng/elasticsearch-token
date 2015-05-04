@@ -275,7 +275,7 @@ decl_stmt|;
 name|long
 name|minDocCount
 init|=
-literal|1
+literal|0
 decl_stmt|;
 name|InternalOrder
 name|order
@@ -479,6 +479,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -601,6 +606,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]. Should be either [asc] or [desc]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -745,6 +755,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -772,6 +787,11 @@ operator|+
 name|currentFieldName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -793,6 +813,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -815,6 +840,11 @@ operator|+
 name|aggregationName
 operator|+
 literal|"]"
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|)
 throw|;
 block|}

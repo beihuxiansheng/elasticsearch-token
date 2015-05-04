@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -185,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A field data implementation that forbids loading and will throw an {@link org.elasticsearch.ElasticsearchIllegalStateException} if you try to load  * {@link AtomicFieldData} instances.  */
+comment|/**  * A field data implementation that forbids loading and will throw an {@link IllegalStateException} if you try to load  * {@link AtomicFieldData} instances.  */
 end_comment
 
 begin_class
@@ -346,13 +336,13 @@ throw|;
 block|}
 DECL|method|fail
 specifier|private
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 name|fail
 parameter_list|()
 block|{
 return|return
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Field data loading is forbidden on "
 operator|+

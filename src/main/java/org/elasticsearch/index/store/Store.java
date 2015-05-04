@@ -130,16 +130,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -2756,7 +2746,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * This method deletes every file in this store that is not contained in the given source meta data or is a      * legacy checksum file. After the delete it pulls the latest metadata snapshot from the store and compares it      * to the given snapshot. If the snapshots are inconsistent an illegal state exception is thrown      *      * @param reason         the reason for this cleanup operation logged for each deleted file      * @param sourceMetaData the metadata used for cleanup. all files in this metadata should be kept around.      * @throws IOException                        if an IOException occurs      * @throws ElasticsearchIllegalStateException if the latest snapshot in this store differs from the given one after the cleanup.      */
+comment|/**      * This method deletes every file in this store that is not contained in the given source meta data or is a      * legacy checksum file. After the delete it pulls the latest metadata snapshot from the store and compares it      * to the given snapshot. If the snapshots are inconsistent an illegal state exception is thrown      *      * @param reason         the reason for this cleanup operation logged for each deleted file      * @param sourceMetaData the metadata used for cleanup. all files in this metadata should be kept around.      * @throws IOException                        if an IOException occurs      * @throws IllegalStateException if the latest snapshot in this store differs from the given one after the cleanup.      */
 DECL|method|cleanupAndVerify
 specifier|public
 name|void
@@ -2909,7 +2899,7 @@ comment|// TODO do we need to also fail this if we can't delete the pending comm
 comment|// if one of those files can't be deleted we better fail the cleanup otherwise we might leave an old commit point around?
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't delete "
 operator|+
@@ -3136,7 +3126,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"local version: "
 operator|+
@@ -3165,7 +3155,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Files are missing on the recovery target: [different="
 operator|+

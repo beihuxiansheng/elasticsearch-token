@@ -129,9 +129,9 @@ name|String
 name|action
 parameter_list|)
 function_decl|;
-DECL|method|handler
-name|TransportRequestHandler
-name|handler
+DECL|method|getRequestHandler
+name|RequestHandlerRegistry
+name|getRequestHandler
 parameter_list|(
 name|String
 name|action

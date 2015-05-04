@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|ClusterChangedEvent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|ClusterState
 import|;
 end_import
@@ -380,8 +392,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|initialStateListener
 operator|=
@@ -472,8 +482,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -503,8 +511,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|discovery
 operator|.
@@ -557,8 +563,8 @@ specifier|public
 name|void
 name|publish
 parameter_list|(
-name|ClusterState
-name|clusterState
+name|ClusterChangedEvent
+name|clusterChangedEvent
 parameter_list|,
 name|Discovery
 operator|.
@@ -578,7 +584,7 @@ name|discovery
 operator|.
 name|publish
 argument_list|(
-name|clusterState
+name|clusterChangedEvent
 argument_list|,
 name|ackListener
 argument_list|)

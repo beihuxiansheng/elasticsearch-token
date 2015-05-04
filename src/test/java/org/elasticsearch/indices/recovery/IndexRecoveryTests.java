@@ -20,18 +20,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -540,7 +528,7 @@ name|test
 operator|.
 name|store
 operator|.
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 import|;
 end_import
 
@@ -4544,7 +4532,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|MockDirectoryHelper
+name|MockFSDirectoryService
 operator|.
 name|RANDOM_PREVENT_DOUBLE_WRITE
 argument_list|,

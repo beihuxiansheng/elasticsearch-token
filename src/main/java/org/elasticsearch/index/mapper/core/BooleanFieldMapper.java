@@ -98,6 +98,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|QueryWrapperFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|TermQuery
 import|;
 end_import
@@ -113,16 +127,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -173,22 +177,6 @@ operator|.
 name|lucene
 operator|.
 name|Lucene
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
 import|;
 end_import
 
@@ -286,7 +274,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -638,7 +626,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"bool field can't be tokenized"
 argument_list|)
@@ -1283,9 +1271,8 @@ literal|null
 return|;
 block|}
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 operator|new
 name|TermQuery
@@ -1493,8 +1480,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -1505,7 +1492,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
@@ -1530,10 +1517,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

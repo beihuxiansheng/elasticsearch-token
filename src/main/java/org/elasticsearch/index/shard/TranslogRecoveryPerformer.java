@@ -32,16 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|collect
@@ -117,20 +107,6 @@ operator|.
 name|mapper
 operator|.
 name|DocumentMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|Mapper
 import|;
 end_import
 
@@ -512,8 +488,6 @@ operator|.
 name|Operation
 name|operation
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{
@@ -994,7 +968,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"No operation defined for ["
 operator|+

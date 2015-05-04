@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|geo
@@ -496,7 +486,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Convert a String to a {@link DistanceUnit}      *       * @param unit name of the unit      * @return unit matching the given name      * @throws org.elasticsearch.ElasticsearchIllegalArgumentException if no unit matches the given name      */
+comment|/**      * Convert a String to a {@link DistanceUnit}      *       * @param unit name of the unit      * @return unit matching the given name      * @throws IllegalArgumentException if no unit matches the given name      */
 DECL|method|fromString
 specifier|public
 specifier|static
@@ -544,7 +534,7 @@ block|}
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No distance unit match ["
 operator|+
@@ -674,7 +664,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No type for distance unit matching ["
 operator|+

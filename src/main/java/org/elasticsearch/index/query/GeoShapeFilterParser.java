@@ -82,7 +82,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryCachingPolicy
+name|QueryWrapperFilter
 import|;
 end_import
 
@@ -175,36 +175,6 @@ operator|.
 name|internal
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|HashedBytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
 import|;
 end_import
 
@@ -408,19 +378,6 @@ name|shape
 init|=
 literal|null
 decl_stmt|;
-name|QueryCachingPolicy
-name|cache
-init|=
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-decl_stmt|;
-name|HashedBytesRef
-name|cacheKey
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|filterName
 init|=
@@ -496,6 +453,19 @@ operator|.
 name|currentName
 argument_list|()
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|parseContext
+operator|.
+name|isDeprecatedSetting
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+comment|// skip
 block|}
 elseif|else
 if|if
@@ -611,9 +581,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Unknown shape operation ["
 operator|+
@@ -799,9 +766,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"ID for indexed shape not provided"
 argument_list|)
@@ -820,9 +784,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Type for indexed shape not provided"
 argument_list|)
@@ -851,9 +812,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_shape] filter does not support ["
 operator|+
@@ -893,48 +851,6 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-literal|"_cache"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|cache
-operator|=
-name|parseContext
-operator|.
-name|parseFilterCachePolicy
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"_cache_key"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|cacheKey
-operator|=
-operator|new
-name|HashedBytesRef
-argument_list|(
-name|parser
-operator|.
-name|text
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 else|else
 block|{
 throw|throw
@@ -942,9 +858,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[geo_shape] filter does not support ["
 operator|+
@@ -968,9 +881,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No Shape defined"
 argument_list|)
@@ -989,9 +899,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No Shape Relation defined"
 argument_list|)
@@ -1027,9 +934,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Failed to find geo_shape field ["
 operator|+
@@ -1063,9 +967,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Field ["
 operator|+
@@ -1194,9 +1095,8 @@ argument_list|)
 expr_stmt|;
 name|filter
 operator|=
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|bool
 argument_list|)
@@ -1218,27 +1118,6 @@ name|shape
 argument_list|,
 name|shapeRelation
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|cache
-operator|!=
-literal|null
-condition|)
-block|{
-name|filter
-operator|=
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
-name|filter
-argument_list|,
-name|cacheKey
-argument_list|,
-name|cache
 argument_list|)
 expr_stmt|;
 block|}

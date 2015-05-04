@@ -1401,8 +1401,6 @@ name|void
 name|testSimpleTermVectors
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|XContentBuilder
@@ -1717,8 +1715,6 @@ name|void
 name|testRandomSingleTermVectors
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|FieldType
@@ -3089,8 +3085,6 @@ name|void
 name|testRandomPayloadWithDelimitedPayloadTokenFilter
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 comment|//create the test document
@@ -4355,8 +4349,6 @@ name|void
 name|testSimpleTermVectorsWithGenerate
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|String
@@ -4731,8 +4723,6 @@ name|boolean
 name|withPayloads
 parameter_list|)
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|String
@@ -5250,8 +5240,6 @@ name|void
 name|testDuelWithAndWithoutTermVectors
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 throws|,
 name|ExecutionException
@@ -5955,8 +5943,6 @@ name|void
 name|testSimpleWildCards
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|int
@@ -6195,8 +6181,6 @@ name|void
 name|testArtificialVsExisting
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|ExecutionException
 throws|,
 name|InterruptedException
@@ -6955,8 +6939,6 @@ name|void
 name|testPerFieldAnalyzer
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|IOException
 block|{
 name|int
@@ -7578,8 +7560,6 @@ name|void
 name|testDfs
 parameter_list|()
 throws|throws
-name|ElasticsearchException
-throws|,
 name|ExecutionException
 throws|,
 name|InterruptedException

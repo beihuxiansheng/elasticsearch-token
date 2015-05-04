@@ -447,14 +447,10 @@ operator|.
 name|value
 control|)
 block|{
-name|AliasMetaData
-operator|.
-name|Builder
+name|aliasMetaData
 operator|.
 name|writeTo
 argument_list|(
-name|aliasMetaData
-argument_list|,
 name|out
 argument_list|)
 expr_stmt|;

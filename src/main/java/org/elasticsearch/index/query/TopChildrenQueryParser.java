@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|QueryWrapperFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|join
 operator|.
 name|BitDocIdSetFilter
@@ -83,6 +97,22 @@ operator|.
 name|inject
 operator|.
 name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Queries
 import|;
 end_import
 
@@ -174,22 +204,6 @@ name|search
 operator|.
 name|child
 operator|.
-name|CustomQueryWrappingFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
 name|ScoreType
 import|;
 end_import
@@ -212,43 +226,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|nested
-operator|.
-name|NonNestedDocsFilter
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParserUtils
-operator|.
-name|ensureNotDeleteByQuery
 import|;
 end_import
 
@@ -320,13 +302,6 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
-name|ensureNotDeleteByQuery
-argument_list|(
-name|NAME
-argument_list|,
-name|parseContext
-argument_list|)
-expr_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -487,9 +462,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[top_children] query does not support ["
 operator|+
@@ -672,9 +644,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[top_children] query does not support ["
 operator|+
@@ -697,9 +666,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[top_children] requires 'query' field"
 argument_list|)
@@ -717,9 +683,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[top_children] requires 'type' field"
 argument_list|)
@@ -771,9 +734,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No mapping for for type ["
 operator|+
@@ -805,9 +765,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"Type ["
 operator|+
@@ -847,9 +804,10 @@ name|parseContext
 operator|.
 name|bitsetFilter
 argument_list|(
-name|NonNestedDocsFilter
+name|Queries
 operator|.
-name|INSTANCE
+name|newNonNestedFilter
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -868,22 +826,10 @@ name|FilteredQuery
 argument_list|(
 name|innerQuery
 argument_list|,
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
 name|childDocMapper
 operator|.
 name|typeFilter
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|ParentChildIndexFieldData
@@ -933,7 +879,7 @@ argument_list|(
 name|queryName
 argument_list|,
 operator|new
-name|CustomQueryWrappingFilter
+name|QueryWrapperFilter
 argument_list|(
 name|query
 argument_list|)

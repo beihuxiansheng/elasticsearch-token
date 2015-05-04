@@ -428,7 +428,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"cache(QueryWrapperFilter(animal:cat))"
+literal|"QueryWrapperFilter(animal:cat)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -448,7 +448,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(cache(QueryWrapperFilter(animal:cat)) cache(QueryWrapperFilter(animal:dog)))"
+literal|"QueryWrapperFilter(QueryWrapperFilter(animal:cat) QueryWrapperFilter(animal:dog))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -546,7 +546,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(cache(QueryWrapperFilter(animal:canine)) cache(QueryWrapperFilter(animal:feline)))"
+literal|"QueryWrapperFilter(QueryWrapperFilter(animal:canine) QueryWrapperFilter(animal:feline))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -626,7 +626,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"cache(QueryWrapperFilter(animal:dog))"
+literal|"QueryWrapperFilter(animal:dog)"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -646,7 +646,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(cache(QueryWrapperFilter(animal:dog)) cache(QueryWrapperFilter(animal:cat)))"
+literal|"QueryWrapperFilter(QueryWrapperFilter(animal:dog) QueryWrapperFilter(animal:cat))"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -700,7 +700,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(cache(QueryWrapperFilter(animal:canine)) cache(QueryWrapperFilter(animal:feline)))"
+literal|"QueryWrapperFilter(QueryWrapperFilter(animal:canine) QueryWrapperFilter(animal:feline))"
 argument_list|)
 argument_list|)
 expr_stmt|;

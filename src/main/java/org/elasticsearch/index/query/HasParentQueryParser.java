@@ -260,22 +260,6 @@ name|search
 operator|.
 name|child
 operator|.
-name|CustomQueryWrappingFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|search
-operator|.
-name|child
-operator|.
 name|ParentConstantScoreQuery
 import|;
 end_import
@@ -353,22 +337,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParserUtils
-operator|.
-name|ensureNotDeleteByQuery
 import|;
 end_import
 
@@ -452,13 +420,6 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
-name|ensureNotDeleteByQuery
-argument_list|(
-name|NAME
-argument_list|,
-name|parseContext
-argument_list|)
-expr_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -638,9 +599,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] query does not support ["
 operator|+
@@ -853,9 +811,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] query does not support ["
 operator|+
@@ -878,9 +833,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] query requires 'query' field"
 argument_list|)
@@ -898,9 +850,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] query requires 'parent_type' field"
 argument_list|)
@@ -977,15 +926,11 @@ condition|)
 block|{
 name|parseContext
 operator|.
-name|addNamedFilter
+name|addNamedQuery
 argument_list|(
 name|queryName
 argument_list|,
-operator|new
-name|CustomQueryWrappingFilter
-argument_list|(
 name|query
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1044,9 +989,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] query configured 'parent_type' ["
 operator|+
@@ -1230,9 +1172,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[has_parent] no _parent field configured"
 argument_list|)
@@ -1345,9 +1284,8 @@ block|}
 block|}
 name|parentFilter
 operator|=
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|parentsFilter
 argument_list|)
@@ -1372,34 +1310,17 @@ name|FilteredQuery
 argument_list|(
 name|innerQuery
 argument_list|,
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
 name|parentDocMapper
 operator|.
 name|typeFilter
 argument_list|()
-argument_list|,
-literal|null
-argument_list|,
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|Filter
 name|childrenFilter
 init|=
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|Queries
 operator|.
@@ -1407,14 +1328,6 @@ name|not
 argument_list|(
 name|parentFilter
 argument_list|)
-argument_list|)
-argument_list|,
-literal|null
-argument_list|,
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

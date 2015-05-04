@@ -24,16 +24,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|search
@@ -119,20 +109,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
 import|;
 end_import
 
@@ -372,23 +348,22 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|request
+name|RestActions
 operator|.
-name|hasContent
-argument_list|()
+name|hasBodyContent
+argument_list|(
+name|request
+argument_list|)
 condition|)
 block|{
 name|XContentType
 name|type
 init|=
-name|XContentFactory
+name|RestActions
 operator|.
-name|xContentType
+name|guessBodyContentType
 argument_list|(
 name|request
-operator|.
-name|content
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -438,10 +413,12 @@ argument_list|)
 expr_stmt|;
 name|buildFromContent
 argument_list|(
-name|request
+name|RestActions
 operator|.
-name|content
-argument_list|()
+name|getRestContent
+argument_list|(
+name|request
+argument_list|)
 argument_list|,
 name|clearRequest
 argument_list|)
@@ -510,8 +487,6 @@ parameter_list|,
 name|ClearScrollRequest
 name|clearScrollRequest
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 try|try
 init|(
@@ -542,7 +517,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Malformed content, must start with an object"
 argument_list|)
@@ -646,7 +621,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"scroll_id array element should only contain scroll_id"
 argument_list|)
@@ -668,7 +643,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown parameter ["
 operator|+
@@ -693,7 +668,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to parse request body"
 argument_list|,

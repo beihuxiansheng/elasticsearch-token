@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -954,7 +944,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to build json for mapping request"
 argument_list|,
@@ -1159,7 +1149,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Failed to build json for template request"
 argument_list|,
@@ -1295,7 +1285,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Malformed settings section, should include an inner object"
 argument_list|)
@@ -1383,7 +1373,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Malformed mappings section for type ["
 operator|+
@@ -1453,20 +1443,18 @@ comment|// maybe custom?
 name|IndexMetaData
 operator|.
 name|Custom
-operator|.
-name|Factory
-name|factory
+name|proto
 init|=
 name|IndexMetaData
 operator|.
-name|lookupFactory
+name|lookupPrototype
 argument_list|(
 name|name
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|factory
+name|proto
 operator|!=
 literal|null
 condition|)
@@ -1479,7 +1467,7 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-name|factory
+name|proto
 operator|.
 name|fromMap
 argument_list|(
@@ -1564,7 +1552,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse template source ["
 operator|+
@@ -1656,7 +1644,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse template source"
 argument_list|,
@@ -1705,7 +1693,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse template source"
 argument_list|,
@@ -2148,7 +2136,7 @@ name|customIndexMetaData
 init|=
 name|IndexMetaData
 operator|.
-name|lookupFactorySafe
+name|lookupPrototypeSafe
 argument_list|(
 name|type
 argument_list|)
@@ -2356,23 +2344,13 @@ name|getKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|IndexMetaData
-operator|.
-name|lookupFactorySafe
-argument_list|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
-argument_list|)
-operator|.
-name|writeTo
-argument_list|(
 name|entry
 operator|.
 name|getValue
 argument_list|()
-argument_list|,
+operator|.
+name|writeTo
+argument_list|(
 name|out
 argument_list|)
 expr_stmt|;

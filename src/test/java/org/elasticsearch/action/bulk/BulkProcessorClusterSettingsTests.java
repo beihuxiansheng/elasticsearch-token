@@ -309,7 +309,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"IndexMissingException[[wontwork] missing]"
+literal|"[wontwork] no such index"
 argument_list|,
 name|responses
 index|[

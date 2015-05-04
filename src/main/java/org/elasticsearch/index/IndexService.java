@@ -86,16 +86,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -975,12 +965,6 @@ specifier|final
 name|BitsetFilterCache
 name|bitsetFilterCache
 decl_stmt|;
-DECL|field|indexStore
-specifier|private
-specifier|final
-name|IndexStore
-name|indexStore
-decl_stmt|;
 DECL|field|settingsService
 specifier|private
 specifier|final
@@ -1082,9 +1066,6 @@ parameter_list|,
 name|IndexCache
 name|indexCache
 parameter_list|,
-name|IndexStore
-name|indexStore
-parameter_list|,
 name|IndexSettingsService
 name|settingsService
 parameter_list|,
@@ -1161,12 +1142,6 @@ name|indexFieldData
 expr_stmt|;
 name|this
 operator|.
-name|indexStore
-operator|=
-name|indexStore
-expr_stmt|;
-name|this
-operator|.
 name|settingsService
 operator|=
 name|settingsService
@@ -1213,16 +1188,6 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// inject workarounds for cyclic dep
-name|indexCache
-operator|.
-name|filter
-argument_list|()
-operator|.
-name|setIndexService
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|indexFieldData
 operator|.
 name|setIndexService
@@ -1479,16 +1444,6 @@ operator|.
 name|settingsService
 return|;
 block|}
-DECL|method|store
-specifier|public
-name|IndexStore
-name|store
-parameter_list|()
-block|{
-return|return
-name|indexStore
-return|;
-block|}
 DECL|method|cache
 specifier|public
 name|IndexCache
@@ -1742,8 +1697,6 @@ parameter_list|,
 name|boolean
 name|primary
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 comment|/*          * TODO: we execute this in parallel but it's a synced method. Yet, we might          * be able to serialize the execution via the cluster state in the future. for now we just          * keep it synced.          */
 if|if
@@ -1756,7 +1709,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"Can't create shard ["
 operator|+
@@ -2017,8 +1970,6 @@ argument_list|(
 operator|new
 name|StoreModule
 argument_list|(
-name|indexSettings
-argument_list|,
 name|injector
 operator|.
 name|getInstance
@@ -2362,8 +2313,6 @@ parameter_list|,
 name|String
 name|reason
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|ShardId

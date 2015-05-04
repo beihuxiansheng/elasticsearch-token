@@ -340,16 +340,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Strings
@@ -614,7 +604,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"the field ["
 operator|+
@@ -1039,7 +1029,7 @@ name|filteredQueryTerms
 argument_list|,
 name|hitContext
 operator|.
-name|searcher
+name|reader
 argument_list|()
 argument_list|,
 name|hitContext

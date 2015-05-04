@@ -93,6 +93,10 @@ argument_list|<
 name|ClusterStatsRequest
 argument_list|>
 block|{
+DECL|method|ClusterStatsRequest
+name|ClusterStatsRequest
+parameter_list|()
+block|{     }
 comment|/**      * Get stats from nodes based on the nodes ids specified. If none are passed, stats      * based on all nodes will be returned.      */
 DECL|method|ClusterStatsRequest
 specifier|public

@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|geo
@@ -131,6 +121,22 @@ operator|.
 name|metrics
 operator|.
 name|InternalMetricsAggregation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|reducers
+operator|.
+name|Reducer
 import|;
 end_import
 
@@ -300,6 +306,12 @@ parameter_list|,
 name|boolean
 name|wrapLongitude
 parameter_list|,
+name|List
+argument_list|<
+name|Reducer
+argument_list|>
+name|reducers
+parameter_list|,
 name|Map
 argument_list|<
 name|String
@@ -312,6 +324,8 @@ block|{
 name|super
 argument_list|(
 name|name
+argument_list|,
+name|reducers
 argument_list|,
 name|metaData
 argument_list|)
@@ -373,10 +387,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|reduce
+DECL|method|doReduce
 specifier|public
 name|InternalAggregation
-name|reduce
+name|doReduce
 parameter_list|(
 name|List
 argument_list|<
@@ -563,6 +577,9 @@ name|negRight
 argument_list|,
 name|wrapLongitude
 argument_list|,
+name|reducers
+argument_list|()
+argument_list|,
 name|getMetaData
 argument_list|()
 argument_list|)
@@ -673,7 +690,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Found unknown path element ["
 operator|+
@@ -749,7 +766,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Found unknown path element ["
 operator|+
@@ -800,7 +817,7 @@ return|;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Found unknown path element ["
 operator|+
@@ -820,7 +837,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"path not supported for ["
 operator|+

@@ -259,13 +259,6 @@ decl_stmt|;
 annotation|@
 name|Test
 comment|// see #3544
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"adrien is looking into this"
-argument_list|)
 DECL|method|testConcurrentDynamicMapping
 specifier|public
 name|void

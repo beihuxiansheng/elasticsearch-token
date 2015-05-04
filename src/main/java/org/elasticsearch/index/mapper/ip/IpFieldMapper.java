@@ -138,6 +138,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|search
+operator|.
+name|QueryWrapperFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|util
 operator|.
 name|BytesRef
@@ -169,16 +183,6 @@ operator|.
 name|util
 operator|.
 name|NumericUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
 import|;
 end_import
 
@@ -227,22 +231,6 @@ operator|.
 name|common
 operator|.
 name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
 import|;
 end_import
 
@@ -410,7 +398,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeContext
+name|MergeResult
 import|;
 end_import
 
@@ -739,8 +727,6 @@ parameter_list|(
 name|String
 name|ip
 parameter_list|)
-throws|throws
-name|ElasticsearchIllegalArgumentException
 block|{
 try|try
 block|{
@@ -757,7 +743,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse ip ["
 operator|+
@@ -789,7 +775,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse ip ["
 operator|+
@@ -863,19 +849,19 @@ if|if
 condition|(
 name|e
 operator|instanceof
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 condition|)
 block|{
 throw|throw
 operator|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|)
 name|e
 throw|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"failed to parse ip ["
 operator|+
@@ -1693,7 +1679,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
@@ -1822,9 +1808,8 @@ name|context
 parameter_list|)
 block|{
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -1966,9 +1951,8 @@ name|nullValue
 argument_list|)
 decl_stmt|;
 return|return
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 name|NumericRangeQuery
 operator|.
@@ -2215,8 +2199,8 @@ parameter_list|(
 name|Mapper
 name|mergeWith
 parameter_list|,
-name|MergeContext
-name|mergeContext
+name|MergeResult
+name|mergeResult
 parameter_list|)
 throws|throws
 name|MergeMappingException
@@ -2227,7 +2211,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|mergeContext
+name|mergeResult
 argument_list|)
 expr_stmt|;
 if|if
@@ -2252,10 +2236,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|mergeContext
-operator|.
-name|mergeFlags
-argument_list|()
+name|mergeResult
 operator|.
 name|simulate
 argument_list|()

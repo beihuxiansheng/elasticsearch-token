@@ -267,8 +267,6 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 try|try
 block|{

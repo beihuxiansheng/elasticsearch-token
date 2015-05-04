@@ -375,8 +375,6 @@ init|=
 operator|new
 name|MockBigArrays
 argument_list|(
-name|settings
-argument_list|,
 operator|new
 name|MockPageCacheRecycler
 argument_list|(

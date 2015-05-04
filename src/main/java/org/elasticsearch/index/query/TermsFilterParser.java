@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryCachingPolicy
+name|QueryWrapperFilter
 import|;
 end_import
 
@@ -151,20 +151,6 @@ operator|.
 name|lucene
 operator|.
 name|BytesRefs
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|HashedBytesRef
 import|;
 end_import
 
@@ -395,14 +381,6 @@ operator|.
 name|SmartNameFieldMappers
 name|smartNameFieldMappers
 decl_stmt|;
-name|QueryCachingPolicy
-name|cache
-init|=
-name|parseContext
-operator|.
-name|autoFilterCachePolicy
-argument_list|()
-decl_stmt|;
 name|String
 name|filterName
 init|=
@@ -441,11 +419,6 @@ literal|null
 decl_stmt|;
 name|String
 name|lookupRouting
-init|=
-literal|null
-decl_stmt|;
-name|HashedBytesRef
-name|cacheKey
 init|=
 literal|null
 decl_stmt|;
@@ -510,6 +483,19 @@ block|}
 elseif|else
 if|if
 condition|(
+name|parseContext
+operator|.
+name|isDeprecatedSetting
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+comment|// skip
+block|}
+elseif|else
+if|if
+condition|(
 name|token
 operator|==
 name|XContentParser
@@ -531,9 +517,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter does not support multiple fields"
 argument_list|)
@@ -581,9 +564,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"No value specified for terms filter"
 argument_list|)
@@ -761,9 +741,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter does not support ["
 operator|+
@@ -787,9 +764,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter lookup element requires specifying the type"
 argument_list|)
@@ -807,9 +781,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter lookup element requires specifying the id"
 argument_list|)
@@ -827,9 +798,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter lookup element requires specifying the path"
 argument_list|)
@@ -876,55 +844,6 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-literal|"_cache"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|cache
-operator|=
-name|parseContext
-operator|.
-name|parseFilterCachePolicy
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"_cache_key"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-operator|||
-literal|"_cacheKey"
-operator|.
-name|equals
-argument_list|(
-name|currentFieldName
-argument_list|)
-condition|)
-block|{
-name|cacheKey
-operator|=
-operator|new
-name|HashedBytesRef
-argument_list|(
-name|parser
-operator|.
-name|text
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 else|else
 block|{
 throw|throw
@@ -932,9 +851,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"[terms] filter does not support ["
 operator|+
@@ -958,9 +874,6 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|parseContext
-operator|.
-name|index
-argument_list|()
 argument_list|,
 literal|"terms filter requires a field name, followed by array of terms"
 argument_list|)
@@ -1215,9 +1128,8 @@ expr_stmt|;
 block|}
 name|filter
 operator|=
-name|Queries
-operator|.
-name|wrap
+operator|new
+name|QueryWrapperFilter
 argument_list|(
 operator|new
 name|TermsQuery
@@ -1226,27 +1138,6 @@ name|fieldName
 argument_list|,
 name|filterValues
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|cache
-operator|!=
-literal|null
-condition|)
-block|{
-name|filter
-operator|=
-name|parseContext
-operator|.
-name|cacheFilter
-argument_list|(
-name|filter
-argument_list|,
-name|cacheKey
-argument_list|,
-name|cache
 argument_list|)
 expr_stmt|;
 block|}

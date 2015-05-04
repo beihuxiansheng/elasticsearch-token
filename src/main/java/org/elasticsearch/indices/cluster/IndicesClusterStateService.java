@@ -98,26 +98,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalStateException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterChangedEvent
@@ -1022,8 +1002,6 @@ specifier|protected
 name|void
 name|doStart
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|clusterService
 operator|.
@@ -1040,8 +1018,6 @@ specifier|protected
 name|void
 name|doStop
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{
 name|clusterService
 operator|.
@@ -1058,8 +1034,6 @@ specifier|protected
 name|void
 name|doClose
 parameter_list|()
-throws|throws
-name|ElasticsearchException
 block|{     }
 annotation|@
 name|Override
@@ -3379,8 +3353,6 @@ specifier|final
 name|ClusterChangedEvent
 name|event
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 if|if
 condition|(
@@ -4274,8 +4246,6 @@ specifier|final
 name|ShardRouting
 name|shardRouting
 parameter_list|)
-throws|throws
-name|ElasticsearchException
 block|{
 specifier|final
 name|IndexService
@@ -5123,7 +5093,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ElasticsearchIllegalStateException
+name|IllegalStateException
 argument_list|(
 literal|"trying to find source node for peer recovery when routing state means no peer recovery: "
 operator|+

@@ -18,16 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -58,10 +48,16 @@ argument_list|(
 literal|1
 argument_list|)
 block|,
-DECL|enum constant|METADATA
-name|METADATA
+DECL|enum constant|METADATA_READ
+name|METADATA_READ
 argument_list|(
 literal|2
+argument_list|)
+block|,
+DECL|enum constant|METADATA_WRITE
+name|METADATA_WRITE
+argument_list|(
+literal|3
 argument_list|)
 block|;
 DECL|field|ALL
@@ -82,7 +78,9 @@ name|READ
 argument_list|,
 name|WRITE
 argument_list|,
-name|METADATA
+name|METADATA_READ
+argument_list|,
+name|METADATA_WRITE
 argument_list|)
 decl_stmt|;
 DECL|field|READ_WRITE
@@ -137,7 +135,6 @@ name|id
 return|;
 block|}
 DECL|method|fromId
-specifier|public
 specifier|static
 name|ClusterBlockLevel
 name|fromId
@@ -178,12 +175,24 @@ literal|2
 condition|)
 block|{
 return|return
-name|METADATA
+name|METADATA_READ
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|id
+operator|==
+literal|3
+condition|)
+block|{
+return|return
+name|METADATA_WRITE
 return|;
 block|}
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"No cluster block level matching ["
 operator|+

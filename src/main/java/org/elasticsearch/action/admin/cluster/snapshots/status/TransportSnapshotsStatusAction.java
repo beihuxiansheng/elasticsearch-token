@@ -56,16 +56,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -432,6 +422,10 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|actionFilters
+argument_list|,
+name|SnapshotsStatusRequest
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
@@ -487,22 +481,8 @@ name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA
+name|METADATA_READ
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|newRequest
-specifier|protected
-name|SnapshotsStatusRequest
-name|newRequest
-parameter_list|()
-block|{
-return|return
-operator|new
-name|SnapshotsStatusRequest
-argument_list|()
 return|;
 block|}
 annotation|@
@@ -1178,7 +1158,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown snapshot state "
 operator|+
@@ -1444,7 +1424,7 @@ break|break;
 default|default:
 throw|throw
 operator|new
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 argument_list|(
 literal|"Unknown snapshot state "
 operator|+

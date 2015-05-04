@@ -138,16 +138,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchIllegalArgumentException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchParseException
 import|;
 end_import
@@ -235,16 +225,6 @@ operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchGeoAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
 import|;
 end_import
 
@@ -4394,7 +4374,7 @@ name|assertValidException
 argument_list|(
 name|parser
 argument_list|,
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
@@ -4459,7 +4439,7 @@ name|assertValidException
 argument_list|(
 name|parser
 argument_list|,
-name|ElasticsearchIllegalArgumentException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
