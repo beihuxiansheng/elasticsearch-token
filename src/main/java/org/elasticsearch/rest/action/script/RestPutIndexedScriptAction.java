@@ -589,7 +589,7 @@ name|builder
 init|=
 name|channel
 operator|.
-name|newBuilder
+name|newErrorBuilder
 argument_list|()
 decl_stmt|;
 name|channel

@@ -72,6 +72,21 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Creates a new generator using the provided output stream and some filters.      */
+DECL|method|createGenerator
+name|XContentGenerator
+name|createGenerator
+parameter_list|(
+name|OutputStream
+name|os
+parameter_list|,
+name|String
+index|[]
+name|filters
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Creates a new generator using the provided writer.      */
 DECL|method|createGenerator
 name|XContentGenerator

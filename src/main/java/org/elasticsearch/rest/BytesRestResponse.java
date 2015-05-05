@@ -534,7 +534,7 @@ name|builder
 init|=
 name|channel
 operator|.
-name|newBuilder
+name|newErrorBuilder
 argument_list|()
 operator|.
 name|startObject
