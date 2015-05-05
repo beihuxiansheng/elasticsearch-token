@@ -855,12 +855,8 @@ decl_stmt|;
 if|if
 condition|(
 name|inflight
-argument_list|<
-literal|0
-operator|||
-name|inflight
-argument_list|>
-literal|0
+operator|!=
+literal|1
 condition|)
 block|{
 return|return
@@ -2214,11 +2210,13 @@ literal|"expected a primary shard"
 argument_list|)
 throw|;
 block|}
-comment|// nocommit - implement :)
 name|int
 name|opCount
 init|=
-literal|0
+name|indexShard
+operator|.
+name|getOperationsCount
+argument_list|()
 decl_stmt|;
 name|logger
 operator|.
