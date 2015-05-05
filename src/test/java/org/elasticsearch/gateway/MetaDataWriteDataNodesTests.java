@@ -223,16 +223,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -2733,6 +2723,8 @@ argument_list|(
 literal|"checking if meta state exists..."
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 return|return
 name|shouldBe
 operator|==
@@ -2743,6 +2735,28 @@ argument_list|,
 name|indexName
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"failed to load meta state"
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+comment|// TODO: loading of meta state fails rarely if the state is deleted while we try to load it
+comment|// this here is a hack, would be much better to use for example a WatchService
+return|return
+literal|false
+return|;
+block|}
 block|}
 block|}
 argument_list|)
@@ -2804,9 +2818,11 @@ parameter_list|,
 name|String
 name|indexName
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|GatewayMetaState
-name|redNodeMetaState
+name|nodeMetaState
 init|=
 operator|(
 operator|(
@@ -2826,32 +2842,17 @@ name|nodeName
 argument_list|)
 decl_stmt|;
 name|MetaData
-name|redNodeMetaData
+name|nodeMetaData
 init|=
 literal|null
 decl_stmt|;
-try|try
-block|{
-name|redNodeMetaData
+name|nodeMetaData
 operator|=
-name|redNodeMetaState
+name|nodeMetaState
 operator|.
 name|loadMetaState
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|fail
-argument_list|(
-literal|"failed to load meta state"
-argument_list|)
-expr_stmt|;
-block|}
 name|ImmutableOpenMap
 argument_list|<
 name|String
@@ -2860,7 +2861,7 @@ name|IndexMetaData
 argument_list|>
 name|indices
 init|=
-name|redNodeMetaData
+name|nodeMetaData
 operator|.
 name|getIndices
 argument_list|()
