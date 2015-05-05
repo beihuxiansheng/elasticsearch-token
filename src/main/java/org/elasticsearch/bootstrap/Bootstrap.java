@@ -622,11 +622,23 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|// force remainder of JNA to be loaded (if available).
+try|try
+block|{
 name|Kernel32Library
 operator|.
 name|getInstance
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|ignored
+parameter_list|)
+block|{
+comment|// we've already logged this.
+block|}
 comment|// initialize sigar explicitly
 try|try
 block|{
