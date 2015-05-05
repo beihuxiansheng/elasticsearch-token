@@ -566,6 +566,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|IndexMetaData
 operator|.
 name|SETTING_VERSION_CREATED
