@@ -1405,6 +1405,14 @@ operator|.
 name|settingsBuilder
 argument_list|()
 operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
+argument_list|)
+operator|.
 name|loadFromClasspath
 argument_list|(
 literal|"org/elasticsearch/index/analysis/kuromoji_analysis.json"
