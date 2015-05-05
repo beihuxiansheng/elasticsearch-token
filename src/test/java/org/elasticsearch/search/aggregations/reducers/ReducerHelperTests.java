@@ -403,7 +403,7 @@ name|accumulator
 init|=
 name|Double
 operator|.
-name|MAX_VALUE
+name|POSITIVE_INFINITY
 decl_stmt|;
 for|for
 control|(
@@ -442,7 +442,7 @@ name|accumulator
 init|=
 name|Double
 operator|.
-name|MIN_VALUE
+name|NEGATIVE_INFINITY
 decl_stmt|;
 for|for
 control|(
