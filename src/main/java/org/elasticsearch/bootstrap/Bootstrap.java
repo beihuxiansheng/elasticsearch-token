@@ -553,6 +553,56 @@ name|tryMlockall
 argument_list|()
 expr_stmt|;
 block|}
+comment|// check if the user is running as root, and bail
+if|if
+condition|(
+name|Natives
+operator|.
+name|definitelyRunningAsRoot
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"es.insecure.allow.root"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|Bootstrap
+operator|.
+name|class
+argument_list|)
+operator|.
+name|warn
+argument_list|(
+literal|"running as ROOT user. this is a bad idea!"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"don't run elasticsearch as root."
+argument_list|)
+throw|;
+block|}
+block|}
 comment|// listener for windows close event
 if|if
 condition|(
