@@ -3476,7 +3476,7 @@ operator|=
 name|totalOperations
 expr_stmt|;
 block|}
-comment|/**<<<<<<< HEAD      * Perform phase 3 of the recovery process      *<p/>      * Phase3 again takes a snapshot of the translog, however this time the      * snapshot is acquired under a write lock. The translog operations are      * sent to the target node where they are replayed.      *<p/>      * {@code InternalEngine#recover} is responsible for taking the snapshot      * of the translog, and after phase 3 completes the snapshots from all      * three phases are released. =======      * finalizes the recovery process>>>>>>> origin/master      */
+comment|/**      * finalizes the recovery process      */
 DECL|method|finalizeRecovery
 specifier|public
 name|void
