@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -197,20 +195,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|*
 import|;
 end_import
 
@@ -490,7 +474,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|translog
 specifier|protected
-name|FsTranslog
+name|Translog
 name|translog
 decl_stmt|;
 DECL|field|translogDir
@@ -643,7 +627,7 @@ block|}
 DECL|method|create
 specifier|protected
 specifier|abstract
-name|FsTranslog
+name|Translog
 name|create
 parameter_list|()
 throws|throws
@@ -711,7 +695,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|TRANSLOG_FILE_PREFIX
 operator|+
@@ -720,7 +704,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|parseIdFromFileName
 argument_list|(
@@ -739,7 +723,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|TRANSLOG_FILE_PREFIX
 operator|+
@@ -750,7 +734,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|parseIdFromFileName
 argument_list|(
@@ -769,7 +753,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|TRANSLOG_FILE_PREFIX
 operator|+
@@ -785,7 +769,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|parseIdFromFileName
 argument_list|(
@@ -809,7 +793,7 @@ name|randomNonTranslogPatternString
 argument_list|(
 literal|1
 argument_list|,
-name|FsTranslog
+name|Translog
 operator|.
 name|TRANSLOG_FILE_PREFIX
 operator|.
@@ -822,7 +806,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|parseIdFromFileName
 argument_list|(
@@ -870,7 +854,7 @@ expr_stmt|;
 block|}
 do|while
 condition|(
-name|FsTranslog
+name|Translog
 operator|.
 name|PARSE_ID_PATTERN
 operator|.
@@ -2869,7 +2853,7 @@ specifier|public
 name|void
 name|assertFileIsPresent
 parameter_list|(
-name|FsTranslog
+name|Translog
 name|translog
 parameter_list|,
 name|long
@@ -2921,7 +2905,7 @@ specifier|public
 name|void
 name|assertFileDeleted
 parameter_list|(
-name|FsTranslog
+name|Translog
 name|translog
 parameter_list|,
 name|long

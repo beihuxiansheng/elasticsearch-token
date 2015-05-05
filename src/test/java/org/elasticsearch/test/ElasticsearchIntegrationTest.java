@@ -1354,20 +1354,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|store
-operator|.
-name|StoreModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|translog
 operator|.
 name|TranslogService
@@ -1384,9 +1370,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|fs
-operator|.
-name|FsTranslog
+name|Translog
 import|;
 end_import
 
@@ -1400,9 +1384,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|fs
-operator|.
-name|FsTranslogFile
+name|TranslogFile
 import|;
 end_import
 
@@ -3601,7 +3583,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|INDEX_TRANSLOG_FS_TYPE
 argument_list|,
@@ -3611,7 +3593,7 @@ name|randomFrom
 argument_list|(
 name|random
 argument_list|,
-name|FsTranslogFile
+name|TranslogFile
 operator|.
 name|Type
 operator|.

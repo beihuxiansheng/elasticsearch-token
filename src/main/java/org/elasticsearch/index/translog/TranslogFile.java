@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -78,34 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -153,13 +123,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|FsTranslogFile
+DECL|class|TranslogFile
 specifier|public
 specifier|abstract
 class|class
-name|FsTranslogFile
+name|TranslogFile
 extends|extends
-name|FsChannelReader
+name|ChannelReader
 block|{
 DECL|field|shardId
 specifier|protected
@@ -179,9 +149,9 @@ specifier|final
 name|ReleasableLock
 name|writeLock
 decl_stmt|;
-DECL|method|FsTranslogFile
+DECL|method|TranslogFile
 specifier|public
-name|FsTranslogFile
+name|TranslogFile
 parameter_list|(
 name|ShardId
 name|shardId
@@ -238,7 +208,6 @@ expr_stmt|;
 block|}
 DECL|enum|Type
 specifier|public
-specifier|static
 enum|enum
 name|Type
 block|{
@@ -250,7 +219,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|FsTranslogFile
+name|TranslogFile
 name|create
 parameter_list|(
 name|ShardId
@@ -270,7 +239,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|SimpleFsTranslogFile
+name|SimpleTranslogFile
 argument_list|(
 name|shardId
 argument_list|,
@@ -290,7 +259,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|FsTranslogFile
+name|TranslogFile
 name|create
 parameter_list|(
 name|ShardId
@@ -310,7 +279,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|BufferingFsTranslogFile
+name|BufferingTranslogFile
 argument_list|(
 name|shardId
 argument_list|,
@@ -327,7 +296,7 @@ block|;
 DECL|method|create
 specifier|public
 specifier|abstract
-name|FsTranslogFile
+name|TranslogFile
 name|create
 parameter_list|(
 name|ShardId
@@ -425,7 +394,7 @@ specifier|abstract
 name|void
 name|reuse
 parameter_list|(
-name|FsTranslogFile
+name|TranslogFile
 name|other
 parameter_list|)
 throws|throws
@@ -466,13 +435,13 @@ annotation|@
 name|Override
 DECL|method|newSnapshot
 specifier|public
-name|FsChannelSnapshot
+name|ChannelSnapshot
 name|newSnapshot
 parameter_list|()
 block|{
 return|return
 operator|new
-name|FsChannelSnapshot
+name|ChannelSnapshot
 argument_list|(
 name|immutableReader
 argument_list|()
@@ -482,7 +451,7 @@ block|}
 comment|/**      * returns a new reader that follows the current writes (most importantly allows making      * repeated snapshots that includes new content)      */
 DECL|method|reader
 specifier|public
-name|FsChannelReader
+name|ChannelReader
 name|reader
 parameter_list|()
 block|{
@@ -498,7 +467,7 @@ literal|false
 decl_stmt|;
 try|try
 block|{
-name|FsChannelReader
+name|ChannelReader
 name|reader
 init|=
 operator|new
@@ -539,7 +508,7 @@ comment|/** returns a new immutable reader which only exposes the current writte
 DECL|method|immutableReader
 specifier|abstract
 specifier|public
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|immutableReader
 parameter_list|()
 function_decl|;
@@ -601,7 +570,7 @@ specifier|final
 class|class
 name|InnerReader
 extends|extends
-name|FsChannelReader
+name|ChannelReader
 block|{
 DECL|method|InnerReader
 specifier|public
@@ -631,7 +600,7 @@ name|sizeInBytes
 parameter_list|()
 block|{
 return|return
-name|FsTranslogFile
+name|TranslogFile
 operator|.
 name|this
 operator|.
@@ -648,7 +617,7 @@ name|totalOperations
 parameter_list|()
 block|{
 return|return
-name|FsTranslogFile
+name|TranslogFile
 operator|.
 name|this
 operator|.
@@ -672,7 +641,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|FsTranslogFile
+name|TranslogFile
 operator|.
 name|this
 operator|.
@@ -688,12 +657,12 @@ annotation|@
 name|Override
 DECL|method|newSnapshot
 specifier|public
-name|FsChannelSnapshot
+name|ChannelSnapshot
 name|newSnapshot
 parameter_list|()
 block|{
 return|return
-name|FsTranslogFile
+name|TranslogFile
 operator|.
 name|this
 operator|.

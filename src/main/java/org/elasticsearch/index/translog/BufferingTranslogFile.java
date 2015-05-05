@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -78,48 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogStream
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -153,13 +109,13 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|BufferingFsTranslogFile
+DECL|class|BufferingTranslogFile
 specifier|public
 specifier|final
 class|class
-name|BufferingFsTranslogFile
+name|BufferingTranslogFile
 extends|extends
-name|FsTranslogFile
+name|TranslogFile
 block|{
 DECL|field|operationCounter
 specifier|private
@@ -207,9 +163,9 @@ operator|new
 name|WrapperOutputStream
 argument_list|()
 decl_stmt|;
-DECL|method|BufferingFsTranslogFile
+DECL|method|BufferingTranslogFile
 specifier|public
-name|BufferingFsTranslogFile
+name|BufferingTranslogFile
 parameter_list|(
 name|ShardId
 name|shardId
@@ -590,7 +546,7 @@ expr_stmt|;
 block|}
 DECL|method|immutableReader
 specifier|public
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|immutableReader
 parameter_list|()
 throws|throws
@@ -618,11 +574,11 @@ block|{
 name|flushBuffer
 argument_list|()
 expr_stmt|;
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|reader
 init|=
 operator|new
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 argument_list|(
 name|this
 operator|.
@@ -784,7 +740,7 @@ specifier|public
 name|void
 name|reuse
 parameter_list|(
-name|FsTranslogFile
+name|TranslogFile
 name|other
 parameter_list|)
 block|{
@@ -794,7 +750,7 @@ operator|!
 operator|(
 name|other
 operator|instanceof
-name|BufferingFsTranslogFile
+name|BufferingTranslogFile
 operator|)
 condition|)
 block|{
@@ -822,7 +778,7 @@ name|buffer
 operator|=
 operator|(
 operator|(
-name|BufferingFsTranslogFile
+name|BufferingTranslogFile
 operator|)
 name|other
 operator|)

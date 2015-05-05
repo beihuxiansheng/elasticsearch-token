@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -67,13 +65,13 @@ comment|/**  * a channel reader which is fixed in length  */
 end_comment
 
 begin_class
-DECL|class|FsChannelImmutableReader
+DECL|class|ChannelImmutableReader
 specifier|public
 specifier|final
 class|class
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 extends|extends
-name|FsChannelReader
+name|ChannelReader
 block|{
 DECL|field|totalOperations
 specifier|private
@@ -88,9 +86,9 @@ name|long
 name|length
 decl_stmt|;
 comment|/**      * Create a snapshot of translog file channel. The length parameter should be consistent with totalOperations and point      * at the end of the last operation in this snapshot.      */
-DECL|method|FsChannelImmutableReader
+DECL|method|ChannelImmutableReader
 specifier|public
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 parameter_list|(
 name|long
 name|id
@@ -127,7 +125,7 @@ expr_stmt|;
 block|}
 DECL|method|clone
 specifier|public
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|clone
 parameter_list|()
 block|{
@@ -141,11 +139,11 @@ condition|)
 block|{
 try|try
 block|{
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|reader
 init|=
 operator|new
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 argument_list|(
 name|id
 argument_list|,
@@ -289,13 +287,13 @@ annotation|@
 name|Override
 DECL|method|newSnapshot
 specifier|public
-name|FsChannelSnapshot
+name|ChannelSnapshot
 name|newSnapshot
 parameter_list|()
 block|{
 return|return
 operator|new
-name|FsChannelSnapshot
+name|ChannelSnapshot
 argument_list|(
 name|clone
 argument_list|()

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -39,20 +37,6 @@ operator|.
 name|bytes
 operator|.
 name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
 import|;
 end_import
 
@@ -117,17 +101,17 @@ comment|/**  * A base class for all classes that allows reading ops from translo
 end_comment
 
 begin_class
-DECL|class|FsChannelReader
+DECL|class|ChannelReader
 specifier|public
 specifier|abstract
 class|class
-name|FsChannelReader
+name|ChannelReader
 implements|implements
 name|Closeable
 implements|,
 name|Comparable
 argument_list|<
-name|FsChannelReader
+name|ChannelReader
 argument_list|>
 block|{
 DECL|field|UNKNOWN_OP_COUNT
@@ -170,9 +154,9 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|method|FsChannelReader
+DECL|method|ChannelReader
 specifier|public
-name|FsChannelReader
+name|ChannelReader
 parameter_list|(
 name|long
 name|id
@@ -522,7 +506,7 @@ comment|/** create snapshot for this channel */
 DECL|method|newSnapshot
 specifier|abstract
 specifier|public
-name|FsChannelSnapshot
+name|ChannelSnapshot
 name|newSnapshot
 parameter_list|()
 function_decl|;
@@ -597,7 +581,7 @@ specifier|public
 name|int
 name|compareTo
 parameter_list|(
-name|FsChannelReader
+name|ChannelReader
 name|o
 parameter_list|)
 block|{

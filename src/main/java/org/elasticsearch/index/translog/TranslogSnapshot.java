@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -72,34 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TruncatedTranslogException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -143,10 +113,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|FsTranslogSnapshot
+DECL|class|TranslogSnapshot
 specifier|public
 class|class
-name|FsTranslogSnapshot
+name|TranslogSnapshot
 implements|implements
 name|Translog
 operator|.
@@ -157,7 +127,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|FsChannelSnapshot
+name|ChannelSnapshot
 argument_list|>
 name|orderedTranslogs
 decl_stmt|;
@@ -196,13 +166,13 @@ name|int
 name|currentTranslog
 decl_stmt|;
 comment|/**      * Create a snapshot of translog file channel. The length parameter should be consistent with totalOperations and point      * at the end of the last operation in this snapshot.      */
-DECL|method|FsTranslogSnapshot
+DECL|method|TranslogSnapshot
 specifier|public
-name|FsTranslogSnapshot
+name|TranslogSnapshot
 parameter_list|(
 name|List
 argument_list|<
-name|FsChannelSnapshot
+name|ChannelSnapshot
 argument_list|>
 name|orderedTranslogs
 parameter_list|,
@@ -229,7 +199,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|FsChannelSnapshot
+name|ChannelSnapshot
 name|translog
 range|:
 name|orderedTranslogs
@@ -253,7 +223,7 @@ condition|)
 block|{
 name|ops
 operator|=
-name|FsChannelReader
+name|ChannelReader
 operator|.
 name|UNKNOWN_OP_COUNT
 expr_stmt|;
@@ -324,7 +294,7 @@ operator|++
 control|)
 block|{
 specifier|final
-name|FsChannelSnapshot
+name|ChannelSnapshot
 name|current
 init|=
 name|orderedTranslogs
