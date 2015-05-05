@@ -643,23 +643,6 @@ block|{
 name|wipeRepositories
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|BeforeClass
-annotation|@
-name|AfterClass
-DECL|method|wipeAzureContainers
-specifier|public
-specifier|static
-specifier|final
-name|void
-name|wipeAzureContainers
-parameter_list|()
-throws|throws
-name|StorageException
-throws|,
-name|URISyntaxException
-block|{
 name|cleanRepositoryFiles
 argument_list|(
 name|getContainerName
@@ -3727,7 +3710,6 @@ block|}
 comment|/**      * Purge the test containers      */
 DECL|method|cleanRepositoryFiles
 specifier|public
-specifier|static
 name|void
 name|cleanRepositoryFiles
 parameter_list|(

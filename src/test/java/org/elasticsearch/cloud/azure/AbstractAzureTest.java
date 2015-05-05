@@ -265,7 +265,6 @@ return|;
 block|}
 DECL|method|readSettingsFromFile
 specifier|protected
-specifier|static
 name|Settings
 name|readSettingsFromFile
 parameter_list|()
@@ -280,12 +279,27 @@ operator|.
 name|builder
 argument_list|()
 decl_stmt|;
+name|settings
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Environment
 name|environment
 init|=
 operator|new
 name|Environment
+argument_list|(
+name|settings
+operator|.
+name|build
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// if explicit, just load it and don't load from env
 try|try
