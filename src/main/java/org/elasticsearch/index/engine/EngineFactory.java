@@ -50,9 +50,6 @@ parameter_list|(
 name|EngineConfig
 name|config
 parameter_list|,
-name|FsTranslog
-name|translog
-parameter_list|,
 name|boolean
 name|skipTranslogRecovery
 parameter_list|)

@@ -862,24 +862,6 @@ return|return
 literal|false
 return|;
 block|}
-annotation|@
-name|Override
-annotation|@
-name|Nullable
-DECL|method|translog
-specifier|public
-name|Translog
-name|translog
-parameter_list|()
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"shadow shards don't have a translog"
-argument_list|)
-throw|;
-block|}
 block|}
 end_class
 

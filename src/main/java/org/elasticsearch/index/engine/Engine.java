@@ -1575,11 +1575,11 @@ block|}
 block|}
 block|}
 comment|/** returns the translog for this engine */
-DECL|method|translog
+DECL|method|getTranslog
 specifier|public
 specifier|abstract
 name|Translog
-name|translog
+name|getTranslog
 parameter_list|()
 function_decl|;
 DECL|method|ensureOpen

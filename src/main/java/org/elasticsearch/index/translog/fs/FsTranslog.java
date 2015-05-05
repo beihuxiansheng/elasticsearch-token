@@ -819,8 +819,8 @@ parameter_list|,
 name|BigArrays
 name|bigArrays
 parameter_list|,
-name|ShardPath
-name|shardPath
+name|Path
+name|location
 parameter_list|,
 name|ThreadPool
 name|threadPool
@@ -841,10 +841,7 @@ name|indexSettingsService
 argument_list|,
 name|bigArrays
 argument_list|,
-name|shardPath
-operator|.
-name|resolveTranslog
-argument_list|()
+name|location
 argument_list|,
 name|threadPool
 argument_list|)

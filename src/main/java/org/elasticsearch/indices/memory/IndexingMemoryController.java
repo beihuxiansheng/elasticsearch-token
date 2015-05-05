@@ -1243,7 +1243,10 @@ name|translog
 operator|=
 name|indexShard
 operator|.
-name|translog
+name|engine
+argument_list|()
+operator|.
+name|getTranslog
 argument_list|()
 expr_stmt|;
 block|}

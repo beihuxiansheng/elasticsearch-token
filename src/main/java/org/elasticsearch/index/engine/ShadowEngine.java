@@ -769,17 +769,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|translog
+DECL|method|getTranslog
 specifier|public
 name|Translog
-name|translog
+name|getTranslog
 parameter_list|()
 block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"shard engines don't have translogs"
+literal|"shadow engines don't have translogs"
 argument_list|)
 throw|;
 block|}

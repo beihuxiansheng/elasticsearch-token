@@ -950,7 +950,10 @@ if|if
 condition|(
 name|indexShard
 operator|.
-name|translog
+name|engine
+argument_list|()
+operator|.
+name|getTranslog
 argument_list|()
 operator|==
 literal|null

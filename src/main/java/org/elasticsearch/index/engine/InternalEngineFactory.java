@@ -50,9 +50,6 @@ parameter_list|(
 name|EngineConfig
 name|config
 parameter_list|,
-name|FsTranslog
-name|translog
-parameter_list|,
 name|boolean
 name|skipTranslogRecovery
 parameter_list|)
@@ -62,8 +59,6 @@ operator|new
 name|InternalEngine
 argument_list|(
 name|config
-argument_list|,
-name|translog
 argument_list|,
 name|skipTranslogRecovery
 argument_list|)
