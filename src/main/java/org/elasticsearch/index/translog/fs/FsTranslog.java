@@ -563,7 +563,6 @@ init|=
 literal|"translog-"
 decl_stmt|;
 DECL|field|PARSE_ID_PATTERN
-specifier|private
 specifier|static
 specifier|final
 name|Pattern
@@ -575,7 +574,7 @@ name|compile
 argument_list|(
 name|TRANSLOG_FILE_PREFIX
 operator|+
-literal|"(\\d+).*"
+literal|"(\\d+)(\\.recovering)?$"
 argument_list|)
 decl_stmt|;
 DECL|field|syncInterval
