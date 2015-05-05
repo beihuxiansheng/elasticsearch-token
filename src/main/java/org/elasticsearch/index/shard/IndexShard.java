@@ -6318,6 +6318,13 @@ operator|.
 name|INACTIVE_SHARD_TRANSLOG_BUFFER
 argument_list|)
 expr_stmt|;
+name|indicesLifecycle
+operator|.
+name|onShardInactive
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|isFlushOnClose
 specifier|public
