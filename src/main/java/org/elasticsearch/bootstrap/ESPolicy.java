@@ -172,7 +172,7 @@ name|SuppressForbidden
 argument_list|(
 name|reason
 operator|=
-literal|"I know what i am doing"
+literal|"fast equals check is desired"
 argument_list|)
 DECL|method|implies
 specifier|public

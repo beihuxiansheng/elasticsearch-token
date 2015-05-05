@@ -192,7 +192,7 @@ argument_list|()
 expr_stmt|;
 name|assumeTrue
 argument_list|(
-literal|"security manager is enabled"
+literal|"test requires security manager to be enabled"
 argument_list|,
 name|System
 operator|.
