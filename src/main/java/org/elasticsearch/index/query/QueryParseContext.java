@@ -1461,7 +1461,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @deprecated replaced by calls to parseInnerQueryBuilder() and checkCachable() for the resulting queries      */
+comment|/**      * @deprecated replaced by calls to parseInnerQueryBuilder() for the resulting queries      */
 annotation|@
 name|Nullable
 annotation|@

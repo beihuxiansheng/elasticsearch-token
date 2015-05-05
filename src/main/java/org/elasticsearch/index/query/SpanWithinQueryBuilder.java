@@ -82,7 +82,7 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
-comment|/**       * Sets the little clause, it must be contained within {@code big} for a match.      */
+comment|/**      * Sets the little clause, it must be contained within {@code big} for a match.      */
 DECL|method|little
 specifier|public
 name|SpanWithinQueryBuilder
@@ -102,7 +102,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**       * Sets the big clause, it must enclose {@code little} for a match.      */
+comment|/**      * Sets the big clause, it must enclose {@code little} for a match.      */
 DECL|method|big
 specifier|public
 name|SpanWithinQueryBuilder
@@ -290,6 +290,20 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|parserName
+specifier|protected
+name|String
+name|parserName
+parameter_list|()
+block|{
+return|return
+name|SpanWithinQueryParser
+operator|.
+name|NAME
+return|;
 block|}
 block|}
 end_class
