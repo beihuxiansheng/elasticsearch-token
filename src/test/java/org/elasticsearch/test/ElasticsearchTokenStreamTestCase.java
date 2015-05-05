@@ -181,7 +181,7 @@ name|BaseTokenStreamTestCase
 block|{
 static|static
 block|{
-name|SecurityHack
+name|SecurityBootstrap
 operator|.
 name|ensureInitialized
 argument_list|()
