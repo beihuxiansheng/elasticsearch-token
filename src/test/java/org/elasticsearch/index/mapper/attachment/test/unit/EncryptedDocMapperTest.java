@@ -248,7 +248,10 @@ init|=
 name|MapperTestUtils
 operator|.
 name|newMapperParser
+argument_list|(
+name|createTempDir
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|mapperParser
 operator|.
@@ -711,7 +714,10 @@ init|=
 name|MapperTestUtils
 operator|.
 name|newMapperParser
+argument_list|(
+name|createTempDir
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|mapperParser
 operator|.
@@ -1186,6 +1192,14 @@ name|ImmutableSettings
 operator|.
 name|builder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
+argument_list|)
 operator|.
 name|put
 argument_list|(
