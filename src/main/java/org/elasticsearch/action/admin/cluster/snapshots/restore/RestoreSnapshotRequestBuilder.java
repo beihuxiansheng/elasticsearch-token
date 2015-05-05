@@ -30,18 +30,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -72,7 +60,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ClusterAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -127,22 +115,25 @@ argument_list|,
 name|RestoreSnapshotResponse
 argument_list|,
 name|RestoreSnapshotRequestBuilder
-argument_list|,
-name|ClusterAdminClient
 argument_list|>
 block|{
-comment|/**      * Constructs new restore snapshot request builder      *      * @param clusterAdminClient cluster admin client      */
+comment|/**      * Constructs new restore snapshot request builder      */
 DECL|method|RestoreSnapshotRequestBuilder
 specifier|public
 name|RestoreSnapshotRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
-name|clusterAdminClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|RestoreSnapshotAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|clusterAdminClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|RestoreSnapshotRequest
@@ -150,13 +141,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs new restore snapshot request builder with specified repository and snapshot names      *      * @param clusterAdminClient cluster admin client      * @param repository         reposiory name      * @param name               snapshot name      */
+comment|/**      * Constructs new restore snapshot request builder with specified repository and snapshot names      */
 DECL|method|RestoreSnapshotRequestBuilder
 specifier|public
 name|RestoreSnapshotRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
-name|clusterAdminClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|RestoreSnapshotAction
+name|action
 parameter_list|,
 name|String
 name|repository
@@ -167,7 +161,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|clusterAdminClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|RestoreSnapshotRequest
@@ -481,7 +477,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets index settings that should be added or replaced during restore      * @param settings index settings      * @return this builder      */
+comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param settings index settings      * @return this builder      */
 DECL|method|setIndexSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -502,7 +498,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets index settings that should be added or replaced during restore       * @param settings index settings      * @return this builder      */
+comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param settings index settings      * @return this builder      */
 DECL|method|setIndexSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -525,7 +521,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets index settings that should be added or replaced during restore       * @param source index settings      * @return this builder      */
+comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param source index settings      * @return this builder      */
 DECL|method|setIndexSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -546,7 +542,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets index settings that should be added or replaced during restore       * @param source index settings      * @return this builder      */
+comment|/**      * Sets index settings that should be added or replaced during restore      *      * @param source index settings      * @return this builder      */
 DECL|method|setIndexSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -617,30 +613,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|RestoreSnapshotResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|restoreSnapshot
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

@@ -708,18 +708,6 @@ argument_list|,
 literal|"Snapshot deletion policy must be provided to the engine"
 argument_list|)
 expr_stmt|;
-name|Preconditions
-operator|.
-name|checkNotNull
-argument_list|(
-name|engineConfig
-operator|.
-name|getTranslog
-argument_list|()
-argument_list|,
-literal|"Translog must be provided to the engine"
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|engineConfig
@@ -1626,6 +1614,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/** returns the translog for this engine */
+DECL|method|getTranslog
+specifier|public
+specifier|abstract
+name|Translog
+name|getTranslog
+parameter_list|()
+function_decl|;
 DECL|method|ensureOpen
 specifier|protected
 name|void
@@ -2506,24 +2502,15 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/**      * Snapshots the index and returns a handle to it. Will always try and "commit" the      * lucene index to make sure we have a "fresh" copy of the files to snapshot.      */
+comment|/**      * Snapshots the index and returns a handle to it. If needed will try and "commit" the      * lucene index to make sure we have a "fresh" copy of the files to snapshot.      *      * @param flushFirst indicates whether the engine should flush before returning the snapshot      */
 DECL|method|snapshotIndex
 specifier|public
 specifier|abstract
 name|SnapshotIndexCommit
 name|snapshotIndex
-parameter_list|()
-throws|throws
-name|EngineException
-function_decl|;
-DECL|method|recover
-specifier|public
-specifier|abstract
-name|void
-name|recover
 parameter_list|(
-name|RecoveryHandler
-name|recoveryHandler
+name|boolean
+name|flushFirst
 parameter_list|)
 throws|throws
 name|EngineException
@@ -4965,6 +4952,7 @@ name|SearcherManager
 name|getSearcherManager
 parameter_list|()
 function_decl|;
+comment|/**      * Method to close the engine while the write lock is held.      */
 DECL|method|closeNoLock
 specifier|protected
 specifier|abstract
@@ -4975,6 +4963,7 @@ name|String
 name|reason
 parameter_list|)
 function_decl|;
+comment|/**      * Flush the engine (committing segments to disk and truncating the      * translog) and close it.      */
 DECL|method|flushAndClose
 specifier|public
 name|void
@@ -5003,7 +4992,7 @@ expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|writeLock
 operator|.
@@ -5104,7 +5093,7 @@ expr_stmt|;
 try|try
 init|(
 name|ReleasableLock
-name|_
+name|lock
 init|=
 name|writeLock
 operator|.

@@ -406,7 +406,23 @@ name|metadata
 operator|.
 name|SnapshotMetaData
 operator|.
-name|*
+name|Entry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|SnapshotMetaData
+operator|.
+name|ShardSnapshotStatus
 import|;
 end_import
 
@@ -718,7 +734,23 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
 
@@ -744,13 +776,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|index
 operator|.
-name|hamcrest
+name|shard
 operator|.
-name|ElasticsearchAssertions
+name|IndexShard
 operator|.
-name|*
+name|INDEX_REFRESH_INTERVAL
 import|;
 end_import
 
@@ -760,11 +792,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|shard
+name|hamcrest
 operator|.
-name|IndexShard
+name|ElasticsearchAssertions
 operator|.
 name|*
 import|;
@@ -1364,8 +1396,11 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
+name|assertAllSuccessful
+argument_list|(
 name|refresh
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|assertHitCount
 argument_list|(

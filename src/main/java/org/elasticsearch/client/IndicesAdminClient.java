@@ -1663,9 +1663,6 @@ interface|interface
 name|IndicesAdminClient
 extends|extends
 name|ElasticsearchClient
-argument_list|<
-name|IndicesAdminClient
-argument_list|>
 block|{
 comment|/**      * Indices Exists.      *      * @param request The indices exists request      * @return The result future      * @see Requests#indicesExistsRequest(String...)      */
 DECL|method|exists

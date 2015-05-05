@@ -54,16 +54,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -144,6 +134,13 @@ name|channel
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * returns the site of the header in bytes      */
+DECL|method|headerLength
+specifier|public
+name|int
+name|headerLength
+parameter_list|()
 function_decl|;
 comment|/**      * Seek past the header, if any header is present      */
 DECL|method|openInput

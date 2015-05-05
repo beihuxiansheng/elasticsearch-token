@@ -938,6 +938,21 @@ name|sb
 operator|.
 name|put
 argument_list|(
+literal|"path.home"
+argument_list|,
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"path.home"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// pass through ES home dir
+name|sb
+operator|.
+name|put
+argument_list|(
 name|TRIBE_NAME
 argument_list|,
 name|entry

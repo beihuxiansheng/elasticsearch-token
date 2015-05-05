@@ -305,13 +305,6 @@ argument_list|)
 expr_stmt|;
 name|clusterHealthRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|clusterHealthRequest
-operator|.
 name|masterNodeTimeout
 argument_list|(
 name|request

@@ -200,6 +200,18 @@ name|IndicesAnalysisService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
 begin_class
 DECL|class|AnalysisTestsHelper
 specifier|public
@@ -212,6 +224,9 @@ specifier|static
 name|AnalysisService
 name|createAnalysisServiceFromClassPath
 parameter_list|(
+name|Path
+name|baseDir
+parameter_list|,
 name|String
 name|resource
 parameter_list|)
@@ -227,6 +242,16 @@ operator|.
 name|loadFromClasspath
 argument_list|(
 name|resource
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|baseDir
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 operator|.
 name|build

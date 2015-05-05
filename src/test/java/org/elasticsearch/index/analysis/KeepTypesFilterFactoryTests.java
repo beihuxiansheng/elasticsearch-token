@@ -156,6 +156,17 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
+literal|"path.home"
+argument_list|,
+name|createTempDir
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"index.analysis.filter.keep_numbers.type"
 argument_list|,
 literal|"keep_types"

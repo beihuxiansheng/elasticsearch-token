@@ -273,13 +273,6 @@ argument_list|)
 decl_stmt|;
 name|putRepositoryRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|putRepositoryRequest
-operator|.
 name|source
 argument_list|(
 name|request

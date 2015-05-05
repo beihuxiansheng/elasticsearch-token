@@ -721,7 +721,7 @@ argument_list|()
 argument_list|,
 name|Double
 operator|.
-name|NEGATIVE_INFINITY
+name|POSITIVE_INFINITY
 argument_list|)
 expr_stmt|;
 name|posLefts
@@ -751,7 +751,7 @@ argument_list|()
 argument_list|,
 name|Double
 operator|.
-name|NEGATIVE_INFINITY
+name|POSITIVE_INFINITY
 argument_list|)
 expr_stmt|;
 name|posRights
@@ -811,7 +811,7 @@ argument_list|()
 argument_list|,
 name|Double
 operator|.
-name|NEGATIVE_INFINITY
+name|POSITIVE_INFINITY
 argument_list|)
 expr_stmt|;
 name|negRights

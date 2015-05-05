@@ -593,6 +593,15 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|IndicesTTLService
 operator|.
 name|INDEX_TTL_DISABLE_PURGE

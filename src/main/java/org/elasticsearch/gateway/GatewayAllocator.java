@@ -2488,6 +2488,7 @@ return|return
 name|changed
 return|;
 block|}
+comment|/**      * Build a map of DiscoveryNodes to shard state number for the given shard.      * A state of -1 means the shard does not exist on the node, where any      * shard state>= 0 is the state version of the shard on that node's disk.      *      * A shard on shared storage will return at least shard state 0 for all      * nodes, indicating that the shard can be allocated to any node.      */
 DECL|method|buildShardStates
 specifier|private
 name|ObjectLongOpenHashMap
@@ -2744,6 +2745,57 @@ range|:
 name|response
 control|)
 block|{
+name|long
+name|version
+init|=
+name|nodeShardState
+operator|.
+name|version
+argument_list|()
+decl_stmt|;
+name|Settings
+name|idxSettings
+init|=
+name|indexMetaData
+operator|.
+name|settings
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|IndexMetaData
+operator|.
+name|isOnSharedFilesystem
+argument_list|(
+name|idxSettings
+argument_list|)
+operator|&&
+name|idxSettings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_SHARED_FS_ALLOW_RECOVERY_ON_ANY_NODE
+argument_list|,
+literal|false
+argument_list|)
+condition|)
+block|{
+comment|// Shared filesystems use 0 as a minimum shard state, which
+comment|// means that the shard can be allocated to any node
+name|version
+operator|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+block|}
 comment|// -1 version means it does not exists, which is what the API returns, and what we expect to
 name|logger
 operator|.
@@ -2758,10 +2810,7 @@ operator|.
 name|getNode
 argument_list|()
 argument_list|,
-name|nodeShardState
-operator|.
 name|version
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|shardStates
@@ -2773,10 +2822,7 @@ operator|.
 name|getNode
 argument_list|()
 argument_list|,
-name|nodeShardState
-operator|.
 name|version
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

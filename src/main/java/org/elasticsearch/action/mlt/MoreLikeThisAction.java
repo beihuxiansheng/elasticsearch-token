@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ClientAction
+name|Action
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|MoreLikeThisAction
 extends|extends
-name|ClientAction
+name|Action
 argument_list|<
 name|MoreLikeThisRequest
 argument_list|,
@@ -125,7 +125,7 @@ specifier|public
 name|MoreLikeThisRequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|Client
+name|ElasticsearchClient
 name|client
 parameter_list|)
 block|{
@@ -134,6 +134,8 @@ operator|new
 name|MoreLikeThisRequestBuilder
 argument_list|(
 name|client
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}

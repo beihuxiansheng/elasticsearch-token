@@ -377,13 +377,6 @@ argument_list|(
 name|nodesIds
 argument_list|)
 decl_stmt|;
-name|nodesStatsRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|metrics

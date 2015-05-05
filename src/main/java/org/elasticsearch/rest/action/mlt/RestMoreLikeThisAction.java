@@ -327,13 +327,6 @@ literal|"routing"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|mltRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 comment|//TODO the ParseField class that encapsulates the supported names used for an attribute
 comment|//needs some work if it is to be used in a REST context like this too
 comment|// See the MoreLikeThisQueryParser constants that hold the valid syntax

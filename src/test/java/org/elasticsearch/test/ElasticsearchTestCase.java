@@ -792,7 +792,7 @@ name|LuceneTestCase
 block|{
 static|static
 block|{
-name|SecurityHack
+name|SecurityBootstrap
 operator|.
 name|ensureInitialized
 argument_list|()
@@ -916,6 +916,8 @@ specifier|protected
 name|void
 name|afterIfSuccessful
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
 comment|// setup mock filesystems for this test run. we change PathUtils
 comment|// so that all accesses are plumbed thru any mock wrappers

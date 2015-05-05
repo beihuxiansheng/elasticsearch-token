@@ -208,6 +208,7 @@ name|node
 init|=
 literal|null
 decl_stmt|;
+comment|// TODO: what is this? a public static void main test?!?!?!
 if|if
 condition|(
 literal|true
@@ -215,8 +216,19 @@ condition|)
 block|{
 name|client
 operator|=
-operator|new
 name|TransportClient
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|settings
+argument_list|(
+name|ImmutableSettings
+operator|.
+name|EMPTY
+argument_list|)
+operator|.
+name|build
 argument_list|()
 operator|.
 name|addTransportAddress

@@ -408,13 +408,6 @@ literal|"name"
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|putWarmerRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|SearchRequest
 name|searchRequest
 init|=

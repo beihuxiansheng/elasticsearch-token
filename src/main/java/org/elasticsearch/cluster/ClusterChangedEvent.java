@@ -501,8 +501,17 @@ argument_list|>
 name|indicesDeleted
 parameter_list|()
 block|{
+comment|// if the new cluster state has a new master then we cannot know if an index which is not in the cluster state
+comment|// is actually supposed to be deleted or imported as dangling instead. for example a new master might not have
+comment|// the index in its cluster state because it was started with an empty data folder and in this case we want to
+comment|// import as dangling. we check here for new master too to be on the safe side in this case.
+comment|// norelease because we are not sure this is actually a good solution
+comment|// See discussion on https://github.com/elastic/elasticsearch/pull/9952
 if|if
 condition|(
+name|hasNewMaster
+argument_list|()
+operator|||
 name|previousState
 operator|==
 literal|null
@@ -780,6 +789,78 @@ argument_list|()
 operator|||
 name|nodesAdded
 argument_list|()
+return|;
+block|}
+comment|/**      * Checks if this cluster state comes from a different master than the previous one.      * This is a workaround for the scenario where a node misses a cluster state  that has either      * no master block or state not recovered flag set. In this case we must make sure that      * if an index is missing from the cluster state is not deleted immediately but instead imported      * as dangling. See discussion on https://github.com/elastic/elasticsearch/pull/9952      */
+DECL|method|hasNewMaster
+specifier|private
+name|boolean
+name|hasNewMaster
+parameter_list|()
+block|{
+name|String
+name|oldMaster
+init|=
+name|previousState
+argument_list|()
+operator|.
+name|getNodes
+argument_list|()
+operator|.
+name|masterNodeId
+argument_list|()
+decl_stmt|;
+name|String
+name|newMaster
+init|=
+name|state
+argument_list|()
+operator|.
+name|getNodes
+argument_list|()
+operator|.
+name|masterNodeId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|oldMaster
+operator|==
+literal|null
+operator|&&
+name|newMaster
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+if|if
+condition|(
+name|oldMaster
+operator|==
+literal|null
+operator|&&
+name|newMaster
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+name|oldMaster
+operator|.
+name|equals
+argument_list|(
+name|newMaster
+argument_list|)
+operator|==
+literal|false
 return|;
 block|}
 block|}

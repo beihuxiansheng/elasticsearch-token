@@ -355,13 +355,6 @@ argument_list|()
 decl_stmt|;
 name|clusterRerouteRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|clusterRerouteRequest
-operator|.
 name|dryRun
 argument_list|(
 name|request

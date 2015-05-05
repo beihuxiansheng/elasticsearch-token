@@ -30,18 +30,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|IndicesOptions
@@ -72,12 +60,12 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|IndicesAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
 begin_comment
-comment|/**  * A builder for the {@link DeleteWarmerRequest}  * @see DeleteWarmerRequest for details  */
+comment|/**  * A builder for the {@link DeleteWarmerRequest}  *  * @see DeleteWarmerRequest for details  */
 end_comment
 
 begin_class
@@ -93,21 +81,24 @@ argument_list|,
 name|DeleteWarmerResponse
 argument_list|,
 name|DeleteWarmerRequestBuilder
-argument_list|,
-name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|DeleteWarmerRequestBuilder
 specifier|public
 name|DeleteWarmerRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
-name|indicesClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|DeleteWarmerAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|indicesClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|DeleteWarmerRequest
@@ -158,7 +149,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *      * For example indices that don't exist.      */
+comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *<p/>      * For example indices that don't exist.      */
 DECL|method|setIndicesOptions
 specifier|public
 name|DeleteWarmerRequestBuilder
@@ -178,30 +169,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|DeleteWarmerResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|deleteWarmer
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class
