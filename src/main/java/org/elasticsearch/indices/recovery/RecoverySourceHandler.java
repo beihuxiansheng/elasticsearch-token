@@ -2822,7 +2822,7 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|recoverySourceMetadata
+name|remainingFilesAfterCleanup
 argument_list|,
 name|translogView
 operator|.
