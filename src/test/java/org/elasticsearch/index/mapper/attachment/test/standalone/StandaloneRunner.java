@@ -575,8 +575,16 @@ init|=
 name|MapperTestUtils
 operator|.
 name|newMapperParser
-argument_list|()
+argument_list|(
+name|Paths
+operator|.
+name|get
+argument_list|(
+literal|"."
+argument_list|)
+argument_list|)
 decl_stmt|;
+comment|// use CWD b/c it won't be used
 name|mapperParser
 operator|.
 name|putTypeParser

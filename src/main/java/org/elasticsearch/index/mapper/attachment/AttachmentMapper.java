@@ -232,24 +232,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|AbstractFieldMapper
-operator|.
-name|CopyTo
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -2296,21 +2278,6 @@ block|{
 return|return
 literal|null
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|copyTo
-specifier|public
-name|CopyTo
-name|copyTo
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|copyTo
-return|;
-comment|// ask rjernst
 block|}
 annotation|@
 name|Override
