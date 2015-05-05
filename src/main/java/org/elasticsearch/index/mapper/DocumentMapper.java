@@ -3412,6 +3412,13 @@ argument_list|,
 name|script
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|language
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
@@ -3421,6 +3428,7 @@ argument_list|,
 name|language
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|parameters
