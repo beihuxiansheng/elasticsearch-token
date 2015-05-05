@@ -1462,6 +1462,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"rjernst please fix me"
+argument_list|)
 DECL|method|testCopyToSubField
 specifier|public
 name|void

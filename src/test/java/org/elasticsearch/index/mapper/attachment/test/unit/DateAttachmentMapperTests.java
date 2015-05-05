@@ -178,7 +178,10 @@ operator|=
 name|MapperTestUtils
 operator|.
 name|newMapperParser
+argument_list|(
+name|createTempDir
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|mapperParser
 operator|.
