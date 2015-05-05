@@ -4,15 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.query
+DECL|package|org.elasticsearch.search.morelikethis
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|search
 operator|.
-name|query
+name|morelikethis
 package|;
 end_package
 
@@ -123,6 +123,20 @@ operator|.
 name|index
 operator|.
 name|VersionType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|MoreLikeThisQueryBuilder
 import|;
 end_import
 
@@ -927,7 +941,7 @@ name|testItemsFromJSON
 argument_list|(
 name|copyToStringFromClasspath
 argument_list|(
-literal|"/org/elasticsearch/index/query/items.json"
+literal|"/org/elasticsearch/search/morelikethis/items.json"
 argument_list|)
 argument_list|)
 decl_stmt|;

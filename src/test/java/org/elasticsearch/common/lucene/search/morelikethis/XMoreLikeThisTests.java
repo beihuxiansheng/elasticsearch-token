@@ -4,13 +4,19 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.mlt
+DECL|package|org.elasticsearch.common.lucene.search.morelikethis
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|mlt
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|morelikethis
 package|;
 end_package
 

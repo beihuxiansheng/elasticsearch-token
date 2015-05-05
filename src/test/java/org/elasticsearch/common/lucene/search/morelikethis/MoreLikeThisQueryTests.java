@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.lucene.search
+DECL|package|org.elasticsearch.common.lucene.search.morelikethis
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|lucene
 operator|.
 name|search
+operator|.
+name|morelikethis
 package|;
 end_package
 
@@ -178,6 +180,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MoreLikeThisQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
@@ -191,18 +209,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
 import|;
 end_import
 
