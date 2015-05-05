@@ -16,6 +16,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -155,6 +167,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"fast equals check is desired"
+argument_list|)
 DECL|method|implies
 specifier|public
 name|boolean
@@ -167,6 +186,30 @@ name|Permission
 name|permission
 parameter_list|)
 block|{
+comment|// run groovy scripts with no permissions
+if|if
+condition|(
+literal|"/groovy/script"
+operator|.
+name|equals
+argument_list|(
+name|domain
+operator|.
+name|getCodeSource
+argument_list|()
+operator|.
+name|getLocation
+argument_list|()
+operator|.
+name|getFile
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 return|return
 name|template
 operator|.
