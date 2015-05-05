@@ -120,6 +120,12 @@ name|QueryParsingException
 throws|,
 name|IOException
 function_decl|;
+comment|/**      * Validate the query.      * @return a {@link QueryValidationException} containing error messages, {@code null} if query is valid.      * e.g. if fields that are needed to create the lucene query are missing.      */
+DECL|method|validate
+name|QueryValidationException
+name|validate
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

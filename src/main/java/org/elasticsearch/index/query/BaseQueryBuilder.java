@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base class with common code for all {@link QueryBuilder} implementations.  */
 end_comment
 
 begin_class
@@ -338,6 +338,20 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+annotation|@
+name|Override
+DECL|method|validate
+specifier|public
+name|QueryValidationException
+name|validate
+parameter_list|()
+block|{
+comment|// default impl does not validate, subclasses should override.
+comment|//norelease to be removed once all queries support validation
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
