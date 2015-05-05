@@ -208,7 +208,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -496,9 +496,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|missingFilter
+name|missingQuery
 import|;
 end_import
 
@@ -512,9 +512,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|typeFilter
+name|typeQuery
 import|;
 end_import
 
@@ -12007,7 +12007,7 @@ argument_list|()
 operator|.
 name|postFilter
 argument_list|(
-name|typeFilter
+name|typeQuery
 argument_list|(
 literal|"type2"
 argument_list|)
@@ -12102,7 +12102,7 @@ argument_list|()
 operator|.
 name|postFilter
 argument_list|(
-name|typeFilter
+name|typeQuery
 argument_list|(
 literal|"type2"
 argument_list|)
@@ -12231,7 +12231,7 @@ argument_list|()
 operator|.
 name|postFilter
 argument_list|(
-name|typeFilter
+name|typeQuery
 argument_list|(
 literal|"type2"
 argument_list|)
@@ -21192,9 +21192,9 @@ name|should
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -21523,7 +21523,7 @@ name|REWRITE_METHODS
 argument_list|)
 argument_list|)
 argument_list|,
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"field_null"
 argument_list|)

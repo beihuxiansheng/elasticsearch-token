@@ -60,7 +60,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -335,7 +335,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|ParsedFilter
+name|ParsedQuery
 name|filter
 init|=
 name|context
@@ -365,12 +365,12 @@ literal|null
 condition|?
 name|Queries
 operator|.
-name|newMatchAllFilter
+name|newMatchAllQuery
 argument_list|()
 else|:
 name|filter
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|)
 argument_list|)
@@ -457,7 +457,7 @@ operator|.
 name|END_ARRAY
 condition|)
 block|{
-name|ParsedFilter
+name|ParsedQuery
 name|filter
 init|=
 name|context
@@ -492,12 +492,12 @@ literal|null
 condition|?
 name|Queries
 operator|.
-name|newMatchAllFilter
+name|newMatchAllQuery
 argument_list|()
 else|:
 name|filter
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|)
 argument_list|)

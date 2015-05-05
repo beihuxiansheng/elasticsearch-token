@@ -222,7 +222,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 
@@ -2183,7 +2183,7 @@ annotation|@
 name|Nullable
 DECL|method|searchFilter
 specifier|public
-name|Filter
+name|Query
 name|searchFilter
 parameter_list|(
 name|String
@@ -2238,7 +2238,7 @@ break|break;
 block|}
 block|}
 block|}
-name|Filter
+name|Query
 name|percolatorType
 init|=
 literal|null
@@ -2382,7 +2382,7 @@ literal|0
 index|]
 argument_list|)
 decl_stmt|;
-name|Filter
+name|Query
 name|filter
 init|=
 name|docMapper
@@ -2394,9 +2394,6 @@ operator|.
 name|typeFilter
 argument_list|()
 else|:
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 operator|new
 name|TermQuery
 argument_list|(
@@ -2411,7 +2408,6 @@ name|types
 index|[
 literal|0
 index|]
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;

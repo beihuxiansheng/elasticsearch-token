@@ -152,7 +152,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -672,7 +672,7 @@ specifier|public
 name|AliasAction
 name|filter
 parameter_list|(
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 parameter_list|)
 block|{

@@ -156,7 +156,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|GeoBoundingBoxFilterBuilder
+name|GeoBoundingBoxQueryBuilder
 import|;
 end_import
 
@@ -397,7 +397,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Aggregates Geo information into cells determined by geohashes of a given precision.  * WARNING - for high-precision geohashes it may prove necessary to use a {@link GeoBoundingBoxFilterBuilder}  * aggregation to focus in on a smaller area to avoid generating too many buckets and using too much RAM  */
+comment|/**  * Aggregates Geo information into cells determined by geohashes of a given precision.  * WARNING - for high-precision geohashes it may prove necessary to use a {@link GeoBoundingBoxQueryBuilder}  * aggregation to focus in on a smaller area to avoid generating too many buckets and using too much RAM  */
 end_comment
 
 begin_class

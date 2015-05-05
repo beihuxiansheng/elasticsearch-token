@@ -102,7 +102,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -2340,9 +2340,9 @@ argument_list|)
 operator|.
 name|backgroundFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"fact_category"
 argument_list|,
@@ -2488,9 +2488,9 @@ argument_list|)
 operator|.
 name|backgroundFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termsFilter
+name|termsQuery
 argument_list|(
 literal|"description"
 argument_list|,

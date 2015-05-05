@@ -80,7 +80,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|AndFilterBuilder
+name|AndQueryBuilder
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -230,25 +230,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|termFilter
+name|matchAllQuery
 import|;
 end_import
 
@@ -264,7 +248,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|matchAllQuery
+name|termQuery
 import|;
 end_import
 
@@ -732,7 +716,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -815,11 +799,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|FilterBuilder
+name|QueryBuilder
 name|emptyFilter
 init|=
 operator|new
-name|AndFilterBuilder
+name|AndQueryBuilder
 argument_list|()
 decl_stmt|;
 name|SearchResponse
@@ -925,7 +909,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1180,7 +1164,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1276,7 +1260,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 argument_list|)

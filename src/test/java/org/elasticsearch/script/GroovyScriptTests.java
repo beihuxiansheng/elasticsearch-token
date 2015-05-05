@@ -156,9 +156,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|scriptFilter
+name|scriptQuery
 import|;
 end_import
 
@@ -497,7 +497,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"1 == not_found"
 argument_list|)
@@ -616,7 +616,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"assert false"
 argument_list|)

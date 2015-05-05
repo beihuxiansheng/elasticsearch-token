@@ -1486,9 +1486,6 @@ name|context
 operator|.
 name|searcher
 argument_list|()
-operator|.
-name|getIndexReader
-argument_list|()
 argument_list|)
 expr_stmt|;
 for|for

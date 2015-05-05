@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 
@@ -264,7 +264,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeResult
+name|MergeMappingException
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
+name|MergeResult
 import|;
 end_import
 
@@ -1662,7 +1662,7 @@ annotation|@
 name|Override
 DECL|method|nullValueFilter
 specifier|public
-name|Filter
+name|Query
 name|nullValueFilter
 parameter_list|()
 block|{
@@ -1678,7 +1678,7 @@ literal|null
 return|;
 block|}
 return|return
-name|termFilter
+name|termQuery
 argument_list|(
 name|nullValue
 argument_list|,

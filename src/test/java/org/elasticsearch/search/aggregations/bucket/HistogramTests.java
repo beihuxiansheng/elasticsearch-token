@@ -34,24 +34,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|tools
-operator|.
-name|ant
-operator|.
-name|filters
-operator|.
-name|TokenFilter
-operator|.
-name|ContainsString
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -309,22 +291,6 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|matchAllFilter
 import|;
 end_import
 
@@ -4909,7 +4875,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.

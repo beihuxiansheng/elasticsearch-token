@@ -298,7 +298,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -3534,9 +3534,9 @@ name|builder
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"test"
 argument_list|,

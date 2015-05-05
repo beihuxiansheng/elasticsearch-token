@@ -715,7 +715,7 @@ operator|.
 expr|<
 name|String
 argument_list|,
-name|Filter
+name|Query
 operator|>
 name|of
 argument_list|()
@@ -1835,7 +1835,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Only include docs that have the current hit as parent
-name|Filter
+name|Query
 name|typeFilter
 init|=
 name|documentMapper

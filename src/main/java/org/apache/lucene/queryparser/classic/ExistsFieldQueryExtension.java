@@ -56,7 +56,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ExistsFilterParser
+name|ExistsQueryParser
 import|;
 end_import
 
@@ -113,7 +113,7 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|ExistsFilterParser
+name|ExistsQueryParser
 operator|.
 name|newFilter
 argument_list|(

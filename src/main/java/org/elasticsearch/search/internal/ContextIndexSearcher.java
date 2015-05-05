@@ -830,7 +830,7 @@ operator|.
 name|parsedPostFilter
 argument_list|()
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|,
 literal|false

@@ -182,9 +182,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoDistanceFilter
+name|geoDistanceQuery
 import|;
 end_import
 
@@ -1667,7 +1667,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoDistanceFilter
+name|geoDistanceQuery
 argument_list|(
 literal|"location"
 argument_list|)
