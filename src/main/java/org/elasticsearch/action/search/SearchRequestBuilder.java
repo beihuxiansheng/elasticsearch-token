@@ -34,18 +34,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ActionRequestBuilder
 import|;
 end_import
@@ -72,7 +60,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -218,22 +206,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|aggregations
-operator|.
-name|reducers
-operator|.
-name|ReducerBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|builder
 operator|.
 name|SearchSourceBuilder
@@ -353,8 +325,6 @@ argument_list|,
 name|SearchResponse
 argument_list|,
 name|SearchRequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 block|{
 DECL|field|sourceBuilder
@@ -366,13 +336,18 @@ DECL|method|SearchRequestBuilder
 specifier|public
 name|SearchRequestBuilder
 parameter_list|(
-name|Client
+name|ElasticsearchClient
 name|client
+parameter_list|,
+name|SearchAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|SearchRequest
@@ -659,7 +634,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *      * For example indices that don't exist.      */
+comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *<p/>      * For example indices that don't exist.      */
 DECL|method|setIndicesOptions
 specifier|public
 name|SearchRequestBuilder
@@ -2110,7 +2085,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the size of the fragment to return from the beginning of the field if there are no matches to      * highlight and the field doesn't also define noMatchSize.      * @param noMatchSize integer to set or null to leave out of request.  default is null.      * @return this builder for chaining      */
+comment|/**      * Sets the size of the fragment to return from the beginning of the field if there are no matches to      * highlight and the field doesn't also define noMatchSize.      *      * @param noMatchSize integer to set or null to leave out of request.  default is null.      * @return this builder for chaining      */
 DECL|method|setHighlighterNoMatchSize
 specifier|public
 name|SearchRequestBuilder
@@ -2202,7 +2177,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Send the fields to be highlighted using a syntax that is specific about the order in which they should be highlighted.      * @return this for chaining      */
+comment|/**      * Send the fields to be highlighted using a syntax that is specific about the order in which they should be highlighted.      *      * @return this for chaining      */
 DECL|method|setHighlighterExplicitFieldOrder
 specifier|public
 name|SearchRequestBuilder
@@ -2301,7 +2276,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      * @param rescorer rescorer configuration      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
@@ -2326,7 +2301,7 @@ name|rescorer
 argument_list|)
 return|;
 block|}
-comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      * @param rescorer rescorer configuration      * @param window rescore window      * @return this for chaining      */
+comment|/**      * Clears all rescorers on the builder and sets the first one.  To use multiple rescore windows use      * {@link #addRescorer(org.elasticsearch.search.rescore.RescoreBuilder.Rescorer, int)}.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
 DECL|method|setRescorer
 specifier|public
 name|SearchRequestBuilder
@@ -2356,7 +2331,7 @@ name|window
 argument_list|)
 return|;
 block|}
-comment|/**      * Adds a new rescorer.      * @param rescorer rescorer configuration      * @return this for chaining      */
+comment|/**      * Adds a new rescorer.      *      * @param rescorer rescorer configuration      * @return this for chaining      */
 DECL|method|addRescorer
 specifier|public
 name|SearchRequestBuilder
@@ -2387,7 +2362,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a new rescorer.      * @param rescorer rescorer configuration      * @param window rescore window      * @return this for chaining      */
+comment|/**      * Adds a new rescorer.      *      * @param rescorer rescorer configuration      * @param window   rescore window      * @return this for chaining      */
 DECL|method|addRescorer
 specifier|public
 name|SearchRequestBuilder
@@ -2426,7 +2401,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Clears all rescorers from the builder.      * @return this for chaining      */
+comment|/**      * Clears all rescorers from the builder.      *      * @return this for chaining      */
 DECL|method|clearRescorers
 specifier|public
 name|SearchRequestBuilder
@@ -2443,7 +2418,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the rescore window for all rescorers that don't specify a window when added.      * @param window rescore window      * @return this for chaining      */
+comment|/**      * Sets the rescore window for all rescorers that don't specify a window when added.      *      * @param window rescore window      * @return this for chaining      */
 DECL|method|setRescoreWindow
 specifier|public
 name|SearchRequestBuilder
@@ -3013,16 +2988,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doExecute
+DECL|method|beforeExecute
 specifier|protected
-name|void
-name|doExecute
+name|SearchRequest
+name|beforeExecute
 parameter_list|(
-name|ActionListener
-argument_list|<
-name|SearchResponse
-argument_list|>
-name|listener
+name|SearchRequest
+name|request
 parameter_list|)
 block|{
 if|if
@@ -3041,15 +3013,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|client
-operator|.
-name|search
-argument_list|(
+return|return
 name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|sourceBuilder
 specifier|private

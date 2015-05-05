@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ClusterAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -117,22 +117,25 @@ argument_list|,
 name|CreateSnapshotResponse
 argument_list|,
 name|CreateSnapshotRequestBuilder
-argument_list|,
-name|ClusterAdminClient
 argument_list|>
 block|{
-comment|/**      * Constructs a new create snapshot request builder      *      * @param clusterAdminClient cluster admin client      */
+comment|/**      * Constructs a new create snapshot request builder      */
 DECL|method|CreateSnapshotRequestBuilder
 specifier|public
 name|CreateSnapshotRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
-name|clusterAdminClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|CreateSnapshotAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|clusterAdminClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|CreateSnapshotRequest
@@ -140,13 +143,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new create snapshot request builder with specified repository and snapshot names      *      * @param clusterAdminClient cluster admin client      * @param repository         repository name      * @param snapshot           snapshot name      */
+comment|/**      * Constructs a new create snapshot request builder with specified repository and snapshot names      */
 DECL|method|CreateSnapshotRequestBuilder
 specifier|public
 name|CreateSnapshotRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
-name|clusterAdminClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|CreateSnapshotAction
+name|action
 parameter_list|,
 name|String
 name|repository
@@ -157,7 +163,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|clusterAdminClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|CreateSnapshotRequest
@@ -407,30 +415,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|CreateSnapshotResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|createSnapshot
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

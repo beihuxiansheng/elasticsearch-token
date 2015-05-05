@@ -385,8 +385,12 @@ block|{
 name|TransportClient
 name|client
 init|=
-operator|new
 name|TransportClient
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|settings
 argument_list|(
 name|ImmutableSettings
 operator|.
@@ -434,6 +438,9 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 name|client
 operator|.
@@ -459,8 +466,12 @@ block|{
 name|TransportClient
 name|client
 init|=
-operator|new
 name|TransportClient
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|settings
 argument_list|(
 name|ImmutableSettings
 operator|.
@@ -535,6 +546,9 @@ operator|.
 name|build
 argument_list|()
 argument_list|)
+operator|.
+name|build
+argument_list|()
 decl_stmt|;
 try|try
 block|{

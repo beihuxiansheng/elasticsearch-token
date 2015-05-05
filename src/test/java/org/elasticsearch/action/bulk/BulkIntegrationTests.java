@@ -117,12 +117,11 @@ decl_stmt|;
 name|BulkRequestBuilder
 name|bulkBuilder
 init|=
-operator|new
-name|BulkRequestBuilder
-argument_list|(
 name|client
 argument_list|()
-argument_list|)
+operator|.
+name|prepareBulk
+argument_list|()
 decl_stmt|;
 name|bulkBuilder
 operator|.

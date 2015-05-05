@@ -30,11 +30,7 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|ClusterAction
+name|Action
 import|;
 end_import
 
@@ -46,7 +42,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ClusterAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -60,7 +56,7 @@ specifier|public
 class|class
 name|SnapshotsStatusAction
 extends|extends
-name|ClusterAction
+name|Action
 argument_list|<
 name|SnapshotsStatusRequest
 argument_list|,
@@ -121,7 +117,7 @@ specifier|public
 name|SnapshotsStatusRequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
+name|ElasticsearchClient
 name|client
 parameter_list|)
 block|{
@@ -130,6 +126,8 @@ operator|new
 name|SnapshotsStatusRequestBuilder
 argument_list|(
 name|client
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}

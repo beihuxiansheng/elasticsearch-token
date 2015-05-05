@@ -337,6 +337,13 @@ name|wipeRepositories
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Assertions that should run before the cluster is wiped should be called in this method      */
+DECL|method|beforeIndexDeletion
+specifier|public
+name|void
+name|beforeIndexDeletion
+parameter_list|()
+block|{     }
 comment|/**      * This method checks all the things that need to be checked after each test      */
 DECL|method|assertAfterTest
 specifier|public

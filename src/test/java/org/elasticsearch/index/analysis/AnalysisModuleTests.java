@@ -1194,6 +1194,54 @@ comment|//        assertThat(html.readAheadLimit(), equalTo(HTMLStripCharFilter.
 comment|//
 comment|//        html = (HtmlStripCharFilterFactory) custom2.charFilters()[1];
 comment|//        assertThat(html.readAheadLimit(), equalTo(1024));
+comment|// verify position offset gap
+name|analyzer
+operator|=
+name|analysisService
+operator|.
+name|analyzer
+argument_list|(
+literal|"custom6"
+argument_list|)
+operator|.
+name|analyzer
+argument_list|()
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|analyzer
+argument_list|,
+name|instanceOf
+argument_list|(
+name|CustomAnalyzer
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|CustomAnalyzer
+name|custom6
+init|=
+operator|(
+name|CustomAnalyzer
+operator|)
+name|analyzer
+decl_stmt|;
+name|assertThat
+argument_list|(
+name|custom6
+operator|.
+name|getPositionIncrementGap
+argument_list|(
+literal|"any_string"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|256
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// verify characters  mapping
 name|analyzer
 operator|=

@@ -60,6 +60,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -169,6 +183,13 @@ specifier|private
 name|Kernel32Library
 parameter_list|()
 block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
 try|try
 block|{
 name|Native
@@ -213,6 +234,7 @@ argument_list|(
 literal|"unable to link Windows/Kernel32 library. native methods and handlers will be disabled."
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getInstance

@@ -1135,9 +1135,6 @@ interface|interface
 name|ClusterAdminClient
 extends|extends
 name|ElasticsearchClient
-argument_list|<
-name|ClusterAdminClient
-argument_list|>
 block|{
 comment|/**      * The health of the cluster.      *      * @param request The cluster state request      * @return The result future      * @see Requests#clusterHealthRequest(String...)      */
 DECL|method|health
