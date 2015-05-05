@@ -72,7 +72,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|ClusterAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -93,22 +93,25 @@ argument_list|,
 name|SnapshotsStatusResponse
 argument_list|,
 name|SnapshotsStatusRequestBuilder
-argument_list|,
-name|ClusterAdminClient
 argument_list|>
 block|{
-comment|/**      * Constructs the new snapshotstatus request      *      * @param clusterAdminClient cluster admin client      */
+comment|/**      * Constructs the new snapshotstatus request      */
 DECL|method|SnapshotsStatusRequestBuilder
 specifier|public
 name|SnapshotsStatusRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
-name|clusterAdminClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|SnapshotsStatusAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|clusterAdminClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|SnapshotsStatusRequest
@@ -116,13 +119,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Constructs the new snapshot status request with specified repository      *      * @param clusterAdminClient cluster admin client      * @param repository         repository name      */
+comment|/**      * Constructs the new snapshot status request with specified repository      */
 DECL|method|SnapshotsStatusRequestBuilder
 specifier|public
 name|SnapshotsStatusRequestBuilder
 parameter_list|(
-name|ClusterAdminClient
-name|clusterAdminClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|SnapshotsStatusAction
+name|action
 parameter_list|,
 name|String
 name|repository
@@ -130,7 +136,9 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|clusterAdminClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|SnapshotsStatusRequest
@@ -218,30 +226,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|SnapshotsStatusResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|snapshotsStatus
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

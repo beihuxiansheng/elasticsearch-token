@@ -140,26 +140,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|FileInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -384,7 +364,7 @@ name|op
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Given a file, return a VersionedTranslogStream based on an      * optionally-existing header in the file. If the file does not exist, or      * has zero length, returns the latest version. If the header does not      * exist, assumes Version 0 of the translog file format.      *<p/>      * The caller is responsible for closing the TranslogStream.      *      * @throws IOException      */
+comment|/**      * Given a file, return a VersionedTranslogStream based on an      * optionally-existing header in the file. If the file does not exist, or      * has zero length, returns the latest version. If the header does not      * exist, assumes Version 0 of the translog file format.      *<p/>      *      * @throws IOException      */
 DECL|method|translogStreamFor
 specifier|public
 specifier|static

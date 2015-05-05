@@ -460,14 +460,6 @@ argument_list|,
 name|probablySingleFieldRequest
 argument_list|)
 decl_stmt|;
-comment|// no threading needed, all is done on the index replication one
-name|shardRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|shardAction
 operator|.
 name|execute

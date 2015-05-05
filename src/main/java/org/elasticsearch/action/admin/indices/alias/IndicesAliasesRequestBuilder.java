@@ -28,18 +28,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|admin
 operator|.
 name|indices
@@ -76,7 +64,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|IndicesAdminClient
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -135,21 +123,24 @@ argument_list|,
 name|IndicesAliasesResponse
 argument_list|,
 name|IndicesAliasesRequestBuilder
-argument_list|,
-name|IndicesAdminClient
 argument_list|>
 block|{
 DECL|method|IndicesAliasesRequestBuilder
 specifier|public
 name|IndicesAliasesRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
-name|indicesClient
+name|ElasticsearchClient
+name|client
+parameter_list|,
+name|IndicesAliasesAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|indicesClient
+name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|IndicesAliasesRequest
@@ -157,7 +148,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param index         The index      * @param alias         The alias      */
+comment|/**      * Adds an alias to the index.      *      * @param index The index      * @param alias The alias      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -183,7 +174,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param indices The indices      * @param alias The alias      */
+comment|/**      * Adds an alias to the index.      *      * @param indices The indices      * @param alias   The alias      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -259,7 +250,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param indices       The indices      * @param alias         The alias      * @param filter The filter      */
+comment|/**      * Adds an alias to the index.      *      * @param indices The indices      * @param alias   The alias      * @param filter  The filter      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -309,7 +300,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param indices  The indices      * @param alias  The alias      * @param filter The filter      */
+comment|/**      * Adds an alias to the index.      *      * @param indices The indices      * @param alias   The alias      * @param filter  The filter      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -414,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an alias to the index.      *      * @param index       The index      * @param alias         The alias      * @param filterBuilder The filter      */
+comment|/**      * Adds an alias to the index.      *      * @param index         The index      * @param alias         The alias      * @param filterBuilder The filter      */
 DECL|method|addAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -499,7 +490,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Removes aliases from the index.      *      * @param index The index      * @param aliases The aliases      */
+comment|/**      * Removes aliases from the index.      *      * @param index   The index      * @param aliases The aliases      */
 DECL|method|removeAlias
 specifier|public
 name|IndicesAliasesRequestBuilder
@@ -525,30 +516,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-name|ActionListener
-argument_list|<
-name|IndicesAliasesResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|aliases
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Adds an alias action to the request.      *      * @param aliasAction The alias action      */
 DECL|method|addAliasAction

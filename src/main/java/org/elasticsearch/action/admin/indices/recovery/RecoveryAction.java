@@ -26,9 +26,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|action
 operator|.
-name|IndicesAdminClient
+name|Action
 import|;
 end_import
 
@@ -38,13 +38,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
+name|client
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|IndicesAction
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -58,7 +54,7 @@ specifier|public
 class|class
 name|RecoveryAction
 extends|extends
-name|IndicesAction
+name|Action
 argument_list|<
 name|RecoveryRequest
 argument_list|,
@@ -105,7 +101,7 @@ specifier|public
 name|RecoveryRequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|IndicesAdminClient
+name|ElasticsearchClient
 name|client
 parameter_list|)
 block|{
@@ -114,6 +110,8 @@ operator|new
 name|RecoveryRequestBuilder
 argument_list|(
 name|client
+argument_list|,
+name|this
 argument_list|)
 return|;
 block|}

@@ -226,14 +226,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// no need to use threaded listener, since we just send a response
-name|request
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|execute
 argument_list|(
 name|request

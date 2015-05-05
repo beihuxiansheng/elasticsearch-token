@@ -638,6 +638,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|support
+operator|.
+name|Headers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -683,9 +697,6 @@ interface|interface
 name|Client
 extends|extends
 name|ElasticsearchClient
-argument_list|<
-name|Client
-argument_list|>
 extends|,
 name|Releasable
 block|{
@@ -948,7 +959,7 @@ name|PutIndexedScriptRequestBuilder
 name|preparePutIndexedScript
 parameter_list|()
 function_decl|;
-comment|/**      * Put the indexed script      * @param scriptLang      * @param id      * @param source      * @return      */
+comment|/**      * Put the indexed script      */
 DECL|method|preparePutIndexedScript
 name|PutIndexedScriptRequestBuilder
 name|preparePutIndexedScript
@@ -965,7 +976,7 @@ name|String
 name|source
 parameter_list|)
 function_decl|;
-comment|/**      * delete an indexed script      *      * @param request      * @param listener      */
+comment|/**      * delete an indexed script      */
 DECL|method|deleteIndexedScript
 name|void
 name|deleteIndexedScript
@@ -998,7 +1009,7 @@ name|DeleteIndexedScriptRequestBuilder
 name|prepareDeleteIndexedScript
 parameter_list|()
 function_decl|;
-comment|/**      * Delete an indexed script      * @param scriptLang      * @param id      * @return      */
+comment|/**      * Delete an indexed script      */
 DECL|method|prepareDeleteIndexedScript
 name|DeleteIndexedScriptRequestBuilder
 name|prepareDeleteIndexedScript
@@ -1012,7 +1023,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Put an indexed script      *      * @param request      * @param listener      */
+comment|/**      * Put an indexed script      */
 DECL|method|putIndexedScript
 name|void
 name|putIndexedScript
@@ -1045,7 +1056,7 @@ name|GetIndexedScriptRequestBuilder
 name|prepareGetIndexedScript
 parameter_list|()
 function_decl|;
-comment|/**      * Get the indexed script      * @param scriptLang      * @param id      * @return      */
+comment|/**      * Get the indexed script      */
 DECL|method|prepareGetIndexedScript
 name|GetIndexedScriptRequestBuilder
 name|prepareGetIndexedScript
@@ -1059,7 +1070,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Get an indexed script      *      * @param request      * @param listener      */
+comment|/**      * Get an indexed script      */
 DECL|method|getIndexedScript
 name|void
 name|getIndexedScript
@@ -1690,6 +1701,11 @@ comment|/**      * Returns this clients settings      */
 DECL|method|settings
 name|Settings
 name|settings
+parameter_list|()
+function_decl|;
+DECL|method|headers
+name|Headers
+name|headers
 parameter_list|()
 function_decl|;
 block|}

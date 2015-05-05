@@ -562,55 +562,7 @@ name|nio
 operator|.
 name|file
 operator|.
-name|DirectoryStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|FileVisitResult
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|SimpleFileVisitor
+name|*
 import|;
 end_import
 
@@ -651,18 +603,6 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|equalTo
 import|;
 end_import
 
@@ -3071,6 +3011,7 @@ block|{
 comment|// TODO: remove this once #10262 is fixed
 return|return;
 block|}
+comment|// these documents are supposed to be deleted by a delete by query operation in the translog
 name|SearchRequestBuilder
 name|searchReq
 init|=

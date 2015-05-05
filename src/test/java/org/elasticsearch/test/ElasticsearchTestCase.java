@@ -188,20 +188,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|IndexSearcher
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|uninverting
 operator|.
 name|UninvertingReader
@@ -590,16 +576,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|Closeable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -816,7 +792,7 @@ name|LuceneTestCase
 block|{
 static|static
 block|{
-name|SecurityHack
+name|SecurityBootstrap
 operator|.
 name|ensureInitialized
 argument_list|()
@@ -940,43 +916,9 @@ specifier|protected
 name|void
 name|afterIfSuccessful
 parameter_list|()
+throws|throws
+name|Exception
 block|{     }
-comment|// TODO: Parent/child and other things does not work with the query cache
-comment|// We must disable query cache for both suite and test to override lucene, but LTC resets it after the suite
-annotation|@
-name|BeforeClass
-DECL|method|disableQueryCacheSuite
-specifier|public
-specifier|static
-name|void
-name|disableQueryCacheSuite
-parameter_list|()
-block|{
-name|IndexSearcher
-operator|.
-name|setDefaultQueryCache
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Before
-DECL|method|disableQueryCache
-specifier|public
-specifier|final
-name|void
-name|disableQueryCache
-parameter_list|()
-block|{
-name|IndexSearcher
-operator|.
-name|setDefaultQueryCache
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 comment|// setup mock filesystems for this test run. we change PathUtils
 comment|// so that all accesses are plumbed thru any mock wrappers
 annotation|@

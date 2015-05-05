@@ -193,11 +193,6 @@ argument_list|(
 name|translogFile
 argument_list|)
 decl_stmt|;
-name|in
-operator|.
-name|readInt
-argument_list|()
-expr_stmt|;
 name|Translog
 operator|.
 name|Operation
@@ -370,11 +365,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|in
-operator|.
-name|readInt
-argument_list|()
-expr_stmt|;
 name|stream
 operator|.
 name|read
@@ -955,7 +945,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"translog stream is corrupted"
+literal|"translog corruption while reading from stream"
 argument_list|)
 argument_list|,
 name|equalTo

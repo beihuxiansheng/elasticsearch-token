@@ -122,6 +122,9 @@ name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromClassPath
 argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|,
 name|RESOURCE
 argument_list|)
 decl_stmt|;
@@ -219,6 +222,9 @@ name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromClassPath
 argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|,
 name|RESOURCE
 argument_list|)
 decl_stmt|;
@@ -316,6 +322,9 @@ name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromClassPath
 argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|,
 name|RESOURCE
 argument_list|)
 decl_stmt|;
@@ -411,6 +420,9 @@ name|AnalysisTestsHelper
 operator|.
 name|createAnalysisServiceFromClassPath
 argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|,
 name|RESOURCE
 argument_list|)
 decl_stmt|;

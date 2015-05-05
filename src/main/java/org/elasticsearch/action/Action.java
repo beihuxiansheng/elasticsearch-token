@@ -54,13 +54,7 @@ parameter_list|,
 name|Response
 parameter_list|,
 name|RequestBuilder
-parameter_list|,
-name|Client
 parameter_list|>
-parameter_list|,
-name|Client
-extends|extends
-name|ElasticsearchClient
 parameter_list|>
 extends|extends
 name|GenericAction
@@ -91,7 +85,7 @@ specifier|abstract
 name|RequestBuilder
 name|newRequestBuilder
 parameter_list|(
-name|Client
+name|ElasticsearchClient
 name|client
 parameter_list|)
 function_decl|;

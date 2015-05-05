@@ -26,18 +26,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|ActionRequestBuilder
 import|;
 end_import
@@ -64,7 +52,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|Client
+name|ElasticsearchClient
 import|;
 end_import
 
@@ -149,21 +137,24 @@ argument_list|,
 name|PutIndexedScriptResponse
 argument_list|,
 name|PutIndexedScriptRequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 block|{
 DECL|method|PutIndexedScriptRequestBuilder
 specifier|public
 name|PutIndexedScriptRequestBuilder
 parameter_list|(
-name|Client
+name|ElasticsearchClient
 name|client
+parameter_list|,
+name|PutIndexedScriptAction
+name|action
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|client
+argument_list|,
+name|action
 argument_list|,
 operator|new
 name|PutIndexedScriptRequest
@@ -387,7 +378,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Constructs a simple document with a field name and value pairs.      *<b>Note: the number of objects passed to this method must be an even number.</b>       */
+comment|/**      * Constructs a simple document with a field name and value pairs.      *<b>Note: the number of objects passed to this method must be an even number.</b>      */
 DECL|method|setSource
 specifier|public
 name|PutIndexedScriptRequestBuilder
@@ -543,32 +534,6 @@ expr_stmt|;
 return|return
 name|this
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|doExecute
-specifier|protected
-name|void
-name|doExecute
-parameter_list|(
-specifier|final
-name|ActionListener
-argument_list|<
-name|PutIndexedScriptResponse
-argument_list|>
-name|listener
-parameter_list|)
-block|{
-name|client
-operator|.
-name|putIndexedScript
-argument_list|(
-name|request
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
-comment|/*         try {             scriptService.putScriptToIndex(client, request.safeSource(), request.id(), request.scriptLang(), null, request.opType().toString(), new ActionListener<IndexResponse>() {                 @Override                 public void onResponse(IndexResponse indexResponse) {                     listener.onResponse(new PutIndexedScriptResponse(indexResponse.getType(),indexResponse.getId(),indexResponse.getVersion(),indexResponse.isCreated()));                 }                  @Override                 public void onFailure(Throwable e) {                     listener.onFailure(e);                 }             });         } catch (IOException ioe) {             listener.onFailure(ioe);         }          */
 block|}
 block|}
 end_class

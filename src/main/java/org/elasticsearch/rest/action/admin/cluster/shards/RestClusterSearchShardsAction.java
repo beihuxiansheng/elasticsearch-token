@@ -366,13 +366,6 @@ argument_list|)
 expr_stmt|;
 name|clusterSearchShardsRequest
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|clusterSearchShardsRequest
-operator|.
 name|types
 argument_list|(
 name|Strings

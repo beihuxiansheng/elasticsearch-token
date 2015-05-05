@@ -304,12 +304,12 @@ name|HUNSPELL_IGNORE_CASE
 init|=
 literal|"indices.analysis.hunspell.dictionary.ignore_case"
 decl_stmt|;
-DECL|field|HUNSPELL_LOCATION
-specifier|public
+DECL|field|OLD_HUNSPELL_LOCATION
+specifier|private
 specifier|final
 specifier|static
 name|String
-name|HUNSPELL_LOCATION
+name|OLD_HUNSPELL_LOCATION
 init|=
 literal|"indices.analysis.hunspell.dictionary.location"
 decl_stmt|;
@@ -563,7 +563,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-name|HUNSPELL_LOCATION
+name|OLD_HUNSPELL_LOCATION
 argument_list|,
 literal|null
 argument_list|)
@@ -575,14 +575,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-return|return
-name|PathUtils
-operator|.
-name|get
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-name|location
+literal|"please, put your hunspell dictionaries under config/hunspell !"
 argument_list|)
-return|;
+throw|;
 block|}
 return|return
 name|env

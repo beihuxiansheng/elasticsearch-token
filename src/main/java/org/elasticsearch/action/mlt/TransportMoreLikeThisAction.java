@@ -922,11 +922,6 @@ name|routing
 argument_list|()
 argument_list|)
 operator|.
-name|listenerThreaded
-argument_list|(
-literal|true
-argument_list|)
-operator|.
 name|operationThreaded
 argument_list|(
 literal|true
@@ -1438,14 +1433,6 @@ argument_list|(
 name|request
 operator|.
 name|searchScroll
-argument_list|()
-argument_list|)
-operator|.
-name|listenerThreaded
-argument_list|(
-name|request
-operator|.
-name|listenerThreaded
 argument_list|()
 argument_list|)
 decl_stmt|;

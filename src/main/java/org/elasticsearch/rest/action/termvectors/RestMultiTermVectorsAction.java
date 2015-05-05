@@ -317,13 +317,6 @@ operator|new
 name|MultiTermVectorsRequest
 argument_list|()
 decl_stmt|;
-name|multiTermVectorsRequest
-operator|.
-name|listenerThreaded
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|TermVectorsRequest
 name|template
 init|=

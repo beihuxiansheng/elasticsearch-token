@@ -43,11 +43,6 @@ DECL|interface|ElasticsearchClient
 specifier|public
 interface|interface
 name|ElasticsearchClient
-parameter_list|<
-name|Client
-extends|extends
-name|ElasticsearchClient
-parameter_list|>
 block|{
 comment|/**      * Executes a generic action, denoted by an {@link org.elasticsearch.action.Action}.      *      * @param action           The action type to execute.      * @param request          The action request.      * @param<Request>        The request type.      * @param<Response>       the response type.      * @param<RequestBuilder> The request builder type.      * @return A future allowing to get back the response.      */
 DECL|method|execute
@@ -69,8 +64,6 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 parameter_list|>
 name|ActionFuture
@@ -87,8 +80,6 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 name|action
 parameter_list|,
@@ -117,8 +108,6 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 parameter_list|>
 name|void
@@ -132,8 +121,6 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 name|action
 parameter_list|,
@@ -168,8 +155,6 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 parameter_list|>
 name|RequestBuilder
@@ -183,8 +168,6 @@ argument_list|,
 name|Response
 argument_list|,
 name|RequestBuilder
-argument_list|,
-name|Client
 argument_list|>
 name|action
 parameter_list|)

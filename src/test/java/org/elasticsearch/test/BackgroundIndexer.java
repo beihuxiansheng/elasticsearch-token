@@ -944,10 +944,6 @@ name|toString
 argument_list|(
 name|id
 argument_list|)
-operator|+
-literal|"-"
-operator|+
-name|indexerId
 argument_list|)
 operator|.
 name|setSource

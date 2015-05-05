@@ -674,34 +674,6 @@ name|index
 operator|.
 name|translog
 operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
 name|TranslogService
 import|;
 end_import
@@ -1188,16 +1160,6 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// inject workarounds for cyclic dep
-name|indexCache
-operator|.
-name|filter
-argument_list|()
-operator|.
-name|setIndexService
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 name|indexFieldData
 operator|.
 name|setIndexService
@@ -2080,17 +2042,6 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TranslogModule
-argument_list|(
-name|indexSettings
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-operator|new
 name|IndexShardGatewayModule
 argument_list|()
 argument_list|)
@@ -2545,7 +2496,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// now we can close the translog service, we need to close it before the we close the shard
-name|closeInjectorResource
+comment|// note the that the translog service is not there for shadow replicas
+name|closeInjectorOptionalResource
 argument_list|(
 name|sId
 argument_list|,
@@ -2629,10 +2581,6 @@ operator|.
 name|class
 argument_list|,
 name|IndexShardGatewayService
-operator|.
-name|class
-argument_list|,
-name|Translog
 operator|.
 name|class
 argument_list|,
@@ -2729,6 +2677,58 @@ range|:
 name|toClose
 control|)
 block|{
+if|if
+condition|(
+name|closeInjectorOptionalResource
+argument_list|(
+name|shardId
+argument_list|,
+name|shardInjector
+argument_list|,
+name|closeable
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] no instance available for [{}], ignoring... "
+argument_list|,
+name|shardId
+argument_list|,
+name|closeable
+operator|.
+name|getSimpleName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Closes an optional resource. Returns true if the resource was found;      * NOTE: this method swallows all exceptions thrown from the close method of the injector and logs them as debug log      */
+DECL|method|closeInjectorOptionalResource
+specifier|private
+name|boolean
+name|closeInjectorOptionalResource
+parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
+name|Injector
+name|shardInjector
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Closeable
+argument_list|>
+name|toClose
+parameter_list|)
+block|{
 try|try
 block|{
 specifier|final
@@ -2739,7 +2739,7 @@ name|shardInjector
 operator|.
 name|getInstance
 argument_list|(
-name|closeable
+name|toClose
 argument_list|)
 decl_stmt|;
 if|if
@@ -2749,18 +2749,9 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|NullPointerException
-argument_list|(
-literal|"No instance available for "
-operator|+
-name|closeable
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
+return|return
+literal|false
+return|;
 block|}
 name|IOUtils
 operator|.
@@ -2790,7 +2781,7 @@ name|Strings
 operator|.
 name|toUnderscoreCase
 argument_list|(
-name|closeable
+name|toClose
 operator|.
 name|getSimpleName
 argument_list|()
@@ -2798,7 +2789,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|onShardClose
 specifier|private
@@ -2893,7 +2886,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"{} failed to delete shard content - scheduled a retry"
+literal|"[{}] failed to delete shard content - scheduled a retry"
 argument_list|,
 name|e
 argument_list|,
@@ -2976,7 +2969,7 @@ argument_list|(
 name|shardId
 argument_list|)
 operator|:
-literal|"shard Id mismatch, expected: "
+literal|"shard id mismatch, expected: "
 operator|+
 name|shardId
 operator|+
