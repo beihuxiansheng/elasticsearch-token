@@ -454,7 +454,12 @@ name|environment
 init|=
 operator|new
 name|Environment
+argument_list|(
+name|settings
+operator|.
+name|build
 argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// if explicit, just load it and don't load from env
 try|try
