@@ -239,6 +239,8 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TopChildrenQueryParser
 specifier|public
 class|class

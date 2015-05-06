@@ -273,6 +273,8 @@ comment|/**  * A query that evaluates the top matching child documents (based on
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|TopChildrenQuery
 specifier|public
 class|class
