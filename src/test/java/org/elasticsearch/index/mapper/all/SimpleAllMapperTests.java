@@ -3785,17 +3785,6 @@ name|rootTypes
 operator|.
 name|put
 argument_list|(
-name|SourceFieldMapper
-operator|.
-name|NAME
-argument_list|,
-literal|"{\"enabled\" : true}"
-argument_list|)
-expr_stmt|;
-name|rootTypes
-operator|.
-name|put
-argument_list|(
 literal|"include_in_all"
 argument_list|,
 literal|"true"

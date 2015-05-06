@@ -606,6 +606,14 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
+name|reader
+operator|=
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
+expr_stmt|;
+comment|// reader might be wrapped
 name|searcher
 operator|.
 name|setQueryCache
@@ -691,7 +699,7 @@ name|Document
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DirectoryReader
+name|IndexReader
 name|reader2
 init|=
 name|writer
@@ -706,6 +714,14 @@ argument_list|(
 name|reader2
 argument_list|)
 expr_stmt|;
+name|reader2
+operator|=
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
+expr_stmt|;
+comment|// reader might be wrapped
 name|searcher
 operator|.
 name|setQueryCache

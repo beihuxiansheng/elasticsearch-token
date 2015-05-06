@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -78,34 +76,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -125,13 +95,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleFsTranslogFile
+DECL|class|SimpleTranslogFile
 specifier|public
 specifier|final
 class|class
-name|SimpleFsTranslogFile
+name|SimpleTranslogFile
 extends|extends
-name|FsTranslogFile
+name|TranslogFile
 block|{
 DECL|field|operationCounter
 specifier|private
@@ -165,9 +135,9 @@ name|lastSyncPosition
 init|=
 literal|0
 decl_stmt|;
-DECL|method|SimpleFsTranslogFile
+DECL|method|SimpleTranslogFile
 specifier|public
-name|SimpleFsTranslogFile
+name|SimpleTranslogFile
 parameter_list|(
 name|ShardId
 name|shardId
@@ -404,7 +374,7 @@ block|}
 block|}
 DECL|method|immutableReader
 specifier|public
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|immutableReader
 parameter_list|()
 throws|throws
@@ -429,11 +399,11 @@ name|acquire
 argument_list|()
 init|)
 block|{
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 name|reader
 init|=
 operator|new
-name|FsChannelImmutableReader
+name|ChannelImmutableReader
 argument_list|(
 name|this
 operator|.
@@ -550,7 +520,7 @@ specifier|public
 name|void
 name|reuse
 parameter_list|(
-name|FsTranslogFile
+name|TranslogFile
 name|other
 parameter_list|)
 block|{

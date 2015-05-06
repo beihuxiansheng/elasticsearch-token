@@ -122,6 +122,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -507,6 +521,20 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|randomizedtesting
+operator|.
+name|RandomizedTest
+operator|.
+name|systemPropertyAsBoolean
 import|;
 end_import
 
@@ -1029,6 +1057,22 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Locals are buggy on JDK9EA"
+argument_list|,
+name|Constants
+operator|.
+name|JRE_IS_MINIMUM_JAVA9
+operator|&&
+name|systemPropertyAsBoolean
+argument_list|(
+literal|"tests.security.manager"
+argument_list|,
+literal|false
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|String
 name|mapping
 init|=

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -39,20 +37,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
 import|;
 end_import
 
@@ -101,21 +85,21 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * an implementation of {@link org.elasticsearch.index.translog.Translog.Snapshot}, wrapping  * a {@link FsChannelReader}. This class is NOT thread-safe.  */
+comment|/**  * an implementation of {@link org.elasticsearch.index.translog.Translog.Snapshot}, wrapping  * a {@link ChannelReader}. This class is NOT thread-safe.  */
 end_comment
 
 begin_class
-DECL|class|FsChannelSnapshot
+DECL|class|ChannelSnapshot
 specifier|public
 class|class
-name|FsChannelSnapshot
+name|ChannelSnapshot
 implements|implements
 name|Closeable
 block|{
 DECL|field|reader
 specifier|protected
 specifier|final
-name|FsChannelReader
+name|ChannelReader
 name|reader
 decl_stmt|;
 DECL|field|closed
@@ -136,11 +120,11 @@ specifier|protected
 name|long
 name|position
 decl_stmt|;
-DECL|method|FsChannelSnapshot
+DECL|method|ChannelSnapshot
 specifier|public
-name|FsChannelSnapshot
+name|ChannelSnapshot
 parameter_list|(
-name|FsChannelReader
+name|ChannelReader
 name|reader
 parameter_list|)
 block|{

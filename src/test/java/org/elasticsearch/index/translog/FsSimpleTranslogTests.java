@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.translog.fs
+DECL|package|org.elasticsearch.index.translog
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|index
 operator|.
 name|translog
-operator|.
-name|fs
 package|;
 end_package
 
@@ -82,10 +80,10 @@ name|TestLogging
 argument_list|(
 literal|"index.translog.fs:TRACE"
 argument_list|)
-DECL|class|FsBufferedTranslogTests
+DECL|class|FsSimpleTranslogTests
 specifier|public
 class|class
-name|FsBufferedTranslogTests
+name|FsSimpleTranslogTests
 extends|extends
 name|AbstractTranslogTests
 block|{
@@ -93,7 +91,7 @@ annotation|@
 name|Override
 DECL|method|create
 specifier|protected
-name|FsTranslog
+name|Translog
 name|create
 parameter_list|()
 throws|throws
@@ -101,7 +99,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|FsTranslog
+name|Translog
 argument_list|(
 name|shardId
 argument_list|,
@@ -114,28 +112,14 @@ name|put
 argument_list|(
 literal|"index.translog.fs.type"
 argument_list|,
-name|FsTranslogFile
+name|TranslogFile
 operator|.
 name|Type
 operator|.
-name|BUFFERED
+name|SIMPLE
 operator|.
 name|name
 argument_list|()
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"index.translog.fs.buffer_size"
-argument_list|,
-literal|10
-operator|+
-name|randomInt
-argument_list|(
-literal|128
-operator|*
-literal|1024
-argument_list|)
 argument_list|)
 operator|.
 name|build

@@ -540,6 +540,23 @@ literal|"], reason ["
 operator|+
 name|reason
 operator|+
+literal|"], cause ["
+operator|+
+operator|(
+name|cause
+operator|==
+literal|null
+condition|?
+literal|"_na"
+else|:
+name|ExceptionsHelper
+operator|.
+name|stackTrace
+argument_list|(
+name|cause
+argument_list|)
+operator|)
+operator|+
 literal|"]"
 return|;
 block|}
