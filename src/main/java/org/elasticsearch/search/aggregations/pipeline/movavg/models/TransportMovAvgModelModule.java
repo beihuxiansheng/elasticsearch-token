@@ -120,6 +120,13 @@ operator|.
 name|STREAM
 argument_list|)
 expr_stmt|;
+name|registerStream
+argument_list|(
+name|HoltWintersModel
+operator|.
+name|STREAM
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|registerStream
 specifier|public
