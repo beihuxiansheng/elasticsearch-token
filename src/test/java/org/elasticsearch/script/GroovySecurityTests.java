@@ -329,7 +329,7 @@ expr_stmt|;
 comment|// string field access
 name|assertSuccess
 argument_list|(
-literal|"def bar = doc['bar'].value; if (foo == null) { return 5; }"
+literal|"def bar = doc['bar'].value; if (bar == null) { return 5; }"
 argument_list|)
 expr_stmt|;
 comment|// List
