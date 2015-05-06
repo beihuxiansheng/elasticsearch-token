@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.reducers.bucketmetrics.min
+DECL|package|org.elasticsearch.search.aggregations.reducers.bucketmetrics.avg
 package|package
 name|org
 operator|.
@@ -18,9 +18,21 @@ name|reducers
 operator|.
 name|bucketmetrics
 operator|.
-name|min
+name|avg
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Nullable
+import|;
+end_import
 
 begin_import
 import|import
@@ -52,7 +64,9 @@ name|aggregations
 operator|.
 name|reducers
 operator|.
-name|ReducerFactory
+name|bucketmetrics
+operator|.
+name|BucketMetricsParser
 import|;
 end_import
 
@@ -68,9 +82,7 @@ name|aggregations
 operator|.
 name|reducers
 operator|.
-name|bucketmetrics
-operator|.
-name|BucketMetricsParser
+name|ReducerFactory
 import|;
 end_import
 
@@ -93,10 +105,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|MinBucketParser
+DECL|class|AvgBucketParser
 specifier|public
 class|class
-name|MinBucketParser
+name|AvgBucketParser
 extends|extends
 name|BucketMetricsParser
 block|{
@@ -109,7 +121,7 @@ name|type
 parameter_list|()
 block|{
 return|return
-name|MinBucketReducer
+name|AvgBucketReducer
 operator|.
 name|TYPE
 operator|.
@@ -117,6 +129,8 @@ name|name
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|buildFactory
 specifier|protected
 name|ReducerFactory
@@ -132,13 +146,15 @@ parameter_list|,
 name|GapPolicy
 name|gapPolicy
 parameter_list|,
+annotation|@
+name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)
 block|{
 return|return
 operator|new
-name|MinBucketReducer
+name|AvgBucketReducer
 operator|.
 name|Factory
 argument_list|(
@@ -152,7 +168,6 @@ name|formatter
 argument_list|)
 return|;
 block|}
-empty_stmt|;
 block|}
 end_class
 

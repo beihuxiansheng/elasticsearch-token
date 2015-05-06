@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.reducers.bucketmetrics.min
+DECL|package|org.elasticsearch.search.aggregations.reducers.bucketmetrics.avg
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|reducers
 operator|.
 name|bucketmetrics
 operator|.
-name|min
+name|avg
 package|;
 end_package
 
@@ -41,19 +41,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|MinBucketBuilder
+DECL|class|AvgBucketBuilder
 specifier|public
 class|class
-name|MinBucketBuilder
+name|AvgBucketBuilder
 extends|extends
 name|BucketMetricsBuilder
 argument_list|<
-name|MinBucketBuilder
+name|AvgBucketBuilder
 argument_list|>
 block|{
-DECL|method|MinBucketBuilder
+DECL|method|AvgBucketBuilder
 specifier|public
-name|MinBucketBuilder
+name|AvgBucketBuilder
 parameter_list|(
 name|String
 name|name
@@ -63,7 +63,7 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|MinBucketReducer
+name|AvgBucketReducer
 operator|.
 name|TYPE
 operator|.
