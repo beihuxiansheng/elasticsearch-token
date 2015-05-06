@@ -4592,9 +4592,6 @@ expr_stmt|;
 name|ensureClusterStateConsistency
 argument_list|()
 expr_stmt|;
-name|cluster
-argument_list|()
-operator|.
 name|beforeIndexDeletion
 argument_list|()
 expr_stmt|;
@@ -4671,6 +4668,19 @@ comment|// TODO: just let the exception happen, WTF is all this horseshit
 comment|// afterTestRule.forceFailure();
 block|}
 block|}
+block|}
+DECL|method|beforeIndexDeletion
+specifier|protected
+name|void
+name|beforeIndexDeletion
+parameter_list|()
+block|{
+name|cluster
+argument_list|()
+operator|.
+name|beforeIndexDeletion
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|cluster
 specifier|public

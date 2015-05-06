@@ -332,6 +332,14 @@ literal|200
 decl_stmt|;
 annotation|@
 name|Override
+DECL|method|beforeIndexDeletion
+specifier|protected
+name|void
+name|beforeIndexDeletion
+parameter_list|()
+block|{     }
+annotation|@
+name|Override
 DECL|method|nodeSettings
 specifier|protected
 name|Settings
