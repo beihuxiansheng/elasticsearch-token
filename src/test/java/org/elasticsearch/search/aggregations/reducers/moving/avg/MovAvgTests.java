@@ -260,7 +260,7 @@ name|movavg
 operator|.
 name|models
 operator|.
-name|DoubleExpModel
+name|HoltLinearModel
 import|;
 end_import
 
@@ -340,7 +340,7 @@ name|movavg
 operator|.
 name|models
 operator|.
-name|SingleExpModel
+name|EwmaModel
 import|;
 end_import
 
@@ -727,8 +727,8 @@ name|MovAvgType
 block|{
 DECL|enum constant|SIMPLE
 DECL|enum constant|LINEAR
-DECL|enum constant|SINGLE
-DECL|enum constant|DOUBLE
+DECL|enum constant|EWMA
+DECL|enum constant|HOLT
 name|SIMPLE
 argument_list|(
 literal|"simple"
@@ -739,14 +739,14 @@ argument_list|(
 literal|"linear"
 argument_list|)
 block|,
-name|SINGLE
+name|EWMA
 argument_list|(
-literal|"single"
+literal|"ewma"
 argument_list|)
 block|,
-name|DOUBLE
+name|HOLT
 argument_list|(
-literal|"double"
+literal|"holt"
 argument_list|)
 block|;
 DECL|field|name
@@ -1336,13 +1336,13 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|SINGLE
+name|EWMA
 case|:
 name|values
 operator|.
 name|add
 argument_list|(
-name|singleExp
+name|ewma
 argument_list|(
 name|window
 argument_list|)
@@ -1350,13 +1350,13 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|DOUBLE
+name|HOLT
 case|:
 name|values
 operator|.
 name|add
 argument_list|(
-name|doubleExp
+name|holt
 argument_list|(
 name|window
 argument_list|)
@@ -1484,11 +1484,11 @@ operator|/
 name|totalWeight
 return|;
 block|}
-comment|/**      * Single exponential moving avg      *      * @param window Window of values to compute movavg for      * @return      */
-DECL|method|singleExp
+comment|/**      * Exponentionally weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      * @return      */
+DECL|method|ewma
 specifier|private
 name|double
-name|singleExp
+name|ewma
 parameter_list|(
 name|Collection
 argument_list|<
@@ -1555,11 +1555,11 @@ return|return
 name|avg
 return|;
 block|}
-comment|/**      * Double exponential moving avg      * @param window Window of values to compute movavg for      * @return      */
-DECL|method|doubleExp
+comment|/**      * Holt-Linear (Double exponential) moving avg      * @param window Window of values to compute movavg for      * @return      */
+DECL|method|holt
 specifier|private
 name|double
-name|doubleExp
+name|holt
 parameter_list|(
 name|Collection
 argument_list|<
@@ -2534,10 +2534,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|singleSingleValuedField
+DECL|method|ewmaSingleValuedField
 specifier|public
 name|void
-name|singleSingleValuedField
+name|ewmaSingleValuedField
 parameter_list|()
 block|{
 name|SearchResponse
@@ -2611,9 +2611,9 @@ operator|.
 name|modelBuilder
 argument_list|(
 operator|new
-name|SingleExpModel
+name|EwmaModel
 operator|.
-name|SingleExpModelBuilder
+name|EWMAModelBuilder
 argument_list|()
 operator|.
 name|alpha
@@ -2648,9 +2648,9 @@ operator|.
 name|modelBuilder
 argument_list|(
 operator|new
-name|SingleExpModel
+name|EwmaModel
 operator|.
-name|SingleExpModelBuilder
+name|EWMAModelBuilder
 argument_list|()
 operator|.
 name|alpha
@@ -2762,7 +2762,7 @@ name|get
 argument_list|(
 name|MovAvgType
 operator|.
-name|SINGLE
+name|EWMA
 operator|.
 name|toString
 argument_list|()
@@ -2789,7 +2789,7 @@ name|get
 argument_list|(
 name|MovAvgType
 operator|.
-name|SINGLE
+name|EWMA
 operator|.
 name|toString
 argument_list|()
@@ -2965,10 +2965,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|doubleSingleValuedField
+DECL|method|holtSingleValuedField
 specifier|public
 name|void
-name|doubleSingleValuedField
+name|holtSingleValuedField
 parameter_list|()
 block|{
 name|SearchResponse
@@ -3042,9 +3042,9 @@ operator|.
 name|modelBuilder
 argument_list|(
 operator|new
-name|DoubleExpModel
+name|HoltLinearModel
 operator|.
-name|DoubleExpModelBuilder
+name|HoltLinearModelBuilder
 argument_list|()
 operator|.
 name|alpha
@@ -3084,9 +3084,9 @@ operator|.
 name|modelBuilder
 argument_list|(
 operator|new
-name|DoubleExpModel
+name|HoltLinearModel
 operator|.
-name|DoubleExpModelBuilder
+name|HoltLinearModelBuilder
 argument_list|()
 operator|.
 name|alpha
@@ -3203,7 +3203,7 @@ name|get
 argument_list|(
 name|MovAvgType
 operator|.
-name|DOUBLE
+name|HOLT
 operator|.
 name|toString
 argument_list|()
@@ -3230,7 +3230,7 @@ name|get
 argument_list|(
 name|MovAvgType
 operator|.
-name|DOUBLE
+name|HOLT
 operator|.
 name|toString
 argument_list|()
@@ -4712,7 +4712,7 @@ name|SKIP
 argument_list|)
 condition|)
 block|{
-comment|// if we are ignoring, movavg could go up (double_exp) or stay the same (simple, linear, single_exp)
+comment|// if we are ignoring, movavg could go up (holt) or stay the same (simple, linear, ewma)
 name|assertThat
 argument_list|(
 name|Double
@@ -5121,7 +5121,7 @@ name|SKIP
 argument_list|)
 condition|)
 block|{
-comment|// if we are ignoring, movavg could go up (double_exp) or stay the same (simple, linear, single_exp)
+comment|// if we are ignoring, movavg could go up (holt) or stay the same (simple, linear, ewma)
 name|assertThat
 argument_list|(
 name|Double
@@ -6938,9 +6938,9 @@ literal|2
 case|:
 return|return
 operator|new
-name|SingleExpModel
+name|EwmaModel
 operator|.
-name|SingleExpModelBuilder
+name|EWMAModelBuilder
 argument_list|()
 operator|.
 name|alpha
@@ -6953,9 +6953,9 @@ literal|3
 case|:
 return|return
 operator|new
-name|DoubleExpModel
+name|HoltLinearModel
 operator|.
-name|DoubleExpModelBuilder
+name|HoltLinearModelBuilder
 argument_list|()
 operator|.
 name|alpha

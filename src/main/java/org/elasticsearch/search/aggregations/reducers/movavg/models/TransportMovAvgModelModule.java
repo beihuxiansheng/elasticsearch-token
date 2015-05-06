@@ -108,14 +108,14 @@ argument_list|)
 expr_stmt|;
 name|registerStream
 argument_list|(
-name|SingleExpModel
+name|EwmaModel
 operator|.
 name|STREAM
 argument_list|)
 expr_stmt|;
 name|registerStream
 argument_list|(
-name|DoubleExpModel
+name|HoltLinearModel
 operator|.
 name|STREAM
 argument_list|)
