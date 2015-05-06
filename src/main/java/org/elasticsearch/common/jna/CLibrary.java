@@ -160,12 +160,12 @@ name|int
 name|flags
 parameter_list|)
 function_decl|;
-DECL|method|munlockall
+DECL|method|geteuid
 specifier|public
 specifier|static
 specifier|native
 name|int
-name|munlockall
+name|geteuid
 parameter_list|()
 function_decl|;
 DECL|method|CLibrary
