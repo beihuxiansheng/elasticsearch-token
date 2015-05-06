@@ -300,6 +300,10 @@ argument_list|(
 literal|"foo"
 argument_list|,
 literal|5
+argument_list|,
+literal|"bar"
+argument_list|,
+literal|"baz"
 argument_list|)
 operator|.
 name|setRefresh
@@ -314,6 +318,18 @@ comment|// Plain test
 name|assertSuccess
 argument_list|(
 literal|""
+argument_list|)
+expr_stmt|;
+comment|// numeric field access
+name|assertSuccess
+argument_list|(
+literal|"def foo = doc['foo'].value; if (foo == null) { return 5; }"
+argument_list|)
+expr_stmt|;
+comment|// string field access
+name|assertSuccess
+argument_list|(
+literal|"def bar = doc['bar'].value; if (foo == null) { return 5; }"
 argument_list|)
 expr_stmt|;
 comment|// List
