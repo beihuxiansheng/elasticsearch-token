@@ -711,6 +711,12 @@ specifier|final
 name|DynamicSettings
 name|dynamicSettings
 decl_stmt|;
+DECL|field|metaDataIndexUpgradeService
+specifier|private
+specifier|final
+name|MetaDataIndexUpgradeService
+name|metaDataIndexUpgradeService
+decl_stmt|;
 DECL|field|listeners
 specifier|private
 specifier|final
@@ -756,6 +762,9 @@ annotation|@
 name|ClusterDynamicSettings
 name|DynamicSettings
 name|dynamicSettings
+parameter_list|,
+name|MetaDataIndexUpgradeService
+name|metaDataIndexUpgradeService
 parameter_list|)
 block|{
 name|super
@@ -798,6 +807,12 @@ operator|.
 name|dynamicSettings
 operator|=
 name|dynamicSettings
+expr_stmt|;
+name|this
+operator|.
+name|metaDataIndexUpgradeService
+operator|=
+name|metaDataIndexUpgradeService
 expr_stmt|;
 name|transportService
 operator|.
@@ -1202,6 +1217,40 @@ operator|.
 name|ignoreIndexSettings
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|snapshotIndexMetaData
+operator|=
+name|metaDataIndexUpgradeService
+operator|.
+name|upgradeIndexMetaData
+argument_list|(
+name|snapshotIndexMetaData
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|SnapshotRestoreException
+argument_list|(
+name|snapshotId
+argument_list|,
+literal|"cannot restore index ["
+operator|+
+name|index
+operator|+
+literal|"] because it cannot be upgraded"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 comment|// Check that the index is closed or doesn't exist
 name|IndexMetaData
 name|currentIndexMetaData
