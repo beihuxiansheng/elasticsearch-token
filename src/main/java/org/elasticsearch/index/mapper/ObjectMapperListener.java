@@ -48,13 +48,19 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 
 begin_class
 DECL|class|ObjectMapperListener
@@ -120,8 +126,10 @@ specifier|public
 name|void
 name|objectMappers
 parameter_list|(
+name|Collection
+argument_list|<
 name|ObjectMapper
-modifier|...
+argument_list|>
 name|objectMappers
 parameter_list|)
 block|{
