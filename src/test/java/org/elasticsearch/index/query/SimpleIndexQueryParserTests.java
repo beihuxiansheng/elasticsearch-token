@@ -17007,10 +17007,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testMLTPercentTermsToMatch
+DECL|method|testMLTMinimumShouldMatch
 specifier|public
 name|void
-name|testMLTPercentTermsToMatch
+name|testMLTMinimumShouldMatch
 parameter_list|()
 throws|throws
 name|Exception
