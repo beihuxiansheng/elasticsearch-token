@@ -1156,32 +1156,6 @@ name|MoreLikeThisQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Constructs a new scoring child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type  The child type.      * @param query The query.      */
-annotation|@
-name|Deprecated
-DECL|method|topChildrenQuery
-specifier|public
-specifier|static
-name|TopChildrenQueryBuilder
-name|topChildrenQuery
-parameter_list|(
-name|String
-name|type
-parameter_list|,
-name|QueryBuilder
-name|query
-parameter_list|)
-block|{
-return|return
-operator|new
-name|TopChildrenQueryBuilder
-argument_list|(
-name|type
-argument_list|,
-name|query
-argument_list|)
-return|;
-block|}
 comment|/**      * Constructs a new NON scoring child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type  The child type.      * @param query The query.      */
 DECL|method|hasChildQuery
 specifier|public
