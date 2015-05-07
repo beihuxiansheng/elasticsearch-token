@@ -506,8 +506,6 @@ operator|.
 name|Bytes
 operator|.
 name|WithOrdinals
-operator|.
-name|FieldData
 operator|)
 name|valuesSource
 argument_list|,
@@ -808,8 +806,6 @@ operator|.
 name|Bytes
 operator|.
 name|WithOrdinals
-operator|.
-name|FieldData
 operator|)
 name|valuesSource
 argument_list|,
