@@ -86,11 +86,11 @@ specifier|public
 enum|enum
 name|MapperUtils
 block|{     ;
-DECL|method|newStrictMergeContext
+DECL|method|newStrictMergeResult
 specifier|private
 specifier|static
 name|MergeResult
-name|newStrictMergeContext
+name|newStrictMergeResult
 parameter_list|()
 block|{
 return|return
@@ -129,6 +129,24 @@ annotation|@
 name|Override
 specifier|public
 name|void
+name|addFieldMappers
+parameter_list|(
+name|Collection
+argument_list|<
+name|FieldMapper
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|fieldMappers
+parameter_list|)
+block|{
+comment|// no-op
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
 name|addObjectMappers
 parameter_list|(
 name|Collection
@@ -143,9 +161,6 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|void
-name|addFieldMappers
-parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
@@ -153,10 +168,34 @@ argument_list|<
 name|?
 argument_list|>
 argument_list|>
-name|fieldMappers
-parameter_list|)
+name|getNewFieldMappers
+parameter_list|()
 block|{
-comment|// no-op
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Strict merge result does not support new field mappers"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|Collection
+argument_list|<
+name|ObjectMapper
+argument_list|>
+name|getNewObjectMappers
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Strict merge result does not support new object mappers"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override
@@ -201,7 +240,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|newStrictMergeContext
+name|newStrictMergeResult
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -226,7 +265,7 @@ name|merge
 argument_list|(
 name|mergeWith
 argument_list|,
-name|newStrictMergeContext
+name|newStrictMergeResult
 argument_list|()
 argument_list|)
 expr_stmt|;
