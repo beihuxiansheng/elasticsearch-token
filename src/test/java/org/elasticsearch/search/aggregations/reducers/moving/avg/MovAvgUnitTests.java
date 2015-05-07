@@ -775,10 +775,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testSingleExpMovAvgModel
+DECL|method|testEWMAMovAvgModel
 specifier|public
 name|void
-name|testSingleExpMovAvgModel
+name|testEWMAMovAvgModel
 parameter_list|()
 block|{
 name|double
@@ -791,7 +791,7 @@ name|MovAvgModel
 name|model
 init|=
 operator|new
-name|SingleExpModel
+name|EwmaModel
 argument_list|(
 name|alpha
 argument_list|)
@@ -947,10 +947,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testSinglePredictionModel
+DECL|method|testEWMAPredictionModel
 specifier|public
 name|void
-name|testSinglePredictionModel
+name|testEWMAPredictionModel
 parameter_list|()
 block|{
 name|double
@@ -963,7 +963,7 @@ name|MovAvgModel
 name|model
 init|=
 operator|new
-name|SingleExpModel
+name|EwmaModel
 argument_list|(
 name|alpha
 argument_list|)
@@ -1177,10 +1177,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testDoubleExpMovAvgModel
+DECL|method|testHoltLinearMovAvgModel
 specifier|public
 name|void
-name|testDoubleExpMovAvgModel
+name|testHoltLinearMovAvgModel
 parameter_list|()
 block|{
 name|double
@@ -1199,7 +1199,7 @@ name|MovAvgModel
 name|model
 init|=
 operator|new
-name|DoubleExpModel
+name|HoltLinearModel
 argument_list|(
 name|alpha
 argument_list|,
@@ -1420,10 +1420,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testDoublePredictionModel
+DECL|method|testHoltLinearPredictionModel
 specifier|public
 name|void
-name|testDoublePredictionModel
+name|testHoltLinearPredictionModel
 parameter_list|()
 block|{
 name|double
@@ -1442,7 +1442,7 @@ name|MovAvgModel
 name|model
 init|=
 operator|new
-name|DoubleExpModel
+name|HoltLinearModel
 argument_list|(
 name|alpha
 argument_list|,

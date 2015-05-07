@@ -257,6 +257,14 @@ extends|extends
 name|ElasticsearchIntegrationTest
 block|{
 annotation|@
+name|Override
+DECL|method|beforeIndexDeletion
+specifier|protected
+name|void
+name|beforeIndexDeletion
+parameter_list|()
+block|{     }
+annotation|@
 name|Test
 DECL|method|testRiverStart
 specifier|public
