@@ -870,22 +870,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|fs
-operator|.
-name|FsTranslog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|DummyShardLock
@@ -1814,7 +1798,7 @@ return|;
 block|}
 DECL|method|createTranslog
 specifier|protected
-name|FsTranslog
+name|Translog
 name|createTranslog
 parameter_list|()
 throws|throws
@@ -1829,7 +1813,7 @@ return|;
 block|}
 DECL|method|createTranslog
 specifier|protected
-name|FsTranslog
+name|Translog
 name|createTranslog
 parameter_list|(
 name|Path
@@ -1840,7 +1824,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|FsTranslog
+name|Translog
 argument_list|(
 name|shardId
 argument_list|,
@@ -1856,7 +1840,7 @@ return|;
 block|}
 DECL|method|createTranslogReplica
 specifier|protected
-name|FsTranslog
+name|Translog
 name|createTranslogReplica
 parameter_list|()
 throws|throws
@@ -13786,7 +13770,7 @@ name|close
 argument_list|()
 expr_stmt|;
 comment|// fake a new translog, causing the engine to point to a missing one.
-name|FsTranslog
+name|Translog
 name|translog
 init|=
 name|createTranslog

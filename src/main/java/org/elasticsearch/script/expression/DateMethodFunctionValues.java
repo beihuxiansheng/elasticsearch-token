@@ -131,7 +131,7 @@ name|TimeZone
 operator|.
 name|getTimeZone
 argument_list|(
-literal|"GMT"
+literal|"UTC"
 argument_list|)
 argument_list|,
 name|Locale

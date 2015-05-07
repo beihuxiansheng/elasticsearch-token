@@ -198,6 +198,13 @@ specifier|final
 name|Path
 name|logsFile
 decl_stmt|;
+comment|/** Path to the PID file (can be null if no PID file is configured) **/
+DECL|field|pidFile
+specifier|private
+specifier|final
+name|Path
+name|pidFile
+decl_stmt|;
 comment|/** List of filestores on the system */
 DECL|field|fileStores
 specifier|private
@@ -586,6 +593,43 @@ literal|"logs"
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"pidfile"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|pidFile
+operator|=
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|cleanPath
+argument_list|(
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"pidfile"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|pidFile
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 comment|/**      * The settings used to build this environment.      */
 DECL|method|settings
@@ -664,6 +708,17 @@ parameter_list|()
 block|{
 return|return
 name|logsFile
+return|;
+block|}
+comment|/**      * The PID file location (can be null if no PID file is configured)      */
+DECL|method|pidFile
+specifier|public
+name|Path
+name|pidFile
+parameter_list|()
+block|{
+return|return
+name|pidFile
 return|;
 block|}
 comment|/**      * Looks up the filestore associated with a Path.      *<p>      * This is an enhanced version of {@link Files#getFileStore(Path)}:      *<ul>      *<li>On *nix systems, the store returned for the root filesystem will contain      *       the actual filesystem type (e.g. {@code ext4}) instead of {@code rootfs}.      *<li>On some systems, the custom attribute {@code lucene:spins} is supported      *       via the {@link FileStore#getAttribute(String)} method.      *<li>Only requires the security permissions of {@link Files#getFileStore(Path)},      *       no permissions to the actual mount point are required.      *<li>Exception handling has the same semantics as {@link Files#getFileStore(Path)}.      *</ul>      */

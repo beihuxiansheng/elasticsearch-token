@@ -1469,13 +1469,6 @@ name|startsWith
 argument_list|(
 literal|"_2"
 argument_list|)
-operator|||
-name|file
-operator|.
-name|startsWith
-argument_list|(
-literal|"extra"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -351,38 +351,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// if we are serializing to a node that is pre 1.3.3, make sure to pass null to maintain
-comment|// the old behavior of putting null in the request to be ignored on the replicas
-if|if
-condition|(
-name|item
-operator|.
-name|isIgnoreOnReplica
-argument_list|()
-operator|&&
-name|out
-operator|.
-name|getVersion
-argument_list|()
-operator|.
-name|before
-argument_list|(
-name|Version
-operator|.
-name|V_1_3_3
-argument_list|)
-condition|)
-block|{
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|out
 operator|.
 name|writeBoolean
@@ -397,7 +365,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{

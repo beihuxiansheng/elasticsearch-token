@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|// TODO: move this test...it doesn't need to be by itself
 end_comment
 
 begin_class
@@ -134,14 +134,14 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"_source"
+literal|"_index"
 argument_list|)
 operator|.
 name|field
 argument_list|(
 literal|"enabled"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|endObject
@@ -199,7 +199,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|sourceMapper
+name|indexMapper
 argument_list|()
 operator|.
 name|enabled
@@ -207,7 +207,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -237,7 +237,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|sourceMapper
+name|indexMapper
 argument_list|()
 operator|.
 name|enabled
@@ -245,7 +245,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -318,9 +318,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|fs
-operator|.
-name|FsTranslog
+name|Translog
 import|;
 end_import
 
@@ -526,7 +524,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|FsTranslog
+name|Translog
 operator|.
 name|INDEX_TRANSLOG_FS_TYPE
 argument_list|)
@@ -1154,6 +1152,15 @@ argument_list|(
 name|TranslogService
 operator|.
 name|INDEX_TRANSLOG_DISABLE_FLUSH
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
+name|Translog
+operator|.
+name|INDEX_TRANSLOG_DURABILITY
 argument_list|)
 expr_stmt|;
 name|indexDynamicSettings

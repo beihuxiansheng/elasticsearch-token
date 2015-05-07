@@ -16,22 +16,6 @@ name|engine
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|fs
-operator|.
-name|FsTranslog
-import|;
-end_import
-
 begin_comment
 comment|/**  * Simple Engine Factory  */
 end_comment

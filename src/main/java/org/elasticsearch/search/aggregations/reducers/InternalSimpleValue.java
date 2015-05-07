@@ -306,9 +306,10 @@ name|double
 name|value
 decl_stmt|;
 DECL|method|InternalSimpleValue
+specifier|protected
 name|InternalSimpleValue
 parameter_list|()
-block|{}
+block|{     }
 comment|// for serialization
 DECL|method|InternalSimpleValue
 specifier|public

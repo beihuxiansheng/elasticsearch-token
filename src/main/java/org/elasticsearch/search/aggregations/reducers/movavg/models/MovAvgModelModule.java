@@ -131,7 +131,7 @@ argument_list|)
 expr_stmt|;
 name|registerParser
 argument_list|(
-name|SingleExpModel
+name|EwmaModel
 operator|.
 name|SingleExpModelParser
 operator|.
@@ -140,7 +140,7 @@ argument_list|)
 expr_stmt|;
 name|registerParser
 argument_list|(
-name|DoubleExpModel
+name|HoltLinearModel
 operator|.
 name|DoubleExpModelParser
 operator|.
