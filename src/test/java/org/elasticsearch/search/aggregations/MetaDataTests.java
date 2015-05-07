@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntOpenHashMap
+name|IntIntHashMap
 import|;
 end_import
 
@@ -233,7 +233,7 @@ name|IntIntMap
 name|values
 init|=
 operator|new
-name|IntIntOpenHashMap
+name|IntIntHashMap
 argument_list|()
 decl_stmt|;
 name|long

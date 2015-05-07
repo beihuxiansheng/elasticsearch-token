@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -1128,7 +1128,7 @@ argument_list|(
 literal|null
 argument_list|)
 decl_stmt|;
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1136,9 +1136,9 @@ name|TypeBuilder
 argument_list|>
 name|typeBuilders
 init|=
-name|ObjectObjectOpenHashMap
-operator|.
-name|newInstance
+operator|new
+name|ObjectObjectHashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 try|try

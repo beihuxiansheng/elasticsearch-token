@@ -38,7 +38,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -1291,11 +1291,11 @@ name|i
 argument_list|)
 expr_stmt|;
 block|}
-name|IntOpenHashSet
+name|IntHashSet
 name|filteredOrDeletedDocs
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 name|int
@@ -1313,7 +1313,7 @@ argument_list|,
 name|numUniqueChildValues
 argument_list|)
 decl_stmt|;
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1327,7 +1327,7 @@ argument_list|>
 name|childValueToParentIds
 init|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1710,8 +1710,10 @@ name|parentIdToChildScores
 operator|=
 name|childValueToParentIds
 operator|.
-name|lget
-argument_list|()
+name|get
+argument_list|(
+name|childValue
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2433,8 +2435,10 @@ name|parentIdToChildScores
 init|=
 name|childValueToParentIds
 operator|.
-name|lget
-argument_list|()
+name|get
+argument_list|(
+name|childValue
+argument_list|)
 decl_stmt|;
 name|TermsEnum
 name|termsEnum

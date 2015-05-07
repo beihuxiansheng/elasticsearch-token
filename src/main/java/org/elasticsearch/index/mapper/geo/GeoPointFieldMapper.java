@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -5009,7 +5009,7 @@ block|}
 DECL|field|points
 specifier|private
 specifier|final
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|GeoPoint
 argument_list|>
@@ -5037,7 +5037,7 @@ expr_stmt|;
 name|points
 operator|=
 operator|new
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<>
 argument_list|(
 literal|2

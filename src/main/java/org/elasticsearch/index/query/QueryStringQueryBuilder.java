@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 import|;
 end_import
 
@@ -244,7 +244,7 @@ name|fields
 decl_stmt|;
 DECL|field|fieldsBoosts
 specifier|private
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -408,7 +408,7 @@ block|{
 name|fieldsBoosts
 operator|=
 operator|new
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

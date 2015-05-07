@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 import|;
 end_import
 
@@ -636,7 +636,7 @@ name|defaultRescoreWindowSize
 decl_stmt|;
 DECL|field|indexBoost
 specifier|private
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -2227,7 +2227,7 @@ operator|.
 name|indexBoost
 operator|=
 operator|new
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -3013,15 +3013,15 @@ argument_list|(
 literal|"indices_boost"
 argument_list|)
 expr_stmt|;
-specifier|final
-name|boolean
-index|[]
-name|states
-init|=
+assert|assert
+operator|!
 name|indexBoost
 operator|.
-name|allocated
-decl_stmt|;
+name|containsKey
+argument_list|(
+literal|null
+argument_list|)
+assert|;
 specifier|final
 name|Object
 index|[]
@@ -3049,7 +3049,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|states
+name|keys
 operator|.
 name|length
 condition|;
@@ -3059,10 +3059,12 @@ control|)
 block|{
 if|if
 condition|(
-name|states
+name|keys
 index|[
 name|i
 index|]
+operator|!=
+literal|null
 condition|)
 block|{
 name|builder

@@ -24,9 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|hash
-operator|.
-name|MurmurHash3
+name|BitMixer
 import|;
 end_import
 
@@ -92,9 +90,9 @@ block|{
 comment|// Don't use the value directly. Under some cases eg dates, it could be that the low bits don't carry much value and we would like
 comment|// all bits of the hash to carry as much value
 return|return
-name|MurmurHash3
+name|BitMixer
 operator|.
-name|hash
+name|mix64
 argument_list|(
 name|value
 argument_list|)

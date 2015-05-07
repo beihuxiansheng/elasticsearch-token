@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -833,7 +833,7 @@ argument_list|>
 name|results
 parameter_list|)
 block|{
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|Term
 argument_list|,
@@ -846,7 +846,7 @@ operator|.
 name|newNoNullKeysMap
 argument_list|()
 decl_stmt|;
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -1045,11 +1045,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-specifier|final
-name|boolean
-index|[]
-name|states
-init|=
+assert|assert
+operator|!
 name|lEntry
 operator|.
 name|value
@@ -1057,8 +1054,11 @@ operator|.
 name|fieldStatistics
 argument_list|()
 operator|.
-name|allocated
-decl_stmt|;
+name|containsKey
+argument_list|(
+literal|null
+argument_list|)
+assert|;
 specifier|final
 name|Object
 index|[]
@@ -1096,7 +1096,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|states
+name|keys
 operator|.
 name|length
 condition|;
@@ -1106,10 +1106,12 @@ control|)
 block|{
 if|if
 condition|(
-name|states
+name|keys
 index|[
 name|i
 index|]
+operator|!=
+literal|null
 condition|)
 block|{
 name|String

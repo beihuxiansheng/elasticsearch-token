@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -1708,11 +1708,11 @@ condition|)
 block|{
 return|return;
 block|}
-name|IntOpenHashSet
+name|IntHashSet
 name|newShardIds
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 for|for

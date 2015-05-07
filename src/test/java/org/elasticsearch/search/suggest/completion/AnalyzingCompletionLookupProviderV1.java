@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -1860,7 +1860,7 @@ name|sizeInBytes
 init|=
 literal|0
 decl_stmt|;
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1884,7 +1884,7 @@ block|{
 name|completionFields
 operator|=
 operator|new
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<>
 argument_list|(
 name|fields

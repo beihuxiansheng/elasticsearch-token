@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -332,7 +332,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1062,7 +1062,7 @@ return|;
 block|}
 DECL|method|nodesPerAttributesCounts
 specifier|public
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1072,7 +1072,7 @@ name|String
 name|attributeName
 parameter_list|)
 block|{
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1099,7 +1099,7 @@ block|}
 name|nodesPerAttributesCounts
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

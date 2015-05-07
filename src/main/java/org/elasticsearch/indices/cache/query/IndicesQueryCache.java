@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -2151,9 +2151,9 @@ name|CleanupKey
 argument_list|>
 name|currentKeysToClean
 init|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|currentFullClean
@@ -2165,9 +2165,9 @@ name|IndexShard
 argument_list|>
 name|currentFullClean
 init|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|closed

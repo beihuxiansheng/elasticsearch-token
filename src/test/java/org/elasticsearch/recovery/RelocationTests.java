@@ -22,7 +22,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -2255,10 +2255,10 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
-name|IntOpenHashSet
+name|IntHashSet
 name|set
 init|=
-name|IntOpenHashSet
+name|IntHashSet
 operator|.
 name|from
 argument_list|(
