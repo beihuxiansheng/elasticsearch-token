@@ -188,19 +188,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
+name|*
 import|;
 end_import
 
@@ -359,7 +347,7 @@ name|indexName
 argument_list|()
 argument_list|)
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
 literal|"application/xhtml+xml"
 argument_list|)
@@ -507,7 +495,7 @@ name|indexName
 argument_list|()
 argument_list|)
 argument_list|,
-name|equalTo
+name|startsWith
 argument_list|(
 literal|"application/xhtml+xml"
 argument_list|)
