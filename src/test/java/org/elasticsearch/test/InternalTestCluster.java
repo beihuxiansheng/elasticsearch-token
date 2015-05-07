@@ -6661,6 +6661,11 @@ name|void
 name|beforeIndexDeletion
 parameter_list|()
 block|{
+comment|// Check that the operations counter on index shard has reached 1.
+comment|// The assumption here is that after a test there are no ongoing write operations.
+comment|// test that have ongoing write operations after the test (for example because ttl is used
+comment|// and not all docs have been purged after the test) and inherit from
+comment|// ElasticsearchIntegrationTest must override beforeIndexDeletion() to avoid failures.
 name|assertShardIndexCounter
 argument_list|()
 expr_stmt|;
