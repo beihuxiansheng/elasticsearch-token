@@ -112,7 +112,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -421,18 +421,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -458,9 +446,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|matchAllQuery
 import|;
 end_import
 
@@ -476,7 +464,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|matchAllQuery
+name|termQuery
 import|;
 end_import
 
@@ -7762,7 +7750,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 name|MULTI_VALUED_FIELD_NAME
 argument_list|,
@@ -8460,9 +8448,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 argument_list|)
@@ -8806,9 +8794,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
@@ -8821,9 +8809,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
@@ -9441,9 +9429,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
@@ -9456,9 +9444,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
@@ -10076,9 +10064,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
@@ -10091,9 +10079,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.

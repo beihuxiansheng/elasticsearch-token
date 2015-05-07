@@ -64,7 +64,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -1456,15 +1456,15 @@ literal|"test"
 argument_list|,
 literal|"a_test"
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|nestedFilter
+name|nestedQuery
 argument_list|(
 literal|"table_a"
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"table_a.field_b"
 argument_list|,

@@ -56,7 +56,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 
@@ -71,16 +71,6 @@ operator|.
 name|util
 operator|.
 name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchException
 import|;
 end_import
 
@@ -264,7 +254,7 @@ name|needTotalTermFreq
 parameter_list|,
 annotation|@
 name|Nullable
-name|Filter
+name|Query
 name|filter
 parameter_list|,
 name|BigArrays

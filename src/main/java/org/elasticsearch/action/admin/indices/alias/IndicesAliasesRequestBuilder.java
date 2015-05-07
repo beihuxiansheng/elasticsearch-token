@@ -92,7 +92,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -386,7 +386,7 @@ parameter_list|,
 name|String
 name|alias
 parameter_list|,
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 parameter_list|)
 block|{
@@ -417,7 +417,7 @@ parameter_list|,
 name|String
 name|alias
 parameter_list|,
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 parameter_list|)
 block|{

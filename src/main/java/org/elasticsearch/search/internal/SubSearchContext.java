@@ -138,7 +138,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -932,7 +932,7 @@ specifier|public
 name|SearchContext
 name|parsedPostFilter
 parameter_list|(
-name|ParsedFilter
+name|ParsedQuery
 name|postFilter
 parameter_list|)
 block|{

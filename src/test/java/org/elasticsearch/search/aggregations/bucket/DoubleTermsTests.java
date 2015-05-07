@@ -66,7 +66,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -7215,9 +7215,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 argument_list|)
@@ -7555,9 +7555,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
@@ -7570,9 +7570,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.

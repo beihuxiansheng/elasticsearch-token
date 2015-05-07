@@ -110,7 +110,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -180,9 +180,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 import|;
 end_import
 
@@ -269,7 +269,7 @@ specifier|static
 name|CompressedString
 name|filter
 parameter_list|(
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 parameter_list|)
 throws|throws
@@ -334,7 +334,7 @@ literal|"cats"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -351,7 +351,7 @@ literal|"dogs"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -428,7 +428,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(animal:cat)"
+literal|"animal:cat"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -448,7 +448,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(QueryWrapperFilter(animal:cat) QueryWrapperFilter(animal:dog))"
+literal|"animal:cat animal:dog"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -504,7 +504,7 @@ literal|"cats"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -521,7 +521,7 @@ literal|"dogs"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -546,7 +546,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(QueryWrapperFilter(animal:canine) QueryWrapperFilter(animal:feline))"
+literal|"animal:canine animal:feline"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -575,7 +575,7 @@ literal|"cats"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -592,7 +592,7 @@ literal|"dogs"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -626,7 +626,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(animal:dog)"
+literal|"animal:dog"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -646,7 +646,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(QueryWrapperFilter(animal:dog) QueryWrapperFilter(animal:cat))"
+literal|"animal:dog animal:cat"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -658,7 +658,7 @@ literal|"cats"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -675,7 +675,7 @@ literal|"dogs"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -700,7 +700,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"QueryWrapperFilter(QueryWrapperFilter(animal:canine) QueryWrapperFilter(animal:feline))"
+literal|"animal:canine animal:feline"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -736,7 +736,7 @@ literal|"cats"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -784,7 +784,7 @@ literal|"cats"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,
@@ -801,7 +801,7 @@ literal|"dogs"
 argument_list|,
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"animal"
 argument_list|,

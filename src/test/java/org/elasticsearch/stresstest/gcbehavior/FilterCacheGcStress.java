@@ -104,9 +104,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|rangeFilter
+name|rangeQuery
 import|;
 end_import
 
@@ -330,7 +330,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|rangeFilter
+name|rangeQuery
 argument_list|(
 literal|"field"
 argument_list|)

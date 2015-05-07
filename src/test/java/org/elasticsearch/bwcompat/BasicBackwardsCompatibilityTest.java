@@ -708,9 +708,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|existsFilter
+name|existsQuery
 import|;
 end_import
 
@@ -724,9 +724,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|missingFilter
+name|missingQuery
 import|;
 end_import
 
@@ -4058,7 +4058,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -4087,7 +4087,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -4145,7 +4145,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -4177,7 +4177,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"field3"
 argument_list|)
@@ -4210,7 +4210,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"x*"
 argument_list|)
@@ -4243,7 +4243,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"obj1"
 argument_list|)
@@ -4275,7 +4275,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -4307,7 +4307,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -4336,7 +4336,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"field1"
 argument_list|)
@@ -4395,7 +4395,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"x*"
 argument_list|)
@@ -4428,7 +4428,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"obj1"
 argument_list|)

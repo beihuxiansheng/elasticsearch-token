@@ -146,6 +146,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchGenerationException
@@ -1428,7 +1442,7 @@ decl_stmt|;
 DECL|field|typeFilter
 specifier|private
 specifier|final
-name|Filter
+name|Query
 name|typeFilter
 decl_stmt|;
 DECL|field|mappersMutex
@@ -1586,7 +1600,7 @@ operator|=
 name|typeMapper
 argument_list|()
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 name|type
 argument_list|,
@@ -2080,7 +2094,7 @@ return|;
 block|}
 DECL|method|typeFilter
 specifier|public
-name|Filter
+name|Query
 name|typeFilter
 parameter_list|()
 block|{

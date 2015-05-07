@@ -310,9 +310,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|hasChildFilter
+name|filteredQuery
 import|;
 end_import
 
@@ -328,7 +328,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|hasChildQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|matchQuery
 import|;
 end_import
 
@@ -1342,7 +1374,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|hasChildFilter
+name|hasChildQuery
 argument_list|(
 literal|"child"
 argument_list|,

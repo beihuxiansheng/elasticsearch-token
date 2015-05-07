@@ -292,6 +292,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|QueryWrapperFilter
 import|;
 end_import
@@ -1394,7 +1408,7 @@ literal|true
 argument_list|,
 name|Queries
 operator|.
-name|newMatchAllFilter
+name|newMatchAllQuery
 argument_list|()
 argument_list|,
 name|referenceNotDeleted
@@ -1408,7 +1422,7 @@ literal|false
 argument_list|,
 name|Queries
 operator|.
-name|newMatchAllFilter
+name|newMatchAllQuery
 argument_list|()
 argument_list|,
 name|referenceNotDeleted
@@ -1422,7 +1436,7 @@ literal|true
 argument_list|,
 name|Queries
 operator|.
-name|newMatchAllFilter
+name|newMatchAllQuery
 argument_list|()
 argument_list|,
 name|referenceNotDeleted
@@ -1484,7 +1498,7 @@ parameter_list|,
 name|boolean
 name|totalTermFreq
 parameter_list|,
-name|Filter
+name|Query
 name|filter
 parameter_list|,
 name|Map

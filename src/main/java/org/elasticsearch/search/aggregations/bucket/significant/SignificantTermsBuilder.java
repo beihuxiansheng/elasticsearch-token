@@ -44,7 +44,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -236,7 +236,7 @@ literal|null
 decl_stmt|;
 DECL|field|filterBuilder
 specifier|private
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 decl_stmt|;
 DECL|field|significanceHeuristicBuilder
@@ -355,7 +355,7 @@ specifier|public
 name|SignificantTermsBuilder
 name|backgroundFilter
 parameter_list|(
-name|FilterBuilder
+name|QueryBuilder
 name|filter
 parameter_list|)
 block|{

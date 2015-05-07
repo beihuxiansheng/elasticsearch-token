@@ -208,9 +208,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 import|;
 end_import
 
@@ -727,7 +727,7 @@ name|query
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"text"
 argument_list|,
@@ -763,7 +763,7 @@ argument_list|)
 operator|.
 name|add
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"text"
 argument_list|,

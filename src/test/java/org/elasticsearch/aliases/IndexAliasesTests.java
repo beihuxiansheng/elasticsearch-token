@@ -254,21 +254,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
+name|QueryBuilder
 import|;
 end_import
 
@@ -544,7 +530,87 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|INDEX_METADATA_BLOCK
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|INDEX_READ_ONLY_BLOCK
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_METADATA
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_READ
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_BLOCKS_WRITE
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_READ_ONLY
 import|;
 end_import
 
@@ -574,9 +640,25 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|*
+name|hasChildQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|hasParentQuery
 import|;
 end_import
 
@@ -618,6 +700,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|hamcrest
@@ -640,7 +738,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertBlocked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
 import|;
 end_import
 
@@ -652,7 +798,79 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsInAnyOrder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -1062,10 +1280,10 @@ argument_list|(
 literal|"--> aliasing index [test] with [alias1] and filter [user:kimchy]"
 argument_list|)
 expr_stmt|;
-name|FilterBuilder
+name|QueryBuilder
 name|filter
 init|=
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"user"
 argument_list|,
@@ -1314,7 +1532,7 @@ literal|"test"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -1340,7 +1558,7 @@ literal|"test"
 argument_list|,
 literal|"bars"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -1366,7 +1584,7 @@ literal|"test"
 argument_list|,
 literal|"tests"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -1789,15 +2007,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|searchResponse
-argument_list|)
-expr_stmt|;
 name|assertThat
 argument_list|(
 name|terms
@@ -2355,7 +2564,7 @@ literal|"test1"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -2381,7 +2590,7 @@ literal|"test1"
 argument_list|,
 literal|"bars"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -2452,7 +2661,7 @@ literal|"test2"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -3368,7 +3577,7 @@ literal|"test1"
 argument_list|,
 literal|"filter1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -3394,7 +3603,7 @@ literal|"test2"
 argument_list|,
 literal|"filter23"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -3420,7 +3629,7 @@ literal|"test3"
 argument_list|,
 literal|"filter23"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -3446,7 +3655,7 @@ literal|"test1"
 argument_list|,
 literal|"filter13"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -3472,7 +3681,7 @@ literal|"test3"
 argument_list|,
 literal|"filter13"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4382,7 +4591,7 @@ literal|"test1"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4408,7 +4617,7 @@ literal|"test1"
 argument_list|,
 literal|"bars"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4434,7 +4643,7 @@ literal|"test1"
 argument_list|,
 literal|"tests"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4505,7 +4714,7 @@ literal|"test2"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4531,7 +4740,7 @@ literal|"test2"
 argument_list|,
 literal|"tests"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4959,7 +5168,7 @@ literal|"test1"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4973,7 +5182,7 @@ literal|"test1"
 argument_list|,
 literal|"bars"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -4987,7 +5196,7 @@ literal|"test1"
 argument_list|,
 literal|"tests"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -5034,7 +5243,7 @@ literal|"test2"
 argument_list|,
 literal|"foos"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -5048,7 +5257,7 @@ literal|"test2"
 argument_list|,
 literal|"tests"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -5719,7 +5928,7 @@ literal|"test"
 argument_list|,
 literal|"alias1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -5786,7 +5995,7 @@ literal|"test"
 argument_list|,
 literal|"alias1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -5853,7 +6062,7 @@ literal|"test"
 argument_list|,
 literal|"alias1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -6807,7 +7016,7 @@ literal|"bazbar"
 argument_list|,
 literal|"bac"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -9959,9 +10168,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"field"
 argument_list|)
@@ -10233,9 +10442,9 @@ literal|"test"
 argument_list|,
 literal|"a"
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -10292,9 +10501,9 @@ literal|"test"
 argument_list|,
 literal|"a"
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|rangeFilter
+name|rangeQuery
 argument_list|(
 literal|"field2"
 argument_list|)
@@ -10357,9 +10566,9 @@ literal|"test"
 argument_list|,
 literal|"a"
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 comment|//<-- no fail, b/c no field mentioned
@@ -10412,7 +10621,7 @@ literal|"my-index"
 argument_list|,
 literal|"filter1"
 argument_list|,
-name|rangeFilter
+name|rangeQuery
 argument_list|(
 literal|"_timestamp"
 argument_list|)
@@ -10446,8 +10655,6 @@ literal|"my-index"
 argument_list|,
 literal|"filter2"
 argument_list|,
-name|queryFilter
-argument_list|(
 name|rangeQuery
 argument_list|(
 literal|"_timestamp"
@@ -10461,7 +10668,6 @@ operator|.
 name|to
 argument_list|(
 literal|"now"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -10620,7 +10826,7 @@ literal|"my-index"
 argument_list|,
 literal|"filter1"
 argument_list|,
-name|hasChildFilter
+name|hasChildQuery
 argument_list|(
 literal|"child"
 argument_list|,
@@ -10647,7 +10853,7 @@ literal|"my-index"
 argument_list|,
 literal|"filter2"
 argument_list|,
-name|hasParentFilter
+name|hasParentQuery
 argument_list|(
 literal|"child"
 argument_list|,

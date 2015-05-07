@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Regular expression syntax flags. Each flag represents optional syntax support in the regular expression:  *<ul>  *<li><tt>INTERSECTION</tt> - Support for intersection notation:<tt>&lt;expression&gt;&amp;&lt;expression&gt;</tt></li>  *<li><tt>COMPLEMENT</tt> - Support for complement notation:<tt>&lt;expression&gt;&amp;&lt;expression&gt;</tt></li>  *<li><tt>EMPTY</tt> - Support for the empty language symbol:<tt>#</tt></li>  *<li><tt>ANYSTRING</tt> - Support for the any string symbol:<tt>@</tt></li>  *<li><tt>INTERVAL</tt> - Support for numerical interval notation:<tt>&lt;n-m&gt;</tt></li>  *<li><tt>NONE</tt> - Disable support for all syntax options</li>  *<li><tt>ALL</tt> - Enables support for all syntax options</li>  *</ul>  *  * @see RegexpQueryBuilder#flags(RegexpFlag...)  * @see RegexpFilterBuilder#flags(RegexpFlag...)  */
+comment|/**  * Regular expression syntax flags. Each flag represents optional syntax support in the regular expression:  *<ul>  *<li><tt>INTERSECTION</tt> - Support for intersection notation:<tt>&lt;expression&gt;&amp;&lt;expression&gt;</tt></li>  *<li><tt>COMPLEMENT</tt> - Support for complement notation:<tt>&lt;expression&gt;&amp;&lt;expression&gt;</tt></li>  *<li><tt>EMPTY</tt> - Support for the empty language symbol:<tt>#</tt></li>  *<li><tt>ANYSTRING</tt> - Support for the any string symbol:<tt>@</tt></li>  *<li><tt>INTERVAL</tt> - Support for numerical interval notation:<tt>&lt;n-m&gt;</tt></li>  *<li><tt>NONE</tt> - Disable support for all syntax options</li>  *<li><tt>ALL</tt> - Enables support for all syntax options</li>  *</ul>  *  * @see RegexpQueryBuilder#flags(RegexpFlag...)  * @see RegexpQueryBuilder#flags(RegexpFlag...)  */
 end_comment
 
 begin_enum

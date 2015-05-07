@@ -262,7 +262,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -1825,9 +1825,9 @@ name|QueryBuilders
 operator|.
 name|constantScoreQuery
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"random()<matchP"
 argument_list|)

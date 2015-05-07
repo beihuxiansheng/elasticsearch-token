@@ -366,7 +366,9 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|FilterCacheStats
+name|FilterCacheModule
+operator|.
+name|FilterCacheSettings
 import|;
 end_import
 
@@ -382,9 +384,7 @@ name|cache
 operator|.
 name|filter
 operator|.
-name|FilterCacheModule
-operator|.
-name|FilterCacheSettings
+name|FilterCacheStats
 import|;
 end_import
 
@@ -435,20 +435,6 @@ operator|.
 name|scheduler
 operator|.
 name|ConcurrentMergeSchedulerProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
 import|;
 end_import
 
@@ -650,7 +636,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAllSuccessful
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchResponse
 import|;
 end_import
 
@@ -2076,9 +2094,9 @@ argument_list|()
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -2109,9 +2127,9 @@ argument_list|()
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,

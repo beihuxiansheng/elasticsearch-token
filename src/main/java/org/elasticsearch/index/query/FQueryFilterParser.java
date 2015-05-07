@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -41,20 +41,6 @@ operator|.
 name|search
 operator|.
 name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryWrapperFilter
 import|;
 end_import
 
@@ -101,12 +87,14 @@ comment|/**  * The "fquery" filter is the same as the {@link QueryFilterParser} 
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|FQueryFilterParser
 specifier|public
 class|class
 name|FQueryFilterParser
 implements|implements
-name|FilterParser
+name|QueryParser
 block|{
 DECL|field|NAME
 specifier|public
@@ -146,7 +134,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|Filter
+name|Query
 name|parse
 parameter_list|(
 name|QueryParseContext
@@ -176,7 +164,7 @@ init|=
 literal|false
 decl_stmt|;
 name|String
-name|filterName
+name|queryName
 init|=
 literal|null
 decl_stmt|;
@@ -282,7 +270,7 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"[fquery] filter does not support ["
+literal|"[fquery] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -310,7 +298,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|filterName
+name|queryName
 operator|=
 name|parser
 operator|.
@@ -326,7 +314,7 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"[fquery] filter does not support ["
+literal|"[fquery] query does not support ["
 operator|+
 name|currentFieldName
 operator|+
@@ -363,34 +351,33 @@ return|return
 literal|null
 return|;
 block|}
-name|Filter
-name|filter
-init|=
+name|query
+operator|=
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|query
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
-name|filterName
+name|queryName
 operator|!=
 literal|null
 condition|)
 block|{
 name|parseContext
 operator|.
-name|addNamedFilter
+name|addNamedQuery
 argument_list|(
-name|filterName
+name|queryName
 argument_list|,
-name|filter
+name|query
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|filter
+name|query
 return|;
 block|}
 block|}

@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 
@@ -68,17 +68,20 @@ name|IndexAlias
 block|{
 DECL|field|alias
 specifier|private
+specifier|final
 name|String
 name|alias
 decl_stmt|;
 DECL|field|filter
 specifier|private
+specifier|final
 name|CompressedString
 name|filter
 decl_stmt|;
 DECL|field|parsedFilter
 specifier|private
-name|Filter
+specifier|final
+name|Query
 name|parsedFilter
 decl_stmt|;
 DECL|method|IndexAlias
@@ -95,7 +98,7 @@ name|filter
 parameter_list|,
 annotation|@
 name|Nullable
-name|Filter
+name|Query
 name|parsedFilter
 parameter_list|)
 block|{
@@ -144,7 +147,7 @@ annotation|@
 name|Nullable
 DECL|method|parsedFilter
 specifier|public
-name|Filter
+name|Query
 name|parsedFilter
 parameter_list|()
 block|{

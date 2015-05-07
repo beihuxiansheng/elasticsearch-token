@@ -258,9 +258,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|hasChildFilter
+name|hasChildQuery
 import|;
 end_import
 
@@ -274,25 +274,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|nestedFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|queryFilter
+name|nestedQuery
 import|;
 end_import
 
@@ -1093,14 +1077,11 @@ name|nestedQuery
 argument_list|(
 literal|"comments"
 argument_list|,
-name|queryFilter
-argument_list|(
 name|matchQuery
 argument_list|(
 literal|"comments.message"
 argument_list|,
 literal|"elephant"
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -2235,7 +2216,7 @@ name|should
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|nestedFilter
+name|nestedQuery
 argument_list|(
 literal|"field1"
 argument_list|,
@@ -2277,7 +2258,7 @@ name|should
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|nestedFilter
+name|nestedQuery
 argument_list|(
 literal|"field2"
 argument_list|,
@@ -4326,7 +4307,7 @@ name|should
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|hasChildFilter
+name|hasChildQuery
 argument_list|(
 literal|"child1"
 argument_list|,
@@ -4368,7 +4349,7 @@ name|should
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|hasChildFilter
+name|hasChildQuery
 argument_list|(
 literal|"child2"
 argument_list|,
