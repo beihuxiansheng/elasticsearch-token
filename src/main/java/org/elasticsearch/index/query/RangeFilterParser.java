@@ -219,8 +219,8 @@ DECL|class|RangeFilterParser
 specifier|public
 class|class
 name|RangeFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

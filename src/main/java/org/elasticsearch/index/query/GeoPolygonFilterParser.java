@@ -219,8 +219,8 @@ DECL|class|GeoPolygonFilterParser
 specifier|public
 class|class
 name|GeoPolygonFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

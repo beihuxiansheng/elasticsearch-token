@@ -295,8 +295,8 @@ DECL|class|ScriptFilterParser
 specifier|public
 class|class
 name|ScriptFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

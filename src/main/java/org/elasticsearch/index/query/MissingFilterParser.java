@@ -231,8 +231,8 @@ DECL|class|MissingFilterParser
 specifier|public
 class|class
 name|MissingFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

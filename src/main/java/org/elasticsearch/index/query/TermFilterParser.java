@@ -147,8 +147,8 @@ DECL|class|TermFilterParser
 specifier|public
 class|class
 name|TermFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

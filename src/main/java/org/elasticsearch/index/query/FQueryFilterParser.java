@@ -105,8 +105,8 @@ DECL|class|FQueryFilterParser
 specifier|public
 class|class
 name|FQueryFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

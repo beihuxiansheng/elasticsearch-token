@@ -205,8 +205,8 @@ DECL|class|GeoBoundingBoxFilterParser
 specifier|public
 class|class
 name|GeoBoundingBoxFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|TOP
 specifier|public

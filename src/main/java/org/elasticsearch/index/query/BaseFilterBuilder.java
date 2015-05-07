@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -105,6 +91,10 @@ operator|.
 name|IOException
 import|;
 end_import
+
+begin_comment
+comment|/**  *  */
+end_comment
 
 begin_class
 DECL|class|BaseFilterBuilder
@@ -291,48 +281,6 @@ name|params
 parameter_list|)
 throws|throws
 name|IOException
-function_decl|;
-comment|/**      * Temporary default implementation for toFilter that parses the filter using its filter parser      */
-comment|//norelease to be removed once all filter builders override toFilter providing their own specific implementation.
-annotation|@
-name|Override
-DECL|method|toFilter
-specifier|public
-name|Filter
-name|toFilter
-parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-return|return
-name|parseContext
-operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
-name|filterParser
-argument_list|(
-name|parserName
-argument_list|()
-argument_list|)
-operator|.
-name|parse
-argument_list|(
-name|parseContext
-argument_list|)
-return|;
-block|}
-comment|/**      * Temporary method that allows to retrieve the parser for each filter.      * @return the name of the parser class the default {@link #toFilter(QueryParseContext)} method delegates to      */
-comment|//norelease to be removed once all filter builders override toFilter providing their own specific implementation.
-DECL|method|parserName
-specifier|protected
-specifier|abstract
-name|String
-name|parserName
-parameter_list|()
 function_decl|;
 block|}
 end_class

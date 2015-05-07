@@ -219,8 +219,8 @@ DECL|class|IdsFilterParser
 specifier|public
 class|class
 name|IdsFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

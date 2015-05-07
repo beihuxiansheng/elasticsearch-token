@@ -141,21 +141,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|parserName
-specifier|protected
-name|String
-name|parserName
-parameter_list|()
-block|{
-comment|//TODO this class is going to be removed, will disappear once we get #10919 in
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
 block|}
 end_class
 

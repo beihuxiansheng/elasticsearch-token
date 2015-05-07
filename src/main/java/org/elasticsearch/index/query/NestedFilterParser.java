@@ -147,8 +147,8 @@ DECL|class|NestedFilterParser
 specifier|public
 class|class
 name|NestedFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

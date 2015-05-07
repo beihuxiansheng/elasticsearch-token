@@ -89,8 +89,8 @@ DECL|class|LimitFilterParser
 specifier|public
 class|class
 name|LimitFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

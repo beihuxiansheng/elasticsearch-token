@@ -107,8 +107,8 @@ DECL|class|NotFilterParser
 specifier|public
 class|class
 name|NotFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

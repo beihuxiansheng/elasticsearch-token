@@ -163,8 +163,8 @@ DECL|class|RegexpFilterParser
 specifier|public
 class|class
 name|RegexpFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public

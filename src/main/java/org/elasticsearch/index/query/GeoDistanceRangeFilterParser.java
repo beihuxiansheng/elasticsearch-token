@@ -221,8 +221,8 @@ DECL|class|GeoDistanceRangeFilterParser
 specifier|public
 class|class
 name|GeoDistanceRangeFilterParser
-extends|extends
-name|BaseFilterParserTemp
+implements|implements
+name|FilterParser
 block|{
 DECL|field|NAME
 specifier|public
