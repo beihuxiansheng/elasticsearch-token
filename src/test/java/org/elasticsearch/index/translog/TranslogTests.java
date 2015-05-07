@@ -5964,6 +5964,12 @@ if|if
 condition|(
 name|rarely
 argument_list|()
+operator|&&
+name|translogOperations
+operator|>
+name|op
+operator|+
+literal|1
 condition|)
 block|{
 name|translog
