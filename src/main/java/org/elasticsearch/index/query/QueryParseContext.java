@@ -1315,11 +1315,6 @@ name|END_OBJECT
 condition|)
 block|{
 comment|// empty query
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
 return|return
 literal|null
 return|;
