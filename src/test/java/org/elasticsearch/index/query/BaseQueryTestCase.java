@@ -1121,7 +1121,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|assertQueryHeader
-specifier|private
+specifier|protected
 specifier|static
 name|void
 name|assertQueryHeader
