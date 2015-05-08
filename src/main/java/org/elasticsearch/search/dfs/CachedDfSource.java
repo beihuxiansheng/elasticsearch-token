@@ -312,25 +312,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|rewrite
-specifier|public
-name|Query
-name|rewrite
-parameter_list|(
-name|Query
-name|query
-parameter_list|)
-block|{
-comment|// this is a bit of a hack. We know that a query which
-comment|// creates a Weight based on this Dummy-Searcher is
-comment|// always already rewritten (see preparedWeight()).
-comment|// Therefore we just return the unmodified query here
-return|return
-name|query
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|doc
 specifier|public
 name|Document

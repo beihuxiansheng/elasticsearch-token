@@ -40,7 +40,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -98,7 +98,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ParsedFilter
+name|ParsedQuery
 name|postFilter
 init|=
 name|context

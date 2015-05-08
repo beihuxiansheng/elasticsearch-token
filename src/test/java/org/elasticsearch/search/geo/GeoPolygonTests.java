@@ -118,9 +118,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoPolygonFilter
+name|geoPolygonQuery
 import|;
 end_import
 
@@ -744,7 +744,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoPolygonFilter
+name|geoPolygonQuery
 argument_list|(
 literal|"location"
 argument_list|)

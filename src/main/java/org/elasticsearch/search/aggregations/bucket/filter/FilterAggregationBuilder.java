@@ -44,7 +44,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -103,7 +103,7 @@ argument_list|>
 block|{
 DECL|field|filter
 specifier|private
-name|FilterBuilder
+name|QueryBuilder
 name|filter
 decl_stmt|;
 comment|/**      * Sole constructor.      */
@@ -134,7 +134,7 @@ specifier|public
 name|FilterAggregationBuilder
 name|filter
 parameter_list|(
-name|FilterBuilder
+name|QueryBuilder
 name|filter
 parameter_list|)
 block|{

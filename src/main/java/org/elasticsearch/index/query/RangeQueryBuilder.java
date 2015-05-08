@@ -1192,6 +1192,11 @@ name|boost
 argument_list|)
 expr_stmt|;
 block|}
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|queryName
@@ -1209,11 +1214,6 @@ name|queryName
 argument_list|)
 expr_stmt|;
 block|}
-name|builder
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
 name|builder
 operator|.
 name|endObject

@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|IndexSearcher
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|IndexSearcher
+name|Query
 import|;
 end_import
 
@@ -986,7 +986,8 @@ literal|0
 decl_stmt|;
 DECL|field|filter
 specifier|private
-name|Filter
+specifier|final
+name|Query
 name|filter
 decl_stmt|;
 DECL|field|bucketCountThresholds
@@ -1042,7 +1043,7 @@ parameter_list|,
 name|String
 name|executionHint
 parameter_list|,
-name|Filter
+name|Query
 name|filter
 parameter_list|,
 name|SignificanceHeuristic

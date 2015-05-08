@@ -684,38 +684,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
-operator|.
-name|notFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|termFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|QueryBuilders
 operator|.
 name|constantScoreQuery
@@ -751,6 +719,22 @@ operator|.
 name|QueryBuilders
 operator|.
 name|hasParentQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|notQuery
 import|;
 end_import
 
@@ -1983,9 +1967,9 @@ name|filteredQuery
 argument_list|(
 name|queryBuilder
 argument_list|,
-name|notFilter
+name|notQuery
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"filter"
 argument_list|,

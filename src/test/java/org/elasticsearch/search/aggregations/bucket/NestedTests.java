@@ -396,9 +396,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|matchAllQuery
 import|;
 end_import
 
@@ -414,7 +414,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|matchAllQuery
+name|termQuery
 import|;
 end_import
 
@@ -3450,7 +3450,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"comments.identifier"
 argument_list|,

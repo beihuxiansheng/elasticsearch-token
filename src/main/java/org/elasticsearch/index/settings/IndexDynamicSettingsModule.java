@@ -1158,6 +1158,15 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
+name|Translog
+operator|.
+name|INDEX_TRANSLOG_DURABILITY
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
 name|IndicesWarmer
 operator|.
 name|INDEX_WARMER_ENABLED

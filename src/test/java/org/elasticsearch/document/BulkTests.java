@@ -4658,6 +4658,11 @@ name|assertThat
 argument_list|(
 name|response
 operator|.
+name|buildFailureMessage
+argument_list|()
+argument_list|,
+name|response
+operator|.
 name|hasFailures
 argument_list|()
 argument_list|,

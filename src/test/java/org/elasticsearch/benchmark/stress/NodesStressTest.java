@@ -230,9 +230,7 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|Builder
-operator|.
-name|EMPTY_SETTINGS
+name|settingsBuilder
 import|;
 end_import
 
@@ -248,23 +246,9 @@ name|settings
 operator|.
 name|ImmutableSettings
 operator|.
-name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
+name|Builder
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|FilterBuilders
-operator|.
-name|queryFilter
+name|EMPTY_SETTINGS
 import|;
 end_import
 
@@ -1181,10 +1165,7 @@ name|query
 operator|=
 name|constantScoreQuery
 argument_list|(
-name|queryFilter
-argument_list|(
 name|query
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|SearchResponse

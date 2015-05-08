@@ -68,20 +68,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilteredQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -97,6 +83,18 @@ operator|.
 name|search
 operator|.
 name|QueryWrapperFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseField
 import|;
 end_import
 
@@ -357,6 +355,21 @@ name|NAME
 init|=
 literal|"has_parent"
 decl_stmt|;
+DECL|field|QUERY_FIELD
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|QUERY_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"query"
+argument_list|,
+literal|"filter"
+argument_list|)
+decl_stmt|;
 DECL|field|innerHitsQueryParserHelper
 specifier|private
 specifier|final
@@ -535,9 +548,9 @@ comment|// XContentStructure.<type> facade to parse if available,
 comment|// or delay parsing if not.
 if|if
 condition|(
-literal|"query"
+name|QUERY_FIELD
 operator|.
-name|equals
+name|match
 argument_list|(
 name|currentFieldName
 argument_list|)
@@ -1177,7 +1190,7 @@ literal|"[has_parent] no _parent field configured"
 argument_list|)
 throw|;
 block|}
-name|Filter
+name|Query
 name|parentFilter
 init|=
 literal|null
@@ -1305,8 +1318,9 @@ block|}
 comment|// wrap the query with type query
 name|innerQuery
 operator|=
-operator|new
-name|FilteredQuery
+name|Queries
+operator|.
+name|filtered
 argument_list|(
 name|innerQuery
 argument_list|,

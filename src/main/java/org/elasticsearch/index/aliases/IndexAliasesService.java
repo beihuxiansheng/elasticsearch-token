@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|Query
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|QueryWrapperFilter
 import|;
 end_import
@@ -218,7 +232,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -488,7 +502,7 @@ block|}
 comment|/**      * Returns the filter associated with listed filtering aliases.      *<p/>      *<p>The list of filtering aliases should be obtained by calling MetaData.filteringAliases.      * Returns<tt>null</tt> if no filtering is required.</p>      */
 DECL|method|aliasFilter
 specifier|public
-name|Filter
+name|Query
 name|aliasFilter
 parameter_list|(
 name|String
@@ -648,11 +662,7 @@ return|;
 block|}
 block|}
 return|return
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|combined
-argument_list|)
 return|;
 block|}
 block|}
@@ -697,7 +707,7 @@ expr_stmt|;
 block|}
 DECL|method|parse
 specifier|private
-name|Filter
+name|Query
 name|parse
 parameter_list|(
 name|String
@@ -747,7 +757,7 @@ name|filterSource
 argument_list|)
 init|)
 block|{
-name|ParsedFilter
+name|ParsedQuery
 name|parsedFilter
 init|=
 name|indexQueryParser
@@ -766,7 +776,7 @@ literal|null
 else|:
 name|parsedFilter
 operator|.
-name|filter
+name|query
 argument_list|()
 return|;
 block|}

@@ -40,20 +40,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -97,7 +83,7 @@ name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|Filter
+name|Query
 argument_list|>
 name|namedFilters
 decl_stmt|;
@@ -112,7 +98,7 @@ name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|Filter
+name|Query
 argument_list|>
 name|namedFilters
 parameter_list|)
@@ -199,7 +185,7 @@ name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|Filter
+name|Query
 argument_list|>
 name|namedFilters
 parameter_list|()
@@ -231,7 +217,7 @@ operator|.
 expr|<
 name|String
 argument_list|,
-name|Filter
+name|Query
 operator|>
 name|of
 argument_list|()

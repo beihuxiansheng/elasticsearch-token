@@ -90,9 +90,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|scriptFilter
+name|scriptQuery
 import|;
 end_import
 
@@ -259,7 +259,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"Thread.sleep(500); return true;"
 argument_list|)

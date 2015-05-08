@@ -30,7 +30,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|Query
 import|;
 end_import
 
@@ -247,7 +247,7 @@ expr_stmt|;
 block|}
 DECL|method|getFilter
 specifier|public
-name|Filter
+name|Query
 name|getFilter
 parameter_list|()
 block|{
@@ -257,7 +257,7 @@ return|;
 block|}
 DECL|field|filter
 specifier|private
-name|Filter
+name|Query
 name|filter
 init|=
 literal|null
@@ -387,7 +387,7 @@ argument_list|(
 name|parser
 argument_list|)
 operator|.
-name|filter
+name|query
 argument_list|()
 expr_stmt|;
 block|}

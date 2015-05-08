@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|FilteredQuery
+name|Query
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|QueryWrapperFilter
 import|;
 end_import
 
@@ -71,6 +71,18 @@ operator|.
 name|join
 operator|.
 name|BitDocIdSetFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseField
 import|;
 end_import
 
@@ -331,6 +343,21 @@ name|NAME
 init|=
 literal|"has_child"
 decl_stmt|;
+DECL|field|QUERY_FIELD
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|QUERY_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"query"
+argument_list|,
+literal|"filter"
+argument_list|)
+decl_stmt|;
 DECL|field|innerHitsQueryParserHelper
 specifier|private
 specifier|final
@@ -511,6 +538,19 @@ block|}
 elseif|else
 if|if
 condition|(
+name|parseContext
+operator|.
+name|isDeprecatedSetting
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+comment|// skip
+block|}
+elseif|else
+if|if
+condition|(
 name|token
 operator|==
 name|XContentParser
@@ -526,9 +566,9 @@ comment|// XContentStructure.<type> facade to parse if available,
 comment|// or delay parsing if not.
 if|if
 condition|(
-literal|"query"
+name|QUERY_FIELD
 operator|.
-name|equals
+name|match
 argument_list|(
 name|currentFieldName
 argument_list|)
@@ -1134,8 +1174,9 @@ block|}
 comment|// wrap the query with type query
 name|innerQuery
 operator|=
-operator|new
-name|FilteredQuery
+name|Queries
+operator|.
+name|filtered
 argument_list|(
 name|innerQuery
 argument_list|,
@@ -1148,13 +1189,18 @@ expr_stmt|;
 name|Query
 name|query
 decl_stmt|;
+comment|// TODO: use the query API
 name|Filter
 name|parentFilter
 init|=
+operator|new
+name|QueryWrapperFilter
+argument_list|(
 name|parentDocMapper
 operator|.
 name|typeFilter
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|ParentChildIndexFieldData
 name|parentChildIndexFieldData

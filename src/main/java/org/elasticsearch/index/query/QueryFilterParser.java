@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -41,20 +41,6 @@ operator|.
 name|search
 operator|.
 name|Query
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|QueryWrapperFilter
 import|;
 end_import
 
@@ -82,17 +68,15 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|QueryFilterParser
 specifier|public
 class|class
 name|QueryFilterParser
-implements|implements
-name|FilterParser
+extends|extends
+name|BaseQueryParserTemp
 block|{
 DECL|field|NAME
 specifier|public
@@ -132,7 +116,7 @@ annotation|@
 name|Override
 DECL|method|parse
 specifier|public
-name|Filter
+name|Query
 name|parse
 parameter_list|(
 name|QueryParseContext
@@ -143,30 +127,14 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
-name|Query
-name|query
-init|=
+return|return
+operator|new
+name|ConstantScoreQuery
+argument_list|(
 name|parseContext
 operator|.
 name|parseInnerQuery
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|query
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-return|return
-operator|new
-name|QueryWrapperFilter
-argument_list|(
-name|query
 argument_list|)
 return|;
 block|}

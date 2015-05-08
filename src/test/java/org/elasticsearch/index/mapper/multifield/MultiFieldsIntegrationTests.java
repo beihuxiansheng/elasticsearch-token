@@ -190,9 +190,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoDistanceFilter
+name|geoDistanceQuery
 import|;
 end_import
 
@@ -1101,7 +1101,7 @@ name|setQuery
 argument_list|(
 name|constantScoreQuery
 argument_list|(
-name|geoDistanceFilter
+name|geoDistanceQuery
 argument_list|(
 literal|"a"
 argument_list|)

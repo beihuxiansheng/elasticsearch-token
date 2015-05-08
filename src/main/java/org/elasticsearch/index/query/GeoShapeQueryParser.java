@@ -1086,10 +1086,10 @@ operator|new
 name|BooleanQuery
 argument_list|()
 decl_stmt|;
-name|Filter
+name|Query
 name|exists
 init|=
-name|ExistsFilterParser
+name|ExistsQueryParser
 operator|.
 name|newFilter
 argument_list|(

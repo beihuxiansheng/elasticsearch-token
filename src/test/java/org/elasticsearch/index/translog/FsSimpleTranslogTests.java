@@ -46,22 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|junit
-operator|.
-name|annotations
-operator|.
-name|TestLogging
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -75,17 +59,12 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"index.translog.fs:TRACE"
-argument_list|)
 DECL|class|FsSimpleTranslogTests
 specifier|public
 class|class
 name|FsSimpleTranslogTests
 extends|extends
-name|AbstractTranslogTests
+name|TranslogTests
 block|{
 annotation|@
 name|Override

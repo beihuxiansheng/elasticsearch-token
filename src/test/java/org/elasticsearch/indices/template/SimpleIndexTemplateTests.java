@@ -268,7 +268,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -384,9 +384,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 import|;
 end_import
 
@@ -3343,9 +3343,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termsFilter
+name|termsQuery
 argument_list|(
 literal|"_type"
 argument_list|,
@@ -4310,7 +4310,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -4329,7 +4329,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -4632,7 +4632,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"No filter registered for [invalid]"
+literal|"No query registered for [invalid]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5052,9 +5052,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"test"
 argument_list|)
@@ -5400,7 +5400,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5461,7 +5461,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5517,7 +5517,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,
@@ -5564,7 +5564,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"field"
 argument_list|,

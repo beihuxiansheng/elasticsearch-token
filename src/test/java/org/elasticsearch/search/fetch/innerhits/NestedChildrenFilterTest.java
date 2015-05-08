@@ -733,7 +733,7 @@ name|leaf
 argument_list|,
 name|parentDoc
 argument_list|,
-name|reader
+name|searcher
 argument_list|)
 expr_stmt|;
 name|NestedChildrenFilter

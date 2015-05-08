@@ -136,7 +136,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|GeoBoundingBoxFilterBuilder
+name|GeoBoundingBoxQueryBuilder
 import|;
 end_import
 
@@ -1433,11 +1433,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|GeoBoundingBoxFilterBuilder
+name|GeoBoundingBoxQueryBuilder
 name|bbox
 init|=
 operator|new
-name|GeoBoundingBoxFilterBuilder
+name|GeoBoundingBoxQueryBuilder
 argument_list|(
 literal|"location"
 argument_list|)
@@ -1454,7 +1454,7 @@ argument_list|(
 name|smallestGeoHash
 argument_list|)
 operator|.
-name|filterName
+name|queryName
 argument_list|(
 literal|"bbox"
 argument_list|)

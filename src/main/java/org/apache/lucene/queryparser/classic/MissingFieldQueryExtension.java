@@ -56,7 +56,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|MissingFilterParser
+name|MissingQueryParser
 import|;
 end_import
 
@@ -113,7 +113,7 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|MissingFilterParser
+name|MissingQueryParser
 operator|.
 name|newFilter
 argument_list|(
@@ -121,11 +121,11 @@ name|parseContext
 argument_list|,
 name|queryText
 argument_list|,
-name|MissingFilterParser
+name|MissingQueryParser
 operator|.
 name|DEFAULT_EXISTENCE_VALUE
 argument_list|,
-name|MissingFilterParser
+name|MissingQueryParser
 operator|.
 name|DEFAULT_NULL_VALUE
 argument_list|,

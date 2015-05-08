@@ -892,6 +892,11 @@ name|DocumentMapperParser
 extends|extends
 name|AbstractIndexComponent
 block|{
+DECL|field|mapperService
+specifier|final
+name|MapperService
+name|mapperService
+decl_stmt|;
 DECL|field|analysisService
 specifier|final
 name|AnalysisService
@@ -993,6 +998,9 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
+name|MapperService
+name|mapperService
+parameter_list|,
 name|AnalysisService
 name|analysisService
 parameter_list|,
@@ -1009,6 +1017,12 @@ name|index
 argument_list|,
 name|indexSettings
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|mapperService
+operator|=
+name|mapperService
 expr_stmt|;
 name|this
 operator|.
@@ -2395,6 +2409,8 @@ name|docBuilder
 operator|.
 name|build
 argument_list|(
+name|mapperService
+argument_list|,
 name|this
 argument_list|)
 decl_stmt|;

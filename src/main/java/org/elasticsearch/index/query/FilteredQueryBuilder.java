@@ -78,7 +78,7 @@ decl_stmt|;
 DECL|field|filterBuilder
 specifier|private
 specifier|final
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 decl_stmt|;
 DECL|field|boost
@@ -106,7 +106,7 @@ name|queryBuilder
 parameter_list|,
 annotation|@
 name|Nullable
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 parameter_list|)
 block|{

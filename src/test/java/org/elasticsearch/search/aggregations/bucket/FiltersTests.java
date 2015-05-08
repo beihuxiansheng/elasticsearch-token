@@ -80,7 +80,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|AndFilterBuilder
+name|AndQueryBuilder
 import|;
 end_import
 
@@ -94,7 +94,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -250,9 +250,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 import|;
 end_import
 
@@ -266,9 +266,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 import|;
 end_import
 
@@ -796,7 +796,7 @@ name|filter
 argument_list|(
 literal|"tag1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -808,7 +808,7 @@ name|filter
 argument_list|(
 literal|"tag2"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -964,11 +964,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|FilterBuilder
+name|QueryBuilder
 name|emptyFilter
 init|=
 operator|new
-name|AndFilterBuilder
+name|AndQueryBuilder
 argument_list|()
 decl_stmt|;
 name|SearchResponse
@@ -1000,7 +1000,7 @@ name|filter
 argument_list|(
 literal|"tag1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1140,7 +1140,7 @@ name|filter
 argument_list|(
 literal|"tag1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1152,7 +1152,7 @@ name|filter
 argument_list|(
 literal|"tag2"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1689,7 +1689,7 @@ name|filter
 argument_list|(
 literal|"tag1"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1701,7 +1701,7 @@ name|filter
 argument_list|(
 literal|"tag2"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1799,7 +1799,7 @@ name|filter
 argument_list|(
 literal|"all"
 argument_list|,
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1975,7 +1975,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,
@@ -1985,7 +1985,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"tag"
 argument_list|,

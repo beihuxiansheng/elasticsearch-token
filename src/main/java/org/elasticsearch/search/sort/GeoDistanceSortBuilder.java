@@ -92,7 +92,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -213,7 +213,7 @@ name|sortMode
 decl_stmt|;
 DECL|field|nestedFilter
 specifier|private
-name|FilterBuilder
+name|QueryBuilder
 name|nestedFilter
 decl_stmt|;
 DECL|field|nestedPath
@@ -429,7 +429,7 @@ specifier|public
 name|GeoDistanceSortBuilder
 name|setNestedFilter
 parameter_list|(
-name|FilterBuilder
+name|QueryBuilder
 name|nestedFilter
 parameter_list|)
 block|{
