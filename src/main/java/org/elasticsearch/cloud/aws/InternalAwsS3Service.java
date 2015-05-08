@@ -554,6 +554,15 @@ operator|new
 name|ClientConfiguration
 argument_list|()
 decl_stmt|;
+comment|// the response metadata cache is only there for diagnostics purposes,
+comment|// but can force objects from every response to the old generation.
+name|clientConfiguration
+operator|.
+name|setResponseMetadataCacheSize
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|protocol
