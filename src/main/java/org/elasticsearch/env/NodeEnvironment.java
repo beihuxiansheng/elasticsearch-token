@@ -106,6 +106,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -798,7 +810,6 @@ name|dirIndex
 operator|++
 control|)
 block|{
-comment|// TODO: wtf with resolve(get())
 name|Path
 name|dir
 init|=
@@ -812,18 +823,16 @@ index|]
 operator|.
 name|resolve
 argument_list|(
-name|PathUtils
-operator|.
-name|get
-argument_list|(
 name|NODES_FOLDER
-argument_list|,
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
 name|Integer
 operator|.
 name|toString
 argument_list|(
 name|possibleLockId
-argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -3389,6 +3398,13 @@ literal|null
 return|;
 block|}
 comment|/**      * Resolve the custom path for a index's shard.      * Uses the {@code IndexMetaData.SETTING_DATA_PATH} setting to determine      * the root path for the index.      *      * @param indexSettings settings for the index      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Lee is working on it: https://github.com/elastic/elasticsearch/pull/11065"
+argument_list|)
 DECL|method|resolveCustomLocation
 specifier|private
 name|Path
@@ -3441,7 +3457,10 @@ operator|.
 name|get
 argument_list|(
 name|customDataDir
-argument_list|,
+argument_list|)
+operator|.
+name|resolve
+argument_list|(
 name|Integer
 operator|.
 name|toString

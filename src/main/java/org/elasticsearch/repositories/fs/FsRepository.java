@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|blobstore
 operator|.
 name|BlobPath
@@ -260,6 +272,13 @@ decl_stmt|;
 comment|/**      * Constructs new shared file system repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository index shard repository      * @throws IOException      */
 annotation|@
 name|Inject
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"needs fixing: https://github.com/elastic/elasticsearch/issues/11068"
+argument_list|)
 DECL|method|FsRepository
 specifier|public
 name|FsRepository

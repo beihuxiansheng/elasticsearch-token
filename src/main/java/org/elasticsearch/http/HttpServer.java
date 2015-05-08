@@ -838,6 +838,8 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+comment|// we default to index.html, or what the plugin provides (as a unix-style path)
+comment|// this is a relative path under _site configured by the plugin.
 if|if
 condition|(
 name|sitePath
@@ -850,8 +852,33 @@ condition|)
 block|{
 name|sitePath
 operator|=
-literal|"/index.html"
+literal|"index.html"
 expr_stmt|;
+block|}
+else|else
+block|{
+while|while
+condition|(
+name|sitePath
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+operator|==
+literal|'/'
+condition|)
+block|{
+name|sitePath
+operator|=
+name|sitePath
+operator|.
+name|substring
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 specifier|final
 name|Path
@@ -896,24 +923,14 @@ argument_list|,
 name|separator
 argument_list|)
 expr_stmt|;
-comment|// this is a plugin provided site, serve it as static files from the plugin location
 name|Path
 name|file
 init|=
-name|FileSystemUtils
-operator|.
-name|append
-argument_list|(
 name|siteFile
-argument_list|,
-name|PathUtils
 operator|.
-name|get
+name|resolve
 argument_list|(
 name|sitePath
-argument_list|)
-argument_list|,
-literal|0
 argument_list|)
 decl_stmt|;
 comment|// return not found instead of forbidden to prevent malicious requests to find out if files exist or dont exist
