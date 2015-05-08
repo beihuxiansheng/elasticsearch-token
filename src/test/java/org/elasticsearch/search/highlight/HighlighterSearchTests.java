@@ -3996,6 +3996,11 @@ argument_list|,
 literal|2
 argument_list|)
 operator|.
+name|setHighlighterRequireFieldMatch
+argument_list|(
+literal|false
+argument_list|)
+operator|.
 name|get
 argument_list|()
 decl_stmt|;
@@ -4282,6 +4287,11 @@ operator|.
 name|fragmentSize
 argument_list|(
 literal|50
+argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 argument_list|)
@@ -5232,6 +5242,11 @@ name|postTags
 argument_list|(
 literal|"</xxx>"
 argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5319,6 +5334,11 @@ name|postTags
 argument_list|(
 literal|"</xxx>"
 argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5405,6 +5425,11 @@ operator|.
 name|postTags
 argument_list|(
 literal|"</xxx>"
+argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5495,6 +5520,11 @@ operator|.
 name|postTags
 argument_list|(
 literal|"</xxx>"
+argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5591,6 +5621,11 @@ operator|.
 name|postTags
 argument_list|(
 literal|"</xxx>"
+argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5833,6 +5868,11 @@ name|postTags
 argument_list|(
 literal|"</xxx>"
 argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -5925,6 +5965,11 @@ name|postTags
 argument_list|(
 literal|"</xxx>"
 argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|searchResponse
@@ -6016,6 +6061,11 @@ operator|.
 name|postTags
 argument_list|(
 literal|"</xxx>"
+argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -15693,7 +15743,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> searching on _all, highlighting on field1"
+literal|"--> searching on field1, highlighting on field1"
 argument_list|)
 expr_stmt|;
 name|source
@@ -15775,7 +15825,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> searching on _all, highlighting on field2"
+literal|"--> searching on field2, highlighting on field2"
 argument_list|)
 expr_stmt|;
 name|source
@@ -15862,7 +15912,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> searching on _all, highlighting on field2"
+literal|"--> searching on field2, highlighting on field2"
 argument_list|)
 expr_stmt|;
 name|source
@@ -15946,7 +15996,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> searching on _all, highlighting on field2, falling back to the plain highlighter"
+literal|"--> searching on field2, highlighting on field2, falling back to the plain highlighter"
 argument_list|)
 expr_stmt|;
 name|source
@@ -15958,7 +16008,7 @@ name|query
 argument_list|(
 name|matchPhraseQuery
 argument_list|(
-literal|"field2"
+literal|"_all"
 argument_list|,
 literal|"quick brown"
 argument_list|)
@@ -15987,6 +16037,11 @@ operator|.
 name|highlighterType
 argument_list|(
 literal|"highlighter"
+argument_list|)
+operator|.
+name|requireFieldMatch
+argument_list|(
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
