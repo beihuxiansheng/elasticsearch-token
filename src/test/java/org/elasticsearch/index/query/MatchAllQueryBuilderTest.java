@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -93,13 +79,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Repeat
-argument_list|(
-name|iterations
-operator|=
-literal|20
-argument_list|)
 DECL|class|MatchAllQueryBuilderTest
 specifier|public
 class|class
