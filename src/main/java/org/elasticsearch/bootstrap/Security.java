@@ -20,6 +20,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|env
 operator|.
 name|Environment
@@ -357,6 +369,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Simple checks that everything is ok */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"accesses jvm default tempdir as a self-test"
+argument_list|)
 DECL|method|selfTest
 specifier|public
 specifier|static
