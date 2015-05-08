@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that does fuzzy matching for a specific value.  *  *  */
+comment|/**  * A Query that does fuzzy matching for a specific value.  */
 end_comment
 
 begin_class
@@ -64,10 +64,8 @@ specifier|public
 class|class
 name|FuzzyQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|MultiTermQueryBuilder
-implements|,
+implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|FuzzyQueryBuilder

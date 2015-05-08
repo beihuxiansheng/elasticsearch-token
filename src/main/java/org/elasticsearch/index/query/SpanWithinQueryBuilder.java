@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for {@link SpanWithinQuery}.  */
+comment|/**  * Builder for {@link org.apache.lucene.search.spans.SpanWithinQuery}.  */
 end_comment
 
 begin_class
@@ -50,10 +50,8 @@ specifier|public
 class|class
 name|SpanWithinQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|SpanQueryBuilder
-implements|,
+implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|SpanWithinQueryBuilder

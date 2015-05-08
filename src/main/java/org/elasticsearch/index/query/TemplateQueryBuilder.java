@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|TemplateQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 comment|/** Parameters to fill the template with. */
 DECL|field|vars

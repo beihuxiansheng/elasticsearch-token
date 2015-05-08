@@ -40,20 +40,14 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|FieldMaskingSpanQueryBuilder
 specifier|public
 class|class
 name|FieldMaskingSpanQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|SpanQueryBuilder
-implements|,
+implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|FieldMaskingSpanQueryBuilder

@@ -1988,7 +1988,7 @@ specifier|static
 class|class
 name|DummyQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 annotation|@
 name|Override

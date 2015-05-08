@@ -50,20 +50,14 @@ name|ArrayList
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SpanNearQueryBuilder
 specifier|public
 class|class
 name|SpanNearQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|SpanQueryBuilder
-implements|,
+implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|SpanNearQueryBuilder

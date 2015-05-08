@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|MoreLikeThisQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

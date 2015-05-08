@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that matches documents containing a term.  *  *  */
+comment|/**  * A Query that matches documents containing a term.  */
 end_comment
 
 begin_class
@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|TermQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

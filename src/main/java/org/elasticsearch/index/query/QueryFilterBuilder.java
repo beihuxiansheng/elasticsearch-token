@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|QueryFilterBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|queryBuilder
 specifier|private

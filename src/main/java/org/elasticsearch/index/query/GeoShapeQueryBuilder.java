@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|GeoShapeQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|name
 specifier|private

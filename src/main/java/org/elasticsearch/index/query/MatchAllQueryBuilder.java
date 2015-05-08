@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that matches on all documents.  *  *  */
+comment|/**  * A query that matches on all documents.  */
 end_comment
 
 begin_class
@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|MatchAllQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

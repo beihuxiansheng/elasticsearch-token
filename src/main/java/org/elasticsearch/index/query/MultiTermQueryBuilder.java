@@ -16,19 +16,16 @@ name|query
 package|;
 end_package
 
-begin_comment
-comment|/**  *  */
-end_comment
-
-begin_interface
-DECL|interface|MultiTermQueryBuilder
+begin_class
+DECL|class|MultiTermQueryBuilder
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|MultiTermQueryBuilder
 extends|extends
 name|QueryBuilder
 block|{  }
-end_interface
+end_class
 
 end_unit
 

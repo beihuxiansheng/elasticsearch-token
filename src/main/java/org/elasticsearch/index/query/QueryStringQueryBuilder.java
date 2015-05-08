@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|QueryStringQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<
@@ -121,7 +121,6 @@ argument_list|>
 block|{
 DECL|enum|Operator
 specifier|public
-specifier|static
 enum|enum
 name|Operator
 block|{
