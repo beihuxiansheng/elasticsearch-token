@@ -14423,6 +14423,10 @@ return|return
 operator|new
 name|Mapping
 argument_list|(
+name|Version
+operator|.
+name|CURRENT
+argument_list|,
 name|root
 argument_list|,
 operator|new

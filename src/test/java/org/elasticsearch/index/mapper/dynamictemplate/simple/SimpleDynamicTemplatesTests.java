@@ -365,13 +365,6 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"_id"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|field
-argument_list|(
 literal|"s"
 argument_list|,
 literal|"hello"
@@ -394,6 +387,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|builder
 operator|.
 name|bytes
@@ -594,6 +591,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
@@ -1142,6 +1143,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(
