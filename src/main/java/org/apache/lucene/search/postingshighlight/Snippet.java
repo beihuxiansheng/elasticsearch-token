@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Represents a scored highlighted snippet.  * It's our own arbitrary object that we get back from the postings highlighter when highlighting a document.  * Every snippet contains its formatted text and its score.  * The score is needed since we highlight every single value separately and we might want to return snippets sorted by score.  */
+comment|/**  * Represents a scored highlighted snippet.  * It's our own arbitrary object that we get back from the postings highlighter when highlighting a document.  * Every snippet contains its formatted text and its score.  * The score is needed in case we want to sort snippets by score, they get sorted by position in the text by default.  */
 end_comment
 
 begin_class
