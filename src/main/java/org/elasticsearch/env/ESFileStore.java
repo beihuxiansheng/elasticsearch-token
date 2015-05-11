@@ -50,6 +50,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -153,6 +165,15 @@ specifier|final
 name|Boolean
 name|spins
 decl_stmt|;
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"tries to determine if disk is spinning"
+argument_list|)
+comment|// TODO: move PathUtils to be package-private here instead of
+comment|// public+forbidden api!
 DECL|method|ESFileStore
 name|ESFileStore
 parameter_list|(

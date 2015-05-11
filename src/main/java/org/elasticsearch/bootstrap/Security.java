@@ -22,9 +22,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|PathUtils
+name|SuppressForbidden
 import|;
 end_import
 
@@ -171,17 +169,10 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
-name|PathUtils
+name|environment
 operator|.
-name|get
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|)
+name|tmpFile
+argument_list|()
 argument_list|,
 literal|"read,readlink,write,delete"
 argument_list|)
@@ -378,6 +369,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/** Simple checks that everything is ok */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"accesses jvm default tempdir as a self-test"
+argument_list|)
 DECL|method|selfTest
 specifier|public
 specifier|static

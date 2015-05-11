@@ -34,6 +34,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -149,6 +161,15 @@ comment|/**  * The environment of where things exists.  */
 end_comment
 
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"configures paths for the system"
+argument_list|)
+comment|// TODO: move PathUtils to be package-private here instead of
+comment|// public+forbidden api!
 DECL|class|Environment
 specifier|public
 class|class
@@ -204,6 +225,25 @@ specifier|private
 specifier|final
 name|Path
 name|pidFile
+decl_stmt|;
+comment|/** Path to the temporary file directory used by the JDK */
+DECL|field|tmpFile
+specifier|private
+specifier|final
+name|Path
+name|tmpFile
+init|=
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
 decl_stmt|;
 comment|/** List of filestores on the system */
 DECL|field|fileStores
@@ -719,6 +759,17 @@ parameter_list|()
 block|{
 return|return
 name|pidFile
+return|;
+block|}
+comment|/** Path to the default temp directory used by the JDK */
+DECL|method|tmpFile
+specifier|public
+name|Path
+name|tmpFile
+parameter_list|()
+block|{
+return|return
+name|tmpFile
 return|;
 block|}
 comment|/**      * Looks up the filestore associated with a Path.      *<p>      * This is an enhanced version of {@link Files#getFileStore(Path)}:      *<ul>      *<li>On *nix systems, the store returned for the root filesystem will contain      *       the actual filesystem type (e.g. {@code ext4}) instead of {@code rootfs}.      *<li>On some systems, the custom attribute {@code lucene:spins} is supported      *       via the {@link FileStore#getAttribute(String)} method.      *<li>Only requires the security permissions of {@link Files#getFileStore(Path)},      *       no permissions to the actual mount point are required.      *<li>Exception handling has the same semantics as {@link Files#getFileStore(Path)}.      *</ul>      */
