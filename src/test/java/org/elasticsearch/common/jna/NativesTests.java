@@ -84,23 +84,6 @@ if|if
 condition|(
 name|Constants
 operator|.
-name|WINDOWS
-condition|)
-block|{
-name|assertFalse
-argument_list|(
-literal|"Memory locking is not available on Windows platforms"
-argument_list|,
-name|Natives
-operator|.
-name|LOCAL_MLOCKALL
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|Constants
-operator|.
 name|MAC_OS_X
 condition|)
 block|{
@@ -108,6 +91,16 @@ name|assertFalse
 argument_list|(
 literal|"Memory locking is not available on OS X platforms"
 argument_list|,
+name|Natives
+operator|.
+name|LOCAL_MLOCKALL
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|assertTrue
+argument_list|(
 name|Natives
 operator|.
 name|LOCAL_MLOCKALL
