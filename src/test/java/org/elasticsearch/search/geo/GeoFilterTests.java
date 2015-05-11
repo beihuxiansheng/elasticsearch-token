@@ -380,7 +380,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -394,7 +394,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|GeohashCellFilter
+name|GeohashCellQuery
 import|;
 end_import
 
@@ -544,7 +544,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
 name|*
 import|;
@@ -1719,9 +1719,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -1776,9 +1776,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -1826,9 +1826,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -1883,9 +1883,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -1945,9 +1945,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoDisjointFilter
+name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -1992,9 +1992,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoDisjointFilter
+name|geoDisjointQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -2194,9 +2194,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -2380,9 +2380,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoWithinFilter
+name|geoWithinQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -2662,9 +2662,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -2709,9 +2709,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -2757,9 +2757,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -2804,9 +2804,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|geoIntersectionFilter
+name|geoIntersectionQuery
 argument_list|(
 literal|"area"
 argument_list|,
@@ -3114,7 +3114,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoBoundingBoxFilter
+name|geoBoundingBoxQuery
 argument_list|(
 literal|"pin"
 argument_list|)
@@ -3171,7 +3171,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|geoDistanceFilter
+name|geoDistanceQuery
 argument_list|(
 literal|"pin"
 argument_list|)
@@ -3683,7 +3683,7 @@ argument_list|()
 expr_stmt|;
 name|Map
 argument_list|<
-name|GeohashCellFilter
+name|GeohashCellQuery
 operator|.
 name|Builder
 argument_list|,
@@ -3698,7 +3698,7 @@ argument_list|()
 decl_stmt|;
 name|Map
 argument_list|<
-name|GeohashCellFilter
+name|GeohashCellQuery
 operator|.
 name|Builder
 argument_list|,
@@ -3716,7 +3716,7 @@ name|expectedCounts
 operator|.
 name|put
 argument_list|(
-name|geoHashCellFilter
+name|geoHashCellQuery
 argument_list|(
 literal|"pin"
 argument_list|,
@@ -3732,7 +3732,7 @@ name|expectedCounts
 operator|.
 name|put
 argument_list|(
-name|geoHashCellFilter
+name|geoHashCellQuery
 argument_list|(
 literal|"pin"
 argument_list|,
@@ -3789,7 +3789,7 @@ name|expectedCounts
 operator|.
 name|put
 argument_list|(
-name|geoHashCellFilter
+name|geoHashCellQuery
 argument_list|(
 literal|"pin"
 argument_list|,
@@ -3823,7 +3823,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|GeohashCellFilter
+name|GeohashCellQuery
 operator|.
 name|Builder
 argument_list|>
@@ -3878,7 +3878,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|GeohashCellFilter
+name|GeohashCellQuery
 operator|.
 name|Builder
 name|builder

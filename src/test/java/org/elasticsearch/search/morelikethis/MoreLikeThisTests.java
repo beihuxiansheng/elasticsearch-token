@@ -328,9 +328,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 import|;
 end_import
 
@@ -1021,7 +1021,7 @@ name|addAlias
 argument_list|(
 literal|"release"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"text"
 argument_list|,
@@ -1053,7 +1053,7 @@ name|addAlias
 argument_list|(
 literal|"beta"
 argument_list|,
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"text"
 argument_list|,
@@ -3094,9 +3094,9 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 argument_list|)
 operator|.
@@ -3154,9 +3154,9 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 argument_list|)
 operator|.
@@ -3216,9 +3216,9 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 argument_list|)
 operator|.
@@ -4073,9 +4073,9 @@ argument_list|(
 name|max_query_terms
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -4760,9 +4760,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 decl_stmt|;
 name|SearchResponse
@@ -4860,9 +4860,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 expr_stmt|;
 name|response
@@ -4956,9 +4956,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|0
+literal|"0%"
 argument_list|)
 expr_stmt|;
 name|response
@@ -5070,9 +5070,9 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|percentTermsToMatch
+name|minimumShouldMatch
 argument_list|(
-literal|1
+literal|"100%"
 argument_list|)
 expr_stmt|;
 comment|// strict all terms must match but date is ignored

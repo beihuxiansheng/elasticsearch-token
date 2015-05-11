@@ -102,7 +102,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 import|;
 end_import
 
@@ -5278,7 +5278,7 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 argument_list|(
 name|INTERVAL_FIELD
 argument_list|)
@@ -5587,7 +5587,7 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 argument_list|(
 name|INTERVAL_FIELD
 argument_list|)
@@ -5961,7 +5961,7 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 argument_list|(
 name|INTERVAL_FIELD
 argument_list|)
@@ -6298,7 +6298,7 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 argument_list|(
 name|INTERVAL_FIELD
 argument_list|)

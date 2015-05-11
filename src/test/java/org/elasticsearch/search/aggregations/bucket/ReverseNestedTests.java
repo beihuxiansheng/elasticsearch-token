@@ -22,22 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -316,9 +300,9 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|matchAllQuery
 import|;
 end_import
 
@@ -334,7 +318,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|matchAllQuery
+name|termQuery
 import|;
 end_import
 
@@ -5958,7 +5942,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"sku.sku_type"
 argument_list|,
@@ -6272,7 +6256,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"sku.sku_type"
 argument_list|,
@@ -6301,7 +6285,7 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"sku.colors.name"
 argument_list|,

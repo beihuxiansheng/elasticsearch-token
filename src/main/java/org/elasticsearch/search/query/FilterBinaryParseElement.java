@@ -54,7 +54,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -139,7 +139,7 @@ name|filterSource
 argument_list|)
 init|)
 block|{
-name|ParsedFilter
+name|ParsedQuery
 name|filter
 init|=
 name|context

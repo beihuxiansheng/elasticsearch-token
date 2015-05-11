@@ -24,6 +24,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|MatchAllDocsQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -60,7 +74,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -166,7 +180,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|ParsedFilter
+name|ParsedQuery
 name|filter
 init|=
 name|context
@@ -191,14 +205,13 @@ name|filter
 operator|==
 literal|null
 condition|?
-name|Queries
-operator|.
-name|newMatchAllFilter
+operator|new
+name|MatchAllDocsQuery
 argument_list|()
 else|:
 name|filter
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|)
 return|;

@@ -1598,6 +1598,11 @@ argument_list|)
 operator|.
 name|build
 argument_list|(
+name|indexService
+operator|.
+name|mapperService
+argument_list|()
+argument_list|,
 name|mapperParser
 argument_list|)
 decl_stmt|;

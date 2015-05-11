@@ -142,6 +142,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|util
+operator|.
+name|Providers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|discovery
 operator|.
 name|DiscoverySettings
@@ -974,6 +990,29 @@ operator|.
 name|toInstance
 argument_list|(
 name|clusterDynamicSettings
+argument_list|)
+expr_stmt|;
+comment|// Bind to null provider just in case somebody will forget to supply @ClusterDynamicSetting or @IndexDynamicSetting annotations
+comment|// This will cause any attempt to inject a unannotated DynamicSettings to fail with Guice error, instead of silently
+comment|// injecting an empty copy of dynamic settings
+name|bind
+argument_list|(
+name|DynamicSettings
+operator|.
+name|class
+argument_list|)
+operator|.
+name|toProvider
+argument_list|(
+name|Providers
+operator|.
+expr|<
+name|DynamicSettings
+operator|>
+name|of
+argument_list|(
+literal|null
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

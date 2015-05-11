@@ -44,7 +44,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilder
+name|QueryBuilder
 import|;
 end_import
 
@@ -147,7 +147,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|FilterBuilder
+name|QueryBuilder
 argument_list|>
 name|keyedFilters
 init|=
@@ -157,7 +157,7 @@ DECL|field|nonKeyedFilters
 specifier|private
 name|List
 argument_list|<
-name|FilterBuilder
+name|QueryBuilder
 argument_list|>
 name|nonKeyedFilters
 init|=
@@ -194,7 +194,7 @@ parameter_list|(
 name|String
 name|key
 parameter_list|,
-name|FilterBuilder
+name|QueryBuilder
 name|filter
 parameter_list|)
 block|{
@@ -232,7 +232,7 @@ specifier|public
 name|FiltersAggregationBuilder
 name|filter
 parameter_list|(
-name|FilterBuilder
+name|QueryBuilder
 name|filter
 parameter_list|)
 block|{
@@ -348,7 +348,7 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|FilterBuilder
+name|QueryBuilder
 argument_list|>
 name|entry
 range|:
@@ -403,7 +403,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|FilterBuilder
+name|QueryBuilder
 name|filterBuilder
 range|:
 name|nonKeyedFilters

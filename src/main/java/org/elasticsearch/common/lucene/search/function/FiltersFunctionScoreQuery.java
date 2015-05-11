@@ -161,7 +161,7 @@ block|{
 DECL|field|filter
 specifier|public
 specifier|final
-name|Filter
+name|Query
 name|filter
 decl_stmt|;
 DECL|field|function
@@ -174,7 +174,7 @@ DECL|method|FilterFunction
 specifier|public
 name|FilterFunction
 parameter_list|(
-name|Filter
+name|Query
 name|filter
 parameter_list|,
 name|ScoreFunction

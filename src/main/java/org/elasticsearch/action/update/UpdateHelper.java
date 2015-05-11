@@ -542,11 +542,11 @@ name|indexShard
 parameter_list|)
 block|{
 name|long
-name|getDate
+name|getDateNS
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -1839,14 +1839,17 @@ name|ttl
 operator|=
 name|ttl
 operator|-
-operator|(
+name|TimeValue
+operator|.
+name|nsecToMSec
+argument_list|(
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 operator|-
-name|getDate
-operator|)
+name|getDateNS
+argument_list|)
 expr_stmt|;
 comment|// It is an approximation of exact TTL value, could be improved
 block|}

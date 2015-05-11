@@ -718,8 +718,6 @@ operator|new
 name|ThreadPool
 argument_list|(
 name|settings
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat

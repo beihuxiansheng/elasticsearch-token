@@ -41,16 +41,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that simply wraps a query.  *  *  */
+comment|/**  * A filter that simply wraps a query.  * @deprecated Useless now that queries and filters are merged: pass the  *             query as a filter directly.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|QueryFilterBuilder
 specifier|public
 class|class
 name|QueryFilterBuilder
 extends|extends
-name|BaseFilterBuilder
+name|BaseQueryBuilder
 block|{
 DECL|field|queryBuilder
 specifier|private
@@ -58,10 +60,10 @@ specifier|final
 name|QueryBuilder
 name|queryBuilder
 decl_stmt|;
-DECL|field|filterName
+DECL|field|queryName
 specifier|private
 name|String
-name|filterName
+name|queryName
 decl_stmt|;
 comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
 DECL|method|QueryFilterBuilder
@@ -79,21 +81,21 @@ operator|=
 name|queryBuilder
 expr_stmt|;
 block|}
-comment|/**      * Sets the filter name for the filter that can be used when searching for matched_filters per hit.      */
-DECL|method|filterName
+comment|/**      * Sets the query name for the filter that can be used when searching for matched_filters per hit.      */
+DECL|method|queryName
 specifier|public
 name|QueryFilterBuilder
-name|filterName
+name|queryName
 parameter_list|(
 name|String
-name|filterName
+name|queryName
 parameter_list|)
 block|{
 name|this
 operator|.
-name|filterName
+name|queryName
 operator|=
-name|filterName
+name|queryName
 expr_stmt|;
 return|return
 name|this
@@ -117,7 +119,7 @@ name|IOException
 block|{
 if|if
 condition|(
-name|filterName
+name|queryName
 operator|==
 literal|null
 condition|)
@@ -170,7 +172,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|filterName
+name|queryName
 operator|!=
 literal|null
 condition|)
@@ -181,7 +183,7 @@ name|field
 argument_list|(
 literal|"_name"
 argument_list|,
-name|filterName
+name|queryName
 argument_list|)
 expr_stmt|;
 block|}

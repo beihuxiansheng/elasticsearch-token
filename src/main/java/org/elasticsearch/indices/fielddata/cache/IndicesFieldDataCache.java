@@ -1972,11 +1972,11 @@ name|run
 parameter_list|()
 block|{
 name|long
-name|startTime
+name|startTimeNS
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 decl_stmt|;
 if|if
@@ -2035,12 +2035,17 @@ name|trace
 argument_list|(
 literal|"periodic field data cache cleanup finished in {} milliseconds"
 argument_list|,
+name|TimeValue
+operator|.
+name|nsecToMSec
+argument_list|(
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 operator|-
-name|startTime
+name|startTimeNS
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

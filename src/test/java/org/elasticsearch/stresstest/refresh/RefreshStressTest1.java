@@ -66,7 +66,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -447,9 +447,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -555,9 +555,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,
@@ -616,9 +616,9 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|termFilter
+name|termQuery
 argument_list|(
 literal|"name"
 argument_list|,

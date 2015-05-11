@@ -240,7 +240,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|ParsedFilter
+name|ParsedQuery
 import|;
 end_import
 
@@ -1475,7 +1475,7 @@ specifier|public
 name|SearchContext
 name|parsedPostFilter
 parameter_list|(
-name|ParsedFilter
+name|ParsedQuery
 name|postFilter
 parameter_list|)
 block|{
@@ -1492,7 +1492,7 @@ annotation|@
 name|Override
 DECL|method|parsedPostFilter
 specifier|public
-name|ParsedFilter
+name|ParsedQuery
 name|parsedPostFilter
 parameter_list|()
 block|{

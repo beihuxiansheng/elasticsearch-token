@@ -152,7 +152,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 import|;
 end_import
 
@@ -1172,12 +1172,12 @@ operator|++
 name|i
 control|)
 block|{
-name|RangeFilterBuilder
+name|RangeQueryBuilder
 name|filter
 init|=
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|rangeFilter
+name|rangeQuery
 argument_list|(
 literal|"values"
 argument_list|)
@@ -3287,9 +3287,9 @@ argument_list|)
 operator|.
 name|filter
 argument_list|(
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|matchAllFilter
+name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.

@@ -958,7 +958,7 @@ name|value
 operator|.
 name|lon
 argument_list|()
-operator|>
+operator|>=
 literal|0
 operator|&&
 name|value
@@ -993,7 +993,7 @@ name|value
 operator|.
 name|lon
 argument_list|()
-operator|>
+operator|>=
 literal|0
 operator|&&
 name|value

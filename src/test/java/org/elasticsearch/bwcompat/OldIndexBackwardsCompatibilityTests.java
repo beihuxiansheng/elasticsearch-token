@@ -292,7 +292,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
+name|QueryBuilders
 import|;
 end_import
 
@@ -2363,9 +2363,9 @@ operator|.
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|existsFilter
+name|existsQuery
 argument_list|(
 literal|"string"
 argument_list|)
@@ -2428,9 +2428,9 @@ operator|.
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|FilterBuilders
+name|QueryBuilders
 operator|.
-name|missingFilter
+name|missingQuery
 argument_list|(
 literal|"long_sort"
 argument_list|)

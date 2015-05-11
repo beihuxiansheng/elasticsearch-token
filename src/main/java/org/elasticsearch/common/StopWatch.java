@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple stop watch, allowing for timing of a number of tasks,  * exposing total running time and running time for each named task.  *<p/>  *<p>Conceals use of<code>System.currentTimeMillis()</code>, improving the  * readability of application code and reducing the likelihood of calculation errors.  *<p/>  *<p>Note that this object is not designed to be thread-safe and does not  * use synchronization.  *<p/>  *<p>This class is normally used to verify performance during proof-of-concepts  * and in development, rather than as part of production applications.  *  *  */
+comment|/**  * Simple stop watch, allowing for timing of a number of tasks,  * exposing total running time and running time for each named task.  *<p/>  *<p>Conceals use of<code>System.nanoTime()</code>, improving the  * readability of application code and reducing the likelihood of calculation errors.  *<p/>  *<p>Note that this object is not designed to be thread-safe and does not  * use synchronization.  *<p/>  *<p>This class is normally used to verify performance during proof-of-concepts  * and in development, rather than as part of production applications.  *  *  */
 end_comment
 
 begin_class
@@ -119,10 +119,10 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Start time of the current task      */
-DECL|field|startTimeMillis
+DECL|field|startTimeNS
 specifier|private
 name|long
-name|startTimeMillis
+name|startTimeNS
 decl_stmt|;
 comment|/**      * Is the stop watch currently running?      */
 DECL|field|running
@@ -147,10 +147,10 @@ name|int
 name|taskCount
 decl_stmt|;
 comment|/**      * Total running time      */
-DECL|field|totalTimeMillis
+DECL|field|totalTimeNS
 specifier|private
 name|long
-name|totalTimeMillis
+name|totalTimeNS
 decl_stmt|;
 comment|/**      * Construct a new stop watch. Does not start any task.      */
 DECL|method|StopWatch
@@ -246,11 +246,11 @@ throw|;
 block|}
 name|this
 operator|.
-name|startTimeMillis
+name|startTimeNS
 operator|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 expr_stmt|;
 name|this
@@ -295,22 +295,22 @@ argument_list|)
 throw|;
 block|}
 name|long
-name|lastTime
+name|lastTimeNS
 init|=
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
 operator|-
 name|this
 operator|.
-name|startTimeMillis
+name|startTimeNS
 decl_stmt|;
 name|this
 operator|.
-name|totalTimeMillis
+name|totalTimeNS
 operator|+=
-name|lastTime
+name|lastTimeNS
 expr_stmt|;
 name|this
 operator|.
@@ -323,7 +323,12 @@ name|this
 operator|.
 name|currentTaskName
 argument_list|,
-name|lastTime
+name|TimeValue
+operator|.
+name|nsecToMSec
+argument_list|(
+name|lastTimeNS
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
@@ -458,11 +463,11 @@ return|return
 operator|new
 name|TimeValue
 argument_list|(
-name|totalTimeMillis
+name|totalTimeNS
 argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|NANOSECONDS
 argument_list|)
 return|;
 block|}

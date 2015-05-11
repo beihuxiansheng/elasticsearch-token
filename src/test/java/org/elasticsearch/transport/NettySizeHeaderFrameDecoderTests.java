@@ -352,7 +352,12 @@ operator|new
 name|ThreadPool
 argument_list|(
 name|settings
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|threadPool
+operator|.
+name|setNodeSettingsService
+argument_list|(
 operator|new
 name|NodeSettingsService
 argument_list|(

@@ -1256,34 +1256,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The percentage of terms to match. Defaults to<tt>0.3</tt>.      */
-annotation|@
-name|Deprecated
-DECL|method|percentTermsToMatch
-specifier|public
-name|MoreLikeThisQueryBuilder
-name|percentTermsToMatch
-parameter_list|(
-name|float
-name|percentTermsToMatch
-parameter_list|)
-block|{
-return|return
-name|minimumShouldMatch
-argument_list|(
-name|Math
-operator|.
-name|round
-argument_list|(
-name|percentTermsToMatch
-operator|*
-literal|100
-argument_list|)
-operator|+
-literal|"%"
-argument_list|)
-return|;
-block|}
 comment|/**      * The frequency below which terms will be ignored in the source doc. The default      * frequency is<tt>2</tt>.      */
 DECL|method|minTermFreq
 specifier|public
