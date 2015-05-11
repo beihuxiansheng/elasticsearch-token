@@ -16,10 +16,6 @@ name|query
 package|;
 end_package
 
-begin_comment
-comment|/**  * Created by IntelliJ IDEA.  * User: cedric  * Date: 12/07/11  * Time: 11:30  */
-end_comment
-
 begin_import
 import|import
 name|com
@@ -31,6 +27,20 @@ operator|.
 name|base
 operator|.
 name|Charsets
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesReference
 import|;
 end_import
 
@@ -59,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query builder which allows building a query thanks to a JSON string or binary data. This is useful when you want  * to use the Java Builder API but still have JSON query strings at hand that you want to combine with other  * query builders.  *<p/>  * Example usage in a boolean query :  *<pre>  * {@code  *      BoolQueryBuilder bool = new BoolQueryBuilder();  *      bool.must(new WrapperQueryBuilder("{\"term\": {\"field\":\"value\"}}");  *      bool.must(new TermQueryBuilder("field2","value2");  * }  *</pre>  */
+comment|/**  * A Query builder which allows building a query given JSON string or binary data provided as input. This is useful when you want  * to use the Java Builder API but still have JSON query strings at hand that you want to combine with other  * query builders.  *<p/>  * Example usage in a boolean query :  *<pre>  * {@code  *      BoolQueryBuilder bool = new BoolQueryBuilder();  *      bool.must(new WrapperQueryBuilder("{\"term\": {\"field\":\"value\"}}");  *      bool.must(new TermQueryBuilder("field2","value2");  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -89,7 +99,7 @@ specifier|final
 name|int
 name|length
 decl_stmt|;
-comment|/**      * Builds a JSONQueryBuilder using the provided JSON query string.      */
+comment|/**      * Creates a query builder given a query provided as a string      */
 DECL|method|WrapperQueryBuilder
 specifier|public
 name|WrapperQueryBuilder
@@ -128,6 +138,7 @@ operator|.
 name|length
 expr_stmt|;
 block|}
+comment|/**      * Creates a query builder given a query provided as a bytes array      */
 DECL|method|WrapperQueryBuilder
 specifier|public
 name|WrapperQueryBuilder
@@ -160,6 +171,43 @@ operator|.
 name|length
 operator|=
 name|length
+expr_stmt|;
+block|}
+comment|/**      * Creates a query builder given a query provided as a {@link BytesReference}      */
+DECL|method|WrapperQueryBuilder
+specifier|public
+name|WrapperQueryBuilder
+parameter_list|(
+name|BytesReference
+name|source
+parameter_list|)
+block|{
+name|this
+operator|.
+name|source
+operator|=
+name|source
+operator|.
+name|array
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|offset
+operator|=
+name|source
+operator|.
+name|arrayOffset
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|length
+operator|=
+name|source
+operator|.
+name|length
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

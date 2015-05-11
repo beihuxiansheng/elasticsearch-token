@@ -296,8 +296,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -922,8 +920,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1562,8 +1558,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1967,8 +1961,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -2216,8 +2208,6 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|ThreadPoolInfo

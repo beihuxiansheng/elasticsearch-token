@@ -700,7 +700,7 @@ name|queryString
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.XSimpleQueryParser} for the full      * supported syntax.      */
+comment|/**      * A query that acts similar to a query_string query, but won't throw      * exceptions for any weird string syntax. See      * {@link org.apache.lucene.queryparser.simple.SimpleQueryParser} for the full      * supported syntax.      */
 DECL|method|simpleQueryStringQuery
 specifier|public
 specifier|static
@@ -1156,32 +1156,6 @@ name|MoreLikeThisQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * Constructs a new scoring child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type  The child type.      * @param query The query.      */
-annotation|@
-name|Deprecated
-DECL|method|topChildrenQuery
-specifier|public
-specifier|static
-name|TopChildrenQueryBuilder
-name|topChildrenQuery
-parameter_list|(
-name|String
-name|type
-parameter_list|,
-name|QueryBuilder
-name|query
-parameter_list|)
-block|{
-return|return
-operator|new
-name|TopChildrenQueryBuilder
-argument_list|(
-name|type
-argument_list|,
-name|query
-argument_list|)
-return|;
-block|}
 comment|/**      * Constructs a new NON scoring child query, with the child type and the query to run on the child documents. The      * results of this query are the parent docs that those child docs matched.      *      * @param type  The child type.      * @param query The query.      */
 DECL|method|hasChildQuery
 specifier|public
@@ -1463,6 +1437,25 @@ name|WrapperQueryBuilder
 name|wrapperQuery
 parameter_list|(
 name|String
+name|source
+parameter_list|)
+block|{
+return|return
+operator|new
+name|WrapperQueryBuilder
+argument_list|(
+name|source
+argument_list|)
+return|;
+block|}
+comment|/**      * A Query builder which allows building a query thanks to a JSON string or binary data.      */
+DECL|method|wrapperQuery
+specifier|public
+specifier|static
+name|WrapperQueryBuilder
+name|wrapperQuery
+parameter_list|(
+name|BytesReference
 name|source
 parameter_list|)
 block|{
@@ -2156,25 +2149,6 @@ operator|new
 name|NotQueryBuilder
 argument_list|(
 name|filter
-argument_list|)
-return|;
-block|}
-comment|/**      * Constructs a bytes filter to generate a filter from a {@link BytesReference} source      *      * @param source The filter source      */
-DECL|method|bytesQuery
-specifier|public
-specifier|static
-name|BytesQueryBuilder
-name|bytesQuery
-parameter_list|(
-name|BytesReference
-name|source
-parameter_list|)
-block|{
-return|return
-operator|new
-name|BytesQueryBuilder
-argument_list|(
-name|source
 argument_list|)
 return|;
 block|}
