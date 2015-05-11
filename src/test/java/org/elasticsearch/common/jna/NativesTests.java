@@ -97,7 +97,12 @@ name|LOCAL_MLOCKALL
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
 block|{
 name|assertTrue
 argument_list|(
