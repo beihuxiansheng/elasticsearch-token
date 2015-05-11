@@ -112,7 +112,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollectorBase
+name|LeafBucketCollector
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|LeafBucketCollector
+name|LeafBucketCollectorBase
 import|;
 end_import
 
@@ -566,6 +566,27 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
+name|int
+name|docCount
+init|=
+name|bucketDocCount
+argument_list|(
+name|i
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|docCount
+operator|<
+name|bucketCountThresholds
+operator|.
+name|getShardMinDocCount
+argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
 if|if
 condition|(
 name|spare
@@ -611,10 +632,7 @@ name|spare
 operator|.
 name|subsetDf
 operator|=
-name|bucketDocCount
-argument_list|(
-name|i
-argument_list|)
+name|docCount
 expr_stmt|;
 name|spare
 operator|.
@@ -659,18 +677,6 @@ name|bucketOrd
 operator|=
 name|i
 expr_stmt|;
-if|if
-condition|(
-name|spare
-operator|.
-name|subsetDf
-operator|>=
-name|bucketCountThresholds
-operator|.
-name|getShardMinDocCount
-argument_list|()
-condition|)
-block|{
 name|spare
 operator|=
 operator|(
@@ -685,7 +691,6 @@ argument_list|(
 name|spare
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 specifier|final
 name|InternalSignificantTerms
