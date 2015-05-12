@@ -62,20 +62,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|BytesRef
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -297,6 +283,13 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|method|IdsQueryBuilder
+specifier|public
+name|IdsQueryBuilder
+parameter_list|()
+block|{
+comment|//for serialization only
+block|}
 DECL|method|IdsQueryBuilder
 specifier|public
 name|IdsQueryBuilder

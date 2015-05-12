@@ -409,6 +409,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|TermQueryBuilder
+specifier|public
 name|TermQueryBuilder
 parameter_list|()
 block|{
