@@ -2376,12 +2376,18 @@ literal|"already started"
 assert|;
 name|startTime
 operator|=
+name|TimeValue
+operator|.
+name|nsecToMSec
+argument_list|(
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
+comment|/** Returns start time in millis */
 DECL|method|startTime
 specifier|public
 specifier|synchronized
@@ -2393,6 +2399,7 @@ return|return
 name|startTime
 return|;
 block|}
+comment|/** Returns elapsed time in millis, or 0 if timer was not started */
 DECL|method|time
 specifier|public
 specifier|synchronized
@@ -2429,15 +2436,21 @@ name|max
 argument_list|(
 literal|0
 argument_list|,
+name|TimeValue
+operator|.
+name|nsecToMSec
+argument_list|(
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
+argument_list|)
 operator|-
 name|startTime
 argument_list|)
 return|;
 block|}
+comment|/** Returns stop time in millis */
 DECL|method|stopTime
 specifier|public
 specifier|synchronized
@@ -2469,10 +2482,15 @@ name|Math
 operator|.
 name|max
 argument_list|(
+name|TimeValue
+operator|.
+name|nsecToMSec
+argument_list|(
 name|System
 operator|.
-name|currentTimeMillis
+name|nanoTime
 argument_list|()
+argument_list|)
 argument_list|,
 name|startTime
 argument_list|)

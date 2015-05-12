@@ -3694,10 +3694,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|rarely
+argument_list|(
 name|random
-operator|.
-name|nextBoolean
-argument_list|()
+argument_list|)
 condition|)
 block|{
 name|builder
