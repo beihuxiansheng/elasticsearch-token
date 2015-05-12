@@ -645,13 +645,6 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
-argument_list|(
-literal|"_id"
-argument_list|,
-literal|1
-argument_list|)
-operator|.
 name|startObject
 argument_list|(
 literal|"file"
@@ -689,6 +682,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -714,7 +711,7 @@ argument_list|()
 operator|.
 name|getMapper
 argument_list|(
-literal|"file"
+literal|"file.content"
 argument_list|)
 operator|.
 name|names

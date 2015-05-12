@@ -440,7 +440,7 @@ argument_list|)
 operator|.
 name|defaultField
 argument_list|(
-literal|"file1"
+literal|"file1.content"
 argument_list|)
 argument_list|)
 operator|.

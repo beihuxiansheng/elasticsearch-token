@@ -368,7 +368,7 @@ argument_list|()
 operator|.
 name|getMapper
 argument_list|(
-literal|"file1"
+literal|"file1.content"
 argument_list|)
 operator|.
 name|names
@@ -996,7 +996,7 @@ argument_list|()
 operator|.
 name|getMapper
 argument_list|(
-literal|"file2"
+literal|"file2.content"
 argument_list|)
 operator|.
 name|names

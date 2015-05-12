@@ -349,7 +349,7 @@ argument_list|()
 operator|.
 name|getMapper
 argument_list|(
-literal|"file"
+literal|"file.content"
 argument_list|)
 argument_list|,
 name|instanceOf
@@ -369,7 +369,7 @@ argument_list|()
 operator|.
 name|getMapper
 argument_list|(
-literal|"file.suggest"
+literal|"file.content.suggest"
 argument_list|)
 argument_list|,
 name|instanceOf
@@ -761,7 +761,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file"
+literal|"file.content"
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -777,7 +777,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file"
+literal|"file.content"
 argument_list|)
 operator|.
 name|stringValue
@@ -917,7 +917,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file.suggest"
+literal|"file.content.suggest"
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -933,7 +933,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file.suggest"
+literal|"file.content.suggest"
 argument_list|)
 operator|.
 name|stringValue
@@ -1004,7 +1004,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file"
+literal|"file.content"
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -1020,7 +1020,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file"
+literal|"file.content"
 argument_list|)
 operator|.
 name|stringValue
@@ -1160,7 +1160,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file.suggest"
+literal|"file.content.suggest"
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -1176,7 +1176,7 @@ argument_list|()
 operator|.
 name|getField
 argument_list|(
-literal|"file.suggest"
+literal|"file.content.suggest"
 argument_list|)
 operator|.
 name|stringValue
