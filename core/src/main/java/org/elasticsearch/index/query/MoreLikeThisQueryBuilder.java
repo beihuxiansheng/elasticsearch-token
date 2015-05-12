@@ -774,13 +774,13 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|ignoreDocs
+DECL|field|unlikeDocs
 specifier|private
 name|List
 argument_list|<
 name|Item
 argument_list|>
-name|ignoreDocs
+name|unlikeDocs
 init|=
 operator|new
 name|ArrayList
@@ -1003,7 +1003,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreDocs
+name|unlikeDocs
 operator|=
 name|Arrays
 operator|.
@@ -1029,7 +1029,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|ignoreDocs
+name|unlikeDocs
 operator|=
 operator|new
 name|ArrayList
@@ -1046,7 +1046,7 @@ control|)
 block|{
 name|this
 operator|.
-name|ignoreDocs
+name|unlikeDocs
 operator|.
 name|add
 argument_list|(
@@ -1606,7 +1606,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|ignoreDocs
+name|unlikeDocs
 operator|.
 name|isEmpty
 argument_list|()
@@ -1620,12 +1620,12 @@ name|MoreLikeThisQueryParser
 operator|.
 name|Fields
 operator|.
-name|LIKE
+name|UNLIKE
 operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
-name|ignoreDocs
+name|unlikeDocs
 argument_list|)
 expr_stmt|;
 block|}
