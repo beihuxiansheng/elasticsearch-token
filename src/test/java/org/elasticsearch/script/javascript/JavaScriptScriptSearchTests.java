@@ -234,22 +234,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|FilterBuilders
-operator|.
-name|scriptFilter
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|QueryBuilders
 operator|.
 name|*
@@ -572,7 +556,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"doc['num1'].value> 1"
 argument_list|)
@@ -764,7 +748,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"doc['num1'].value> param1"
 argument_list|)
@@ -905,7 +889,7 @@ argument_list|(
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|scriptFilter
+name|scriptQuery
 argument_list|(
 literal|"doc['num1'].value> param1"
 argument_list|)
