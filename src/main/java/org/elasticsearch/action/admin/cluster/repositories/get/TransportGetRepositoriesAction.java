@@ -347,13 +347,11 @@ operator|.
 name|blocks
 argument_list|()
 operator|.
-name|indexBlockedException
+name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
 name|METADATA_READ
-argument_list|,
-literal|""
 argument_list|)
 return|;
 block|}
