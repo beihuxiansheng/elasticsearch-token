@@ -100,6 +100,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|bootstrap
+operator|.
+name|BootstrapForTesting
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -181,7 +193,7 @@ name|BaseTokenStreamTestCase
 block|{
 static|static
 block|{
-name|SecurityBootstrap
+name|BootstrapForTesting
 operator|.
 name|ensureInitialized
 argument_list|()
