@@ -986,6 +986,20 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+name|assumeNoException
+argument_list|(
+literal|"test cannot create symbolic links with security manager enabled"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|Security
 operator|.
 name|ensureDirectoryExists
@@ -1058,6 +1072,20 @@ block|{
 name|assumeNoException
 argument_list|(
 literal|"test requires filesystem that supports symbolic links"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SecurityException
+name|e
+parameter_list|)
+block|{
+name|assumeNoException
+argument_list|(
+literal|"test cannot create symbolic links with security manager enabled"
 argument_list|,
 name|e
 argument_list|)
