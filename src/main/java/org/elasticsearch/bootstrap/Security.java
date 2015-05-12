@@ -134,7 +134,6 @@ end_comment
 
 begin_class
 DECL|class|Security
-specifier|public
 class|class
 name|Security
 block|{
@@ -335,7 +334,6 @@ return|;
 block|}
 comment|/** Add access to path (and all files underneath it */
 DECL|method|addPath
-specifier|public
 specifier|static
 name|void
 name|addPath
@@ -502,7 +500,6 @@ operator|=
 literal|"accesses jvm default tempdir as a self-test"
 argument_list|)
 DECL|method|selfTest
-specifier|public
 specifier|static
 name|void
 name|selfTest
