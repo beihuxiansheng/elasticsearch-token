@@ -32,17 +32,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|ToXContent
 import|;
 end_import
 
@@ -51,19 +41,9 @@ DECL|interface|SignificanceHeuristicBuilder
 specifier|public
 interface|interface
 name|SignificanceHeuristicBuilder
-block|{
-DECL|method|toXContent
-specifier|public
-name|void
-name|toXContent
-parameter_list|(
-name|XContentBuilder
-name|builder
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-block|}
+extends|extends
+name|ToXContent
+block|{ }
 end_interface
 
 end_unit

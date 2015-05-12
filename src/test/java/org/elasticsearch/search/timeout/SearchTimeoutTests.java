@@ -50,6 +50,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -63,22 +75,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|scriptQuery
 import|;
 end_import
 
@@ -111,6 +107,22 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|scriptQuery
 import|;
 end_import
 
@@ -247,7 +259,11 @@ argument_list|()
 argument_list|,
 name|scriptQuery
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"Thread.sleep(500); return true;"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
