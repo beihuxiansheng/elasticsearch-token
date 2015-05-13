@@ -246,9 +246,19 @@ return|return
 name|analyzer
 return|;
 block|}
-return|return
-name|defaultAnalyzer
-return|;
+comment|// Don't be lenient here and return the default analyzer
+comment|// Fields need to be explicitly added
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Field ["
+operator|+
+name|name
+operator|+
+literal|"] has no associated analyzer"
+argument_list|)
+throw|;
 block|}
 comment|/**      * Return a new instance that contains the union of this and of the provided analyzers.      */
 DECL|method|copyAndAddAll
@@ -299,16 +309,26 @@ range|:
 name|mappers
 control|)
 block|{
-if|if
-condition|(
+name|Analyzer
+name|analyzer
+init|=
 name|entry
 operator|.
 name|getValue
 argument_list|()
-operator|!=
+decl_stmt|;
+if|if
+condition|(
+name|analyzer
+operator|==
 literal|null
 condition|)
 block|{
+name|analyzer
+operator|=
+name|defaultAnalyzer
+expr_stmt|;
+block|}
 name|analyzers
 operator|=
 name|analyzers
@@ -320,13 +340,9 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|,
-name|entry
-operator|.
-name|getValue
-argument_list|()
+name|analyzer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 operator|new
