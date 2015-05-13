@@ -1219,6 +1219,23 @@ argument_list|()
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|Regex
+operator|.
+name|isMatchAllPattern
+argument_list|(
+name|request
+operator|.
+name|name
+argument_list|)
+condition|)
+block|{
+comment|// we use a wildcard so we don't barf if it's not present.
+return|return
+name|currentState
+return|;
+block|}
 throw|throw
 operator|new
 name|RepositoryMissingException

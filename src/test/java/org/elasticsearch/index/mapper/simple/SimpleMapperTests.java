@@ -381,6 +381,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -474,6 +478,10 @@ name|builtDocMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -620,6 +628,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.

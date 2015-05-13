@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -39,22 +39,6 @@ operator|.
 name|base
 operator|.
 name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
 import|;
 end_import
 
@@ -195,20 +179,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|discovery
-operator|.
-name|zen
-operator|.
-name|ZenDiscovery
 import|;
 end_import
 
@@ -647,14 +617,14 @@ name|getState
 argument_list|()
 decl_stmt|;
 comment|// verify that we have all the primaries on node3
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|counts
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1071,14 +1041,14 @@ operator|.
 name|getState
 argument_list|()
 decl_stmt|;
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|counts
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1465,14 +1435,14 @@ operator|.
 name|getState
 argument_list|()
 decl_stmt|;
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|counts
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1742,7 +1712,7 @@ expr_stmt|;
 name|counts
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -2000,7 +1970,7 @@ expr_stmt|;
 name|counts
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -2234,7 +2204,7 @@ expr_stmt|;
 name|counts
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

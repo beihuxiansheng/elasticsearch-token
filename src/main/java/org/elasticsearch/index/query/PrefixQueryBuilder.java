@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that matches documents containing terms with a specified prefix.  *  *  */
+comment|/**  * A Query that matches documents containing terms with a specified prefix.  */
 end_comment
 
 begin_class
@@ -50,10 +50,8 @@ specifier|public
 class|class
 name|PrefixQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|MultiTermQueryBuilder
-implements|,
+implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|PrefixQueryBuilder

@@ -347,23 +347,14 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
-name|error
+name|UnsatisfiedLinkError
+name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"unable to determine euid"
-argument_list|,
-name|error
-argument_list|)
-expr_stmt|;
+comment|// this will have already been logged by Kernel32Library, no need to repeat it
 return|return
 literal|false
 return|;
-comment|// don't know
 block|}
 block|}
 DECL|method|tryVirtualLock

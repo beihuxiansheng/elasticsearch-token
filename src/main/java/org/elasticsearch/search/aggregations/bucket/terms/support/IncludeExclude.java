@@ -30,7 +30,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongOpenHashSet
+name|LongHashSet
 import|;
 end_import
 
@@ -380,7 +380,7 @@ block|{
 name|valids
 operator|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|(
 name|numValids
 argument_list|)
@@ -396,7 +396,7 @@ block|{
 name|invalids
 operator|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|(
 name|numInvalids
 argument_list|)

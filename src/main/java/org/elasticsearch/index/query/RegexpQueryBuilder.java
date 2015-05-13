@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that does fuzzy matching for a specific value.  *  *  */
+comment|/**  * A Query that does fuzzy matching for a specific value.  */
 end_comment
 
 begin_class
@@ -66,14 +66,12 @@ specifier|public
 class|class
 name|RegexpQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|MultiTermQueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|RegexpQueryBuilder
 argument_list|>
-implements|,
-name|MultiTermQueryBuilder
 block|{
 DECL|field|name
 specifier|private

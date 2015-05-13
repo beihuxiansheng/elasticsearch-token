@@ -349,6 +349,23 @@ argument_list|,
 name|shardFailures
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|tookInMillis
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"tookInMillis must be positive but was: "
+operator|+
+name|tookInMillis
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|tookInMillis
@@ -411,6 +428,23 @@ argument_list|,
 name|shardFailures
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|tookInMillis
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"tookInMillis must be positive but was: "
+operator|+
+name|tookInMillis
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|tookInMillis

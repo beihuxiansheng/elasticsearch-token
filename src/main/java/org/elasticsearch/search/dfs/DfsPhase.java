@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -301,14 +301,14 @@ name|context
 parameter_list|)
 block|{
 specifier|final
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|Term
 argument_list|>
 name|termsSet
 init|=
 operator|new
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -486,7 +486,7 @@ name|termContext
 argument_list|)
 expr_stmt|;
 block|}
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -637,7 +637,7 @@ block|{
 DECL|field|delegate
 specifier|private
 specifier|final
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|Term
 argument_list|>
@@ -647,7 +647,7 @@ DECL|method|DelegateSet
 specifier|private
 name|DelegateSet
 parameter_list|(
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|Term
 argument_list|>

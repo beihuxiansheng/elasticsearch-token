@@ -76,7 +76,7 @@ specifier|public
 class|class
 name|AndQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|filters
 specifier|private

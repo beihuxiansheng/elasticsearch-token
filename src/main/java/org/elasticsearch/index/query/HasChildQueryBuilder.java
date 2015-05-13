@@ -56,17 +56,13 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|HasChildQueryBuilder
 specifier|public
 class|class
 name|HasChildQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

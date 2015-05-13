@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test
+DECL|package|org.elasticsearch.bootstrap
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|bootstrap
 package|;
 end_package
 
@@ -72,9 +72,31 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|FilePermission
 import|;
 end_import
 
@@ -135,13 +157,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**   * Installs test security manager (ensures it happens regardless of which  * test case happens to be first, test ordering, etc).   *<p>  * The idea is to mimic as much as possible what happens with ES in production  * mode (e.g. assign permissions and install security manager the same way)  */
+comment|/**   * Initializes natives and installs test security manager  * (init'd early by base classes to ensure it happens regardless of which  * test case happens to be first, test ordering, etc).   *<p>  * The idea is to mimic as much as possible what happens with ES in production  * mode (e.g. assign permissions and install security manager the same way)  */
 end_comment
 
 begin_class
-DECL|class|SecurityBootstrap
+DECL|class|BootstrapForTesting
+specifier|public
 class|class
-name|SecurityBootstrap
+name|BootstrapForTesting
 block|{
 comment|// TODO: can we share more code with the non-test side here
 comment|// without making things complex???
@@ -333,6 +356,41 @@ argument_list|,
 literal|"read,readlink,write,delete"
 argument_list|)
 expr_stmt|;
+comment|// custom test config file
+if|if
+condition|(
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.config"
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|perms
+operator|.
+name|add
+argument_list|(
+operator|new
+name|FilePermission
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.config"
+argument_list|)
+argument_list|,
+literal|"read,readlink"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|Policy
 operator|.
 name|setPolicy
@@ -379,6 +437,7 @@ block|}
 block|}
 comment|// does nothing, just easy way to make sure the class is loaded.
 DECL|method|ensureInitialized
+specifier|public
 specifier|static
 name|void
 name|ensureInitialized

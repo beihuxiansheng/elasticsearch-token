@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -291,7 +291,7 @@ argument_list|>
 name|valueToId
 init|=
 operator|new
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;

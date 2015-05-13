@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -218,7 +218,7 @@ block|{
 DECL|field|fieldMap
 specifier|private
 specifier|final
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -272,7 +272,7 @@ decl_stmt|;
 name|fieldMap
 operator|=
 operator|new
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -478,15 +478,22 @@ name|IOException
 block|{
 comment|// first, find where in the termVectors bytes the actual term vector for
 comment|// this field is stored
-if|if
-condition|(
-operator|!
+specifier|final
+name|int
+name|keySlot
+init|=
 name|fieldMap
 operator|.
-name|containsKey
+name|indexOf
 argument_list|(
 name|field
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|keySlot
+operator|<
+literal|0
 condition|)
 block|{
 return|return
@@ -499,8 +506,10 @@ name|readOffset
 init|=
 name|fieldMap
 operator|.
-name|lget
-argument_list|()
+name|indexGet
+argument_list|(
+name|keySlot
+argument_list|)
 decl_stmt|;
 return|return
 operator|new

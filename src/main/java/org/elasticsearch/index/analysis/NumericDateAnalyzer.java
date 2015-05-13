@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 import|;
 end_import
 
@@ -113,7 +113,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<
 name|NamedAnalyzer
 argument_list|>
@@ -139,7 +139,7 @@ name|int
 name|precisionStep
 parameter_list|)
 block|{
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<
 name|NamedAnalyzer
 argument_list|>
@@ -165,7 +165,7 @@ block|{
 name|precisionMap
 operator|=
 operator|new
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

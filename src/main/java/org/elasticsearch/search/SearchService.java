@@ -22,7 +22,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -5919,7 +5919,7 @@ argument_list|>
 name|warmUp
 init|=
 operator|new
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;

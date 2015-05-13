@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -1075,14 +1075,14 @@ return|;
 block|}
 else|else
 block|{
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
 name|resolvedNodesIds
 init|=
 operator|new
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<>
 argument_list|(
 name|nodesIds

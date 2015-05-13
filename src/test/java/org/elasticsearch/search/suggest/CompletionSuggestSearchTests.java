@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -5956,7 +5956,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|String
 argument_list|>

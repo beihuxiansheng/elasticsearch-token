@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  *  *  */
+comment|/**  * A query that wraps a filter and simply returns a constant score equal to the  * query boost for every document in the filter.  */
 end_comment
 
 begin_class
@@ -60,7 +60,7 @@ specifier|public
 class|class
 name|ConstantScoreQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

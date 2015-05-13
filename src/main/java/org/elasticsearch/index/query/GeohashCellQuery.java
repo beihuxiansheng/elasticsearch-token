@@ -409,7 +409,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 comment|// we need to store the geohash rather than the corresponding point,
 comment|// because a transformation from a geohash to a point an back to the

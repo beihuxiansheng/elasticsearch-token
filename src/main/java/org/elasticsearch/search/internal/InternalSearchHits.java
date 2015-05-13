@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 import|;
 end_import
 
@@ -258,14 +258,14 @@ argument_list|()
 decl_stmt|;
 DECL|field|handleShardLookup
 specifier|private
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<
 name|SearchShardTarget
 argument_list|>
 name|handleShardLookup
 init|=
 operator|new
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -321,7 +321,7 @@ return|;
 block|}
 DECL|method|handleShardLookup
 specifier|public
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<
 name|SearchShardTarget
 argument_list|>

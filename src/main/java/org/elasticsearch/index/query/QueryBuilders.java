@@ -994,7 +994,9 @@ name|field
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      */
+comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to      * @param filterBuilder The filter to apply on the query      * @deprecated Use {@link #boolQuery()} instead with a {@code must} clause      *             for the query and a {@code filter} clause for the filter.      */
+annotation|@
+name|Deprecated
 DECL|method|filteredQuery
 specifier|public
 specifier|static

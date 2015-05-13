@@ -84,7 +84,7 @@ specifier|public
 class|class
 name|BoolQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<
@@ -93,7 +93,8 @@ argument_list|>
 block|{
 DECL|field|mustClauses
 specifier|private
-name|ArrayList
+specifier|final
+name|List
 argument_list|<
 name|QueryBuilder
 argument_list|>
@@ -106,7 +107,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|mustNotClauses
 specifier|private
-name|ArrayList
+specifier|final
+name|List
 argument_list|<
 name|QueryBuilder
 argument_list|>
@@ -117,9 +119,24 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|filterClauses
+specifier|private
+specifier|final
+name|List
+argument_list|<
+name|QueryBuilder
+argument_list|>
+name|filterClauses
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
 DECL|field|shouldClauses
 specifier|private
-name|ArrayList
+specifier|final
+name|List
 argument_list|<
 name|QueryBuilder
 argument_list|>
@@ -158,7 +175,7 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
-comment|/**      * Adds a query that<b>must</b> appear in the matching documents.      */
+comment|/**      * Adds a query that<b>must</b> appear in the matching documents and will      * contribute to scoring.      */
 DECL|method|must
 specifier|public
 name|BoolQueryBuilder
@@ -179,7 +196,28 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a query that<b>must not</b> appear in the matching documents.      */
+comment|/**      * Adds a query that<b>must</b> appear in the matching documents but will      * not contribute to scoring.      */
+DECL|method|filter
+specifier|public
+name|BoolQueryBuilder
+name|filter
+parameter_list|(
+name|QueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+name|filterClauses
+operator|.
+name|add
+argument_list|(
+name|queryBuilder
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a query that<b>must not</b> appear in the matching documents and      * will not contribute to scoring.      */
 DECL|method|mustNot
 specifier|public
 name|BoolQueryBuilder
@@ -403,6 +441,17 @@ argument_list|(
 literal|"must"
 argument_list|,
 name|mustClauses
+argument_list|,
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|doXArrayContent
+argument_list|(
+literal|"filter"
+argument_list|,
+name|filterClauses
 argument_list|,
 name|builder
 argument_list|,

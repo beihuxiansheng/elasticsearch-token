@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongOpenHashSet
+name|LongHashSet
 import|;
 end_import
 
@@ -507,7 +507,7 @@ name|LongSet
 name|longTerms
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 specifier|final

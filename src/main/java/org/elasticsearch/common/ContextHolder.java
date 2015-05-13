@@ -34,7 +34,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|ContextHolder
 block|{
 DECL|field|context
 specifier|private
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|Object
 argument_list|,
@@ -105,7 +105,7 @@ block|{
 name|context
 operator|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|(
 literal|2
@@ -162,7 +162,7 @@ block|{
 name|context
 operator|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|(
 name|map
@@ -394,7 +394,7 @@ block|{
 name|context
 operator|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|(
 name|other

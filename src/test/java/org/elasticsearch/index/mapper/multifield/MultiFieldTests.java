@@ -495,6 +495,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -1653,6 +1657,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -1931,6 +1939,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -3129,13 +3141,6 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"_id"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|field
-argument_list|(
 literal|"a"
 argument_list|,
 literal|"-1,-1"
@@ -3154,6 +3159,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -3533,13 +3542,6 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"_id"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|field
-argument_list|(
 literal|"b"
 argument_list|,
 literal|"-1,-1"
@@ -3557,6 +3559,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -3719,13 +3725,6 @@ operator|.
 name|startObject
 argument_list|()
 operator|.
-name|field
-argument_list|(
-literal|"_id"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
 name|startArray
 argument_list|(
 literal|"b"
@@ -3782,6 +3781,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -4282,13 +4285,6 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"_id"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|field
-argument_list|(
 literal|"a"
 argument_list|,
 literal|"complete me"
@@ -4307,6 +4303,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.
@@ -4686,13 +4686,6 @@ argument_list|()
 operator|.
 name|field
 argument_list|(
-literal|"_id"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|field
-argument_list|(
 literal|"b"
 argument_list|,
 literal|"complete me"
@@ -4710,6 +4703,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"type"
+argument_list|,
+literal|"1"
+argument_list|,
 name|json
 argument_list|)
 operator|.

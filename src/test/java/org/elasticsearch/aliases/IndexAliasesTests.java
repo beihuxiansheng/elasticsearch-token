@@ -6761,7 +6761,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"alias2"
+literal|"alias1"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6880,7 +6880,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"alias1"
+literal|"alias2"
 argument_list|)
 argument_list|)
 expr_stmt|;
