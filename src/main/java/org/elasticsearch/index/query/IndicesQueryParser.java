@@ -196,15 +196,6 @@ name|IndicesQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"indices"
-decl_stmt|;
 DECL|field|QUERY_FIELD
 specifier|private
 specifier|static
@@ -276,6 +267,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|IndicesQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

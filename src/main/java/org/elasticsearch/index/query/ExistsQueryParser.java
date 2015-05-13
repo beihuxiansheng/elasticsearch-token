@@ -206,15 +206,6 @@ name|ExistsQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"exists"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|ExistsQueryParser
@@ -236,6 +227,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|ExistsQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

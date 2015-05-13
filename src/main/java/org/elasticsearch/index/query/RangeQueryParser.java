@@ -122,15 +122,6 @@ name|RangeQueryParser
 extends|extends
 name|BaseQueryParser
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"range"
-decl_stmt|;
 DECL|field|FIELDDATA_FIELD
 specifier|private
 specifier|static
@@ -170,6 +161,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|RangeQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

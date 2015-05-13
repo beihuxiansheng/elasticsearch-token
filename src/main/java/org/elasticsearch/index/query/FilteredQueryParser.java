@@ -126,15 +126,6 @@ name|FilteredQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"filtered"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|FilteredQueryParser
@@ -156,6 +147,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|FilteredQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

@@ -761,10 +761,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|parserName
-specifier|protected
+DECL|method|queryId
+specifier|public
 name|String
-name|parserName
+name|queryId
 parameter_list|()
 block|{
 return|return

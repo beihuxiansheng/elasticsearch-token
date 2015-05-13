@@ -148,15 +148,6 @@ name|TypeQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"type"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TypeQueryParser
@@ -178,6 +169,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|TypeQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

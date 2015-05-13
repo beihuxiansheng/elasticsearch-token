@@ -96,15 +96,6 @@ name|FQueryFilterParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"fquery"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|FQueryFilterParser
@@ -126,7 +117,9 @@ operator|new
 name|String
 index|[]
 block|{
-name|NAME
+name|QueryFilterBuilder
+operator|.
+name|FQUERY_NAME
 block|}
 return|;
 block|}

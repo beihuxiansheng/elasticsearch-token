@@ -286,15 +286,6 @@ name|ScriptQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"script"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|ScriptQueryParser
@@ -316,6 +307,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|ScriptQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

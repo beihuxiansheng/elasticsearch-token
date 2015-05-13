@@ -178,15 +178,6 @@ name|FuzzyQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"fuzzy"
-decl_stmt|;
 DECL|field|DEFAULT_FUZZINESS
 specifier|private
 specifier|static
@@ -235,6 +226,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|FuzzyQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

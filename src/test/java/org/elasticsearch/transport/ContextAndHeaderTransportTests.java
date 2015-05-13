@@ -1091,7 +1091,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|TermsLookupQueryBuilder
+name|TermsQueryBuilder
 name|termsLookupFilterBuilder
 init|=
 name|QueryBuilders

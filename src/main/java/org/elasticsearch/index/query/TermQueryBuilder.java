@@ -106,6 +106,15 @@ argument_list|<
 name|TermQueryBuilder
 argument_list|>
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"term"
+decl_stmt|;
 comment|/** @see BaseTermQueryBuilder#BaseTermQueryBuilder(String, String) */
 DECL|method|TermQueryBuilder
 specifier|public
@@ -402,15 +411,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parserName
-specifier|protected
+DECL|method|queryId
+specifier|public
 name|String
-name|parserName
+name|queryId
 parameter_list|()
 block|{
 return|return
-name|TermQueryParser
-operator|.
 name|NAME
 return|;
 block|}

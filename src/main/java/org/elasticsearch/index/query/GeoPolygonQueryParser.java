@@ -208,15 +208,6 @@ name|GeoPolygonQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"geo_polygon"
-decl_stmt|;
 DECL|field|POINTS
 specifier|public
 specifier|static
@@ -247,6 +238,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|GeoPolygonQueryBuilder
+operator|.
 name|NAME
 block|,
 literal|"geoPolygon"

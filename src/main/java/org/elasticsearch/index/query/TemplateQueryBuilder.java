@@ -74,6 +74,16 @@ name|TemplateQueryBuilder
 extends|extends
 name|QueryBuilder
 block|{
+comment|/** Name to reference this type of query. */
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"template"
+decl_stmt|;
 comment|/** Parameters to fill the template with. */
 DECL|field|vars
 specifier|private
@@ -190,8 +200,6 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|TemplateQueryParser
-operator|.
 name|NAME
 argument_list|)
 expr_stmt|;
@@ -268,15 +276,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|parserName
-specifier|protected
+DECL|method|queryId
+specifier|public
 name|String
-name|parserName
+name|queryId
 parameter_list|()
 block|{
 return|return
-name|TemplateQueryParser
-operator|.
 name|NAME
 return|;
 block|}

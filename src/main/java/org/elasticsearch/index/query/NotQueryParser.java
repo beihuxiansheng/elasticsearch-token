@@ -108,15 +108,6 @@ name|NotQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"not"
-decl_stmt|;
 DECL|field|QUERY_FIELD
 specifier|private
 specifier|static
@@ -153,6 +144,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|NotQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

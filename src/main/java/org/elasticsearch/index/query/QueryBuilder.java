@@ -229,6 +229,14 @@ return|return
 name|builder
 return|;
 block|}
+comment|/**      * @return a unique name this query is identified with      */
+DECL|method|queryId
+specifier|public
+specifier|abstract
+name|String
+name|queryId
+parameter_list|()
+function_decl|;
 comment|/**      * Converts this QueryBuilder to a lucene {@link Query}      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
 comment|//norelease to be made abstract once all query builders override toQuery providing their own specific implementation.
 DECL|method|toQuery
@@ -252,7 +260,7 @@ argument_list|()
 operator|.
 name|queryParser
 argument_list|(
-name|parserName
+name|queryId
 argument_list|()
 argument_list|)
 operator|.
@@ -262,15 +270,6 @@ name|parseContext
 argument_list|)
 return|;
 block|}
-comment|/**      * Temporary method that allows to retrieve the parser for each query.      * @return the name of the parser class the default {@link #toQuery(QueryParseContext)} method delegates to      */
-comment|//norelease to be removed once all query builders override toQuery providing their own specific implementation.
-DECL|method|parserName
-specifier|protected
-specifier|abstract
-name|String
-name|parserName
-parameter_list|()
-function_decl|;
 comment|/**      * Validate the query.      * @return a {@link QueryValidationException} containing error messages, {@code null} if query is valid.      * e.g. if fields that are needed to create the lucene query are missing.      */
 DECL|method|validate
 specifier|public

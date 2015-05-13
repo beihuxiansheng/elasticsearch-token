@@ -80,15 +80,6 @@ name|TermQueryParser
 extends|extends
 name|BaseQueryParser
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"term"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TermQueryParser
@@ -110,6 +101,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|TermQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

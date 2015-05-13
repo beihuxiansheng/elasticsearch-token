@@ -1607,11 +1607,11 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * A terms lookup filter for the provided field name. A lookup terms filter can      * extract the terms to filter by from another doc in an index.      */
+comment|/**      * A terms query that can extract the terms from another doc in an index.      */
 DECL|method|termsLookupQuery
 specifier|public
 specifier|static
-name|TermsLookupQueryBuilder
+name|TermsQueryBuilder
 name|termsLookupQuery
 parameter_list|(
 name|String
@@ -1620,9 +1620,15 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TermsLookupQueryBuilder
+name|TermsQueryBuilder
 argument_list|(
 name|name
+argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
+literal|null
 argument_list|)
 return|;
 block|}

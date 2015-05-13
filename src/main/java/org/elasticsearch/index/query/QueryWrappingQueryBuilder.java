@@ -135,11 +135,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|parserName
-specifier|protected
-specifier|final
+DECL|method|queryId
+specifier|public
 name|String
-name|parserName
+name|queryId
 parameter_list|()
 block|{
 comment|// this should not be called since we overwrite BaseQueryBuilder#toQuery() in this class

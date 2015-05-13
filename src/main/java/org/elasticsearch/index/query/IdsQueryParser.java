@@ -100,15 +100,6 @@ name|IdsQueryParser
 extends|extends
 name|BaseQueryParser
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"ids"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|IdsQueryParser
@@ -130,6 +121,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|IdsQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

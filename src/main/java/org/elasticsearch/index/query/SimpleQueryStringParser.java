@@ -246,15 +246,6 @@ name|SimpleQueryStringParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"simple_query_string"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|SimpleQueryStringParser
@@ -279,12 +270,16 @@ operator|new
 name|String
 index|[]
 block|{
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 block|,
 name|Strings
 operator|.
 name|toCamelCase
 argument_list|(
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 argument_list|)
 block|}
@@ -700,6 +695,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] query does not support ["
@@ -779,6 +776,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] analyzer ["
@@ -887,6 +886,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] default operator ["
@@ -1117,6 +1118,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] unsupported field ["
@@ -1148,6 +1151,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] query text missing"
