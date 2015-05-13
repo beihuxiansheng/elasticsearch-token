@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -710,14 +710,14 @@ argument_list|(
 name|sizeMinus1
 argument_list|)
 decl_stmt|;
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|Term
 argument_list|>
 name|terms
 init|=
 operator|new
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -796,7 +796,7 @@ specifier|private
 name|void
 name|getPrefixTerms
 parameter_list|(
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|Term
 argument_list|>

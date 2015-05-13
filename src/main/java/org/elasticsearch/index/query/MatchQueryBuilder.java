@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|MatchQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<
@@ -83,7 +83,6 @@ argument_list|>
 block|{
 DECL|enum|Operator
 specifier|public
-specifier|static
 enum|enum
 name|Operator
 block|{
@@ -95,7 +94,6 @@ name|AND
 block|}
 DECL|enum|Type
 specifier|public
-specifier|static
 enum|enum
 name|Type
 block|{
@@ -113,7 +111,6 @@ name|PHRASE_PREFIX
 block|}
 DECL|enum|ZeroTermsQuery
 specifier|public
-specifier|static
 enum|enum
 name|ZeroTermsQuery
 block|{

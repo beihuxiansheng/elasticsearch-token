@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongObjectOpenHashMap
+name|LongObjectHashMap
 import|;
 end_import
 
@@ -67,14 +67,14 @@ name|duel
 parameter_list|()
 block|{
 specifier|final
-name|LongObjectOpenHashMap
+name|LongObjectHashMap
 argument_list|<
 name|Object
 argument_list|>
 name|map1
 init|=
 operator|new
-name|LongObjectOpenHashMap
+name|LongObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -290,14 +290,14 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|LongObjectOpenHashMap
+name|LongObjectHashMap
 argument_list|<
 name|Object
 argument_list|>
 name|copy
 init|=
 operator|new
-name|LongObjectOpenHashMap
+name|LongObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;

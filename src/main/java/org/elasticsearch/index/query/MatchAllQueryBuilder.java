@@ -142,7 +142,7 @@ specifier|public
 class|class
 name|MatchAllQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|Streamable
 implements|,

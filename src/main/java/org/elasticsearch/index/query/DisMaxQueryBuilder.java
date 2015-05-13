@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that generates the union of documents produced by its sub-queries, and that scores each document  * with the maximum score for that document as produced by any sub-query, plus a tie breaking increment for any  * additional matching sub-queries.  *  *  */
+comment|/**  * A query that generates the union of documents produced by its sub-queries, and that scores each document  * with the maximum score for that document as produced by any sub-query, plus a tie breaking increment for any  * additional matching sub-queries.  */
 end_comment
 
 begin_class
@@ -90,7 +90,7 @@ specifier|public
 class|class
 name|DisMaxQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

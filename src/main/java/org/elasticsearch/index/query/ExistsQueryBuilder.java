@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|ExistsQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|name
 specifier|private

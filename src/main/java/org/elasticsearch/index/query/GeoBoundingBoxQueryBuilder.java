@@ -68,17 +68,13 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|GeoBoundingBoxQueryBuilder
 specifier|public
 class|class
 name|GeoBoundingBoxQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|TOP_LEFT
 specifier|public

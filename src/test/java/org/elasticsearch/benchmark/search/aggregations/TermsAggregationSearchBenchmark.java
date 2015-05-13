@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectScatterSet
 import|;
 end_import
 
@@ -147,20 +147,6 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchType
 import|;
 end_import
 
@@ -1197,15 +1183,15 @@ operator|.
 name|actionGet
 argument_list|()
 expr_stmt|;
-name|ObjectOpenHashSet
+name|ObjectScatterSet
 argument_list|<
 name|String
 argument_list|>
 name|uniqueTerms
 init|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|ObjectScatterSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

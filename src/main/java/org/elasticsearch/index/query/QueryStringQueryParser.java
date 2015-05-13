@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 import|;
 end_import
 
@@ -799,7 +799,7 @@ operator|.
 name|boosts
 argument_list|(
 operator|new
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -857,7 +857,7 @@ operator|.
 name|boosts
 argument_list|(
 operator|new
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>

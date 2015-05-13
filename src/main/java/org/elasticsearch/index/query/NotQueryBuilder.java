@@ -51,7 +51,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A filter that matches documents matching boolean combinations of other filters.  *  *  */
+comment|/**  * A filter that matches documents matching boolean combinations of other filters.  */
 end_comment
 
 begin_class
@@ -60,7 +60,7 @@ specifier|public
 class|class
 name|NotQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|filter
 specifier|private

@@ -68,7 +68,7 @@ specifier|public
 class|class
 name|QueryWrappingQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|query
 specifier|private

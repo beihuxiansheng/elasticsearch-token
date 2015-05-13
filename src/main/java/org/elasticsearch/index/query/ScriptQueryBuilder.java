@@ -66,17 +66,13 @@ name|newHashMap
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ScriptQueryBuilder
 specifier|public
 class|class
 name|ScriptQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|script
 specifier|private

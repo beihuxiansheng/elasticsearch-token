@@ -28,7 +28,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -358,7 +358,7 @@ index|[]
 name|nodeResponses
 parameter_list|)
 block|{
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -367,7 +367,7 @@ argument_list|>
 name|countsPerIndex
 init|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;

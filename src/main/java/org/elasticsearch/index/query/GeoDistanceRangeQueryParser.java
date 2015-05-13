@@ -198,7 +198,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|GeoDistanceRangeFilter
+name|GeoDistanceRangeQuery
 import|;
 end_import
 
@@ -1437,7 +1437,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|GeoDistanceRangeFilter
+name|GeoDistanceRangeQuery
 argument_list|(
 name|point
 argument_list|,

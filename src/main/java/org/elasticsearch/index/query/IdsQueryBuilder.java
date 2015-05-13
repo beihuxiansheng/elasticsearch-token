@@ -236,7 +236,7 @@ specifier|public
 class|class
 name|IdsQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|Streamable
 implements|,

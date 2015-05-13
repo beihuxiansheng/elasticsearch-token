@@ -24,9 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|hash
-operator|.
-name|MurmurHash3
+name|BitMixer
 import|;
 end_import
 
@@ -719,9 +717,9 @@ init|=
 operator|(
 name|int
 operator|)
-name|MurmurHash3
+name|BitMixer
 operator|.
-name|hash
+name|mix64
 argument_list|(
 name|id
 argument_list|)

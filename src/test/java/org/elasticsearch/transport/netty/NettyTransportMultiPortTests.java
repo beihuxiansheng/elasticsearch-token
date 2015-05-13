@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -971,11 +971,11 @@ name|int
 name|numberOfPorts
 parameter_list|)
 block|{
-name|IntOpenHashSet
+name|IntHashSet
 name|ports
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 for|for

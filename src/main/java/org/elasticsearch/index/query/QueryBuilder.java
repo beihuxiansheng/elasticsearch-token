@@ -36,11 +36,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|action
 operator|.
-name|bytes
+name|support
 operator|.
-name|BytesReference
+name|ToXContentToBytes
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
+name|XContentBuilder
 import|;
 end_import
 
@@ -83,32 +83,72 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base interface for all classes producing lucene queries.  * Supports conversion to BytesReference and creation of lucene Query objects.  */
+comment|/**  * Base class for all classes producing lucene queries.  * Supports conversion to BytesReference and creation of lucene Query objects.  */
 end_comment
 
-begin_interface
-DECL|interface|QueryBuilder
+begin_class
+DECL|class|QueryBuilder
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|QueryBuilder
 extends|extends
-name|ToXContent
+name|ToXContentToBytes
 block|{
-DECL|method|buildAsBytes
-name|BytesReference
-name|buildAsBytes
+DECL|method|QueryBuilder
+specifier|protected
+name|QueryBuilder
 parameter_list|()
-function_decl|;
-DECL|method|buildAsBytes
-name|BytesReference
-name|buildAsBytes
-parameter_list|(
+block|{
+name|super
+argument_list|(
 name|XContentType
-name|contentType
+operator|.
+name|JSON
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|toXContent
+specifier|public
+name|XContentBuilder
+name|toXContent
+parameter_list|(
+name|XContentBuilder
+name|builder
+parameter_list|,
+name|Params
+name|params
 parameter_list|)
-function_decl|;
+throws|throws
+name|IOException
+block|{
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|doXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
+return|return
+name|builder
+return|;
+block|}
 comment|/**      * Converts this QueryBuilder to a lucene {@link Query}      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
+comment|//norelease to be made abstract once all query builders override toQuery providing their own specific implementation.
 DECL|method|toQuery
+specifier|public
 name|Query
 name|toQuery
 parameter_list|(
@@ -119,15 +159,64 @@ throws|throws
 name|QueryParsingException
 throws|,
 name|IOException
+block|{
+return|return
+name|parseContext
+operator|.
+name|indexQueryParserService
+argument_list|()
+operator|.
+name|queryParser
+argument_list|(
+name|parserName
+argument_list|()
+argument_list|)
+operator|.
+name|parse
+argument_list|(
+name|parseContext
+argument_list|)
+return|;
+block|}
+comment|/**      * Temporary method that allows to retrieve the parser for each query.      * @return the name of the parser class the default {@link #toQuery(QueryParseContext)} method delegates to      */
+comment|//norelease to be removed once all query builders override toQuery providing their own specific implementation.
+DECL|method|parserName
+specifier|protected
+specifier|abstract
+name|String
+name|parserName
+parameter_list|()
 function_decl|;
 comment|/**      * Validate the query.      * @return a {@link QueryValidationException} containing error messages, {@code null} if query is valid.      * e.g. if fields that are needed to create the lucene query are missing.      */
 DECL|method|validate
+specifier|public
 name|QueryValidationException
 name|validate
 parameter_list|()
+block|{
+comment|// default impl does not validate, subclasses should override.
+comment|//norelease to be possibly made abstract once all queries support validation
+return|return
+literal|null
+return|;
+block|}
+DECL|method|doXContent
+specifier|protected
+specifier|abstract
+name|void
+name|doXContent
+parameter_list|(
+name|XContentBuilder
+name|builder
+parameter_list|,
+name|Params
+name|params
+parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 

@@ -46,7 +46,7 @@ specifier|public
 class|class
 name|TypeQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|type
 specifier|private

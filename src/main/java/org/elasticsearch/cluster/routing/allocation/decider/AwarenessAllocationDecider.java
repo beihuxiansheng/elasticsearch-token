@@ -28,7 +28,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -804,7 +804,7 @@ argument_list|)
 return|;
 block|}
 comment|// build attr_value -> nodes map
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -821,14 +821,14 @@ name|awarenessAttribute
 argument_list|)
 decl_stmt|;
 comment|// build the count of shards per attribute value
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|shardPerAttribute
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;

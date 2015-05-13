@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongOpenHashSet
+name|LongHashSet
 import|;
 end_import
 
@@ -2201,11 +2201,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|buckets
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 comment|// TODO: use diamond once JI-9019884 is fixed
@@ -2462,11 +2462,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|buckets
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 comment|// TODO: use diamond once JI-9019884 is fixed
@@ -3464,11 +3464,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|visited
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 name|double
@@ -3833,11 +3833,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|visited
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 name|double
@@ -4197,11 +4197,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|visited
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 name|double
@@ -4566,11 +4566,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|visited
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 name|double
@@ -4955,11 +4955,11 @@ name|numValueBuckets
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|LongOpenHashSet
+name|LongHashSet
 name|visited
 init|=
 operator|new
-name|LongOpenHashSet
+name|LongHashSet
 argument_list|()
 decl_stmt|;
 name|double

@@ -539,7 +539,7 @@ name|BaseQueryTestCase
 parameter_list|<
 name|QB
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 operator|&
 name|Streamable
 parameter_list|>

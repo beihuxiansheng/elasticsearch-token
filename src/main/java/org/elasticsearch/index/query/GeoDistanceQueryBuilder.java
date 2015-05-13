@@ -78,17 +78,13 @@ name|Locale
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|GeoDistanceQueryBuilder
 specifier|public
 class|class
 name|GeoDistanceQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|name
 specifier|private

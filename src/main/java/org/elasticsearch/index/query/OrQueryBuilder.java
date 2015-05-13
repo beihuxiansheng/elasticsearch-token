@@ -64,6 +64,16 @@ name|ArrayList
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/**  * A filter that matches documents matching boolean combinations of other filters.  * @deprecated Use {@link BoolQueryBuilder} instead  */
 end_comment
@@ -76,7 +86,7 @@ specifier|public
 class|class
 name|OrQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|filters
 specifier|private
@@ -105,24 +115,17 @@ modifier|...
 name|filters
 parameter_list|)
 block|{
-for|for
-control|(
-name|QueryBuilder
-name|filter
-range|:
-name|filters
-control|)
-block|{
+name|Collections
+operator|.
+name|addAll
+argument_list|(
 name|this
 operator|.
 name|filters
-operator|.
-name|add
-argument_list|(
-name|filter
+argument_list|,
+name|filters
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Adds a filter to the list of filters to "or".      */
 DECL|method|add

@@ -30,7 +30,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -240,13 +240,13 @@ block|{
 DECL|field|RESERVED_FIELDS
 specifier|private
 specifier|static
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
 name|RESERVED_FIELDS
 init|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(

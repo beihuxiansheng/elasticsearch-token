@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -131,13 +131,13 @@ argument_list|,
 name|enabled
 argument_list|)
 expr_stmt|;
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
 name|set1
 init|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -148,13 +148,13 @@ argument_list|,
 literal|"3"
 argument_list|)
 decl_stmt|;
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
 name|set2
 init|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -243,7 +243,7 @@ argument_list|)
 expr_stmt|;
 name|set1
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -256,7 +256,7 @@ argument_list|)
 expr_stmt|;
 name|set2
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -311,7 +311,7 @@ argument_list|)
 expr_stmt|;
 name|set1
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -324,7 +324,7 @@ argument_list|)
 expr_stmt|;
 name|set2
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -364,14 +364,14 @@ argument_list|)
 expr_stmt|;
 name|set1
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|()
 expr_stmt|;
 name|set2
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -411,7 +411,7 @@ argument_list|)
 expr_stmt|;
 name|set1
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|(
@@ -424,7 +424,7 @@ argument_list|)
 expr_stmt|;
 name|set2
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|()
@@ -458,14 +458,14 @@ argument_list|)
 expr_stmt|;
 name|set1
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|()
 expr_stmt|;
 name|set2
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|()
@@ -503,7 +503,7 @@ literal|null
 expr_stmt|;
 name|set2
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|()
@@ -534,7 +534,7 @@ parameter_list|)
 block|{}
 name|set1
 operator|=
-name|ObjectOpenHashSet
+name|ObjectHashSet
 operator|.
 name|from
 argument_list|()

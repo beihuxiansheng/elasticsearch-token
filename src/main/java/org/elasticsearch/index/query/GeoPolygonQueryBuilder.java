@@ -92,17 +92,13 @@ name|List
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|GeoPolygonQueryBuilder
 specifier|public
 class|class
 name|GeoPolygonQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|POINTS
 specifier|public

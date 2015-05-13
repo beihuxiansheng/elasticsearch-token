@@ -40,18 +40,12 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SpanMultiTermQueryBuilder
 specifier|public
 class|class
 name|SpanMultiTermQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|SpanQueryBuilder
 block|{
 DECL|field|multiTermQueryBuilder

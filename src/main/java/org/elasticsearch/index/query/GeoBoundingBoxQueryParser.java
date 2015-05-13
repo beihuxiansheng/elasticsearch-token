@@ -166,7 +166,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|InMemoryGeoBoundingBoxFilter
+name|InMemoryGeoBoundingBoxQuery
 import|;
 end_import
 
@@ -182,7 +182,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|IndexedGeoBoundingBoxFilter
+name|IndexedGeoBoundingBoxQuery
 import|;
 end_import
 
@@ -1153,7 +1153,7 @@ condition|)
 block|{
 name|filter
 operator|=
-name|IndexedGeoBoundingBoxFilter
+name|IndexedGeoBoundingBoxQuery
 operator|.
 name|create
 argument_list|(
@@ -1189,7 +1189,7 @@ decl_stmt|;
 name|filter
 operator|=
 operator|new
-name|InMemoryGeoBoundingBoxFilter
+name|InMemoryGeoBoundingBoxQuery
 argument_list|(
 name|topLeft
 argument_list|,

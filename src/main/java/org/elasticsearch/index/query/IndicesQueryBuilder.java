@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|IndicesQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|queryBuilder
 specifier|private

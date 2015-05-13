@@ -66,7 +66,7 @@ specifier|public
 class|class
 name|LimitQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|limit
 specifier|private

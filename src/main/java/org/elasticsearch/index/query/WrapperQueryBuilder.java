@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|WrapperQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|source
 specifier|private

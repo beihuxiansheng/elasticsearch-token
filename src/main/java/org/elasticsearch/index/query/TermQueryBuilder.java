@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|TermQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|Streamable
 implements|,

@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntOpenHashMap
+name|IntIntHashMap
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -985,7 +985,7 @@ argument_list|,
 name|numUniqueParentValues
 argument_list|)
 decl_stmt|;
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -997,15 +997,15 @@ argument_list|>
 name|parentValueToChildDocIds
 init|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|IntIntOpenHashMap
+name|IntIntHashMap
 name|childIdToParentId
 init|=
 operator|new
-name|IntIntOpenHashMap
+name|IntIntHashMap
 argument_list|()
 decl_stmt|;
 for|for
@@ -1403,8 +1403,10 @@ name|childIds
 operator|=
 name|parentValueToChildDocIds
 operator|.
-name|lget
-argument_list|()
+name|get
+argument_list|(
+name|parentValue
+argument_list|)
 expr_stmt|;
 block|}
 else|else
@@ -2007,8 +2009,10 @@ name|childIds
 init|=
 name|parentValueToChildDocIds
 operator|.
-name|lget
-argument_list|()
+name|get
+argument_list|(
+name|parentValue
+argument_list|)
 decl_stmt|;
 name|TermsEnum
 name|termsEnum

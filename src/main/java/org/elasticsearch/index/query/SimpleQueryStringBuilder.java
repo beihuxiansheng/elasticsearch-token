@@ -80,7 +80,7 @@ specifier|public
 class|class
 name|SimpleQueryStringBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 block|{
 DECL|field|fields
 specifier|private

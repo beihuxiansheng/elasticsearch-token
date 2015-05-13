@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -3795,14 +3795,14 @@ name|resultString
 init|=
 literal|""
 decl_stmt|;
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|payloadCounter
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
