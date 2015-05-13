@@ -306,6 +306,10 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
+literal|"1"
+argument_list|,
 operator|new
 name|BytesArray
 argument_list|(

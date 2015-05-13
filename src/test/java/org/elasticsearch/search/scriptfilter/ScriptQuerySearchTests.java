@@ -254,10 +254,10 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
-DECL|class|ScriptFilterSearchTests
+DECL|class|ScriptQuerySearchTests
 specifier|public
 class|class
-name|ScriptFilterSearchTests
+name|ScriptQuerySearchTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

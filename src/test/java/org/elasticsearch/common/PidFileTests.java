@@ -272,6 +272,10 @@ block|}
 catch|catch
 parameter_list|(
 name|UnsupportedOperationException
+decl||
+name|IOException
+decl||
+name|SecurityException
 name|ex
 parameter_list|)
 block|{

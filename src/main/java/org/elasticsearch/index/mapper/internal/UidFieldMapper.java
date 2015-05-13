@@ -204,20 +204,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|InternalMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|Mapper
 import|;
 end_import
@@ -246,7 +232,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeResult
+name|MergeMappingException
 import|;
 end_import
 
@@ -260,7 +246,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
+name|MergeResult
 import|;
 end_import
 
@@ -417,8 +403,6 @@ argument_list|<
 name|Uid
 argument_list|>
 implements|implements
-name|InternalMapper
-implements|,
 name|RootMapper
 block|{
 DECL|field|NAME
@@ -1094,18 +1078,6 @@ block|{
 comment|// nothing to do here, we either do it in post parse, or in pre parse.
 return|return
 literal|null
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|includeInObject
-specifier|public
-name|boolean
-name|includeInObject
-parameter_list|()
-block|{
-return|return
-literal|false
 return|;
 block|}
 annotation|@
