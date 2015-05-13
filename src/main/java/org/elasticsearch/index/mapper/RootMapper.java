@@ -76,12 +76,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Should the mapper be included in the root      * {@link org.elasticsearch.index.mapper.object.ObjectMapper}.      *      * If this method returns true, then {@link #parse(ParseContext)} will be      * called if the context has a property that matches the name of this      * {@link RootMapper}. Otherwise {@link #parse(ParseContext)} will not      * be called.      */
-DECL|method|includeInObject
-name|boolean
-name|includeInObject
-parameter_list|()
-function_decl|;
 block|}
 end_interface
 
