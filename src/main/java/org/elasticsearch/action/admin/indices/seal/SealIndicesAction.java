@@ -81,7 +81,7 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices:admin/sealindices"
+literal|"indices:admin/seal"
 decl_stmt|;
 DECL|method|SealIndicesAction
 specifier|private
