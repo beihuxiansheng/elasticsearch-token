@@ -949,6 +949,12 @@ block|{
 name|long
 name|tookInMillis
 init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
 name|System
 operator|.
 name|currentTimeMillis
@@ -957,6 +963,7 @@ operator|-
 name|request
 operator|.
 name|startTime
+argument_list|)
 decl_stmt|;
 name|PercolateResponse
 operator|.
@@ -1015,6 +1022,12 @@ decl_stmt|;
 name|long
 name|tookInMillis
 init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
 name|System
 operator|.
 name|currentTimeMillis
@@ -1023,6 +1036,7 @@ operator|-
 name|request
 operator|.
 name|startTime
+argument_list|)
 decl_stmt|;
 return|return
 operator|new
