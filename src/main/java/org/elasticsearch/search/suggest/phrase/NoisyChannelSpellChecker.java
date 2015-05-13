@@ -371,14 +371,8 @@ parameter_list|,
 name|int
 name|numCorrections
 parameter_list|,
-name|IndexReader
-name|reader
-parameter_list|,
 name|WordScorer
 name|wordScorer
-parameter_list|,
-name|BytesRef
-name|separator
 parameter_list|,
 name|float
 name|confidence
@@ -896,15 +890,7 @@ name|maxErrors
 argument_list|,
 name|numCorrections
 argument_list|,
-name|reader
-argument_list|,
 name|scorer
-argument_list|,
-operator|new
-name|BytesRef
-argument_list|(
-literal|" "
-argument_list|)
 argument_list|,
 name|confidence
 argument_list|,
