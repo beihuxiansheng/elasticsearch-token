@@ -345,8 +345,9 @@ block|{
 try|try
 block|{
 return|return
-operator|new
 name|UserDictionary
+operator|.
+name|open
 argument_list|(
 name|reader
 argument_list|)
