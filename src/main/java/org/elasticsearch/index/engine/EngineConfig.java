@@ -180,20 +180,6 @@ name|common
 operator|.
 name|util
 operator|.
-name|BigArrays
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|EsExecutors
@@ -336,6 +322,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|translog
+operator|.
+name|TranslogConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|indices
 operator|.
 name|IndicesWarmer
@@ -351,18 +351,6 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Path
 import|;
 end_import
 
@@ -539,11 +527,11 @@ operator|.
 name|FailedEngineListener
 name|failedEngineListener
 decl_stmt|;
-DECL|field|ignoreUnknownTranslog
+DECL|field|forceNewTranslog
 specifier|private
 specifier|final
 name|boolean
-name|ignoreUnknownTranslog
+name|forceNewTranslog
 decl_stmt|;
 DECL|field|filterCache
 specifier|private
@@ -556,18 +544,6 @@ specifier|private
 specifier|final
 name|QueryCachingPolicy
 name|filterCachingPolicy
-decl_stmt|;
-DECL|field|bigArrays
-specifier|private
-specifier|final
-name|BigArrays
-name|bigArrays
-decl_stmt|;
-DECL|field|translogPath
-specifier|private
-specifier|final
-name|Path
-name|translogPath
 decl_stmt|;
 comment|/**      * Index setting for index concurrency / number of threadstates in the indexwriter.      * The default is depending on the number of CPUs in the system. We use a 0.65 the number of CPUs or at least {@value org.apache.lucene.index.IndexWriterConfig#DEFAULT_MAX_THREAD_STATES}      * This setting is<b>not</b> realtime updateable      */
 DECL|field|INDEX_CONCURRENCY_SETTING
@@ -640,14 +616,14 @@ init|=
 literal|"index.version_map_size"
 decl_stmt|;
 comment|/** if set to true the engine will start even if the translog id in the commit point can not be found */
-DECL|field|INDEX_IGNORE_UNKNOWN_TRANSLOG
+DECL|field|INDEX_FORCE_NEW_TRANSLOG
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|INDEX_IGNORE_UNKNOWN_TRANSLOG
+name|INDEX_FORCE_NEW_TRANSLOG
 init|=
-literal|"index.engine.ignore_unknown_translog"
+literal|"index.engine.force_new_translog"
 decl_stmt|;
 DECL|field|DEFAULT_REFRESH_INTERVAL
 specifier|public
@@ -729,6 +705,11 @@ name|DEFAULT_CODEC_NAME
 init|=
 literal|"default"
 decl_stmt|;
+DECL|field|translogConfig
+specifier|private
+name|TranslogConfig
+name|translogConfig
+decl_stmt|;
 comment|/**      * Creates a new {@link org.elasticsearch.index.engine.EngineConfig}      */
 DECL|method|EngineConfig
 specifier|public
@@ -784,11 +765,8 @@ parameter_list|,
 name|QueryCachingPolicy
 name|filterCachingPolicy
 parameter_list|,
-name|BigArrays
-name|bigArrays
-parameter_list|,
-name|Path
-name|translogPath
+name|TranslogConfig
+name|translogConfig
 parameter_list|)
 block|{
 name|this
@@ -868,18 +846,6 @@ operator|.
 name|failedEngineListener
 operator|=
 name|failedEngineListener
-expr_stmt|;
-name|this
-operator|.
-name|bigArrays
-operator|=
-name|bigArrays
-expr_stmt|;
-name|this
-operator|.
-name|translogPath
-operator|=
-name|translogPath
 expr_stmt|;
 name|Settings
 name|indexSettings
@@ -1019,13 +985,13 @@ name|translogRecoveryPerformer
 expr_stmt|;
 name|this
 operator|.
-name|ignoreUnknownTranslog
+name|forceNewTranslog
 operator|=
 name|indexSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-name|INDEX_IGNORE_UNKNOWN_TRANSLOG
+name|INDEX_FORCE_NEW_TRANSLOG
 argument_list|,
 literal|false
 argument_list|)
@@ -1041,6 +1007,12 @@ operator|.
 name|filterCachingPolicy
 operator|=
 name|filterCachingPolicy
+expr_stmt|;
+name|this
+operator|.
+name|translogConfig
+operator|=
+name|translogConfig
 expr_stmt|;
 block|}
 comment|/** updates {@link #versionMapSize} based on current setting and {@link #indexingBufferSize} */
@@ -1155,14 +1127,14 @@ name|versionMapSizeSetting
 return|;
 block|}
 comment|/** if true the engine will start even if the translog id in the commit point can not be found */
-DECL|method|getIgnoreUnknownTranslog
+DECL|method|forceNewTranlog
 specifier|public
 name|boolean
-name|getIgnoreUnknownTranslog
+name|forceNewTranlog
 parameter_list|()
 block|{
 return|return
-name|ignoreUnknownTranslog
+name|forceNewTranslog
 return|;
 block|}
 comment|/**      * returns the size of the version map that should trigger a refresh      */
@@ -1501,35 +1473,23 @@ return|return
 name|filterCachingPolicy
 return|;
 block|}
-comment|/**      * Returns a BigArrays instance for this engine      */
-DECL|method|getBigArrays
+comment|/**      * Returns the translog config for this engine      */
+DECL|method|getTranslogConfig
 specifier|public
-name|BigArrays
-name|getBigArrays
+name|TranslogConfig
+name|getTranslogConfig
 parameter_list|()
 block|{
 return|return
-name|bigArrays
+name|translogConfig
 return|;
 block|}
-comment|/**      * Returns the translog path for this engine      */
-DECL|method|getTranslogPath
-specifier|public
-name|Path
-name|getTranslogPath
-parameter_list|()
-block|{
-return|return
-name|translogPath
-return|;
-block|}
-comment|/**      * Returns the {@link org.elasticsearch.index.settings.IndexSettingsService} for this engine.      */
-DECL|method|getIndesSettingService
-specifier|public
+DECL|method|getIndexSettingsService
 name|IndexSettingsService
-name|getIndesSettingService
+name|getIndexSettingsService
 parameter_list|()
 block|{
+comment|// for testing
 return|return
 name|indexSettingsService
 return|;

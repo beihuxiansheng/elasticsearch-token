@@ -38,7 +38,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamOutput
+name|StreamInput
 import|;
 end_import
 
@@ -205,11 +205,12 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-name|BytesStreamInput
-name|bytesStreamInput
+name|StreamInput
+name|streamInput
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|output
 operator|.
@@ -217,7 +218,7 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|bytesStreamInput
+name|streamInput
 operator|.
 name|setVersion
 argument_list|(
@@ -235,7 +236,7 @@ name|IndicesOptions
 operator|.
 name|readIndicesOptions
 argument_list|(
-name|bytesStreamInput
+name|streamInput
 argument_list|)
 decl_stmt|;
 name|assertThat

@@ -290,7 +290,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|StreamInput
 import|;
 end_import
 
@@ -6924,8 +6924,9 @@ name|CommonStatsFlags
 operator|.
 name|readCommonStatsFlags
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|bytes
 argument_list|)
@@ -7017,8 +7018,9 @@ name|CommonStatsFlags
 operator|.
 name|readCommonStatsFlags
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|bytes
 argument_list|)

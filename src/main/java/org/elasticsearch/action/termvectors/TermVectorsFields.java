@@ -152,7 +152,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|StreamInput
 import|;
 end_import
 
@@ -260,13 +260,17 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|BytesStreamInput
+name|StreamInput
 name|header
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|headerRef
+operator|.
+name|toBytesArray
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|fieldMap
@@ -538,7 +542,7 @@ block|{
 DECL|field|perFieldTermVectorInput
 specifier|private
 specifier|final
-name|BytesStreamInput
+name|StreamInput
 name|perFieldTermVectorInput
 decl_stmt|;
 DECL|field|readOffset
@@ -599,10 +603,14 @@ name|this
 operator|.
 name|perFieldTermVectorInput
 operator|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|termVectors
+operator|.
+name|toBytesArray
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -958,7 +966,7 @@ name|void
 name|writeInfos
 parameter_list|(
 specifier|final
-name|BytesStreamInput
+name|StreamInput
 name|input
 parameter_list|)
 throws|throws
@@ -1862,7 +1870,7 @@ DECL|method|readPotentiallyNegativeVInt
 name|int
 name|readPotentiallyNegativeVInt
 parameter_list|(
-name|BytesStreamInput
+name|StreamInput
 name|stream
 parameter_list|)
 throws|throws
@@ -1885,7 +1893,7 @@ DECL|method|readPotentiallyNegativeVLong
 name|long
 name|readPotentiallyNegativeVLong
 parameter_list|(
-name|BytesStreamInput
+name|StreamInput
 name|stream
 parameter_list|)
 throws|throws

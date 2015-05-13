@@ -58,7 +58,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|StreamInput
 import|;
 end_import
 
@@ -250,11 +250,12 @@ operator|new
 name|Properties
 argument_list|()
 decl_stmt|;
-name|BytesStreamInput
+name|StreamInput
 name|stream
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|source
 argument_list|)

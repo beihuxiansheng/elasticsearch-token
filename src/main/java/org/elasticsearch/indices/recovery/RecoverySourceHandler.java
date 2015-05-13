@@ -1087,7 +1087,7 @@ literal|"captured translog id [{}] for recovery"
 argument_list|,
 name|translogView
 operator|.
-name|minTranslogId
+name|minTranslogGeneration
 argument_list|()
 argument_list|)
 expr_stmt|;
