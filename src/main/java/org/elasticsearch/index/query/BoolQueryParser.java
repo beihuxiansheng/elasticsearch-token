@@ -454,7 +454,7 @@ name|query
 init|=
 name|parseContext
 operator|.
-name|parseInnerQuery
+name|parseInnerFilter
 argument_list|()
 decl_stmt|;
 if|if
@@ -499,7 +499,7 @@ name|query
 init|=
 name|parseContext
 operator|.
-name|parseInnerFilter
+name|parseInnerQuery
 argument_list|()
 decl_stmt|;
 if|if
@@ -678,7 +678,7 @@ name|query
 init|=
 name|parseContext
 operator|.
-name|parseInnerQuery
+name|parseInnerFilter
 argument_list|()
 decl_stmt|;
 if|if
