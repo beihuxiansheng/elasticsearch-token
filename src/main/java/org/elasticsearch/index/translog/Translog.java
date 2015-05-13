@@ -8032,6 +8032,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|Translog
+operator|.
+name|Operation
+name|operation
+decl_stmt|;
+try|try
+block|{
 specifier|final
 name|int
 name|opSize
@@ -8051,7 +8058,7 @@ block|{
 comment|// 4byte for the checksum
 throw|throw
 operator|new
-name|TranslogCorruptedException
+name|AssertionError
 argument_list|(
 literal|"operation size must be at least 4 but was: "
 operator|+
@@ -8059,13 +8066,6 @@ name|opSize
 argument_list|)
 throw|;
 block|}
-name|Translog
-operator|.
-name|Operation
-name|operation
-decl_stmt|;
-try|try
-block|{
 name|in
 operator|.
 name|resetDigest
@@ -8082,7 +8082,8 @@ condition|)
 block|{
 comment|// if we can we validate the checksum first
 comment|// we are sometimes called when mark is not supported this is the case when
-comment|// we are sending translogs across the network - currently there is no way to prevent this unfortunately.
+comment|// we are sending translogs across the network with LZ4 compression enabled - currently there is no way s
+comment|// to prevent this unfortunately.
 name|in
 operator|.
 name|mark
