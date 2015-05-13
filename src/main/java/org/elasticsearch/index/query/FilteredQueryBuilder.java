@@ -53,10 +53,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that applies a filter to the results of another query.  */
+comment|/**  * A query that applies a filter to the results of another query.  * @deprecated Use {@link BoolQueryBuilder} instead.  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|FilteredQueryBuilder
 specifier|public
 class|class
