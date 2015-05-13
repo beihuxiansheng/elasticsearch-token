@@ -2621,7 +2621,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Adds a create operation to the transaction log.      */
+comment|/**      * Adds a created / delete / index operations to the transaction log.      *      * @see org.elasticsearch.index.translog.Translog.Operation      * @see org.elasticsearch.index.translog.Translog.Create      * @see org.elasticsearch.index.translog.Translog.Index      * @see org.elasticsearch.index.translog.Translog.Delete      */
 DECL|method|add
 specifier|public
 name|Location
@@ -2804,7 +2804,7 @@ name|current
 argument_list|)
 expr_stmt|;
 return|return
-name|createdSnapshot
+name|createSnapshot
 argument_list|(
 name|toOpen
 operator|.
@@ -2823,28 +2823,27 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|createdSnapshot
+DECL|method|createSnapshot
 specifier|private
 name|Snapshot
-name|createdSnapshot
+name|createSnapshot
 parameter_list|(
 name|TranslogReader
 modifier|...
 name|translogs
 parameter_list|)
 block|{
-name|ArrayList
-argument_list|<
-name|Translog
-operator|.
 name|Snapshot
-argument_list|>
-name|channelSnapshots
+index|[]
+name|snapshots
 init|=
 operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
+name|Snapshot
+index|[
+name|translogs
+operator|.
+name|length
+index|]
 decl_stmt|;
 name|boolean
 name|success
@@ -2855,30 +2854,42 @@ try|try
 block|{
 for|for
 control|(
-name|TranslogReader
-name|translog
-range|:
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
 name|translogs
+operator|.
+name|length
+condition|;
+name|i
+operator|++
 control|)
 block|{
-name|channelSnapshots
-operator|.
-name|add
-argument_list|(
-name|translog
+name|snapshots
+index|[
+name|i
+index|]
+operator|=
+name|translogs
+index|[
+name|i
+index|]
 operator|.
 name|newSnapshot
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 name|Snapshot
 name|snapshot
 init|=
 operator|new
-name|TranslogSnapshot
+name|MultiSnapshot
 argument_list|(
-name|channelSnapshots
+name|snapshots
 argument_list|)
 decl_stmt|;
 name|success
@@ -2902,7 +2913,7 @@ name|Releasables
 operator|.
 name|close
 argument_list|(
-name|channelSnapshots
+name|snapshots
 argument_list|)
 expr_stmt|;
 block|}
@@ -3703,7 +3714,7 @@ name|ensureOpen
 argument_list|()
 expr_stmt|;
 return|return
-name|createdSnapshot
+name|createSnapshot
 argument_list|(
 name|orderedTranslogs
 operator|.
@@ -8021,6 +8032,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|int
 name|opSize
 init|=
@@ -8029,35 +8041,6 @@ operator|.
 name|readInt
 argument_list|()
 decl_stmt|;
-name|Translog
-operator|.
-name|Operation
-name|operation
-decl_stmt|;
-try|try
-block|{
-name|in
-operator|.
-name|resetDigest
-argument_list|()
-expr_stmt|;
-comment|// size is not part of the checksum?
-if|if
-condition|(
-name|in
-operator|.
-name|markSupported
-argument_list|()
-condition|)
-block|{
-comment|// if we can we validate the checksum first
-name|in
-operator|.
-name|mark
-argument_list|(
-name|opSize
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|opSize
@@ -8076,6 +8059,37 @@ name|opSize
 argument_list|)
 throw|;
 block|}
+name|Translog
+operator|.
+name|Operation
+name|operation
+decl_stmt|;
+try|try
+block|{
+name|in
+operator|.
+name|resetDigest
+argument_list|()
+expr_stmt|;
+comment|// size is not part of the checksum!
+if|if
+condition|(
+name|in
+operator|.
+name|markSupported
+argument_list|()
+condition|)
+block|{
+comment|// if we can we validate the checksum first
+comment|// we are sometimes called when mark is not supported this is the case when
+comment|// we are sending translogs across the network - currently there is no way to prevent this unfortunately.
+name|in
+operator|.
+name|mark
+argument_list|(
+name|opSize
+argument_list|)
+expr_stmt|;
 name|in
 operator|.
 name|skip
@@ -8192,6 +8206,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|//TODO lets get rid of this crazy double writing here.
 comment|// We first write to a NoopStreamOutput to get the size of the
 comment|// operation. We could write to a byte array and then send that as an
 comment|// alternative, but here we choose to use CPU over allocating new
@@ -8388,11 +8403,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|TranslogWriter
-name|writer
-init|=
-literal|null
-decl_stmt|;
 try|try
 init|(
 name|ReleasableLock
@@ -8424,10 +8434,12 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+specifier|final
+name|TranslogWriter
 name|writer
-operator|=
+init|=
 name|current
-expr_stmt|;
+decl_stmt|;
 name|writer
 operator|.
 name|sync
@@ -8592,8 +8604,12 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|close
-argument_list|()
+name|IOUtils
+operator|.
+name|closeWhileHandlingException
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 comment|// tragic event
 throw|throw

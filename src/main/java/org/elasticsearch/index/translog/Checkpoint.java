@@ -277,6 +277,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|write
+specifier|private
 name|void
 name|write
 parameter_list|(
@@ -322,7 +323,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|write
-specifier|public
+specifier|private
 name|void
 name|write
 parameter_list|(
@@ -363,7 +364,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"TranslogInfo{"
+literal|"Checkpoint{"
 operator|+
 literal|"offset="
 operator|+

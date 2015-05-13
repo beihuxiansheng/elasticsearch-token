@@ -96,7 +96,7 @@ name|ChannelReference
 name|channelReference
 parameter_list|,
 name|long
-name|offset
+name|firstOperationOffset
 parameter_list|,
 name|long
 name|length
@@ -111,7 +111,7 @@ name|generation
 argument_list|,
 name|channelReference
 argument_list|,
-name|offset
+name|firstOperationOffset
 argument_list|)
 expr_stmt|;
 name|this

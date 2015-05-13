@@ -142,10 +142,24 @@ return|return
 literal|null
 return|;
 block|}
+try|try
+block|{
 return|return
 name|readOperation
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|TruncatedTranslogException
+name|ex
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+comment|// legacy case
+block|}
 block|}
 block|}
 return|;
