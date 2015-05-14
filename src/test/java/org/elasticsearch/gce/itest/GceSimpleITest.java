@@ -126,10 +126,6 @@ end_comment
 
 begin_class
 annotation|@
-name|AbstractGceTest
-operator|.
-name|GceTest
-annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
