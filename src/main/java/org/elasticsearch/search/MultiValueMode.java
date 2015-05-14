@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|javafx
-operator|.
-name|collections
-operator|.
-name|transformation
-operator|.
-name|SortedList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
