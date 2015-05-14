@@ -36,22 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
-name|AbstractAwsTest
-operator|.
-name|AwsTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|settings
@@ -131,8 +115,6 @@ comment|/**  * Just an empty Node Start test to check eveything if fine when  * 
 end_comment
 
 begin_class
-annotation|@
-name|AwsTest
 annotation|@
 name|ClusterScope
 argument_list|(

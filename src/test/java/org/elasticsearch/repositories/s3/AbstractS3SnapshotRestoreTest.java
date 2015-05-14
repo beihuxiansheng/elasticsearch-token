@@ -186,22 +186,6 @@ name|cloud
 operator|.
 name|aws
 operator|.
-name|AbstractAwsTest
-operator|.
-name|AwsTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|aws
-operator|.
 name|AwsS3Service
 import|;
 end_import
@@ -415,8 +399,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|AwsTest
 annotation|@
 name|ClusterScope
 argument_list|(

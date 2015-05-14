@@ -122,6 +122,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|ThirdParty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|After
@@ -207,10 +221,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base class for AWS tests that require credentials.  *<p>  * You must specify {@code -Dtests.thirdparty=true -Dtests.config=/path/to/config}  * in order to run these tests.  */
 end_comment
 
 begin_class
+annotation|@
+name|ThirdParty
 DECL|class|AbstractAwsTest
 specifier|public
 specifier|abstract
@@ -336,44 +352,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Annotation for tests that require AWS to run. AWS tests are disabled by default.      * Look at README file for details on how to run tests      */
-annotation|@
-name|Documented
-annotation|@
-name|Inherited
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|TestGroup
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|,
-name|sysProperty
-operator|=
-name|SYSPROP_AWS
-argument_list|)
-DECL|interface|AwsTest
-specifier|public
-annotation_defn|@interface
-name|AwsTest
-block|{     }
-comment|/**      */
-DECL|field|SYSPROP_AWS
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SYSPROP_AWS
-init|=
-literal|"tests.aws"
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|nodeSettings
@@ -507,11 +485,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|fail
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-literal|"to run integration tests, you need to set -Dtest.aws=true and -Dtests.config=/path/to/elasticsearch.yml"
+literal|"to run integration tests, you need to set -Dtest.thirdparty=true and -Dtests.config=/path/to/elasticsearch.yml"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 catch|catch
@@ -520,7 +500,9 @@ name|FailedToResolveConfigException
 name|exception
 parameter_list|)
 block|{
-name|fail
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
 literal|"your test configuration file is incorrect: "
 operator|+
@@ -530,8 +512,10 @@ name|getProperty
 argument_list|(
 literal|"tests.config"
 argument_list|)
+argument_list|,
+name|exception
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 return|return
 name|settings
