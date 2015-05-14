@@ -109,14 +109,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test needs Azure to run and -Dtests.azure=true to be set  * and -Des.config=/path/to/elasticsearch.yml  * @see org.elasticsearch.cloud.azure.AbstractAzureTest  */
+comment|/**  * This test needs Azure to run and -Dtests.thirdparty=true to be set  * and -Des.config=/path/to/elasticsearch.yml  * @see org.elasticsearch.cloud.azure.AbstractAzureTest  */
 end_comment
 
 begin_class
-annotation|@
-name|AbstractAzureTest
-operator|.
-name|AzureTest
 annotation|@
 name|ElasticsearchIntegrationTest
 operator|.

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|TestGroup
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -120,57 +106,25 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|elasticsearch
 operator|.
-name|annotation
+name|test
 operator|.
-name|Documented
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|ElasticsearchIntegrationTest
 operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Inherited
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Retention
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|RetentionPolicy
+name|ThirdParty
 import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Base class for Azure tests that require credentials.  *<p>  * You must specify {@code -Dtests.thirdparty=true -Dtests.config=/path/to/config}  * in order to run these tests.  */
 end_comment
 
 begin_class
+annotation|@
+name|ThirdParty
 DECL|class|AbstractAzureTest
 specifier|public
 specifier|abstract
@@ -179,44 +133,6 @@ name|AbstractAzureTest
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-comment|/**      * Annotation for tests that require Azure to run. Azure tests are disabled by default.      * See README file for details.      */
-annotation|@
-name|Documented
-annotation|@
-name|Inherited
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|TestGroup
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|,
-name|sysProperty
-operator|=
-name|SYSPROP_AZURE
-argument_list|)
-DECL|interface|AzureTest
-specifier|public
-annotation_defn|@interface
-name|AzureTest
-block|{     }
-comment|/**      */
-DECL|field|SYSPROP_AZURE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SYSPROP_AZURE
-init|=
-literal|"tests.azure"
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|nodeSettings
@@ -339,11 +255,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|fail
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-literal|"to run integration tests, you need to set -Dtest.azure=true and -Dtests.config=/path/to/elasticsearch.yml"
+literal|"to run integration tests, you need to set -Dtests.thirdparty=true and -Dtests.config=/path/to/elasticsearch.yml"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 catch|catch
@@ -352,7 +270,9 @@ name|FailedToResolveConfigException
 name|exception
 parameter_list|)
 block|{
-name|fail
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
 literal|"your test configuration file is incorrect: "
 operator|+
@@ -362,8 +282,10 @@ name|getProperty
 argument_list|(
 literal|"tests.config"
 argument_list|)
+argument_list|,
+name|exception
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 return|return
 name|settings

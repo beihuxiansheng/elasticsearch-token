@@ -44,7 +44,7 @@ specifier|public
 class|class
 name|SmbSimpleFSDirectoryTest
 extends|extends
-name|BaseDirectoryTestCase
+name|ElasticSearchBaseDirectoryTestCase
 block|{
 annotation|@
 name|Override
