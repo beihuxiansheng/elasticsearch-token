@@ -531,7 +531,7 @@ condition|(
 operator|!
 name|sourceFieldMapper
 operator|.
-name|isComplete
+name|enabled
 argument_list|()
 condition|)
 block|{
@@ -553,7 +553,7 @@ operator|.
 name|type
 argument_list|()
 operator|+
-literal|"] has incomplete _source"
+literal|"] has disabled _source"
 argument_list|)
 throw|;
 block|}
