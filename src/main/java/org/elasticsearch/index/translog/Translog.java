@@ -2380,6 +2380,11 @@ name|TranslogReader
 operator|.
 name|UNKNOWN_OP_COUNT
 assert|;
+assert|assert
+name|tops
+operator|>=
+literal|0
+assert|;
 name|ops
 operator|+=
 name|tops
@@ -2928,7 +2933,7 @@ name|View
 name|newView
 parameter_list|()
 block|{
-comment|// we need to acquire the read lock to make sure new translog is created
+comment|// we need to acquire the read lock to make sure no new translog is created
 comment|// and will be missed by the view we're making
 try|try
 init|(
@@ -3217,7 +3222,7 @@ name|long
 name|generation
 parameter_list|)
 block|{
-comment|// pkg private for testing
+comment|// used to make decisions if a file can be deleted
 return|return
 name|generation
 operator|>=
@@ -3660,6 +3665,11 @@ operator|-
 literal|1
 return|;
 block|}
+assert|assert
+name|tops
+operator|>=
+literal|0
+assert|;
 name|ops
 operator|+=
 name|tops
@@ -4328,7 +4338,6 @@ parameter_list|()
 function_decl|;
 comment|/**          * Returns the next operation in the snapshot or<code>null</code> if we reached the end.          */
 DECL|method|next
-specifier|public
 name|Translog
 operator|.
 name|Operation
@@ -8437,11 +8446,11 @@ throw|;
 block|}
 specifier|final
 name|TranslogWriter
-name|writer
+name|oldCurrent
 init|=
 name|current
 decl_stmt|;
-name|writer
+name|oldCurrent
 operator|.
 name|sync
 argument_list|()
@@ -8525,10 +8534,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 comment|// create a new translog file - this will sync it and update the checkpoint data;
-specifier|final
-name|TranslogWriter
-name|newFile
-init|=
+name|current
+operator|=
 name|createWriter
 argument_list|(
 name|current
@@ -8538,10 +8545,6 @@ argument_list|()
 operator|+
 literal|1
 argument_list|)
-decl_stmt|;
-name|current
-operator|=
-name|newFile
 expr_stmt|;
 comment|// notify all outstanding views of the new translog (no views are created now as
 comment|// we hold a write lock).
@@ -8562,7 +8565,7 @@ operator|.
 name|clone
 argument_list|()
 argument_list|,
-name|newFile
+name|current
 operator|.
 name|newReaderFromWriter
 argument_list|()
@@ -8573,7 +8576,7 @@ name|IOUtils
 operator|.
 name|close
 argument_list|(
-name|writer
+name|oldCurrent
 argument_list|)
 expr_stmt|;
 name|logger
@@ -8589,14 +8592,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 assert|assert
-name|writer
+name|oldCurrent
 operator|.
 name|syncNeeded
 argument_list|()
 operator|==
 literal|false
 operator|:
-literal|"old translog writer must not need a sync"
+literal|"old translog oldCurrent must not need a sync"
 assert|;
 block|}
 catch|catch
@@ -8658,11 +8661,6 @@ name|prepareCommit
 argument_list|()
 expr_stmt|;
 block|}
-name|current
-operator|.
-name|sync
-argument_list|()
-expr_stmt|;
 name|lastCommittedTranslogFileGeneration
 operator|=
 name|current

@@ -1127,10 +1127,10 @@ name|versionMapSizeSetting
 return|;
 block|}
 comment|/** if true the engine will start even if the translog id in the commit point can not be found */
-DECL|method|forceNewTranlog
+DECL|method|forceNewTranslog
 specifier|public
 name|boolean
-name|forceNewTranlog
+name|forceNewTranslog
 parameter_list|()
 block|{
 return|return
