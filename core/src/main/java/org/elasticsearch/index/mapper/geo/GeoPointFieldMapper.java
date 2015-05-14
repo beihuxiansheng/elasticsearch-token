@@ -4062,7 +4062,7 @@ name|Token
 operator|.
 name|END_ARRAY
 condition|)
-block|{                          }
+empty_stmt|;
 name|parse
 argument_list|(
 name|context
