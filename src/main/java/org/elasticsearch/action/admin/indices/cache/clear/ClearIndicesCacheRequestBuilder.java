@@ -173,26 +173,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setIdCache
-specifier|public
-name|ClearIndicesCacheRequestBuilder
-name|setIdCache
-parameter_list|(
-name|boolean
-name|idCache
-parameter_list|)
-block|{
-name|request
-operator|.
-name|idCache
-argument_list|(
-name|idCache
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 end_class
 

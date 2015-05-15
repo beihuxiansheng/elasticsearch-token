@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 import|;
 end_import
 
@@ -57,7 +57,7 @@ DECL|field|builtIn
 specifier|private
 specifier|final
 specifier|static
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<
 name|NamedAnalyzer
 argument_list|>
@@ -68,7 +68,7 @@ block|{
 name|builtIn
 operator|=
 operator|new
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

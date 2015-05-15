@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -92,7 +92,7 @@ specifier|private
 name|HppcMaps
 parameter_list|()
 block|{     }
-comment|/**      * Returns a new map with the given initial capacity      */
+comment|/**      * Returns a new map with the given number of expected elements.      *       * @param expectedElements      *          The expected number of elements guaranteed not to cause buffer      *          expansion (inclusive).      */
 DECL|method|newMap
 specifier|public
 specifier|static
@@ -101,7 +101,7 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|K
 argument_list|,
@@ -110,19 +110,19 @@ argument_list|>
 name|newMap
 parameter_list|(
 name|int
-name|capacity
+name|expectedElements
 parameter_list|)
 block|{
 return|return
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|(
-name|capacity
+name|expectedElements
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a new map with a default initial capacity of      * {@value com.carrotsearch.hppc.HashContainerUtils#DEFAULT_CAPACITY}      */
+comment|/**      * Returns a new map with a default initial capacity.      */
 DECL|method|newMap
 specifier|public
 specifier|static
@@ -131,7 +131,7 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|K
 argument_list|,
@@ -156,7 +156,7 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|K
 argument_list|,
@@ -172,7 +172,7 @@ literal|16
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a map like {@link #newMap(int)} that does not accept<code>null</code> keys      */
+comment|/**      * Returns a map like {@link #newMap(int)} that does not accept<code>null</code> keys      *       * @param expectedElements      *          The expected number of elements guaranteed not to cause buffer      *          expansion (inclusive).      */
 DECL|method|newNoNullKeysMap
 specifier|public
 specifier|static
@@ -181,7 +181,7 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|K
 argument_list|,
@@ -190,17 +190,17 @@ argument_list|>
 name|newNoNullKeysMap
 parameter_list|(
 name|int
-name|capacity
+name|expectedElements
 parameter_list|)
 block|{
 return|return
 name|ensureNoNullKeys
 argument_list|(
-name|capacity
+name|expectedElements
 argument_list|)
 return|;
 block|}
-comment|/**      * Wraps the given map and prevent adding of<code>null</code> keys.      */
+comment|/**      * Wraps the given map and prevent adding of<code>null</code> keys.      *       * @param expectedElements      *          The expected number of elements guaranteed not to cause buffer      *          expansion (inclusive).      */
 DECL|method|ensureNoNullKeys
 specifier|public
 specifier|static
@@ -209,7 +209,7 @@ name|K
 parameter_list|,
 name|V
 parameter_list|>
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|K
 argument_list|,
@@ -218,19 +218,19 @@ argument_list|>
 name|ensureNoNullKeys
 parameter_list|(
 name|int
-name|capacity
+name|expectedElements
 parameter_list|)
 block|{
 return|return
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|K
 argument_list|,
 name|V
 argument_list|>
 argument_list|(
-name|capacity
+name|expectedElements
 argument_list|)
 block|{
 annotation|@
@@ -275,7 +275,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * @return an intersection view over the two specified containers (which can be KeyContainer or ObjectOpenHashSet).      */
+comment|/**      * @return an intersection view over the two specified containers (which can be KeyContainer or ObjectHashSet).      */
 comment|// Hppc has forEach, but this means we need to build an intermediate set, with this method we just iterate
 comment|// over each unique value without creating a third set.
 DECL|method|intersection
@@ -475,7 +475,7 @@ specifier|static
 parameter_list|<
 name|V
 parameter_list|>
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|V
 argument_list|>
@@ -490,7 +490,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|V
 argument_list|>

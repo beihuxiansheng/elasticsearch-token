@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntIntOpenHashMap
+name|IntIntHashMap
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -60,7 +60,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -135,6 +135,26 @@ operator|.
 name|ThreadLocalRandom
 import|;
 end_import
+
+begin_comment
+comment|// TODO: these benchmarks aren't too good and may be easily skewed by jit doing
+end_comment
+
+begin_comment
+comment|// escape analysis/ side-effects/ local
+end_comment
+
+begin_comment
+comment|// optimisations. Proper benchmarks with JMH (bulk ops, single-shot mode)
+end_comment
+
+begin_comment
+comment|// should be better here.
+end_comment
+
+begin_comment
+comment|// https://github.com/carrotsearch/hppc/blob/master/hppc-benchmarks/src/main/java/com/carrotsearch/hppc/benchmarks/B003_HashSet_Contains.java
+end_comment
 
 begin_class
 DECL|class|StringMapAdjustOrPutBenchmark
@@ -254,14 +274,14 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|map
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -296,7 +316,7 @@ block|{
 name|map
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -389,14 +409,14 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|//        TObjectIntCustomHashMap<String> iMap = new TObjectIntCustomHashMap<String>(new StringIdentityHashingStrategy());
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|String
 argument_list|>
 name|iMap
 init|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -431,7 +451,7 @@ block|{
 name|iMap
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -526,7 +546,7 @@ expr_stmt|;
 name|iMap
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -561,7 +581,7 @@ block|{
 name|iMap
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -654,7 +674,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -663,7 +683,7 @@ argument_list|>
 name|tMap
 init|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -698,7 +718,7 @@ block|{
 name|tMap
 operator|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -1226,11 +1246,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|IntIntOpenHashMap
+name|IntIntHashMap
 name|intMap
 init|=
 operator|new
-name|IntIntOpenHashMap
+name|IntIntHashMap
 argument_list|()
 decl_stmt|;
 for|for
@@ -1264,7 +1284,7 @@ block|{
 name|intMap
 operator|=
 operator|new
-name|IntIntOpenHashMap
+name|IntIntHashMap
 argument_list|()
 expr_stmt|;
 block|}
@@ -1361,14 +1381,14 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<
 name|IntEntry
 argument_list|>
 name|tIntMap
 init|=
 operator|new
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
@@ -1403,7 +1423,7 @@ block|{
 name|tIntMap
 operator|=
 operator|new
-name|IntObjectOpenHashMap
+name|IntObjectHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

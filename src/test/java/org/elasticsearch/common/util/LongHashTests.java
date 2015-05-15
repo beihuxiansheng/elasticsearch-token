@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongLongMap
+name|LongLongHashMap
 import|;
 end_import
 
@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|LongLongOpenHashMap
+name|LongLongMap
 import|;
 end_import
 
@@ -222,7 +222,7 @@ name|LongLongMap
 name|valueToId
 init|=
 operator|new
-name|LongLongOpenHashMap
+name|LongLongHashMap
 argument_list|()
 decl_stmt|;
 specifier|final

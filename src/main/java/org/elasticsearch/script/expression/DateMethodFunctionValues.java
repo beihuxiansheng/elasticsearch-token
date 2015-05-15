@@ -76,6 +76,18 @@ name|AtomicNumericFieldData
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|MultiValueMode
+import|;
+end_import
+
 begin_class
 DECL|class|DateMethodFunctionValues
 class|class
@@ -101,6 +113,9 @@ parameter_list|(
 name|ValueSource
 name|parent
 parameter_list|,
+name|MultiValueMode
+name|multiValueMode
+parameter_list|,
 name|AtomicNumericFieldData
 name|data
 parameter_list|,
@@ -111,6 +126,8 @@ block|{
 name|super
 argument_list|(
 name|parent
+argument_list|,
+name|multiValueMode
 argument_list|,
 name|data
 argument_list|)

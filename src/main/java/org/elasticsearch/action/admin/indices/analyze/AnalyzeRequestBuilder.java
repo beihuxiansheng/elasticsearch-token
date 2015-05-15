@@ -106,6 +106,7 @@ name|String
 name|index
 parameter_list|,
 name|String
+modifier|...
 name|text
 parameter_list|)
 block|{
@@ -250,6 +251,28 @@ operator|.
 name|charFilters
 argument_list|(
 name|charFilters
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets texts to analyze      */
+DECL|method|setText
+specifier|public
+name|AnalyzeRequestBuilder
+name|setText
+parameter_list|(
+name|String
+modifier|...
+name|texts
+parameter_list|)
+block|{
+name|request
+operator|.
+name|text
+argument_list|(
+name|texts
 argument_list|)
 expr_stmt|;
 return|return

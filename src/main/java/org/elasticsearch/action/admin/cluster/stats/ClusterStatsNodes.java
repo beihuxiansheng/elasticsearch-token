@@ -28,7 +28,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -1759,7 +1759,7 @@ name|long
 name|availableMemory
 decl_stmt|;
 DECL|field|cpus
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|OsInfo
 operator|.
@@ -1775,7 +1775,7 @@ block|{
 name|cpus
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -1914,7 +1914,7 @@ return|;
 block|}
 DECL|method|getCpus
 specifier|public
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|OsInfo
 operator|.
@@ -1965,7 +1965,7 @@ decl_stmt|;
 name|cpus
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|(
 name|size
@@ -2840,7 +2840,7 @@ implements|,
 name|ToXContent
 block|{
 DECL|field|versions
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|JvmVersion
 argument_list|>
@@ -2869,7 +2869,7 @@ block|{
 name|versions
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -2892,7 +2892,7 @@ expr_stmt|;
 block|}
 DECL|method|getVersions
 specifier|public
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<
 name|JvmVersion
 argument_list|>
@@ -3112,7 +3112,7 @@ decl_stmt|;
 name|versions
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|(
 name|size

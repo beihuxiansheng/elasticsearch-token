@@ -111,6 +111,9 @@ parameter_list|(
 name|ValueSource
 name|parent
 parameter_list|,
+name|MultiValueMode
+name|m
+parameter_list|,
 name|AtomicNumericFieldData
 name|d
 parameter_list|)
@@ -122,9 +125,7 @@ argument_list|)
 expr_stmt|;
 name|dataAccessor
 operator|=
-name|MultiValueMode
-operator|.
-name|MIN
+name|m
 operator|.
 name|select
 argument_list|(

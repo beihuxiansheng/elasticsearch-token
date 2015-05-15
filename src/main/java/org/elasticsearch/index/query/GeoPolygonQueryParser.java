@@ -186,7 +186,7 @@ name|search
 operator|.
 name|geo
 operator|.
-name|GeoPolygonFilter
+name|GeoPolygonQuery
 import|;
 end_import
 
@@ -834,7 +834,7 @@ name|Query
 name|query
 init|=
 operator|new
-name|GeoPolygonFilter
+name|GeoPolygonQuery
 argument_list|(
 name|indexFieldData
 argument_list|,

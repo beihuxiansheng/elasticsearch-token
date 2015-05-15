@@ -22,7 +22,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -34,7 +34,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -539,7 +539,7 @@ name|ConcurrentMap
 argument_list|<
 name|ShardId
 argument_list|,
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -848,7 +848,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -893,15 +893,15 @@ operator|.
 name|newHashSet
 argument_list|()
 decl_stmt|;
-specifier|final
-name|boolean
-index|[]
-name|states
-init|=
+assert|assert
+operator|!
 name|nodesState
 operator|.
-name|allocated
-decl_stmt|;
+name|containsKey
+argument_list|(
+literal|null
+argument_list|)
+assert|;
 specifier|final
 name|Object
 index|[]
@@ -929,7 +929,7 @@ literal|0
 init|;
 name|i
 operator|<
-name|states
+name|keys
 operator|.
 name|length
 condition|;
@@ -939,11 +939,12 @@ control|)
 block|{
 if|if
 condition|(
-operator|!
-name|states
+name|keys
 index|[
 name|i
 index|]
+operator|==
+literal|null
 condition|)
 block|{
 continue|continue;
@@ -2411,7 +2412,7 @@ block|}
 comment|/**      * Build a map of DiscoveryNodes to shard state number for the given shard.      * A state of -1 means the shard does not exist on the node, where any      * shard state>= 0 is the state version of the shard on that node's disk.      *      * A shard on shared storage will return at least shard state 0 for all      * nodes, indicating that the shard can be allocated to any node.      */
 DECL|method|buildShardStates
 specifier|private
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -2428,7 +2429,7 @@ name|IndexMetaData
 name|indexMetaData
 parameter_list|)
 block|{
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -2444,7 +2445,7 @@ name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
@@ -2460,7 +2461,7 @@ block|{
 name|shardStates
 operator|=
 operator|new
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;
@@ -2478,9 +2479,9 @@ argument_list|)
 expr_stmt|;
 name|nodeIds
 operator|=
-name|ObjectOpenHashSet
-operator|.
-name|from
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|(
 name|nodes
 operator|.
@@ -2537,9 +2538,9 @@ argument_list|)
 expr_stmt|;
 name|nodeIds
 operator|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// we have stored cached from before, see if the nodes changed, if they have, go fetch again
@@ -2857,7 +2858,7 @@ name|shardId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
@@ -2891,9 +2892,9 @@ argument_list|)
 expr_stmt|;
 name|nodesIds
 operator|=
-name|ObjectOpenHashSet
-operator|.
-name|from
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|(
 name|nodes
 operator|.
@@ -2909,9 +2910,9 @@ else|else
 block|{
 name|nodesIds
 operator|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|()
 expr_stmt|;
 comment|// clean nodes that have failed

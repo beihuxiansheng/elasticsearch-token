@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -1096,11 +1096,11 @@ operator|/
 literal|100
 argument_list|)
 decl_stmt|;
-name|IntOpenHashSet
+name|IntHashSet
 name|missingDocs
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|(
 name|numMissingDocs
 argument_list|)

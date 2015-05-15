@@ -22,7 +22,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -5781,9 +5781,8 @@ expr_stmt|;
 name|IntSet
 name|reusedShards
 init|=
-name|IntOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 for|for

@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -2039,11 +2039,11 @@ operator|.
 name|START_ARRAY
 condition|)
 block|{
-name|IntOpenHashSet
+name|IntHashSet
 name|precisions
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 while|while
@@ -2527,11 +2527,11 @@ argument_list|>
 block|{
 DECL|field|precisions
 specifier|private
-name|IntOpenHashSet
+name|IntHashSet
 name|precisions
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 DECL|field|neighbors

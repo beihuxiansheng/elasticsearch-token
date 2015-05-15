@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|IndexReader
+name|IndexSearcher
 import|;
 end_import
 
@@ -414,9 +414,6 @@ name|context
 operator|.
 name|searcher
 argument_list|()
-operator|.
-name|getIndexReader
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -429,8 +426,8 @@ parameter_list|(
 name|SuggestionSearchContext
 name|suggest
 parameter_list|,
-name|IndexReader
-name|reader
+name|IndexSearcher
+name|searcher
 parameter_list|)
 block|{
 try|try
@@ -540,7 +537,7 @@ argument_list|()
 argument_list|,
 name|suggestion
 argument_list|,
-name|reader
+name|searcher
 argument_list|,
 name|spare
 argument_list|)

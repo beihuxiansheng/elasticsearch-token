@@ -54,6 +54,20 @@ name|MapperService
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|IndexQueryParserService
+import|;
+end_import
+
 begin_interface
 DECL|interface|SuggestContextParser
 specifier|public
@@ -72,6 +86,9 @@ name|parser
 parameter_list|,
 name|MapperService
 name|mapperService
+parameter_list|,
+name|IndexQueryParserService
+name|queryParserService
 parameter_list|)
 throws|throws
 name|IOException

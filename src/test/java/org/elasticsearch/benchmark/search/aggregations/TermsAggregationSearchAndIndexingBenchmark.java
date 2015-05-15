@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectScatterSet
 import|;
 end_import
 
@@ -762,15 +762,15 @@ operator|.
 name|currentTimeMillis
 argument_list|()
 decl_stmt|;
-name|ObjectOpenHashSet
+name|ObjectScatterSet
 argument_list|<
 name|String
 argument_list|>
 name|uniqueTerms
 init|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstance
+operator|new
+name|ObjectScatterSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

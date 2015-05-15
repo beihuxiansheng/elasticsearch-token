@@ -38,7 +38,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectOpenHashSet
+name|ObjectHashSet
 import|;
 end_import
 
@@ -212,19 +212,19 @@ name|index
 parameter_list|()
 block|{
 comment|// Memory intensive...
-name|ObjectOpenHashSet
+name|ObjectHashSet
 argument_list|<
 name|String
 argument_list|>
 name|usedParentIds
 init|=
-name|ObjectOpenHashSet
-operator|.
-name|newInstanceWithCapacity
+operator|new
+name|ObjectHashSet
+argument_list|<>
 argument_list|(
 name|numParents
 argument_list|,
-literal|0.5f
+literal|0.5d
 argument_list|)
 decl_stmt|;
 name|ObjectArrayList
@@ -233,9 +233,9 @@ name|ParentDocument
 argument_list|>
 name|parents
 init|=
+operator|new
 name|ObjectArrayList
-operator|.
-name|newInstanceWithCapacity
+argument_list|<>
 argument_list|(
 name|numParents
 argument_list|)

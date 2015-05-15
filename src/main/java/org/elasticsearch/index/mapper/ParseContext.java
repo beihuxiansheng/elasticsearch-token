@@ -36,7 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -530,7 +530,7 @@ block|{
 name|keyedFields
 operator|=
 operator|new
-name|ObjectObjectOpenHashMap
+name|ObjectObjectHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

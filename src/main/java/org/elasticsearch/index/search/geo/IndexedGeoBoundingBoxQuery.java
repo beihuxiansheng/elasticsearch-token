@@ -58,7 +58,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -72,7 +72,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
+name|Query
 import|;
 end_import
 
@@ -111,15 +111,15 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|IndexedGeoBoundingBoxFilter
+DECL|class|IndexedGeoBoundingBoxQuery
 specifier|public
 class|class
-name|IndexedGeoBoundingBoxFilter
+name|IndexedGeoBoundingBoxQuery
 block|{
 DECL|method|create
 specifier|public
 specifier|static
-name|Filter
+name|Query
 name|create
 parameter_list|(
 name|GeoPoint
@@ -198,7 +198,7 @@ block|}
 DECL|method|westGeoBoundingBoxFilter
 specifier|private
 specifier|static
-name|Filter
+name|Query
 name|westGeoBoundingBoxFilter
 parameter_list|(
 name|GeoPoint
@@ -314,7 +314,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|filter
 argument_list|)
@@ -323,7 +323,7 @@ block|}
 DECL|method|eastGeoBoundingBoxFilter
 specifier|private
 specifier|static
-name|Filter
+name|Query
 name|eastGeoBoundingBoxFilter
 parameter_list|(
 name|GeoPoint
@@ -407,7 +407,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|filter
 argument_list|)

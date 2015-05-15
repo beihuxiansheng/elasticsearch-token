@@ -2482,6 +2482,12 @@ name|String
 name|text
 parameter_list|)
 function_decl|;
+comment|/**      * Analyze text/texts.      *      */
+DECL|method|prepareAnalyze
+name|AnalyzeRequestBuilder
+name|prepareAnalyze
+parameter_list|()
+function_decl|;
 comment|/**      * Puts an index template.      */
 DECL|method|putTemplate
 name|ActionFuture

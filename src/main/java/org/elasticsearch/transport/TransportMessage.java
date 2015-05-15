@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|ObjectObjectOpenHashMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch

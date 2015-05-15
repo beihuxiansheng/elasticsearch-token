@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Query that does fuzzy matching for a specific value.  *  *  */
+comment|/**  * A Query that does fuzzy matching for a specific value.  */
 end_comment
 
 begin_class
@@ -64,10 +64,8 @@ specifier|public
 class|class
 name|FuzzyQueryBuilder
 extends|extends
-name|BaseQueryBuilder
-implements|implements
 name|MultiTermQueryBuilder
-implements|,
+implements|implements
 name|BoostableQueryBuilder
 argument_list|<
 name|FuzzyQueryBuilder
@@ -113,6 +111,11 @@ DECL|field|transpositions
 specifier|private
 name|Boolean
 name|transpositions
+decl_stmt|;
+DECL|field|rewrite
+specifier|private
+name|String
+name|rewrite
 decl_stmt|;
 DECL|field|queryName
 specifier|private
@@ -237,6 +240,25 @@ operator|.
 name|transpositions
 operator|=
 name|transpositions
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|rewrite
+specifier|public
+name|FuzzyQueryBuilder
+name|rewrite
+parameter_list|(
+name|String
+name|rewrite
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rewrite
+operator|=
+name|rewrite
 expr_stmt|;
 return|return
 name|this
@@ -418,6 +440,23 @@ argument_list|(
 literal|"max_expansions"
 argument_list|,
 name|maxExpansions
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|rewrite
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"rewrite"
+argument_list|,
+name|rewrite
 argument_list|)
 expr_stmt|;
 block|}

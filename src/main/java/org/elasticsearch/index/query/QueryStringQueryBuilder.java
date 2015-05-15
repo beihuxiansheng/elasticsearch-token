@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 import|;
 end_import
 
@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|QueryStringQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<
@@ -121,7 +121,6 @@ argument_list|>
 block|{
 DECL|enum|Operator
 specifier|public
-specifier|static
 enum|enum
 name|Operator
 block|{
@@ -244,7 +243,7 @@ name|fields
 decl_stmt|;
 DECL|field|fieldsBoosts
 specifier|private
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -408,7 +407,7 @@ block|{
 name|fieldsBoosts
 operator|=
 operator|new
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<>
 argument_list|()
 expr_stmt|;

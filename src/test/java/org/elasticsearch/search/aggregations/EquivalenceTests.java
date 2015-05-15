@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|IntHashSet
 import|;
 end_import
 
@@ -1525,11 +1525,11 @@ literal|5000
 argument_list|)
 decl_stmt|;
 specifier|final
-name|IntOpenHashSet
+name|IntHashSet
 name|valuesSet
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 name|cluster

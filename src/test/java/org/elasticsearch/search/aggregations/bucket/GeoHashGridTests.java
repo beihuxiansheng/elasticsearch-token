@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntMap
+name|ObjectIntHashMap
 import|;
 end_import
 
@@ -38,7 +38,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectIntOpenHashMap
+name|ObjectIntMap
 import|;
 end_import
 
@@ -606,7 +606,7 @@ decl_stmt|;
 name|expectedDocCountsForGeoHash
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|(
 name|numDocs
@@ -825,7 +825,7 @@ expr_stmt|;
 name|multiValuedExpectedDocCountsForGeoHash
 operator|=
 operator|new
-name|ObjectIntOpenHashMap
+name|ObjectIntHashMap
 argument_list|<>
 argument_list|(
 name|numDocs

@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|NestedQueryBuilder
 extends|extends
-name|BaseQueryBuilder
+name|QueryBuilder
 implements|implements
 name|BoostableQueryBuilder
 argument_list|<

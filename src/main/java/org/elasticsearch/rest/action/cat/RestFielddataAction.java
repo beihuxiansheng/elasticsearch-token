@@ -38,7 +38,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 import|;
 end_import
 
@@ -596,7 +596,7 @@ name|getNodes
 argument_list|()
 control|)
 block|{
-name|ObjectLongOpenHashMap
+name|ObjectLongHashMap
 argument_list|<
 name|String
 argument_list|>

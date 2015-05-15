@@ -26,7 +26,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 import|;
 end_import
 
@@ -376,7 +376,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|boosts
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1125,7 +1125,7 @@ expr_stmt|;
 block|}
 DECL|method|boosts
 specifier|public
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>
@@ -1141,7 +1141,7 @@ specifier|public
 name|void
 name|boosts
 parameter_list|(
-name|ObjectFloatOpenHashMap
+name|ObjectFloatHashMap
 argument_list|<
 name|String
 argument_list|>

@@ -28,7 +28,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|IntOpenHashSet
+name|BitMixer
 import|;
 end_import
 
@@ -40,9 +40,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|hash
-operator|.
-name|MurmurHash3
+name|IntHashSet
 import|;
 end_import
 
@@ -378,11 +376,11 @@ argument_list|,
 name|MAX_PRECISION
 argument_list|)
 decl_stmt|;
-name|IntOpenHashSet
+name|IntHashSet
 name|set
 init|=
 operator|new
-name|IntOpenHashSet
+name|IntHashSet
 argument_list|()
 decl_stmt|;
 name|HyperLogLogPlusPlus
@@ -435,13 +433,10 @@ specifier|final
 name|long
 name|hash
 init|=
-name|MurmurHash3
+name|BitMixer
 operator|.
-name|hash
+name|mix64
 argument_list|(
-operator|(
-name|long
-operator|)
 name|n
 argument_list|)
 decl_stmt|;
@@ -688,13 +683,10 @@ specifier|final
 name|long
 name|hash
 init|=
-name|MurmurHash3
+name|BitMixer
 operator|.
-name|hash
+name|mix64
 argument_list|(
-operator|(
-name|long
-operator|)
 name|n
 argument_list|)
 decl_stmt|;

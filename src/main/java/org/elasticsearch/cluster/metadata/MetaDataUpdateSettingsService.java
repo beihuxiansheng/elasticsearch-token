@@ -535,13 +535,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Unexpected value [{}] for setting [{}]; it should be dash delimited"
-argument_list|,
-name|autoExpandReplicas
+literal|"failed to set [{}] for index [{}], it should be dash delimited [{}]"
 argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
+argument_list|,
+name|indexMetaData
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|autoExpandReplicas
 argument_list|)
 expr_stmt|;
 continue|continue;
@@ -581,13 +586,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to set [{}], minimum value is not a number [{}]"
+literal|"failed to set [{}] for index [{}], minimum value is not a number [{}]"
 argument_list|,
 name|e
 argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
+argument_list|,
+name|indexMetaData
+operator|.
+name|index
+argument_list|()
 argument_list|,
 name|sMin
 argument_list|)
@@ -647,13 +657,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to set [{}], maximum value is neither [{}] nor a number [{}]"
+literal|"failed to set [{}] for index [{}], maximum value is neither [{}] nor a number [{}]"
 argument_list|,
 name|e
 argument_list|,
 name|IndexMetaData
 operator|.
 name|SETTING_AUTO_EXPAND_REPLICAS
+argument_list|,
+name|indexMetaData
+operator|.
+name|index
+argument_list|()
 argument_list|,
 name|ALL_NODES_VALUE
 argument_list|,

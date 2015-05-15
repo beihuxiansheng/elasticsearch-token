@@ -527,7 +527,7 @@ operator|.
 name|getIndicesStats
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -662,14 +662,14 @@ name|get
 argument_list|()
 expr_stmt|;
 name|long
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 init|=
 name|response
 operator|.
 name|getIndicesStats
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -677,7 +677,7 @@ argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 argument_list|,
 name|greaterThan
 argument_list|(
@@ -819,7 +819,7 @@ operator|.
 name|getIndicesStats
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -827,7 +827,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -894,7 +894,7 @@ name|ensureGreen
 argument_list|()
 expr_stmt|;
 comment|// Need to do 2 separate refreshes, otherwise we have 1 segment and then we can't measure if global ordinals
-comment|// is loaded by the size of the id_cache, because global ordinals on 1 segment shards takes no extra memory.
+comment|// is loaded by the size of the field data cache, because global ordinals on 1 segment shards takes no extra memory.
 name|client
 argument_list|()
 operator|.
@@ -970,7 +970,7 @@ operator|.
 name|getIndicesStats
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -978,7 +978,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1090,14 +1090,14 @@ name|get
 argument_list|()
 decl_stmt|;
 name|long
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 init|=
 name|response
 operator|.
 name|getIndicesStats
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -1105,7 +1105,7 @@ argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 argument_list|,
 name|greaterThan
 argument_list|(
@@ -1318,7 +1318,7 @@ block|}
 argument_list|)
 expr_stmt|;
 comment|// Need to add a new doc otherwise the refresh doesn't trigger a new searcher
-comment|// Because it ends up in its own segment, but isn't of type parent or child, this doc doesn't contribute to the size of the id_cache
+comment|// Because it ends up in its own segment, but isn't of type parent or child, this doc doesn't contribute to the size of the fielddata cache
 name|client
 argument_list|()
 operator|.
@@ -1366,7 +1366,7 @@ operator|.
 name|getIndicesStats
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -1374,7 +1374,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-name|idCacheSizeDefault
+name|fielddataSizeDefault
 argument_list|)
 argument_list|)
 expr_stmt|;
