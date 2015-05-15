@@ -384,7 +384,7 @@ name|SnapshotsService
 operator|.
 name|SnapshotRequest
 argument_list|(
-literal|"create_snapshot["
+literal|"create_snapshot ["
 operator|+
 name|request
 operator|.
