@@ -98,22 +98,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|joda
 operator|.
 name|DateMathParser
@@ -235,9 +219,10 @@ class|class
 name|RangeQueryBuilder
 extends|extends
 name|MultiTermQueryBuilder
+argument_list|<
+name|RangeQueryBuilder
+argument_list|>
 implements|implements
-name|Streamable
-implements|,
 name|BoostableQueryBuilder
 argument_list|<
 name|RangeQueryBuilder
@@ -245,6 +230,7 @@ argument_list|>
 block|{
 DECL|field|fieldName
 specifier|private
+specifier|final
 name|String
 name|fieldName
 decl_stmt|;
@@ -309,13 +295,6 @@ name|fieldName
 operator|=
 name|fieldName
 expr_stmt|;
-block|}
-DECL|method|RangeQueryBuilder
-specifier|public
-name|RangeQueryBuilder
-parameter_list|()
-block|{
-comment|// for serialization
 block|}
 comment|/**      * Get the field name for this query.      */
 DECL|method|fieldName
@@ -1331,7 +1310,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|void
+name|RangeQueryBuilder
 name|readFrom
 parameter_list|(
 name|StreamInput
@@ -1340,16 +1319,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|this
-operator|.
-name|fieldName
-operator|=
+name|RangeQueryBuilder
+name|rangeQueryBuilder
+init|=
+operator|new
+name|RangeQueryBuilder
+argument_list|(
 name|in
 operator|.
 name|readString
 argument_list|()
-expr_stmt|;
-name|this
+argument_list|)
+decl_stmt|;
+name|rangeQueryBuilder
 operator|.
 name|from
 operator|=
@@ -1358,7 +1340,7 @@ operator|.
 name|readGenericValue
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|to
 operator|=
@@ -1367,7 +1349,7 @@ operator|.
 name|readGenericValue
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|includeLower
 operator|=
@@ -1376,7 +1358,7 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|includeUpper
 operator|=
@@ -1385,7 +1367,7 @@ operator|.
 name|readBoolean
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|timeZone
 operator|=
@@ -1394,7 +1376,7 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|format
 operator|=
@@ -1403,7 +1385,7 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|boost
 operator|=
@@ -1412,7 +1394,7 @@ operator|.
 name|readFloat
 argument_list|()
 expr_stmt|;
-name|this
+name|rangeQueryBuilder
 operator|.
 name|queryName
 operator|=
@@ -1421,6 +1403,9 @@ operator|.
 name|readOptionalString
 argument_list|()
 expr_stmt|;
+return|return
+name|rangeQueryBuilder
+return|;
 block|}
 annotation|@
 name|Override

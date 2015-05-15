@@ -100,6 +100,11 @@ name|BaseTermQueryBuilder
 argument_list|<
 name|TermQueryBuilder
 argument_list|>
+implements|implements
+name|BoostableQueryBuilder
+argument_list|<
+name|TermQueryBuilder
+argument_list|>
 block|{
 comment|/** @see BaseTermQueryBuilder#BaseTermQueryBuilder(String, String) */
 DECL|method|TermQueryBuilder
@@ -259,13 +264,6 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|TermQueryBuilder
-specifier|public
-name|TermQueryBuilder
-parameter_list|()
-block|{
-comment|// for serialization only
-block|}
 annotation|@
 name|Override
 DECL|method|toQuery
@@ -376,6 +374,30 @@ expr_stmt|;
 block|}
 return|return
 name|query
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createBuilder
+specifier|protected
+name|TermQueryBuilder
+name|createBuilder
+parameter_list|(
+name|String
+name|fieldName
+parameter_list|,
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+operator|new
+name|TermQueryBuilder
+argument_list|(
+name|fieldName
+argument_list|,
+name|value
+argument_list|)
 return|;
 block|}
 annotation|@
