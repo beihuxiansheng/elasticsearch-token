@@ -56,8 +56,10 @@ specifier|public
 class|class
 name|SpanOrQueryBuilder
 extends|extends
-name|SpanQueryBuilder
+name|QueryBuilder
 implements|implements
+name|SpanQueryBuilder
+implements|,
 name|BoostableQueryBuilder
 argument_list|<
 name|SpanOrQueryBuilder

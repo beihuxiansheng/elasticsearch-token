@@ -46,8 +46,10 @@ specifier|public
 class|class
 name|SpanFirstQueryBuilder
 extends|extends
-name|SpanQueryBuilder
+name|QueryBuilder
 implements|implements
+name|SpanQueryBuilder
+implements|,
 name|BoostableQueryBuilder
 argument_list|<
 name|SpanFirstQueryBuilder
