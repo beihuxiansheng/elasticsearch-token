@@ -2112,7 +2112,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> Id cache size: "
+literal|"--> Field data size: "
 operator|+
 name|statsResponse
 operator|.
@@ -2125,7 +2125,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySize
@@ -2772,7 +2772,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"--> Id cache size: "
+literal|"--> Field data size: "
 operator|+
 name|statsResponse
 operator|.
@@ -2785,7 +2785,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getIdCache
+name|getFieldData
 argument_list|()
 operator|.
 name|getMemorySize
