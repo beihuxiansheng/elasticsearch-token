@@ -976,6 +976,8 @@ name|translogGeneration
 decl_stmt|;
 try|try
 block|{
+comment|// TODO: would be better if ES could tell us "from above" whether this shard was already here, instead of using Lucene's API
+comment|// (which relies on IO ops, directory listing, and has had scary bugs in the past):
 name|boolean
 name|create
 init|=
@@ -1260,6 +1262,22 @@ operator|==
 literal|false
 condition|)
 block|{
+comment|// We expect that this shard already exists, so it must already have an existing translog else something is badly wrong!
+if|if
+condition|(
+name|generation
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"no translog generation present in commit data but translog is expected to exist"
+argument_list|)
+throw|;
+block|}
 name|translogConfig
 operator|.
 name|setTranslogGeneration
@@ -1309,21 +1327,6 @@ operator|==
 literal|null
 condition|)
 block|{
-if|if
-condition|(
-name|createNew
-operator|==
-literal|false
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"no tranlog generation present in commit data but translog is expected to exist"
-argument_list|)
-throw|;
-block|}
 name|logger
 operator|.
 name|debug

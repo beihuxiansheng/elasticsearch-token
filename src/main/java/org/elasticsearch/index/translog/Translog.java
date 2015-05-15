@@ -1667,7 +1667,7 @@ name|translogPath
 operator|.
 name|resolve
 argument_list|(
-name|getCommitFileName
+name|getCommitCheckpointFileName
 argument_list|(
 name|generation
 argument_list|)
@@ -1844,7 +1844,7 @@ name|location
 operator|.
 name|resolve
 argument_list|(
-name|getCommitFileName
+name|getCommitCheckpointFileName
 argument_list|(
 name|i
 argument_list|)
@@ -1893,7 +1893,7 @@ name|location
 operator|.
 name|resolve
 argument_list|(
-name|getCommitFileName
+name|getCommitCheckpointFileName
 argument_list|(
 name|checkpoint
 operator|.
@@ -3109,10 +3109,10 @@ operator|+
 name|TRANSLOG_FILE_SUFFIX
 return|;
 block|}
-DECL|method|getCommitFileName
+DECL|method|getCommitCheckpointFileName
 specifier|static
 name|String
-name|getCommitFileName
+name|getCommitCheckpointFileName
 parameter_list|(
 name|long
 name|generation
@@ -3340,7 +3340,7 @@ name|translogPath
 operator|.
 name|resolveSibling
 argument_list|(
-name|getCommitFileName
+name|getCommitCheckpointFileName
 argument_list|(
 name|channelReference
 operator|.
@@ -3448,7 +3448,7 @@ name|path
 operator|.
 name|resolveSibling
 argument_list|(
-name|getCommitFileName
+name|getCommitCheckpointFileName
 argument_list|(
 name|channelReference
 operator|.
@@ -8494,7 +8494,7 @@ name|location
 operator|.
 name|resolve
 argument_list|(
-name|getCommitFileName
+name|getCommitCheckpointFileName
 argument_list|(
 name|currentCommittingTranslog
 operator|.
