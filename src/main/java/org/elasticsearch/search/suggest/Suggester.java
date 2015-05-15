@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|IndexReader
+name|IndexSearcher
 import|;
 end_import
 
@@ -102,8 +102,8 @@ parameter_list|,
 name|T
 name|suggestion
 parameter_list|,
-name|IndexReader
-name|indexReader
+name|IndexSearcher
+name|searcher
 parameter_list|,
 name|CharsRefBuilder
 name|spare
@@ -159,8 +159,8 @@ parameter_list|,
 name|T
 name|suggestion
 parameter_list|,
-name|IndexReader
-name|indexReader
+name|IndexSearcher
+name|searcher
 parameter_list|,
 name|CharsRefBuilder
 name|spare
@@ -171,7 +171,10 @@ block|{
 comment|// #3469 We want to ignore empty shards
 if|if
 condition|(
-name|indexReader
+name|searcher
+operator|.
+name|getIndexReader
+argument_list|()
 operator|.
 name|numDocs
 argument_list|()
@@ -190,7 +193,7 @@ name|name
 argument_list|,
 name|suggestion
 argument_list|,
-name|indexReader
+name|searcher
 argument_list|,
 name|spare
 argument_list|)
