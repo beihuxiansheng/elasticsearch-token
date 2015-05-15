@@ -24,9 +24,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|IndexReader
+name|IndexSearcher
 import|;
 end_import
 
@@ -83,6 +83,20 @@ operator|.
 name|mapper
 operator|.
 name|MapperService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|IndexQueryParserService
 import|;
 end_import
 
@@ -169,8 +183,8 @@ parameter_list|,
 name|CustomSuggestionsContext
 name|suggestion
 parameter_list|,
-name|IndexReader
-name|indexReader
+name|IndexSearcher
+name|searcher
 parameter_list|,
 name|CharsRefBuilder
 name|spare
@@ -432,6 +446,9 @@ name|parser
 parameter_list|,
 name|MapperService
 name|mapperService
+parameter_list|,
+name|IndexQueryParserService
+name|queryParserService
 parameter_list|)
 throws|throws
 name|IOException

@@ -2188,6 +2188,51 @@ specifier|public
 annotation_defn|@interface
 name|Integration
 block|{     }
+comment|/**      * Property that controls whether ThirdParty Integration tests are run (not the default).      */
+DECL|field|SYSPROP_THIRDPARTY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SYSPROP_THIRDPARTY
+init|=
+literal|"tests.thirdparty"
+decl_stmt|;
+comment|/**      * Annotation for third-party integration tests.      *<p>      * These are tests the require a third-party service in order to run. They      * may require the user to manually configure an external process (such as rabbitmq),      * or may additionally require some external configuration (e.g. AWS credentials)      * via the {@code tests.config} system property.      */
+annotation|@
+name|Inherited
+annotation|@
+name|Retention
+argument_list|(
+name|RetentionPolicy
+operator|.
+name|RUNTIME
+argument_list|)
+annotation|@
+name|Target
+argument_list|(
+name|ElementType
+operator|.
+name|TYPE
+argument_list|)
+annotation|@
+name|TestGroup
+argument_list|(
+name|enabled
+operator|=
+literal|false
+argument_list|,
+name|sysProperty
+operator|=
+name|ElasticsearchIntegrationTest
+operator|.
+name|SYSPROP_THIRDPARTY
+argument_list|)
+DECL|interface|ThirdParty
+specifier|public
+annotation_defn|@interface
+name|ThirdParty
+block|{     }
 comment|/** node names of the corresponding clusters will start with these prefixes */
 DECL|field|SUITE_CLUSTER_NODE_PREFIX
 specifier|public
