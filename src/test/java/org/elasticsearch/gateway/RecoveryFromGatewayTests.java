@@ -470,12 +470,10 @@ name|TEST
 argument_list|)
 annotation|@
 name|Slow
-DECL|class|RecoveryFromGatewayTesTermVectorsFields.javats
+DECL|class|RecoveryFromGatewayTests
 specifier|public
 class|class
-name|RecoveryFromGatewayTesTermVectorsFields
-operator|.
-name|javats
+name|RecoveryFromGatewayTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
