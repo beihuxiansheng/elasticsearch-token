@@ -780,15 +780,6 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"id_cache.memory_size"
-argument_list|,
-literal|"alias:im,idCacheMemory;default:false;text-align:right;desc:used id cache"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"indexing.delete_current"
 argument_list|,
 literal|"alias:idc,indexingDeleteCurrent;default:false;text-align:right;desc:number of current deletions"
@@ -1811,25 +1802,6 @@ name|getGet
 argument_list|()
 operator|.
 name|getMissingCount
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-name|shardStats
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
-name|shardStats
-operator|.
-name|getIdCache
-argument_list|()
-operator|.
-name|getMemorySize
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -481,12 +481,6 @@ name|CommonStatsFlags
 operator|.
 name|Flag
 operator|.
-name|IdCache
-argument_list|,
-name|CommonStatsFlags
-operator|.
-name|Flag
-operator|.
 name|Completion
 argument_list|,
 name|CommonStatsFlags
