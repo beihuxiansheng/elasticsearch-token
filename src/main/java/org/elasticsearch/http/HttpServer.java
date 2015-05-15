@@ -936,6 +936,9 @@ name|siteFile
 operator|.
 name|toAbsolutePath
 argument_list|()
+operator|.
+name|normalize
+argument_list|()
 argument_list|)
 condition|)
 block|{
