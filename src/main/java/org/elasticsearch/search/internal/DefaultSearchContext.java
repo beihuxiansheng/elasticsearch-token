@@ -1223,19 +1223,10 @@ name|void
 name|doClose
 parameter_list|()
 block|{
-if|if
-condition|(
 name|scanContext
-operator|!=
+operator|=
 literal|null
-condition|)
-block|{
-name|scanContext
-operator|.
-name|clear
-argument_list|()
 expr_stmt|;
-block|}
 comment|// clear and scope phase we  have
 name|Releasables
 operator|.
