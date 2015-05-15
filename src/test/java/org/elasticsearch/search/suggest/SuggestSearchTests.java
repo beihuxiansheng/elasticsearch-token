@@ -8129,7 +8129,7 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-comment|// suggest without filtering
+comment|// suggest without collate
 name|PhraseSuggestionBuilder
 name|suggest
 init|=
@@ -8214,7 +8214,7 @@ argument_list|,
 literal|"title"
 argument_list|)
 expr_stmt|;
-comment|// suggest with filtering
+comment|// suggest with collate
 name|String
 name|filterString
 init|=
@@ -8277,7 +8277,7 @@ argument_list|,
 literal|"title"
 argument_list|)
 expr_stmt|;
-comment|// filtered suggest with no result (boundary case)
+comment|// collate suggest with no result (boundary case)
 name|searchSuggest
 operator|=
 name|searchSuggest
@@ -8306,7 +8306,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 decl_stmt|;
-comment|// filtered suggest with bad query
+comment|// collate suggest with bad query
 name|String
 name|incorrectFilterString
 init|=
@@ -8376,7 +8376,7 @@ parameter_list|)
 block|{
 comment|// expected
 block|}
-comment|// suggest with filter collation
+comment|// suggest with collation
 name|String
 name|filterStringAsFilter
 init|=
@@ -8424,11 +8424,6 @@ name|suggest
 operator|.
 name|collateQuery
 argument_list|(
-literal|null
-argument_list|)
-operator|.
-name|collateFilter
-argument_list|(
 name|filterStringAsFilter
 argument_list|)
 decl_stmt|;
@@ -8452,7 +8447,7 @@ argument_list|,
 literal|"title"
 argument_list|)
 expr_stmt|;
-comment|// filtered suggest with bad filter
+comment|// collate suggest with bad query
 name|String
 name|filterStr
 init|=
@@ -8491,11 +8486,6 @@ init|=
 name|suggest
 operator|.
 name|collateQuery
-argument_list|(
-literal|null
-argument_list|)
-operator|.
-name|collateFilter
 argument_list|(
 name|filterStr
 argument_list|)
@@ -8564,11 +8554,6 @@ name|PhraseSuggestionBuilder
 name|phraseSuggestWithNoParams
 init|=
 name|suggest
-operator|.
-name|collateFilter
-argument_list|(
-literal|null
-argument_list|)
 operator|.
 name|collateQuery
 argument_list|(
@@ -8639,11 +8624,6 @@ name|phraseSuggestWithParams
 init|=
 name|suggest
 operator|.
-name|collateFilter
-argument_list|(
-literal|null
-argument_list|)
-operator|.
 name|collateQuery
 argument_list|(
 name|collateWithParams
@@ -8674,60 +8654,12 @@ argument_list|,
 literal|"title"
 argument_list|)
 expr_stmt|;
-comment|//collate request defining both query/filter should fail
-name|PhraseSuggestionBuilder
-name|phraseSuggestWithFilterAndQuery
-init|=
-name|suggest
-operator|.
-name|collateFilter
-argument_list|(
-name|filterStringAsFilter
-argument_list|)
-operator|.
-name|collateQuery
-argument_list|(
-name|filterString
-argument_list|)
-decl_stmt|;
-try|try
-block|{
-name|searchSuggest
-argument_list|(
-literal|"united states house of representatives elections in washington 2006"
-argument_list|,
-name|numShards
-operator|.
-name|numPrimaries
-argument_list|,
-name|phraseSuggestWithFilterAndQuery
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"expected parse failure, as both filter and query are set in collate"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ElasticsearchException
-name|e
-parameter_list|)
-block|{
-comment|// expected
-block|}
 comment|// collate query request with prune set to true
 name|PhraseSuggestionBuilder
 name|phraseSuggestWithParamsAndReturn
 init|=
 name|suggest
 operator|.
-name|collateFilter
-argument_list|(
-literal|null
-argument_list|)
-operator|.
 name|collateQuery
 argument_list|(
 name|collateWithParams
@@ -8743,122 +8675,6 @@ argument_list|(
 literal|true
 argument_list|)
 decl_stmt|;
-name|searchSuggest
-operator|=
-name|searchSuggest
-argument_list|(
-literal|"united states house of representatives elections in washington 2006"
-argument_list|,
-name|phraseSuggestWithParamsAndReturn
-argument_list|)
-expr_stmt|;
-name|assertSuggestionSize
-argument_list|(
-name|searchSuggest
-argument_list|,
-literal|0
-argument_list|,
-literal|10
-argument_list|,
-literal|"title"
-argument_list|)
-expr_stmt|;
-name|assertSuggestionPhraseCollateMatchExists
-argument_list|(
-name|searchSuggest
-argument_list|,
-literal|"title"
-argument_list|,
-literal|2
-argument_list|)
-expr_stmt|;
-name|collateWithParams
-operator|=
-name|XContentFactory
-operator|.
-name|jsonBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"query"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"{{query_type}}"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"{{query_field}}"
-argument_list|,
-literal|"{{suggestion}}"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|string
-argument_list|()
-expr_stmt|;
-name|params
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|params
-operator|.
-name|put
-argument_list|(
-literal|"query_type"
-argument_list|,
-literal|"match_phrase"
-argument_list|)
-expr_stmt|;
-name|params
-operator|.
-name|put
-argument_list|(
-literal|"query_field"
-argument_list|,
-literal|"title"
-argument_list|)
-expr_stmt|;
-comment|// collate filter request with prune set to true
-name|phraseSuggestWithParamsAndReturn
-operator|=
-name|suggest
-operator|.
-name|collateFilter
-argument_list|(
-name|collateWithParams
-argument_list|)
-operator|.
-name|collateQuery
-argument_list|(
-literal|null
-argument_list|)
-operator|.
-name|collateParams
-argument_list|(
-name|params
-argument_list|)
-operator|.
-name|collatePrune
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|searchSuggest
 operator|=
 name|searchSuggest
