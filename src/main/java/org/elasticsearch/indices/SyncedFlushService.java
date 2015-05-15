@@ -16,6 +16,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|ImmutableMap
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -484,7 +498,6 @@ name|SyncedFlushService
 extends|extends
 name|AbstractComponent
 block|{
-comment|// nocommmit: check these are ok
 DECL|field|PRE_SYNCED_FLUSH_ACTION_NAME
 specifier|public
 specifier|static
@@ -2491,6 +2504,7 @@ name|opCount
 argument_list|)
 return|;
 block|}
+comment|/**      * Result for all copies of a shard      */
 DECL|class|SyncedFlushResult
 specifier|public
 specifier|static
@@ -2528,7 +2542,7 @@ DECL|method|SyncedFlushResult
 specifier|public
 name|SyncedFlushResult
 parameter_list|()
-block|{          }
+block|{         }
 DECL|method|getShardId
 specifier|public
 name|ShardId
@@ -2567,9 +2581,9 @@ name|this
 operator|.
 name|shardResponses
 operator|=
-operator|new
-name|HashMap
-argument_list|<>
+name|ImmutableMap
+operator|.
+name|of
 argument_list|()
 expr_stmt|;
 name|this
@@ -2605,11 +2619,34 @@ name|failureReason
 operator|=
 literal|null
 expr_stmt|;
+name|ImmutableMap
+operator|.
+name|Builder
+argument_list|<
+name|ShardRouting
+argument_list|,
+name|SyncedFlushResponse
+argument_list|>
+name|builder
+init|=
+name|ImmutableMap
+operator|.
+name|builder
+argument_list|()
+decl_stmt|;
 name|this
 operator|.
 name|shardResponses
 operator|=
+name|builder
+operator|.
+name|putAll
+argument_list|(
 name|shardResponses
+argument_list|)
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -2624,6 +2661,7 @@ operator|=
 name|shardId
 expr_stmt|;
 block|}
+comment|/**          * @return true if one or more shard copies was successful, false if all failed before step three of synced flush          */
 DECL|method|success
 specifier|public
 name|boolean
@@ -2636,6 +2674,7 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/**          * @return the reason for the failure if synced flush failed before step three of synced flush          */
 DECL|method|failureReason
 specifier|public
 name|String
@@ -2656,7 +2695,7 @@ return|return
 name|syncId
 return|;
 block|}
-comment|/**          * total number of shards for which a sync attempt was made          */
+comment|/**          * @return total number of shards for which a sync attempt was made          */
 DECL|method|totalShards
 specifier|public
 name|int
@@ -2670,6 +2709,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**          * @return total number of successful shards          */
 DECL|method|successfulShards
 specifier|public
 name|int
@@ -2709,6 +2749,7 @@ return|return
 name|i
 return|;
 block|}
+comment|/**          * @return Individual responses for each shard copy with a detailed failure message if the copy failed to perform the synced flush.          * Empty if synced flush failed before step three.          */
 DECL|method|shardResponses
 specifier|public
 name|Map
@@ -2857,13 +2898,21 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|shardResponses
-operator|=
-operator|new
-name|HashMap
-argument_list|<>
+name|ImmutableMap
+operator|.
+name|Builder
+argument_list|<
+name|ShardRouting
+argument_list|,
+name|SyncedFlushResponse
+argument_list|>
+name|builder
+init|=
+name|ImmutableMap
+operator|.
+name|builder
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -2903,7 +2952,7 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|shardResponses
+name|builder
 operator|.
 name|put
 argument_list|(
@@ -2913,6 +2962,13 @@ name|syncedFlushRsponse
 argument_list|)
 expr_stmt|;
 block|}
+name|shardResponses
+operator|=
+name|builder
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
 name|shardId
 operator|=
 name|ShardId
@@ -3055,6 +3111,7 @@ name|shardId
 return|;
 block|}
 block|}
+comment|/**      * Response for first step of synced flush (flush) for one shard copy      */
 DECL|class|PreSyncedFlushResponse
 specifier|final
 specifier|static
@@ -3361,6 +3418,7 @@ literal|'}'
 return|;
 block|}
 block|}
+comment|/**      * Response for third step of synced flush (writing the sync id) for one shard copy      */
 DECL|class|SyncedFlushResponse
 specifier|public
 specifier|static
@@ -3624,6 +3682,7 @@ literal|'}'
 return|;
 block|}
 block|}
+comment|/**      * Response for second step of synced flush (check operations in flight)      */
 DECL|class|InFlightOpsResponse
 specifier|static
 specifier|final
