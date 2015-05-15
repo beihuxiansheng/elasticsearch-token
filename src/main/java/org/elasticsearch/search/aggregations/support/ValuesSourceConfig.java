@@ -133,6 +133,10 @@ DECL|field|format
 name|ValueFormat
 name|format
 decl_stmt|;
+DECL|field|missing
+name|Object
+name|missing
+decl_stmt|;
 DECL|method|ValuesSourceConfig
 specifier|public
 name|ValuesSourceConfig
