@@ -593,8 +593,7 @@ parameter_list|(
 name|String
 name|syncId
 parameter_list|,
-name|byte
-index|[]
+name|CommitId
 name|expectedCommitId
 parameter_list|)
 block|{
@@ -612,8 +611,7 @@ annotation|@
 name|Override
 DECL|method|flush
 specifier|public
-name|byte
-index|[]
+name|CommitId
 name|flush
 parameter_list|()
 throws|throws
@@ -632,8 +630,7 @@ annotation|@
 name|Override
 DECL|method|flush
 specifier|public
-name|byte
-index|[]
+name|CommitId
 name|flush
 parameter_list|(
 name|boolean
@@ -740,10 +737,14 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
+operator|new
+name|CommitId
+argument_list|(
 name|lastCommittedSegmentInfos
 operator|.
 name|getId
 argument_list|()
+argument_list|)
 return|;
 block|}
 annotation|@
