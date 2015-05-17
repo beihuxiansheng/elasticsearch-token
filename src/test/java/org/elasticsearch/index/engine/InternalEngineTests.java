@@ -6847,7 +6847,7 @@ literal|"should fail to sync flush with wrong id (but no docs)"
 argument_list|,
 name|engine
 operator|.
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 argument_list|(
 name|syncId
 operator|+
@@ -6892,7 +6892,7 @@ literal|"should fail to sync flush with right id but pending doc"
 argument_list|,
 name|engine
 operator|.
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 argument_list|(
 name|syncId
 operator|+
@@ -6924,7 +6924,7 @@ literal|"should succeed to flush commit with right id and no pending doc"
 argument_list|,
 name|engine
 operator|.
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 argument_list|(
 name|syncId
 argument_list|,

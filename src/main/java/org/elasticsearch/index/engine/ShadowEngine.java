@@ -585,10 +585,10 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|syncFlushIfNoPendingChanges
+DECL|method|syncFlush
 specifier|public
 name|SyncedFlushResult
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 parameter_list|(
 name|String
 name|syncId

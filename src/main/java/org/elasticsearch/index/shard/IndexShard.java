@@ -4668,12 +4668,12 @@ return|return
 name|completionStats
 return|;
 block|}
-DECL|method|syncFlushIfNoPendingChanges
+DECL|method|syncFlush
 specifier|public
 name|Engine
 operator|.
 name|SyncedFlushResult
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 parameter_list|(
 name|String
 name|syncId
@@ -4702,7 +4702,7 @@ return|return
 name|engine
 argument_list|()
 operator|.
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 argument_list|(
 name|syncId
 argument_list|,

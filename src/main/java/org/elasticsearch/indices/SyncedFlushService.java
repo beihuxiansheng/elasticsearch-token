@@ -2325,7 +2325,7 @@ name|result
 init|=
 name|indexShard
 operator|.
-name|syncFlushIfNoPendingChanges
+name|syncFlush
 argument_list|(
 name|request
 operator|.
