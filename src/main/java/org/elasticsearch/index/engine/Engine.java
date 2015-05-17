@@ -1460,11 +1460,11 @@ block|{
 DECL|enum constant|SUCCESS
 name|SUCCESS
 block|,
-DECL|enum constant|FAILED_COMMIT_MISMATCH
-name|FAILED_COMMIT_MISMATCH
+DECL|enum constant|COMMIT_MISMATCH
+name|COMMIT_MISMATCH
 block|,
-DECL|enum constant|FAILED_PENDING_OPERATIONS
-name|FAILED_PENDING_OPERATIONS
+DECL|enum constant|PENDING_OPERATIONS
+name|PENDING_OPERATIONS
 block|}
 DECL|method|getFromSearcher
 specifier|final

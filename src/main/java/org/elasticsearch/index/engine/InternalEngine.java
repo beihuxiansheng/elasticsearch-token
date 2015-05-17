@@ -4216,7 +4216,7 @@ expr_stmt|;
 return|return
 name|SyncedFlushResult
 operator|.
-name|FAILED_PENDING_OPERATIONS
+name|PENDING_OPERATIONS
 return|;
 block|}
 if|if
@@ -4246,7 +4246,7 @@ expr_stmt|;
 return|return
 name|SyncedFlushResult
 operator|.
-name|FAILED_COMMIT_MISMATCH
+name|COMMIT_MISMATCH
 return|;
 block|}
 try|try
@@ -4283,7 +4283,7 @@ expr_stmt|;
 return|return
 name|SyncedFlushResult
 operator|.
-name|FAILED_PENDING_OPERATIONS
+name|PENDING_OPERATIONS
 return|;
 block|}
 if|if
@@ -4313,7 +4313,7 @@ expr_stmt|;
 return|return
 name|SyncedFlushResult
 operator|.
-name|FAILED_COMMIT_MISMATCH
+name|COMMIT_MISMATCH
 return|;
 block|}
 name|logger

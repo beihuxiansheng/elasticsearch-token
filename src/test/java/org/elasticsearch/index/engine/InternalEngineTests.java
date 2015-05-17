@@ -6862,7 +6862,7 @@ name|Engine
 operator|.
 name|SyncedFlushResult
 operator|.
-name|FAILED_COMMIT_MISMATCH
+name|COMMIT_MISMATCH
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6907,7 +6907,7 @@ name|Engine
 operator|.
 name|SyncedFlushResult
 operator|.
-name|FAILED_PENDING_OPERATIONS
+name|PENDING_OPERATIONS
 argument_list|)
 argument_list|)
 expr_stmt|;

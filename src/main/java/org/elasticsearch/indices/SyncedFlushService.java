@@ -2371,7 +2371,7 @@ name|SyncedFlushResponse
 argument_list|()
 return|;
 case|case
-name|FAILED_COMMIT_MISMATCH
+name|COMMIT_MISMATCH
 case|:
 return|return
 operator|new
@@ -2381,7 +2381,7 @@ literal|"commit has changed"
 argument_list|)
 return|;
 case|case
-name|FAILED_PENDING_OPERATIONS
+name|PENDING_OPERATIONS
 case|:
 return|return
 operator|new
