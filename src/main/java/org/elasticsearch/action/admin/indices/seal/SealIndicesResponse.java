@@ -153,6 +153,7 @@ implements|implements
 name|ToXContent
 block|{
 DECL|field|results
+specifier|final
 specifier|private
 name|Set
 argument_list|<
@@ -165,7 +166,15 @@ decl_stmt|;
 DECL|method|SealIndicesResponse
 name|SealIndicesResponse
 parameter_list|()
-block|{     }
+block|{
+name|results
+operator|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|SealIndicesResponse
 name|SealIndicesResponse
 parameter_list|(
@@ -214,10 +223,8 @@ name|readVInt
 argument_list|()
 decl_stmt|;
 name|results
-operator|=
-operator|new
-name|HashSet
-argument_list|<>
+operator|.
+name|clear
 argument_list|()
 expr_stmt|;
 for|for
