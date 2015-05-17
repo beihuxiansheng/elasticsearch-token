@@ -1965,6 +1965,12 @@ argument_list|(
 literal|"update_snapshot ["
 operator|+
 name|snapshot
+operator|.
+name|snapshotId
+argument_list|()
+operator|.
+name|getSnapshot
+argument_list|()
 operator|+
 literal|"]"
 argument_list|,
