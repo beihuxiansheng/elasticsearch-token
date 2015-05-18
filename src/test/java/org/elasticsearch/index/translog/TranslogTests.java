@@ -110,20 +110,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|TestUtil
 import|;
 end_import
@@ -575,18 +561,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Matcher
-import|;
-end_import
-
-begin_import
 import|import static
 name|com
 operator|.
@@ -619,13 +593,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|SuppressFileSystems
-argument_list|(
-literal|"ExtrasFS"
-argument_list|)
 DECL|class|TranslogTests
 specifier|public
 class|class
@@ -821,7 +788,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"index.translog.fs.type"
+name|TranslogConfig
+operator|.
+name|INDEX_TRANSLOG_FS_TYPE
 argument_list|,
 name|TranslogWriter
 operator|.
