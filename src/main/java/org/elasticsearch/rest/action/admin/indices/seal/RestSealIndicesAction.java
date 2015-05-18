@@ -216,20 +216,6 @@ name|POST
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestStatus
-operator|.
-name|OK
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -424,7 +410,10 @@ return|return
 operator|new
 name|BytesRestResponse
 argument_list|(
-name|OK
+name|response
+operator|.
+name|status
+argument_list|()
 argument_list|,
 name|builder
 argument_list|)
