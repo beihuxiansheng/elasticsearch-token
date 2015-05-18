@@ -4246,8 +4246,6 @@ name|EngineException
 block|{
 name|flush
 argument_list|(
-literal|true
-argument_list|,
 literal|false
 argument_list|,
 literal|false
@@ -4261,33 +4259,6 @@ specifier|public
 name|void
 name|flush
 parameter_list|(
-name|boolean
-name|force
-parameter_list|,
-name|boolean
-name|waitIfOngoing
-parameter_list|)
-throws|throws
-name|EngineException
-block|{
-name|flush
-argument_list|(
-literal|true
-argument_list|,
-name|force
-argument_list|,
-name|waitIfOngoing
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|flush
-specifier|private
-name|void
-name|flush
-parameter_list|(
-name|boolean
-name|commitTranslog
-parameter_list|,
 name|boolean
 name|force
 parameter_list|,
@@ -4381,11 +4352,6 @@ try|try
 block|{
 if|if
 condition|(
-name|commitTranslog
-condition|)
-block|{
-if|if
-condition|(
 name|flushNeeded
 operator|||
 name|force
@@ -4395,6 +4361,10 @@ name|flushNeeded
 operator|=
 literal|false
 expr_stmt|;
+specifier|final
+name|long
+name|translogId
+decl_stmt|;
 try|try
 block|{
 name|translog
@@ -4432,56 +4402,6 @@ comment|// we need to refresh in order to clear older version values
 name|refresh
 argument_list|(
 literal|"version_table_flush"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|FlushFailedEngineException
-argument_list|(
-name|shardId
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-else|else
-block|{
-comment|// note, its ok to just commit without cleaning the translog, its perfectly fine to replay a
-comment|// translog on an index that was opened on a committed point in time that is "in the future"
-comment|// of that translog
-comment|// we allow to *just* commit if there is an ongoing recovery happening...
-comment|// its ok to use this, only a flush will cause a new translogFileGeneration, and we are locked here from
-comment|// other flushes use flushLock
-try|try
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"starting commit for flush; commitTranslog=false"
-argument_list|)
-expr_stmt|;
-name|commitIndexWriter
-argument_list|(
-name|indexWriter
-argument_list|,
-name|translog
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4892,8 +4812,6 @@ argument_list|(
 literal|true
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -5003,8 +4921,6 @@ argument_list|)
 expr_stmt|;
 name|flush
 argument_list|(
-literal|false
-argument_list|,
 literal|false
 argument_list|,
 literal|true

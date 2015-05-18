@@ -843,23 +843,6 @@ name|sid
 argument_list|)
 condition|)
 block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"{} shard state before potentially flushing is {}"
-argument_list|,
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|indexShard
-operator|.
-name|state
-argument_list|()
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|validCheckIndexStates
@@ -882,62 +865,6 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// When the the internal engine closes we do a rollback, which removes uncommitted segments
-comment|// By doing a commit flush we perform a Lucene commit, but don't clear the translog,
-comment|// so that even in tests where don't flush we can check the integrity of the Lucene index
-if|if
-condition|(
-name|indexShard
-operator|.
-name|engine
-argument_list|()
-operator|.
-name|hasUncommittedChanges
-argument_list|()
-condition|)
-block|{
-comment|// only if we have any changes
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"{} flushing in order to run checkindex"
-argument_list|,
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|Releasables
-operator|.
-name|close
-argument_list|(
-name|indexShard
-operator|.
-name|engine
-argument_list|()
-operator|.
-name|snapshotIndex
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// Keep translog for tests that rely on replaying it
-block|}
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"{} flush finished in beforeIndexShardClosed"
-argument_list|,
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|canRun
 operator|=
 literal|true
