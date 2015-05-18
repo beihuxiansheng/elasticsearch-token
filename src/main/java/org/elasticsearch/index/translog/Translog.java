@@ -703,7 +703,7 @@ specifier|private
 specifier|final
 name|Set
 argument_list|<
-name|FsView
+name|View
 argument_list|>
 name|outstandingViews
 init|=
@@ -776,6 +776,53 @@ specifier|private
 specifier|final
 name|String
 name|translogUUID
+decl_stmt|;
+DECL|field|onViewClose
+specifier|private
+name|Callback
+argument_list|<
+name|View
+argument_list|>
+name|onViewClose
+init|=
+operator|new
+name|Callback
+argument_list|<
+name|View
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|handle
+parameter_list|(
+name|View
+name|view
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"closing view starting at translog [{}]"
+argument_list|,
+name|view
+operator|.
+name|minTranslogGeneration
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|outstandingViews
+operator|.
+name|remove
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 decl_stmt|;
 comment|/**      * Creates a new Translog instance. This method will create a new transaction log unless the given {@link TranslogConfig} has      * a non-null {@link org.elasticsearch.index.translog.Translog.TranslogGeneration}. If the generation is null this method      * us destructive and will delete all files in the translog path given.      * @see TranslogConfig#getTranslogPath()      */
 DECL|method|Translog
@@ -2830,6 +2877,7 @@ block|}
 block|}
 DECL|method|createSnapshot
 specifier|private
+specifier|static
 name|Snapshot
 name|createSnapshot
 parameter_list|(
@@ -2987,13 +3035,15 @@ name|newReaderFromWriter
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|FsView
+name|View
 name|view
 init|=
 operator|new
-name|FsView
+name|View
 argument_list|(
 name|translogs
+argument_list|,
+name|onViewClose
 argument_list|)
 decl_stmt|;
 comment|// this is safe as we know that no new translog is being made at the moment
@@ -3482,12 +3532,34 @@ block|}
 block|}
 block|}
 comment|/**      * a view into the translog, capturing all translog file at the moment of creation      * and updated with any future translog.      */
-DECL|class|FsView
+DECL|class|View
+specifier|public
+specifier|static
+specifier|final
 class|class
-name|FsView
-implements|implements
 name|View
+implements|implements
+name|Closeable
 block|{
+DECL|field|EMPTY_VIEW
+specifier|public
+specifier|static
+specifier|final
+name|Translog
+operator|.
+name|View
+name|EMPTY_VIEW
+init|=
+operator|new
+name|View
+argument_list|(
+name|Collections
+operator|.
+name|EMPTY_LIST
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 DECL|field|closed
 name|boolean
 name|closed
@@ -3501,24 +3573,31 @@ name|TranslogReader
 argument_list|>
 name|orderedTranslogs
 decl_stmt|;
-DECL|method|FsView
-name|FsView
+DECL|field|onClose
+specifier|private
+specifier|final
+name|Callback
+argument_list|<
+name|View
+argument_list|>
+name|onClose
+decl_stmt|;
+DECL|method|View
+name|View
 parameter_list|(
 name|List
 argument_list|<
 name|TranslogReader
 argument_list|>
 name|orderedTranslogs
+parameter_list|,
+name|Callback
+argument_list|<
+name|View
+argument_list|>
+name|onClose
 parameter_list|)
 block|{
-assert|assert
-name|orderedTranslogs
-operator|.
-name|isEmpty
-argument_list|()
-operator|==
-literal|false
-assert|;
 comment|// clone so we can safely mutate..
 name|this
 operator|.
@@ -3530,6 +3609,12 @@ argument_list|<>
 argument_list|(
 name|orderedTranslogs
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|onClose
+operator|=
+name|onClose
 expr_stmt|;
 block|}
 comment|/**          * Called by the parent class when ever the current translog changes          *          * @param oldCurrent a new read only reader for the old current (should replace the previous reference)          * @param newCurrent a reader into the new current.          */
@@ -3597,8 +3682,7 @@ name|newCurrent
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|/** this smallest translog generation in this view */
 DECL|method|minTranslogGeneration
 specifier|public
 specifier|synchronized
@@ -3621,8 +3705,7 @@ name|getGeneration
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**          * The total number of operations in the view.          */
 DECL|method|totalOperations
 specifier|public
 specifier|synchronized
@@ -3679,8 +3762,7 @@ return|return
 name|ops
 return|;
 block|}
-annotation|@
-name|Override
+comment|/**          * Returns the size in bytes of the files behind the view.          */
 DECL|method|sizeInBytes
 specifier|public
 specifier|synchronized
@@ -3713,6 +3795,7 @@ return|return
 name|size
 return|;
 block|}
+comment|/** create a snapshot from this view */
 DECL|method|snapshot
 specifier|public
 specifier|synchronized
@@ -3769,6 +3852,7 @@ name|void
 name|close
 parameter_list|()
 block|{
+specifier|final
 name|List
 argument_list|<
 name|TranslogReader
@@ -3794,26 +3878,29 @@ operator|==
 literal|false
 condition|)
 block|{
-name|logger
+try|try
+block|{
+if|if
+condition|(
+name|onClose
+operator|!=
+literal|null
+condition|)
+block|{
+name|onClose
 operator|.
-name|trace
-argument_list|(
-literal|"closing view starting at translog [{}]"
-argument_list|,
-name|minTranslogGeneration
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|closed
-operator|=
-literal|true
-expr_stmt|;
-name|outstandingViews
-operator|.
-name|remove
+name|handle
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+finally|finally
+block|{
+name|closed
+operator|=
+literal|true
 expr_stmt|;
 name|toClose
 operator|.
@@ -3827,6 +3914,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -4345,39 +4433,6 @@ name|next
 parameter_list|()
 throws|throws
 name|IOException
-function_decl|;
-block|}
-comment|/** a view into the current translog that receives all operations from the moment created */
-DECL|interface|View
-specifier|public
-interface|interface
-name|View
-extends|extends
-name|Releasable
-block|{
-comment|/**          * The total number of operations in the view.          */
-DECL|method|totalOperations
-name|int
-name|totalOperations
-parameter_list|()
-function_decl|;
-comment|/**          * Returns the size in bytes of the files behind the view.          */
-DECL|method|sizeInBytes
-name|long
-name|sizeInBytes
-parameter_list|()
-function_decl|;
-comment|/** create a snapshot from this view */
-DECL|method|snapshot
-name|Snapshot
-name|snapshot
-parameter_list|()
-function_decl|;
-comment|/** this smallest translog generation in this view */
-DECL|method|minTranslogGeneration
-name|long
-name|minTranslogGeneration
-parameter_list|()
 function_decl|;
 block|}
 comment|/**      * A generic interface representing an operation performed on the transaction log.      * Each is associated with a type.      */
@@ -8550,7 +8605,7 @@ comment|// notify all outstanding views of the new translog (no views are create
 comment|// we hold a write lock).
 for|for
 control|(
-name|FsView
+name|View
 name|view
 range|:
 name|outstandingViews

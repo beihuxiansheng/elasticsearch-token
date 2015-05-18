@@ -146,6 +146,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -487,6 +501,16 @@ operator|.
 name|transport
 operator|.
 name|TransportService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Closeable
 import|;
 end_import
 
@@ -910,7 +934,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|Releasables
+name|IOUtils
 operator|.
 name|closeWhileHandlingException
 argument_list|(
