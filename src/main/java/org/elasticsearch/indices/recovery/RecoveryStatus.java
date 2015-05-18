@@ -862,6 +862,8 @@ argument_list|()
 operator|:
 literal|"not all temporary files are renamed"
 assert|;
+try|try
+block|{
 name|indexShard
 operator|.
 name|postRecovery
@@ -869,6 +871,9 @@ argument_list|(
 literal|"peer recovery done"
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 comment|// release the initial reference. recovery files will be cleaned as soon as ref count goes to zero, potentially now
 name|decRef
 argument_list|()
@@ -881,6 +886,7 @@ name|state
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/** Get a temporary name for the provided file name. */
