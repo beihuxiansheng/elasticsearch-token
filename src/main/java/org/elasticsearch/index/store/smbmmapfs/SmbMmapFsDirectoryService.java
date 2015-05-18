@@ -249,7 +249,9 @@ argument_list|(
 name|location
 argument_list|,
 name|buildLockFactory
-argument_list|()
+argument_list|(
+name|indexSettings
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
