@@ -580,6 +580,8 @@ name|buildBroadcastShardsHeader
 argument_list|(
 name|builder
 argument_list|,
+name|params
+argument_list|,
 name|this
 argument_list|)
 expr_stmt|;

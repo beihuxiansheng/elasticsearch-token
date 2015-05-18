@@ -389,6 +389,8 @@ name|buildBroadcastShardsHeader
 argument_list|(
 name|builder
 argument_list|,
+name|request
+argument_list|,
 name|response
 argument_list|)
 expr_stmt|;
