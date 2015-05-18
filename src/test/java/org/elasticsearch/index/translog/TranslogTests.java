@@ -110,6 +110,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|TestUtil
 import|;
 end_import
@@ -593,6 +607,13 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressFileSystems
+argument_list|(
+literal|"ExtrasFS"
+argument_list|)
 DECL|class|TranslogTests
 specifier|public
 class|class
@@ -752,6 +773,18 @@ name|Exception
 block|{
 try|try
 block|{
+name|assertEquals
+argument_list|(
+literal|"there are still open views"
+argument_list|,
+literal|0
+argument_list|,
+name|translog
+operator|.
+name|getNumOpenViews
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|translog
 operator|.
 name|close

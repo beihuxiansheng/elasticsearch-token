@@ -814,13 +814,21 @@ name|minTranslogGeneration
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|boolean
+name|removed
+init|=
 name|outstandingViews
 operator|.
 name|remove
 argument_list|(
-name|this
+name|view
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+assert|assert
+name|removed
+operator|:
+literal|"View was never set but was supposed to be removed"
+assert|;
 block|}
 block|}
 decl_stmt|;
@@ -2685,6 +2693,7 @@ parameter_list|)
 throws|throws
 name|TranslogException
 block|{
+specifier|final
 name|ReleasableBytesStreamOutput
 name|out
 init|=
@@ -2731,6 +2740,7 @@ argument_list|,
 name|operation
 argument_list|)
 expr_stmt|;
+specifier|final
 name|long
 name|end
 init|=
@@ -2739,6 +2749,7 @@ operator|.
 name|position
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|operationSize
 init|=
@@ -2746,10 +2757,7 @@ call|(
 name|int
 call|)
 argument_list|(
-name|out
-operator|.
-name|position
-argument_list|()
+name|end
 operator|-
 name|RamUsageEstimator
 operator|.
@@ -2779,6 +2787,7 @@ argument_list|(
 name|end
 argument_list|)
 expr_stmt|;
+specifier|final
 name|ReleasablePagedBytesReference
 name|bytes
 init|=
@@ -9159,6 +9168,19 @@ literal|"translog is already closed"
 argument_list|)
 throw|;
 block|}
+block|}
+comment|/**      * The number of currently open views      */
+DECL|method|getNumOpenViews
+name|int
+name|getNumOpenViews
+parameter_list|()
+block|{
+return|return
+name|outstandingViews
+operator|.
+name|size
+argument_list|()
+return|;
 block|}
 block|}
 end_class
