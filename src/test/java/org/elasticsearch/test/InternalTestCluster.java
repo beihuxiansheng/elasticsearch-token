@@ -6669,6 +6669,7 @@ comment|// ElasticsearchIntegrationTest must override beforeIndexDeletion() to a
 name|assertShardIndexCounter
 argument_list|()
 expr_stmt|;
+comment|//check that shards that have same sync id also contain same number of documents
 block|}
 DECL|method|assertShardIndexCounter
 specifier|private
