@@ -56,7 +56,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|StreamInput
 import|;
 end_import
 
@@ -275,11 +275,12 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
-name|BytesStreamInput
-name|bytesStreamInput
+name|StreamInput
+name|streamInput
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|output
 operator|.
@@ -287,7 +288,7 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|bytesStreamInput
+name|streamInput
 operator|.
 name|setVersion
 argument_list|(
@@ -305,7 +306,7 @@ name|deserializedCSRequest
 operator|.
 name|readFrom
 argument_list|(
-name|bytesStreamInput
+name|streamInput
 argument_list|)
 expr_stmt|;
 name|assertThat

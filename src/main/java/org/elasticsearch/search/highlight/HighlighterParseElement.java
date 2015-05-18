@@ -407,7 +407,7 @@ argument_list|)
 operator|.
 name|requireFieldMatch
 argument_list|(
-literal|false
+literal|true
 argument_list|)
 operator|.
 name|forceSource

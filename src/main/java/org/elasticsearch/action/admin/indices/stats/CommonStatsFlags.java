@@ -859,12 +859,6 @@ argument_list|(
 literal|"filter_cache"
 argument_list|)
 block|,
-DECL|enum constant|IdCache
-name|IdCache
-argument_list|(
-literal|"id_cache"
-argument_list|)
-block|,
 DECL|enum constant|FieldData
 name|FieldData
 argument_list|(

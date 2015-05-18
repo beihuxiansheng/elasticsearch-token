@@ -158,6 +158,7 @@ block|{
 DECL|field|text
 specifier|private
 name|String
+index|[]
 name|text
 decl_stmt|;
 DECL|field|analyzer
@@ -219,6 +220,7 @@ block|}
 DECL|method|text
 specifier|public
 name|String
+index|[]
 name|text
 parameter_list|()
 block|{
@@ -234,6 +236,7 @@ name|AnalyzeRequest
 name|text
 parameter_list|(
 name|String
+modifier|...
 name|text
 parameter_list|)
 block|{
@@ -427,6 +430,12 @@ condition|(
 name|text
 operator|==
 literal|null
+operator|||
+name|text
+operator|.
+name|length
+operator|==
+literal|0
 condition|)
 block|{
 name|validationException
@@ -501,7 +510,7 @@ name|text
 operator|=
 name|in
 operator|.
-name|readString
+name|readStringArray
 argument_list|()
 expr_stmt|;
 name|analyzer
@@ -562,7 +571,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeStringArray
 argument_list|(
 name|text
 argument_list|)

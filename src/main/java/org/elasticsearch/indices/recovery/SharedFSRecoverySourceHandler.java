@@ -531,10 +531,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|minTranslogId
+DECL|method|minTranslogGeneration
 specifier|public
 name|long
-name|minTranslogId
+name|minTranslogGeneration
 parameter_list|()
 block|{
 return|return

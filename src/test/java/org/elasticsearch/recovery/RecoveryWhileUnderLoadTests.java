@@ -1068,11 +1068,6 @@ block|}
 annotation|@
 name|Test
 annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE"
-argument_list|)
-annotation|@
 name|Slow
 DECL|method|recoverWhileUnderLoadWithReducedAllowedNodes
 specifier|public
@@ -1611,11 +1606,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"action.search.type:TRACE,action.admin.indices.refresh:TRACE,action.index:TRACE,action.support.replication:TRACE,cluster.service:DEBUG"
-argument_list|)
 annotation|@
 name|Slow
 DECL|method|recoverWhileRelocating

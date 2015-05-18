@@ -301,7 +301,7 @@ name|buffer
 operator|.
 name|remaining
 argument_list|()
-operator|>
+operator|<
 name|len
 condition|)
 block|{

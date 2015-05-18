@@ -1340,6 +1340,20 @@ name|index
 operator|.
 name|translog
 operator|.
+name|TranslogConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|translog
+operator|.
 name|TranslogService
 import|;
 end_import
@@ -1368,7 +1382,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|TranslogFile
+name|TranslogWriter
 import|;
 end_import
 
@@ -3585,7 +3599,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|Translog
+name|TranslogConfig
 operator|.
 name|INDEX_TRANSLOG_FS_TYPE
 argument_list|,
@@ -3595,7 +3609,7 @@ name|randomFrom
 argument_list|(
 name|random
 argument_list|,
-name|TranslogFile
+name|TranslogWriter
 operator|.
 name|Type
 operator|.
@@ -4287,7 +4301,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|Translog
+name|TranslogConfig
 operator|.
 name|INDEX_TRANSLOG_DURABILITY
 argument_list|,
