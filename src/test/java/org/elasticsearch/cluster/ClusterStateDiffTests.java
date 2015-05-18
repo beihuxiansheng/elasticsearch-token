@@ -202,7 +202,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -218,7 +218,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamOutput
+name|StreamInput
 import|;
 end_import
 
@@ -828,11 +828,12 @@ name|diff
 decl_stmt|;
 try|try
 init|(
-name|BytesStreamInput
+name|StreamInput
 name|input
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|diffBytes
 argument_list|)

@@ -52,7 +52,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamOutput
+name|StreamInput
 import|;
 end_import
 
@@ -1885,11 +1885,12 @@ argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
-name|BytesStreamInput
+name|StreamInput
 name|in
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|out
 operator|.

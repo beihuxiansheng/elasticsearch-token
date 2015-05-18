@@ -174,7 +174,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|StreamInput
 import|;
 end_import
 
@@ -431,8 +431,9 @@ name|compressor
 operator|.
 name|streamInput
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|data
 argument_list|,
@@ -809,8 +810,9 @@ name|compressor
 operator|.
 name|streamInput
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|data
 argument_list|,

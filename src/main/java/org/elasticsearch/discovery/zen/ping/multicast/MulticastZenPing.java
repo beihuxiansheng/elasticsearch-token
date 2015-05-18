@@ -2284,8 +2284,9 @@ block|{
 name|StreamInput
 name|input
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 operator|new
 name|BytesArray

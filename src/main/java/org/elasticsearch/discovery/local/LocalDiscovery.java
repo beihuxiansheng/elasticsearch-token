@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -206,7 +196,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -222,7 +212,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamOutput
+name|StreamInput
 import|;
 end_import
 
@@ -373,34 +363,6 @@ operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|locks
-operator|.
-name|Lock
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|locks
-operator|.
-name|ReentrantLock
 import|;
 end_import
 
@@ -2016,8 +1978,9 @@ name|lastProcessedClusterState
 operator|.
 name|readDiffFrom
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|clusterStateDiffBytes
 argument_list|)
