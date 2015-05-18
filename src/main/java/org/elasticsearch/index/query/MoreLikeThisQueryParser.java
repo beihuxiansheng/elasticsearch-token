@@ -298,6 +298,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -2146,13 +2160,16 @@ block|}
 block|}
 block|}
 comment|// fetching the items with multi-termvectors API
-name|BooleanQuery
-name|boolQuery
-init|=
-operator|new
-name|BooleanQuery
+name|items
+operator|.
+name|copyContextAndHeadersFrom
+argument_list|(
+name|SearchContext
+operator|.
+name|current
 argument_list|()
-decl_stmt|;
+argument_list|)
+expr_stmt|;
 name|MultiTermVectorsResponse
 name|responses
 init|=
@@ -2227,6 +2244,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|BooleanQuery
+name|boolQuery
+init|=
+operator|new
+name|BooleanQuery
+argument_list|()
+decl_stmt|;
 name|boolQuery
 operator|.
 name|add
