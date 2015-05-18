@@ -46,6 +46,8 @@ specifier|public
 class|class
 name|SpanMultiTermQueryBuilder
 extends|extends
+name|QueryBuilder
+implements|implements
 name|SpanQueryBuilder
 block|{
 DECL|field|multiTermQueryBuilder

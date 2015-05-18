@@ -581,8 +581,6 @@ specifier|static
 name|void
 name|init
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|Settings
 name|settings
@@ -1031,13 +1029,16 @@ operator|=
 name|createTestQueryBuilder
 argument_list|()
 expr_stmt|;
+try|try
+init|(
 name|BytesStreamOutput
 name|output
 init|=
 operator|new
 name|BytesStreamOutput
 argument_list|()
-decl_stmt|;
+init|)
+block|{
 name|testQuery
 operator|.
 name|writeTo
@@ -1045,6 +1046,8 @@ argument_list|(
 name|output
 argument_list|)
 expr_stmt|;
+try|try
+init|(
 name|BytesStreamInput
 name|in
 init|=
@@ -1056,7 +1059,8 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|QB
 name|deserializedQuery
 init|=
@@ -1084,6 +1088,8 @@ argument_list|,
 name|testQuery
 argument_list|)
 expr_stmt|;
+block|}
+block|}
 block|}
 comment|/**      * @return a new {@link QueryParseContext} based on the base test index and queryParserService      */
 DECL|method|createContext

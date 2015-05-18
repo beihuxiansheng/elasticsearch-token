@@ -16,16 +16,29 @@ name|query
 package|;
 end_package
 
-begin_class
-DECL|class|SpanQueryBuilder
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|ToXContent
+import|;
+end_import
+
+begin_interface
+DECL|interface|SpanQueryBuilder
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|SpanQueryBuilder
 extends|extends
-name|QueryBuilder
+name|ToXContent
 block|{  }
-end_class
+end_interface
 
 end_unit
 

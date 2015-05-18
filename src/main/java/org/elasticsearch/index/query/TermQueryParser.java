@@ -100,6 +100,8 @@ name|NAME
 block|}
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|fromXContent
 specifier|public
 name|QueryBuilder

@@ -40,7 +40,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|TermQuery
+name|spans
+operator|.
+name|SpanTermQuery
 import|;
 end_import
 
@@ -76,41 +78,64 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
 import|;
 end_import
 
 begin_class
-DECL|class|TermQueryBuilderTest
+DECL|class|SpanTermQueryBuilderTest
 specifier|public
 class|class
-name|TermQueryBuilderTest
+name|SpanTermQueryBuilderTest
 extends|extends
 name|BaseTermQueryTestCase
 argument_list|<
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 argument_list|>
 block|{
 annotation|@
 name|Override
 DECL|method|createEmptyQueryBuilder
 specifier|protected
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 name|createEmptyQueryBuilder
 parameter_list|()
 block|{
 return|return
 operator|new
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * @return a TermQuery with random field name and value, optional random boost and queryname      */
 annotation|@
 name|Override
 DECL|method|createQueryBuilder
 specifier|protected
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 name|createQueryBuilder
 parameter_list|(
 name|String
@@ -122,7 +147,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 argument_list|(
 name|fieldName
 argument_list|,
@@ -130,12 +155,12 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/** Returns a TermQuery with random field name and value, optional random boost and queryname. */
+comment|/** Returns a {@link SpanTermQueryBuilder} with random field name and value, optional random boost and queryname */
 annotation|@
 name|Override
 DECL|method|createTestQueryBuilder
 specifier|protected
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 name|createTestQueryBuilder
 parameter_list|()
 block|{
@@ -145,11 +170,11 @@ init|=
 name|createRandomValueObject
 argument_list|()
 decl_stmt|;
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 name|query
 init|=
 operator|new
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 argument_list|(
 name|randomAsciiOfLength
 argument_list|(
@@ -201,7 +226,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/** Validates the Lucene query that was generated from a given {@link TermQueryBuilder}*/
+comment|/** Checks the generated Lucene query against the {@link SpanTermQueryBuilder} it was created from. */
 annotation|@
 name|Override
 DECL|method|assertLuceneQuery
@@ -209,7 +234,7 @@ specifier|protected
 name|void
 name|assertLuceneQuery
 parameter_list|(
-name|TermQueryBuilder
+name|SpanTermQueryBuilder
 name|queryBuilder
 parameter_list|,
 name|Query
@@ -227,7 +252,7 @@ name|query
 argument_list|,
 name|instanceOf
 argument_list|(
-name|TermQuery
+name|SpanTermQuery
 operator|.
 name|class
 argument_list|)
@@ -249,11 +274,11 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|TermQuery
+name|SpanTermQuery
 name|termQuery
 init|=
 operator|(
-name|TermQuery
+name|SpanTermQuery
 operator|)
 name|query
 decl_stmt|;
