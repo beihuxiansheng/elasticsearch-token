@@ -633,20 +633,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndexStoreModule
-operator|.
-name|STORE_TYPE
-argument_list|,
-name|IndexStoreModule
-operator|.
-name|Type
-operator|.
-name|DEFAULT
-argument_list|)
-comment|// no mock store - it commits for check-index
-operator|.
-name|put
-argument_list|(
 name|MockEngineSupport
 operator|.
 name|FLUSH_ON_CLOSE_RATIO
