@@ -864,6 +864,8 @@ literal|"not all temporary files are renamed"
 assert|;
 try|try
 block|{
+comment|// this might still throw an exception ie. if the shard is CLOSED due to some other event.
+comment|// it's safer to decrement the reference in a try finally here.
 name|indexShard
 operator|.
 name|postRecovery
@@ -878,6 +880,7 @@ comment|// release the initial reference. recovery files will be cleaned as soon
 name|decRef
 argument_list|()
 expr_stmt|;
+block|}
 name|listener
 operator|.
 name|onRecoveryDone
@@ -886,7 +889,6 @@ name|state
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|/** Get a temporary name for the provided file name. */

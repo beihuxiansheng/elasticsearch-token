@@ -2094,7 +2094,6 @@ block|}
 block|}
 DECL|interface|RecoveryListener
 specifier|public
-specifier|static
 interface|interface
 name|RecoveryListener
 block|{
