@@ -2575,7 +2575,7 @@ return|return
 name|newFile
 return|;
 block|}
-comment|/**      * Read the Operation object from the given location.      */
+comment|/**      * Read the Operation object from the given location. This method will try to read the given location from      * the current or from the currently committing translog file. If the location is in a file that has already      * been closed or even removed the method will return<code>null</code> instead.      */
 DECL|method|read
 specifier|public
 name|Translog
@@ -2602,12 +2602,18 @@ specifier|final
 name|TranslogReader
 name|reader
 decl_stmt|;
-if|if
-condition|(
+specifier|final
+name|long
+name|currentGeneration
+init|=
 name|current
 operator|.
 name|getGeneration
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|currentGeneration
 operator|==
 name|location
 operator|.
@@ -2641,17 +2647,39 @@ operator|=
 name|currentCommittingTranslog
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|currentGeneration
+operator|<
+name|location
+operator|.
+name|generation
+condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't read from translog location"
+literal|"location generation ["
 operator|+
 name|location
+operator|.
+name|generation
+operator|+
+literal|"] is greater than the current generation ["
+operator|+
+name|currentGeneration
+operator|+
+literal|"]"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
 block|}
 return|return
 name|reader
@@ -4220,7 +4248,6 @@ name|int
 name|size
 decl_stmt|;
 DECL|method|Location
-specifier|public
 name|Location
 parameter_list|(
 name|long
