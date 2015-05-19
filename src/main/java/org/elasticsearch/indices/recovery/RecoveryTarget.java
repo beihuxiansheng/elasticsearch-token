@@ -2782,6 +2782,16 @@ comment|// source shard since this index might be broken there as well? The Sour
 comment|// its content on disk if possible.
 try|try
 block|{
+try|try
+block|{
+name|store
+operator|.
+name|removeCorruptionMarker
+argument_list|()
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|Lucene
 operator|.
 name|cleanLuceneIndex
@@ -2793,6 +2803,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// clean up and delete all files
+block|}
 block|}
 catch|catch
 parameter_list|(
