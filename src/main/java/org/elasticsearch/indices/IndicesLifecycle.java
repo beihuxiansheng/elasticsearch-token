@@ -415,6 +415,16 @@ name|IndexService
 name|indexService
 parameter_list|)
 block|{          }
+comment|/**          * Called when a shard is marked as inactive          *          * @param indexShard The shard that was marked inactive          */
+DECL|method|onShardInactive
+specifier|public
+name|void
+name|onShardInactive
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|)
+block|{          }
 block|}
 block|}
 end_interface

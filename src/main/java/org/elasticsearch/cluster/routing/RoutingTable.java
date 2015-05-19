@@ -942,7 +942,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Return GroupShardsIterator where each assigned shard routing has it's own shard iterator.      *      * @param includeEmpty if true, a shard iterator will be added for non-assigned shards as well      * @param includeRelocationTargets if true, an<b>extra</b> shard iterator will be added for relocating shards. The extra      *                                 iterator contains a single ShardRouting pointing at the relocating target      */
+comment|/**      * Return GroupShardsIterator where each assigned shard routing has it's own shard iterator.      *      * @param includeEmpty             if true, a shard iterator will be added for non-assigned shards as well      * @param includeRelocationTargets if true, an<b>extra</b> shard iterator will be added for relocating shards. The extra      *                                 iterator contains a single ShardRouting pointing at the relocating target      */
 DECL|method|allAssignedShardsGrouped
 specifier|public
 name|GroupShardsIterator

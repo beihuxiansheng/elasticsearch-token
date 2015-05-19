@@ -242,6 +242,17 @@ operator|.
 name|getLastGeneration
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|segmentInfos
+operator|.
+name|getId
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// id is only written starting with Lucene 5.0
 name|id
 operator|=
 name|Base64
@@ -254,6 +265,7 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|CommitStats
 specifier|private
