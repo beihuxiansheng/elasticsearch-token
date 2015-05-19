@@ -4607,10 +4607,6 @@ name|flushNeeded
 operator|=
 literal|false
 expr_stmt|;
-specifier|final
-name|long
-name|translogId
-decl_stmt|;
 try|try
 block|{
 name|translog
