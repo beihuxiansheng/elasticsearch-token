@@ -1121,11 +1121,6 @@ block|}
 comment|/**      * Tests that we can actually recover from a corruption on the primary given that we have replica shards around.      */
 annotation|@
 name|Test
-annotation|@
-name|TestLogging
-argument_list|(
-literal|"indices.recovery:TRACE"
-argument_list|)
 DECL|method|testCorruptFileAndRecover
 specifier|public
 name|void
