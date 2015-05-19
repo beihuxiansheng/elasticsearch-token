@@ -486,18 +486,6 @@ name|nio
 operator|.
 name|file
 operator|.
-name|Files
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
 name|NoSuchFileException
 import|;
 end_import
@@ -6267,6 +6255,8 @@ argument_list|,
 name|Collections
 operator|.
 name|EMPTY_MAP
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|Store
@@ -6284,6 +6274,8 @@ argument_list|,
 name|Collections
 operator|.
 name|EMPTY_MAP
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 name|Store
@@ -8755,6 +8747,8 @@ argument_list|,
 name|Collections
 operator|.
 name|EMPTY_MAP
+argument_list|,
+literal|0
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -9818,6 +9812,8 @@ argument_list|(
 name|storeFileMetaDataMap
 argument_list|,
 name|commitUserData
+argument_list|,
+literal|0
 argument_list|)
 return|;
 block|}
