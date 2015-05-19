@@ -1302,11 +1302,7 @@ block|}
 block|}
 name|parentFilter
 operator|=
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|parentsFilter
-argument_list|)
 expr_stmt|;
 block|}
 if|if

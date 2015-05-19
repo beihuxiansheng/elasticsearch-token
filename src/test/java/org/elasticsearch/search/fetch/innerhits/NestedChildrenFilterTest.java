@@ -304,7 +304,7 @@ name|InnerHitsContext
 operator|.
 name|NestedInnerHits
 operator|.
-name|NestedChildrenFilter
+name|NestedChildrenQuery
 import|;
 end_import
 
@@ -736,11 +736,11 @@ argument_list|,
 name|searcher
 argument_list|)
 expr_stmt|;
-name|NestedChildrenFilter
+name|NestedChildrenQuery
 name|nestedChildrenFilter
 init|=
 operator|new
-name|NestedChildrenFilter
+name|NestedChildrenQuery
 argument_list|(
 name|parentFilter
 argument_list|,

@@ -130,9 +130,7 @@ name|common
 operator|.
 name|lucene
 operator|.
-name|docset
-operator|.
-name|DocIdSets
+name|Lucene
 import|;
 end_import
 
@@ -504,7 +502,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|DocIdSets
+name|Lucene
 operator|.
 name|isEmpty
 argument_list|(
@@ -631,7 +629,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|DocIdSets
+name|Lucene
 operator|.
 name|isEmpty
 argument_list|(

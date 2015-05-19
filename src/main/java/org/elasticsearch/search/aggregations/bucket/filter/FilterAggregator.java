@@ -86,9 +86,7 @@ name|common
 operator|.
 name|lucene
 operator|.
-name|docset
-operator|.
-name|DocIdSets
+name|Lucene
 import|;
 end_import
 
@@ -365,7 +363,7 @@ specifier|final
 name|Bits
 name|bits
 init|=
-name|DocIdSets
+name|Lucene
 operator|.
 name|asSequentialAccessBits
 argument_list|(
