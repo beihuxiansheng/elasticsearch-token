@@ -769,16 +769,6 @@ specifier|final
 name|SearcherManager
 name|searcherManager
 decl_stmt|;
-comment|// we use flushNeeded here, since if there are no changes, then the commit won't write
-comment|// will not really happen, and then the commitUserData and the new translog will not be reflected
-DECL|field|flushNeeded
-specifier|private
-specifier|volatile
-name|boolean
-name|flushNeeded
-init|=
-literal|false
-decl_stmt|;
 DECL|field|flushLock
 specifier|private
 specifier|final
@@ -2269,10 +2259,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|flushNeeded
-operator|=
-literal|true
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2963,10 +2949,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|flushNeeded
-operator|=
-literal|true
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -3542,10 +3524,6 @@ name|innerDelete
 argument_list|(
 name|delete
 argument_list|)
-expr_stmt|;
-name|flushNeeded
-operator|=
-literal|true
 expr_stmt|;
 block|}
 catch|catch
@@ -4128,10 +4106,6 @@ name|delete
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|flushNeeded
-operator|=
-literal|true
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -4598,15 +4572,14 @@ try|try
 block|{
 if|if
 condition|(
-name|flushNeeded
+name|indexWriter
+operator|.
+name|hasUncommittedChanges
+argument_list|()
 operator|||
 name|force
 condition|)
 block|{
-name|flushNeeded
-operator|=
-literal|false
-expr_stmt|;
 try|try
 block|{
 name|translog
