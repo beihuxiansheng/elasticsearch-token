@@ -505,13 +505,6 @@ name|rewritten2
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://issues.apache.org/jira/browse/LUCENE-6483"
-argument_list|)
 DECL|method|testCache
 specifier|public
 name|void
