@@ -913,11 +913,6 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|failIfCorrupted
-argument_list|()
-expr_stmt|;
-try|try
-block|{
 return|return
 name|readSegmentsInfo
 argument_list|(
@@ -927,22 +922,6 @@ name|directory
 argument_list|()
 argument_list|)
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|CorruptIndexException
-name|ex
-parameter_list|)
-block|{
-name|markStoreCorrupted
-argument_list|(
-name|ex
-argument_list|)
-expr_stmt|;
-throw|throw
-name|ex
-throw|;
-block|}
 block|}
 comment|/**      * Returns the segments info for the given commit or for the latest commit if the given commit is<code>null</code>      *      * @throws IOException if the index is corrupted or the segments file is not present      */
 DECL|method|readSegmentsInfo
