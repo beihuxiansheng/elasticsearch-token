@@ -384,7 +384,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|FieldMappers
+name|FieldMapper
 name|fieldMappers
 init|=
 name|mapperService
@@ -442,9 +442,6 @@ argument_list|(
 name|i
 argument_list|,
 name|fieldMappers
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|valueForSearch
 argument_list|(
