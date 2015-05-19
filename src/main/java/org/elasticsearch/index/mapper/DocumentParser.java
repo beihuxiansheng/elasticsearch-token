@@ -470,13 +470,6 @@ name|parseDocument
 parameter_list|(
 name|SourceToParse
 name|source
-parameter_list|,
-annotation|@
-name|Nullable
-name|DocumentMapper
-operator|.
-name|ParseListener
-name|listener
 parameter_list|)
 throws|throws
 name|MapperParsingException
@@ -620,8 +613,6 @@ name|Document
 argument_list|()
 argument_list|,
 name|source
-argument_list|,
-name|listener
 argument_list|)
 expr_stmt|;
 comment|// will result in START_OBJECT
@@ -1127,8 +1118,6 @@ name|context
 operator|.
 name|reset
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|,
 literal|null
