@@ -515,7 +515,7 @@ extends|extends
 name|AbstractComponent
 block|{
 DECL|field|PRE_SYNCED_FLUSH_ACTION_NAME
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -524,7 +524,7 @@ init|=
 literal|"internal:indices/flush/synced/pre"
 decl_stmt|;
 DECL|field|SYNCED_FLUSH_ACTION_NAME
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -533,7 +533,7 @@ init|=
 literal|"internal:indices/flush/synced/sync"
 decl_stmt|;
 DECL|field|IN_FLIGHT_OPS_ACTION_NAME
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
@@ -3796,6 +3796,7 @@ block|}
 block|}
 DECL|class|PreSyncedFlushTransportHandler
 specifier|private
+specifier|final
 class|class
 name|PreSyncedFlushTransportHandler
 implements|implements
@@ -3834,6 +3835,7 @@ block|}
 block|}
 DECL|class|SyncedFlushTransportHandler
 specifier|private
+specifier|final
 class|class
 name|SyncedFlushTransportHandler
 implements|implements
@@ -3872,6 +3874,7 @@ block|}
 block|}
 DECL|class|InFlightOpCountTransportHandler
 specifier|private
+specifier|final
 class|class
 name|InFlightOpCountTransportHandler
 implements|implements
