@@ -3630,6 +3630,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|int
 name|size
 init|=
@@ -3638,6 +3639,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+specifier|final
 name|ImmutableMap
 operator|.
 name|Builder
@@ -3691,6 +3693,7 @@ name|meta
 argument_list|)
 expr_stmt|;
 block|}
+specifier|final
 name|ImmutableMap
 operator|.
 name|Builder
@@ -3789,6 +3792,7 @@ name|numSegmentFiles
 argument_list|()
 assert|;
 block|}
+comment|/**          * Returns the number of documents in this store snapshot          */
 DECL|method|getNumDocs
 specifier|public
 name|long
@@ -3800,12 +3804,12 @@ name|numDocs
 return|;
 block|}
 DECL|class|LoadedMetadata
-specifier|public
 specifier|static
 class|class
 name|LoadedMetadata
 block|{
 DECL|field|fileMetadata
+specifier|final
 name|ImmutableMap
 argument_list|<
 name|String
@@ -3815,6 +3819,7 @@ argument_list|>
 name|fileMetadata
 decl_stmt|;
 DECL|field|userData
+specifier|final
 name|ImmutableMap
 argument_list|<
 name|String
@@ -3824,11 +3829,11 @@ argument_list|>
 name|userData
 decl_stmt|;
 DECL|field|numDocs
+specifier|final
 name|long
 name|numDocs
 decl_stmt|;
 DECL|method|LoadedMetadata
-specifier|public
 name|LoadedMetadata
 parameter_list|(
 name|ImmutableMap

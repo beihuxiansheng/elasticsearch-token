@@ -1474,6 +1474,7 @@ condition|(
 name|recoverWithSyncId
 condition|)
 block|{
+specifier|final
 name|long
 name|numDocsTarget
 init|=
@@ -1485,6 +1486,7 @@ operator|.
 name|getNumDocs
 argument_list|()
 decl_stmt|;
+specifier|final
 name|long
 name|numDocsSource
 init|=
