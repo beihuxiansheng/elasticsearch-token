@@ -106,6 +106,18 @@ name|nio
 operator|.
 name|file
 operator|.
+name|FileSystem
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
 name|Files
 import|;
 end_import
@@ -233,6 +245,9 @@ specifier|static
 name|RestSpec
 name|parseFrom
 parameter_list|(
+name|FileSystem
+name|fileSystem
+parameter_list|,
 name|String
 name|optionalPathPrefix
 parameter_list|,
@@ -267,6 +282,8 @@ name|FileUtils
 operator|.
 name|findJsonSpec
 argument_list|(
+name|fileSystem
+argument_list|,
 name|optionalPathPrefix
 argument_list|,
 name|path

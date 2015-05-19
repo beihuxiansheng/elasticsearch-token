@@ -568,18 +568,6 @@ argument_list|)
 expr_stmt|;
 name|indicesStatsRequest
 operator|.
-name|idCache
-argument_list|(
-name|metrics
-operator|.
-name|contains
-argument_list|(
-literal|"id_cache"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|indicesStatsRequest
-operator|.
 name|percolate
 argument_list|(
 name|metrics
@@ -871,6 +859,8 @@ expr_stmt|;
 name|buildBroadcastShardsHeader
 argument_list|(
 name|builder
+argument_list|,
+name|request
 argument_list|,
 name|response
 argument_list|)

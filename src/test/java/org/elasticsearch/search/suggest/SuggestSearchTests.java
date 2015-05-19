@@ -5794,7 +5794,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -5818,7 +5818,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|,
 literal|"type1"
 argument_list|,
@@ -5842,7 +5842,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"text"
+literal|"test"
 argument_list|,
 literal|"type1"
 argument_list|,

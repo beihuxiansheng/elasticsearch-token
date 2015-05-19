@@ -862,6 +862,10 @@ argument_list|()
 operator|:
 literal|"not all temporary files are renamed"
 assert|;
+try|try
+block|{
+comment|// this might still throw an exception ie. if the shard is CLOSED due to some other event.
+comment|// it's safer to decrement the reference in a try finally here.
 name|indexShard
 operator|.
 name|postRecovery
@@ -869,10 +873,14 @@ argument_list|(
 literal|"peer recovery done"
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 comment|// release the initial reference. recovery files will be cleaned as soon as ref count goes to zero, potentially now
 name|decRef
 argument_list|()
 expr_stmt|;
+block|}
 name|listener
 operator|.
 name|onRecoveryDone

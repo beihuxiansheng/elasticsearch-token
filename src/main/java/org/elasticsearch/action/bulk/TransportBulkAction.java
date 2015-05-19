@@ -2385,11 +2385,11 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"routing is required for this item"
-argument_list|,
-name|RestStatus
-operator|.
-name|BAD_REQUEST
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|responses
@@ -2751,26 +2751,6 @@ name|e
 parameter_list|)
 block|{
 comment|// create failures for all relevant requests
-name|String
-name|message
-init|=
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
-name|e
-argument_list|)
-decl_stmt|;
-name|RestStatus
-name|status
-init|=
-name|ExceptionsHelper
-operator|.
-name|status
-argument_list|(
-name|e
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|BulkItemRequest
@@ -2857,9 +2837,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|message
-argument_list|,
-name|status
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2931,9 +2909,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|message
-argument_list|,
-name|status
+name|e
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3005,9 +2981,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|message
-argument_list|,
-name|status
+name|e
 argument_list|)
 argument_list|)
 argument_list|)

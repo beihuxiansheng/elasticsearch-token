@@ -211,8 +211,6 @@ class|class
 name|ShardSearchFailure
 implements|implements
 name|ShardOperationFailedException
-implements|,
-name|ToXContent
 block|{
 DECL|field|EMPTY_ARRAY
 specifier|public
@@ -808,6 +806,8 @@ return|return
 name|builder
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|getCause
 specifier|public
 name|Throwable

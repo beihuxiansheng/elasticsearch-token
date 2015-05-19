@@ -252,7 +252,7 @@ name|index
 operator|.
 name|translog
 operator|.
-name|TranslogStreams
+name|TranslogConfig
 import|;
 end_import
 
@@ -309,6 +309,20 @@ operator|.
 name|annotations
 operator|.
 name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|store
+operator|.
+name|MockFSIndexStoreModule
 import|;
 end_import
 
@@ -639,7 +653,7 @@ comment|// never flush - always recover from translog
 operator|.
 name|put
 argument_list|(
-name|Translog
+name|TranslogConfig
 operator|.
 name|INDEX_TRANSLOG_SYNC_INTERVAL
 argument_list|,
@@ -1181,12 +1195,9 @@ name|Math
 operator|.
 name|min
 argument_list|(
-name|TranslogStreams
+name|Integer
 operator|.
-name|LATEST
-operator|.
-name|headerLength
-argument_list|()
+name|MAX_VALUE
 argument_list|,
 name|raf
 operator|.
@@ -1198,7 +1209,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// only corrupt the header to ensure we actually fail
 name|long
 name|filePointer
 init|=

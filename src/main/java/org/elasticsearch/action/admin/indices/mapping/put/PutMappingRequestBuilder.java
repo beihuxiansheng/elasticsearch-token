@@ -278,27 +278,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #setIgnoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|setIgnoreConflicts
-specifier|public
-name|PutMappingRequestBuilder
-name|setIgnoreConflicts
-parameter_list|(
-name|boolean
-name|ignoreConflicts
-parameter_list|)
-block|{
-name|request
-operator|.
-name|ignoreConflicts
-argument_list|(
-name|ignoreConflicts
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 block|}
 end_class
 

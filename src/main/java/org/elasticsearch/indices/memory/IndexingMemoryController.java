@@ -1316,7 +1316,7 @@ name|ADDED
 argument_list|)
 expr_stmt|;
 block|}
-comment|// check if it is deemed to be inactive (sam translogId and numberOfOperations over a long period of time)
+comment|// check if it is deemed to be inactive (sam translogFileGeneration and numberOfOperations over a long period of time)
 if|if
 condition|(
 name|status
@@ -1325,7 +1325,7 @@ name|translogId
 operator|==
 name|translog
 operator|.
-name|currentId
+name|currentFileGeneration
 argument_list|()
 operator|&&
 name|translog
@@ -1513,7 +1513,7 @@ name|translogId
 operator|=
 name|translog
 operator|.
-name|currentId
+name|currentFileGeneration
 argument_list|()
 expr_stmt|;
 name|status

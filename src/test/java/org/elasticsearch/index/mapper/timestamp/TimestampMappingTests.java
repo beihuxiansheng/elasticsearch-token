@@ -150,7 +150,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|BytesStreamOutput
 import|;
 end_import
 
@@ -166,7 +166,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamOutput
+name|StreamInput
 import|;
 end_import
 
@@ -3796,8 +3796,9 @@ name|PROTO
 operator|.
 name|readFrom
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|bytes
 argument_list|)
@@ -3919,8 +3920,9 @@ name|PROTO
 operator|.
 name|readFrom
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|bytes
 argument_list|)
@@ -4042,8 +4044,9 @@ name|PROTO
 operator|.
 name|readFrom
 argument_list|(
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|bytes
 argument_list|)
@@ -4508,11 +4511,6 @@ name|mapping
 argument_list|)
 decl_stmt|;
 name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|docMapper
 operator|=
 name|parser
 operator|.
@@ -4701,11 +4699,6 @@ operator|.
 name|tokenized
 argument_list|()
 decl_stmt|;
-name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
 name|docMapper
 operator|=
 name|parser
@@ -5680,11 +5673,6 @@ name|mapping1
 argument_list|)
 decl_stmt|;
 name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|docMapper
 operator|=
 name|parser
 operator|.
@@ -6121,11 +6109,6 @@ operator|.
 name|hasDocValues
 argument_list|()
 decl_stmt|;
-name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
 name|docMapper
 operator|=
 name|parser

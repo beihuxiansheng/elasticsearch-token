@@ -209,20 +209,14 @@ operator|=
 name|client
 expr_stmt|;
 block|}
-comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param id        ID of the Shape to fetch      * @param type      Index type where the Shape is indexed      * @param index     Index where the Shape is indexed      * @param path      Name or path of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
+comment|/**      * Fetches the Shape with the given ID in the given type and index.      *      * @param getRequest GetRequest containing index, type and id      * @param path      Name or path of the field in the Shape Document where the Shape itself is located      * @return Shape with the given ID      * @throws IOException Can be thrown while parsing the Shape Document and extracting the Shape      */
 DECL|method|fetch
 specifier|public
 name|ShapeBuilder
 name|fetch
 parameter_list|(
-name|String
-name|id
-parameter_list|,
-name|String
-name|type
-parameter_list|,
-name|String
-name|index
+name|GetRequest
+name|getRequest
 parameter_list|,
 name|String
 name|path
@@ -230,6 +224,20 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|getRequest
+operator|.
+name|preference
+argument_list|(
+literal|"_local"
+argument_list|)
+expr_stmt|;
+name|getRequest
+operator|.
+name|operationThreaded
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|GetResponse
 name|response
 init|=
@@ -237,25 +245,7 @@ name|client
 operator|.
 name|get
 argument_list|(
-operator|new
-name|GetRequest
-argument_list|(
-name|index
-argument_list|,
-name|type
-argument_list|,
-name|id
-argument_list|)
-operator|.
-name|preference
-argument_list|(
-literal|"_local"
-argument_list|)
-operator|.
-name|operationThreaded
-argument_list|(
-literal|false
-argument_list|)
+name|getRequest
 argument_list|)
 operator|.
 name|actionGet
@@ -276,11 +266,17 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Shape with ID ["
 operator|+
+name|getRequest
+operator|.
 name|id
+argument_list|()
 operator|+
 literal|"] in type ["
 operator|+
+name|getRequest
+operator|.
 name|type
+argument_list|()
 operator|+
 literal|"] not found"
 argument_list|)
@@ -419,7 +415,10 @@ name|IllegalStateException
 argument_list|(
 literal|"Shape with name ["
 operator|+
+name|getRequest
+operator|.
 name|id
+argument_list|()
 operator|+
 literal|"] found but missing "
 operator|+

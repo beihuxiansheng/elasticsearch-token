@@ -70,7 +70,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|BytesStreamInput
+name|StreamInput
 import|;
 end_import
 
@@ -510,11 +510,12 @@ argument_list|(
 name|stuffRef
 argument_list|)
 decl_stmt|;
-name|BytesStreamInput
+name|StreamInput
 name|input
 init|=
-operator|new
-name|BytesStreamInput
+name|StreamInput
+operator|.
+name|wrap
 argument_list|(
 name|stuffArray
 argument_list|)

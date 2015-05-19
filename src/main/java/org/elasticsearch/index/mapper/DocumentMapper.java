@@ -2926,8 +2926,8 @@ name|mergeResult
 return|;
 block|}
 DECL|method|refreshSource
-specifier|public
-name|CompressedString
+specifier|private
+name|void
 name|refreshSource
 parameter_list|()
 throws|throws
@@ -2988,7 +2988,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-return|return
 name|mappingSource
 operator|=
 operator|new
@@ -2999,7 +2998,7 @@ operator|.
 name|bytes
 argument_list|()
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

@@ -979,6 +979,18 @@ return|return
 name|status
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getCause
+specifier|public
+name|Throwable
+name|getCause
+parameter_list|()
+block|{
+return|return
+name|cause
+return|;
+block|}
 comment|/**              * @return Whether this failure occurred on a primary shard.              * (this only reports true for delete by query)              */
 DECL|method|primary
 specifier|public

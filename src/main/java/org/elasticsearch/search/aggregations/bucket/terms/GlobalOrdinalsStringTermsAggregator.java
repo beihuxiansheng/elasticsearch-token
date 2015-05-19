@@ -502,8 +502,6 @@ operator|.
 name|Bytes
 operator|.
 name|WithOrdinals
-operator|.
-name|FieldData
 name|valuesSource
 decl_stmt|;
 DECL|field|includeExclude
@@ -545,8 +543,6 @@ operator|.
 name|Bytes
 operator|.
 name|WithOrdinals
-operator|.
-name|FieldData
 name|valuesSource
 parameter_list|,
 name|Terms
@@ -2145,8 +2141,6 @@ operator|.
 name|Bytes
 operator|.
 name|WithOrdinals
-operator|.
-name|FieldData
 name|valuesSource
 parameter_list|,
 name|Terms

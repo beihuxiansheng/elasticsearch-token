@@ -454,14 +454,6 @@ operator|.
 name|source
 argument_list|()
 argument_list|)
-operator|.
-name|ignoreConflicts
-argument_list|(
-name|request
-operator|.
-name|ignoreConflicts
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|metaDataMappingService
 operator|.

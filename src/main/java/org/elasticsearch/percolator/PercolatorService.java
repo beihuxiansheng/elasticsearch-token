@@ -22,7 +22,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ByteObjectHashMap
+name|IntObjectHashMap
 import|;
 end_import
 
@@ -1173,7 +1173,7 @@ decl_stmt|;
 DECL|field|percolatorTypes
 specifier|private
 specifier|final
-name|ByteObjectHashMap
+name|IntObjectHashMap
 argument_list|<
 name|PercolatorType
 argument_list|>
@@ -1417,7 +1417,7 @@ expr_stmt|;
 name|percolatorTypes
 operator|=
 operator|new
-name|ByteObjectHashMap
+name|IntObjectHashMap
 argument_list|<>
 argument_list|(
 literal|6
