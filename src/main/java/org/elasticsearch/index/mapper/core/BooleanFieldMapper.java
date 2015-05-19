@@ -84,7 +84,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -98,7 +98,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
+name|Query
 import|;
 end_import
 
@@ -274,7 +274,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeResult
+name|MergeMappingException
 import|;
 end_import
 
@@ -288,7 +288,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MergeMappingException
+name|MergeResult
 import|;
 end_import
 
@@ -1255,7 +1255,7 @@ annotation|@
 name|Override
 DECL|method|nullValueFilter
 specifier|public
-name|Filter
+name|Query
 name|nullValueFilter
 parameter_list|()
 block|{
@@ -1272,26 +1272,13 @@ return|;
 block|}
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
-operator|new
-name|TermQuery
-argument_list|(
-name|names
-argument_list|()
-operator|.
-name|createIndexNameTerm
+name|termQuery
 argument_list|(
 name|nullValue
-condition|?
-name|Values
-operator|.
-name|TRUE
-else|:
-name|Values
-operator|.
-name|FALSE
-argument_list|)
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 return|;

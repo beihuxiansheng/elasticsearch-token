@@ -236,7 +236,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -2312,7 +2312,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|bq
 argument_list|)
@@ -2339,7 +2339,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|Queries
 operator|.
@@ -2444,7 +2444,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|bq
 argument_list|)
@@ -2616,7 +2616,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|bq
 argument_list|)
@@ -2625,11 +2625,7 @@ block|}
 else|else
 block|{
 return|return
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|termsFilter
-argument_list|)
 return|;
 block|}
 block|}
@@ -2755,7 +2751,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|QueryWrapperFilter
+name|ConstantScoreQuery
 argument_list|(
 name|bool
 argument_list|)
