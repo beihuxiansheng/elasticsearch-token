@@ -4484,6 +4484,13 @@ block|}
 comment|/**      * This test verifies that if we corrupt a replica, we can still get to green, even though      * listing its store fails. Note, we need to make sure that replicas are allocated on all data      * nodes, so that replica won't be sneaky and allocated on a node that doesn't have a corrupted      * replica.      */
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/11226"
+argument_list|)
 DECL|method|testReplicaCorruption
 specifier|public
 name|void
