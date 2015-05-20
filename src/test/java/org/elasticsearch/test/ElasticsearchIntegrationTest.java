@@ -7579,6 +7579,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -7592,6 +7593,7 @@ argument_list|(
 name|localClusterState
 argument_list|)
 decl_stmt|;
+specifier|final
 name|int
 name|localClusterStateSize
 init|=
@@ -7632,47 +7634,42 @@ condition|)
 block|{
 try|try
 block|{
-name|assertThat
+name|assertEquals
 argument_list|(
+literal|"clusterstate UUID does not match"
+argument_list|,
 name|masterClusterState
 operator|.
 name|uuid
 argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
 name|localClusterState
 operator|.
 name|uuid
 argument_list|()
 argument_list|)
-argument_list|)
 expr_stmt|;
 comment|// We cannot compare serialization bytes since serialization order of maps is not guaranteed
 comment|// but we can compare serialization sizes - they should be the same
-name|assertThat
+name|assertEquals
 argument_list|(
+literal|"clusterstate size does not match"
+argument_list|,
 name|masterClusterStateSize
 argument_list|,
-name|equalTo
-argument_list|(
 name|localClusterStateSize
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Compare JSON serialization
-name|assertThat
+name|assertTrue
 argument_list|(
+literal|"clusterstate JSON serialization does not match"
+argument_list|,
 name|mapsEqualIgnoringArrayOrder
 argument_list|(
 name|masterStateMap
 argument_list|,
 name|localStateMap
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
