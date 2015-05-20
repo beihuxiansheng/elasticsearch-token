@@ -2744,7 +2744,7 @@ argument_list|,
 name|receiveBufferSizePredictorFactory
 argument_list|)
 expr_stmt|;
-name|Boolean
+name|boolean
 name|reuseAddress
 init|=
 name|settings
@@ -2766,13 +2766,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|reuseAddress
-operator|!=
-literal|null
-condition|)
-block|{
 name|clientBootstrap
 operator|.
 name|setOption
@@ -2782,7 +2775,6 @@ argument_list|,
 name|reuseAddress
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|clientBootstrap
 return|;
@@ -2955,7 +2947,7 @@ name|fallbackTcpKeepAlive
 argument_list|)
 expr_stmt|;
 block|}
-name|Boolean
+name|boolean
 name|fallbackReuseAddress
 init|=
 name|settings
@@ -2977,13 +2969,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|fallbackReuseAddress
-operator|!=
-literal|null
-condition|)
-block|{
 name|fallbackSettingsBuilder
 operator|.
 name|put
@@ -2993,7 +2978,6 @@ argument_list|,
 name|fallbackReuseAddress
 argument_list|)
 expr_stmt|;
-block|}
 name|ByteSizeValue
 name|fallbackTcpSendBufferSize
 init|=
@@ -3471,7 +3455,7 @@ argument_list|(
 literal|"tcp_keep_alive"
 argument_list|)
 decl_stmt|;
-name|Boolean
+name|boolean
 name|reuseAddress
 init|=
 name|settings
@@ -3777,13 +3761,6 @@ argument_list|,
 name|receiveBufferSizePredictorFactory
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|reuseAddress
-operator|!=
-literal|null
-condition|)
-block|{
 name|serverBootstrap
 operator|.
 name|setOption
@@ -3802,7 +3779,6 @@ argument_list|,
 name|reuseAddress
 argument_list|)
 expr_stmt|;
-block|}
 name|serverBootstraps
 operator|.
 name|put
