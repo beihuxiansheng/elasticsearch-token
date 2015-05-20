@@ -1246,7 +1246,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the number of document in the index referenced by this {@link SegmentInfos}      */
+comment|/**      * Returns the number of documents in the index referenced by this {@link SegmentInfos}      */
 DECL|method|getNumDocs
 specifier|public
 specifier|static
