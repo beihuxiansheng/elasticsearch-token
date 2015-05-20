@@ -215,11 +215,8 @@ name|compressor
 argument_list|(
 name|bytes
 argument_list|)
-operator|==
-name|CompressorFactory
-operator|.
-name|defaultCompressor
-argument_list|()
+operator|!=
+literal|null
 assert|;
 block|}
 block|}
