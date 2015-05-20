@@ -754,7 +754,7 @@ name|NAME
 argument_list|,
 name|Uid
 operator|.
-name|createTypeUids
+name|createUidsForTypesAndIds
 argument_list|(
 name|types
 argument_list|,
