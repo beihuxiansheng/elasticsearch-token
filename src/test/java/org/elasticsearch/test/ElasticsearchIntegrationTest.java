@@ -7496,16 +7496,13 @@ decl_stmt|;
 name|int
 name|masterClusterStateSize
 init|=
-name|ClusterState
-operator|.
-name|Builder
-operator|.
-name|toBytes
-argument_list|(
 name|masterClusterState
-argument_list|)
+operator|.
+name|toString
+argument_list|()
 operator|.
 name|length
+argument_list|()
 decl_stmt|;
 name|String
 name|masterId
@@ -7598,9 +7595,13 @@ decl_stmt|;
 name|int
 name|localClusterStateSize
 init|=
-name|localClusterStateBytes
+name|localClusterState
+operator|.
+name|toString
+argument_list|()
 operator|.
 name|length
+argument_list|()
 decl_stmt|;
 comment|// Check that the non-master node has the same version of the cluster state as the master and that this node didn't disconnect from the master
 if|if
