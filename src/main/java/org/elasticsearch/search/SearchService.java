@@ -6546,7 +6546,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|,
 name|TimeValue
@@ -6589,7 +6589,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6901,7 +6901,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|,
 name|TimeValue
@@ -6944,7 +6944,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|)
 expr_stmt|;
