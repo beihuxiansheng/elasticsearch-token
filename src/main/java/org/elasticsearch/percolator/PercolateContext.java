@@ -394,20 +394,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMappers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MapperService
 import|;
 end_import
@@ -2933,7 +2919,7 @@ block|{
 assert|assert
 literal|false
 operator|:
-literal|"percolatocontext does not support contexts& headers"
+literal|"percolatecontext does not support contexts& headers"
 assert|;
 return|return
 literal|null
@@ -3073,7 +3059,7 @@ block|{
 assert|assert
 literal|false
 operator|:
-literal|"percolatocontext does not support contexts& headers"
+literal|"percolatecontext does not support contexts& headers"
 assert|;
 block|}
 annotation|@
@@ -3083,7 +3069,7 @@ specifier|public
 parameter_list|<
 name|V
 parameter_list|>
-name|V
+name|void
 name|putHeader
 parameter_list|(
 name|String
@@ -3096,11 +3082,8 @@ block|{
 assert|assert
 literal|false
 operator|:
-literal|"percolatocontext does not support contexts& headers"
+literal|"percolatecontext does not support contexts& headers"
 assert|;
-return|return
-name|value
-return|;
 block|}
 annotation|@
 name|Override
@@ -3166,7 +3149,7 @@ block|{
 assert|assert
 literal|false
 operator|:
-literal|"percolatocontext does not support contexts& headers"
+literal|"percolatecontext does not support contexts& headers"
 assert|;
 block|}
 annotation|@
@@ -3183,7 +3166,7 @@ block|{
 assert|assert
 literal|false
 operator|:
-literal|"percolatocontext does not support contexts& headers"
+literal|"percolatecontext does not support contexts& headers"
 assert|;
 block|}
 block|}

@@ -2387,7 +2387,7 @@ specifier|public
 parameter_list|<
 name|V
 parameter_list|>
-name|V
+name|void
 name|putHeader
 parameter_list|(
 name|String
@@ -2396,11 +2396,7 @@ parameter_list|,
 name|V
 name|value
 parameter_list|)
-block|{
-return|return
-name|value
-return|;
-block|}
+block|{}
 annotation|@
 name|Override
 DECL|method|getHeader

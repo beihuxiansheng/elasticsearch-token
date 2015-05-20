@@ -38,7 +38,7 @@ DECL|method|putHeader
 parameter_list|<
 name|V
 parameter_list|>
-name|V
+name|void
 name|putHeader
 parameter_list|(
 name|String

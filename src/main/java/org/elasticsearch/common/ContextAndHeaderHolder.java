@@ -101,9 +101,6 @@ DECL|class|ContextAndHeaderHolder
 specifier|public
 class|class
 name|ContextAndHeaderHolder
-parameter_list|<
-name|T
-parameter_list|>
 implements|implements
 name|HasContextAndHeaders
 block|{
@@ -532,7 +529,7 @@ name|Override
 DECL|method|putHeader
 specifier|public
 specifier|final
-name|T
+name|void
 name|putHeader
 parameter_list|(
 name|String
@@ -566,12 +563,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-return|return
-operator|(
-name|T
-operator|)
-name|this
-return|;
 block|}
 annotation|@
 name|SuppressWarnings

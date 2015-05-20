@@ -2400,7 +2400,7 @@ specifier|public
 parameter_list|<
 name|V
 parameter_list|>
-name|V
+name|void
 name|putHeader
 parameter_list|(
 name|String
@@ -2410,7 +2410,6 @@ name|V
 name|value
 parameter_list|)
 block|{
-return|return
 name|in
 operator|.
 name|putHeader
@@ -2419,7 +2418,7 @@ name|key
 argument_list|,
 name|value
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 annotation|@
 name|Override

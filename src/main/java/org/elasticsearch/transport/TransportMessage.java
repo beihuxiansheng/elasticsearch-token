@@ -98,16 +98,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
 begin_comment
 comment|/**  * The transport message is also a {@link ContextAndHeaderHolder context holder} that holds<b>transient</b> context, that is,  * the context is not serialized with message.  */
 end_comment
@@ -128,9 +118,6 @@ parameter_list|>
 parameter_list|>
 extends|extends
 name|ContextAndHeaderHolder
-argument_list|<
-name|TM
-argument_list|>
 implements|implements
 name|Streamable
 block|{
@@ -152,32 +139,7 @@ name|TM
 name|message
 parameter_list|)
 block|{
-comment|// create a new copy of the headers/context, since we are creating a new request
-comment|// which might have its headers/context changed in the context of that specific request
-if|if
-condition|(
-name|message
-operator|.
-name|headers
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|headers
-operator|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|(
-name|message
-operator|.
-name|headers
-argument_list|)
-expr_stmt|;
-block|}
-name|copyContextFrom
+name|copyContextAndHeadersFrom
 argument_list|(
 name|message
 argument_list|)
