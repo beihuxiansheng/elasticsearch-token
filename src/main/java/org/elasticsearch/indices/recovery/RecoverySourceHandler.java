@@ -2750,6 +2750,18 @@ literal|false
 condition|)
 block|{
 comment|// we are corrupted on the primary -- fail!
+name|shard
+operator|.
+name|engine
+argument_list|()
+operator|.
+name|failEngine
+argument_list|(
+literal|"recovery"
+argument_list|,
+name|corruptIndexException
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
