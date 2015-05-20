@@ -5975,6 +5975,17 @@ block|}
 annotation|@
 name|Override
 specifier|public
+name|String
+name|getProfileName
+parameter_list|()
+block|{
+return|return
+literal|""
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
 name|void
 name|sendResponse
 parameter_list|(

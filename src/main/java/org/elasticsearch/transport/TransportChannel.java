@@ -39,6 +39,11 @@ name|String
 name|action
 parameter_list|()
 function_decl|;
+DECL|method|getProfileName
+name|String
+name|getProfileName
+parameter_list|()
+function_decl|;
 DECL|method|sendResponse
 name|void
 name|sendResponse

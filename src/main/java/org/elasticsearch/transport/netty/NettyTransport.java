@@ -2097,7 +2097,7 @@ argument_list|(
 name|DEFAULT_PROFILE
 argument_list|)
 decl_stmt|;
-comment|// loop through all profiles and strart them app, special handling for default one
+comment|// loop through all profiles and start them up, special handling for default one
 for|for
 control|(
 name|Map
@@ -2132,6 +2132,34 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|hasLength
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"transport profile configured without a name. skipping profile with settings [{}]"
+argument_list|,
+name|profileSettings
+operator|.
+name|toDelimitedString
+argument_list|(
+literal|','
+argument_list|)
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+elseif|else
 if|if
 condition|(
 name|DEFAULT_PROFILE
@@ -2179,9 +2207,7 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
-else|else
-block|{
-comment|// if profile does not have a port, skip it
+elseif|else
 if|if
 condition|(
 name|profileSettings
@@ -2194,6 +2220,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// if profile does not have a port, skip it
 name|logger
 operator|.
 name|info
@@ -2204,7 +2231,6 @@ name|name
 argument_list|)
 expr_stmt|;
 continue|continue;
-block|}
 block|}
 comment|// merge fallback settings with default settings with profile settings so we have complete settings with default values
 name|Settings
