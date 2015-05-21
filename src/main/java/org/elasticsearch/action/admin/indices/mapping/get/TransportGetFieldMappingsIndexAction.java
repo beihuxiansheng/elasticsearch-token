@@ -1131,9 +1131,6 @@ block|{
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|allFieldMappers
@@ -1177,9 +1174,6 @@ comment|// also make sure we only store each mapper once.
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|remainingFieldMappers
 init|=
@@ -1195,9 +1189,6 @@ control|(
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1215,9 +1206,6 @@ control|)
 block|{
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|it
@@ -1275,9 +1263,6 @@ control|(
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1295,9 +1280,6 @@ control|)
 block|{
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|it
@@ -1355,9 +1337,6 @@ control|(
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|it
 init|=
@@ -1375,9 +1354,6 @@ control|)
 block|{
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|it
@@ -1435,9 +1411,6 @@ else|else
 block|{
 comment|// not a pattern
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|allFieldMappers
@@ -1508,9 +1481,6 @@ name|String
 name|field
 parameter_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 parameter_list|,
 name|MapBuilder

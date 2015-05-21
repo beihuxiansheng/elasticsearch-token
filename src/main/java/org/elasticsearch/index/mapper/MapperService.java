@@ -893,9 +893,6 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|unmappedFieldMappers
 init|=
@@ -1733,9 +1730,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newFieldMappers
 init|=
@@ -1762,9 +1756,6 @@ condition|(
 name|rootMapper
 operator|instanceof
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 condition|)
 block|{
 name|newFieldMappers
@@ -1773,9 +1764,6 @@ name|add
 argument_list|(
 operator|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|rootMapper
 argument_list|)
@@ -1984,9 +1972,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -3374,9 +3359,6 @@ comment|/**      * Given a type (eg. long, string, ...), return an anonymous fie
 DECL|method|unmappedFieldMapper
 specifier|public
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|unmappedFieldMapper
 parameter_list|(
 name|String
@@ -3389,9 +3371,6 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|unmappedFieldMappers
 init|=
@@ -3400,9 +3379,6 @@ operator|.
 name|unmappedFieldMappers
 decl_stmt|;
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 init|=
 name|unmappedFieldMappers
@@ -3516,9 +3492,6 @@ name|mapper
 operator|=
 operator|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|builder
 operator|.
@@ -3539,9 +3512,6 @@ expr|<
 name|String
 operator|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 operator|>
 name|builder
 argument_list|()

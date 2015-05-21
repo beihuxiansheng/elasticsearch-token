@@ -144,9 +144,6 @@ DECL|field|mapper
 specifier|private
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 decl_stmt|;
 DECL|method|ExtendedCommonTermsQuery
@@ -166,9 +163,6 @@ name|boolean
 name|disableCoord
 parameter_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|)
 block|{

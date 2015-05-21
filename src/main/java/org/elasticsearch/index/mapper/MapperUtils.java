@@ -134,9 +134,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -164,9 +161,6 @@ specifier|public
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getNewFieldMappers
 parameter_list|()
@@ -289,9 +283,6 @@ parameter_list|,
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -330,9 +321,6 @@ condition|(
 name|mapper
 operator|instanceof
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 condition|)
 block|{
 name|fieldMappers
@@ -341,9 +329,6 @@ name|add
 argument_list|(
 operator|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|mapper
 argument_list|)

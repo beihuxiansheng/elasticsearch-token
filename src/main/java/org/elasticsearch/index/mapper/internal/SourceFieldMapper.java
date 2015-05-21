@@ -591,10 +591,6 @@ class|class
 name|SourceFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|byte
-index|[]
-argument_list|>
 implements|implements
 name|RootMapper
 block|{

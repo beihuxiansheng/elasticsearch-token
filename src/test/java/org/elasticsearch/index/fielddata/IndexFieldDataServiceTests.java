@@ -463,9 +463,6 @@ block|}
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 range|:
 name|Arrays
@@ -846,9 +843,6 @@ decl_stmt|;
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 range|:
 name|Arrays

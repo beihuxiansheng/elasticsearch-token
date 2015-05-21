@@ -122,9 +122,6 @@ implements|implements
 name|Iterable
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 block|{
 comment|/** Full field name to mappers */
@@ -180,9 +177,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newMappers
 parameter_list|)
@@ -202,9 +196,6 @@ decl_stmt|;
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 range|:
 name|newMappers
@@ -496,9 +487,6 @@ decl_stmt|;
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|this
@@ -601,9 +589,6 @@ decl_stmt|;
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|this
@@ -722,9 +707,6 @@ name|Nullable
 DECL|method|smartNameFieldMapper
 specifier|public
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|smartNameFieldMapper
 parameter_list|(
 name|String
@@ -762,9 +744,6 @@ specifier|public
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|iterator
 parameter_list|()
@@ -806,9 +785,6 @@ operator|new
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 argument_list|()
 block|{
@@ -901,7 +877,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-empty_stmt|;
+return|;
 block|}
 block|}
 end_class

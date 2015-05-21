@@ -512,16 +512,8 @@ specifier|public
 specifier|abstract
 class|class
 name|NumberFieldMapper
-parameter_list|<
-name|T
-extends|extends
-name|Number
-parameter_list|>
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|T
-argument_list|>
 implements|implements
 name|AllFieldMapper
 operator|.

@@ -587,9 +587,6 @@ class|class
 name|FloatFieldMapper
 extends|extends
 name|NumberFieldMapper
-argument_list|<
-name|Float
-argument_list|>
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public

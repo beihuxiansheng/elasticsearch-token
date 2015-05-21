@@ -501,9 +501,6 @@ class|class
 name|GeoShapeFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public

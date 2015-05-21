@@ -729,9 +729,6 @@ class|class
 name|GeoPointFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|GeoPoint
-argument_list|>
 implements|implements
 name|ArrayValueMapperParser
 block|{

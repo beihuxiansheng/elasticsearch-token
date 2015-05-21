@@ -746,14 +746,8 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractFieldMapper
-parameter_list|<
-name|T
-parameter_list|>
 implements|implements
 name|FieldMapper
-argument_list|<
-name|T
-argument_list|>
 block|{
 DECL|class|Defaults
 specifier|public
@@ -5394,9 +5388,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newFieldMappers
 init|=

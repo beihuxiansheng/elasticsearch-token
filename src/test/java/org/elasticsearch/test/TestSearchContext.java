@@ -2074,9 +2074,6 @@ name|Override
 DECL|method|smartNameFieldMapper
 specifier|public
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|smartNameFieldMapper
 parameter_list|(
 name|String
@@ -2113,9 +2110,6 @@ name|Override
 DECL|method|smartNameFieldMapperFromAnyType
 specifier|public
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|smartNameFieldMapperFromAnyType
 parameter_list|(
 name|String

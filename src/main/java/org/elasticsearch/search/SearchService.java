@@ -5939,9 +5939,6 @@ block|{
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|docMapper
@@ -6291,9 +6288,6 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|warmUp
 init|=
@@ -6318,9 +6312,6 @@ block|{
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|docMapper
@@ -6466,9 +6457,6 @@ for|for
 control|(
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|warmUp
@@ -6668,9 +6656,6 @@ argument_list|<
 name|String
 argument_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|warmUpGlobalOrdinals
 init|=
@@ -6695,9 +6680,6 @@ block|{
 for|for
 control|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|docMapper
@@ -6811,9 +6793,6 @@ for|for
 control|(
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 range|:
 name|warmUpGlobalOrdinals

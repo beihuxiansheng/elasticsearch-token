@@ -416,9 +416,6 @@ parameter_list|)
 block|{
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 decl_stmt|;
 specifier|final

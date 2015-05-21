@@ -246,9 +246,6 @@ DECL|field|mapper
 specifier|private
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 decl_stmt|;
 DECL|field|searchContext
@@ -270,9 +267,6 @@ specifier|public
 name|SourceScoreOrderFragmentsBuilder
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|,
 name|SearchContext

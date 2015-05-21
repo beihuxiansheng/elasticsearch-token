@@ -488,9 +488,6 @@ block|}
 block|}
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 init|=
 name|SearchContext

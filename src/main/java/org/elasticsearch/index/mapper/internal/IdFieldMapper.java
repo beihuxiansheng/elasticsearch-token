@@ -569,9 +569,6 @@ class|class
 name|IdFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|String
-argument_list|>
 implements|implements
 name|RootMapper
 block|{
