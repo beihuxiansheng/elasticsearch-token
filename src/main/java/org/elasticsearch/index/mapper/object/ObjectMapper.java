@@ -3076,9 +3076,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newFieldMappers
 init|=

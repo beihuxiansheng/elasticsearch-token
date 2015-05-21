@@ -557,9 +557,6 @@ name|fieldNamesToHighlight
 control|)
 block|{
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|getMapperForField
@@ -836,9 +833,6 @@ block|}
 DECL|method|getMapperForField
 specifier|private
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|getMapperForField
 parameter_list|(
 name|String

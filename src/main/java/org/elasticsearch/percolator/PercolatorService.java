@@ -5444,9 +5444,6 @@ expr_stmt|;
 block|}
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|uidMapper
 init|=
 name|context

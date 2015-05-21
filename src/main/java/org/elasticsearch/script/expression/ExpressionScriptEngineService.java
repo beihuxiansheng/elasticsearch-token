@@ -985,9 +985,6 @@ argument_list|)
 throw|;
 block|}
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|field
 init|=
 name|mapper
@@ -1130,9 +1127,6 @@ name|ValueSource
 name|getMethodValueSource
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|field
 parameter_list|,
 name|IndexFieldData
@@ -1367,9 +1361,6 @@ name|ValueSource
 name|getDateMethodValueSource
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|field
 parameter_list|,
 name|IndexFieldData

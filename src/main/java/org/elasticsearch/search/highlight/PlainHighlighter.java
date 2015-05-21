@@ -346,9 +346,6 @@ operator|.
 name|hitContext
 decl_stmt|;
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 init|=
 name|highlighterContext
@@ -400,9 +397,6 @@ block|{
 name|Map
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|org
 operator|.
@@ -444,9 +438,6 @@ argument_list|)
 name|Map
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|org
 operator|.
@@ -466,9 +457,6 @@ operator|(
 name|Map
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|org
 operator|.

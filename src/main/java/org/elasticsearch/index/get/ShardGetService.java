@@ -1843,9 +1843,6 @@ argument_list|)
 expr_stmt|;
 block|}
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|docMapper
@@ -2355,9 +2352,6 @@ name|DocumentMapper
 name|docMapper
 parameter_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 parameter_list|)
 block|{

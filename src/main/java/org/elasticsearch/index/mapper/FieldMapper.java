@@ -96,20 +96,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|MultiTermQuery
 import|;
 end_import
@@ -269,9 +255,6 @@ DECL|interface|FieldMapper
 specifier|public
 interface|interface
 name|FieldMapper
-parameter_list|<
-name|T
-parameter_list|>
 extends|extends
 name|Mapper
 block|{
@@ -798,7 +781,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * Returns the actual value of the field.      */
 DECL|method|value
-name|T
+name|Object
 name|value
 parameter_list|(
 name|Object

@@ -114,9 +114,6 @@ DECL|field|mapper
 specifier|public
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 decl_stmt|;
 DECL|field|context
@@ -152,9 +149,6 @@ name|Field
 name|field
 parameter_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|,
 name|SearchContext

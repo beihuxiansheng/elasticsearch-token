@@ -103,9 +103,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -129,9 +126,6 @@ specifier|abstract
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getNewFieldMappers
 parameter_list|()

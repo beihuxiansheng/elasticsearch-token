@@ -575,9 +575,6 @@ class|class
 name|DoubleFieldMapper
 extends|extends
 name|NumberFieldMapper
-argument_list|<
-name|Double
-argument_list|>
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public

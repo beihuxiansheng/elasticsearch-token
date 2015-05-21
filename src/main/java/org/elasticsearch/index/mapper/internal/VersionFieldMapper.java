@@ -307,9 +307,6 @@ class|class
 name|VersionFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|Long
-argument_list|>
 implements|implements
 name|RootMapper
 block|{

@@ -1652,9 +1652,6 @@ decl_stmt|;
 name|List
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newFieldMappers
 init|=
@@ -2473,9 +2470,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -2628,9 +2622,6 @@ specifier|final
 name|List
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newFieldMappers
 init|=
@@ -2660,9 +2651,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|fieldMappers
 parameter_list|)
@@ -2714,9 +2702,6 @@ specifier|public
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|getNewFieldMappers
 parameter_list|()

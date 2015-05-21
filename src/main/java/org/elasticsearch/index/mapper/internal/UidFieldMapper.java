@@ -399,9 +399,6 @@ class|class
 name|UidFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|Uid
-argument_list|>
 implements|implements
 name|RootMapper
 block|{

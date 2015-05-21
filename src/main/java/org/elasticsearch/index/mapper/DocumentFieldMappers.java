@@ -154,9 +154,6 @@ implements|implements
 name|Iterable
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 block|{
 DECL|field|fieldMappers
@@ -276,9 +273,6 @@ parameter_list|(
 name|Collection
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newMappers
 parameter_list|)
@@ -314,9 +308,6 @@ operator|new
 name|Function
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|Map
 operator|.
@@ -343,9 +334,6 @@ argument_list|>
 name|apply
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|input
 parameter_list|)
 block|{
@@ -370,12 +358,9 @@ argument_list|)
 return|;
 block|}
 block|}
-block|)
-block|)
-class|;
-end_class
-
-begin_decl_stmt
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|FieldNameAnalyzer
 name|searchAnalyzer
 init|=
@@ -395,9 +380,6 @@ operator|new
 name|Function
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|Map
 operator|.
@@ -424,9 +406,6 @@ argument_list|>
 name|apply
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|input
 parameter_list|)
 block|{
@@ -451,14 +430,9 @@ argument_list|)
 return|;
 block|}
 block|}
-end_decl_stmt
-
-begin_empty_stmt
-unit|))
-empty_stmt|;
-end_empty_stmt
-
-begin_decl_stmt
+argument_list|)
+argument_list|)
+decl_stmt|;
 name|FieldNameAnalyzer
 name|searchQuoteAnalyzer
 init|=
@@ -478,9 +452,6 @@ operator|new
 name|Function
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|Map
 operator|.
@@ -507,9 +478,6 @@ argument_list|>
 name|apply
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|input
 parameter_list|)
 block|{
@@ -534,14 +502,9 @@ argument_list|)
 return|;
 block|}
 block|}
-end_decl_stmt
-
-begin_empty_stmt
-unit|))
-empty_stmt|;
-end_empty_stmt
-
-begin_return
+argument_list|)
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|DocumentFieldMappers
@@ -555,15 +518,9 @@ argument_list|,
 name|searchQuoteAnalyzer
 argument_list|)
 return|;
-end_return
-
-begin_comment
-unit|}
+block|}
 comment|/**      * Looks up a field by its index name.      *      * Overriding index name for a field is no longer possibly, and only supported for backcompat.      * This function first attempts to lookup the field by full name, and only when that fails,      * does a full scan of all field mappers, collecting those with this index name.      *      * This will be removed in 3.0, once backcompat for overriding index name is removed.      * @deprecated Use {@link #getMapper(String)}      */
-end_comment
-
-begin_function
-unit|@
+annotation|@
 name|Deprecated
 DECL|method|indexName
 specifier|public
@@ -583,13 +540,7 @@ name|indexName
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/** Returns the mapper for the given field */
-end_comment
-
-begin_function
 DECL|method|getMapper
 specifier|public
 name|FieldMapper
@@ -608,9 +559,6 @@ name|field
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|simpleMatchToIndexNames
 name|List
 argument_list|<
@@ -631,9 +579,6 @@ name|pattern
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|simpleMatchToFullName
 specifier|public
 name|List
@@ -655,13 +600,7 @@ name|pattern
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * Tries to find first based on fullName, then by indexName.      */
-end_comment
-
-begin_function
 DECL|method|smartName
 name|FieldMappers
 name|smartName
@@ -679,15 +618,9 @@ name|name
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|smartNameFieldMapper
 specifier|public
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|smartNameFieldMapper
 parameter_list|(
 name|String
@@ -703,13 +636,7 @@ name|name
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * A smart analyzer used for indexing that takes into account specific analyzers configured      * per {@link FieldMapper}.      */
-end_comment
-
-begin_function
 DECL|method|indexAnalyzer
 specifier|public
 name|Analyzer
@@ -722,13 +649,7 @@ operator|.
 name|indexAnalyzer
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * A smart analyzer used for indexing that takes into account specific analyzers configured      * per {@link FieldMapper} with a custom default analyzer for no explicit field analyzer.      */
-end_comment
-
-begin_function
 DECL|method|indexAnalyzer
 specifier|public
 name|Analyzer
@@ -751,13 +672,7 @@ name|defaultAnalyzer
 argument_list|)
 return|;
 block|}
-end_function
-
-begin_comment
 comment|/**      * A smart analyzer used for searching that takes into account specific analyzers configured      * per {@link FieldMapper}.      */
-end_comment
-
-begin_function
 DECL|method|searchAnalyzer
 specifier|public
 name|Analyzer
@@ -770,9 +685,6 @@ operator|.
 name|searchAnalyzer
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|searchQuoteAnalyzer
 specifier|public
 name|Analyzer
@@ -785,17 +697,11 @@ operator|.
 name|searchQuoteAnalyzer
 return|;
 block|}
-end_function
-
-begin_function
 DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|iterator
 parameter_list|()
@@ -807,8 +713,8 @@ name|iterator
 argument_list|()
 return|;
 block|}
-end_function
+block|}
+end_class
 
-unit|}
 end_unit
 
