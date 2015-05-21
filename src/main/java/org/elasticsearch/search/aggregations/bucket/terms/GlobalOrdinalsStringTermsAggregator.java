@@ -404,9 +404,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -572,9 +572,9 @@ name|showTermDocCountError
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -605,7 +605,7 @@ name|collectionMode
 argument_list|,
 name|showTermDocCountError
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -1490,7 +1490,7 @@ literal|0
 argument_list|,
 name|otherDocCount
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|metaData
@@ -1767,9 +1767,9 @@ name|showTermDocCountError
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -1804,7 +1804,7 @@ name|collectionMode
 argument_list|,
 name|showTermDocCountError
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -2165,9 +2165,9 @@ name|showTermDocCountError
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -2202,7 +2202,7 @@ name|collectionMode
 argument_list|,
 name|showTermDocCountError
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)

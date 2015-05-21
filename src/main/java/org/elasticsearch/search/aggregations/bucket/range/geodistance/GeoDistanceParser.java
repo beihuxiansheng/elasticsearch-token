@@ -282,9 +282,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -1461,9 +1461,9 @@ name|parent
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -1494,7 +1494,7 @@ name|parent
 argument_list|,
 name|rangeFactory
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -1524,9 +1524,9 @@ name|collectsFromSingleBucket
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -1576,7 +1576,7 @@ name|aggregationContext
 argument_list|,
 name|parent
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)

@@ -138,9 +138,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -337,9 +337,9 @@ name|minDocCount
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -370,7 +370,7 @@ name|INSTANCE
 argument_list|,
 name|BUCKETS
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -422,7 +422,7 @@ name|minDocCount
 argument_list|,
 name|this
 operator|.
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|this

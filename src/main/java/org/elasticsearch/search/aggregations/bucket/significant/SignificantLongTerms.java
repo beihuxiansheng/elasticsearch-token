@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -198,9 +188,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -1089,9 +1079,9 @@ name|buckets
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -1118,7 +1108,7 @@ name|significanceHeuristic
 argument_list|,
 name|buckets
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -1194,7 +1184,7 @@ name|buckets
 argument_list|,
 name|this
 operator|.
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|this
@@ -1326,7 +1316,7 @@ name|buckets
 argument_list|,
 name|prototype
 operator|.
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|prototype

@@ -94,9 +94,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -110,9 +110,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|ReducerFactory
+name|PipelineAggregatorFactory
 import|;
 end_import
 
@@ -221,18 +221,18 @@ name|Parser
 argument_list|>
 name|aggParsers
 decl_stmt|;
-DECL|field|reducerParsers
+DECL|field|pipelineAggregatorParsers
 specifier|private
 specifier|final
 name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 argument_list|>
-name|reducerParsers
+name|pipelineAggregatorParsers
 decl_stmt|;
 comment|/**      * Constructs the AggregatorParsers out of all the given parsers      *      * @param aggParsers      *            The available aggregator parsers (dynamically injected by the      *            {@link org.elasticsearch.search.aggregations.AggregationModule}      *            ).      */
 annotation|@
@@ -251,11 +251,11 @@ name|aggParsers
 parameter_list|,
 name|Set
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 argument_list|>
-name|reducerParsers
+name|pipelineAggregatorParsers
 parameter_list|)
 block|{
 name|MapBuilder
@@ -309,11 +309,11 @@ name|MapBuilder
 argument_list|<
 name|String
 argument_list|,
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 argument_list|>
-name|reducerParsersBuilder
+name|pipelineAggregatorParsersBuilder
 init|=
 name|MapBuilder
 operator|.
@@ -322,15 +322,15 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 name|parser
 range|:
-name|reducerParsers
+name|pipelineAggregatorParsers
 control|)
 block|{
-name|reducerParsersBuilder
+name|pipelineAggregatorParsersBuilder
 operator|.
 name|put
 argument_list|(
@@ -345,9 +345,9 @@ expr_stmt|;
 block|}
 name|this
 operator|.
-name|reducerParsers
+name|pipelineAggregatorParsers
 operator|=
-name|reducerParsersBuilder
+name|pipelineAggregatorParsersBuilder
 operator|.
 name|immutableMap
 argument_list|()
@@ -374,20 +374,20 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the parser that is registered under the given reducer type.      *       * @param type      *            The reducer type      * @return The parser associated with the given reducer type.      */
-DECL|method|reducer
+comment|/**      * Returns the parser that is registered under the given pipeline aggregator      * type.      *       * @param type      *            The pipeline aggregator type      * @return The parser associated with the given pipeline aggregator type.      */
+DECL|method|pipelineAggregator
 specifier|public
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
-name|reducer
+name|pipelineAggregator
 parameter_list|(
 name|String
 name|type
 parameter_list|)
 block|{
 return|return
-name|reducerParsers
+name|pipelineAggregatorParsers
 operator|.
 name|get
 argument_list|(
@@ -610,8 +610,8 @@ name|aggFactory
 init|=
 literal|null
 decl_stmt|;
-name|ReducerFactory
-name|reducerFactory
+name|PipelineAggregatorFactory
+name|pipelineAggregatorFactory
 init|=
 literal|null
 decl_stmt|;
@@ -861,12 +861,11 @@ throw|;
 block|}
 if|if
 condition|(
-name|reducerFactory
+name|pipelineAggregatorFactory
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO we would need a .type property on reducers too for this error message?
 throw|throw
 operator|new
 name|SearchParseException
@@ -879,7 +878,7 @@ name|aggregationName
 operator|+
 literal|"]: ["
 operator|+
-name|reducerFactory
+name|pipelineAggregatorFactory
 operator|+
 literal|"] and ["
 operator|+
@@ -911,19 +910,19 @@ operator|==
 literal|null
 condition|)
 block|{
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
-name|reducerParser
+name|pipelineAggregatorParser
 init|=
-name|reducer
+name|pipelineAggregator
 argument_list|(
 name|fieldName
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|reducerParser
+name|pipelineAggregatorParser
 operator|==
 literal|null
 condition|)
@@ -953,9 +952,9 @@ throw|;
 block|}
 else|else
 block|{
-name|reducerFactory
+name|pipelineAggregatorFactory
 operator|=
-name|reducerParser
+name|pipelineAggregatorParser
 operator|.
 name|parse
 argument_list|(
@@ -992,7 +991,7 @@ name|aggFactory
 operator|==
 literal|null
 operator|&&
-name|reducerFactory
+name|pipelineAggregatorFactory
 operator|==
 literal|null
 condition|)
@@ -1025,7 +1024,7 @@ literal|null
 condition|)
 block|{
 assert|assert
-name|reducerFactory
+name|pipelineAggregatorFactory
 operator|==
 literal|null
 assert|;
@@ -1083,7 +1082,7 @@ block|}
 else|else
 block|{
 assert|assert
-name|reducerFactory
+name|pipelineAggregatorFactory
 operator|!=
 literal|null
 assert|;
@@ -1115,9 +1114,9 @@ throw|;
 block|}
 name|factories
 operator|.
-name|addReducer
+name|addPipelineAggregator
 argument_list|(
-name|reducerFactory
+name|pipelineAggregatorFactory
 argument_list|)
 expr_stmt|;
 block|}

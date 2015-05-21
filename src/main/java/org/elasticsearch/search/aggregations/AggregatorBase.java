@@ -72,9 +72,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -243,14 +243,14 @@ specifier|private
 name|DeferringBucketCollector
 name|recordingWrapper
 decl_stmt|;
-DECL|field|reducers
+DECL|field|pipelineAggregators
 specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 decl_stmt|;
 comment|/**      * Constructs a new Aggregator.      *      * @param name                  The name of the aggregation      * @param factories             The factories for all the sub-aggregators under this aggregator      * @param context               The aggregation context      * @param parent                The parent aggregator (may be {@code null} for top level aggregators)      * @param metaData              The metaData associated with this aggregator      */
 DECL|method|AggregatorBase
@@ -271,9 +271,9 @@ name|parent
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -294,9 +294,9 @@ name|name
 expr_stmt|;
 name|this
 operator|.
-name|reducers
+name|pipelineAggregators
 operator|=
-name|reducers
+name|pipelineAggregators
 expr_stmt|;
 name|this
 operator|.
@@ -494,19 +494,19 @@ operator|.
 name|metaData
 return|;
 block|}
-DECL|method|reducers
+DECL|method|pipelineAggregators
 specifier|public
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|reducers
+name|pipelineAggregators
 return|;
 block|}
 comment|/**      * Get a {@link LeafBucketCollector} for the given ctx, which should      * delegate to the given collector.      */

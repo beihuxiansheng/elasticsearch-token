@@ -176,9 +176,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|ReducerBuilders
+name|PipelineAggregatorBuilders
 import|;
 end_import
 
@@ -192,7 +192,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
@@ -980,10 +980,10 @@ block|}
 annotation|@
 name|Test
 comment|// Just test the integration with facets and aggregations, not the facet and aggregation functionality!
-DECL|method|testAggregationsAndReducers
+DECL|method|testAggregationsAndPipelineAggregations
 specifier|public
 name|void
-name|testAggregationsAndReducers
+name|testAggregationsAndPipelineAggregations
 parameter_list|()
 throws|throws
 name|Exception
@@ -1374,7 +1374,7 @@ name|percolateRequestBuilder
 operator|.
 name|addAggregation
 argument_list|(
-name|ReducerBuilders
+name|PipelineAggregatorBuilders
 operator|.
 name|maxBucket
 argument_list|(
@@ -2115,7 +2115,7 @@ name|percolateRequestBuilder
 operator|.
 name|addAggregation
 argument_list|(
-name|ReducerBuilders
+name|PipelineAggregatorBuilders
 operator|.
 name|maxBucket
 argument_list|(

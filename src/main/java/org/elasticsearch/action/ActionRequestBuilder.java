@@ -124,9 +124,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|ReducerBuilder
+name|PipelineAggregatorBuilder
 import|;
 end_import
 
