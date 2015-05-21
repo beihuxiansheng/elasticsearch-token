@@ -62,11 +62,6 @@ specifier|public
 specifier|abstract
 class|class
 name|CompressedStreamOutput
-parameter_list|<
-name|T
-extends|extends
-name|CompressorContext
-parameter_list|>
 extends|extends
 name|StreamOutput
 block|{
@@ -75,12 +70,6 @@ specifier|private
 specifier|final
 name|StreamOutput
 name|out
-decl_stmt|;
-DECL|field|context
-specifier|protected
-specifier|final
-name|T
-name|context
 decl_stmt|;
 DECL|field|uncompressed
 specifier|protected
@@ -111,9 +100,6 @@ name|CompressedStreamOutput
 parameter_list|(
 name|StreamOutput
 name|out
-parameter_list|,
-name|T
-name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -123,12 +109,6 @@ operator|.
 name|out
 operator|=
 name|out
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
 expr_stmt|;
 name|super
 operator|.

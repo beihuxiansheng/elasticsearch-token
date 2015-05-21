@@ -224,7 +224,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1346,7 +1346,7 @@ decl_stmt|;
 DECL|field|mappingSource
 specifier|private
 specifier|volatile
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 decl_stmt|;
 DECL|field|mapping
@@ -1830,7 +1830,7 @@ return|;
 block|}
 DECL|method|mappingSource
 specifier|public
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 parameter_list|()
 block|{
@@ -2907,7 +2907,7 @@ expr_stmt|;
 name|mappingSource
 operator|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|bStream
 operator|.

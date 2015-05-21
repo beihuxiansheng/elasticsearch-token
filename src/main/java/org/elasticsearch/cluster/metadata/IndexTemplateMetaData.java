@@ -108,7 +108,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -324,7 +324,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|mappings
 decl_stmt|;
@@ -372,7 +372,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|mappings
 parameter_list|,
@@ -538,7 +538,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|mappings
 parameter_list|()
@@ -555,7 +555,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|getMappings
 parameter_list|()
@@ -959,7 +959,7 @@ operator|.
 name|readString
 argument_list|()
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 operator|.
 name|readCompressedString
 argument_list|(
@@ -1135,7 +1135,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|cursor
 range|:
@@ -1319,7 +1319,7 @@ name|Builder
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|mappings
 decl_stmt|;
@@ -1584,7 +1584,7 @@ parameter_list|(
 name|String
 name|mappingType
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 parameter_list|)
 throws|throws
@@ -1624,7 +1624,7 @@ argument_list|(
 name|mappingType
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingSource
 argument_list|)
@@ -1911,7 +1911,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|cursor
 range|:
@@ -2038,7 +2038,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|cursor
 range|:

@@ -74,7 +74,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1546,7 +1546,7 @@ decl_stmt|;
 DECL|field|source
 specifier|private
 specifier|final
-name|CompressedString
+name|CompressedXContent
 name|source
 decl_stmt|;
 DECL|field|id
@@ -1703,7 +1703,7 @@ DECL|method|MappingMetaData
 specifier|public
 name|MappingMetaData
 parameter_list|(
-name|CompressedString
+name|CompressedXContent
 name|mapping
 parameter_list|)
 throws|throws
@@ -1729,17 +1729,8 @@ name|createParser
 argument_list|(
 name|mapping
 operator|.
-name|compressed
+name|compressedReference
 argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|mapping
-operator|.
-name|compressed
-argument_list|()
-operator|.
-name|length
 argument_list|)
 operator|.
 name|mapOrderedAndClose
@@ -1878,7 +1869,7 @@ operator|.
 name|source
 operator|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingBuilder
 operator|.
@@ -1955,9 +1946,9 @@ operator|.
 name|source
 operator|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
-literal|""
+literal|"{}"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2520,7 +2511,7 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|source
 parameter_list|,
 name|Id
@@ -2647,7 +2638,7 @@ return|;
 block|}
 DECL|method|source
 specifier|public
-name|CompressedString
+name|CompressedXContent
 name|source
 parameter_list|()
 block|{
@@ -2695,17 +2686,8 @@ name|convertToMap
 argument_list|(
 name|source
 operator|.
-name|compressed
+name|compressedReference
 argument_list|()
-argument_list|,
-literal|0
-argument_list|,
-name|source
-operator|.
-name|compressed
-argument_list|()
-operator|.
-name|length
 argument_list|,
 literal|true
 argument_list|)
@@ -3752,10 +3734,10 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|source
 init|=
-name|CompressedString
+name|CompressedXContent
 operator|.
 name|readCompressedString
 argument_list|(

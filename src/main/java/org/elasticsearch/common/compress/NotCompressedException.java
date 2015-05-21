@@ -17,16 +17,28 @@ package|;
 end_package
 
 begin_comment
-comment|/**  */
+comment|/** Exception indicating that we were expecting something compressed, which  *  was not compressed or corrupted so that the compression format could not  *  be detected. */
 end_comment
 
-begin_interface
-DECL|interface|CompressorContext
+begin_class
+DECL|class|NotCompressedException
 specifier|public
-interface|interface
-name|CompressorContext
-block|{ }
-end_interface
+class|class
+name|NotCompressedException
+extends|extends
+name|RuntimeException
+block|{
+DECL|method|NotCompressedException
+specifier|public
+name|NotCompressedException
+parameter_list|()
+block|{
+name|super
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

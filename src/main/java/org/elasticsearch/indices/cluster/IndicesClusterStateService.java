@@ -312,7 +312,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -2359,7 +2359,7 @@ operator|.
 name|type
 argument_list|()
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 init|=
 name|mappingMd
@@ -2527,7 +2527,7 @@ parameter_list|,
 name|String
 name|mappingType
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 parameter_list|)
 throws|throws
@@ -3157,7 +3157,7 @@ operator|.
 name|alias
 argument_list|()
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|filter
 init|=
 name|aliasMd

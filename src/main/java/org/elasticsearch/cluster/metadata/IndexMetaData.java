@@ -238,7 +238,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -5169,7 +5169,7 @@ operator|new
 name|MappingMetaData
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|parser
 operator|.

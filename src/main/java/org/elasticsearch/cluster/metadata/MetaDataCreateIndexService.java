@@ -394,7 +394,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1892,7 +1892,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|cursor
 range|:
@@ -2645,7 +2645,7 @@ operator|.
 name|DEFAULT_MAPPING
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|XContentFactory
 operator|.
@@ -2752,7 +2752,7 @@ name|getKey
 argument_list|()
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|XContentFactory
 operator|.

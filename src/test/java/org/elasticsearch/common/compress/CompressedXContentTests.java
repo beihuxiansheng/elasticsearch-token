@@ -171,10 +171,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|CompressedStringTests
+DECL|class|CompressedXContentTests
 specifier|public
 class|class
-name|CompressedStringTests
+name|CompressedXContentTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
@@ -199,10 +199,10 @@ specifier|private
 name|void
 name|assertEquals
 parameter_list|(
-name|CompressedString
+name|CompressedXContent
 name|s1
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|s2
 parameter_list|)
 block|{
@@ -276,13 +276,13 @@ expr_stmt|;
 name|String
 name|str
 init|=
-literal|"this is a simple string"
+literal|"---\nf:this is a simple string"
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|cstr
 init|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|str
 argument_list|)
@@ -303,7 +303,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|str
 argument_list|)
@@ -317,13 +317,13 @@ expr_stmt|;
 name|String
 name|str2
 init|=
-literal|"this is a simple string 2"
+literal|"---\nf:this is a simple string 2"
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|cstr2
 init|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|str2
 argument_list|)
@@ -347,7 +347,7 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|str2
 argument_list|)
@@ -364,7 +364,7 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|str2
 argument_list|)
@@ -439,18 +439,25 @@ argument_list|,
 literal|10000
 argument_list|)
 decl_stmt|;
-name|CompressedString
-name|compressedString
+comment|// hack to make it detected as YAML
+name|string
+operator|=
+literal|"---\n"
+operator|+
+name|string
+expr_stmt|;
+name|CompressedXContent
+name|compressedXContent
 init|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|string
 argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|compressedString
+name|compressedXContent
 operator|.
 name|string
 argument_list|()
@@ -475,7 +482,7 @@ name|byte
 index|[]
 name|b
 init|=
-literal|"abcdefghijabcdefghij"
+literal|"---\nf:abcdefghijabcdefghij"
 operator|.
 name|getBytes
 argument_list|(
@@ -610,7 +617,7 @@ name|toBytes
 argument_list|()
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|b1
 argument_list|)
@@ -627,7 +634,7 @@ name|toBytes
 argument_list|()
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|b2
 argument_list|)
@@ -640,13 +647,13 @@ comment|// but compressedstring instances are still equal
 name|assertEquals
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|b1
 argument_list|)
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|b2
 argument_list|)
@@ -664,18 +671,18 @@ block|{
 name|assertFalse
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
-literal|"a"
+literal|"{\"a\":\"b\"}"
 argument_list|)
 operator|.
 name|hashCode
 argument_list|()
 operator|==
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
-literal|"b"
+literal|"{\"a\":\"c\"}"
 argument_list|)
 operator|.
 name|hashCode

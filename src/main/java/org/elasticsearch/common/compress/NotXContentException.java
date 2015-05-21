@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress.lzf
+DECL|package|org.elasticsearch.common.compress
 package|package
 name|org
 operator|.
@@ -13,48 +13,35 @@ operator|.
 name|common
 operator|.
 name|compress
-operator|.
-name|lzf
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|compress
-operator|.
-name|CompressorContext
-import|;
-end_import
-
 begin_comment
-comment|/**  */
+comment|/** Exception indicating that we were expecting something compressed, which  *  was not compressed or corrupted so that the compression format could not  *  be detected. */
 end_comment
 
 begin_class
-DECL|class|LZFCompressorContext
+DECL|class|NotXContentException
 specifier|public
 class|class
-name|LZFCompressorContext
-implements|implements
-name|CompressorContext
+name|NotXContentException
+extends|extends
+name|RuntimeException
 block|{
-DECL|field|INSTANCE
+DECL|method|NotXContentException
 specifier|public
-specifier|static
-specifier|final
-name|LZFCompressorContext
-name|INSTANCE
-init|=
-operator|new
-name|LZFCompressorContext
-argument_list|()
-decl_stmt|;
+name|NotXContentException
+parameter_list|(
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

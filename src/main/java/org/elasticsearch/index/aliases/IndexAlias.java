@@ -52,7 +52,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -75,7 +75,7 @@ decl_stmt|;
 DECL|field|filter
 specifier|private
 specifier|final
-name|CompressedString
+name|CompressedXContent
 name|filter
 decl_stmt|;
 DECL|field|parsedFilter
@@ -93,7 +93,7 @@ name|alias
 parameter_list|,
 annotation|@
 name|Nullable
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|,
 annotation|@
@@ -135,7 +135,7 @@ annotation|@
 name|Nullable
 DECL|method|filter
 specifier|public
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|()
 block|{
