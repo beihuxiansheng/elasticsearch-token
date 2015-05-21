@@ -1154,6 +1154,15 @@ name|SETTING_VERSION_CREATED
 init|=
 literal|"index.version.created"
 decl_stmt|;
+DECL|field|SETTING_VERSION_MINIMUM_COMPATIBLE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_VERSION_MINIMUM_COMPATIBLE
+init|=
+literal|"index.version.minimum_compatible"
+decl_stmt|;
 DECL|field|SETTING_CREATION_DATE
 specifier|public
 specifier|static
@@ -1317,6 +1326,12 @@ specifier|private
 specifier|final
 name|Version
 name|indexCreatedVersion
+decl_stmt|;
+DECL|field|indexMinimumCompatibleVersion
+specifier|private
+specifier|final
+name|Version
+name|indexMinimumCompatibleVersion
 decl_stmt|;
 DECL|field|routingHashFunction
 specifier|private
@@ -1615,6 +1630,17 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|indexMinimumCompatibleVersion
+operator|=
+name|settings
+operator|.
+name|getAsVersion
+argument_list|(
+name|SETTING_VERSION_MINIMUM_COMPATIBLE
+argument_list|,
+name|indexCreatedVersion
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Class
 argument_list|<
@@ -1814,7 +1840,7 @@ operator|.
 name|version
 return|;
 block|}
-comment|/**      * Return the {@link Version} on which this index has been created. This      * information is typically useful for backward compatibility.      */
+comment|/**      * Return the {@link Version} on which this index has been created. This      * information is typically useful for backward compatibility.      *      * Returns null if the index was created before 0.19.0.RC1.      */
 DECL|method|creationVersion
 specifier|public
 name|Version
@@ -1833,6 +1859,28 @@ parameter_list|()
 block|{
 return|return
 name|creationVersion
+argument_list|()
+return|;
+block|}
+comment|/**      * Return the {@link Version} of that created the oldest segment in the index.      *      * If the index was created before v1.6 and didn't go through upgrade API the creation verion is returned.      * Returns null if the index was created before 0.19.0.RC1.      */
+DECL|method|minimumCompatibleVersion
+specifier|public
+name|Version
+name|minimumCompatibleVersion
+parameter_list|()
+block|{
+return|return
+name|indexMinimumCompatibleVersion
+return|;
+block|}
+DECL|method|getMinimumCompatibleVersion
+specifier|public
+name|Version
+name|getMinimumCompatibleVersion
+parameter_list|()
+block|{
+return|return
+name|minimumCompatibleVersion
 argument_list|()
 return|;
 block|}

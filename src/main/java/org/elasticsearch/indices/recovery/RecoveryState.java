@@ -126,6 +126,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|logging
+operator|.
+name|ESLoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -281,7 +295,7 @@ operator|)
 literal|0
 argument_list|)
 block|,
-comment|/** recovery of lucene files, either reusing local ones are copying new ones */
+comment|/**          * recovery of lucene files, either reusing local ones are copying new ones          */
 DECL|enum constant|INDEX
 name|INDEX
 argument_list|(
@@ -291,7 +305,7 @@ operator|)
 literal|1
 argument_list|)
 block|,
-comment|/** potentially running check index */
+comment|/**          * potentially running check index          */
 DECL|enum constant|VERIFY_INDEX
 name|VERIFY_INDEX
 argument_list|(
@@ -301,7 +315,7 @@ operator|)
 literal|2
 argument_list|)
 block|,
-comment|/**  starting up the engine, replaying the translog */
+comment|/**          * starting up the engine, replaying the translog          */
 DECL|enum constant|TRANSLOG
 name|TRANSLOG
 argument_list|(
@@ -311,7 +325,7 @@ operator|)
 literal|3
 argument_list|)
 block|,
-comment|/** performing final task after all translog ops have been done */
+comment|/**          * performing final task after all translog ops have been done          */
 DECL|enum constant|FINALIZE
 name|FINALIZE
 argument_list|(
@@ -2867,7 +2881,7 @@ operator|+
 literal|"]"
 assert|;
 block|}
-comment|/** returns the total number of translog operations recovered so far */
+comment|/**          * returns the total number of translog operations recovered so far          */
 DECL|method|recoveredOperations
 specifier|public
 specifier|synchronized
@@ -3278,7 +3292,7 @@ operator|+=
 name|bytes
 expr_stmt|;
 block|}
-comment|/** file name * */
+comment|/**          * file name *          */
 DECL|method|name
 specifier|public
 name|String
@@ -3289,7 +3303,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/** file length * */
+comment|/**          * file length *          */
 DECL|method|length
 specifier|public
 name|long
@@ -3300,7 +3314,7 @@ return|return
 name|length
 return|;
 block|}
-comment|/** number of bytes recovered for this file (so far). 0 if the file is reused * */
+comment|/**          * number of bytes recovered for this file (so far). 0 if the file is reused *          */
 DECL|method|recovered
 specifier|public
 name|long
@@ -3311,7 +3325,7 @@ return|return
 name|recovered
 return|;
 block|}
-comment|/** returns true if the file is reused from a local copy */
+comment|/**          * returns true if the file is reused from a local copy          */
 DECL|method|reused
 specifier|public
 name|boolean
@@ -3995,7 +4009,7 @@ name|targetThrottleTimeInNanos
 argument_list|)
 return|;
 block|}
-comment|/** total number of files that are part of this recovery, both re-used and recovered */
+comment|/**          * total number of files that are part of this recovery, both re-used and recovered          */
 DECL|method|totalFileCount
 specifier|public
 specifier|synchronized
@@ -4010,7 +4024,7 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/** total number of files to be recovered (potentially not yet done) */
+comment|/**          * total number of files to be recovered (potentially not yet done)          */
 DECL|method|totalRecoverFiles
 specifier|public
 specifier|synchronized
@@ -4053,7 +4067,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/** number of file that were recovered (excluding on ongoing files) */
+comment|/**          * number of file that were recovered (excluding on ongoing files)          */
 DECL|method|recoveredFileCount
 specifier|public
 specifier|synchronized
@@ -4094,7 +4108,7 @@ return|return
 name|count
 return|;
 block|}
-comment|/** percent of recovered (i.e., not reused) files out of the total files to be recovered */
+comment|/**          * percent of recovered (i.e., not reused) files out of the total files to be recovered          */
 DECL|method|recoveredFilesPercent
 specifier|public
 specifier|synchronized
@@ -4201,7 +4215,7 @@ name|result
 return|;
 block|}
 block|}
-comment|/** total number of bytes in th shard */
+comment|/**          * total number of bytes in th shard          */
 DECL|method|totalBytes
 specifier|public
 specifier|synchronized
@@ -4237,7 +4251,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/** total number of bytes recovered so far, including both existing and reused */
+comment|/**          * total number of bytes recovered so far, including both existing and reused          */
 DECL|method|recoveredBytes
 specifier|public
 specifier|synchronized
@@ -4273,7 +4287,7 @@ return|return
 name|recovered
 return|;
 block|}
-comment|/** total bytes of files to be recovered (potentially not yet done) */
+comment|/**          * total bytes of files to be recovered (potentially not yet done)          */
 DECL|method|totalRecoverBytes
 specifier|public
 specifier|synchronized
@@ -4364,7 +4378,7 @@ return|return
 name|total
 return|;
 block|}
-comment|/** percent of bytes recovered out of total files bytes *to be* recovered */
+comment|/**          * percent of bytes recovered out of total files bytes *to be* recovered          */
 DECL|method|recoveredBytesPercent
 specifier|public
 specifier|synchronized

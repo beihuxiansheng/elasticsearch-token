@@ -1021,6 +1021,11 @@ name|innerQuery
 argument_list|,
 literal|null
 argument_list|,
+name|parseContext
+operator|.
+name|mapperService
+argument_list|()
+argument_list|,
 name|childDocMapper
 argument_list|)
 decl_stmt|;

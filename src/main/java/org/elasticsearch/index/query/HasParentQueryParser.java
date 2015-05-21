@@ -1037,6 +1037,11 @@ name|innerQuery
 argument_list|,
 literal|null
 argument_list|,
+name|parseContext
+operator|.
+name|mapperService
+argument_list|()
+argument_list|,
 name|parentDocMapper
 argument_list|)
 decl_stmt|;
@@ -1297,11 +1302,7 @@ block|}
 block|}
 name|parentFilter
 operator|=
-operator|new
-name|QueryWrapperFilter
-argument_list|(
 name|parentsFilter
-argument_list|)
 expr_stmt|;
 block|}
 if|if

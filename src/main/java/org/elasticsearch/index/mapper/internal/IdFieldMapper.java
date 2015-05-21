@@ -1304,7 +1304,7 @@ name|uids
 init|=
 name|Uid
 operator|.
-name|createTypeUids
+name|createUidsForTypesAndId
 argument_list|(
 name|context
 operator|.
@@ -1410,7 +1410,7 @@ name|NAME
 argument_list|,
 name|Uid
 operator|.
-name|createTypeUids
+name|createUidsForTypesAndIds
 argument_list|(
 name|context
 operator|.

@@ -180,6 +180,55 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
+name|Path
+name|javaTmpDir
+init|=
+name|PathUtils
+operator|.
+name|get
+argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|,
+literal|"please set ${java.io.tmpdir} in pom.xml"
+argument_list|)
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|Security
+operator|.
+name|ensureDirectoryExists
+argument_list|(
+name|javaTmpDir
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"unable to create test temp directory"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// install security manager if requested
 if|if
 condition|(
@@ -323,28 +372,6 @@ literal|"read,readlink"
 argument_list|)
 expr_stmt|;
 comment|// java.io.tmpdir
-name|Path
-name|javaTmpDir
-init|=
-name|PathUtils
-operator|.
-name|get
-argument_list|(
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|,
-literal|"please set ${java.io.tmpdir} in pom.xml"
-argument_list|)
-argument_list|)
-decl_stmt|;
 name|Security
 operator|.
 name|addPath

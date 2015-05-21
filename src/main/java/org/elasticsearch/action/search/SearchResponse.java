@@ -698,6 +698,8 @@ name|buildBroadcastShardsHeader
 argument_list|(
 name|builder
 argument_list|,
+name|params
+argument_list|,
 name|getTotalShards
 argument_list|()
 argument_list|,

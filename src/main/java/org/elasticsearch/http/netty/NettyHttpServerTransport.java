@@ -794,7 +794,7 @@ decl_stmt|;
 DECL|field|reuseAddress
 specifier|protected
 specifier|final
-name|Boolean
+name|boolean
 name|reuseAddress
 decl_stmt|;
 DECL|field|tcpSendBufferSize
@@ -1892,13 +1892,6 @@ argument_list|,
 name|receiveBufferSizePredictorFactory
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|reuseAddress
-operator|!=
-literal|null
-condition|)
-block|{
 name|serverBootstrap
 operator|.
 name|setOption
@@ -1917,7 +1910,6 @@ argument_list|,
 name|reuseAddress
 argument_list|)
 expr_stmt|;
-block|}
 comment|// Bind and start to accept incoming connections.
 name|InetAddress
 name|hostAddressX

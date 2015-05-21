@@ -198,6 +198,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|Environment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|snapshots
@@ -293,18 +305,6 @@ operator|.
 name|file
 operator|.
 name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
 import|;
 end_import
 
@@ -490,6 +490,9 @@ name|indexShardRepository
 parameter_list|,
 name|ClusterService
 name|clusterService
+parameter_list|,
+name|Environment
+name|environment
 parameter_list|)
 throws|throws
 name|IOException
@@ -506,6 +509,8 @@ name|clusterService
 argument_list|)
 argument_list|,
 name|indexShardRepository
+argument_list|,
+name|environment
 argument_list|)
 expr_stmt|;
 name|randomControlIOExceptionRate

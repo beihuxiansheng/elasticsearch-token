@@ -1519,6 +1519,11 @@ name|shardStats
 operator|.
 name|isEmpty
 argument_list|()
+operator|:
+name|shardStats
+operator|.
+name|keySet
+argument_list|()
 assert|;
 assert|assert
 name|stats2

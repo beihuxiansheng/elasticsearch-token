@@ -292,16 +292,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|lease
@@ -348,9 +338,7 @@ name|common
 operator|.
 name|lucene
 operator|.
-name|docset
-operator|.
-name|DocIdSets
+name|Lucene
 import|;
 end_import
 
@@ -1680,7 +1668,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|DocIdSets
+name|Lucene
 operator|.
 name|isEmpty
 argument_list|(

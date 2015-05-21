@@ -349,7 +349,7 @@ operator|+
 name|getFieldNames
 argument_list|()
 operator|.
-name|name
+name|fullName
 argument_list|()
 argument_list|)
 return|;

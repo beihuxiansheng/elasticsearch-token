@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected unless the {@link #ignoreConflicts(boolean)}  * is set. In such a case, the duplicate mappings will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class
@@ -308,13 +308,6 @@ DECL|field|source
 specifier|private
 name|String
 name|source
-decl_stmt|;
-DECL|field|ignoreConflicts
-specifier|private
-name|boolean
-name|ignoreConflicts
-init|=
-literal|false
 decl_stmt|;
 DECL|method|PutMappingRequest
 name|PutMappingRequest
@@ -1033,37 +1026,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|ignoreConflicts
-specifier|public
-name|boolean
-name|ignoreConflicts
-parameter_list|()
-block|{
-return|return
-name|ignoreConflicts
-return|;
-block|}
-comment|/**      * If there is already a mapping definition registered against the type, then it will be merged. If there are      * elements that can't be merged are detected, the request will be rejected unless the      * {@link #ignoreConflicts(boolean)} is set. In such a case, the duplicate mappings will be rejected.      */
-DECL|method|ignoreConflicts
-specifier|public
-name|PutMappingRequest
-name|ignoreConflicts
-parameter_list|(
-name|boolean
-name|ignoreDuplicates
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ignoreConflicts
-operator|=
-name|ignoreDuplicates
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|readFrom
@@ -1119,13 +1081,6 @@ argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
-name|ignoreConflicts
-operator|=
-name|in
-operator|.
-name|readBoolean
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1178,13 +1133,6 @@ expr_stmt|;
 name|writeTimeout
 argument_list|(
 name|out
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|writeBoolean
-argument_list|(
-name|ignoreConflicts
 argument_list|)
 expr_stmt|;
 block|}

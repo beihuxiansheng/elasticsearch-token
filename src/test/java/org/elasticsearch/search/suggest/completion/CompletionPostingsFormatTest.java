@@ -2693,7 +2693,10 @@ name|terms
 argument_list|(
 name|mapper
 operator|.
-name|name
+name|names
+argument_list|()
+operator|.
+name|fullName
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -644,6 +644,7 @@ DECL|method|handlePost
 name|void
 name|handlePost
 parameter_list|(
+specifier|final
 name|RestRequest
 name|request
 parameter_list|,
@@ -755,6 +756,8 @@ expr_stmt|;
 name|buildBroadcastShardsHeader
 argument_list|(
 name|builder
+argument_list|,
+name|request
 argument_list|,
 name|response
 argument_list|)

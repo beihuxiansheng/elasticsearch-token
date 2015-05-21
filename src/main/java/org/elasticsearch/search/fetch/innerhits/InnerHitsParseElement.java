@@ -1073,6 +1073,11 @@ operator|.
 name|childInnerHits
 argument_list|()
 argument_list|,
+name|parseContext
+operator|.
+name|mapperService
+argument_list|()
+argument_list|,
 name|documentMapper
 argument_list|)
 return|;

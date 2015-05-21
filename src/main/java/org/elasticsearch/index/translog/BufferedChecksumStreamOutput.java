@@ -271,6 +271,18 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|resetDigest
+specifier|public
+name|void
+name|resetDigest
+parameter_list|()
+block|{
+name|digest
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

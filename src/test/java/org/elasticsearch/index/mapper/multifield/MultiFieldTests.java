@@ -1610,11 +1610,6 @@ argument_list|,
 name|mapperParser
 argument_list|)
 decl_stmt|;
-name|builderDocMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
 name|String
 name|builtMapping
 init|=

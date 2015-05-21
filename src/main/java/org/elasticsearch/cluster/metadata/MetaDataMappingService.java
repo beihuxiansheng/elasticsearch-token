@@ -2430,15 +2430,9 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// if we have conflicts, and we are not supposed to ignore them, throw an exception
+comment|// if we have conflicts, throw an exception
 if|if
 condition|(
-operator|!
-name|request
-operator|.
-name|ignoreConflicts
-argument_list|()
-operator|&&
 name|mergeResult
 operator|.
 name|hasConflicts

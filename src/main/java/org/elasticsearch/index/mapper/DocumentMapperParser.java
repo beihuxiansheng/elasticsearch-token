@@ -2402,9 +2402,7 @@ argument_list|,
 literal|"Root mapping definition has unsupported parameters: "
 argument_list|)
 expr_stmt|;
-name|DocumentMapper
-name|documentMapper
-init|=
+return|return
 name|docBuilder
 operator|.
 name|build
@@ -2413,15 +2411,6 @@ name|mapperService
 argument_list|,
 name|this
 argument_list|)
-decl_stmt|;
-comment|// update the source with the generated one
-name|documentMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-return|return
-name|documentMapper
 return|;
 block|}
 DECL|method|checkNoRemainingFields

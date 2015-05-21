@@ -4511,11 +4511,6 @@ name|mapping
 argument_list|)
 decl_stmt|;
 name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|docMapper
 operator|=
 name|parser
 operator|.
@@ -4704,11 +4699,6 @@ operator|.
 name|tokenized
 argument_list|()
 decl_stmt|;
-name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
 name|docMapper
 operator|=
 name|parser
@@ -5683,11 +5673,6 @@ name|mapping1
 argument_list|)
 decl_stmt|;
 name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|docMapper
 operator|=
 name|parser
 operator|.
@@ -6124,11 +6109,6 @@ operator|.
 name|hasDocValues
 argument_list|()
 decl_stmt|;
-name|docMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
 name|docMapper
 operator|=
 name|parser

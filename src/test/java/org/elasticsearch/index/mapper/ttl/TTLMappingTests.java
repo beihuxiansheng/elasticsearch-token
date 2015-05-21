@@ -2143,7 +2143,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2212,7 +2212,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2300,7 +2300,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2445,7 +2445,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2584,7 +2584,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2725,7 +2725,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2851,7 +2851,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2972,7 +2972,7 @@ argument_list|(
 literal|"type"
 argument_list|)
 operator|.
-name|refreshSource
+name|mappingSource
 argument_list|()
 expr_stmt|;
 name|assertThat

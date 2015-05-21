@@ -1291,15 +1291,9 @@ block|{
 return|return
 name|queryStringTermQuery
 argument_list|(
-name|names
-argument_list|()
-operator|.
-name|createIndexNameTerm
-argument_list|(
-name|indexedValueForSearch
+name|createTerm
 argument_list|(
 name|value
-argument_list|)
 argument_list|)
 argument_list|)
 return|;

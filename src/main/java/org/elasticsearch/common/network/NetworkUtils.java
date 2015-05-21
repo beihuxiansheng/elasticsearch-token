@@ -242,7 +242,7 @@ block|}
 DECL|method|defaultReuseAddress
 specifier|public
 specifier|static
-name|Boolean
+name|boolean
 name|defaultReuseAddress
 parameter_list|()
 block|{
@@ -251,7 +251,7 @@ name|Constants
 operator|.
 name|WINDOWS
 condition|?
-literal|null
+literal|false
 else|:
 literal|true
 return|;

@@ -1363,11 +1363,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|documentMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|documentMapper
 operator|=
 name|indexService
 operator|.
@@ -1569,11 +1564,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|documentMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|documentMapper
 operator|=
 name|indexService
 operator|.
@@ -1767,11 +1757,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|documentMapper
-operator|.
-name|refreshSource
-argument_list|()
-expr_stmt|;
-name|documentMapper
 operator|=
 name|indexService
 operator|.
@@ -1884,11 +1869,6 @@ argument_list|(
 name|mapping
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|documentMapper
-operator|.
-name|refreshSource
-argument_list|()
 expr_stmt|;
 name|documentMapper
 operator|=

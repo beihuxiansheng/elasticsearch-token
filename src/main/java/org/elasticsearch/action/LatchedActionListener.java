@@ -33,7 +33,6 @@ end_comment
 begin_class
 DECL|class|LatchedActionListener
 specifier|public
-specifier|final
 class|class
 name|LatchedActionListener
 parameter_list|<
