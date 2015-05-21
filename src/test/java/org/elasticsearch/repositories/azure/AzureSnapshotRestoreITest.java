@@ -379,6 +379,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -510,7 +520,11 @@ name|getRunnerSeedAsString
 argument_list|()
 operator|.
 name|toLowerCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 argument_list|)
 decl_stmt|;
 return|return
