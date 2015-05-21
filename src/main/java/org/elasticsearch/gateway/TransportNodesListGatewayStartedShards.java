@@ -815,9 +815,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"{} can't open index for shard"
+literal|"{} can't open index for shard [{}]"
 argument_list|,
 name|shardId
+argument_list|,
+name|shardStateMetaData
 argument_list|)
 expr_stmt|;
 return|return
