@@ -3821,9 +3821,14 @@ argument_list|()
 operator|.
 name|term
 argument_list|(
+name|Uid
+operator|.
+name|createUid
+argument_list|(
 name|type
 argument_list|,
 name|id
+argument_list|)
 argument_list|)
 argument_list|,
 name|version

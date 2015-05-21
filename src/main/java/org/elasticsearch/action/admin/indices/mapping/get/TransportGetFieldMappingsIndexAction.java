@@ -1398,7 +1398,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|shortName
 argument_list|()
 argument_list|)
 condition|)
@@ -1410,7 +1410,7 @@ operator|.
 name|names
 argument_list|()
 operator|.
-name|name
+name|shortName
 argument_list|()
 argument_list|,
 name|fieldMapper

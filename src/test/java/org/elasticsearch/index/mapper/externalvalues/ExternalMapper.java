@@ -1530,7 +1530,10 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|name
+name|names
+argument_list|()
+operator|.
+name|shortName
 argument_list|()
 argument_list|)
 expr_stmt|;

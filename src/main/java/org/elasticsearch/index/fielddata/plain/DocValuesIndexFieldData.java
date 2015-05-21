@@ -600,7 +600,7 @@ literal|"Doc values field data doesn't support filters ["
 operator|+
 name|fieldNames
 operator|.
-name|name
+name|fullName
 argument_list|()
 operator|+
 literal|"]"
