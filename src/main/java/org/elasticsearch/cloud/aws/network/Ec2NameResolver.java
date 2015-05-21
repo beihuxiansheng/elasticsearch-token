@@ -170,6 +170,18 @@ name|URLConnection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
 begin_comment
 comment|/**  * Resolves certain ec2 related 'meta' hostnames into an actual hostname  * obtained from ec2 meta-data.  *<p/>  * Valid config values for {@link Ec2HostnameType}s are -  *<ul>  *<li>_ec2_ - maps to privateIpv4</li>  *<li>_ec2:privateIp_ - maps to privateIpv4</li>  *<li>_ec2:privateIpv4_</li>  *<li>_ec2:privateDns_</li>  *<li>_ec2:publicIp_ - maps to publicIpv4</li>  *<li>_ec2:publicIpv4_</li>  *<li>_ec2:publicDns_</li>  *</ul>  *  * @author Paul_Loy (keteracel)  */
 end_comment
@@ -384,6 +396,10 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|in
+argument_list|,
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 argument_list|)
 decl_stmt|;
