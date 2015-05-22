@@ -106,6 +106,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|MetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|compress
@@ -1082,7 +1096,26 @@ block|}
 block|}
 else|else
 block|{
-comment|/* norelease waiting for a fix on master that restores support for _all type             if (randomBoolean()) {                 types = new String[]{MetaData.ALL};             } else {                 types = new String[0];             }             */
+if|if
+condition|(
+name|randomBoolean
+argument_list|()
+condition|)
+block|{
+name|types
+operator|=
+operator|new
+name|String
+index|[]
+block|{
+name|MetaData
+operator|.
+name|ALL
+block|}
+expr_stmt|;
+block|}
+else|else
+block|{
 name|types
 operator|=
 operator|new
@@ -1091,6 +1124,7 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+block|}
 block|}
 comment|//some query (e.g. range query) have a different behaviour depending on whether the current search context is set or not
 comment|//which is why we randomly set the search context, which will internally also do QueryParseContext.setTypes(types)
