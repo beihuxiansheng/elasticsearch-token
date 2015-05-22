@@ -2221,7 +2221,9 @@ argument_list|(
 literal|"bootstrap.sigar"
 argument_list|,
 name|rarely
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|builder
