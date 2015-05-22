@@ -230,16 +230,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -645,9 +635,6 @@ name|indexedValue
 argument_list|)
 expr_stmt|;
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|mapper
@@ -923,9 +910,6 @@ name|indexedValue
 argument_list|)
 expr_stmt|;
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|mapper
