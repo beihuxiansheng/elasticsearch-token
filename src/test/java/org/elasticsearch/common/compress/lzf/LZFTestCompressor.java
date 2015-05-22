@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress
+DECL|package|org.elasticsearch.common.compress.lzf
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|common
 operator|.
 name|compress
+operator|.
+name|lzf
 package|;
 end_package
 
@@ -24,37 +26,56 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|io
 operator|.
-name|XContent
+name|stream
+operator|.
+name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
 begin_comment
-comment|/** Exception indicating that we were expecting some {@link XContent} but could  *  not detect its type. */
+comment|// LZF compressor with write support, for testing only
 end_comment
 
 begin_class
-DECL|class|NotXContentException
+DECL|class|LZFTestCompressor
 specifier|public
 class|class
-name|NotXContentException
+name|LZFTestCompressor
 extends|extends
-name|RuntimeException
+name|LZFCompressor
 block|{
-DECL|method|NotXContentException
+annotation|@
+name|Override
+DECL|method|streamOutput
 specifier|public
-name|NotXContentException
+name|StreamOutput
+name|streamOutput
 parameter_list|(
-name|String
-name|message
+name|StreamOutput
+name|out
 parameter_list|)
+throws|throws
+name|IOException
 block|{
-name|super
+return|return
+operator|new
+name|LZFCompressedStreamOutput
 argument_list|(
-name|message
+name|out
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 block|}
 end_class

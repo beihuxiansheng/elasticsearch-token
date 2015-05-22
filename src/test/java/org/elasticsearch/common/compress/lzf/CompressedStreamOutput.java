@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress
+DECL|package|org.elasticsearch.common.compress.lzf
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|common
 operator|.
 name|compress
+operator|.
+name|lzf
 package|;
 end_package
 

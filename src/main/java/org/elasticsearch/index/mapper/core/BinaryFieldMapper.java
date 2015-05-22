@@ -244,38 +244,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|BytesStreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -1029,10 +997,12 @@ name|NotXContentException
 name|e
 parameter_list|)
 block|{
-comment|// This is a BUG! We try to decompress by detecting a header in
-comment|// the stored bytes but since we accept arbitrary bytes, we have
-comment|// no guarantee that uncompressed bytes will be detected as
-comment|// compressed!
+comment|// NOTE: previous versions of Elasticsearch used to try to detect if
+comment|// data was compressed. However this could cause decompression failures
+comment|// as a user may have submitted arbitrary data which looks like it is
+comment|// compressed to elasticsearch but is not. So we removed the ability to
+comment|// compress binary fields and keep this empty catch block for backward
+comment|// compatibility with 1.x
 block|}
 block|}
 return|return

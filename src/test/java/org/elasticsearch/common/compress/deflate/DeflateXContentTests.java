@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress
+DECL|package|org.elasticsearch.common.compress.deflate
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|common
 operator|.
 name|compress
+operator|.
+name|deflate
 package|;
 end_package
 
@@ -24,35 +26,30 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|compress
 operator|.
-name|XContent
+name|AbstractCompressedXContentTests
 import|;
 end_import
 
-begin_comment
-comment|/** Exception indicating that we were expecting some {@link XContent} but could  *  not detect its type. */
-end_comment
-
 begin_class
-DECL|class|NotXContentException
+DECL|class|DeflateXContentTests
 specifier|public
 class|class
-name|NotXContentException
+name|DeflateXContentTests
 extends|extends
-name|RuntimeException
+name|AbstractCompressedXContentTests
 block|{
-DECL|method|NotXContentException
+DECL|method|DeflateXContentTests
 specifier|public
-name|NotXContentException
-parameter_list|(
-name|String
-name|message
-parameter_list|)
+name|DeflateXContentTests
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|message
+operator|new
+name|DeflateCompressor
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

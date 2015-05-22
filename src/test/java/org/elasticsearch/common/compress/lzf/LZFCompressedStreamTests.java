@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress
+DECL|package|org.elasticsearch.common.compress.lzf
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|common
 operator|.
 name|compress
+operator|.
+name|lzf
 package|;
 end_package
 
@@ -24,35 +26,30 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|xcontent
+name|compress
 operator|.
-name|XContent
+name|AbstractCompressedStreamTests
 import|;
 end_import
 
-begin_comment
-comment|/** Exception indicating that we were expecting some {@link XContent} but could  *  not detect its type. */
-end_comment
-
 begin_class
-DECL|class|NotXContentException
+DECL|class|LZFCompressedStreamTests
 specifier|public
 class|class
-name|NotXContentException
+name|LZFCompressedStreamTests
 extends|extends
-name|RuntimeException
+name|AbstractCompressedStreamTests
 block|{
-DECL|method|NotXContentException
+DECL|method|LZFCompressedStreamTests
 specifier|public
-name|NotXContentException
-parameter_list|(
-name|String
-name|message
-parameter_list|)
+name|LZFCompressedStreamTests
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|message
+operator|new
+name|LZFTestCompressor
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
