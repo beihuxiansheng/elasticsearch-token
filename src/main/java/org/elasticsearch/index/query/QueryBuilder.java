@@ -170,6 +170,8 @@ class|class
 name|QueryBuilder
 parameter_list|<
 name|QB
+extends|extends
+name|QueryBuilder
 parameter_list|>
 extends|extends
 name|ToXContentToBytes
