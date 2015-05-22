@@ -178,6 +178,8 @@ argument_list|(
 literal|true
 argument_list|,
 literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
