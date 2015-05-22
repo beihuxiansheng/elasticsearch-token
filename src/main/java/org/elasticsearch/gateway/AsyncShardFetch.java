@@ -346,6 +346,12 @@ specifier|final
 name|ESLogger
 name|logger
 decl_stmt|;
+DECL|field|type
+specifier|protected
+specifier|final
+name|String
+name|type
+decl_stmt|;
 DECL|field|shardId
 specifier|private
 specifier|final
@@ -416,6 +422,9 @@ parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|,
+name|String
+name|type
+parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
@@ -438,6 +447,12 @@ operator|.
 name|logger
 operator|=
 name|logger
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
 expr_stmt|;
 name|this
 operator|.
@@ -917,7 +932,21 @@ name|reroute
 argument_list|(
 name|shardId
 argument_list|,
-literal|"at_least_one_node_failed"
+literal|"nodes failed ["
+operator|+
+name|failedNodes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|"], ignored ["
+operator|+
+name|allIgnoreNodes
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1116,11 +1145,7 @@ name|failure
 argument_list|,
 name|shardId
 argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
+name|type
 argument_list|,
 name|failure
 operator|.
