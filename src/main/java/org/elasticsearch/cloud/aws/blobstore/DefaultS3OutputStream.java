@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultS3OutputStream uploads data to the AWS S3 service using 2 modes: single and multi part.  *<p/>  * When the length of the chunk is lower than buffer_size, the chunk is uploaded with a single request.  * Otherwise multiple requests are made, each of buffer_size (except the last one which can be lower than buffer_size).  *<p/>  * Quick facts about S3:  *<p/>  * Maximum object size:	                5 TB  * Maximum number of parts per upload:	10,000  * Part numbers:                        1 to 10,000 (inclusive)  * Part size:	                        5 MB to 5 GB, last part can be< 5 MB  *<p/>  * See http://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html  * See http://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html  */
+comment|/**  * DefaultS3OutputStream uploads data to the AWS S3 service using 2 modes: single and multi part.  *<p/>  * When the length of the chunk is lower than buffer_size, the chunk is uploaded with a single request.  * Otherwise multiple requests are made, each of buffer_size (except the last one which can be lower than buffer_size).  *<p/>  * Quick facts about S3:  *<p/>  * Maximum object size:                 5 TB  * Maximum number of parts per upload:  10,000  * Part numbers:                        1 to 10,000 (inclusive)  * Part size:                           5 MB to 5 GB, last part can be< 5 MB  *<p/>  * See http://docs.aws.amazon.com/AmazonS3/latest/dev/qfacts.html  * See http://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html  */
 end_comment
 
 begin_class
