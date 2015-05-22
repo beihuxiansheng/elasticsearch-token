@@ -960,9 +960,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -976,9 +976,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|SiblingReducer
+name|SiblingPipelineAggregator
 import|;
 end_import
 
@@ -5444,9 +5444,6 @@ expr_stmt|;
 block|}
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|uidMapper
 init|=
 name|context
@@ -6180,9 +6177,9 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|SiblingReducer
+name|SiblingPipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 init|=
 name|shardResults
 operator|.
@@ -6191,12 +6188,12 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|reducers
+name|pipelineAggregators
 argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|reducers
+name|pipelineAggregators
 operator|!=
 literal|null
 condition|)
@@ -6220,7 +6217,7 @@ operator|.
 name|asList
 argument_list|()
 argument_list|,
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|AGGREGATION_TRANFORM_FUNCTION
 argument_list|)
@@ -6228,16 +6225,16 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|SiblingReducer
-name|reducer
+name|SiblingPipelineAggregator
+name|pipelineAggregator
 range|:
-name|reducers
+name|pipelineAggregators
 control|)
 block|{
 name|InternalAggregation
 name|newAgg
 init|=
-name|reducer
+name|pipelineAggregator
 operator|.
 name|doReduce
 argument_list|(

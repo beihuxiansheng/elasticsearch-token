@@ -740,7 +740,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|InternalSimpleValue
 import|;
@@ -756,7 +756,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
@@ -774,13 +774,13 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
 name|avg
 operator|.
-name|AvgBucketReducer
+name|AvgBucketPipelineAggregator
 import|;
 end_import
 
@@ -794,13 +794,13 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
 name|max
 operator|.
-name|MaxBucketReducer
+name|MaxBucketPipelineAggregator
 import|;
 end_import
 
@@ -814,13 +814,13 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
 name|min
 operator|.
-name|MinBucketReducer
+name|MinBucketPipelineAggregator
 import|;
 end_import
 
@@ -834,13 +834,13 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
 name|sum
 operator|.
-name|SumBucketReducer
+name|SumBucketPipelineAggregator
 import|;
 end_import
 
@@ -854,11 +854,11 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|derivative
 operator|.
-name|DerivativeReducer
+name|DerivativePipelineAggregator
 import|;
 end_import
 
@@ -872,7 +872,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|derivative
 operator|.
@@ -890,11 +890,11 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|movavg
 operator|.
-name|MovAvgReducer
+name|MovAvgPipelineAggregator
 import|;
 end_import
 
@@ -908,7 +908,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|movavg
 operator|.
@@ -1117,8 +1117,8 @@ operator|.
 name|registerStream
 argument_list|()
 expr_stmt|;
-comment|// Reducers
-name|DerivativeReducer
+comment|// Pipeline Aggregations
+name|DerivativePipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()
@@ -1138,27 +1138,27 @@ operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
-name|MaxBucketReducer
+name|MaxBucketPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
-name|MinBucketReducer
+name|MinBucketPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
-name|AvgBucketReducer
+name|AvgBucketPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
-name|SumBucketReducer
+name|SumBucketPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()
 expr_stmt|;
-name|MovAvgReducer
+name|MovAvgPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()

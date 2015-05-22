@@ -5122,6 +5122,10 @@ try|try
 block|{
 if|if
 condition|(
+name|engine
+operator|!=
+literal|null
+operator|&&
 name|flushEngine
 operator|&&
 name|this

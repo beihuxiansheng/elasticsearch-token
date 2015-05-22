@@ -827,9 +827,6 @@ condition|(
 name|mapper
 operator|instanceof
 name|NumberFieldMapper
-argument_list|<
-name|?
-argument_list|>
 condition|)
 block|{
 return|return
@@ -843,9 +840,6 @@ name|parseContext
 argument_list|,
 operator|(
 name|NumberFieldMapper
-argument_list|<
-name|?
-argument_list|>
 operator|)
 name|mapper
 argument_list|,
@@ -892,9 +886,6 @@ name|QueryParseContext
 name|parseContext
 parameter_list|,
 name|NumberFieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|,
 name|MultiValueMode

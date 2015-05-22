@@ -17623,14 +17623,11 @@ name|execute
 argument_list|()
 decl_stmt|;
 comment|// Await until shard updates are in pending state.
-name|assertTrue
-argument_list|(
-name|waitForPendingTasks
+name|assertBusyPendingTasks
 argument_list|(
 literal|"update snapshot state"
 argument_list|,
 name|numberOfShards
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|snapshotListener
@@ -17805,14 +17802,11 @@ name|execute
 argument_list|()
 decl_stmt|;
 comment|// Await until shard updates are in pending state.
-name|assertTrue
-argument_list|(
-name|waitForPendingTasks
+name|assertBusyPendingTasks
 argument_list|(
 literal|"update snapshot state"
 argument_list|,
 name|numberOfShards
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|restoreListener
@@ -17876,10 +17870,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|waitForPendingTasks
+DECL|method|assertBusyPendingTasks
 specifier|private
-name|boolean
-name|waitForPendingTasks
+name|void
+name|assertBusyPendingTasks
 parameter_list|(
 specifier|final
 name|String
@@ -17890,27 +17884,20 @@ name|int
 name|expectedCount
 parameter_list|)
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
-return|return
-name|awaitBusy
+name|assertBusy
 argument_list|(
 operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
+name|Runnable
 argument_list|()
 block|{
 annotation|@
 name|Override
 specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|o
-parameter_list|)
+name|void
+name|run
+parameter_list|()
 block|{
 name|PendingClusterTasksResponse
 name|tasks
@@ -17964,15 +17951,20 @@ operator|++
 expr_stmt|;
 block|}
 block|}
-return|return
-name|expectedCount
-operator|==
+name|assertThat
+argument_list|(
 name|count
-return|;
+argument_list|,
+name|equalTo
+argument_list|(
+name|expectedCount
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 comment|/**      * Cluster state task that blocks waits for the blockOn task to show up and then blocks execution not letting      * any cluster state update task to be performed unless they have priority higher then passThroughPriority.      *      * This class is useful to testing of cluster state update task batching for lower priority tasks.      */
 DECL|class|BlockingClusterStateListener

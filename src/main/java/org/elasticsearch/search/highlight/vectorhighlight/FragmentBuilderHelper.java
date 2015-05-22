@@ -218,9 +218,6 @@ name|WeightedFragInfo
 name|fixWeightedFragInfo
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|,
 name|Field

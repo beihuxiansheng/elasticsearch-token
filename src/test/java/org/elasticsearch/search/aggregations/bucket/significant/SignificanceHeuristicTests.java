@@ -400,9 +400,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -981,7 +981,7 @@ argument_list|,
 operator|(
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
 operator|)
 name|Collections
@@ -1062,7 +1062,7 @@ argument_list|,
 operator|(
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
 operator|)
 name|Collections

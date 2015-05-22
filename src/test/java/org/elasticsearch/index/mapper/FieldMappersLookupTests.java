@@ -304,9 +304,6 @@ expr_stmt|;
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|itr
 init|=
@@ -1028,9 +1025,6 @@ block|{
 name|Iterator
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|itr
 init|=
@@ -1188,16 +1182,10 @@ specifier|static
 name|List
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|newList
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 modifier|...
 name|mapper
 parameter_list|)
@@ -1218,9 +1206,6 @@ class|class
 name|FakeFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|String
-argument_list|>
 block|{
 DECL|field|dummySettings
 specifier|static

@@ -489,9 +489,6 @@ argument_list|()
 control|)
 block|{
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|documentMapper

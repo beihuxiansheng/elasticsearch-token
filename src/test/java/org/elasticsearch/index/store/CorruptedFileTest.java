@@ -4517,15 +4517,6 @@ argument_list|(
 literal|2
 argument_list|)
 expr_stmt|;
-comment|// we rely on the test to have replicas on all nodes, make sure there are too many to time out
-name|internalCluster
-argument_list|()
-operator|.
-name|ensureAtMostNumDataNodes
-argument_list|(
-literal|4
-argument_list|)
-expr_stmt|;
 name|assertAcked
 argument_list|(
 name|prepareCreate

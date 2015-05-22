@@ -108,6 +108,18 @@ name|sigar
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"bootstrap.sigar"
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
 try|try
 block|{
 name|sigar
@@ -174,6 +186,7 @@ name|sigar
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

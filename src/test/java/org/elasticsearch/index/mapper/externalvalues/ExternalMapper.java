@@ -465,9 +465,6 @@ class|class
 name|ExternalMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|Object
-argument_list|>
 block|{
 comment|/**      * Returns the actual value of the field.      *      * @param value      */
 annotation|@

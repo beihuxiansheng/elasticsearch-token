@@ -279,9 +279,6 @@ name|highlighterContext
 parameter_list|)
 block|{
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|highlighterContext
@@ -1178,9 +1175,6 @@ DECL|field|mappers
 name|Map
 argument_list|<
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 argument_list|,
 name|MapperHighlighterEntry
 argument_list|>

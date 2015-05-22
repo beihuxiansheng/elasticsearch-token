@@ -96,9 +96,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -318,9 +318,9 @@ name|collectsFromSingleBucket
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -365,7 +365,7 @@ name|this
 operator|.
 name|factories
 operator|.
-name|createReducers
+name|createPipelineAggregators
 argument_list|()
 argument_list|,
 name|this

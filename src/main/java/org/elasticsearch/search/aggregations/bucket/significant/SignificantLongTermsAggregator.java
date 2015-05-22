@@ -178,9 +178,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -349,9 +349,9 @@ name|includeExclude
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -390,7 +390,7 @@ literal|false
 argument_list|,
 name|includeExclude
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -799,7 +799,7 @@ argument_list|(
 name|list
 argument_list|)
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|metaData
@@ -880,7 +880,7 @@ operator|>
 name|emptyList
 argument_list|()
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|metaData

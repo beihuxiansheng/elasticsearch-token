@@ -361,9 +361,6 @@ name|logger
 expr_stmt|;
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|uidMapper
 init|=
 name|mapperService

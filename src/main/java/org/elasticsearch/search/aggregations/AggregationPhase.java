@@ -80,16 +80,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -166,9 +156,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -182,9 +172,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|SiblingReducer
+name|SiblingPipelineAggregator
 import|;
 end_import
 
@@ -907,9 +897,9 @@ try|try
 block|{
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 init|=
 name|context
 operator|.
@@ -919,20 +909,20 @@ operator|.
 name|factories
 argument_list|()
 operator|.
-name|createReducers
+name|createPipelineAggregators
 argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|SiblingReducer
+name|SiblingPipelineAggregator
 argument_list|>
-name|siblingReducers
+name|siblingPipelineAggregators
 init|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|(
-name|reducers
+name|pipelineAggregators
 operator|.
 name|size
 argument_list|()
@@ -940,27 +930,27 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|Reducer
-name|reducer
+name|PipelineAggregator
+name|pipelineAggregator
 range|:
-name|reducers
+name|pipelineAggregators
 control|)
 block|{
 if|if
 condition|(
-name|reducer
+name|pipelineAggregator
 operator|instanceof
-name|SiblingReducer
+name|SiblingPipelineAggregator
 condition|)
 block|{
-name|siblingReducers
+name|siblingPipelineAggregators
 operator|.
 name|add
 argument_list|(
 operator|(
-name|SiblingReducer
+name|SiblingPipelineAggregator
 operator|)
-name|reducer
+name|pipelineAggregator
 argument_list|)
 expr_stmt|;
 block|}
@@ -970,16 +960,16 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Invalid reducer named ["
+literal|"Invalid pipeline aggregation named ["
 operator|+
-name|reducer
+name|pipelineAggregator
 operator|.
 name|name
 argument_list|()
 operator|+
 literal|"] of type ["
 operator|+
-name|reducer
+name|pipelineAggregator
 operator|.
 name|type
 argument_list|()
@@ -987,7 +977,7 @@ operator|.
 name|name
 argument_list|()
 operator|+
-literal|"]. Only sibling reducers are allowed at the top level"
+literal|"]. Only sibling pipeline aggregations are allowed at the top level"
 argument_list|)
 throw|;
 block|}
@@ -997,9 +987,9 @@ operator|.
 name|queryResult
 argument_list|()
 operator|.
-name|reducers
+name|pipelineAggregators
 argument_list|(
-name|siblingReducers
+name|siblingPipelineAggregators
 argument_list|)
 expr_stmt|;
 block|}
@@ -1013,7 +1003,7 @@ throw|throw
 operator|new
 name|AggregationExecutionException
 argument_list|(
-literal|"Failed to build top level reducers"
+literal|"Failed to build top level pipeline aggregators"
 argument_list|,
 name|e
 argument_list|)

@@ -524,9 +524,6 @@ name|Settings
 name|indexSettings
 parameter_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|,
 name|IndexFieldDataCache

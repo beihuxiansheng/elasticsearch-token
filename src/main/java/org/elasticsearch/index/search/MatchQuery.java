@@ -1321,9 +1321,6 @@ name|float
 name|maxTermFrequency
 parameter_list|,
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|)
 block|{

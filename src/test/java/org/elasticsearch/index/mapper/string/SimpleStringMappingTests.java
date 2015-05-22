@@ -2182,9 +2182,6 @@ throws|throws
 name|Exception
 block|{
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|mapper
@@ -4483,9 +4480,6 @@ name|mapping
 argument_list|)
 decl_stmt|;
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 init|=
 name|defaultMapper

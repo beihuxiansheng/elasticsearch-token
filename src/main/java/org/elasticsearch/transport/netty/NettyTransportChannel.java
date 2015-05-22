@@ -369,6 +369,8 @@ operator|=
 name|profileName
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getProfileName
 specifier|public
 name|String

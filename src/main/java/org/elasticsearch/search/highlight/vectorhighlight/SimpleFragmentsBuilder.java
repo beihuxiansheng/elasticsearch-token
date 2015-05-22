@@ -122,9 +122,6 @@ DECL|field|mapper
 specifier|protected
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 decl_stmt|;
 DECL|method|SimpleFragmentsBuilder
@@ -132,9 +129,6 @@ specifier|public
 name|SimpleFragmentsBuilder
 parameter_list|(
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 parameter_list|,
 name|String

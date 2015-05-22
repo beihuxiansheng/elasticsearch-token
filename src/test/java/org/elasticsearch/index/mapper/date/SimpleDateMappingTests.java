@@ -778,9 +778,6 @@ name|get
 argument_list|()
 expr_stmt|;
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|defaultMapper

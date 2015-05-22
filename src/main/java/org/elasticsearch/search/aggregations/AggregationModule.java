@@ -680,9 +680,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -696,7 +696,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
@@ -716,7 +716,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
@@ -736,7 +736,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
@@ -756,7 +756,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|bucketmetrics
 operator|.
@@ -776,7 +776,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|derivative
 operator|.
@@ -794,7 +794,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|movavg
 operator|.
@@ -812,7 +812,7 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
 name|movavg
 operator|.
@@ -866,7 +866,7 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
-DECL|field|reducerParsers
+DECL|field|pipelineAggParsers
 specifier|private
 name|List
 argument_list|<
@@ -874,12 +874,12 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 argument_list|>
 argument_list|>
-name|reducerParsers
+name|pipelineAggParsers
 init|=
 name|Lists
 operator|.
@@ -1161,7 +1161,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|reducerParsers
+name|pipelineAggParsers
 operator|.
 name|add
 argument_list|(
@@ -1170,7 +1170,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|reducerParsers
+name|pipelineAggParsers
 operator|.
 name|add
 argument_list|(
@@ -1179,7 +1179,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|reducerParsers
+name|pipelineAggParsers
 operator|.
 name|add
 argument_list|(
@@ -1188,7 +1188,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|reducerParsers
+name|pipelineAggParsers
 operator|.
 name|add
 argument_list|(
@@ -1197,7 +1197,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|reducerParsers
+name|pipelineAggParsers
 operator|.
 name|add
 argument_list|(
@@ -1206,7 +1206,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|reducerParsers
+name|pipelineAggParsers
 operator|.
 name|add
 argument_list|(
@@ -1299,11 +1299,11 @@ expr_stmt|;
 block|}
 name|Multibinder
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 argument_list|>
-name|multibinderReducerParser
+name|multibinderPipelineAggParser
 init|=
 name|Multibinder
 operator|.
@@ -1312,7 +1312,7 @@ argument_list|(
 name|binder
 argument_list|()
 argument_list|,
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 operator|.
@@ -1325,16 +1325,16 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Reducer
+name|PipelineAggregator
 operator|.
 name|Parser
 argument_list|>
 name|parser
 range|:
-name|reducerParsers
+name|pipelineAggParsers
 control|)
 block|{
-name|multibinderReducerParser
+name|multibinderPipelineAggParser
 operator|.
 name|addBinding
 argument_list|()

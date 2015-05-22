@@ -763,9 +763,6 @@ argument_list|)
 throw|;
 block|}
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|fieldMapper
 init|=
 name|indexService

@@ -533,9 +533,6 @@ class|class
 name|IntegerFieldMapper
 extends|extends
 name|NumberFieldMapper
-argument_list|<
-name|Integer
-argument_list|>
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public

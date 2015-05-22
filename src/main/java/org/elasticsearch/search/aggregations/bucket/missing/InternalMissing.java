@@ -90,9 +90,9 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|reducers
+name|pipeline
 operator|.
-name|Reducer
+name|PipelineAggregator
 import|;
 end_import
 
@@ -238,9 +238,9 @@ name|aggregations
 parameter_list|,
 name|List
 argument_list|<
-name|Reducer
+name|PipelineAggregator
 argument_list|>
-name|reducers
+name|pipelineAggregators
 parameter_list|,
 name|Map
 argument_list|<
@@ -259,7 +259,7 @@ name|docCount
 argument_list|,
 name|aggregations
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|,
 name|metaData
 argument_list|)
@@ -304,7 +304,7 @@ name|docCount
 argument_list|,
 name|subAggregations
 argument_list|,
-name|reducers
+name|pipelineAggregators
 argument_list|()
 argument_list|,
 name|getMetaData

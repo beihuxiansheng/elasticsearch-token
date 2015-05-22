@@ -75,9 +75,6 @@ DECL|field|mapper
 specifier|private
 specifier|final
 name|FieldMapper
-argument_list|<
-name|?
-argument_list|>
 name|mapper
 decl_stmt|;
 comment|/**      * Constructs a field data context for the given field and its index field data      *      * @param field             The name of the field      * @param indexFieldData    The index field data of the field      */

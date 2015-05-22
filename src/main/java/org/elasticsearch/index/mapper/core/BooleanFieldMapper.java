@@ -423,9 +423,6 @@ class|class
 name|BooleanFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|Boolean
-argument_list|>
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public

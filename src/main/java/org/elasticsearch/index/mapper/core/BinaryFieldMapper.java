@@ -501,9 +501,6 @@ class|class
 name|BinaryFieldMapper
 extends|extends
 name|AbstractFieldMapper
-argument_list|<
-name|BytesReference
-argument_list|>
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public
