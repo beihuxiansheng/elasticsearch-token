@@ -677,6 +677,20 @@ name|boolFilter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|ExistsQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|ExistsQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

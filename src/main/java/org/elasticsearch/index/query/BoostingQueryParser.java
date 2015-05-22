@@ -475,6 +475,20 @@ return|return
 name|boostingQuery
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|BoostingQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|BoostingQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

@@ -358,6 +358,20 @@ return|return
 name|filter
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|TypeQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|TypeQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

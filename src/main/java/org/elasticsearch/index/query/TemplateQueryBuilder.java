@@ -108,6 +108,20 @@ operator|.
 name|ScriptType
 name|templateType
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|TemplateQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|TemplateQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * @param template the template to use for that query.      * @param vars the parameters to fill the template with.      * */
 DECL|method|TemplateQueryBuilder
 specifier|public

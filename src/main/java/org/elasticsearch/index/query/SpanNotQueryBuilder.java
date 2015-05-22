@@ -99,6 +99,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|SpanNotQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|SpanNotQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|include
 specifier|public
 name|SpanNotQueryBuilder

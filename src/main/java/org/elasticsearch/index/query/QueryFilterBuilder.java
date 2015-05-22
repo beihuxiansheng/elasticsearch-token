@@ -84,6 +84,18 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|QueryFilterBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|QueryFilterBuilder
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
 DECL|method|QueryFilterBuilder
 specifier|public

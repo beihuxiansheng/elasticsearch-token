@@ -116,6 +116,23 @@ specifier|private
 name|Boolean
 name|lookupCache
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|TermsQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|TermsQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+operator|(
+name|Object
+operator|)
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * A filter for a field based on several terms matching on any of them.      *      * @param name   The field name      * @param values The terms      */
 DECL|method|TermsQueryBuilder
 specifier|public

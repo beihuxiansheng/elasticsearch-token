@@ -134,6 +134,20 @@ specifier|private
 name|boolean
 name|maxDetermizedStatesSet
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|RegexpQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|RegexpQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param regexp The regular expression      */
 DECL|method|RegexpQueryBuilder
 specifier|public

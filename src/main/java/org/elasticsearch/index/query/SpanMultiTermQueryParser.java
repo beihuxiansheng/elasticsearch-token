@@ -331,6 +331,20 @@ name|subQuery
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SpanMultiTermQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|SpanMultiTermQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

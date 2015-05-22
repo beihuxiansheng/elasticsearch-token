@@ -574,6 +574,20 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|AndQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|AndQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

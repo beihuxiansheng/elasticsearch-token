@@ -108,6 +108,24 @@ specifier|final
 name|int
 name|length
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|WrapperQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|WrapperQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+operator|-
+literal|1
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
 comment|/**      * Creates a query builder given a query provided as a string      */
 DECL|method|WrapperQueryBuilder
 specifier|public

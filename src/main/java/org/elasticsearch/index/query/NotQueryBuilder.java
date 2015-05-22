@@ -82,6 +82,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|NotQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|NotQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|NotQueryBuilder
 specifier|public
 name|NotQueryBuilder
@@ -100,6 +110,19 @@ name|requireNonNull
 argument_list|(
 name|filter
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * private constructor for internal use      */
+DECL|method|NotQueryBuilder
+specifier|private
+name|NotQueryBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|filter
+operator|=
+literal|null
 expr_stmt|;
 block|}
 DECL|method|queryName

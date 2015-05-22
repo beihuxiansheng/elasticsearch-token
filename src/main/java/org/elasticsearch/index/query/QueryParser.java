@@ -98,6 +98,12 @@ name|IOException
 throws|,
 name|QueryParsingException
 function_decl|;
+comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
+DECL|method|getBuilderPrototype
+name|QueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

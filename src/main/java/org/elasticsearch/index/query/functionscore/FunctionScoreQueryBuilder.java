@@ -180,6 +180,16 @@ name|minScore
 init|=
 literal|null
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|FunctionScoreQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|FunctionScoreQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Creates a function_score query that executes on documents that match query a query.      * Query and filter will be wrapped into a filtered_query.      *      * @param queryBuilder the query that defines which documents the function_score query will be executed on.      */
 DECL|method|FunctionScoreQueryBuilder
 specifier|public

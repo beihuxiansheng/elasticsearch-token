@@ -105,6 +105,20 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|FilteredQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|FilteredQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * A query that applies a filter to the results of another query.      *      * @param queryBuilder  The query to apply the filter to (Can be null)      * @param filterBuilder The filter to apply on the query (Can be null)      */
 DECL|method|FilteredQueryBuilder
 specifier|public

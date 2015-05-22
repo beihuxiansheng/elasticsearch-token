@@ -195,6 +195,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|CommonTermsQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|CommonTermsQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructs a new common terms query.      */
 DECL|method|CommonTermsQueryBuilder
 specifier|public
@@ -248,6 +258,25 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+block|}
+comment|/**      * private constructor used onyl internally      */
+DECL|method|CommonTermsQueryBuilder
+specifier|private
+name|CommonTermsQueryBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|text
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+literal|null
 expr_stmt|;
 block|}
 comment|/**      * Sets the operator to use for terms with a high document frequency      * (greater than or equal to {@link #cutoffFrequency(float)}. Defaults to      *<tt>AND</tt>.      */

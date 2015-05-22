@@ -152,6 +152,16 @@ name|boost
 init|=
 literal|1.0f
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|MatchAllQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|MatchAllQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 annotation|@
 name|Override

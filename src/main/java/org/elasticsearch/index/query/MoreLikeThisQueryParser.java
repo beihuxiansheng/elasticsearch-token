@@ -2667,6 +2667,20 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|MoreLikeThisQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|MoreLikeThisQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

@@ -118,6 +118,20 @@ name|innerHit
 init|=
 literal|null
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|HasParentQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|HasParentQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * @param parentType  The parent type      * @param parentQuery The query that will be matched with parent documents      */
 DECL|method|HasParentQueryBuilder
 specifier|public

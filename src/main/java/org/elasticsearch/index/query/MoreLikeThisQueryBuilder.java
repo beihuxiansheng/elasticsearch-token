@@ -953,6 +953,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|MoreLikeThisQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|MoreLikeThisQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Constructs a new more like this query which uses the "_all" field.      */
 DECL|method|MoreLikeThisQueryBuilder
 specifier|public

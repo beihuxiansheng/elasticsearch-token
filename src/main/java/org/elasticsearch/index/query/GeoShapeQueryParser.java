@@ -1257,6 +1257,20 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|GeoShapeQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|GeoShapeQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

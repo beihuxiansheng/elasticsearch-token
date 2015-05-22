@@ -131,6 +131,20 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|FuzzyQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|FuzzyQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * Constructs a new term query.      *      * @param name  The name of the field      * @param value The value of the term      */
 DECL|method|FuzzyQueryBuilder
 specifier|public
