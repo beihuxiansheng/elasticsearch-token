@@ -1234,7 +1234,7 @@ name|parser
 argument_list|,
 name|testQuery
 operator|.
-name|parserName
+name|queryId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1247,7 +1247,7 @@ name|queryParser
 argument_list|(
 name|testQuery
 operator|.
-name|parserName
+name|queryId
 argument_list|()
 argument_list|)
 operator|.

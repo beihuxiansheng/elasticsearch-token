@@ -94,15 +94,6 @@ name|LimitQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"limit"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|LimitQueryParser
@@ -124,6 +115,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|LimitQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

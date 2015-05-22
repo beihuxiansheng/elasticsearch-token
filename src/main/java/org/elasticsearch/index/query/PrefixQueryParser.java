@@ -166,15 +166,6 @@ name|PrefixQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"prefix"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|PrefixQueryParser
@@ -196,6 +187,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|PrefixQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

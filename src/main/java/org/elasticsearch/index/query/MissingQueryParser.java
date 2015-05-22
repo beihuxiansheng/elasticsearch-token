@@ -206,15 +206,6 @@ name|MissingQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"missing"
-decl_stmt|;
 DECL|field|DEFAULT_NULL_VALUE
 specifier|public
 specifier|static
@@ -254,6 +245,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|MissingQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

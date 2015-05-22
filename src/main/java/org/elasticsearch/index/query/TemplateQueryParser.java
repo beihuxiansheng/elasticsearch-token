@@ -216,16 +216,6 @@ name|TemplateQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-comment|/** Name to reference this type of query. */
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"template"
-decl_stmt|;
 comment|/** Name of query parameter containing the template string. */
 DECL|field|QUERY
 specifier|public
@@ -344,6 +334,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|TemplateQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

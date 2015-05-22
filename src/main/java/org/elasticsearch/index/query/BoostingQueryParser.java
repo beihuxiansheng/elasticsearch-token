@@ -94,15 +94,6 @@ name|BoostingQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"boosting"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|BoostingQueryParser
@@ -124,6 +115,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|BoostingQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

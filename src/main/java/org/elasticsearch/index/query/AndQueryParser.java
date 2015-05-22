@@ -138,15 +138,6 @@ name|AndQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"and"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|AndQueryParser
@@ -168,6 +159,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|AndQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

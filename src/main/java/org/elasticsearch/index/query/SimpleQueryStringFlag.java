@@ -307,7 +307,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unknown "
 operator|+
-name|SimpleQueryStringParser
+name|SimpleQueryStringBuilder
 operator|.
 name|NAME
 operator|+

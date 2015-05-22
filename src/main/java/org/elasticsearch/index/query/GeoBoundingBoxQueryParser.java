@@ -318,15 +318,6 @@ name|BOTTOMRIGHT
 init|=
 literal|"bottomRight"
 decl_stmt|;
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"geo_bbox"
-decl_stmt|;
 DECL|field|FIELD
 specifier|public
 specifier|static
@@ -357,6 +348,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|GeoBoundingBoxQueryBuilder
+operator|.
 name|NAME
 block|,
 literal|"geoBbox"

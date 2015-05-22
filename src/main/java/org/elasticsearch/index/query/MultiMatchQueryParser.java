@@ -190,15 +190,6 @@ name|MultiMatchQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"multi_match"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|MultiMatchQueryParser
@@ -220,6 +211,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|MultiMatchQueryBuilder
+operator|.
 name|NAME
 block|,
 literal|"multiMatch"
@@ -435,6 +428,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|MultiMatchQueryBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] query does not support ["
@@ -546,6 +541,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|MultiMatchQueryBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] analyzer ["

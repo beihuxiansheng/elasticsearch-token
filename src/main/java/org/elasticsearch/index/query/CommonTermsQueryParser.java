@@ -210,15 +210,6 @@ name|CommonTermsQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"common"
-decl_stmt|;
 DECL|field|DEFAULT_MAX_TERM_DOC_FREQ
 specifier|static
 specifier|final
@@ -276,6 +267,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|CommonTermsQueryBuilder
+operator|.
 name|NAME
 block|}
 return|;

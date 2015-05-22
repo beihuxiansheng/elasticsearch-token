@@ -210,15 +210,6 @@ name|GeoDistanceQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"geo_distance"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|GeoDistanceQueryParser
@@ -240,6 +231,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|GeoDistanceQueryBuilder
+operator|.
 name|NAME
 block|,
 literal|"geoDistance"

@@ -334,15 +334,6 @@ name|TermsQueryParser
 extends|extends
 name|BaseQueryParserTemp
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"terms"
-decl_stmt|;
 DECL|field|MIN_SHOULD_MATCH_FIELD
 specifier|private
 specifier|static
@@ -400,6 +391,8 @@ operator|new
 name|String
 index|[]
 block|{
+name|TermsQueryBuilder
+operator|.
 name|NAME
 block|,
 literal|"in"
@@ -934,6 +927,8 @@ name|currentFieldName
 operator|+
 literal|"] is not allowed in a filter context for the ["
 operator|+
+name|TermsQueryBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] query"
