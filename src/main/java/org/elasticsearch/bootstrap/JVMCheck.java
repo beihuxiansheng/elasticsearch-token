@@ -90,7 +90,7 @@ end_comment
 
 begin_class
 DECL|class|JVMCheck
-specifier|public
+specifier|final
 class|class
 name|JVMCheck
 block|{
@@ -115,6 +115,7 @@ decl_stmt|;
 comment|/**      * Metadata and messaging for hotspot bugs.      */
 DECL|class|HotspotBug
 specifier|static
+specifier|final
 class|class
 name|HotspotBug
 block|{
@@ -684,22 +685,6 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-block|}
-comment|/** Command line driver for convenience */
-DECL|method|main
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-name|args
-index|[]
-parameter_list|)
-block|{
-name|check
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class
