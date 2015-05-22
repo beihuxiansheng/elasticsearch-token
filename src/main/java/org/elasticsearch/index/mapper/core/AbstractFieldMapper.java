@@ -2609,44 +2609,6 @@ name|QueryParseContext
 name|context
 parameter_list|)
 block|{
-switch|switch
-condition|(
-name|values
-operator|.
-name|size
-argument_list|()
-condition|)
-block|{
-case|case
-literal|0
-case|:
-return|return
-name|Queries
-operator|.
-name|newMatchNoDocsQuery
-argument_list|()
-return|;
-case|case
-literal|1
-case|:
-comment|// When there is a single term, it's important to return a term filter so that
-comment|// it can return a DocIdSet that is directly backed by a postings list, instead
-comment|// of loading everything into a bit set and returning an iterator based on the
-comment|// bit set
-return|return
-name|termQuery
-argument_list|(
-name|values
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-argument_list|,
-name|context
-argument_list|)
-return|;
-default|default:
 name|BytesRef
 index|[]
 name|bytesRefs
@@ -2705,7 +2667,6 @@ argument_list|,
 name|bytesRefs
 argument_list|)
 return|;
-block|}
 block|}
 annotation|@
 name|Override
