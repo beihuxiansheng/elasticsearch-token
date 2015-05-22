@@ -491,7 +491,7 @@ specifier|private
 name|boolean
 name|detectNoop
 init|=
-literal|false
+literal|true
 decl_stmt|;
 annotation|@
 name|Nullable
@@ -1040,7 +1040,7 @@ name|getParams
 argument_list|()
 return|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|script
@@ -1072,7 +1072,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|script
@@ -1101,7 +1101,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The language of the script to execute.      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * The language of the script to execute.      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|scriptLang
@@ -1150,7 +1150,7 @@ name|getLang
 argument_list|()
 return|;
 block|}
-comment|/**      * Add a script parameter.      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * Add a script parameter.      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|addScriptParam
@@ -1279,7 +1279,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the script parameters to use with the script.      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * Sets the script parameters to use with the script.      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|scriptParams
@@ -1460,7 +1460,7 @@ name|script
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|script
@@ -1507,7 +1507,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *      * @param script      *            The script to execute      * @param scriptLang      *            The script language      * @param scriptType      *            The script type      * @param scriptParams      *            The script parameters      *       * @deprecated Use {@link #script(Script)} instead      */
+comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *      * @param script      *            The script to execute      * @param scriptLang      *            The script language      * @param scriptType      *            The script type      * @param scriptParams      *            The script parameters      *      * @deprecated Use {@link #script(Script)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|script
@@ -2316,7 +2316,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Should this update attempt to detect if it is a noop?      * @return this for chaining      */
+comment|/**      * Should this update attempt to detect if it is a noop? Defaults to true.      * @return this for chaining      */
 DECL|method|detectNoop
 specifier|public
 name|UpdateRequest
@@ -2336,6 +2336,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Should this update attempt to detect if it is a noop? Defaults to true.      */
 DECL|method|detectNoop
 specifier|public
 name|boolean

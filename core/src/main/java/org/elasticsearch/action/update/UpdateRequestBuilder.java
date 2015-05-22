@@ -978,7 +978,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets whether to perform extra effort to detect noop updates via docAsUpsert.      */
+comment|/**      * Sets whether to perform extra effort to detect noop updates via docAsUpsert.      * Defautls to true.      */
 DECL|method|setDetectNoop
 specifier|public
 name|UpdateRequestBuilder
@@ -1014,6 +1014,30 @@ operator|.
 name|scriptedUpsert
 argument_list|(
 name|scriptedUpsert
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the new ttl of the document. Note that if detectNoop is true (the default)      * and the source of the document isn't changed then the ttl update won't take      * effect.      */
+DECL|method|setTtl
+specifier|public
+name|UpdateRequestBuilder
+name|setTtl
+parameter_list|(
+name|Long
+name|ttl
+parameter_list|)
+block|{
+name|request
+operator|.
+name|doc
+argument_list|()
+operator|.
+name|ttl
+argument_list|(
+name|ttl
 argument_list|)
 expr_stmt|;
 return|return
