@@ -688,9 +688,6 @@ argument_list|,
 name|highlighterContext
 operator|.
 name|query
-operator|.
-name|originalQuery
-argument_list|()
 argument_list|,
 name|searcher
 argument_list|,
