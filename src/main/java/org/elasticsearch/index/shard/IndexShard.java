@@ -852,22 +852,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|ParentFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|merge
 operator|.
 name|MergeStats
@@ -8473,11 +8457,21 @@ name|getOperationsCount
 parameter_list|()
 block|{
 return|return
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
 name|indexShardOperationCounter
 operator|.
 name|refCount
 argument_list|()
+operator|-
+literal|1
+argument_list|)
 return|;
+comment|// refCount is incremented on creation and decremented on close
 block|}
 comment|/**      * Syncs the given location with the underlying storage unless already synced.      */
 DECL|method|sync

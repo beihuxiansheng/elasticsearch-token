@@ -26,35 +26,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Lists
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
 import|;
 end_import
 
@@ -65,18 +37,6 @@ operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ActionFuture
 import|;
 end_import
 
@@ -183,18 +143,6 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
 import|;
 end_import
 
@@ -321,20 +269,6 @@ operator|.
 name|index
 operator|.
 name|IndexService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|engine
-operator|.
-name|Engine
 import|;
 end_import
 
@@ -485,16 +419,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -1677,6 +1601,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * @return commit sync id if exists, else null          */
 DECL|method|syncId
 specifier|public
 name|String

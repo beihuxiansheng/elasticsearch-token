@@ -890,20 +890,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ShardId
 import|;
 end_import
@@ -919,20 +905,6 @@ operator|.
 name|store
 operator|.
 name|IndexStoreModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|Translog
 import|;
 end_import
 
@@ -1031,20 +1003,6 @@ operator|.
 name|recovery
 operator|.
 name|RecoverySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|monitor
-operator|.
-name|sigar
-operator|.
-name|SigarService
 import|;
 end_import
 
@@ -6756,7 +6714,7 @@ name|void
 name|beforeIndexDeletion
 parameter_list|()
 block|{
-comment|// Check that the operations counter on index shard has reached 1.
+comment|// Check that the operations counter on index shard has reached 0.
 comment|// The assumption here is that after a test there are no ongoing write operations.
 comment|// test that have ongoing write operations after the test (for example because ttl is used
 comment|// and not all docs have been purged after the test) and inherit from
@@ -7017,46 +6975,12 @@ operator|.
 name|getOperationsCount
 argument_list|()
 argument_list|,
-name|anyOf
-argument_list|(
-name|equalTo
-argument_list|(
-literal|1
-argument_list|)
-argument_list|,
 name|equalTo
 argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|indexShard
-operator|.
-name|getOperationsCount
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-name|assertThat
-argument_list|(
-name|indexShard
-operator|.
-name|state
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|IndexShardState
-operator|.
-name|CLOSED
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 block|}
