@@ -128,6 +128,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -636,6 +648,13 @@ return|return
 name|externalNode
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"needs java.io.File api to start a process"
+argument_list|)
 DECL|method|startInternal
 specifier|synchronized
 name|void
