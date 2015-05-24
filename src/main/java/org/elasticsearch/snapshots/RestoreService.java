@@ -712,6 +712,16 @@ argument_list|(
 name|SETTING_AUTO_EXPAND_REPLICAS
 argument_list|)
 operator|.
+name|add
+argument_list|(
+name|SETTING_VERSION_UPGRADED
+argument_list|)
+operator|.
+name|add
+argument_list|(
+name|SETTING_VERSION_MINIMUM_COMPATIBLE
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
