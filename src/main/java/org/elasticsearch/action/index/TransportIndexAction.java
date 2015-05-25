@@ -144,7 +144,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|TransportShardReplicationOperationAction
+name|TransportReplicationAction
 import|;
 end_import
 
@@ -456,7 +456,7 @@ specifier|public
 class|class
 name|TransportIndexAction
 extends|extends
-name|TransportShardReplicationOperationAction
+name|TransportReplicationAction
 argument_list|<
 name|IndexRequest
 argument_list|,

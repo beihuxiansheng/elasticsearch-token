@@ -28,7 +28,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ShardReplicationOperationRequestBuilder
+name|ReplicationRequestBuilder
 import|;
 end_import
 
@@ -78,7 +78,7 @@ specifier|public
 class|class
 name|DeleteRequestBuilder
 extends|extends
-name|ShardReplicationOperationRequestBuilder
+name|ReplicationRequestBuilder
 argument_list|<
 name|DeleteRequest
 argument_list|,
