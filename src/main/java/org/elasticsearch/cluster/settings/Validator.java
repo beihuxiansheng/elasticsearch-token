@@ -170,6 +170,8 @@ argument_list|(
 name|value
 argument_list|,
 literal|null
+argument_list|,
+name|setting
 argument_list|)
 operator|==
 literal|null
@@ -240,6 +242,8 @@ argument_list|(
 name|value
 argument_list|,
 literal|null
+argument_list|,
+name|setting
 argument_list|)
 decl_stmt|;
 if|if

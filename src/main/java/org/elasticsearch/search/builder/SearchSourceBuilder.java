@@ -1236,6 +1236,8 @@ argument_list|(
 name|timeout
 argument_list|,
 literal|null
+argument_list|,
+literal|"SearchSourceBuilder.timeout"
 argument_list|)
 operator|.
 name|millis

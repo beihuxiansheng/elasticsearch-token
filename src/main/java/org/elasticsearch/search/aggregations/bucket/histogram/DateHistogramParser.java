@@ -1432,6 +1432,8 @@ argument_list|(
 name|interval
 argument_list|,
 literal|null
+argument_list|,
+literal|"DateHistogramParser.interval"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1639,6 +1641,8 @@ literal|1
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|"DateHistogramParser.parseOffset"
 argument_list|)
 operator|.
 name|millis
@@ -1674,6 +1678,8 @@ name|beginIndex
 argument_list|)
 argument_list|,
 literal|null
+argument_list|,
+literal|"DateHistogramParser.parseOffset"
 argument_list|)
 operator|.
 name|millis

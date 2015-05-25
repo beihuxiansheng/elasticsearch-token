@@ -1656,6 +1656,8 @@ name|text
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|currentFieldName
 argument_list|)
 operator|.
 name|millis
@@ -2387,6 +2389,8 @@ argument_list|(
 name|timeout
 argument_list|,
 literal|null
+argument_list|,
+literal|"BulkRequest.timeout"
 argument_list|)
 argument_list|)
 return|;

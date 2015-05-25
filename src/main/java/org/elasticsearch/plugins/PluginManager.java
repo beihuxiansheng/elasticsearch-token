@@ -2414,6 +2414,8 @@ argument_list|(
 name|timeoutValue
 argument_list|,
 name|DEFAULT_TIMEOUT
+argument_list|,
+name|command
 argument_list|)
 expr_stmt|;
 break|break;

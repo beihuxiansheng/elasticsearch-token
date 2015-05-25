@@ -164,15 +164,21 @@ name|java
 operator|.
 name|util
 operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|TimeUnit
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|TimeValue
@@ -977,8 +983,20 @@ name|sValue
 parameter_list|,
 name|TimeValue
 name|defaultValue
+parameter_list|,
+name|String
+name|settingName
 parameter_list|)
 block|{
+name|settingName
+operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|settingName
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|sValue
@@ -1292,17 +1310,59 @@ literal|1000
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|sValue
+operator|.
+name|equals
+argument_list|(
+literal|"-1"
+argument_list|)
+condition|)
 block|{
+comment|// Allow this special value to be unit-less:
 name|millis
 operator|=
-name|Long
-operator|.
-name|parseLong
-argument_list|(
-name|sValue
-argument_list|)
+operator|-
+literal|1
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|sValue
+operator|.
+name|equals
+argument_list|(
+literal|"0"
+argument_list|)
+condition|)
+block|{
+comment|// Allow this special value to be unit-less:
+name|millis
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Missing units:
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"Failed to parse setting ["
+operator|+
+name|settingName
+operator|+
+literal|"] with value ["
+operator|+
+name|sValue
+operator|+
+literal|"] as a time value: unit is missing or unrecognized"
+argument_list|)
+throw|;
 block|}
 return|return
 operator|new

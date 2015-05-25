@@ -1626,6 +1626,8 @@ argument_list|(
 name|keepAlive
 argument_list|,
 literal|null
+argument_list|,
+literal|"SearchRequest.Scroll.keepAlive"
 argument_list|)
 argument_list|)
 argument_list|)

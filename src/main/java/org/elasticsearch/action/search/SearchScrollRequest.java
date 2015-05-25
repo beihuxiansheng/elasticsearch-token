@@ -320,6 +320,8 @@ argument_list|(
 name|keepAlive
 argument_list|,
 literal|null
+argument_list|,
+literal|"SearchScrollRequest.keepAlive"
 argument_list|)
 argument_list|)
 argument_list|)

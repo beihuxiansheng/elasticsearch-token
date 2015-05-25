@@ -203,6 +203,8 @@ argument_list|(
 literal|"10m"
 argument_list|,
 literal|null
+argument_list|,
+literal|"TEST_TIME"
 argument_list|)
 decl_stmt|;
 name|Node

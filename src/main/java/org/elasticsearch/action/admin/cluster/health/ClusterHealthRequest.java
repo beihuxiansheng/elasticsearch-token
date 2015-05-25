@@ -389,6 +389,8 @@ argument_list|(
 name|timeout
 argument_list|,
 literal|null
+argument_list|,
+literal|"ClusterHealthRequest.timeout"
 argument_list|)
 argument_list|)
 return|;

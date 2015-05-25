@@ -1674,6 +1674,8 @@ name|timeValueHours
 argument_list|(
 literal|24
 argument_list|)
+argument_list|,
+literal|"DecayFunctionParser.scale"
 argument_list|)
 decl_stmt|;
 name|double
@@ -1698,6 +1700,8 @@ name|timeValueHours
 argument_list|(
 literal|24
 argument_list|)
+argument_list|,
+literal|"DecayFunctionParser.offset"
 argument_list|)
 expr_stmt|;
 name|double

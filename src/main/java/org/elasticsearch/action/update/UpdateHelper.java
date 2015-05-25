@@ -2293,6 +2293,8 @@ operator|)
 name|fetchedTTL
 argument_list|,
 literal|null
+argument_list|,
+literal|"_ttl"
 argument_list|)
 operator|.
 name|millis
