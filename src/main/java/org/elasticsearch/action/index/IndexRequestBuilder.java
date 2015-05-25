@@ -28,7 +28,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ShardReplicationOperationRequestBuilder
+name|ReplicationRequestBuilder
 import|;
 end_import
 
@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|IndexRequestBuilder
 extends|extends
-name|ShardReplicationOperationRequestBuilder
+name|ReplicationRequestBuilder
 argument_list|<
 name|IndexRequest
 argument_list|,

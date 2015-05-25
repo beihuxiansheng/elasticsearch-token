@@ -13478,7 +13478,7 @@ name|VersionConflictEngineException
 name|e
 parameter_list|)
 block|{
-comment|// we ignore version conflicts on replicas, see TransportShardReplicationOperationAction.ignoreReplicaException
+comment|// we ignore version conflicts on replicas, see TransportReplicationAction.ignoreReplicaException
 block|}
 name|replicaEngine
 operator|.
@@ -13884,7 +13884,7 @@ name|VersionConflictEngineException
 name|e
 parameter_list|)
 block|{
-comment|// we ignore version conflicts on replicas, see TransportShardReplicationOperationAction.ignoreReplicaException.
+comment|// we ignore version conflicts on replicas, see TransportReplicationAction.ignoreReplicaException.
 block|}
 name|replicaEngine
 operator|.

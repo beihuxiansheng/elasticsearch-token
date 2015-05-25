@@ -114,7 +114,9 @@ name|action
 operator|.
 name|index
 operator|.
-name|IndexResponse
+name|IndexRequest
+operator|.
+name|OpType
 import|;
 end_import
 
@@ -128,9 +130,7 @@ name|action
 operator|.
 name|index
 operator|.
-name|IndexRequest
-operator|.
-name|OpType
+name|IndexResponse
 import|;
 end_import
 
@@ -731,19 +731,19 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|TransportShardReplicationOperationAction
+DECL|class|TransportReplicationAction
 specifier|public
 specifier|abstract
 class|class
-name|TransportShardReplicationOperationAction
+name|TransportReplicationAction
 parameter_list|<
 name|Request
 extends|extends
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|,
 name|ReplicaRequest
 extends|extends
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|,
 name|Response
 extends|extends
@@ -814,9 +814,9 @@ specifier|final
 name|boolean
 name|checkWriteConsistency
 decl_stmt|;
-DECL|method|TransportShardReplicationOperationAction
+DECL|method|TransportReplicationAction
 specifier|protected
-name|TransportShardReplicationOperationAction
+name|TransportReplicationAction
 parameter_list|(
 name|Settings
 name|settings
