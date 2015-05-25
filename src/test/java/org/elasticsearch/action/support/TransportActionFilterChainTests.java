@@ -98,7 +98,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -377,7 +377,7 @@ argument_list|,
 name|TestResponse
 argument_list|>
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -966,7 +966,7 @@ argument_list|,
 name|TestResponse
 argument_list|>
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1562,7 +1562,7 @@ argument_list|,
 name|TestResponse
 argument_list|>
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1929,7 +1929,7 @@ argument_list|,
 name|TestResponse
 argument_list|>
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,

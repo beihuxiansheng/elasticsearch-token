@@ -148,23 +148,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|Builder
+name|Settings
 import|;
 end_import
 
@@ -179,6 +163,8 @@ operator|.
 name|settings
 operator|.
 name|Settings
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -232,18 +218,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|instanceOf
 import|;
 end_import
@@ -276,7 +250,7 @@ block|{
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -366,7 +340,7 @@ block|{
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -576,7 +550,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -702,7 +676,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()

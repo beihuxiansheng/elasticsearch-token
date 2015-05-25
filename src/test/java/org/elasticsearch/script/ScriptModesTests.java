@@ -50,7 +50,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -469,7 +469,7 @@ argument_list|(
 operator|new
 name|GroovyScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -477,7 +477,7 @@ argument_list|,
 operator|new
 name|MustacheScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -485,7 +485,7 @@ argument_list|,
 operator|new
 name|ExpressionScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -494,7 +494,7 @@ comment|//add the native engine just to make sure it gets filtered out
 operator|new
 name|NativeScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -675,7 +675,7 @@ name|scriptEngines
 argument_list|,
 name|scriptContextRegistry
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -741,7 +741,7 @@ name|scriptEngines
 argument_list|,
 name|scriptContextRegistry
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -888,12 +888,12 @@ argument_list|()
 index|]
 argument_list|)
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1181,12 +1181,12 @@ argument_list|()
 index|]
 argument_list|)
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1347,12 +1347,12 @@ argument_list|(
 name|scriptContexts
 argument_list|)
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1484,12 +1484,12 @@ name|void
 name|testEngineSpecificSettings
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1709,12 +1709,12 @@ name|void
 name|testInteractionBetweenGenericAndEngineSpecificSettings
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

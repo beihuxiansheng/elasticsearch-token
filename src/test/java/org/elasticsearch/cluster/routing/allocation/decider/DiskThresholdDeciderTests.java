@@ -290,20 +290,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -438,7 +424,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -702,7 +688,7 @@ init|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -717,7 +703,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1487,7 +1473,7 @@ operator|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1502,7 +1488,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1728,7 +1714,7 @@ operator|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1743,7 +1729,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -2391,7 +2377,7 @@ init|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -2406,7 +2392,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -3366,7 +3352,7 @@ operator|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -3381,7 +3367,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -3607,7 +3593,7 @@ operator|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -3622,7 +3608,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -4529,7 +4515,7 @@ init|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -4544,7 +4530,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -5061,7 +5047,7 @@ init|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -5076,7 +5062,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -5487,7 +5473,7 @@ init|=
 operator|new
 name|DiskThresholdDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -5612,7 +5598,7 @@ init|=
 operator|new
 name|DiskThresholdDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -5908,7 +5894,7 @@ init|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -5923,7 +5909,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -7290,7 +7276,7 @@ init|=
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -7305,7 +7291,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

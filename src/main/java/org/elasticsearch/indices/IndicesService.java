@@ -290,20 +290,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -968,7 +954,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -3917,7 +3903,7 @@ block|{
 comment|// play safe here and make sure that we take node level settings into account.
 comment|// we might run on nodes where we use shard FS and then in the future don't delete
 comment|// actual content.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder

@@ -72,7 +72,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -185,7 +185,7 @@ name|creationMultiOrdinals
 argument_list|(
 name|builder
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -200,7 +200,7 @@ parameter_list|(
 name|OrdinalsBuilder
 name|builder
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings

@@ -56,7 +56,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -141,12 +141,12 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

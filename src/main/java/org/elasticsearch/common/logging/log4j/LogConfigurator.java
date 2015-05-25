@@ -62,20 +62,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|log4j
-operator|.
-name|rolling
-operator|.
-name|SizeBasedTriggeringPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -93,20 +79,6 @@ operator|.
 name|collect
 operator|.
 name|MapBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
 import|;
 end_import
 
@@ -244,7 +216,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -525,7 +497,7 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
@@ -754,7 +726,7 @@ name|Environment
 name|env
 parameter_list|,
 specifier|final
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
@@ -892,7 +864,7 @@ parameter_list|(
 name|Path
 name|file
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder

@@ -84,20 +84,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -252,7 +238,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -1810,7 +1796,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1868,7 +1854,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1922,7 +1908,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1970,7 +1956,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2100,7 +2086,7 @@ name|LogDocMergePolicyProvider
 argument_list|(
 name|createStore
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2284,7 +2270,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2374,7 +2360,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2455,7 +2441,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2503,7 +2489,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2561,7 +2547,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2740,7 +2726,7 @@ name|LogByteSizeMergePolicyProvider
 argument_list|(
 name|createStore
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3021,7 +3007,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3086,7 +3072,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3171,7 +3157,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3229,7 +3215,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3292,7 +3278,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3371,7 +3357,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3433,7 +3419,7 @@ name|service
 operator|.
 name|refreshSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3646,7 +3632,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3674,7 +3660,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3702,7 +3688,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3730,7 +3716,7 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

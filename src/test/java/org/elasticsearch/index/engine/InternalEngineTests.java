@@ -404,20 +404,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -1040,7 +1026,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -1259,7 +1245,7 @@ expr_stmt|;
 block|}
 name|defaultSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1973,7 +1959,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4228,7 +4214,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -12161,7 +12147,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -13973,7 +13959,7 @@ comment|// Tiny indexing buffer:
 name|Settings
 name|indexSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -14402,7 +14388,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -15223,7 +15209,7 @@ init|=
 operator|new
 name|BuilderContext
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -16324,7 +16310,7 @@ expr_stmt|;
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -16774,7 +16760,7 @@ argument_list|,
 name|createTempDir
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,

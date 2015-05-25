@@ -130,7 +130,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -218,14 +218,14 @@ return|;
 block|}
 DECL|method|newAnalysisSettingsBuilder
 specifier|public
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|newAnalysisSettingsBuilder
 parameter_list|()
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

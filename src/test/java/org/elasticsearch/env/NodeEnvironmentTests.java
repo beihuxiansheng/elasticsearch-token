@@ -94,20 +94,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -296,7 +282,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -336,7 +322,7 @@ specifier|final
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -366,7 +352,7 @@ name|env
 init|=
 name|newNodeEnvironment
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2149,7 +2135,7 @@ name|newNodeEnvironment
 argument_list|(
 name|dataPaths
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -2157,7 +2143,7 @@ decl_stmt|;
 name|Settings
 name|s1
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2177,7 +2163,7 @@ decl_stmt|;
 name|Settings
 name|s2
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2356,7 +2342,7 @@ name|newNodeEnvironment
 argument_list|(
 name|dataPaths
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2610,7 +2596,7 @@ block|{
 return|return
 name|newNodeEnvironment
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -2632,7 +2618,7 @@ block|{
 name|Settings
 name|build
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2708,7 +2694,7 @@ block|{
 name|Settings
 name|build
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

@@ -38,20 +38,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -146,7 +132,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -305,7 +291,7 @@ parameter_list|)
 block|{         }
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -394,7 +380,7 @@ comment|// end delete index:
 comment|// close index:
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -620,7 +606,7 @@ parameter_list|)
 block|{         }
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

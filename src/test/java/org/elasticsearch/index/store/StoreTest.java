@@ -268,20 +268,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -391,20 +377,6 @@ operator|.
 name|translog
 operator|.
 name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogConfig
 import|;
 end_import
 
@@ -590,7 +562,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -676,7 +648,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1790,7 +1762,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -2655,7 +2627,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -3286,7 +3258,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -4231,7 +4203,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -5968,7 +5940,7 @@ argument_list|,
 literal|1
 argument_list|)
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -6611,7 +6583,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -6852,7 +6824,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -7757,7 +7729,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -8825,7 +8797,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -9011,7 +8983,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -9153,7 +9125,7 @@ decl_stmt|;
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -9901,7 +9873,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -10413,7 +10385,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -10883,7 +10855,7 @@ name|DirectoryService
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -10922,7 +10894,7 @@ name|Store
 argument_list|(
 name|shardId
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,

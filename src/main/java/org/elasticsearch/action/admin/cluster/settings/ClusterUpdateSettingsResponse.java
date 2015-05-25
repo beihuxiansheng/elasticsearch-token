@@ -78,20 +78,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -134,7 +120,7 @@ name|this
 operator|.
 name|persistentSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 expr_stmt|;
@@ -142,7 +128,7 @@ name|this
 operator|.
 name|transientSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 expr_stmt|;
@@ -200,7 +186,7 @@ argument_list|)
 expr_stmt|;
 name|transientSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|readSettingsFromStream
 argument_list|(
@@ -209,7 +195,7 @@ argument_list|)
 expr_stmt|;
 name|persistentSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|readSettingsFromStream
 argument_list|(
@@ -262,7 +248,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|writeSettingsToStream
 argument_list|(
@@ -271,7 +257,7 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|writeSettingsToStream
 argument_list|(
