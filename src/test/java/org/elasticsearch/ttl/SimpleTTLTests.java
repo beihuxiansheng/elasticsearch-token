@@ -394,6 +394,10 @@ argument_list|(
 literal|"indices.ttl.interval"
 argument_list|,
 name|PURGE_INTERVAL
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 operator|.
 name|put

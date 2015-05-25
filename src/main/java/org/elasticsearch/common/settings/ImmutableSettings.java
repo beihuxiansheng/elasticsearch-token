@@ -4798,6 +4798,8 @@ name|toMillis
 argument_list|(
 name|value
 argument_list|)
+operator|+
+literal|"ms"
 argument_list|)
 expr_stmt|;
 return|return

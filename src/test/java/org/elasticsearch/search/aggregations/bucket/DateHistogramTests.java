@@ -12082,10 +12082,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * see issue #9634, negative interval in date_histogram should raise exception      */
-DECL|method|testExeptionOnNegativerInterval
+DECL|method|testExeptionOnNegativeInterval
 specifier|public
 name|void
-name|testExeptionOnNegativerInterval
+name|testExeptionOnNegativeInterval
 parameter_list|()
 block|{
 try|try
@@ -12154,7 +12154,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"IllegalArgumentException"
+literal|"ElasticsearchParseException"
 argument_list|)
 argument_list|)
 expr_stmt|;

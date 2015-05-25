@@ -128,10 +128,6 @@ name|lessThan
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TimeValueTests
 specifier|public
@@ -140,8 +136,6 @@ name|TimeValueTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
-annotation|@
-name|Test
 DECL|method|testSimple
 specifier|public
 name|void
@@ -317,8 +311,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testToString
 specifier|public
 name|void
@@ -452,8 +444,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFormat
 specifier|public
 name|void
@@ -569,8 +559,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMinusOne
 specifier|public
 name|void
@@ -592,6 +580,62 @@ argument_list|,
 name|lessThan
 argument_list|(
 literal|0l
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testParseTimeValue
+specifier|public
+name|void
+name|testParseTimeValue
+parameter_list|()
+block|{
+comment|// Space is allowed before unit
+name|assertEquals
+argument_list|(
+operator|new
+name|TimeValue
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|,
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+literal|"10 s"
+argument_list|,
+literal|null
+argument_list|,
+literal|"ten seconds"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+operator|new
+name|TimeValue
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+argument_list|,
+name|TimeValue
+operator|.
+name|parseTimeValue
+argument_list|(
+literal|"10s"
+argument_list|,
+literal|null
+argument_list|,
+literal|"ten seconds"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -655,8 +699,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testSerialize
 specifier|public
 name|void

@@ -1515,7 +1515,7 @@ name|TimeValue
 operator|.
 name|parseTimeValue
 argument_list|(
-literal|"1"
+literal|"1ms"
 argument_list|,
 name|TimeValue
 operator|.

@@ -3828,6 +3828,10 @@ literal|100
 argument_list|,
 literal|5000
 argument_list|)
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}

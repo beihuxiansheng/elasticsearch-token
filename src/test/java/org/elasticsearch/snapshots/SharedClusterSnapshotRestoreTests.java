@@ -2812,6 +2812,10 @@ argument_list|(
 literal|"refresh_interval"
 argument_list|,
 literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 argument_list|)
 argument_list|)
@@ -2986,6 +2990,10 @@ argument_list|(
 literal|"refresh_interval"
 argument_list|,
 literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 argument_list|)
 argument_list|)
@@ -3212,7 +3220,7 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"10"
+literal|"10000ms"
 argument_list|)
 argument_list|)
 expr_stmt|;
