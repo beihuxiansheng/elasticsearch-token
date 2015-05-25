@@ -24,7 +24,8 @@ specifier|public
 class|class
 name|Booleans
 block|{
-comment|/**      * Returns<code>true</code> iff the sequence is neither of the following:      *<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>,      *   otherwise<code>false</code>      */
+comment|// nocommit remove this lenient one and cutover to parseBooleanExact
+comment|/**      * Returns<code>false</code> if text is in<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>; else, true      */
 DECL|method|parseBoolean
 specifier|public
 specifier|static
@@ -196,6 +197,7 @@ literal|'e'
 operator|)
 return|;
 block|}
+comment|// nocommit check for known "true" values and throw exc if it's not recognized
 return|return
 literal|true
 return|;
