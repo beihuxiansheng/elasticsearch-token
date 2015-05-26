@@ -536,6 +536,20 @@ return|return
 name|filteredQuery
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|FilteredQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|FilteredQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

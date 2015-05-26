@@ -687,6 +687,20 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SpanNotQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|SpanNotQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

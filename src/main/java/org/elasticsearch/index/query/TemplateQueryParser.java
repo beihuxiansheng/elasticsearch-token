@@ -893,6 +893,20 @@ name|template
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|TemplateQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|TemplateQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

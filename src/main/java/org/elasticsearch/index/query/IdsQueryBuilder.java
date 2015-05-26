@@ -258,6 +258,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|IdsQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|IdsQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Creates a new IdsQueryBuilder by optionally providing the types of the documents to look for      */
 DECL|method|IdsQueryBuilder
 specifier|public

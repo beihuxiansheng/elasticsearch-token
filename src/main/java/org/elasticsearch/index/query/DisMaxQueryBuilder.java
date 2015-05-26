@@ -124,6 +124,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|DisMaxQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|DisMaxQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Add a sub-query to this disjunction.      */
 DECL|method|add
 specifier|public

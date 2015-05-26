@@ -1003,6 +1003,20 @@ return|;
 block|}
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|NestedQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|NestedQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

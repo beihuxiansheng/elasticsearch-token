@@ -476,6 +476,20 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SpanFirstQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|SpanFirstQueryBuilder
+operator|.
+name|SPAN_FIRST_QUERY_BUILDER
+return|;
+block|}
 block|}
 end_class
 

@@ -100,6 +100,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|SpanOrQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|SpanOrQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|clause
 specifier|public
 name|SpanOrQueryBuilder

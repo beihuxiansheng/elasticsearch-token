@@ -117,6 +117,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|SpanNearQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|SpanNearQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|clause
 specifier|public
 name|SpanNearQueryBuilder

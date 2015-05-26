@@ -160,6 +160,18 @@ specifier|private
 name|Locale
 name|locale
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|SimpleQueryStringBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|SimpleQueryStringBuilder
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * Operators for the default_operator      */
 DECL|enum|Operator
 specifier|public

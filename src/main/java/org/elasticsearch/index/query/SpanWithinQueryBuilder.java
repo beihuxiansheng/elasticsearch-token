@@ -91,6 +91,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|SpanWithinQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|SpanWithinQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Sets the little clause, it must be contained within {@code big} for a match.      */
 DECL|method|little
 specifier|public

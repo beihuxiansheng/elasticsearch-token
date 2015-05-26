@@ -289,6 +289,18 @@ specifier|private
 name|String
 name|format
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|RangeQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|RangeQueryBuilder
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * A Query that matches documents within an range of terms.      *      * @param fieldName The field name      */
 DECL|method|RangeQueryBuilder
 specifier|public

@@ -184,6 +184,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|BoolQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|BoolQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * Adds a query that<b>must</b> appear in the matching documents and will      * contribute to scoring.      */
 DECL|method|must
 specifier|public

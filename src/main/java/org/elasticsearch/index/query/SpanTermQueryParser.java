@@ -424,6 +424,20 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SpanTermQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|SpanTermQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

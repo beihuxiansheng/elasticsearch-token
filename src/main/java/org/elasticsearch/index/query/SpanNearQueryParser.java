@@ -636,6 +636,20 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|SpanNearQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|SpanNearQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

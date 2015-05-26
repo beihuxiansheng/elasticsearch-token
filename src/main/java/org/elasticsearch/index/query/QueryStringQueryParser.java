@@ -2084,6 +2084,20 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|QueryStringQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|QueryStringQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

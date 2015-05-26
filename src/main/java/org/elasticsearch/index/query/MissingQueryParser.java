@@ -933,6 +933,20 @@ name|filter
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|MissingQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|MissingQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

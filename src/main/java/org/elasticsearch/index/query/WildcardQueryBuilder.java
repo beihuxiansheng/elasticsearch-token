@@ -96,6 +96,20 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|WildcardQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|WildcardQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * Implements the wildcard search query. Supported wildcards are<tt>*</tt>, which      * matches any character sequence (including the empty one), and<tt>?</tt>,      * which matches any single character. Note this query can be slow, as it      * needs to iterate over many terms. In order to prevent extremely slow WildcardQueries,      * a Wildcard term should not start with one of the wildcards<tt>*</tt> or      *<tt>?</tt>.      *      * @param name     The field name      * @param wildcard The wildcard query string      */
 DECL|method|WildcardQueryBuilder
 specifier|public

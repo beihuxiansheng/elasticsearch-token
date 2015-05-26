@@ -268,6 +268,20 @@ name|newMatchAllQuery
 argument_list|()
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|LimitQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|LimitQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

@@ -115,6 +115,20 @@ name|NAME
 init|=
 literal|"term"
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|TermQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|TermQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/** @see BaseTermQueryBuilder#BaseTermQueryBuilder(String, String) */
 DECL|method|TermQueryBuilder
 specifier|public

@@ -286,6 +286,20 @@ name|result
 return|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|WrapperQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|WrapperQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

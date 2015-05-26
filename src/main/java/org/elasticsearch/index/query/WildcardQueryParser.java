@@ -588,6 +588,20 @@ return|return
 name|wildcardQuery
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|WildcardQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|WildcardQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

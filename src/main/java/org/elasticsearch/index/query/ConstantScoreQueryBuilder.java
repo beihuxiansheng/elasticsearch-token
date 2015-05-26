@@ -104,6 +104,16 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|ConstantScoreQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|ConstantScoreQueryBuilder
+argument_list|()
+decl_stmt|;
 comment|/**      * A query that wraps a query and simply returns a constant score equal to the      * query boost for every document in the query.      *      * @param filterBuilder The query to wrap in a constant score query      */
 DECL|method|ConstantScoreQueryBuilder
 specifier|public
@@ -123,6 +133,19 @@ name|requireNonNull
 argument_list|(
 name|filterBuilder
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * private constructor only used for serialization      */
+DECL|method|ConstantScoreQueryBuilder
+specifier|private
+name|ConstantScoreQueryBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|filterBuilder
+operator|=
+literal|null
 expr_stmt|;
 block|}
 comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */

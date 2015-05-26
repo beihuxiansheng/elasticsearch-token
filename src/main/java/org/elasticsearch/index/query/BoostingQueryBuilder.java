@@ -92,11 +92,21 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|BoostingQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|BoostingQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|BoostingQueryBuilder
 specifier|public
 name|BoostingQueryBuilder
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|positive
 specifier|public
 name|BoostingQueryBuilder

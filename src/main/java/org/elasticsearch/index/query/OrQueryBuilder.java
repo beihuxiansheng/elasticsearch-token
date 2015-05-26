@@ -115,6 +115,16 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|OrQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|OrQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|OrQueryBuilder
 specifier|public
 name|OrQueryBuilder

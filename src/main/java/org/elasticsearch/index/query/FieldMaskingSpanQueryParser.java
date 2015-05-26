@@ -516,6 +516,20 @@ return|return
 name|query
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|FieldMaskingSpanQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|FieldMaskingSpanQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 

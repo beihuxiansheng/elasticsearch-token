@@ -158,6 +158,20 @@ name|relation
 init|=
 literal|null
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|GeoShapeQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|GeoShapeQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * Creates a new GeoShapeQueryBuilder whose Filter will be against the      * given field name using the given Shape      *      * @param name  Name of the field that will be filtered      * @param shape Shape used in the filter      */
 DECL|method|GeoShapeQueryBuilder
 specifier|public

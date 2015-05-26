@@ -96,6 +96,20 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|PrefixQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|PrefixQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * A Query that matches documents containing terms with a specified prefix.      *      * @param name   The name of the field      * @param prefix The prefix query      */
 DECL|method|PrefixQueryBuilder
 specifier|public

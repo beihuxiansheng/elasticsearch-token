@@ -229,6 +229,20 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|MatchQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|MatchQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/**      * Constructs a new text query.      */
 DECL|method|MatchQueryBuilder
 specifier|public

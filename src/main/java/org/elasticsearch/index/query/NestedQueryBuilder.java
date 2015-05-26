@@ -122,6 +122,16 @@ specifier|private
 name|QueryInnerHitBuilder
 name|innerHit
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|NestedQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|NestedQueryBuilder
+argument_list|()
+decl_stmt|;
 DECL|method|NestedQueryBuilder
 specifier|public
 name|NestedQueryBuilder
@@ -149,6 +159,25 @@ name|requireNonNull
 argument_list|(
 name|queryBuilder
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * private constructor only used internally      */
+DECL|method|NestedQueryBuilder
+specifier|private
+name|NestedQueryBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|path
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|queryBuilder
+operator|=
+literal|null
 expr_stmt|;
 block|}
 comment|/**      * The score mode.      */

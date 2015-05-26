@@ -128,6 +128,20 @@ name|NAME
 init|=
 literal|"span_term"
 decl_stmt|;
+DECL|field|PROTOTYPE
+specifier|static
+specifier|final
+name|SpanTermQueryBuilder
+name|PROTOTYPE
+init|=
+operator|new
+name|SpanTermQueryBuilder
+argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
 comment|/** @see BaseTermQueryBuilder#BaseTermQueryBuilder(String, String) */
 DECL|method|SpanTermQueryBuilder
 specifier|public

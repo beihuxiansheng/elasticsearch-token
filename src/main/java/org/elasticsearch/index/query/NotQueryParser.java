@@ -430,6 +430,20 @@ return|return
 name|notQuery
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getBuilderPrototype
+specifier|public
+name|NotQueryBuilder
+name|getBuilderPrototype
+parameter_list|()
+block|{
+return|return
+name|NotQueryBuilder
+operator|.
+name|PROTOTYPE
+return|;
+block|}
 block|}
 end_class
 
