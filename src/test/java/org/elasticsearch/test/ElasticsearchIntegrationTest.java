@@ -6786,6 +6786,8 @@ operator|>=
 name|numDocs
 condition|)
 block|{
+try|try
+block|{
 name|long
 name|count
 init|=
@@ -6844,6 +6846,27 @@ argument_list|(
 name|count
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// count now acts like search and barfs if all shards failed...
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to executed count"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
 name|logger
 operator|.
 name|debug
