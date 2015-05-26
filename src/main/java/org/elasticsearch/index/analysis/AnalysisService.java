@@ -1941,7 +1941,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"analyzer name must not start with _. got \""
+literal|"analyzer name must not start with '_'. got \""
 operator|+
 name|analyzer
 operator|.
