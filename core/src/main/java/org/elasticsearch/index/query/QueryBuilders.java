@@ -246,7 +246,7 @@ name|BOOLEAN
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a common query for the provided field name and text.      *      * @param name The field name.      * @param text The query text (to be analyzed).      */
+comment|/**      * Creates a common query for the provided field name and text.      *      * @param fieldName The field name.      * @param text The query text (to be analyzed).      */
 DECL|method|commonTermsQuery
 specifier|public
 specifier|static
@@ -254,7 +254,7 @@ name|CommonTermsQueryBuilder
 name|commonTermsQuery
 parameter_list|(
 name|String
-name|name
+name|fieldName
 parameter_list|,
 name|Object
 name|text
@@ -264,7 +264,7 @@ return|return
 operator|new
 name|CommonTermsQueryBuilder
 argument_list|(
-name|name
+name|fieldName
 argument_list|,
 name|text
 argument_list|)
