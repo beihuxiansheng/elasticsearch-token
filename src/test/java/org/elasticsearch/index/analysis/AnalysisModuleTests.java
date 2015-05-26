@@ -1764,7 +1764,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"analyzer name must not start with _. got \"_invalid_name\""
+literal|"analyzer name must not start with '_'. got \"_invalid_name\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1864,7 +1864,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"analyzer name must not start with _. got \"_invalid_name\""
+literal|"analyzer name must not start with '_'. got \"_invalid_name\""
 argument_list|)
 argument_list|)
 expr_stmt|;
