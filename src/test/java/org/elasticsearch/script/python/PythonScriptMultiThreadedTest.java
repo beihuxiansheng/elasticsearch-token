@@ -26,7 +26,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -209,7 +209,7 @@ init|=
 operator|new
 name|PythonScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -520,7 +520,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//    @Test public void testExecutableWithRuntimeParams() throws Exception {
-comment|//        final PythonScriptEngineService se = new PythonScriptEngineService(ImmutableSettings.Builder.EMPTY_SETTINGS);
+comment|//        final PythonScriptEngineService se = new PythonScriptEngineService(Settings.Builder.EMPTY_SETTINGS);
 comment|//        final Object compiled = se.compile("x + y");
 comment|//        final AtomicBoolean failed = new AtomicBoolean();
 comment|//
@@ -577,7 +577,7 @@ init|=
 operator|new
 name|PythonScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
