@@ -169,10 +169,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|ImmutableSettingsTests
+DECL|class|SettingsTests
 specifier|public
 class|class
-name|ImmutableSettingsTests
+name|SettingsTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
