@@ -6970,6 +6970,21 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+literal|"index shard counter on shard "
+operator|+
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|+
+literal|" on node "
+operator|+
+name|nodeAndClient
+operator|.
+name|name
+operator|+
+literal|" not 0 or 1 "
+argument_list|,
 name|indexShard
 operator|.
 name|getOperationsCount

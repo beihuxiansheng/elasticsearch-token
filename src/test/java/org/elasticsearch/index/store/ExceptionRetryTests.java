@@ -256,7 +256,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -423,6 +433,17 @@ operator|.
 name|build
 argument_list|()
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|beforeIndexDeletion
+specifier|protected
+name|void
+name|beforeIndexDeletion
+parameter_list|()
+block|{
+comment|// a write operation might still be in flight when the test has finished
+comment|// so we should not check the operation counter here
 block|}
 comment|/**      * Tests retry mechanism when indexing. If an exception occurs when indexing then the indexing request is tried again before finally failing.      * If auto generated ids are used this must not lead to duplicate ids      * see https://github.com/elasticsearch/elasticsearch/issues/8788      */
 annotation|@
