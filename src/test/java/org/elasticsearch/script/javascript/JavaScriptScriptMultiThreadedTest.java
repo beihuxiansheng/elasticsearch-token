@@ -26,7 +26,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -175,7 +175,7 @@ init|=
 operator|new
 name|JavaScriptScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -502,7 +502,7 @@ init|=
 operator|new
 name|JavaScriptScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -829,7 +829,7 @@ init|=
 operator|new
 name|JavaScriptScriptEngineService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
