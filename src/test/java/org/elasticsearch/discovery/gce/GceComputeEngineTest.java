@@ -90,20 +90,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -335,12 +321,12 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -553,7 +539,7 @@ name|GceComputeServiceTwoNodesDifferentTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -566,7 +552,7 @@ name|GceComputeServiceTwoNodesDifferentTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -597,7 +583,7 @@ name|GceComputeServiceTwoNodesDifferentTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -623,7 +609,7 @@ name|GceComputeServiceTwoNodesDifferentTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -667,7 +653,7 @@ name|GceComputeServiceTwoNodesDifferentTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -700,7 +686,7 @@ name|GceComputeServiceTwoNodesDifferentTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -750,7 +736,7 @@ name|GceComputeServiceTwoNodesSameTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -763,7 +749,7 @@ name|GceComputeServiceTwoNodesSameTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -793,7 +779,7 @@ name|GceComputeServiceTwoNodesSameTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -819,7 +805,7 @@ name|GceComputeServiceTwoNodesSameTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -862,7 +848,7 @@ name|GceComputeServiceTwoNodesSameTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -895,7 +881,7 @@ name|GceComputeServiceTwoNodesSameTagsMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -945,7 +931,7 @@ name|GceComputeServiceTwoNodesOneZoneMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -984,7 +970,7 @@ name|GceComputeServiceTwoNodesOneZoneMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1040,7 +1026,7 @@ name|GceComputeServiceTwoNodesTwoZonesMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1079,7 +1065,7 @@ name|GceComputeServiceTwoNodesTwoZonesMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1136,7 +1122,7 @@ name|GceComputeServiceZeroNodeMock
 operator|.
 name|class
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
