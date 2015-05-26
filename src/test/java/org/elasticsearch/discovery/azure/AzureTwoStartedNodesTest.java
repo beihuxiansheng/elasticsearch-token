@@ -78,7 +78,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -170,12 +170,12 @@ name|void
 name|two_nodes_should_run_using_private_ip
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -327,12 +327,12 @@ name|void
 name|two_nodes_should_run_using_public_ip
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
