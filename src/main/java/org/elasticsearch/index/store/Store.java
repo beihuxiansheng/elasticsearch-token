@@ -960,6 +960,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+assert|assert
+name|commit
+operator|==
+literal|null
+operator|||
+name|commit
+operator|.
+name|getDirectory
+argument_list|()
+operator|==
+name|directory
+assert|;
 try|try
 block|{
 return|return
@@ -979,8 +991,6 @@ operator|.
 name|readSegmentInfos
 argument_list|(
 name|commit
-argument_list|,
-name|directory
 argument_list|)
 return|;
 block|}
