@@ -145,10 +145,10 @@ name|AcknowledgedRequest
 parameter_list|<
 name|T
 extends|extends
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 parameter_list|>
 extends|extends
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 argument_list|<
 name|T
 argument_list|>

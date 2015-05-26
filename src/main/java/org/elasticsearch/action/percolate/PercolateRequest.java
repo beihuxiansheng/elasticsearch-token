@@ -102,7 +102,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationRequest
+name|BroadcastRequest
 import|;
 end_import
 
@@ -274,7 +274,7 @@ specifier|public
 class|class
 name|PercolateRequest
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 argument_list|<
 name|PercolateRequest
 argument_list|>
@@ -316,7 +316,7 @@ specifier|private
 name|BytesReference
 name|docSource
 decl_stmt|;
-comment|// Used internally in order to compute tookInMillis, TransportBroadcastOperationAction itself doesn't allow
+comment|// Used internally in order to compute tookInMillis, TransportBroadcastAction itself doesn't allow
 comment|// to hold it temporarily in an easy way
 DECL|field|startTime
 name|long

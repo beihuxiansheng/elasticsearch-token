@@ -50,7 +50,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodesOperationResponse
+name|BaseNodesResponse
 import|;
 end_import
 
@@ -204,7 +204,7 @@ specifier|public
 class|class
 name|ClusterStatsResponse
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|ClusterStatsNodeResponse
 argument_list|>

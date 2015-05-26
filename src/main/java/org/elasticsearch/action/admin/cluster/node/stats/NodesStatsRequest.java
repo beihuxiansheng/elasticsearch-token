@@ -52,7 +52,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodesOperationRequest
+name|BaseNodesRequest
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|NodesStatsRequest
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 argument_list|<
 name|NodesStatsRequest
 argument_list|>

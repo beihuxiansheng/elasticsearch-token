@@ -77,11 +77,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|NodeOperationRequest
+DECL|class|BaseNodeRequest
 specifier|public
 specifier|abstract
 class|class
-name|NodeOperationRequest
+name|BaseNodeRequest
 extends|extends
 name|TransportRequest
 block|{
@@ -90,16 +90,16 @@ specifier|private
 name|String
 name|nodeId
 decl_stmt|;
-DECL|method|NodeOperationRequest
+DECL|method|BaseNodeRequest
 specifier|protected
-name|NodeOperationRequest
+name|BaseNodeRequest
 parameter_list|()
 block|{      }
-DECL|method|NodeOperationRequest
+DECL|method|BaseNodeRequest
 specifier|protected
-name|NodeOperationRequest
+name|BaseNodeRequest
 parameter_list|(
-name|NodesOperationRequest
+name|BaseNodesRequest
 name|request
 parameter_list|,
 name|String

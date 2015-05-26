@@ -130,7 +130,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 import|;
 end_import
 
@@ -402,7 +402,7 @@ specifier|public
 class|class
 name|PutIndexTemplateRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 argument_list|<
 name|PutIndexTemplateRequest
 argument_list|>

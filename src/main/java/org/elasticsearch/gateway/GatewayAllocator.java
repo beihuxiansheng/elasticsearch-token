@@ -108,7 +108,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationResponse
+name|BaseNodeResponse
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodesOperationResponse
+name|BaseNodesResponse
 import|;
 end_import
 
@@ -3342,7 +3342,7 @@ name|InternalAsyncFetch
 parameter_list|<
 name|T
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|>
 extends|extends
 name|AsyncShardFetch
@@ -3379,7 +3379,7 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>

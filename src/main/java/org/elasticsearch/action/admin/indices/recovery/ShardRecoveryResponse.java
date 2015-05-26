@@ -32,7 +32,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -156,7 +156,7 @@ specifier|public
 class|class
 name|ShardRecoveryResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 implements|implements
 name|ToXContent
 block|{

@@ -291,15 +291,15 @@ comment|/**  * A base class for single shard read operations.  */
 end_comment
 
 begin_class
-DECL|class|TransportShardSingleOperationAction
+DECL|class|TransportSingleShardAction
 specifier|public
 specifier|abstract
 class|class
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 parameter_list|<
 name|Request
 extends|extends
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|,
 name|Response
 extends|extends
@@ -335,9 +335,9 @@ specifier|final
 name|String
 name|executor
 decl_stmt|;
-DECL|method|TransportShardSingleOperationAction
+DECL|method|TransportSingleShardAction
 specifier|protected
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 parameter_list|(
 name|Settings
 name|settings

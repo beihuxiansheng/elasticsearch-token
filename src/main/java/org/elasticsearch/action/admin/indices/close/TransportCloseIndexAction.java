@@ -72,7 +72,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeAction
 import|;
 end_import
 
@@ -232,7 +232,7 @@ specifier|public
 class|class
 name|TransportCloseIndexAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeAction
 argument_list|<
 name|CloseIndexRequest
 argument_list|,

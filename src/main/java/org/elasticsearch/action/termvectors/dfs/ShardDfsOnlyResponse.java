@@ -30,7 +30,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -113,7 +113,7 @@ DECL|class|ShardDfsOnlyResponse
 class|class
 name|ShardDfsOnlyResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 block|{
 DECL|field|dfsSearchResult
 specifier|private

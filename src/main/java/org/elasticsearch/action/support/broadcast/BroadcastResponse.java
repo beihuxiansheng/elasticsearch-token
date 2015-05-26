@@ -115,11 +115,11 @@ comment|/**  * Base class for all broadcast operation based responses.  */
 end_comment
 
 begin_class
-DECL|class|BroadcastOperationResponse
+DECL|class|BroadcastResponse
 specifier|public
 specifier|abstract
 class|class
-name|BroadcastOperationResponse
+name|BroadcastResponse
 extends|extends
 name|ActionResponse
 block|{
@@ -160,14 +160,14 @@ name|shardFailures
 init|=
 name|EMPTY
 decl_stmt|;
-DECL|method|BroadcastOperationResponse
+DECL|method|BroadcastResponse
 specifier|protected
-name|BroadcastOperationResponse
+name|BroadcastResponse
 parameter_list|()
 block|{     }
-DECL|method|BroadcastOperationResponse
+DECL|method|BroadcastResponse
 specifier|protected
-name|BroadcastOperationResponse
+name|BroadcastResponse
 parameter_list|(
 name|int
 name|totalShards

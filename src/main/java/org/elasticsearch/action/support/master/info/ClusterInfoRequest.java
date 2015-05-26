@@ -58,7 +58,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 import|;
 end_import
 
@@ -132,7 +132,7 @@ extends|extends
 name|ClusterInfoRequest
 parameter_list|>
 extends|extends
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 argument_list|<
 name|T
 argument_list|>

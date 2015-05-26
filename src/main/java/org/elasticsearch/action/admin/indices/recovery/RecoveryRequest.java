@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -42,7 +32,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationRequest
+name|BroadcastRequest
 import|;
 end_import
 
@@ -90,6 +80,16 @@ name|StreamOutput
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Request for recovery information  */
 end_comment
@@ -100,7 +100,7 @@ specifier|public
 class|class
 name|RecoveryRequest
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 argument_list|<
 name|RecoveryRequest
 argument_list|>

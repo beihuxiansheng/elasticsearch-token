@@ -48,7 +48,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationRequest
+name|BaseNodeRequest
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|TransportNodesOperationAction
+name|TransportNodesAction
 import|;
 end_import
 
@@ -244,7 +244,7 @@ specifier|public
 class|class
 name|TransportNodesInfoAction
 extends|extends
-name|TransportNodesOperationAction
+name|TransportNodesAction
 argument_list|<
 name|NodesInfoRequest
 argument_list|,
@@ -551,7 +551,7 @@ specifier|static
 class|class
 name|NodeInfoRequest
 extends|extends
-name|NodeOperationRequest
+name|BaseNodeRequest
 block|{
 DECL|field|request
 name|NodesInfoRequest

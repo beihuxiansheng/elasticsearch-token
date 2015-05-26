@@ -106,7 +106,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 import|;
 end_import
 
@@ -212,6 +212,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|Engine
@@ -270,7 +282,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|shard
+operator|.
+name|IndexShard
 import|;
 end_import
 
@@ -285,20 +299,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShard
 import|;
 end_import
 
@@ -444,7 +444,7 @@ specifier|public
 class|class
 name|TransportExplainAction
 extends|extends
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 argument_list|<
 name|ExplainRequest
 argument_list|,

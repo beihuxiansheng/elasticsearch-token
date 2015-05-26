@@ -34,7 +34,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -61,7 +61,7 @@ DECL|class|ShardClearIndicesCacheResponse
 class|class
 name|ShardClearIndicesCacheResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 block|{
 DECL|method|ShardClearIndicesCacheResponse
 name|ShardClearIndicesCacheResponse

@@ -32,7 +32,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -59,7 +59,7 @@ DECL|class|ShardRefreshResponse
 class|class
 name|ShardRefreshResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 block|{
 DECL|method|ShardRefreshResponse
 name|ShardRefreshResponse

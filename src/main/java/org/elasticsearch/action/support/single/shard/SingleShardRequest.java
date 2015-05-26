@@ -143,15 +143,15 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SingleShardOperationRequest
+DECL|class|SingleShardRequest
 specifier|public
 specifier|abstract
 class|class
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|<
 name|T
 extends|extends
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|>
 extends|extends
 name|ActionRequest
@@ -189,14 +189,14 @@ name|threadedOperation
 init|=
 literal|true
 decl_stmt|;
-DECL|method|SingleShardOperationRequest
+DECL|method|SingleShardRequest
 specifier|protected
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|()
 block|{     }
-DECL|method|SingleShardOperationRequest
+DECL|method|SingleShardRequest
 specifier|protected
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|(
 name|String
 name|index
@@ -209,9 +209,9 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-DECL|method|SingleShardOperationRequest
+DECL|method|SingleShardRequest
 specifier|protected
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|(
 name|ActionRequest
 name|request
@@ -223,9 +223,9 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|SingleShardOperationRequest
+DECL|method|SingleShardRequest
 specifier|protected
-name|SingleShardOperationRequest
+name|SingleShardRequest
 parameter_list|(
 name|ActionRequest
 name|request

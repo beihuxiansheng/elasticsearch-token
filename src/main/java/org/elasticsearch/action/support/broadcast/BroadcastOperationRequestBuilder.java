@@ -81,14 +81,14 @@ name|BroadcastOperationRequestBuilder
 parameter_list|<
 name|Request
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
-name|BroadcastOperationResponse
+name|BroadcastResponse
 parameter_list|,
 name|RequestBuilder
 extends|extends

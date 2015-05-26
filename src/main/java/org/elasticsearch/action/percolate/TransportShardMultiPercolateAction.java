@@ -114,7 +114,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|SingleShardOperationRequest
+name|SingleShardRequest
 import|;
 end_import
 
@@ -132,7 +132,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 import|;
 end_import
 
@@ -362,7 +362,7 @@ specifier|public
 class|class
 name|TransportShardMultiPercolateAction
 extends|extends
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 argument_list|<
 name|TransportShardMultiPercolateAction
 operator|.
@@ -699,7 +699,7 @@ specifier|static
 class|class
 name|Request
 extends|extends
-name|SingleShardOperationRequest
+name|SingleShardRequest
 implements|implements
 name|IndicesRequest
 block|{

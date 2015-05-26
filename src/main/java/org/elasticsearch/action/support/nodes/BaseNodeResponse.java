@@ -91,11 +91,11 @@ comment|/**  * A base class for node level operations.  */
 end_comment
 
 begin_class
-DECL|class|NodeOperationResponse
+DECL|class|BaseNodeResponse
 specifier|public
 specifier|abstract
 class|class
-name|NodeOperationResponse
+name|BaseNodeResponse
 extends|extends
 name|TransportResponse
 block|{
@@ -104,14 +104,14 @@ specifier|private
 name|DiscoveryNode
 name|node
 decl_stmt|;
-DECL|method|NodeOperationResponse
+DECL|method|BaseNodeResponse
 specifier|protected
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|()
 block|{     }
-DECL|method|NodeOperationResponse
+DECL|method|BaseNodeResponse
 specifier|protected
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|(
 name|DiscoveryNode
 name|node

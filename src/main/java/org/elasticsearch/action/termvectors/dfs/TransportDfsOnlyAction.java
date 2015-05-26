@@ -98,7 +98,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -374,7 +374,7 @@ specifier|public
 class|class
 name|TransportDfsOnlyAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|DfsOnlyRequest
 argument_list|,

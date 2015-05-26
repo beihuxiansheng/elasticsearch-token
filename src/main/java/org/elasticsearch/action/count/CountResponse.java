@@ -42,7 +42,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -120,7 +120,7 @@ specifier|public
 class|class
 name|CountResponse
 extends|extends
-name|BroadcastOperationResponse
+name|BroadcastResponse
 block|{
 DECL|field|terminatedEarly
 specifier|private

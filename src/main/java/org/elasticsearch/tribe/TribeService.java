@@ -78,7 +78,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 import|;
 end_import
 
@@ -695,7 +695,7 @@ name|sb
 operator|.
 name|put
 argument_list|(
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 operator|.
 name|FORCE_LOCAL_SETTING
 argument_list|,

@@ -40,7 +40,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -260,7 +260,7 @@ specifier|public
 class|class
 name|PercolateResponse
 extends|extends
-name|BroadcastOperationResponse
+name|BroadcastResponse
 implements|implements
 name|Iterable
 argument_list|<

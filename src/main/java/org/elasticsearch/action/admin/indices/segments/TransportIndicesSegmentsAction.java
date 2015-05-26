@@ -88,7 +88,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -270,7 +270,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -284,7 +284,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -384,7 +384,7 @@ specifier|public
 class|class
 name|TransportIndicesSegmentsAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|IndicesSegmentsRequest
 argument_list|,
@@ -849,7 +849,7 @@ specifier|static
 class|class
 name|IndexShardSegmentRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|verbose
 name|boolean

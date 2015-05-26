@@ -102,7 +102,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -410,7 +410,7 @@ specifier|public
 class|class
 name|TransportIndicesStatsAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|IndicesStatsRequest
 argument_list|,
@@ -1343,7 +1343,7 @@ specifier|static
 class|class
 name|IndexShardStatsRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 comment|// TODO if there are many indices, the request might hold a large indices array..., we don't really need to serialize it
 DECL|field|request

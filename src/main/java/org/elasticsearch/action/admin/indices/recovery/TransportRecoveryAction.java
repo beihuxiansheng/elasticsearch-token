@@ -88,7 +88,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -104,7 +104,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -370,7 +370,7 @@ specifier|public
 class|class
 name|TransportRecoveryAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|RecoveryRequest
 argument_list|,
@@ -941,7 +941,7 @@ specifier|static
 class|class
 name|ShardRecoveryRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|method|ShardRecoveryRequest
 name|ShardRecoveryRequest

@@ -90,7 +90,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -330,7 +330,7 @@ specifier|public
 class|class
 name|TransportClearIndicesCacheAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|ClearIndicesCacheRequest
 argument_list|,
