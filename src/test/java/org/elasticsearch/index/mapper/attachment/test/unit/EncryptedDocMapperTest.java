@@ -46,7 +46,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -1182,7 +1182,7 @@ name|MapperTestUtils
 operator|.
 name|newMapperParser
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

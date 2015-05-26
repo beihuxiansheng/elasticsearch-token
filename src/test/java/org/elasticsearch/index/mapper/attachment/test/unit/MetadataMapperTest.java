@@ -70,20 +70,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -293,7 +279,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -720,7 +706,7 @@ name|checkMeta
 argument_list|(
 literal|"htmlWithoutDateMeta.html"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -748,7 +734,7 @@ name|checkMeta
 argument_list|(
 literal|"htmlWithEmptyDateMeta.html"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -776,7 +762,7 @@ name|checkMeta
 argument_list|(
 literal|"htmlWithValidDateMeta.html"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -804,7 +790,7 @@ name|checkMeta
 argument_list|(
 literal|"htmlWithoutDateMeta.html"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -846,7 +832,7 @@ name|checkMeta
 argument_list|(
 literal|"htmlWithEmptyDateMeta.html"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -881,7 +867,7 @@ name|checkMeta
 argument_list|(
 literal|"htmlWithValidDateMeta.html"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

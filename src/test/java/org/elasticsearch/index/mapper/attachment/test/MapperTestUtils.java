@@ -96,20 +96,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -444,7 +430,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -515,7 +501,7 @@ name|IndexFieldDataService
 argument_list|(
 name|index
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -524,7 +510,7 @@ argument_list|,
 operator|new
 name|IndicesFieldDataCache
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -564,7 +550,7 @@ block|{
 return|return
 name|newAnalysisService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -736,7 +722,7 @@ block|{
 return|return
 name|newMapperParser
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -766,7 +752,7 @@ block|{
 name|Settings
 name|forcedSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
