@@ -104,6 +104,20 @@ name|common
 operator|.
 name|io
 operator|.
+name|PathUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
 name|stream
 operator|.
 name|BytesStreamOutput
@@ -277,18 +291,6 @@ operator|.
 name|file
 operator|.
 name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
 import|;
 end_import
 
@@ -576,7 +578,7 @@ name|MapperTestUtils
 operator|.
 name|newMapperParser
 argument_list|(
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(
@@ -678,7 +680,7 @@ name|bytes
 init|=
 name|copyToBytes
 argument_list|(
-name|Paths
+name|PathUtils
 operator|.
 name|get
 argument_list|(

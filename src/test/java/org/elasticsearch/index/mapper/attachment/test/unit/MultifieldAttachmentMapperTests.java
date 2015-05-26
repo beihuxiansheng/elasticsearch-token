@@ -24,6 +24,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -656,7 +668,11 @@ argument_list|(
 name|originalText
 operator|.
 name|getBytes
-argument_list|()
+argument_list|(
+name|StandardCharsets
+operator|.
+name|ISO_8859_1
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|threadPool
