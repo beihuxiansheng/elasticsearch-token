@@ -685,6 +685,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"500kb"
+argument_list|,
+literal|"INACTIVE_SHARD_INDEXING_BUFFER"
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_VERSION_MAP_SIZE
@@ -1091,6 +1093,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 name|versionMapSizeSetting
+argument_list|,
+literal|"VersionMapSize"
 argument_list|)
 expr_stmt|;
 block|}

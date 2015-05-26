@@ -3185,6 +3185,7 @@ name|String
 name|watermark
 parameter_list|)
 block|{
+comment|// nocommit: why be lenient here?
 try|try
 block|{
 return|return
@@ -3193,6 +3194,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 name|watermark
+argument_list|,
+literal|"DiskThresholdDecider watermark"
 argument_list|)
 return|;
 block|}
@@ -3208,6 +3211,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"DiskThresholdDecider watermark"
 argument_list|)
 return|;
 block|}
@@ -3248,6 +3253,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 name|watermark
+argument_list|,
+literal|"DiskThresholdDecider watermark"
 argument_list|)
 expr_stmt|;
 return|return

@@ -793,7 +793,7 @@ argument_list|()
 operator|.
 name|setTransientSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

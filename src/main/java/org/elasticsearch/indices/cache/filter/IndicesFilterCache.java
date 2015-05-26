@@ -468,6 +468,8 @@ operator|.
 name|parseBytesSizeValueOrHeapRatio
 argument_list|(
 name|sizeString
+argument_list|,
+name|INDICES_CACHE_QUERY_SIZE
 argument_list|)
 decl_stmt|;
 specifier|final

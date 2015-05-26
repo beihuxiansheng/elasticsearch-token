@@ -580,6 +580,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"42pb"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -598,6 +600,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"42P"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -616,6 +620,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"42PB"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -634,6 +640,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"54tb"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -652,6 +660,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"54T"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -670,6 +680,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"54TB"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -688,6 +700,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"12gb"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -706,6 +720,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"12G"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -724,6 +740,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"12GB"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -742,6 +760,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"12M"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -760,6 +780,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"1b"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -778,6 +800,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"23kb"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -796,6 +820,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"23k"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -814,6 +840,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"23"
+argument_list|,
+literal|"testParsing"
 argument_list|)
 operator|.
 name|toString
@@ -848,6 +876,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|""
+argument_list|,
+literal|"emptyParsing"
 argument_list|)
 operator|.
 name|toString
@@ -882,6 +912,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"g"
+argument_list|,
+literal|"emptyNumberParsing"
 argument_list|)
 operator|.
 name|toString

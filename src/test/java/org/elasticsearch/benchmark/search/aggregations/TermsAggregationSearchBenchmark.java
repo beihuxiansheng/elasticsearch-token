@@ -3641,6 +3641,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"StatsResult"
 argument_list|)
 argument_list|)
 return|;

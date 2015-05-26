@@ -1287,6 +1287,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"10k"
+argument_list|,
+literal|"estimatedBytesSize"
 argument_list|)
 operator|.
 name|bytesAsInt
@@ -1297,6 +1299,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"256k"
+argument_list|,
+literal|"estimatedBytesSize"
 argument_list|)
 operator|.
 name|bytesAsInt

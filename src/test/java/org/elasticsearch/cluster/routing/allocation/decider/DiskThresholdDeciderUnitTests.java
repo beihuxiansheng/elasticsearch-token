@@ -302,6 +302,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"decider"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -333,6 +335,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"decider"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -471,6 +475,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"high threshold"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -506,6 +512,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"500mb"
+argument_list|,
+literal|"low threshold"
 argument_list|)
 argument_list|)
 argument_list|)

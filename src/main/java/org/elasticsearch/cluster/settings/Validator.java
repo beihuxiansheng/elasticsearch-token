@@ -893,6 +893,8 @@ block|{
 name|parseBytesSizeValue
 argument_list|(
 name|value
+argument_list|,
+name|setting
 argument_list|)
 expr_stmt|;
 block|}
@@ -1152,6 +1154,8 @@ block|{
 name|parseBytesSizeValueOrHeapRatio
 argument_list|(
 name|value
+argument_list|,
+name|setting
 argument_list|)
 expr_stmt|;
 block|}
