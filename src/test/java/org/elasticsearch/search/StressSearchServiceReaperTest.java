@@ -32,22 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -69,20 +53,6 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
 import|;
 end_import
 
@@ -254,7 +224,7 @@ parameter_list|)
 block|{
 comment|// very frequent checks
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

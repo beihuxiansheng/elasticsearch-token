@@ -110,7 +110,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -182,18 +182,18 @@ parameter_list|()
 function_decl|;
 DECL|method|getFieldDataSettings
 specifier|protected
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|getFieldDataSettings
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

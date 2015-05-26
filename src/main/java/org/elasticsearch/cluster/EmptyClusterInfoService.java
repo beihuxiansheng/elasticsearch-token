@@ -52,7 +52,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -102,7 +102,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

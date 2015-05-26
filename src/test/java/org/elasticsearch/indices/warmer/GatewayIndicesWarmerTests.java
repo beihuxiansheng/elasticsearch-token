@@ -86,20 +86,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -189,22 +175,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|settingsBuilder
 import|;
 end_import
 
@@ -619,7 +589,7 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 return|;
@@ -1081,7 +1051,7 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 return|;

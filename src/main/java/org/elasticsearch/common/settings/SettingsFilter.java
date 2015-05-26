@@ -390,12 +390,12 @@ argument_list|,
 literal|","
 argument_list|)
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()

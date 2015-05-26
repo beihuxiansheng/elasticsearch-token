@@ -442,7 +442,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -3565,7 +3565,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4714,7 +4714,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

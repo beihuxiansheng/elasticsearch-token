@@ -42,7 +42,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -159,7 +159,7 @@ name|percentString
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 operator|.
@@ -400,14 +400,14 @@ init|=
 operator|new
 name|HierarchyCircuitBreakerService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
 operator|new
 name|NodeSettingsService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

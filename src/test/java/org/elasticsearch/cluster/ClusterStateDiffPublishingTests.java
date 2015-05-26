@@ -174,20 +174,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -729,7 +715,7 @@ name|service
 init|=
 name|buildTransportService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1416,7 +1402,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeA"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1441,7 +1427,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeB"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1807,7 +1793,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeC"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -1987,7 +1973,7 @@ argument_list|)
 operator|.
 name|transientSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2442,7 +2428,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeA"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -2492,7 +2478,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeB"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -2727,7 +2713,7 @@ block|{
 name|Settings
 name|noDiffPublishingSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3048,7 +3034,7 @@ decl_stmt|;
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3407,7 +3393,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeA"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -3457,7 +3443,7 @@ name|createMockNode
 argument_list|(
 literal|"nodeB"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -3863,7 +3849,7 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3907,7 +3893,7 @@ argument_list|)
 operator|.
 name|transientSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

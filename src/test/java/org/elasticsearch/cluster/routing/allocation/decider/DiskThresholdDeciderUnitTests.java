@@ -80,20 +80,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -206,7 +192,7 @@ init|=
 operator|new
 name|NodeSettingsService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -291,7 +277,7 @@ init|=
 operator|new
 name|DiskThresholdDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -409,7 +395,7 @@ decl_stmt|;
 name|Settings
 name|newSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

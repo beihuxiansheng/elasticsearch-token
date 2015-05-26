@@ -94,20 +94,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -423,7 +409,7 @@ name|serviceA
 operator|=
 name|build
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -487,7 +473,7 @@ name|serviceB
 operator|=
 name|build
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3783,7 +3769,7 @@ name|serviceA
 operator|.
 name|applySettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

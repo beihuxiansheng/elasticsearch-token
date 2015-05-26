@@ -96,7 +96,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -206,7 +206,7 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()

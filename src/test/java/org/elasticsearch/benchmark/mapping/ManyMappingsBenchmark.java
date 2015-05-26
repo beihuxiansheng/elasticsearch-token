@@ -125,18 +125,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
-name|TransportModule
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -178,7 +166,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;

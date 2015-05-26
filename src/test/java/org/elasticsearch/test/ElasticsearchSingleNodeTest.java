@@ -16,18 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|LifecycleScope
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -195,20 +183,6 @@ operator|.
 name|lease
 operator|.
 name|Releasables
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
 import|;
 end_import
 
@@ -762,7 +736,7 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -972,7 +946,7 @@ name|createIndex
 argument_list|(
 name|index
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

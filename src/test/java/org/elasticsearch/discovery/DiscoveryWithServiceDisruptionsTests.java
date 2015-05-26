@@ -284,20 +284,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -1038,7 +1024,7 @@ specifier|static
 name|Settings
 name|DEFAULT_SETTINGS
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1193,7 +1179,7 @@ comment|// TODO: Rarely use default settings form some of these
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1276,7 +1262,7 @@ comment|// TODO: Rarely use default settings form some of these
 name|Settings
 name|nodeSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1620,7 +1606,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1876,7 +1862,7 @@ argument_list|()
 operator|.
 name|setTransientSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1970,7 +1956,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2361,7 +2347,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4364,7 +4350,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5472,7 +5458,7 @@ name|startNodesAsync
 argument_list|(
 literal|3
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

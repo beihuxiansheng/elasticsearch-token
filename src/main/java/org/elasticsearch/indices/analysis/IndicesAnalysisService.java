@@ -152,7 +152,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.

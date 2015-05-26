@@ -120,20 +120,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -171,20 +157,6 @@ operator|.
 name|stream
 operator|.
 name|Streamable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
 import|;
 end_import
 
@@ -452,7 +424,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -736,7 +708,7 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1517,7 +1489,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -2584,7 +2556,7 @@ condition|)
 block|{
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -4099,7 +4071,7 @@ operator|.
 name|getValue
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

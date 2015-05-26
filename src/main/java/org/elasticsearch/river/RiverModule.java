@@ -106,7 +106,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|NoClassSettingsException
+name|Settings
 import|;
 end_import
 
@@ -120,7 +120,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|Settings
+name|NoClassSettingsException
 import|;
 end_import
 

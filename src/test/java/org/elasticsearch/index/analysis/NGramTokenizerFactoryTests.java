@@ -124,9 +124,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-operator|.
-name|Builder
+name|Settings
 import|;
 end_import
 
@@ -141,6 +139,8 @@ operator|.
 name|settings
 operator|.
 name|Settings
+operator|.
+name|Builder
 import|;
 end_import
 

@@ -376,6 +376,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|MetaDataIndexStateService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -423,20 +437,6 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
 import|;
 end_import
 
@@ -740,7 +740,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -787,6 +787,22 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertBlocked
 import|;
 end_import
 
@@ -982,7 +998,7 @@ argument_list|()
 operator|.
 name|setPersistentSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1169,7 +1185,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1335,7 +1351,7 @@ argument_list|()
 operator|.
 name|setPersistentSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1863,7 +1879,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2242,7 +2258,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -3017,7 +3033,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -3396,7 +3412,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -4153,7 +4169,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -4190,7 +4206,53 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> start snapshot with default settings - should fail"
+literal|"--> start snapshot with default settings and closed index - should be blocked"
+argument_list|)
+expr_stmt|;
+name|assertBlocked
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareCreateSnapshot
+argument_list|(
+literal|"test-repo"
+argument_list|,
+literal|"test-snap-1"
+argument_list|)
+operator|.
+name|setIndices
+argument_list|(
+literal|"test-idx-all"
+argument_list|,
+literal|"test-idx-none"
+argument_list|,
+literal|"test-idx-some"
+argument_list|,
+literal|"test-idx-closed"
+argument_list|)
+operator|.
+name|setWaitForCompletion
+argument_list|(
+literal|true
+argument_list|)
+argument_list|,
+name|MetaDataIndexStateService
+operator|.
+name|INDEX_CLOSED_BLOCK
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> start snapshot with default settings without a closed index - should fail"
 argument_list|)
 expr_stmt|;
 name|CreateSnapshotResponse
@@ -4219,8 +4281,6 @@ argument_list|,
 literal|"test-idx-none"
 argument_list|,
 literal|"test-idx-some"
-argument_list|,
-literal|"test-idx-closed"
 argument_list|)
 operator|.
 name|setWaitForCompletion
@@ -4268,22 +4328,6 @@ literal|"Indices don't have primary shards"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-name|createSnapshotResponse
-operator|.
-name|getSnapshotInfo
-argument_list|()
-operator|.
-name|reason
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"; Indices are closed [test-idx-closed]"
-argument_list|)
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|randomBoolean
@@ -4320,8 +4364,6 @@ argument_list|,
 literal|"test-idx-none"
 argument_list|,
 literal|"test-idx-some"
-argument_list|,
-literal|"test-idx-closed"
 argument_list|)
 operator|.
 name|setWaitForCompletion
@@ -4535,7 +4577,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|22
+literal|18
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4718,8 +4760,6 @@ argument_list|,
 literal|"test-idx-none"
 argument_list|,
 literal|"test-idx-some"
-argument_list|,
-literal|"test-idx-closed"
 argument_list|)
 operator|.
 name|setWaitForCompletion
@@ -4773,7 +4813,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|22
+literal|18
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5445,7 +5485,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -6012,7 +6052,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -6063,7 +6103,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -6194,7 +6234,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -6704,7 +6744,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -7011,7 +7051,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

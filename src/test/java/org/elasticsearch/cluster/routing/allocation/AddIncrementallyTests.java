@@ -222,7 +222,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -330,7 +330,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -367,7 +367,7 @@ name|void
 name|testAddNodesAndIndices
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -943,7 +943,7 @@ name|void
 name|testMinimalRelocations
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -1975,7 +1975,7 @@ name|void
 name|testMinimalRelocationsNoLimit
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings

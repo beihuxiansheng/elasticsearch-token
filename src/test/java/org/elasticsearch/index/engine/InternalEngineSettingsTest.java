@@ -40,20 +40,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -187,7 +173,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -240,7 +226,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -416,7 +402,7 @@ decl_stmt|;
 name|Settings
 name|build
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -624,7 +610,7 @@ block|}
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -690,7 +676,7 @@ argument_list|)
 expr_stmt|;
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -752,7 +738,7 @@ argument_list|)
 expr_stmt|;
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -818,7 +804,7 @@ argument_list|)
 expr_stmt|;
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -875,7 +861,7 @@ comment|// good
 block|}
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -932,7 +918,7 @@ comment|// good
 block|}
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

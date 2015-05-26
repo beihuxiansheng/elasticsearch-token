@@ -266,7 +266,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -372,7 +372,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -432,7 +432,7 @@ argument_list|,
 operator|new
 name|AllocationDeciders
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -447,7 +447,7 @@ argument_list|(
 operator|new
 name|SameShardAllocationDecider
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1554,7 +1554,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

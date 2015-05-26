@@ -181,15 +181,15 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ShardReplicationOperationRequest
+DECL|class|ReplicationRequest
 specifier|public
 specifier|abstract
 class|class
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|<
 name|T
 extends|extends
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|>
 extends|extends
 name|ActionRequest
@@ -256,15 +256,15 @@ name|canHaveDuplicates
 init|=
 literal|false
 decl_stmt|;
-DECL|method|ShardReplicationOperationRequest
+DECL|method|ReplicationRequest
 specifier|protected
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|()
 block|{      }
 comment|/**      * Creates a new request that inherits headers and context from the request provided as argument.      */
-DECL|method|ShardReplicationOperationRequest
+DECL|method|ReplicationRequest
 specifier|protected
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|(
 name|ActionRequest
 name|request
@@ -277,9 +277,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Copy constructor that creates a new request that is a copy of the one provided as an argument.      */
-DECL|method|ShardReplicationOperationRequest
+DECL|method|ReplicationRequest
 specifier|protected
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|(
 name|T
 name|request
@@ -294,9 +294,9 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Copy constructor that creates a new request that is a copy of the one provided as an argument.      * The new request will inherit though headers and context from the original request that caused it.      */
-DECL|method|ShardReplicationOperationRequest
+DECL|method|ReplicationRequest
 specifier|protected
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 parameter_list|(
 name|T
 name|request

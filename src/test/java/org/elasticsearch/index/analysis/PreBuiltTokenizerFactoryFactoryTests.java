@@ -50,7 +50,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|create
 argument_list|(
 literal|"standard"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -179,7 +179,7 @@ name|create
 argument_list|(
 literal|"standard"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -208,7 +208,7 @@ name|create
 argument_list|(
 literal|"standard"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()

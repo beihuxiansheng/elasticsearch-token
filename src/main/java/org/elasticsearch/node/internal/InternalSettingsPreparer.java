@@ -76,20 +76,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -152,7 +138,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -214,7 +200,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// just create enough settings to build the environment
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder

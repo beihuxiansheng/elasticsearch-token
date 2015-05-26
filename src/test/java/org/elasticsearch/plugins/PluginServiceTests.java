@@ -96,18 +96,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|nodesinfo
-operator|.
-name|SimpleNodesInfoTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|plugins
 operator|.
 name|loading
@@ -189,18 +177,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -210,7 +186,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;

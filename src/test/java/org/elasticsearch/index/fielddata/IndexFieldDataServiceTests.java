@@ -114,20 +114,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -312,7 +298,7 @@ specifier|static
 name|Settings
 name|DOC_VALUES_SETTINGS
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -775,7 +761,7 @@ argument_list|)
 operator|.
 name|fieldDataSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -825,7 +811,7 @@ specifier|final
 name|Settings
 name|fdSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1126,7 +1112,7 @@ argument_list|)
 operator|.
 name|fieldDataSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1341,7 +1327,7 @@ argument_list|)
 operator|.
 name|fieldDataSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

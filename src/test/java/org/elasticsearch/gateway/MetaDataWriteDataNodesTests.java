@@ -150,7 +150,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -353,7 +353,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -538,7 +538,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -597,7 +597,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -925,7 +925,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -984,7 +984,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1103,7 +1103,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1139,7 +1139,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1442,7 +1442,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2007,7 +2007,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2499,12 +2499,12 @@ name|String
 name|newDataPath
 parameter_list|)
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2556,12 +2556,12 @@ name|String
 name|startMasterNode
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

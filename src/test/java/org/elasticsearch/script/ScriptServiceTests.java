@@ -78,20 +78,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -296,7 +282,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -732,7 +718,7 @@ block|{
 name|Settings
 name|finalSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -809,7 +795,7 @@ try|try
 block|{
 name|buildScriptService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -878,7 +864,7 @@ name|IOException
 block|{
 name|buildScriptService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1103,7 +1089,7 @@ name|IOException
 block|{
 name|buildScriptService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1216,7 +1202,7 @@ name|IOException
 block|{
 name|buildScriptService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1298,7 +1284,7 @@ name|IOException
 block|{
 name|buildScriptService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -1383,12 +1369,12 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1987,12 +1973,12 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//set the selected fine-grained settings
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2612,7 +2598,7 @@ name|IOException
 block|{
 name|buildScriptService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

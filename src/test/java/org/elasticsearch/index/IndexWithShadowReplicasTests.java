@@ -204,20 +204,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -578,7 +564,7 @@ name|nodeSettings
 parameter_list|()
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -653,7 +639,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -800,7 +786,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -931,7 +917,7 @@ expr_stmt|;
 name|Settings
 name|shadowSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1207,7 +1193,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1761,7 +1747,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2398,7 +2384,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2689,7 +2675,7 @@ decl_stmt|;
 name|Settings
 name|build
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3074,7 +3060,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3397,7 +3383,7 @@ comment|// now prevent primary from being allocated on node 1 move to node_3
 name|Settings
 name|build
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3517,7 +3503,7 @@ block|{
 name|Settings
 name|nodeSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3579,7 +3565,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4082,7 +4068,7 @@ comment|// now prevent primary from being allocated on node 1 move to node_3
 name|Settings
 name|build
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4247,7 +4233,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4578,7 +4564,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4962,7 +4948,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5570,7 +5556,7 @@ decl_stmt|;
 name|Settings
 name|fooSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5593,7 +5579,7 @@ decl_stmt|;
 name|Settings
 name|barSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5677,7 +5663,7 @@ decl_stmt|;
 name|Settings
 name|includeFoo
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5695,7 +5681,7 @@ decl_stmt|;
 name|Settings
 name|includeBar
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5713,7 +5699,7 @@ decl_stmt|;
 name|Settings
 name|idxSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

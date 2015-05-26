@@ -54,18 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|nodesinfo
-operator|.
-name|SimpleNodesInfoTests
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -140,7 +128,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;

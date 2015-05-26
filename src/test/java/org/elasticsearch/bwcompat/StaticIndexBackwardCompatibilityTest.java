@@ -87,18 +87,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|Paths
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.

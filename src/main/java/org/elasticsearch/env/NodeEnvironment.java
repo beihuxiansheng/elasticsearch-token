@@ -200,20 +200,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -1689,11 +1675,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// This is to ensure someone doesn't use ImmutableSettings.EMPTY
+comment|// This is to ensure someone doesn't use Settings.EMPTY
 assert|assert
 name|indexSettings
 operator|!=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 assert|;
@@ -1920,7 +1906,7 @@ block|{
 assert|assert
 name|indexSettings
 operator|!=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 assert|;
@@ -2113,11 +2099,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// This is to ensure someone doesn't use ImmutableSettings.EMPTY
+comment|// This is to ensure someone doesn't use Settings.EMPTY
 assert|assert
 name|indexSettings
 operator|!=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 assert|;
@@ -2175,11 +2161,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// This is to ensure someone doesn't use ImmutableSettings.EMPTY
+comment|// This is to ensure someone doesn't use Settings.EMPTY
 assert|assert
 name|indexSettings
 operator|!=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 assert|;
@@ -3674,7 +3660,7 @@ block|{
 assert|assert
 name|indexSettings
 operator|!=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 assert|;

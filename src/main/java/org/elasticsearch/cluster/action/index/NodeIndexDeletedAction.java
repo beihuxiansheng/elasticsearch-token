@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -169,18 +159,6 @@ operator|.
 name|concurrent
 operator|.
 name|AbstractRunnable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|env
-operator|.
-name|NodeEnvironment
 import|;
 end_import
 

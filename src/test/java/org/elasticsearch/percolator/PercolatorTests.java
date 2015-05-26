@@ -262,7 +262,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -276,7 +276,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 import|;
@@ -634,7 +634,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 import|;
@@ -650,7 +650,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -18878,12 +18878,12 @@ throws|throws
 name|IOException
 block|{
 comment|// If index.percolator.map_unmapped_fields_as_string is set to true, unmapped field is mapped as an analyzed string.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
