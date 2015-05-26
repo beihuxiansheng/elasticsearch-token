@@ -1162,6 +1162,8 @@ argument_list|<>
 argument_list|(
 name|logger
 argument_list|,
+literal|"shard_started"
+argument_list|,
 name|shard
 operator|.
 name|shardId
@@ -1226,7 +1228,13 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// still fetching data, remove from the unassigned, and try the next
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{}: ignoring allocation, still fetching shard started state"
+argument_list|)
+expr_stmt|;
 name|unassignedIterator
 operator|.
 name|remove
@@ -2600,7 +2608,13 @@ operator|!
 name|canBeAllocatedToAtLeastOneNode
 condition|)
 block|{
-comment|// still fetching data, remove from the unassigned, and try the next
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{}: ignoring allocation, can't be allocated on any node"
+argument_list|)
+expr_stmt|;
 name|unassignedIterator
 operator|.
 name|remove
@@ -2650,6 +2664,8 @@ name|InternalAsyncFetch
 argument_list|<>
 argument_list|(
 name|logger
+argument_list|,
+literal|"shard_store"
 argument_list|,
 name|shard
 operator|.
@@ -2715,7 +2731,13 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// still fetching data, remove from the unassigned, and try the next
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{}: ignoring allocation, still fetching shard stores"
+argument_list|)
+expr_stmt|;
 name|unassignedIterator
 operator|.
 name|remove
@@ -3347,6 +3369,9 @@ parameter_list|(
 name|ESLogger
 name|logger
 parameter_list|,
+name|String
+name|type
+parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
@@ -3373,6 +3398,8 @@ block|{
 name|super
 argument_list|(
 name|logger
+argument_list|,
+name|type
 argument_list|,
 name|shardId
 argument_list|,
@@ -3412,11 +3439,7 @@ name|submitStateUpdateTask
 argument_list|(
 literal|"async_shard_fetch("
 operator|+
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
+name|type
 operator|+
 literal|") "
 operator|+

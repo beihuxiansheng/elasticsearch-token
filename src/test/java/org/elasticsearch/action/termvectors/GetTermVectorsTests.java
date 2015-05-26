@@ -194,7 +194,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -334,7 +334,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -6188,7 +6188,7 @@ throws|,
 name|IOException
 block|{
 comment|// setup indices
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -6532,7 +6532,7 @@ throws|throws
 name|IOException
 block|{
 comment|// setup indices
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -6682,7 +6682,7 @@ throws|throws
 name|Exception
 block|{
 comment|// setup indices
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -7082,7 +7082,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 comment|// setup indices with mapping
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -7573,7 +7573,7 @@ argument_list|(
 literal|"Setting up the index ..."
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -8424,7 +8424,7 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -9327,7 +9327,7 @@ argument_list|(
 literal|"Setting up the index ..."
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -9611,7 +9611,7 @@ argument_list|(
 literal|"Setting up the index ..."
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -9914,7 +9914,7 @@ argument_list|(
 literal|"Setting up the index ..."
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings

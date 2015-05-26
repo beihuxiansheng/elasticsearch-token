@@ -284,20 +284,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -510,7 +496,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|*
 import|;
@@ -547,7 +533,7 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2767,7 +2753,7 @@ argument_list|)
 expr_stmt|;
 name|settings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|readSettingsFromStream
 argument_list|(
@@ -2914,7 +2900,7 @@ operator|.
 name|id
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|writeSettingsToStream
 argument_list|(
@@ -3471,7 +3457,7 @@ specifier|private
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.
@@ -4770,7 +4756,7 @@ name|builder
 operator|.
 name|settings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()

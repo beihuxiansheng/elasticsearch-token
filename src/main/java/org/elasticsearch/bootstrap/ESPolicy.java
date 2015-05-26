@@ -92,7 +92,7 @@ end_comment
 
 begin_class
 DECL|class|ESPolicy
-specifier|public
+specifier|final
 class|class
 name|ESPolicy
 extends|extends

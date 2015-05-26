@@ -232,20 +232,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -424,7 +410,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -1506,7 +1492,7 @@ name|indexSettings
 init|=
 name|useClusterSetting
 condition|?
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 else|:
@@ -2617,7 +2603,7 @@ name|indexSettings
 init|=
 name|useClusterSetting
 condition|?
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 else|:

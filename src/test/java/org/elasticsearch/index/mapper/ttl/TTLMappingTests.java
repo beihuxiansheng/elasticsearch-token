@@ -156,20 +156,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -850,7 +836,7 @@ decl_stmt|;
 name|Settings
 name|indexSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1875,7 +1861,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1963,7 +1949,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2059,7 +2045,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2186,7 +2172,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2344,7 +2330,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2488,7 +2474,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2628,7 +2614,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2769,7 +2755,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2892,7 +2878,7 @@ name|createIndex
 argument_list|(
 literal|"testindex"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -3041,7 +3027,7 @@ decl_stmt|;
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

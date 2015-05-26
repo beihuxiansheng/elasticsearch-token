@@ -104,7 +104,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -266,7 +266,7 @@ operator|.
 name|readString
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|readSettingsFromStream
 argument_list|(
@@ -342,7 +342,7 @@ name|type
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|writeSettingsToStream
 argument_list|(

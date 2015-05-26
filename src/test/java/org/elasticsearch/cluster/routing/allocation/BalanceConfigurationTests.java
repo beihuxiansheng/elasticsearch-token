@@ -246,7 +246,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -352,7 +352,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -437,7 +437,7 @@ name|balanceTreshold
 init|=
 literal|1.0f
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -635,7 +635,7 @@ name|balanceTreshold
 init|=
 literal|1.0f
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -2256,7 +2256,7 @@ name|void
 name|testPersistedSettings
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -2600,7 +2600,7 @@ name|void
 name|testNoRebalanceOnPrimaryOverload
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -2629,7 +2629,7 @@ argument_list|,
 operator|new
 name|NodeSettingsService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 operator|.

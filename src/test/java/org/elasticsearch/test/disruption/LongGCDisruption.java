@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|unit
 operator|.
 name|TimeValue
@@ -228,6 +240,13 @@ literal|0
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"stops/resumes threads intentionally"
+argument_list|)
 DECL|method|stopNodeThreads
 specifier|protected
 name|boolean
@@ -406,6 +425,13 @@ return|return
 name|stopped
 return|;
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"stops/resumes threads intentionally"
+argument_list|)
 DECL|method|resumeThreads
 specifier|protected
 name|void

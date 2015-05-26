@@ -24,7 +24,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -111,7 +111,7 @@ specifier|private
 name|GatewayService
 name|createService
 parameter_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -121,7 +121,7 @@ return|return
 operator|new
 name|GatewayService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -181,7 +181,7 @@ name|service
 init|=
 name|createService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -200,7 +200,7 @@ name|service
 operator|=
 name|createService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -235,7 +235,7 @@ name|service
 operator|=
 name|createService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -270,7 +270,7 @@ name|service
 operator|=
 name|createService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -316,7 +316,7 @@ name|service
 operator|=
 name|createService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

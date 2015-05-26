@@ -26,7 +26,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -576,14 +576,14 @@ init|=
 operator|new
 name|HierarchyCircuitBreakerService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
 operator|new
 name|NodeSettingsService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -987,14 +987,14 @@ init|=
 operator|new
 name|HierarchyCircuitBreakerService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
 operator|new
 name|NodeSettingsService
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)

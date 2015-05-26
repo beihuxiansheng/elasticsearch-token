@@ -24,26 +24,12 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
 
 begin_comment
-comment|/**  * A node builder is used to construct a {@link Node} instance.  *<p/>  *<p>Settings will be loaded relative to the ES home (with or without<tt>config/</tt> prefix) and if not found,  * within the classpath (with or without<tt>config/<tt> prefix). The settings file loaded can either be named  *<tt>elasticsearch.yml</tt> or<tt>elasticsearch.json</tt>). Loading settings can be disabled by calling  * {@link #loadConfigSettings(boolean)} with<tt>false<tt>.  *<p/>  *<p>Explicit settings can be passed by using the {@link #settings(Settings)} method.  *<p/>  *<p>In any case, settings will be resolved from system properties as well that are either prefixed with<tt>es.</tt>  * or<tt>elasticsearch.</tt>.  *<p/>  *<p>An example for creating a simple node with optional settings loaded from the classpath:  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder().node();  *</pre>  *<p/>  *<p>An example for creating a node with explicit settings (in this case, a node in the cluster that does not hold  * data):  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder()  *                      .settings(ImmutableSettings.settingsBuilder().put("node.data", false)  *                      .node();  *</pre>  *<p/>  *<p>When done with the node, make sure you call {@link Node#close()} on it.  *  *  */
+comment|/**  * A node builder is used to construct a {@link Node} instance.  *<p/>  *<p>Settings will be loaded relative to the ES home (with or without<tt>config/</tt> prefix) and if not found,  * within the classpath (with or without<tt>config/<tt> prefix). The settings file loaded can either be named  *<tt>elasticsearch.yml</tt> or<tt>elasticsearch.json</tt>). Loading settings can be disabled by calling  * {@link #loadConfigSettings(boolean)} with<tt>false<tt>.  *<p/>  *<p>Explicit settings can be passed by using the {@link #settings(org.elasticsearch.common.settings.Settings)} method.  *<p/>  *<p>In any case, settings will be resolved from system properties as well that are either prefixed with<tt>es.</tt>  * or<tt>elasticsearch.</tt>.  *<p/>  *<p>An example for creating a simple node with optional settings loaded from the classpath:  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder().node();  *</pre>  *<p/>  *<p>An example for creating a node with explicit settings (in this case, a node in the cluster that does not hold  * data):  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder()  *                      .settings(ImmutableSettings.settingsBuilder().put("node.data", false)  *                      .node();  *</pre>  *<p/>  *<p>When done with the node, make sure you call {@link Node#close()} on it.  *  *  */
 end_comment
 
 begin_class
@@ -55,12 +41,12 @@ block|{
 DECL|field|settings
 specifier|private
 specifier|final
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -89,7 +75,7 @@ block|}
 comment|/**      * Set addition settings simply by working directly against the settings builder.      */
 DECL|method|settings
 specifier|public
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settings
@@ -102,7 +88,7 @@ block|}
 comment|/**      * Set addition settings simply by working directly against the settings builder.      */
 DECL|method|getSettings
 specifier|public
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|getSettings

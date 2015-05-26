@@ -190,7 +190,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -326,7 +326,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -10747,12 +10747,12 @@ init|=
 name|randomBoolean
 argument_list|()
 decl_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

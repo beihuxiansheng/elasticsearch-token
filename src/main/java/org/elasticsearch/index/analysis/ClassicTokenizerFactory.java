@@ -132,16 +132,6 @@ name|IndexSettings
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Reader
-import|;
-end_import
-
 begin_comment
 comment|/**  * Factory for {@link ClassicTokenizer}  */
 end_comment

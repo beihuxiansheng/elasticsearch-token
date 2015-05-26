@@ -896,20 +896,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -2014,7 +2000,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -2688,7 +2674,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|randomSettingsBuilder
@@ -2698,7 +2684,7 @@ argument_list|(
 name|getRandom
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3336,7 +3322,7 @@ block|}
 block|}
 DECL|method|setRandomSettings
 specifier|protected
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|setRandomSettings
@@ -3344,7 +3330,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
@@ -3789,7 +3775,7 @@ block|}
 DECL|method|setRandomScriptingSettings
 specifier|private
 specifier|static
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|setRandomScriptingSettings
@@ -3797,7 +3783,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
@@ -3874,7 +3860,7 @@ block|}
 DECL|method|setRandomMerge
 specifier|private
 specifier|static
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|setRandomMerge
@@ -3882,7 +3868,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
@@ -4085,7 +4071,7 @@ block|}
 DECL|method|setRandomNormsLoading
 specifier|private
 specifier|static
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|setRandomNormsLoading
@@ -4093,7 +4079,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
@@ -4148,7 +4134,7 @@ block|}
 DECL|method|setRandomTranslogSettings
 specifier|private
 specifier|static
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|setRandomTranslogSettings
@@ -4156,7 +4142,7 @@ parameter_list|(
 name|Random
 name|random
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
@@ -5133,12 +5119,12 @@ name|Settings
 name|indexSettings
 parameter_list|()
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5391,7 +5377,7 @@ name|index
 argument_list|,
 name|numNodes
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5410,7 +5396,7 @@ parameter_list|,
 name|int
 name|numNodes
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|settingsBuilder
@@ -5424,12 +5410,12 @@ argument_list|(
 name|numNodes
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -5491,7 +5477,7 @@ return|;
 block|}
 DECL|method|getExcludeSettings
 specifier|private
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|getExcludeSettings
@@ -5502,7 +5488,7 @@ parameter_list|,
 name|int
 name|num
 parameter_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
@@ -6205,12 +6191,12 @@ argument_list|(
 name|n
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -9155,7 +9141,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -9209,7 +9195,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -9266,7 +9252,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -9321,7 +9307,7 @@ block|{
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -10417,7 +10403,7 @@ name|transportClientSettings
 parameter_list|()
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 return|;
@@ -10671,7 +10657,7 @@ name|nodeOrdinal
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -12090,12 +12076,12 @@ name|dest
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

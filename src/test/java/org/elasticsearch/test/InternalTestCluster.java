@@ -584,23 +584,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|ImmutableSettings
-operator|.
-name|Builder
+name|Settings
 import|;
 end_import
 
@@ -615,6 +599,8 @@ operator|.
 name|settings
 operator|.
 name|Settings
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -932,20 +918,6 @@ name|index
 operator|.
 name|translog
 operator|.
-name|Translog
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|translog
-operator|.
 name|TranslogConfig
 import|;
 end_import
@@ -1031,20 +1003,6 @@ operator|.
 name|recovery
 operator|.
 name|RecoverySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|monitor
-operator|.
-name|sigar
-operator|.
-name|SigarService
 import|;
 end_import
 
@@ -1440,7 +1398,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 import|;
@@ -2118,7 +2076,7 @@ expr_stmt|;
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2221,7 +2179,9 @@ argument_list|(
 literal|"bootstrap.sigar"
 argument_list|,
 name|rarely
-argument_list|()
+argument_list|(
+name|random
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|builder
@@ -2624,7 +2584,7 @@ block|{
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2840,7 +2800,7 @@ block|{
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -2983,7 +2943,7 @@ decl_stmt|;
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -3469,7 +3429,7 @@ name|EsExecutors
 operator|.
 name|boundedNumberOfProcessors
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -4944,7 +4904,7 @@ operator|.
 name|nextLong
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -5688,7 +5648,7 @@ condition|)
 block|{
 name|newSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 expr_stmt|;
@@ -5885,7 +5845,7 @@ literal|null
 condition|?
 name|settings
 else|:
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 expr_stmt|;
@@ -6441,7 +6401,7 @@ expr_stmt|;
 name|Builder
 name|clientSettingsBuilder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -7010,6 +6970,21 @@ control|)
 block|{
 name|assertThat
 argument_list|(
+literal|"index shard counter on shard "
+operator|+
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|+
+literal|" on node "
+operator|+
+name|nodeAndClient
+operator|.
+name|name
+operator|+
+literal|" not 0 or 1 "
+argument_list|,
 name|indexShard
 operator|.
 name|getOperationsCount
@@ -8940,7 +8915,7 @@ block|{
 return|return
 name|startNode
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -8964,7 +8939,7 @@ block|{
 return|return
 name|startNode
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -9078,7 +9053,7 @@ block|{
 return|return
 name|startNodeAsync
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -9246,7 +9221,7 @@ name|startNodesAsync
 argument_list|(
 name|numNodes
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|,
@@ -10513,7 +10488,7 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 return|;

@@ -138,7 +138,7 @@ init|=
 operator|new
 name|SettingsFilter
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -244,7 +244,7 @@ name|IOException
 block|{
 name|testFiltering
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -287,7 +287,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -307,7 +307,7 @@ argument_list|)
 expr_stmt|;
 name|testFiltering
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -350,7 +350,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -377,7 +377,7 @@ argument_list|)
 expr_stmt|;
 name|testFiltering
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -420,7 +420,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -433,7 +433,7 @@ argument_list|)
 expr_stmt|;
 name|testFiltering
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -462,7 +462,7 @@ operator|.
 name|build
 argument_list|()
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -517,7 +517,7 @@ init|=
 operator|new
 name|SettingsFilter
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|EMPTY
 argument_list|)
@@ -632,7 +632,7 @@ argument_list|()
 decl_stmt|;
 name|filteredSettings
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

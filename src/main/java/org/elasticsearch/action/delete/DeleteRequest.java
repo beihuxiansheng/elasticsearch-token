@@ -64,7 +64,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 import|;
 end_import
 
@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|DeleteRequest
 extends|extends
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 argument_list|<
 name|DeleteRequest
 argument_list|>

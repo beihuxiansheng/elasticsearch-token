@@ -208,7 +208,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -812,7 +812,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -839,7 +839,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -866,7 +866,7 @@ name|FieldDataType
 argument_list|(
 literal|"byte"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -893,7 +893,7 @@ name|FieldDataType
 argument_list|(
 literal|"short"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -920,7 +920,7 @@ name|FieldDataType
 argument_list|(
 literal|"int"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -947,7 +947,7 @@ name|FieldDataType
 argument_list|(
 literal|"long"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -974,7 +974,7 @@ name|FieldDataType
 argument_list|(
 literal|"double"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1001,7 +1001,7 @@ name|FieldDataType
 argument_list|(
 literal|"float"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1028,7 +1028,7 @@ name|FieldDataType
 argument_list|(
 literal|"byte"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1055,7 +1055,7 @@ name|FieldDataType
 argument_list|(
 literal|"short"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1082,7 +1082,7 @@ name|FieldDataType
 argument_list|(
 literal|"int"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1109,7 +1109,7 @@ name|FieldDataType
 argument_list|(
 literal|"long"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1136,7 +1136,7 @@ name|FieldDataType
 argument_list|(
 literal|"double"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1163,7 +1163,7 @@ name|FieldDataType
 argument_list|(
 literal|"float"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1190,7 +1190,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1942,7 +1942,7 @@ name|FieldDataType
 argument_list|(
 literal|"byte"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1969,7 +1969,7 @@ name|FieldDataType
 argument_list|(
 literal|"short"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1996,7 +1996,7 @@ name|FieldDataType
 argument_list|(
 literal|"int"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2023,7 +2023,7 @@ name|FieldDataType
 argument_list|(
 literal|"long"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2050,7 +2050,7 @@ name|FieldDataType
 argument_list|(
 literal|"byte"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2077,7 +2077,7 @@ name|FieldDataType
 argument_list|(
 literal|"short"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2104,7 +2104,7 @@ name|FieldDataType
 argument_list|(
 literal|"int"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2131,7 +2131,7 @@ name|FieldDataType
 argument_list|(
 literal|"long"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2846,7 +2846,7 @@ name|FieldDataType
 argument_list|(
 literal|"double"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2873,7 +2873,7 @@ name|FieldDataType
 argument_list|(
 literal|"float"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2900,7 +2900,7 @@ name|FieldDataType
 argument_list|(
 literal|"double"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2927,7 +2927,7 @@ name|FieldDataType
 argument_list|(
 literal|"float"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3437,7 +3437,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3464,7 +3464,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -3491,7 +3491,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4011,7 +4011,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4038,7 +4038,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4065,7 +4065,7 @@ name|FieldDataType
 argument_list|(
 literal|"string"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4591,7 +4591,7 @@ name|FieldDataType
 argument_list|(
 literal|"geo_point"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4618,7 +4618,7 @@ name|FieldDataType
 argument_list|(
 literal|"geo_point"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -4652,7 +4652,7 @@ name|FieldDataType
 argument_list|(
 literal|"geo_point"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

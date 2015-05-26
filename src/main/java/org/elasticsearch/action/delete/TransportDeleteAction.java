@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ExceptionsHelper
 import|;
 end_import
@@ -122,20 +112,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|index
-operator|.
-name|IndexRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|support
 operator|.
 name|ActionFilters
@@ -168,7 +144,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|TransportShardReplicationOperationAction
+name|TransportReplicationAction
 import|;
 end_import
 
@@ -414,16 +390,6 @@ name|TransportService
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Performs the delete operation.  */
 end_comment
@@ -434,7 +400,7 @@ specifier|public
 class|class
 name|TransportDeleteAction
 extends|extends
-name|TransportShardReplicationOperationAction
+name|TransportReplicationAction
 argument_list|<
 name|DeleteRequest
 argument_list|,

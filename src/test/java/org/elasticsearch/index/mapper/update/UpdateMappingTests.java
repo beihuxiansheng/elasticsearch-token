@@ -62,7 +62,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -877,7 +877,7 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1135,7 +1135,7 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1268,7 +1268,7 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1422,7 +1422,7 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1648,7 +1648,7 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1816,7 +1816,7 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1927,7 +1927,7 @@ name|createIndex
 argument_list|(
 literal|"test1"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -1940,7 +1940,7 @@ name|createIndex
 argument_list|(
 literal|"test2"
 argument_list|,
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()

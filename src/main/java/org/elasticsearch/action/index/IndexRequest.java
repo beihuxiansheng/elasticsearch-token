@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|ElasticsearchGenerationException
 import|;
 end_import
@@ -84,7 +74,7 @@ name|support
 operator|.
 name|replication
 operator|.
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 import|;
 end_import
 
@@ -338,7 +328,7 @@ specifier|public
 class|class
 name|IndexRequest
 extends|extends
-name|ShardReplicationOperationRequest
+name|ReplicationRequest
 argument_list|<
 name|IndexRequest
 argument_list|>

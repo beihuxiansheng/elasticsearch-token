@@ -298,20 +298,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -539,12 +525,12 @@ condition|)
 block|{
 comment|// if its a node client started by this service as tribe, remove any tribe group setting
 comment|// to avoid recursive configuration
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|sb
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -632,12 +618,12 @@ name|settings
 return|;
 block|}
 comment|// its a tribe configured node..., force settings
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|sb
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -895,12 +881,12 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|sb
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -1855,7 +1841,7 @@ expr_stmt|;
 name|Settings
 name|tribeSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2290,7 +2276,7 @@ block|{
 name|Settings
 name|tribeSettings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()

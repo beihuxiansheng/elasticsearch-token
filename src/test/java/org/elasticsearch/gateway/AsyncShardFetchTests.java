@@ -2065,6 +2065,8 @@ operator|.
 name|class
 argument_list|)
 argument_list|,
+literal|"test"
+argument_list|,
 operator|new
 name|ShardId
 argument_list|(

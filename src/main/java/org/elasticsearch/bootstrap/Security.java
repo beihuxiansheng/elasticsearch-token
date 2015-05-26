@@ -134,6 +134,7 @@ end_comment
 
 begin_class
 DECL|class|Security
+specifier|final
 class|class
 name|Security
 block|{

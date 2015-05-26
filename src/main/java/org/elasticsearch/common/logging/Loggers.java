@@ -290,7 +290,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/** Just like {@link #getLogger(Class,Settings,ShardId,String...)} but String loggerName instead of Class. */
+comment|/** Just like {@link #getLogger(Class, org.elasticsearch.common.settings.Settings,ShardId,String...)} but String loggerName instead of Class. */
 DECL|method|getLogger
 specifier|public
 specifier|static

@@ -40,22 +40,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|impl
-operator|.
-name|client
-operator|.
-name|HttpClients
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ExceptionsHelper
@@ -232,20 +216,6 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
 name|Settings
 import|;
 end_import
@@ -359,16 +329,6 @@ operator|.
 name|junit
 operator|.
 name|BeforeClass
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|InetSocketAddress
 import|;
 end_import
 
@@ -514,12 +474,12 @@ throws|throws
 name|Exception
 block|{
 comment|// allow the cluster to rebalance quickly - 2 concurrent rebalance are default we can do higher
-name|ImmutableSettings
+name|Settings
 operator|.
 name|Builder
 name|builder
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -608,7 +568,7 @@ expr_stmt|;
 name|Settings
 name|settings
 init|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -924,7 +884,7 @@ expr_stmt|;
 comment|// disable allocation entirely until all nodes are upgraded
 name|builder
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -972,7 +932,7 @@ argument_list|()
 expr_stmt|;
 name|builder
 operator|=
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
@@ -2318,7 +2278,7 @@ name|nodeOrdinal
 parameter_list|)
 block|{
 return|return
-name|ImmutableSettings
+name|Settings
 operator|.
 name|builder
 argument_list|()
