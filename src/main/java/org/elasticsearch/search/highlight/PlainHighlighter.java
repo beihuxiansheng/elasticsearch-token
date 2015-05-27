@@ -116,6 +116,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|BytesRefHash
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|CollectionUtil
 import|;
 end_import
@@ -953,6 +967,24 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|BytesRefHash
+operator|.
+name|MaxBytesLengthExceededException
+condition|)
+block|{
+comment|// this can happen if for example a field is not_analyzed and ignore_above option is set.
+comment|// the field will be ignored when indexing but the huge term is still in the source and
+comment|// the plain highlighter will parse the source and try to analyze it.
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|FetchPhaseExecutionException
@@ -970,6 +1002,7 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -1325,6 +1358,21 @@ block|}
 block|}
 return|return
 literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|canHighlight
+specifier|public
+name|boolean
+name|canHighlight
+parameter_list|(
+name|FieldMapper
+name|fieldMapper
+parameter_list|)
+block|{
+return|return
+literal|true
 return|;
 block|}
 DECL|method|findGoodEndForNoHighlightExcerpt
