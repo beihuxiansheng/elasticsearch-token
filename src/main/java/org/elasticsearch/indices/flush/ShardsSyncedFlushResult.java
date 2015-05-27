@@ -454,36 +454,6 @@ return|return
 name|shardResponses
 return|;
 block|}
-comment|//    @Override
-comment|//    public void writeTo(StreamOutput out) throws IOException {
-comment|//        super.writeTo(out);
-comment|//        out.writeOptionalString(failureReason);
-comment|//        out.writeOptionalString(syncId);
-comment|//        out.writeVInt(totalShards);
-comment|//        out.writeVInt(shardResponses.size());
-comment|//        for (Map.Entry<ShardRouting, SyncedFlushService.SyncedFlushResponse> result : shardResponses.entrySet()) {
-comment|//            result.getKey().writeTo(out);
-comment|//            result.getValue().writeTo(out);
-comment|//        }
-comment|//        shardId.writeTo(out);
-comment|//    }
-comment|//    @Override
-comment|//    public void readFrom(StreamInput in) throws IOException {
-comment|//        super.readFrom(in);
-comment|//        failureReason = in.readOptionalString();
-comment|//        syncId = in.readOptionalString();
-comment|//        totalShards = in.readVInt();
-comment|//        int size = in.readVInt();
-comment|//        ImmutableMap.Builder<ShardRouting, SyncedFlushService.SyncedFlushResponse> builder = ImmutableMap.builder();
-comment|//        for (int i = 0; i< size; i++) {
-comment|//            ImmutableShardRouting shardRouting = ImmutableShardRouting.readShardRoutingEntry(in);
-comment|//            SyncedFlushService.SyncedFlushResponse syncedFlushRsponse = new SyncedFlushService.SyncedFlushResponse();
-comment|//            syncedFlushRsponse.readFrom(in);
-comment|//            builder.put(shardRouting, syncedFlushRsponse);
-comment|//        }
-comment|//        shardResponses = builder.build();
-comment|//        shardId = ShardId.readShardId(in);
-comment|//    }
 DECL|method|shardId
 specifier|public
 name|ShardId

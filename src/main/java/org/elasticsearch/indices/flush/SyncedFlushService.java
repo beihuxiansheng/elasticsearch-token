@@ -766,6 +766,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * a utility method to perform a synced flush for all shards of multiple indices. see {@link #attemptSyncedFlush(ShardId, ActionListener)}      * for more details.      */
 DECL|method|attemptSyncedFlush
 specifier|public
 name|void
@@ -895,6 +896,26 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|numberOfShards
+operator|==
+literal|0
+condition|)
+block|{
+name|listener
+operator|.
+name|onResponse
+argument_list|(
+operator|new
+name|IndicesSyncedFlushResult
+argument_list|(
+name|results
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 specifier|final
 name|int
