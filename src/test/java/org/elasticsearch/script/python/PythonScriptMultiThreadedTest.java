@@ -242,7 +242,7 @@ init|=
 operator|new
 name|Thread
 index|[
-literal|50
+literal|4
 index|]
 decl_stmt|;
 specifier|final
@@ -399,7 +399,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100000
+literal|10000
 condition|;
 name|i
 operator|++
@@ -610,7 +610,7 @@ init|=
 operator|new
 name|Thread
 index|[
-literal|50
+literal|4
 index|]
 decl_stmt|;
 specifier|final
@@ -708,7 +708,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|100000
+literal|10000
 condition|;
 name|i
 operator|++
