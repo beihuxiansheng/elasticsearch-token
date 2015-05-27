@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.jna
+DECL|package|org.elasticsearch.bootstrap
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|jna
+name|bootstrap
 package|;
 end_package
 
@@ -133,14 +131,14 @@ comment|/**  * Library for Windows/Kernel32  */
 end_comment
 
 begin_class
-DECL|class|Kernel32Library
-specifier|public
+DECL|class|JNAKernel32Library
 class|class
-name|Kernel32Library
+name|JNAKernel32Library
 block|{
 DECL|field|logger
 specifier|private
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
@@ -148,7 +146,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|class
 argument_list|)
@@ -180,17 +178,17 @@ DECL|field|instance
 specifier|private
 specifier|final
 specifier|static
-name|Kernel32Library
+name|JNAKernel32Library
 name|instance
 init|=
 operator|new
-name|Kernel32Library
+name|JNAKernel32Library
 argument_list|()
 decl_stmt|;
 block|}
-DECL|method|Kernel32Library
+DECL|method|JNAKernel32Library
 specifier|private
-name|Kernel32Library
+name|JNAKernel32Library
 parameter_list|()
 block|{
 if|if
@@ -248,9 +246,8 @@ block|}
 block|}
 block|}
 DECL|method|getInstance
-specifier|public
 specifier|static
-name|Kernel32Library
+name|JNAKernel32Library
 name|getInstance
 parameter_list|()
 block|{
@@ -262,7 +259,6 @@ return|;
 block|}
 comment|/**      * Adds a Console Ctrl Handler.      *      * @param handler      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
 DECL|method|addConsoleCtrlHandler
-specifier|public
 name|boolean
 name|addConsoleCtrlHandler
 parameter_list|(
@@ -319,7 +315,6 @@ name|result
 return|;
 block|}
 DECL|method|getCallbacks
-specifier|public
 name|ImmutableList
 argument_list|<
 name|Object
@@ -344,7 +339,6 @@ return|;
 block|}
 comment|/**      * Native call to the Kernel32 API to set a new Console Ctrl Handler.      *      * @param handler      * @param add      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
 DECL|method|SetConsoleCtrlHandler
-specifier|public
 specifier|native
 name|boolean
 name|SetConsoleCtrlHandler
@@ -434,30 +428,6 @@ name|event
 argument_list|)
 return|;
 block|}
-block|}
-DECL|interface|ConsoleCtrlHandler
-specifier|public
-interface|interface
-name|ConsoleCtrlHandler
-block|{
-DECL|field|CTRL_CLOSE_EVENT
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|CTRL_CLOSE_EVENT
-init|=
-literal|2
-decl_stmt|;
-comment|/**          * Handles the Ctrl event.          *          * @param code the code corresponding to the Ctrl sent.          * @return true if the handler processed the event, false otherwise. If false, the next handler will be called.          */
-DECL|method|handle
-name|boolean
-name|handle
-parameter_list|(
-name|int
-name|code
-parameter_list|)
-function_decl|;
 block|}
 comment|/**      * Memory protection constraints      *      * https://msdn.microsoft.com/en-us/library/windows/desktop/aa366786%28v=vs.85%29.aspx      */
 DECL|field|PAGE_NOACCESS
@@ -566,9 +536,46 @@ argument_list|)
 return|;
 block|}
 block|}
+DECL|class|SizeT
+specifier|public
+specifier|static
+class|class
+name|SizeT
+extends|extends
+name|IntegerType
+block|{
+DECL|method|SizeT
+specifier|public
+name|SizeT
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SizeT
+specifier|public
+name|SizeT
+parameter_list|(
+name|long
+name|value
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|Native
+operator|.
+name|SIZE_T_SIZE
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Locks the specified region of the process's virtual address space into physical      * memory, ensuring that subsequent access to the region will not incur a page fault.      *      * https://msdn.microsoft.com/en-us/library/windows/desktop/aa366895%28v=vs.85%29.aspx      *      * @param address A pointer to the base address of the region of pages to be locked.      * @param size The size of the region to be locked, in bytes.      * @return true if the function succeeds      */
 DECL|method|VirtualLock
-specifier|public
 specifier|native
 name|boolean
 name|VirtualLock
@@ -582,7 +589,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Retrieves information about a range of pages within the virtual address space of a specified process.      *      * https://msdn.microsoft.com/en-us/library/windows/desktop/aa366907%28v=vs.85%29.aspx      *      * @param handle A handle to the process whose memory information is queried.      * @param address A pointer to the base address of the region of pages to be queried.      * @param memoryInfo A pointer to a structure in which information about the specified page range is returned.      * @param length The size of the buffer pointed to by the memoryInfo parameter, in bytes.      * @return the actual number of bytes returned in the information buffer.      */
 DECL|method|VirtualQueryEx
-specifier|public
 specifier|native
 name|int
 name|VirtualQueryEx
@@ -602,7 +608,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Sets the minimum and maximum working set sizes for the specified process.      *      * https://msdn.microsoft.com/en-us/library/windows/desktop/ms686234%28v=vs.85%29.aspx      *      * @param handle A handle to the process whose working set sizes is to be set.      * @param minSize The minimum working set size for the process, in bytes.      * @param maxSize The maximum working set size for the process, in bytes.      * @return true if the function succeeds.      */
 DECL|method|SetProcessWorkingSetSize
-specifier|public
 specifier|native
 name|boolean
 name|SetProcessWorkingSetSize
@@ -619,7 +624,6 @@ parameter_list|)
 function_decl|;
 comment|/**      * Retrieves a pseudo handle for the current process.      *      * https://msdn.microsoft.com/en-us/library/windows/desktop/ms683179%28v=vs.85%29.aspx      *      * @return a pseudo handle to the current process.      */
 DECL|method|GetCurrentProcess
-specifier|public
 specifier|native
 name|Pointer
 name|GetCurrentProcess
@@ -627,7 +631,6 @@ parameter_list|()
 function_decl|;
 comment|/**      * Closes an open object handle.      *      * https://msdn.microsoft.com/en-us/library/windows/desktop/ms724211%28v=vs.85%29.aspx      *      * @param handle A valid handle to an open object.      * @return true if the function succeeds.      */
 DECL|method|CloseHandle
-specifier|public
 specifier|native
 name|boolean
 name|CloseHandle

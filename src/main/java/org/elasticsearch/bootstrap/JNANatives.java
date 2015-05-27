@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.jna
+DECL|package|org.elasticsearch.bootstrap
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|jna
+name|bootstrap
 package|;
 end_package
 
@@ -25,18 +23,6 @@ operator|.
 name|jna
 operator|.
 name|Native
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|sun
-operator|.
-name|jna
-operator|.
-name|NativeLong
 import|;
 end_import
 
@@ -63,22 +49,6 @@ operator|.
 name|util
 operator|.
 name|Constants
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|jna
-operator|.
-name|Kernel32Library
-operator|.
-name|ConsoleCtrlHandler
 import|;
 end_import
 
@@ -134,19 +104,33 @@ name|Locale
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|bootstrap
+operator|.
+name|JNAKernel32Library
+operator|.
+name|SizeT
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * This class performs the actual work with JNA and library bindings to call native methods. It should only be used after  * we are sure that the JNA classes are available to the JVM  */
 end_comment
 
 begin_class
-DECL|class|Natives
-specifier|public
+DECL|class|JNANatives
 class|class
-name|Natives
+name|JNANatives
 block|{
 DECL|field|logger
 specifier|private
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
@@ -154,7 +138,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Natives
+name|JNANatives
 operator|.
 name|class
 argument_list|)
@@ -169,7 +153,6 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|tryMlockall
-specifier|public
 specifier|static
 name|void
 name|tryMlockall
@@ -187,11 +170,11 @@ block|{
 name|int
 name|result
 init|=
-name|CLibrary
+name|JNACLibrary
 operator|.
 name|mlockall
 argument_list|(
-name|CLibrary
+name|JNACLibrary
 operator|.
 name|MCL_CURRENT
 argument_list|)
@@ -241,7 +224,7 @@ if|if
 condition|(
 name|errno
 operator|==
-name|CLibrary
+name|JNACLibrary
 operator|.
 name|ENOMEM
 operator|&&
@@ -316,7 +299,6 @@ block|}
 block|}
 comment|/** Returns true if user is root, false if not, or if we don't know */
 DECL|method|definitelyRunningAsRoot
-specifier|public
 specifier|static
 name|boolean
 name|definitelyRunningAsRoot
@@ -337,7 +319,7 @@ block|}
 try|try
 block|{
 return|return
-name|CLibrary
+name|JNACLibrary
 operator|.
 name|geteuid
 argument_list|()
@@ -358,16 +340,15 @@ return|;
 block|}
 block|}
 DECL|method|tryVirtualLock
-specifier|public
 specifier|static
 name|void
 name|tryVirtualLock
 parameter_list|()
 block|{
-name|Kernel32Library
+name|JNAKernel32Library
 name|kernel
 init|=
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|getInstance
 argument_list|()
@@ -446,13 +427,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|MemoryBasicInformation
 name|memInfo
 init|=
 operator|new
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|MemoryBasicInformation
 argument_list|()
@@ -497,7 +478,7 @@ operator|.
 name|longValue
 argument_list|()
 operator|==
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|MEM_COMMIT
 operator|&&
@@ -509,12 +490,12 @@ operator|.
 name|longValue
 argument_list|()
 operator|&
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|PAGE_NOACCESS
 operator|)
 operator|!=
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|PAGE_NOACCESS
 operator|&&
@@ -526,12 +507,12 @@ operator|.
 name|longValue
 argument_list|()
 operator|&
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|PAGE_GUARD
 operator|)
 operator|!=
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|PAGE_GUARD
 decl_stmt|;
@@ -606,7 +587,6 @@ block|}
 block|}
 block|}
 DECL|method|addConsoleCtrlHandler
-specifier|public
 specifier|static
 name|void
 name|addConsoleCtrlHandler
@@ -628,7 +608,7 @@ block|{
 name|boolean
 name|result
 init|=
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|getInstance
 argument_list|()
@@ -668,20 +648,6 @@ literal|" when adding console ctrl handler:"
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-catch|catch
-parameter_list|(
-name|NoClassDefFoundError
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"JNA not found: native methods and handlers will be disabled."
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

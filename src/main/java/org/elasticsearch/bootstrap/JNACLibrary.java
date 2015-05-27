@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.jna
+DECL|package|org.elasticsearch.bootstrap
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|jna
+name|bootstrap
 package|;
 end_package
 
@@ -61,14 +59,14 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|CLibrary
-specifier|public
+DECL|class|JNACLibrary
 class|class
-name|CLibrary
+name|JNACLibrary
 block|{
 DECL|field|logger
 specifier|private
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
@@ -76,7 +74,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|CLibrary
+name|JNACLibrary
 operator|.
 name|class
 argument_list|)
@@ -122,20 +120,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|NoClassDefFoundError
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"JNA not found. native methods (mlockall) will be disabled."
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
 name|UnsatisfiedLinkError
 name|e
 parameter_list|)
@@ -150,7 +134,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|mlockall
-specifier|public
 specifier|static
 specifier|native
 name|int
@@ -161,16 +144,15 @@ name|flags
 parameter_list|)
 function_decl|;
 DECL|method|geteuid
-specifier|public
 specifier|static
 specifier|native
 name|int
 name|geteuid
 parameter_list|()
 function_decl|;
-DECL|method|CLibrary
+DECL|method|JNACLibrary
 specifier|private
-name|CLibrary
+name|JNACLibrary
 parameter_list|()
 block|{     }
 block|}

@@ -4,15 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.jna
+DECL|package|org.elasticsearch.bootstrap
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|jna
+name|bootstrap
 package|;
 end_package
 
@@ -65,10 +63,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NativesTests
+DECL|class|JNANativesTests
 specifier|public
 class|class
-name|NativesTests
+name|JNANativesTests
 extends|extends
 name|ElasticsearchTestCase
 block|{
@@ -91,7 +89,7 @@ name|assertFalse
 argument_list|(
 literal|"Memory locking is not available on OS X platforms"
 argument_list|,
-name|Natives
+name|JNANatives
 operator|.
 name|LOCAL_MLOCKALL
 argument_list|)
@@ -115,7 +113,7 @@ condition|)
 block|{
 name|assertNotNull
 argument_list|(
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|getInstance
 argument_list|()
@@ -123,7 +121,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|getInstance
 argument_list|()
@@ -145,7 +143,7 @@ else|else
 block|{
 name|assertNotNull
 argument_list|(
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|getInstance
 argument_list|()
@@ -153,7 +151,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-name|Kernel32Library
+name|JNAKernel32Library
 operator|.
 name|getInstance
 argument_list|()

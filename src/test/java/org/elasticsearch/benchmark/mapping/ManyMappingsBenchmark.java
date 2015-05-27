@@ -50,9 +50,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|bootstrap
 operator|.
-name|Client
+name|Bootstrap
 import|;
 end_import
 
@@ -62,11 +62,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|client
 operator|.
-name|jna
-operator|.
-name|Natives
+name|Client
 import|;
 end_import
 
@@ -362,16 +360,27 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|Natives
+name|Bootstrap
 operator|.
-name|tryMlockall
-argument_list|()
+name|initializeNatives
+argument_list|(
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
 expr_stmt|;
 name|Settings
 name|settings
 init|=
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|""
+argument_list|)
 operator|.
 name|put
 argument_list|(
