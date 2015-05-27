@@ -2875,7 +2875,7 @@ block|}
 comment|/**      * Returns all the fields that match the given pattern. If the pattern is prefixed with a type      * then the fields will be returned with a type prefix.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -2897,7 +2897,7 @@ block|}
 comment|/**      * Returns all the fields that match the given pattern, with an optional narrowing      * based on a list of types.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>

@@ -218,7 +218,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Collection
 import|;
 end_import
 
@@ -433,7 +433,7 @@ name|fields
 argument_list|()
 control|)
 block|{
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>

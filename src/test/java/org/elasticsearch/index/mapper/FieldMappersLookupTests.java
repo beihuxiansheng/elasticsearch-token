@@ -154,6 +154,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -209,7 +219,7 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -728,7 +738,7 @@ name|f2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -811,7 +821,7 @@ name|f2
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
