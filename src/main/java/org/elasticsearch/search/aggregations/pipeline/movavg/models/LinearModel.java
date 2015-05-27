@@ -112,6 +112,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -309,8 +323,8 @@ specifier|public
 specifier|static
 class|class
 name|LinearModelParser
-implements|implements
-name|MovAvgModelParser
+extends|extends
+name|AbstractModelParser
 block|{
 annotation|@
 name|Override
@@ -343,6 +357,15 @@ argument_list|,
 name|Object
 argument_list|>
 name|settings
+parameter_list|,
+name|String
+name|pipelineName
+parameter_list|,
+name|SearchContext
+name|context
+parameter_list|,
+name|int
+name|windowSize
 parameter_list|)
 block|{
 return|return

@@ -839,6 +839,15 @@ operator|.
 name|getKey
 argument_list|()
 expr_stmt|;
+comment|// Default is to reuse existing bucket.  Simplifies the rest of the logic,
+comment|// since we only change newBucket if we can add to it
+name|InternalHistogram
+operator|.
+name|Bucket
+name|newBucket
+init|=
+name|bucket
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -865,6 +874,20 @@ argument_list|(
 name|thisBucketValue
 argument_list|)
 expr_stmt|;
+comment|// Some models (e.g. HoltWinters) have certain preconditions that must be met
+if|if
+condition|(
+name|model
+operator|.
+name|hasValue
+argument_list|(
+name|values
+operator|.
+name|size
+argument_list|()
+argument_list|)
+condition|)
+block|{
 name|double
 name|movavg
 init|=
@@ -897,7 +920,7 @@ operator|.
 name|asList
 argument_list|()
 argument_list|,
-name|FUNCTION
+name|AGGREGATION_TRANFORM_FUNCTION
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -927,11 +950,8 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|InternalHistogram
-operator|.
-name|Bucket
 name|newBucket
-init|=
+operator|=
 name|factory
 operator|.
 name|createBucket
@@ -959,7 +979,9 @@ operator|.
 name|getFormatter
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+block|}
 name|newBuckets
 operator|.
 name|add
@@ -967,17 +989,6 @@ argument_list|(
 name|newBucket
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|newBuckets
-operator|.
-name|add
-argument_list|(
-name|bucket
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|predict
