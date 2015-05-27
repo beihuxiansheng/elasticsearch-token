@@ -280,7 +280,7 @@ name|assertThat
 argument_list|(
 name|headerNames
 argument_list|,
-name|containsInAnyOrder
+name|contains
 argument_list|(
 literal|"bulk.foo"
 argument_list|,
@@ -358,7 +358,7 @@ name|assertThat
 argument_list|(
 name|headerNames
 argument_list|,
-name|containsInAnyOrder
+name|contains
 argument_list|(
 literal|"bulk.foo"
 argument_list|,
