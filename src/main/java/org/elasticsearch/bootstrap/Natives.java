@@ -80,8 +80,8 @@ static|static
 block|{
 try|try
 block|{
-comment|// load one of the main JNA classes to see if the classes are available. this does not ensure that native
-comment|// libraries are available
+comment|// load one of the main JNA classes to see if the classes are available. this does not ensure that all native
+comment|// libraries are available, only the ones necessary by JNA to function
 name|Class
 operator|.
 name|forName
@@ -105,6 +105,24 @@ operator|.
 name|warn
 argument_list|(
 literal|"JNA not found. native methods will be disabled."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|UnsatisfiedLinkError
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"unable to load JNA native support library, native methods will be disabled."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
