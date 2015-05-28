@@ -149,6 +149,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -254,23 +270,13 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Slow
 DECL|class|SimpleAttachmentIntegrationTests
 specifier|public
 class|class
