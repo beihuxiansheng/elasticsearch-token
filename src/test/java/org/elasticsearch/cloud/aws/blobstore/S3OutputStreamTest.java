@@ -286,7 +286,7 @@ name|randomIntBetween
 argument_list|(
 name|BUFFER_SIZE
 argument_list|,
-literal|10
+literal|2
 operator|*
 name|BUFFER_SIZE
 argument_list|)
@@ -433,6 +433,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Slow
 DECL|method|testWriteExactlyNTimesMoreDataThanBufferSize
 specifier|public
 name|void
@@ -448,7 +450,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|10
+literal|3
 argument_list|)
 decl_stmt|;
 name|int
@@ -615,7 +617,7 @@ name|randomIntBetween
 argument_list|(
 name|BUFFER_SIZE
 argument_list|,
-literal|5
+literal|2
 operator|*
 name|BUFFER_SIZE
 argument_list|)
@@ -635,7 +637,7 @@ name|randomIntBetween
 argument_list|(
 literal|1
 argument_list|,
-literal|10
+literal|2
 operator|*
 name|BUFFER_SIZE
 argument_list|)
