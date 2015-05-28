@@ -660,7 +660,7 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|startArray
+name|startObject
 argument_list|(
 literal|"upgraded_indices"
 argument_list|)
