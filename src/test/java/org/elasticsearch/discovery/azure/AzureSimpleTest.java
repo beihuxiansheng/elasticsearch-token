@@ -105,6 +105,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|Slow
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -142,6 +158,8 @@ name|numClientNodes
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|Slow
 DECL|class|AzureSimpleTest
 specifier|public
 class|class
