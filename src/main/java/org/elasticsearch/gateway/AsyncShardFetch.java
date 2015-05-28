@@ -98,7 +98,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationResponse
+name|BaseNodeResponse
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodesOperationResponse
+name|BaseNodesResponse
 import|;
 end_import
 
@@ -295,7 +295,7 @@ name|AsyncShardFetch
 parameter_list|<
 name|T
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|>
 implements|implements
 name|Releasable
@@ -308,14 +308,14 @@ name|List
 parameter_list|<
 name|NodesResponse
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 parameter_list|<
 name|NodeResponse
 parameter_list|>
 parameter_list|,
 name|NodeResponse
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|>
 block|{
 DECL|method|list
@@ -363,7 +363,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>
@@ -432,7 +432,7 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>
@@ -467,7 +467,7 @@ operator|=
 operator|(
 name|List
 argument_list|<
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>
@@ -1502,7 +1502,7 @@ argument_list|,
 operator|new
 name|ActionListener
 argument_list|<
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>
@@ -1515,7 +1515,7 @@ specifier|public
 name|void
 name|onResponse
 parameter_list|(
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>
@@ -1619,7 +1619,7 @@ name|FetchResult
 parameter_list|<
 name|T
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|>
 block|{
 DECL|field|shardId

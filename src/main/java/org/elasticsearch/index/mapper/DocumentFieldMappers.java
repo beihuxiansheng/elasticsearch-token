@@ -126,16 +126,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -560,7 +550,7 @@ argument_list|)
 return|;
 block|}
 DECL|method|simpleMatchToIndexNames
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -581,7 +571,7 @@ return|;
 block|}
 DECL|method|simpleMatchToFullName
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>

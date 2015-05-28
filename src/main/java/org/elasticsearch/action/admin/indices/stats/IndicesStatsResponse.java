@@ -100,7 +100,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -268,7 +268,7 @@ specifier|public
 class|class
 name|IndicesStatsResponse
 extends|extends
-name|BroadcastOperationResponse
+name|BroadcastResponse
 implements|implements
 name|ToXContent
 block|{

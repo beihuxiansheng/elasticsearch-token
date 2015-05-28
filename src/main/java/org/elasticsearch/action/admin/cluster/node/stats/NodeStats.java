@@ -28,23 +28,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationResponse
+name|BaseNodeResponse
 import|;
 end_import
 
@@ -71,20 +61,6 @@ operator|.
 name|common
 operator|.
 name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|breaker
-operator|.
-name|CircuitBreaker
 import|;
 end_import
 
@@ -183,20 +159,6 @@ operator|.
 name|breaker
 operator|.
 name|AllCircuitBreakerStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|breaker
-operator|.
-name|CircuitBreakerStats
 import|;
 end_import
 
@@ -324,7 +286,7 @@ specifier|public
 class|class
 name|NodeStats
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 implements|implements
 name|ToXContent
 block|{

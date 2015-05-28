@@ -28,7 +28,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -112,7 +112,7 @@ specifier|final
 class|class
 name|ShardSuggestRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|suggestSource
 specifier|private

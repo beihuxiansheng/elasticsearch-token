@@ -72,7 +72,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 import|;
 end_import
 
@@ -246,7 +246,7 @@ specifier|public
 class|class
 name|TransportClusterStateAction
 extends|extends
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 argument_list|<
 name|ClusterStateRequest
 argument_list|,

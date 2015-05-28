@@ -42,7 +42,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|SingleShardOperationRequest
+name|SingleShardRequest
 import|;
 end_import
 
@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|MultiTermVectorsShardRequest
 extends|extends
-name|SingleShardOperationRequest
+name|SingleShardRequest
 argument_list|<
 name|MultiTermVectorsShardRequest
 argument_list|>

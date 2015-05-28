@@ -388,37 +388,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|*
 import|;
 end_import
 
@@ -835,6 +805,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs a new search source builder with a query from a map.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|query
 specifier|public
 name|SearchSourceBuilder
@@ -1034,6 +1009,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs a new search source builder with a query from a map.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|postFilter
 specifier|public
 name|SearchSourceBuilder
@@ -1520,7 +1500,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the rescore window size for rescores that don't specify their window.      *       * @param defaultRescoreWindowSize      * @return      */
+comment|/**      * Set the rescore window size for rescores that don't specify their window.      */
 DECL|method|defaultRescoreWindowSize
 specifier|public
 name|SearchSourceBuilder
@@ -1541,6 +1521,11 @@ name|this
 return|;
 block|}
 comment|/**      * Sets a raw (xcontent / json) addAggregation.      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|aggregations
 specifier|public
 name|SearchSourceBuilder
@@ -1742,7 +1727,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Indicates whether the response should contain the stored _source for      * every hit      *      * @param fetch      * @return      */
+comment|/**      * Indicates whether the response should contain the stored _source for      * every hit      */
 DECL|method|fetchSource
 specifier|public
 name|SearchSourceBuilder
@@ -1964,22 +1949,15 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-for|for
-control|(
-name|String
-name|field
-range|:
-name|fields
-control|)
-block|{
-name|fieldNames
+name|Collections
 operator|.
-name|add
+name|addAll
 argument_list|(
-name|field
+name|fieldNames
+argument_list|,
+name|fields
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|this
 return|;
@@ -2837,7 +2815,7 @@ name|field
 argument_list|(
 literal|"track_scores"
 argument_list|,
-name|trackScores
+literal|true
 argument_list|)
 expr_stmt|;
 block|}

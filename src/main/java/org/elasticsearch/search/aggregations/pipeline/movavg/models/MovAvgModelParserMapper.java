@@ -116,7 +116,9 @@ name|ImmutableMap
 argument_list|<
 name|String
 argument_list|,
-name|MovAvgModelParser
+name|MovAvgModel
+operator|.
+name|AbstractModelParser
 argument_list|>
 name|movAvgParsers
 decl_stmt|;
@@ -128,7 +130,9 @@ name|MovAvgModelParserMapper
 parameter_list|(
 name|Set
 argument_list|<
-name|MovAvgModelParser
+name|MovAvgModel
+operator|.
+name|AbstractModelParser
 argument_list|>
 name|parsers
 parameter_list|)
@@ -137,7 +141,9 @@ name|MapBuilder
 argument_list|<
 name|String
 argument_list|,
-name|MovAvgModelParser
+name|MovAvgModel
+operator|.
+name|AbstractModelParser
 argument_list|>
 name|builder
 init|=
@@ -148,7 +154,9 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MovAvgModelParser
+name|MovAvgModel
+operator|.
+name|AbstractModelParser
 name|parser
 range|:
 name|parsers
@@ -179,7 +187,9 @@ specifier|public
 annotation|@
 name|Nullable
 DECL|method|get
-name|MovAvgModelParser
+name|MovAvgModel
+operator|.
+name|AbstractModelParser
 name|get
 parameter_list|(
 name|String

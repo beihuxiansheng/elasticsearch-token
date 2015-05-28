@@ -70,7 +70,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 import|;
 end_import
 
@@ -192,7 +192,7 @@ specifier|public
 class|class
 name|ClusterHealthRequest
 extends|extends
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 argument_list|<
 name|ClusterHealthRequest
 argument_list|>

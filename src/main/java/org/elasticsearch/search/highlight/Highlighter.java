@@ -16,6 +16,20 @@ name|highlight
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|FieldMapper
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -38,6 +52,14 @@ name|highlight
 parameter_list|(
 name|HighlighterContext
 name|highlighterContext
+parameter_list|)
+function_decl|;
+DECL|method|canHighlight
+name|boolean
+name|canHighlight
+parameter_list|(
+name|FieldMapper
+name|fieldMapper
 parameter_list|)
 function_decl|;
 block|}

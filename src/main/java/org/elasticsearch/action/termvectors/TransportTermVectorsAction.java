@@ -68,7 +68,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 import|;
 end_import
 
@@ -160,7 +160,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -174,7 +174,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -224,7 +224,7 @@ specifier|public
 class|class
 name|TransportTermVectorsAction
 extends|extends
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 argument_list|<
 name|TermVectorsRequest
 argument_list|,

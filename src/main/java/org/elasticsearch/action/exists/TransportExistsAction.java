@@ -96,7 +96,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -286,9 +286,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
-operator|.
-name|QueryParseContext
+name|IndexService
 import|;
 end_import
 
@@ -300,7 +298,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -530,7 +530,7 @@ specifier|public
 class|class
 name|TransportExistsAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|ExistsRequest
 argument_list|,

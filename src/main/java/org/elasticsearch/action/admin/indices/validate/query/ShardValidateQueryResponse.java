@@ -34,7 +34,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -103,7 +103,7 @@ DECL|class|ShardValidateQueryResponse
 class|class
 name|ShardValidateQueryResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 block|{
 DECL|field|valid
 specifier|private

@@ -340,7 +340,7 @@ specifier|public
 class|class
 name|TransportNodesListGatewayStartedShards
 extends|extends
-name|TransportNodesOperationAction
+name|TransportNodesAction
 argument_list|<
 name|TransportNodesListGatewayStartedShards
 operator|.
@@ -1038,7 +1038,7 @@ specifier|static
 class|class
 name|Request
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 argument_list|<
 name|Request
 argument_list|>
@@ -1192,7 +1192,7 @@ specifier|static
 class|class
 name|NodesGatewayStartedShards
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|NodeGatewayStartedShards
 argument_list|>
@@ -1367,7 +1367,7 @@ specifier|static
 class|class
 name|NodeRequest
 extends|extends
-name|NodeOperationRequest
+name|BaseNodeRequest
 block|{
 DECL|field|shardId
 specifier|private
@@ -1520,7 +1520,7 @@ specifier|static
 class|class
 name|NodeGatewayStartedShards
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 block|{
 DECL|field|version
 specifier|private

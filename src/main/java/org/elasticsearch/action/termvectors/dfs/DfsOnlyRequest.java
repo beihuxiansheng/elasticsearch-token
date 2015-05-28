@@ -98,7 +98,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationRequest
+name|BroadcastRequest
 import|;
 end_import
 
@@ -242,7 +242,7 @@ specifier|public
 class|class
 name|DfsOnlyRequest
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 argument_list|<
 name|DfsOnlyRequest
 argument_list|>

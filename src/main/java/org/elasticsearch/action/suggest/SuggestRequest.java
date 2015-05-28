@@ -40,7 +40,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationRequest
+name|BroadcastRequest
 import|;
 end_import
 
@@ -199,7 +199,7 @@ specifier|final
 class|class
 name|SuggestRequest
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 argument_list|<
 name|SuggestRequest
 argument_list|>

@@ -26,16 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -57,18 +47,6 @@ operator|.
 name|custom
 operator|.
 name|SingleCustomOperationRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Nullable
 import|;
 end_import
 
@@ -197,9 +175,10 @@ name|String
 name|field
 decl_stmt|;
 DECL|method|AnalyzeRequest
+specifier|public
 name|AnalyzeRequest
 parameter_list|()
-block|{      }
+block|{     }
 comment|/**      * Constructs a new analyzer request for the provided index.      *      * @param index The text to analyze      */
 DECL|method|AnalyzeRequest
 specifier|public

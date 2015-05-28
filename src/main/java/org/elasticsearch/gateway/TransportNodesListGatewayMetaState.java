@@ -298,7 +298,7 @@ specifier|public
 class|class
 name|TransportNodesListGatewayMetaState
 extends|extends
-name|TransportNodesOperationAction
+name|TransportNodesAction
 argument_list|<
 name|TransportNodesListGatewayMetaState
 operator|.
@@ -707,7 +707,7 @@ specifier|static
 class|class
 name|Request
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 argument_list|<
 name|Request
 argument_list|>
@@ -781,7 +781,7 @@ specifier|static
 class|class
 name|NodesGatewayMetaState
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|NodeGatewayMetaState
 argument_list|>
@@ -958,7 +958,7 @@ specifier|static
 class|class
 name|NodeRequest
 extends|extends
-name|NodeOperationRequest
+name|BaseNodeRequest
 block|{
 DECL|method|NodeRequest
 name|NodeRequest
@@ -1033,7 +1033,7 @@ specifier|static
 class|class
 name|NodeGatewayMetaState
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 block|{
 DECL|field|metaData
 specifier|private

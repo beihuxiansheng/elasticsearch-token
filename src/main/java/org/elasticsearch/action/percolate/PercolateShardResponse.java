@@ -56,7 +56,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -282,7 +282,7 @@ specifier|public
 class|class
 name|PercolateShardResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 block|{
 DECL|field|EMPTY_MATCHES
 specifier|private

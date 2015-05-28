@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|// used in ImmutableSettingsTest
+comment|// used in SettingsTest
 end_comment
 
 begin_class

@@ -44,7 +44,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodesOperationRequest
+name|BaseNodesRequest
 import|;
 end_import
 
@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|NodesHotThreadsRequest
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 argument_list|<
 name|NodesHotThreadsRequest
 argument_list|>

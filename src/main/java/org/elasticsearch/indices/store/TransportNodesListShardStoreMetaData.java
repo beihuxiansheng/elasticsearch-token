@@ -468,7 +468,7 @@ specifier|public
 class|class
 name|TransportNodesListShardStoreMetaData
 extends|extends
-name|TransportNodesOperationAction
+name|TransportNodesAction
 argument_list|<
 name|TransportNodesListShardStoreMetaData
 operator|.
@@ -1620,7 +1620,7 @@ specifier|static
 class|class
 name|Request
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 argument_list|<
 name|Request
 argument_list|>
@@ -1799,7 +1799,7 @@ specifier|static
 class|class
 name|NodesStoreFilesMetaData
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|NodeStoreFilesMetaData
 argument_list|>
@@ -1971,7 +1971,7 @@ specifier|static
 class|class
 name|NodeRequest
 extends|extends
-name|NodeOperationRequest
+name|BaseNodeRequest
 block|{
 DECL|field|shardId
 specifier|private
@@ -2102,7 +2102,7 @@ specifier|static
 class|class
 name|NodeStoreFilesMetaData
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 block|{
 DECL|field|storeFilesMetaData
 specifier|private
