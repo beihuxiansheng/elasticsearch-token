@@ -1009,8 +1009,6 @@ name|assertNotUpgraded
 argument_list|(
 name|client
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1164,8 +1162,6 @@ name|assertUpgraded
 argument_list|(
 name|client
 argument_list|()
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1179,6 +1175,7 @@ name|Client
 name|client
 parameter_list|,
 name|String
+modifier|...
 name|index
 parameter_list|)
 throws|throws
@@ -1271,6 +1268,7 @@ name|Client
 name|client
 parameter_list|,
 name|String
+modifier|...
 name|index
 parameter_list|)
 throws|throws
@@ -1481,6 +1479,7 @@ name|Client
 name|client
 parameter_list|,
 name|String
+modifier|...
 name|index
 parameter_list|)
 throws|throws
