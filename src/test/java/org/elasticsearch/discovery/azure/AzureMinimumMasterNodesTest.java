@@ -82,6 +82,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -143,6 +159,13 @@ argument_list|,
 name|numClientNodes
 operator|=
 literal|0
+argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch-cloud-azure/issues/89"
 argument_list|)
 DECL|class|AzureMinimumMasterNodesTest
 specifier|public
