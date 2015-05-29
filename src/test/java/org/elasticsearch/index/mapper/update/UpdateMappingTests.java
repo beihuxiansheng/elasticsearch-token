@@ -48,7 +48,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -916,7 +916,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingUpdate
 operator|.
@@ -950,7 +950,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// make sure mappings applied
-name|CompressedString
+name|CompressedXContent
 name|mappingAfterUpdate
 init|=
 name|indexService
@@ -1148,7 +1148,7 @@ argument_list|,
 name|mapping
 argument_list|)
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingBeforeUpdate
 init|=
 name|indexService
@@ -1190,7 +1190,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingUpdate
 operator|.
@@ -1224,7 +1224,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// make sure simulate flag actually worked - no mappings applied
-name|CompressedString
+name|CompressedXContent
 name|mappingAfterUpdate
 init|=
 name|indexService
@@ -1335,7 +1335,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|indexMapping
 operator|.
@@ -1374,7 +1374,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|documentMapper
 operator|.
@@ -1511,7 +1511,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|indexMapping
 operator|.
@@ -1575,7 +1575,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|documentMapper
 operator|.
@@ -1715,7 +1715,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|indexMapping
 operator|.
@@ -1768,7 +1768,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|documentMapper
 operator|.
@@ -1846,7 +1846,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mapping
 argument_list|)
@@ -1882,7 +1882,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|documentMapper
 operator|.

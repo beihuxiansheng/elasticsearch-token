@@ -116,7 +116,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1789,7 +1789,7 @@ name|Nullable
 name|String
 name|type
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|source
 parameter_list|)
 throws|throws
@@ -1823,7 +1823,7 @@ name|Nullable
 name|String
 name|type
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|source
 parameter_list|,
 name|String
@@ -1863,7 +1863,7 @@ name|convertToMap
 argument_list|(
 name|source
 operator|.
-name|compressed
+name|compressedReference
 argument_list|()
 argument_list|,
 literal|true

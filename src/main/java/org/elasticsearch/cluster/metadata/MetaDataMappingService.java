@@ -202,7 +202,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -578,7 +578,7 @@ name|type
 decl_stmt|;
 DECL|field|mappingSource
 specifier|final
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 decl_stmt|;
 DECL|field|nodeId
@@ -607,7 +607,7 @@ parameter_list|,
 name|String
 name|type
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 parameter_list|,
 name|String
@@ -1535,7 +1535,7 @@ name|updateTask
 operator|.
 name|type
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 init|=
 name|updateTask
@@ -2365,7 +2365,7 @@ name|type
 argument_list|()
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|request
 operator|.
@@ -2394,7 +2394,7 @@ name|type
 argument_list|()
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|request
 operator|.
@@ -2649,7 +2649,7 @@ condition|)
 block|{
 continue|continue;
 block|}
-name|CompressedString
+name|CompressedXContent
 name|existingSource
 init|=
 literal|null
@@ -2706,7 +2706,7 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|updatedSource
 init|=
 name|mergedMapper

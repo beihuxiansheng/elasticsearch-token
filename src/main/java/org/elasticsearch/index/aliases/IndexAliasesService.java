@@ -80,7 +80,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -393,7 +393,7 @@ name|alias
 parameter_list|,
 annotation|@
 name|Nullable
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|)
 block|{
@@ -424,7 +424,7 @@ name|alias
 parameter_list|,
 annotation|@
 name|Nullable
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|)
 block|{
@@ -685,7 +685,7 @@ parameter_list|(
 name|String
 name|alias
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|)
 block|{

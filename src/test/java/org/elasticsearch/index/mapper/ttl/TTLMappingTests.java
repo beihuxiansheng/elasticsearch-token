@@ -142,7 +142,21 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -1905,7 +1919,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlDisabled
 operator|.
@@ -1993,7 +2007,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlEnabled
 operator|.
@@ -2091,7 +2105,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithOnlyDefaultSet
 operator|.
@@ -2116,7 +2130,7 @@ name|hasConflicts
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingAfterMerge
 init|=
 name|indexService
@@ -2139,7 +2153,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"type\":{\"_ttl\":{\"enabled\":true,\"default\":360000},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
 argument_list|)
@@ -2185,7 +2199,7 @@ argument_list|,
 name|mappingWithTtlEnabled
 argument_list|)
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingAfterCreation
 init|=
 name|indexService
@@ -2208,7 +2222,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"type\":{\"_ttl\":{\"enabled\":false},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
 argument_list|)
@@ -2248,7 +2262,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithOnlyDefaultSet
 operator|.
@@ -2273,7 +2287,7 @@ name|hasConflicts
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingAfterMerge
 init|=
 name|indexService
@@ -2296,7 +2310,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"type\":{\"_ttl\":{\"enabled\":false},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
 argument_list|)
@@ -2343,7 +2357,7 @@ argument_list|,
 name|mappingWithTtl
 argument_list|)
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|mappingBeforeMerge
 init|=
 name|indexService
@@ -2392,7 +2406,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlDifferentDefault
 operator|.
@@ -2418,7 +2432,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// make sure simulate flag actually worked - no mappings applied
-name|CompressedString
+name|CompressedXContent
 name|mappingAfterMerge
 init|=
 name|indexService
@@ -2532,7 +2546,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlEnabled
 operator|.
@@ -2673,7 +2687,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlEnabled
 operator|.
@@ -2799,7 +2813,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlEnabled
 operator|.
@@ -2847,7 +2861,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"type\":{\"_ttl\":{\"enabled\":true,\"default\":604800000},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
 argument_list|)
@@ -2920,7 +2934,7 @@ argument_list|(
 literal|"type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mappingWithTtlEnabled
 operator|.
@@ -2968,7 +2982,7 @@ argument_list|,
 name|equalTo
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"type\":{\"_ttl\":{\"enabled\":true,\"default\":604800000},\"properties\":{\"field\":{\"type\":\"string\"}}}}"
 argument_list|)

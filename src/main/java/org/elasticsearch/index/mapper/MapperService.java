@@ -342,7 +342,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1364,7 +1364,7 @@ parameter_list|(
 name|String
 name|type
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 parameter_list|,
 name|boolean
@@ -1875,7 +1875,7 @@ parameter_list|)
 block|{
 comment|// capture the source now, it may change due to concurrent parsing
 specifier|final
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 init|=
 name|mapper
@@ -2102,7 +2102,7 @@ parameter_list|(
 name|String
 name|mappingType
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|mappingSource
 parameter_list|,
 name|boolean

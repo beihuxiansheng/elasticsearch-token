@@ -477,7 +477,11 @@ name|XContentHelper
 operator|.
 name|convertToMap
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|bytes
+argument_list|)
 argument_list|,
 literal|true
 argument_list|)

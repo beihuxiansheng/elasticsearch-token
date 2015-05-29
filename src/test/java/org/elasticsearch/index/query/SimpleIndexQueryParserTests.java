@@ -752,7 +752,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -2094,7 +2094,7 @@ argument_list|(
 literal|"person"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mapping
 argument_list|)
