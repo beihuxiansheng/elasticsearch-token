@@ -130,6 +130,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|DocumentMapper
@@ -146,7 +158,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -177,18 +189,6 @@ operator|.
 name|policy
 operator|.
 name|MergePolicyModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexService
 import|;
 end_import
 
@@ -428,7 +428,7 @@ literal|"child"
 argument_list|,
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -721,7 +721,7 @@ literal|"child"
 argument_list|,
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -867,7 +867,7 @@ literal|"child"
 argument_list|,
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -1125,7 +1125,7 @@ name|setSource
 argument_list|(
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -1280,13 +1280,16 @@ operator|.
 name|parentFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|fieldDataType
 argument_list|()
 operator|.
 name|getLoading
 argument_list|()
 operator|==
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -1370,7 +1373,7 @@ specifier|private
 name|XContentBuilder
 name|childMapping
 parameter_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 name|loading
@@ -1409,7 +1412,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.

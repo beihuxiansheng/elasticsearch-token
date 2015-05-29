@@ -1083,6 +1083,9 @@ name|field
 operator|=
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1119,6 +1122,9 @@ block|{
 name|analyzer
 operator|=
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()

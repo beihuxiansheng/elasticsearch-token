@@ -489,6 +489,9 @@ literal|null
 operator|&&
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 operator|!=
@@ -496,6 +499,9 @@ literal|null
 operator|)
 condition|?
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()

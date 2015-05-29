@@ -471,6 +471,9 @@ name|assertFalse
 argument_list|(
 name|fieldNamesMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)

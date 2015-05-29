@@ -328,7 +328,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 import|;

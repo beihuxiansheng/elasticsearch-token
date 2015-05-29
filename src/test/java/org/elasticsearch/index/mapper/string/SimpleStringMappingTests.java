@@ -456,6 +456,24 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|StringFieldMapper
+operator|.
+name|Builder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -3147,8 +3165,6 @@ decl_stmt|;
 name|assertFalse
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3164,6 +3180,9 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)
@@ -3171,8 +3190,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3193,6 +3210,9 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)
@@ -3200,8 +3220,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3221,6 +3239,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|hasDocValues
 argument_list|()
@@ -3480,8 +3501,6 @@ block|}
 name|assertFalse
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3496,6 +3515,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|hasDocValues
 argument_list|()
@@ -3504,8 +3526,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3526,6 +3546,9 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)
@@ -3533,8 +3556,6 @@ expr_stmt|;
 name|assertFalse
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3555,6 +3576,9 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)
@@ -3562,8 +3586,6 @@ expr_stmt|;
 name|assertFalse
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3589,6 +3611,9 @@ argument_list|(
 name|ctx
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)
@@ -3596,8 +3621,6 @@ expr_stmt|;
 name|assertTrue
 argument_list|(
 operator|new
-name|StringFieldMapper
-operator|.
 name|Builder
 argument_list|(
 literal|"anything"
@@ -3617,6 +3640,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|hasDocValues
 argument_list|()

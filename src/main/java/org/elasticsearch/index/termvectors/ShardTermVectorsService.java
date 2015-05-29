@@ -1710,6 +1710,9 @@ argument_list|(
 name|field
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexAnalyzer
 argument_list|()
 expr_stmt|;

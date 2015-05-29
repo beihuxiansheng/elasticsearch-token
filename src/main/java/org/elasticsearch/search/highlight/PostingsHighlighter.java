@@ -674,6 +674,9 @@ name|highlightField
 argument_list|(
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.

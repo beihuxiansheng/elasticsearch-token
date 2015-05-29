@@ -1607,6 +1607,9 @@ name|getFieldQuery
 argument_list|(
 name|currentMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -2305,6 +2308,9 @@ decl_stmt|;
 name|rangeQuery
 operator|=
 name|dateFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|rangeQuery
 argument_list|(
@@ -3176,6 +3182,9 @@ name|getPossiblyAnalyzedPrefixQuery
 argument_list|(
 name|currentMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -3894,6 +3903,9 @@ block|}
 name|indexedNameField
 operator|=
 name|currentMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

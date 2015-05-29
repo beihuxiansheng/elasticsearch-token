@@ -1559,6 +1559,9 @@ operator|.
 name|timestampFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|hasDocValues
 argument_list|()
 argument_list|)
@@ -1610,6 +1613,9 @@ argument_list|(
 name|documentMapper
 operator|.
 name|timestampFieldMapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|hasDocValues

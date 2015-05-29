@@ -332,7 +332,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -340,7 +340,14 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"Failed to create token stream"
+literal|"Failed to create token stream for ["
+operator|+
+name|field
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"]"
 argument_list|,
 name|e
 argument_list|)

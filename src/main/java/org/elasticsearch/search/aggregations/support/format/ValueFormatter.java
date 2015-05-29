@@ -441,6 +441,9 @@ name|DateTime
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|dateTimeFormatter
 argument_list|()
 argument_list|)

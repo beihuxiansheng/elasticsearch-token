@@ -366,6 +366,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -392,6 +395,9 @@ name|getMapper
 argument_list|(
 literal|"field1"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -558,6 +564,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -584,6 +593,9 @@ name|getMapper
 argument_list|(
 literal|"field1"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -783,6 +795,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -809,6 +824,9 @@ name|getMapper
 argument_list|(
 literal|"field1"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -1035,6 +1053,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -1061,6 +1082,9 @@ name|getMapper
 argument_list|(
 literal|"field1"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -1266,6 +1290,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -1292,6 +1319,9 @@ name|getMapper
 argument_list|(
 literal|"field1"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -1444,6 +1474,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -1470,6 +1503,9 @@ name|getMapper
 argument_list|(
 literal|"field1"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()

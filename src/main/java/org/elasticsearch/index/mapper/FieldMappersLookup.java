@@ -206,6 +206,9 @@ name|key
 init|=
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -304,6 +307,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -338,6 +344,9 @@ block|{
 if|if
 condition|(
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -502,6 +511,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -515,6 +527,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -535,6 +550,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -548,6 +566,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -604,6 +625,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -617,6 +641,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -637,6 +664,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -650,6 +680,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

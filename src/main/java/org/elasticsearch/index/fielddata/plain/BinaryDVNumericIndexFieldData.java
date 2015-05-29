@@ -302,7 +302,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 import|;

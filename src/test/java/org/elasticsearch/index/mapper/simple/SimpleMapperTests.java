@@ -346,6 +346,9 @@ argument_list|(
 literal|"name.first"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -485,6 +488,9 @@ operator|.
 name|uidMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -520,6 +526,9 @@ name|getMapper
 argument_list|(
 literal|"name.first"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -635,6 +644,9 @@ operator|.
 name|uidMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -670,6 +682,9 @@ name|getMapper
 argument_list|(
 literal|"name.first"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -764,6 +779,9 @@ operator|.
 name|uidMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -799,6 +817,9 @@ name|getMapper
 argument_list|(
 literal|"name.first"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
