@@ -5542,16 +5542,10 @@ name|closed
 operator|.
 name|get
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-literal|"already closed"
-argument_list|)
-throw|;
-block|}
 name|Releasables
 operator|.
 name|close
@@ -5569,6 +5563,7 @@ name|transportClient
 operator|=
 literal|null
 expr_stmt|;
+block|}
 block|}
 DECL|method|closeNode
 name|void
