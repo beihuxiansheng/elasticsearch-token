@@ -1848,6 +1848,13 @@ argument_list|,
 literal|"/"
 argument_list|)
 operator|.
+name|replace
+argument_list|(
+literal|":"
+argument_list|,
+literal|""
+argument_list|)
+operator|.
 name|trim
 argument_list|()
 decl_stmt|;
