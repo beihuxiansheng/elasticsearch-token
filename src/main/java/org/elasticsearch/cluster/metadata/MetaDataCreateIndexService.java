@@ -798,12 +798,6 @@ operator|new
 name|DefaultIndexTemplateFilter
 argument_list|()
 decl_stmt|;
-DECL|field|environment
-specifier|private
-specifier|final
-name|Environment
-name|environment
-decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -873,9 +867,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Environment
-name|environment
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -916,12 +907,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|environment
-operator|=
-name|environment
 expr_stmt|;
 name|this
 operator|.
