@@ -453,7 +453,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An immutable {@code Settings} implementation.  */
+comment|/**  * An immutable settings implementation.  */
 end_comment
 
 begin_class
@@ -4873,6 +4873,8 @@ name|toBytes
 argument_list|(
 name|value
 argument_list|)
+operator|+
+literal|"b"
 argument_list|)
 expr_stmt|;
 return|return

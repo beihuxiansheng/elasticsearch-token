@@ -378,6 +378,20 @@ name|common
 operator|.
 name|unit
 operator|.
+name|ByteSizeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
 name|TimeValue
 import|;
 end_import
@@ -547,6 +561,8 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
+operator|.
+name|ClusterScope
 import|;
 end_import
 
@@ -559,8 +575,6 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
-operator|.
-name|ClusterScope
 import|;
 end_import
 
@@ -3492,6 +3506,10 @@ operator|.
 name|INDICES_RECOVERY_MAX_BYTES_PER_SEC
 argument_list|,
 name|chunkSize
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|BYTES
 argument_list|)
 operator|.
 name|put
@@ -3501,6 +3519,10 @@ operator|.
 name|INDICES_RECOVERY_FILE_CHUNK_SIZE
 argument_list|,
 name|chunkSize
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 operator|.

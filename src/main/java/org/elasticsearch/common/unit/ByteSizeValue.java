@@ -126,10 +126,6 @@ name|Streamable
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ByteSizeValue
 specifier|public
@@ -1236,17 +1232,59 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|sValue
+operator|.
+name|equals
+argument_list|(
+literal|"-1"
+argument_list|)
+condition|)
 block|{
+comment|// Allow this special value to be unit-less:
 name|bytes
 operator|=
-name|Long
-operator|.
-name|parseLong
-argument_list|(
-name|sValue
-argument_list|)
+operator|-
+literal|1
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|sValue
+operator|.
+name|equals
+argument_list|(
+literal|"0"
+argument_list|)
+condition|)
+block|{
+comment|// Allow this special value to be unit-less:
+name|bytes
+operator|=
+literal|0
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Missing units:
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"Failed to parse setting ["
+operator|+
+name|settingName
+operator|+
+literal|"] with value ["
+operator|+
+name|sValue
+operator|+
+literal|"] as a size in bytes: unit is missing or unrecognized"
+argument_list|)
+throw|;
 block|}
 block|}
 catch|catch

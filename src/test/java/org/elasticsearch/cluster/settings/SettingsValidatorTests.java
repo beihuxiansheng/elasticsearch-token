@@ -769,6 +769,7 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// nocommit require % too:
 name|assertThat
 argument_list|(
 name|Validator
@@ -786,7 +787,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we expect 20%
 name|assertThat
 argument_list|(
 name|Validator
@@ -902,7 +902,7 @@ argument_list|,
 literal|"20"
 argument_list|)
 argument_list|,
-name|nullValue
+name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
