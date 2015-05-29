@@ -1336,6 +1336,24 @@ throw|;
 block|}
 comment|// we shortcut recovery here because we have nothing to copy. but we must still start the engine on the target.
 comment|// so we don't return here
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}][{}] skipping [phase1] to {} - identical sync id [{}] found on both source and target"
+argument_list|,
+name|indexName
+argument_list|,
+name|shardId
+argument_list|,
+name|request
+operator|.
+name|targetNode
+argument_list|()
+argument_list|,
+name|recoverySourceSyncId
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{

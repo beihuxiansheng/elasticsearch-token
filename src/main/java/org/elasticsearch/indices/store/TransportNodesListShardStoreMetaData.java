@@ -1601,6 +1601,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**          * @return commit sync id if exists, else null          */
 DECL|method|syncId
 specifier|public
 name|String
