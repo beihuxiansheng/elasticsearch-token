@@ -9679,7 +9679,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Can't update non dynamic settings[[index.e]] for open indices[[barbaz]]"
+literal|"Can't update non dynamic settings[[index.e]] for open indices [[barbaz]]"
 argument_list|)
 argument_list|)
 expr_stmt|;
