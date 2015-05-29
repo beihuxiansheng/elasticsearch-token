@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices
+DECL|package|org.elasticsearch.indices.flush
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
 name|indices
+operator|.
+name|flush
 package|;
 end_package
 
@@ -138,9 +140,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|indices
 operator|.
-name|ElasticsearchSingleNodeTest
+name|IndicesService
 import|;
 end_import
 
@@ -152,9 +154,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
+name|ElasticsearchSingleNodeTest
 import|;
 end_import
 
@@ -183,17 +183,17 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|SycnedFlushSingleNodeTest
+DECL|class|SyncedFlushSingleNodeTest
 specifier|public
 class|class
-name|SycnedFlushSingleNodeTest
+name|SyncedFlushSingleNodeTest
 extends|extends
 name|ElasticsearchSingleNodeTest
 block|{
-DECL|method|testModificationPreventsSealing
+DECL|method|testModificationPreventsFlushing
 specifier|public
 name|void
-name|testModificationPreventsSealing
+name|testModificationPreventsFlushing
 parameter_list|()
 throws|throws
 name|InterruptedException
@@ -287,7 +287,7 @@ name|shardRoutingTable
 init|=
 name|flushService
 operator|.
-name|getActiveShardRoutings
+name|getShardRoutingTable
 argument_list|(
 name|shardId
 argument_list|,
@@ -385,9 +385,7 @@ name|SyncedFlushUtil
 operator|.
 name|LatchedListener
 argument_list|<
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 argument_list|>
 name|listener
 init|=
@@ -395,6 +393,7 @@ operator|new
 name|SyncedFlushUtil
 operator|.
 name|LatchedListener
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|flushService
@@ -410,6 +409,11 @@ argument_list|,
 name|commitIds
 argument_list|,
 name|shardId
+argument_list|,
+name|shardRoutingTable
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|listener
 argument_list|)
@@ -428,9 +432,7 @@ operator|.
 name|error
 argument_list|)
 expr_stmt|;
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 name|syncedFlushResult
 init|=
 name|listener
@@ -547,7 +549,7 @@ argument_list|,
 name|shardId
 argument_list|)
 expr_stmt|;
-comment|// pull another commit and make sure we can't seal with the old one
+comment|// pull another commit and make sure we can't sync-flush with the old one
 name|listener
 operator|=
 operator|new
@@ -569,6 +571,11 @@ argument_list|,
 name|commitIds
 argument_list|,
 name|shardId
+argument_list|,
+name|shardRoutingTable
+operator|.
+name|size
+argument_list|()
 argument_list|,
 name|listener
 argument_list|)
@@ -690,13 +697,6 @@ name|failureReason
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ElasticsearchAssertions
-operator|.
-name|assertVersionSerializable
-argument_list|(
-name|syncedFlushResult
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testSingleShardSuccess
 specifier|public
@@ -779,9 +779,7 @@ name|SyncedFlushUtil
 operator|.
 name|LatchedListener
 argument_list|<
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 argument_list|>
 name|listener
 init|=
@@ -814,9 +812,7 @@ operator|.
 name|error
 argument_list|)
 expr_stmt|;
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 name|syncedFlushResult
 init|=
 name|listener
@@ -873,13 +869,6 @@ name|response
 operator|.
 name|success
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|ElasticsearchAssertions
-operator|.
-name|assertVersionSerializable
-argument_list|(
-name|syncedFlushResult
 argument_list|)
 expr_stmt|;
 block|}
@@ -971,9 +960,7 @@ name|SyncedFlushUtil
 operator|.
 name|LatchedListener
 argument_list|<
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 argument_list|>
 name|listener
 init|=
@@ -981,6 +968,7 @@ operator|new
 name|SyncedFlushUtil
 operator|.
 name|LatchedListener
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|flushService
@@ -1006,9 +994,7 @@ operator|.
 name|error
 argument_list|)
 expr_stmt|;
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 name|syncedFlushResult
 init|=
 name|listener
@@ -1030,7 +1016,7 @@ name|successfulShards
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertNotEquals
 argument_list|(
 literal|0
 argument_list|,
@@ -1042,19 +1028,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"operation counter on primary is non zero [2]"
+literal|"[1] ongoing operations on primary"
 argument_list|,
 name|syncedFlushResult
 operator|.
 name|failureReason
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|ElasticsearchAssertions
-operator|.
-name|assertVersionSerializable
-argument_list|(
-name|syncedFlushResult
 argument_list|)
 expr_stmt|;
 block|}
@@ -1404,7 +1383,7 @@ name|shardRoutingTable
 init|=
 name|flushService
 operator|.
-name|getActiveShardRoutings
+name|getShardRoutingTable
 argument_list|(
 name|shardId
 argument_list|,
@@ -1532,9 +1511,7 @@ name|SyncedFlushUtil
 operator|.
 name|LatchedListener
 argument_list|<
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 argument_list|>
 name|listener
 init|=
@@ -1558,6 +1535,11 @@ name|commitIds
 argument_list|,
 name|shardId
 argument_list|,
+name|shardRoutingTable
+operator|.
+name|size
+argument_list|()
+argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
@@ -1575,9 +1557,7 @@ operator|.
 name|error
 argument_list|)
 expr_stmt|;
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 name|syncedFlushResult
 init|=
 name|listener
@@ -1681,13 +1661,6 @@ name|failureReason
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ElasticsearchAssertions
-operator|.
-name|assertVersionSerializable
-argument_list|(
-name|syncedFlushResult
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|testFailWhenCommitIsMissing
 specifier|public
@@ -1786,7 +1759,7 @@ name|shardRoutingTable
 init|=
 name|flushService
 operator|.
-name|getActiveShardRoutings
+name|getShardRoutingTable
 argument_list|(
 name|shardId
 argument_list|,
@@ -1870,9 +1843,7 @@ name|SyncedFlushUtil
 operator|.
 name|LatchedListener
 argument_list|<
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 argument_list|>
 name|listener
 init|=
@@ -1896,6 +1867,11 @@ name|commitIds
 argument_list|,
 name|shardId
 argument_list|,
+name|shardRoutingTable
+operator|.
+name|size
+argument_list|()
+argument_list|,
 name|listener
 argument_list|)
 expr_stmt|;
@@ -1913,9 +1889,7 @@ operator|.
 name|error
 argument_list|)
 expr_stmt|;
-name|SyncedFlushService
-operator|.
-name|SyncedFlushResult
+name|ShardsSyncedFlushResult
 name|syncedFlushResult
 init|=
 name|listener
@@ -2017,13 +1991,6 @@ argument_list|)
 operator|.
 name|failureReason
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|ElasticsearchAssertions
-operator|.
-name|assertVersionSerializable
-argument_list|(
-name|syncedFlushResult
 argument_list|)
 expr_stmt|;
 block|}

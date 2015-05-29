@@ -1644,12 +1644,6 @@ specifier|final
 name|MergePolicyProvider
 name|mergePolicyProvider
 decl_stmt|;
-DECL|field|bigArrays
-specifier|private
-specifier|final
-name|BigArrays
-name|bigArrays
-decl_stmt|;
 DECL|field|engineConfig
 specifier|private
 specifier|final
@@ -1953,12 +1947,6 @@ operator|.
 name|mergePolicyProvider
 operator|=
 name|mergePolicyProvider
-expr_stmt|;
-name|this
-operator|.
-name|bigArrays
-operator|=
-name|bigArrays
 expr_stmt|;
 name|Preconditions
 operator|.
@@ -5330,8 +5318,6 @@ operator|.
 name|close
 argument_list|(
 name|engine
-argument_list|,
-name|shardFilterCache
 argument_list|)
 expr_stmt|;
 block|}
@@ -8655,11 +8641,21 @@ name|getOperationsCount
 parameter_list|()
 block|{
 return|return
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
 name|indexShardOperationCounter
 operator|.
 name|refCount
 argument_list|()
+operator|-
+literal|1
+argument_list|)
 return|;
+comment|// refCount is incremented on creation and decremented on close
 block|}
 comment|/**      * Syncs the given location with the underlying storage unless already synced.      */
 DECL|method|sync
