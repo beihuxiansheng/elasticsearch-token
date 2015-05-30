@@ -339,13 +339,19 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Increase RLIMIT_MEMLOCK (ulimit). soft limit:"
+literal|"Increase RLIMIT_MEMLOCK (ulimit). soft limit: "
 operator|+
+name|rlimitToString
+argument_list|(
 name|softLimit
+argument_list|)
 operator|+
-literal|", hard limit:"
+literal|", hard limit: "
 operator|+
+name|rlimitToString
+argument_list|(
 name|hardLimit
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -359,6 +365,50 @@ literal|"Increase RLIMIT_MEMLOCK (ulimit)."
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+DECL|method|rlimitToString
+specifier|static
+name|String
+name|rlimitToString
+parameter_list|(
+name|long
+name|value
+parameter_list|)
+block|{
+assert|assert
+name|Constants
+operator|.
+name|LINUX
+operator|||
+name|Constants
+operator|.
+name|MAC_OS_X
+assert|;
+if|if
+condition|(
+name|value
+operator|==
+name|JNACLibrary
+operator|.
+name|RLIM_INFINITY
+condition|)
+block|{
+return|return
+literal|"unlimited"
+return|;
+block|}
+else|else
+block|{
+comment|// TODO, on java 8 use Long.toUnsignedString, since thats what it is.
+return|return
+name|Long
+operator|.
+name|toString
+argument_list|(
+name|value
+argument_list|)
+return|;
 block|}
 block|}
 comment|/** Returns true if user is root, false if not, or if we don't know */
