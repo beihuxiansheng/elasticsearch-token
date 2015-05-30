@@ -218,6 +218,18 @@ argument_list|(
 name|errno
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+operator|||
+name|Constants
+operator|.
+name|MAC_OS_X
+condition|)
+block|{
+comment|// we only know RLIMIT_MEMLOCK for these two at the moment.
 name|JNACLibrary
 operator|.
 name|Rlimit
@@ -281,6 +293,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
