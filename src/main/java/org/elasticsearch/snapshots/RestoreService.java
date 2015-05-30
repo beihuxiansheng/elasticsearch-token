@@ -986,9 +986,8 @@ name|indicesOptions
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|final
 name|MetaData
-name|metaData
+name|metaDataIn
 init|=
 name|repository
 operator|.
@@ -997,6 +996,21 @@ argument_list|(
 name|snapshotId
 argument_list|,
 name|filteredIndices
+argument_list|)
+decl_stmt|;
+comment|// ES 2.0 now requires units for all time and byte-sized settings, so we add the default unit if it's missing in this snapshot:
+comment|// TODO: can we somehow only do this for pre-2.0 cluster state?
+specifier|final
+name|MetaData
+name|metaData
+init|=
+name|MetaData
+operator|.
+name|addDefaultUnitsIfNeeded
+argument_list|(
+name|logger
+argument_list|,
+name|metaDataIn
 argument_list|)
 decl_stmt|;
 comment|// Make sure that we can restore from this snapshot

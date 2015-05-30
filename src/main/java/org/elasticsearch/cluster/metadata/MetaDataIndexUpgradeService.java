@@ -760,6 +760,7 @@ name|V_2_0_0
 argument_list|)
 condition|)
 block|{
+comment|// TODO: can we somehow only do this *once* for a pre-2.0 index?  Maybe we could stuff a "fake marker setting" here?  Seems hackish...
 comment|// Created lazily if we find any settings that are missing units:
 name|Settings
 name|settings
@@ -824,7 +825,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"byte-sized setting [{}] with value [{}] is missing units; now adding default units (b)"
+literal|"byte-sized index setting [{}] with value [{}] is missing units; now adding default units (b)"
 argument_list|,
 name|byteSizeSetting
 argument_list|,
@@ -914,7 +915,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"time setting [{}] with value [{}] is missing units; now adding default units (ms)"
+literal|"time index setting [{}] with value [{}] is missing units; now adding default units (ms)"
 argument_list|,
 name|timeSetting
 argument_list|,

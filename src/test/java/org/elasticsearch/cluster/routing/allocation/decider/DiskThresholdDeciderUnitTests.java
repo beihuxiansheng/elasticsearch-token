@@ -303,7 +303,7 @@ name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
 argument_list|,
-literal|"decider"
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -336,7 +336,7 @@ name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
 argument_list|,
-literal|"decider"
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -476,7 +476,7 @@ name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
 argument_list|,
-literal|"high threshold"
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -513,7 +513,7 @@ name|parseBytesSizeValue
 argument_list|(
 literal|"500mb"
 argument_list|,
-literal|"low threshold"
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
