@@ -318,7 +318,7 @@ literal|",reason="
 operator|+
 name|errMsg
 operator|+
-literal|". This can result in part of the JVM being swapped out"
+literal|". This can result in part of the JVM being swapped out."
 argument_list|)
 expr_stmt|;
 if|if
@@ -339,7 +339,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Increase RLIMIT_MEMLOCK (ulimit). soft limit: "
+literal|"Increase RLIMIT_MEMLOCK, soft limit: "
 operator|+
 name|rlimitToString
 argument_list|(
@@ -354,6 +354,35 @@ name|hardLimit
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|Constants
+operator|.
+name|LINUX
+condition|)
+block|{
+comment|// give specific instructions for the linux case to make it easy
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"These can be adjusted by modifying /etc/security/limits.conf, for example: \n"
+operator|+
+literal|"\t# allow user 'esuser' mlockall\n"
+operator|+
+literal|"\tesuser soft memlock unlimited\n"
+operator|+
+literal|"\tesuser hard memlock unlimited"
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"If you are logged in interactively, you will have to re-login for the new limits to take effect."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
