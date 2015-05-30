@@ -12082,10 +12082,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * see issue #9634, negative interval in date_histogram should raise exception      */
-DECL|method|testExeptionOnNegativeInterval
+DECL|method|testExceptionOnNegativeInterval
 specifier|public
 name|void
-name|testExeptionOnNegativeInterval
+name|testExceptionOnNegativeInterval
 parameter_list|()
 block|{
 try|try

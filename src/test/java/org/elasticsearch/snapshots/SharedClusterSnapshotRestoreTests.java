@@ -14102,6 +14102,10 @@ operator|.
 name|INDEX_STORE_THROTTLE_MAX_BYTES_PER_SEC
 argument_list|,
 literal|100
+argument_list|,
+name|ByteSizeUnit
+operator|.
+name|BYTES
 argument_list|)
 argument_list|)
 argument_list|)

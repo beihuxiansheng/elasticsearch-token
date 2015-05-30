@@ -656,12 +656,12 @@ argument_list|(
 literal|60
 argument_list|)
 decl_stmt|;
-DECL|field|DEFAUTL_INDEX_BUFFER_SIZE
+DECL|field|DEFAULT_INDEX_BUFFER_SIZE
 specifier|public
 specifier|static
 specifier|final
 name|ByteSizeValue
-name|DEFAUTL_INDEX_BUFFER_SIZE
+name|DEFAULT_INDEX_BUFFER_SIZE
 init|=
 operator|new
 name|ByteSizeValue
@@ -946,7 +946,7 @@ name|getAsBytesSize
 argument_list|(
 name|INDEX_BUFFER_SIZE_SETTING
 argument_list|,
-name|DEFAUTL_INDEX_BUFFER_SIZE
+name|DEFAULT_INDEX_BUFFER_SIZE
 argument_list|)
 expr_stmt|;
 name|gcDeletesInMillis
@@ -1094,7 +1094,7 @@ name|parseBytesSizeValue
 argument_list|(
 name|versionMapSizeSetting
 argument_list|,
-literal|"VersionMapSize"
+name|INDEX_VERSION_MAP_SIZE
 argument_list|)
 expr_stmt|;
 block|}
