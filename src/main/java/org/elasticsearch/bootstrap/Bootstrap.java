@@ -514,34 +514,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// mlockall if requested
-if|if
-condition|(
-name|mlockAll
-condition|)
-block|{
-if|if
-condition|(
-name|Constants
-operator|.
-name|WINDOWS
-condition|)
-block|{
-name|Natives
-operator|.
-name|tryVirtualLock
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-name|Natives
-operator|.
-name|tryMlockall
-argument_list|()
-expr_stmt|;
-block|}
-block|}
 comment|// check if the user is running as root, and bail
 if|if
 condition|(
@@ -583,6 +555,34 @@ argument_list|(
 literal|"don't run elasticsearch as root."
 argument_list|)
 throw|;
+block|}
+block|}
+comment|// mlockall if requested
+if|if
+condition|(
+name|mlockAll
+condition|)
+block|{
+if|if
+condition|(
+name|Constants
+operator|.
+name|WINDOWS
+condition|)
+block|{
+name|Natives
+operator|.
+name|tryVirtualLock
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|Natives
+operator|.
+name|tryMlockall
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|// listener for windows close event
