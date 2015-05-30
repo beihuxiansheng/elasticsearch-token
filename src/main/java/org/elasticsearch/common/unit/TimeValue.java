@@ -104,6 +104,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|joda
 operator|.
 name|time
@@ -1380,6 +1394,14 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|Settings
+operator|.
+name|getSettingsRequireUnits
+argument_list|()
+condition|)
+block|{
 comment|// Missing units:
 throw|throw
 operator|new
@@ -1396,6 +1418,20 @@ operator|+
 literal|"] as a time value: unit is missing or unrecognized"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+comment|// Leniency default to msec for bwc:
+name|millis
+operator|=
+name|Long
+operator|.
+name|parseLong
+argument_list|(
+name|sValue
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 operator|new

@@ -102,6 +102,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1303,6 +1317,14 @@ block|}
 else|else
 block|{
 comment|// Missing units:
+if|if
+condition|(
+name|Settings
+operator|.
+name|getSettingsRequireUnits
+argument_list|()
+condition|)
+block|{
 throw|throw
 operator|new
 name|ElasticsearchParseException
@@ -1318,6 +1340,20 @@ operator|+
 literal|"] as a size in bytes: unit is missing or unrecognized"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+comment|// Leniency default to bytes:
+name|bytes
+operator|=
+name|Long
+operator|.
+name|parseLong
+argument_list|(
+name|sValue
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
