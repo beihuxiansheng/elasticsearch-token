@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * java mapping to some libc functions  */
 end_comment
 
 begin_class
@@ -286,25 +286,6 @@ specifier|private
 name|JNACLibrary
 parameter_list|()
 block|{     }
-DECL|method|main
-specifier|public
-specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-name|args
-index|[]
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|JNANatives
-operator|.
-name|tryMlockall
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 end_class
 
