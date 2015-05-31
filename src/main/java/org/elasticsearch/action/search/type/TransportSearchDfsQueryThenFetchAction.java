@@ -816,6 +816,8 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+try|try
+block|{
 name|onQueryFailure
 argument_list|(
 name|t
@@ -829,6 +831,9 @@ argument_list|,
 name|counter
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 comment|// the query might not have been executed at all (for example because thread pool rejected execution)
 comment|// and the search context that was created in dfs phase might not be released.
 comment|// release it again to be in the safe side
@@ -842,6 +847,7 @@ argument_list|,
 name|node
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
