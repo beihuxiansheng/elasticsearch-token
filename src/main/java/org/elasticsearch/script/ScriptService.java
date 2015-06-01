@@ -2081,6 +2081,8 @@ name|TemplateQueryParser
 operator|.
 name|parse
 argument_list|(
+name|scriptLang
+argument_list|,
 name|parser
 argument_list|,
 literal|"params"

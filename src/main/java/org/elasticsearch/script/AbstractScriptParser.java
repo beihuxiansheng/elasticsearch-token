@@ -743,7 +743,7 @@ return|;
 block|}
 DECL|method|parse
 specifier|public
-name|Script
+name|S
 name|parse
 parameter_list|(
 name|Map

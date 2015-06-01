@@ -96,22 +96,6 @@ name|util
 operator|.
 name|LuceneTestCase
 operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
 name|Slow
 import|;
 end_import
@@ -753,13 +737,6 @@ operator|.
 name|MINUTE
 argument_list|)
 comment|// timeout the suite after 40min and fail the test.
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"script/10_basic/Indexed script and update/15_script/Script fail due to commit 35a58d874ef56be50a0ad1d7bfb13edb4204d0a3"
-argument_list|)
 DECL|class|ElasticsearchRestTestCase
 specifier|public
 specifier|abstract
