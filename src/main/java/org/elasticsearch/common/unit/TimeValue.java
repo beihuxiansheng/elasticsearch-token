@@ -1074,9 +1074,12 @@ condition|)
 block|{
 name|millis
 operator|=
-name|Long
+operator|(
+name|long
+operator|)
+name|Double
 operator|.
-name|parseLong
+name|parseDouble
 argument_list|(
 name|sValue
 operator|.
@@ -1092,6 +1095,8 @@ operator|-
 literal|1
 argument_list|)
 argument_list|)
+operator|*
+literal|1000
 expr_stmt|;
 block|}
 elseif|else
