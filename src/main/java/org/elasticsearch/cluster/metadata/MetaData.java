@@ -7793,9 +7793,9 @@ condition|)
 block|{
 try|try
 block|{
-name|Double
+name|Long
 operator|.
-name|parseDouble
+name|parseLong
 argument_list|(
 name|settingValue
 argument_list|)
@@ -7809,7 +7809,7 @@ parameter_list|)
 block|{
 continue|continue;
 block|}
-comment|// It's a naked number; add default unit (b for bytes):
+comment|// It's a naked number that previously would be interpreted as default unit (bytes); now we add it:
 name|logger
 operator|.
 name|warn
@@ -7870,9 +7870,9 @@ condition|)
 block|{
 try|try
 block|{
-name|Double
+name|Long
 operator|.
-name|parseDouble
+name|parseLong
 argument_list|(
 name|settingValue
 argument_list|)
@@ -7886,7 +7886,7 @@ parameter_list|)
 block|{
 continue|continue;
 block|}
-comment|// It's a naked number; add default unit (b for bytes):
+comment|// It's a naked number that previously would be interpreted as default unit (ms); now we add it:
 name|logger
 operator|.
 name|warn
