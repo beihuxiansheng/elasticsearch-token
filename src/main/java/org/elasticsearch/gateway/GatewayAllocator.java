@@ -1243,6 +1243,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"{}: ignoring allocation, still fetching shard started state"
+argument_list|,
+name|shard
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -2623,6 +2625,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"{}: ignoring allocation, can't be allocated on any node"
+argument_list|,
+name|shard
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -2742,6 +2746,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"{}: ignoring allocation, still fetching shard stores"
+argument_list|,
+name|shard
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
