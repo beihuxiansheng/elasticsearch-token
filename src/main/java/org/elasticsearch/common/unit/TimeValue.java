@@ -1070,8 +1070,6 @@ block|{
 name|long
 name|millis
 decl_stmt|;
-comment|// TODO: we should be consistent about whether upper-case is allowed (it is always allowed for ByteSizeValue, but here only for
-comment|// s/S and h/H):
 name|String
 name|lowerSValue
 init|=

@@ -3186,7 +3186,7 @@ name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
-comment|// nocommit: why be lenient here?
+comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two cases separately
 return|return
 literal|100.0
 return|;
@@ -3224,7 +3224,7 @@ name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
-comment|// nocommit: why be lenient here?
+comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two cases separately
 return|return
 name|ByteSizeValue
 operator|.

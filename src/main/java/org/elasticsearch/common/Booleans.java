@@ -24,7 +24,6 @@ specifier|public
 class|class
 name|Booleans
 block|{
-comment|// nocommit remove this lenient one and cutover to parseBooleanExact
 comment|/**      * Returns<code>false</code> if text is in<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>; else, true      */
 DECL|method|parseBoolean
 specifier|public
@@ -46,6 +45,8 @@ name|boolean
 name|defaultValue
 parameter_list|)
 block|{
+comment|// TODO: the leniency here is very dangerous: a simple typo will be misinterpreted and the user won't know.
+comment|// We should remove it and cutover to https://github.com/rmuir/booleanparser
 if|if
 condition|(
 name|text
@@ -197,7 +198,6 @@ literal|'e'
 operator|)
 return|;
 block|}
-comment|// nocommit check for known "true" values and throw exc if it's not recognized
 return|return
 literal|true
 return|;

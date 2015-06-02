@@ -50,10 +50,6 @@ name|*
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SettingsValidatorTests
 specifier|public
@@ -769,7 +765,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// nocommit require % too:
 name|assertThat
 argument_list|(
 name|Validator
