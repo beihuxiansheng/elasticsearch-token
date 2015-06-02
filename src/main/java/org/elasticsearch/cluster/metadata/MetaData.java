@@ -7814,7 +7814,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"byte-sized cluster setting [{}] with value [{}] is missing units; now adding default units (b)"
+literal|"byte-sized cluster setting [{}] with value [{}] is missing units; assuming default units (b) but in future versions this will be a hard error"
 argument_list|,
 name|settingName
 argument_list|,
@@ -7891,7 +7891,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"time cluster setting [{}] with value [{}] is missing units; now adding default units (ms)"
+literal|"time cluster setting [{}] with value [{}] is missing units; assuming default units (ms) but in future versions this will be a hard error"
 argument_list|,
 name|settingName
 argument_list|,

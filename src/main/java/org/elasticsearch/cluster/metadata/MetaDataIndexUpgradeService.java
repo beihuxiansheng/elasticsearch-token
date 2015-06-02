@@ -825,7 +825,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"byte-sized index setting [{}] with value [{}] is missing units; now adding default units (b)"
+literal|"byte-sized index setting [{}] with value [{}] is missing units; assuming default units (b) but in future versions this will be a hard error"
 argument_list|,
 name|byteSizeSetting
 argument_list|,
@@ -915,7 +915,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"time index setting [{}] with value [{}] is missing units; now adding default units (ms)"
+literal|"time index setting [{}] with value [{}] is missing units; assuming default units (ms) but in future versions this will be a hard error"
 argument_list|,
 name|timeSetting
 argument_list|,
