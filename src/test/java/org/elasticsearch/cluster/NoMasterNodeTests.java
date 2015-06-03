@@ -242,6 +242,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
 import|;
 end_import
@@ -269,6 +281,20 @@ operator|.
 name|ElasticsearchIntegrationTest
 operator|.
 name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ElasticsearchIntegrationTest
+operator|.
+name|Scope
 import|;
 end_import
 
@@ -332,9 +358,11 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|hamcrest
 operator|.
-name|Scope
+name|ElasticsearchAssertions
+operator|.
+name|assertExists
 import|;
 end_import
 
@@ -350,7 +378,23 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertThrows
 import|;
 end_import
 
@@ -362,7 +406,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
 import|;
 end_import
 
@@ -909,6 +977,9 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"test script"
 argument_list|,
 name|ScriptService
@@ -916,6 +987,11 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 operator|.
 name|setTimeout
@@ -944,6 +1020,9 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"test script"
 argument_list|,
 name|ScriptService
@@ -951,6 +1030,11 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 operator|.
 name|setTimeout

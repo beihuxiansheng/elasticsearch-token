@@ -17915,9 +17915,9 @@ name|passThroughPriority
 argument_list|,
 name|TimeValue
 operator|.
-name|timeValueSeconds
+name|timeValueMinutes
 argument_list|(
-literal|10
+literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;

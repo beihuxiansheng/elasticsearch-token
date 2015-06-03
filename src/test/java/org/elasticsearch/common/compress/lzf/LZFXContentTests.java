@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress
+DECL|package|org.elasticsearch.common.compress.lzf
 package|package
 name|org
 operator|.
@@ -13,20 +13,48 @@ operator|.
 name|common
 operator|.
 name|compress
+operator|.
+name|lzf
 package|;
 end_package
 
-begin_comment
-comment|/**  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|compress
+operator|.
+name|AbstractCompressedXContentTests
+import|;
+end_import
 
-begin_interface
-DECL|interface|CompressorContext
+begin_class
+DECL|class|LZFXContentTests
 specifier|public
-interface|interface
-name|CompressorContext
-block|{ }
-end_interface
+class|class
+name|LZFXContentTests
+extends|extends
+name|AbstractCompressedXContentTests
+block|{
+DECL|method|LZFXContentTests
+specifier|public
+name|LZFXContentTests
+parameter_list|()
+block|{
+name|super
+argument_list|(
+operator|new
+name|LZFTestCompressor
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+end_class
 
 end_unit
 

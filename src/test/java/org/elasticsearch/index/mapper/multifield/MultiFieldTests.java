@@ -5046,7 +5046,7 @@ operator|.
 name|mappingSource
 argument_list|()
 operator|.
-name|compressed
+name|compressedReference
 argument_list|()
 argument_list|,
 literal|true

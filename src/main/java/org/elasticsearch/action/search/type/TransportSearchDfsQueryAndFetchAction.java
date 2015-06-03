@@ -619,6 +619,7 @@ specifier|final
 name|AtomicInteger
 name|counter
 parameter_list|,
+specifier|final
 name|DiscoveryNode
 name|node
 parameter_list|,
@@ -696,6 +697,8 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+try|try
+block|{
 name|onSecondPhaseFailure
 argument_list|(
 name|t
@@ -709,6 +712,23 @@ argument_list|,
 name|counter
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// the query might not have been executed at all (for example because thread pool rejected execution)
+comment|// and the search context that was created in dfs phase might not be released.
+comment|// release it again to be in the safe side
+name|sendReleaseSearchContext
+argument_list|(
+name|querySearchRequest
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)

@@ -124,7 +124,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -997,7 +997,7 @@ argument_list|(
 name|type
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|PutMappingRequest
 operator|.

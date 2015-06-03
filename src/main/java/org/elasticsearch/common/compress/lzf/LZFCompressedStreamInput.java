@@ -109,9 +109,6 @@ class|class
 name|LZFCompressedStreamInput
 extends|extends
 name|CompressedStreamInput
-argument_list|<
-name|LZFCompressorContext
-argument_list|>
 block|{
 DECL|field|recycler
 specifier|private
@@ -148,10 +145,6 @@ block|{
 name|super
 argument_list|(
 name|in
-argument_list|,
-name|LZFCompressorContext
-operator|.
-name|INSTANCE
 argument_list|)
 expr_stmt|;
 name|this

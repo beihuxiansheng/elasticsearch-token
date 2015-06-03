@@ -90,11 +90,6 @@ specifier|public
 specifier|abstract
 class|class
 name|CompressedIndexInput
-parameter_list|<
-name|T
-extends|extends
-name|CompressorContext
-parameter_list|>
 extends|extends
 name|IndexInput
 block|{
@@ -102,12 +97,6 @@ DECL|field|in
 specifier|private
 name|IndexInput
 name|in
-decl_stmt|;
-DECL|field|context
-specifier|protected
-specifier|final
-name|T
-name|context
 decl_stmt|;
 DECL|field|version
 specifier|private
@@ -170,9 +159,6 @@ name|CompressedIndexInput
 parameter_list|(
 name|IndexInput
 name|in
-parameter_list|,
-name|T
-name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -194,12 +180,6 @@ operator|.
 name|in
 operator|=
 name|in
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
 expr_stmt|;
 name|readHeader
 argument_list|(

@@ -749,11 +749,11 @@ block|{
 name|String
 name|templateString
 init|=
-literal|"{\"template\": {"
+literal|"{"
 operator|+
 literal|"\"query\":{\"match_{{template}}\": {}},"
 operator|+
-literal|"\"params\":{\"template\":\"all\"}}"
+literal|"\"params\":{\"template\":\"all\"}"
 operator|+
 literal|"}"
 decl_stmt|;
@@ -778,6 +778,11 @@ name|reset
 argument_list|(
 name|templateSourceParser
 argument_list|)
+expr_stmt|;
+name|templateSourceParser
+operator|.
+name|nextToken
+argument_list|()
 expr_stmt|;
 name|TemplateQueryParser
 name|parser
@@ -824,7 +829,7 @@ block|{
 name|String
 name|templateString
 init|=
-literal|"{ \"template\": { \"file\": \"storedTemplate\" ,\"params\":{\"template\":\"all\" } } } "
+literal|"{ \"file\": \"storedTemplate\" ,\"params\":{\"template\":\"all\" } } "
 decl_stmt|;
 name|XContentParser
 name|templateSourceParser
@@ -847,6 +852,11 @@ name|reset
 argument_list|(
 name|templateSourceParser
 argument_list|)
+expr_stmt|;
+name|templateSourceParser
+operator|.
+name|nextToken
+argument_list|()
 expr_stmt|;
 name|TemplateQueryParser
 name|parser

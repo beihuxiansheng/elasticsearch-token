@@ -230,6 +230,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|compress
+operator|.
+name|NotXContentException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -966,6 +980,8 @@ condition|(
 name|indexCreatedBefore2x
 condition|)
 block|{
+try|try
+block|{
 return|return
 name|CompressorFactory
 operator|.
@@ -975,12 +991,23 @@ name|bytes
 argument_list|)
 return|;
 block|}
-else|else
+catch|catch
+parameter_list|(
+name|NotXContentException
+name|e
+parameter_list|)
 block|{
+comment|// NOTE: previous versions of Elasticsearch used to try to detect if
+comment|// data was compressed. However this could cause decompression failures
+comment|// as a user may have submitted arbitrary data which looks like it is
+comment|// compressed to elasticsearch but is not. So we removed the ability to
+comment|// compress binary fields and keep this empty catch block for backward
+comment|// compatibility with 1.x
+block|}
+block|}
 return|return
 name|bytes
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(

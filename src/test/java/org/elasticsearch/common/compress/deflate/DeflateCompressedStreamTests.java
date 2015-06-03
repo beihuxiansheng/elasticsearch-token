@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.compress.lzf
+DECL|package|org.elasticsearch.common.compress.deflate
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|lzf
+name|deflate
 package|;
 end_package
 
@@ -28,33 +28,31 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressorContext
+name|AbstractCompressedStreamTests
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
-DECL|class|LZFCompressorContext
+DECL|class|DeflateCompressedStreamTests
 specifier|public
 class|class
-name|LZFCompressorContext
-implements|implements
-name|CompressorContext
+name|DeflateCompressedStreamTests
+extends|extends
+name|AbstractCompressedStreamTests
 block|{
-DECL|field|INSTANCE
+DECL|method|DeflateCompressedStreamTests
 specifier|public
-specifier|static
-specifier|final
-name|LZFCompressorContext
-name|INSTANCE
-init|=
+name|DeflateCompressedStreamTests
+parameter_list|()
+block|{
+name|super
+argument_list|(
 operator|new
-name|LZFCompressorContext
+name|DeflateCompressor
 argument_list|()
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

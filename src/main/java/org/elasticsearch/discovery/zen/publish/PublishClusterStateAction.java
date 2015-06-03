@@ -1470,6 +1470,8 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|StreamOutput
 name|stream
 init|=
@@ -1482,7 +1484,8 @@ name|streamOutput
 argument_list|(
 name|bStream
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|stream
 operator|.
 name|setVersion
@@ -1504,11 +1507,7 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
-name|stream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|bStream
 operator|.
@@ -1538,6 +1537,8 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|StreamOutput
 name|stream
 init|=
@@ -1550,7 +1551,8 @@ name|streamOutput
 argument_list|(
 name|bStream
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|stream
 operator|.
 name|setVersion
@@ -1572,11 +1574,7 @@ argument_list|(
 name|stream
 argument_list|)
 expr_stmt|;
-name|stream
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+block|}
 return|return
 name|bStream
 operator|.

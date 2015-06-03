@@ -394,7 +394,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -798,12 +798,6 @@ operator|new
 name|DefaultIndexTemplateFilter
 argument_list|()
 decl_stmt|;
-DECL|field|environment
-specifier|private
-specifier|final
-name|Environment
-name|environment
-decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -873,9 +867,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Environment
-name|environment
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -916,12 +907,6 @@ name|super
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|environment
-operator|=
-name|environment
 expr_stmt|;
 name|this
 operator|.
@@ -1892,7 +1877,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|cursor
 range|:
@@ -2645,7 +2630,7 @@ operator|.
 name|DEFAULT_MAPPING
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|XContentFactory
 operator|.
@@ -2752,7 +2737,7 @@ name|getKey
 argument_list|()
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|XContentFactory
 operator|.

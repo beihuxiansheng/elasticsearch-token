@@ -78,6 +78,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
 import|;
 end_import
@@ -117,22 +129,6 @@ operator|.
 name|AliasAction
 operator|.
 name|newAddAliasAction
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
 import|;
 end_import
 
@@ -473,6 +469,9 @@ argument_list|)
 operator|.
 name|setScript
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"ctx._source.field = 'value2'"
 argument_list|,
 name|ScriptService
@@ -480,6 +479,11 @@ operator|.
 name|ScriptType
 operator|.
 name|INLINE
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 operator|.
 name|execute

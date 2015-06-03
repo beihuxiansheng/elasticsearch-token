@@ -307,7 +307,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|source
 parameter_list|)
@@ -333,7 +333,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|Object
+name|?
 argument_list|>
 name|source
 parameter_list|,
