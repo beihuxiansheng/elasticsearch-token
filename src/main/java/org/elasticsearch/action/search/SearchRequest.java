@@ -1627,7 +1627,13 @@ name|keepAlive
 argument_list|,
 literal|null
 argument_list|,
-literal|"SearchRequest.Scroll.keepAlive"
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".Scroll.keepAlive"
 argument_list|)
 argument_list|)
 argument_list|)

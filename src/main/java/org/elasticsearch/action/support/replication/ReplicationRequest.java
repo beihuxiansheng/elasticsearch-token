@@ -462,7 +462,13 @@ name|timeout
 argument_list|,
 literal|null
 argument_list|,
-literal|"ShardReplicatoinOperationRequest.timeout"
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".timeout"
 argument_list|)
 argument_list|)
 return|;

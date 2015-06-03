@@ -783,7 +783,13 @@ name|units
 argument_list|,
 literal|null
 argument_list|,
-literal|"DerivativeParser.unit"
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".unit"
 argument_list|)
 decl_stmt|;
 if|if

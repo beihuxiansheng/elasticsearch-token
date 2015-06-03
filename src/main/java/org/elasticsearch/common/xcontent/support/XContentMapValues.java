@@ -2234,7 +2234,14 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|"XContentMapValues.nodeTimeValue"
+name|XContentMapValues
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".nodeTimeValue"
 argument_list|)
 return|;
 block|}
