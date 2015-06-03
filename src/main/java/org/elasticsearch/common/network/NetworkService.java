@@ -467,7 +467,13 @@ name|resolveBindHostAddress
 argument_list|(
 name|bindHost
 argument_list|,
-literal|null
+name|InetAddress
+operator|.
+name|getLoopbackAddress
+argument_list|()
+operator|.
+name|getHostAddress
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -526,7 +532,13 @@ name|resolvePublishHostAddress
 argument_list|(
 name|publishHost
 argument_list|,
-literal|null
+name|InetAddress
+operator|.
+name|getLoopbackAddress
+argument_list|()
+operator|.
+name|getHostAddress
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// verify that its not a local address
