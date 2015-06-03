@@ -3320,6 +3320,9 @@ name|RIGHT
 else|:
 name|shapeMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|orientation
 argument_list|()
 decl_stmt|;

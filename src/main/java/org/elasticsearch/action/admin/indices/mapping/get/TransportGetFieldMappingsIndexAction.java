@@ -1140,6 +1140,9 @@ name|addFieldMapper
 argument_list|(
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1223,6 +1226,9 @@ name|field
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1234,6 +1240,9 @@ block|{
 name|addFieldMapper
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1297,6 +1306,9 @@ name|field
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1308,6 +1320,9 @@ block|{
 name|addFieldMapper
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1370,6 +1385,9 @@ argument_list|(
 name|field
 argument_list|,
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1382,6 +1400,9 @@ block|{
 name|addFieldMapper
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1556,6 +1577,9 @@ operator|new
 name|FieldMappingMetaData
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

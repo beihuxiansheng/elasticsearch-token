@@ -1042,6 +1042,9 @@ name|fieldName
 operator|=
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.

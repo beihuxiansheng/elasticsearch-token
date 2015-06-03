@@ -850,6 +850,9 @@ operator|)
 name|mapper
 operator|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|rangeQuery
 argument_list|(
 name|from

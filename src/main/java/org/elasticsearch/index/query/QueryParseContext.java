@@ -1576,6 +1576,9 @@ if|if
 condition|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|searchAnalyzer
 argument_list|()
 operator|!=
@@ -1584,6 +1587,9 @@ condition|)
 block|{
 return|return
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1611,6 +1617,9 @@ if|if
 condition|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|searchQuoteAnalyzer
 argument_list|()
 operator|!=
@@ -1619,6 +1628,9 @@ condition|)
 block|{
 return|return
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchQuoteAnalyzer
 argument_list|()

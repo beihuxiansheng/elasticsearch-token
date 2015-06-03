@@ -1663,6 +1663,9 @@ operator|.
 name|timestampFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|dateTimeFormatter
 argument_list|()
 operator|.
