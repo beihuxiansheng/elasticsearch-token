@@ -493,7 +493,7 @@ specifier|final
 name|String
 name|DEFAULT_DATE_TIME_FORMAT
 init|=
-literal|"dateOptionalTime"
+literal|"epoch_millis||dateOptionalTime"
 decl_stmt|;
 DECL|class|Defaults
 specifier|public
