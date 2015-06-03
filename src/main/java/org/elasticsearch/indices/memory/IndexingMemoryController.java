@@ -918,7 +918,7 @@ name|TimeValue
 operator|.
 name|timeValueMinutes
 argument_list|(
-literal|30
+literal|5
 argument_list|)
 argument_list|)
 expr_stmt|;
