@@ -1677,8 +1677,8 @@ return|;
 block|}
 block|}
 DECL|class|CompletionFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|CompletionFieldType
 extends|extends

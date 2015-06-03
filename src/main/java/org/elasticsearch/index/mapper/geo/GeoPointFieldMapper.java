@@ -2110,6 +2110,7 @@ block|}
 DECL|class|GeoPointFieldType
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|GeoPointFieldType
 extends|extends

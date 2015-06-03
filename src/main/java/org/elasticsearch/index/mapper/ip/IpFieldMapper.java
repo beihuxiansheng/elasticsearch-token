@@ -1217,8 +1217,8 @@ return|;
 block|}
 block|}
 DECL|class|IpFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|IpFieldType
 extends|extends

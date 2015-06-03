@@ -1393,8 +1393,8 @@ return|;
 block|}
 block|}
 DECL|class|TimestampFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|TimestampFieldType
 extends|extends

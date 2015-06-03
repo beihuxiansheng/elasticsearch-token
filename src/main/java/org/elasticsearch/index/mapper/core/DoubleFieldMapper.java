@@ -983,8 +983,8 @@ return|;
 block|}
 block|}
 DECL|class|DoubleFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|DoubleFieldType
 extends|extends

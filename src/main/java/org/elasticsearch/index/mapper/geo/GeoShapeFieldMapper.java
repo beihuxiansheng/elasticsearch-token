@@ -1607,6 +1607,7 @@ block|}
 DECL|class|GeoShapeFieldType
 specifier|public
 specifier|static
+specifier|final
 class|class
 name|GeoShapeFieldType
 extends|extends

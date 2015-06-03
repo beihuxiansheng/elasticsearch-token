@@ -1006,8 +1006,8 @@ return|;
 block|}
 block|}
 DECL|class|IdFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|IdFieldType
 extends|extends

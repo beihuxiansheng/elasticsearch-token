@@ -836,8 +836,8 @@ return|;
 block|}
 block|}
 DECL|class|RoutingFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|RoutingFieldType
 extends|extends

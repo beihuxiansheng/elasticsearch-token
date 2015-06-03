@@ -814,8 +814,8 @@ return|;
 block|}
 block|}
 DECL|class|IndexFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|IndexFieldType
 extends|extends

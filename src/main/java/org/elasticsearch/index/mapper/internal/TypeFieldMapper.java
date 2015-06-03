@@ -748,8 +748,8 @@ return|;
 block|}
 block|}
 DECL|class|TypeFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|TypeFieldType
 extends|extends

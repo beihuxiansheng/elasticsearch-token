@@ -952,8 +952,8 @@ return|;
 block|}
 block|}
 DECL|class|ShortFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|ShortFieldType
 extends|extends

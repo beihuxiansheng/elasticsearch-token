@@ -933,8 +933,8 @@ return|;
 block|}
 block|}
 DECL|class|ByteFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|ByteFieldType
 extends|extends

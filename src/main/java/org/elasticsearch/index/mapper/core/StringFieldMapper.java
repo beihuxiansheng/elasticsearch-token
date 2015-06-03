@@ -1280,8 +1280,8 @@ return|;
 block|}
 block|}
 DECL|class|StringFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|StringFieldType
 extends|extends

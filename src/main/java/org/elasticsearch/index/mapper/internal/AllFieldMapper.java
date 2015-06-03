@@ -1061,8 +1061,8 @@ return|;
 block|}
 block|}
 DECL|class|AllFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|AllFieldType
 extends|extends

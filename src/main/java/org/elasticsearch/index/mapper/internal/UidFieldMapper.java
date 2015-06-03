@@ -725,8 +725,8 @@ return|;
 block|}
 block|}
 DECL|class|UidFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|UidFieldType
 extends|extends

@@ -993,8 +993,8 @@ return|;
 block|}
 block|}
 DECL|class|FloatFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|FloatFieldType
 extends|extends

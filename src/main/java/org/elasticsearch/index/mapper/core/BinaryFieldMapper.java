@@ -775,8 +775,8 @@ return|;
 block|}
 block|}
 DECL|class|BinaryFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|BinaryFieldType
 extends|extends

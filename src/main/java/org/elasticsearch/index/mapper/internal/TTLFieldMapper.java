@@ -944,8 +944,8 @@ return|;
 block|}
 block|}
 DECL|class|TTLFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|TTLFieldType
 extends|extends

@@ -923,8 +923,8 @@ return|;
 block|}
 block|}
 DECL|class|IntegerFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|IntegerFieldType
 extends|extends

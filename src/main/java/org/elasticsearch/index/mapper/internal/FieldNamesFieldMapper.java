@@ -901,8 +901,8 @@ return|;
 block|}
 block|}
 DECL|class|FieldNamesFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|FieldNamesFieldType
 extends|extends

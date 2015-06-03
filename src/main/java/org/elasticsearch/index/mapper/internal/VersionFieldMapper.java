@@ -601,8 +601,8 @@ return|;
 block|}
 block|}
 DECL|class|VersionFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|VersionFieldType
 extends|extends

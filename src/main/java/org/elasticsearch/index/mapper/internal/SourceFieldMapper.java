@@ -1454,8 +1454,8 @@ return|;
 block|}
 block|}
 DECL|class|SourceFieldType
-specifier|public
 specifier|static
+specifier|final
 class|class
 name|SourceFieldType
 extends|extends
