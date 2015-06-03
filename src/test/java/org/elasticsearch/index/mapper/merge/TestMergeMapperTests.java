@@ -56,7 +56,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1655,7 +1655,7 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"test\":{}}"
 argument_list|)
@@ -1859,7 +1859,7 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|update
 operator|.

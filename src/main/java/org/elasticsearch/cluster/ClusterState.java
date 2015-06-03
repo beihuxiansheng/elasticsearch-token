@@ -274,7 +274,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -2230,7 +2230,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|CompressedString
+name|CompressedXContent
 argument_list|>
 name|cursor1
 range|:

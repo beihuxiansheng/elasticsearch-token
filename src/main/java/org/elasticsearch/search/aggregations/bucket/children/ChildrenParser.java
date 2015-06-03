@@ -519,7 +519,7 @@ name|SearchParseException
 argument_list|(
 name|context
 argument_list|,
-literal|"[children] _parent field not configured"
+literal|"[children] no [_parent] field not configured that points to a parent type"
 argument_list|,
 name|parser
 operator|.

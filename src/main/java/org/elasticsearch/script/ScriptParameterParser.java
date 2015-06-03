@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|ParseField
@@ -63,6 +53,20 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
+operator|.
+name|ScriptParseException
 import|;
 end_import
 
@@ -721,7 +725,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptParameterParseException
+name|ScriptParseException
 argument_list|(
 literal|"Value must be of type String: ["
 operator|+
@@ -784,7 +788,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptParameterParseException
+name|ScriptParseException
 argument_list|(
 literal|"Value must be of type String: ["
 operator|+
@@ -876,7 +880,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptParameterParseException
+name|ScriptParseException
 argument_list|(
 literal|"Value must be of type String: ["
 operator|+
@@ -967,7 +971,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptParameterParseException
+name|ScriptParseException
 argument_list|(
 literal|"Value must be of type String: ["
 operator|+
@@ -1051,7 +1055,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|ScriptParameterParseException
+name|ScriptParseException
 argument_list|(
 literal|"Only one of ["
 operator|+
@@ -1364,29 +1368,6 @@ block|{
 return|return
 name|scriptType
 return|;
-block|}
-block|}
-DECL|class|ScriptParameterParseException
-specifier|public
-specifier|static
-class|class
-name|ScriptParameterParseException
-extends|extends
-name|ElasticsearchException
-block|{
-DECL|method|ScriptParameterParseException
-specifier|public
-name|ScriptParameterParseException
-parameter_list|(
-name|String
-name|msg
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|msg
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

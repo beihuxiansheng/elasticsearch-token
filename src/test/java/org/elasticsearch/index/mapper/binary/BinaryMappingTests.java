@@ -543,7 +543,11 @@ name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|binaryValue2
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -834,7 +838,11 @@ name|CompressorFactory
 operator|.
 name|isCompressed
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|binaryValue
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

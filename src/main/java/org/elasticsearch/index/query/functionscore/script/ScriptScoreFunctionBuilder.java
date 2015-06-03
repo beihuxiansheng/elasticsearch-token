@@ -26,6 +26,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|query
@@ -38,15 +52,13 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
+name|script
 operator|.
-name|collect
-operator|.
-name|Maps
+name|Script
 import|;
 end_import
 
@@ -56,11 +68,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|script
 operator|.
-name|xcontent
+name|Script
 operator|.
-name|XContentBuilder
+name|ScriptField
 import|;
 end_import
 
@@ -71,6 +83,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -98,8 +120,13 @@ name|ScoreFunctionBuilder
 block|{
 DECL|field|script
 specifier|private
-name|String
+name|Script
 name|script
+decl_stmt|;
+DECL|field|scriptString
+specifier|private
+name|String
+name|scriptString
 decl_stmt|;
 DECL|field|lang
 specifier|private
@@ -128,7 +155,7 @@ specifier|public
 name|ScriptScoreFunctionBuilder
 name|script
 parameter_list|(
-name|String
+name|Script
 name|script
 parameter_list|)
 block|{
@@ -142,7 +169,31 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the language of the script.      */
+comment|/**      * @deprecated Use {@link #script(Script)} instead      */
+annotation|@
+name|Deprecated
+DECL|method|script
+specifier|public
+name|ScriptScoreFunctionBuilder
+name|script
+parameter_list|(
+name|String
+name|script
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scriptString
+operator|=
+name|script
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the language of the script.@deprecated Use {@link #script(Script)}      * instead      */
+annotation|@
+name|Deprecated
 DECL|method|lang
 specifier|public
 name|ScriptScoreFunctionBuilder
@@ -162,7 +213,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Additional parameters that can be provided to the script.      */
+comment|/**      * Additional parameters that can be provided to the script.@deprecated Use      * {@link #script(Script)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|params
 specifier|public
 name|ScriptScoreFunctionBuilder
@@ -209,7 +262,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Additional parameters that can be provided to the script.      */
+comment|/**      * Additional parameters that can be provided to the script.@deprecated Use      * {@link #script(Script)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|param
 specifier|public
 name|ScriptScoreFunctionBuilder
@@ -231,9 +286,9 @@ condition|)
 block|{
 name|params
 operator|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -274,15 +329,47 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|script
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+name|ScriptField
+operator|.
+name|SCRIPT
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|,
+name|script
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|scriptString
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|field
 argument_list|(
 literal|"script"
 argument_list|,
-name|script
+name|scriptString
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|lang
@@ -320,6 +407,7 @@ operator|.
 name|params
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|builder
 operator|.

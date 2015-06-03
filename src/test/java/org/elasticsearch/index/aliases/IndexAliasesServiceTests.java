@@ -26,7 +26,21 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -252,7 +266,7 @@ block|}
 DECL|method|filter
 specifier|public
 specifier|static
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|(
 name|QueryBuilder
@@ -287,7 +301,7 @@ argument_list|()
 expr_stmt|;
 return|return
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|builder
 operator|.

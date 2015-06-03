@@ -16,6 +16,18 @@ name|sort
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
+import|;
+end_import
+
 begin_comment
 comment|/**  * A set of static factory methods for {@link SortBuilder}s.  *  *  */
 end_comment
@@ -60,6 +72,32 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Constructs a new script based sort.      *      * @param script The script to use.      * @param type   The type, can either be "string" or "number".      */
+DECL|method|scriptSort
+specifier|public
+specifier|static
+name|ScriptSortBuilder
+name|scriptSort
+parameter_list|(
+name|Script
+name|script
+parameter_list|,
+name|String
+name|type
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ScriptSortBuilder
+argument_list|(
+name|script
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+comment|/**      * Constructs a new script based sort.      *      * @param script      *            The script to use.      * @param type      *            The type, can either be "string" or "number".      * @deprecated Use {@link #scriptSort(Script, String)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|scriptSort
 specifier|public
 specifier|static

@@ -1001,6 +1001,7 @@ name|this
 argument_list|)
 return|;
 block|}
+comment|// norelease: we need to override freeze() and add safety checks that all settings are actually set
 DECL|method|isNumeric
 specifier|public
 name|boolean

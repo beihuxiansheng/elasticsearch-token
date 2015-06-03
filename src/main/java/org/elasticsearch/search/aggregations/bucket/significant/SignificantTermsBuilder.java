@@ -992,6 +992,8 @@ operator|.
 name|toXContent
 argument_list|(
 name|builder
+argument_list|,
+name|params
 argument_list|)
 expr_stmt|;
 block|}

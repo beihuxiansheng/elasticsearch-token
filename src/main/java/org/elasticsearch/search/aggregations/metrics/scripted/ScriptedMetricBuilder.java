@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptParameterParser
 import|;
 end_import
@@ -94,6 +106,34 @@ name|ScriptedMetricBuilder
 extends|extends
 name|MetricsAggregationBuilder
 block|{
+DECL|field|initScript
+specifier|private
+name|Script
+name|initScript
+init|=
+literal|null
+decl_stmt|;
+DECL|field|mapScript
+specifier|private
+name|Script
+name|mapScript
+init|=
+literal|null
+decl_stmt|;
+DECL|field|combineScript
+specifier|private
+name|Script
+name|combineScript
+init|=
+literal|null
+decl_stmt|;
+DECL|field|reduceScript
+specifier|private
+name|Script
+name|reduceScript
+init|=
+literal|null
+decl_stmt|;
 DECL|field|params
 specifier|private
 name|Map
@@ -106,6 +146,8 @@ name|params
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|reduceParams
 specifier|private
 name|Map
@@ -118,34 +160,44 @@ name|reduceParams
 init|=
 literal|null
 decl_stmt|;
-DECL|field|initScript
+annotation|@
+name|Deprecated
+DECL|field|initScriptString
 specifier|private
 name|String
-name|initScript
+name|initScriptString
 init|=
 literal|null
 decl_stmt|;
-DECL|field|mapScript
+annotation|@
+name|Deprecated
+DECL|field|mapScriptString
 specifier|private
 name|String
-name|mapScript
+name|mapScriptString
 init|=
 literal|null
 decl_stmt|;
-DECL|field|combineScript
+annotation|@
+name|Deprecated
+DECL|field|combineScriptString
 specifier|private
 name|String
-name|combineScript
+name|combineScriptString
 init|=
 literal|null
 decl_stmt|;
-DECL|field|reduceScript
+annotation|@
+name|Deprecated
+DECL|field|reduceScriptString
 specifier|private
 name|String
-name|reduceScript
+name|reduceScriptString
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|initScriptFile
 specifier|private
 name|String
@@ -153,6 +205,8 @@ name|initScriptFile
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|mapScriptFile
 specifier|private
 name|String
@@ -160,6 +214,8 @@ name|mapScriptFile
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|combineScriptFile
 specifier|private
 name|String
@@ -167,6 +223,8 @@ name|combineScriptFile
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|reduceScriptFile
 specifier|private
 name|String
@@ -174,6 +232,8 @@ name|reduceScriptFile
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|initScriptId
 specifier|private
 name|String
@@ -181,6 +241,8 @@ name|initScriptId
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|mapScriptId
 specifier|private
 name|String
@@ -188,6 +250,8 @@ name|mapScriptId
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|combineScriptId
 specifier|private
 name|String
@@ -195,6 +259,8 @@ name|combineScriptId
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|reduceScriptId
 specifier|private
 name|String
@@ -202,6 +268,8 @@ name|reduceScriptId
 init|=
 literal|null
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|lang
 specifier|private
 name|String
@@ -231,6 +299,86 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the<tt>init</tt> script.      */
+DECL|method|initScript
+specifier|public
+name|ScriptedMetricBuilder
+name|initScript
+parameter_list|(
+name|Script
+name|initScript
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initScript
+operator|=
+name|initScript
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the<tt>map</tt> script.      */
+DECL|method|mapScript
+specifier|public
+name|ScriptedMetricBuilder
+name|mapScript
+parameter_list|(
+name|Script
+name|mapScript
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapScript
+operator|=
+name|mapScript
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the<tt>combine</tt> script.      */
+DECL|method|combineScript
+specifier|public
+name|ScriptedMetricBuilder
+name|combineScript
+parameter_list|(
+name|Script
+name|combineScript
+parameter_list|)
+block|{
+name|this
+operator|.
+name|combineScript
+operator|=
+name|combineScript
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set the<tt>reduce</tt> script.      */
+DECL|method|reduceScript
+specifier|public
+name|ScriptedMetricBuilder
+name|reduceScript
+parameter_list|(
+name|Script
+name|reduceScript
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reduceScript
+operator|=
+name|reduceScript
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Set parameters that will be available in the<tt>init</tt>,<tt>map</tt>      * and<tt>combine</tt> phases.      */
 DECL|method|params
 specifier|public
@@ -256,7 +404,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set parameters that will be available in the<tt>reduce</tt> phase.      */
+comment|/**      * Set parameters that will be available in the<tt>reduce</tt> phase.      *       * @deprecated Use {@link #reduceScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|reduceParams
 specifier|public
 name|ScriptedMetricBuilder
@@ -281,7 +431,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>init</tt> script.      */
+comment|/**      * Set the<tt>init</tt> script.      *       * @deprecated Use {@link #initScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|initScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -293,7 +445,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|initScript
+name|initScriptString
 operator|=
 name|initScript
 expr_stmt|;
@@ -301,7 +453,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>map</tt> script.      */
+comment|/**      * Set the<tt>map</tt> script.      *       * @deprecated Use {@link #mapScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|mapScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -313,7 +467,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mapScript
+name|mapScriptString
 operator|=
 name|mapScript
 expr_stmt|;
@@ -321,7 +475,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>combine</tt> script.      */
+comment|/**      * Set the<tt>combine</tt> script.      *       * @deprecated Use {@link #combineScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|combineScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -333,7 +489,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|combineScript
+name|combineScriptString
 operator|=
 name|combineScript
 expr_stmt|;
@@ -341,7 +497,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>reduce</tt> script.      */
+comment|/**      * Set the<tt>reduce</tt> script.      *       * @deprecated Use {@link #reduceScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|reduceScript
 specifier|public
 name|ScriptedMetricBuilder
@@ -353,7 +511,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|reduceScript
+name|reduceScriptString
 operator|=
 name|reduceScript
 expr_stmt|;
@@ -361,7 +519,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>init</tt> script file.      */
+comment|/**      * Set the<tt>init</tt> script file.      *       * @deprecated Use {@link #initScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|initScriptFile
 specifier|public
 name|ScriptedMetricBuilder
@@ -381,7 +541,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>map</tt> script file.      */
+comment|/**      * Set the<tt>map</tt> script file.      *       * @deprecated Use {@link #mapScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|mapScriptFile
 specifier|public
 name|ScriptedMetricBuilder
@@ -401,7 +563,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>combine</tt> script file.      */
+comment|/**      * Set the<tt>combine</tt> script file.      *       * @deprecated Use {@link #combineScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|combineScriptFile
 specifier|public
 name|ScriptedMetricBuilder
@@ -421,7 +585,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the<tt>reduce</tt> script file.      */
+comment|/**      * Set the<tt>reduce</tt> script file.      *       * @deprecated Use {@link #reduceScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|reduceScriptFile
 specifier|public
 name|ScriptedMetricBuilder
@@ -441,7 +607,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the indexed<tt>init</tt> script id.      */
+comment|/**      * Set the indexed<tt>init</tt> script id.      *       * @deprecated Use {@link #initScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|initScriptId
 specifier|public
 name|ScriptedMetricBuilder
@@ -461,7 +629,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the indexed<tt>map</tt> script id.      */
+comment|/**      * Set the indexed<tt>map</tt> script id.      *       * @deprecated Use {@link #mapScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|mapScriptId
 specifier|public
 name|ScriptedMetricBuilder
@@ -481,7 +651,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the indexed<tt>combine</tt> script id.      */
+comment|/**      * Set the indexed<tt>combine</tt> script id.      *       * @deprecated Use {@link #combineScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|combineScriptId
 specifier|public
 name|ScriptedMetricBuilder
@@ -501,7 +673,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the indexed<tt>reduce</tt> script id.      */
+comment|/**      * Set the indexed<tt>reduce</tt> script id.      *       * @deprecated Use {@link #reduceScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|reduceScriptId
 specifier|public
 name|ScriptedMetricBuilder
@@ -521,7 +695,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the script language.      */
+comment|/**      * Set the script language.      *       * @deprecated Use {@link #initScript(Script)}, {@link #mapScript(Script)},      *             {@link #combineScript(Script)}, and      *             {@link #reduceScript(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|lang
 specifier|public
 name|ScriptedMetricBuilder
@@ -557,6 +733,94 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|initScript
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+name|ScriptedMetricParser
+operator|.
+name|INIT_SCRIPT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|,
+name|initScript
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|mapScript
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+name|ScriptedMetricParser
+operator|.
+name|MAP_SCRIPT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|,
+name|mapScript
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|combineScript
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+name|ScriptedMetricParser
+operator|.
+name|COMBINE_SCRIPT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|,
+name|combineScript
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|reduceScript
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+name|ScriptedMetricParser
+operator|.
+name|REDUCE_SCRIPT_FIELD
+operator|.
+name|getPreferredName
+argument_list|()
+argument_list|,
+name|reduceScript
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|params
@@ -613,7 +877,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|initScript
+name|initScriptString
 operator|!=
 literal|null
 condition|)
@@ -626,13 +890,13 @@ name|ScriptedMetricParser
 operator|.
 name|INIT_SCRIPT
 argument_list|,
-name|initScript
+name|initScriptString
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|mapScript
+name|mapScriptString
 operator|!=
 literal|null
 condition|)
@@ -645,13 +909,13 @@ name|ScriptedMetricParser
 operator|.
 name|MAP_SCRIPT
 argument_list|,
-name|mapScript
+name|mapScriptString
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|combineScript
+name|combineScriptString
 operator|!=
 literal|null
 condition|)
@@ -664,13 +928,13 @@ name|ScriptedMetricParser
 operator|.
 name|COMBINE_SCRIPT
 argument_list|,
-name|combineScript
+name|combineScriptString
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|reduceScript
+name|reduceScriptString
 operator|!=
 literal|null
 condition|)
@@ -683,7 +947,7 @@ name|ScriptedMetricParser
 operator|.
 name|REDUCE_SCRIPT
 argument_list|,
-name|reduceScript
+name|reduceScriptString
 argument_list|)
 expr_stmt|;
 block|}

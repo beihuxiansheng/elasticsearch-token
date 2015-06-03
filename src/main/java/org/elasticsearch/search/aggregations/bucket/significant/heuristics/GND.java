@@ -688,11 +688,14 @@ annotation|@
 name|Override
 DECL|method|toXContent
 specifier|public
-name|void
+name|XContentBuilder
 name|toXContent
 parameter_list|(
 name|XContentBuilder
 name|builder
+parameter_list|,
+name|Params
+name|params
 parameter_list|)
 throws|throws
 name|IOException
@@ -724,6 +727,9 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
+return|return
+name|builder
+return|;
 block|}
 block|}
 block|}

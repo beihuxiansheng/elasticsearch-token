@@ -96,9 +96,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptParameterParser
+name|Script
 operator|.
-name|ScriptParameterParseException
+name|ScriptParseException
 import|;
 end_import
 
@@ -1385,7 +1385,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -1567,7 +1567,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -1749,7 +1749,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -1931,7 +1931,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -2113,7 +2113,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -2295,7 +2295,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -5991,7 +5991,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -6084,7 +6084,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -6177,7 +6177,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -6270,7 +6270,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -6363,7 +6363,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -6456,7 +6456,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -8056,7 +8056,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -8249,7 +8249,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -8442,7 +8442,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -8635,7 +8635,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -9556,7 +9556,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -9656,7 +9656,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -9756,7 +9756,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -9856,7 +9856,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -9956,7 +9956,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)
@@ -10056,7 +10056,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|ScriptParameterParseException
+name|ScriptParseException
 operator|.
 name|class
 argument_list|)

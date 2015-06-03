@@ -164,6 +164,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -343,6 +355,32 @@ specifier|static
 name|ScriptScoreFunctionBuilder
 name|scriptFunction
 parameter_list|(
+name|Script
+name|script
+parameter_list|)
+block|{
+return|return
+operator|(
+operator|new
+name|ScriptScoreFunctionBuilder
+argument_list|()
+operator|)
+operator|.
+name|script
+argument_list|(
+name|script
+argument_list|)
+return|;
+block|}
+comment|/**      * @deprecated Use {@link #scriptFunction(Script)} instead.      */
+annotation|@
+name|Deprecated
+DECL|method|scriptFunction
+specifier|public
+specifier|static
+name|ScriptScoreFunctionBuilder
+name|scriptFunction
+parameter_list|(
 name|String
 name|script
 parameter_list|)
@@ -360,6 +398,9 @@ name|script
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #scriptFunction(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|scriptFunction
 specifier|public
 specifier|static
@@ -391,6 +432,9 @@ name|lang
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #scriptFunction(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|scriptFunction
 specifier|public
 specifier|static
@@ -435,6 +479,9 @@ name|params
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #scriptFunction(Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|scriptFunction
 specifier|public
 specifier|static

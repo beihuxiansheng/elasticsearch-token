@@ -6490,7 +6490,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"less than required [30.0%] free disk on node, free: [26.0%]"
+literal|"more than allowed [70.0%] used disk on node, free: [26.0%]"
 argument_list|)
 argument_list|,
 name|equalTo
