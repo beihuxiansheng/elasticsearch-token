@@ -8649,7 +8649,7 @@ name|repo
 operator|.
 name|resolve
 argument_list|(
-literal|"metadata-test-snap-1"
+literal|"meta-test-snap-1.dat"
 argument_list|)
 decl_stmt|;
 name|Files
