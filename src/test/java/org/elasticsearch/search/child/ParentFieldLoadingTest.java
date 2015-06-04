@@ -130,6 +130,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|DocumentMapper
@@ -146,7 +158,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -177,18 +189,6 @@ operator|.
 name|policy
 operator|.
 name|MergePolicyModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexService
 import|;
 end_import
 
@@ -428,7 +428,7 @@ literal|"child"
 argument_list|,
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -647,9 +647,8 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|long
-name|fielddataSizeDefault
-init|=
+name|assertThat
+argument_list|(
 name|response
 operator|.
 name|getIndicesStats
@@ -660,12 +659,8 @@ argument_list|()
 operator|.
 name|getMemorySizeInBytes
 argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|fielddataSizeDefault
 argument_list|,
-name|greaterThan
+name|equalTo
 argument_list|(
 literal|0l
 argument_list|)
@@ -721,7 +716,7 @@ literal|"child"
 argument_list|,
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -813,7 +808,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-name|fielddataSizeDefault
+literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -867,7 +862,7 @@ literal|"child"
 argument_list|,
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -964,7 +959,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-name|fielddataSizeDefault
+literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1075,9 +1070,8 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|long
-name|fielddataSizeDefault
-init|=
+name|assertThat
+argument_list|(
 name|response
 operator|.
 name|getIndicesStats
@@ -1088,12 +1082,8 @@ argument_list|()
 operator|.
 name|getMemorySizeInBytes
 argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|fielddataSizeDefault
 argument_list|,
-name|greaterThan
+name|equalTo
 argument_list|(
 literal|0l
 argument_list|)
@@ -1125,7 +1115,7 @@ name|setSource
 argument_list|(
 name|childMapping
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -1280,13 +1270,16 @@ operator|.
 name|parentFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|fieldDataType
 argument_list|()
 operator|.
 name|getLoading
 argument_list|()
 operator|==
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.
@@ -1360,7 +1353,7 @@ argument_list|()
 argument_list|,
 name|greaterThan
 argument_list|(
-name|fielddataSizeDefault
+literal|0l
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1370,7 +1363,7 @@ specifier|private
 name|XContentBuilder
 name|childMapping
 parameter_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 name|loading
@@ -1409,7 +1402,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Loading
 operator|.

@@ -244,7 +244,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|ShardFetchSearchRequest
+name|FetchSearchResult
 import|;
 end_import
 
@@ -258,7 +258,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|FetchSearchResult
+name|ShardFetchSearchRequest
 import|;
 end_import
 
@@ -798,7 +798,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// the failure might happen without managing to clear the search context..., potentially need to clear its context (for example)
+comment|// the search context might not be cleared on the node where the fetch was executed for example
+comment|// because the action was rejected by the thread pool. in this case we need to send a dedicated
+comment|// request to clear the search context. by setting docIdsToLoad to null, the context will be cleared
+comment|// in TransportSearchTypeAction.releaseIrrelevantSearchContexts() after the search request is done.
 name|docIdsToLoad
 operator|.
 name|set

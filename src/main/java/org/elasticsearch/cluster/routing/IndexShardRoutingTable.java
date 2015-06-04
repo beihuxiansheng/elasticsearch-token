@@ -289,7 +289,7 @@ parameter_list|(
 name|ShardId
 name|shardId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -325,7 +325,12 @@ name|this
 operator|.
 name|shards
 operator|=
+name|ImmutableList
+operator|.
+name|copyOf
+argument_list|(
 name|shards
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -859,7 +864,7 @@ annotation|@
 name|Override
 DECL|method|iterator
 specifier|public
-name|UnmodifiableIterator
+name|Iterator
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -899,10 +904,10 @@ name|size
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of shards      *      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link List} of shards      *      * @return a {@link List} of shards      */
 DECL|method|shards
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -915,10 +920,10 @@ operator|.
 name|shards
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of shards      *      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link List} of shards      *      * @return a {@link List} of shards      */
 DECL|method|getShards
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -930,10 +935,10 @@ name|shards
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of active shards      *      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link List} of active shards      *      * @return a {@link List} of shards      */
 DECL|method|activeShards
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -946,10 +951,10 @@ operator|.
 name|activeShards
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of active shards      *      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link List} of active shards      *      * @return a {@link List} of shards      */
 DECL|method|getActiveShards
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -961,10 +966,10 @@ name|activeShards
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of assigned shards      *      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link List} of assigned shards      *      * @return a {@link List} of shards      */
 DECL|method|assignedShards
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>
@@ -977,10 +982,10 @@ operator|.
 name|assignedShards
 return|;
 block|}
-comment|/**      * Returns a {@link ImmutableList} of assigned shards      *      * @return a {@link ImmutableList} of shards      */
+comment|/**      * Returns a {@link List} of assigned shards      *      * @return a {@link List} of shards      */
 DECL|method|getAssignedShards
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|ShardRouting
 argument_list|>

@@ -2771,6 +2771,8 @@ operator|.
 name|message
 argument_list|,
 literal|null
+argument_list|,
+literal|"sleep"
 argument_list|)
 decl_stmt|;
 try|try

@@ -72,6 +72,20 @@ name|FieldMapper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MappedFieldType
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple field data cache abstraction on the *index* level.  */
 end_comment
@@ -167,7 +181,7 @@ DECL|method|onLoad
 name|void
 name|onLoad
 parameter_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|fieldNames
@@ -183,7 +197,7 @@ DECL|method|onUnload
 name|void
 name|onUnload
 parameter_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|fieldNames

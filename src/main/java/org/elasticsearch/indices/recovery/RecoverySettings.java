@@ -359,6 +359,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"5mb"
+argument_list|,
+literal|"SMALL_FILE_CUTOFF_BYTES"
 argument_list|)
 operator|.
 name|bytes

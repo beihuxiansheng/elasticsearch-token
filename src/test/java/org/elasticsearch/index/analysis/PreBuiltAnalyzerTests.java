@@ -1270,6 +1270,9 @@ name|assertThat
 argument_list|(
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|searchAnalyzer
 argument_list|()
 argument_list|,
@@ -1288,6 +1291,9 @@ operator|(
 name|NamedAnalyzer
 operator|)
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()

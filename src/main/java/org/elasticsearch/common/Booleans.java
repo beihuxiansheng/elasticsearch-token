@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|Booleans
 block|{
-comment|/**      * Returns<code>true</code> iff the sequence is neither of the following:      *<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>,      *   otherwise<code>false</code>      */
+comment|/**      * Returns<code>false</code> if text is in<tt>false</tt>,<tt>0</tt>,<tt>off</tt>,<tt>no</tt>; else, true      */
 DECL|method|parseBoolean
 specifier|public
 specifier|static
@@ -45,6 +45,8 @@ name|boolean
 name|defaultValue
 parameter_list|)
 block|{
+comment|// TODO: the leniency here is very dangerous: a simple typo will be misinterpreted and the user won't know.
+comment|// We should remove it and cutover to https://github.com/rmuir/booleanparser
 if|if
 condition|(
 name|text

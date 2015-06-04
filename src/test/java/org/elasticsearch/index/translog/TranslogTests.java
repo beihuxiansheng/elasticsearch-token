@@ -1026,8 +1026,6 @@ name|string
 decl_stmt|;
 name|boolean
 name|validPathString
-init|=
-literal|false
 decl_stmt|;
 do|do
 block|{
@@ -1083,8 +1081,10 @@ argument_list|)
 operator|.
 name|matches
 argument_list|()
-operator|&&
+operator|||
 name|validPathString
+operator|==
+literal|false
 condition|)
 do|;
 return|return

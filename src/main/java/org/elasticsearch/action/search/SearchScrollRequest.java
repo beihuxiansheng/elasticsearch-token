@@ -320,6 +320,14 @@ argument_list|(
 name|keepAlive
 argument_list|,
 literal|null
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".keepAlive"
 argument_list|)
 argument_list|)
 argument_list|)

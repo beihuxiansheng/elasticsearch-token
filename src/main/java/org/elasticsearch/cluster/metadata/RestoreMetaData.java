@@ -170,6 +170,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -268,7 +278,7 @@ block|}
 comment|/**      * Returns list of currently running restore processes      *      * @return list of currently running restore processes      */
 DECL|method|entries
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|Entry
 argument_list|>

@@ -189,6 +189,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"1k"
+argument_list|,
+literal|"CHUNK"
 argument_list|)
 operator|.
 name|bytes
@@ -202,6 +204,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"10gb"
+argument_list|,
+literal|"DATA"
 argument_list|)
 operator|.
 name|bytes

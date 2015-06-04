@@ -26,7 +26,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Lists
+name|Sets
 import|;
 end_import
 
@@ -106,7 +106,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Set
 import|;
 end_import
 
@@ -206,6 +206,9 @@ name|key
 init|=
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -304,6 +307,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -338,6 +344,9 @@ block|{
 if|if
 condition|(
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -463,7 +472,7 @@ block|}
 comment|/**      * Returns a list of the index names of a simple match regex like pattern against full name and index name.      */
 DECL|method|simpleMatchToIndexNames
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -473,15 +482,15 @@ name|String
 name|pattern
 parameter_list|)
 block|{
-name|List
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|fields
 init|=
-name|Lists
+name|Sets
 operator|.
-name|newArrayList
+name|newHashSet
 argument_list|()
 decl_stmt|;
 for|for
@@ -502,6 +511,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -515,6 +527,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -535,6 +550,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -548,6 +566,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -565,7 +586,7 @@ block|}
 comment|/**      * Returns a list of the full names of a simple match regex like pattern against full name and index name.      */
 DECL|method|simpleMatchToFullName
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -575,15 +596,15 @@ name|String
 name|pattern
 parameter_list|)
 block|{
-name|List
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|fields
 init|=
-name|Lists
+name|Sets
 operator|.
-name|newArrayList
+name|newHashSet
 argument_list|()
 decl_stmt|;
 for|for
@@ -604,6 +625,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -617,6 +641,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -637,6 +664,9 @@ name|pattern
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -650,6 +680,9 @@ operator|.
 name|add
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

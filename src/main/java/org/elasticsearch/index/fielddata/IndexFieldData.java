@@ -208,6 +208,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|MapperService
 import|;
 end_import
@@ -419,7 +433,7 @@ block|}
 block|}
 comment|/**      * The field name.      */
 DECL|method|getFieldNames
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|getFieldNames

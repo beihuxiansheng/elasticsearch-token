@@ -60,6 +60,16 @@ name|OutputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -129,7 +139,7 @@ name|IOException
 function_decl|;
 comment|/**      * Lists all blobs in the container      */
 DECL|method|listBlobs
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -142,7 +152,7 @@ name|IOException
 function_decl|;
 comment|/**      * Lists all blobs in the container that match specified prefix      */
 DECL|method|listBlobsByPrefix
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

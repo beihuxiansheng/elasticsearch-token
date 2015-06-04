@@ -26,6 +26,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -225,7 +235,7 @@ name|reason
 decl_stmt|;
 DECL|field|indices
 specifier|private
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -253,7 +263,7 @@ name|successfulShards
 decl_stmt|;
 DECL|field|shardFailures
 specifier|private
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -372,7 +382,7 @@ block|}
 comment|/**      * Returns indices that were included into this snapshot      *      * @return list of indices      */
 DECL|method|indices
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -443,7 +453,7 @@ block|}
 comment|/**      * Returns shard failures      *      * @return shard failures      */
 DECL|method|shardFailures
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>

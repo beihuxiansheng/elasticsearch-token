@@ -742,6 +742,7 @@ specifier|final
 name|QuerySearchRequest
 name|querySearchRequest
 parameter_list|,
+specifier|final
 name|DiscoveryNode
 name|node
 parameter_list|)
@@ -815,6 +816,8 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+try|try
+block|{
 name|onQueryFailure
 argument_list|(
 name|t
@@ -828,6 +831,23 @@ argument_list|,
 name|counter
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// the query might not have been executed at all (for example because thread pool rejected execution)
+comment|// and the search context that was created in dfs phase might not be released.
+comment|// release it again to be in the safe side
+name|sendReleaseSearchContext
+argument_list|(
+name|querySearchRequest
+operator|.
+name|id
+argument_list|()
+argument_list|,
+name|node
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
@@ -1232,6 +1252,19 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// the search context might not be cleared on the node where the fetch was executed for example
+comment|// because the action was rejected by the thread pool. in this case we need to send a dedicated
+comment|// request to clear the search context. by setting docIdsToLoad to null, the context will be cleared
+comment|// in TransportSearchTypeAction.releaseIrrelevantSearchContexts() after the search request is done.
+name|docIdsToLoad
+operator|.
+name|set
+argument_list|(
+name|shardIndex
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 name|onFetchFailure
 argument_list|(
 name|t

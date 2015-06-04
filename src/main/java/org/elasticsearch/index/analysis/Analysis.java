@@ -1395,7 +1395,7 @@ parameter_list|,
 name|CharArraySet
 name|defaultWords
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1656,7 +1656,7 @@ name|String
 argument_list|>
 name|words
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

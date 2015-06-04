@@ -184,18 +184,6 @@ name|Callable
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -400,12 +388,6 @@ operator|.
 name|Defaults
 operator|.
 name|DATE_TIME_FORMATTER
-argument_list|,
-name|DateFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|TIME_UNIT
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -420,9 +402,6 @@ name|DateMath
 parameter_list|(
 name|String
 name|format
-parameter_list|,
-name|TimeUnit
-name|timeUnit
 parameter_list|)
 block|{
 name|this
@@ -436,8 +415,6 @@ name|forPattern
 argument_list|(
 name|format
 argument_list|)
-argument_list|,
-name|timeUnit
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -557,14 +534,11 @@ name|DateMathParser
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|dateTimeFormatter
 argument_list|()
-argument_list|,
-name|DateFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|TIME_UNIT
 argument_list|)
 argument_list|)
 return|;

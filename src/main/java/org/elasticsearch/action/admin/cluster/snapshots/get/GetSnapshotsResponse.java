@@ -144,6 +144,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Get snapshots response  */
 end_comment
@@ -195,7 +205,7 @@ block|}
 comment|/**      * Returns the list of snapshots      *      * @return the list of snapshots      */
 DECL|method|getSnapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotInfo
 argument_list|>

@@ -80,7 +80,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1739,7 +1739,7 @@ operator|.
 name|DEFAULT_MAPPING
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|defaultMapping
 argument_list|)
@@ -1860,7 +1860,7 @@ operator|.
 name|DEFAULT_MAPPING
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|defaultMapping
 argument_list|)
@@ -1915,7 +1915,7 @@ argument_list|(
 literal|"my_type"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|mapping
 argument_list|)

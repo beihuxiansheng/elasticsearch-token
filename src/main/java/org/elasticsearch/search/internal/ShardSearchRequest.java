@@ -88,7 +88,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptService
+name|Template
 import|;
 end_import
 
@@ -111,16 +111,6 @@ operator|.
 name|io
 operator|.
 name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -191,26 +181,9 @@ name|long
 name|nowInMillis
 parameter_list|()
 function_decl|;
-DECL|method|templateName
-name|String
-name|templateName
-parameter_list|()
-function_decl|;
-DECL|method|templateType
-name|ScriptService
-operator|.
-name|ScriptType
-name|templateType
-parameter_list|()
-function_decl|;
-DECL|method|templateParams
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|templateParams
+DECL|method|template
+name|Template
+name|template
 parameter_list|()
 function_decl|;
 DECL|method|templateSource

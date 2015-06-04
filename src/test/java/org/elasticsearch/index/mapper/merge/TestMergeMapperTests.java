@@ -56,7 +56,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -1262,6 +1262,9 @@ argument_list|(
 literal|"field"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|searchAnalyzer
 argument_list|()
 operator|)
@@ -1318,6 +1321,9 @@ name|getMapper
 argument_list|(
 literal|"field"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1517,6 +1523,9 @@ argument_list|(
 literal|"field"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|searchAnalyzer
 argument_list|()
 operator|)
@@ -1573,6 +1582,9 @@ name|getMapper
 argument_list|(
 literal|"field"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1643,7 +1655,7 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 literal|"{\"test\":{}}"
 argument_list|)
@@ -1847,7 +1859,7 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|update
 operator|.

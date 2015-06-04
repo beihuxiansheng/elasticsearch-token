@@ -232,6 +232,16 @@ name|TransportService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Transport Action for get snapshots operation  */
 end_comment
@@ -414,7 +424,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|Snapshot
 argument_list|>
@@ -463,7 +473,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|Snapshot
 argument_list|>

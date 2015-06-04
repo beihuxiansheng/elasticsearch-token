@@ -302,6 +302,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -333,6 +335,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -347,6 +351,19 @@ argument_list|,
 name|equalTo
 argument_list|(
 literal|15.0d
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|decider
+operator|.
+name|getUsedDiskThresholdLow
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|85.0d
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -471,6 +488,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -506,6 +525,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"500mb"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)

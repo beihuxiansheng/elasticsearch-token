@@ -313,12 +313,6 @@ operator|.
 name|DateMath
 argument_list|(
 name|format
-argument_list|,
-name|DateFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|TIME_UNIT
 argument_list|)
 argument_list|)
 return|;
@@ -338,6 +332,9 @@ operator|new
 name|DateTime
 argument_list|(
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|dateTimeFormatter
 argument_list|()
