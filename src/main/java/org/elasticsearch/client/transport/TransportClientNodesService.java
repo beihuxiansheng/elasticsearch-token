@@ -536,7 +536,7 @@ decl_stmt|;
 DECL|field|nodes
 specifier|private
 specifier|volatile
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -550,7 +550,7 @@ decl_stmt|;
 DECL|field|filteredNodes
 specifier|private
 specifier|volatile
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -800,7 +800,7 @@ expr_stmt|;
 block|}
 DECL|method|transportAddresses
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|TransportAddress
 argument_list|>
@@ -848,7 +848,7 @@ return|;
 block|}
 DECL|method|connectedNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -863,7 +863,7 @@ return|;
 block|}
 DECL|method|filteredNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -878,7 +878,7 @@ return|;
 block|}
 DECL|method|listedNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1215,7 +1215,7 @@ argument_list|>
 name|listener
 parameter_list|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1335,7 +1335,7 @@ decl_stmt|;
 DECL|field|nodes
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1369,7 +1369,7 @@ name|Response
 argument_list|>
 name|listener
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1650,7 +1650,7 @@ specifier|private
 name|void
 name|ensureNodesAreAvailable
 parameter_list|(
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1728,7 +1728,7 @@ function_decl|;
 comment|/**          * validates a set of potentially newly discovered nodes and returns an immutable          * list of the nodes that has passed.          */
 DECL|method|validateNewNodes
 specifier|protected
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>

@@ -1832,7 +1832,7 @@ name|delete
 parameter_list|()
 block|{
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2063,7 +2063,7 @@ parameter_list|,
 name|int
 name|fileListGeneration
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2373,7 +2373,7 @@ specifier|protected
 name|long
 name|findLatestFileNameGeneration
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2492,7 +2492,7 @@ name|Integer
 argument_list|>
 name|buildBlobStoreIndexShardSnapshots
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2880,7 +2880,7 @@ expr_stmt|;
 try|try
 block|{
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -3092,7 +3092,7 @@ name|existingFileInfo
 init|=
 literal|null
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>
@@ -3795,7 +3795,7 @@ operator|.
 name|FileInfo
 name|fileInfo
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

@@ -970,7 +970,7 @@ argument_list|(
 name|snapshotId
 argument_list|)
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -4437,7 +4437,7 @@ parameter_list|(
 name|RestoreRequest
 name|request
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>

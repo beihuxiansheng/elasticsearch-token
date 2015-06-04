@@ -1476,7 +1476,7 @@ block|}
 comment|/**      * Returns list of files in the shard      *      * @return list of files      */
 DECL|method|indexFiles
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>

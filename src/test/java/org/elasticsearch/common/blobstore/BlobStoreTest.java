@@ -713,7 +713,7 @@ argument_list|,
 name|length
 argument_list|)
 decl_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

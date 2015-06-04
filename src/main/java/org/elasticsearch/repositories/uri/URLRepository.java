@@ -186,6 +186,16 @@ name|URL
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Read-only URL-based implementation of the BlobStoreRepository  *<p/>  * This repository supports the following settings  *<dl>  *<dt>{@code url}</dt><dd>URL to the root of repository. This is mandatory parameter.</dd>  *<dt>{@code concurrent_streams}</dt><dd>Number of concurrent read/write stream (per repository on each node). Defaults to 5.</dd>  *</ol>  */
 end_comment
@@ -377,7 +387,7 @@ annotation|@
 name|Override
 DECL|method|snapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>

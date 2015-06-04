@@ -65,6 +65,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -546,7 +556,7 @@ index|[]
 name|expected
 parameter_list|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -559,7 +569,7 @@ argument_list|(
 name|indices
 argument_list|)
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>

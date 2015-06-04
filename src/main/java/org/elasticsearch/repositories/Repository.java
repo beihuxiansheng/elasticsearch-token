@@ -104,8 +104,18 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
-comment|/**  * Snapshot repository interface.  *<p/>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p/>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, com.google.common.collect.ImmutableList, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(org.elasticsearch.cluster.metadata.SnapshotId, org.elasticsearch.index.shard.ShardId, org.elasticsearch.index.deletionpolicy.SnapshotIndexCommit, org.elasticsearch.index.snapshots.IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
+comment|/**  * Snapshot repository interface.  *<p/>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p/>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(org.elasticsearch.cluster.metadata.SnapshotId, org.elasticsearch.index.shard.ShardId, org.elasticsearch.index.deletionpolicy.SnapshotIndexCommit, org.elasticsearch.index.snapshots.IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -136,7 +146,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -147,7 +157,7 @@ name|IOException
 function_decl|;
 comment|/**      * Returns the list of snapshots currently stored in the repository      *      * @return snapshot list      */
 DECL|method|snapshots
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
@@ -162,7 +172,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -180,7 +190,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -195,7 +205,7 @@ parameter_list|,
 name|int
 name|totalShards
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>

@@ -102,6 +102,16 @@ name|OutputStream
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -259,7 +269,7 @@ annotation|@
 name|Override
 DECL|method|listBlobs
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -281,7 +291,7 @@ annotation|@
 name|Override
 DECL|method|listBlobsByPrefix
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

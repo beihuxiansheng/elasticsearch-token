@@ -10989,7 +10989,7 @@ argument_list|(
 literal|"--> done"
 argument_list|)
 expr_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotInfo
 argument_list|>
@@ -11690,7 +11690,7 @@ argument_list|(
 literal|"--> done"
 argument_list|)
 expr_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotInfo
 argument_list|>

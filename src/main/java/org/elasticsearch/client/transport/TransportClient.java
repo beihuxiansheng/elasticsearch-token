@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -467,6 +453,16 @@ operator|.
 name|netty
 operator|.
 name|NettyTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -1050,7 +1046,7 @@ block|}
 comment|/**      * Returns the current registered transport addresses to use (added using      * {@link #addTransportAddress(org.elasticsearch.common.transport.TransportAddress)}.      */
 DECL|method|transportAddresses
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|TransportAddress
 argument_list|>
@@ -1067,7 +1063,7 @@ block|}
 comment|/**      * Returns the current connected transport nodes that this client will use.      *<p/>      *<p>The nodes include all the nodes that are currently alive based on the transport      * addresses provided.      */
 DECL|method|connectedNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1084,7 +1080,7 @@ block|}
 comment|/**      * The list of filtered nodes that were not connected to, for example, due to      * mismatch in cluster name.      */
 DECL|method|filteredNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -1101,7 +1097,7 @@ block|}
 comment|/**      * Returns the listed nodes in the transport client (ones added to it).      */
 DECL|method|listedNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>

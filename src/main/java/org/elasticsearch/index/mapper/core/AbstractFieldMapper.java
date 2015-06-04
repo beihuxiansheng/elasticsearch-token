@@ -5735,7 +5735,7 @@ block|}
 block|}
 DECL|method|copyToFields
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
