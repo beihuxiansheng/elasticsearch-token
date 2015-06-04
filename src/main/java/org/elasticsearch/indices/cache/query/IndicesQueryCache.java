@@ -860,6 +860,8 @@ operator|.
 name|parseBytesSizeValueOrHeapRatio
 argument_list|(
 name|size
+argument_list|,
+name|INDICES_CACHE_QUERY_SIZE
 argument_list|)
 operator|.
 name|bytes

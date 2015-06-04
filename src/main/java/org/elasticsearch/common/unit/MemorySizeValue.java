@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -75,8 +85,20 @@ name|parseBytesSizeValueOrHeapRatio
 parameter_list|(
 name|String
 name|sValue
+parameter_list|,
+name|String
+name|settingName
 parameter_list|)
 block|{
+name|settingName
+operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|settingName
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|sValue
@@ -205,6 +227,8 @@ return|return
 name|parseBytesSizeValue
 argument_list|(
 name|sValue
+argument_list|,
+name|settingName
 argument_list|)
 return|;
 block|}

@@ -302,6 +302,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -333,6 +335,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -484,6 +488,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -519,6 +525,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"500mb"
+argument_list|,
+literal|"test"
 argument_list|)
 argument_list|)
 argument_list|)

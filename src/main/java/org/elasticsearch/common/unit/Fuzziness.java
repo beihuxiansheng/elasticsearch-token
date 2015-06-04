@@ -750,6 +750,8 @@ name|toString
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|"fuzziness"
 argument_list|)
 return|;
 block|}

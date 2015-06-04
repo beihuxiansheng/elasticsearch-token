@@ -1222,7 +1222,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Elasticsearch 2.0 removed several deprecated features and as well as support for Lucene 3.x. This method calls      * {@link MetaDataIndexUpgradeService} to makes sure that indices are compatible with the current version. The      * MetaDataIndexUpgradeService might also update updates obsolete settings if needed. When this happens we rewrite      * index metadata with new settings.      */
+comment|/**      * Elasticsearch 2.0 removed several deprecated features and as well as support for Lucene 3.x. This method calls      * {@link MetaDataIndexUpgradeService} to makes sure that indices are compatible with the current version. The      * MetaDataIndexUpgradeService might also update obsolete settings if needed. When this happens we rewrite      * index metadata with new settings.      */
 DECL|method|pre20Upgrade
 specifier|private
 name|void

@@ -146,6 +146,8 @@ name|text
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|"timeout"
 argument_list|)
 operator|.
 name|millis

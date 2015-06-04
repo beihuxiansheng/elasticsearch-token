@@ -996,9 +996,8 @@ name|indicesOptions
 argument_list|()
 argument_list|)
 decl_stmt|;
-specifier|final
 name|MetaData
-name|metaData
+name|metaDataIn
 init|=
 name|repository
 operator|.
@@ -1009,6 +1008,46 @@ argument_list|,
 name|filteredIndices
 argument_list|)
 decl_stmt|;
+specifier|final
+name|MetaData
+name|metaData
+decl_stmt|;
+if|if
+condition|(
+name|snapshot
+operator|.
+name|version
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+condition|)
+block|{
+comment|// ES 2.0 now requires units for all time and byte-sized settings, so we add the default unit if it's missing in this snapshot:
+name|metaData
+operator|=
+name|MetaData
+operator|.
+name|addDefaultUnitsIfNeeded
+argument_list|(
+name|logger
+argument_list|,
+name|metaDataIn
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Units are already enforced:
+name|metaData
+operator|=
+name|metaDataIn
+expr_stmt|;
+block|}
 comment|// Make sure that we can restore from this snapshot
 name|validateSnapshotRestorable
 argument_list|(

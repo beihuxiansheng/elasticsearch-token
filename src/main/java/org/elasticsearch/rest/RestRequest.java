@@ -667,6 +667,8 @@ name|key
 argument_list|)
 argument_list|,
 name|defaultValue
+argument_list|,
+name|key
 argument_list|)
 return|;
 block|}
@@ -691,6 +693,8 @@ name|key
 argument_list|)
 argument_list|,
 name|defaultValue
+argument_list|,
+name|key
 argument_list|)
 return|;
 block|}

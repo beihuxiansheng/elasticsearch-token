@@ -368,6 +368,10 @@ argument_list|(
 literal|"indices.ttl.interval"
 argument_list|,
 name|PURGE_INTERVAL
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
 argument_list|)
 operator|.
 name|build
@@ -1165,6 +1169,10 @@ argument_list|(
 literal|"indices.ttl.interval"
 argument_list|,
 literal|60
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 comment|// 60 sec
 operator|.
@@ -1280,8 +1288,11 @@ argument_list|(
 literal|"indices.ttl.interval"
 argument_list|,
 literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
-comment|// 60 sec
 operator|.
 name|build
 argument_list|()

@@ -1199,6 +1199,8 @@ argument_list|(
 name|actual
 argument_list|,
 literal|null
+argument_list|,
+literal|"fuzziness"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1513,7 +1515,7 @@ name|TimeValue
 operator|.
 name|parseTimeValue
 argument_list|(
-literal|"1"
+literal|"1ms"
 argument_list|,
 name|TimeValue
 operator|.
@@ -1521,6 +1523,8 @@ name|timeValueMillis
 argument_list|(
 literal|1
 argument_list|)
+argument_list|,
+literal|"fuzziness"
 argument_list|)
 argument_list|)
 argument_list|)
