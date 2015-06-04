@@ -38,9 +38,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -52,9 +52,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -66,9 +66,9 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|elasticsearch
+name|google
 operator|.
 name|common
 operator|.
@@ -154,7 +154,7 @@ DECL|method|getTags
 specifier|protected
 name|List
 argument_list|<
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -163,9 +163,8 @@ name|getTags
 parameter_list|()
 block|{
 return|return
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
 argument_list|()
 return|;
 block|}
@@ -181,9 +180,8 @@ name|getZones
 parameter_list|()
 block|{
 return|return
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
 argument_list|()
 return|;
 block|}
@@ -258,9 +256,8 @@ parameter_list|)
 block|{
 comment|// If we return null here we will get a trace as explained in issue 43
 return|return
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
 argument_list|()
 return|;
 block|}

@@ -92,6 +92,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
+name|Lists
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -111,20 +125,6 @@ operator|.
 name|gce
 operator|.
 name|GceComputeService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
 import|;
 end_import
 
@@ -237,7 +237,7 @@ specifier|protected
 specifier|abstract
 name|List
 argument_list|<
-name|ArrayList
+name|List
 argument_list|<
 name|String
 argument_list|>
