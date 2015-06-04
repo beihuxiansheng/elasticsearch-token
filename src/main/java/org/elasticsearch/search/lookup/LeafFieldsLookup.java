@@ -625,6 +625,9 @@ operator|.
 name|mapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -679,6 +682,9 @@ argument_list|(
 name|data
 operator|.
 name|mapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|names

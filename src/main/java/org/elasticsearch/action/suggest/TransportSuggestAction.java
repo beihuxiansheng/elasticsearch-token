@@ -94,7 +94,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -256,9 +256,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|Engine
+name|IndexService
 import|;
 end_import
 
@@ -270,7 +268,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|engine
+operator|.
+name|Engine
 import|;
 end_import
 
@@ -462,7 +462,7 @@ specifier|public
 class|class
 name|TransportSuggestAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|SuggestRequest
 argument_list|,

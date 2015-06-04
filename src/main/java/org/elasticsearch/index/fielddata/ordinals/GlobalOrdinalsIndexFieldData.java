@@ -204,6 +204,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|MultiValueMode
@@ -250,7 +264,7 @@ block|{
 DECL|field|fieldNames
 specifier|private
 specifier|final
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|fieldNames
@@ -277,7 +291,7 @@ parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|fieldNames
@@ -371,7 +385,7 @@ annotation|@
 name|Override
 DECL|method|getFieldNames
 specifier|public
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|getFieldNames

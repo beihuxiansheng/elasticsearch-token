@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|OriginalIndices
@@ -50,7 +40,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -134,7 +124,7 @@ specifier|public
 class|class
 name|PercolateShardRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|documentType
 specifier|private

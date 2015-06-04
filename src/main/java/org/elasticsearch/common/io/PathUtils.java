@@ -231,9 +231,17 @@ name|roots
 control|)
 block|{
 name|Path
-name|normalizedPath
+name|normalizedRoot
 init|=
 name|root
+operator|.
+name|normalize
+argument_list|()
+decl_stmt|;
+name|Path
+name|normalizedPath
+init|=
+name|normalizedRoot
 operator|.
 name|resolve
 argument_list|(
@@ -249,7 +257,7 @@ name|normalizedPath
 operator|.
 name|startsWith
 argument_list|(
-name|root
+name|normalizedRoot
 argument_list|)
 condition|)
 block|{

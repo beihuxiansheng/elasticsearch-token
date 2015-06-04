@@ -290,6 +290,12 @@ specifier|final
 name|InetAddress
 name|multicastInterface
 decl_stmt|;
+DECL|field|deferToInterface
+specifier|public
+specifier|final
+name|boolean
+name|deferToInterface
+decl_stmt|;
 DECL|method|Config
 specifier|public
 name|Config
@@ -308,6 +314,9 @@ name|ttl
 parameter_list|,
 name|InetAddress
 name|multicastInterface
+parameter_list|,
+name|boolean
+name|deferToInterface
 parameter_list|)
 block|{
 name|this
@@ -339,6 +348,12 @@ operator|.
 name|multicastInterface
 operator|=
 name|multicastInterface
+expr_stmt|;
+name|this
+operator|.
+name|deferToInterface
+operator|=
+name|deferToInterface
 expr_stmt|;
 block|}
 annotation|@
@@ -1412,6 +1427,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|SocketAddress
+name|addr
+init|=
+operator|new
+name|InetSocketAddress
+argument_list|(
+name|InetAddress
+operator|.
+name|getByName
+argument_list|(
+name|config
+operator|.
+name|group
+argument_list|)
+argument_list|,
+name|config
+operator|.
+name|port
+argument_list|)
+decl_stmt|;
 name|MulticastSocket
 name|multicastSocket
 init|=
@@ -1434,7 +1469,40 @@ operator|.
 name|ttl
 argument_list|)
 expr_stmt|;
-comment|// set the send interface
+comment|// OSX is not smart enough to tell that a socket bound to the
+comment|// 'lo0' interface needs to make sure to send the UDP packet
+comment|// out of the lo0 interface, so we need to do some special
+comment|// workarounds to fix it.
+if|if
+condition|(
+name|config
+operator|.
+name|deferToInterface
+condition|)
+block|{
+comment|// 'null' here tells the socket to deter to the interface set
+comment|// with .setInterface
+name|multicastSocket
+operator|.
+name|joinGroup
+argument_list|(
+name|addr
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|multicastSocket
+operator|.
+name|setInterface
+argument_list|(
+name|config
+operator|.
+name|multicastInterface
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|multicastSocket
 operator|.
 name|setInterface
@@ -1458,6 +1526,7 @@ name|group
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|multicastSocket
 operator|.
 name|setReceiveBufferSize

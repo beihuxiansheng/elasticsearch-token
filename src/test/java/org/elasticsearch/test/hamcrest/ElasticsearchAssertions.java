@@ -502,7 +502,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -1242,7 +1242,7 @@ specifier|static
 name|String
 name|formatShardStatus
 parameter_list|(
-name|BroadcastOperationResponse
+name|BroadcastResponse
 name|response
 parameter_list|)
 block|{
@@ -2549,7 +2549,7 @@ specifier|static
 name|void
 name|assertNoFailures
 parameter_list|(
-name|BroadcastOperationResponse
+name|BroadcastResponse
 name|response
 parameter_list|)
 block|{
@@ -2590,7 +2590,7 @@ specifier|static
 name|void
 name|assertAllSuccessful
 parameter_list|(
-name|BroadcastOperationResponse
+name|BroadcastResponse
 name|response
 parameter_list|)
 block|{

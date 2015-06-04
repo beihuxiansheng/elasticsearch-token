@@ -28,7 +28,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 import|;
 end_import
 
@@ -111,7 +111,7 @@ DECL|class|ShardSuggestResponse
 class|class
 name|ShardSuggestResponse
 extends|extends
-name|BroadcastShardOperationResponse
+name|BroadcastShardResponse
 block|{
 DECL|field|suggest
 specifier|private

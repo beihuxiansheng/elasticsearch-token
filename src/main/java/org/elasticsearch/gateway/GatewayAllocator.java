@@ -108,7 +108,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationResponse
+name|BaseNodeResponse
 import|;
 end_import
 
@@ -124,7 +124,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodesOperationResponse
+name|BaseNodesResponse
 import|;
 end_import
 
@@ -521,6 +521,20 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicBoolean
 import|;
 end_import
 
@@ -1170,10 +1184,6 @@ name|shardId
 argument_list|()
 argument_list|,
 name|startedAction
-argument_list|,
-name|clusterService
-argument_list|,
-name|allocationService
 argument_list|)
 expr_stmt|;
 name|asyncFetchStarted
@@ -1233,6 +1243,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"{}: ignoring allocation, still fetching shard started state"
+argument_list|,
+name|shard
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -2613,6 +2625,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"{}: ignoring allocation, can't be allocated on any node"
+argument_list|,
+name|shard
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -2673,10 +2687,6 @@ name|shardId
 argument_list|()
 argument_list|,
 name|storeAction
-argument_list|,
-name|clusterService
-argument_list|,
-name|allocationService
 argument_list|)
 expr_stmt|;
 name|asyncFetchStore
@@ -2736,6 +2746,8 @@ operator|.
 name|trace
 argument_list|(
 literal|"{}: ignoring allocation, still fetching shard stores"
+argument_list|,
+name|shard
 argument_list|)
 expr_stmt|;
 name|unassignedIterator
@@ -3335,14 +3347,23 @@ return|return
 name|changed
 return|;
 block|}
+DECL|field|rerouting
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|rerouting
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 DECL|class|InternalAsyncFetch
-specifier|static
 class|class
 name|InternalAsyncFetch
 parameter_list|<
 name|T
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 parameter_list|>
 extends|extends
 name|AsyncShardFetch
@@ -3350,18 +3371,6 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-DECL|field|clusterService
-specifier|private
-specifier|final
-name|ClusterService
-name|clusterService
-decl_stmt|;
-DECL|field|allocationService
-specifier|private
-specifier|final
-name|AllocationService
-name|allocationService
-decl_stmt|;
 DECL|method|InternalAsyncFetch
 specifier|public
 name|InternalAsyncFetch
@@ -3379,7 +3388,7 @@ name|List
 argument_list|<
 name|?
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|T
 argument_list|>
@@ -3387,12 +3396,6 @@ argument_list|,
 name|T
 argument_list|>
 name|action
-parameter_list|,
-name|ClusterService
-name|clusterService
-parameter_list|,
-name|AllocationService
-name|allocationService
 parameter_list|)
 block|{
 name|super
@@ -3405,18 +3408,6 @@ name|shardId
 argument_list|,
 name|action
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|clusterService
-operator|=
-name|clusterService
-expr_stmt|;
-name|this
-operator|.
-name|allocationService
-operator|=
-name|allocationService
 expr_stmt|;
 block|}
 annotation|@
@@ -3433,23 +3424,38 @@ name|String
 name|reason
 parameter_list|)
 block|{
+if|if
+condition|(
+name|rerouting
+operator|.
+name|compareAndSet
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} already has pending reroute, ignoring {}"
+argument_list|,
+name|shardId
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|clusterService
 operator|.
 name|submitStateUpdateTask
 argument_list|(
-literal|"async_shard_fetch("
-operator|+
-name|type
-operator|+
-literal|") "
-operator|+
-name|shardId
-operator|+
-literal|", reasons ("
-operator|+
-name|reason
-operator|+
-literal|")"
+literal|"async_shard_fetch"
 argument_list|,
 name|Priority
 operator|.
@@ -3471,6 +3477,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|rerouting
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|currentState

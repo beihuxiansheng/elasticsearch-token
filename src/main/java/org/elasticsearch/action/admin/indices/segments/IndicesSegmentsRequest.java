@@ -30,23 +30,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|IndicesOptions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationRequest
+name|BroadcastRequest
 import|;
 end_import
 
@@ -110,7 +96,7 @@ specifier|public
 class|class
 name|IndicesSegmentsRequest
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 argument_list|<
 name|IndicesSegmentsRequest
 argument_list|>

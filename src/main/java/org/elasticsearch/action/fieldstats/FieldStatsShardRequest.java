@@ -28,7 +28,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -98,7 +98,7 @@ specifier|public
 class|class
 name|FieldStatsShardRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|fields
 specifier|private

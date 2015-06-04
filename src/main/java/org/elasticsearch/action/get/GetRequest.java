@@ -66,7 +66,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|SingleShardOperationRequest
+name|SingleShardRequest
 import|;
 end_import
 
@@ -178,7 +178,7 @@ specifier|public
 class|class
 name|GetRequest
 extends|extends
-name|SingleShardOperationRequest
+name|SingleShardRequest
 argument_list|<
 name|GetRequest
 argument_list|>

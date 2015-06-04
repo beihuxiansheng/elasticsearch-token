@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Action that shortcuts to the search api with size set to 0. It doesn't have a corresponding  * transport action, it just runs the search api internally.  */
 end_comment
 
 begin_class
@@ -98,11 +98,13 @@ name|CountResponse
 name|newResponse
 parameter_list|()
 block|{
-return|return
+throw|throw
 operator|new
-name|CountResponse
-argument_list|()
-return|;
+name|UnsupportedOperationException
+argument_list|(
+literal|"CountAction doesn't have its own transport action, gets executed as a SearchAction internally"
+argument_list|)
+throw|;
 block|}
 annotation|@
 name|Override

@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This service is responsible for upgrading legacy index metadata to the current version  *  * Every time an existing index is introduced into cluster this service should be used  * to upgrade the existing index metadata to the latest version of the cluster. It typically  * occurs during cluster upgrade, when dangling indices are imported into the cluster or indices  * are restored from a repository.  */
+comment|/**  * This service is responsible for upgrading legacy index metadata to the current version  *<p/>  * Every time an existing index is introduced into cluster this service should be used  * to upgrade the existing index metadata to the latest version of the cluster. It typically  * occurs during cluster upgrade, when dangling indices are imported into the cluster or indices  * are restored from a repository.  */
 end_comment
 
 begin_class
@@ -326,7 +326,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Checks that the index can be upgraded to the current version of the master node.      *      * If the index does not need upgrade it returns the index metadata unchanged, otherwise it returns a modified index metadata. If index cannot be      * updated the method throws an exception.      */
+comment|/**      * Checks that the index can be upgraded to the current version of the master node.      *      *<p/>      * If the index does not need upgrade it returns the index metadata unchanged, otherwise it returns a modified index metadata. If index      * cannot be updated the method throws an exception.      */
 DECL|method|upgradeIndexMetaData
 specifier|public
 name|IndexMetaData
@@ -434,29 +434,63 @@ name|IndexMetaData
 name|indexMetaData
 parameter_list|)
 block|{
-return|return
+if|if
+condition|(
 name|indexMetaData
 operator|.
-name|minimumCompatibleVersion
+name|creationVersion
 argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|indexMetaData
-operator|.
-name|minimumCompatibleVersion
-argument_list|()
-operator|.
-name|luceneVersion
 operator|.
 name|onOrAfter
 argument_list|(
 name|Version
 operator|.
 name|V_0_90_0_Beta1
-operator|.
-name|luceneVersion
 argument_list|)
+condition|)
+block|{
+comment|// The index was created with elasticsearch that was using Lucene 4.0
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|indexMetaData
+operator|.
+name|getMinimumCompatibleVersion
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|indexMetaData
+operator|.
+name|getMinimumCompatibleVersion
+argument_list|()
+operator|.
+name|onOrAfter
+argument_list|(
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Version
+operator|.
+name|LUCENE_4_0_0
+argument_list|)
+condition|)
+block|{
+comment|//The index was upgraded we can work with it
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 comment|/**      * Elasticsearch 2.0 deprecated custom routing hash functions. So what we do here is that for old indices, we      * move this old and deprecated node setting to an index setting so that we can keep things backward compatible.      */

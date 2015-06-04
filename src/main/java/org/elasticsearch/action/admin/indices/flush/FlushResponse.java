@@ -44,7 +44,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|FlushResponse
 extends|extends
-name|BroadcastOperationResponse
+name|BroadcastResponse
 block|{
 DECL|method|FlushResponse
 name|FlushResponse

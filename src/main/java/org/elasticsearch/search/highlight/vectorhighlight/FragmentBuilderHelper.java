@@ -238,6 +238,9 @@ assert|;
 assert|assert
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -280,6 +283,9 @@ operator|(
 name|containsBrokenAnalysis
 argument_list|(
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()

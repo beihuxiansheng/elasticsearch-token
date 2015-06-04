@@ -154,7 +154,31 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|Template
 import|;
 end_import
 
@@ -1290,6 +1314,35 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|Script
+name|script
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|scriptField
+argument_list|(
+name|name
+argument_list|,
+name|script
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a script based field to load and return. The field does not have to      * be stored, but its recommended to use non analyzed or numeric fields.      *      * @param name      *            The name that will represent this value in the return hit      * @param script      *            The script to use      * @deprecated Use {@link #addScriptField(String, Script)} instead.      */
+annotation|@
+name|Deprecated
+DECL|method|addScriptField
+specifier|public
+name|SearchRequestBuilder
+name|addScriptField
+parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|String
 name|script
 parameter_list|)
@@ -1308,7 +1361,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param script The script to use      * @param params Parameters that the script can use.      */
+comment|/**      * Adds a script based field to load and return. The field does not have to      * be stored, but its recommended to use non analyzed or numeric fields.      *      * @param name      *            The name that will represent this value in the return hit      * @param script      *            The script to use      * @param params      *            Parameters that the script can use.      * @deprecated Use {@link #addScriptField(String, Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addScriptField
 specifier|public
 name|SearchRequestBuilder
@@ -1345,7 +1400,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param lang   The language of the script      * @param script The script to use      * @param params Parameters that the script can use (can be<tt>null</tt>).      */
+comment|/**      * Adds a script based field to load and return. The field does not have to      * be stored, but its recommended to use non analyzed or numeric fields.      *      * @param name      *            The name that will represent this value in the return hit      * @param lang      *            The language of the script      * @param script      *            The script to use      * @param params      *            Parameters that the script can use (can be<tt>null</tt>).      * @deprecated Use {@link #addScriptField(String, Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addScriptField
 specifier|public
 name|SearchRequestBuilder
@@ -2702,6 +2759,29 @@ name|this
 return|;
 block|}
 comment|/**      * template stuff      */
+DECL|method|setTemplate
+specifier|public
+name|SearchRequestBuilder
+name|setTemplate
+parameter_list|(
+name|Template
+name|template
+parameter_list|)
+block|{
+name|request
+operator|.
+name|template
+argument_list|(
+name|template
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * @deprecated Use {@link #setTemplate(Template)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setTemplateName
 specifier|public
 name|SearchRequestBuilder
@@ -2722,6 +2802,9 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #setTemplate(Template)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setTemplateType
 specifier|public
 name|SearchRequestBuilder
@@ -2744,6 +2827,9 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #setTemplate(Template)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|setTemplateParams
 specifier|public
 name|SearchRequestBuilder

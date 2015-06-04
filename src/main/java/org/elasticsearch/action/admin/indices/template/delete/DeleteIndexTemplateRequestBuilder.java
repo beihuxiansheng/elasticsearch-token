@@ -120,6 +120,27 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the name of the index template to delete.      */
+DECL|method|setName
+specifier|public
+name|DeleteIndexTemplateRequestBuilder
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|request
+operator|.
+name|name
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

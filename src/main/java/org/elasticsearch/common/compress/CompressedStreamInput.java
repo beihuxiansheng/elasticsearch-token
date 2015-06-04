@@ -72,11 +72,6 @@ specifier|public
 specifier|abstract
 class|class
 name|CompressedStreamInput
-parameter_list|<
-name|T
-extends|extends
-name|CompressorContext
-parameter_list|>
 extends|extends
 name|StreamInput
 block|{
@@ -85,12 +80,6 @@ specifier|private
 specifier|final
 name|StreamInput
 name|in
-decl_stmt|;
-DECL|field|context
-specifier|protected
-specifier|final
-name|CompressorContext
-name|context
 decl_stmt|;
 DECL|field|closed
 specifier|private
@@ -123,9 +112,6 @@ name|CompressedStreamInput
 parameter_list|(
 name|StreamInput
 name|in
-parameter_list|,
-name|T
-name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -135,12 +121,6 @@ operator|.
 name|in
 operator|=
 name|in
-expr_stmt|;
-name|this
-operator|.
-name|context
-operator|=
-name|context
 expr_stmt|;
 name|super
 operator|.
@@ -184,20 +164,6 @@ argument_list|(
 name|version
 argument_list|)
 return|;
-block|}
-comment|/**      * Expert!, resets to buffer start, without the need to decompress it again.      */
-DECL|method|resetToBufferStart
-specifier|public
-name|void
-name|resetToBufferStart
-parameter_list|()
-block|{
-name|this
-operator|.
-name|position
-operator|=
-literal|0
-expr_stmt|;
 block|}
 comment|/**      * Method is overridden to report number of bytes that can now be read      * from decoded data buffer, without reading bytes from the underlying      * stream.      * Never throws an exception; returns number of bytes available without      * further reads from underlying source; -1 if stream has been closed, or      * 0 if an actual read (and possible blocking) is needed to find out.      */
 annotation|@

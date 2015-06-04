@@ -1226,6 +1226,9 @@ name|add
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.

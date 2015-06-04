@@ -38,7 +38,55 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|*
+name|ActionRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|ActionRequestValidationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|CompositeIndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|IndicesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
+name|WriteConsistencyLevel
 import|;
 end_import
 
@@ -757,6 +805,9 @@ operator|.
 name|script
 argument_list|()
 operator|.
+name|getScript
+argument_list|()
+operator|.
 name|length
 argument_list|()
 operator|*
@@ -1219,6 +1270,11 @@ name|data
 argument_list|)
 decl_stmt|;
 name|int
+name|line
+init|=
+literal|0
+decl_stmt|;
+name|int
 name|from
 init|=
 literal|0
@@ -1268,6 +1324,9 @@ condition|)
 block|{
 break|break;
 block|}
+name|line
+operator|++
+expr_stmt|;
 comment|// now parse the action
 try|try
 init|(
@@ -1413,6 +1472,24 @@ literal|0
 decl_stmt|;
 comment|// at this stage, next token can either be END_OBJECT (and use default index and type, with auto generated id)
 comment|// or START_OBJECT which will have another set of parameters
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+condition|)
+block|{
 name|String
 name|currentFieldName
 init|=
@@ -1798,7 +1875,102 @@ name|intValue
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Action/metadata line ["
+operator|+
+name|line
+operator|+
+literal|"] contains an unknown parameter ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|VALUE_NULL
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Malformed action/metadata line ["
+operator|+
+name|line
+operator|+
+literal|"], expected a simple value for field ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"] but found ["
+operator|+
+name|token
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_OBJECT
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Malformed action/metadata line ["
+operator|+
+name|line
+operator|+
+literal|"], expected "
+operator|+
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+operator|+
+literal|" or "
+operator|+
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_OBJECT
+operator|+
+literal|" but found ["
+operator|+
+name|token
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
@@ -1871,6 +2043,9 @@ condition|)
 block|{
 break|break;
 block|}
+name|line
+operator|++
+expr_stmt|;
 comment|// order is important, we set parent after routing, so routing will be set to parent if not set explicitly
 comment|// we use internalAdd so we don't fork here, this allows us not to copy over the big byte array to small chunks
 comment|// of index request.

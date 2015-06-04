@@ -334,7 +334,7 @@ specifier|public
 class|class
 name|TransportNodesSnapshotsStatus
 extends|extends
-name|TransportNodesOperationAction
+name|TransportNodesAction
 argument_list|<
 name|TransportNodesSnapshotsStatus
 operator|.
@@ -903,7 +903,7 @@ specifier|static
 class|class
 name|Request
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 argument_list|<
 name|Request
 argument_list|>
@@ -1010,7 +1010,7 @@ specifier|static
 class|class
 name|NodesSnapshotStatus
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 argument_list|<
 name|NodeSnapshotStatus
 argument_list|>
@@ -1187,7 +1187,7 @@ specifier|static
 class|class
 name|NodeRequest
 extends|extends
-name|NodeOperationRequest
+name|BaseNodeRequest
 block|{
 DECL|field|snapshotIds
 specifier|private
@@ -1373,7 +1373,7 @@ specifier|static
 class|class
 name|NodeSnapshotStatus
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 block|{
 DECL|field|status
 specifier|private

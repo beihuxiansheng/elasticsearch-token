@@ -76,7 +76,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationResponse
+name|BaseNodeResponse
 import|;
 end_import
 
@@ -2418,7 +2418,7 @@ specifier|static
 class|class
 name|Response
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 block|{
 DECL|method|Response
 specifier|public

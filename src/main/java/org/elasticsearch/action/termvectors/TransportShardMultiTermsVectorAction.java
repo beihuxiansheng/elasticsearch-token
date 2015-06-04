@@ -78,7 +78,7 @@ name|single
 operator|.
 name|shard
 operator|.
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 import|;
 end_import
 
@@ -230,7 +230,7 @@ specifier|public
 class|class
 name|TransportShardMultiTermsVectorAction
 extends|extends
-name|TransportShardSingleOperationAction
+name|TransportSingleShardAction
 argument_list|<
 name|MultiTermVectorsShardRequest
 argument_list|,

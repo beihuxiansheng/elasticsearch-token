@@ -66,6 +66,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -433,6 +445,35 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|Script
+name|script
+parameter_list|)
+block|{
+name|sourceBuilder
+argument_list|()
+operator|.
+name|scriptField
+argument_list|(
+name|name
+argument_list|,
+name|script
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Adds a script based field to load and return. The field does not have to      * be stored, but its recommended to use non analyzed or numeric fields.      *      * @param name      *            The name that will represent this value in the return hit      * @param script      *            The script to use      * @deprecated Use {@link #addScriptField(String, Script)} instead.      */
+annotation|@
+name|Deprecated
+DECL|method|addScriptField
+specifier|public
+name|TopHitsBuilder
+name|addScriptField
+parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|String
 name|script
 parameter_list|)
@@ -451,7 +492,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param script The script to use      * @param params Parameters that the script can use.      */
+comment|/**      * Adds a script based field to load and return. The field does not have to      * be stored, but its recommended to use non analyzed or numeric fields.      *      * @param name      *            The name that will represent this value in the return hit      * @param script      *            The script to use      * @param params      *            Parameters that the script can use.      * @deprecated Use {@link #addScriptField(String, Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addScriptField
 specifier|public
 name|TopHitsBuilder
@@ -488,7 +531,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a script based field to load and return. The field does not have to be stored,      * but its recommended to use non analyzed or numeric fields.      *      * @param name   The name that will represent this value in the return hit      * @param lang   The language of the script      * @param script The script to use      * @param params Parameters that the script can use (can be<tt>null</tt>).      */
+comment|/**      * Adds a script based field to load and return. The field does not have to      * be stored, but its recommended to use non analyzed or numeric fields.      *      * @param name      *            The name that will represent this value in the return hit      * @param lang      *            The language of the script      * @param script      *            The script to use      * @param params      *            Parameters that the script can use (can be<tt>null</tt>).      * @deprecated Use {@link #addScriptField(String, Script)} instead.      */
+annotation|@
+name|Deprecated
 DECL|method|addScriptField
 specifier|public
 name|TopHitsBuilder

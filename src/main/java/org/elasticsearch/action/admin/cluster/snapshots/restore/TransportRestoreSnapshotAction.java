@@ -60,7 +60,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeAction
 import|;
 end_import
 
@@ -216,7 +216,7 @@ specifier|public
 class|class
 name|TransportRestoreSnapshotAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeAction
 argument_list|<
 name|RestoreSnapshotRequest
 argument_list|,

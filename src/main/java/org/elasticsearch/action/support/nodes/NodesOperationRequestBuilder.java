@@ -81,14 +81,14 @@ name|NodesOperationRequestBuilder
 parameter_list|<
 name|Request
 extends|extends
-name|NodesOperationRequest
+name|BaseNodesRequest
 parameter_list|<
 name|Request
 parameter_list|>
 parameter_list|,
 name|Response
 extends|extends
-name|NodesOperationResponse
+name|BaseNodesResponse
 parameter_list|,
 name|RequestBuilder
 extends|extends

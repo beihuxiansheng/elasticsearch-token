@@ -86,7 +86,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 import|;
 end_import
 
@@ -200,7 +200,7 @@ specifier|public
 class|class
 name|DeleteIndexRequest
 extends|extends
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 argument_list|<
 name|DeleteIndexRequest
 argument_list|>

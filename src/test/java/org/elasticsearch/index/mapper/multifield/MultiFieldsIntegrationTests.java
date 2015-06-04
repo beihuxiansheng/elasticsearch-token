@@ -943,6 +943,18 @@ name|mappingSource
 argument_list|)
 operator|)
 decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"Keys: "
+operator|+
+name|aField
+operator|.
+name|keySet
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|aField

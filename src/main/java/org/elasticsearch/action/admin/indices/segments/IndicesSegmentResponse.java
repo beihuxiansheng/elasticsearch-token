@@ -100,7 +100,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -244,16 +244,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -284,7 +274,7 @@ specifier|public
 class|class
 name|IndicesSegmentResponse
 extends|extends
-name|BroadcastOperationResponse
+name|BroadcastResponse
 implements|implements
 name|ToXContent
 block|{

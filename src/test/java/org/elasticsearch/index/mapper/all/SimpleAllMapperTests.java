@@ -3074,6 +3074,9 @@ operator|.
 name|allFieldMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|similarity
 argument_list|()
 argument_list|,
@@ -3093,6 +3096,9 @@ argument_list|(
 name|builtDocMapper
 operator|.
 name|allFieldMapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|similarity

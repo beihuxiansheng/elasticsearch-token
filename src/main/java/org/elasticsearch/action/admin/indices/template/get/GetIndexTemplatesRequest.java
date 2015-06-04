@@ -28,16 +28,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -56,7 +46,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 import|;
 end_import
 
@@ -138,7 +128,7 @@ specifier|public
 class|class
 name|GetIndexTemplatesRequest
 extends|extends
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 argument_list|<
 name|GetIndexTemplatesRequest
 argument_list|>

@@ -68,7 +68,7 @@ name|support
 operator|.
 name|nodes
 operator|.
-name|NodeOperationResponse
+name|BaseNodeResponse
 import|;
 end_import
 
@@ -266,7 +266,7 @@ specifier|public
 class|class
 name|NodeInfo
 extends|extends
-name|NodeOperationResponse
+name|BaseNodeResponse
 block|{
 annotation|@
 name|Nullable

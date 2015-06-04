@@ -30,7 +30,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -135,7 +135,7 @@ DECL|class|ShardDfsOnlyRequest
 class|class
 name|ShardDfsOnlyRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|shardSearchRequest
 specifier|private

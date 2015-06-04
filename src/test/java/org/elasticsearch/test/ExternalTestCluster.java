@@ -234,6 +234,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|internal
+operator|.
+name|InternalSettingsPreparer
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -420,7 +434,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"config.ignore_system_properties"
+name|InternalSettingsPreparer
+operator|.
+name|IGNORE_SYSTEM_PROPERTIES_SETTING
 argument_list|,
 literal|true
 argument_list|)

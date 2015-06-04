@@ -66,7 +66,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationResponse
+name|BroadcastResponse
 import|;
 end_import
 
@@ -369,7 +369,7 @@ operator|.
 name|Params
 name|params
 parameter_list|,
-name|BroadcastOperationResponse
+name|BroadcastResponse
 name|response
 parameter_list|)
 throws|throws

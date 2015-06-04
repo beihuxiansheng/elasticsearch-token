@@ -26,23 +26,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -111,7 +101,7 @@ DECL|class|ShardFlushRequest
 class|class
 name|ShardFlushRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|request
 specifier|private

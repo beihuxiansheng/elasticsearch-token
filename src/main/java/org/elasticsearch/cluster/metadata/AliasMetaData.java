@@ -74,7 +74,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|CompressedString
+name|CompressedXContent
 import|;
 end_import
 
@@ -249,7 +249,7 @@ decl_stmt|;
 DECL|field|filter
 specifier|private
 specifier|final
-name|CompressedString
+name|CompressedXContent
 name|filter
 decl_stmt|;
 DECL|field|indexRouting
@@ -280,7 +280,7 @@ parameter_list|(
 name|String
 name|alias
 parameter_list|,
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|,
 name|String
@@ -402,7 +402,7 @@ return|;
 block|}
 DECL|method|filter
 specifier|public
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|()
 block|{
@@ -412,7 +412,7 @@ return|;
 block|}
 DECL|method|getFilter
 specifier|public
-name|CompressedString
+name|CompressedXContent
 name|getFilter
 parameter_list|()
 block|{
@@ -924,7 +924,7 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
-name|CompressedString
+name|CompressedXContent
 name|filter
 init|=
 literal|null
@@ -939,7 +939,7 @@ condition|)
 block|{
 name|filter
 operator|=
-name|CompressedString
+name|CompressedXContent
 operator|.
 name|readCompressedString
 argument_list|(
@@ -1017,7 +1017,7 @@ name|alias
 decl_stmt|;
 DECL|field|filter
 specifier|private
-name|CompressedString
+name|CompressedXContent
 name|filter
 decl_stmt|;
 DECL|field|indexRouting
@@ -1098,7 +1098,7 @@ specifier|public
 name|Builder
 name|filter
 parameter_list|(
-name|CompressedString
+name|CompressedXContent
 name|filter
 parameter_list|)
 block|{
@@ -1252,7 +1252,7 @@ operator|.
 name|filter
 operator|=
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|builder
 operator|.
@@ -1752,7 +1752,7 @@ operator|.
 name|filter
 argument_list|(
 operator|new
-name|CompressedString
+name|CompressedXContent
 argument_list|(
 name|parser
 operator|.

@@ -136,7 +136,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 import|;
 end_import
 
@@ -382,7 +382,37 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -406,7 +436,7 @@ specifier|public
 class|class
 name|TransportFieldStatsTransportAction
 extends|extends
-name|TransportBroadcastOperationAction
+name|TransportBroadcastAction
 argument_list|<
 name|FieldStatsRequest
 argument_list|,

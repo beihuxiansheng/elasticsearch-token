@@ -58,7 +58,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeAction
 import|;
 end_import
 
@@ -216,7 +216,7 @@ specifier|public
 class|class
 name|TransportCreateIndexAction
 extends|extends
-name|TransportMasterNodeOperationAction
+name|TransportMasterNodeAction
 argument_list|<
 name|CreateIndexRequest
 argument_list|,

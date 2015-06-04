@@ -84,7 +84,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastOperationRequest
+name|BroadcastRequest
 import|;
 end_import
 
@@ -254,7 +254,7 @@ specifier|public
 class|class
 name|ValidateQueryRequest
 extends|extends
-name|BroadcastOperationRequest
+name|BroadcastRequest
 argument_list|<
 name|ValidateQueryRequest
 argument_list|>

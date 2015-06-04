@@ -28,7 +28,7 @@ name|support
 operator|.
 name|broadcast
 operator|.
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 import|;
 end_import
 
@@ -131,7 +131,7 @@ DECL|class|ShardExistsRequest
 class|class
 name|ShardExistsRequest
 extends|extends
-name|BroadcastShardOperationRequest
+name|BroadcastShardRequest
 block|{
 DECL|field|minScore
 specifier|private

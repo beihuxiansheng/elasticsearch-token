@@ -552,6 +552,26 @@ name|TreeMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|suggest
+operator|.
+name|analyzing
+operator|.
+name|XAnalyzingSuggester
+operator|.
+name|HOLE_CHARACTER
+import|;
+end_import
+
 begin_comment
 comment|/**  * This is an older implementation of the AnalyzingCompletionLookupProvider class  * We use this to test for backwards compatibility in our tests, namely  * CompletionPostingsFormatTest  * This ensures upgrades between versions work smoothly  */
 end_comment
@@ -1641,6 +1661,9 @@ name|get
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1717,12 +1740,18 @@ name|XFuzzySuggester
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexAnalyzer
 argument_list|()
 argument_list|,
 name|queryPrefix
 argument_list|,
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1777,8 +1806,6 @@ name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
 argument_list|,
-name|XAnalyzingSuggester
-operator|.
 name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
@@ -1792,12 +1819,18 @@ name|XAnalyzingSuggester
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|indexAnalyzer
 argument_list|()
 argument_list|,
 name|queryPrefix
 argument_list|,
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1834,8 +1867,6 @@ name|PAYLOAD_SEP
 argument_list|,
 name|END_BYTE
 argument_list|,
-name|XAnalyzingSuggester
-operator|.
 name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
@@ -2012,6 +2043,9 @@ operator|.
 name|get
 argument_list|(
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

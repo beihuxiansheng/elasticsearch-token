@@ -78,7 +78,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 import|;
 end_import
 
@@ -363,6 +363,20 @@ operator|.
 name|node
 operator|.
 name|NodeBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|node
+operator|.
+name|internal
+operator|.
+name|InternalSettingsPreparer
 import|;
 end_import
 
@@ -695,7 +709,7 @@ name|sb
 operator|.
 name|put
 argument_list|(
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 operator|.
 name|FORCE_LOCAL_SETTING
 argument_list|,
@@ -951,7 +965,9 @@ name|sb
 operator|.
 name|put
 argument_list|(
-literal|"config.ignore_system_properties"
+name|InternalSettingsPreparer
+operator|.
+name|IGNORE_SYSTEM_PROPERTIES_SETTING
 argument_list|,
 literal|true
 argument_list|)

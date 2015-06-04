@@ -397,6 +397,9 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 decl_stmt|;
@@ -455,6 +458,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|orientation
 argument_list|()
@@ -589,6 +595,9 @@ name|GeoShapeFieldMapper
 operator|)
 name|fieldMapper
 operator|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|orientation
 argument_list|()
@@ -740,6 +749,9 @@ name|GeoShapeFieldMapper
 operator|)
 name|fieldMapper
 operator|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|orientation
 argument_list|()
@@ -922,6 +934,9 @@ name|PrefixTreeStrategy
 name|strategy
 init|=
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|defaultStrategy
 argument_list|()
@@ -1106,6 +1121,9 @@ name|PrefixTreeStrategy
 name|strategy
 init|=
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|defaultStrategy
 argument_list|()
@@ -1304,6 +1322,9 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 decl_stmt|;
@@ -1475,6 +1496,9 @@ name|PrefixTreeStrategy
 name|strategy
 init|=
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|defaultStrategy
 argument_list|()
@@ -1652,6 +1676,9 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 decl_stmt|;
@@ -1837,6 +1864,9 @@ name|PrefixTreeStrategy
 name|strategy
 init|=
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|defaultStrategy
 argument_list|()
@@ -2024,6 +2054,9 @@ name|PrefixTreeStrategy
 name|strategy
 init|=
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|defaultStrategy
 argument_list|()
@@ -2216,6 +2249,9 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 decl_stmt|;
@@ -2380,6 +2416,9 @@ name|PrefixTreeStrategy
 name|strategy
 init|=
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|defaultStrategy
 argument_list|()
@@ -2791,6 +2830,9 @@ name|strategy
 init|=
 name|geoShapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 decl_stmt|;
@@ -2858,6 +2900,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|orientation
 argument_list|()
@@ -3013,6 +3058,9 @@ name|strategy
 operator|=
 name|geoShapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 expr_stmt|;
@@ -3080,6 +3128,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|geoShapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|orientation
 argument_list|()

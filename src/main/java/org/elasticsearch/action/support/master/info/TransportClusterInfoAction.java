@@ -70,7 +70,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 import|;
 end_import
 
@@ -156,7 +156,7 @@ extends|extends
 name|ActionResponse
 parameter_list|>
 extends|extends
-name|TransportMasterNodeReadOperationAction
+name|TransportMasterNodeReadAction
 argument_list|<
 name|Request
 argument_list|,

@@ -100,7 +100,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|highlight
+operator|.
+name|*
 import|;
 end_import
 
@@ -112,11 +114,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
+name|util
 operator|.
-name|highlight
-operator|.
-name|*
+name|BytesRefHash
 import|;
 end_import
 
@@ -508,22 +508,14 @@ operator|==
 literal|null
 condition|)
 block|{
-name|Query
-name|query
-init|=
-name|highlighterContext
-operator|.
-name|query
-operator|.
-name|originalQuery
-argument_list|()
-decl_stmt|;
 name|QueryScorer
 name|queryScorer
 init|=
 operator|new
 name|CustomQueryScorer
 argument_list|(
+name|highlighterContext
+operator|.
 name|query
 argument_list|,
 name|field
@@ -535,6 +527,9 @@ name|requireFieldMatch
 argument_list|()
 condition|?
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -884,6 +879,9 @@ name|tokenStream
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -975,6 +973,24 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|e
+operator|instanceof
+name|BytesRefHash
+operator|.
+name|MaxBytesLengthExceededException
+condition|)
+block|{
+comment|// this can happen if for example a field is not_analyzed and ignore_above option is set.
+comment|// the field will be ignored when indexing but the huge term is still in the source and
+comment|// the plain highlighter will parse the source and try to analyze it.
+return|return
+literal|null
+return|;
+block|}
+else|else
+block|{
 throw|throw
 operator|new
 name|FetchPhaseExecutionException
@@ -992,6 +1008,7 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
@@ -1274,6 +1291,9 @@ name|tokenStream
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1347,6 +1367,21 @@ block|}
 block|}
 return|return
 literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|canHighlight
+specifier|public
+name|boolean
+name|canHighlight
+parameter_list|(
+name|FieldMapper
+name|fieldMapper
+parameter_list|)
+block|{
+return|return
+literal|true
 return|;
 block|}
 DECL|method|findGoodEndForNoHighlightExcerpt

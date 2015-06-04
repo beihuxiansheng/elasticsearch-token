@@ -62,13 +62,21 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|Callable
+name|TimeZone
 import|;
 end_import
 
@@ -80,7 +88,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|TimeUnit
+name|Callable
 import|;
 end_import
 
@@ -126,7 +134,7 @@ name|Joda
 operator|.
 name|forPattern
 argument_list|(
-literal|"dateOptionalTime"
+literal|"dateOptionalTime||epoch_millis"
 argument_list|)
 decl_stmt|;
 DECL|field|parser
@@ -137,10 +145,6 @@ operator|new
 name|DateMathParser
 argument_list|(
 name|formatter
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
 argument_list|)
 decl_stmt|;
 DECL|method|callable
@@ -1370,25 +1374,6 @@ argument_list|,
 literal|"2014-12-10T21:47:58.000"
 argument_list|)
 expr_stmt|;
-comment|// timezone does not affect timestamps
-name|assertDateMathEquals
-argument_list|(
-literal|"1418248078000"
-argument_list|,
-literal|"2014-12-10T21:47:58.000"
-argument_list|,
-literal|0
-argument_list|,
-literal|false
-argument_list|,
-name|DateTimeZone
-operator|.
-name|forID
-argument_list|(
-literal|"-08:00"
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// datemath still works on timestamps
 name|assertDateMathEquals
 argument_list|(
@@ -1408,12 +1393,8 @@ name|Joda
 operator|.
 name|forPattern
 argument_list|(
-literal|"dateOptionalTime"
+literal|"epoch_second||dateOptionalTime"
 argument_list|)
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
 argument_list|)
 decl_stmt|;
 name|long
@@ -1448,12 +1429,12 @@ argument_list|,
 literal|"9999-01-01T00:00:00.000"
 argument_list|)
 expr_stmt|;
-comment|// 10000 is the first timestamp
+comment|// 10000 is also a year, breaking bwc, used to be a timestamp
 name|assertDateMathEquals
 argument_list|(
 literal|"10000"
 argument_list|,
-literal|"1970-01-01T00:00:10.000"
+literal|"10000-01-01T00:00:00.000"
 argument_list|)
 expr_stmt|;
 comment|// but 10000 with T is still a date format
@@ -1606,7 +1587,7 @@ argument_list|)
 operator|+
 literal|"0"
 argument_list|,
-literal|"timestamp"
+literal|"failed to parse date field"
 argument_list|)
 expr_stmt|;
 name|assertParseException
@@ -1709,6 +1690,62 @@ name|called
 operator|.
 name|get
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+argument_list|(
+name|expected
+operator|=
+name|ElasticsearchParseException
+operator|.
+name|class
+argument_list|)
+DECL|method|testThatUnixTimestampMayNotHaveTimeZone
+specifier|public
+name|void
+name|testThatUnixTimestampMayNotHaveTimeZone
+parameter_list|()
+block|{
+name|DateMathParser
+name|parser
+init|=
+operator|new
+name|DateMathParser
+argument_list|(
+name|Joda
+operator|.
+name|forPattern
+argument_list|(
+literal|"epoch_millis"
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|parser
+operator|.
+name|parse
+argument_list|(
+literal|"1234567890123"
+argument_list|,
+name|callable
+argument_list|(
+literal|42
+argument_list|)
+argument_list|,
+literal|false
+argument_list|,
+name|DateTimeZone
+operator|.
+name|forTimeZone
+argument_list|(
+name|TimeZone
+operator|.
+name|getTimeZone
+argument_list|(
+literal|"CET"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -134,6 +134,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|Script
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ScriptService
 import|;
 end_import
@@ -311,7 +323,30 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p/>      * The script works with the variable<code>ctx</code>, which is bound to the entry,      * e.g.<code>ctx._source.mycounter += 1</code>.      *      * @see #setScriptLang(String)      * @see #setScriptParams(Map)      */
+comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p/>      * The script works with the variable<code>ctx</code>, which is bound to the entry,      * e.g.<code>ctx._source.mycounter += 1</code>.      *      */
+DECL|method|setScript
+specifier|public
+name|UpdateRequestBuilder
+name|setScript
+parameter_list|(
+name|Script
+name|script
+parameter_list|)
+block|{
+name|request
+operator|.
+name|script
+argument_list|(
+name|script
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The script to execute. Note, make sure not to send different script each      * times and instead use script params if possible with the same      * (automatically compiled) script.      *<p/>      * The script works with the variable<code>ctx</code>, which is bound to      * the entry, e.g.<code>ctx._source.mycounter += 1</code>.      *      * @see #setScriptLang(String)      * @see #setScriptParams(Map)      *       * @deprecated use {@link #setScript(Script)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|setScript
 specifier|public
 name|UpdateRequestBuilder
@@ -339,7 +374,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The language of the script to execute.      * Valid options are: mvel, js, groovy, python, and native (Java)<br>      * Default: groovy      *<p/>      * Ref: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html      */
+comment|/**      * The language of the script to execute. Valid options are: mvel, js,      * groovy, python, and native (Java)<br>      * Default: groovy      *<p/>      * Ref:      * http://www.elasticsearch.org/guide/en/elasticsearch/reference/current      * /modules-scripting.html      *       * @deprecated use {@link #setScript(Script)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|setScriptLang
 specifier|public
 name|UpdateRequestBuilder
@@ -360,7 +397,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the script parameters to use with the script.      */
+comment|/**      * Sets the script parameters to use with the script.      *       * @deprecated use {@link #setScript(Script)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|setScriptParams
 specifier|public
 name|UpdateRequestBuilder
@@ -386,7 +425,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add a script parameter.      */
+comment|/**      * Add a script parameter.      *       * @deprecated use {@link #setScript(Script)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|addScriptParam
 specifier|public
 name|UpdateRequestBuilder

@@ -70,7 +70,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 import|;
 end_import
 
@@ -150,7 +150,7 @@ specifier|public
 class|class
 name|ClusterSearchShardsRequest
 extends|extends
-name|MasterNodeReadOperationRequest
+name|MasterNodeReadRequest
 argument_list|<
 name|ClusterSearchShardsRequest
 argument_list|>

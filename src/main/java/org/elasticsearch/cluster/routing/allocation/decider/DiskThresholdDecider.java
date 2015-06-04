@@ -740,7 +740,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"high disk watermark [{} free] exceeded on {}, shards will be relocated away from this node"
+literal|"high disk watermark [{}] exceeded on {}, shards will be relocated away from this node"
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -774,7 +774,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"low disk watermark [{} free] exceeded on {}, replicas will not be assigned to this node"
+literal|"low disk watermark [{}] exceeded on {}, replicas will not be assigned to this node"
 argument_list|,
 name|DiskThresholdDecider
 operator|.
@@ -805,12 +805,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"high disk watermark [{} free] exceeded on {}, shards will be relocated away from this node"
+literal|"high disk watermark [{}] exceeded on {}, shards will be relocated away from this node"
 argument_list|,
 name|Strings
 operator|.
 name|format1Decimals
 argument_list|(
+literal|100.0
+operator|-
 name|DiskThresholdDecider
 operator|.
 name|this
@@ -843,12 +845,14 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"low disk watermark [{} free] exceeded on {}, replicas will not be assigned to this node"
+literal|"low disk watermark [{}] exceeded on {}, replicas will not be assigned to this node"
 argument_list|,
 name|Strings
 operator|.
 name|format1Decimals
 argument_list|(
+literal|100.0
+operator|-
 name|DiskThresholdDecider
 operator|.
 name|this
@@ -1295,6 +1299,32 @@ name|freeDiskThresholdHigh
 return|;
 block|}
 comment|// For Testing
+DECL|method|getUsedDiskThresholdLow
+specifier|public
+name|Double
+name|getUsedDiskThresholdLow
+parameter_list|()
+block|{
+return|return
+literal|100.0
+operator|-
+name|freeDiskThresholdLow
+return|;
+block|}
+comment|// For Testing
+DECL|method|getUsedDiskThresholdHigh
+specifier|public
+name|Double
+name|getUsedDiskThresholdHigh
+parameter_list|()
+block|{
+return|return
+literal|100.0
+operator|-
+name|freeDiskThresholdHigh
+return|;
+block|}
+comment|// For Testing
 DECL|method|getFreeBytesThresholdLow
 specifier|public
 name|ByteSizeValue
@@ -1502,6 +1532,28 @@ name|RoutingAllocation
 name|allocation
 parameter_list|)
 block|{
+name|double
+name|usedDiskThresholdLow
+init|=
+literal|100.0
+operator|-
+name|DiskThresholdDecider
+operator|.
+name|this
+operator|.
+name|freeDiskThresholdLow
+decl_stmt|;
+name|double
+name|usedDiskThresholdHigh
+init|=
+literal|100.0
+operator|-
+name|DiskThresholdDecider
+operator|.
+name|this
+operator|.
+name|freeDiskThresholdHigh
+decl_stmt|;
 comment|// Always allow allocation if the decider is disabled
 if|if
 condition|(
@@ -1842,6 +1894,15 @@ operator|.
 name|getFreeDiskAsPercentage
 argument_list|()
 decl_stmt|;
+comment|// Cache the used disk percentage for displaying disk percentages consistent with documentation
+name|double
+name|usedDiskPercentage
+init|=
+name|usage
+operator|.
+name|getUsedDiskAsPercentage
+argument_list|()
+decl_stmt|;
 name|long
 name|freeBytes
 init|=
@@ -1862,14 +1923,14 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Node [{}] has {}% free disk"
+literal|"Node [{}] has {}% used disk"
 argument_list|,
 name|node
 operator|.
 name|nodeId
 argument_list|()
 argument_list|,
-name|freeDiskPercentage
+name|usedDiskPercentage
 argument_list|)
 expr_stmt|;
 block|}
@@ -2128,13 +2189,13 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free disk threshold ({} free) on node [{}], preventing allocation"
+literal|"More than the allowed {} used disk threshold ({} used) on node [{}], preventing allocation"
 argument_list|,
 name|Strings
 operator|.
 name|format1Decimals
 argument_list|(
-name|freeDiskThresholdLow
+name|usedDiskThresholdLow
 argument_list|,
 literal|"%"
 argument_list|)
@@ -2143,7 +2204,7 @@ name|Strings
 operator|.
 name|format1Decimals
 argument_list|(
-name|freeDiskPercentage
+name|usedDiskPercentage
 argument_list|,
 literal|"%"
 argument_list|)
@@ -2166,9 +2227,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"less than required [%s%%] free disk on node, free: [%s%%]"
+literal|"more than allowed [%s%%] used disk on node, free: [%s%%]"
 argument_list|,
-name|freeDiskThresholdLow
+name|usedDiskThresholdLow
 argument_list|,
 name|freeDiskPercentage
 argument_list|)
@@ -2196,7 +2257,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free disk threshold ({} free) on node [{}], "
+literal|"More than the allowed {} used disk threshold ({} used) on node [{}], "
 operator|+
 literal|"but allowing allocation because primary has never been allocated"
 argument_list|,
@@ -2204,7 +2265,7 @@ name|Strings
 operator|.
 name|format1Decimals
 argument_list|(
-name|freeDiskThresholdLow
+name|usedDiskThresholdLow
 argument_list|,
 literal|"%"
 argument_list|)
@@ -2213,7 +2274,7 @@ name|Strings
 operator|.
 name|format1Decimals
 argument_list|(
-name|freeDiskPercentage
+name|usedDiskPercentage
 argument_list|,
 literal|"%"
 argument_list|)
@@ -2296,9 +2357,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"less than required [%s%%] free disk on node, free: [%s%%]"
+literal|"more than allowed [%s%%] used disk on node, free: [%s%%]"
 argument_list|,
-name|freeDiskThresholdLow
+name|usedDiskThresholdHigh
 argument_list|,
 name|freeDiskPercentage
 argument_list|)
@@ -2408,7 +2469,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"After allocating, node [{}] would have less than the required {} free disk threshold ({} free), preventing allocation"
+literal|"After allocating, node [{}] would have more than the allowed {} free disk threshold ({} free), preventing allocation"
 argument_list|,
 name|node
 operator|.
@@ -2445,9 +2506,9 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"after allocation less than required [%s%%] free disk on node, free: [%s%%]"
+literal|"after allocation more than allowed [%s%%] used disk on node, free: [%s%%]"
 argument_list|,
-name|freeDiskThresholdLow
+name|usedDiskThresholdLow
 argument_list|,
 name|freeSpaceAfterShard
 argument_list|)

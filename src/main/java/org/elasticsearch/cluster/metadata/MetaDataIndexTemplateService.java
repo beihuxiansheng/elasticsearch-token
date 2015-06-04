@@ -102,7 +102,7 @@ name|support
 operator|.
 name|master
 operator|.
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 import|;
 end_import
 
@@ -1508,7 +1508,7 @@ DECL|field|masterTimeout
 name|TimeValue
 name|masterTimeout
 init|=
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 operator|.
 name|DEFAULT_MASTER_NODE_TIMEOUT
 decl_stmt|;
@@ -1816,7 +1816,7 @@ DECL|field|masterTimeout
 name|TimeValue
 name|masterTimeout
 init|=
-name|MasterNodeOperationRequest
+name|MasterNodeRequest
 operator|.
 name|DEFAULT_MASTER_NODE_TIMEOUT
 decl_stmt|;

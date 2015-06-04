@@ -1845,10 +1845,12 @@ argument_list|)
 expr_stmt|;
 name|lastCommittedSegmentInfos
 operator|=
+name|readLastCommittedSegmentInfos
+argument_list|(
+name|searcherManager
+argument_list|,
 name|store
-operator|.
-name|readLastCommittedSegmentsInfo
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|success
 operator|=
