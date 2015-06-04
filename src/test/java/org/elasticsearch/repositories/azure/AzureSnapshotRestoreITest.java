@@ -222,20 +222,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -349,6 +335,18 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Callable
 import|;
 end_import
 
@@ -2979,11 +2977,7 @@ name|void
 name|testForbiddenContainerName
 parameter_list|()
 throws|throws
-name|URISyntaxException
-throws|,
-name|StorageException
-throws|,
-name|InterruptedException
+name|Exception
 block|{
 name|checkContainerName
 argument_list|(
@@ -3071,11 +3065,7 @@ name|boolean
 name|correct
 parameter_list|)
 throws|throws
-name|URISyntaxException
-throws|,
-name|StorageException
-throws|,
-name|InterruptedException
+name|Exception
 block|{
 name|logger
 operator|.
@@ -3088,24 +3078,16 @@ argument_list|)
 expr_stmt|;
 comment|// It could happen that we just removed from a previous test the same container so
 comment|// we can not create it yet.
-name|assertThat
-argument_list|(
-name|awaitBusy
+name|assertBusy
 argument_list|(
 operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
+name|Runnable
 argument_list|()
 block|{
 specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|obj
-parameter_list|)
+name|void
+name|run
+parameter_list|()
 block|{
 try|try
 block|{
@@ -3219,16 +3201,16 @@ parameter_list|)
 block|{
 comment|// We can ignore that as we just try to clean after the test
 block|}
-return|return
-operator|(
+name|assertTrue
+argument_list|(
 name|putRepositoryResponse
 operator|.
 name|isAcknowledged
 argument_list|()
 operator|==
 name|correct
-operator|)
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -3238,14 +3220,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|correct
 condition|)
 block|{
-return|return
-literal|true
-return|;
-block|}
 name|logger
 operator|.
 name|debug
@@ -3253,9 +3230,10 @@ argument_list|(
 literal|" -> container is being removed. Let's wait a bit..."
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -3265,12 +3243,6 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MINUTES
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3437,11 +3409,7 @@ name|void
 name|testRemoveAndCreateContainer
 parameter_list|()
 throws|throws
-name|URISyntaxException
-throws|,
-name|StorageException
-throws|,
-name|InterruptedException
+name|Exception
 block|{
 specifier|final
 name|String
@@ -3471,24 +3439,16 @@ argument_list|)
 decl_stmt|;
 comment|// It could happen that we run this test really close to a previous one
 comment|// so we might need some time to be able to create the container
-name|assertThat
-argument_list|(
-name|awaitBusy
+name|assertBusy
 argument_list|(
 operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
+name|Runnable
 argument_list|()
 block|{
 specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|obj
-parameter_list|)
+name|void
+name|run
+parameter_list|()
 block|{
 try|try
 block|{
@@ -3506,9 +3466,6 @@ argument_list|(
 literal|" -> container created..."
 argument_list|)
 expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 catch|catch
 parameter_list|(
@@ -3517,9 +3474,9 @@ name|e
 parameter_list|)
 block|{
 comment|// Incorrect URL. This should never happen.
-return|return
-literal|false
-return|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -3535,9 +3492,9 @@ argument_list|(
 literal|" -> container is being removed. Let's wait a bit..."
 argument_list|)
 expr_stmt|;
-return|return
-literal|false
-return|;
+name|fail
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -3547,12 +3504,6 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|SECONDS
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|storageService

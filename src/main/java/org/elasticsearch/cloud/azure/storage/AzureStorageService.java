@@ -48,20 +48,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -87,6 +73,16 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -279,7 +275,7 @@ throws|,
 name|StorageException
 function_decl|;
 DECL|method|listBlobsByPrefix
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

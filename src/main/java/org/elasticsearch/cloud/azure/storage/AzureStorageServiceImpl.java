@@ -112,7 +112,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableMap
+name|MapBuilder
 import|;
 end_import
 
@@ -207,6 +207,16 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -878,7 +888,7 @@ annotation|@
 name|Override
 DECL|method|listBlobsByPrefix
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -913,9 +923,7 @@ argument_list|,
 name|prefix
 argument_list|)
 expr_stmt|;
-name|ImmutableMap
-operator|.
-name|Builder
+name|MapBuilder
 argument_list|<
 name|String
 argument_list|,
@@ -923,9 +931,9 @@ name|BlobMetaData
 argument_list|>
 name|blobsBuilder
 init|=
-name|ImmutableMap
+name|MapBuilder
 operator|.
-name|builder
+name|newMapBuilder
 argument_list|()
 decl_stmt|;
 name|CloudBlobContainer
@@ -1063,7 +1071,7 @@ block|}
 return|return
 name|blobsBuilder
 operator|.
-name|build
+name|immutableMap
 argument_list|()
 return|;
 block|}

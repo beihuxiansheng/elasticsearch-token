@@ -44,20 +44,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|Inject
@@ -89,6 +75,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
 import|;
 end_import
 
@@ -257,7 +257,7 @@ name|instance1
 operator|.
 name|setInstanceEndpoints
 argument_list|(
-name|Lists
+name|CollectionUtils
 operator|.
 name|newArrayList
 argument_list|(
@@ -327,7 +327,7 @@ name|instance2
 operator|.
 name|setInstanceEndpoints
 argument_list|(
-name|Lists
+name|CollectionUtils
 operator|.
 name|newArrayList
 argument_list|(
@@ -339,7 +339,7 @@ name|deployment
 operator|.
 name|setRoleInstances
 argument_list|(
-name|Lists
+name|CollectionUtils
 operator|.
 name|newArrayList
 argument_list|(
@@ -353,7 +353,7 @@ name|response
 operator|.
 name|setDeployments
 argument_list|(
-name|Lists
+name|CollectionUtils
 operator|.
 name|newArrayList
 argument_list|(
