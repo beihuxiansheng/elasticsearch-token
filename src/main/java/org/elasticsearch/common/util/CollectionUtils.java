@@ -2011,6 +2011,9 @@ block|{
 return|return
 name|Iterators
 operator|.
+expr|<
+name|T
+operator|>
 name|concat
 argument_list|(
 name|iterators
