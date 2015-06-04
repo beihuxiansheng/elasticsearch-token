@@ -681,6 +681,9 @@ name|missing
 operator|=
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|dateTimeFormatter
 argument_list|()
 operator|.

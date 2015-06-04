@@ -600,6 +600,9 @@ name|FieldContext
 argument_list|(
 name|parentFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.

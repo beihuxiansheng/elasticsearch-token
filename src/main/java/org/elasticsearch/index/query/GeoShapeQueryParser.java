@@ -997,6 +997,9 @@ name|strategy
 init|=
 name|shapeFieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|defaultStrategy
 argument_list|()
 decl_stmt|;
@@ -1010,6 +1013,9 @@ block|{
 name|strategy
 operator|=
 name|shapeFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|resolveStrategy
 argument_list|(

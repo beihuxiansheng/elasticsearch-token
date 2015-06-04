@@ -3848,6 +3848,9 @@ name|orientation
 init|=
 name|gsfm
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|orientation
 argument_list|()
 decl_stmt|;
@@ -3958,6 +3961,9 @@ expr_stmt|;
 name|orientation
 operator|=
 name|gsfm
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|orientation
 argument_list|()

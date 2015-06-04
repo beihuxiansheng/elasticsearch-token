@@ -114,7 +114,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 import|;
@@ -242,10 +242,16 @@ name|indexSettings
 argument_list|,
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 argument_list|,
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()

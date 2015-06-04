@@ -1311,6 +1311,9 @@ if|if
 condition|(
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|searchAnalyzer
 argument_list|()
 operator|==
@@ -1335,6 +1338,9 @@ operator|.
 name|setAnalyzer
 argument_list|(
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()

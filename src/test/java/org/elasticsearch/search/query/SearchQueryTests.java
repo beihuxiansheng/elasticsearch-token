@@ -17141,7 +17141,7 @@ name|field
 argument_list|(
 literal|"format"
 argument_list|,
-literal|"dateOptionalTime"
+literal|"epoch_millis"
 argument_list|)
 operator|.
 name|endObject
@@ -17189,7 +17189,7 @@ literal|"type=boolean"
 argument_list|,
 literal|"ts"
 argument_list|,
-literal|"type=date,ignore_malformed=false,format=dateOptionalTime"
+literal|"type=date,ignore_malformed=false,format=epoch_millis"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -21929,6 +21929,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/11478"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testDateProvidedAsNumber

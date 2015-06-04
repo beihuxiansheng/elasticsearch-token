@@ -1158,6 +1158,9 @@ argument_list|()
 argument_list|,
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1227,6 +1230,9 @@ name|docId
 argument_list|()
 argument_list|,
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1364,6 +1370,9 @@ name|docId
 argument_list|()
 argument_list|,
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

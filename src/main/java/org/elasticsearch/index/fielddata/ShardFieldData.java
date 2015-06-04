@@ -124,7 +124,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -381,7 +381,7 @@ specifier|public
 name|void
 name|onLoad
 parameter_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|fieldNames
@@ -496,7 +496,7 @@ specifier|public
 name|void
 name|onUnload
 parameter_list|(
-name|FieldMapper
+name|MappedFieldType
 operator|.
 name|Names
 name|fieldNames
