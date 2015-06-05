@@ -304,6 +304,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -524,7 +534,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.
@@ -755,7 +765,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.
@@ -857,7 +867,7 @@ parameter_list|(
 name|SnapshotsStatusRequest
 name|request
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.

@@ -1719,7 +1719,7 @@ argument_list|(
 name|mappingBefore
 argument_list|)
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>

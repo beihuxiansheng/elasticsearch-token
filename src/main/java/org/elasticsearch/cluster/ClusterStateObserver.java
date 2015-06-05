@@ -215,7 +215,7 @@ name|logger
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param clusterService      * @param timeout        a global timeout for this observer. After it has expired the observer      *                       will fail any existing or new #waitForNextChange calls.      */
+comment|/**      * @param clusterService      * @param timeout        a global timeout for this observer. After it has expired the observer      *                       will fail any existing or new #waitForNextChange calls. Set to null      *                       to wait indefinitely      */
 DECL|method|ClusterStateObserver
 specifier|public
 name|ClusterStateObserver
@@ -223,6 +223,8 @@ parameter_list|(
 name|ClusterService
 name|clusterService
 parameter_list|,
+annotation|@
+name|Nullable
 name|TimeValue
 name|timeout
 parameter_list|,

@@ -159,10 +159,24 @@ name|String
 name|value
 parameter_list|)
 block|{
-try|try
-block|{
 if|if
 condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"value must not be null"
+argument_list|)
+throw|;
+block|}
+try|try
+block|{
+comment|// This never returns null:
 name|TimeValue
 operator|.
 name|parseTimeValue
@@ -170,19 +184,10 @@ argument_list|(
 name|value
 argument_list|,
 literal|null
+argument_list|,
+name|setting
 argument_list|)
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|"cannot parse value ["
-operator|+
-name|value
-operator|+
-literal|"] as time"
-return|;
-block|}
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -191,11 +196,10 @@ name|ex
 parameter_list|)
 block|{
 return|return
-literal|"cannot parse value ["
-operator|+
-name|value
-operator|+
-literal|"] as time"
+name|ex
+operator|.
+name|getMessage
+argument_list|()
 return|;
 block|}
 return|return
@@ -230,6 +234,21 @@ parameter_list|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|value
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|NullPointerException
+argument_list|(
+literal|"value must not be null"
+argument_list|)
+throw|;
+block|}
 name|TimeValue
 name|timeValue
 init|=
@@ -240,23 +259,15 @@ argument_list|(
 name|value
 argument_list|,
 literal|null
+argument_list|,
+name|setting
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+assert|assert
 name|timeValue
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-return|return
-literal|"cannot parse value ["
-operator|+
-name|value
-operator|+
-literal|"] as time"
-return|;
-block|}
+assert|;
 if|if
 condition|(
 name|timeValue
@@ -283,11 +294,10 @@ name|ex
 parameter_list|)
 block|{
 return|return
-literal|"cannot parse value ["
-operator|+
-name|value
-operator|+
-literal|"] as time"
+name|ex
+operator|.
+name|getMessage
+argument_list|()
 return|;
 block|}
 return|return
@@ -889,6 +899,8 @@ block|{
 name|parseBytesSizeValue
 argument_list|(
 name|value
+argument_list|,
+name|setting
 argument_list|)
 expr_stmt|;
 block|}
@@ -1148,6 +1160,8 @@ block|{
 name|parseBytesSizeValueOrHeapRatio
 argument_list|(
 name|value
+argument_list|,
+name|setting
 argument_list|)
 expr_stmt|;
 block|}

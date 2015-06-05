@@ -522,6 +522,8 @@ operator|!
 name|validWatermarkSetting
 argument_list|(
 name|newLowWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|)
 condition|)
 block|{
@@ -570,6 +572,8 @@ operator|=
 name|thresholdBytesFromWatermark
 argument_list|(
 name|newLowWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|)
 expr_stmt|;
 block|}
@@ -586,6 +590,8 @@ operator|!
 name|validWatermarkSetting
 argument_list|(
 name|newHighWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|)
 condition|)
 block|{
@@ -634,6 +640,8 @@ operator|=
 name|thresholdBytesFromWatermark
 argument_list|(
 name|newHighWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|)
 expr_stmt|;
 block|}
@@ -1106,6 +1114,8 @@ operator|!
 name|validWatermarkSetting
 argument_list|(
 name|lowWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|)
 condition|)
 block|{
@@ -1127,6 +1137,8 @@ operator|!
 name|validWatermarkSetting
 argument_list|(
 name|highWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|)
 condition|)
 block|{
@@ -1172,6 +1184,8 @@ operator|=
 name|thresholdBytesFromWatermark
 argument_list|(
 name|lowWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_LOW_DISK_WATERMARK
 argument_list|)
 expr_stmt|;
 name|this
@@ -1181,6 +1195,8 @@ operator|=
 name|thresholdBytesFromWatermark
 argument_list|(
 name|highWatermark
+argument_list|,
+name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|)
 expr_stmt|;
 name|this
@@ -3231,6 +3247,7 @@ name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
+comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two cases separately
 return|return
 literal|100.0
 return|;
@@ -3244,6 +3261,9 @@ name|thresholdBytesFromWatermark
 parameter_list|(
 name|String
 name|watermark
+parameter_list|,
+name|String
+name|settingName
 parameter_list|)
 block|{
 try|try
@@ -3254,6 +3274,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 name|watermark
+argument_list|,
+name|settingName
 argument_list|)
 return|;
 block|}
@@ -3263,12 +3285,15 @@ name|ElasticsearchParseException
 name|ex
 parameter_list|)
 block|{
+comment|// NOTE: this is not end-user leniency, since up above we check that it's a valid byte or percentage, and then store the two cases separately
 return|return
 name|ByteSizeValue
 operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"0b"
+argument_list|,
+name|settingName
 argument_list|)
 return|;
 block|}
@@ -3281,6 +3306,9 @@ name|validWatermarkSetting
 parameter_list|(
 name|String
 name|watermark
+parameter_list|,
+name|String
+name|settingName
 parameter_list|)
 block|{
 try|try
@@ -3309,6 +3337,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 name|watermark
+argument_list|,
+name|settingName
 argument_list|)
 expr_stmt|;
 return|return

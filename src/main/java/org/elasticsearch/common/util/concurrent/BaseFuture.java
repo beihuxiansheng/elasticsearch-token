@@ -162,13 +162,18 @@ name|TimeoutException
 throws|,
 name|ExecutionException
 block|{
+assert|assert
+name|timeout
+operator|<=
+literal|0
+operator|||
 name|Transports
 operator|.
 name|assertNotTransportThread
 argument_list|(
 literal|"Blocking operation"
 argument_list|)
-expr_stmt|;
+assert|;
 return|return
 name|sync
 operator|.
@@ -197,13 +202,14 @@ name|InterruptedException
 throws|,
 name|ExecutionException
 block|{
+assert|assert
 name|Transports
 operator|.
 name|assertNotTransportThread
 argument_list|(
 literal|"Blocking operation"
 argument_list|)
-expr_stmt|;
+assert|;
 return|return
 name|sync
 operator|.

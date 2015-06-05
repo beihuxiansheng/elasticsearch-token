@@ -430,7 +430,7 @@ return|;
 block|}
 DECL|method|indexFiles
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>
@@ -445,7 +445,7 @@ return|;
 block|}
 DECL|method|translogFiles
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>

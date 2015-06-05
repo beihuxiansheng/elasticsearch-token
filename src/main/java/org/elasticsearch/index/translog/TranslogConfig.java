@@ -211,6 +211,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"1kb"
+argument_list|,
+literal|"INACTIVE_SHARD_TRANSLOG_BUFFER"
 argument_list|)
 decl_stmt|;
 DECL|field|syncInterval
@@ -400,6 +402,8 @@ operator|.
 name|parseBytesSizeValue
 argument_list|(
 literal|"64k"
+argument_list|,
+name|INDEX_TRANSLOG_BUFFER_SIZE
 argument_list|)
 argument_list|)
 operator|.

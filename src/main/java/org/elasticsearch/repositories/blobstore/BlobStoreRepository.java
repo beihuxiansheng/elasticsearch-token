@@ -742,6 +742,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -1146,7 +1156,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1358,16 +1368,15 @@ name|SnapshotId
 name|snapshotId
 parameter_list|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
 name|indices
 init|=
-name|ImmutableList
+name|Collections
 operator|.
-name|of
-argument_list|()
+name|EMPTY_LIST
 decl_stmt|;
 try|try
 block|{
@@ -1480,7 +1489,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Delete snapshot from the snapshot list
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
@@ -1845,7 +1854,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -1860,7 +1869,7 @@ parameter_list|,
 name|int
 name|totalShards
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -1945,7 +1954,7 @@ argument_list|,
 name|blobName
 argument_list|)
 expr_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
@@ -2024,7 +2033,7 @@ annotation|@
 name|Override
 DECL|method|snapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
@@ -2042,7 +2051,7 @@ init|=
 name|newArrayList
 argument_list|()
 decl_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -2159,7 +2168,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -2269,7 +2278,7 @@ parameter_list|(
 name|SnapshotId
 name|snapshotId
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -3103,7 +3112,7 @@ specifier|protected
 name|void
 name|writeSnapshotList
 parameter_list|(
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
@@ -3220,7 +3229,7 @@ block|}
 comment|/**      * Reads snapshot index file      *<p/>      * This file can be used by read-only repositories that are unable to list files in the repository      *      * @return list of snapshots in the repository      * @throws IOException I/O errors      */
 DECL|method|readSnapshotList
 specifier|protected
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>

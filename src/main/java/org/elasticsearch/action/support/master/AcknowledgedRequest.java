@@ -222,6 +222,14 @@ argument_list|,
 name|this
 operator|.
 name|timeout
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".timeout"
 argument_list|)
 expr_stmt|;
 return|return

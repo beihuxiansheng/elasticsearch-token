@@ -5206,7 +5206,7 @@ operator|==
 literal|null
 assert|;
 block|}
-comment|/**      * Applies all operations in the iterable to the current engine and returns the number of operations applied.      * This operation will stop applying operations once an opertion failed to apply.      * Note: This method is typically used in peer recovery to replay remote tansaction log entries.      */
+comment|/**      * Applies all operations in the iterable to the current engine and returns the number of operations applied.      * This operation will stop applying operations once an operation failed to apply.      * Note: This method is typically used in peer recovery to replay remote transaction log entries.      */
 DECL|method|performBatchRecovery
 specifier|public
 name|int

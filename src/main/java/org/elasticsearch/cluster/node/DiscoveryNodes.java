@@ -2152,7 +2152,7 @@ return|;
 block|}
 DECL|method|removedNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>
@@ -2179,7 +2179,7 @@ return|;
 block|}
 DECL|method|addedNodes
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|DiscoveryNode
 argument_list|>

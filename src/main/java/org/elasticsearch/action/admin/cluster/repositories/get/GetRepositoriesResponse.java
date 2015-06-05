@@ -128,6 +128,16 @@ name|Iterator
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Get repositories response  */
 end_comment
@@ -182,7 +192,7 @@ block|}
 comment|/**      * List of repositories to return      *      * @return list or repositories      */
 DECL|method|repositories
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|RepositoryMetaData
 argument_list|>

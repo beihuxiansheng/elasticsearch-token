@@ -50,10 +50,6 @@ name|*
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SettingsValidatorTests
 specifier|public
@@ -786,7 +782,6 @@ name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// we expect 20%
 name|assertThat
 argument_list|(
 name|Validator
@@ -902,7 +897,7 @@ argument_list|,
 literal|"20"
 argument_list|)
 argument_list|,
-name|nullValue
+name|notNullValue
 argument_list|()
 argument_list|)
 expr_stmt|;

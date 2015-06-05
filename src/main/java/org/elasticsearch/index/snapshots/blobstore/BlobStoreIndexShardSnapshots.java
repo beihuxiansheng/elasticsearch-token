@@ -711,7 +711,7 @@ block|}
 comment|/**      * Returns list of snapshots      *      * @return list of snapshots      */
 DECL|method|snapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotFiles
 argument_list|>
@@ -727,7 +727,7 @@ block|}
 comment|/**      * Finds reference to a snapshotted file by its original name      *      * @param physicalName original name      * @return a list of file infos that match specified physical file or null if the file is not present in any of snapshots      */
 DECL|method|findPhysicalIndexFiles
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>

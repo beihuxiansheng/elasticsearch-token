@@ -451,6 +451,8 @@ name|nodesHotThreadsRequest
 operator|.
 name|interval
 argument_list|()
+argument_list|,
+literal|"interval"
 argument_list|)
 argument_list|)
 expr_stmt|;

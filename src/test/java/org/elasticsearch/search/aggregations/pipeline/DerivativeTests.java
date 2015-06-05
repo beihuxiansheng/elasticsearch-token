@@ -1576,7 +1576,7 @@ argument_list|)
 operator|.
 name|unit
 argument_list|(
-literal|"1"
+literal|"1ms"
 argument_list|)
 argument_list|)
 operator|.
@@ -1594,7 +1594,7 @@ argument_list|)
 operator|.
 name|unit
 argument_list|(
-literal|"10"
+literal|"10ms"
 argument_list|)
 argument_list|)
 argument_list|)

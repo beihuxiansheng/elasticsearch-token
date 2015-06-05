@@ -140,6 +140,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Information about successfully completed restore operation.  *<p/>  * Returned as part of {@link org.elasticsearch.action.admin.cluster.snapshots.restore.RestoreSnapshotResponse}  */
 end_comment
@@ -240,7 +250,7 @@ block|}
 comment|/**      * List of restored indices      *      * @return list of restored indices      */
 DECL|method|indices
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>

@@ -114,6 +114,16 @@ name|ArrayList
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represent information about snapshot  */
 end_comment
@@ -158,7 +168,7 @@ decl_stmt|;
 DECL|field|indices
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -191,7 +201,7 @@ decl_stmt|;
 DECL|field|shardFailures
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -201,7 +211,7 @@ DECL|field|NO_FAILURES
 specifier|private
 specifier|final
 specifier|static
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -219,7 +229,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -246,7 +256,7 @@ parameter_list|,
 name|int
 name|successfulShards
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -341,7 +351,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -386,7 +396,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -404,7 +414,7 @@ parameter_list|,
 name|int
 name|totalShard
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -456,7 +466,7 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -549,7 +559,7 @@ block|}
 comment|/**      * Returns indices that were included into this snapshot      *      * @return list of indices      */
 DECL|method|indices
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|String
 argument_list|>
@@ -607,7 +617,7 @@ block|}
 comment|/**      * Returns shard failures      */
 DECL|method|shardFailures
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
@@ -1169,7 +1179,7 @@ name|successfulShards
 init|=
 literal|0
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>

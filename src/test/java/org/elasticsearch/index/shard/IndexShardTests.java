@@ -368,23 +368,7 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_NUMBER_OF_REPLICAS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_NUMBER_OF_SHARDS
+name|*
 import|;
 end_import
 
@@ -401,22 +385,6 @@ operator|.
 name|Settings
 operator|.
 name|settingsBuilder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexMetaData
-operator|.
-name|SETTING_VERSION_CREATED
 import|;
 end_import
 
@@ -3324,6 +3292,8 @@ argument_list|,
 literal|"person"
 argument_list|)
 argument_list|)
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertTrue

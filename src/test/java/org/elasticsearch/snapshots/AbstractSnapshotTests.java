@@ -298,6 +298,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
@@ -690,7 +700,7 @@ name|millis
 argument_list|()
 condition|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotInfo
 argument_list|>

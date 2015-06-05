@@ -56,6 +56,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -95,7 +105,7 @@ decl_stmt|;
 DECL|field|indexFiles
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>
@@ -130,7 +140,7 @@ parameter_list|(
 name|String
 name|snapshot
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>
@@ -153,7 +163,7 @@ block|}
 comment|/**      * Returns a list of file in the snapshot      */
 DECL|method|indexFiles
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|FileInfo
 argument_list|>

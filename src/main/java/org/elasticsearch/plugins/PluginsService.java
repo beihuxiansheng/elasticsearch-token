@@ -2645,7 +2645,7 @@ block|}
 block|}
 DECL|method|loadPluginsFromClasspath
 specifier|private
-name|ImmutableList
+name|List
 argument_list|<
 name|Tuple
 argument_list|<

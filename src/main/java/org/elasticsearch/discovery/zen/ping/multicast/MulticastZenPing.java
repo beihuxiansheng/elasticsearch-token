@@ -932,6 +932,21 @@ operator|.
 name|MAC_OS_X
 argument_list|)
 decl_stmt|;
+comment|// OSX does not correctly send multicasts FROM the right interface
+name|boolean
+name|deferToInterface
+init|=
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+literal|"discovery.zen.ping.multicast.defer_group_to_set_interface"
+argument_list|,
+name|Constants
+operator|.
+name|MAC_OS_X
+argument_list|)
+decl_stmt|;
 name|multicastChannel
 operator|=
 name|MulticastChannel
@@ -962,6 +977,8 @@ name|resolvePublishHostAddress
 argument_list|(
 name|address
 argument_list|)
+argument_list|,
+name|deferToInterface
 argument_list|)
 argument_list|,
 operator|new

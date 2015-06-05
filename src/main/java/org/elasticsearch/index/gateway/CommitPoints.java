@@ -265,7 +265,7 @@ expr_stmt|;
 block|}
 DECL|method|commits
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|CommitPoint
 argument_list|>

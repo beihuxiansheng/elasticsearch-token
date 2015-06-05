@@ -58,6 +58,16 @@ specifier|public
 enum|enum
 name|Transports
 block|{     ;
+comment|/** threads whose name is prefixed by this string will be considered network threads, even though they aren't */
+DECL|field|TEST_MOCK_TRANSPORT_THREAD_PREFIX
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|TEST_MOCK_TRANSPORT_THREAD_PREFIX
+init|=
+literal|"__mock_network_thread"
+decl_stmt|;
 comment|/**      * Utility method to detect whether a thread is a network thread. Typically      * used in assertions to make sure that we do not call blocking code from      * networking threads.      */
 DECL|method|isTransportThread
 specifier|public
@@ -107,6 +117,8 @@ argument_list|,
 name|NettyTransport
 operator|.
 name|TRANSPORT_CLIENT_BOSS_THREAD_NAME_PREFIX
+argument_list|,
+name|TEST_MOCK_TRANSPORT_THREAD_PREFIX
 argument_list|)
 control|)
 block|{
@@ -132,7 +144,7 @@ block|}
 DECL|method|assertTransportThread
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|assertTransportThread
 parameter_list|()
 block|{
@@ -157,11 +169,14 @@ name|t
 operator|+
 literal|"]"
 assert|;
+return|return
+literal|true
+return|;
 block|}
 DECL|method|assertNotTransportThread
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|assertNotTransportThread
 parameter_list|(
 name|String
@@ -189,8 +204,15 @@ literal|"Expected current thread ["
 operator|+
 name|t
 operator|+
-literal|"] to not be a transport thread. Reason: "
+literal|"] to not be a transport thread. Reason: ["
+operator|+
+name|reason
+operator|+
+literal|"]"
 assert|;
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_enum

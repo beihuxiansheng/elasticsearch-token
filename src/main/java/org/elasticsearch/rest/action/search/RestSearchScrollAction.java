@@ -439,6 +439,8 @@ argument_list|(
 name|scroll
 argument_list|,
 literal|null
+argument_list|,
+literal|"scroll"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -701,6 +703,8 @@ name|text
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+literal|"scroll"
 argument_list|)
 argument_list|)
 argument_list|)

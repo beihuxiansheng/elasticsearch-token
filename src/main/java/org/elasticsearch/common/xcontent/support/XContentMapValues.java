@@ -2233,6 +2233,15 @@ name|toString
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|XContentMapValues
+operator|.
+name|class
+operator|.
+name|getSimpleName
+argument_list|()
+operator|+
+literal|".nodeTimeValue"
 argument_list|)
 return|;
 block|}

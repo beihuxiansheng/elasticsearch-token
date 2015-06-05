@@ -653,7 +653,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotMetaData.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link #processIndexShardSnapshots(SnapshotMetaData)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link #updateIndexShardSnapshotStatus(UpdateIndexShardSnapshotStatusRequest)} method</li>  *<li>When last shard is completed master node in {@link #innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotMetaData.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
+comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotMetaData.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link SnapshotsService#processIndexShardSnapshots(ClusterChangedEvent)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link #updateIndexShardSnapshotStatus(UpdateIndexShardSnapshotStatusRequest)} method</li>  *<li>When last shard is completed master node in {@link #innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotMetaData.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -873,7 +873,7 @@ name|SnapshotId
 name|snapshotId
 parameter_list|)
 block|{
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.
@@ -941,7 +941,7 @@ block|}
 comment|/**      * Returns a list of snapshots from repository sorted by snapshot creation date      *      * @param repositoryName repository name      * @return list of snapshots      */
 DECL|method|snapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|Snapshot
 argument_list|>
@@ -960,7 +960,7 @@ init|=
 name|newHashSet
 argument_list|()
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.
@@ -1006,7 +1006,7 @@ argument_list|(
 name|repositoryName
 argument_list|)
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotId
 argument_list|>
@@ -1068,7 +1068,7 @@ block|}
 comment|/**      * Returns a list of currently running snapshots from repository sorted by snapshot creation date      *      * @param repositoryName repository name      * @return list of snapshots      */
 DECL|method|currentSnapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|Snapshot
 argument_list|>
@@ -1087,7 +1087,7 @@ init|=
 name|newArrayList
 argument_list|()
 decl_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.
@@ -2723,7 +2723,7 @@ block|}
 comment|/**      * Returns status of the currently running snapshots      *<p>      * This method is executed on master node      *</p>      *      * @param repository repository id      * @param snapshots  optional list of snapshots that will be used as a filter      * @return list of metadata for currently running snapshots      */
 DECL|method|currentSnapshots
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotMetaData
 operator|.
@@ -3320,7 +3320,7 @@ specifier|private
 name|SnapshotShardFailure
 name|findShardFailure
 parameter_list|(
-name|ImmutableList
+name|List
 argument_list|<
 name|SnapshotShardFailure
 argument_list|>
