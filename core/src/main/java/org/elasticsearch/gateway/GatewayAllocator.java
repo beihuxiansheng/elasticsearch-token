@@ -3556,6 +3556,13 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|rerouting
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|logger
 operator|.
 name|warn
