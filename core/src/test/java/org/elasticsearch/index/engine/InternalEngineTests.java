@@ -16292,6 +16292,14 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+operator|new
+name|ShardId
+argument_list|(
+literal|"test"
+argument_list|,
+literal|0
+argument_list|)
+argument_list|,
 literal|null
 argument_list|,
 operator|new

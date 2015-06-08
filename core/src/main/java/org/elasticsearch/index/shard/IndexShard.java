@@ -8176,6 +8176,8 @@ init|=
 operator|new
 name|TranslogRecoveryPerformer
 argument_list|(
+name|shardId
+argument_list|,
 name|mapperService
 argument_list|,
 name|mapperAnalyzer
