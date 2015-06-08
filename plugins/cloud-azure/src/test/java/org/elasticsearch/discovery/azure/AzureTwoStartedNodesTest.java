@@ -339,6 +339,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/11533"
+argument_list|)
 DECL|method|two_nodes_should_run_using_public_ip
 specifier|public
 name|void
