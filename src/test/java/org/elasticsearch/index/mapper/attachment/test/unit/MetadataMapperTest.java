@@ -425,6 +425,9 @@ argument_list|(
 literal|"file.content"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -453,6 +456,9 @@ name|getMapper
 argument_list|(
 literal|"file.name"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -490,6 +496,9 @@ argument_list|(
 literal|"file.date"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -519,6 +528,9 @@ name|getMapper
 argument_list|(
 literal|"file.date"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -556,6 +568,9 @@ argument_list|(
 literal|"file.title"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -584,6 +599,9 @@ name|getMapper
 argument_list|(
 literal|"file.author"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -614,6 +632,9 @@ argument_list|(
 literal|"file.keywords"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -643,6 +664,9 @@ argument_list|(
 literal|"file.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -671,6 +695,9 @@ name|getMapper
 argument_list|(
 literal|"file.content_length"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

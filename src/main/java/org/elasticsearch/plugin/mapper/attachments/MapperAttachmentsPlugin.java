@@ -50,23 +50,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|ArrayList
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
+name|Collection
 import|;
 end_import
 
@@ -133,7 +127,9 @@ argument_list|>
 argument_list|>
 name|modules
 init|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|modules

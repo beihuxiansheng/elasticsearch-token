@@ -368,6 +368,9 @@ argument_list|(
 literal|"file1.content"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -396,6 +399,9 @@ name|getMapper
 argument_list|(
 literal|"file1.title"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -426,6 +432,9 @@ argument_list|(
 literal|"file1.author"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -454,6 +463,9 @@ name|getMapper
 argument_list|(
 literal|"file1.keywords"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -484,6 +496,9 @@ argument_list|(
 literal|"file1.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -512,6 +527,9 @@ name|getMapper
 argument_list|(
 literal|"file1.content_length"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -548,6 +566,9 @@ argument_list|(
 literal|"file2"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -574,6 +595,9 @@ name|getMapper
 argument_list|(
 literal|"file2.title"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -602,6 +626,9 @@ argument_list|(
 literal|"file2.author"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -628,6 +655,9 @@ name|getMapper
 argument_list|(
 literal|"file2.keywords"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -656,6 +686,9 @@ argument_list|(
 literal|"file2.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -682,6 +715,9 @@ name|getMapper
 argument_list|(
 literal|"file2.content_length"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -831,6 +867,9 @@ argument_list|(
 literal|"file1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -857,6 +896,9 @@ name|getMapper
 argument_list|(
 literal|"file1.title"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -885,6 +927,9 @@ argument_list|(
 literal|"file1.author"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -911,6 +956,9 @@ name|getMapper
 argument_list|(
 literal|"file1.keywords"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -939,6 +987,9 @@ argument_list|(
 literal|"file1.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -966,6 +1017,9 @@ argument_list|(
 literal|"file1.content_length"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -992,6 +1046,9 @@ name|getMapper
 argument_list|(
 literal|"file2.content"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1022,6 +1079,9 @@ argument_list|(
 literal|"file2.title"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1050,6 +1110,9 @@ name|getMapper
 argument_list|(
 literal|"file2.author"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1080,6 +1143,9 @@ argument_list|(
 literal|"file2.keywords"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1109,6 +1175,9 @@ argument_list|(
 literal|"file2.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1137,6 +1206,9 @@ name|getMapper
 argument_list|(
 literal|"file2.content_length"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1321,6 +1393,9 @@ argument_list|(
 literal|"file1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1347,6 +1422,9 @@ name|getMapper
 argument_list|(
 literal|"file1.title"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1375,6 +1453,9 @@ argument_list|(
 literal|"file1.author"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1401,6 +1482,9 @@ name|getMapper
 argument_list|(
 literal|"file1.keywords"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1429,6 +1513,9 @@ argument_list|(
 literal|"file1.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1456,6 +1543,9 @@ argument_list|(
 literal|"file1.content_length"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1482,6 +1572,9 @@ name|getMapper
 argument_list|(
 literal|"file2"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1512,6 +1605,9 @@ argument_list|(
 literal|"file2.title"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1540,6 +1636,9 @@ name|getMapper
 argument_list|(
 literal|"file2.author"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1570,6 +1669,9 @@ argument_list|(
 literal|"file2.keywords"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1599,6 +1701,9 @@ argument_list|(
 literal|"file2.content_type"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -1627,6 +1732,9 @@ name|getMapper
 argument_list|(
 literal|"file2.content_length"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

@@ -498,6 +498,9 @@ argument_list|(
 literal|"file.language"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -715,6 +718,9 @@ name|getMapper
 argument_list|(
 literal|"file.language"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

@@ -714,6 +714,9 @@ argument_list|(
 literal|"file.content"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|names
 argument_list|()
 operator|.
@@ -747,6 +750,9 @@ name|getMapper
 argument_list|(
 literal|"file"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -858,6 +864,9 @@ literal|"file."
 operator|+
 name|field
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
