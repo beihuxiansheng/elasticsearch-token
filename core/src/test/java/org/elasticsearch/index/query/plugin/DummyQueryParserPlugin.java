@@ -284,8 +284,6 @@ name|indicesQueriesModule
 operator|.
 name|addQuery
 argument_list|(
-name|DummyQueryParserPlugin
-operator|.
 name|DummyQueryParser
 operator|.
 name|class
