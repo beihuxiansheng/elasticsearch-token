@@ -843,10 +843,6 @@ literal|false
 argument_list|,
 name|Defaults
 operator|.
-name|NULL_VALUE
-argument_list|,
-name|Defaults
-operator|.
 name|IGNORE_MALFORMED
 argument_list|,
 name|Defaults
