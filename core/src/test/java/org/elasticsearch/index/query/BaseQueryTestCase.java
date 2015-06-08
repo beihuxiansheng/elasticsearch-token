@@ -870,12 +870,6 @@ name|index
 argument_list|)
 argument_list|,
 operator|new
-name|IndexQueryParserModule
-argument_list|(
-name|settings
-argument_list|)
-argument_list|,
-operator|new
 name|FunctionScoreModule
 argument_list|()
 argument_list|,

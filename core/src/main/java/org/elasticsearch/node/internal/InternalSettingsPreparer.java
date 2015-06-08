@@ -247,7 +247,7 @@ specifier|final
 name|String
 name|SECRET_PROMPT_VALUE
 init|=
-literal|"${prompt::secret}"
+literal|"${prompt.secret}"
 decl_stmt|;
 DECL|field|TEXT_PROMPT_VALUE
 specifier|public
@@ -256,7 +256,7 @@ specifier|final
 name|String
 name|TEXT_PROMPT_VALUE
 init|=
-literal|"${prompt::text}"
+literal|"${prompt.text}"
 decl_stmt|;
 DECL|field|IGNORE_SYSTEM_PROPERTIES_SETTING
 specifier|public
@@ -331,21 +331,6 @@ block|{
 literal|"es.default."
 block|,
 literal|"elasticsearch.default."
-block|}
-decl_stmt|;
-comment|// ignore the special prompt placeholders since they have the same format as property placeholders and will be resolved
-comment|// as having a default value because of the ':' in the format
-name|String
-index|[]
-name|ignoredPlaceholders
-init|=
-operator|new
-name|String
-index|[]
-block|{
-name|SECRET_PROMPT_VALUE
-block|,
-name|TEXT_PROMPT_VALUE
 block|}
 decl_stmt|;
 name|boolean
@@ -430,9 +415,7 @@ block|}
 name|settingsBuilder
 operator|.
 name|replacePropertyPlaceholders
-argument_list|(
-name|ignoredPlaceholders
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|Environment
 name|environment
@@ -658,9 +641,7 @@ block|}
 name|settingsBuilder
 operator|.
 name|replacePropertyPlaceholders
-argument_list|(
-name|ignoredPlaceholders
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// allow to force set properties based on configuration of the settings provided
 for|for
@@ -734,9 +715,7 @@ block|}
 name|settingsBuilder
 operator|.
 name|replacePropertyPlaceholders
-argument_list|(
-name|ignoredPlaceholders
-argument_list|)
+argument_list|()
 expr_stmt|;
 comment|// generate the name
 if|if
