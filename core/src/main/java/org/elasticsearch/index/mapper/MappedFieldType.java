@@ -1332,6 +1332,7 @@ operator|=
 name|similarity
 expr_stmt|;
 block|}
+comment|/** Returns the value that should be added when JSON null is found, or null if no value should be added */
 DECL|method|nullValue
 specifier|public
 name|Object
@@ -1342,6 +1343,7 @@ return|return
 name|nullValue
 return|;
 block|}
+comment|/** Returns the null value stringified, so it can be used for e.g. _all field, or null if there is no null value */
 DECL|method|nullValueAsString
 specifier|public
 name|String
@@ -1352,6 +1354,7 @@ return|return
 name|nullValueAsString
 return|;
 block|}
+comment|/** Sets the null value and initializes the string version */
 DECL|method|setNullValue
 specifier|public
 name|void
