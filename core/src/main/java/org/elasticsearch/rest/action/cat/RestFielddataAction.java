@@ -353,7 +353,9 @@ name|nodesStatsRequest
 init|=
 operator|new
 name|NodesStatsRequest
-argument_list|()
+argument_list|(
+literal|"data:true"
+argument_list|)
 decl_stmt|;
 name|nodesStatsRequest
 operator|.

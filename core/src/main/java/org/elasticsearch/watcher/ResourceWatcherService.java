@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generic resource watcher service  *  * Other elasticsearch services can register their resource watchers with this service using {@link #add(ResourceWatcher)}  * method. This service will call {@link org.elasticsearch.watcher.ResourceWatcher#checkAndNotify()} method of all  * registered watcher periodically. The frequency of checks can be specified using {@code watcher.interval} setting, which  * defaults to {@code 60s}. The service can be disabled by setting {@code watcher.enabled} setting to {@code false}.  */
+comment|/**  * Generic resource watcher service  *  * Other elasticsearch services can register their resource watchers with this service using {@link #add(ResourceWatcher)}  * method. This service will call {@link org.elasticsearch.watcher.ResourceWatcher#checkAndNotify()} method of all  * registered watcher periodically. The frequency of checks can be specified using {@code resource.reload.interval} setting, which  * defaults to {@code 60s}. The service can be disabled by setting {@code resource.reload.enabled} setting to {@code false}.  */
 end_comment
 
 begin_class
@@ -159,7 +159,6 @@ argument_list|>
 block|{
 DECL|enum|Frequency
 specifier|public
-specifier|static
 enum|enum
 name|Frequency
 block|{
@@ -208,7 +207,6 @@ name|TimeValue
 name|interval
 decl_stmt|;
 DECL|method|Frequency
-specifier|private
 name|Frequency
 parameter_list|(
 name|TimeValue
@@ -294,7 +292,7 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"watcher.enabled"
+literal|"resource.reload.enabled"
 argument_list|,
 literal|true
 argument_list|)
@@ -312,7 +310,7 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"watcher.interval.low"
+literal|"resource.reload.interval.low"
 argument_list|,
 name|Frequency
 operator|.
@@ -339,13 +337,13 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"watcher.interval.medium"
+literal|"resource.reload.interval.medium"
 argument_list|,
 name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"watcher.interval"
+literal|"resource.reload.interval"
 argument_list|,
 name|Frequency
 operator|.
@@ -373,7 +371,7 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"watcher.interval.high"
+literal|"resource.reload.interval.high"
 argument_list|,
 name|Frequency
 operator|.
@@ -392,6 +390,41 @@ argument_list|,
 name|Frequency
 operator|.
 name|HIGH
+argument_list|)
+expr_stmt|;
+name|logRemovedSetting
+argument_list|(
+literal|"watcher.enabled"
+argument_list|,
+literal|"resource.reload.enabled"
+argument_list|)
+expr_stmt|;
+name|logRemovedSetting
+argument_list|(
+literal|"watcher.interval"
+argument_list|,
+literal|"resource.reload.interval"
+argument_list|)
+expr_stmt|;
+name|logRemovedSetting
+argument_list|(
+literal|"watcher.interval.low"
+argument_list|,
+literal|"resource.reload.interval.low"
+argument_list|)
+expr_stmt|;
+name|logRemovedSetting
+argument_list|(
+literal|"watcher.interval.medium"
+argument_list|,
+literal|"resource.reload.interval.medium"
+argument_list|)
+expr_stmt|;
+name|logRemovedSetting
+argument_list|(
+literal|"watcher.interval.high"
+argument_list|,
+literal|"resource.reload.interval.high"
 argument_list|)
 expr_stmt|;
 block|}
