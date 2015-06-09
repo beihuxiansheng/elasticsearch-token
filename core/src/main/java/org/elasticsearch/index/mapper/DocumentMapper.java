@@ -1608,6 +1608,9 @@ operator|=
 name|typeMapper
 argument_list|()
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|termQuery
 argument_list|(
 name|type

@@ -1108,6 +1108,9 @@ else|:
 operator|(
 name|String
 operator|)
+name|fieldType
+argument_list|()
+operator|.
 name|value
 argument_list|(
 name|field
