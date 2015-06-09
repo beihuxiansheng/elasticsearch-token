@@ -1391,6 +1391,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Queries should be equal: "
+operator|+
+name|newQuery
+operator|+
+literal|" vs. "
+operator|+
+name|testQuery
+argument_list|,
 name|newQuery
 argument_list|,
 name|testQuery
@@ -1398,6 +1406,14 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Queries should have equal hashcodes: "
+operator|+
+name|newQuery
+operator|+
+literal|" vs. "
+operator|+
+name|testQuery
+argument_list|,
 name|newQuery
 operator|.
 name|hashCode
