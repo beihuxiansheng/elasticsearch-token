@@ -1955,6 +1955,9 @@ name|i
 argument_list|,
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|valueForSearch
 argument_list|(
 name|values
@@ -2847,6 +2850,9 @@ argument_list|(
 name|i
 argument_list|,
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|valueForSearch
 argument_list|(

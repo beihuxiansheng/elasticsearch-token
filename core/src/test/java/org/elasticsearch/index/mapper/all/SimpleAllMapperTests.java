@@ -854,6 +854,9 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|queryStringTermQuery
 argument_list|(
 operator|new
@@ -1238,6 +1241,9 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|queryStringTermQuery
 argument_list|(
 operator|new
@@ -1472,6 +1478,9 @@ expr_stmt|;
 name|assertThat
 argument_list|(
 name|mapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|queryStringTermQuery
 argument_list|(
@@ -4144,6 +4153,9 @@ literal|"type"
 argument_list|)
 operator|.
 name|allFieldMapper
+argument_list|()
+operator|.
+name|fieldType
 argument_list|()
 operator|.
 name|termQuery

@@ -536,6 +536,9 @@ argument_list|(
 literal|"field1"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|termQuery
 argument_list|(
 literal|"value1"
@@ -573,6 +576,9 @@ name|smartNameFieldMapper
 argument_list|(
 literal|"field2"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|termQuery
 argument_list|(
@@ -612,6 +618,9 @@ argument_list|(
 literal|"field3"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|termQuery
 argument_list|(
 literal|"1.1"
@@ -649,6 +658,9 @@ name|smartNameFieldMapper
 argument_list|(
 literal|"field4"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|termQuery
 argument_list|(
@@ -688,6 +700,9 @@ argument_list|(
 literal|"field5"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|termQuery
 argument_list|(
 literal|"1"
@@ -726,6 +741,9 @@ argument_list|(
 literal|"field5"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|termQuery
 argument_list|(
 literal|"2"
@@ -763,6 +781,9 @@ name|smartNameFieldMapper
 argument_list|(
 literal|"field5"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|termQuery
 argument_list|(
