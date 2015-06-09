@@ -142,6 +142,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|MapperService
 import|;
 end_import
@@ -1260,12 +1274,12 @@ literal|"The required field option is missing"
 argument_list|)
 throw|;
 block|}
-name|FieldMapper
-name|fieldMapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|suggestion
 operator|.
@@ -1275,7 +1289,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|fieldMapper
+name|fieldType
 operator|==
 literal|null
 condition|)
@@ -1309,10 +1323,7 @@ block|{
 comment|// no analyzer name passed in, so try the field's analyzer, or the default analyzer
 if|if
 condition|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1337,10 +1348,7 @@ name|suggestion
 operator|.
 name|setAnalyzer
 argument_list|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -2376,7 +2384,7 @@ if|if
 condition|(
 name|mapperService
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|generator
 operator|.

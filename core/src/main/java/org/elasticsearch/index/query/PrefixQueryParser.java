@@ -124,7 +124,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -539,8 +539,8 @@ name|query
 init|=
 literal|null
 decl_stmt|;
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -551,14 +551,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
 block|{
 name|query
 operator|=
-name|mapper
+name|fieldType
 operator|.
 name|prefixQuery
 argument_list|(

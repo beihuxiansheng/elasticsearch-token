@@ -589,6 +589,9 @@ operator|.
 name|getForField
 argument_list|(
 name|parentFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|config
@@ -612,6 +615,9 @@ argument_list|,
 name|parentChildIndexFieldData
 argument_list|,
 name|parentFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

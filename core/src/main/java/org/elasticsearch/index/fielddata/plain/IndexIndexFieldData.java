@@ -322,8 +322,8 @@ parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|,
 name|IndexFieldDataCache
 name|cache
@@ -341,10 +341,7 @@ name|IndexIndexFieldData
 argument_list|(
 name|index
 argument_list|,
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()

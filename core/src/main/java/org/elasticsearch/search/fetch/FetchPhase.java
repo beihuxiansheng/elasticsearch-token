@@ -390,7 +390,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMappers
+name|MappedFieldType
 import|;
 end_import
 
@@ -1150,19 +1150,19 @@ expr_stmt|;
 block|}
 continue|continue;
 block|}
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|context
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|fieldName
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|==
 literal|null
 condition|)
@@ -1196,10 +1196,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1224,10 +1221,7 @@ name|fieldNames
 operator|.
 name|add
 argument_list|(
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
