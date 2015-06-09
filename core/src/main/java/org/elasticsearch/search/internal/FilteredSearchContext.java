@@ -244,7 +244,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMappers
+name|MappedFieldType
 import|;
 end_import
 
@@ -2126,10 +2126,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|smartNameFieldMapper
+DECL|method|smartNameFieldType
 specifier|public
-name|FieldMapper
-name|smartNameFieldMapper
+name|MappedFieldType
+name|smartNameFieldType
 parameter_list|(
 name|String
 name|name
@@ -2138,7 +2138,7 @@ block|{
 return|return
 name|in
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|name
 argument_list|)
@@ -2146,10 +2146,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|smartNameFieldMapperFromAnyType
+DECL|method|smartNameFieldTypeFromAnyType
 specifier|public
-name|FieldMapper
-name|smartNameFieldMapperFromAnyType
+name|MappedFieldType
+name|smartNameFieldTypeFromAnyType
 parameter_list|(
 name|String
 name|name
@@ -2158,7 +2158,7 @@ block|{
 return|return
 name|in
 operator|.
-name|smartNameFieldMapperFromAnyType
+name|smartNameFieldTypeFromAnyType
 argument_list|(
 name|name
 argument_list|)

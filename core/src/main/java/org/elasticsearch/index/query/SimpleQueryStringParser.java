@@ -186,6 +186,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -642,8 +656,8 @@ block|}
 block|}
 else|else
 block|{
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -654,7 +668,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
@@ -663,10 +677,7 @@ name|fieldsAndWeights
 operator|.
 name|put
 argument_list|(
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()

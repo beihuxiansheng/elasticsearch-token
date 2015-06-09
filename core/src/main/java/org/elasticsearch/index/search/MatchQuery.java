@@ -182,6 +182,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryParseContext
@@ -612,8 +626,8 @@ specifier|protected
 name|Analyzer
 name|getAnalyzer
 parameter_list|(
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|)
 block|{
 if|if
@@ -627,7 +641,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
@@ -637,7 +651,7 @@ name|parseContext
 operator|.
 name|getSearchAnalyzer
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 return|;
 block|}
@@ -718,8 +732,8 @@ specifier|final
 name|String
 name|field
 decl_stmt|;
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -730,17 +744,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
 block|{
 name|field
 operator|=
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -758,11 +769,11 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 operator|&&
-name|mapper
+name|fieldType
 operator|.
 name|useTermQueryWithQueryString
 argument_list|()
@@ -775,7 +786,7 @@ block|{
 try|try
 block|{
 return|return
-name|mapper
+name|fieldType
 operator|.
 name|termQuery
 argument_list|(
@@ -810,7 +821,7 @@ name|analyzer
 init|=
 name|getAnalyzer
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -826,7 +837,7 @@ name|MatchQueryBuilder
 argument_list|(
 name|analyzer
 argument_list|,
-name|mapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 name|builder
@@ -896,7 +907,7 @@ name|occur
 argument_list|,
 name|commonTermsCutoff
 argument_list|,
-name|mapper
+name|fieldType
 argument_list|)
 expr_stmt|;
 block|}
@@ -1009,7 +1020,7 @@ block|{
 DECL|field|mapper
 specifier|private
 specifier|final
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 decl_stmt|;
 comment|/**          * Creates a new QueryBuilder using the given analyzer.          */
@@ -1022,7 +1033,7 @@ name|analyzer
 parameter_list|,
 annotation|@
 name|Nullable
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 parameter_list|)
 block|{
@@ -1323,8 +1334,8 @@ parameter_list|,
 name|float
 name|maxTermFrequency
 parameter_list|,
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|)
 block|{
 name|Query
@@ -1380,7 +1391,7 @@ operator|.
 name|isCoordDisabled
 argument_list|()
 argument_list|,
-name|mapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 for|for
@@ -1447,8 +1458,8 @@ parameter_list|(
 name|Term
 name|term
 parameter_list|,
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|)
 block|{
 if|if
@@ -1460,7 +1471,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
@@ -1468,7 +1479,7 @@ block|{
 name|Query
 name|query
 init|=
-name|mapper
+name|fieldType
 operator|.
 name|fuzzyQuery
 argument_list|(
@@ -1552,7 +1563,7 @@ return|;
 block|}
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
@@ -1560,7 +1571,7 @@ block|{
 name|Query
 name|termQuery
 init|=
-name|mapper
+name|fieldType
 operator|.
 name|queryStringTermQuery
 argument_list|(

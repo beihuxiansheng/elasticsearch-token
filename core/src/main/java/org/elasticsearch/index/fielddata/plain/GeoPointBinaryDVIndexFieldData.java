@@ -369,8 +369,8 @@ parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|,
 name|IndexFieldDataCache
 name|cache
@@ -387,10 +387,7 @@ specifier|final
 name|Names
 name|fieldNames
 init|=
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -403,10 +400,7 @@ name|index
 argument_list|,
 name|fieldNames
 argument_list|,
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()

@@ -172,6 +172,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|Mapper
 operator|.
 name|BuilderContext
@@ -379,7 +393,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|StringFieldMapper
+name|MappedFieldType
 name|stringMapper
 init|=
 operator|new
@@ -404,6 +418,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.
@@ -448,7 +465,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 range|:
 name|Arrays
@@ -472,6 +489,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|,
 operator|new
 name|ShortFieldMapper
@@ -490,6 +510,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|,
 operator|new
 name|IntegerFieldMapper
@@ -508,6 +531,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|,
 operator|new
 name|LongFieldMapper
@@ -526,6 +552,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 control|)
 block|{
@@ -568,7 +597,7 @@ expr_stmt|;
 block|}
 block|}
 specifier|final
-name|FloatFieldMapper
+name|MappedFieldType
 name|floatMapper
 init|=
 operator|new
@@ -588,6 +617,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.
@@ -627,7 +659,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|DoubleFieldMapper
+name|MappedFieldType
 name|doubleMapper
 init|=
 operator|new
@@ -647,6 +679,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.
@@ -739,7 +774,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|StringFieldMapper
+name|MappedFieldType
 name|stringMapper
 init|=
 name|MapperBuilders
@@ -781,6 +816,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.
@@ -828,7 +866,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 range|:
 name|Arrays
@@ -857,6 +895,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|,
 operator|new
 name|ShortFieldMapper
@@ -880,6 +921,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|,
 operator|new
 name|IntegerFieldMapper
@@ -903,6 +947,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|,
 operator|new
 name|LongFieldMapper
@@ -926,6 +973,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 control|)
 block|{
@@ -952,7 +1002,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|FloatFieldMapper
+name|MappedFieldType
 name|floatMapper
 init|=
 name|MapperBuilders
@@ -976,6 +1026,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.
@@ -999,7 +1052,7 @@ name|FloatArrayIndexFieldData
 argument_list|)
 expr_stmt|;
 specifier|final
-name|DoubleFieldMapper
+name|MappedFieldType
 name|doubleMapper
 init|=
 name|MapperBuilders
@@ -1023,6 +1076,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.
@@ -1095,7 +1151,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 specifier|final
-name|StringFieldMapper
+name|MappedFieldType
 name|mapper1
 init|=
 name|MapperBuilders
@@ -1134,6 +1190,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 specifier|final
 name|IndexWriter
@@ -1310,7 +1369,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 specifier|final
-name|StringFieldMapper
+name|MappedFieldType
 name|mapper2
 init|=
 name|MapperBuilders
@@ -1349,6 +1408,9 @@ name|build
 argument_list|(
 name|ctx
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 decl_stmt|;
 name|ifdService
 operator|.

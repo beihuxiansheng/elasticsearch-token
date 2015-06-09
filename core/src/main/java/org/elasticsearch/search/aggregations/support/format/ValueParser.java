@@ -522,7 +522,9 @@ name|DateMath
 name|mapper
 parameter_list|(
 name|DateFieldMapper
-name|mapper
+operator|.
+name|DateFieldType
+name|fieldType
 parameter_list|)
 block|{
 return|return
@@ -532,10 +534,7 @@ argument_list|(
 operator|new
 name|DateMathParser
 argument_list|(
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|dateTimeFormatter
 argument_list|()

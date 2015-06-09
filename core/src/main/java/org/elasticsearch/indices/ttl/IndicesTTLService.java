@@ -1214,7 +1214,7 @@ operator|.
 name|mapperService
 argument_list|()
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|TTLFieldMapper
 operator|.

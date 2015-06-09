@@ -769,6 +769,7 @@ return|;
 block|}
 block|}
 DECL|class|BooleanFieldType
+specifier|public
 specifier|static
 specifier|final
 class|class

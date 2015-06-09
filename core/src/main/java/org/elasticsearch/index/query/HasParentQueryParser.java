@@ -1199,6 +1199,9 @@ operator|.
 name|getForField
 argument_list|(
 name|parentFieldMapper
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

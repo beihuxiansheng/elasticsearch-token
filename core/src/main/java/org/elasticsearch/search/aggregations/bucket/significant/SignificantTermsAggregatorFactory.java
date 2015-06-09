@@ -168,7 +168,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -967,10 +967,10 @@ specifier|private
 name|String
 name|indexedFieldName
 decl_stmt|;
-DECL|field|mapper
+DECL|field|fieldType
 specifier|private
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 decl_stmt|;
 DECL|field|termsEnum
 specifier|private
@@ -1109,14 +1109,14 @@ operator|.
 name|field
 argument_list|()
 expr_stmt|;
-name|mapper
+name|fieldType
 operator|=
 name|SearchContext
 operator|.
 name|current
 argument_list|()
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|indexedFieldName
 argument_list|)
@@ -1719,7 +1719,7 @@ block|{
 name|BytesRef
 name|indexedVal
 init|=
-name|mapper
+name|fieldType
 operator|.
 name|indexedValueForSearch
 argument_list|(
