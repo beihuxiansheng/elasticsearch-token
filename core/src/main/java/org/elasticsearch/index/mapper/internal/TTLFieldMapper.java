@@ -1138,10 +1138,6 @@ name|fieldType
 argument_list|,
 literal|false
 argument_list|,
-name|Defaults
-operator|.
-name|NULL_VALUE
-argument_list|,
 name|ignoreMalformed
 argument_list|,
 name|coerce

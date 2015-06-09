@@ -387,8 +387,6 @@ name|fieldType
 argument_list|,
 name|docValues
 argument_list|,
-literal|null
-argument_list|,
 name|ignoreMalformed
 argument_list|(
 name|context
@@ -607,9 +605,6 @@ parameter_list|,
 name|Boolean
 name|docValues
 parameter_list|,
-name|Long
-name|nullValue
-parameter_list|,
 name|Explicit
 argument_list|<
 name|Boolean
@@ -642,8 +637,6 @@ argument_list|(
 name|fieldType
 argument_list|,
 name|docValues
-argument_list|,
-name|nullValue
 argument_list|,
 name|ignoreMalformed
 argument_list|,
