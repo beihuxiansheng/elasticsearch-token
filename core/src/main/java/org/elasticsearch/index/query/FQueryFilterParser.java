@@ -117,9 +117,9 @@ operator|new
 name|String
 index|[]
 block|{
-name|QueryFilterBuilder
+name|FQueryFilterBuilder
 operator|.
-name|FQUERY_NAME
+name|NAME
 block|}
 return|;
 block|}
@@ -377,12 +377,12 @@ annotation|@
 name|Override
 DECL|method|getBuilderPrototype
 specifier|public
-name|QueryFilterBuilder
+name|FQueryFilterBuilder
 name|getBuilderPrototype
 parameter_list|()
 block|{
 return|return
-name|QueryFilterBuilder
+name|FQueryFilterBuilder
 operator|.
 name|PROTOTYPE
 return|;

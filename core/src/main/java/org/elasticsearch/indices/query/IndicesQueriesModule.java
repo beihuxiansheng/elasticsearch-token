@@ -140,6 +140,7 @@ operator|.
 name|newHashSet
 argument_list|()
 decl_stmt|;
+comment|/**      * Registers a {@link QueryParser} given its class      */
 DECL|method|addQuery
 specifier|public
 specifier|synchronized
@@ -792,21 +793,6 @@ operator|.
 name|to
 argument_list|(
 name|LimitQueryParser
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-name|qpBinders
-operator|.
-name|addBinding
-argument_list|()
-operator|.
-name|to
-argument_list|(
-name|TermsQueryParser
 operator|.
 name|class
 argument_list|)

@@ -34,20 +34,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|ToXContentToBytes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|lucene
@@ -64,11 +50,27 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|ToXContentToBytes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
-name|lucene
+name|io
 operator|.
-name|BytesRefs
+name|stream
+operator|.
+name|NamedWriteable
 import|;
 end_import
 
@@ -112,11 +114,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|lucene
 operator|.
-name|stream
-operator|.
-name|Writeable
+name|BytesRefs
 import|;
 end_import
 
@@ -176,7 +176,7 @@ parameter_list|>
 extends|extends
 name|ToXContentToBytes
 implements|implements
-name|Writeable
+name|NamedWriteable
 argument_list|<
 name|QB
 argument_list|>
@@ -239,6 +239,20 @@ name|String
 name|queryId
 parameter_list|()
 function_decl|;
+annotation|@
+name|Override
+DECL|method|getName
+specifier|public
+specifier|final
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|queryId
+argument_list|()
+return|;
+block|}
 comment|/**      * Converts this QueryBuilder to a lucene {@link Query}      * @param parseContext additional information needed to construct the queries      * @return the {@link Query}      * @throws QueryParsingException      * @throws IOException      */
 comment|//norelease to be made abstract once all query builders override toQuery providing their own specific implementation.
 DECL|method|toQuery
