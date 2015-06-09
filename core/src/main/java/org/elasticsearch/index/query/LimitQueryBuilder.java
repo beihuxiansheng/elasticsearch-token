@@ -306,12 +306,9 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-name|Integer
+name|this
 operator|.
-name|hashCode
-argument_list|(
 name|limit
-argument_list|)
 return|;
 block|}
 annotation|@
