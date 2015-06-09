@@ -970,6 +970,11 @@ argument_list|(
 literal|"--> move shard from node_1 to node_3, and wait for relocation to finish"
 argument_list|)
 expr_stmt|;
+name|SlowClusterStateProcessing
+name|disruption
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|randomBoolean
@@ -977,10 +982,8 @@ argument_list|()
 condition|)
 block|{
 comment|// sometimes add cluster-state delay to trigger observers in IndicesStore.ShardActiveRequestHandler
-specifier|final
-name|SlowClusterStateProcessing
 name|disruption
-init|=
+operator|=
 operator|new
 name|SlowClusterStateProcessing
 argument_list|(
@@ -997,7 +1000,7 @@ literal|1000
 argument_list|,
 literal|2000
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|internalCluster
 argument_list|()
 operator|.
@@ -1089,6 +1092,22 @@ literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|disruption
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// we must stop the disruption here, else the delayed cluster state processing on the disrupted node
+comment|// can potentially delay registering the observer in IndicesStore.ShardActiveRequestHandler.messageReceived()
+comment|// and therefore sending the response for the shard active request for more than 10s
+name|disruption
+operator|.
+name|stopDisrupting
+argument_list|()
+expr_stmt|;
+block|}
 name|assertThat
 argument_list|(
 name|waitForShardDeletion
