@@ -1081,8 +1081,8 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|service
 operator|.
@@ -1096,7 +1096,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 expr_stmt|;
 block|}

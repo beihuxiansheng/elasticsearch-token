@@ -274,7 +274,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -1451,8 +1451,8 @@ operator|.
 name|text
 argument_list|()
 decl_stmt|;
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -1465,16 +1465,13 @@ name|moreLikeFields
 operator|.
 name|add
 argument_list|(
-name|mapper
+name|fieldType
 operator|==
 literal|null
 condition|?
 name|field
 else|:
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()

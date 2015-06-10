@@ -26,20 +26,6 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
 name|Term
 import|;
 end_import
@@ -68,7 +54,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|BooleanClause
+operator|.
+name|Occur
 import|;
 end_import
 
@@ -82,9 +70,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|BooleanClause
-operator|.
-name|Occur
+name|Query
 import|;
 end_import
 
@@ -114,17 +100,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
+name|MappedFieldType
 import|;
 end_import
 
@@ -140,11 +116,11 @@ name|ExtendedCommonTermsQuery
 extends|extends
 name|CommonTermsQuery
 block|{
-DECL|field|mapper
+DECL|field|fieldType
 specifier|private
 specifier|final
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 decl_stmt|;
 DECL|method|ExtendedCommonTermsQuery
 specifier|public
@@ -162,8 +138,8 @@ parameter_list|,
 name|boolean
 name|disableCoord
 parameter_list|,
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|)
 block|{
 name|super
@@ -179,9 +155,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|mapper
+name|fieldType
 operator|=
-name|mapper
+name|fieldType
 expr_stmt|;
 block|}
 DECL|field|lowFreqMinNumShouldMatchSpec
@@ -336,7 +312,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|==
 literal|null
 condition|)
@@ -356,7 +332,7 @@ specifier|final
 name|Query
 name|query
 init|=
-name|mapper
+name|fieldType
 operator|.
 name|queryStringTermQuery
 argument_list|(

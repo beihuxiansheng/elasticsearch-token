@@ -642,6 +642,9 @@ name|originalValue
 init|=
 name|fieldMapper
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|valueForSearch
 argument_list|(
 name|indexedValue
@@ -920,6 +923,9 @@ name|Object
 name|originalValue
 init|=
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|valueForSearch
 argument_list|(

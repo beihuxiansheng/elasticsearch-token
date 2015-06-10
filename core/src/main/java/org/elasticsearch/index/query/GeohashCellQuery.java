@@ -305,7 +305,7 @@ name|PRECISION
 init|=
 literal|"precision"
 decl_stmt|;
-comment|/**      * Create a new geohash filter for a given set of geohashes. In general this method      * returns a boolean filter combining the geohashes OR-wise.      *      * @param context     Context of the filter      * @param fieldMapper field mapper for geopoints      * @param geohash     mandatory geohash      * @param geohashes   optional array of additional geohashes      * @return a new GeoBoundinboxfilter      */
+comment|/**      * Create a new geohash filter for a given set of geohashes. In general this method      * returns a boolean filter combining the geohashes OR-wise.      *      * @param context     Context of the filter      * @param fieldType field mapper for geopoints      * @param geohash     mandatory geohash      * @param geohashes   optional array of additional geohashes      * @return a new GeoBoundinboxfilter      */
 DECL|method|create
 specifier|public
 specifier|static
@@ -316,7 +316,9 @@ name|QueryParseContext
 name|context
 parameter_list|,
 name|GeoPointFieldMapper
-name|fieldMapper
+operator|.
+name|GeoPointFieldType
+name|fieldType
 parameter_list|,
 name|String
 name|geohash
@@ -333,10 +335,7 @@ block|{
 name|MappedFieldType
 name|geoHashMapper
 init|=
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|geohashFieldType
 argument_list|()
@@ -1173,8 +1172,8 @@ literal|"no geohash value provided to geohash_cell filter"
 argument_list|)
 throw|;
 block|}
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -1185,7 +1184,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|==
 literal|null
 condition|)
@@ -1208,9 +1207,11 @@ if|if
 condition|(
 operator|!
 operator|(
-name|mapper
+name|fieldType
 operator|instanceof
 name|GeoPointFieldMapper
+operator|.
+name|GeoPointFieldType
 operator|)
 condition|)
 block|{
@@ -1229,22 +1230,23 @@ argument_list|)
 throw|;
 block|}
 name|GeoPointFieldMapper
-name|geoMapper
+operator|.
+name|GeoPointFieldType
+name|geoFieldType
 init|=
 operator|(
 operator|(
 name|GeoPointFieldMapper
+operator|.
+name|GeoPointFieldType
 operator|)
-name|mapper
+name|fieldType
 operator|)
 decl_stmt|;
 if|if
 condition|(
 operator|!
-name|geoMapper
-operator|.
-name|fieldType
-argument_list|()
+name|geoFieldType
 operator|.
 name|isGeohashPrefixEnabled
 argument_list|()
@@ -1312,7 +1314,7 @@ name|create
 argument_list|(
 name|parseContext
 argument_list|,
-name|geoMapper
+name|geoFieldType
 argument_list|,
 name|geohash
 argument_list|,
@@ -1342,7 +1344,7 @@ name|create
 argument_list|(
 name|parseContext
 argument_list|,
-name|geoMapper
+name|geoFieldType
 argument_list|,
 name|geohash
 argument_list|,

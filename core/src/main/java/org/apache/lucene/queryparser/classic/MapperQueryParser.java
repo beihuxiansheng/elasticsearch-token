@@ -272,7 +272,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -484,10 +484,10 @@ specifier|private
 name|boolean
 name|forcedQuoteAnalyzer
 decl_stmt|;
-DECL|field|currentMapper
+DECL|field|currentFieldType
 specifier|private
-name|FieldMapper
-name|currentMapper
+name|MappedFieldType
+name|currentFieldType
 decl_stmt|;
 DECL|field|analyzeWildcard
 specifier|private
@@ -909,7 +909,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -917,7 +917,7 @@ block|{
 name|Query
 name|termQuery
 init|=
-name|currentMapper
+name|currentFieldType
 operator|.
 name|queryStringTermQuery
 argument_list|(
@@ -1423,7 +1423,7 @@ argument_list|)
 return|;
 block|}
 block|}
-name|currentMapper
+name|currentFieldType
 operator|=
 literal|null
 expr_stmt|;
@@ -1452,7 +1452,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -1467,12 +1467,12 @@ block|}
 block|}
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|==
 literal|null
 condition|)
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -1484,7 +1484,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -1506,7 +1506,7 @@ name|parseContext
 operator|.
 name|getSearchQuoteAnalyzer
 argument_list|(
-name|currentMapper
+name|currentFieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1526,7 +1526,7 @@ name|parseContext
 operator|.
 name|getSearchAnalyzer
 argument_list|(
-name|currentMapper
+name|currentFieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1534,7 +1534,7 @@ block|}
 block|}
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -1546,7 +1546,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|.
 name|useTermQueryWithQueryString
 argument_list|()
@@ -1556,7 +1556,7 @@ try|try
 block|{
 name|query
 operator|=
-name|currentMapper
+name|currentFieldType
 operator|.
 name|termQuery
 argument_list|(
@@ -1605,10 +1605,7 @@ name|super
 operator|.
 name|getFieldQuery
 argument_list|(
-name|currentMapper
-operator|.
-name|fieldType
-argument_list|()
+name|currentFieldType
 operator|.
 name|names
 argument_list|()
@@ -2218,7 +2215,7 @@ name|boolean
 name|endInclusive
 parameter_list|)
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -2229,7 +2226,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -2239,7 +2236,7 @@ condition|(
 name|lowercaseExpandedTerms
 operator|&&
 operator|!
-name|currentMapper
+name|currentFieldType
 operator|.
 name|isNumeric
 argument_list|()
@@ -2283,9 +2280,11 @@ name|rangeQuery
 decl_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|instanceof
 name|DateFieldMapper
+operator|.
+name|DateFieldType
 operator|&&
 name|settings
 operator|.
@@ -2296,21 +2295,22 @@ literal|null
 condition|)
 block|{
 name|DateFieldMapper
-name|dateFieldMapper
+operator|.
+name|DateFieldType
+name|dateFieldType
 init|=
 operator|(
 name|DateFieldMapper
+operator|.
+name|DateFieldType
 operator|)
 name|this
 operator|.
-name|currentMapper
+name|currentFieldType
 decl_stmt|;
 name|rangeQuery
 operator|=
-name|dateFieldMapper
-operator|.
-name|fieldType
-argument_list|()
+name|dateFieldType
 operator|.
 name|rangeQuery
 argument_list|(
@@ -2337,7 +2337,7 @@ else|else
 block|{
 name|rangeQuery
 operator|=
-name|currentMapper
+name|currentFieldType
 operator|.
 name|rangeQuery
 argument_list|(
@@ -2657,7 +2657,7 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -2668,7 +2668,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -2677,7 +2677,7 @@ try|try
 block|{
 comment|//LUCENE 4 UPGRADE I disabled transpositions here by default - maybe this needs to be changed
 return|return
-name|currentMapper
+name|currentFieldType
 operator|.
 name|fuzzyQuery
 argument_list|(
@@ -3097,7 +3097,7 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 literal|null
 expr_stmt|;
@@ -3109,7 +3109,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -3120,7 +3120,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -3137,7 +3137,7 @@ name|parseContext
 operator|.
 name|getSearchAnalyzer
 argument_list|(
-name|currentMapper
+name|currentFieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3149,7 +3149,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|.
 name|useTermQueryWithQueryString
 argument_list|()
@@ -3157,7 +3157,7 @@ condition|)
 block|{
 name|query
 operator|=
-name|currentMapper
+name|currentFieldType
 operator|.
 name|prefixQuery
 argument_list|(
@@ -3180,10 +3180,7 @@ name|query
 operator|=
 name|getPossiblyAnalyzedPrefixQuery
 argument_list|(
-name|currentMapper
-operator|.
-name|fieldType
-argument_list|()
+name|currentFieldType
 operator|.
 name|names
 argument_list|()
@@ -3855,7 +3852,7 @@ name|indexedNameField
 init|=
 name|field
 decl_stmt|;
-name|currentMapper
+name|currentFieldType
 operator|=
 literal|null
 expr_stmt|;
@@ -3867,7 +3864,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -3878,7 +3875,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -3895,17 +3892,14 @@ name|parseContext
 operator|.
 name|getSearchAnalyzer
 argument_list|(
-name|currentMapper
+name|currentFieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 name|indexedNameField
 operator|=
-name|currentMapper
-operator|.
-name|fieldType
-argument_list|()
+name|currentFieldType
 operator|.
 name|names
 argument_list|()
@@ -4622,7 +4616,7 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 literal|null
 expr_stmt|;
@@ -4634,7 +4628,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|currentMapper
+name|currentFieldType
 operator|=
 name|parseContext
 operator|.
@@ -4645,7 +4639,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|!=
 literal|null
 condition|)
@@ -4662,7 +4656,7 @@ name|parseContext
 operator|.
 name|getSearchAnalyzer
 argument_list|(
-name|currentMapper
+name|currentFieldType
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4674,7 +4668,7 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
-name|currentMapper
+name|currentFieldType
 operator|.
 name|useTermQueryWithQueryString
 argument_list|()
@@ -4682,7 +4676,7 @@ condition|)
 block|{
 name|query
 operator|=
-name|currentMapper
+name|currentFieldType
 operator|.
 name|regexpQuery
 argument_list|(

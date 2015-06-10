@@ -1897,6 +1897,9 @@ argument_list|(
 literal|"date_field"
 argument_list|)
 operator|.
+name|fieldType
+argument_list|()
+operator|.
 name|rangeQuery
 argument_list|(
 literal|"10:00:00"
@@ -2175,6 +2178,9 @@ name|smartNameFieldMapper
 argument_list|(
 literal|"date_field"
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 operator|.
 name|rangeQuery
 argument_list|(

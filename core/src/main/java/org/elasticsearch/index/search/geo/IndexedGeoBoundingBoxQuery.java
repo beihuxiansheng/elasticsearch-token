@@ -129,16 +129,15 @@ name|GeoPoint
 name|bottomRight
 parameter_list|,
 name|GeoPointFieldMapper
-name|fieldMapper
+operator|.
+name|GeoPointFieldType
+name|fieldType
 parameter_list|)
 block|{
 if|if
 condition|(
 operator|!
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|isLatLonEnabled
 argument_list|()
@@ -150,9 +149,12 @@ name|IllegalArgumentException
 argument_list|(
 literal|"lat/lon is not enabled (indexed) for field ["
 operator|+
-name|fieldMapper
+name|fieldType
 operator|.
-name|name
+name|names
+argument_list|()
+operator|.
+name|fullName
 argument_list|()
 operator|+
 literal|"], can't use indexed filter on it"
@@ -180,7 +182,7 @@ name|topLeft
 argument_list|,
 name|bottomRight
 argument_list|,
-name|fieldMapper
+name|fieldType
 argument_list|)
 return|;
 block|}
@@ -193,7 +195,7 @@ name|topLeft
 argument_list|,
 name|bottomRight
 argument_list|,
-name|fieldMapper
+name|fieldType
 argument_list|)
 return|;
 block|}
@@ -211,7 +213,9 @@ name|GeoPoint
 name|bottomRight
 parameter_list|,
 name|GeoPointFieldMapper
-name|fieldMapper
+operator|.
+name|GeoPointFieldType
+name|fieldType
 parameter_list|)
 block|{
 name|BooleanQuery
@@ -232,10 +236,7 @@ name|filter
 operator|.
 name|add
 argument_list|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|lonFieldType
 argument_list|()
@@ -265,10 +266,7 @@ name|filter
 operator|.
 name|add
 argument_list|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|lonFieldType
 argument_list|()
@@ -298,10 +296,7 @@ name|filter
 operator|.
 name|add
 argument_list|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|latFieldType
 argument_list|()
@@ -351,7 +346,9 @@ name|GeoPoint
 name|bottomRight
 parameter_list|,
 name|GeoPointFieldMapper
-name|fieldMapper
+operator|.
+name|GeoPointFieldType
+name|fieldType
 parameter_list|)
 block|{
 name|BooleanQuery
@@ -365,10 +362,7 @@ name|filter
 operator|.
 name|add
 argument_list|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|lonFieldType
 argument_list|()
@@ -401,10 +395,7 @@ name|filter
 operator|.
 name|add
 argument_list|(
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|latFieldType
 argument_list|()

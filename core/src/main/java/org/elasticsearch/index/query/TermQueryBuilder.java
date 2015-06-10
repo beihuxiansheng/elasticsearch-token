@@ -82,7 +82,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -303,7 +303,7 @@ name|query
 init|=
 literal|null
 decl_stmt|;
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 init|=
 name|parseContext

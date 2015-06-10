@@ -156,6 +156,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|Mapper
 operator|.
 name|BuilderContext
@@ -415,8 +429,8 @@ name|docValues
 parameter_list|)
 block|{
 specifier|final
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 decl_stmt|;
 specifier|final
 name|BuilderContext
@@ -453,7 +467,7 @@ literal|"string"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -484,6 +498,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -500,7 +517,7 @@ literal|"float"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -526,6 +543,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -542,7 +562,7 @@ literal|"double"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -568,6 +588,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -584,7 +607,7 @@ literal|"long"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -610,6 +633,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -626,7 +652,7 @@ literal|"int"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -652,6 +678,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -668,7 +697,7 @@ literal|"short"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -694,6 +723,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -710,7 +742,7 @@ literal|"byte"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -736,6 +768,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -752,7 +787,7 @@ literal|"geo_point"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -778,6 +813,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -794,7 +832,7 @@ literal|"_parent"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -810,6 +848,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 elseif|else
@@ -826,7 +867,7 @@ literal|"binary"
 argument_list|)
 condition|)
 block|{
-name|mapper
+name|fieldType
 operator|=
 name|MapperBuilders
 operator|.
@@ -852,6 +893,9 @@ name|build
 argument_list|(
 name|context
 argument_list|)
+operator|.
+name|fieldType
+argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -872,7 +916,7 @@ name|ifdService
 operator|.
 name|getForField
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 return|;
 block|}

@@ -1615,10 +1615,6 @@ name|fieldType
 argument_list|,
 name|docValues
 argument_list|,
-name|Defaults
-operator|.
-name|NULL_VALUE
-argument_list|,
 name|ignoreMalformed
 argument_list|,
 name|coerce

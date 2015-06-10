@@ -82,7 +82,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -571,7 +571,7 @@ name|DOUBLE_FIELD_NAME
 argument_list|)
 condition|)
 block|{
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 init|=
 name|context

@@ -553,6 +553,20 @@ operator|.
 name|mapper
 operator|.
 name|MappedFieldType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
+name|MappedFieldType
 operator|.
 name|Loading
 import|;
@@ -6427,7 +6441,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|FieldMapper
+name|MappedFieldType
 argument_list|>
 name|warmUp
 init|=
@@ -6529,6 +6543,9 @@ argument_list|(
 name|indexName
 argument_list|,
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -6602,8 +6619,8 @@ block|{
 for|for
 control|(
 specifier|final
-name|FieldMapper
-name|fieldMapper
+name|MappedFieldType
+name|fieldType
 range|:
 name|warmUp
 operator|.
@@ -6641,7 +6658,7 @@ name|indexFieldDataService
 operator|.
 name|getForField
 argument_list|(
-name|fieldMapper
+name|fieldType
 argument_list|)
 operator|.
 name|load
@@ -6675,10 +6692,7 @@ name|trace
 argument_list|(
 literal|"warmed fielddata for [{}], took [{}]"
 argument_list|,
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -6721,10 +6735,7 @@ literal|"failed to warm-up fielddata for [{}]"
 argument_list|,
 name|t
 argument_list|,
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -6807,7 +6818,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|FieldMapper
+name|MappedFieldType
 argument_list|>
 name|warmUpGlobalOrdinals
 init|=
@@ -6909,6 +6920,9 @@ argument_list|(
 name|indexName
 argument_list|,
 name|fieldMapper
+operator|.
+name|fieldType
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -6950,8 +6964,8 @@ decl_stmt|;
 for|for
 control|(
 specifier|final
-name|FieldMapper
-name|fieldMapper
+name|MappedFieldType
+name|fieldType
 range|:
 name|warmUpGlobalOrdinals
 operator|.
@@ -6994,7 +7008,7 @@ name|indexFieldDataService
 operator|.
 name|getForField
 argument_list|(
-name|fieldMapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 name|ifd
@@ -7033,10 +7047,7 @@ name|trace
 argument_list|(
 literal|"warmed global ordinals for [{}], took [{}]"
 argument_list|,
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -7079,10 +7090,7 @@ literal|"failed to warm-up global ordinals for [{}]"
 argument_list|,
 name|t
 argument_list|,
-name|fieldMapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()

@@ -104,7 +104,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -549,12 +549,12 @@ operator|==
 literal|null
 condition|)
 block|{
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|mapperService
 operator|.
-name|smartNameFieldMapper
+name|smartNameFieldType
 argument_list|(
 name|name
 argument_list|,
@@ -563,7 +563,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|==
 literal|null
 condition|)
@@ -594,7 +594,7 @@ operator|=
 operator|new
 name|FieldLookup
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 expr_stmt|;
 name|cachedFieldData
@@ -621,9 +621,6 @@ name|String
 name|fieldName
 init|=
 name|data
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|fieldType
 argument_list|()
@@ -658,7 +655,7 @@ name|postProcess
 argument_list|(
 name|data
 operator|.
-name|mapper
+name|fieldType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -680,9 +677,6 @@ operator|.
 name|get
 argument_list|(
 name|data
-operator|.
-name|mapper
-argument_list|()
 operator|.
 name|fieldType
 argument_list|()

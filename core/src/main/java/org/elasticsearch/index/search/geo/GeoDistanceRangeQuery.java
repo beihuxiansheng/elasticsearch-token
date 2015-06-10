@@ -376,7 +376,9 @@ name|GeoDistance
 name|geoDistance
 parameter_list|,
 name|GeoPointFieldMapper
-name|mapper
+operator|.
+name|GeoPointFieldType
+name|fieldType
 parameter_list|,
 name|IndexGeoPointFieldData
 name|indexFieldData
@@ -617,7 +619,7 @@ operator|.
 name|bottomRight
 argument_list|()
 argument_list|,
-name|mapper
+name|fieldType
 argument_list|)
 expr_stmt|;
 name|distanceBoundingCheck

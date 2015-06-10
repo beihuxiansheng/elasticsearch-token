@@ -314,7 +314,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -733,8 +733,8 @@ name|IOException
 block|{
 comment|// now, the field must exist, else we cannot read the value for
 comment|// the doc later
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -745,7 +745,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|==
 literal|null
 condition|)
@@ -772,9 +772,11 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|instanceof
 name|DateFieldMapper
+operator|.
+name|DateFieldType
 condition|)
 block|{
 return|return
@@ -788,8 +790,10 @@ name|parseContext
 argument_list|,
 operator|(
 name|DateFieldMapper
+operator|.
+name|DateFieldType
 operator|)
-name|mapper
+name|fieldType
 argument_list|,
 name|mode
 argument_list|)
@@ -798,9 +802,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|instanceof
 name|GeoPointFieldMapper
+operator|.
+name|GeoPointFieldType
 condition|)
 block|{
 return|return
@@ -814,8 +820,10 @@ name|parseContext
 argument_list|,
 operator|(
 name|GeoPointFieldMapper
+operator|.
+name|GeoPointFieldType
 operator|)
-name|mapper
+name|fieldType
 argument_list|,
 name|mode
 argument_list|)
@@ -824,9 +832,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|instanceof
 name|NumberFieldMapper
+operator|.
+name|NumberFieldType
 condition|)
 block|{
 return|return
@@ -840,8 +850,10 @@ name|parseContext
 argument_list|,
 operator|(
 name|NumberFieldMapper
+operator|.
+name|NumberFieldType
 operator|)
-name|mapper
+name|fieldType
 argument_list|,
 name|mode
 argument_list|)
@@ -861,10 +873,7 @@ name|fieldName
 operator|+
 literal|" is of type "
 operator|+
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|+
 literal|", but only numeric types are supported."
 argument_list|)
@@ -886,7 +895,9 @@ name|QueryParseContext
 name|parseContext
 parameter_list|,
 name|NumberFieldMapper
-name|mapper
+operator|.
+name|NumberFieldType
+name|fieldType
 parameter_list|,
 name|MultiValueMode
 name|mode
@@ -1114,7 +1125,7 @@ name|parseContext
 operator|.
 name|getForField
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 return|return
@@ -1153,7 +1164,9 @@ name|QueryParseContext
 name|parseContext
 parameter_list|,
 name|GeoPointFieldMapper
-name|mapper
+operator|.
+name|GeoPointFieldType
+name|fieldType
 parameter_list|,
 name|MultiValueMode
 name|mode
@@ -1399,7 +1412,7 @@ name|parseContext
 operator|.
 name|getForField
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 return|return
@@ -1438,7 +1451,9 @@ name|QueryParseContext
 name|parseContext
 parameter_list|,
 name|DateFieldMapper
-name|dateFieldMapper
+operator|.
+name|DateFieldType
+name|dateFieldType
 parameter_list|,
 name|MultiValueMode
 name|mode
@@ -1632,10 +1647,7 @@ condition|)
 block|{
 name|origin
 operator|=
-name|dateFieldMapper
-operator|.
-name|fieldType
-argument_list|()
+name|dateFieldType
 operator|.
 name|parseToMilliseconds
 argument_list|(
@@ -1740,7 +1752,7 @@ name|parseContext
 operator|.
 name|getForField
 argument_list|(
-name|dateFieldMapper
+name|dateFieldType
 argument_list|)
 decl_stmt|;
 return|return

@@ -1066,8 +1066,8 @@ name|IndexSettings
 name|Settings
 name|indexSettings
 parameter_list|,
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 parameter_list|,
 name|IndexFieldDataCache
 name|cache

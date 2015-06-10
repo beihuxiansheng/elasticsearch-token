@@ -98,7 +98,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -300,7 +300,7 @@ name|this
 operator|.
 name|fieldName
 decl_stmt|;
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 init|=
 name|context
@@ -320,9 +320,6 @@ block|{
 name|fieldName
 operator|=
 name|mapper
-operator|.
-name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()

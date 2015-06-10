@@ -156,7 +156,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -931,7 +931,7 @@ name|query
 init|=
 literal|null
 decl_stmt|;
-name|FieldMapper
+name|MappedFieldType
 name|mapper
 init|=
 name|parseContext
@@ -955,6 +955,8 @@ condition|(
 name|mapper
 operator|instanceof
 name|DateFieldMapper
+operator|.
+name|DateFieldType
 condition|)
 block|{
 name|DateMathParser
@@ -1018,12 +1020,11 @@ operator|=
 operator|(
 operator|(
 name|DateFieldMapper
+operator|.
+name|DateFieldType
 operator|)
 name|mapper
 operator|)
-operator|.
-name|fieldType
-argument_list|()
 operator|.
 name|rangeQuery
 argument_list|(

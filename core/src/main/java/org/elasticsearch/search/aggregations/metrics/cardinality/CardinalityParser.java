@@ -447,10 +447,12 @@ operator|.
 name|fieldContext
 argument_list|()
 operator|.
-name|mapper
+name|fieldType
 argument_list|()
 operator|instanceof
 name|Murmur3FieldMapper
+operator|.
+name|Murmur3FieldType
 condition|)
 block|{
 name|rehash

@@ -184,7 +184,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -1055,8 +1055,8 @@ block|}
 name|String
 name|field
 decl_stmt|;
-name|FieldMapper
-name|mapper
+name|MappedFieldType
+name|fieldType
 init|=
 name|parseContext
 operator|.
@@ -1067,17 +1067,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
 block|{
 name|field
 operator|=
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1107,17 +1104,14 @@ condition|)
 block|{
 if|if
 condition|(
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
 block|{
 name|analyzer
 operator|=
-name|mapper
-operator|.
 name|fieldType
-argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1129,7 +1123,7 @@ name|analyzer
 operator|==
 literal|null
 operator|&&
-name|mapper
+name|fieldType
 operator|!=
 literal|null
 condition|)
@@ -1140,7 +1134,7 @@ name|parseContext
 operator|.
 name|getSearchAnalyzer
 argument_list|(
-name|mapper
+name|fieldType
 argument_list|)
 expr_stmt|;
 block|}
@@ -1214,7 +1208,7 @@ name|maxTermFrequency
 argument_list|,
 name|disableCoords
 argument_list|,
-name|mapper
+name|fieldType
 argument_list|)
 decl_stmt|;
 name|commonsQuery
