@@ -1919,16 +1919,6 @@ argument_list|,
 name|expectedValue
 argument_list|)
 expr_stmt|;
-comment|// TODO: Remove after dynamic mapping flushing is implemented
-name|waitForConcreteMappingsOnAll
-argument_list|(
-name|indexName
-argument_list|,
-name|typeName
-argument_list|,
-literal|"value"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info

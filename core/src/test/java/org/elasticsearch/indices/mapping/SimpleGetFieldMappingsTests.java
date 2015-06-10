@@ -1529,16 +1529,6 @@ expr_stmt|;
 name|ensureYellow
 argument_list|()
 expr_stmt|;
-name|waitForConcreteMappingsOnAll
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type"
-argument_list|,
-literal|"num"
-argument_list|)
-expr_stmt|;
-comment|// for num, we need to wait...
 name|GetFieldMappingsResponse
 name|response
 init|=
