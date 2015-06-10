@@ -847,13 +847,6 @@ argument_list|)
 operator|)
 condition|)
 block|{
-name|values
-operator|.
-name|offer
-argument_list|(
-name|thisBucketValue
-argument_list|)
-expr_stmt|;
 comment|// Some models (e.g. HoltWinters) have certain preconditions that must be met
 if|if
 condition|(
@@ -1043,6 +1036,13 @@ operator|=
 name|counter
 expr_stmt|;
 block|}
+name|values
+operator|.
+name|offer
+argument_list|(
+name|thisBucketValue
+argument_list|)
+expr_stmt|;
 block|}
 name|counter
 operator|+=
