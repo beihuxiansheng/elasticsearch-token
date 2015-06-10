@@ -208,9 +208,9 @@ name|index
 operator|.
 name|merge
 operator|.
-name|policy
+name|scheduler
 operator|.
-name|TieredMergePolicyProvider
+name|ConcurrentMergeSchedulerProvider
 import|;
 end_import
 
@@ -222,11 +222,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|merge
+name|shard
 operator|.
-name|scheduler
-operator|.
-name|ConcurrentMergeSchedulerProvider
+name|MergePolicyConfig
 import|;
 end_import
 
@@ -1192,7 +1190,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
@@ -1201,7 +1199,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
@@ -2260,7 +2258,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
@@ -2269,7 +2267,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
@@ -2491,7 +2489,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
@@ -2500,7 +2498,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,

@@ -246,9 +246,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|merge
-operator|.
-name|policy
+name|shard
 operator|.
 name|ElasticsearchMergePolicy
 import|;

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.merge.policy
+DECL|package|org.elasticsearch.index.shard
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|merge
-operator|.
-name|policy
+name|shard
 package|;
 end_package
 

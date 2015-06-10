@@ -66,6 +66,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|MergePolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|QueryCache
@@ -225,22 +239,6 @@ operator|.
 name|indexing
 operator|.
 name|ShardIndexingService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
-name|policy
-operator|.
-name|MergePolicyProvider
 import|;
 end_import
 
@@ -489,11 +487,11 @@ specifier|final
 name|SnapshotDeletionPolicy
 name|deletionPolicy
 decl_stmt|;
-DECL|field|mergePolicyProvider
+DECL|field|mergePolicy
 specifier|private
 specifier|final
-name|MergePolicyProvider
-name|mergePolicyProvider
+name|MergePolicy
+name|mergePolicy
 decl_stmt|;
 DECL|field|mergeScheduler
 specifier|private
@@ -738,8 +736,8 @@ parameter_list|,
 name|SnapshotDeletionPolicy
 name|deletionPolicy
 parameter_list|,
-name|MergePolicyProvider
-name|mergePolicyProvider
+name|MergePolicy
+name|mergePolicy
 parameter_list|,
 name|MergeSchedulerProvider
 name|mergeScheduler
@@ -815,9 +813,9 @@ name|deletionPolicy
 expr_stmt|;
 name|this
 operator|.
-name|mergePolicyProvider
+name|mergePolicy
 operator|=
-name|mergePolicyProvider
+name|mergePolicy
 expr_stmt|;
 name|this
 operator|.
@@ -1328,15 +1326,15 @@ return|return
 name|deletionPolicy
 return|;
 block|}
-comment|/**      * Returns the {@link org.elasticsearch.index.merge.policy.MergePolicyProvider} used to obtain      * a {@link org.apache.lucene.index.MergePolicy} for the engines {@link org.apache.lucene.index.IndexWriter}      */
-DECL|method|getMergePolicyProvider
+comment|/**      * Returns the {@link org.apache.lucene.index.MergePolicy} for the engines {@link org.apache.lucene.index.IndexWriter}      */
+DECL|method|getMergePolicy
 specifier|public
-name|MergePolicyProvider
-name|getMergePolicyProvider
+name|MergePolicy
+name|getMergePolicy
 parameter_list|()
 block|{
 return|return
-name|mergePolicyProvider
+name|mergePolicy
 return|;
 block|}
 comment|/**      * Returns the {@link org.elasticsearch.index.merge.scheduler.MergeSchedulerProvider} used to obtain      * a {@link org.apache.lucene.index.MergeScheduler} for the engines {@link org.apache.lucene.index.IndexWriter}      */

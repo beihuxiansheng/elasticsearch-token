@@ -312,11 +312,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|merge
+name|query
 operator|.
-name|policy
-operator|.
-name|MergePolicyModule
+name|QueryBuilders
 import|;
 end_import
 
@@ -328,9 +326,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|shard
 operator|.
-name|QueryBuilders
+name|MergePolicyConfig
 import|;
 end_import
 
@@ -345,18 +343,6 @@ operator|.
 name|recovery
 operator|.
 name|RecoverySettings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|node
-operator|.
-name|Node
 import|;
 end_import
 
@@ -491,22 +477,6 @@ operator|.
 name|hamcrest
 operator|.
 name|ElasticsearchAssertions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
-name|NoMergePolicyProvider
 import|;
 end_import
 
@@ -878,13 +848,11 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|MergePolicyModule
+name|MergePolicyConfig
 operator|.
-name|MERGE_POLICY_TYPE_KEY
+name|INDEX_MERGE_ENABLED
 argument_list|,
-name|NoMergePolicyProvider
-operator|.
-name|class
+literal|false
 argument_list|)
 comment|// disable merging so no segments will be upgraded
 operator|.

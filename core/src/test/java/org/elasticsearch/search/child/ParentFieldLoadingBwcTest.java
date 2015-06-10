@@ -262,20 +262,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MappedFieldType
 import|;
 end_import
@@ -302,11 +288,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|merge
+name|shard
 operator|.
-name|policy
-operator|.
-name|MergePolicyModule
+name|IndexShard
 import|;
 end_import
 
@@ -320,7 +304,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|MergePolicyConfig
 import|;
 end_import
 
@@ -345,22 +329,6 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
-name|NoMergePolicyProvider
 import|;
 end_import
 
@@ -574,13 +542,11 @@ comment|// We never want merges in this test to ensure we have two segments for 
 operator|.
 name|put
 argument_list|(
-name|MergePolicyModule
+name|MergePolicyConfig
 operator|.
-name|MERGE_POLICY_TYPE_KEY
+name|INDEX_MERGE_ENABLED
 argument_list|,
-name|NoMergePolicyProvider
-operator|.
-name|class
+literal|false
 argument_list|)
 operator|.
 name|put
