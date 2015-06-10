@@ -409,6 +409,21 @@ operator|.
 name|NAME
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|fieldNamesFieldType
+operator|==
+literal|null
+condition|)
+block|{
+comment|// can only happen when no types exist, so no docs exist either
+return|return
+name|Queries
+operator|.
+name|newMatchNoDocsQuery
+argument_list|()
+return|;
+block|}
 name|MapperService
 operator|.
 name|SmartNameObjectMapper
