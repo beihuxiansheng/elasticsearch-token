@@ -72,9 +72,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|State
 import|;

@@ -166,9 +166,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
-operator|.
-name|SnapshotMetaData
+name|SnapshotsInProgress
 import|;
 end_import
 
@@ -536,7 +534,7 @@ name|Exception
 block|{
 name|List
 argument_list|<
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|Entry
 argument_list|>
@@ -592,7 +590,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|Entry
 name|entry
@@ -602,7 +600,7 @@ control|)
 block|{
 for|for
 control|(
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|ShardSnapshotStatus
 name|status
@@ -767,7 +765,7 @@ try|try
 block|{
 name|List
 argument_list|<
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|Entry
 argument_list|>
@@ -869,7 +867,7 @@ name|request
 parameter_list|,
 name|List
 argument_list|<
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|Entry
 argument_list|>
@@ -950,7 +948,7 @@ expr_stmt|;
 block|}
 for|for
 control|(
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|Entry
 name|entry
@@ -989,7 +987,7 @@ name|Entry
 argument_list|<
 name|ShardId
 argument_list|,
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|ShardSnapshotStatus
 argument_list|>
@@ -1004,7 +1002,7 @@ name|entrySet
 argument_list|()
 control|)
 block|{
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|ShardSnapshotStatus
 name|status
@@ -1389,7 +1387,7 @@ argument_list|)
 expr_stmt|;
 block|}
 specifier|final
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|State
 name|state
@@ -1407,7 +1405,7 @@ name|FAILED
 case|:
 name|state
 operator|=
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|State
 operator|.
@@ -1424,7 +1422,7 @@ comment|// Translating both PARTIAL and SUCCESS to SUCCESS for now
 comment|// TODO: add the differentiation on the metadata level in the next major release
 name|state
 operator|=
-name|SnapshotMetaData
+name|SnapshotsInProgress
 operator|.
 name|State
 operator|.
