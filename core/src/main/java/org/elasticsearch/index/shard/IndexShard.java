@@ -1733,9 +1733,6 @@ parameter_list|,
 name|ShardIndexingService
 name|indexingService
 parameter_list|,
-name|ShardGetService
-name|getService
-parameter_list|,
 name|ShardSearchService
 name|searchService
 parameter_list|,
@@ -1928,11 +1925,12 @@ name|this
 operator|.
 name|getService
 operator|=
-name|getService
-operator|.
-name|setIndexShard
+operator|new
+name|ShardGetService
 argument_list|(
 name|this
+argument_list|,
+name|mapperService
 argument_list|)
 expr_stmt|;
 name|this
