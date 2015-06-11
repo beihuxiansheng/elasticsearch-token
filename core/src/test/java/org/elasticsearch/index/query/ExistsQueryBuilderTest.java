@@ -90,6 +90,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -179,6 +195,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fails with random seeds given here http://build-us-00.elastic.co/job/es_feature_query_refactoring/2011/"
+argument_list|)
 DECL|class|ExistsQueryBuilderTest
 specifier|public
 class|class
