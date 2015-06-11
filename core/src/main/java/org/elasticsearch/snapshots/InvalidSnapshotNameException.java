@@ -20,16 +20,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchWrapperException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -61,8 +51,6 @@ class|class
 name|InvalidSnapshotNameException
 extends|extends
 name|SnapshotException
-implements|implements
-name|ElasticsearchWrapperException
 block|{
 DECL|method|InvalidSnapshotNameException
 specifier|public

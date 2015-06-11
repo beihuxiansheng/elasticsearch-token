@@ -49,8 +49,6 @@ class|class
 name|SnapshotCreationException
 extends|extends
 name|SnapshotException
-implements|implements
-name|ElasticsearchWrapperException
 block|{
 DECL|method|SnapshotCreationException
 specifier|public
