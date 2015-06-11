@@ -69,24 +69,6 @@ argument_list|<
 name|TermQueryBuilder
 argument_list|>
 block|{
-annotation|@
-name|Override
-DECL|method|createEmptyQueryBuilder
-specifier|protected
-name|TermQueryBuilder
-name|createEmptyQueryBuilder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|TermQueryBuilder
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
-return|;
-block|}
 comment|/**      * @return a TermQuery with random field name and value, optional random boost and queryname      */
 annotation|@
 name|Override

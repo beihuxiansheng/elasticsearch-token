@@ -1065,7 +1065,7 @@ decl_stmt|;
 name|Query
 name|exists
 init|=
-name|ExistsQueryParser
+name|ExistsQueryBuilder
 operator|.
 name|newFilter
 argument_list|(

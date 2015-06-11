@@ -90,20 +90,6 @@ return|return
 name|matchAllDocsQuery
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createEmptyQueryBuilder
-specifier|protected
-name|MatchAllQueryBuilder
-name|createEmptyQueryBuilder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|MatchAllQueryBuilder
-argument_list|()
-return|;
-block|}
 comment|/**      * @return a MatchAllQuery with random boost between 0.1f and 2.0f      */
 annotation|@
 name|Override

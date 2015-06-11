@@ -79,22 +79,6 @@ name|newMatchAllQuery
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createEmptyQueryBuilder
-specifier|protected
-name|LimitQueryBuilder
-name|createEmptyQueryBuilder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|LimitQueryBuilder
-argument_list|(
-literal|0
-argument_list|)
-return|;
-block|}
 comment|/**      * @return a LimitQueryBuilder with random limit between 0 and 20      */
 annotation|@
 name|Override

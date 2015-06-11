@@ -1101,22 +1101,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|createEmptyQueryBuilder
-specifier|protected
-name|RangeQueryBuilder
-name|createEmptyQueryBuilder
-parameter_list|()
-block|{
-return|return
-operator|new
-name|RangeQueryBuilder
-argument_list|(
-literal|null
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 
