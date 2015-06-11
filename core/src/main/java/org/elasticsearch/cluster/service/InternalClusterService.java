@@ -1861,7 +1861,14 @@ argument_list|()
 assert|;
 name|source
 operator|=
-literal|"unknown"
+literal|"unknown ["
+operator|+
+name|task
+operator|.
+name|getClass
+argument_list|()
+operator|+
+literal|"]"
 expr_stmt|;
 name|timeInQueue
 operator|=
