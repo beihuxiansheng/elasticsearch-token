@@ -76,6 +76,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|MergeSchedulerConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|lucene
@@ -239,22 +253,6 @@ operator|.
 name|indexing
 operator|.
 name|ShardIndexingService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
-name|scheduler
-operator|.
-name|MergeSchedulerProvider
 import|;
 end_import
 
@@ -493,11 +491,11 @@ specifier|final
 name|MergePolicy
 name|mergePolicy
 decl_stmt|;
-DECL|field|mergeScheduler
+DECL|field|mergeSchedulerConfig
 specifier|private
 specifier|final
-name|MergeSchedulerProvider
-name|mergeScheduler
+name|MergeSchedulerConfig
+name|mergeSchedulerConfig
 decl_stmt|;
 DECL|field|analyzer
 specifier|private
@@ -739,8 +737,8 @@ parameter_list|,
 name|MergePolicy
 name|mergePolicy
 parameter_list|,
-name|MergeSchedulerProvider
-name|mergeScheduler
+name|MergeSchedulerConfig
+name|mergeSchedulerConfig
 parameter_list|,
 name|Analyzer
 name|analyzer
@@ -819,9 +817,9 @@ name|mergePolicy
 expr_stmt|;
 name|this
 operator|.
-name|mergeScheduler
+name|mergeSchedulerConfig
 operator|=
-name|mergeScheduler
+name|mergeSchedulerConfig
 expr_stmt|;
 name|this
 operator|.
@@ -1337,15 +1335,15 @@ return|return
 name|mergePolicy
 return|;
 block|}
-comment|/**      * Returns the {@link org.elasticsearch.index.merge.scheduler.MergeSchedulerProvider} used to obtain      * a {@link org.apache.lucene.index.MergeScheduler} for the engines {@link org.apache.lucene.index.IndexWriter}      */
-DECL|method|getMergeScheduler
+comment|/**      * Returns the {@link MergeSchedulerConfig}      */
+DECL|method|getMergeSchedulerConfig
 specifier|public
-name|MergeSchedulerProvider
-name|getMergeScheduler
+name|MergeSchedulerConfig
+name|getMergeSchedulerConfig
 parameter_list|()
 block|{
 return|return
-name|mergeScheduler
+name|mergeSchedulerConfig
 return|;
 block|}
 comment|/**      * Returns a listener that should be called on engine failure      */

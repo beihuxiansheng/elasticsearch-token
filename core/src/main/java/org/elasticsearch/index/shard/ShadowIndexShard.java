@@ -332,9 +332,7 @@ name|index
 operator|.
 name|merge
 operator|.
-name|scheduler
-operator|.
-name|MergeSchedulerProvider
+name|MergeStats
 import|;
 end_import
 
@@ -561,9 +559,6 @@ parameter_list|,
 name|Store
 name|store
 parameter_list|,
-name|MergeSchedulerProvider
-name|mergeScheduler
-parameter_list|,
 name|ThreadPool
 name|threadPool
 parameter_list|,
@@ -662,8 +657,6 @@ argument_list|,
 name|indicesLifecycle
 argument_list|,
 name|store
-argument_list|,
-name|mergeScheduler
 argument_list|,
 name|threadPool
 argument_list|,
@@ -766,6 +759,20 @@ argument_list|,
 name|persistState
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|mergeStats
+specifier|public
+name|MergeStats
+name|mergeStats
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MergeStats
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
