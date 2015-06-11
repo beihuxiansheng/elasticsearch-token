@@ -133,12 +133,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ShardSuggestService
+DECL|class|ShardSuggestMetric
 specifier|public
+specifier|final
 class|class
-name|ShardSuggestService
-extends|extends
-name|AbstractIndexShardComponent
+name|ShardSuggestMetric
 block|{
 DECL|field|suggestMetric
 specifier|private
@@ -160,29 +159,6 @@ operator|new
 name|CounterMetric
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
-DECL|method|ShardSuggestService
-specifier|public
-name|ShardSuggestService
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
-annotation|@
-name|IndexSettings
-name|Settings
-name|indexSettings
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|shardId
-argument_list|,
-name|indexSettings
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * Called before suggest      */
 DECL|method|preSuggest
 specifier|public

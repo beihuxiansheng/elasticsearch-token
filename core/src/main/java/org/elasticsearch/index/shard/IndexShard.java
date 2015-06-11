@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|*
+name|CheckIndex
 import|;
 end_import
 
@@ -1008,7 +1008,7 @@ name|suggest
 operator|.
 name|stats
 operator|.
-name|ShardSuggestService
+name|ShardSuggestMetric
 import|;
 end_import
 
@@ -1470,11 +1470,15 @@ specifier|final
 name|IndexService
 name|indexService
 decl_stmt|;
-DECL|field|shardSuggestService
+DECL|field|shardSuggestMetric
 specifier|private
 specifier|final
-name|ShardSuggestService
-name|shardSuggestService
+name|ShardSuggestMetric
+name|shardSuggestMetric
+init|=
+operator|new
+name|ShardSuggestMetric
+argument_list|()
 decl_stmt|;
 DECL|field|shardBitsetFilterCache
 specifier|private
@@ -1762,9 +1766,6 @@ parameter_list|,
 name|IndexService
 name|indexService
 parameter_list|,
-name|ShardSuggestService
-name|shardSuggestService
-parameter_list|,
 name|ShardQueryCache
 name|shardQueryCache
 parameter_list|,
@@ -1998,12 +1999,6 @@ operator|.
 name|indexService
 operator|=
 name|indexService
-expr_stmt|;
-name|this
-operator|.
-name|shardSuggestService
-operator|=
-name|shardSuggestService
 expr_stmt|;
 name|this
 operator|.
@@ -2245,14 +2240,14 @@ return|return
 name|termVectorsService
 return|;
 block|}
-DECL|method|shardSuggestService
+DECL|method|getSuggestMetric
 specifier|public
-name|ShardSuggestService
-name|shardSuggestService
+name|ShardSuggestMetric
+name|getSuggestMetric
 parameter_list|()
 block|{
 return|return
-name|shardSuggestService
+name|shardSuggestMetric
 return|;
 block|}
 DECL|method|shardBitsetFilterCache
@@ -4301,7 +4296,7 @@ name|suggestStats
 parameter_list|()
 block|{
 return|return
-name|shardSuggestService
+name|shardSuggestMetric
 operator|.
 name|stats
 argument_list|()
