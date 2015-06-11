@@ -1919,16 +1919,6 @@ argument_list|,
 name|expectedValue
 argument_list|)
 expr_stmt|;
-comment|// TODO: Remove after dynamic mapping flushing is implemented
-name|waitForConcreteMappingsOnAll
-argument_list|(
-name|indexName
-argument_list|,
-name|typeName
-argument_list|,
-literal|"value"
-argument_list|)
-expr_stmt|;
 name|logger
 operator|.
 name|info
@@ -8659,7 +8649,7 @@ name|repo
 operator|.
 name|resolve
 argument_list|(
-literal|"metadata-test-snap-1"
+literal|"meta-test-snap-1.dat"
 argument_list|)
 decl_stmt|;
 name|Files

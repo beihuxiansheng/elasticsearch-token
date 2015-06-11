@@ -6907,7 +6907,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// we should have created a mapping for this field
-name|waitForMappingOnMaster
+name|assertMappingOnMaster
 argument_list|(
 literal|"test"
 argument_list|,

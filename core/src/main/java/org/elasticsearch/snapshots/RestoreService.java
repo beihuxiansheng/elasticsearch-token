@@ -1005,6 +1005,8 @@ name|readSnapshotMetaData
 argument_list|(
 name|snapshotId
 argument_list|,
+name|snapshot
+argument_list|,
 name|filteredIndices
 argument_list|)
 decl_stmt|;

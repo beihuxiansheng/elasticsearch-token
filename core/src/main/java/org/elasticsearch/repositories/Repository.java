@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -138,13 +124,16 @@ name|SnapshotId
 name|snapshotId
 parameter_list|)
 function_decl|;
-comment|/**      * Returns global metadata associate with the snapshot.      *<p/>      * The returned meta data contains global metadata as well as metadata for all indices listed in the indices parameter.      *      * @param snapshotId snapshot ID      * @param indices    list of indices      * @return information about snapshot      */
+comment|/**      * Returns global metadata associate with the snapshot.      *<p/>      * The returned meta data contains global metadata as well as metadata for all indices listed in the indices parameter.      *      * @param snapshot snapshot      * @param indices    list of indices      * @return information about snapshot      */
 DECL|method|readSnapshotMetaData
 name|MetaData
 name|readSnapshotMetaData
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|Snapshot
+name|snapshot
 parameter_list|,
 name|List
 argument_list|<
