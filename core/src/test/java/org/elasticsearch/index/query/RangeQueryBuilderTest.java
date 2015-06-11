@@ -1046,61 +1046,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Specifying a timezone together with a numeric range query should throw an error.      */
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|QueryParsingException
-operator|.
-name|class
-argument_list|)
-DECL|method|testToQueryNonDateWithTimezone
-specifier|public
-name|void
-name|testToQueryNonDateWithTimezone
-parameter_list|()
-throws|throws
-name|QueryParsingException
-throws|,
-name|IOException
-block|{
-name|RangeQueryBuilder
-name|query
-init|=
-operator|new
-name|RangeQueryBuilder
-argument_list|(
-name|INT_FIELD_NAME
-argument_list|)
-decl_stmt|;
-name|query
-operator|.
-name|from
-argument_list|(
-literal|1
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|10
-argument_list|)
-operator|.
-name|timeZone
-argument_list|(
-literal|"UTC"
-argument_list|)
-expr_stmt|;
-name|query
-operator|.
-name|toQuery
-argument_list|(
-name|createContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+comment|//    /**
+comment|//     * Specifying a timezone together with a numeric range query should throw an error.
+comment|//     */
+comment|//    @Test(expected=QueryParsingException.class)
+comment|//    public void testToQueryNonDateWithTimezone() throws QueryParsingException, IOException {
+comment|//        RangeQueryBuilder query = new RangeQueryBuilder(INT_FIELD_NAME);
+comment|//        query.from(1).to(10).timeZone("UTC");
+comment|//        query.toQuery(createContext());
+comment|//    }
 block|}
 end_class
 
