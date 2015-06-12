@@ -126,6 +126,17 @@ parameter_list|()
 block|{      }
 annotation|@
 name|Override
+DECL|method|removeAndEnsureHealthy
+specifier|public
+name|void
+name|removeAndEnsureHealthy
+parameter_list|(
+name|InternalTestCluster
+name|cluster
+parameter_list|)
+block|{      }
+annotation|@
+name|Override
 DECL|method|expectedTimeToHeal
 specifier|public
 name|TimeValue

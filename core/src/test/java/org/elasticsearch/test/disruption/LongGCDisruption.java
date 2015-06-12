@@ -44,6 +44,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalTestCluster
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -81,6 +93,18 @@ operator|.
 name|regex
 operator|.
 name|Pattern
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
 import|;
 end_import
 
@@ -222,6 +246,28 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|removeAndEnsureHealthy
+specifier|public
+name|void
+name|removeAndEnsureHealthy
+parameter_list|(
+name|InternalTestCluster
+name|cluster
+parameter_list|)
+block|{
+name|removeFromCluster
+argument_list|(
+name|cluster
+argument_list|)
+expr_stmt|;
+name|ensureNodeCount
+argument_list|(
+name|cluster
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
