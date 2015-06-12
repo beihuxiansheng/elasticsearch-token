@@ -191,9 +191,9 @@ comment|/**  * A bridge to evaluate an {@link Expression} against {@link Binding
 end_comment
 
 begin_class
-DECL|class|ExpressionScript
+DECL|class|ExpressionSearchScript
 class|class
-name|ExpressionScript
+name|ExpressionSearchScript
 implements|implements
 name|SearchScript
 block|{
@@ -226,8 +226,8 @@ DECL|field|docid
 name|int
 name|docid
 decl_stmt|;
-DECL|method|ExpressionScript
-name|ExpressionScript
+DECL|method|ExpressionSearchScript
+name|ExpressionSearchScript
 parameter_list|(
 name|Expression
 name|e

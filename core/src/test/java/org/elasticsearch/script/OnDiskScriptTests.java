@@ -1281,7 +1281,7 @@ operator|.
 name|getCause
 argument_list|()
 operator|.
-name|toString
+name|getMessage
 argument_list|()
 argument_list|,
 name|containsString
