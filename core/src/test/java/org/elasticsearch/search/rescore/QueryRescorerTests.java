@@ -718,7 +718,7 @@ name|add
 argument_list|(
 name|ScoreFunctionBuilders
 operator|.
-name|factorFunction
+name|weightFactorFunction
 argument_list|(
 literal|100
 argument_list|)
