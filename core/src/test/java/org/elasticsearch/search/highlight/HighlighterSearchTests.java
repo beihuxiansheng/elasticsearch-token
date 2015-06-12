@@ -8526,7 +8526,7 @@ name|INTERNAL_SERVER_ERROR
 argument_list|,
 name|containsString
 argument_list|(
-literal|"String index out of range"
+literal|"IndexOutOfBoundsException"
 argument_list|)
 argument_list|)
 expr_stmt|;

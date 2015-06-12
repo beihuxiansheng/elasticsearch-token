@@ -376,6 +376,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|fielddata
+operator|.
+name|ShardFieldData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|DocumentMapper
@@ -423,6 +437,20 @@ operator|.
 name|mapper
 operator|.
 name|Uid
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|merge
+operator|.
+name|MergeStats
 import|;
 end_import
 
@@ -1091,6 +1119,18 @@ name|SegmentInfos
 name|getLastCommittedSegmentInfos
 parameter_list|()
 function_decl|;
+DECL|method|getMergeStats
+specifier|public
+name|MergeStats
+name|getMergeStats
+parameter_list|()
+block|{
+return|return
+operator|new
+name|MergeStats
+argument_list|()
+return|;
+block|}
 comment|/** A throttling class that can be activated, causing the      * {@code acquireThrottle} method to block on a lock when throttling      * is enabled      */
 DECL|class|IndexThrottle
 specifier|protected
@@ -5582,6 +5622,12 @@ argument_list|)
 return|;
 block|}
 block|}
+DECL|method|onSettingsChanged
+specifier|public
+name|void
+name|onSettingsChanged
+parameter_list|()
+block|{}
 block|}
 end_class
 

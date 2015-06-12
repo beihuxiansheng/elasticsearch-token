@@ -72,6 +72,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|MergeSchedulerConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -206,27 +220,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|merge
+name|shard
 operator|.
-name|policy
-operator|.
-name|TieredMergePolicyProvider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|merge
-operator|.
-name|scheduler
-operator|.
-name|ConcurrentMergeSchedulerProvider
+name|MergePolicyConfig
 import|;
 end_import
 
@@ -1192,7 +1188,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
@@ -1201,7 +1197,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
@@ -1210,7 +1206,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_THREAD_COUNT
 argument_list|,
@@ -1219,7 +1215,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_MERGE_COUNT
 argument_list|,
@@ -2260,7 +2256,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
@@ -2269,7 +2265,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
@@ -2278,7 +2274,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_THREAD_COUNT
 argument_list|,
@@ -2287,7 +2283,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_MERGE_COUNT
 argument_list|,
@@ -2296,7 +2292,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|AUTO_THROTTLE
 argument_list|,
@@ -2329,7 +2325,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|AUTO_THROTTLE
 argument_list|,
@@ -2377,7 +2373,7 @@ name|getSetting
 argument_list|(
 literal|"test"
 argument_list|,
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|AUTO_THROTTLE
 argument_list|)
@@ -2491,7 +2487,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_MAX_MERGE_AT_ONCE
 argument_list|,
@@ -2500,7 +2496,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TieredMergePolicyProvider
+name|MergePolicyConfig
 operator|.
 name|INDEX_MERGE_POLICY_SEGMENTS_PER_TIER
 argument_list|,
@@ -2509,7 +2505,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_THREAD_COUNT
 argument_list|,
@@ -2518,7 +2514,7 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_MERGE_COUNT
 argument_list|,
@@ -2558,7 +2554,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_THREAD_COUNT
 argument_list|,
@@ -2606,7 +2602,7 @@ name|getSetting
 argument_list|(
 literal|"test"
 argument_list|,
-name|ConcurrentMergeSchedulerProvider
+name|MergeSchedulerConfig
 operator|.
 name|MAX_THREAD_COUNT
 argument_list|)

@@ -326,7 +326,7 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
-comment|// We are writing to the cluster metadata and reading from indices - so we need to check both blocks
+comment|// We are reading the cluster metadata and indices - so we need to check both blocks
 name|ClusterBlockException
 name|clusterBlockException
 init|=
@@ -339,7 +339,7 @@ name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA_WRITE
+name|METADATA_READ
 argument_list|)
 decl_stmt|;
 if|if

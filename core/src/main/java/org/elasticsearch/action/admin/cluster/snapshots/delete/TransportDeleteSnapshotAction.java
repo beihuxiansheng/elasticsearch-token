@@ -314,6 +314,7 @@ name|ClusterState
 name|state
 parameter_list|)
 block|{
+comment|// Cluster is not affected but we look up repositories in metadata
 return|return
 name|state
 operator|.
@@ -324,7 +325,7 @@ name|globalBlockedException
 argument_list|(
 name|ClusterBlockLevel
 operator|.
-name|METADATA_WRITE
+name|METADATA_READ
 argument_list|)
 return|;
 block|}

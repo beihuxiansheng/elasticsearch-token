@@ -105,6 +105,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -579,7 +589,8 @@ operator|.
 name|getShardFailures
 argument_list|()
 decl_stmt|;
-comment|// TODO: GroovyScriptExecutionException needs work
+comment|// TODO: GroovyScriptExecutionException needs work:
+comment|// fix it to preserve cause so we don't do this flaky string-check stuff
 for|for
 control|(
 name|ShardSearchFailure
@@ -590,6 +601,14 @@ control|)
 block|{
 name|assertTrue
 argument_list|(
+literal|"unexpected exception"
+operator|+
+name|fail
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+comment|// different casing, depending on jvm impl...
 name|fail
 operator|.
 name|getCause
@@ -598,9 +617,16 @@ operator|.
 name|toString
 argument_list|()
 operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
+operator|.
 name|contains
 argument_list|(
-literal|"AccessControlException[access denied"
+literal|"accesscontrolexception[access denied"
 argument_list|)
 argument_list|)
 expr_stmt|;
