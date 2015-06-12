@@ -1371,6 +1371,10 @@ operator|.
 name|currentNodeId
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 literal|true
 argument_list|,
 name|ShardRoutingState
@@ -1768,6 +1772,10 @@ name|routing
 operator|.
 name|currentNodeId
 argument_list|()
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|,
 name|routing
 operator|.

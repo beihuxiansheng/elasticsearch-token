@@ -1966,6 +1966,10 @@ argument_list|(
 name|nodeIds
 argument_list|)
 argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|j
 operator|==
 literal|0
@@ -1979,7 +1983,7 @@ name|byte
 operator|)
 name|randomIntBetween
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 literal|4
 argument_list|)
