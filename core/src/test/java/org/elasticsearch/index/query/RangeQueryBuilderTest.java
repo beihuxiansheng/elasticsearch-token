@@ -402,6 +402,21 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Use timestamp option then we have a date mapper, otherwise we would trigger exception.
+comment|// There is a separate test for that.
+if|if
+condition|(
+name|createContext
+argument_list|()
+operator|.
+name|fieldMapper
+argument_list|(
+name|DATE_FIELD_NAME
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|randomBoolean
@@ -444,6 +459,7 @@ argument_list|(
 literal|"yyyy-MM-dd'T'HH:mm:ss.SSSZZ"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|query
@@ -1046,15 +1062,116 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//    /**
-comment|//     * Specifying a timezone together with a numeric range query should throw an error.
-comment|//     */
-comment|//    @Test(expected=QueryParsingException.class)
-comment|//    public void testToQueryNonDateWithTimezone() throws QueryParsingException, IOException {
-comment|//        RangeQueryBuilder query = new RangeQueryBuilder(INT_FIELD_NAME);
-comment|//        query.from(1).to(10).timeZone("UTC");
-comment|//        query.toQuery(createContext());
-comment|//    }
+comment|/**      * Specifying a timezone together with a numeric range query should throw an exception.      */
+annotation|@
+name|Test
+argument_list|(
+name|expected
+operator|=
+name|QueryParsingException
+operator|.
+name|class
+argument_list|)
+DECL|method|testToQueryNonDateWithTimezone
+specifier|public
+name|void
+name|testToQueryNonDateWithTimezone
+parameter_list|()
+throws|throws
+name|QueryParsingException
+throws|,
+name|IOException
+block|{
+name|RangeQueryBuilder
+name|query
+init|=
+operator|new
+name|RangeQueryBuilder
+argument_list|(
+name|INT_FIELD_NAME
+argument_list|)
+decl_stmt|;
+name|query
+operator|.
+name|from
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|10
+argument_list|)
+operator|.
+name|timeZone
+argument_list|(
+literal|"UTC"
+argument_list|)
+expr_stmt|;
+name|query
+operator|.
+name|toQuery
+argument_list|(
+name|createContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Specifying a timezone together with an unmapped field should throw an exception.      */
+annotation|@
+name|Test
+argument_list|(
+name|expected
+operator|=
+name|QueryParsingException
+operator|.
+name|class
+argument_list|)
+DECL|method|testToQueryUnmappedWithTimezone
+specifier|public
+name|void
+name|testToQueryUnmappedWithTimezone
+parameter_list|()
+throws|throws
+name|QueryParsingException
+throws|,
+name|IOException
+block|{
+name|RangeQueryBuilder
+name|query
+init|=
+operator|new
+name|RangeQueryBuilder
+argument_list|(
+literal|"bogus_field"
+argument_list|)
+decl_stmt|;
+name|query
+operator|.
+name|from
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|10
+argument_list|)
+operator|.
+name|timeZone
+argument_list|(
+literal|"UTC"
+argument_list|)
+expr_stmt|;
+name|query
+operator|.
+name|toQuery
+argument_list|(
+name|createContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
