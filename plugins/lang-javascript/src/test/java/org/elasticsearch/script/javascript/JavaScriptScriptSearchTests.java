@@ -598,7 +598,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"JS"
+literal|"js"
 argument_list|,
 literal|null
 argument_list|)
@@ -629,7 +629,7 @@ name|ScriptType
 operator|.
 name|INLINE
 argument_list|,
-literal|"JS"
+literal|"js"
 argument_list|,
 literal|null
 argument_list|)
