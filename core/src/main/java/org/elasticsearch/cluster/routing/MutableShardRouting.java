@@ -123,7 +123,10 @@ comment|/**      * Moves the shard to unassigned state.      */
 DECL|method|moveToUnassigned
 name|void
 name|moveToUnassigned
-parameter_list|()
+parameter_list|(
+name|UnassignedInfo
+name|unassignedInfo
+parameter_list|)
 block|{
 name|version
 operator|++
@@ -148,6 +151,12 @@ expr_stmt|;
 name|relocatingNodeId
 operator|=
 literal|null
+expr_stmt|;
+name|this
+operator|.
+name|unassignedInfo
+operator|=
+name|unassignedInfo
 expr_stmt|;
 block|}
 comment|/**      * Assign this shard to a node.      *      * @param nodeId id of the node to assign this shard to      */
@@ -359,6 +368,11 @@ name|ShardRoutingState
 operator|.
 name|STARTED
 expr_stmt|;
+name|unassignedInfo
+operator|=
+literal|null
+expr_stmt|;
+comment|// we keep the unassigned data until the shard is started
 block|}
 comment|/**      * Make the shard primary unless it's not Primary      * //TODO: doc exception      */
 DECL|method|moveToPrimary

@@ -1286,7 +1286,7 @@ control|)
 block|{
 name|rtBuilder
 operator|.
-name|addAsRecovery
+name|addAsFromCloseToOpen
 argument_list|(
 name|updatedState
 operator|.

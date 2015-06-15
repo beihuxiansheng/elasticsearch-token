@@ -966,7 +966,7 @@ condition|)
 block|{
 name|routingTableBuilder
 operator|.
-name|addAsRecovery
+name|addAsFromDangling
 argument_list|(
 name|upgradedIndexMetaData
 argument_list|)

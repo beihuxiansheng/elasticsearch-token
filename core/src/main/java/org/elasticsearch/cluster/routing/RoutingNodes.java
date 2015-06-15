@@ -3797,7 +3797,10 @@ DECL|method|moveToUnassigned
 specifier|public
 name|void
 name|moveToUnassigned
-parameter_list|()
+parameter_list|(
+name|UnassignedInfo
+name|unassignedInfo
+parameter_list|)
 block|{
 name|remove
 argument_list|()
@@ -3815,7 +3818,9 @@ comment|// protective copy of the mutable shard
 name|unassigned
 operator|.
 name|moveToUnassigned
-argument_list|()
+argument_list|(
+name|unassignedInfo
+argument_list|)
 expr_stmt|;
 name|unassigned
 argument_list|()
