@@ -571,6 +571,7 @@ name|prepareCommit
 argument_list|()
 expr_stmt|;
 comment|// Returns null b/c no changes.
+comment|// nocommit: this fails
 name|assertThat
 argument_list|(
 name|DirectoryReader

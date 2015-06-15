@@ -340,6 +340,8 @@ argument_list|(
 name|this
 argument_list|,
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -357,6 +359,9 @@ name|query
 parameter_list|,
 name|IndexSearcher
 name|searcher
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -366,6 +371,8 @@ argument_list|(
 name|query
 argument_list|,
 name|searcher
+argument_list|,
+name|needsScores
 argument_list|)
 expr_stmt|;
 block|}

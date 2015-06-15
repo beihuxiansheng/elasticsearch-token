@@ -418,7 +418,9 @@ name|searcher
 argument_list|()
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
