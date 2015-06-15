@@ -700,7 +700,7 @@ specifier|final
 name|String
 name|OBJECT_FIELD_NAME
 init|=
-literal|"object"
+literal|"mapped_object"
 decl_stmt|;
 DECL|field|DATE_FIELD_NAME
 specifier|protected
@@ -709,7 +709,7 @@ specifier|final
 name|String
 name|DATE_FIELD_NAME
 init|=
-literal|"age"
+literal|"mapped_date"
 decl_stmt|;
 DECL|field|INT_FIELD_NAME
 specifier|protected
@@ -718,7 +718,7 @@ specifier|final
 name|String
 name|INT_FIELD_NAME
 init|=
-literal|"price"
+literal|"mapped_int"
 decl_stmt|;
 DECL|field|STRING_FIELD_NAME
 specifier|protected
@@ -727,7 +727,7 @@ specifier|final
 name|String
 name|STRING_FIELD_NAME
 init|=
-literal|"text"
+literal|"mapped_string"
 decl_stmt|;
 DECL|field|DOUBLE_FIELD_NAME
 specifier|protected
@@ -736,7 +736,7 @@ specifier|final
 name|String
 name|DOUBLE_FIELD_NAME
 init|=
-literal|"double"
+literal|"mapped_double"
 decl_stmt|;
 DECL|field|BOOLEAN_FIELD_NAME
 specifier|protected
@@ -745,7 +745,7 @@ specifier|final
 name|String
 name|BOOLEAN_FIELD_NAME
 init|=
-literal|"boolean"
+literal|"mapped_boolean"
 decl_stmt|;
 DECL|field|mappedFieldNames
 specifier|protected

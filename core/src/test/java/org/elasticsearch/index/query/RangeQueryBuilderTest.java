@@ -402,14 +402,16 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Use timestamp option then we have a date mapper, otherwise we would trigger exception.
-comment|// There is a separate test for that.
+comment|// Create timestamp option only then we have a date mapper, otherwise we could trigger exception.
 if|if
 condition|(
 name|createContext
 argument_list|()
 operator|.
-name|fieldMapper
+name|mapperService
+argument_list|()
+operator|.
+name|smartNameFieldType
 argument_list|(
 name|DATE_FIELD_NAME
 argument_list|)
