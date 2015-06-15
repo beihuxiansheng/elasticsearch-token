@@ -5322,15 +5322,6 @@ name|possibleSettings
 operator|.
 name|put
 argument_list|(
-literal|"format"
-argument_list|,
-literal|"fst"
-argument_list|)
-expr_stmt|;
-name|possibleSettings
-operator|.
-name|put
-argument_list|(
 literal|"loading"
 argument_list|,
 literal|"eager"
