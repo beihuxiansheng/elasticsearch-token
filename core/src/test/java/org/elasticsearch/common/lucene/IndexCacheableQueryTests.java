@@ -607,7 +607,7 @@ name|LATEST
 operator|==
 name|Version
 operator|.
-name|LUCENE_5_2_0
+name|LUCENE_5_2_1
 assert|;
 name|IndexSearcher
 name|searcher
@@ -729,7 +729,7 @@ name|LATEST
 operator|==
 name|Version
 operator|.
-name|LUCENE_5_2_0
+name|LUCENE_5_2_1
 assert|;
 name|searcher
 operator|=

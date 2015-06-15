@@ -83,7 +83,7 @@ name|equals
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_5_2_0
+name|LUCENE_5_2_1
 argument_list|)
 operator|:
 literal|"please remove this entire class for 5.3"

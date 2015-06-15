@@ -855,7 +855,9 @@ argument_list|(
 name|searcher
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertingIndexSearcher
@@ -1156,7 +1158,9 @@ argument_list|(
 name|searcher
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// pass the original searcher to the super.newSearcher() method to make sure this is the searcher that will
