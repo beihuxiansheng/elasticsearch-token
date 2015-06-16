@@ -1135,7 +1135,6 @@ throw|;
 block|}
 if|if
 condition|(
-operator|!
 name|objectMapper
 operator|.
 name|nested
@@ -1143,6 +1142,8 @@ argument_list|()
 operator|.
 name|isNested
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
