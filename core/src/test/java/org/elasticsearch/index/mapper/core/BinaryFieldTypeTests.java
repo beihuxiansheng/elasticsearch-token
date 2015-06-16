@@ -140,9 +140,9 @@ name|modifyProperty
 argument_list|(
 name|ft
 argument_list|,
-literal|1
-operator|+
 name|propNum
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
