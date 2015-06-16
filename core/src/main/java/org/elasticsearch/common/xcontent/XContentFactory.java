@@ -812,9 +812,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to derive xcontent from "
-operator|+
-name|content
+literal|"Failed to derive xcontent"
 argument_list|)
 throw|;
 block|}
@@ -891,22 +889,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to derive xcontent from (offset="
-operator|+
-name|offset
-operator|+
-literal|", length="
-operator|+
-name|length
-operator|+
-literal|"): "
-operator|+
-name|Arrays
-operator|.
-name|toString
-argument_list|(
-name|data
-argument_list|)
+literal|"Failed to derive xcontent"
 argument_list|)
 throw|;
 block|}
@@ -1388,9 +1371,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to derive xcontent from "
-operator|+
-name|bytes
+literal|"Failed to derive xcontent"
 argument_list|)
 throw|;
 block|}

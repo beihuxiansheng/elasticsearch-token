@@ -742,7 +742,15 @@ operator|.
 name|getPreferredName
 argument_list|()
 operator|+
-literal|" must reference either a number value or a single value numeric metric aggregation"
+literal|" must reference either a number value or a single value numeric metric aggregation, got: "
+operator|+
+name|propertyValue
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
 argument_list|)
 throw|;
 block|}

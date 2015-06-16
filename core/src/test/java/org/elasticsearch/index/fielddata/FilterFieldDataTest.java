@@ -387,8 +387,6 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"fst"
-block|,
 literal|"paged_bytes"
 block|}
 decl_stmt|;
@@ -1255,8 +1253,6 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"fst"
-block|,
 literal|"paged_bytes"
 block|}
 decl_stmt|;

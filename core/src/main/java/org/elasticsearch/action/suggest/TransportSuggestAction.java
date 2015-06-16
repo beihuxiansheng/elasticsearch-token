@@ -300,7 +300,7 @@ name|suggest
 operator|.
 name|stats
 operator|.
-name|ShardSuggestService
+name|ShardSuggestMetric
 import|;
 end_import
 
@@ -966,15 +966,15 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ShardSuggestService
-name|shardSuggestService
+name|ShardSuggestMetric
+name|suggestMetric
 init|=
 name|indexShard
 operator|.
-name|shardSuggestService
+name|getSuggestMetric
 argument_list|()
 decl_stmt|;
-name|shardSuggestService
+name|suggestMetric
 operator|.
 name|preSuggest
 argument_list|()
@@ -1180,7 +1180,7 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|shardSuggestService
+name|suggestMetric
 operator|.
 name|postSuggest
 argument_list|(

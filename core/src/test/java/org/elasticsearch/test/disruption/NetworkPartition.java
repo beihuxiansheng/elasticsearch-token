@@ -674,6 +674,13 @@ name|otherSideNodes
 operator|=
 name|nodesSideTwo
 expr_stmt|;
+name|nodesSideOne
+operator|.
+name|remove
+argument_list|(
+name|node
+argument_list|)
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -689,6 +696,13 @@ block|{
 name|otherSideNodes
 operator|=
 name|nodesSideOne
+expr_stmt|;
+name|nodesSideTwo
+operator|.
+name|remove
+argument_list|(
+name|node
+argument_list|)
 expr_stmt|;
 block|}
 else|else

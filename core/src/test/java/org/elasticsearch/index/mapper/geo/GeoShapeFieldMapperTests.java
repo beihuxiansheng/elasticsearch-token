@@ -416,7 +416,7 @@ name|GeoShapeFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|DISTANCE_ERROR_PCT
+name|LEGACY_DISTANCE_ERROR_PCT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2739,7 +2739,7 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2783,7 +2783,17 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"mapper [shape] has different tree_levels or precision"
+literal|"mapper [shape] has different tree_levels"
+argument_list|,
+name|isIn
+argument_list|(
+name|conflicts
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"mapper [shape] has different precision"
 argument_list|,
 name|isIn
 argument_list|(
@@ -2959,6 +2969,13 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
+literal|"tree_levels"
+argument_list|,
+literal|8
+argument_list|)
+operator|.
+name|field
+argument_list|(
 literal|"distance_error_pct"
 argument_list|,
 literal|0.001
@@ -3012,6 +3029,16 @@ expr_stmt|;
 comment|// verify mapping changes, and ensure no failures
 name|assertThat
 argument_list|(
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|mergeResult
+operator|.
+name|buildConflicts
+argument_list|()
+argument_list|)
+argument_list|,
 name|mergeResult
 operator|.
 name|hasConflicts

@@ -618,7 +618,7 @@ name|functionscore
 operator|.
 name|ScoreFunctionBuilders
 operator|.
-name|factorFunction
+name|scriptFunction
 import|;
 end_import
 
@@ -636,7 +636,7 @@ name|functionscore
 operator|.
 name|ScoreFunctionBuilders
 operator|.
-name|scriptFunction
+name|weightFactorFunction
 import|;
 end_import
 
@@ -16341,7 +16341,7 @@ operator|.
 name|matchAllQuery
 argument_list|()
 argument_list|,
-name|factorFunction
+name|weightFactorFunction
 argument_list|(
 literal|1
 argument_list|)
@@ -16358,7 +16358,7 @@ argument_list|,
 literal|"three"
 argument_list|)
 argument_list|,
-name|factorFunction
+name|weightFactorFunction
 argument_list|(
 literal|1
 argument_list|)
@@ -16375,7 +16375,7 @@ argument_list|,
 literal|"four"
 argument_list|)
 argument_list|,
-name|factorFunction
+name|weightFactorFunction
 argument_list|(
 literal|1
 argument_list|)

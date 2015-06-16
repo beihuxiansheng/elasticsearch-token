@@ -2922,7 +2922,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Failed to derive xcontent from"
+literal|"Failed to derive xcontent"
 argument_list|)
 argument_list|)
 expr_stmt|;

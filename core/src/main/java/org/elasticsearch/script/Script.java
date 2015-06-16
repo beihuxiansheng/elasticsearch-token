@@ -260,7 +260,7 @@ DECL|method|Script
 name|Script
 parameter_list|()
 block|{     }
-comment|/**      * Constructor for simple inline script. The script will have no lang or      * params set.      *       * @param script      *            The inline script to execute.      */
+comment|/**      * Constructor for simple inline script. The script will have no lang or      * params set.      *      * @param script      *            The inline script to execute.      */
 DECL|method|Script
 specifier|public
 name|Script
@@ -269,26 +269,12 @@ name|String
 name|script
 parameter_list|)
 block|{
-if|if
-condition|(
-name|script
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The parameter script (String) must not be null in Script."
-argument_list|)
-throw|;
-block|}
 name|this
-operator|.
+argument_list|(
 name|script
-operator|=
-name|script
+argument_list|,
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * For sub-classes to use to override the default language      */
@@ -303,32 +289,18 @@ name|String
 name|lang
 parameter_list|)
 block|{
-if|if
-condition|(
-name|script
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|this
 argument_list|(
-literal|"The parameter script (String) must not be null in Script."
+name|script
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
+name|lang
+argument_list|,
+literal|null
 argument_list|)
-throw|;
-block|}
-name|this
-operator|.
-name|script
-operator|=
-name|script
-expr_stmt|;
-name|this
-operator|.
-name|lang
-operator|=
-name|lang
 expr_stmt|;
 block|}
 comment|/**      * Constructor for Script.      *       * @param script      *            The cache key of the script to be compiled/executed. For      *            inline scripts this is the actual script source code. For      *            indexed scripts this is the id used in the request. For on      *            file scripts this is the file name.      * @param type      *            The type of script -- dynamic, indexed, or file.      * @param lang      *            The language of the script to be compiled/executed.      * @param params      *            The map of parameters the script will be executed with.      */
@@ -353,6 +325,8 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
+name|?
+extends|extends
 name|Object
 argument_list|>
 name|params
@@ -410,6 +384,14 @@ name|this
 operator|.
 name|params
 operator|=
+operator|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+operator|)
 name|params
 expr_stmt|;
 block|}

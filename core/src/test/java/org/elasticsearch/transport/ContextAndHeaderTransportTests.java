@@ -533,6 +533,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CopyOnWriteArrayList
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -677,17 +689,10 @@ name|ActionRequest
 argument_list|>
 name|requests
 init|=
-name|Collections
-operator|.
-name|synchronizedList
-argument_list|(
 operator|new
-name|ArrayList
-argument_list|<
-name|ActionRequest
-argument_list|>
+name|CopyOnWriteArrayList
+argument_list|<>
 argument_list|()
-argument_list|)
 decl_stmt|;
 DECL|field|randomHeaderKey
 specifier|private

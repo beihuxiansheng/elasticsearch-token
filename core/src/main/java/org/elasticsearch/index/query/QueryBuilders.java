@@ -1694,27 +1694,6 @@ name|script
 argument_list|)
 return|;
 block|}
-comment|/**      * A builder for filter based on a script.      *      * @param script      *            The script to filter by.      * @deprecated Use {@link #scriptQuery(Script)} instead.      */
-annotation|@
-name|Deprecated
-DECL|method|scriptQuery
-specifier|public
-specifier|static
-name|ScriptQueryBuilder
-name|scriptQuery
-parameter_list|(
-name|String
-name|script
-parameter_list|)
-block|{
-return|return
-operator|new
-name|ScriptQueryBuilder
-argument_list|(
-name|script
-argument_list|)
-return|;
-block|}
 comment|/**      * A filter to filter based on a specific distance from a specific geo location / point.      *      * @param name The location field name.      */
 DECL|method|geoDistanceQuery
 specifier|public

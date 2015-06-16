@@ -1072,7 +1072,9 @@ argument_list|(
 name|searcher
 operator|.
 name|getSimilarity
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|indexSearcher
