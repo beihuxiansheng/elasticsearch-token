@@ -248,20 +248,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
-operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexService
 import|;
 end_import
@@ -1572,6 +1558,7 @@ name|coreKey
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// don't call cache.cleanUp here as it would have bad performance implications
 block|}
 annotation|@
 name|Override
@@ -1600,6 +1587,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// don't call cache.cleanUp here as it would have bad performance implications
 block|}
 annotation|@
 name|Override
@@ -1609,13 +1597,6 @@ name|void
 name|clear
 parameter_list|()
 block|{
-comment|// Note that cache invalidation in Guava does not immediately remove
-comment|// values from the cache. In the case of a cache with a rare write or
-comment|// read rate, it's possible for values to persist longer than desired.
-comment|//
-comment|// Note this is intended by the Guava developers, see:
-comment|// https://code.google.com/p/guava-libraries/wiki/CachesExplained#Eviction
-comment|// (the "When Does Cleanup Happen" section)
 for|for
 control|(
 name|Key
@@ -1653,6 +1634,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// Note that cache invalidation in Guava does not immediately remove
+comment|// values from the cache. In the case of a cache with a rare write or
+comment|// read rate, it's possible for values to persist longer than desired.
+comment|//
+comment|// Note this is intended by the Guava developers, see:
+comment|// https://code.google.com/p/guava-libraries/wiki/CachesExplained#Eviction
+comment|// (the "When Does Cleanup Happen" section)
+comment|// We call it explicitly here since it should be a "rare" operation, and
+comment|// if a user runs it he probably wants to see memory returned as soon as
+comment|// possible
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1720,6 +1716,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// we call cleanUp() because this is a manual operation, should happen
+comment|// rarely and probably means the user wants to see memory returned as
+comment|// soon as possible
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1745,6 +1749,7 @@ name|coreCacheKey
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// don't call cache.cleanUp here as it would have bad performance implications
 block|}
 block|}
 DECL|class|Key
