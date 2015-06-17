@@ -231,7 +231,7 @@ operator|==
 literal|null
 operator|&&
 name|queryName
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{

@@ -230,6 +230,12 @@ name|RestoreSource
 name|restoreSource
 parameter_list|()
 function_decl|;
+comment|/**      * Additional metadata on why the shard is/was unassigned. The metadata is kept around      * until the shard moves to STARTED.      */
+DECL|method|unassignedInfo
+name|UnassignedInfo
+name|unassignedInfo
+parameter_list|()
+function_decl|;
 comment|/**      * Returns<code>true</code> iff this shard is a primary.      */
 DECL|method|primary
 name|boolean

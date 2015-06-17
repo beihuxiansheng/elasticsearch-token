@@ -246,7 +246,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"name"
+literal|"_name"
 argument_list|,
 name|queryName
 argument_list|)

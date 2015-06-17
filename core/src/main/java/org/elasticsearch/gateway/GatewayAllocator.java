@@ -959,7 +959,9 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ShardRouting
+name|FailedRerouteAllocation
+operator|.
+name|FailedShard
 name|shard
 range|:
 name|allocation
@@ -978,6 +980,8 @@ name|remove
 argument_list|(
 name|shard
 operator|.
+name|shard
+operator|.
 name|shardId
 argument_list|()
 argument_list|)
@@ -991,6 +995,8 @@ name|asyncFetchStore
 operator|.
 name|remove
 argument_list|(
+name|shard
+operator|.
 name|shard
 operator|.
 name|shardId
