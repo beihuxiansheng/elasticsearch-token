@@ -74,6 +74,13 @@ name|ONLY_NODE
 argument_list|(
 literal|"_only_node"
 argument_list|)
+block|,
+comment|/**      * Route to only node with attribute      */
+DECL|enum constant|ONLY_NODES
+name|ONLY_NODES
+argument_list|(
+literal|"_only_nodes"
+argument_list|)
 block|;
 DECL|field|type
 specifier|private
@@ -208,6 +215,12 @@ literal|"_onlyLocal"
 case|:
 return|return
 name|ONLY_LOCAL
+return|;
+case|case
+literal|"_only_nodes"
+case|:
+return|return
+name|ONLY_NODES
 return|;
 default|default:
 throw|throw
