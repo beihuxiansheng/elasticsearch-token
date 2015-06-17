@@ -186,17 +186,6 @@ name|randomDynamicTemplates
 operator|=
 literal|false
 argument_list|)
-annotation|@
-name|Ignore
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/11721"
-argument_list|)
 DECL|class|DeleteByQueryRestTests
 specifier|public
 class|class
