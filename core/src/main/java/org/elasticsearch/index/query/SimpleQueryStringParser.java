@@ -1340,6 +1340,13 @@ name|minimumShouldMatch
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|query
+operator|!=
+literal|null
+condition|)
+block|{
 name|query
 operator|.
 name|setBoost
@@ -1347,6 +1354,7 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|query
 return|;

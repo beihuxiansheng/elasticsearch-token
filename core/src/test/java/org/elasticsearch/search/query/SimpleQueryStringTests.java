@@ -454,6 +454,8 @@ argument_list|,
 literal|"3"
 argument_list|)
 expr_stmt|;
+comment|// Tests boost value setting. In this case doc 1 should always be ranked above the other
+comment|// two matches.
 name|searchResponse
 operator|=
 name|client
@@ -471,12 +473,11 @@ name|should
 argument_list|(
 name|simpleQueryStringQuery
 argument_list|(
-literal|"foo"
+literal|"\"foo bar\""
 argument_list|)
 operator|.
 name|boost
 argument_list|(
-operator|-
 literal|10.0f
 argument_list|)
 argument_list|)
@@ -499,7 +500,7 @@ name|assertHitCount
 argument_list|(
 name|searchResponse
 argument_list|,
-literal|3l
+literal|2l
 argument_list|)
 expr_stmt|;
 name|assertFirstHit
@@ -508,7 +509,7 @@ name|searchResponse
 argument_list|,
 name|hasId
 argument_list|(
-literal|"4"
+literal|"3"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -157,6 +157,7 @@ specifier|private
 name|float
 name|boost
 init|=
+operator|-
 literal|1.0f
 decl_stmt|;
 DECL|field|lowercaseExpandedTerms
@@ -805,6 +806,7 @@ if|if
 condition|(
 name|boost
 operator|!=
+operator|-
 literal|1.0f
 condition|)
 block|{
