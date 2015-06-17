@@ -302,7 +302,7 @@ block|}
 comment|/**      * @return the query name.      */
 DECL|method|queryName
 specifier|public
-name|Object
+name|String
 name|queryName
 parameter_list|()
 block|{
@@ -467,6 +467,19 @@ expr_stmt|;
 block|}
 return|return
 name|query
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|validate
+specifier|public
+name|QueryValidationException
+name|validate
+parameter_list|()
+block|{
+comment|// nothing to validate.
+return|return
+literal|null
 return|;
 block|}
 annotation|@
