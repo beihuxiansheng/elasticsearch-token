@@ -375,10 +375,10 @@ annotation|@
 name|ElasticsearchIntegrationTest
 operator|.
 name|SuiteScopeTest
-DECL|class|SeriesArithmeticTests
+DECL|class|BucketScriptTests
 specifier|public
 class|class
-name|SeriesArithmeticTests
+name|BucketScriptTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

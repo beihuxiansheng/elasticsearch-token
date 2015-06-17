@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.pipeline.seriesarithmetic
+DECL|package|org.elasticsearch.search.aggregations.pipeline.bucketscript
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|seriesarithmetic
+name|bucketscript
 package|;
 end_package
 
@@ -447,10 +447,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SeriesArithmeticPipelineAggregator
+DECL|class|BucketScriptPipelineAggregator
 specifier|public
 class|class
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 extends|extends
 name|PipelineAggregator
 block|{
@@ -464,7 +464,7 @@ init|=
 operator|new
 name|Type
 argument_list|(
-literal|"series_arithmetic"
+literal|"bucket_script"
 argument_list|)
 decl_stmt|;
 DECL|field|STREAM
@@ -485,7 +485,7 @@ block|{
 annotation|@
 name|Override
 specifier|public
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 name|readResult
 parameter_list|(
 name|StreamInput
@@ -494,11 +494,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 name|result
 init|=
 operator|new
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 argument_list|()
 decl_stmt|;
 name|result
@@ -599,14 +599,14 @@ name|String
 argument_list|>
 name|bucketsPathsMap
 decl_stmt|;
-DECL|method|SeriesArithmeticPipelineAggregator
+DECL|method|BucketScriptPipelineAggregator
 specifier|public
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 parameter_list|()
 block|{     }
-DECL|method|SeriesArithmeticPipelineAggregator
+DECL|method|BucketScriptPipelineAggregator
 specifier|public
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 parameter_list|(
 name|String
 name|name
@@ -1278,7 +1278,7 @@ name|IOException
 block|{
 return|return
 operator|new
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 argument_list|(
 name|name
 argument_list|,

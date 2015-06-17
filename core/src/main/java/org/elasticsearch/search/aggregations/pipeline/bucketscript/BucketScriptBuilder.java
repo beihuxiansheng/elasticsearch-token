@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.pipeline.seriesarithmetic
+DECL|package|org.elasticsearch.search.aggregations.pipeline.bucketscript
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|seriesarithmetic
+name|bucketscript
 package|;
 end_package
 
@@ -131,14 +131,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|SeriesArithmeticBuilder
+DECL|class|BucketScriptBuilder
 specifier|public
 class|class
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 extends|extends
 name|PipelineAggregatorBuilder
 argument_list|<
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 argument_list|>
 block|{
 DECL|field|format
@@ -166,9 +166,9 @@ name|String
 argument_list|>
 name|bucketsPathsMap
 decl_stmt|;
-DECL|method|SeriesArithmeticBuilder
+DECL|method|BucketScriptBuilder
 specifier|public
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 parameter_list|(
 name|String
 name|name
@@ -178,7 +178,7 @@ name|super
 argument_list|(
 name|name
 argument_list|,
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 operator|.
 name|TYPE
 operator|.
@@ -189,7 +189,7 @@ expr_stmt|;
 block|}
 DECL|method|script
 specifier|public
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 name|script
 parameter_list|(
 name|Script
@@ -208,7 +208,7 @@ return|;
 block|}
 DECL|method|format
 specifier|public
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 name|format
 parameter_list|(
 name|String
@@ -227,7 +227,7 @@ return|;
 block|}
 DECL|method|gapPolicy
 specifier|public
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 name|gapPolicy
 parameter_list|(
 name|GapPolicy
@@ -247,7 +247,7 @@ block|}
 comment|/**      * Sets the paths to the buckets to use for this pipeline aggregator      */
 DECL|method|setBucketsPathsMap
 specifier|public
-name|SeriesArithmeticBuilder
+name|BucketScriptBuilder
 name|setBucketsPathsMap
 parameter_list|(
 name|Map
@@ -318,7 +318,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|SeriesArithmeticParser
+name|BucketScriptParser
 operator|.
 name|FORMAT
 operator|.
@@ -340,7 +340,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-name|SeriesArithmeticParser
+name|BucketScriptParser
 operator|.
 name|GAP_POLICY
 operator|.

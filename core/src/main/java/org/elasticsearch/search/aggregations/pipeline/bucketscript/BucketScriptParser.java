@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.pipeline.seriesarithmetic
+DECL|package|org.elasticsearch.search.aggregations.pipeline.bucketscript
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|seriesarithmetic
+name|bucketscript
 package|;
 end_package
 
@@ -235,10 +235,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SeriesArithmeticParser
+DECL|class|BucketScriptParser
 specifier|public
 class|class
-name|SeriesArithmeticParser
+name|BucketScriptParser
 implements|implements
 name|PipelineAggregator
 operator|.
@@ -292,7 +292,7 @@ name|type
 parameter_list|()
 block|{
 return|return
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 operator|.
 name|TYPE
 operator|.
@@ -938,7 +938,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|SeriesArithmeticPipelineAggregator
+name|BucketScriptPipelineAggregator
 operator|.
 name|Factory
 argument_list|(
