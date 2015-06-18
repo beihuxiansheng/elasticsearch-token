@@ -251,7 +251,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DEFAULT_DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|0
 argument_list|)

@@ -237,7 +237,7 @@ init|=
 literal|"index.unassigned.node_left.delayed_timeout"
 decl_stmt|;
 DECL|field|DEFAULT_DELAYED_NODE_LEFT_TIMEOUT
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|TimeValue
