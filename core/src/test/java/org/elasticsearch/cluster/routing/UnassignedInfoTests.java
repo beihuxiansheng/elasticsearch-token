@@ -2770,7 +2770,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -2830,7 +2830,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -2952,7 +2952,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -2990,7 +2990,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -3222,7 +3222,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -3394,7 +3394,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -3618,7 +3618,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -3786,7 +3786,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
@@ -3831,7 +3831,7 @@ name|put
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 literal|"10h"
 argument_list|)
