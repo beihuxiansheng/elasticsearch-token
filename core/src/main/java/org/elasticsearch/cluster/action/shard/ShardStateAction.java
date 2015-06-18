@@ -1260,8 +1260,10 @@ argument_list|)
 expr_stmt|;
 name|routingService
 operator|.
-name|scheduleReroute
-argument_list|()
+name|reroute
+argument_list|(
+literal|"unassigned shards after shard failures, scheduling a reroute"
+argument_list|)
 expr_stmt|;
 block|}
 block|}

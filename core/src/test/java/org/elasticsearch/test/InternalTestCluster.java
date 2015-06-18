@@ -3019,25 +3019,6 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-comment|// decrease the routing schedule so new nodes will be added quickly - some random value between 30 and 80 ms
-operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.schedule"
-argument_list|,
-operator|(
-literal|30
-operator|+
-name|random
-operator|.
-name|nextInt
-argument_list|(
-literal|50
-argument_list|)
-operator|)
-operator|+
-literal|"ms"
-argument_list|)
 operator|.
 name|put
 argument_list|(

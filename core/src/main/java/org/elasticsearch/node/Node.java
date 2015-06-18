@@ -2105,7 +2105,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|AllocationService
+name|RoutingService
 operator|.
 name|class
 argument_list|)

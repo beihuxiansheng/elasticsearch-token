@@ -360,13 +360,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.schedule"
-argument_list|,
-literal|"10ms"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"cluster.routing.allocation.awareness.attributes"
 argument_list|,
 literal|"rack_id"
