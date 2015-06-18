@@ -1831,6 +1831,7 @@ decl_stmt|;
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1841,6 +1842,7 @@ name|NONE
 operator|&&
 operator|!
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1858,6 +1860,7 @@ operator|.
 name|ignoredValue
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1877,6 +1880,7 @@ block|}
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1886,6 +1890,7 @@ operator|.
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1904,10 +1909,8 @@ name|this
 argument_list|,
 name|timestamp
 argument_list|,
-operator|(
-name|NumberFieldType
-operator|)
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1929,6 +1932,7 @@ operator|new
 name|NumericDocValuesField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1987,6 +1991,7 @@ name|boolean
 name|indexed
 init|=
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -2024,6 +2029,7 @@ operator|==
 literal|null
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2131,6 +2137,7 @@ operator|)
 operator|||
 operator|(
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -2155,6 +2162,7 @@ argument_list|(
 name|indexed
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -2167,6 +2175,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2186,6 +2195,7 @@ argument_list|(
 literal|"store"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2345,6 +2355,7 @@ operator|(
 name|Map
 operator|)
 name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()
