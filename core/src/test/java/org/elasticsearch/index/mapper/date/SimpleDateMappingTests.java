@@ -1943,6 +1943,10 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 operator|.
 name|getMillis
@@ -1971,6 +1975,10 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 operator|.
 name|getMillis
@@ -2225,6 +2233,10 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 operator|.
 name|getMillis
@@ -2253,6 +2265,10 @@ argument_list|)
 operator|.
 name|millis
 argument_list|()
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 operator|.
 name|getMillis
