@@ -1767,6 +1767,7 @@ block|{
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setIndexAnalyzer
 argument_list|(
@@ -1778,6 +1779,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setSearchAnalyzer
 argument_list|(
@@ -1790,6 +1792,7 @@ block|}
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setHasDocValues
 argument_list|(
@@ -1806,6 +1809,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setFieldDataType
 argument_list|(
@@ -1815,6 +1819,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()
@@ -1851,6 +1856,7 @@ else|else
 block|{
 return|return
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -1858,6 +1864,7 @@ operator|==
 literal|false
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1879,6 +1886,7 @@ block|{
 comment|// TODO: cleanup names so Mapper knows about paths, so that it is always clear whether we are using short or full name
 return|return
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1981,6 +1989,7 @@ operator|.
 name|setBoost
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -2012,6 +2021,7 @@ argument_list|(
 literal|"failed to parse ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2169,6 +2179,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2203,6 +2214,7 @@ name|boolean
 name|indexed
 init|=
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -2256,6 +2268,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2293,6 +2306,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2333,6 +2347,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2364,6 +2379,7 @@ operator|!
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -2376,6 +2392,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2413,6 +2430,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2450,6 +2468,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2487,6 +2506,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2524,6 +2544,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2561,6 +2582,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2578,6 +2600,7 @@ condition|(
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2591,6 +2614,7 @@ argument_list|(
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2605,6 +2629,7 @@ condition|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2618,6 +2643,7 @@ argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2636,6 +2662,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2654,6 +2681,7 @@ condition|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2667,6 +2695,7 @@ argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2683,6 +2712,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2700,6 +2730,7 @@ condition|(
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2712,6 +2743,7 @@ argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -2730,6 +2762,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2771,6 +2804,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2787,6 +2821,7 @@ condition|(
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -2799,6 +2834,7 @@ condition|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|similarity
 argument_list|()
@@ -2813,6 +2849,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2846,6 +2883,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2888,6 +2926,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2925,6 +2964,7 @@ operator|=
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -2932,12 +2972,14 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setOmitNorms
 argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -2946,12 +2988,14 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setBoost
 argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -2960,12 +3004,14 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setNormsLoading
 argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|normsLoading
 argument_list|()
@@ -2976,6 +3022,7 @@ condition|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -2986,12 +3033,14 @@ block|{
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setSearchAnalyzer
 argument_list|(
 name|fieldMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -3035,6 +3084,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setFieldDataType
 argument_list|(
@@ -3075,6 +3125,7 @@ block|}
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()
@@ -3110,6 +3161,7 @@ operator|.
 name|startObject
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3182,6 +3234,7 @@ name|includeDefaults
 operator|||
 operator|!
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3192,6 +3245,7 @@ operator|.
 name|equals
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3209,6 +3263,7 @@ argument_list|(
 literal|"index_name"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3223,6 +3278,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -3237,6 +3293,7 @@ argument_list|(
 literal|"boost"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -3253,6 +3310,7 @@ name|boolean
 name|indexed
 init|=
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -3282,6 +3340,7 @@ operator|!=
 name|defaultIndexed
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -3303,6 +3362,7 @@ argument_list|(
 name|indexed
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -3315,6 +3375,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -3332,6 +3393,7 @@ argument_list|(
 literal|"store"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -3350,6 +3412,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectors
 argument_list|()
@@ -3369,6 +3432,7 @@ argument_list|,
 name|termVectorOptionsToString
 argument_list|(
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3378,6 +3442,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -3388,6 +3453,7 @@ name|omitNorms
 argument_list|()
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|normsLoading
 argument_list|()
@@ -3407,6 +3473,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -3425,6 +3492,7 @@ literal|"enabled"
 argument_list|,
 operator|!
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -3434,6 +3502,7 @@ block|}
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|normsLoading
 argument_list|()
@@ -3452,6 +3521,7 @@ operator|.
 name|KEY
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|normsLoading
 argument_list|()
@@ -3472,6 +3542,7 @@ operator|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -3492,6 +3563,7 @@ argument_list|,
 name|indexOptionToString
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -3603,6 +3675,7 @@ operator|.
 name|putAll
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()
@@ -3668,6 +3741,7 @@ block|{
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3697,6 +3771,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3712,6 +3787,7 @@ operator|==
 literal|false
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3734,6 +3810,7 @@ argument_list|(
 literal|"analyzer"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3745,6 +3822,7 @@ expr_stmt|;
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -3755,6 +3833,7 @@ operator|.
 name|equals
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3773,6 +3852,7 @@ argument_list|(
 literal|"search_analyzer"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()

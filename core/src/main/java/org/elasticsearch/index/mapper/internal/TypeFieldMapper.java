@@ -1068,6 +1068,7 @@ block|{
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1078,6 +1079,7 @@ name|NONE
 operator|&&
 operator|!
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1093,6 +1095,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1106,6 +1109,7 @@ name|type
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1126,6 +1130,7 @@ operator|new
 name|SortedSetDocValuesField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1202,6 +1207,7 @@ name|boolean
 name|indexed
 init|=
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1230,6 +1236,7 @@ operator|!
 name|includeDefaults
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1262,6 +1269,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1281,6 +1289,7 @@ argument_list|(
 literal|"store"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1307,6 +1316,7 @@ argument_list|(
 name|indexed
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()

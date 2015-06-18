@@ -1144,6 +1144,7 @@ operator|new
 name|NumericTokenStream
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -1859,6 +1860,7 @@ operator|=
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -1866,12 +1868,14 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setNumericPrecisionStep
 argument_list|(
 name|nfmMergeWith
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -1880,6 +1884,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()
@@ -1949,6 +1954,7 @@ block|{
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -1967,6 +1973,7 @@ elseif|else
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -1985,6 +1992,7 @@ elseif|else
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -2003,6 +2011,7 @@ elseif|else
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()

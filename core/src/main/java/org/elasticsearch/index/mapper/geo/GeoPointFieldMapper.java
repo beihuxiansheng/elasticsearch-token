@@ -52,20 +52,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|Iterators
@@ -3559,7 +3545,10 @@ return|return
 operator|(
 name|GeoPointFieldType
 operator|)
+name|super
+operator|.
 name|fieldType
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -4347,6 +4336,7 @@ block|}
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -4356,6 +4346,7 @@ operator|.
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -4368,6 +4359,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4398,6 +4390,7 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|context
@@ -4737,6 +4730,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4774,6 +4768,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4811,6 +4806,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4848,6 +4844,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4885,6 +4882,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4922,6 +4920,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -4971,6 +4970,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -5008,6 +5008,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -5045,6 +5046,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

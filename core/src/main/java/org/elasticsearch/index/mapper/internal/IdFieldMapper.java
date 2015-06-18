@@ -194,20 +194,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|search
-operator|.
-name|TermQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|util
 operator|.
 name|BytesRef
@@ -1980,6 +1966,7 @@ comment|// else we are in the pre/post parse phase
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1989,6 +1976,7 @@ operator|.
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2002,6 +1990,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2015,6 +2004,7 @@ name|id
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2036,6 +2026,7 @@ operator|new
 name|BinaryDocValuesField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2114,6 +2105,7 @@ operator|!
 name|includeDefaults
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2126,6 +2118,7 @@ name|stored
 argument_list|()
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -2164,6 +2157,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2183,6 +2177,7 @@ argument_list|(
 literal|"store"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -2194,6 +2189,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -2215,6 +2211,7 @@ argument_list|,
 name|indexTokenizeOptionToString
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -2224,6 +2221,7 @@ operator|.
 name|NONE
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|tokenized
 argument_list|()
@@ -2291,6 +2289,7 @@ operator|(
 name|Map
 operator|)
 name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()

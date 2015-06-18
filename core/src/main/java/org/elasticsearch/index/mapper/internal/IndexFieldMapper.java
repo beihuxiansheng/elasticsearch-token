@@ -280,20 +280,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|highlight
-operator|.
-name|HighlightBuilder
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1031,6 +1017,7 @@ operator|.
 name|getField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1147,6 +1134,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1160,6 +1148,7 @@ name|index
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1348,6 +1337,7 @@ operator|(
 name|Map
 operator|)
 name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()
