@@ -372,6 +372,10 @@ literal|0
 argument_list|,
 literal|1000000
 argument_list|)
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 operator|.
 name|toString
@@ -396,6 +400,10 @@ literal|0
 argument_list|,
 literal|1000000
 argument_list|)
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 operator|.
 name|toString
