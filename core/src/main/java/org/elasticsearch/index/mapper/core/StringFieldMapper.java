@@ -1664,6 +1664,7 @@ name|nullValueAsString
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -1720,6 +1721,7 @@ operator|.
 name|addText
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1742,6 +1744,7 @@ block|}
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1751,6 +1754,7 @@ operator|.
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1763,6 +1767,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1776,6 +1781,7 @@ name|value
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|field
@@ -1813,6 +1819,7 @@ operator|new
 name|SortedSetDocValuesField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1845,6 +1852,7 @@ operator|.
 name|ignoredValue
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2196,6 +2204,7 @@ operator|=
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -2203,6 +2212,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setNullValue
 argument_list|(
@@ -2223,6 +2233,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()
@@ -2344,6 +2355,7 @@ name|NamedAnalyzer
 name|searchQuoteAnalyzer
 init|=
 name|fieldType
+argument_list|()
 operator|.
 name|searchQuoteAnalyzer
 argument_list|()
@@ -2363,6 +2375,7 @@ operator|.
 name|equals
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()

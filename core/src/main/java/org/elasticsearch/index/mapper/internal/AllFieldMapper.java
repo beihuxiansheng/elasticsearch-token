@@ -1405,6 +1405,7 @@ operator|new
 name|AllField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1420,6 +1421,7 @@ argument_list|,
 name|analyzer
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1437,6 +1439,7 @@ name|Analyzer
 name|analyzer
 init|=
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -1663,6 +1666,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1682,6 +1686,7 @@ argument_list|(
 literal|"store"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1693,6 +1698,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectors
 argument_list|()
@@ -1712,6 +1718,7 @@ argument_list|(
 literal|"store_term_vectors"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectors
 argument_list|()
@@ -1723,6 +1730,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorOffsets
 argument_list|()
@@ -1742,6 +1750,7 @@ argument_list|(
 literal|"store_term_vector_offsets"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorOffsets
 argument_list|()
@@ -1753,6 +1762,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorPositions
 argument_list|()
@@ -1772,6 +1782,7 @@ argument_list|(
 literal|"store_term_vector_positions"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorPositions
 argument_list|()
@@ -1783,6 +1794,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorPayloads
 argument_list|()
@@ -1802,6 +1814,7 @@ argument_list|(
 literal|"store_term_vector_payloads"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|storeTermVectorPayloads
 argument_list|()
@@ -1813,6 +1826,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -1832,6 +1846,7 @@ argument_list|(
 literal|"omit_norms"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|omitNorms
 argument_list|()
@@ -1930,6 +1945,7 @@ operator|(
 name|Map
 operator|)
 name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()
@@ -1997,6 +2013,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

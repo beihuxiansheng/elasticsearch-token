@@ -1167,7 +1167,10 @@ return|return
 operator|(
 name|BooleanFieldType
 operator|)
+name|super
+operator|.
 name|fieldType
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -1344,6 +1347,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1358,6 +1362,7 @@ else|:
 literal|"F"
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1378,6 +1383,7 @@ operator|new
 name|SortedNumericDocValuesField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1452,16 +1458,14 @@ name|this
 operator|.
 name|fieldType
 operator|=
-name|this
-operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setNullValue
 argument_list|(
@@ -1479,9 +1483,8 @@ name|nullValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()

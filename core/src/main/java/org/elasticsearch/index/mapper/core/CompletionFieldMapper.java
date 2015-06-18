@@ -2022,7 +2022,10 @@ return|return
 operator|(
 name|CompletionFieldType
 operator|)
+name|super
+operator|.
 name|fieldType
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -3158,6 +3161,7 @@ operator|new
 name|SuggestField
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3169,9 +3173,8 @@ name|ctx
 argument_list|,
 name|input
 argument_list|,
-name|this
-operator|.
 name|fieldType
+argument_list|()
 argument_list|,
 name|payload
 argument_list|,
@@ -3457,6 +3460,7 @@ operator|.
 name|ANALYZER
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3468,6 +3472,7 @@ expr_stmt|;
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -3478,6 +3483,7 @@ operator|.
 name|equals
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -3501,6 +3507,7 @@ name|getPreferredName
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -3780,6 +3787,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3819,6 +3827,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3858,6 +3867,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3899,6 +3909,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
