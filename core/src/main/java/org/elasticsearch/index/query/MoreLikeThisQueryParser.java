@@ -616,17 +616,17 @@ argument_list|(
 literal|"like"
 argument_list|)
 decl_stmt|;
-DECL|field|IGNORE_LIKE
+DECL|field|UNLIKE
 specifier|public
 specifier|static
 specifier|final
 name|ParseField
-name|IGNORE_LIKE
+name|UNLIKE
 init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"ignore_like"
+literal|"unlike"
 argument_list|)
 decl_stmt|;
 DECL|field|INCLUDE
@@ -797,7 +797,7 @@ name|List
 argument_list|<
 name|String
 argument_list|>
-name|ignoreTexts
+name|unlikeTexts
 init|=
 operator|new
 name|ArrayList
@@ -805,7 +805,7 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 name|MultiTermVectorsRequest
-name|ignoreItems
+name|unlikeItems
 init|=
 operator|new
 name|MultiTermVectorsRequest
@@ -918,7 +918,7 @@ if|if
 condition|(
 name|Fields
 operator|.
-name|IGNORE_LIKE
+name|UNLIKE
 operator|.
 name|match
 argument_list|(
@@ -935,9 +935,9 @@ name|parseLikeField
 argument_list|(
 name|parser
 argument_list|,
-name|ignoreTexts
+name|unlikeTexts
 argument_list|,
-name|ignoreItems
+name|unlikeItems
 argument_list|)
 expr_stmt|;
 block|}
@@ -1672,7 +1672,7 @@ if|if
 condition|(
 name|Fields
 operator|.
-name|IGNORE_LIKE
+name|UNLIKE
 operator|.
 name|match
 argument_list|(
@@ -1707,9 +1707,9 @@ name|parseLikeField
 argument_list|(
 name|parser
 argument_list|,
-name|ignoreTexts
+name|unlikeTexts
 argument_list|,
-name|ignoreItems
+name|unlikeItems
 argument_list|)
 expr_stmt|;
 block|}
@@ -1775,7 +1775,7 @@ if|if
 condition|(
 name|Fields
 operator|.
-name|IGNORE_LIKE
+name|UNLIKE
 operator|.
 name|match
 argument_list|(
@@ -1792,9 +1792,9 @@ name|parseLikeField
 argument_list|(
 name|parser
 argument_list|,
-name|ignoreTexts
+name|unlikeTexts
 argument_list|,
-name|ignoreItems
+name|unlikeItems
 argument_list|)
 expr_stmt|;
 block|}
@@ -1990,7 +1990,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|ignoreTexts
+name|unlikeTexts
 operator|.
 name|isEmpty
 argument_list|()
@@ -2000,7 +2000,7 @@ name|mltQuery
 operator|.
 name|setIgnoreText
 argument_list|(
-name|ignoreTexts
+name|unlikeTexts
 argument_list|)
 expr_stmt|;
 block|}
@@ -2025,7 +2025,7 @@ control|(
 name|TermVectorsRequest
 name|item
 range|:
-name|ignoreItems
+name|unlikeItems
 control|)
 block|{
 name|items
@@ -2228,7 +2228,7 @@ comment|// getting the Fields for ignored items
 if|if
 condition|(
 operator|!
-name|ignoreItems
+name|unlikeItems
 operator|.
 name|isEmpty
 argument_list|()
@@ -2252,7 +2252,7 @@ name|getFields
 argument_list|(
 name|responses
 argument_list|,
-name|ignoreItems
+name|unlikeItems
 argument_list|)
 decl_stmt|;
 if|if
@@ -2266,7 +2266,7 @@ condition|)
 block|{
 name|mltQuery
 operator|.
-name|setIgnoreText
+name|setUnlikeText
 argument_list|(
 name|ignoreFields
 argument_list|)

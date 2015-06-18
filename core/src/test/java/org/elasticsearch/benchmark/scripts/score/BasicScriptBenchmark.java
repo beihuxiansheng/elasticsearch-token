@@ -244,6 +244,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -1271,7 +1283,11 @@ literal|"scriptScoreBenchmark"
 operator|+
 operator|new
 name|DateTime
-argument_list|()
+argument_list|(
+name|DateTimeZone
+operator|.
+name|UTC
+argument_list|)
 operator|.
 name|toString
 argument_list|()

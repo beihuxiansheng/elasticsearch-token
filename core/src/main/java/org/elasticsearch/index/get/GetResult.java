@@ -216,6 +216,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -237,22 +247,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Iterators
-operator|.
-name|emptyIterator
 import|;
 end_import
 
@@ -806,6 +800,8 @@ literal|null
 condition|)
 block|{
 return|return
+name|Collections
+operator|.
 name|emptyIterator
 argument_list|()
 return|;

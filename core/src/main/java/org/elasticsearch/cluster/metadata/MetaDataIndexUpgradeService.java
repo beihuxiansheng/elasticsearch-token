@@ -74,6 +74,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
+name|UnassignedInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|component
@@ -767,6 +781,10 @@ argument_list|,
 literal|"index.translog.interval"
 argument_list|,
 literal|"index.translog.sync_interval"
+argument_list|,
+name|UnassignedInfo
+operator|.
+name|DELAYED_NODE_LEFT_TIMEOUT
 argument_list|)
 decl_stmt|;
 comment|/**      * Elasticsearch 2.0 requires units on byte/memory and time settings; this method adds the default unit to any such settings that are      * missing units.      */
