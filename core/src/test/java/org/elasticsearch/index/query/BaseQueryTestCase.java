@@ -1124,6 +1124,10 @@ name|currentTypes
 operator|=
 literal|null
 expr_stmt|;
+name|namedWriteableRegistry
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Before
