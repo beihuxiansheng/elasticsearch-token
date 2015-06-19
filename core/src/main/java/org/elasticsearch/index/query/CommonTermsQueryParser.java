@@ -247,11 +247,11 @@ name|Occur
 operator|.
 name|SHOULD
 decl_stmt|;
-DECL|field|DEFAULT_DISABLE_COORDS
+DECL|field|DEFAULT_DISABLE_COORD
 specifier|static
 specifier|final
 name|boolean
-name|DEFAULT_DISABLE_COORDS
+name|DEFAULT_DISABLE_COORD
 init|=
 literal|true
 decl_stmt|;
@@ -368,9 +368,9 @@ init|=
 literal|null
 decl_stmt|;
 name|boolean
-name|disableCoords
+name|disableCoord
 init|=
-name|DEFAULT_DISABLE_COORDS
+name|DEFAULT_DISABLE_COORD
 decl_stmt|;
 name|Occur
 name|highFreqOccur
@@ -724,7 +724,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-name|disableCoords
+name|disableCoord
 operator|=
 name|parser
 operator|.
@@ -1213,7 +1213,7 @@ name|lowFreqOccur
 argument_list|,
 name|maxTermFrequency
 argument_list|,
-name|disableCoords
+name|disableCoord
 argument_list|,
 name|fieldType
 argument_list|)
