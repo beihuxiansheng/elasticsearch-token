@@ -56,20 +56,6 @@ name|lucene
 operator|.
 name|document
 operator|.
-name|FieldType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|document
-operator|.
 name|SortedDocValuesField
 import|;
 end_import
@@ -1556,6 +1542,7 @@ operator|=
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -1563,6 +1550,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setFieldDataType
 argument_list|(
@@ -1594,6 +1582,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()
@@ -1729,6 +1718,7 @@ condition|(
 name|parent
 operator|&&
 name|fieldType
+argument_list|()
 operator|.
 name|hasDocValues
 argument_list|()
@@ -1820,6 +1810,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1842,12 +1833,14 @@ name|parentId
 argument_list|)
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|hasDocValues
 argument_list|()
@@ -1940,6 +1933,7 @@ operator|new
 name|Field
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1962,12 +1956,14 @@ name|parentId
 argument_list|)
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|hasDocValues
 argument_list|()
@@ -2203,6 +2199,7 @@ operator|(
 name|Map
 operator|)
 name|fieldType
+argument_list|()
 operator|.
 name|fieldDataType
 argument_list|()
@@ -2306,6 +2303,7 @@ operator|=
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -2347,6 +2345,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setFieldDataType
 argument_list|(
@@ -2385,6 +2384,7 @@ block|}
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()

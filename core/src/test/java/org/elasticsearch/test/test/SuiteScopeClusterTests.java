@@ -36,6 +36,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -142,6 +154,13 @@ literal|null
 decl_stmt|;
 annotation|@
 name|Test
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"repeat is a feature here"
+argument_list|)
 annotation|@
 name|Repeat
 argument_list|(

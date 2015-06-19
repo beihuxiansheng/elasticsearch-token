@@ -330,20 +330,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MappedFieldType
 import|;
 end_import
@@ -2158,7 +2144,10 @@ return|return
 operator|(
 name|GeoShapeFieldType
 operator|)
+name|super
+operator|.
 name|fieldType
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -2307,6 +2296,7 @@ operator|.
 name|setBoost
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -2338,6 +2328,7 @@ argument_list|(
 literal|"failed to parse ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2404,6 +2395,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2455,6 +2447,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2496,6 +2489,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2533,6 +2527,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2568,6 +2563,7 @@ argument_list|(
 literal|"mapper ["
 operator|+
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -2600,9 +2596,8 @@ name|this
 operator|.
 name|fieldType
 operator|=
-name|this
-operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -2641,9 +2636,8 @@ name|orientation
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|freeze
 argument_list|()

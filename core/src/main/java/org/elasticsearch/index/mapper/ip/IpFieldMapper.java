@@ -84,20 +84,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|NumericRangeQuery
 import|;
 end_import
@@ -1820,6 +1806,7 @@ operator|.
 name|addText
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -1830,6 +1817,7 @@ argument_list|,
 name|ipAsString
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -1848,6 +1836,7 @@ decl_stmt|;
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -1857,6 +1846,7 @@ operator|.
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1873,6 +1863,7 @@ argument_list|,
 name|value
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|field
@@ -1880,6 +1871,7 @@ operator|.
 name|setBoost
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -1985,6 +1977,7 @@ operator|=
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|clone
 argument_list|()
@@ -1992,6 +1985,7 @@ expr_stmt|;
 name|this
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setNullValue
 argument_list|(
@@ -2046,6 +2040,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -2062,6 +2057,7 @@ argument_list|(
 literal|"precision_step"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()

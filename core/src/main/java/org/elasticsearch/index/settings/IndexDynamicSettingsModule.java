@@ -1060,7 +1060,7 @@ name|addDynamicSetting
 argument_list|(
 name|UnassignedInfo
 operator|.
-name|DELAYED_NODE_LEFT_TIMEOUT
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
 argument_list|,
 name|Validator
 operator|.

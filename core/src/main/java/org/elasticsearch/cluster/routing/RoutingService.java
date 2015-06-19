@@ -693,6 +693,12 @@ name|routingTableDirty
 operator|=
 literal|true
 expr_stmt|;
+name|registeredNextDelaySetting
+operator|=
+name|Long
+operator|.
+name|MAX_VALUE
+expr_stmt|;
 name|reroute
 argument_list|()
 expr_stmt|;
