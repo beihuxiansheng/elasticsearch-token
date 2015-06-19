@@ -1547,10 +1547,8 @@ name|this
 argument_list|,
 name|expire
 argument_list|,
-operator|(
-name|NumberFieldType
-operator|)
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

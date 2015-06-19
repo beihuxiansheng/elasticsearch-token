@@ -922,6 +922,7 @@ literal|null
 comment|/* Out null value is an int so we convert*/
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -950,6 +951,7 @@ block|}
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -957,6 +959,7 @@ operator|!=
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -1048,6 +1051,7 @@ operator|.
 name|ignoredValue
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()

@@ -2653,7 +2653,10 @@ return|return
 operator|(
 name|DateFieldType
 operator|)
+name|super
+operator|.
 name|fieldType
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -2778,9 +2781,8 @@ decl_stmt|;
 name|float
 name|boost
 init|=
-name|this
-operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|boost
 argument_list|()
@@ -2818,6 +2820,7 @@ block|{
 name|dateAsString
 operator|=
 name|fieldType
+argument_list|()
 operator|.
 name|nullValueAsString
 argument_list|()
@@ -2858,6 +2861,7 @@ block|{
 name|dateAsString
 operator|=
 name|fieldType
+argument_list|()
 operator|.
 name|nullValueAsString
 argument_list|()
@@ -2970,6 +2974,7 @@ block|{
 name|dateAsString
 operator|=
 name|fieldType
+argument_list|()
 operator|.
 name|nullValueAsString
 argument_list|()
@@ -3072,6 +3077,7 @@ operator|.
 name|addText
 argument_list|(
 name|fieldType
+argument_list|()
 operator|.
 name|names
 argument_list|()
@@ -3106,6 +3112,7 @@ block|{
 if|if
 condition|(
 name|fieldType
+argument_list|()
 operator|.
 name|indexOptions
 argument_list|()
@@ -3115,6 +3122,7 @@ operator|.
 name|NONE
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|stored
 argument_list|()
@@ -3130,10 +3138,8 @@ name|this
 argument_list|,
 name|value
 argument_list|,
-operator|(
-name|NumberFieldType
-operator|)
 name|fieldType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|field
@@ -3271,26 +3277,6 @@ name|this
 operator|.
 name|fieldType
 operator|.
-name|setNullValue
-argument_list|(
-operator|(
-operator|(
-name|DateFieldMapper
-operator|)
-name|mergeWith
-operator|)
-operator|.
-name|fieldType
-argument_list|()
-operator|.
-name|nullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|fieldType
-operator|.
 name|freeze
 argument_list|()
 expr_stmt|;
@@ -3331,6 +3317,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -3347,6 +3334,7 @@ argument_list|(
 literal|"precision_step"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|numericPrecisionStep
 argument_list|()
@@ -3374,6 +3362,7 @@ condition|(
 name|includeDefaults
 operator|||
 name|fieldType
+argument_list|()
 operator|.
 name|nullValueAsString
 argument_list|()
@@ -3388,6 +3377,7 @@ argument_list|(
 literal|"null_value"
 argument_list|,
 name|fieldType
+argument_list|()
 operator|.
 name|nullValueAsString
 argument_list|()
