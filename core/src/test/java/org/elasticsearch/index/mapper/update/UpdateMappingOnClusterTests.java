@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Seed
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -173,16 +159,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
 import|;
 end_import
 
@@ -1583,13 +1559,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Seed
-argument_list|(
-name|value
-operator|=
-literal|"12345678"
-argument_list|)
 DECL|method|testUpdateTimestamp
 specifier|public
 name|void
