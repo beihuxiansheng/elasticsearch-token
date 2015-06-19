@@ -1259,10 +1259,10 @@ return|;
 block|}
 comment|// norelease: we need to override freeze() and add safety checks that all settings are actually set
 comment|/**      * Checks for any conflicts between this field type and other.      */
-DECL|method|validateCompatible
+DECL|method|checkCompatibility
 specifier|public
 name|void
-name|validateCompatible
+name|checkCompatibility
 parameter_list|(
 name|MappedFieldType
 name|other

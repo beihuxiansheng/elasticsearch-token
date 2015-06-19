@@ -2225,7 +2225,7 @@ comment|// TODO: just expose list from MergeResult?
 name|fieldType
 argument_list|()
 operator|.
-name|validateCompatible
+name|checkCompatibility
 argument_list|(
 name|fieldMergeWith
 operator|.

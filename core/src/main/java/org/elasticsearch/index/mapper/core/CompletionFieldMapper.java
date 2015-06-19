@@ -1786,10 +1786,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|validateCompatible
+DECL|method|checkCompatibility
 specifier|public
 name|void
-name|validateCompatible
+name|checkCompatibility
 parameter_list|(
 name|MappedFieldType
 name|fieldType
@@ -1803,7 +1803,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|validateCompatible
+name|checkCompatibility
 argument_list|(
 name|fieldType
 argument_list|,
