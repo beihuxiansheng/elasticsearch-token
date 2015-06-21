@@ -380,6 +380,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -2308,6 +2320,11 @@ argument_list|(
 name|indexMetaData
 operator|.
 name|creationDate
+argument_list|()
+argument_list|,
+name|DateTimeZone
+operator|.
+name|getDefault
 argument_list|()
 argument_list|)
 argument_list|)
