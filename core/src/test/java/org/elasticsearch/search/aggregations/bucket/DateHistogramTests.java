@@ -12221,19 +12221,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/pull/11482"
-argument_list|)
 DECL|method|testTimestampField
 specifier|public
 name|void
 name|testTimestampField
 parameter_list|()
 block|{
+comment|// see #11692
 name|SearchResponse
 name|response
 init|=
