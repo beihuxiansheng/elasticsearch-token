@@ -437,6 +437,14 @@ name|type
 argument_list|()
 argument_list|)
 operator|.
+name|updateAllTypes
+argument_list|(
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
+argument_list|)
+operator|.
 name|source
 argument_list|(
 name|request

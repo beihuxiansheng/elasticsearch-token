@@ -423,6 +423,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -456,6 +458,8 @@ name|docMapper2
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -649,6 +653,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -682,6 +688,8 @@ name|docMapper3
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -825,6 +833,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -858,6 +868,8 @@ name|docMapper4
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -1160,6 +1172,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1193,6 +1207,8 @@ name|docMapper2
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -1386,6 +1402,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1419,6 +1437,8 @@ name|docMapper3
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -1562,6 +1582,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1629,6 +1651,8 @@ name|docMapper4
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)

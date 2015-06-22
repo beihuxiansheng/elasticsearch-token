@@ -853,7 +853,7 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
-literal|"field"
+literal|"str_field"
 argument_list|,
 literal|"value"
 argument_list|)

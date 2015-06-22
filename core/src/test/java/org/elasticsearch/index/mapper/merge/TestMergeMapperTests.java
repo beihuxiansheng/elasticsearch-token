@@ -541,6 +541,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -600,6 +602,8 @@ name|stage2
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -797,6 +801,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -986,6 +992,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1044,6 +1052,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -1289,6 +1299,8 @@ name|changed
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -1552,6 +1564,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1661,6 +1675,8 @@ literal|"{\"test\":{}}"
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1866,6 +1882,8 @@ operator|.
 name|toString
 argument_list|()
 argument_list|)
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)

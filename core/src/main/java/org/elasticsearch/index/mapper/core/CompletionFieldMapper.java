@@ -1799,6 +1799,9 @@ argument_list|<
 name|String
 argument_list|>
 name|conflicts
+parameter_list|,
+name|boolean
+name|strict
 parameter_list|)
 block|{
 name|super
@@ -1808,6 +1811,8 @@ argument_list|(
 name|fieldType
 argument_list|,
 name|conflicts
+argument_list|,
+name|strict
 argument_list|)
 expr_stmt|;
 name|CompletionFieldType

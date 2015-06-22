@@ -407,6 +407,11 @@ name|request
 operator|.
 name|index
 argument_list|()
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 operator|.
 name|ackTimeout

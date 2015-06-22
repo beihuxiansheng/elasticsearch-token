@@ -1553,7 +1553,7 @@ name|setSource
 argument_list|(
 literal|"field1"
 argument_list|,
-literal|"0"
+literal|1
 argument_list|)
 operator|.
 name|get
@@ -1626,15 +1626,6 @@ name|to
 argument_list|(
 name|i
 argument_list|)
-argument_list|)
-comment|// The type must be set now, because two fields with the same name exist in different types.
-comment|// Setting the type to `type1`, makes sure that the range query gets parsed to a Lucene NumericRangeQuery.
-operator|.
-name|field
-argument_list|(
-literal|"type"
-argument_list|,
-literal|"type1"
 argument_list|)
 operator|.
 name|endObject

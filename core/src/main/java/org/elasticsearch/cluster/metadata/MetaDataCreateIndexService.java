@@ -2569,6 +2569,11 @@ argument_list|()
 argument_list|)
 argument_list|,
 literal|false
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2672,6 +2677,11 @@ argument_list|()
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

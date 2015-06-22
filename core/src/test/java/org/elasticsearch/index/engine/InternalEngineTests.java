@@ -16625,6 +16625,8 @@ argument_list|,
 name|settings
 argument_list|,
 name|rootBuilder
+argument_list|,
+name|mapperService
 argument_list|)
 decl_stmt|;
 name|DocumentMapperParser

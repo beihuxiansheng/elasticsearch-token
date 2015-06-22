@@ -2677,6 +2677,8 @@ argument_list|,
 name|mappingSource
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -2838,6 +2840,8 @@ argument_list|,
 name|mappingSource
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
