@@ -658,14 +658,11 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|IndexFieldMapper
-operator|.
 name|Builder
 name|builder
 init|=
-name|MapperBuilders
-operator|.
-name|index
+operator|new
+name|Builder
 argument_list|(
 name|parserContext
 operator|.

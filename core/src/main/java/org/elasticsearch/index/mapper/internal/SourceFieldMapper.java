@@ -570,22 +570,6 @@ name|nodeStringValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|source
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1008,12 +992,11 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|SourceFieldMapper
-operator|.
 name|Builder
 name|builder
 init|=
-name|source
+operator|new
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for

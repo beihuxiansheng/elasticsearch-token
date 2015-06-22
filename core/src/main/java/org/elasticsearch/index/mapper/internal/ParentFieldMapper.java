@@ -859,14 +859,11 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|ParentFieldMapper
-operator|.
 name|Builder
 name|builder
 init|=
-name|MapperBuilders
-operator|.
-name|parent
+operator|new
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for

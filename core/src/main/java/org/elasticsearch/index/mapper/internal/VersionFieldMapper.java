@@ -294,22 +294,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|version
-import|;
-end_import
-
 begin_comment
 comment|/** Mapper for the _version field. */
 end_comment
@@ -496,7 +480,8 @@ block|{
 name|Builder
 name|builder
 init|=
-name|version
+operator|new
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -556,14 +541,6 @@ operator|.
 name|getKey
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|Object
-name|fieldNode
-init|=
-name|entry
-operator|.
-name|getValue
-argument_list|()
 decl_stmt|;
 if|if
 condition|(

@@ -454,22 +454,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperBuilders
-operator|.
-name|all
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|core
 operator|.
 name|TypeParsers
@@ -809,12 +793,11 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|AllFieldMapper
-operator|.
 name|Builder
 name|builder
 init|=
-name|all
+operator|new
+name|Builder
 argument_list|(
 name|parserContext
 operator|.

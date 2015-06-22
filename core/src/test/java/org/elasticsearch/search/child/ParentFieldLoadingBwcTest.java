@@ -488,10 +488,6 @@ name|greaterThan
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|ParentFieldLoadingBwcTest
 specifier|public
@@ -563,8 +559,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 annotation|@
 name|LuceneTestCase
 operator|.
@@ -1319,8 +1313,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEagerParentFieldLoading
 specifier|public
 name|void
@@ -1920,8 +1912,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangingEagerParentFieldLoadingAtRuntime
 specifier|public
 name|void

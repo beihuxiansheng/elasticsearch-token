@@ -364,22 +364,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperBuilders
-operator|.
-name|uid
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|core
 operator|.
 name|TypeParsers
@@ -712,7 +696,8 @@ block|}
 name|Builder
 name|builder
 init|=
-name|uid
+operator|new
+name|Builder
 argument_list|(
 name|parserContext
 operator|.
