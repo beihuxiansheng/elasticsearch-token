@@ -573,12 +573,6 @@ specifier|final
 name|IndicesLifecycle
 name|indicesLifecycle
 decl_stmt|;
-DECL|field|indexCache
-specifier|private
-specifier|final
-name|IndexCache
-name|indexCache
-decl_stmt|;
 DECL|field|indexFieldDataService
 specifier|private
 specifier|final
@@ -723,9 +717,6 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|IndexCache
-name|indexCache
-parameter_list|,
 name|IndexFieldDataService
 name|indexFieldDataService
 parameter_list|,
@@ -763,12 +754,6 @@ operator|.
 name|indexingService
 operator|=
 name|indexingService
-expr_stmt|;
-name|this
-operator|.
-name|indexCache
-operator|=
-name|indexCache
 expr_stmt|;
 name|this
 operator|.
