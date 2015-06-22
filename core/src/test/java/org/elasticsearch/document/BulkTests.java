@@ -6420,6 +6420,17 @@ literal|"type"
 argument_list|,
 name|builder
 argument_list|)
+operator|.
+name|setSettings
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_VERSION_CREATED
+argument_list|,
+name|Version
+operator|.
+name|V_1_4_2_ID
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|String
