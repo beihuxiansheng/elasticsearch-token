@@ -40,7 +40,9 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|spans
+operator|.
+name|SpanQuery
 import|;
 end_import
 
@@ -118,6 +120,9 @@ name|SpanTermQueryBuilder
 argument_list|>
 implements|implements
 name|SpanQueryBuilder
+argument_list|<
+name|SpanTermQueryBuilder
+argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -281,7 +286,7 @@ annotation|@
 name|Override
 DECL|method|toQuery
 specifier|public
-name|Query
+name|SpanQuery
 name|toQuery
 parameter_list|(
 name|QueryParseContext
@@ -425,10 +430,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return

@@ -31,7 +31,7 @@ name|QB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
 argument_list|<
 name|QB
 argument_list|>

@@ -50,7 +50,10 @@ specifier|public
 class|class
 name|IndicesQueryBuilder
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
+argument_list|<
+name|IndicesQueryBuilder
+argument_list|>
 block|{
 DECL|field|NAME
 specifier|public
@@ -301,10 +304,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return

@@ -68,7 +68,10 @@ specifier|public
 class|class
 name|QueryWrappingQueryBuilder
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
+argument_list|<
+name|QueryWrappingQueryBuilder
+argument_list|>
 block|{
 DECL|field|query
 specifier|private
@@ -135,10 +138,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 comment|// this should not be called since we overwrite BaseQueryBuilder#toQuery() in this class

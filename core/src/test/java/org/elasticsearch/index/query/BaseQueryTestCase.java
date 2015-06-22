@@ -1360,7 +1360,7 @@ name|parser
 argument_list|,
 name|testQuery
 operator|.
-name|queryId
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1373,7 +1373,7 @@ name|queryParser
 argument_list|(
 name|testQuery
 operator|.
-name|queryId
+name|getName
 argument_list|()
 argument_list|)
 operator|.
@@ -1582,6 +1582,11 @@ argument_list|)
 init|)
 block|{
 name|QueryBuilder
+argument_list|<
+name|?
+extends|extends
+name|QueryBuilder
+argument_list|>
 name|prototype
 init|=
 name|queryParserService
@@ -1590,7 +1595,7 @@ name|queryParser
 argument_list|(
 name|testQuery
 operator|.
-name|queryId
+name|getName
 argument_list|()
 argument_list|)
 operator|.

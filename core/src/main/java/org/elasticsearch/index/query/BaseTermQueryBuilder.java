@@ -111,7 +111,7 @@ name|QB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
 argument_list|<
 name|QB
 argument_list|>
@@ -448,7 +448,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|queryId
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;

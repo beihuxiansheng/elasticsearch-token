@@ -120,7 +120,7 @@ specifier|public
 class|class
 name|BoostingQueryBuilder
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
 argument_list|<
 name|BoostingQueryBuilder
 argument_list|>
@@ -461,10 +461,10 @@ block|}
 empty_stmt|;
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return

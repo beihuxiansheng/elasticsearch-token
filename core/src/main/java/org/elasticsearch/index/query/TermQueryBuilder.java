@@ -425,10 +425,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return

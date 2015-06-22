@@ -127,7 +127,7 @@ init|=
 operator|new
 name|DisjunctionMaxQuery
 argument_list|(
-name|QueryBuilder
+name|AbstractQueryBuilder
 operator|.
 name|toQueries
 argument_list|(
@@ -366,7 +366,7 @@ name|ConstantScoreQueryBuilder
 operator|.
 name|PROTOTYPE
 operator|.
-name|queryId
+name|getName
 argument_list|()
 decl_stmt|;
 name|String

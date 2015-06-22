@@ -84,7 +84,10 @@ specifier|public
 class|class
 name|TemplateQueryBuilder
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
+argument_list|<
+name|TemplateQueryBuilder
+argument_list|>
 block|{
 comment|/** Name to reference this type of query. */
 DECL|field|NAME
@@ -303,10 +306,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return

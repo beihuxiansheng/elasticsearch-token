@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|MatchAllQueryBuilder
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
 argument_list|<
 name|MatchAllQueryBuilder
 argument_list|>
@@ -434,10 +434,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return

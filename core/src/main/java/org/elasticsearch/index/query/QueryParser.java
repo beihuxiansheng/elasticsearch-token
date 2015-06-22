@@ -101,6 +101,11 @@ function_decl|;
 comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
 DECL|method|getBuilderPrototype
 name|QueryBuilder
+argument_list|<
+name|?
+extends|extends
+name|QueryBuilder
+argument_list|>
 name|getBuilderPrototype
 parameter_list|()
 function_decl|;

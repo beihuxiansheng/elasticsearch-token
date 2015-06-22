@@ -476,7 +476,7 @@ name|QueryBuilder
 name|noOpBuilder
 init|=
 operator|new
-name|QueryBuilder
+name|AbstractQueryBuilder
 argument_list|<
 name|QueryBuilder
 argument_list|>
@@ -486,7 +486,7 @@ annotation|@
 name|Override
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return
@@ -526,8 +526,6 @@ block|}
 decl_stmt|;
 name|BoostingQueryBuilder
 name|boostingQueryBuilder
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

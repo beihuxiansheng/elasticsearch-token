@@ -431,7 +431,7 @@ name|AndQueryBuilder
 operator|.
 name|PROTOTYPE
 operator|.
-name|queryId
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -446,7 +446,7 @@ name|AndQueryBuilder
 operator|.
 name|PROTOTYPE
 operator|.
-name|queryId
+name|getName
 argument_list|()
 argument_list|)
 operator|.

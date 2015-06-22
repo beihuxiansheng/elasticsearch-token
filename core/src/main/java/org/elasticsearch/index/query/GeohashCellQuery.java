@@ -188,37 +188,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MappedFieldType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|StringFieldMapper
 import|;
 end_import
 
@@ -408,7 +378,10 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|QueryBuilder
+name|AbstractQueryBuilder
+argument_list|<
+name|Builder
+argument_list|>
 block|{
 comment|// we need to store the geohash rather than the corresponding point,
 comment|// because a transformation from a geohash to a point an back to the
@@ -787,10 +760,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|queryId
+DECL|method|getName
 specifier|public
 name|String
-name|queryId
+name|getName
 parameter_list|()
 block|{
 return|return
