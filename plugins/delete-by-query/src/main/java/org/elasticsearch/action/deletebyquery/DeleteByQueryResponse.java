@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete by query response  */
+comment|/**  * Delete by query response  * @see DeleteByQueryRequest  */
 end_comment
 
 begin_class

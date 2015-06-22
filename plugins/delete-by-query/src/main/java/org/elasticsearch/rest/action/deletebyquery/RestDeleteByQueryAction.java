@@ -238,6 +238,10 @@ name|DELETE
 import|;
 end_import
 
+begin_comment
+comment|/**  * @see DeleteByQueryRequest  */
+end_comment
+
 begin_class
 DECL|class|RestDeleteByQueryAction
 specifier|public
