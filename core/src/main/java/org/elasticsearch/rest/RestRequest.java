@@ -550,7 +550,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to parse int parameter ["
+literal|"Failed to parse long parameter ["
 operator|+
 name|key
 operator|+

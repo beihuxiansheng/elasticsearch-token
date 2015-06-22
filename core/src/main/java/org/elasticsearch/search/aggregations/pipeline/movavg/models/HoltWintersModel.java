@@ -174,6 +174,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|text
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|*
@@ -1519,20 +1529,17 @@ parameter_list|,
 name|String
 name|pipelineName
 parameter_list|,
-name|SearchContext
-name|context
-parameter_list|,
 name|int
 name|windowSize
 parameter_list|)
+throws|throws
+name|ParseException
 block|{
 name|double
 name|alpha
 init|=
 name|parseDoubleParam
 argument_list|(
-name|context
-argument_list|,
 name|settings
 argument_list|,
 literal|"alpha"
@@ -1545,8 +1552,6 @@ name|beta
 init|=
 name|parseDoubleParam
 argument_list|(
-name|context
-argument_list|,
 name|settings
 argument_list|,
 literal|"beta"
@@ -1559,8 +1564,6 @@ name|gamma
 init|=
 name|parseDoubleParam
 argument_list|(
-name|context
-argument_list|,
 name|settings
 argument_list|,
 literal|"gamma"
@@ -1573,8 +1576,6 @@ name|period
 init|=
 name|parseIntegerParam
 argument_list|(
-name|context
-argument_list|,
 name|settings
 argument_list|,
 literal|"period"
@@ -1593,10 +1594,8 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParseException
 argument_list|(
-name|context
-argument_list|,
 literal|"Field [window] must be at least twice as large as the period when "
 operator|+
 literal|"using Holt-Winters.  Value provided was ["
@@ -1611,7 +1610,7 @@ operator|*
 name|period
 operator|)
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 throw|;
 block|}
@@ -1670,10 +1669,8 @@ else|else
 block|{
 throw|throw
 operator|new
-name|SearchParseException
+name|ParseException
 argument_list|(
-name|context
-argument_list|,
 literal|"Parameter [type] must be a String, type `"
 operator|+
 name|value
@@ -1686,7 +1683,7 @@ argument_list|()
 operator|+
 literal|"` provided instead"
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 throw|;
 block|}
@@ -1697,8 +1694,6 @@ name|pad
 init|=
 name|parseBoolParam
 argument_list|(
-name|context
-argument_list|,
 name|settings
 argument_list|,
 literal|"pad"

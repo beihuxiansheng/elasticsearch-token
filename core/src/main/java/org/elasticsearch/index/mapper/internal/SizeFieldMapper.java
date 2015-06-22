@@ -1006,6 +1006,7 @@ name|length
 argument_list|()
 argument_list|,
 name|fieldType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

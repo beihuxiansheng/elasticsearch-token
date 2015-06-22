@@ -4829,6 +4829,16 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
+name|Arrays
+operator|.
+name|toString
+argument_list|(
+name|mergeResult
+operator|.
+name|buildConflicts
+argument_list|()
+argument_list|)
+argument_list|,
 name|mergeResult
 operator|.
 name|hasConflicts

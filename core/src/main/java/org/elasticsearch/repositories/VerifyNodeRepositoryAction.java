@@ -538,6 +538,17 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed to verify repository"
+argument_list|,
+name|t
+argument_list|,
+name|repository
+argument_list|)
+expr_stmt|;
 name|errors
 operator|.
 name|add
@@ -934,6 +945,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|doVerify
 argument_list|(
 name|request
@@ -945,6 +958,30 @@ operator|.
 name|verificationToken
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"[{}] failed to verify repository"
+argument_list|,
+name|ex
+argument_list|,
+name|request
+operator|.
+name|repository
+argument_list|)
+expr_stmt|;
+throw|throw
+name|ex
+throw|;
+block|}
 name|channel
 operator|.
 name|sendResponse

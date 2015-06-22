@@ -312,7 +312,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**      * Number of ongoing recoveries for which a shard serves as a source      */
+comment|/**      * Number of ongoing recoveries for which a shard serves as a target      */
 DECL|method|currentAsTarget
 specifier|public
 name|int

@@ -104,6 +104,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|text
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -387,7 +397,7 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings      Map of settings, extracted from the request          * @param pipelineName   Name of the parent pipeline agg          * @param context       The parser context that we are in          * @param windowSize    Size of the window for this moving avg          * @return              A fully built moving average model          */
+comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings      Map of settings, extracted from the request          * @param pipelineName   Name of the parent pipeline agg          * @param windowSize    Size of the window for this moving avg          * @return              A fully built moving average model          */
 DECL|method|parse
 specifier|public
 specifier|abstract
@@ -407,22 +417,18 @@ parameter_list|,
 name|String
 name|pipelineName
 parameter_list|,
-name|SearchContext
-name|context
-parameter_list|,
 name|int
 name|windowSize
 parameter_list|)
+throws|throws
+name|ParseException
 function_decl|;
-comment|/**          * Extracts a 0-1 inclusive double from the settings map, otherwise throws an exception          *          * @param context       Search query context          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws SearchParseException          *          * @return Double value extracted from settings map          */
+comment|/**          * Extracts a 0-1 inclusive double from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws ParseException          *          * @return Double value extracted from settings map          */
 DECL|method|parseDoubleParam
 specifier|protected
 name|double
 name|parseDoubleParam
 parameter_list|(
-name|SearchContext
-name|context
-parameter_list|,
 annotation|@
 name|Nullable
 name|Map
@@ -439,6 +445,8 @@ parameter_list|,
 name|double
 name|defaultValue
 parameter_list|)
+throws|throws
+name|ParseException
 block|{
 if|if
 condition|(
@@ -477,16 +485,21 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|Double
+name|Number
 condition|)
 block|{
 name|double
 name|v
 init|=
 operator|(
-name|Double
+operator|(
+name|Number
 operator|)
 name|value
+operator|)
+operator|.
+name|doubleValue
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -505,10 +518,8 @@ return|;
 block|}
 throw|throw
 operator|new
-name|SearchParseException
+name|ParseException
 argument_list|(
-name|context
-argument_list|,
 literal|"Parameter ["
 operator|+
 name|name
@@ -521,16 +532,14 @@ name|v
 operator|+
 literal|"]"
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 throw|;
 block|}
 throw|throw
 operator|new
-name|SearchParseException
+name|ParseException
 argument_list|(
-name|context
-argument_list|,
 literal|"Parameter ["
 operator|+
 name|name
@@ -547,19 +556,16 @@ argument_list|()
 operator|+
 literal|"` provided instead"
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 throw|;
 block|}
-comment|/**          * Extracts an integer from the settings map, otherwise throws an exception          *          * @param context       Search query context          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws SearchParseException          *          * @return Integer value extracted from settings map          */
+comment|/**          * Extracts an integer from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws ParseException          *          * @return Integer value extracted from settings map          */
 DECL|method|parseIntegerParam
 specifier|protected
 name|int
 name|parseIntegerParam
 parameter_list|(
-name|SearchContext
-name|context
-parameter_list|,
 annotation|@
 name|Nullable
 name|Map
@@ -576,6 +582,8 @@ parameter_list|,
 name|int
 name|defaultValue
 parameter_list|)
+throws|throws
+name|ParseException
 block|{
 if|if
 condition|(
@@ -614,22 +622,25 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|Integer
+name|Number
 condition|)
 block|{
 return|return
 operator|(
-name|Integer
+operator|(
+name|Number
 operator|)
 name|value
+operator|)
+operator|.
+name|intValue
+argument_list|()
 return|;
 block|}
 throw|throw
 operator|new
-name|SearchParseException
+name|ParseException
 argument_list|(
-name|context
-argument_list|,
 literal|"Parameter ["
 operator|+
 name|name
@@ -646,19 +657,16 @@ argument_list|()
 operator|+
 literal|"` provided instead"
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 throw|;
 block|}
-comment|/**          * Extracts a boolean from the settings map, otherwise throws an exception          *          * @param context       Search query context          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws SearchParseException          *          * @return Boolean value extracted from settings map          */
+comment|/**          * Extracts a boolean from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws SearchParseException          *          * @return Boolean value extracted from settings map          */
 DECL|method|parseBoolParam
 specifier|protected
 name|boolean
 name|parseBoolParam
 parameter_list|(
-name|SearchContext
-name|context
-parameter_list|,
 annotation|@
 name|Nullable
 name|Map
@@ -675,6 +683,8 @@ parameter_list|,
 name|boolean
 name|defaultValue
 parameter_list|)
+throws|throws
+name|ParseException
 block|{
 if|if
 condition|(
@@ -725,10 +735,8 @@ return|;
 block|}
 throw|throw
 operator|new
-name|SearchParseException
+name|ParseException
 argument_list|(
-name|context
-argument_list|,
 literal|"Parameter ["
 operator|+
 name|name
@@ -745,7 +753,7 @@ argument_list|()
 operator|+
 literal|"` provided instead"
 argument_list|,
-literal|null
+literal|0
 argument_list|)
 throw|;
 block|}

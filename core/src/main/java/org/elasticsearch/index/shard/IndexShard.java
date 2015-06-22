@@ -7817,16 +7817,21 @@ parameter_list|)
 block|{
 try|try
 block|{
-comment|// delete the shard state so this folder will not be reused
-name|MetaDataStateFormat
+comment|// mark as corrupted, so opening the store will fail
+name|store
 operator|.
-name|deleteMetaState
+name|markStoreCorrupted
 argument_list|(
-name|nodeEnv
-operator|.
-name|availableShardPaths
+operator|new
+name|IOException
 argument_list|(
-name|shardId
+literal|"failed engine (reason: ["
+operator|+
+name|reason
+operator|+
+literal|"])"
+argument_list|,
+name|failure
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7841,7 +7846,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to delete shard state"
+literal|"failed to mark shard store as corrupted"
 argument_list|,
 name|e
 argument_list|)
