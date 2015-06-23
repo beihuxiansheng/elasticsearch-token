@@ -918,7 +918,15 @@ DECL|method|IntegerFieldType
 specifier|public
 name|IntegerFieldType
 parameter_list|()
-block|{}
+block|{
+name|super
+argument_list|(
+name|NumericType
+operator|.
+name|INT
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|IntegerFieldType
 specifier|protected
 name|IntegerFieldType

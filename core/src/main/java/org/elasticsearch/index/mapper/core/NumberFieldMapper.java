@@ -955,7 +955,10 @@ block|{
 DECL|method|NumberFieldType
 specifier|public
 name|NumberFieldType
-parameter_list|()
+parameter_list|(
+name|NumericType
+name|numericType
+parameter_list|)
 block|{
 name|super
 argument_list|(
@@ -986,6 +989,11 @@ expr_stmt|;
 name|setStoreTermVectors
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|setNumericType
+argument_list|(
+name|numericType
 argument_list|)
 expr_stmt|;
 block|}

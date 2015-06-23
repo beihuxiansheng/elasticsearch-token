@@ -891,7 +891,15 @@ DECL|method|ByteFieldType
 specifier|public
 name|ByteFieldType
 parameter_list|()
-block|{}
+block|{
+name|super
+argument_list|(
+name|NumericType
+operator|.
+name|INT
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|ByteFieldType
 specifier|protected
 name|ByteFieldType
