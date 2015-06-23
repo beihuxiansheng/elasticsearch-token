@@ -2145,24 +2145,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|boolean
-name|hasCustomFieldDataSettings
-init|=
-name|customFieldDataSettings
-operator|!=
-literal|null
-operator|&&
-name|customFieldDataSettings
-operator|.
-name|equals
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
-operator|==
-literal|false
-decl_stmt|;
 comment|// if all are defaults, no sense to write it at all
 if|if
 condition|(
@@ -2202,6 +2184,7 @@ operator|.
 name|PATH
 operator|&&
 name|hasCustomFieldDataSettings
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -2318,6 +2301,7 @@ block|}
 if|if
 condition|(
 name|hasCustomFieldDataSettings
+argument_list|()
 condition|)
 block|{
 name|builder

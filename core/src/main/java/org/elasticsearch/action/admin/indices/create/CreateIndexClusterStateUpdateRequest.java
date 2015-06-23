@@ -590,6 +590,7 @@ return|return
 name|blocks
 return|;
 block|}
+comment|/** True if all fields that span multiple types should be updated, false otherwise */
 DECL|method|updateAllTypes
 specifier|public
 name|boolean

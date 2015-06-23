@@ -3709,7 +3709,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|NumberFormatException
 name|e
 parameter_list|)
 block|{
@@ -3766,7 +3766,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|NumberFormatException
 name|e
 parameter_list|)
 block|{

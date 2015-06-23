@@ -2083,24 +2083,6 @@ name|IndexOptions
 operator|.
 name|NONE
 decl_stmt|;
-name|boolean
-name|hasCustomFieldDataSettings
-init|=
-name|customFieldDataSettings
-operator|!=
-literal|null
-operator|&&
-name|customFieldDataSettings
-operator|.
-name|equals
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
-operator|==
-literal|false
-decl_stmt|;
 comment|// if all are defaults, no sense to write it at all
 if|if
 condition|(
@@ -2112,6 +2094,7 @@ operator|==
 name|indexedDefault
 operator|&&
 name|hasCustomFieldDataSettings
+argument_list|()
 operator|==
 literal|false
 operator|&&
@@ -2429,6 +2412,7 @@ block|{
 if|if
 condition|(
 name|hasCustomFieldDataSettings
+argument_list|()
 condition|)
 block|{
 name|builder

@@ -1384,24 +1384,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|boolean
-name|hasCustomFieldDataSettings
-init|=
-name|customFieldDataSettings
-operator|!=
-literal|null
-operator|&&
-name|customFieldDataSettings
-operator|.
-name|equals
-argument_list|(
-name|Settings
-operator|.
-name|EMPTY
-argument_list|)
-operator|==
-literal|false
-decl_stmt|;
 comment|// if defaults, don't output
 if|if
 condition|(
@@ -1409,6 +1391,7 @@ operator|!
 name|includeDefaults
 operator|&&
 name|hasCustomFieldDataSettings
+argument_list|()
 operator|==
 literal|false
 condition|)
@@ -1427,6 +1410,7 @@ expr_stmt|;
 if|if
 condition|(
 name|hasCustomFieldDataSettings
+argument_list|()
 condition|)
 block|{
 name|builder

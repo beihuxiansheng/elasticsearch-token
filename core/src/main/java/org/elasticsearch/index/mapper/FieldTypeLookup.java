@@ -88,37 +88,11 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|object
-operator|.
-name|ObjectMapper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -587,7 +561,7 @@ name|indexName
 argument_list|)
 return|;
 block|}
-comment|/**      * Checks if the give mapper's field types are compatibile with existing field types.      * If any are not compatible, an IllegalArgumentException is thrown.      * If updateAllTypes is true, only basic compatibility is checked.      */
+comment|/**      * Checks if the given mappers' field types are compatible with existing field types.      * If any are not compatible, an IllegalArgumentException is thrown.      * If updateAllTypes is true, only basic compatibility is checked.      */
 DECL|method|checkCompatibility
 specifier|public
 name|void
@@ -642,7 +616,7 @@ name|strict
 init|=
 name|ref
 operator|.
-name|getRefCount
+name|getNumAssociatedMappers
 argument_list|()
 operator|>
 literal|1
@@ -748,7 +722,7 @@ name|strict
 init|=
 name|indexNameRef
 operator|.
-name|getRefCount
+name|getNumAssociatedMappers
 argument_list|()
 operator|>
 literal|1

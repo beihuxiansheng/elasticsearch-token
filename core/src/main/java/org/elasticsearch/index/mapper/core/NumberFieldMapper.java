@@ -1858,7 +1858,7 @@ name|this
 operator|.
 name|fieldTypeRef
 operator|.
-name|getRefCount
+name|getNumAssociatedMappers
 argument_list|()
 operator|>
 literal|1
