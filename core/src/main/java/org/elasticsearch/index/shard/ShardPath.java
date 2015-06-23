@@ -474,6 +474,17 @@ operator|==
 literal|false
 condition|)
 block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"{} found shard on path: [{}] with a different index UUID - this shard seems to be leftover from a different index with the same name. Remove the leftover shard in order to reuse the path with the current index"
+argument_list|,
+name|shardId
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 throw|throw
 operator|new
 name|IllegalStateException
