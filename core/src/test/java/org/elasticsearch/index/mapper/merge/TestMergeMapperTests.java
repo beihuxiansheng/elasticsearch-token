@@ -330,10 +330,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|TestMergeMapperTests
 specifier|public
@@ -342,8 +338,6 @@ name|TestMergeMapperTests
 extends|extends
 name|ElasticsearchSingleNodeTest
 block|{
-annotation|@
-name|Test
 DECL|method|test1Merge
 specifier|public
 name|void
@@ -656,8 +650,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMergeObjectDynamic
 specifier|public
 name|void
@@ -839,8 +831,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMergeObjectAndNested
 specifier|public
 name|void
@@ -1088,8 +1078,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testMergeSearchAnalyzer
 specifier|public
 name|void
@@ -1351,8 +1339,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangeSearchAnalyzerToDefault
 specifier|public
 name|void
@@ -1700,19 +1686,19 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-operator|(
-operator|(
-name|FieldNameAnalyzer
-operator|)
+name|assertNotNull
+argument_list|(
 name|dfm
 operator|.
 name|indexAnalyzer
 argument_list|()
-operator|)
 operator|.
-name|getWrappedAnalyzer
+name|tokenStream
 argument_list|(
 literal|"non_existing_field"
+argument_list|,
+literal|"foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1996,19 +1982,19 @@ operator|.
 name|mappers
 argument_list|()
 expr_stmt|;
-operator|(
-operator|(
-name|FieldNameAnalyzer
-operator|)
+name|assertNotNull
+argument_list|(
 name|dfm
 operator|.
 name|indexAnalyzer
 argument_list|()
-operator|)
 operator|.
-name|getWrappedAnalyzer
+name|tokenStream
 argument_list|(
 name|fieldName
+argument_list|,
+literal|"foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
