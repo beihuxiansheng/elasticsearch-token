@@ -499,11 +499,6 @@ argument_list|(
 name|queryName
 argument_list|)
 expr_stmt|;
-name|andQuery
-operator|.
-name|validate
-argument_list|()
-expr_stmt|;
 return|return
 name|andQuery
 return|;

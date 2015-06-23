@@ -126,14 +126,14 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
-DECL|class|AndQueryBuilderTest
+DECL|class|OrQueryBuilderTest
 specifier|public
 class|class
-name|AndQueryBuilderTest
+name|OrQueryBuilderTest
 extends|extends
 name|BaseQueryTestCase
 argument_list|<
-name|AndQueryBuilder
+name|OrQueryBuilder
 argument_list|>
 block|{
 annotation|@
@@ -143,7 +143,7 @@ specifier|protected
 name|Query
 name|createExpectedQuery
 parameter_list|(
-name|AndQueryBuilder
+name|OrQueryBuilder
 name|queryBuilder
 parameter_list|,
 name|QueryParseContext
@@ -197,6 +197,7 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+comment|// ignore queries that are null
 if|if
 condition|(
 name|innerQuery
@@ -212,7 +213,7 @@ name|innerQuery
 argument_list|,
 name|Occur
 operator|.
-name|MUST
+name|SHOULD
 argument_list|)
 expr_stmt|;
 block|}
@@ -221,20 +222,20 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * @return a AndQueryBuilder with random limit between 0 and 20      */
+comment|/**      * @return an OrQueryBuilder with random limit between 0 and 20      */
 annotation|@
 name|Override
 DECL|method|createTestQueryBuilder
 specifier|protected
-name|AndQueryBuilder
+name|OrQueryBuilder
 name|createTestQueryBuilder
 parameter_list|()
 block|{
-name|AndQueryBuilder
+name|OrQueryBuilder
 name|query
 init|=
 operator|new
-name|AndQueryBuilder
+name|OrQueryBuilder
 argument_list|()
 decl_stmt|;
 name|int
@@ -306,7 +307,7 @@ specifier|protected
 name|void
 name|assertLuceneQuery
 parameter_list|(
-name|AndQueryBuilder
+name|OrQueryBuilder
 name|queryBuilder
 parameter_list|,
 name|Query
@@ -367,16 +368,16 @@ name|QueryParsingException
 throws|,
 name|IOException
 block|{
-name|AndQueryBuilder
-name|andQuery
+name|OrQueryBuilder
+name|orQuery
 init|=
 operator|new
-name|AndQueryBuilder
+name|OrQueryBuilder
 argument_list|()
 decl_stmt|;
 name|assertNull
 argument_list|(
-name|andQuery
+name|orQuery
 operator|.
 name|toQuery
 argument_list|(
@@ -412,7 +413,7 @@ decl_stmt|;
 name|String
 name|queryString
 init|=
-literal|"{ \"and\" : {}"
+literal|"{ \"or\" : {}"
 decl_stmt|;
 name|XContentParser
 name|parser
@@ -440,7 +441,7 @@ name|assertQueryHeader
 argument_list|(
 name|parser
 argument_list|,
-name|AndQueryBuilder
+name|OrQueryBuilder
 operator|.
 name|PROTOTYPE
 operator|.
@@ -455,7 +456,7 @@ argument_list|()
 operator|.
 name|queryParser
 argument_list|(
-name|AndQueryBuilder
+name|OrQueryBuilder
 operator|.
 name|PROTOTYPE
 operator|.
