@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.gateway
+DECL|package|org.elasticsearch.index.shard
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|gateway
+name|shard
 package|;
 end_package
 
@@ -45,39 +45,20 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exception marking that this recovery attempt should be ignored (since probably, we already recovered).  *  *  */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|IgnoreGatewayRecoveryException
+DECL|class|IndexShardRecoveryException
 specifier|public
 class|class
-name|IgnoreGatewayRecoveryException
+name|IndexShardRecoveryException
 extends|extends
 name|IndexShardException
 block|{
-DECL|method|IgnoreGatewayRecoveryException
+DECL|method|IndexShardRecoveryException
 specifier|public
-name|IgnoreGatewayRecoveryException
-parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
-name|String
-name|msg
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|shardId
-argument_list|,
-name|msg
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|IgnoreGatewayRecoveryException
-specifier|public
-name|IgnoreGatewayRecoveryException
+name|IndexShardRecoveryException
 parameter_list|(
 name|ShardId
 name|shardId

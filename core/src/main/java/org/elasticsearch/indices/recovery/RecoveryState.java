@@ -469,8 +469,8 @@ specifier|static
 enum|enum
 name|Type
 block|{
-DECL|enum constant|GATEWAY
-name|GATEWAY
+DECL|enum constant|STORE
+name|STORE
 argument_list|(
 operator|(
 name|byte

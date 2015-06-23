@@ -172,8 +172,6 @@ operator|new
 name|MeanMetric
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|ShardIndexWarmerService
 specifier|public
 name|ShardIndexWarmerService
