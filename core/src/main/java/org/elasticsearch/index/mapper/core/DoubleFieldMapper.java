@@ -932,6 +932,7 @@ return|;
 block|}
 block|}
 DECL|class|DoubleFieldType
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -980,6 +981,18 @@ name|DoubleFieldType
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|typeName
+specifier|public
+name|String
+name|typeName
+parameter_list|()
+block|{
+return|return
+name|CONTENT_TYPE
 return|;
 block|}
 annotation|@

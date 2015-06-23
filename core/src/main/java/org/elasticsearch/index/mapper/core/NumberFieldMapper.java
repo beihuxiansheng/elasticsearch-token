@@ -960,15 +960,6 @@ name|NumericType
 name|numericType
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|AbstractFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|FIELD_TYPE
-argument_list|)
-expr_stmt|;
 name|setTokenized
 argument_list|(
 literal|false
