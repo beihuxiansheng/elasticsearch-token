@@ -22,6 +22,7 @@ end_comment
 
 begin_interface
 DECL|interface|BoostableQueryBuilder
+specifier|public
 interface|interface
 name|BoostableQueryBuilder
 parameter_list|<
