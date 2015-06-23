@@ -146,6 +146,16 @@ name|Map
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  * Wrapper class for Lucene's SimpleQueryParser that allows us to redefine  * different types of queries.  */
 end_comment
@@ -1092,46 +1102,99 @@ block|}
 block|}
 comment|/**      * Class encapsulating the settings for the SimpleQueryString query, with      * their default values      */
 DECL|class|Settings
-specifier|public
 specifier|static
 class|class
 name|Settings
 block|{
+comment|/** Locale to use for parsing. */
 DECL|field|locale
 specifier|private
 name|Locale
 name|locale
 init|=
-name|Locale
+name|SimpleQueryStringBuilder
 operator|.
-name|ROOT
+name|DEFAULT_LOCALE
 decl_stmt|;
+comment|/** Specifies whether parsed terms should be lowercased. */
 DECL|field|lowercaseExpandedTerms
 specifier|private
 name|boolean
 name|lowercaseExpandedTerms
 init|=
-literal|true
+name|SimpleQueryStringBuilder
+operator|.
+name|DEFAULT_LOWERCASE_EXPANDED_TERMS
 decl_stmt|;
+comment|/** Specifies whether lenient query parsing should be used. */
 DECL|field|lenient
 specifier|private
 name|boolean
 name|lenient
 init|=
-literal|false
+name|SimpleQueryStringBuilder
+operator|.
+name|DEFAULT_LENIENT
 decl_stmt|;
+comment|/** Specifies whether wildcards should be analyzed. */
 DECL|field|analyzeWildcard
 specifier|private
 name|boolean
 name|analyzeWildcard
 init|=
-literal|false
+name|SimpleQueryStringBuilder
+operator|.
+name|DEFAULT_ANALYZE_WILDCARD
 decl_stmt|;
+comment|/**          * Generates default {@link Settings} object (uses ROOT locale, does          * lowercase terms, no lenient parsing, no wildcard analysis).          * */
 DECL|method|Settings
 specifier|public
 name|Settings
 parameter_list|()
-block|{          }
+block|{         }
+DECL|method|Settings
+specifier|public
+name|Settings
+parameter_list|(
+name|Locale
+name|locale
+parameter_list|,
+name|Boolean
+name|lowercaseExpandedTerms
+parameter_list|,
+name|Boolean
+name|lenient
+parameter_list|,
+name|Boolean
+name|analyzeWildcard
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locale
+operator|=
+name|locale
+expr_stmt|;
+name|this
+operator|.
+name|lowercaseExpandedTerms
+operator|=
+name|lowercaseExpandedTerms
+expr_stmt|;
+name|this
+operator|.
+name|lenient
+operator|=
+name|lenient
+expr_stmt|;
+name|this
+operator|.
+name|analyzeWildcard
+operator|=
+name|analyzeWildcard
+expr_stmt|;
+block|}
+comment|/** Specifies the locale to use for parsing, Locale.ROOT by default. */
 DECL|method|locale
 specifier|public
 name|void
@@ -1145,9 +1208,20 @@ name|this
 operator|.
 name|locale
 operator|=
+operator|(
 name|locale
+operator|!=
+literal|null
+operator|)
+condition|?
+name|locale
+else|:
+name|SimpleQueryStringBuilder
+operator|.
+name|DEFAULT_LOCALE
 expr_stmt|;
 block|}
+comment|/** Returns the locale to use for parsing. */
 DECL|method|locale
 specifier|public
 name|Locale
@@ -1160,6 +1234,7 @@ operator|.
 name|locale
 return|;
 block|}
+comment|/**          * Specifies whether to lowercase parse terms, defaults to true if          * unset.          */
 DECL|method|lowercaseExpandedTerms
 specifier|public
 name|void
@@ -1176,6 +1251,7 @@ operator|=
 name|lowercaseExpandedTerms
 expr_stmt|;
 block|}
+comment|/** Returns whether to lowercase parse terms. */
 DECL|method|lowercaseExpandedTerms
 specifier|public
 name|boolean
@@ -1188,6 +1264,7 @@ operator|.
 name|lowercaseExpandedTerms
 return|;
 block|}
+comment|/** Specifies whether to use lenient parsing, defaults to false. */
 DECL|method|lenient
 specifier|public
 name|void
@@ -1204,6 +1281,7 @@ operator|=
 name|lenient
 expr_stmt|;
 block|}
+comment|/** Returns whether to use lenient parsing. */
 DECL|method|lenient
 specifier|public
 name|boolean
@@ -1216,6 +1294,7 @@ operator|.
 name|lenient
 return|;
 block|}
+comment|/** Specifies whether to analyze wildcards. Defaults to false if unset. */
 DECL|method|analyzeWildcard
 specifier|public
 name|void
@@ -1232,6 +1311,7 @@ operator|=
 name|analyzeWildcard
 expr_stmt|;
 block|}
+comment|/** Returns whether to analyze wildcards. */
 DECL|method|analyzeWildcard
 specifier|public
 name|boolean
@@ -1240,6 +1320,141 @@ parameter_list|()
 block|{
 return|return
 name|analyzeWildcard
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|hashCode
+specifier|public
+name|int
+name|hashCode
+parameter_list|()
+block|{
+comment|// checking the return value of toLanguageTag() for locales only.
+comment|// For further reasoning see
+comment|// https://issues.apache.org/jira/browse/LUCENE-4021
+return|return
+name|Objects
+operator|.
+name|hash
+argument_list|(
+name|locale
+operator|.
+name|toLanguageTag
+argument_list|()
+argument_list|,
+name|lowercaseExpandedTerms
+argument_list|,
+name|lenient
+argument_list|,
+name|analyzeWildcard
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|equals
+specifier|public
+name|boolean
+name|equals
+parameter_list|(
+name|Object
+name|obj
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|==
+name|obj
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|obj
+operator|==
+literal|null
+operator|||
+name|getClass
+argument_list|()
+operator|!=
+name|obj
+operator|.
+name|getClass
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|Settings
+name|other
+init|=
+operator|(
+name|Settings
+operator|)
+name|obj
+decl_stmt|;
+comment|// checking the return value of toLanguageTag() for locales only.
+comment|// For further reasoning see
+comment|// https://issues.apache.org/jira/browse/LUCENE-4021
+return|return
+operator|(
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|locale
+operator|.
+name|toLanguageTag
+argument_list|()
+argument_list|,
+name|other
+operator|.
+name|locale
+operator|.
+name|toLanguageTag
+argument_list|()
+argument_list|)
+operator|&&
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|lowercaseExpandedTerms
+argument_list|,
+name|other
+operator|.
+name|lowercaseExpandedTerms
+argument_list|)
+operator|&&
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|lenient
+argument_list|,
+name|other
+operator|.
+name|lenient
+argument_list|)
+operator|&&
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|analyzeWildcard
+argument_list|,
+name|other
+operator|.
+name|analyzeWildcard
+argument_list|)
+operator|)
 return|;
 block|}
 block|}
