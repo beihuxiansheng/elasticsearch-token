@@ -486,7 +486,7 @@ name|load
 operator|.
 name|indexUUID
 operator|+
-literal|" excepted: "
+literal|" expected: "
 operator|+
 name|indexUUID
 operator|+
