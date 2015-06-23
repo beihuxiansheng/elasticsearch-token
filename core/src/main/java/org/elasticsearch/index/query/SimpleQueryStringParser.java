@@ -268,8 +268,12 @@ decl_stmt|;
 name|int
 name|flags
 init|=
-operator|-
-literal|1
+name|SimpleQueryStringFlag
+operator|.
+name|ALL
+operator|.
+name|value
+argument_list|()
 decl_stmt|;
 name|boolean
 name|lenient

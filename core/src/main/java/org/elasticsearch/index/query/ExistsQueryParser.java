@@ -270,11 +270,6 @@ argument_list|(
 name|queryName
 argument_list|)
 expr_stmt|;
-name|builder
-operator|.
-name|validate
-argument_list|()
-expr_stmt|;
 return|return
 name|builder
 return|;

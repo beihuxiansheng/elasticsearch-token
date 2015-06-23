@@ -140,6 +140,7 @@ operator|.
 name|parser
 argument_list|()
 decl_stmt|;
+specifier|final
 name|ArrayList
 argument_list|<
 name|QueryBuilder

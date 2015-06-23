@@ -175,6 +175,7 @@ name|DisMaxQueryBuilder
 operator|.
 name|DEFAULT_TIE_BREAKER
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
