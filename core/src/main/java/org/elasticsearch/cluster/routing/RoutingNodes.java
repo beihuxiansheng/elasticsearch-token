@@ -286,7 +286,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|ignoredUnassignedShards
 init|=
@@ -302,7 +302,7 @@ name|ShardId
 argument_list|,
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|>
 name|assignedShards
@@ -421,7 +421,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|>
 name|nodesToShards
@@ -464,7 +464,7 @@ argument_list|,
 operator|new
 name|ArrayList
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|()
 argument_list|)
@@ -516,7 +516,7 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|entries
 init|=
@@ -555,11 +555,11 @@ name|entries
 argument_list|)
 expr_stmt|;
 block|}
-name|MutableShardRouting
+name|ShardRouting
 name|sr
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 argument_list|)
@@ -629,7 +629,7 @@ comment|// it's relocating from.
 name|sr
 operator|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -714,11 +714,11 @@ block|}
 block|}
 else|else
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|sr
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 argument_list|)
@@ -749,7 +749,7 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|>
 name|entry
@@ -1027,7 +1027,7 @@ DECL|method|ignoredUnassigned
 specifier|public
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|ignoredUnassigned
 parameter_list|()
@@ -1304,7 +1304,7 @@ block|}
 comment|/**      * Returns the active primary shard for the given ShardRouting or<code>null</code> if      * no primary is found or the primary is not active.      */
 DECL|method|activePrimary
 specifier|public
-name|MutableShardRouting
+name|ShardRouting
 name|activePrimary
 parameter_list|(
 name|ShardRouting
@@ -1313,7 +1313,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|assignedShards
@@ -1350,7 +1350,7 @@ block|}
 comment|/**      * Returns one active replica shard for the given ShardRouting shard ID or<code>null</code> if      * no active replica is found.      */
 DECL|method|activeReplica
 specifier|public
-name|MutableShardRouting
+name|ShardRouting
 name|activeReplica
 parameter_list|(
 name|ShardRouting
@@ -1359,7 +1359,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|assignedShards
@@ -1399,7 +1399,7 @@ DECL|method|assignedShards
 specifier|public
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|assignedShards
 parameter_list|(
@@ -1430,7 +1430,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -1485,7 +1485,7 @@ comment|// if we are empty nothing is active if we have less than total at least
 block|}
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|shards
@@ -1513,20 +1513,20 @@ DECL|method|shards
 specifier|public
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 parameter_list|(
 name|Predicate
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|predicate
 parameter_list|)
 block|{
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -1543,7 +1543,7 @@ control|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|routingNode
@@ -1577,7 +1577,7 @@ DECL|method|shardsWithState
 specifier|public
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shardsWithState
 parameter_list|(
@@ -1589,7 +1589,7 @@ block|{
 comment|// TODO these are used on tests only - move into utils class
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -1655,7 +1655,7 @@ DECL|method|shardsWithState
 specifier|public
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shardsWithState
 parameter_list|(
@@ -1670,7 +1670,7 @@ block|{
 comment|// TODO these are used on tests only - move into utils class
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -1719,7 +1719,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|unassignedShard
 range|:
 name|unassignedShards
@@ -1797,7 +1797,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|unassignedShards
@@ -1837,7 +1837,7 @@ specifier|public
 name|void
 name|assign
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|,
 name|String
@@ -1923,7 +1923,7 @@ specifier|public
 name|void
 name|relocate
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|,
 name|String
@@ -1947,7 +1947,7 @@ specifier|public
 name|void
 name|started
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -2015,7 +2015,7 @@ specifier|public
 name|void
 name|cancelRelocation
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -2034,14 +2034,14 @@ specifier|public
 name|void
 name|swapPrimaryFlag
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 modifier|...
 name|shards
 parameter_list|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|shards
@@ -2105,7 +2105,7 @@ specifier|static
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|EMPTY
 init|=
@@ -2118,7 +2118,7 @@ DECL|method|assignedShards
 specifier|private
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|assignedShards
 parameter_list|(
@@ -2129,7 +2129,7 @@ block|{
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|replicaSet
 init|=
@@ -2161,7 +2161,7 @@ specifier|private
 name|void
 name|remove
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -2228,7 +2228,7 @@ specifier|private
 name|void
 name|assignedShardsAdd
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -2245,7 +2245,7 @@ return|return;
 block|}
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -2307,19 +2307,19 @@ specifier|private
 name|boolean
 name|assertInstanceNotInList
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|,
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 parameter_list|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|s
 range|:
 name|shards
@@ -2340,14 +2340,14 @@ specifier|private
 name|void
 name|assignedShardsRemove
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|replicaSet
 init|=
@@ -2371,7 +2371,7 @@ block|{
 specifier|final
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|iterator
 init|=
@@ -2541,7 +2541,7 @@ specifier|public
 name|void
 name|reinitShadowPrimary
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|candidate
 parameter_list|)
 block|{
@@ -2580,7 +2580,7 @@ name|UnassignedShards
 implements|implements
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 block|{
 DECL|field|unassigned
@@ -2588,7 +2588,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|unassigned
 decl_stmt|;
@@ -2681,13 +2681,13 @@ specifier|public
 name|void
 name|add
 parameter_list|(
-name|MutableShardRouting
-name|mutableShardRouting
+name|ShardRouting
+name|shardRouting
 parameter_list|)
 block|{
 if|if
 condition|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|primary
 argument_list|()
@@ -2701,7 +2701,7 @@ name|unassigned
 operator|.
 name|add
 argument_list|(
-name|mutableShardRouting
+name|shardRouting
 argument_list|)
 expr_stmt|;
 name|transactionId
@@ -2715,14 +2715,14 @@ name|addAll
 parameter_list|(
 name|Collection
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|mutableShardRoutings
 parameter_list|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|r
 range|:
 name|mutableShardRoutings
@@ -2764,7 +2764,7 @@ DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|iterator
 parameter_list|()
@@ -2772,7 +2772,7 @@ block|{
 specifier|final
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|iterator
 init|=
@@ -2785,12 +2785,12 @@ return|return
 operator|new
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|()
 block|{
 specifier|private
-name|MutableShardRouting
+name|ShardRouting
 name|current
 decl_stmt|;
 annotation|@
@@ -2810,7 +2810,7 @@ block|}
 annotation|@
 name|Override
 specifier|public
-name|MutableShardRouting
+name|ShardRouting
 name|next
 parameter_list|()
 block|{
@@ -2988,12 +2988,12 @@ return|;
 block|}
 DECL|method|drain
 specifier|public
-name|MutableShardRouting
+name|ShardRouting
 index|[]
 name|drain
 parameter_list|()
 block|{
-name|MutableShardRouting
+name|ShardRouting
 index|[]
 name|mutableShardRoutings
 init|=
@@ -3002,7 +3002,7 @@ operator|.
 name|toArray
 argument_list|(
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 index|[
 name|unassigned
 operator|.
@@ -3028,7 +3028,7 @@ name|mutableShardRoutings
 return|;
 block|}
 block|}
-comment|/**      * Calculates RoutingNodes statistics by iterating over all {@link MutableShardRouting}s      * in the cluster to ensure the book-keeping is correct.      * For performance reasons, this should only be called from asserts      *      * @return this method always returns<code>true</code> or throws an assertion error. If assertion are not enabled      *         this method does nothing.      */
+comment|/**      * Calculates RoutingNodes statistics by iterating over all {@link ShardRouting}s      * in the cluster to ensure the book-keeping is correct.      * For performance reasons, this should only be called from asserts      *      * @return this method always returns<code>true</code> or throws an assertion error. If assertion are not enabled      *         this method does nothing.      */
 DECL|method|assertShardStats
 specifier|public
 specifier|static
@@ -3115,7 +3115,7 @@ control|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|node
@@ -3259,7 +3259,7 @@ decl_stmt|;
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -3317,7 +3317,7 @@ control|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|routingNode
@@ -3355,7 +3355,7 @@ block|}
 block|}
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|mutableShardRoutings
 init|=
@@ -3385,7 +3385,7 @@ argument_list|()
 assert|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|r
 range|:
 name|mutableShardRoutings
@@ -3417,7 +3417,7 @@ block|}
 block|}
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|routingNodes
@@ -3550,7 +3550,7 @@ argument_list|>
 implements|,
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 block|{
 DECL|field|current
@@ -3649,7 +3649,7 @@ DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|iterator
 parameter_list|()
@@ -3668,12 +3668,12 @@ name|RoutingNodeIterator
 implements|implements
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 implements|,
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 block|{
 DECL|field|iterable
@@ -3684,7 +3684,7 @@ name|iterable
 decl_stmt|;
 DECL|field|shard
 specifier|private
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 decl_stmt|;
 DECL|field|delegate
@@ -3692,7 +3692,7 @@ specifier|private
 specifier|final
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|delegate
 decl_stmt|;
@@ -3739,7 +3739,7 @@ annotation|@
 name|Override
 DECL|method|next
 specifier|public
-name|MutableShardRouting
+name|ShardRouting
 name|next
 parameter_list|()
 block|{
@@ -3781,7 +3781,7 @@ DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|iterator
 parameter_list|()
@@ -3805,11 +3805,11 @@ block|{
 name|remove
 argument_list|()
 expr_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 name|unassigned
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 argument_list|)

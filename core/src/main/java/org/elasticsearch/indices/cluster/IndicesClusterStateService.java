@@ -1757,7 +1757,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|routingNode
@@ -1941,7 +1941,7 @@ return|return;
 block|}
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|routingNode

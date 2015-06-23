@@ -30,20 +30,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|RoutingNode
 import|;
 end_import
@@ -202,7 +188,7 @@ parameter_list|)
 block|{
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|assignedShards
 init|=
@@ -218,7 +204,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|assignedShard
 range|:
 name|assignedShards
@@ -427,7 +413,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|assignedShard
 range|:
 name|assignedShards

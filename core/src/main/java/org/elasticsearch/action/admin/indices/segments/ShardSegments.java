@@ -160,7 +160,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ImmutableShardRouting
+name|ShardRouting
 operator|.
 name|readShardRoutingEntry
 import|;

@@ -30,7 +30,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -372,7 +372,7 @@ specifier|public
 name|boolean
 name|move
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 parameter_list|,
 name|RoutingNode

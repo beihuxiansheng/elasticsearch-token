@@ -86,7 +86,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -680,7 +680,7 @@ specifier|public
 name|boolean
 name|move
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 parameter_list|,
 name|RoutingNode
@@ -1016,14 +1016,14 @@ specifier|private
 specifier|final
 name|Predicate
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|assignedFilter
 init|=
 operator|new
 name|Predicate
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|()
 block|{
@@ -1033,7 +1033,7 @@ specifier|public
 name|boolean
 name|apply
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|input
 parameter_list|)
 block|{
@@ -2129,7 +2129,7 @@ specifier|public
 name|boolean
 name|move
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|,
 name|RoutingNode
@@ -2340,11 +2340,11 @@ name|shard
 argument_list|)
 expr_stmt|;
 specifier|final
-name|MutableShardRouting
+name|ShardRouting
 name|initializingShard
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -2473,14 +2473,14 @@ name|buildModelFromAssigned
 parameter_list|(
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 parameter_list|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|shards
@@ -2584,7 +2584,7 @@ name|unassigned
 parameter_list|,
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|ignoredUnassigned
 parameter_list|)
@@ -2642,14 +2642,14 @@ decl_stmt|;
 specifier|final
 name|Comparator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|comparator
 init|=
 operator|new
 name|Comparator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|()
 block|{
@@ -2659,10 +2659,10 @@ specifier|public
 name|int
 name|compare
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|o1
 parameter_list|,
-name|MutableShardRouting
+name|ShardRouting
 name|o2
 parameter_list|)
 block|{
@@ -2743,7 +2743,7 @@ block|}
 block|}
 decl_stmt|;
 comment|/*              * we use 2 arrays and move replicas to the second array once we allocated an identical              * replica in the current iteration to make sure all indices get allocated in the same manner.              * The arrays are sorted by primaries first and then by index and shard ID so a 2 indices with 2 replica and 1 shard would look like:              * [(0,P,IDX1), (0,P,IDX2), (0,R,IDX1), (0,R,IDX1), (0,R,IDX2), (0,R,IDX2)]              * if we allocate for instance (0, R, IDX1) we move the second replica to the secondary array and proceed with              * the next replica. If we could not find a node to allocate (0,R,IDX1) we move all it's replicas to ingoreUnassigned.              */
-name|MutableShardRouting
+name|ShardRouting
 index|[]
 name|primary
 init|=
@@ -2752,12 +2752,12 @@ operator|.
 name|drain
 argument_list|()
 decl_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 index|[]
 name|secondary
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 index|[
 name|primary
 operator|.
@@ -2823,7 +2823,7 @@ name|i
 operator|++
 control|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 init|=
 name|primary
@@ -3558,7 +3558,7 @@ name|primaryLength
 operator|=
 name|secondaryLength
 expr_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 index|[]
 name|tmp
 init|=
@@ -3676,7 +3676,7 @@ name|getNodeId
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 name|candidate
 init|=
 literal|null
@@ -3694,7 +3694,7 @@ comment|/* make a copy since we modify this list in the loop */
 specifier|final
 name|ArrayList
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -3710,7 +3710,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|shards
@@ -4027,7 +4027,7 @@ operator|.
 name|assign
 argument_list|(
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|candidate
 operator|.
@@ -4335,14 +4335,14 @@ DECL|method|shards
 specifier|public
 name|Collection
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 parameter_list|()
 block|{
 name|Collection
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|result
 init|=
@@ -4420,7 +4420,7 @@ specifier|public
 name|void
 name|addShard
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|,
 name|Decision
@@ -4491,7 +4491,7 @@ specifier|public
 name|Decision
 name|removeShard
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -4629,7 +4629,7 @@ specifier|public
 name|boolean
 name|containsShard
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -4677,7 +4677,7 @@ specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|,
 name|Decision
 argument_list|>
@@ -4741,7 +4741,7 @@ literal|1
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|shards
@@ -4799,7 +4799,7 @@ specifier|public
 name|Decision
 name|getDecicion
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -4829,7 +4829,7 @@ DECL|method|getAllShards
 specifier|public
 name|Collection
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|getAllShards
 parameter_list|()
@@ -4862,7 +4862,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|shards
@@ -4899,7 +4899,7 @@ specifier|public
 name|Decision
 name|removeShard
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
@@ -4924,7 +4924,7 @@ specifier|public
 name|void
 name|addShard
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|,
 name|Decision
@@ -4980,7 +4980,7 @@ specifier|public
 name|boolean
 name|containsShard
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{

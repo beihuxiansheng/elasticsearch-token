@@ -116,7 +116,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ImmutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -739,7 +739,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -998,7 +998,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1038,7 +1038,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1238,7 +1238,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1278,7 +1278,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1501,7 +1501,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1541,7 +1541,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1783,7 +1783,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1823,7 +1823,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,

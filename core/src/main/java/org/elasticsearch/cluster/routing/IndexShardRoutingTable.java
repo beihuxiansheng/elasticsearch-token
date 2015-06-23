@@ -60,20 +60,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|UnmodifiableIterator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -808,7 +794,7 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shards
 operator|.
@@ -2903,7 +2889,7 @@ specifier|public
 name|Builder
 name|addShard
 parameter_list|(
-name|ImmutableShardRouting
+name|ShardRouting
 name|shardEntry
 parameter_list|)
 block|{
@@ -3137,10 +3123,10 @@ name|i
 operator|++
 control|)
 block|{
-name|ImmutableShardRouting
+name|ShardRouting
 name|shard
 init|=
-name|ImmutableShardRouting
+name|ShardRouting
 operator|.
 name|readShardRoutingEntry
 argument_list|(

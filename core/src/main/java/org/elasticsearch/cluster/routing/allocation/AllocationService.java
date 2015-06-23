@@ -1158,7 +1158,7 @@ decl_stmt|;
 comment|// create a copy of the shards interleaving between nodes, and check if they can remain
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -1254,7 +1254,7 @@ name|i
 operator|++
 control|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|shards
@@ -1444,7 +1444,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|routingNodes
@@ -1463,7 +1463,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 range|:
 name|routingNodes
@@ -1535,7 +1535,7 @@ comment|// now, go over and elect a new primary if possible, not, from this code
 comment|// routingNodes.hasUnassignedPrimaries() will potentially be false
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|routingNodes
@@ -1552,7 +1552,7 @@ name|primary
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|candidate
 init|=
 name|allocation
@@ -1634,7 +1634,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|node
@@ -1868,7 +1868,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|node
@@ -1970,7 +1970,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|currentRoutingNode
@@ -2063,7 +2063,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 init|=
 name|sourceRoutingNode
@@ -2138,7 +2138,7 @@ comment|// changing the state of failed shard
 name|failedShard
 operator|=
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|failedShard
 argument_list|)
@@ -2236,7 +2236,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|initializingNode
@@ -2317,7 +2317,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|relocatingFromNode
@@ -2421,7 +2421,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|relocatingFromNode
@@ -2512,7 +2512,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|initializingNode
@@ -2615,7 +2615,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|node
@@ -2665,7 +2665,7 @@ comment|// that can keep other shards from being allocated (because of limits ap
 comment|// shards we can start per node)
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shardsToMove
 init|=
@@ -2678,7 +2678,7 @@ for|for
 control|(
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|unassignedIt
 init|=
@@ -2697,7 +2697,7 @@ argument_list|()
 condition|;
 control|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|unassignedShardRouting
 init|=
 name|unassignedIt
