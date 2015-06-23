@@ -2426,10 +2426,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Writes a list of {@link NamedWriteable} to the current stream, by first writing its size and then iterating over the objects      * in the list      */
-DECL|method|writeNamedWritableList
+DECL|method|writeNamedWriteableList
 specifier|public
 name|void
-name|writeNamedWritableList
+name|writeNamedWriteableList
 parameter_list|(
 name|List
 argument_list|<

@@ -2392,7 +2392,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads a list of {@link NamedWriteable} from the current stream, by first reading its size and then      * reading the individual objects using {@link #readNamedWriteable()}.      */
-DECL|method|readNamedWritableList
+DECL|method|readNamedWriteableList
 specifier|public
 parameter_list|<
 name|C
@@ -2401,7 +2401,7 @@ name|List
 argument_list|<
 name|C
 argument_list|>
-name|readNamedWritableList
+name|readNamedWriteableList
 parameter_list|()
 throws|throws
 name|IOException

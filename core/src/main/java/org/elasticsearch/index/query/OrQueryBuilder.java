@@ -593,7 +593,7 @@ name|queryBuilders
 init|=
 name|in
 operator|.
-name|readNamedWritableList
+name|readNamedWriteableList
 argument_list|()
 decl_stmt|;
 for|for
@@ -640,7 +640,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeNamedWritableList
+name|writeNamedWriteableList
 argument_list|(
 name|this
 operator|.

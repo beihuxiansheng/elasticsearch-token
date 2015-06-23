@@ -1400,7 +1400,7 @@ name|queryBuilders
 init|=
 name|in
 operator|.
-name|readNamedWritableList
+name|readNamedWriteableList
 argument_list|()
 decl_stmt|;
 name|boolQueryBuilder
@@ -1416,7 +1416,7 @@ name|queryBuilders
 operator|=
 name|in
 operator|.
-name|readNamedWritableList
+name|readNamedWriteableList
 argument_list|()
 expr_stmt|;
 name|boolQueryBuilder
@@ -1432,7 +1432,7 @@ name|queryBuilders
 operator|=
 name|in
 operator|.
-name|readNamedWritableList
+name|readNamedWriteableList
 argument_list|()
 expr_stmt|;
 name|boolQueryBuilder
@@ -1448,7 +1448,7 @@ name|queryBuilders
 operator|=
 name|in
 operator|.
-name|readNamedWritableList
+name|readNamedWriteableList
 argument_list|()
 expr_stmt|;
 name|boolQueryBuilder
@@ -1524,7 +1524,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeNamedWritableList
+name|writeNamedWriteableList
 argument_list|(
 name|this
 operator|.
@@ -1533,7 +1533,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeNamedWritableList
+name|writeNamedWriteableList
 argument_list|(
 name|this
 operator|.
@@ -1542,7 +1542,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeNamedWritableList
+name|writeNamedWriteableList
 argument_list|(
 name|this
 operator|.
@@ -1551,7 +1551,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeNamedWritableList
+name|writeNamedWriteableList
 argument_list|(
 name|this
 operator|.
