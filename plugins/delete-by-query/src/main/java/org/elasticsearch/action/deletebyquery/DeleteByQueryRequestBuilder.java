@@ -146,6 +146,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Creates a new {@link DeleteByQueryRequestBuilder}  * @see DeleteByQueryRequest  */
+end_comment
+
 begin_class
 DECL|class|DeleteByQueryRequestBuilder
 specifier|public

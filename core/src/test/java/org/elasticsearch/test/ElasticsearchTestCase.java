@@ -3325,6 +3325,30 @@ name|size
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns true iff assertions for elasticsearch packages are enabled      */
+DECL|method|assertionsEnabled
+specifier|public
+specifier|static
+name|boolean
+name|assertionsEnabled
+parameter_list|()
+block|{
+name|boolean
+name|enabled
+init|=
+literal|false
+decl_stmt|;
+assert|assert
+operator|(
+name|enabled
+operator|=
+literal|true
+operator|)
+assert|;
+return|return
+name|enabled
+return|;
+block|}
 block|}
 end_class
 

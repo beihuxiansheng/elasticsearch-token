@@ -36,7 +36,6 @@ parameter_list|>
 block|{
 comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
 DECL|method|boost
-specifier|public
 name|B
 name|boost
 parameter_list|(

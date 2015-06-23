@@ -451,6 +451,14 @@ name|void
 name|testNegativeCounters
 parameter_list|()
 block|{
+name|assumeTrue
+argument_list|(
+literal|"assertions must be enable for this test to pass"
+argument_list|,
+name|assertionsEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 operator|new
@@ -680,6 +688,14 @@ name|void
 name|testNegativeIncrements
 parameter_list|()
 block|{
+name|assumeTrue
+argument_list|(
+literal|"assertions must be enable for this test to pass"
+argument_list|,
+name|assertionsEnabled
+argument_list|()
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|IndexDeleteByQueryResponse

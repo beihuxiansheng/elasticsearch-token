@@ -573,12 +573,6 @@ specifier|final
 name|IndicesLifecycle
 name|indicesLifecycle
 decl_stmt|;
-DECL|field|indexCache
-specifier|private
-specifier|final
-name|IndexCache
-name|indexCache
-decl_stmt|;
 DECL|field|indexFieldDataService
 specifier|private
 specifier|final
@@ -723,9 +717,6 @@ parameter_list|,
 name|MapperService
 name|mapperService
 parameter_list|,
-name|IndexCache
-name|indexCache
-parameter_list|,
 name|IndexFieldDataService
 name|indexFieldDataService
 parameter_list|,
@@ -763,12 +754,6 @@ operator|.
 name|indexingService
 operator|=
 name|indexingService
-expr_stmt|;
-name|this
-operator|.
-name|indexCache
-operator|=
-name|indexCache
 expr_stmt|;
 name|this
 operator|.
@@ -1559,10 +1544,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|afterIndexShardPostRecovery
+DECL|method|beforeIndexShardPostRecovery
 specifier|public
 name|void
-name|afterIndexShardPostRecovery
+name|beforeIndexShardPostRecovery
 parameter_list|(
 name|IndexShard
 name|indexShard
@@ -1659,7 +1644,8 @@ argument_list|(
 literal|"percolator_load_queries"
 argument_list|)
 expr_stmt|;
-comment|// Maybe add a mode load? This isn't really a write. We need write b/c state=post_recovery
+comment|// NOTE: we acquire the searcher via the engine directly here since this is executed right
+comment|// before the shard is marked as POST_RECOVERY
 try|try
 init|(
 name|Engine
@@ -1669,11 +1655,12 @@ name|searcher
 init|=
 name|shard
 operator|.
+name|engine
+argument_list|()
+operator|.
 name|acquireSearcher
 argument_list|(
 literal|"percolator_load_queries"
-argument_list|,
-literal|true
 argument_list|)
 init|)
 block|{

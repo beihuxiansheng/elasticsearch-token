@@ -1011,11 +1011,6 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|shard
-operator|.
-name|readAllowed
-argument_list|()
-expr_stmt|;
 try|try
 init|(
 name|Engine

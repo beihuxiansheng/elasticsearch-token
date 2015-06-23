@@ -218,8 +218,8 @@ block|}
 comment|/**      * Predicts the next `n` values in the series, using the smoothing model to generate new values.      * Unlike the other moving averages, Holt-Linear has forecasting/prediction built into the algorithm.      * Prediction is more than simply adding the next prediction to the window and repeating.  Holt-Linear      * will extrapolate into the future by applying the trend information to the smoothed data.      *      * @param values            Collection of numerics to movingAvg, usually windowed      * @param numPredictions    Number of newly generated predictions to return      * @param<T>               Type of numeric      * @return                  Returns an array of doubles, since most smoothing methods operate on floating points      */
 annotation|@
 name|Override
-DECL|method|predict
-specifier|public
+DECL|method|doPredict
+specifier|protected
 parameter_list|<
 name|T
 extends|extends
@@ -227,7 +227,7 @@ name|Number
 parameter_list|>
 name|double
 index|[]
-name|predict
+name|doPredict
 parameter_list|(
 name|Collection
 argument_list|<

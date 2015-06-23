@@ -253,6 +253,7 @@ name|IndexShard
 name|indexShard
 parameter_list|)
 block|{          }
+comment|/**          * Called right after the shard is moved into POST_RECOVERY mode          */
 DECL|method|afterIndexShardPostRecovery
 specifier|public
 name|void
@@ -261,7 +262,17 @@ parameter_list|(
 name|IndexShard
 name|indexShard
 parameter_list|)
-block|{          }
+block|{}
+comment|/**          * Called right before the shard is moved into POST_RECOVERY mode.          * The shard is ready to be used but not yet marked as POST_RECOVERY.          */
+DECL|method|beforeIndexShardPostRecovery
+specifier|public
+name|void
+name|beforeIndexShardPostRecovery
+parameter_list|(
+name|IndexShard
+name|indexShard
+parameter_list|)
+block|{}
 comment|/**          * Called after the index shard has been started.          */
 DECL|method|afterIndexShardStarted
 specifier|public

@@ -17,7 +17,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A filter for a field based on several terms matching on any of them.  * @deprecated use {@link TermsQueryBuilder#TermsQueryBuilder(name, lookupIndex, lookupType, lookupId)} instead.  */
+comment|/**  * A filter for a field based on several terms matching on any of them.  * @deprecated use {@link TermsQueryBuilder} instead.  */
 end_comment
 
 begin_class
