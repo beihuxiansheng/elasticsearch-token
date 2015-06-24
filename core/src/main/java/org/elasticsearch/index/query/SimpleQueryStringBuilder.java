@@ -1005,7 +1005,7 @@ name|settings
 operator|.
 name|analyzeWildcard
 argument_list|(
-name|DEFAULT_ANALYZE_WILDCARD
+name|analyzeWildcard
 argument_list|)
 expr_stmt|;
 return|return
