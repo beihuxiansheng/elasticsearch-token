@@ -86,6 +86,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|SimpleQueryStringBuilder
 import|;
 end_import
@@ -530,8 +544,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|SimpleQueryStringBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -2195,8 +2207,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|SimpleQueryStringBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -2248,8 +2258,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|SimpleQueryStringBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -2300,8 +2308,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|SimpleQueryStringBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -2381,8 +2387,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|SimpleQueryStringBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
