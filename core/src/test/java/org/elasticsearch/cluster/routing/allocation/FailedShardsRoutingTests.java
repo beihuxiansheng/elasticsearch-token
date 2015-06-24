@@ -1093,7 +1093,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|clusterState
 operator|.
@@ -1348,7 +1348,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|clusterState
 operator|.
@@ -2343,7 +2343,7 @@ name|ShardRouting
 name|shardToFail
 init|=
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|routingTable
 operator|.
@@ -3081,7 +3081,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -3357,7 +3357,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -3777,7 +3777,7 @@ operator|.
 name|FailedShard
 argument_list|(
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shardToFail
 argument_list|)
@@ -4339,7 +4339,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -4620,7 +4620,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -5757,7 +5757,7 @@ argument_list|(
 name|clusterState
 argument_list|,
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shardToFail
 argument_list|)

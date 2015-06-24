@@ -482,7 +482,7 @@ name|getAsInt
 argument_list|(
 name|INDICES_CACHE_QUERY_COUNT
 argument_list|,
-literal|100000
+literal|1000
 argument_list|)
 decl_stmt|;
 name|logger

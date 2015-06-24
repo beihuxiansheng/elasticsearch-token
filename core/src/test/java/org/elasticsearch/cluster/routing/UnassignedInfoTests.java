@@ -671,7 +671,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|clusterState
@@ -806,7 +806,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|clusterState
@@ -941,7 +941,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|clusterState
@@ -1094,7 +1094,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|clusterState
@@ -1243,7 +1243,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|clusterState
@@ -1378,7 +1378,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|clusterState
@@ -1749,11 +1749,11 @@ name|void
 name|testStateTransitionMetaHandling
 parameter_list|()
 block|{
-name|ImmutableShardRouting
+name|ShardRouting
 name|shard
 init|=
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -1786,11 +1786,11 @@ literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 name|mutable
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 argument_list|)

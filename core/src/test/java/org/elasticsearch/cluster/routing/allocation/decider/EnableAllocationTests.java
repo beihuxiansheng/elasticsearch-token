@@ -120,7 +120,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -2306,7 +2306,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|mutableShardRoutings
 init|=
@@ -2330,7 +2330,7 @@ name|PRIMARIES
 case|:
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 range|:
 name|mutableShardRoutings
@@ -2368,7 +2368,7 @@ name|REPLICAS
 case|:
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 range|:
 name|mutableShardRoutings
@@ -2406,7 +2406,7 @@ name|ALL
 case|:
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 range|:
 name|mutableShardRoutings

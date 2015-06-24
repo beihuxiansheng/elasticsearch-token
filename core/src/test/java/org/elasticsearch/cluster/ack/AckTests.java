@@ -268,7 +268,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -1562,8 +1562,8 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
-name|mutableShardRouting
+name|ShardRouting
+name|shardRouting
 range|:
 name|clusterState
 operator|.
@@ -1582,7 +1582,7 @@ block|{
 comment|//if the shard that we wanted to move is still on the same node, it must be relocating
 if|if
 condition|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|shardId
 argument_list|()
@@ -1598,7 +1598,7 @@ condition|)
 block|{
 name|assertThat
 argument_list|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|relocating
 argument_list|()
@@ -1618,8 +1618,8 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
-name|mutableShardRouting
+name|ShardRouting
+name|shardRouting
 range|:
 name|clusterState
 operator|.
@@ -1637,7 +1637,7 @@ control|)
 block|{
 if|if
 condition|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|shardId
 argument_list|()
@@ -1653,7 +1653,7 @@ condition|)
 block|{
 name|assertThat
 argument_list|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|state
 argument_list|()
@@ -1919,8 +1919,8 @@ literal|false
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
-name|mutableShardRouting
+name|ShardRouting
+name|shardRouting
 range|:
 name|clusterStateResponse
 operator|.
@@ -1942,7 +1942,7 @@ block|{
 comment|//the shard that we wanted to move is still on the same node, as we had dryRun flag
 if|if
 condition|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|shardId
 argument_list|()
@@ -1958,7 +1958,7 @@ condition|)
 block|{
 name|assertThat
 argument_list|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|started
 argument_list|()
@@ -1988,8 +1988,8 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|MutableShardRouting
-name|mutableShardRouting
+name|ShardRouting
+name|shardRouting
 range|:
 name|clusterStateResponse
 operator|.
@@ -2010,7 +2010,7 @@ control|)
 block|{
 if|if
 condition|(
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|shardId
 argument_list|()
@@ -2028,7 +2028,7 @@ name|fail
 argument_list|(
 literal|"shard ["
 operator|+
-name|mutableShardRouting
+name|shardRouting
 operator|+
 literal|"] shouldn't be on node ["
 operator|+
@@ -2172,7 +2172,7 @@ name|toNodeId
 init|=
 literal|null
 decl_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 name|shardToBeMoved
 init|=
 literal|null

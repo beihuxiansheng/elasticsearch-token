@@ -664,12 +664,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setRandomSettings
+DECL|method|setRandomIndexSettings
 specifier|protected
 name|Settings
 operator|.
 name|Builder
-name|setRandomSettings
+name|setRandomIndexSettings
 parameter_list|(
 name|Random
 name|random

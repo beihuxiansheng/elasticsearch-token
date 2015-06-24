@@ -1387,7 +1387,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|GATEWAY
+name|STORE
 argument_list|,
 name|Stage
 operator|.
@@ -1768,7 +1768,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|GATEWAY
+name|STORE
 argument_list|,
 name|Stage
 operator|.
@@ -2211,7 +2211,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|GATEWAY
+name|STORE
 argument_list|,
 name|Stage
 operator|.
@@ -4515,14 +4515,6 @@ name|INDICES_RECOVERY_INTERNAL_ACTION_TIMEOUT
 argument_list|,
 literal|"1s"
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"cluster.routing.schedule"
-argument_list|,
-literal|"100ms"
-argument_list|)
-comment|// aggressive reroute post shard failures
 operator|.
 name|put
 argument_list|(

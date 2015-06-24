@@ -112,7 +112,7 @@ name|RoutingNode
 implements|implements
 name|Iterable
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 block|{
 DECL|field|nodeId
@@ -132,7 +132,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 decl_stmt|;
@@ -156,7 +156,7 @@ argument_list|,
 operator|new
 name|ArrayList
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|()
 argument_list|)
@@ -174,7 +174,7 @@ name|node
 parameter_list|,
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 parameter_list|)
@@ -204,7 +204,7 @@ DECL|method|iterator
 specifier|public
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|iterator
 parameter_list|()
@@ -224,7 +224,7 @@ block|}
 DECL|method|mutableIterator
 name|Iterator
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|mutableIterator
 parameter_list|()
@@ -280,14 +280,14 @@ DECL|method|add
 name|void
 name|add
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 parameter_list|)
 block|{
 comment|// TODO use Set with ShardIds for faster lookup.
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 range|:
 name|shards
@@ -371,7 +371,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|this
@@ -410,7 +410,7 @@ DECL|method|shardsWithState
 specifier|public
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shardsWithState
 parameter_list|(
@@ -421,7 +421,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -430,7 +430,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|this
@@ -473,7 +473,7 @@ DECL|method|shardsWithState
 specifier|public
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shardsWithState
 parameter_list|(
@@ -487,7 +487,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|shards
 init|=
@@ -496,7 +496,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|this
@@ -564,7 +564,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardEntry
 range|:
 name|this
@@ -635,7 +635,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|entry
 range|:
 name|shards
@@ -783,7 +783,7 @@ return|;
 block|}
 DECL|method|get
 specifier|public
-name|MutableShardRouting
+name|ShardRouting
 name|get
 parameter_list|(
 name|int
@@ -803,7 +803,7 @@ DECL|method|copyShards
 specifier|public
 name|Collection
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|copyShards
 parameter_list|()

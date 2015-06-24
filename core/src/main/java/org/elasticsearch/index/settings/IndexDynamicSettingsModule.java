@@ -208,9 +208,7 @@ name|index
 operator|.
 name|indexing
 operator|.
-name|slowlog
-operator|.
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 import|;
 end_import
 
@@ -224,9 +222,9 @@ name|index
 operator|.
 name|search
 operator|.
-name|slowlog
+name|stats
 operator|.
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 import|;
 end_import
 
@@ -661,7 +659,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_WARN
 argument_list|,
@@ -674,7 +672,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_INFO
 argument_list|,
@@ -687,7 +685,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_DEBUG
 argument_list|,
@@ -700,7 +698,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_THRESHOLD_INDEX_TRACE
 argument_list|,
@@ -713,7 +711,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_REFORMAT
 argument_list|)
@@ -722,7 +720,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogIndexingService
+name|IndexingSlowLog
 operator|.
 name|INDEX_INDEXING_SLOWLOG_LEVEL
 argument_list|)
@@ -731,7 +729,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_QUERY_WARN
 argument_list|,
@@ -744,7 +742,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_QUERY_INFO
 argument_list|,
@@ -757,7 +755,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_QUERY_DEBUG
 argument_list|,
@@ -770,7 +768,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_QUERY_TRACE
 argument_list|,
@@ -783,7 +781,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_WARN
 argument_list|,
@@ -796,7 +794,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_INFO
 argument_list|,
@@ -809,7 +807,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_DEBUG
 argument_list|,
@@ -822,7 +820,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_THRESHOLD_FETCH_TRACE
 argument_list|,
@@ -835,7 +833,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_REFORMAT
 argument_list|)
@@ -844,7 +842,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|ShardSlowLogSearchService
+name|SearchSlowLog
 operator|.
 name|INDEX_SEARCH_SLOWLOG_LEVEL
 argument_list|)
