@@ -221,14 +221,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{     }
-annotation|@
-name|Override
 DECL|method|toXContent
 specifier|public
 name|XContentBuilder

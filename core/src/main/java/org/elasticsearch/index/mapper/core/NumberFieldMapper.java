@@ -1964,14 +1964,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|close
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{     }
 DECL|method|popCachedStream
 specifier|protected
 name|NumericTokenStream
