@@ -345,7 +345,7 @@ argument_list|)
 condition|)
 block|{
 try|try
-block|{
+init|(
 name|XContentParser
 name|parser
 init|=
@@ -366,10 +366,11 @@ operator|.
 name|filter
 argument_list|()
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 name|parser
 operator|.
-name|mapAndClose
+name|map
 argument_list|()
 expr_stmt|;
 block|}
