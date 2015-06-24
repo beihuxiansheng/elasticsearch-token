@@ -68,6 +68,17 @@ name|JustUidFieldsVisitor
 extends|extends
 name|FieldsVisitor
 block|{
+DECL|method|JustUidFieldsVisitor
+specifier|public
+name|JustUidFieldsVisitor
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|needsField
