@@ -467,12 +467,7 @@ name|Item
 argument_list|(
 literal|null
 argument_list|,
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|e
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
