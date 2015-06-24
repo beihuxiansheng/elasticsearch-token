@@ -306,13 +306,18 @@ control|)
 block|{
 if|if
 condition|(
-name|policy
+name|context
 operator|.
-name|parseField
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|text
+argument_list|,
+name|policy
+operator|.
+name|parseField
 argument_list|)
 condition|)
 block|{
@@ -456,7 +461,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Serialize the GapPolicy to the output stream          *          * @param out          * @throws IOException          */
+comment|/**          * Serialize the GapPolicy to the output stream          */
 DECL|method|writeTo
 specifier|public
 name|void
@@ -547,7 +552,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Given a path and a set of buckets, this method will return the value      * inside the agg at that path. This is used to extract values for use by      * pipeline aggregations (e.g. a derivative might need the price for each      * bucket). If the bucket is empty, the configured GapPolicy is invoked to      * resolve the missing bucket      *      * @param histo      *            A series of agg buckets in the form of a histogram      * @param bucket      *            A specific bucket that a value needs to be extracted from.      *            This bucket should be present in the<code>histo</code>      *            parameter      * @param aggPath      *            The path to a particular value that needs to be extracted.      *            This path should point to a metric inside the      *<code>bucket</code>      * @param gapPolicy      *            The gap policy to apply if empty buckets are found      * @return The value extracted from<code>bucket</code> found at      *<code>aggPath</code>      */
+comment|/**      * Given a path and a set of buckets, this method will return the value      * inside the agg at that path. This is used to extract values for use by      * pipeline aggregations (e.g. a derivative might need the price for each      * bucket). If the bucket is empty, the configured GapPolicy is invoked to      * resolve the missing bucket      *      * @param agg      *            A series of agg buckets in the form of a histogram      * @param bucket      *            A specific bucket that a value needs to be extracted from.      *            This bucket should be present in the<code>histo</code>      *            parameter      * @param aggPath      *            The path to a particular value that needs to be extracted.      *            This path should point to a metric inside the      *<code>bucket</code>      * @param gapPolicy      *            The gap policy to apply if empty buckets are found      * @return The value extracted from<code>bucket</code> found at      *<code>aggPath</code>      */
 DECL|method|resolveBucketValue
 specifier|public
 specifier|static

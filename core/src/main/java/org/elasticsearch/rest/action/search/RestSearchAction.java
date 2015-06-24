@@ -108,6 +108,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -649,6 +661,8 @@ operator|.
 name|parseSearchRequest
 argument_list|(
 name|request
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 name|client
@@ -676,6 +690,9 @@ name|parseSearchRequest
 parameter_list|(
 name|RestRequest
 name|request
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 name|String
@@ -782,6 +799,8 @@ operator|.
 name|fromString
 argument_list|(
 name|searchType
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 operator|.
 name|equals
@@ -796,6 +815,8 @@ operator|.
 name|fromString
 argument_list|(
 name|searchType
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 operator|.
 name|equals

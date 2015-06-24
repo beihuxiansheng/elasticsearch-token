@@ -64,6 +64,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -216,7 +228,7 @@ argument_list|,
 literal|"mult"
 argument_list|)
 block|;
-comment|/**          * Parse a string SeasonalityType into the byte enum          *          * @param text    SeasonalityType in string format (e.g. "add")          * @return        SeasonalityType enum          */
+comment|/**          * Parse a string SeasonalityType into the byte enum          *          * @param text                SeasonalityType in string format (e.g. "add")          * @param parseFieldMatcher   Matcher for field names          * @return                    SeasonalityType enum          */
 annotation|@
 name|Nullable
 DECL|method|parse
@@ -227,6 +239,9 @@ name|parse
 parameter_list|(
 name|String
 name|text
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 if|if
@@ -256,13 +271,15 @@ control|)
 block|{
 if|if
 condition|(
-name|policy
-operator|.
-name|parseField
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(
 name|text
+argument_list|,
+name|policy
+operator|.
+name|parseField
 argument_list|)
 condition|)
 block|{
@@ -367,7 +384,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Serialize the SeasonalityType to the output stream          *          * @param out          * @throws IOException          */
+comment|/**          * Serialize the SeasonalityType to the output stream          */
 DECL|method|writeTo
 specifier|public
 name|void
@@ -387,7 +404,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Deserialize the SeasonalityType from the input stream          *          * @param in          * @return    SeasonalityType Enum          * @throws IOException          */
+comment|/**          * Deserialize the SeasonalityType from the input stream          *          * @param in  the input stream          * @return    SeasonalityType Enum          * @throws IOException          */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -1471,6 +1488,9 @@ name|pipelineName
 parameter_list|,
 name|int
 name|windowSize
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|ParseException
@@ -1602,6 +1622,8 @@ operator|(
 name|String
 operator|)
 name|value
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}

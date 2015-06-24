@@ -286,11 +286,16 @@ condition|)
 block|{
 if|if
 condition|(
-name|INNER_QUERY_FIELD
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|INNER_QUERY_FIELD
 argument_list|)
 condition|)
 block|{

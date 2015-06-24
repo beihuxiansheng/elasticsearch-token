@@ -120,31 +120,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|HasContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|HasContextAndHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|HasHeaders
+name|*
 import|;
 end_import
 
@@ -566,10 +542,6 @@ name|Set
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|FilteredSearchContext
 specifier|public
@@ -593,6 +565,23 @@ name|SearchContext
 name|in
 parameter_list|)
 block|{
+comment|//inner_hits in percolator ends up with null inner search context
+name|super
+argument_list|(
+name|in
+operator|==
+literal|null
+condition|?
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
+else|:
+name|in
+operator|.
+name|parseFieldMatcher
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|in

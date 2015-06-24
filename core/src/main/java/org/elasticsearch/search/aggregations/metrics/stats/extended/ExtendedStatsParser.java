@@ -368,11 +368,16 @@ condition|)
 block|{
 if|if
 condition|(
-name|SIGMA
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|SIGMA
 argument_list|)
 condition|)
 block|{

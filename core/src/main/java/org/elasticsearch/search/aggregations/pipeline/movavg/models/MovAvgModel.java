@@ -42,6 +42,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -59,20 +71,6 @@ operator|.
 name|search
 operator|.
 name|SearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -246,7 +244,7 @@ name|int
 name|numPredictions
 parameter_list|)
 function_decl|;
-comment|/**      * Returns an empty set of predictions, filled with NaNs      * @param numPredictions      * @return      */
+comment|/**      * Returns an empty set of predictions, filled with NaNs      */
 DECL|method|emptyPredictions
 specifier|protected
 name|double
@@ -311,7 +309,7 @@ name|String
 name|getName
 parameter_list|()
 function_decl|;
-comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings      Map of settings, extracted from the request          * @param pipelineName   Name of the parent pipeline agg          * @param windowSize    Size of the window for this moving avg          * @return              A fully built moving average model          */
+comment|/**          * Parse a settings hash that is specific to this model          *          * @param settings           Map of settings, extracted from the request          * @param pipelineName       Name of the parent pipeline agg          * @param windowSize         Size of the window for this moving avg          * @param parseFieldMatcher  Matcher for field names          * @return                   A fully built moving average model          */
 DECL|method|parse
 specifier|public
 specifier|abstract
@@ -333,6 +331,9 @@ name|pipelineName
 parameter_list|,
 name|int
 name|windowSize
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|ParseException

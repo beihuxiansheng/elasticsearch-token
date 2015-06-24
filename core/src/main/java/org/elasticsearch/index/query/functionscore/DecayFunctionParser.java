@@ -539,8 +539,6 @@ name|token
 decl_stmt|;
 name|AbstractDistanceScoreFunction
 name|scoreFunction
-init|=
-literal|null
 decl_stmt|;
 name|String
 name|multiValueMode
@@ -618,11 +616,16 @@ block|}
 elseif|else
 if|if
 condition|(
-name|MULTI_VALUE_MODE
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|MULTI_VALUE_MODE
 argument_list|)
 condition|)
 block|{

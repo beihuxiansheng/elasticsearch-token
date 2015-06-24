@@ -346,11 +346,16 @@ block|}
 elseif|else
 if|if
 condition|(
-name|PRECISION_THRESHOLD
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|PRECISION_THRESHOLD
 argument_list|)
 condition|)
 block|{

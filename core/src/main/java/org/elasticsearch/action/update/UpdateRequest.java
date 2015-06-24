@@ -104,6 +104,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -1166,11 +1178,7 @@ name|scriptParams
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|scriptParams
@@ -1220,11 +1228,7 @@ name|scriptParams
 operator|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|scriptParams
@@ -2475,6 +2479,7 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
+comment|//here we don't have settings available, unable to throw strict deprecation exceptions
 name|script
 operator|=
 name|Script
@@ -2482,6 +2487,10 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -2639,6 +2648,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|//here we don't have settings available, unable to throw deprecation exceptions
 name|scriptParameterParser
 operator|.
 name|token
@@ -2648,6 +2658,10 @@ argument_list|,
 name|token
 argument_list|,
 name|parser
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}

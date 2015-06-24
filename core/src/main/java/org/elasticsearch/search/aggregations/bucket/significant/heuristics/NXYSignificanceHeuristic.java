@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -661,6 +673,9 @@ name|parse
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException
@@ -712,7 +727,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|INCLUDE_NEGATIVES_FIELD
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(
@@ -720,6 +735,8 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
+argument_list|,
+name|INCLUDE_NEGATIVES_FIELD
 argument_list|)
 condition|)
 block|{
@@ -739,7 +756,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|BACKGROUND_IS_SUPERSET
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(
@@ -747,6 +764,8 @@ name|parser
 operator|.
 name|currentName
 argument_list|()
+argument_list|,
+name|BACKGROUND_IS_SUPERSET
 argument_list|)
 condition|)
 block|{

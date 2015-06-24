@@ -20,11 +20,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|common
+operator|.
+name|ParseFieldMatcher
 import|;
 end_import
 
@@ -123,6 +125,16 @@ operator|.
 name|suggest
 operator|.
 name|SuggestionSearchContext
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -260,6 +272,11 @@ argument_list|,
 name|suggestion
 argument_list|,
 name|settings
+argument_list|,
+name|queryParserService
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -301,6 +318,9 @@ name|suggestion
 parameter_list|,
 name|DirectSpellcheckerSettings
 name|settings
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException
@@ -320,6 +340,8 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|suggestion
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 operator|||
 name|SuggestUtils
@@ -331,6 +353,8 @@ argument_list|,
 name|fieldName
 argument_list|,
 name|settings
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 operator|)
 condition|)

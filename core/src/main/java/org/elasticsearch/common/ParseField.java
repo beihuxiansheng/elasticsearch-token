@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Holds a field that can be found in a request while parsing and its different variants, which may be deprecated.  */
 end_comment
 
 begin_class
@@ -71,7 +71,6 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|EMPTY_FLAGS
-specifier|public
 specifier|static
 specifier|final
 name|EnumSet
@@ -89,9 +88,25 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|enum|Flag
-specifier|public
+DECL|field|STRICT_FLAGS
 specifier|static
+specifier|final
+name|EnumSet
+argument_list|<
+name|Flag
+argument_list|>
+name|STRICT_FLAGS
+init|=
+name|EnumSet
+operator|.
+name|of
+argument_list|(
+name|Flag
+operator|.
+name|STRICT
+argument_list|)
+decl_stmt|;
+DECL|enum|Flag
 enum|enum
 name|Flag
 block|{
@@ -208,7 +223,10 @@ argument_list|(
 operator|new
 name|String
 index|[
-literal|0
+name|set
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 expr_stmt|;
@@ -347,25 +365,6 @@ name|parseField
 return|;
 block|}
 DECL|method|match
-specifier|public
-name|boolean
-name|match
-parameter_list|(
-name|String
-name|currentFieldName
-parameter_list|)
-block|{
-return|return
-name|match
-argument_list|(
-name|currentFieldName
-argument_list|,
-name|EMPTY_FLAGS
-argument_list|)
-return|;
-block|}
-DECL|method|match
-specifier|public
 name|boolean
 name|match
 parameter_list|(
