@@ -262,7 +262,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|SnapshotsService
+name|SnapshotShardsService
 import|;
 end_import
 
@@ -307,6 +307,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -366,11 +376,11 @@ name|NAME
 operator|+
 literal|"[nodes]"
 decl_stmt|;
-DECL|field|snapshotsService
+DECL|field|snapshotShardsService
 specifier|private
 specifier|final
-name|SnapshotsService
-name|snapshotsService
+name|SnapshotShardsService
+name|snapshotShardsService
 decl_stmt|;
 annotation|@
 name|Inject
@@ -393,8 +403,8 @@ parameter_list|,
 name|TransportService
 name|transportService
 parameter_list|,
-name|SnapshotsService
-name|snapshotsService
+name|SnapshotShardsService
+name|snapshotShardsService
 parameter_list|,
 name|ActionFilters
 name|actionFilters
@@ -433,9 +443,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|snapshotsService
+name|snapshotShardsService
 operator|=
-name|snapshotsService
+name|snapshotShardsService
 expr_stmt|;
 block|}
 annotation|@
@@ -696,7 +706,7 @@ operator|.
 name|snapshotIds
 control|)
 block|{
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -704,7 +714,7 @@ name|IndexShardSnapshotStatus
 argument_list|>
 name|shardsStatus
 init|=
-name|snapshotsService
+name|snapshotShardsService
 operator|.
 name|currentSnapshotShards
 argument_list|(
@@ -737,7 +747,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ImmutableMap
+name|Map
 operator|.
 name|Entry
 argument_list|<

@@ -1090,6 +1090,23 @@ operator|.
 name|current
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|sc
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|this
+argument_list|,
+literal|"inner_hits unsupported"
+argument_list|)
+throw|;
+block|}
 name|InnerHitsContext
 name|innerHitsContext
 decl_stmt|;

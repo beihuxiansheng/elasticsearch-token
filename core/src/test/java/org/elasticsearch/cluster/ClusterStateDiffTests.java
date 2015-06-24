@@ -3164,7 +3164,7 @@ operator|.
 name|builder
 argument_list|()
 decl_stmt|;
-name|setRandomSettings
+name|setRandomIndexSettings
 argument_list|(
 name|getRandom
 argument_list|()

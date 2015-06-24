@@ -319,17 +319,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.schedule"
-argument_list|,
-literal|200
-argument_list|,
-name|TimeUnit
-operator|.
-name|MILLISECONDS
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|SETTING_NUMBER_OF_SHARDS
 argument_list|,
 literal|4

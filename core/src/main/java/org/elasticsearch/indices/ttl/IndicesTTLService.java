@@ -320,7 +320,7 @@ name|index
 operator|.
 name|fieldvisitor
 operator|.
-name|UidAndRoutingFieldsVisitor
+name|FieldsVisitor
 import|;
 end_import
 
@@ -1550,12 +1550,14 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|UidAndRoutingFieldsVisitor
+name|FieldsVisitor
 name|fieldsVisitor
 init|=
 operator|new
-name|UidAndRoutingFieldsVisitor
-argument_list|()
+name|FieldsVisitor
+argument_list|(
+literal|false
+argument_list|)
 decl_stmt|;
 name|context
 operator|.

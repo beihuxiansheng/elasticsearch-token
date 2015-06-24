@@ -150,7 +150,7 @@ name|index
 operator|.
 name|fieldvisitor
 operator|.
-name|JustSourceFieldsVisitor
+name|FieldsVisitor
 import|;
 end_import
 
@@ -331,12 +331,14 @@ return|;
 block|}
 try|try
 block|{
-name|JustSourceFieldsVisitor
+name|FieldsVisitor
 name|sourceFieldVisitor
 init|=
 operator|new
-name|JustSourceFieldsVisitor
-argument_list|()
+name|FieldsVisitor
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|reader
 operator|.

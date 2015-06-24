@@ -4518,14 +4518,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"cluster.routing.schedule"
-argument_list|,
-literal|"100ms"
-argument_list|)
-comment|// aggressive reroute post shard failures
-operator|.
-name|put
-argument_list|(
 name|TransportModule
 operator|.
 name|TRANSPORT_SERVICE_TYPE_KEY
