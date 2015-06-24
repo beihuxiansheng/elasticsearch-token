@@ -422,22 +422,6 @@ name|nodeTimeValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|ttl
-import|;
-end_import
-
 begin_class
 DECL|class|TTLFieldMapper
 specifier|public
@@ -779,12 +763,11 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|TTLFieldMapper
-operator|.
 name|Builder
 name|builder
 init|=
-name|ttl
+operator|new
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for

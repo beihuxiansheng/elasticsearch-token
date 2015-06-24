@@ -1608,6 +1608,8 @@ name|analysisService
 argument_list|,
 name|similarityLookupService
 argument_list|,
+name|mapperService
+argument_list|,
 name|typeParsers
 argument_list|,
 name|indexVersionCreated
@@ -2056,6 +2058,8 @@ name|mapping
 argument_list|,
 name|parserContext
 argument_list|)
+argument_list|,
+name|mapperService
 argument_list|)
 decl_stmt|;
 name|Iterator

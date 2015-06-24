@@ -294,22 +294,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|version
-import|;
-end_import
-
 begin_comment
 comment|/** Mapper for the _version field. */
 end_comment
@@ -496,7 +480,8 @@ block|{
 name|Builder
 name|builder
 init|=
-name|version
+operator|new
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -557,14 +542,6 @@ name|getKey
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Object
-name|fieldNode
-init|=
-name|entry
-operator|.
-name|getValue
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|fieldName
@@ -612,17 +589,7 @@ DECL|method|VersionFieldType
 specifier|public
 name|VersionFieldType
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|AbstractFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|FIELD_TYPE
-argument_list|)
-expr_stmt|;
-block|}
+block|{}
 DECL|method|VersionFieldType
 specifier|protected
 name|VersionFieldType
@@ -651,6 +618,18 @@ name|VersionFieldType
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|typeName
+specifier|public
+name|String
+name|typeName
+parameter_list|()
+block|{
+return|return
+name|CONTENT_TYPE
 return|;
 block|}
 annotation|@

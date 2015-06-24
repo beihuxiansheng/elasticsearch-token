@@ -65,6 +65,21 @@ name|MappedFieldType
 name|fieldType
 parameter_list|()
 function_decl|;
+comment|/** Returns a reference to the MappedFieldType for this mapper. */
+DECL|method|fieldTypeReference
+name|MappedFieldTypeReference
+name|fieldTypeReference
+parameter_list|()
+function_decl|;
+comment|/**      * Updates the reference to this field's MappedFieldType.      * Implementations should assert equality of the underlying field type      */
+DECL|method|setFieldTypeReference
+name|void
+name|setFieldTypeReference
+parameter_list|(
+name|MappedFieldTypeReference
+name|ref
+parameter_list|)
+function_decl|;
 comment|/**      * List of fields where this field should be copied to      */
 DECL|method|copyTo
 name|AbstractFieldMapper
