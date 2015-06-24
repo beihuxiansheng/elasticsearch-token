@@ -1257,6 +1257,19 @@ condition|(
 name|generation
 operator|==
 literal|null
+operator|||
+name|generation
+operator|.
+name|translogUUID
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|generation
+operator|==
+literal|null
 condition|)
 block|{
 name|logger
@@ -1266,6 +1279,25 @@ argument_list|(
 literal|"no translog ID present in the current generation - creating one"
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|generation
+operator|.
+name|translogUUID
+operator|==
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"upgraded translog to pre 2.0 format, associating translog with index - writing translog UUID"
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|success
 init|=

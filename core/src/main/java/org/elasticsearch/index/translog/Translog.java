@@ -1248,18 +1248,10 @@ literal|"TranslogGeneration has a non-null UUID - index must have already been u
 argument_list|)
 throw|;
 block|}
-assert|assert
-name|translogGeneration
-operator|.
-name|translogUUID
-operator|==
-literal|null
-operator|:
-literal|"Already upgrade"
-assert|;
 try|try
 block|{
-assert|assert
+if|if
+condition|(
 name|Checkpoint
 operator|.
 name|read
@@ -1271,9 +1263,20 @@ argument_list|(
 name|CHECKPOINT_FILE_NAME
 argument_list|)
 argument_list|)
-operator|==
+operator|!=
 literal|null
-assert|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|CHECKPOINT_FILE_NAME
+operator|+
+literal|" file already present, translog is already upgraded"
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
