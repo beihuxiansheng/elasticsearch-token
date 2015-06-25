@@ -630,7 +630,45 @@ name|JVM_VENDOR
 argument_list|)
 condition|)
 block|{
-comment|// currently any JVM from IBM will easily result in index corruption.
+comment|// currently some old JVM versions from IBM will easily result in index corruption.
+comment|// 2.8+ seems ok for ES from testing.
+name|float
+name|version
+init|=
+name|Float
+operator|.
+name|POSITIVE_INFINITY
+decl_stmt|;
+try|try
+block|{
+name|version
+operator|=
+name|Float
+operator|.
+name|parseFloat
+argument_list|(
+name|Constants
+operator|.
+name|JVM_VERSION
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NumberFormatException
+name|ignored
+parameter_list|)
+block|{
+comment|// this is just a simple best-effort to detect old runtimes,
+comment|// if we cannot parse it, we don't fail.
+block|}
+if|if
+condition|(
+name|version
+operator|<
+literal|2.8f
+condition|)
+block|{
 name|StringBuilder
 name|sb
 init|=
@@ -642,7 +680,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"IBM runtimes suffer from several bugs which can cause data corruption."
+literal|"IBM J9 runtimes< 2.8 suffer from several bugs which can cause data corruption."
 argument_list|)
 expr_stmt|;
 name|sb
@@ -659,19 +697,28 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"Please upgrade the JVM, see "
-argument_list|)
+literal|"Your version: "
+operator|+
+name|Constants
 operator|.
-name|append
-argument_list|(
-name|JVM_RECOMMENDATIONS
+name|JVM_VERSION
 argument_list|)
 expr_stmt|;
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|" for current recommendations."
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"Please upgrade the JVM to a recent IBM JDK"
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -684,6 +731,7 @@ name|toString
 argument_list|()
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}

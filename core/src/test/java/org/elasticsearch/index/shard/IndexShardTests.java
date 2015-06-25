@@ -78,20 +78,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|ShardRouting
 import|;
 end_import
@@ -1105,7 +1091,7 @@ name|ShardRouting
 name|routing
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -1189,7 +1175,7 @@ expr_stmt|;
 name|routing
 operator|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -1273,7 +1259,7 @@ expr_stmt|;
 name|routing
 operator|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -1355,11 +1341,11 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// test if we still write it even if the shard is not active
-name|MutableShardRouting
+name|ShardRouting
 name|inactiveRouting
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -1481,7 +1467,7 @@ operator|.
 name|updateRoutingEntry
 argument_list|(
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -1566,7 +1552,7 @@ expr_stmt|;
 name|routing
 operator|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.
@@ -1763,7 +1749,7 @@ expr_stmt|;
 name|routing
 operator|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|shard
 operator|.

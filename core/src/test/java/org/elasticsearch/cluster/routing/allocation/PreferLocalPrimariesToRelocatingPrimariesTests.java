@@ -106,7 +106,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -924,7 +924,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 range|:
 name|clusterState

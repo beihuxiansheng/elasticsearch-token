@@ -197,32 +197,15 @@ return|return
 name|defaultAnalyzer
 return|;
 block|}
-comment|/** NOTE: public so MapperAnalyzer can invoke: */
 annotation|@
 name|Override
 DECL|method|getWrappedAnalyzer
-specifier|public
+specifier|protected
 name|Analyzer
 name|getWrappedAnalyzer
 parameter_list|(
 name|String
 name|fieldName
-parameter_list|)
-block|{
-return|return
-name|getAnalyzer
-argument_list|(
-name|fieldName
-argument_list|)
-return|;
-block|}
-DECL|method|getAnalyzer
-specifier|private
-name|Analyzer
-name|getAnalyzer
-parameter_list|(
-name|String
-name|name
 parameter_list|)
 block|{
 name|Analyzer
@@ -232,7 +215,7 @@ name|analyzers
 operator|.
 name|get
 argument_list|(
-name|name
+name|fieldName
 argument_list|)
 decl_stmt|;
 if|if
@@ -254,7 +237,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Field ["
 operator|+
-name|name
+name|fieldName
 operator|+
 literal|"] has no associated analyzer"
 argument_list|)

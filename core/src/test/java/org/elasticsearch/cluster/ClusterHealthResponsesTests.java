@@ -685,7 +685,7 @@ literal|1
 decl_stmt|;
 DECL|method|genShardRouting
 specifier|private
-name|ImmutableShardRouting
+name|ShardRouting
 name|genShardRouting
 parameter_list|(
 name|String
@@ -757,7 +757,7 @@ name|STARTED
 case|:
 return|return
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -791,7 +791,7 @@ name|INITIALIZING
 case|:
 return|return
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -825,7 +825,7 @@ name|RELOCATING
 case|:
 return|return
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -916,7 +916,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-name|ImmutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|genShardRouting

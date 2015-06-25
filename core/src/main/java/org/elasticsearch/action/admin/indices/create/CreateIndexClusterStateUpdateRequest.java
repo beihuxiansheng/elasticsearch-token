@@ -203,6 +203,12 @@ specifier|final
 name|String
 name|index
 decl_stmt|;
+DECL|field|updateAllTypes
+specifier|private
+specifier|final
+name|boolean
+name|updateAllTypes
+decl_stmt|;
 DECL|field|state
 specifier|private
 name|IndexMetaData
@@ -298,6 +304,9 @@ name|cause
 parameter_list|,
 name|String
 name|index
+parameter_list|,
+name|boolean
+name|updateAllTypes
 parameter_list|)
 block|{
 name|this
@@ -317,6 +326,12 @@ operator|.
 name|index
 operator|=
 name|index
+expr_stmt|;
+name|this
+operator|.
+name|updateAllTypes
+operator|=
+name|updateAllTypes
 expr_stmt|;
 block|}
 DECL|method|settings
@@ -573,6 +588,17 @@ parameter_list|()
 block|{
 return|return
 name|blocks
+return|;
+block|}
+comment|/** True if all fields that span multiple types should be updated, false otherwise */
+DECL|method|updateAllTypes
+specifier|public
+name|boolean
+name|updateAllTypes
+parameter_list|()
+block|{
+return|return
+name|updateAllTypes
 return|;
 block|}
 block|}

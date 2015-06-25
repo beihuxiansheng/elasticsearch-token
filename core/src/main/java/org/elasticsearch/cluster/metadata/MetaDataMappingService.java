@@ -1201,6 +1201,8 @@ name|source
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -1623,6 +1625,8 @@ argument_list|,
 name|mappingSource
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|processedRefreshes
@@ -2242,6 +2246,11 @@ name|source
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2291,6 +2300,11 @@ name|source
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2452,6 +2466,11 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// if we have conflicts, throw an exception
@@ -2826,6 +2845,11 @@ name|mappingSource
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+name|request
+operator|.
+name|updateAllTypes
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|CompressedXContent

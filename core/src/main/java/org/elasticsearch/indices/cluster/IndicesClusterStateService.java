@@ -460,9 +460,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|gateway
+name|shard
 operator|.
-name|IndexShardGatewayRecoveryException
+name|IndexShardRecoveryException
 import|;
 end_import
 
@@ -474,9 +474,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|gateway
+name|shard
 operator|.
-name|IndexShardGatewayService
+name|StoreRecoveryService
 import|;
 end_import
 
@@ -1757,7 +1757,7 @@ argument_list|()
 expr_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|routingNode
@@ -1941,7 +1941,7 @@ return|return;
 block|}
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shard
 range|:
 name|routingNode
@@ -2677,6 +2677,8 @@ argument_list|,
 name|mappingSource
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -2838,6 +2840,8 @@ argument_list|,
 name|mappingSource
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -3908,23 +3912,6 @@ operator|==
 literal|false
 argument_list|)
 expr_stmt|;
-name|indexService
-operator|.
-name|shardInjectorSafe
-argument_list|(
-name|shardId
-argument_list|)
-operator|.
-name|getInstance
-argument_list|(
-name|IndexShardGatewayService
-operator|.
-name|class
-argument_list|)
-operator|.
-name|routingStateChanged
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -4803,41 +4790,19 @@ name|id
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// we are the first primary, recover from the gateway
-comment|// if its post api allocation, the index should exists
-name|boolean
-name|indexShouldExists
-init|=
-name|indexShardRouting
-operator|.
-name|primaryAllocatedPostApi
-argument_list|()
-decl_stmt|;
-name|IndexShardGatewayService
-name|shardGatewayService
-init|=
 name|indexService
 operator|.
-name|shardInjectorSafe
+name|shard
 argument_list|(
 name|shardId
 argument_list|)
 operator|.
-name|getInstance
+name|recoverFromStore
 argument_list|(
-name|IndexShardGatewayService
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|shardGatewayService
-operator|.
-name|recover
-argument_list|(
-name|indexShouldExists
+name|indexShardRouting
 argument_list|,
 operator|new
-name|IndexShardGatewayService
+name|StoreRecoveryService
 operator|.
 name|RecoveryListener
 argument_list|()
@@ -4860,7 +4825,7 @@ operator|.
 name|getUUID
 argument_list|()
 argument_list|,
-literal|"after recovery from gateway"
+literal|"after recovery from store"
 argument_list|)
 expr_stmt|;
 block|}
@@ -4880,7 +4845,7 @@ specifier|public
 name|void
 name|onRecoveryFailed
 parameter_list|(
-name|IndexShardGatewayRecoveryException
+name|IndexShardRecoveryException
 name|e
 parameter_list|)
 block|{

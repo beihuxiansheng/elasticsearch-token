@@ -1387,7 +1387,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|GATEWAY
+name|STORE
 argument_list|,
 name|Stage
 operator|.
@@ -1768,7 +1768,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|GATEWAY
+name|STORE
 argument_list|,
 name|Stage
 operator|.
@@ -2211,7 +2211,7 @@ literal|0
 argument_list|,
 name|Type
 operator|.
-name|GATEWAY
+name|STORE
 argument_list|,
 name|Stage
 operator|.

@@ -488,10 +488,6 @@ name|greaterThan
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|ParentFieldLoadingBwcTest
 specifier|public
@@ -563,8 +559,6 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Test
 annotation|@
 name|LuceneTestCase
 operator|.
@@ -1319,8 +1313,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testEagerParentFieldLoading
 specifier|public
 name|void
@@ -1365,6 +1357,11 @@ name|Loading
 operator|.
 name|LAZY
 argument_list|)
+argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1507,6 +1504,11 @@ argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"type=parent"
+argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1659,6 +1661,11 @@ operator|.
 name|EAGER
 argument_list|)
 argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -1805,6 +1812,11 @@ operator|.
 name|EAGER_GLOBAL_ORDINALS
 argument_list|)
 argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -1900,8 +1912,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testChangingEagerParentFieldLoadingAtRuntime
 specifier|public
 name|void
@@ -2062,6 +2072,11 @@ name|Loading
 operator|.
 name|EAGER_GLOBAL_ORDINALS
 argument_list|)
+argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|get

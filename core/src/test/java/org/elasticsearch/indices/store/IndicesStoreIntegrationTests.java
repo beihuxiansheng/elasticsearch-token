@@ -2013,8 +2013,8 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
-name|mutableShardRouting
+name|ShardRouting
+name|shardRouting
 range|:
 name|routingNode
 control|)
@@ -2024,7 +2024,7 @@ index|[
 name|i
 index|]
 operator|=
-name|mutableShardRouting
+name|shardRouting
 operator|.
 name|shardId
 argument_list|()
@@ -2241,7 +2241,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 literal|"test"
 argument_list|,

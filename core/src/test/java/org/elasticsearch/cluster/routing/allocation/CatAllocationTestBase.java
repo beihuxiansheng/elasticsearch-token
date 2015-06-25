@@ -503,11 +503,11 @@ argument_list|(
 name|ip
 argument_list|)
 expr_stmt|;
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 init|=
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -678,7 +678,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|r
 range|:
 name|idx
@@ -1108,7 +1108,7 @@ DECL|field|routing
 specifier|final
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|routing
 init|=
@@ -1137,7 +1137,7 @@ specifier|public
 name|void
 name|add
 parameter_list|(
-name|MutableShardRouting
+name|ShardRouting
 name|r
 parameter_list|)
 block|{
@@ -1162,7 +1162,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|msr
 range|:
 name|routing
@@ -1207,7 +1207,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|msr
 range|:
 name|routing

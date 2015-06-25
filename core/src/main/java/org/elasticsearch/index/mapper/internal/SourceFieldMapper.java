@@ -570,22 +570,6 @@ name|nodeStringValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|MapperBuilders
-operator|.
-name|source
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1008,12 +992,11 @@ parameter_list|)
 throws|throws
 name|MapperParsingException
 block|{
-name|SourceFieldMapper
-operator|.
 name|Builder
 name|builder
 init|=
-name|source
+operator|new
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1467,17 +1450,7 @@ DECL|method|SourceFieldType
 specifier|public
 name|SourceFieldType
 parameter_list|()
-block|{
-name|super
-argument_list|(
-name|AbstractFieldMapper
-operator|.
-name|Defaults
-operator|.
-name|FIELD_TYPE
-argument_list|)
-expr_stmt|;
-block|}
+block|{}
 DECL|method|SourceFieldType
 specifier|protected
 name|SourceFieldType
@@ -1506,6 +1479,18 @@ name|SourceFieldType
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|typeName
+specifier|public
+name|String
+name|typeName
+parameter_list|()
+block|{
+return|return
+name|CONTENT_TYPE
 return|;
 block|}
 annotation|@

@@ -1637,7 +1637,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|routing
 range|:
 name|newRoutingNode

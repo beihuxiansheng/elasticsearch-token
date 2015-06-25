@@ -1955,7 +1955,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|MutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,

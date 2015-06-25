@@ -205,8 +205,6 @@ operator|new
 name|CounterMetric
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|ShardQueryCache
 specifier|public
 name|ShardQueryCache

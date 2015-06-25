@@ -1839,7 +1839,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -1945,7 +1945,7 @@ operator|.
 name|addShard
 argument_list|(
 operator|new
-name|ImmutableShardRouting
+name|ShardRouting
 argument_list|(
 name|index
 argument_list|,

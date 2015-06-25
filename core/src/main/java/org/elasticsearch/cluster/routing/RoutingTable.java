@@ -1719,7 +1719,7 @@ control|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRoutingEntry
 range|:
 name|routingNode
@@ -1829,7 +1829,7 @@ block|}
 block|}
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|shardRoutingEntry
 range|:
 name|Iterables

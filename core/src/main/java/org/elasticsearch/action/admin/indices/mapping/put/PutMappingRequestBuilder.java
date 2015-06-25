@@ -278,6 +278,27 @@ return|return
 name|this
 return|;
 block|}
+comment|/** True if all fields that span multiple types should be updated, false otherwise */
+DECL|method|setUpdateAllTypes
+specifier|public
+name|PutMappingRequestBuilder
+name|setUpdateAllTypes
+parameter_list|(
+name|boolean
+name|updateAllTypes
+parameter_list|)
+block|{
+name|request
+operator|.
+name|updateAllTypes
+argument_list|(
+name|updateAllTypes
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 block|}
 end_class
 

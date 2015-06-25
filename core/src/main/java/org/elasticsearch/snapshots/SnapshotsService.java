@@ -6534,6 +6534,16 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getRepositoriesService
+specifier|public
+name|RepositoriesService
+name|getRepositoriesService
+parameter_list|()
+block|{
+return|return
+name|repositoriesService
+return|;
+block|}
 comment|/**      * Listener for create snapshot operation      */
 DECL|interface|CreateSnapshotListener
 specifier|public

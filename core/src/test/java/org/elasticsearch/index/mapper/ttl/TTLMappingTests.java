@@ -1103,6 +1103,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1324,6 +1326,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1431,6 +1435,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1935,6 +1941,8 @@ argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -2023,6 +2031,8 @@ argument_list|()
 argument_list|,
 name|randomBoolean
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -2118,6 +2128,8 @@ argument_list|)
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)
@@ -2277,6 +2289,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -2421,6 +2435,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -2561,6 +2577,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2702,6 +2720,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2828,6 +2848,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2947,6 +2969,8 @@ argument_list|)
 operator|.
 name|mapping
 argument_list|()
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|)

@@ -730,6 +730,8 @@ name|of
 argument_list|(
 literal|"index.gateway.wait_for_mapping_update_post_recovery"
 argument_list|,
+literal|"index.shard.wait_for_mapping_update_post_recovery"
+argument_list|,
 literal|"index.gc_deletes"
 argument_list|,
 literal|"index.indexing.slowlog.threshold.index.debug"

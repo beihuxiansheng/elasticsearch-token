@@ -86,7 +86,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -868,7 +868,7 @@ parameter_list|)
 block|{
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|initializingShards
 init|=

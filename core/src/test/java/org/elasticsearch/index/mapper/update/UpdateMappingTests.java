@@ -955,6 +955,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// assure we have no conflicts
@@ -1229,6 +1231,8 @@ name|mapping
 argument_list|()
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 comment|// assure we have conflicts

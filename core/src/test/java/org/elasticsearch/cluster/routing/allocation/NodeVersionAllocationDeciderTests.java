@@ -106,7 +106,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -3469,7 +3469,7 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 name|mutableShardRoutings
 init|=
@@ -3484,7 +3484,7 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|r
 range|:
 name|mutableShardRoutings
@@ -3611,7 +3611,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|r
 range|:
 name|mutableShardRoutings
@@ -3638,7 +3638,7 @@ name|primary
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|primary
 init|=
 name|routingNodes

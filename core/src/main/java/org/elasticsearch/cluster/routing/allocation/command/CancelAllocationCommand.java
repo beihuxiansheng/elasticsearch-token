@@ -894,7 +894,7 @@ argument_list|()
 condition|;
 control|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|shardRouting
 init|=
 name|it
@@ -972,7 +972,7 @@ condition|)
 block|{
 for|for
 control|(
-name|MutableShardRouting
+name|ShardRouting
 name|fromShardRouting
 range|:
 name|relocatingFromNode
@@ -1139,7 +1139,7 @@ name|hasNext
 argument_list|()
 condition|)
 block|{
-name|MutableShardRouting
+name|ShardRouting
 name|initializingShardRouting
 init|=
 name|initializingNode

@@ -6062,6 +6062,11 @@ operator|.
 name|endObject
 argument_list|()
 argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|indexRandom

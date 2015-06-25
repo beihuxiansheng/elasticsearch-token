@@ -124,7 +124,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|MutableShardRouting
+name|ShardRouting
 import|;
 end_import
 
@@ -995,7 +995,7 @@ argument_list|(
 operator|new
 name|Predicate
 argument_list|<
-name|MutableShardRouting
+name|ShardRouting
 argument_list|>
 argument_list|()
 block|{
@@ -1005,15 +1005,7 @@ specifier|public
 name|boolean
 name|apply
 parameter_list|(
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|MutableShardRouting
+name|ShardRouting
 name|input
 parameter_list|)
 block|{
