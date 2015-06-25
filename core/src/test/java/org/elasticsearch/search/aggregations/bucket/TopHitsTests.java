@@ -8413,7 +8413,6 @@ literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Can't use named queries for the same reason explain doesn't work:
 name|assertThat
 argument_list|(
 name|searchHit
