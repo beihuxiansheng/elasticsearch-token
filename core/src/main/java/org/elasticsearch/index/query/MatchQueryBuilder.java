@@ -93,17 +93,6 @@ name|NAME
 init|=
 literal|"match"
 decl_stmt|;
-DECL|enum|Operator
-specifier|public
-enum|enum
-name|Operator
-block|{
-DECL|enum constant|OR
-name|OR
-block|,
-DECL|enum constant|AND
-name|AND
-block|}
 DECL|enum|Type
 specifier|public
 enum|enum

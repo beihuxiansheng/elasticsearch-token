@@ -3353,8 +3353,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -3415,8 +3413,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -3487,8 +3483,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -3568,8 +3562,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -4289,8 +4281,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -4351,8 +4341,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -4423,8 +4411,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -4562,8 +4548,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -8435,8 +8419,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -8492,8 +8474,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -8570,8 +8550,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17172,8 +17150,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17211,8 +17187,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17250,8 +17224,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17314,8 +17286,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17353,8 +17323,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17528,8 +17496,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17592,8 +17558,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17766,8 +17730,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17808,8 +17770,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17848,8 +17808,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17915,8 +17873,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -17957,8 +17913,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND
@@ -18119,8 +18073,6 @@ argument_list|)
 operator|.
 name|defaultOperator
 argument_list|(
-name|QueryStringQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|AND

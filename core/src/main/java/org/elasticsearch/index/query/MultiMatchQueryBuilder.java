@@ -217,8 +217,6 @@ name|type
 decl_stmt|;
 DECL|field|operator
 specifier|private
-name|MatchQueryBuilder
-operator|.
 name|Operator
 name|operator
 decl_stmt|;
@@ -800,8 +798,6 @@ specifier|public
 name|MultiMatchQueryBuilder
 name|operator
 parameter_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 name|operator
 parameter_list|)

@@ -200,6 +200,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|Operator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryBuilders
 import|;
 end_import
@@ -1035,8 +1049,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -1189,8 +1201,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -1288,8 +1298,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -1922,8 +1930,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -2059,8 +2065,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -2204,8 +2208,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -3307,8 +3309,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -3418,8 +3418,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -4212,8 +4210,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -4314,8 +4310,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -4382,8 +4376,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -4492,8 +4484,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -4755,8 +4745,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -5251,8 +5239,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
@@ -5462,8 +5448,6 @@ argument_list|)
 operator|.
 name|operator
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Operator
 operator|.
 name|OR
