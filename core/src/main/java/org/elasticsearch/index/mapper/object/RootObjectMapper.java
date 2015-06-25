@@ -910,6 +910,34 @@ operator|)
 name|fieldNode
 control|)
 block|{
+if|if
+condition|(
+name|node1
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"epoch_"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"Epoch ["
+operator|+
+name|node1
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|"] is not supported as dynamic date format"
+argument_list|)
+throw|;
+block|}
 name|dateTimeFormatters
 operator|.
 name|add
