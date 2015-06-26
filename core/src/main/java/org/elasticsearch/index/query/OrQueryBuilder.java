@@ -146,16 +146,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -198,6 +188,7 @@ literal|"or"
 decl_stmt|;
 DECL|field|filters
 specifier|private
+specifier|final
 name|ArrayList
 argument_list|<
 name|QueryBuilder
@@ -233,19 +224,31 @@ modifier|...
 name|filters
 parameter_list|)
 block|{
-name|Collections
-operator|.
-name|addAll
-argument_list|(
+for|for
+control|(
+name|QueryBuilder
+name|filter
+range|:
+name|filters
+control|)
+block|{
 name|this
 operator|.
 name|filters
-argument_list|,
-name|filters
+operator|.
+name|add
+argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|filter
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a filter to the list of filters to "or".      */
+block|}
+comment|/**      * Adds a filter to the list of filters to "or".      * No<tt>null</tt> value allowed.      */
 DECL|method|add
 specifier|public
 name|OrQueryBuilder
@@ -259,7 +262,12 @@ name|filters
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|filterBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -494,7 +502,7 @@ name|QueryValidationException
 name|validate
 parameter_list|()
 block|{
-comment|// nothing to validate.
+comment|// nothing to validate
 return|return
 literal|null
 return|;
@@ -642,8 +650,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|filters
 argument_list|)
 expr_stmt|;

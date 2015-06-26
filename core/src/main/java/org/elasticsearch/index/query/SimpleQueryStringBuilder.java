@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SimpleQuery is a query parser that acts similar to a query_string query, but  * won't throw exceptions for any weird string syntax.  *   * For more detailed explanation of the query string syntax see also the<a  * href=  * "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html"  *> online documentation</a>.  */
+comment|/**  * SimpleQuery is a query parser that acts similar to a query_string query, but  * won't throw exceptions for any weird string syntax.  *  * For more detailed explanation of the query string syntax see also the<a  * href=  * "https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html"  *> online documentation</a>.  */
 end_comment
 
 begin_class
@@ -331,7 +331,7 @@ name|boost
 init|=
 name|DEFAULT_BOOST
 decl_stmt|;
-comment|/**      * Fields to query against. If left empty will query default field,      * currently _ALL. Uses a TreeMap to hold the fields so boolean clauses are      * always sorted in same order for generated Lucene query for easier      * testing.      *       * Can be changed back to HashMap once https://issues.apache.org/jira/browse/LUCENE-6305 is fixed.      */
+comment|/**      * Fields to query against. If left empty will query default field,      * currently _ALL. Uses a TreeMap to hold the fields so boolean clauses are      * always sorted in same order for generated Lucene query for easier      * testing.      *      * Can be changed back to HashMap once https://issues.apache.org/jira/browse/LUCENE-6305 is fixed.      */
 DECL|field|fieldsAndWeights
 specifier|private
 specifier|final
@@ -989,7 +989,7 @@ return|return
 name|minimumShouldMatch
 return|;
 block|}
-comment|/**       * {@inheritDoc}       *       * Checks that mandatory queryText is neither null nor empty.      * */
+comment|/**      * {@inheritDoc}      *      * Checks that mandatory queryText is neither null nor empty.      * */
 annotation|@
 name|Override
 DECL|method|validate
@@ -1482,14 +1482,6 @@ name|minimumShouldMatch
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|boost
-operator|!=
-operator|-
-literal|1.0f
-condition|)
-block|{
 name|builder
 operator|.
 name|field
@@ -1499,7 +1491,6 @@ argument_list|,
 name|boost
 argument_list|)
 expr_stmt|;
-block|}
 name|builder
 operator|.
 name|endObject
@@ -1913,6 +1904,8 @@ argument_list|,
 name|minimumShouldMatch
 argument_list|,
 name|settings
+argument_list|,
+name|flags
 argument_list|)
 return|;
 block|}
@@ -2004,6 +1997,14 @@ name|other
 operator|.
 name|settings
 argument_list|)
+operator|&&
+operator|(
+name|flags
+operator|==
+name|other
+operator|.
+name|flags
+operator|)
 return|;
 block|}
 block|}

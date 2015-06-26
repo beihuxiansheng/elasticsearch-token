@@ -188,6 +188,7 @@ literal|"and"
 decl_stmt|;
 DECL|field|filters
 specifier|private
+specifier|final
 name|ArrayList
 argument_list|<
 name|QueryBuilder
@@ -214,6 +215,7 @@ operator|new
 name|AndQueryBuilder
 argument_list|()
 decl_stmt|;
+comment|/**      * @param filters nested filters, no<tt>null</tt> values are allowed      */
 DECL|method|AndQueryBuilder
 specifier|public
 name|AndQueryBuilder
@@ -237,12 +239,17 @@ name|filters
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|filter
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Adds a filter to the list of filters to "and".      */
+comment|/**      * Adds a filter to the list of filters to "and".      * @param filterBuilder nested filter, no<tt>null</tt> value allowed      */
 DECL|method|add
 specifier|public
 name|AndQueryBuilder
@@ -256,7 +263,12 @@ name|filters
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|filterBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -491,7 +503,7 @@ name|QueryValidationException
 name|validate
 parameter_list|()
 block|{
-comment|// nothing to validate.
+comment|// nothing to validate
 return|return
 literal|null
 return|;
@@ -639,8 +651,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|filters
 argument_list|)
 expr_stmt|;

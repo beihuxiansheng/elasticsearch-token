@@ -441,13 +441,6 @@ argument_list|,
 name|value
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|boost
-operator|!=
-literal|1.0f
-condition|)
-block|{
 name|termQuery
 operator|.
 name|boost
@@ -455,7 +448,6 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|queryName
@@ -471,11 +463,6 @@ name|queryName
 argument_list|)
 expr_stmt|;
 block|}
-name|termQuery
-operator|.
-name|validate
-argument_list|()
-expr_stmt|;
 return|return
 name|termQuery
 return|;

@@ -235,7 +235,12 @@ name|queries
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|queryBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -634,8 +639,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|queries
 argument_list|)
 expr_stmt|;

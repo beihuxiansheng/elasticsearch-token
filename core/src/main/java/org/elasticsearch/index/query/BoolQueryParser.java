@@ -222,6 +222,7 @@ name|minimumShouldMatch
 init|=
 literal|null
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
@@ -231,6 +232,7 @@ init|=
 name|newArrayList
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
@@ -240,6 +242,7 @@ init|=
 name|newArrayList
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|QueryBuilder
@@ -249,6 +252,7 @@ init|=
 name|newArrayList
 argument_list|()
 decl_stmt|;
+specifier|final
 name|List
 argument_list|<
 name|QueryBuilder

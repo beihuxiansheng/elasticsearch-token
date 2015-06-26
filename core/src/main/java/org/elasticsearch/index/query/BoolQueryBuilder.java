@@ -238,6 +238,7 @@ init|=
 literal|"bool"
 decl_stmt|;
 DECL|field|ADJUST_PURE_NEGATIVE_DEFAULT
+specifier|public
 specifier|static
 specifier|final
 name|boolean
@@ -246,6 +247,7 @@ init|=
 literal|true
 decl_stmt|;
 DECL|field|DISABLE_COORD_DEFAULT
+specifier|public
 specifier|static
 specifier|final
 name|boolean
@@ -350,7 +352,7 @@ specifier|private
 name|String
 name|queryName
 decl_stmt|;
-comment|/**      * Adds a query that<b>must</b> appear in the matching documents and will      * contribute to scoring.      */
+comment|/**      * Adds a query that<b>must</b> appear in the matching documents and will      * contribute to scoring. No<tt>null</tt> value allowed.      */
 DECL|method|must
 specifier|public
 name|BoolQueryBuilder
@@ -364,7 +366,12 @@ name|mustClauses
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|queryBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -387,7 +394,7 @@ operator|.
 name|mustClauses
 return|;
 block|}
-comment|/**      * Adds a query that<b>must</b> appear in the matching documents but will      * not contribute to scoring.      */
+comment|/**      * Adds a query that<b>must</b> appear in the matching documents but will      * not contribute to scoring. No<tt>null</tt> value allowed.      */
 DECL|method|filter
 specifier|public
 name|BoolQueryBuilder
@@ -401,7 +408,12 @@ name|filterClauses
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|queryBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -424,7 +436,7 @@ operator|.
 name|filterClauses
 return|;
 block|}
-comment|/**      * Adds a query that<b>must not</b> appear in the matching documents.      */
+comment|/**      * Adds a query that<b>must not</b> appear in the matching documents.      * No<tt>null</tt> value allowed.      */
 DECL|method|mustNot
 specifier|public
 name|BoolQueryBuilder
@@ -438,7 +450,12 @@ name|mustNotClauses
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|queryBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -461,7 +478,7 @@ operator|.
 name|mustNotClauses
 return|;
 block|}
-comment|/**      * Adds a clause that<i>should</i> be matched by the returned documents. For a boolean query with no      *<tt>MUST</tt> clauses one or more<code>SHOULD</code> clauses must match a document      * for the BooleanQuery to match.      *      * @see #minimumNumberShouldMatch(int)      */
+comment|/**      * Adds a clause that<i>should</i> be matched by the returned documents. For a boolean query with no      *<tt>MUST</tt> clauses one or more<code>SHOULD</code> clauses must match a document      * for the BooleanQuery to match. No<tt>null</tt> value allowed.      *      * @see #minimumNumberShouldMatch(int)      */
 DECL|method|should
 specifier|public
 name|BoolQueryBuilder
@@ -475,7 +492,12 @@ name|shouldClauses
 operator|.
 name|add
 argument_list|(
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|queryBuilder
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1017,8 +1039,6 @@ init|=
 operator|new
 name|BooleanQuery
 argument_list|(
-name|this
-operator|.
 name|disableCoord
 argument_list|)
 decl_stmt|;
@@ -1028,8 +1048,6 @@ name|parseContext
 argument_list|,
 name|booleanQuery
 argument_list|,
-name|this
-operator|.
 name|mustClauses
 argument_list|,
 name|BooleanClause
@@ -1045,8 +1063,6 @@ name|parseContext
 argument_list|,
 name|booleanQuery
 argument_list|,
-name|this
-operator|.
 name|mustNotClauses
 argument_list|,
 name|BooleanClause
@@ -1062,8 +1078,6 @@ name|parseContext
 argument_list|,
 name|booleanQuery
 argument_list|,
-name|this
-operator|.
 name|shouldClauses
 argument_list|,
 name|BooleanClause
@@ -1079,8 +1093,6 @@ name|parseContext
 argument_list|,
 name|booleanQuery
 argument_list|,
-name|this
-operator|.
 name|filterClauses
 argument_list|,
 name|BooleanClause
@@ -1094,8 +1106,6 @@ name|booleanQuery
 operator|.
 name|setBoost
 argument_list|(
-name|this
-operator|.
 name|boost
 argument_list|)
 expr_stmt|;
@@ -1105,16 +1115,12 @@ name|applyMinimumShouldMatch
 argument_list|(
 name|booleanQuery
 argument_list|,
-name|this
-operator|.
 name|minimumShouldMatch
 argument_list|)
 expr_stmt|;
 name|Query
 name|query
 init|=
-name|this
-operator|.
 name|adjustPureNegative
 condition|?
 name|fixNegativeQueryIfNeeded
@@ -1126,8 +1132,6 @@ name|booleanQuery
 decl_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|queryName
 operator|!=
 literal|null
@@ -1137,8 +1141,6 @@ name|parseContext
 operator|.
 name|addNamedQuery
 argument_list|(
-name|this
-operator|.
 name|queryName
 argument_list|,
 name|query
@@ -1526,8 +1528,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|mustClauses
 argument_list|)
 expr_stmt|;
@@ -1535,8 +1535,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|mustNotClauses
 argument_list|)
 expr_stmt|;
@@ -1544,8 +1542,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|shouldClauses
 argument_list|)
 expr_stmt|;
@@ -1553,8 +1549,6 @@ name|out
 operator|.
 name|writeNamedWriteableList
 argument_list|(
-name|this
-operator|.
 name|filterClauses
 argument_list|)
 expr_stmt|;
@@ -1562,8 +1556,6 @@ name|out
 operator|.
 name|writeFloat
 argument_list|(
-name|this
-operator|.
 name|boost
 argument_list|)
 expr_stmt|;
@@ -1571,8 +1563,6 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|this
-operator|.
 name|adjustPureNegative
 argument_list|)
 expr_stmt|;
@@ -1580,8 +1570,6 @@ name|out
 operator|.
 name|writeBoolean
 argument_list|(
-name|this
-operator|.
 name|disableCoord
 argument_list|)
 expr_stmt|;
@@ -1596,8 +1584,6 @@ name|out
 operator|.
 name|writeOptionalString
 argument_list|(
-name|this
-operator|.
 name|minimumShouldMatch
 argument_list|)
 expr_stmt|;

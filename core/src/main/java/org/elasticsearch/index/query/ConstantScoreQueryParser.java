@@ -367,11 +367,6 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
-name|constantScoreBuilder
-operator|.
-name|validate
-argument_list|()
-expr_stmt|;
 return|return
 name|constantScoreBuilder
 return|;

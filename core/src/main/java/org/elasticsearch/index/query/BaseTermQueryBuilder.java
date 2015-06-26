@@ -501,13 +501,6 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|boost
-operator|!=
-literal|1.0f
-condition|)
-block|{
 name|builder
 operator|.
 name|field
@@ -517,7 +510,6 @@ argument_list|,
 name|boost
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|queryName

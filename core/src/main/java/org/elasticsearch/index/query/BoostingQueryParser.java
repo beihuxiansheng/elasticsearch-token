@@ -341,10 +341,6 @@ block|}
 block|}
 if|if
 condition|(
-name|positiveQuery
-operator|==
-literal|null
-operator|&&
 operator|!
 name|positiveQueryFound
 condition|)
@@ -361,10 +357,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|negativeQuery
-operator|==
-literal|null
-operator|&&
 operator|!
 name|negativeQueryFound
 condition|)

@@ -357,6 +357,19 @@ name|queryName
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|validate
+specifier|public
+name|QueryValidationException
+name|validate
+parameter_list|()
+block|{
+comment|// nothing to validate
+return|return
+literal|null
+return|;
+block|}
 DECL|method|newFilter
 specifier|public
 specifier|static

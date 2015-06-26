@@ -235,6 +235,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|validate
+specifier|public
+name|QueryValidationException
+name|validate
+parameter_list|()
+block|{
+comment|// nothing to validate
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doEquals
 specifier|public
 name|boolean
@@ -319,8 +332,6 @@ name|out
 operator|.
 name|writeInt
 argument_list|(
-name|this
-operator|.
 name|limit
 argument_list|)
 expr_stmt|;
