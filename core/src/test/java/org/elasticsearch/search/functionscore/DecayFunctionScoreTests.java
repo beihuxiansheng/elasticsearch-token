@@ -4757,6 +4757,13 @@ argument_list|,
 literal|"date"
 argument_list|)
 operator|.
+name|field
+argument_list|(
+literal|"format"
+argument_list|,
+literal|"epoch_millis"
+argument_list|)
+operator|.
 name|endObject
 argument_list|()
 operator|.

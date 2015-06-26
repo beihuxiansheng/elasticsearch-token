@@ -17628,7 +17628,7 @@ literal|"my-type"
 argument_list|,
 literal|"timestamp"
 argument_list|,
-literal|"type=date"
+literal|"type=date,format=epoch_millis"
 argument_list|)
 operator|.
 name|get
