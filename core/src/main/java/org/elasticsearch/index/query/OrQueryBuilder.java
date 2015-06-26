@@ -421,6 +421,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|query
+operator|.
+name|clauses
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// no inner lucene query exists, ignore upstream
+return|return
+literal|null
+return|;
+block|}
 return|return
 name|query
 return|;

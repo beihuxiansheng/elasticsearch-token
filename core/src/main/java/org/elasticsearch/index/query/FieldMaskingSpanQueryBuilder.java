@@ -189,6 +189,7 @@ operator|new
 name|FieldMaskingSpanQueryBuilder
 argument_list|()
 decl_stmt|;
+comment|// only used for prototype
 DECL|method|FieldMaskingSpanQueryBuilder
 specifier|private
 name|FieldMaskingSpanQueryBuilder
@@ -234,7 +235,12 @@ name|this
 operator|.
 name|fieldName
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|fieldName
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @return the field name for this query      */
@@ -286,13 +292,18 @@ argument_list|(
 name|NAME
 argument_list|)
 expr_stmt|;
-name|doXContentInnerBuilder
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"query"
+argument_list|)
+expr_stmt|;
+name|queryBuilder
+operator|.
+name|toXContent
 argument_list|(
 name|builder
-argument_list|,
-literal|"query"
-argument_list|,
-name|queryBuilder
 argument_list|,
 name|params
 argument_list|)

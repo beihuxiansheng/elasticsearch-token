@@ -112,6 +112,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|EmptyQueryBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryParser
 import|;
 end_import
@@ -231,6 +245,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// EmptyQueryBuilder is not registered as query parser but used internally.
+comment|// We need to register it with the NamedWriteableRegistry in order to serialize it
+name|namedWriteableRegistry
+operator|.
+name|registerPrototype
+argument_list|(
+name|EmptyQueryBuilder
+operator|.
+name|PROTOTYPE
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|queryParsers

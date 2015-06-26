@@ -1523,6 +1523,25 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+comment|// expectedQuery can be null, e.g. in case of BoostingQueryBuilder
+comment|// with inner clause that returns null itself
+if|if
+condition|(
+name|expectedQuery
+operator|==
+literal|null
+condition|)
+block|{
+name|assertNull
+argument_list|(
+literal|"Expected a null query, saw some object."
+argument_list|,
+name|actualQuery
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|assertThat
 argument_list|(
 name|actualQuery
@@ -1556,6 +1575,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|createExpectedQuery
 specifier|protected
 specifier|final
@@ -1581,6 +1601,13 @@ argument_list|,
 name|context
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|expectedQuery
+operator|!=
+literal|null
+condition|)
+block|{
 name|expectedQuery
 operator|.
 name|setBoost
@@ -1591,6 +1618,7 @@ name|boost
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|expectedQuery
 return|;

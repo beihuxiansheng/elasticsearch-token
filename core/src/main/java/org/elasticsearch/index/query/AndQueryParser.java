@@ -223,13 +223,6 @@ operator|.
 name|parseInnerFilterToQueryBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|filter
-operator|!=
-literal|null
-condition|)
-block|{
 name|queries
 operator|.
 name|add
@@ -237,7 +230,6 @@ argument_list|(
 name|filter
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
@@ -344,13 +336,6 @@ operator|.
 name|parseInnerFilterToQueryBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|filter
-operator|!=
-literal|null
-condition|)
-block|{
 name|queries
 operator|.
 name|add
@@ -358,7 +343,6 @@ argument_list|(
 name|filter
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 else|else
@@ -393,13 +377,6 @@ operator|.
 name|parseInnerFilterToQueryBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|filter
-operator|!=
-literal|null
-condition|)
-block|{
 name|queries
 operator|.
 name|add
@@ -407,7 +384,6 @@ argument_list|(
 name|filter
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
