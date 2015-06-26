@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.query
+DECL|package|org.elasticsearch.index.cache.request
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 package|;
 end_package
 
@@ -140,9 +140,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -151,20 +151,20 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|ShardQueryCache
+DECL|class|ShardRequestCache
 specifier|public
 class|class
-name|ShardQueryCache
+name|ShardRequestCache
 extends|extends
 name|AbstractIndexShardComponent
 implements|implements
 name|RemovalListener
 argument_list|<
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|Key
 argument_list|,
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|Value
 argument_list|>
@@ -205,9 +205,9 @@ operator|new
 name|CounterMetric
 argument_list|()
 decl_stmt|;
-DECL|method|ShardQueryCache
+DECL|method|ShardRequestCache
 specifier|public
-name|ShardQueryCache
+name|ShardRequestCache
 parameter_list|(
 name|ShardId
 name|shardId
@@ -228,13 +228,13 @@ expr_stmt|;
 block|}
 DECL|method|stats
 specifier|public
-name|QueryCacheStats
+name|RequestCacheStats
 name|stats
 parameter_list|()
 block|{
 return|return
 operator|new
-name|QueryCacheStats
+name|RequestCacheStats
 argument_list|(
 name|totalMetric
 operator|.
@@ -287,12 +287,12 @@ specifier|public
 name|void
 name|onCached
 parameter_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|Key
 name|key
 parameter_list|,
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|Value
 name|value
@@ -323,11 +323,11 @@ name|onRemoval
 parameter_list|(
 name|RemovalNotification
 argument_list|<
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|Key
 argument_list|,
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|Value
 argument_list|>

@@ -240,9 +240,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCache
+name|QueryCache
 import|;
 end_import
 
@@ -750,7 +750,7 @@ parameter_list|,
 name|IndexService
 name|indexService
 parameter_list|,
-name|FilterCache
+name|QueryCache
 name|filterCache
 parameter_list|,
 name|IndexFieldDataService

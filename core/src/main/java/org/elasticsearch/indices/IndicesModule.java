@@ -136,9 +136,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|IndicesFilterCache
+name|IndicesQueryCache
 import|;
 end_import
 
@@ -152,9 +152,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -500,7 +500,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|IndicesFilterCache
+name|IndicesQueryCache
 operator|.
 name|class
 argument_list|)
@@ -510,7 +510,7 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|class
 argument_list|)

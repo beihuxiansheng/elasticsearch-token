@@ -320,9 +320,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -1043,9 +1043,22 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
+argument_list|,
+name|Validator
+operator|.
+name|BOOLEAN
+argument_list|)
+expr_stmt|;
+name|indexDynamicSettings
+operator|.
+name|addDynamicSetting
+argument_list|(
+name|IndicesRequestCache
+operator|.
+name|DEPRECATED_INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 name|Validator
 operator|.

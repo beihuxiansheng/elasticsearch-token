@@ -294,7 +294,7 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
 name|terms
 operator|.

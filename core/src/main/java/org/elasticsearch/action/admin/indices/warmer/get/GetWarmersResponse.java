@@ -561,7 +561,7 @@ name|writeOptionalBoolean
 argument_list|(
 name|warmerEntry
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 argument_list|)
 expr_stmt|;

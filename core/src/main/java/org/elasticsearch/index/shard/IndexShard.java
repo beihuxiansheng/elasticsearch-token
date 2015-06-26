@@ -574,9 +574,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheStats
+name|QueryCacheStats
 import|;
 end_import
 
@@ -590,9 +590,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|ShardQueryCache
+name|ShardRequestCache
 import|;
 end_import
 
@@ -1158,9 +1158,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|IndicesFilterCache
+name|IndicesQueryCache
 import|;
 end_import
 
@@ -1427,7 +1427,7 @@ decl_stmt|;
 DECL|field|shardQueryCache
 specifier|private
 specifier|final
-name|ShardQueryCache
+name|ShardRequestCache
 name|shardQueryCache
 decl_stmt|;
 DECL|field|shardFieldData
@@ -1549,7 +1549,7 @@ decl_stmt|;
 DECL|field|indicesFilterCache
 specifier|private
 specifier|final
-name|IndicesFilterCache
+name|IndicesQueryCache
 name|indicesFilterCache
 decl_stmt|;
 DECL|field|storeRecoveryService
@@ -1729,7 +1729,7 @@ parameter_list|,
 name|IndexAliasesService
 name|indexAliasesService
 parameter_list|,
-name|IndicesFilterCache
+name|IndicesQueryCache
 name|indicesFilterCache
 parameter_list|,
 name|ShardPercolateService
@@ -1964,7 +1964,7 @@ operator|.
 name|shardQueryCache
 operator|=
 operator|new
-name|ShardQueryCache
+name|ShardRequestCache
 argument_list|(
 name|shardId
 argument_list|,
@@ -2325,10 +2325,10 @@ operator|.
 name|shardWarmerService
 return|;
 block|}
-DECL|method|queryCache
+DECL|method|requestCache
 specifier|public
-name|ShardQueryCache
-name|queryCache
+name|ShardRequestCache
+name|requestCache
 parameter_list|()
 block|{
 return|return
@@ -4199,10 +4199,10 @@ name|stats
 argument_list|()
 return|;
 block|}
-DECL|method|filterCacheStats
+DECL|method|queryCacheStats
 specifier|public
-name|FilterCacheStats
-name|filterCacheStats
+name|QueryCacheStats
+name|queryCacheStats
 parameter_list|()
 block|{
 return|return
@@ -8380,12 +8380,12 @@ name|translogRecoveryPerformer
 argument_list|,
 name|indexCache
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|,
 name|indexCache
 operator|.
-name|filterPolicy
+name|queryPolicy
 argument_list|()
 argument_list|,
 name|translogConfig

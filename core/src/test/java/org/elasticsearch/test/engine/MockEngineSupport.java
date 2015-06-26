@@ -564,14 +564,14 @@ name|filterCache
 operator|=
 name|config
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 expr_stmt|;
 name|filterCachingPolicy
 operator|=
 name|config
 operator|.
-name|getFilterCachingPolicy
+name|getQueryCachingPolicy
 argument_list|()
 expr_stmt|;
 specifier|final

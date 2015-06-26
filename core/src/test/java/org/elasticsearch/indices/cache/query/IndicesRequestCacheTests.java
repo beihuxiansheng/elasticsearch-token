@@ -56,9 +56,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -201,10 +201,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|IndicesQueryCacheTests
+DECL|class|IndicesRequestCacheTests
 specifier|public
 class|class
-name|IndicesQueryCacheTests
+name|IndicesRequestCacheTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
@@ -244,9 +244,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 literal|true
 argument_list|)
@@ -381,7 +381,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -392,7 +392,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes

@@ -1107,7 +1107,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|filterCache
+name|queryCache
 argument_list|()
 condition|)
 block|{
@@ -1119,7 +1119,7 @@ name|CommonStatsFlags
 operator|.
 name|Flag
 operator|.
-name|FilterCache
+name|QueryCache
 argument_list|)
 expr_stmt|;
 block|}
@@ -1285,7 +1285,7 @@ name|request
 operator|.
 name|request
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 condition|)
 block|{
@@ -1297,7 +1297,7 @@ name|CommonStatsFlags
 operator|.
 name|Flag
 operator|.
-name|QueryCache
+name|RequestCache
 argument_list|)
 expr_stmt|;
 block|}

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.indices.cache.filter.terms
+DECL|package|org.elasticsearch.indices.cache.query.terms
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
 name|terms
 package|;

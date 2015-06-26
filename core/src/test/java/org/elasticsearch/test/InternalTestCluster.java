@@ -764,9 +764,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheModule
 import|;
 end_import
 
@@ -780,9 +780,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheModule
 operator|.
 name|FilterCacheSettings
 import|;
@@ -798,11 +798,11 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
 name|index
 operator|.
-name|IndexFilterCache
+name|IndexQueryCache
 import|;
 end_import
 
@@ -816,11 +816,11 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
 name|none
 operator|.
-name|NoneFilterCache
+name|NoneQueryCache
 import|;
 end_import
 
@@ -972,9 +972,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -3695,7 +3695,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|FilterCacheModule
+name|QueryCacheModule
 operator|.
 name|FilterCacheSettings
 operator|.
@@ -3706,11 +3706,11 @@ operator|.
 name|nextBoolean
 argument_list|()
 condition|?
-name|IndexFilterCache
+name|IndexQueryCache
 operator|.
 name|class
 else|:
-name|NoneFilterCache
+name|NoneQueryCache
 operator|.
 name|class
 argument_list|)
@@ -3970,7 +3970,7 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
 name|INDICES_CACHE_QUERY_CONCURRENCY_LEVEL
 argument_list|,
