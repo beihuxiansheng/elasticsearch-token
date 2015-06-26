@@ -546,9 +546,13 @@ name|QueryValidationException
 name|validate
 parameter_list|()
 block|{
-comment|// nothing to validate, clauses are optional
 return|return
+name|validateInnerQueries
+argument_list|(
+name|queries
+argument_list|,
 literal|null
+argument_list|)
 return|;
 block|}
 annotation|@

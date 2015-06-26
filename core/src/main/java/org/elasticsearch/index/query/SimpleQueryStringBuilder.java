@@ -1013,17 +1013,9 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
-literal|"["
-operator|+
-name|SimpleQueryStringBuilder
-operator|.
-name|NAME
-operator|+
-literal|"] query text missing"
+literal|"query text missing"
 argument_list|,
 name|validationException
 argument_list|)

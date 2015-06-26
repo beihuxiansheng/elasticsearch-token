@@ -359,9 +359,13 @@ name|QueryValidationException
 name|validate
 parameter_list|()
 block|{
-comment|// nothing to validate
 return|return
+name|validateInnerQuery
+argument_list|(
+name|filterBuilder
+argument_list|,
 literal|null
+argument_list|)
 return|;
 block|}
 annotation|@

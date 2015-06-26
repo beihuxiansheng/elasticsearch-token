@@ -567,8 +567,6 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
 literal|"field name cannot be null or empty."
@@ -586,8 +584,6 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
 literal|"value cannot be null."

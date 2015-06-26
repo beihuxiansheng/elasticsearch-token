@@ -502,9 +502,13 @@ name|QueryValidationException
 name|validate
 parameter_list|()
 block|{
-comment|// nothing to validate
 return|return
+name|validateInnerQueries
+argument_list|(
+name|filters
+argument_list|,
 literal|null
+argument_list|)
 return|;
 block|}
 annotation|@

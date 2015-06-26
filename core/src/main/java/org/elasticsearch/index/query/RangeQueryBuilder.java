@@ -1216,8 +1216,6 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
 literal|"field name cannot be null or empty."
@@ -1255,8 +1253,6 @@ parameter_list|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
 literal|"error parsing timezone."
@@ -1300,8 +1296,6 @@ parameter_list|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
 literal|"error parsing format."

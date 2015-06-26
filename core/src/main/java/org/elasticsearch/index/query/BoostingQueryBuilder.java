@@ -404,16 +404,32 @@ condition|)
 block|{
 name|validationException
 operator|=
-name|QueryValidationException
-operator|.
 name|addValidationError
 argument_list|(
-literal|"[boosting] query requires negativeBoost to be set to positive value"
+literal|"query requires negativeBoost to be set to positive value"
 argument_list|,
 name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+name|validationException
+operator|=
+name|validateInnerQuery
+argument_list|(
+name|negativeQuery
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
+name|validationException
+operator|=
+name|validateInnerQuery
+argument_list|(
+name|positiveQuery
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
 return|return
 name|validationException
 return|;

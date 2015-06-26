@@ -250,7 +250,7 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"[field_masking_span] query] must be of type span query"
+literal|"[field_masking_span] query must be of type span query"
 argument_list|)
 throw|;
 block|}
