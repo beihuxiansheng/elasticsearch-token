@@ -244,6 +244,11 @@ condition|)
 block|{
 try|try
 block|{
+name|Security
+operator|.
+name|setCodebaseProperties
+argument_list|()
+expr_stmt|;
 comment|// initialize paths the same exact way as bootstrap.
 name|Permissions
 name|perms
