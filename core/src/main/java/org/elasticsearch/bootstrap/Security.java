@@ -485,7 +485,7 @@ name|setProperty
 argument_list|(
 name|prop
 argument_list|,
-literal|"/dev/null"
+literal|"file:/dev/null"
 argument_list|)
 expr_stmt|;
 comment|// no chance to be interpreted as "all"
