@@ -286,7 +286,7 @@ argument_list|(
 literal|".*lucene-core-.*\\.jar$"
 argument_list|)
 argument_list|,
-literal|"es.security.lucene.core.jar"
+literal|"es.security.jar.lucene.core"
 argument_list|)
 expr_stmt|;
 name|m
@@ -300,7 +300,7 @@ argument_list|(
 literal|".*jsr166e-.*\\.jar$"
 argument_list|)
 argument_list|,
-literal|"es.security.twitter.jsr166e.jar"
+literal|"es.security.jar.twitter.jsr166e"
 argument_list|)
 expr_stmt|;
 name|SPECIAL_JARS
@@ -465,17 +465,16 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+name|System
+operator|.
+name|setProperty
 argument_list|(
-literal|"property: "
-operator|+
 name|prop
-operator|+
-literal|" was never set"
+argument_list|,
+literal|"/dev/null"
 argument_list|)
-throw|;
+expr_stmt|;
+comment|// no chance to be interpreted as "all"
 block|}
 block|}
 block|}
