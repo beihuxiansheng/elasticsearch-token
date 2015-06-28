@@ -2415,7 +2415,7 @@ operator|.
 name|getMetaData
 argument_list|()
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 decl_stmt|;
 name|assertThat
@@ -2832,7 +2832,7 @@ operator|.
 name|getMetaData
 argument_list|()
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|equalTo

@@ -453,11 +453,11 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
-name|uuid
+name|stateUUID
 argument_list|(
 name|currentState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|)
 expr_stmt|;

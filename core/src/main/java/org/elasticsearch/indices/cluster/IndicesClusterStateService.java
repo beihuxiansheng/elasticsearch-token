@@ -1924,7 +1924,7 @@ name|shard
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"failed to create index"
@@ -2317,7 +2317,7 @@ name|index
 argument_list|,
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|,
 name|typesToRefresh
@@ -3143,7 +3143,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"master "
@@ -3172,7 +3172,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"master ["
@@ -3970,7 +3970,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"master "
@@ -4119,7 +4119,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"master "
@@ -4424,7 +4424,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"after recovery from store"
@@ -4765,7 +4765,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"after recovery (replica) from node ["

@@ -691,7 +691,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|nodeStats

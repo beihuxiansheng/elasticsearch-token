@@ -699,7 +699,7 @@ name|SETTING_LEGACY_ROUTING_HASH_FUNCTION
 argument_list|,
 name|SETTING_LEGACY_ROUTING_USE_TYPE
 argument_list|,
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|SETTING_CREATION_DATE
 argument_list|)
@@ -1489,7 +1489,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|Strings
 operator|.
@@ -1760,11 +1760,11 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|currentIndexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|)
 argument_list|)

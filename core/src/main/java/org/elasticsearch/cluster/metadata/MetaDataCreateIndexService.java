@@ -2471,7 +2471,7 @@ name|indexSettingsBuilder
 operator|.
 name|put
 argument_list|(
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|Strings
 operator|.

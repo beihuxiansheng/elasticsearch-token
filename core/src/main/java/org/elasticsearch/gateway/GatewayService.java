@@ -1492,7 +1492,7 @@ decl_stmt|;
 comment|// automatically generate a UID for the metadata if we need to
 name|metaDataBuilder
 operator|.
-name|generateUuidIfNeeded
+name|generateClusterUuidIfNeeded
 argument_list|()
 expr_stmt|;
 if|if

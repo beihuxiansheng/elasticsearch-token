@@ -4843,7 +4843,7 @@ name|isSameUUID
 argument_list|(
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|)
 operator|&&

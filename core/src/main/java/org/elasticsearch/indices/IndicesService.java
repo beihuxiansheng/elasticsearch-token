@@ -3060,14 +3060,14 @@ literal|"] - it's still part of the cluster state ["
 operator|+
 name|index
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"] ["
 operator|+
 name|metaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"]"
@@ -3194,7 +3194,7 @@ literal|"] ["
 operator|+
 name|metaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"]"
@@ -3257,14 +3257,14 @@ literal|"] - it's still part of the cluster state ["
 operator|+
 name|index
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"] ["
 operator|+
 name|metaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"]"

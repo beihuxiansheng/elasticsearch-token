@@ -6768,12 +6768,12 @@ literal|"clusterstate UUID does not match"
 argument_list|,
 name|masterClusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|,
 name|localClusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|)
 expr_stmt|;

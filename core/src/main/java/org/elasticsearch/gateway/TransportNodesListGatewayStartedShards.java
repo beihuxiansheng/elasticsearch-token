@@ -517,7 +517,7 @@ name|shardId
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 name|nodesIds

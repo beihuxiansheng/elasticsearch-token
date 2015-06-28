@@ -4757,7 +4757,7 @@ name|shard
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"Failed to perform ["

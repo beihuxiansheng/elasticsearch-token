@@ -8248,7 +8248,7 @@ name|get
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 operator|!=
 literal|null
@@ -8294,7 +8294,7 @@ name|get
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 assert|;
 return|return
@@ -8304,7 +8304,7 @@ name|get
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|IndexMetaData
 operator|.

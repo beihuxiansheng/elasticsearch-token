@@ -2026,7 +2026,7 @@ argument_list|,
 literal|false
 argument_list|)
 operator|.
-name|generateUuidIfNeeded
+name|generateClusterUuidIfNeeded
 argument_list|()
 argument_list|)
 expr_stmt|;

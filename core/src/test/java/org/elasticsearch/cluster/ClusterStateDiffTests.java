@@ -876,14 +876,14 @@ name|assertThat
 argument_list|(
 name|clusterStateFromDiffs
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|clusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1196,7 +1196,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1206,7 +1206,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3433,7 +3433,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|Strings
 operator|.

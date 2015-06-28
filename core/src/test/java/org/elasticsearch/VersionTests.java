@@ -871,7 +871,7 @@ name|void
 name|testIndexCreatedVersion
 parameter_list|()
 block|{
-comment|// an actual index has a IndexMetaData.SETTING_UUID
+comment|// an actual index has a IndexMetaData.SETTING_INDEX_UUID
 specifier|final
 name|Version
 name|version
@@ -908,7 +908,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 literal|"foo"
 argument_list|)

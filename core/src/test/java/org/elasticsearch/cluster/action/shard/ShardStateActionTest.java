@@ -241,7 +241,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 literal|"test_uuid"
 argument_list|)
@@ -549,7 +549,7 @@ name|initShard
 argument_list|,
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 operator|+
 literal|"_suffix"
@@ -574,7 +574,7 @@ argument_list|()
 argument_list|,
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|,
 literal|"relocating_to_node"
@@ -611,7 +611,7 @@ name|startedShard
 argument_list|,
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|,
 literal|"started shard"
@@ -683,7 +683,7 @@ argument_list|)
 argument_list|,
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|,
 literal|"wrong_uuid"

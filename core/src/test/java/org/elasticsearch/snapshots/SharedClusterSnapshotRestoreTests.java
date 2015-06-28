@@ -2239,7 +2239,7 @@ literal|"test"
 argument_list|,
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2407,7 +2407,7 @@ literal|"test"
 argument_list|,
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2549,7 +2549,7 @@ literal|"test"
 argument_list|,
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 decl_stmt|;
 name|assertTrue
@@ -2657,7 +2657,7 @@ literal|"test-copy"
 argument_list|,
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 decl_stmt|;
 name|assertFalse

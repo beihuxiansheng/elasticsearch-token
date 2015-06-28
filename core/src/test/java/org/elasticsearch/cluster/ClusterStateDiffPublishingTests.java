@@ -674,7 +674,7 @@ argument_list|()
 argument_list|,
 name|clusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2816,7 +2816,7 @@ argument_list|()
 argument_list|,
 name|clusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|,
 name|clusterState
@@ -3661,7 +3661,7 @@ argument_list|()
 argument_list|,
 name|clusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|,
 name|clusterState
@@ -4498,7 +4498,7 @@ argument_list|()
 argument_list|,
 name|clusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|,
 name|clusterState
