@@ -52,20 +52,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|ToXContent
@@ -108,9 +94,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
-operator|.
-name|QueryBuilder
+name|IndexService
 import|;
 end_import
 
@@ -122,7 +106,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|query
+operator|.
+name|QueryBuilder
 import|;
 end_import
 

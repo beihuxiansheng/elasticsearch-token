@@ -50,6 +50,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|bytes
@@ -490,6 +500,7 @@ name|TestSearchContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// We need to rewrite, because range on date field initially returns LateParsingQuery
 name|queryParser
 operator|.
 name|parse
@@ -499,6 +510,11 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
@@ -508,7 +524,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ElasticsearchParseException
 name|e
 parameter_list|)
 block|{
@@ -562,6 +578,7 @@ name|TestSearchContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// We need to rewrite, because range on date field initially returns LateParsingQuery
 name|parsedQuery
 operator|=
 name|queryParser
@@ -573,6 +590,11 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
@@ -694,6 +716,11 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
@@ -703,7 +730,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ElasticsearchParseException
 name|e
 parameter_list|)
 block|{
@@ -756,6 +783,7 @@ name|TestSearchContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// We need to rewrite, because range on date field initially returns LateParsingQuery
 name|parsedQuery
 operator|=
 name|queryParser
@@ -767,6 +795,11 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally
@@ -889,6 +922,7 @@ name|TestSearchContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// We need to rewrite, because range on date field initially returns LateParsingQuery
 name|parsedQuery
 operator|=
 name|queryParser
@@ -900,6 +934,11 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally

@@ -1266,22 +1266,6 @@ argument_list|,
 name|engineSearcher
 argument_list|)
 expr_stmt|;
-comment|// initialize the filtering alias based on the provided filters
-name|aliasFilter
-operator|=
-name|indexService
-operator|.
-name|aliasesService
-argument_list|()
-operator|.
-name|aliasFilter
-argument_list|(
-name|request
-operator|.
-name|filteringAliases
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|timeEstimateCounter
@@ -1398,6 +1382,22 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// initialize the filtering alias based on the provided filters
+name|aliasFilter
+operator|=
+name|indexService
+operator|.
+name|aliasesService
+argument_list|()
+operator|.
+name|aliasFilter
+argument_list|(
+name|request
+operator|.
+name|filteringAliases
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|query
