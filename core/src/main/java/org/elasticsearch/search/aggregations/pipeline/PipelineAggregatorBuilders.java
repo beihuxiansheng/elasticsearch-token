@@ -296,12 +296,12 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|seriesArithmetic
+DECL|method|bucketScript
 specifier|public
 specifier|static
 specifier|final
 name|BucketScriptBuilder
-name|seriesArithmetic
+name|bucketScript
 parameter_list|(
 name|String
 name|name
