@@ -734,9 +734,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -1351,7 +1351,7 @@ decl_stmt|;
 DECL|field|indicesQueryCache
 specifier|private
 specifier|final
-name|IndicesQueryCache
+name|IndicesRequestCache
 name|indicesQueryCache
 decl_stmt|;
 DECL|field|defaultKeepAlive
@@ -1443,7 +1443,7 @@ parameter_list|,
 name|FetchPhase
 name|fetchPhase
 parameter_list|,
-name|IndicesQueryCache
+name|IndicesRequestCache
 name|indicesQueryCache
 parameter_list|)
 block|{
@@ -2738,12 +2738,12 @@ argument_list|()
 argument_list|,
 name|indexCache
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|,
 name|indexCache
 operator|.
-name|filterPolicy
+name|queryPolicy
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3245,12 +3245,12 @@ argument_list|()
 argument_list|,
 name|indexCache
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|,
 name|indexCache
 operator|.
-name|filterPolicy
+name|queryPolicy
 argument_list|()
 argument_list|)
 argument_list|)
@@ -7286,7 +7286,7 @@ argument_list|()
 argument_list|,
 name|entry
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 argument_list|)
 decl_stmt|;

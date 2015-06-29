@@ -320,9 +320,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -3140,9 +3140,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 literal|false
 argument_list|)
@@ -3246,7 +3246,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3257,7 +3257,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3372,7 +3372,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3383,7 +3383,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3407,7 +3407,7 @@ operator|.
 name|prepareClearCache
 argument_list|()
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3432,7 +3432,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3443,7 +3443,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3487,9 +3487,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 literal|true
 argument_list|)
@@ -3587,7 +3587,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3598,7 +3598,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes

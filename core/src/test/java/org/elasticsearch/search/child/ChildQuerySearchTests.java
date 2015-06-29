@@ -210,9 +210,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheModule
 import|;
 end_import
 
@@ -226,9 +226,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheModule
 operator|.
 name|FilterCacheSettings
 import|;
@@ -244,11 +244,11 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
 name|index
 operator|.
-name|IndexFilterCache
+name|IndexQueryCache
 import|;
 end_import
 
@@ -719,13 +719,13 @@ comment|// aggressive filter caching so that we can assert on the filter cache s
 operator|.
 name|put
 argument_list|(
-name|FilterCacheModule
+name|QueryCacheModule
 operator|.
 name|FilterCacheSettings
 operator|.
 name|FILTER_CACHE_TYPE
 argument_list|,
-name|IndexFilterCache
+name|IndexQueryCache
 operator|.
 name|class
 argument_list|)

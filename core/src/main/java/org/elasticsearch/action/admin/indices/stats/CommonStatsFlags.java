@@ -853,10 +853,10 @@ argument_list|(
 literal|"refresh"
 argument_list|)
 block|,
-DECL|enum constant|FilterCache
-name|FilterCache
+DECL|enum constant|QueryCache
+name|QueryCache
 argument_list|(
-literal|"filter_cache"
+literal|"query_cache"
 argument_list|)
 block|,
 DECL|enum constant|FieldData
@@ -907,10 +907,10 @@ argument_list|(
 literal|"suggest"
 argument_list|)
 block|,
-DECL|enum constant|QueryCache
-name|QueryCache
+DECL|enum constant|RequestCache
+name|RequestCache
 argument_list|(
-literal|"query_cache"
+literal|"request_cache"
 argument_list|)
 block|,
 DECL|enum constant|Recovery

@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.filter
+DECL|package|org.elasticsearch.index.cache.query
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 package|;
 end_package
 
@@ -45,10 +45,10 @@ comment|/**  *  */
 end_comment
 
 begin_interface
-DECL|interface|FilterCache
+DECL|interface|QueryCache
 specifier|public
 interface|interface
-name|FilterCache
+name|QueryCache
 extends|extends
 name|IndexComponent
 extends|,

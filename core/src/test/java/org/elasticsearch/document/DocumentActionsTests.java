@@ -584,7 +584,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|filterCache
+name|queryCache
 argument_list|(
 literal|true
 argument_list|)

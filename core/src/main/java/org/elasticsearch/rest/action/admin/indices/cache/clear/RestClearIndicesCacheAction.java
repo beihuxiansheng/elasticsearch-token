@@ -511,7 +511,7 @@ if|if
 condition|(
 name|Fields
 operator|.
-name|FILTER
+name|QUERY
 operator|.
 name|match
 argument_list|(
@@ -524,7 +524,7 @@ condition|)
 block|{
 name|clearIndicesCacheRequest
 operator|.
-name|filterCache
+name|queryCache
 argument_list|(
 name|request
 operator|.
@@ -537,7 +537,7 @@ argument_list|()
 argument_list|,
 name|clearIndicesCacheRequest
 operator|.
-name|filterCache
+name|queryCache
 argument_list|()
 argument_list|)
 argument_list|)
@@ -662,16 +662,18 @@ specifier|static
 class|class
 name|Fields
 block|{
-DECL|field|FILTER
+DECL|field|QUERY
 specifier|public
 specifier|static
 specifier|final
 name|ParseField
-name|FILTER
+name|QUERY
 init|=
 operator|new
 name|ParseField
 argument_list|(
+literal|"query"
+argument_list|,
 literal|"filter"
 argument_list|,
 literal|"filter_cache"

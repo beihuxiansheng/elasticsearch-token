@@ -290,9 +290,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheStats
+name|QueryCacheStats
 import|;
 end_import
 
@@ -306,9 +306,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|QueryCacheStats
+name|RequestCacheStats
 import|;
 end_import
 
@@ -1259,27 +1259,9 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"filter_cache.memory_size"
-argument_list|,
-literal|"alias:fcm,filterCacheMemory;default:false;text-align:right;desc:used filter cache"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
-literal|"filter_cache.evictions"
-argument_list|,
-literal|"alias:fce,filterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
-argument_list|)
-expr_stmt|;
-name|table
-operator|.
-name|addCell
-argument_list|(
 literal|"query_cache.memory_size"
 argument_list|,
-literal|"alias:qcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
+literal|"alias:fcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1288,25 +1270,43 @@ name|addCell
 argument_list|(
 literal|"query_cache.evictions"
 argument_list|,
-literal|"alias:qce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
+literal|"alias:fce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"query_cache.hit_count"
+literal|"request_cache.memory_size"
 argument_list|,
-literal|"alias:qchc,queryCacheHitCount;default:false;text-align:right;desc:query cache hit counts"
+literal|"alias:qcm,requestCacheMemory;default:false;text-align:right;desc:used request cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"query_cache.miss_count"
+literal|"request_cache.evictions"
 argument_list|,
-literal|"alias:qcmc,queryCacheMissCount;default:false;text-align:right;desc:query cache miss counts"
+literal|"alias:qce,requestCacheEvictions;default:false;text-align:right;desc:request cache evictions"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"request_cache.hit_count"
+argument_list|,
+literal|"alias:qchc,requestCacheHitCount;default:false;text-align:right;desc:request cache hit counts"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+literal|"request_cache.miss_count"
+argument_list|,
+literal|"alias:qcmc,requestCacheMissCount;default:false;text-align:right;desc:request cache miss counts"
 argument_list|)
 expr_stmt|;
 name|table
@@ -2515,7 +2515,7 @@ name|getEvictions
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|FilterCacheStats
+name|QueryCacheStats
 name|fcStats
 init|=
 name|indicesStats
@@ -2561,7 +2561,7 @@ name|getEvictions
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|QueryCacheStats
+name|RequestCacheStats
 name|qcStats
 init|=
 name|indicesStats
