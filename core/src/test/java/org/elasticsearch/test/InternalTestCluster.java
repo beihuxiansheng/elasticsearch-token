@@ -784,7 +784,7 @@ name|query
 operator|.
 name|QueryCacheModule
 operator|.
-name|FilterCacheSettings
+name|QueryCacheSettings
 import|;
 end_import
 
@@ -3697,9 +3697,9 @@ name|put
 argument_list|(
 name|QueryCacheModule
 operator|.
-name|FilterCacheSettings
+name|QueryCacheSettings
 operator|.
-name|FILTER_CACHE_TYPE
+name|QUERY_CACHE_TYPE
 argument_list|,
 name|random
 operator|.
@@ -3728,9 +3728,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|FilterCacheSettings
+name|QueryCacheSettings
 operator|.
-name|FILTER_CACHE_EVERYTHING
+name|QUERY_CACHE_EVERYTHING
 argument_list|,
 name|random
 operator|.
@@ -11071,7 +11071,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Filter cache size must be 0 on node: "
+literal|"Query cache size must be 0 on node: "
 operator|+
 name|stats
 operator|.
@@ -11083,7 +11083,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes

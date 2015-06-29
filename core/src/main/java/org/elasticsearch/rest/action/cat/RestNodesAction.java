@@ -2526,7 +2526,7 @@ literal|null
 else|:
 name|indicesStats
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 decl_stmt|;
 name|table
@@ -2572,7 +2572,7 @@ literal|null
 else|:
 name|indicesStats
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 decl_stmt|;
 name|table

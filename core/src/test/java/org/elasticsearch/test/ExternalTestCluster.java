@@ -883,7 +883,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Filter cache size must be 0 on node: "
+literal|"Query cache size must be 0 on node: "
 operator|+
 name|stats
 operator|.
@@ -895,7 +895,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes

@@ -170,10 +170,10 @@ name|AbstractIndexComponent
 implements|implements
 name|QueryCache
 block|{
-DECL|field|indicesFilterCache
+DECL|field|indicesQueryCache
 specifier|final
 name|IndicesQueryCache
-name|indicesFilterCache
+name|indicesQueryCache
 decl_stmt|;
 annotation|@
 name|Inject
@@ -190,7 +190,7 @@ name|Settings
 name|indexSettings
 parameter_list|,
 name|IndicesQueryCache
-name|indicesFilterCache
+name|indicesQueryCache
 parameter_list|)
 block|{
 name|super
@@ -202,9 +202,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|indicesFilterCache
+name|indicesQueryCache
 operator|=
-name|indicesFilterCache
+name|indicesQueryCache
 expr_stmt|;
 block|}
 annotation|@
@@ -243,7 +243,7 @@ argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
-name|indicesFilterCache
+name|indicesQueryCache
 operator|.
 name|clearIndex
 argument_list|(
@@ -269,7 +269,7 @@ name|policy
 parameter_list|)
 block|{
 return|return
-name|indicesFilterCache
+name|indicesQueryCache
 operator|.
 name|doCache
 argument_list|(

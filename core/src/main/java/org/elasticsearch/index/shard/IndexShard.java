@@ -1546,11 +1546,11 @@ specifier|final
 name|MergePolicyConfig
 name|mergePolicyConfig
 decl_stmt|;
-DECL|field|indicesFilterCache
+DECL|field|indicesQueryCache
 specifier|private
 specifier|final
 name|IndicesQueryCache
-name|indicesFilterCache
+name|indicesQueryCache
 decl_stmt|;
 DECL|field|storeRecoveryService
 specifier|private
@@ -1730,7 +1730,7 @@ name|IndexAliasesService
 name|indexAliasesService
 parameter_list|,
 name|IndicesQueryCache
-name|indicesFilterCache
+name|indicesQueryCache
 parameter_list|,
 name|ShardPercolateService
 name|shardPercolateService
@@ -1955,9 +1955,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|indicesFilterCache
+name|indicesQueryCache
 operator|=
-name|indicesFilterCache
+name|indicesQueryCache
 expr_stmt|;
 name|this
 operator|.
@@ -4206,7 +4206,7 @@ name|queryCacheStats
 parameter_list|()
 block|{
 return|return
-name|indicesFilterCache
+name|indicesQueryCache
 operator|.
 name|getStats
 argument_list|(
