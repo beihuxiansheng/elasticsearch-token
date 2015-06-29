@@ -417,30 +417,6 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-name|prop
-argument_list|)
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"property: "
-operator|+
-name|prop
-operator|+
-literal|" is unexpectedly set"
-argument_list|)
-throw|;
-block|}
 name|System
 operator|.
 name|setProperty
