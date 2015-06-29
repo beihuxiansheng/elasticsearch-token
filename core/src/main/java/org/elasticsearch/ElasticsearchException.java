@@ -305,7 +305,6 @@ name|readThrowable
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//TODO readOptionalThrowable
 name|readStackTrace
 argument_list|(
 name|this
@@ -669,19 +668,13 @@ name|readException
 parameter_list|(
 name|StreamInput
 name|input
+parameter_list|,
+name|String
+name|name
 parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|String
-name|name
-init|=
-name|input
-operator|.
-name|readString
-argument_list|()
-decl_stmt|;
 name|Constructor
 argument_list|<
 name|?
@@ -750,42 +743,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|writeException
-specifier|public
-specifier|static
-name|void
-name|writeException
-parameter_list|(
-name|ElasticsearchException
-name|ex
-parameter_list|,
-name|StreamOutput
-name|output
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|output
-operator|.
-name|writeString
-argument_list|(
-name|ex
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|ex
-operator|.
-name|writeTo
-argument_list|(
-name|output
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      * A base class for exceptions that should carry rest headers      */
 annotation|@
 name|SuppressWarnings
@@ -805,7 +762,7 @@ block|{
 DECL|field|headers
 specifier|private
 specifier|final
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -905,6 +862,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
 name|String
 name|key
 init|=
@@ -913,6 +871,7 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|numValues
 init|=
@@ -921,6 +880,7 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
+specifier|final
 name|ArrayList
 argument_list|<
 name|String
@@ -1077,7 +1037,7 @@ annotation|@
 name|Override
 DECL|method|getHeaders
 specifier|public
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1127,7 +1087,7 @@ block|}
 DECL|method|headers
 specifier|private
 specifier|static
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1763,6 +1723,10 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/**      * Deserializes stacktrace elements as well as suppressed exceptions from the given output stream and      * adds it to the given exception.      */
+end_comment
+
 begin_function
 DECL|method|readStackTrace
 specifier|public
@@ -1784,6 +1748,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|int
 name|stackTraceElements
 init|=
@@ -1817,6 +1782,7 @@ name|i
 operator|++
 control|)
 block|{
+specifier|final
 name|String
 name|declaringClasss
 init|=
@@ -1825,14 +1791,16 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
+specifier|final
 name|String
-name|fielName
+name|fileName
 init|=
 name|in
 operator|.
 name|readString
 argument_list|()
 decl_stmt|;
+specifier|final
 name|String
 name|methodName
 init|=
@@ -1841,6 +1809,7 @@ operator|.
 name|readString
 argument_list|()
 decl_stmt|;
+specifier|final
 name|int
 name|lineNumber
 init|=
@@ -1861,7 +1830,7 @@ name|declaringClasss
 argument_list|,
 name|methodName
 argument_list|,
-name|fielName
+name|fileName
 argument_list|,
 name|lineNumber
 argument_list|)
@@ -1913,6 +1882,10 @@ name|throwable
 return|;
 block|}
 end_function
+
+begin_comment
+comment|/**      * Serializes the given exceptions stacktrace elements as well as it's suppressed exceptions to the given output stream.      */
+end_comment
 
 begin_function
 DECL|method|writeStackTraces
@@ -3665,6 +3638,22 @@ operator|.
 name|shard
 operator|.
 name|IllegalIndexShardStateException
+operator|.
+name|class
+block|,
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
+operator|.
+name|NamedException
 operator|.
 name|class
 block|}
