@@ -1686,13 +1686,10 @@ argument_list|)
 decl_stmt|;
 name|bbox
 operator|.
-name|topLeft
+name|setCorners
 argument_list|(
 name|smallestGeoHash
-argument_list|)
-operator|.
-name|bottomRight
-argument_list|(
+argument_list|,
 name|smallestGeoHash
 argument_list|)
 operator|.

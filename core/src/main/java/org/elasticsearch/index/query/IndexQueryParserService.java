@@ -578,7 +578,7 @@ name|IndexCache
 name|indexCache
 decl_stmt|;
 DECL|field|fieldDataService
-specifier|final
+specifier|protected
 name|IndexFieldDataService
 name|fieldDataService
 decl_stmt|;
