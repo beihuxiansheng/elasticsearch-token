@@ -3833,6 +3833,22 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|EarlyTerminationException
+specifier|public
+name|EarlyTerminationException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * A collector that terminates early by throwing {@link org.elasticsearch.common.lucene.Lucene.EarlyTerminationException}      * when count of matched documents has reached<code>maxCountHits</code>      */
 DECL|class|EarlyTerminatingCollector

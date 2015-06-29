@@ -20,6 +20,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|Index
@@ -50,6 +66,16 @@ name|RestStatus
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -75,6 +101,22 @@ argument_list|(
 name|index
 argument_list|,
 literal|"no such index"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IndexMissingException
+specifier|public
+name|IndexMissingException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
 argument_list|)
 expr_stmt|;
 block|}

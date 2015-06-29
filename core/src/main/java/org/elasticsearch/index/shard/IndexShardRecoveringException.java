@@ -16,6 +16,32 @@ name|shard
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -45,6 +71,22 @@ operator|.
 name|RECOVERING
 argument_list|,
 literal|"Already recovering"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IndexShardRecoveringException
+specifier|public
+name|IndexShardRecoveringException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
 argument_list|)
 expr_stmt|;
 block|}

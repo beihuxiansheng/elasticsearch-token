@@ -85,7 +85,7 @@ extends|extends
 name|ElasticsearchTestCase
 block|{
 DECL|class|CustomException
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|CustomException

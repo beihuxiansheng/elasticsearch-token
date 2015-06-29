@@ -53,8 +53,6 @@ interface|interface
 name|TransportAddress
 extends|extends
 name|Streamable
-extends|,
-name|Serializable
 block|{
 DECL|method|uniqueAddressTypeId
 name|short

@@ -14,6 +14,32 @@ name|transport
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * A failure to handle the response of a transaction action.  *  *  */
 end_comment
@@ -45,6 +71,22 @@ name|cause
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|ResponseHandlerFailureTransportException
+specifier|public
+name|ResponseHandlerFailureTransportException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|fillInStackTrace
@@ -57,6 +99,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|// why is this?
 block|}
 end_class
 
