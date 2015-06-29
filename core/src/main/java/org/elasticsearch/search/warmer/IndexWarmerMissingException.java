@@ -120,7 +120,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"index_warmer ["
+literal|"index_warmer "
 operator|+
 name|Arrays
 operator|.
@@ -129,7 +129,7 @@ argument_list|(
 name|names
 argument_list|)
 operator|+
-literal|"] missing"
+literal|" missing"
 argument_list|)
 expr_stmt|;
 name|this

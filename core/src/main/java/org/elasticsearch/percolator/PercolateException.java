@@ -90,6 +90,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  * Exception during percolating document(s) at runtime.  */
 end_comment
@@ -129,6 +139,15 @@ argument_list|(
 name|msg
 argument_list|,
 name|cause
+argument_list|)
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|shardId
+argument_list|,
+literal|"shardId must not be null"
 argument_list|)
 expr_stmt|;
 name|this

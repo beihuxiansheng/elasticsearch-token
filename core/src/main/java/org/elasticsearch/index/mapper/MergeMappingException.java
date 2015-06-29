@@ -80,6 +80,16 @@ name|Arrays
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -87,6 +97,7 @@ end_comment
 begin_class
 DECL|class|MergeMappingException
 specifier|public
+specifier|final
 class|class
 name|MergeMappingException
 extends|extends
@@ -120,6 +131,15 @@ name|failures
 argument_list|)
 operator|+
 literal|"}"
+argument_list|)
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|failures
+argument_list|,
+literal|"failures must be non-null"
 argument_list|)
 expr_stmt|;
 name|this

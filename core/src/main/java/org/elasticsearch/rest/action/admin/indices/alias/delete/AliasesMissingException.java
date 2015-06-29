@@ -128,7 +128,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"aliases ["
+literal|"aliases "
 operator|+
 name|Arrays
 operator|.
@@ -137,7 +137,7 @@ argument_list|(
 name|names
 argument_list|)
 operator|+
-literal|"] missing"
+literal|" missing"
 argument_list|)
 expr_stmt|;
 name|this

@@ -864,6 +864,16 @@ name|shardFailures
 argument_list|)
 return|;
 block|}
+DECL|method|getPhaseName
+specifier|public
+name|String
+name|getPhaseName
+parameter_list|()
+block|{
+return|return
+name|phaseName
+return|;
+block|}
 block|}
 end_class
 

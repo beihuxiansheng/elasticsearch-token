@@ -110,6 +110,16 @@ name|IOException
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -168,6 +178,15 @@ operator|+
 literal|"]"
 argument_list|,
 name|cause
+argument_list|)
+expr_stmt|;
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
+name|totalFilesSize
+argument_list|,
+literal|"totalFilesSize must not be null"
 argument_list|)
 expr_stmt|;
 name|this

@@ -148,7 +148,7 @@ name|phase
 operator|=
 name|in
 operator|.
-name|readByte
+name|readInt
 argument_list|()
 expr_stmt|;
 block|}

@@ -2516,14 +2516,6 @@ if|if
 condition|(
 name|throwable
 operator|instanceof
-name|ElasticsearchException
-condition|)
-block|{              }
-elseif|else
-if|if
-condition|(
-name|throwable
-operator|instanceof
 name|CorruptIndexException
 condition|)
 block|{
