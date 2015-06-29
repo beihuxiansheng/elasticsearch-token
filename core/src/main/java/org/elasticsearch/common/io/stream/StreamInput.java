@@ -2333,7 +2333,7 @@ return|;
 case|case
 literal|1
 case|:
-comment|// nocommit - this sucks it would be nice to have a better way to construct those?
+comment|// this sucks it would be nice to have a better way to construct those?
 name|String
 name|msg
 init|=
@@ -2645,7 +2645,7 @@ return|;
 case|case
 literal|10
 case|:
-comment|// unknown -- // nocommit - should we use a dedicated exception
+comment|// unknown -- // C - should we use a dedicated exception
 return|return
 operator|(
 name|T

@@ -144,16 +144,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_class
 DECL|class|PluginInfo
 specifier|public
@@ -161,8 +151,6 @@ class|class
 name|PluginInfo
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{

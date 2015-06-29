@@ -130,16 +130,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -151,8 +141,6 @@ class|class
 name|OsInfo
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{
@@ -973,8 +961,6 @@ class|class
 name|Swap
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 block|{
 DECL|field|total
 name|long
@@ -1092,8 +1078,6 @@ class|class
 name|Mem
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 block|{
 DECL|field|total
 name|long
@@ -1211,8 +1195,6 @@ class|class
 name|Cpu
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{

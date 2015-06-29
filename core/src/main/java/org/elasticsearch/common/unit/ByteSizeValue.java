@@ -128,16 +128,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Locale
@@ -160,8 +150,6 @@ specifier|public
 class|class
 name|ByteSizeValue
 implements|implements
-name|Serializable
-implements|,
 name|Streamable
 block|{
 DECL|field|size

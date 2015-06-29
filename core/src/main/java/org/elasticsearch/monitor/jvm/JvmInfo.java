@@ -146,16 +146,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|lang
 operator|.
 name|management
@@ -205,8 +195,6 @@ class|class
 name|JvmInfo
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{
@@ -2179,8 +2167,6 @@ class|class
 name|Mem
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 block|{
 DECL|field|heapInit
 name|long

@@ -224,8 +224,6 @@ specifier|public
 class|class
 name|TimeValue
 implements|implements
-name|Serializable
-implements|,
 name|Streamable
 block|{
 comment|/** How many nano-seconds in one milli-second */

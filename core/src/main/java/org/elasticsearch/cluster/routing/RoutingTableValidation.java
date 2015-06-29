@@ -120,16 +120,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -204,8 +194,6 @@ specifier|public
 class|class
 name|RoutingTableValidation
 implements|implements
-name|Serializable
-implements|,
 name|Streamable
 block|{
 DECL|field|valid
