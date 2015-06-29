@@ -1372,16 +1372,22 @@ operator|.
 name|length
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|ref
-operator|.
-name|utf8ToString
-argument_list|()
-operator|.
-name|equals
+name|BytesRef
+name|uuidBytes
+init|=
+operator|new
+name|BytesRef
 argument_list|(
 name|translogUUID
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|uuidBytes
+operator|.
+name|bytesEquals
+argument_list|(
+name|ref
 argument_list|)
 operator|==
 literal|false
@@ -1393,14 +1399,11 @@ name|TranslogCorruptedException
 argument_list|(
 literal|"expected shard UUID ["
 operator|+
-name|translogUUID
+name|uuidBytes
 operator|+
 literal|"] but got: ["
 operator|+
 name|ref
-operator|.
-name|utf8ToString
-argument_list|()
 operator|+
 literal|"] this translog file belongs to a different translog"
 argument_list|)
