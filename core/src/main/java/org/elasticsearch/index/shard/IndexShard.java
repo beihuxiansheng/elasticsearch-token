@@ -2446,6 +2446,21 @@ operator|.
 name|shardRouting
 return|;
 block|}
+DECL|method|getQueryCachingPolicy
+specifier|public
+name|QueryCachingPolicy
+name|getQueryCachingPolicy
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|engineConfig
+operator|.
+name|getQueryCachingPolicy
+argument_list|()
+return|;
+block|}
 comment|/**      * Updates the shards routing entry. This mutate the shards internal state depending      * on the changes that get introduced by the new routing value. This method will persist shard level metadata      * unless explicitly disabled.      */
 DECL|method|updateRoutingEntry
 specifier|public
