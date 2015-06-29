@@ -417,6 +417,11 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+comment|// TODO: we need to fix plugins to not include duplicate e.g. lucene-core jars,
+comment|// to add back this safety check! see https://github.com/elastic/elasticsearch/issues/11647
+comment|// if (System.getProperty(prop) != null) {
+comment|//    throw new IllegalStateException("property: " + prop + " is unexpectedly set: " + System.getProperty(prop));
+comment|//}
 name|System
 operator|.
 name|setProperty
