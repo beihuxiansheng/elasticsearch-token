@@ -264,20 +264,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|settings
-operator|.
-name|IndexSettingsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|shard
 operator|.
 name|ShardId
@@ -529,17 +515,17 @@ specifier|final
 name|boolean
 name|forceNewTranslog
 decl_stmt|;
-DECL|field|filterCache
+DECL|field|queryCache
 specifier|private
 specifier|final
 name|QueryCache
-name|filterCache
+name|queryCache
 decl_stmt|;
-DECL|field|filterCachingPolicy
+DECL|field|queryCachingPolicy
 specifier|private
 specifier|final
 name|QueryCachingPolicy
-name|filterCachingPolicy
+name|queryCachingPolicy
 decl_stmt|;
 comment|/**      * Index setting for index concurrency / number of threadstates in the indexwriter.      * The default is depending on the number of CPUs in the system. We use a 0.65 the number of CPUs or at least {@value org.apache.lucene.index.IndexWriterConfig#DEFAULT_MAX_THREAD_STATES}      * This setting is<b>not</b> realtime updateable      */
 DECL|field|INDEX_CONCURRENCY_SETTING
@@ -758,10 +744,10 @@ name|TranslogRecoveryPerformer
 name|translogRecoveryPerformer
 parameter_list|,
 name|QueryCache
-name|filterCache
+name|queryCache
 parameter_list|,
 name|QueryCachingPolicy
-name|filterCachingPolicy
+name|queryCachingPolicy
 parameter_list|,
 name|TranslogConfig
 name|translogConfig
@@ -988,15 +974,15 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|filterCache
+name|queryCache
 operator|=
-name|filterCache
+name|queryCache
 expr_stmt|;
 name|this
 operator|.
-name|filterCachingPolicy
+name|queryCachingPolicy
 operator|=
-name|filterCachingPolicy
+name|queryCachingPolicy
 expr_stmt|;
 name|this
 operator|.
@@ -1440,26 +1426,26 @@ return|return
 name|translogRecoveryPerformer
 return|;
 block|}
-comment|/**      * Return the cache to use for filters.      */
-DECL|method|getFilterCache
+comment|/**      * Return the cache to use for queries.      */
+DECL|method|getQueryCache
 specifier|public
 name|QueryCache
-name|getFilterCache
+name|getQueryCache
 parameter_list|()
 block|{
 return|return
-name|filterCache
+name|queryCache
 return|;
 block|}
-comment|/**      * Return the policy to use when caching filters.      */
-DECL|method|getFilterCachingPolicy
+comment|/**      * Return the policy to use when caching queries.      */
+DECL|method|getQueryCachingPolicy
 specifier|public
 name|QueryCachingPolicy
-name|getFilterCachingPolicy
+name|getQueryCachingPolicy
 parameter_list|()
 block|{
 return|return
-name|filterCachingPolicy
+name|queryCachingPolicy
 return|;
 block|}
 comment|/**      * Returns the translog config for this engine      */

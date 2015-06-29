@@ -354,9 +354,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|IndicesFilterCache
+name|IndicesQueryCache
 import|;
 end_import
 
@@ -431,7 +431,7 @@ parameter_list|,
 name|IndexAliasesService
 name|indexAliasesService
 parameter_list|,
-name|IndicesFilterCache
+name|IndicesQueryCache
 name|indicesFilterCache
 parameter_list|,
 name|ShardPercolateService

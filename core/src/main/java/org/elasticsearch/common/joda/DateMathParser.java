@@ -157,7 +157,7 @@ argument_list|)
 return|;
 block|}
 comment|// Note: we take a callable here for the timestamp in order to be able to figure out
-comment|// if it has been used. For instance, the query cache does not cache queries that make
+comment|// if it has been used. For instance, the request cache does not cache requests that make
 comment|// use of `now`.
 DECL|method|parse
 specifier|public

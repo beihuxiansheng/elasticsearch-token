@@ -348,9 +348,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheModule
 import|;
 end_import
 
@@ -364,9 +364,25 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheStats
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|cache
+operator|.
+name|query
+operator|.
+name|QueryCacheModule
 operator|.
 name|FilterCacheSettings
 import|;
@@ -382,27 +398,11 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
-operator|.
-name|FilterCacheStats
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
+name|query
 operator|.
 name|index
 operator|.
-name|cache
-operator|.
-name|filter
-operator|.
-name|index
-operator|.
-name|IndexFilterCache
+name|IndexQueryCache
 import|;
 end_import
 
@@ -458,9 +458,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -791,9 +791,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDICES_CACHE_QUERY_CLEAN_INTERVAL
+name|INDICES_CACHE_REQUEST_CLEAN_INTERVAL
 argument_list|,
 literal|"1ms"
 argument_list|)
@@ -809,13 +809,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|FilterCacheModule
+name|QueryCacheModule
 operator|.
 name|FilterCacheSettings
 operator|.
 name|FILTER_CACHE_TYPE
 argument_list|,
-name|IndexFilterCache
+name|IndexQueryCache
 operator|.
 name|class
 argument_list|)
@@ -2018,7 +2018,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2055,7 +2055,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2267,7 +2267,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2304,7 +2304,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2475,7 +2475,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2512,7 +2512,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2553,9 +2553,9 @@ argument_list|)
 operator|.
 name|setSettings
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 literal|true
 argument_list|)
@@ -2765,7 +2765,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2776,7 +2776,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2804,7 +2804,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2815,7 +2815,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getHitCount
@@ -2843,7 +2843,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2854,7 +2854,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMissCount
@@ -2937,7 +2937,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2948,7 +2948,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2977,7 +2977,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -2988,7 +2988,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getHitCount
@@ -3016,7 +3016,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3027,7 +3027,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMissCount
@@ -3155,7 +3155,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3166,7 +3166,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3253,7 +3253,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3264,7 +3264,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3289,7 +3289,7 @@ operator|.
 name|prepareClearCache
 argument_list|()
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3314,7 +3314,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3325,7 +3325,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3399,7 +3399,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3410,7 +3410,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3483,7 +3483,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3494,7 +3494,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3519,7 +3519,7 @@ operator|.
 name|prepareClearCache
 argument_list|()
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3553,9 +3553,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 literal|false
 argument_list|)
@@ -3618,7 +3618,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3629,7 +3629,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -3702,7 +3702,7 @@ argument_list|(
 literal|"idx"
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3713,7 +3713,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -7085,7 +7085,7 @@ name|Refresh
 block|,
 name|Flag
 operator|.
-name|FilterCache
+name|QueryCache
 block|,
 name|Flag
 operator|.
@@ -7121,7 +7121,7 @@ name|Suggest
 block|,
 name|Flag
 operator|.
-name|QueryCache
+name|RequestCache
 block|,
 name|Flag
 operator|.
@@ -9638,11 +9638,11 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|FilterCache
+name|QueryCache
 case|:
 name|builder
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 name|set
 argument_list|)
@@ -9792,11 +9792,11 @@ argument_list|)
 expr_stmt|;
 break|break;
 case|case
-name|QueryCache
+name|RequestCache
 case|:
 name|builder
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 name|set
 argument_list|)
@@ -9865,12 +9865,12 @@ operator|!=
 literal|null
 return|;
 case|case
-name|FilterCache
+name|QueryCache
 case|:
 return|return
 name|response
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|!=
 literal|null
@@ -10019,12 +10019,12 @@ operator|!=
 literal|null
 return|;
 case|case
-name|QueryCache
+name|RequestCache
 case|:
 return|return
 name|response
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 operator|!=
 literal|null
@@ -10058,10 +10058,10 @@ specifier|private
 name|void
 name|assertEquals
 parameter_list|(
-name|FilterCacheStats
+name|QueryCacheStats
 name|stats1
 parameter_list|,
-name|FilterCacheStats
+name|QueryCacheStats
 name|stats2
 parameter_list|)
 block|{
@@ -10171,7 +10171,7 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|FilterCacheStats
+name|QueryCacheStats
 name|total
 init|=
 name|response
@@ -10179,20 +10179,20 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 decl_stmt|;
-name|FilterCacheStats
+name|QueryCacheStats
 name|indexTotal
 init|=
 operator|new
-name|FilterCacheStats
+name|QueryCacheStats
 argument_list|()
 decl_stmt|;
-name|FilterCacheStats
+name|QueryCacheStats
 name|shardTotal
 init|=
 operator|new
-name|FilterCacheStats
+name|QueryCacheStats
 argument_list|()
 decl_stmt|;
 for|for
@@ -10218,7 +10218,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 argument_list|)
 expr_stmt|;
 for|for
@@ -10241,7 +10241,7 @@ operator|.
 name|getStats
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 argument_list|)
 expr_stmt|;
 block|}
@@ -10350,7 +10350,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -10372,7 +10372,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheSize
 argument_list|()
@@ -10430,7 +10430,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -10450,7 +10450,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getHitCount
 argument_list|()
@@ -10468,7 +10468,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getEvictions
 argument_list|()
@@ -10486,7 +10486,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getMissCount
 argument_list|()
@@ -10504,7 +10504,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheSize
 argument_list|()
@@ -10562,7 +10562,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -10582,7 +10582,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getHitCount
 argument_list|()
@@ -10600,7 +10600,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getEvictions
 argument_list|()
@@ -10618,7 +10618,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getMissCount
 argument_list|()
@@ -10636,7 +10636,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheSize
 argument_list|()
@@ -10708,7 +10708,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -10728,7 +10728,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getHitCount
 argument_list|()
@@ -10746,7 +10746,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getEvictions
 argument_list|()
@@ -10764,7 +10764,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheSize
 argument_list|()
@@ -10782,7 +10782,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheCount
 argument_list|()
@@ -10883,7 +10883,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -10903,7 +10903,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getHitCount
 argument_list|()
@@ -10921,7 +10921,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getEvictions
 argument_list|()
@@ -10939,7 +10939,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getMissCount
 argument_list|()
@@ -10957,7 +10957,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheSize
 argument_list|()
@@ -10975,7 +10975,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getMemorySizeInBytes
 argument_list|()
@@ -11002,7 +11002,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -11027,7 +11027,7 @@ argument_list|(
 literal|"index"
 argument_list|)
 operator|.
-name|setFilterCache
+name|setQueryCache
 argument_list|(
 literal|true
 argument_list|)
@@ -11047,7 +11047,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getHitCount
 argument_list|()
@@ -11065,7 +11065,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getEvictions
 argument_list|()
@@ -11083,7 +11083,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getMissCount
 argument_list|()
@@ -11101,7 +11101,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getCacheSize
 argument_list|()
@@ -11119,7 +11119,7 @@ operator|.
 name|getTotal
 argument_list|()
 operator|.
-name|filterCache
+name|queryCache
 operator|.
 name|getMemorySizeInBytes
 argument_list|()

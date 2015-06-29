@@ -1330,9 +1330,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -2975,9 +2975,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|IndicesQueryCache
+name|IndicesRequestCache
 operator|.
-name|INDEX_CACHE_QUERY_ENABLED
+name|INDEX_CACHE_REQUEST_ENABLED
 argument_list|,
 name|random
 operator|.

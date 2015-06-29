@@ -465,7 +465,7 @@ name|CommonStatsFlags
 operator|.
 name|Flag
 operator|.
-name|FilterCache
+name|QueryCache
 argument_list|,
 name|CommonStatsFlags
 operator|.

@@ -543,7 +543,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is a cache for {@link BitDocIdSet} based filters and is unbounded by size or time.  *<p/>  * Use this cache with care, only components that require that a filter is to be materialized as a {@link BitDocIdSet}  * and require that it should always be around should use this cache, otherwise the  * {@link org.elasticsearch.index.cache.filter.FilterCache} should be used instead.  */
+comment|/**  * This is a cache for {@link BitDocIdSet} based filters and is unbounded by size or time.  *<p/>  * Use this cache with care, only components that require that a filter is to be materialized as a {@link BitDocIdSet}  * and require that it should always be around should use this cache, otherwise the  * {@link org.elasticsearch.index.cache.query.QueryCache} should be used instead.  */
 end_comment
 
 begin_class

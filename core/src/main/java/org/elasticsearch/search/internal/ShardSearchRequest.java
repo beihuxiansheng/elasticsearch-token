@@ -191,9 +191,9 @@ name|BytesReference
 name|templateSource
 parameter_list|()
 function_decl|;
-DECL|method|queryCache
+DECL|method|requestCache
 name|Boolean
-name|queryCache
+name|requestCache
 parameter_list|()
 function_decl|;
 DECL|method|scroll

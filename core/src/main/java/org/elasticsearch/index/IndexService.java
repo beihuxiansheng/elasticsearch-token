@@ -460,9 +460,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|IndicesFilterCache
+name|IndicesQueryCache
 import|;
 end_import
 
@@ -1775,7 +1775,7 @@ name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|IndicesFilterCache
+name|IndicesQueryCache
 operator|.
 name|class
 argument_list|)

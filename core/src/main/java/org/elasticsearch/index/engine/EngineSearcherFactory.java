@@ -149,7 +149,7 @@ name|setQueryCache
 argument_list|(
 name|engineConfig
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -159,7 +159,7 @@ name|setQueryCachingPolicy
 argument_list|(
 name|engineConfig
 operator|.
-name|getFilterCachingPolicy
+name|getQueryCachingPolicy
 argument_list|()
 argument_list|)
 expr_stmt|;

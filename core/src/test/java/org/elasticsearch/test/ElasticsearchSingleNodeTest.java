@@ -1358,7 +1358,7 @@ operator|.
 name|cache
 argument_list|()
 operator|.
-name|filter
+name|query
 argument_list|()
 argument_list|,
 name|indexService

@@ -70,9 +70,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheModule
+name|QueryCacheModule
 import|;
 end_import
 
@@ -118,7 +118,7 @@ name|configure
 parameter_list|()
 block|{
 operator|new
-name|FilterCacheModule
+name|QueryCacheModule
 argument_list|(
 name|settings
 argument_list|)

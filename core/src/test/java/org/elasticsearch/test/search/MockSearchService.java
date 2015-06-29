@@ -118,9 +118,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -373,7 +373,7 @@ parameter_list|,
 name|FetchPhase
 name|fetchPhase
 parameter_list|,
-name|IndicesQueryCache
+name|IndicesRequestCache
 name|indicesQueryCache
 parameter_list|)
 block|{

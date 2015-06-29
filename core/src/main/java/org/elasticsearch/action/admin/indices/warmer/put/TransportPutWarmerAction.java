@@ -957,7 +957,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 argument_list|,
 name|source
@@ -1055,7 +1055,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 argument_list|,
 name|source
@@ -1121,7 +1121,7 @@ operator|.
 name|searchRequest
 argument_list|()
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 argument_list|,
 name|source

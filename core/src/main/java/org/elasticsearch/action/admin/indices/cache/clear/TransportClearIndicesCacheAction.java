@@ -250,9 +250,9 @@ name|indices
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|IndicesQueryCache
+name|IndicesRequestCache
 import|;
 end_import
 
@@ -347,11 +347,11 @@ specifier|final
 name|IndicesService
 name|indicesService
 decl_stmt|;
-DECL|field|indicesQueryCache
+DECL|field|indicesRequestCache
 specifier|private
 specifier|final
-name|IndicesQueryCache
-name|indicesQueryCache
+name|IndicesRequestCache
+name|indicesRequestCache
 decl_stmt|;
 annotation|@
 name|Inject
@@ -374,7 +374,7 @@ parameter_list|,
 name|IndicesService
 name|indicesService
 parameter_list|,
-name|IndicesQueryCache
+name|IndicesRequestCache
 name|indicesQueryCache
 parameter_list|,
 name|ActionFilters
@@ -420,7 +420,7 @@ name|indicesService
 expr_stmt|;
 name|this
 operator|.
-name|indicesQueryCache
+name|indicesRequestCache
 operator|=
 name|indicesQueryCache
 expr_stmt|;
@@ -663,7 +663,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|filterCache
+name|queryCache
 argument_list|()
 condition|)
 block|{
@@ -676,7 +676,7 @@ operator|.
 name|cache
 argument_list|()
 operator|.
-name|filter
+name|query
 argument_list|()
 operator|.
 name|clear
@@ -755,7 +755,7 @@ if|if
 condition|(
 name|request
 operator|.
-name|queryCache
+name|requestCache
 argument_list|()
 condition|)
 block|{
@@ -763,7 +763,7 @@ name|clearedAtLeastOne
 operator|=
 literal|true
 expr_stmt|;
-name|indicesQueryCache
+name|indicesRequestCache
 operator|.
 name|clear
 argument_list|(
@@ -866,7 +866,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|indicesQueryCache
+name|indicesRequestCache
 operator|.
 name|clear
 argument_list|(

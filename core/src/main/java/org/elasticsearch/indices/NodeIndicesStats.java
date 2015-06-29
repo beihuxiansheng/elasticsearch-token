@@ -220,9 +220,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCacheStats
+name|QueryCacheStats
 import|;
 end_import
 
@@ -236,9 +236,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|query
+name|request
 operator|.
-name|QueryCacheStats
+name|RequestCacheStats
 import|;
 end_import
 
@@ -758,14 +758,14 @@ annotation|@
 name|Nullable
 DECL|method|getFilterCache
 specifier|public
-name|FilterCacheStats
+name|QueryCacheStats
 name|getFilterCache
 parameter_list|()
 block|{
 return|return
 name|stats
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 return|;
 block|}
@@ -773,14 +773,14 @@ annotation|@
 name|Nullable
 DECL|method|getQueryCache
 specifier|public
-name|QueryCacheStats
+name|RequestCacheStats
 name|getQueryCache
 parameter_list|()
 block|{
 return|return
 name|stats
 operator|.
-name|getQueryCache
+name|getRequestCache
 argument_list|()
 return|;
 block|}

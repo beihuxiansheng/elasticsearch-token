@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.cache.filter.none
+DECL|package|org.elasticsearch.index.cache.query.none
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
 name|none
 package|;
@@ -110,9 +110,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|filter
+name|query
 operator|.
-name|FilterCache
+name|QueryCache
 import|;
 end_import
 
@@ -135,20 +135,20 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|NoneFilterCache
+DECL|class|NoneQueryCache
 specifier|public
 class|class
-name|NoneFilterCache
+name|NoneQueryCache
 extends|extends
 name|AbstractIndexComponent
 implements|implements
-name|FilterCache
+name|QueryCache
 block|{
 annotation|@
 name|Inject
-DECL|method|NoneFilterCache
+DECL|method|NoneQueryCache
 specifier|public
-name|NoneFilterCache
+name|NoneQueryCache
 parameter_list|(
 name|Index
 name|index
@@ -170,7 +170,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Using no filter cache"
+literal|"Using no query cache"
 argument_list|)
 expr_stmt|;
 block|}

@@ -745,18 +745,18 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"filter_cache.memory_size"
+literal|"query_cache.memory_size"
 argument_list|,
-literal|"alias:fcm,filterCacheMemory;default:false;text-align:right;desc:used filter cache"
+literal|"alias:fcm,queryCacheMemory;default:false;text-align:right;desc:used query cache"
 argument_list|)
 expr_stmt|;
 name|table
 operator|.
 name|addCell
 argument_list|(
-literal|"filter_cache.evictions"
+literal|"query_cache.evictions"
 argument_list|,
-literal|"alias:fce,filterCacheEvictions;default:false;text-align:right;desc:filter cache evictions"
+literal|"alias:fce,queryCacheEvictions;default:false;text-align:right;desc:query cache evictions"
 argument_list|)
 expr_stmt|;
 name|table
@@ -1786,7 +1786,7 @@ literal|null
 else|:
 name|shardStats
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySize
@@ -1805,7 +1805,7 @@ literal|null
 else|:
 name|shardStats
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getEvictions
