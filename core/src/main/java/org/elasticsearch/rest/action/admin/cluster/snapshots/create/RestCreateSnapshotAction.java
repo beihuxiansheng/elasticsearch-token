@@ -232,7 +232,7 @@ name|registerHandler
 argument_list|(
 name|POST
 argument_list|,
-literal|"/_snapshot/{repository}/{snapshot}/_create"
+literal|"/_snapshot/{repository}/{snapshot}"
 argument_list|,
 name|this
 argument_list|)
