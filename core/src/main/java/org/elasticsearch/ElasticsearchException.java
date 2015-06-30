@@ -3803,7 +3803,7 @@ literal|"failed to register ["
 operator|+
 name|name
 operator|+
-literal|"] "
+literal|"] exception must have a public StreamInput ctor"
 argument_list|,
 name|t
 argument_list|)
