@@ -28,18 +28,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -358,8 +346,6 @@ parameter_list|,
 name|GapPolicy
 name|gapPolicy
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -394,6 +380,8 @@ operator|=
 name|formatter
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doReduce
 specifier|public
 specifier|final
@@ -583,7 +571,7 @@ name|void
 name|preCollection
 parameter_list|()
 block|{     }
-comment|/**      * Called after a collection run is finished to build the aggregation for      * the collected state.      *       * @param pipelineAggregators      *            the pipeline aggregators to add to the resulting aggregation      * @param metadata      *            the metadata to add to the resulting aggregation      * @return      */
+comment|/**      * Called after a collection run is finished to build the aggregation for      * the collected state.      *      * @param pipelineAggregators      *            the pipeline aggregators to add to the resulting aggregation      * @param metadata      *            the metadata to add to the resulting aggregation      * @return      */
 DECL|method|buildAggregation
 specifier|protected
 specifier|abstract
@@ -605,7 +593,7 @@ argument_list|>
 name|metadata
 parameter_list|)
 function_decl|;
-comment|/**      * Called for each bucket with a value so the state can be modified based on      * the key and metric value for this bucket      *       * @param bucketKey      *            the key for this bucket as a String      * @param bucketValue      *            the value of the metric specified in<code>bucketsPath</code>      *            for this bucket      */
+comment|/**      * Called for each bucket with a value so the state can be modified based on      * the key and metric value for this bucket      *      * @param bucketKey      *            the key for this bucket as a String      * @param bucketValue      *            the value of the metric specified in<code>bucketsPath</code>      *            for this bucket      */
 DECL|method|collectBucketValue
 specifier|protected
 specifier|abstract

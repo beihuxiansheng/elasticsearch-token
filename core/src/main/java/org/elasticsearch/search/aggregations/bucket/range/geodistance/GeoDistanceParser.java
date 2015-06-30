@@ -1486,7 +1486,10 @@ name|ranges
 argument_list|,
 name|keyed
 argument_list|,
-literal|null
+name|config
+operator|.
+name|format
+argument_list|()
 argument_list|,
 name|aggregationContext
 argument_list|,
@@ -1564,7 +1567,10 @@ name|factories
 argument_list|,
 name|distanceSource
 argument_list|,
-literal|null
+name|config
+operator|.
+name|format
+argument_list|()
 argument_list|,
 name|rangeFactory
 argument_list|,

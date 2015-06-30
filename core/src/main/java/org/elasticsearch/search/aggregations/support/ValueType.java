@@ -89,9 +89,10 @@ enum|enum
 name|ValueType
 block|{
 DECL|enum constant|Deprecated
-DECL|enum constant|ANY
 annotation|@
 name|Deprecated
+DECL|enum constant|ANY
+DECL|enum constant|STRING
 name|ANY
 argument_list|(
 literal|"any"
@@ -104,10 +105,11 @@ name|IndexFieldData
 operator|.
 name|class
 argument_list|,
-literal|null
+name|ValueFormat
+operator|.
+name|RAW
 argument_list|)
 block|,
-DECL|enum constant|STRING
 name|STRING
 argument_list|(
 literal|"string"
@@ -122,7 +124,9 @@ name|IndexFieldData
 operator|.
 name|class
 argument_list|,
-literal|null
+name|ValueFormat
+operator|.
+name|RAW
 argument_list|)
 block|,
 DECL|enum constant|LONG
@@ -351,7 +355,9 @@ name|IndexGeoPointFieldData
 operator|.
 name|class
 argument_list|,
-literal|null
+name|ValueFormat
+operator|.
+name|RAW
 argument_list|)
 block|{
 annotation|@
