@@ -276,13 +276,21 @@ argument_list|(
 literal|"recovery failed for primary shadow shard, failing shard"
 argument_list|)
 expr_stmt|;
+comment|// pass the failure as null, as we want to ensure the store is not marked as corrupted
 name|shard
 operator|.
 name|failShard
 argument_list|(
-literal|"primary relocation failed on shared filesystem"
-argument_list|,
+literal|"primary relocation failed on shared filesystem caused by: ["
+operator|+
 name|t
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|"]"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

@@ -2722,7 +2722,7 @@ parameter_list|)
 throws|throws
 name|EngineException
 function_decl|;
-comment|/** fail engine due to some error. the engine will also be closed. */
+comment|/**      * fail engine due to some error. the engine will also be closed.      * The underlying store is marked corrupted iff failure is caused by index corruption      */
 DECL|method|failEngine
 specifier|public
 name|void
@@ -2731,15 +2731,12 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|,
+annotation|@
+name|Nullable
 name|Throwable
 name|failure
 parameter_list|)
 block|{
-assert|assert
-name|failure
-operator|!=
-literal|null
-assert|;
 if|if
 condition|(
 name|failEngineLock
@@ -2767,52 +2764,6 @@ operator|+
 literal|"]"
 argument_list|)
 expr_stmt|;
-comment|// we first mark the store as corrupted before we notify any listeners
-comment|// this must happen first otherwise we might try to reallocate so quickly
-comment|// on the same node that we don't see the corrupted marker file when
-comment|// the shard is initializing
-if|if
-condition|(
-name|Lucene
-operator|.
-name|isCorruptionException
-argument_list|(
-name|failure
-argument_list|)
-condition|)
-block|{
-try|try
-block|{
-name|store
-operator|.
-name|markStoreCorrupted
-argument_list|(
-name|ExceptionsHelper
-operator|.
-name|unwrapCorruption
-argument_list|(
-name|failure
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Couldn't marks store corrupted"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 finally|finally
 block|{
@@ -2850,8 +2801,76 @@ expr_stmt|;
 comment|// we must set a failure exception, generate one if not supplied
 name|failedEngine
 operator|=
+operator|(
 name|failure
+operator|!=
+literal|null
+operator|)
+condition|?
+name|failure
+else|:
+operator|new
+name|IllegalStateException
+argument_list|(
+name|reason
+argument_list|)
 expr_stmt|;
+comment|// we first mark the store as corrupted before we notify any listeners
+comment|// this must happen first otherwise we might try to reallocate so quickly
+comment|// on the same node that we don't see the corrupted marker file when
+comment|// the shard is initializing
+if|if
+condition|(
+name|Lucene
+operator|.
+name|isCorruptionException
+argument_list|(
+name|failure
+argument_list|)
+condition|)
+block|{
+try|try
+block|{
+name|store
+operator|.
+name|markStoreCorrupted
+argument_list|(
+operator|new
+name|IOException
+argument_list|(
+literal|"failed engine (reason: ["
+operator|+
+name|reason
+operator|+
+literal|"])"
+argument_list|,
+name|ExceptionsHelper
+operator|.
+name|unwrapCorruption
+argument_list|(
+name|failure
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Couldn't mark store corrupted"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|failedEngineListener
 operator|.
 name|onFailedEngine
@@ -2931,11 +2950,11 @@ condition|)
 block|{
 name|failEngine
 argument_list|(
-literal|"corrupt file detected source: ["
+literal|"corrupt file (source: ["
 operator|+
 name|source
 operator|+
-literal|"]"
+literal|"])"
 argument_list|,
 name|t
 argument_list|)
@@ -2957,7 +2976,11 @@ condition|)
 block|{
 name|failEngine
 argument_list|(
-literal|"out of memory"
+literal|"out of memory (source: ["
+operator|+
+name|source
+operator|+
+literal|"])"
 argument_list|,
 name|t
 argument_list|)

@@ -20,6 +20,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|CorruptIndexException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -1908,9 +1922,11 @@ argument_list|(
 literal|"test shard fail"
 argument_list|,
 operator|new
-name|IOException
+name|CorruptIndexException
 argument_list|(
-literal|"corrupted"
+literal|""
+argument_list|,
+literal|""
 argument_list|)
 argument_list|)
 expr_stmt|;
