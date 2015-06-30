@@ -1907,13 +1907,13 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|setAllocationService
+name|setRoutingService
 argument_list|(
 name|injector
 operator|.
 name|getInstance
 argument_list|(
-name|AllocationService
+name|RoutingService
 operator|.
 name|class
 argument_list|)

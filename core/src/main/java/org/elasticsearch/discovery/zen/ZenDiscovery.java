@@ -160,9 +160,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|allocation
-operator|.
-name|AllocationService
+name|RoutingService
 import|;
 end_import
 
@@ -911,10 +909,10 @@ specifier|final
 name|ClusterService
 name|clusterService
 decl_stmt|;
-DECL|field|allocationService
+DECL|field|routingService
 specifier|private
-name|AllocationService
-name|allocationService
+name|RoutingService
+name|routingService
 decl_stmt|;
 DECL|field|clusterName
 specifier|private
@@ -1679,20 +1677,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setAllocationService
+DECL|method|setRoutingService
 specifier|public
 name|void
-name|setAllocationService
+name|setRoutingService
 parameter_list|(
-name|AllocationService
-name|allocationService
+name|RoutingService
+name|routingService
 parameter_list|)
 block|{
 name|this
 operator|.
-name|allocationService
+name|routingService
 operator|=
-name|allocationService
+name|routingService
 expr_stmt|;
 block|}
 annotation|@
@@ -2452,7 +2450,10 @@ operator|.
 name|Result
 name|result
 init|=
-name|allocationService
+name|routingService
+operator|.
+name|getAllocationService
+argument_list|()
 operator|.
 name|reroute
 argument_list|(
@@ -3129,7 +3130,10 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|allocationService
+name|routingService
+operator|.
+name|getAllocationService
+argument_list|()
 operator|.
 name|reroute
 argument_list|(
@@ -3395,7 +3399,10 @@ operator|.
 name|Result
 name|routingResult
 init|=
-name|allocationService
+name|routingService
+operator|.
+name|getAllocationService
+argument_list|()
 operator|.
 name|reroute
 argument_list|(
@@ -5344,6 +5351,12 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+specifier|private
+name|boolean
+name|nodeAdded
+init|=
+literal|false
+decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -5373,11 +5386,6 @@ return|return
 name|currentState
 return|;
 block|}
-name|boolean
-name|modified
-init|=
-literal|false
-decl_stmt|;
 name|DiscoveryNodes
 operator|.
 name|Builder
@@ -5444,7 +5452,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|modified
+name|nodeAdded
 operator|=
 literal|true
 expr_stmt|;
@@ -5521,7 +5529,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|modified
+name|nodeAdded
 condition|)
 block|{
 name|stateBuilder
@@ -5545,7 +5553,10 @@ operator|.
 name|Result
 name|result
 init|=
-name|allocationService
+name|routingService
+operator|.
+name|getAllocationService
+argument_list|()
 operator|.
 name|reroute
 argument_list|(
@@ -5712,6 +5723,22 @@ name|ClusterState
 name|newState
 parameter_list|)
 block|{
+if|if
+condition|(
+name|nodeAdded
+condition|)
+block|{
+comment|// we reroute not in the same cluster state update since in certain areas we rely on
+comment|// the node to be in the cluster state (sampled from ClusterService#state) to be there, also
+comment|// shard transitions need to better be handled in such cases
+name|routingService
+operator|.
+name|reroute
+argument_list|(
+literal|"post_node_add"
+argument_list|)
+expr_stmt|;
+block|}
 for|for
 control|(
 name|Tuple
