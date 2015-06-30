@@ -16,34 +16,8 @@ name|query
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spans
-operator|.
-name|SpanQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
 begin_comment
-comment|/**  * Interface for a specific type of {@link QueryBuilder} that allows to build span queries  */
+comment|/**  * Marker interface for a specific type of {@link QueryBuilder} that allows to build span queries  */
 end_comment
 
 begin_interface
@@ -61,22 +35,7 @@ name|QueryBuilder
 argument_list|<
 name|QB
 argument_list|>
-block|{
-annotation|@
-name|Override
-DECL|method|toQuery
-name|SpanQuery
-name|toQuery
-parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|)
-throws|throws
-name|QueryParsingException
-throws|,
-name|IOException
-function_decl|;
-block|}
+block|{  }
 end_interface
 
 end_unit

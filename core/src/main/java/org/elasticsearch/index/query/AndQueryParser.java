@@ -80,10 +80,6 @@ name|newArrayList
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|Deprecated
@@ -168,6 +164,13 @@ name|String
 name|currentFieldName
 init|=
 literal|null
+decl_stmt|;
+name|float
+name|boost
+init|=
+name|AbstractQueryBuilder
+operator|.
+name|DEFAULT_BOOST
 decl_stmt|;
 name|XContentParser
 operator|.
@@ -435,6 +438,25 @@ name|text
 argument_list|()
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"boost"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
+name|boost
+operator|=
+name|parser
+operator|.
+name|floatValue
+argument_list|()
+expr_stmt|;
+block|}
 else|else
 block|{
 throw|throw
@@ -498,6 +520,13 @@ operator|.
 name|queryName
 argument_list|(
 name|queryName
+argument_list|)
+expr_stmt|;
+name|andQuery
+operator|.
+name|boost
+argument_list|(
+name|boost
 argument_list|)
 expr_stmt|;
 return|return

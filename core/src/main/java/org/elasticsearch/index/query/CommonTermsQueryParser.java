@@ -163,7 +163,9 @@ decl_stmt|;
 name|float
 name|boost
 init|=
-literal|1.0f
+name|AbstractQueryBuilder
+operator|.
+name|DEFAULT_BOOST
 decl_stmt|;
 name|String
 name|analyzer
@@ -773,9 +775,7 @@ literal|"No text specified for text query"
 argument_list|)
 throw|;
 block|}
-name|CommonTermsQueryBuilder
-name|commonTermsQuery
-init|=
+return|return
 operator|new
 name|CommonTermsQueryBuilder
 argument_list|(
@@ -828,9 +828,6 @@ name|queryName
 argument_list|(
 name|queryName
 argument_list|)
-decl_stmt|;
-return|return
-name|commonTermsQuery
 return|;
 block|}
 annotation|@

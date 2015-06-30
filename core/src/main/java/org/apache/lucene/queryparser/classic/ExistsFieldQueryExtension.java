@@ -120,8 +120,6 @@ argument_list|(
 name|parseContext
 argument_list|,
 name|queryText
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 return|;

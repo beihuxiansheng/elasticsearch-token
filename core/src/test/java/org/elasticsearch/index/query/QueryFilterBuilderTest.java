@@ -110,10 +110,10 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createExpectedQuery
+DECL|method|doCreateExpectedQuery
 specifier|protected
 name|Query
-name|createExpectedQuery
+name|doCreateExpectedQuery
 parameter_list|(
 name|QueryFilterBuilder
 name|queryBuilder
@@ -145,10 +145,10 @@ block|}
 comment|/**      * @return a AndQueryBuilder with random limit between 0 and 20      */
 annotation|@
 name|Override
-DECL|method|createTestQueryBuilder
+DECL|method|doCreateTestQueryBuilder
 specifier|protected
 name|QueryFilterBuilder
-name|createTestQueryBuilder
+name|doCreateTestQueryBuilder
 parameter_list|()
 block|{
 name|QueryBuilder
@@ -162,17 +162,12 @@ name|random
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QueryFilterBuilder
-name|testQuery
-init|=
+return|return
 operator|new
 name|QueryFilterBuilder
 argument_list|(
 name|innerQuery
 argument_list|)
-decl_stmt|;
-return|return
-name|testQuery
 return|;
 block|}
 comment|/**      * test corner case where no inner query exist      */

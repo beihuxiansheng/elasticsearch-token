@@ -140,7 +140,9 @@ decl_stmt|;
 name|float
 name|boost
 init|=
-literal|1.0f
+name|AbstractQueryBuilder
+operator|.
+name|DEFAULT_BOOST
 decl_stmt|;
 name|SpanQueryBuilder
 name|inner

@@ -1130,7 +1130,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"term\":{\"user\":\"kimchy\"}}"
+literal|"{\"term\":{\"user\":{\"value\":\"kimchy\",\"boost\":1.0}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5879,7 +5879,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"term\":{\"name\":\"bar\"}}"
+literal|"{\"term\":{\"name\":{\"value\":\"bar\",\"boost\":1.0}}}"
 argument_list|)
 argument_list|)
 expr_stmt|;

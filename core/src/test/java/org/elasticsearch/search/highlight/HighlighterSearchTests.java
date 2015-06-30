@@ -21733,9 +21733,7 @@ specifier|private
 parameter_list|<
 name|P
 extends|extends
-name|QueryBuilder
-operator|&
-name|BoostableQueryBuilder
+name|AbstractQueryBuilder
 argument_list|<
 name|P
 argument_list|>

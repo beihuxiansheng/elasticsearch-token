@@ -143,8 +143,6 @@ name|QueryParseContext
 name|parseContext
 parameter_list|)
 throws|throws
-name|QueryParsingException
-throws|,
 name|IOException
 function_decl|;
 comment|/**      * Returns a {@link org.elasticsearch.common.bytes.BytesReference}      * containing the {@link ToXContent} output in binary format.      * Builds the request based on the default {@link XContentType}, either {@link Requests#CONTENT_TYPE} or provided as a constructor argument      */

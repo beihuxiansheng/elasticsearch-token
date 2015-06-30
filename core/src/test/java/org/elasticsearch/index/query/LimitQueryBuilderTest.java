@@ -59,10 +59,10 @@ argument_list|>
 block|{
 annotation|@
 name|Override
-DECL|method|createExpectedQuery
+DECL|method|doCreateExpectedQuery
 specifier|protected
 name|Query
-name|createExpectedQuery
+name|doCreateExpectedQuery
 parameter_list|(
 name|LimitQueryBuilder
 name|queryBuilder
@@ -82,15 +82,13 @@ block|}
 comment|/**      * @return a LimitQueryBuilder with random limit between 0 and 20      */
 annotation|@
 name|Override
-DECL|method|createTestQueryBuilder
+DECL|method|doCreateTestQueryBuilder
 specifier|protected
 name|LimitQueryBuilder
-name|createTestQueryBuilder
+name|doCreateTestQueryBuilder
 parameter_list|()
 block|{
-name|LimitQueryBuilder
-name|query
-init|=
+return|return
 operator|new
 name|LimitQueryBuilder
 argument_list|(
@@ -101,9 +99,6 @@ argument_list|,
 literal|20
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|query
 return|;
 block|}
 block|}

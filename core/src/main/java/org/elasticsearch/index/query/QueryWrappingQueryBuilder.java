@@ -55,11 +55,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link #toQuery(QueryParseContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  */
+comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link QueryBuilder#toQuery(QueryParseContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  */
 end_comment
 
 begin_comment
-comment|//norelease to be removed once all queries support separate fromXContent and toQuery methods
+comment|//norelease to be removed once all queries support separate fromXContent and toQuery methods. Make AbstractQueryBuilder#toQuery final as well then.
 end_comment
 
 begin_class
@@ -92,6 +92,24 @@ name|query
 operator|=
 name|query
 expr_stmt|;
+comment|//hack to make sure that the boost from the wrapped query is used, otherwise it gets overwritten.
+if|if
+condition|(
+name|query
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|boost
+operator|=
+name|query
+operator|.
+name|getBoost
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -117,22 +135,18 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|toQuery
-specifier|public
+DECL|method|doToQuery
+specifier|protected
 name|Query
-name|toQuery
+name|doToQuery
 parameter_list|(
 name|QueryParseContext
 name|parseContext
 parameter_list|)
 throws|throws
-name|QueryParsingException
-throws|,
 name|IOException
 block|{
 return|return
-name|this
-operator|.
 name|query
 return|;
 block|}

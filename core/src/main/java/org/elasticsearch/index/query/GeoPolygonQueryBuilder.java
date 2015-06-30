@@ -143,11 +143,6 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
-DECL|field|queryName
-specifier|private
-name|String
-name|queryName
-decl_stmt|;
 DECL|field|PROTOTYPE
 specifier|static
 specifier|final
@@ -175,7 +170,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * Adds a point with lat and lon      *      * @param lat The latitude      * @param lon The longitude      * @return      */
+comment|/**      * Adds a point with lat and lon      *      * @param lat The latitude      * @param lon The longitude      * @return the current builder      */
 DECL|method|addPoint
 specifier|public
 name|GeoPolygonQueryBuilder
@@ -237,26 +232,6 @@ name|add
 argument_list|(
 name|point
 argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the filter name for the filter that can be used when searching for matched_filters per hit.      */
-DECL|method|queryName
-specifier|public
-name|GeoPolygonQueryBuilder
-name|queryName
-parameter_list|(
-name|String
-name|queryName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|queryName
-operator|=
-name|queryName
 expr_stmt|;
 return|return
 name|this
@@ -342,23 +317,11 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|queryName
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
-operator|.
-name|field
+name|printBoostAndQueryName
 argument_list|(
-literal|"_name"
-argument_list|,
-name|queryName
+name|builder
 argument_list|)
 expr_stmt|;
-block|}
 name|builder
 operator|.
 name|endObject

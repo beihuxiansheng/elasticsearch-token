@@ -125,6 +125,11 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
+name|printBoostAndQueryName
+argument_list|(
+name|builder
+argument_list|)
+expr_stmt|;
 name|builder
 operator|.
 name|endObject
