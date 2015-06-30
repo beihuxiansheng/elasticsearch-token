@@ -2663,7 +2663,7 @@ if|if
 condition|(
 name|throwable
 operator|instanceof
-name|IllegalStateException
+name|AlreadyClosedException
 condition|)
 block|{
 name|writeVInt
@@ -2852,7 +2852,7 @@ if|if
 condition|(
 name|throwable
 operator|instanceof
-name|AlreadyClosedException
+name|IllegalStateException
 condition|)
 block|{
 name|writeVInt

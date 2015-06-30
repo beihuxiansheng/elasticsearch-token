@@ -2633,7 +2633,7 @@ operator|)
 name|readStackTrace
 argument_list|(
 operator|new
-name|IllegalStateException
+name|AlreadyClosedException
 argument_list|(
 name|readOptionalString
 argument_list|()
@@ -2841,7 +2841,7 @@ operator|)
 name|readStackTrace
 argument_list|(
 operator|new
-name|AlreadyClosedException
+name|IllegalStateException
 argument_list|(
 name|readOptionalString
 argument_list|()
