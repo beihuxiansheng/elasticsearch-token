@@ -994,6 +994,12 @@ argument_list|(
 name|environment
 argument_list|)
 expr_stmt|;
+comment|// look for jar hell
+name|JarHell
+operator|.
+name|checkJarHell
+argument_list|()
+expr_stmt|;
 comment|// install SM after natives, shutdown hooks, etc.
 name|setupSecurity
 argument_list|(
@@ -2069,12 +2075,15 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// note: there's only one classloader here, but Uwe gets upset otherwise.
 name|ClassLoader
 name|classLoader
 init|=
-name|ClassLoader
+name|Bootstrap
 operator|.
-name|getSystemClassLoader
+name|class
+operator|.
+name|getClassLoader
 argument_list|()
 decl_stmt|;
 name|Class
