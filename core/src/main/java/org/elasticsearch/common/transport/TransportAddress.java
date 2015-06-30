@@ -32,16 +32,6 @@ name|Streamable
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -53,8 +43,6 @@ interface|interface
 name|TransportAddress
 extends|extends
 name|Streamable
-extends|,
-name|Serializable
 block|{
 DECL|method|uniqueAddressTypeId
 name|short

@@ -1554,7 +1554,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|InternalException
-specifier|protected
+specifier|public
 specifier|static
 class|class
 name|InternalException

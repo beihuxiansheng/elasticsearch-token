@@ -16,6 +16,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -35,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Classes that carry rest headers should implement this interface. Specifically, exceptions that  * get translated to a rest response, can implement this interface and the headers will be added  * the the response.  *  * @see org.elasticsearch.ElasticsearchException.WithRestHeaders  */
+comment|/**  * Classes that carry rest headers should implement this interface. Specifically, exceptions that  * get translated to a rest response, can implement this interface and the headers will be added  * the the response.  *  * @see ElasticsearchException.WithRestHeadersException  */
 end_comment
 
 begin_interface

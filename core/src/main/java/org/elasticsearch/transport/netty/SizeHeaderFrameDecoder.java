@@ -18,15 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Charsets
+name|ElasticsearchException
 import|;
 end_import
 
@@ -36,7 +32,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
@@ -155,6 +157,16 @@ operator|.
 name|frame
 operator|.
 name|TooLongFrameException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
 import|;
 end_import
 
@@ -618,6 +630,7 @@ block|}
 comment|/**      * A helper exception to mark an incoming connection as potentially being HTTP      * so an appropriate error code can be returned      */
 DECL|class|HttpOnTransportException
 specifier|public
+specifier|static
 class|class
 name|HttpOnTransportException
 extends|extends
@@ -650,6 +663,22 @@ name|RestStatus
 operator|.
 name|BAD_REQUEST
 return|;
+block|}
+DECL|method|HttpOnTransportException
+specifier|public
+name|HttpOnTransportException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

@@ -3229,6 +3229,13 @@ name|value
 operator|=
 literal|"test. transport.tracer:TRACE"
 argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"@spinscale is looking into failures: http://build-us-00.elastic.co/job/es_core_master_strong/3986/"
+argument_list|)
 DECL|method|testTracerLog
 specifier|public
 name|void

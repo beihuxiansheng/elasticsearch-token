@@ -128,16 +128,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -149,8 +139,6 @@ class|class
 name|ProcessInfo
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{

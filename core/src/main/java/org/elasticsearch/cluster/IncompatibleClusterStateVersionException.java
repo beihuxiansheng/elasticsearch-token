@@ -24,6 +24,32 @@ name|ElasticsearchException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Thrown by {@link Diffable#readDiffAndApply(org.elasticsearch.common.io.stream.StreamInput)} method  */
 end_comment
@@ -84,6 +110,22 @@ operator|+
 literal|" and uuid "
 operator|+
 name|receivedUuid
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|IncompatibleClusterStateVersionException
+specifier|public
+name|IncompatibleClusterStateVersionException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
 argument_list|)
 expr_stmt|;
 block|}

@@ -114,7 +114,9 @@ name|common
 operator|.
 name|io
 operator|.
-name|ThrowableObjectInputStream
+name|stream
+operator|.
+name|*
 import|;
 end_import
 
@@ -130,7 +132,23 @@ name|io
 operator|.
 name|stream
 operator|.
-name|*
+name|BytesStreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
@@ -2041,28 +2059,11 @@ name|error
 decl_stmt|;
 try|try
 block|{
-name|ThrowableObjectInputStream
-name|ois
-init|=
-operator|new
-name|ThrowableObjectInputStream
-argument_list|(
-name|buffer
-argument_list|,
-name|settings
-operator|.
-name|getClassLoader
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|error
 operator|=
-operator|(
-name|Throwable
-operator|)
-name|ois
+name|buffer
 operator|.
-name|readObject
+name|readThrowable
 argument_list|()
 expr_stmt|;
 block|}
@@ -2120,6 +2121,10 @@ operator|new
 name|RemoteTransportException
 argument_list|(
 literal|"None remote transport exception"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
 argument_list|,
 name|error
 argument_list|)

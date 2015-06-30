@@ -110,16 +110,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -130,8 +120,6 @@ specifier|public
 class|class
 name|SizeValue
 implements|implements
-name|Serializable
-implements|,
 name|Streamable
 block|{
 DECL|field|size

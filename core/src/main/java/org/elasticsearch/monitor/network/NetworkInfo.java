@@ -116,16 +116,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -137,8 +127,6 @@ class|class
 name|NetworkInfo
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{
@@ -507,8 +495,6 @@ class|class
 name|Interface
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 block|{
 DECL|field|name
 specifier|private

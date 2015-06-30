@@ -460,16 +460,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -497,8 +487,6 @@ class|class
 name|NodeIndicesStats
 implements|implements
 name|Streamable
-implements|,
-name|Serializable
 implements|,
 name|ToXContent
 block|{

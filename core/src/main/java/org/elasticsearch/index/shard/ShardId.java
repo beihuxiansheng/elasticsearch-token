@@ -86,16 +86,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|Serializable
-import|;
-end_import
-
 begin_comment
 comment|/**  * Allows for shard level components to be injected with the shard id.  */
 end_comment
@@ -106,8 +96,6 @@ specifier|public
 class|class
 name|ShardId
 implements|implements
-name|Serializable
-implements|,
 name|Streamable
 implements|,
 name|Comparable
