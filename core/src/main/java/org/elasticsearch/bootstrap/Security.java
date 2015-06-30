@@ -344,9 +344,11 @@ block|{
 name|ClassLoader
 name|loader
 init|=
-name|ClassLoader
+name|Security
 operator|.
-name|getSystemClassLoader
+name|class
+operator|.
+name|getClassLoader
 argument_list|()
 decl_stmt|;
 if|if
