@@ -234,18 +234,13 @@ end_comment
 
 begin_class
 DECL|class|JarHell
+specifier|public
 class|class
 name|JarHell
 block|{
 comment|/**      * Checks the current classloader for duplicate classes      * @throws IllegalStateException if jar hell was found      */
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"needs JarFile for speed, just reading entries"
-argument_list|)
 DECL|method|checkJarHell
+specifier|public
 specifier|static
 name|void
 name|checkJarHell
@@ -274,6 +269,41 @@ condition|)
 block|{
 return|return;
 block|}
+name|checkJarHell
+argument_list|(
+operator|(
+operator|(
+name|URLClassLoader
+operator|)
+name|loader
+operator|)
+operator|.
+name|getURLs
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Checks the set of URLs for duplicate classes      * @throws IllegalStateException if jar hell was found      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"needs JarFile for speed, just reading entries"
+argument_list|)
+DECL|method|checkJarHell
+specifier|public
+specifier|static
+name|void
+name|checkJarHell
+parameter_list|(
+name|URL
+name|urls
+index|[]
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 specifier|final
 name|Map
 argument_list|<
@@ -307,15 +337,7 @@ specifier|final
 name|URL
 name|url
 range|:
-operator|(
-operator|(
-name|URLClassLoader
-operator|)
-name|loader
-operator|)
-operator|.
-name|getURLs
-argument_list|()
+name|urls
 control|)
 block|{
 name|String
