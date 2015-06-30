@@ -82,6 +82,7 @@ name|DummyTransportAddress
 argument_list|()
 decl_stmt|;
 DECL|method|DummyTransportAddress
+specifier|private
 name|DummyTransportAddress
 parameter_list|()
 block|{     }
@@ -118,7 +119,7 @@ annotation|@
 name|Override
 DECL|method|readFrom
 specifier|public
-name|void
+name|DummyTransportAddress
 name|readFrom
 parameter_list|(
 name|StreamInput
@@ -126,7 +127,11 @@ name|in
 parameter_list|)
 throws|throws
 name|IOException
-block|{     }
+block|{
+return|return
+name|INSTANCE
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|writeTo
