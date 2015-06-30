@@ -326,7 +326,7 @@ name|pipeline
 operator|.
 name|PipelineAggregatorBuilders
 operator|.
-name|seriesArithmetic
+name|bucketScript
 import|;
 end_import
 
@@ -735,7 +735,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -1121,7 +1121,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -1481,7 +1481,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -1841,7 +1841,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -2245,7 +2245,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -2635,7 +2635,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -3028,7 +3028,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -3423,7 +3423,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)
@@ -3602,7 +3602,7 @@ argument_list|)
 operator|.
 name|subAggregation
 argument_list|(
-name|seriesArithmetic
+name|bucketScript
 argument_list|(
 literal|"seriesArithmetic"
 argument_list|)

@@ -384,7 +384,7 @@ name|query
 operator|.
 name|QueryCacheModule
 operator|.
-name|FilterCacheSettings
+name|QueryCacheSettings
 import|;
 end_import
 
@@ -800,9 +800,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|FilterCacheSettings
+name|QueryCacheSettings
 operator|.
-name|FILTER_CACHE_EVERYTHING
+name|QUERY_CACHE_EVERYTHING
 argument_list|,
 literal|true
 argument_list|)
@@ -811,9 +811,9 @@ name|put
 argument_list|(
 name|QueryCacheModule
 operator|.
-name|FilterCacheSettings
+name|QueryCacheSettings
 operator|.
-name|FILTER_CACHE_TYPE
+name|QUERY_CACHE_TYPE
 argument_list|,
 name|IndexQueryCache
 operator|.
@@ -1964,7 +1964,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -1981,7 +1981,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2214,7 +2214,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2231,7 +2231,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2422,7 +2422,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -2439,7 +2439,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes
@@ -10157,10 +10157,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertCumulativeFilterCacheStats
+DECL|method|assertCumulativeQueryCacheStats
 specifier|private
 name|void
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 parameter_list|(
 name|IndicesStatsResponse
 name|response
@@ -10358,7 +10358,7 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 argument_list|(
 name|response
 argument_list|)
@@ -10438,7 +10438,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 argument_list|(
 name|response
 argument_list|)
@@ -10570,7 +10570,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 argument_list|(
 name|response
 argument_list|)
@@ -10716,7 +10716,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 argument_list|(
 name|response
 argument_list|)
@@ -10891,7 +10891,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 argument_list|(
 name|response
 argument_list|)
@@ -11035,7 +11035,7 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|assertCumulativeFilterCacheStats
+name|assertCumulativeQueryCacheStats
 argument_list|(
 name|response
 argument_list|)

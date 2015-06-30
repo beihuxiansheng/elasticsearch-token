@@ -230,7 +230,7 @@ name|query
 operator|.
 name|QueryCacheModule
 operator|.
-name|FilterCacheSettings
+name|QueryCacheSettings
 import|;
 end_import
 
@@ -721,9 +721,9 @@ name|put
 argument_list|(
 name|QueryCacheModule
 operator|.
-name|FilterCacheSettings
+name|QueryCacheSettings
 operator|.
-name|FILTER_CACHE_TYPE
+name|QUERY_CACHE_TYPE
 argument_list|,
 name|IndexQueryCache
 operator|.
@@ -732,9 +732,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|FilterCacheSettings
+name|QueryCacheSettings
 operator|.
-name|FILTER_CACHE_EVERYTHING
+name|QUERY_CACHE_EVERYTHING
 argument_list|,
 literal|true
 argument_list|)

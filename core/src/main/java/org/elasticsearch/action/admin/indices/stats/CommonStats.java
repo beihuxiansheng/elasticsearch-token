@@ -2499,7 +2499,7 @@ name|queryCache
 operator|=
 name|QueryCacheStats
 operator|.
-name|readFilterCacheStats
+name|readQueryCacheStats
 argument_list|(
 name|in
 argument_list|)

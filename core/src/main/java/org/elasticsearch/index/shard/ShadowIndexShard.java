@@ -432,7 +432,7 @@ name|IndexAliasesService
 name|indexAliasesService
 parameter_list|,
 name|IndicesQueryCache
-name|indicesFilterCache
+name|indicesQueryCache
 parameter_list|,
 name|ShardPercolateService
 name|shardPercolateService
@@ -497,7 +497,7 @@ name|indexCache
 argument_list|,
 name|indexAliasesService
 argument_list|,
-name|indicesFilterCache
+name|indicesQueryCache
 argument_list|,
 name|shardPercolateService
 argument_list|,

@@ -22,18 +22,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|ant
-operator|.
-name|tasks
-operator|.
-name|junit4
-operator|.
-name|dependencies
-operator|.
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -46,18 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|ant
-operator|.
-name|tasks
-operator|.
-name|junit4
-operator|.
-name|dependencies
-operator|.
 name|com
 operator|.
 name|google

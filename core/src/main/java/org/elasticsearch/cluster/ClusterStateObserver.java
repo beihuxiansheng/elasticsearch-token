@@ -479,7 +479,7 @@ block|{
 comment|// things have timeout while we were busy -> notify
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"observer timed out. notifying listener. timeout setting [{}], time since start [{}]"
 argument_list|,
@@ -1126,7 +1126,7 @@ argument_list|)
 decl_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"observer: timeout notification from cluster service. timeout setting [{}], time since start [{}]"
 argument_list|,

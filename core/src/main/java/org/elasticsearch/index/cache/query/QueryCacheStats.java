@@ -356,11 +356,11 @@ operator|-
 name|cacheSize
 return|;
 block|}
-DECL|method|readFilterCacheStats
+DECL|method|readQueryCacheStats
 specifier|public
 specifier|static
 name|QueryCacheStats
-name|readFilterCacheStats
+name|readQueryCacheStats
 parameter_list|(
 name|StreamInput
 name|in

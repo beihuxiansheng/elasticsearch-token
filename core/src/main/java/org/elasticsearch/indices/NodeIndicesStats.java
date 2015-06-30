@@ -756,10 +756,10 @@ return|;
 block|}
 annotation|@
 name|Nullable
-DECL|method|getFilterCache
+DECL|method|getQueryCache
 specifier|public
 name|QueryCacheStats
-name|getFilterCache
+name|getQueryCache
 parameter_list|()
 block|{
 return|return
@@ -771,10 +771,10 @@ return|;
 block|}
 annotation|@
 name|Nullable
-DECL|method|getQueryCache
+DECL|method|getRequestCache
 specifier|public
 name|RequestCacheStats
-name|getQueryCache
+name|getRequestCache
 parameter_list|()
 block|{
 return|return

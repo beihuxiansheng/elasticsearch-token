@@ -18,6 +18,10 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|twitter
+operator|.
 name|jsr166e
 operator|.
 name|LongAdder

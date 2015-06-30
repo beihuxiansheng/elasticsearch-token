@@ -182,6 +182,31 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// check for jar hell
+try|try
+block|{
+name|JarHell
+operator|.
+name|checkJarHell
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"found jar hell in test classpath"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
 name|Path
 name|javaTmpDir
@@ -244,6 +269,11 @@ condition|)
 block|{
 try|try
 block|{
+name|Security
+operator|.
+name|setCodebaseProperties
+argument_list|()
+expr_stmt|;
 comment|// initialize paths the same exact way as bootstrap.
 name|Permissions
 name|perms

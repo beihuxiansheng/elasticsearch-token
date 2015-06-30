@@ -270,6 +270,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Iterator
@@ -398,6 +410,9 @@ DECL|method|ExternalTestCluster
 specifier|public
 name|ExternalTestCluster
 parameter_list|(
+name|Path
+name|tempDir
+parameter_list|,
 name|TransportAddress
 modifier|...
 name|transportAddresses
@@ -447,6 +462,13 @@ argument_list|(
 literal|"client.transport.ignore_cluster_name"
 argument_list|,
 literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+name|tempDir
 argument_list|)
 operator|.
 name|put
@@ -883,7 +905,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Filter cache size must be 0 on node: "
+literal|"Query cache size must be 0 on node: "
 operator|+
 name|stats
 operator|.
@@ -895,7 +917,7 @@ operator|.
 name|getIndices
 argument_list|()
 operator|.
-name|getFilterCache
+name|getQueryCache
 argument_list|()
 operator|.
 name|getMemorySizeInBytes

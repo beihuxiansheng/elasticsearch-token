@@ -9708,6 +9708,9 @@ return|return
 operator|new
 name|ExternalTestCluster
 argument_list|(
+name|createTempDir
+argument_list|()
+argument_list|,
 name|transportAddresses
 argument_list|)
 return|;
