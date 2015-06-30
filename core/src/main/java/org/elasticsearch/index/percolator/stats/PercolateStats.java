@@ -522,7 +522,7 @@ init|=
 operator|new
 name|XContentBuilderString
 argument_list|(
-literal|"getTime"
+literal|"time"
 argument_list|)
 decl_stmt|;
 DECL|field|TIME_IN_MILLIS
