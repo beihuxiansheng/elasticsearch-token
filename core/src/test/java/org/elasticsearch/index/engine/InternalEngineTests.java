@@ -15240,7 +15240,7 @@ argument_list|,
 name|root
 argument_list|,
 operator|new
-name|RootMapper
+name|MetadataFieldMapper
 index|[
 literal|0
 index|]
