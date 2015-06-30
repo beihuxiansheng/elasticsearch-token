@@ -762,6 +762,7 @@ block|}
 block|}
 comment|/**      * Retruns<code>true</code> iff the given name is a registered for an exception to be read.      */
 DECL|method|isRegistered
+specifier|public
 specifier|static
 name|boolean
 name|isRegistered
