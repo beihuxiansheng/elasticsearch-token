@@ -1122,11 +1122,22 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// class could be legitimately loaded, so we might not fail until setAccessible
 name|Class
 operator|.
 name|forName
 argument_list|(
 literal|"sun.misc.Unsafe"
+argument_list|)
+operator|.
+name|getDeclaredField
+argument_list|(
+literal|"theUnsafe"
+argument_list|)
+operator|.
+name|setAccessible
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|fail
