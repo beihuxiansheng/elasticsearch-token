@@ -36,37 +36,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|regex
 operator|.
 name|Regex
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
 import|;
 end_import
 
@@ -139,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SimpleQueryStringParser is a query parser that acts similar to a query_string  * query, but won't throw exceptions for any weird string syntax. It supports  * the following:  *<p/>  *<ul>  *<li>'{@code +}' specifies {@code AND} operation:<tt>token1+token2</tt>  *<li>'{@code |}' specifies {@code OR} operation:<tt>token1|token2</tt>  *<li>'{@code -}' negates a single token:<tt>-token0</tt>  *<li>'{@code "}' creates phrases of terms:<tt>"term1 term2 ..."</tt>  *<li>'{@code *}' at the end of terms specifies prefix query:<tt>term*</tt>  *<li>'{@code (}' and '{@code)}' specifies precedence:<tt>token1 + (token2 | token3)</tt>  *<li>'{@code ~}N' at the end of terms specifies fuzzy query:<tt>term~1</tt>  *<li>'{@code ~}N' at the end of phrases specifies near/slop query:<tt>"term1 term2"~5</tt>  *</ul>  *<p/>  * See: {@link XSimpleQueryParser} for more information.  *<p/>  * This query supports these options:  *<p/>  * Required:  * {@code query} - query text to be converted into other queries  *<p/>  * Optional:  * {@code analyzer} - anaylzer to be used for analyzing tokens to determine  * which kind of query they should be converted into, defaults to "standard"  * {@code default_operator} - default operator for boolean queries, defaults  * to OR  * {@code fields} - fields to search, defaults to _all if not set, allows  * boosting a field with ^n  */
+comment|/**  * SimpleQueryStringParser is a query parser that acts similar to a query_string  * query, but won't throw exceptions for any weird string syntax. It supports  * the following:  *<p/>  *<ul>  *<li>'{@code +}' specifies {@code AND} operation:<tt>token1+token2</tt>  *<li>'{@code |}' specifies {@code OR} operation:<tt>token1|token2</tt>  *<li>'{@code -}' negates a single token:<tt>-token0</tt>  *<li>'{@code "}' creates phrases of terms:<tt>"term1 term2 ..."</tt>  *<li>'{@code *}' at the end of terms specifies prefix query:<tt>term*</tt>  *<li>'{@code (}' and '{@code)}' specifies precedence:<tt>token1 + (token2 | token3)</tt>  *<li>'{@code ~}N' at the end of terms specifies fuzzy query:<tt>term~1</tt>  *<li>'{@code ~}N' at the end of phrases specifies near/slop query:<tt>"term1 term2"~5</tt>  *</ul>  *<p/>  * See: {@link SimpleQueryParser} for more information.  *<p/>  * This query supports these options:  *<p/>  * Required:  * {@code query} - query text to be converted into other queries  *<p/>  * Optional:  * {@code analyzer} - anaylzer to be used for analyzing tokens to determine  * which kind of query they should be converted into, defaults to "standard"  * {@code default_operator} - default operator for boolean queries, defaults  * to OR  * {@code fields} - fields to search, defaults to _all if not set, allows  * boosting a field with ^n  */
 end_comment
 
 begin_class
@@ -150,16 +122,6 @@ name|SimpleQueryStringParser
 extends|extends
 name|BaseQueryParser
 block|{
-annotation|@
-name|Inject
-DECL|method|SimpleQueryStringParser
-specifier|public
-name|SimpleQueryStringParser
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-block|{      }
 annotation|@
 name|Override
 DECL|method|names
