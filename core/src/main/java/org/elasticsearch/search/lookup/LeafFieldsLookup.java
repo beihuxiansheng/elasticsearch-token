@@ -701,13 +701,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to load field ["
-operator|+
-name|name
-operator|+
-literal|"]"
+literal|"failed to load field [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|name
 argument_list|)
 throw|;
 block|}

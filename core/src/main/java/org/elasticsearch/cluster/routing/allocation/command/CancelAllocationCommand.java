@@ -534,11 +534,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"[cancel] command does not support field ["
-operator|+
+literal|"[{}] command does not support field [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -549,11 +549,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"[cancel] command does not support complex json tokens ["
-operator|+
+literal|"[{}] command does not support complex json tokens [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -569,7 +569,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"[cancel] command missing the index parameter"
+literal|"[{}] command missing the index parameter"
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
 block|}
@@ -585,7 +587,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"[cancel] command missing the shard parameter"
+literal|"[{}] command missing the shard parameter"
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
 block|}
@@ -600,7 +604,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"[cancel] command missing the node parameter"
+literal|"[{}] command missing the node parameter"
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
 block|}

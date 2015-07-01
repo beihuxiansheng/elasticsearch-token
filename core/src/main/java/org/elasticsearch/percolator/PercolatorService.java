@@ -2670,14 +2670,12 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"size is set to ["
-operator|+
+literal|"size is set to [{}] and is expected to be higher or equal to 0"
+argument_list|,
 name|context
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|"] and is expected to be higher or equal to 0"
 argument_list|)
 throw|;
 block|}

@@ -208,6 +208,15 @@ name|GeoBoundingBoxQueryParser
 implements|implements
 name|QueryParser
 block|{
+DECL|field|NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NAME
+init|=
+literal|"geo_bbox"
+decl_stmt|;
 DECL|field|TOP
 specifier|public
 specifier|static
@@ -331,15 +340,6 @@ name|String
 name|BOTTOMRIGHT
 init|=
 literal|"bottomRight"
-decl_stmt|;
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"geo_bbox"
 decl_stmt|;
 DECL|field|FIELD
 specifier|public
@@ -847,11 +847,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Unexpected field ["
-operator|+
+literal|"failed to parse [{}] query. unexpected field [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -863,11 +863,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"fieldname expected but ["
-operator|+
+literal|"failed to parse [{}] query. field name expected but [{}] found"
+argument_list|,
+name|NAME
+argument_list|,
 name|token
-operator|+
-literal|"] found"
 argument_list|)
 throw|;
 block|}
@@ -946,11 +946,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"[geo_bbox] query does not support ["
-operator|+
+literal|"failed to parse [{}] query. unexpected field [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1077,11 +1077,15 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"failed to find geo_point field ["
-operator|+
+literal|"failed to parse [{}] query. could not find [{}] field [{}]"
+argument_list|,
+name|NAME
+argument_list|,
+name|GeoPointFieldMapper
+operator|.
+name|CONTENT_TYPE
+argument_list|,
 name|fieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1103,11 +1107,23 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"field ["
-operator|+
+literal|"failed to parse [{}] query. field [{}] is expected to be of type [{}], but is of [{}] type instead"
+argument_list|,
+name|NAME
+argument_list|,
 name|fieldName
-operator|+
-literal|"] is not a geo_point field"
+argument_list|,
+name|GeoPointFieldMapper
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+name|fieldType
+operator|.
+name|names
+argument_list|()
+operator|.
+name|shortName
+argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -1194,11 +1210,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"geo bounding box type ["
-operator|+
+literal|"failed to parse [{}] query. geo bounding box type [{}] is not supported. either [indexed] or [memory] are allowed"
+argument_list|,
+name|NAME
+argument_list|,
 name|type
-operator|+
-literal|"] not supported, either 'indexed' or 'memory' are allowed"
 argument_list|)
 throw|;
 block|}

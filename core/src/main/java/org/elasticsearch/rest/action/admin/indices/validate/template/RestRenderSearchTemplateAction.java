@@ -596,19 +596,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"request body must start with ["
-operator|+
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_OBJECT
-operator|+
-literal|"] but found ["
-operator|+
+literal|"failed to parse request. request body must be an object but found [{}] instead"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -687,19 +677,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Expected ["
-operator|+
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_OBJECT
-operator|+
-literal|"] for [params] but found ["
-operator|+
+literal|"failed to parse request. field [{}] is expected to be an object, but found [{}] instead"
+argument_list|,
+name|currentFieldName
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -710,15 +692,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Unknown field ["
-operator|+
+literal|"failed to parse request. unknown field [{}] of type [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"] of type ["
-operator|+
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

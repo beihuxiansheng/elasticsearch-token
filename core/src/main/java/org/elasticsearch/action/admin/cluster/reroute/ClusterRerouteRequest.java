@@ -36,16 +36,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -426,11 +416,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse reroute request, got start array with wrong field name ["
-operator|+
+literal|"failed to parse reroute request, got start array with wrong field name [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -475,11 +463,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse reroute request, got value with wrong field name ["
-operator|+
+literal|"failed to parse reroute request, got value with wrong field name [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

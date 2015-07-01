@@ -3281,7 +3281,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Shape must be an object consisting of type and coordinates"
+literal|"shape must be an object consisting of type and coordinates"
 argument_list|)
 throw|;
 block|}
@@ -3530,7 +3530,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Shape type not included"
+literal|"shape type not included"
 argument_list|)
 throw|;
 block|}
@@ -3552,7 +3552,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Coordinates not included"
+literal|"coordinates not included"
 argument_list|)
 throw|;
 block|}
@@ -3596,19 +3596,15 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Field ["
-operator|+
+literal|"field [{}] is supported for [{}] only"
+argument_list|,
 name|CircleBuilder
 operator|.
 name|FIELD_RADIUS
-operator|+
-literal|"] is supported for ["
-operator|+
+argument_list|,
 name|CircleBuilder
 operator|.
 name|TYPE
-operator|+
-literal|"] only"
 argument_list|)
 throw|;
 block|}
@@ -3708,11 +3704,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Shape type ["
-operator|+
+literal|"shape type [{}] not included"
+argument_list|,
 name|shapeType
-operator|+
-literal|"] not included"
 argument_list|)
 throw|;
 block|}
@@ -3739,9 +3733,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid number of points (0) provided when expecting a single coordinate "
-operator|+
-literal|"([lat, lng])"
+literal|"invalid number of points (0) provided when expecting a single coordinate ([lat, lng])"
 argument_list|)
 throw|;
 block|}
@@ -3861,18 +3853,22 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid number of points ("
+literal|"invalid number of points [{}] provided for "
 operator|+
+literal|"geo_shape [{}] when expecting an array of 2 coordinates"
+argument_list|,
 name|coordinates
 operator|.
 name|children
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|") provided for "
-operator|+
-literal|"geo_shape ('envelope') when expecting an array of 2 coordinates"
+argument_list|,
+name|GeoShapeType
+operator|.
+name|ENVELOPE
+operator|.
+name|shapename
 argument_list|)
 throw|;
 block|}
@@ -4066,7 +4062,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"No data provided for multipoint object when expecting "
+literal|"no data provided for multipoint object when expecting "
 operator|+
 literal|">0 points (e.g., [[lat, lng]] or [[lat, lng], ...])"
 argument_list|)
@@ -4165,16 +4161,14 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid number of points in LineString (found "
-operator|+
+literal|"invalid number of points in LineString (found [{}] - must be>= 2)"
+argument_list|,
 name|coordinates
 operator|.
 name|children
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" - must be>= 2)"
 argument_list|)
 throw|;
 block|}
@@ -4313,16 +4307,14 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid number of points in LinearRing (found "
-operator|+
+literal|"invalid number of points in LinearRing (found [{}] - must be>= 4)"
+argument_list|,
 name|coordinates
 operator|.
 name|children
 operator|.
 name|size
 argument_list|()
-operator|+
-literal|" - must be>= 4)"
 argument_list|)
 throw|;
 block|}
@@ -4367,7 +4359,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid LinearRing found (coordinates are not closed)"
+literal|"invalid LinearRing found (coordinates are not closed)"
 argument_list|)
 throw|;
 block|}
@@ -4411,9 +4403,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid LinearRing provided for type polygon. Linear ring must be an array of "
-operator|+
-literal|"coordinates"
+literal|"invalid LinearRing provided for type polygon. Linear ring must be an array of coordinates"
 argument_list|)
 throw|;
 block|}
@@ -4569,7 +4559,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Geometries must be an array of geojson objects"
+literal|"geometries must be an array of geojson objects"
 argument_list|)
 throw|;
 block|}

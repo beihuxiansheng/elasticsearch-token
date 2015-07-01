@@ -154,19 +154,7 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ExecutableScript
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|Script
+name|*
 import|;
 end_import
 
@@ -192,59 +180,9 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
-name|ScriptContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptParameterParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
 name|ScriptParameterParser
 operator|.
 name|ScriptParameterValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|ScriptService
-operator|.
-name|ScriptType
 import|;
 end_import
 
@@ -738,14 +676,19 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
-name|NAMES_FIELD
-operator|.
-name|match
-argument_list|(
+name|String
+name|heuristicName
+init|=
 name|parser
 operator|.
 name|currentName
 argument_list|()
+decl_stmt|;
+name|NAMES_FIELD
+operator|.
+name|match
+argument_list|(
+name|heuristicName
 argument_list|,
 name|ParseField
 operator|.
@@ -884,11 +827,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unknown object "
-operator|+
+literal|"failed to parse [{}] significance heuristic. unknown object [{}]"
+argument_list|,
+name|heuristicName
+argument_list|,
 name|currentFieldName
-operator|+
-literal|" in script_heuristic"
 argument_list|)
 throw|;
 block|}
@@ -913,11 +856,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unknown field "
-operator|+
+literal|"failed to parse [{}] significance heuristic. unknown field [{}]"
+argument_list|,
+name|heuristicName
+argument_list|,
 name|currentFieldName
-operator|+
-literal|" in script_heuristic"
 argument_list|)
 throw|;
 block|}
@@ -995,7 +938,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"script params must be specified inside script object"
+literal|"failed to parse [{}] significance heuristic. script params must be specified inside script object"
+argument_list|,
+name|heuristicName
 argument_list|)
 throw|;
 block|}
@@ -1010,7 +955,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"No script found in script_heuristic"
+literal|"failed to parse [{}] significance heuristic. no script found in script_heuristic"
+argument_list|,
+name|heuristicName
 argument_list|)
 throw|;
 block|}
@@ -1045,13 +992,13 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"The script ["
-operator|+
-name|script
-operator|+
-literal|"] could not be loaded"
+literal|"failed to parse [{}] significance heuristic. the script [{}] could not be loaded"
 argument_list|,
 name|e
+argument_list|,
+name|script
+argument_list|,
+name|heuristicName
 argument_list|)
 throw|;
 block|}

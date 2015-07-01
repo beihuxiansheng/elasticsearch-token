@@ -626,19 +626,14 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Field "
-operator|+
+literal|"failed to parse [{}] significance heuristic. unknown field [{}]"
+argument_list|,
+name|givenName
+argument_list|,
 name|parser
 operator|.
 name|currentName
 argument_list|()
-operator|.
-name|toString
-argument_list|()
-operator|+
-literal|" unknown for "
-operator|+
-name|givenName
 argument_list|)
 throw|;
 block|}

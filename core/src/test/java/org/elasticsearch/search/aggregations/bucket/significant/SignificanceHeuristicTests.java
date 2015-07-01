@@ -1480,7 +1480,7 @@ decl_stmt|;
 name|String
 name|expectedError
 init|=
-literal|"unknown for mutual_information"
+literal|"unknown field [some_unknown_field]"
 decl_stmt|;
 name|checkParseException
 argument_list|(
@@ -1499,7 +1499,7 @@ literal|"\"chi_square\":{\"unknown_field\": true}"
 expr_stmt|;
 name|expectedError
 operator|=
-literal|"unknown for chi_square"
+literal|"unknown field [unknown_field]"
 expr_stmt|;
 name|checkParseException
 argument_list|(
@@ -1518,7 +1518,7 @@ literal|"\"jlh\":{\"unknown_field\": true}"
 expr_stmt|;
 name|expectedError
 operator|=
-literal|"expected }, got "
+literal|"expected an empty object, but found "
 expr_stmt|;
 name|checkParseException
 argument_list|(
@@ -1537,7 +1537,7 @@ literal|"\"gnd\":{\"unknown_field\": true}"
 expr_stmt|;
 name|expectedError
 operator|=
-literal|"unknown for gnd"
+literal|"unknown field [unknown_field]"
 expr_stmt|;
 name|checkParseException
 argument_list|(

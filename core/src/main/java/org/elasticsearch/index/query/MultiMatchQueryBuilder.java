@@ -584,8 +584,12 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"No type found for value: "
-operator|+
+literal|"failed to parse [{}] query type [{}]. unknown type."
+argument_list|,
+name|MultiMatchQueryParser
+operator|.
+name|NAME
+argument_list|,
 name|value
 argument_list|)
 throw|;

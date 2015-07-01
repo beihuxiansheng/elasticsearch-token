@@ -506,13 +506,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"missing ["
-operator|+
+literal|"missing [{}] in context mapping"
+argument_list|,
 name|ContextMapping
 operator|.
 name|FIELD_TYPE
-operator|+
-literal|"] in context mapping"
 argument_list|)
 throw|;
 block|}
@@ -583,11 +581,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unknown context type["
-operator|+
+literal|"unknown context type [{}]"
+argument_list|,
 name|type
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

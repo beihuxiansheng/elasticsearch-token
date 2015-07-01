@@ -95,7 +95,6 @@ interface|interface
 name|ScoreFunctionParser
 block|{
 DECL|method|parse
-specifier|public
 name|ScoreFunction
 name|parse
 parameter_list|(
@@ -112,7 +111,6 @@ name|QueryParsingException
 function_decl|;
 comment|/**      * Returns the name of the function, for example "linear", "gauss" etc. This      * name is used for registering the parser in      * {@link FunctionScoreQueryParser}.      * */
 DECL|method|getNames
-specifier|public
 name|String
 index|[]
 name|getNames

@@ -987,13 +987,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to parse ["
-operator|+
-name|sValue
-operator|+
-literal|"]"
+literal|"failed to parse [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|sValue
 argument_list|)
 throw|;
 block|}

@@ -20964,7 +20964,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Use functions[{...},...] if you want to define several functions."
+literal|"use [functions] array if you want to define several functions."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -21355,7 +21355,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"You can either define \"functions\":[...] or a single function, not both. Found \"functions\": [...] already, now encountering \"weight\"."
+literal|"you can either define [functions] array or a single function, not both. already found [functions] array, now encountering [weight]."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -21443,7 +21443,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"You can either define \"functions\":[...] or a single function, not both. Found \"weight\" already, now encountering \"functions\": [...]."
+literal|"you can either define [functions] array or a single function, not both. already found [weight], now encountering [functions]."
 argument_list|)
 argument_list|)
 expr_stmt|;

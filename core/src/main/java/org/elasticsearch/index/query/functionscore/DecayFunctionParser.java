@@ -640,7 +640,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Malformed score function score parameters."
+literal|"malformed score function score parameters."
 argument_list|)
 throw|;
 block|}
@@ -656,7 +656,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Malformed score function score parameters."
+literal|"malformed score function score parameters."
 argument_list|)
 throw|;
 block|}
@@ -756,11 +756,9 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"Unknown field ["
-operator|+
+literal|"unknown field [{}]"
+argument_list|,
 name|fieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -867,15 +865,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"Field "
-operator|+
+literal|"field [{}] is of type [{}], but only numeric types are supported."
+argument_list|,
 name|fieldName
-operator|+
-literal|" is of type "
-operator|+
+argument_list|,
 name|fieldType
-operator|+
-literal|", but only numeric types are supported."
 argument_list|)
 throw|;
 block|}
@@ -1080,11 +1074,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Parameter "
-operator|+
+literal|"parameter [{}] not supported!"
+argument_list|,
 name|parameterName
-operator|+
-literal|" not supported!"
 argument_list|)
 throw|;
 block|}
@@ -1102,19 +1094,15 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Both "
-operator|+
+literal|"both [{}] and [{}] must be set for numeric fields."
+argument_list|,
 name|DecayFunctionBuilder
 operator|.
 name|SCALE
-operator|+
-literal|" and "
-operator|+
+argument_list|,
 name|DecayFunctionBuilder
 operator|.
 name|ORIGIN
-operator|+
-literal|" must be set for numeric fields."
 argument_list|)
 throw|;
 block|}
@@ -1335,11 +1323,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Parameter "
-operator|+
+literal|"parameter [{}] not supported!"
+argument_list|,
 name|parameterName
-operator|+
-literal|" not supported!"
 argument_list|)
 throw|;
 block|}
@@ -1359,17 +1345,15 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
+literal|"[{}] and [{}] must be set for geo fields."
+argument_list|,
 name|DecayFunctionBuilder
 operator|.
 name|ORIGIN
-operator|+
-literal|" and "
-operator|+
+argument_list|,
 name|DecayFunctionBuilder
 operator|.
 name|SCALE
-operator|+
-literal|" must be set for geo fields."
 argument_list|)
 throw|;
 block|}
@@ -1618,11 +1602,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Parameter "
-operator|+
+literal|"parameter [{}] not supported!"
+argument_list|,
 name|parameterName
-operator|+
-literal|" not supported!"
 argument_list|)
 throw|;
 block|}
@@ -1672,11 +1654,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
+literal|"[{}] must be set for date fields."
+argument_list|,
 name|DecayFunctionBuilder
 operator|.
 name|SCALE
-operator|+
-literal|" must be set for date fields."
 argument_list|)
 throw|;
 block|}

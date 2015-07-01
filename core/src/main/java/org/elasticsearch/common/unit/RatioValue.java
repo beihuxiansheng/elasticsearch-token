@@ -166,8 +166,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Percentage should be in [0-100], got "
-operator|+
+literal|"Percentage should be in [0-100], got [{}]"
+argument_list|,
 name|percentAsString
 argument_list|)
 throw|;
@@ -195,13 +195,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to parse ["
-operator|+
-name|percentAsString
-operator|+
-literal|"] as a double"
+literal|"Failed to parse [{}] as a double"
 argument_list|,
 name|e
+argument_list|,
+name|percentAsString
 argument_list|)
 throw|;
 block|}
@@ -235,8 +233,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Ratio should be in [0-1.0], got "
-operator|+
+literal|"Ratio should be in [0-1.0], got [{}]"
+argument_list|,
 name|ratio
 argument_list|)
 throw|;
@@ -266,11 +264,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid ratio or percentage: ["
-operator|+
+literal|"Invalid ratio or percentage [{}]"
+argument_list|,
 name|sValue
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

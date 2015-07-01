@@ -2497,11 +2497,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"illegal type for _source: ["
-operator|+
+literal|"illegal type for _source: [{}]"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2789,8 +2787,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Source definition may not contain "
-operator|+
+literal|"source definition may not contain [{}]"
+argument_list|,
 name|parser
 operator|.
 name|text

@@ -432,14 +432,12 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"expected }, got "
-operator|+
+literal|"failed to parse [jhl] significance heuristic. expected an empty object, but found [{}] instead"
+argument_list|,
 name|parser
 operator|.
-name|currentName
+name|currentToken
 argument_list|()
-operator|+
-literal|" instead in jhl score"
 argument_list|)
 throw|;
 block|}

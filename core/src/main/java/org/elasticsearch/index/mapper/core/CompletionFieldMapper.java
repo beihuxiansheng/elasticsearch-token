@@ -2480,11 +2480,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"context ["
-operator|+
+literal|"context [{}] is not defined"
+argument_list|,
 name|name
-operator|+
-literal|"] is not defined"
 argument_list|)
 throw|;
 block|}

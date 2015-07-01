@@ -2484,7 +2484,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"The parameter fields must be given as an array! Use syntax : \"fields\" : [\"field1\", \"field2\",...]"
+literal|"failed to parse term vectors request. field [fields] must be an array"
 argument_list|)
 throw|;
 block|}
@@ -2758,7 +2758,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Either \"id\" or \"doc\" can be specified, but not both!"
+literal|"failed to parse term vectors request. either [id] or [doc] can be specified, but not both!"
 argument_list|)
 throw|;
 block|}
@@ -2796,7 +2796,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Either \"id\" or \"doc\" can be specified, but not both!"
+literal|"failed to parse term vectors request. either [id] or [doc] can be specified, but not both!"
 argument_list|)
 throw|;
 block|}
@@ -2923,11 +2923,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"The parameter "
-operator|+
+literal|"failed to parse term vectors request. unknown field [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|" is not valid for term vector request!"
 argument_list|)
 throw|;
 block|}
@@ -3056,15 +3054,13 @@ throw|throw
 operator|new
 name|ElasticsearchException
 argument_list|(
-literal|"The analyzer at "
-operator|+
+literal|"expecting the analyzer at [{}] to be a String, but found [{}] instead"
+argument_list|,
 name|e
 operator|.
 name|getKey
 argument_list|()
-operator|+
-literal|" should be of type String, but got a "
-operator|+
+argument_list|,
 name|e
 operator|.
 name|getValue
@@ -3072,8 +3068,6 @@ argument_list|()
 operator|.
 name|getClass
 argument_list|()
-operator|+
-literal|"!"
 argument_list|)
 throw|;
 block|}
@@ -3311,11 +3305,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"The parameter "
-operator|+
+literal|"failed to parse term vectors request. the field [{}] is not valid for filter parameter for term vector request"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|" is not valid for filter parameter for term vector request!"
 argument_list|)
 throw|;
 block|}

@@ -1613,8 +1613,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"geo point parsing: expected second number but got"
-operator|+
+literal|"geo point parsing: expected second number but got [{}] instead"
+argument_list|,
 name|parser
 operator|.
 name|currentToken

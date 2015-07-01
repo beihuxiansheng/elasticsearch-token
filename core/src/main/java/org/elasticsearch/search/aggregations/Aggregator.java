@@ -433,18 +433,14 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"No "
-operator|+
+literal|"no [{}] found for value [{}]"
+argument_list|,
 name|KEY
 operator|.
 name|getPreferredName
 argument_list|()
-operator|+
-literal|" found for value ["
-operator|+
+argument_list|,
 name|value
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

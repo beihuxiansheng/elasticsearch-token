@@ -423,8 +423,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Source definition may not contain "
-operator|+
+literal|"source definition may not contain [{}]"
+argument_list|,
 name|parser
 operator|.
 name|text
@@ -513,8 +513,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"source element value can be of type "
-operator|+
+literal|"source element value can be of type [{}]"
+argument_list|,
 name|token
 operator|.
 name|name

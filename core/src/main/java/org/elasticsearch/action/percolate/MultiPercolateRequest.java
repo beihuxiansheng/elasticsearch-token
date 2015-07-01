@@ -818,9 +818,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
+literal|"[{}] isn't a supported percolate operation"
+argument_list|,
 name|percolateAction
-operator|+
-literal|" isn't a supported percolate operation"
 argument_list|)
 throw|;
 block|}

@@ -982,11 +982,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] map must have field lat and a valid latitude"
+argument_list|,
 name|FIELD_MISSING
-operator|+
-literal|"] map must have field lat and a valid latitude"
 argument_list|)
 throw|;
 block|}
@@ -1017,11 +1015,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] map must have field lon and a valid longitude"
+argument_list|,
 name|FIELD_MISSING
-operator|+
-literal|"] map must have field lon and a valid longitude"
 argument_list|)
 throw|;
 block|}
@@ -1067,11 +1063,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] must be of type string or list"
+argument_list|,
 name|FIELD_MISSING
-operator|+
-literal|"] must be of type string or list"
 argument_list|)
 throw|;
 block|}
@@ -1932,11 +1926,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"only lat/lon or ["
-operator|+
+literal|"only lat/lon or [{}] is allowed"
+argument_list|,
 name|FIELD_VALUE
-operator|+
-literal|"] is allowed"
 argument_list|)
 throw|;
 block|}
@@ -2004,11 +1996,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"only lat/lon or ["
-operator|+
+literal|"only lat/lon or [{}] is allowed"
+argument_list|,
 name|FIELD_VALUE
-operator|+
-literal|"] is allowed"
 argument_list|)
 throw|;
 block|}
@@ -2139,11 +2129,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"only lat/lon or ["
-operator|+
+literal|"only lat/lon or [{}] is allowed"
+argument_list|,
 name|FIELD_VALUE
-operator|+
-literal|"] is allowed"
 argument_list|)
 throw|;
 block|}
@@ -2154,11 +2142,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unexpected fieldname ["
-operator|+
+literal|"unexpected fieldname [{}]"
+argument_list|,
 name|fieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

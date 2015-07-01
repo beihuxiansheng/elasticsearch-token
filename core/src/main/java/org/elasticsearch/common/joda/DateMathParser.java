@@ -216,7 +216,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Could not read the current timestamp"
+literal|"could not read the current timestamp"
 argument_list|,
 name|e
 argument_list|)
@@ -451,11 +451,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"operator not supported for date math ["
-operator|+
+literal|"operator not supported for date math [{}]"
+argument_list|,
 name|mathString
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -474,11 +472,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"truncated date math ["
-operator|+
+literal|"truncated date math [{}]"
+argument_list|,
 name|mathString
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -554,11 +550,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"truncated date math ["
-operator|+
+literal|"truncated date math [{}]"
+argument_list|,
 name|mathString
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -595,11 +589,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"rounding `/` can only be used on single unit types ["
-operator|+
+literal|"rounding `/` can only be used on single unit types [{}]"
+argument_list|,
 name|mathString
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -838,15 +830,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unit ["
-operator|+
+literal|"unit [{}] not supported for date math [{}]"
+argument_list|,
 name|unit
-operator|+
-literal|"] not supported for date math ["
-operator|+
+argument_list|,
 name|mathString
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -960,20 +948,16 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse date field ["
-operator|+
+literal|"failed to parse date field [{}] with format [{}]"
+argument_list|,
+name|e
+argument_list|,
 name|value
-operator|+
-literal|"] with format ["
-operator|+
+argument_list|,
 name|dateTimeFormatter
 operator|.
 name|format
 argument_list|()
-operator|+
-literal|"]"
-argument_list|,
-name|e
 argument_list|)
 throw|;
 block|}

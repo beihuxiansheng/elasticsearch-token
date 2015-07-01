@@ -758,7 +758,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"No type specified for property ["
+literal|"no type specified for property ["
 operator|+
 name|propName
 operator|+
@@ -789,7 +789,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"No handler for type ["
+literal|"no handler for type ["
 operator|+
 name|type
 operator|+
@@ -2243,7 +2243,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Analyzer ["
+literal|"analyzer ["
 operator|+
 name|propNode
 operator|.
@@ -2306,7 +2306,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Analyzer ["
+literal|"analyzer ["
 operator|+
 name|propNode
 operator|.
@@ -2730,7 +2730,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Expected map for property [fields] on field ["
+literal|"expected map for property [fields] on field ["
 operator|+
 name|propNode
 operator|+
@@ -2792,7 +2792,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Illegal field ["
+literal|"illegal field ["
 operator|+
 name|multiFieldName
 operator|+
@@ -2860,7 +2860,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"No type specified for property ["
+literal|"no type specified for property ["
 operator|+
 name|multiFieldName
 operator|+
@@ -2924,7 +2924,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"No handler for type ["
+literal|"no handler for type ["
 operator|+
 name|type
 operator|+
@@ -3075,11 +3075,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to parse index option ["
-operator|+
+literal|"failed to parse index option [{}]"
+argument_list|,
 name|value
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -3301,7 +3299,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Wrong value for termVector ["
+literal|"wrong value for termVector ["
 operator|+
 name|termVector
 operator|+
@@ -3419,7 +3417,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Wrong value for index ["
+literal|"wrong value for index ["
 operator|+
 name|index
 operator|+
@@ -3555,7 +3553,7 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"Wrong value for pathType ["
+literal|"wrong value for pathType ["
 operator|+
 name|path
 operator|+
