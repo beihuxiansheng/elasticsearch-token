@@ -1120,6 +1120,9 @@ DECL|method|NumberFieldMapper
 specifier|protected
 name|NumberFieldMapper
 parameter_list|(
+name|String
+name|simpleName
+parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
@@ -1156,6 +1159,8 @@ block|{
 comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
 name|super
 argument_list|(
+name|simpleName
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues

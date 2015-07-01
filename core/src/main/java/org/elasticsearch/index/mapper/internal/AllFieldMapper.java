@@ -478,8 +478,6 @@ DECL|interface|IncludeInAll
 specifier|public
 interface|interface
 name|IncludeInAll
-extends|extends
-name|Mapper
 block|{
 DECL|method|includeInAll
 name|void
@@ -1276,6 +1274,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NAME
+argument_list|,
 name|fieldType
 argument_list|,
 literal|false

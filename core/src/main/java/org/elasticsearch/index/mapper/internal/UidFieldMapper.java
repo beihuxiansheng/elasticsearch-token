@@ -597,8 +597,6 @@ name|MappedFieldType
 operator|.
 name|Names
 argument_list|(
-name|name
-argument_list|,
 name|indexName
 argument_list|,
 name|indexName
@@ -894,6 +892,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NAME
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValuesEnabled

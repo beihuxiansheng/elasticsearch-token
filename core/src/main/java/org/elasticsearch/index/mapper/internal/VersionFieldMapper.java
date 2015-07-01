@@ -534,7 +534,7 @@ name|fieldName
 operator|.
 name|equals
 argument_list|(
-name|DOC_VALUES_FORMAT
+literal|"doc_values_format"
 argument_list|)
 operator|&&
 name|parserContext
@@ -675,6 +675,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NAME
+argument_list|,
 name|Defaults
 operator|.
 name|FIELD_TYPE

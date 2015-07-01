@@ -607,6 +607,8 @@ return|return
 operator|new
 name|BinaryFieldMapper
 argument_list|(
+name|name
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues
@@ -1135,6 +1137,9 @@ DECL|method|BinaryFieldMapper
 specifier|protected
 name|BinaryFieldMapper
 parameter_list|(
+name|String
+name|simpleName
+parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
@@ -1158,6 +1163,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|simpleName
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues

@@ -394,22 +394,6 @@ name|nodeStringValue
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
-operator|.
-name|DOC_VALUES_FORMAT
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -2395,7 +2379,7 @@ name|propName
 operator|.
 name|equals
 argument_list|(
-name|DOC_VALUES_FORMAT
+literal|"doc_values_format"
 argument_list|)
 operator|&&
 name|parserContext

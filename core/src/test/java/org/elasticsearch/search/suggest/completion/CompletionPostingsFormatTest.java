@@ -1864,6 +1864,8 @@ init|=
 operator|new
 name|CompletionFieldMapper
 argument_list|(
+literal|"foo"
+argument_list|,
 name|fieldType
 argument_list|,
 name|Integer
