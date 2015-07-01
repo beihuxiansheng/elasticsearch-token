@@ -396,12 +396,17 @@ name|i
 operator|++
 control|)
 block|{
+name|flagSet
+operator|.
+name|add
+argument_list|(
 name|randomFrom
 argument_list|(
 name|SimpleQueryStringFlag
 operator|.
 name|values
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
