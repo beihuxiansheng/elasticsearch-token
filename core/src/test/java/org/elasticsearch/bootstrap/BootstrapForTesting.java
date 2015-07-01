@@ -92,6 +92,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|Loggers
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -197,6 +211,21 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.maven"
+argument_list|)
+argument_list|)
+condition|)
+block|{
 throw|throw
 operator|new
 name|RuntimeException
@@ -206,6 +235,28 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|BootstrapForTesting
+operator|.
+name|class
+argument_list|)
+operator|.
+name|warn
+argument_list|(
+literal|"Your ide or custom test runner has jar hell issues, "
+operator|+
+literal|"you might want to look into that"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// make sure java.io.tmpdir exists always (in case code uses it in a static initializer)
 name|Path
