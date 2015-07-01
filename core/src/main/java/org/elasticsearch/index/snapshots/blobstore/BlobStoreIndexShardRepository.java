@@ -1385,15 +1385,23 @@ name|RepositoryVerificationException
 argument_list|(
 name|repositoryName
 argument_list|,
-literal|"store location ["
+literal|"a file written by master to the store ["
 operator|+
 name|blobStore
 operator|+
-literal|"] is not shared between node ["
+literal|"] cannot be accessed on the node ["
 operator|+
 name|localNode
 operator|+
-literal|"] and the master node"
+literal|"]. "
+operator|+
+literal|"This might indicate that the store ["
+operator|+
+name|blobStore
+operator|+
+literal|"] is not shared between this node and the master node or "
+operator|+
+literal|"that permissions on the store don't allow reading files written by the master node"
 argument_list|)
 throw|;
 block|}
