@@ -2293,6 +2293,11 @@ name|docBuilder
 operator|.
 name|put
 argument_list|(
+operator|(
+name|MetadataFieldMapper
+operator|.
+name|Builder
+operator|)
 name|typeParser
 operator|.
 name|parse

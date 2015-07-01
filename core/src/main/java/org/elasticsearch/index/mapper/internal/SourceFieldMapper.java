@@ -430,7 +430,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParseContext
+name|MetadataFieldMapper
 import|;
 end_import
 
@@ -444,7 +444,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|RootMapper
+name|ParseContext
 import|;
 end_import
 
@@ -580,9 +580,7 @@ specifier|public
 class|class
 name|SourceFieldMapper
 extends|extends
-name|AbstractFieldMapper
-implements|implements
-name|RootMapper
+name|MetadataFieldMapper
 block|{
 DECL|field|NAME
 specifier|public
@@ -733,7 +731,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|Mapper
+name|MetadataFieldMapper
 operator|.
 name|Builder
 argument_list|<
@@ -802,6 +800,10 @@ argument_list|(
 name|Defaults
 operator|.
 name|NAME
+argument_list|,
+name|Defaults
+operator|.
+name|FIELD_TYPE
 argument_list|)
 expr_stmt|;
 block|}

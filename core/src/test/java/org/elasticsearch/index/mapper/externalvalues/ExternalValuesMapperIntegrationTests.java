@@ -138,24 +138,7 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
-annotation|@
-name|ElasticsearchIntegrationTest
-operator|.
-name|ClusterScope
-argument_list|(
-name|scope
-operator|=
-name|ElasticsearchIntegrationTest
-operator|.
-name|Scope
-operator|.
-name|SUITE
-argument_list|)
 DECL|class|ExternalValuesMapperIntegrationTests
 specifier|public
 class|class
@@ -240,7 +223,7 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-name|ExternalRootMapper
+name|ExternalMetadataMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|)

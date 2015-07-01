@@ -3378,8 +3378,6 @@ init|=
 operator|new
 name|CustomLongNumericField
 argument_list|(
-name|this
-argument_list|,
 name|value
 argument_list|,
 name|fieldType

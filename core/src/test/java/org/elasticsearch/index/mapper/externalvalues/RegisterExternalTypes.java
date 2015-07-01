@@ -165,12 +165,12 @@ argument_list|()
 operator|.
 name|putRootTypeParser
 argument_list|(
-name|ExternalRootMapper
+name|ExternalMetadataMapper
 operator|.
 name|CONTENT_TYPE
 argument_list|,
 operator|new
-name|ExternalRootMapper
+name|ExternalMetadataMapper
 operator|.
 name|TypeParser
 argument_list|()

@@ -330,7 +330,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|RootMapper
+name|MetadataFieldMapper
 import|;
 end_import
 
@@ -436,9 +436,7 @@ specifier|public
 class|class
 name|TypeFieldMapper
 extends|extends
-name|AbstractFieldMapper
-implements|implements
-name|RootMapper
+name|MetadataFieldMapper
 block|{
 DECL|field|NAME
 specifier|public
@@ -566,7 +564,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|AbstractFieldMapper
+name|MetadataFieldMapper
 operator|.
 name|Builder
 argument_list|<
