@@ -456,6 +456,15 @@ argument_list|(
 literal|"java.home"
 argument_list|)
 decl_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"java.home: {}"
+argument_list|,
+name|javaHome
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Map
 argument_list|<
