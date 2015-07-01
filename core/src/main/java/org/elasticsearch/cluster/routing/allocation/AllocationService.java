@@ -1950,6 +1950,16 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|shard
+operator|.
+name|equals
+argument_list|(
+name|startedShard
+argument_list|)
+condition|)
+block|{
 name|relocatingNodeId
 operator|=
 name|shard
@@ -1957,15 +1967,6 @@ operator|.
 name|relocatingNodeId
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|shard
-operator|.
-name|started
-argument_list|()
-condition|)
-block|{
 name|dirty
 operator|=
 literal|true
@@ -1977,10 +1978,43 @@ argument_list|(
 name|shard
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"{} marked as started"
+argument_list|,
+name|shard
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to find shard [{}] in order to start it [no matching shard on node], ignoring"
+argument_list|,
+name|startedShard
+argument_list|)
+expr_stmt|;
 block|}
 break|break;
 block|}
 block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed to find shard [{}] in order to start it [failed to find node], ignoring"
+argument_list|,
+name|startedShard
+argument_list|)
+expr_stmt|;
 block|}
 comment|// startedShard is the current state of the shard (post relocation for example)
 comment|// this means that after relocation, the state will be started and the currentNodeId will be
@@ -2250,6 +2284,15 @@ condition|(
 name|dirty
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed shard {} found in routingNodes, failing it"
+argument_list|,
+name|failedShard
+argument_list|)
+expr_stmt|;
 comment|// now, find the node that we are relocating *from*, and cancel its relocation
 name|RoutingNode
 name|relocatingFromNode
@@ -2435,6 +2478,15 @@ condition|(
 name|dirty
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed shard {} found in routingNodes, failing it"
+argument_list|,
+name|failedShard
+argument_list|)
+expr_stmt|;
 comment|// next, we need to find the target initializing shard that is recovering from, and remove it...
 name|RoutingNodes
 operator|.
@@ -2720,9 +2772,20 @@ block|}
 block|}
 if|if
 condition|(
-operator|!
 name|dirty
 condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"failed shard {} found in routingNodes and failed"
+argument_list|,
+name|failedShard
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|logger
 operator|.
