@@ -276,6 +276,24 @@ specifier|public
 class|class
 name|JarHell
 block|{
+comment|/** Simple driver class, can be used eg. from builds. Returns non-zero on jar-hell */
+DECL|method|main
+specifier|public
+specifier|static
+name|void
+name|main
+parameter_list|(
+name|String
+name|args
+index|[]
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|checkJarHell
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Checks the current classloader for duplicate classes      * @throws IllegalStateException if jar hell was found      */
 DECL|method|checkJarHell
 specifier|public
@@ -331,8 +349,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"java.class.path= {}"
-operator|+
+literal|"java.class.path: {}"
+argument_list|,
 name|System
 operator|.
 name|getProperty
@@ -345,8 +363,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"sun.boot.class.path= {}"
-operator|+
+literal|"sun.boot.class.path: {}"
+argument_list|,
 name|System
 operator|.
 name|getProperty
@@ -359,8 +377,8 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"classloader urls= {}"
-operator|+
+literal|"classloader urls: {}"
+argument_list|,
 name|Arrays
 operator|.
 name|toString
@@ -413,6 +431,31 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ESLogger
+name|logger
+init|=
+name|Loggers
+operator|.
+name|getLogger
+argument_list|(
+name|JarHell
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// we don't try to be sneaky and use deprecated/internal/not portable stuff
+comment|// like sun.boot.class.path, and with jigsaw we don't yet have a way to get
+comment|// a "list" at all. So just exclude any elements underneath the java home
+name|String
+name|javaHome
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.home"
+argument_list|)
+decl_stmt|;
 specifier|final
 name|Map
 argument_list|<
@@ -464,6 +507,28 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+comment|// exclude system resources
+if|if
+condition|(
+name|path
+operator|.
+name|startsWith
+argument_list|(
+name|javaHome
+argument_list|)
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"excluding system resource: {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
 if|if
 condition|(
 name|path
@@ -485,9 +550,27 @@ name|path
 argument_list|)
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"excluding duplicate classpath element: {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 continue|continue;
 comment|// we can't fail because of sheistiness with joda-time
 block|}
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"examining jar: {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 try|try
 init|(
 name|JarFile
@@ -694,6 +777,15 @@ block|}
 block|}
 else|else
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"examining directory: {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
 comment|// case for tests: where we have class files in the classpath
 specifier|final
 name|Path
