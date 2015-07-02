@@ -567,7 +567,7 @@ name|params
 init|=
 literal|null
 decl_stmt|;
-comment|// TODO Remove in 2.0
+comment|// TODO Remove in 3.0
 DECL|field|valueType
 name|ValueType
 name|valueType

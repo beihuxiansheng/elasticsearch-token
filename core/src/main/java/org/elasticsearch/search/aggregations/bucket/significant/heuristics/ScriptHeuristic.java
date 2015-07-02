@@ -812,7 +812,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-comment|// TODO remove in 2.0 (here to support old script APIs)
+comment|// TODO remove in 3.0 (here to support old script APIs)
 name|params
 operator|=
 name|parser

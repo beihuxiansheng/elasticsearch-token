@@ -620,7 +620,7 @@ block|}
 block|}
 else|else
 block|{
-comment|// TODO remove this in 2.0
+comment|// TODO remove this in 3.0
 name|ScriptType
 name|paramScriptType
 init|=
