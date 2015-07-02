@@ -1668,6 +1668,14 @@ literal|"zen"
 argument_list|)
 comment|//<-- To override the local setting if set externally
 operator|.
+name|put
+argument_list|(
+literal|"node.mode"
+argument_list|,
+literal|"local"
+argument_list|)
+comment|//<-- force local transport so we can fake a network address
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
