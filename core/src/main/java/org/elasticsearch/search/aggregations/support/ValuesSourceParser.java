@@ -567,7 +567,7 @@ name|params
 init|=
 literal|null
 decl_stmt|;
-comment|// TODO Remove in 2.0
+comment|// TODO Remove in 3.0
 DECL|field|valueType
 name|ValueType
 name|valueType
@@ -908,6 +908,11 @@ argument_list|,
 name|token
 argument_list|,
 name|parser
+argument_list|,
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -944,13 +949,18 @@ condition|)
 block|{
 if|if
 condition|(
-name|ScriptField
+name|context
 operator|.
-name|SCRIPT
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|ScriptField
+operator|.
+name|SCRIPT
 argument_list|)
 condition|)
 block|{
@@ -963,6 +973,11 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return

@@ -56,6 +56,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -821,6 +833,9 @@ name|config
 parameter_list|,
 name|boolean
 name|removeMatchedEntries
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 return|return
@@ -831,6 +846,8 @@ argument_list|(
 name|config
 argument_list|,
 name|removeMatchedEntries
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
@@ -842,6 +859,9 @@ name|parse
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException
@@ -852,6 +872,8 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 return|;
 block|}
@@ -1298,7 +1320,6 @@ block|}
 block|}
 DECL|interface|ScriptField
 specifier|public
-specifier|static
 interface|interface
 name|ScriptField
 block|{

@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -670,6 +682,9 @@ name|parse
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException
@@ -684,17 +699,6 @@ operator|.
 name|currentName
 argument_list|()
 decl_stmt|;
-name|NAMES_FIELD
-operator|.
-name|match
-argument_list|(
-name|heuristicName
-argument_list|,
-name|ParseField
-operator|.
-name|EMPTY_FLAGS
-argument_list|)
-expr_stmt|;
 name|Script
 name|script
 init|=
@@ -781,13 +785,15 @@ condition|)
 block|{
 if|if
 condition|(
-name|ScriptField
-operator|.
-name|SCRIPT
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|ScriptField
+operator|.
+name|SCRIPT
 argument_list|)
 condition|)
 block|{
@@ -798,6 +804,8 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}
@@ -812,7 +820,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-comment|// TODO remove in 2.0 (here to support old script APIs)
+comment|// TODO remove in 3.0 (here to support old script APIs)
 name|params
 operator|=
 name|parser
@@ -849,6 +857,8 @@ argument_list|,
 name|token
 argument_list|,
 name|parser
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 condition|)
 block|{

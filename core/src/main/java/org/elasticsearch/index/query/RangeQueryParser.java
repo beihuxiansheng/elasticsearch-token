@@ -639,11 +639,16 @@ block|}
 elseif|else
 if|if
 condition|(
-name|FIELDDATA_FIELD
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|FIELDDATA_FIELD
 argument_list|)
 condition|)
 block|{

@@ -174,6 +174,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lease
 operator|.
 name|Releasable
@@ -636,10 +648,6 @@ name|AtomicBoolean
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|SearchContext
 specifier|public
@@ -758,6 +766,37 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+DECL|field|parseFieldMatcher
+specifier|protected
+specifier|final
+name|ParseFieldMatcher
+name|parseFieldMatcher
+decl_stmt|;
+DECL|method|SearchContext
+specifier|protected
+name|SearchContext
+parameter_list|(
+name|ParseFieldMatcher
+name|parseFieldMatcher
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parseFieldMatcher
+operator|=
+name|parseFieldMatcher
+expr_stmt|;
+block|}
+DECL|method|parseFieldMatcher
+specifier|public
+name|ParseFieldMatcher
+name|parseFieldMatcher
+parameter_list|()
+block|{
+return|return
+name|parseFieldMatcher
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|close
@@ -1081,7 +1120,7 @@ name|ScriptFieldsContext
 name|scriptFields
 parameter_list|()
 function_decl|;
-comment|/**      * A shortcut function to see whether there is a fetchSourceContext and it says the source is requested.      *      * @return      */
+comment|/**      * A shortcut function to see whether there is a fetchSourceContext and it says the source is requested.      */
 DECL|method|sourceRequested
 specifier|public
 specifier|abstract
@@ -1578,7 +1617,7 @@ name|FetchSearchResult
 name|fetchResult
 parameter_list|()
 function_decl|;
-comment|/**      * Schedule the release of a resource. The time when {@link Releasable#release()} will be called on this object      * is function of the provided {@link Lifetime}.      */
+comment|/**      * Schedule the release of a resource. The time when {@link Releasable#close()} will be called on this object      * is function of the provided {@link Lifetime}.      */
 DECL|method|addReleasable
 specifier|public
 name|void
@@ -1770,7 +1809,7 @@ block|,
 comment|/**          * This life time is for objects that need to live until the search context they are attached to is destroyed.          */
 DECL|enum constant|CONTEXT
 name|CONTEXT
-block|;     }
+block|}
 block|}
 end_class
 

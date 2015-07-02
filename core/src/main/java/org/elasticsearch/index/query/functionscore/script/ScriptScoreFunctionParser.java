@@ -28,6 +28,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseField
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -386,13 +398,18 @@ condition|)
 block|{
 if|if
 condition|(
-name|ScriptField
+name|parseContext
 operator|.
-name|SCRIPT
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|ScriptField
+operator|.
+name|SCRIPT
 argument_list|)
 condition|)
 block|{
@@ -403,6 +420,11 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -417,7 +439,7 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
-comment|// TODO remove in 2.0 (here to support old script APIs)
+comment|// TODO remove in 3.0 (here to support old script APIs)
 name|vars
 operator|=
 name|parser
@@ -469,6 +491,11 @@ argument_list|,
 name|token
 argument_list|,
 name|parser
+argument_list|,
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 argument_list|)
 condition|)
 block|{

@@ -629,11 +629,16 @@ block|}
 elseif|else
 if|if
 condition|(
-name|EXTENDED_BOUNDS
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|EXTENDED_BOUNDS
 argument_list|)
 condition|)
 block|{

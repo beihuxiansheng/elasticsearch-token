@@ -551,6 +551,8 @@ operator|.
 name|parse
 argument_list|(
 name|parser
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}
@@ -642,13 +644,15 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ScriptField
-operator|.
-name|PARAMS
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|ScriptField
+operator|.
+name|PARAMS
 argument_list|)
 condition|)
 block|{

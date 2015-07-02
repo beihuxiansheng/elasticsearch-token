@@ -439,11 +439,16 @@ condition|)
 block|{
 if|if
 condition|(
-name|SHOW_TERM_DOC_COUNT_ERROR
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|SHOW_TERM_DOC_COUNT_ERROR
 argument_list|)
 condition|)
 block|{

@@ -288,6 +288,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -880,6 +892,12 @@ specifier|final
 name|ScriptContextRegistry
 name|scriptContextRegistry
 decl_stmt|;
+DECL|field|parseFieldMatcher
+specifier|private
+specifier|final
+name|ParseFieldMatcher
+name|parseFieldMatcher
+decl_stmt|;
 DECL|field|client
 specifier|private
 name|Client
@@ -887,7 +905,7 @@ name|client
 init|=
 literal|null
 decl_stmt|;
-comment|/**      * @deprecated Use {@link ScriptField} instead. This should be removed in      *             2.0      */
+comment|/**      * @deprecated Use {@link org.elasticsearch.script.Script.ScriptField} instead. This should be removed in      *             2.0      */
 DECL|field|SCRIPT_LANG
 specifier|public
 specifier|static
@@ -973,6 +991,16 @@ throws|throws
 name|IOException
 block|{
 name|super
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|parseFieldMatcher
+operator|=
+operator|new
+name|ParseFieldMatcher
 argument_list|(
 name|settings
 argument_list|)
@@ -2178,6 +2206,8 @@ argument_list|(
 name|scriptLang
 argument_list|,
 name|parser
+argument_list|,
+name|parseFieldMatcher
 argument_list|,
 literal|"params"
 argument_list|,

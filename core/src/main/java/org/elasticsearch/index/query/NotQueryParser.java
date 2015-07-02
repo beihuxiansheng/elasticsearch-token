@@ -239,11 +239,16 @@ condition|)
 block|{
 if|if
 condition|(
-name|QUERY_FIELD
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
 operator|.
 name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|QUERY_FIELD
 argument_list|)
 condition|)
 block|{

@@ -28,6 +28,18 @@ name|ParseField
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
 begin_comment
 comment|/**  * Search type represent the manner at which the search operation is executed.  *  *  */
 end_comment
@@ -267,6 +279,9 @@ name|fromString
 parameter_list|(
 name|String
 name|searchType
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 block|{
 if|if
@@ -369,11 +384,13 @@ block|}
 elseif|else
 if|if
 condition|(
-name|COUNT_VALUE
+name|parseFieldMatcher
 operator|.
 name|match
 argument_list|(
 name|searchType
+argument_list|,
+name|COUNT_VALUE
 argument_list|)
 condition|)
 block|{

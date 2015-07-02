@@ -698,11 +698,6 @@ argument_list|,
 operator|new
 name|TransportRequestOptions
 argument_list|()
-operator|.
-name|withTimeout
-argument_list|(
-literal|50
-argument_list|)
 argument_list|,
 operator|new
 name|BaseTransportResponseHandler

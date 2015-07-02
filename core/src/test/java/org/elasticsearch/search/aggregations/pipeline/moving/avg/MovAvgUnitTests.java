@@ -42,6 +42,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -65,18 +77,6 @@ operator|.
 name|test
 operator|.
 name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
 import|;
 end_import
 
@@ -107,6 +107,18 @@ operator|.
 name|util
 operator|.
 name|*
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
 import|;
 end_import
 
@@ -3090,7 +3102,6 @@ operator|%
 name|windowSize
 index|]
 decl_stmt|;
-empty_stmt|;
 name|double
 name|actual
 init|=
@@ -3759,6 +3770,10 @@ argument_list|,
 literal|"pipeline"
 argument_list|,
 literal|10
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 argument_list|)
 expr_stmt|;
 block|}
@@ -3839,6 +3854,10 @@ argument_list|,
 literal|"pipeline"
 argument_list|,
 literal|10
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 argument_list|)
 expr_stmt|;
 block|}

@@ -40,6 +40,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -152,7 +164,6 @@ specifier|private
 name|PercentageScore
 parameter_list|()
 block|{}
-empty_stmt|;
 DECL|field|STREAM
 specifier|public
 specifier|static
@@ -318,6 +329,9 @@ name|parse
 parameter_list|(
 name|XContentParser
 name|parser
+parameter_list|,
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException

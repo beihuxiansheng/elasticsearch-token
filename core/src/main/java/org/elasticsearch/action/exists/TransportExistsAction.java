@@ -1196,6 +1196,8 @@ name|threadPool
 operator|.
 name|estimatedTimeInMillisCounter
 argument_list|()
+argument_list|,
+name|parseFieldMatcher
 argument_list|)
 decl_stmt|;
 name|SearchContext
