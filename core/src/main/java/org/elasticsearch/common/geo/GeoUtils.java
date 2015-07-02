@@ -1481,19 +1481,13 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"field must be either '"
-operator|+
+literal|"field must be either [{}], [{}] or [{}]"
+argument_list|,
 name|LATITUDE
-operator|+
-literal|"', '"
-operator|+
+argument_list|,
 name|LONGITUDE
-operator|+
-literal|"' or '"
-operator|+
+argument_list|,
 name|GEOHASH
-operator|+
-literal|"'"
 argument_list|)
 throw|;
 block|}
@@ -1504,14 +1498,12 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Token '"
-operator|+
+literal|"token [{}] not allowed"
+argument_list|,
 name|parser
 operator|.
 name|currentToken
 argument_list|()
-operator|+
-literal|"' not allowed"
 argument_list|)
 throw|;
 block|}
@@ -1577,11 +1569,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] missing"
+argument_list|,
 name|LATITUDE
-operator|+
-literal|"] missing"
 argument_list|)
 throw|;
 block|}
@@ -1600,11 +1590,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"field ["
-operator|+
+literal|"field [{}] missing"
+argument_list|,
 name|LONGITUDE
-operator|+
-literal|"] missing"
 argument_list|)
 throw|;
 block|}
@@ -1715,7 +1703,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Numeric value expected"
+literal|"numeric value expected"
 argument_list|)
 throw|;
 block|}

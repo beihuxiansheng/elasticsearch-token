@@ -288,20 +288,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperBuilders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MapperParsingException
 import|;
 end_import
@@ -358,7 +344,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|RootMapper
+name|MetadataFieldMapper
 import|;
 end_import
 
@@ -478,22 +464,6 @@ name|settings
 operator|.
 name|Settings
 operator|.
-name|builder
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
 name|settingsBuilder
 import|;
 end_import
@@ -526,9 +496,7 @@ specifier|public
 class|class
 name|ParentFieldMapper
 extends|extends
-name|AbstractFieldMapper
-implements|implements
-name|RootMapper
+name|MetadataFieldMapper
 block|{
 DECL|field|NAME
 specifier|public
@@ -685,7 +653,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|AbstractFieldMapper
+name|MetadataFieldMapper
 operator|.
 name|Builder
 argument_list|<

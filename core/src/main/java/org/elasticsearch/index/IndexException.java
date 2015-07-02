@@ -107,6 +107,10 @@ name|index
 parameter_list|,
 name|String
 name|msg
+parameter_list|,
+name|Object
+modifier|...
+name|args
 parameter_list|)
 block|{
 name|this
@@ -116,6 +120,8 @@ argument_list|,
 name|msg
 argument_list|,
 literal|null
+argument_list|,
+name|args
 argument_list|)
 expr_stmt|;
 block|}
@@ -131,6 +137,10 @@ name|msg
 parameter_list|,
 name|Throwable
 name|cause
+parameter_list|,
+name|Object
+modifier|...
+name|args
 parameter_list|)
 block|{
 name|super

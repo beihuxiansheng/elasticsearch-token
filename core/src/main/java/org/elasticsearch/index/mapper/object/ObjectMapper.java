@@ -338,7 +338,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|RootMapper
+name|MetadataFieldMapper
 import|;
 end_import
 
@@ -3152,7 +3152,7 @@ if|if
 condition|(
 name|mergeIntoMapper
 operator|instanceof
-name|RootMapper
+name|MetadataFieldMapper
 operator|==
 literal|false
 condition|)
@@ -3560,7 +3560,7 @@ operator|!
 operator|(
 name|mapper
 operator|instanceof
-name|RootMapper
+name|MetadataFieldMapper
 operator|)
 condition|)
 block|{

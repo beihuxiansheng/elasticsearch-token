@@ -667,11 +667,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"No parameter named "
-operator|+
+literal|"no parameter named [{}] and type ARRAY"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"and type ARRAY"
 argument_list|)
 throw|;
 block|}
@@ -718,11 +716,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"No parameter named "
-operator|+
+literal|"no parameter named [{}] and type OBJECT"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"and type OBJECT"
 argument_list|)
 throw|;
 block|}
@@ -739,11 +735,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"_mtermvectors: Parameter "
-operator|+
+literal|"_mtermvectors: Parameter [{}] not supported"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"not supported"
 argument_list|)
 throw|;
 block|}

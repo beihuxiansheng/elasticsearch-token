@@ -322,11 +322,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"malformed, expected settings to start with 'object', instead was ["
-operator|+
+literal|"malformed, expected settings to start with 'object', instead was [{}]"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

@@ -363,6 +363,18 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getAllocationService
+specifier|public
+name|AllocationService
+name|getAllocationService
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|allocationService
+return|;
+block|}
 comment|/**      * Initiates a reroute.      */
 DECL|method|reroute
 specifier|public

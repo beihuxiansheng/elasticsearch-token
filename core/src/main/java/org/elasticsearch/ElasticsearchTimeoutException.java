@@ -72,6 +72,10 @@ name|ElasticsearchTimeoutException
 parameter_list|(
 name|String
 name|message
+parameter_list|,
+name|Object
+modifier|...
+name|args
 parameter_list|)
 block|{
 name|super
@@ -89,6 +93,10 @@ name|message
 parameter_list|,
 name|Throwable
 name|cause
+parameter_list|,
+name|Object
+modifier|...
+name|args
 parameter_list|)
 block|{
 name|super
@@ -96,6 +104,8 @@ argument_list|(
 name|message
 argument_list|,
 name|cause
+argument_list|,
+name|args
 argument_list|)
 expr_stmt|;
 block|}

@@ -897,9 +897,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
+literal|"failed to parse [{}] query. expected an object but found [{}] instead"
+argument_list|,
 name|NAME
-operator|+
-literal|" must be an object"
+argument_list|,
+name|token
 argument_list|)
 throw|;
 block|}
@@ -1184,11 +1186,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unexpected token ["
-operator|+
+literal|"failed to parse [{}] query. unexpected token [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1206,7 +1208,9 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"no geohash value provided to geohash_cell filter"
+literal|"failed to parse [{}] query. missing geohash value"
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
 block|}
@@ -1233,11 +1237,15 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"failed to find geo_point field ["
-operator|+
+literal|"failed to parse [{}] query. missing [{}] field [{}]"
+argument_list|,
+name|NAME
+argument_list|,
+name|GeoPointFieldMapper
+operator|.
+name|CONTENT_TYPE
+argument_list|,
 name|fieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1259,11 +1267,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"field ["
-operator|+
+literal|"failed to parse [{}] query. field [{}] is not a geo_point field"
+argument_list|,
+name|NAME
+argument_list|,
 name|fieldName
-operator|+
-literal|"] is not a geo_point field"
 argument_list|)
 throw|;
 block|}
@@ -1296,11 +1304,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"can't execute geohash_cell on field ["
-operator|+
+literal|"failed to parse [{}] query. [geohash_prefix] is not enabled for field [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|fieldName
-operator|+
-literal|"], geohash_prefix is not enabled"
 argument_list|)
 throw|;
 block|}

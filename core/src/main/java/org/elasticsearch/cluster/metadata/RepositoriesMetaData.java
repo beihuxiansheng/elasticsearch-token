@@ -623,11 +623,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse repository ["
-operator|+
+literal|"failed to parse repository [{}], expected object"
+argument_list|,
 name|name
-operator|+
-literal|"], expected object"
 argument_list|)
 throw|;
 block|}
@@ -708,11 +706,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse repository ["
-operator|+
+literal|"failed to parse repository [{}], unknown type"
+argument_list|,
 name|name
-operator|+
-literal|"], unknown type"
 argument_list|)
 throw|;
 block|}
@@ -753,11 +749,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse repository ["
-operator|+
+literal|"failed to parse repository [{}], incompatible params"
+argument_list|,
 name|name
-operator|+
-literal|"], incompatible params"
 argument_list|)
 throw|;
 block|}
@@ -793,15 +787,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse repository ["
-operator|+
+literal|"failed to parse repository [{}], unknown field [{}]"
+argument_list|,
 name|name
-operator|+
-literal|"], unknown field ["
-operator|+
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -812,11 +802,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse repository ["
-operator|+
+literal|"failed to parse repository [{}]"
+argument_list|,
 name|name
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -832,11 +820,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse repository ["
-operator|+
+literal|"failed to parse repository [{}], missing repository type"
+argument_list|,
 name|name
-operator|+
-literal|"], missing repository type"
 argument_list|)
 throw|;
 block|}

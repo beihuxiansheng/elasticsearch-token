@@ -28,18 +28,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -505,8 +493,6 @@ DECL|method|Bucket
 specifier|public
 name|Bucket
 parameter_list|(
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -541,8 +527,6 @@ parameter_list|,
 name|long
 name|docCountError
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)
@@ -816,10 +800,6 @@ if|if
 condition|(
 name|formatter
 operator|!=
-literal|null
-operator|&&
-name|formatter
-operator|!=
 name|ValueFormatter
 operator|.
 name|RAW
@@ -892,8 +872,6 @@ return|;
 block|}
 block|}
 DECL|field|formatter
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 decl_stmt|;
@@ -914,8 +892,6 @@ operator|.
 name|Order
 name|order
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,

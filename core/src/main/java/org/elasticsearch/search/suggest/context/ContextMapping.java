@@ -1023,11 +1023,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"no mapping defined for ["
-operator|+
+literal|"no mapping defined for [{}]"
+argument_list|,
 name|name
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

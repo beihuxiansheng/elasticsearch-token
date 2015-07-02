@@ -764,8 +764,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"expected field name to be named `commands`, got "
-operator|+
+literal|"expected field name to be named [commands], got [{}] instead"
+argument_list|,
 name|parser
 operator|.
 name|currentName
@@ -791,8 +791,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"expected field name to be named `commands`, got "
-operator|+
+literal|"expected field name to be named [commands], got [{}] instead"
+argument_list|,
 name|parser
 operator|.
 name|currentName
@@ -847,8 +847,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"expected either field name commands, or start array, got "
-operator|+
+literal|"expected either field name [commands], or start array, got [{}] instead"
+argument_list|,
 name|token
 argument_list|)
 throw|;
@@ -941,8 +941,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"allocation command is malformed, done parsing a command, but didn't get END_OBJECT, got "
-operator|+
+literal|"allocation command is malformed, done parsing a command, but didn't get END_OBJECT, got [{}] instead"
+argument_list|,
 name|token
 argument_list|)
 throw|;
@@ -954,8 +954,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"allocation command is malformed, got token "
-operator|+
+literal|"allocation command is malformed, got [{}] instead"
+argument_list|,
 name|token
 argument_list|)
 throw|;

@@ -1303,15 +1303,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to parse setting ["
-operator|+
+literal|"failed to parse setting [{}] with value [{}] as a size in bytes: unit is missing or unrecognized"
+argument_list|,
 name|settingName
-operator|+
-literal|"] with value ["
-operator|+
+argument_list|,
 name|sValue
-operator|+
-literal|"] as a size in bytes: unit is missing or unrecognized"
 argument_list|)
 throw|;
 block|}
@@ -1340,13 +1336,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to parse ["
-operator|+
-name|sValue
-operator|+
-literal|"]"
+literal|"failed to parse [{}]"
 argument_list|,
 name|e
+argument_list|,
+name|sValue
 argument_list|)
 throw|;
 block|}

@@ -28,9 +28,15 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|search
 operator|.
-name|Nullable
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|BucketHelpers
+operator|.
+name|GapPolicy
 import|;
 end_import
 
@@ -47,24 +53,6 @@ operator|.
 name|pipeline
 operator|.
 name|PipelineAggregatorFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
-name|BucketHelpers
-operator|.
-name|GapPolicy
 import|;
 end_import
 
@@ -146,8 +134,6 @@ parameter_list|,
 name|GapPolicy
 name|gapPolicy
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)

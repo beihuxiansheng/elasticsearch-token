@@ -2512,6 +2512,13 @@ annotation|@
 name|Test
 annotation|@
 name|Network
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fails with jar hell failures - http://build-us-00.elastic.co/job/es_core_master_oracle_6/519/testReport/"
+argument_list|)
 DECL|method|testInstallPluginWithElasticsearchDownloadService
 specifier|public
 name|void
@@ -2547,6 +2554,13 @@ annotation|@
 name|Test
 annotation|@
 name|Network
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fails with jar hell failures - http://build-us-00.elastic.co/job/es_core_master_oracle_6/519/testReport/"
+argument_list|)
 DECL|method|testInstallPluginWithMavenCentral
 specifier|public
 name|void

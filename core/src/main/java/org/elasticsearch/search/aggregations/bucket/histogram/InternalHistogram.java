@@ -70,18 +70,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -690,8 +678,6 @@ DECL|field|formatter
 specifier|protected
 specifier|transient
 specifier|final
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 decl_stmt|;
@@ -710,8 +696,6 @@ parameter_list|(
 name|boolean
 name|keyed
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -754,8 +738,6 @@ parameter_list|,
 name|boolean
 name|keyed
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -992,10 +974,6 @@ name|IOException
 block|{
 if|if
 condition|(
-name|formatter
-operator|!=
-literal|null
-operator|&&
 name|formatter
 operator|!=
 name|ValueFormatter
@@ -1483,8 +1461,6 @@ parameter_list|,
 name|EmptyBucketInfo
 name|emptyBucketInfo
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -1657,8 +1633,6 @@ parameter_list|,
 name|boolean
 name|keyed
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)
@@ -1722,8 +1696,6 @@ parameter_list|(
 name|boolean
 name|keyed
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)
@@ -1759,8 +1731,6 @@ name|order
 decl_stmt|;
 DECL|field|formatter
 specifier|private
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 decl_stmt|;
@@ -1813,8 +1783,6 @@ parameter_list|,
 name|EmptyBucketInfo
 name|emptyBucketInfo
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,

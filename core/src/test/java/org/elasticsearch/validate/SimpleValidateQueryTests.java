@@ -1335,7 +1335,7 @@ literal|"past:[now-2M/d TO now/d]"
 argument_list|)
 argument_list|)
 operator|.
-name|setExplain
+name|setRewrite
 argument_list|(
 literal|true
 argument_list|)

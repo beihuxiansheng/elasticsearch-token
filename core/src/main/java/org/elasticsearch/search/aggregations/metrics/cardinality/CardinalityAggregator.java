@@ -150,16 +150,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|Nullable
@@ -484,8 +474,6 @@ parameter_list|,
 name|int
 name|precision
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,

@@ -32,6 +32,22 @@ name|Streamable
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|Writeable
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -42,7 +58,10 @@ specifier|public
 interface|interface
 name|TransportAddress
 extends|extends
-name|Streamable
+name|Writeable
+argument_list|<
+name|TransportAddress
+argument_list|>
 block|{
 DECL|method|uniqueAddressTypeId
 name|short

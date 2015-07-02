@@ -603,6 +603,11 @@ argument_list|)
 operator|.
 name|query
 argument_list|()
+operator|.
+name|rewrite
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 finally|finally

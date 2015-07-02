@@ -8538,11 +8538,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse snapshottable metadata, unknown field ["
-operator|+
+literal|"failed to parse snapshottable metadata, unknown field [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

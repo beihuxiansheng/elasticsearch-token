@@ -70,18 +70,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -362,8 +350,6 @@ DECL|method|Bucket
 specifier|protected
 name|Bucket
 parameter_list|(
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -401,8 +387,6 @@ parameter_list|,
 name|long
 name|docCountError
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)

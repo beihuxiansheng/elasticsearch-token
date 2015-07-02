@@ -1252,11 +1252,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unknown parameter ["
-operator|+
+literal|"unknown parameter [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1267,11 +1265,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unexpected token  ["
-operator|+
+literal|"unexpected token  [{}]"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1282,11 +1278,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unexpected token  ["
-operator|+
+literal|"unexpected token [{}]"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2119,11 +2113,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unknown parameter ["
-operator|+
+literal|"unknown parameter [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2188,11 +2180,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unknown parameter ["
-operator|+
+literal|"unknown parameter [{}]"
+argument_list|,
 name|currentFieldName
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2203,11 +2193,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unexpected token  ["
-operator|+
+literal|"unexpected token  [{}]"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -2218,11 +2206,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"unexpected token  ["
-operator|+
+literal|"unexpected token [{}]"
+argument_list|,
 name|token
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

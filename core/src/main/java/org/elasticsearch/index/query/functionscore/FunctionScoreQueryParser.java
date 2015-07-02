@@ -357,10 +357,6 @@ name|NAME
 init|=
 literal|"function_score"
 decl_stmt|;
-DECL|field|functionParserMapper
-name|ScoreFunctionParserMapper
-name|functionParserMapper
-decl_stmt|;
 comment|// For better readability of error message
 DECL|field|MISPLACED_FUNCTION_MESSAGE_PREFIX
 specifier|static
@@ -368,7 +364,7 @@ specifier|final
 name|String
 name|MISPLACED_FUNCTION_MESSAGE_PREFIX
 init|=
-literal|"You can either define \"functions\":[...] or a single function, not both. "
+literal|"you can either define [functions] array or a single function, not both. "
 decl_stmt|;
 DECL|field|MISPLACED_BOOST_FUNCTION_MESSAGE_SUFFIX
 specifier|static
@@ -376,7 +372,7 @@ specifier|final
 name|String
 name|MISPLACED_BOOST_FUNCTION_MESSAGE_SUFFIX
 init|=
-literal|" Did you mean \"boost\" instead?"
+literal|" did you mean [boost] instead?"
 decl_stmt|;
 DECL|field|WEIGHT_FIELD
 specifier|public
@@ -408,6 +404,10 @@ name|withAllDeprecated
 argument_list|(
 literal|"query"
 argument_list|)
+decl_stmt|;
+DECL|field|functionParserMapper
+name|ScoreFunctionParserMapper
+name|functionParserMapper
 decl_stmt|;
 annotation|@
 name|Inject
@@ -873,11 +873,11 @@ block|{
 name|String
 name|errorString
 init|=
-literal|"Found \""
+literal|"already found ["
 operator|+
 name|singleFunctionName
 operator|+
-literal|"\" already, now encountering \"functions\": [...]."
+literal|"], now encountering [functions]."
 decl_stmt|;
 name|handleMisplacedFunctionsDeclaration
 argument_list|(
@@ -964,11 +964,11 @@ block|{
 name|String
 name|errorString
 init|=
-literal|"Found \"functions\": [...] already, now encountering \""
+literal|"already found [functions] array, now encountering ["
 operator|+
 name|currentFieldName
 operator|+
-literal|"\"."
+literal|"]."
 decl_stmt|;
 name|handleMisplacedFunctionsDeclaration
 argument_list|(
@@ -988,24 +988,17 @@ operator|>
 literal|0
 condition|)
 block|{
-name|String
-name|errorString
-init|=
-literal|"Found function "
-operator|+
-name|singleFunctionName
-operator|+
-literal|" already, now encountering \""
-operator|+
-name|currentFieldName
-operator|+
-literal|"\". Use functions[{...},...] if you want to define several functions."
-decl_stmt|;
 throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-name|errorString
+literal|"failed to parse [{}] query. already found function [{}], now encountering [{}]. use [functions] array if you want to define several functions."
+argument_list|,
+name|NAME
+argument_list|,
+name|singleFunctionName
+argument_list|,
+name|currentFieldName
 argument_list|)
 throw|;
 block|}
@@ -1390,6 +1383,10 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
+literal|"failed to parse [{}] query. [{}]"
+argument_list|,
+name|NAME
+argument_list|,
 name|errorString
 argument_list|)
 throw|;
@@ -1474,19 +1471,17 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-name|NAME
-operator|+
-literal|": malformed query, expected a "
-operator|+
+literal|"failed to parse [{}]. malformed query, expected a [{}] while parsing functions but got a [{}] instead"
+argument_list|,
 name|XContentParser
 operator|.
 name|Token
 operator|.
 name|START_OBJECT
-operator|+
-literal|" while parsing functions but got a "
-operator|+
+argument_list|,
 name|token
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
 block|}
@@ -1644,7 +1639,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"function_score: One entry in functions list is missing a function."
+literal|"failed to parse [{}] query. an entry in functions list is missing a function."
+argument_list|,
+name|NAME
 argument_list|)
 throw|;
 block|}
@@ -1813,13 +1810,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
+literal|"failed to parse [{}] query. illegal score_mode [{}]"
+argument_list|,
 name|NAME
-operator|+
-literal|" illegal score_mode ["
-operator|+
+argument_list|,
 name|scoreMode
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1869,13 +1864,11 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
+literal|"failed to parse [{}] query. illegal boost_mode [{}]"
+argument_list|,
 name|NAME
-operator|+
-literal|" illegal boost_mode ["
-operator|+
+argument_list|,
 name|boostMode
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}

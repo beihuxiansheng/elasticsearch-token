@@ -362,39 +362,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|constantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|functionScoreQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|termQuery
+name|*
 import|;
 end_import
 
@@ -412,43 +380,7 @@ name|functionscore
 operator|.
 name|ScoreFunctionBuilders
 operator|.
-name|exponentialDecayFunction
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionBuilders
-operator|.
-name|gaussDecayFunction
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionBuilders
-operator|.
-name|linearDecayFunction
+name|*
 import|;
 end_import
 
@@ -480,55 +412,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertNoFailures
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertOrderedSearchHits
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertSearchHits
+name|*
 import|;
 end_import
 
@@ -540,67 +424,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|anyOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|closeTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|isOneOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThan
+name|*
 import|;
 end_import
 
@@ -8547,7 +8371,7 @@ name|reason
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
@@ -8559,10 +8383,10 @@ index|]
 operator|.
 name|reason
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"Found \"functions\": [...] already, now encountering \"boost_factor\". Did you mean \"boost\" instead?"
+literal|"already found [functions] array, now encountering [boost_factor]. did you mean [boost] instead?"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8672,7 +8496,7 @@ name|reason
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
@@ -8684,10 +8508,10 @@ index|]
 operator|.
 name|reason
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"Found \"boost_factor\" already, now encountering \"functions\": [...]. Did you mean \"boost\" instead?"
+literal|"already found [boost_factor], now encountering [functions]. did you mean [boost] instead?"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8813,7 +8637,7 @@ name|reason
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|e
 operator|.
@@ -8825,14 +8649,14 @@ index|]
 operator|.
 name|reason
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"Found \"random_score\" already, now encountering \"functions\": [...]."
+literal|"already found [random_score], now encountering [functions]"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertThat
 argument_list|(
 name|e
 operator|.
@@ -8844,10 +8668,13 @@ index|]
 operator|.
 name|reason
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|not
 argument_list|(
-literal|"Did you mean \"boost\" instead?"
+name|containsString
+argument_list|(
+literal|"did you mean [boost] instead?"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -8970,29 +8797,32 @@ name|SearchPhaseExecutionException
 name|failure
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
 literal|"SearchParseException"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|not
+argument_list|(
+name|containsString
 argument_list|(
 literal|"NullPointerException"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9082,42 +8912,45 @@ name|SearchPhaseExecutionException
 name|failure
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
 literal|"SearchParseException"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|not
+argument_list|(
+name|containsString
 argument_list|(
 literal|"NullPointerException"
 argument_list|)
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
-literal|"One entry in functions list is missing a function"
+literal|"an entry in functions list is missing a function"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -9158,14 +8991,14 @@ name|IllegalArgumentException
 name|failure
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
 literal|"function must not be null"
 argument_list|)
@@ -9210,14 +9043,14 @@ name|IllegalArgumentException
 name|failure
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
 literal|"function must not be null"
 argument_list|)
@@ -9257,14 +9090,14 @@ name|IllegalArgumentException
 name|failure
 parameter_list|)
 block|{
-name|assertTrue
+name|assertThat
 argument_list|(
 name|failure
 operator|.
 name|toString
 argument_list|()
-operator|.
-name|contains
+argument_list|,
+name|containsString
 argument_list|(
 literal|"function must not be null"
 argument_list|)

@@ -159,8 +159,8 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Percentage should be in [0-100], got "
-operator|+
+literal|"percentage should be in [0-100], got [{}]"
+argument_list|,
 name|percentAsString
 argument_list|)
 throw|;
@@ -210,13 +210,11 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Failed to parse ["
-operator|+
-name|percentAsString
-operator|+
-literal|"] as a double"
+literal|"failed to parse [{}] as a double"
 argument_list|,
 name|e
+argument_list|,
+name|percentAsString
 argument_list|)
 throw|;
 block|}

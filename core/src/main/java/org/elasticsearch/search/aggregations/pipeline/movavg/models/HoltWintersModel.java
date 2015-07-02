@@ -110,18 +110,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|aggregations
 operator|.
 name|AggregationExecutionException
@@ -143,20 +131,6 @@ operator|.
 name|movavg
 operator|.
 name|MovAvgParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|SearchContext
 import|;
 end_import
 
@@ -292,43 +266,11 @@ name|text
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|result
-operator|==
-literal|null
-condition|)
-block|{
 name|result
 operator|=
 name|policy
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Text can be parsed to 2 different seasonality types: text=["
-operator|+
-name|text
-operator|+
-literal|"], "
-operator|+
-literal|"policies="
-operator|+
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|result
-argument_list|,
-name|policy
-argument_list|)
-argument_list|)
-throw|;
-block|}
+break|break;
 block|}
 block|}
 if|if
@@ -374,12 +316,10 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Invalid seasonality type: ["
-operator|+
+literal|"failed to parse seasonality type [{}]. accepted values are [{}]"
+argument_list|,
 name|text
-operator|+
-literal|"], accepted values: "
-operator|+
+argument_list|,
 name|validNames
 argument_list|)
 throw|;

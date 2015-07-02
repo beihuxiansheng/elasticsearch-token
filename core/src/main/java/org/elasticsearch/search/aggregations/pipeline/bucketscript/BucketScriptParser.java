@@ -936,6 +936,15 @@ name|formatter
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+name|formatter
+operator|=
+name|ValueFormatter
+operator|.
+name|RAW
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|BucketScriptPipelineAggregator

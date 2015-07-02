@@ -373,8 +373,6 @@ decl_stmt|;
 DECL|field|formatter
 specifier|private
 specifier|final
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 decl_stmt|;
@@ -456,8 +454,6 @@ operator|.
 name|Numeric
 name|valuesSource
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,

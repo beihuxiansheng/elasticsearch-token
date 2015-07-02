@@ -42,18 +42,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -473,8 +461,6 @@ name|String
 index|[]
 name|bucketsPaths
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|,
@@ -794,8 +780,6 @@ name|String
 index|[]
 name|bucketsPaths
 parameter_list|,
-annotation|@
-name|Nullable
 name|ValueFormatter
 name|formatter
 parameter_list|)

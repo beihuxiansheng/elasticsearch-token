@@ -531,11 +531,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Unable to parse low watermark: ["
-operator|+
+literal|"unable to parse low watermark [{}]"
+argument_list|,
 name|newLowWatermark
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -599,11 +597,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Unable to parse high watermark: ["
-operator|+
+literal|"unable to parse high watermark [{}]"
+argument_list|,
 name|newHighWatermark
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1123,11 +1119,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Unable to parse low watermark: ["
-operator|+
+literal|"unable to parse low watermark [{}]"
+argument_list|,
 name|lowWatermark
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1146,11 +1140,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"Unable to parse high watermark: ["
-operator|+
+literal|"unable to parse high watermark [{}]"
+argument_list|,
 name|highWatermark
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
@@ -1624,7 +1616,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Node [{}] has {}% used disk"
+literal|"node [{}] has {}% used disk"
 argument_list|,
 name|node
 operator|.
@@ -1705,7 +1697,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, preventing allocation"
+literal|"less than the required {} free bytes threshold ({} bytes free) on node {}, preventing allocation"
 argument_list|,
 name|freeBytesThresholdLow
 argument_list|,
@@ -1766,7 +1758,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, "
+literal|"less than the required {} free bytes threshold ({} bytes free) on node {}, "
 operator|+
 literal|"but allowing allocation because primary has never been allocated"
 argument_list|,
@@ -1812,7 +1804,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, "
+literal|"less than the required {} free bytes threshold ({} bytes free) on node {}, "
 operator|+
 literal|"preventing allocation even though primary has never been allocated"
 argument_list|,
@@ -1890,7 +1882,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"More than the allowed {} used disk threshold ({} used) on node [{}], preventing allocation"
+literal|"more than the allowed {} used disk threshold ({} used) on node [{}], preventing allocation"
 argument_list|,
 name|Strings
 operator|.
@@ -1958,7 +1950,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"More than the allowed {} used disk threshold ({} used) on node [{}], "
+literal|"more than the allowed {} used disk threshold ({} used) on node [{}], "
 operator|+
 literal|"but allowing allocation because primary has never been allocated"
 argument_list|,
@@ -2018,7 +2010,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, "
+literal|"less than the required {} free bytes threshold ({} bytes free) on node {}, "
 operator|+
 literal|"preventing allocation even though primary has never been allocated"
 argument_list|,
@@ -2138,7 +2130,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"After allocating, node [{}] would have less than the required {} free bytes threshold ({} bytes free), preventing allocation"
+literal|"after allocating, node [{}] would have less than the required {} free bytes threshold ({} bytes free), preventing allocation"
 argument_list|,
 name|node
 operator|.
@@ -2184,7 +2176,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"After allocating, node [{}] would have more than the allowed {} free disk threshold ({} free), preventing allocation"
+literal|"after allocating, node [{}] would have more than the allowed {} free disk threshold ({} free), preventing allocation"
 argument_list|,
 name|node
 operator|.
@@ -2326,7 +2318,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Node [{}] has {}% free disk ({} bytes)"
+literal|"node [{}] has {}% free disk ({} bytes)"
 argument_list|,
 name|node
 operator|.
@@ -2361,7 +2353,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {} free bytes threshold ({} bytes free) on node {}, shard cannot remain"
+literal|"less than the required {} free bytes threshold ({} bytes free) on node {}, shard cannot remain"
 argument_list|,
 name|freeBytesThresholdHigh
 argument_list|,
@@ -2416,7 +2408,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Less than the required {}% free disk threshold ({}% free) on node {}, shard cannot remain"
+literal|"less than the required {}% free disk threshold ({}% free) on node {}, shard cannot remain"
 argument_list|,
 name|freeDiskThresholdHigh
 argument_list|,
@@ -2545,7 +2537,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"Unable to determine disk usage for {}, defaulting to average across nodes [{} total] [{} free] [{}% free]"
+literal|"unable to determine disk usage for {}, defaulting to average across nodes [{} total] [{} free] [{}% free]"
 argument_list|,
 name|node
 operator|.
@@ -3048,7 +3040,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Only a single node is present, allowing allocation"
+literal|"only a single node is present, allowing allocation"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3096,7 +3088,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Cluster info unavailable for disk threshold decider, allowing allocation."
+literal|"cluster info unavailable for disk threshold decider, allowing allocation."
 argument_list|)
 expr_stmt|;
 block|}
@@ -3150,7 +3142,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"Unable to determine disk usages for disk-aware allocation, allowing allocation"
+literal|"unable to determine disk usages for disk-aware allocation, allowing allocation"
 argument_list|)
 expr_stmt|;
 block|}

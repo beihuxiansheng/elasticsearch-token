@@ -347,14 +347,12 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"expected }, got "
-operator|+
+literal|"failed to parse [percentage] significance heuristic. expected an empty object, but got [{}] instead"
+argument_list|,
 name|parser
 operator|.
-name|currentName
+name|currentToken
 argument_list|()
-operator|+
-literal|" instead in percentage score"
 argument_list|)
 throw|;
 block|}

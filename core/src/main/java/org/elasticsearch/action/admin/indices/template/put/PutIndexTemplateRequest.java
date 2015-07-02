@@ -1483,11 +1483,9 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"failed to parse custom metadata for ["
-operator|+
+literal|"failed to parse custom metadata for [{}]"
+argument_list|,
 name|name
-operator|+
-literal|"]"
 argument_list|)
 throw|;
 block|}
