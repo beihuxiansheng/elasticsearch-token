@@ -535,7 +535,7 @@ name|clazz
 argument_list|)
 return|;
 block|}
-comment|/** @see DocumentMapper#merge(Mapping, boolean) */
+comment|/** @see DocumentMapper#merge(Mapping, boolean, boolean) */
 DECL|method|merge
 specifier|public
 name|void

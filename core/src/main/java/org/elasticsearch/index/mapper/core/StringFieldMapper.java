@@ -808,6 +808,8 @@ init|=
 operator|new
 name|StringFieldMapper
 argument_list|(
+name|name
+argument_list|,
 name|fieldType
 argument_list|,
 name|defaultFieldType
@@ -1397,6 +1399,9 @@ DECL|method|StringFieldMapper
 specifier|protected
 name|StringFieldMapper
 parameter_list|(
+name|String
+name|simpleName
+parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
@@ -1429,6 +1434,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|simpleName
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues

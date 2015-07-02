@@ -1326,6 +1326,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|fullName
+argument_list|,
 name|makeFieldType
 argument_list|(
 name|fullName
@@ -1373,8 +1375,6 @@ name|MappedFieldType
 operator|.
 name|Names
 argument_list|(
-name|fullName
-argument_list|,
 name|indexName
 argument_list|,
 name|indexName

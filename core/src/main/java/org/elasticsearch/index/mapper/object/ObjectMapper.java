@@ -565,9 +565,9 @@ DECL|class|ObjectMapper
 specifier|public
 class|class
 name|ObjectMapper
-implements|implements
+extends|extends
 name|Mapper
-implements|,
+implements|implements
 name|AllFieldMapper
 operator|.
 name|IncludeInAll
@@ -1097,7 +1097,7 @@ name|put
 argument_list|(
 name|mapper
 operator|.
-name|name
+name|simpleName
 argument_list|()
 argument_list|,
 name|mapper
@@ -2246,12 +2246,6 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|field|name
-specifier|private
-specifier|final
-name|String
-name|name
-decl_stmt|;
 DECL|field|fullPath
 specifier|private
 specifier|final
@@ -2350,11 +2344,10 @@ argument_list|>
 name|mappers
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|name
-operator|=
-name|name
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -2546,7 +2539,7 @@ block|{
 return|return
 name|this
 operator|.
-name|name
+name|fullPath
 return|;
 block|}
 DECL|method|isEnabled
@@ -2834,7 +2827,7 @@ name|copyAndPut
 argument_list|(
 name|mapper
 operator|.
-name|name
+name|simpleName
 argument_list|()
 argument_list|,
 name|mapper
@@ -3106,7 +3099,7 @@ name|get
 argument_list|(
 name|mergeWithMapper
 operator|.
-name|name
+name|simpleName
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3281,7 +3274,8 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|name
+name|simpleName
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
