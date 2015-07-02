@@ -2280,7 +2280,7 @@ literal|"dadada"
 argument_list|)
 block|,
 operator|new
-name|SecurityException
+name|ElasticsearchSecurityException
 argument_list|(
 literal|"nono!"
 argument_list|)
