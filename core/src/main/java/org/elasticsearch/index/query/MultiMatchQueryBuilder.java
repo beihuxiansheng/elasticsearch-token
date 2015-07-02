@@ -593,8 +593,6 @@ name|ElasticsearchParseException
 argument_list|(
 literal|"failed to parse [{}] query type [{}]. unknown type."
 argument_list|,
-name|MultiMatchQueryParser
-operator|.
 name|NAME
 argument_list|,
 name|value
