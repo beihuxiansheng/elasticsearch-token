@@ -1459,7 +1459,7 @@ specifier|public
 name|Query
 name|fuzzyQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|Fuzziness
@@ -1478,7 +1478,7 @@ block|{
 name|long
 name|iValue
 init|=
-name|ipToLong
+name|parseValue
 argument_list|(
 name|value
 argument_list|)

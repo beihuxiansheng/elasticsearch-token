@@ -2724,7 +2724,7 @@ specifier|public
 name|Query
 name|fuzzyQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|Fuzziness
@@ -2743,15 +2743,9 @@ block|{
 name|long
 name|iValue
 init|=
-name|dateMathParser
-argument_list|()
-operator|.
-name|parse
+name|parseValue
 argument_list|(
 name|value
-argument_list|,
-name|now
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|long

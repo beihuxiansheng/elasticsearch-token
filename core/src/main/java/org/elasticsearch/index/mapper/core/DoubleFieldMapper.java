@@ -1151,7 +1151,7 @@ specifier|public
 name|Query
 name|fuzzyQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|Fuzziness
@@ -1170,9 +1170,7 @@ block|{
 name|double
 name|iValue
 init|=
-name|Double
-operator|.
-name|parseDouble
+name|parseDoubleValue
 argument_list|(
 name|value
 argument_list|)

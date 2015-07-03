@@ -1119,7 +1119,7 @@ specifier|public
 name|Query
 name|fuzzyQuery
 parameter_list|(
-name|String
+name|Object
 name|value
 parameter_list|,
 name|Fuzziness
@@ -1138,9 +1138,7 @@ block|{
 name|byte
 name|iValue
 init|=
-name|Byte
-operator|.
-name|parseByte
+name|parseValue
 argument_list|(
 name|value
 argument_list|)
