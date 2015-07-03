@@ -199,7 +199,7 @@ specifier|abstract
 class|class
 name|QueryBuilders
 block|{
-comment|/**      * A query that match on all documents.      */
+comment|/**      * A query that matches on all documents.      */
 DECL|method|matchAllQuery
 specifier|public
 specifier|static

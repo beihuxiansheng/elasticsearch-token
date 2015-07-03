@@ -18801,7 +18801,10 @@ argument_list|)
 operator|.
 name|noMatchQuery
 argument_list|(
-literal|"all"
+name|QueryBuilders
+operator|.
+name|matchAllQuery
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -18881,6 +18884,13 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/12822"
+argument_list|)
 annotation|@
 name|Test
 comment|// https://github.com/elasticsearch/elasticsearch/issues/2416

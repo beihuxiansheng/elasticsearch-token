@@ -831,6 +831,13 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|registerQueryParser
+argument_list|(
+name|MatchNoneQueryParser
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|ShapesAvailability
