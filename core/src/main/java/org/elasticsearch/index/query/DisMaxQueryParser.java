@@ -278,13 +278,6 @@ operator|.
 name|parseInnerQueryBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|query
-operator|!=
-literal|null
-condition|)
-block|{
 name|queries
 operator|.
 name|add
@@ -292,7 +285,6 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -356,13 +348,6 @@ operator|.
 name|parseInnerQueryBuilder
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|query
-operator|!=
-literal|null
-condition|)
-block|{
 name|queries
 operator|.
 name|add
@@ -370,7 +355,6 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-block|}
 name|token
 operator|=
 name|parser

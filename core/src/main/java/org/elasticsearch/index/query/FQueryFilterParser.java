@@ -331,17 +331,6 @@ literal|"[fquery] requires 'query' element"
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|wrappedQuery
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|FQueryFilterBuilder
 name|queryBuilder
 init|=

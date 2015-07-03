@@ -148,10 +148,21 @@ name|PROTOTYPE
 init|=
 operator|new
 name|ConstantScoreQueryBuilder
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 decl_stmt|;
+comment|// only used for prototype
+DECL|method|ConstantScoreQueryBuilder
+specifier|private
+name|ConstantScoreQueryBuilder
+parameter_list|()
+block|{
+name|this
+operator|.
+name|filterBuilder
+operator|=
+literal|null
+expr_stmt|;
+block|}
 comment|/**      * A query that wraps another query and simply returns a constant score equal to the      * query boost for every document in the query.      *      * @param filterBuilder The query to wrap in a constant score query      */
 DECL|method|ConstantScoreQueryBuilder
 specifier|public
@@ -165,7 +176,12 @@ name|this
 operator|.
 name|filterBuilder
 operator|=
+name|Objects
+operator|.
+name|requireNonNull
+argument_list|(
 name|filterBuilder
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @return the query that was wrapped in this constant score query      */
@@ -204,13 +220,18 @@ argument_list|(
 name|NAME
 argument_list|)
 expr_stmt|;
-name|doXContentInnerBuilder
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"filter"
+argument_list|)
+expr_stmt|;
+name|filterBuilder
+operator|.
+name|toXContent
 argument_list|(
 name|builder
-argument_list|,
-literal|"filter"
-argument_list|,
-name|filterBuilder
 argument_list|,
 name|params
 argument_list|)
@@ -239,18 +260,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// current DSL allows empty inner filter clauses, we ignore them
-if|if
-condition|(
-name|filterBuilder
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|Query
 name|innerFilter
 init|=

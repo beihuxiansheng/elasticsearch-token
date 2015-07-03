@@ -749,12 +749,22 @@ specifier|public
 specifier|static
 name|BoostingQueryBuilder
 name|boostingQuery
-parameter_list|()
+parameter_list|(
+name|QueryBuilder
+name|positiveQuery
+parameter_list|,
+name|QueryBuilder
+name|negativeQuery
+parameter_list|)
 block|{
 return|return
 operator|new
 name|BoostingQueryBuilder
-argument_list|()
+argument_list|(
+name|positiveQuery
+argument_list|,
+name|negativeQuery
+argument_list|)
 return|;
 block|}
 comment|/**      * A Query that matches documents matching boolean combinations of other queries.      */

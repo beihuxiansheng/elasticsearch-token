@@ -1224,7 +1224,9 @@ condition|)
 block|{
 comment|// empty query
 return|return
-literal|null
+name|EmptyQueryBuilder
+operator|.
+name|PROTOTYPE
 return|;
 block|}
 if|if

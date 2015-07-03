@@ -8441,9 +8441,6 @@ operator|.
 name|parse
 argument_list|(
 name|boostingQuery
-argument_list|()
-operator|.
-name|positive
 argument_list|(
 name|termQuery
 argument_list|(
@@ -8451,10 +8448,7 @@ literal|"field1"
 argument_list|,
 literal|"value1"
 argument_list|)
-argument_list|)
-operator|.
-name|negative
-argument_list|(
+argument_list|,
 name|termQuery
 argument_list|(
 literal|"field1"
