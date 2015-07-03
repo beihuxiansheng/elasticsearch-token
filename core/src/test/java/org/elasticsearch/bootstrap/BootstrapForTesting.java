@@ -192,8 +192,6 @@ argument_list|(
 literal|true
 argument_list|,
 literal|true
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 comment|// check for jar hell
@@ -393,28 +391,6 @@ operator|.
 name|resolve
 argument_list|(
 literal|"test-classes"
-argument_list|)
-argument_list|,
-literal|"read,readlink"
-argument_list|)
-expr_stmt|;
-comment|// lib/sigar
-name|Security
-operator|.
-name|addPath
-argument_list|(
-name|perms
-argument_list|,
-name|basedir
-operator|.
-name|resolve
-argument_list|(
-literal|"lib"
-argument_list|)
-operator|.
-name|resolve
-argument_list|(
-literal|"sigar"
 argument_list|)
 argument_list|,
 literal|"read,readlink"

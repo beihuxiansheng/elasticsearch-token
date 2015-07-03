@@ -338,18 +338,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|hyperic
-operator|.
-name|sigar
-operator|.
-name|Sigar
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -668,9 +656,6 @@ name|mlockAll
 parameter_list|,
 name|boolean
 name|ctrlHandler
-parameter_list|,
-name|boolean
-name|loadSigar
 parameter_list|)
 block|{
 specifier|final
@@ -831,54 +816,6 @@ parameter_list|)
 block|{
 comment|// we've already logged this.
 block|}
-if|if
-condition|(
-name|loadSigar
-condition|)
-block|{
-comment|// initialize sigar explicitly
-try|try
-block|{
-name|Sigar
-operator|.
-name|load
-argument_list|()
-expr_stmt|;
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"sigar libraries loaded successfully"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"failed to load sigar libraries"
-argument_list|,
-name|t
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"sigar not loaded, disabled via settings"
-argument_list|)
-expr_stmt|;
-block|}
 comment|// init lucene random seed. it will use /dev/urandom where available:
 name|StringHelper
 operator|.
@@ -933,15 +870,6 @@ operator|.
 name|getAsBoolean
 argument_list|(
 literal|"bootstrap.ctrlhandler"
-argument_list|,
-literal|true
-argument_list|)
-argument_list|,
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-literal|"bootstrap.sigar"
 argument_list|,
 literal|true
 argument_list|)
