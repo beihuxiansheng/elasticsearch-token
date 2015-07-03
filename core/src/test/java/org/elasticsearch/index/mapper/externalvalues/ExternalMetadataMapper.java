@@ -343,6 +343,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|FIELD_NAME
+argument_list|,
 name|FIELD_TYPE
 argument_list|,
 literal|true

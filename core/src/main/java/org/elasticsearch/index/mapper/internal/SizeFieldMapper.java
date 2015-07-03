@@ -382,15 +382,6 @@ name|IntegerFieldMapper
 operator|.
 name|Defaults
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-name|CONTENT_TYPE
-decl_stmt|;
 DECL|field|ENABLED_STATE
 specifier|public
 specifier|static
@@ -518,8 +509,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|Defaults
-operator|.
 name|NAME
 argument_list|,
 name|existing
@@ -850,6 +839,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NAME
+argument_list|,
 name|fieldType
 argument_list|,
 literal|false
@@ -875,8 +866,6 @@ name|contentType
 parameter_list|()
 block|{
 return|return
-name|Defaults
-operator|.
 name|NAME
 return|;
 block|}

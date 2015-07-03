@@ -1127,6 +1127,8 @@ return|return
 operator|new
 name|CompletionFieldMapper
 argument_list|(
+name|name
+argument_list|,
 name|fieldType
 argument_list|,
 name|maxInputLength
@@ -2160,6 +2162,9 @@ DECL|method|CompletionFieldMapper
 specifier|public
 name|CompletionFieldMapper
 parameter_list|(
+name|String
+name|simpleName
+parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
@@ -2178,6 +2183,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|simpleName
+argument_list|,
 name|fieldType
 argument_list|,
 literal|false
@@ -3618,13 +3625,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|fieldType
-argument_list|()
-operator|.
-name|names
-argument_list|()
-operator|.
-name|shortName
+name|simpleName
 argument_list|()
 argument_list|)
 operator|.

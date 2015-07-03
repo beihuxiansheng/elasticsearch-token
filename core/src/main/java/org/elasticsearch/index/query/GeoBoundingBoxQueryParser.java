@@ -1133,10 +1133,7 @@ name|CONTENT_TYPE
 argument_list|,
 name|fieldType
 operator|.
-name|names
-argument_list|()
-operator|.
-name|shortName
+name|typeName
 argument_list|()
 argument_list|)
 throw|;

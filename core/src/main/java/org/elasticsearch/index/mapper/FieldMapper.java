@@ -42,37 +42,48 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
-begin_interface
-DECL|interface|FieldMapper
+begin_class
+DECL|class|FieldMapper
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|FieldMapper
 extends|extends
 name|Mapper
 block|{
-DECL|field|DOC_VALUES_FORMAT
+DECL|method|FieldMapper
+specifier|public
+name|FieldMapper
+parameter_list|(
 name|String
-name|DOC_VALUES_FORMAT
-init|=
-literal|"doc_values_format"
-decl_stmt|;
+name|simpleName
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|simpleName
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|fieldType
+specifier|public
+specifier|abstract
 name|MappedFieldType
 name|fieldType
 parameter_list|()
 function_decl|;
 comment|/** Returns a reference to the MappedFieldType for this mapper. */
 DECL|method|fieldTypeReference
+specifier|public
+specifier|abstract
 name|MappedFieldTypeReference
 name|fieldTypeReference
 parameter_list|()
 function_decl|;
 comment|/**      * Updates the reference to this field's MappedFieldType.      * Implementations should assert equality of the underlying field type      */
 DECL|method|setFieldTypeReference
+specifier|public
+specifier|abstract
 name|void
 name|setFieldTypeReference
 parameter_list|(
@@ -82,6 +93,8 @@ parameter_list|)
 function_decl|;
 comment|/**      * List of fields where this field should be copied to      */
 DECL|method|copyTo
+specifier|public
+specifier|abstract
 name|AbstractFieldMapper
 operator|.
 name|CopyTo
@@ -90,12 +103,16 @@ parameter_list|()
 function_decl|;
 comment|/**      * Fields might not be available before indexing, for example _all, token_count,...      * When get is called and these fields are requested, this case needs special treatment.      *      * @return If the field is available before indexing or not.      * */
 DECL|method|isGenerated
+specifier|public
+specifier|abstract
 name|boolean
 name|isGenerated
 parameter_list|()
 function_decl|;
 comment|/**      * Parse using the provided {@link ParseContext} and return a mapping      * update if dynamic mappings modified the mappings, or {@code null} if      * mappings were not modified.      */
 DECL|method|parse
+specifier|public
+specifier|abstract
 name|Mapper
 name|parse
 parameter_list|(
@@ -106,7 +123,7 @@ throws|throws
 name|IOException
 function_decl|;
 block|}
-end_interface
+end_class
 
 end_unit
 

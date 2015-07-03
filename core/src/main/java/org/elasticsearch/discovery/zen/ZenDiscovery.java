@@ -74,6 +74,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|*
@@ -5235,7 +5245,6 @@ return|;
 block|}
 block|}
 DECL|method|handleJoinRequest
-specifier|private
 name|void
 name|handleJoinRequest
 parameter_list|(
@@ -5280,6 +5289,60 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// The minimum supported version for a node joining a master:
+name|Version
+name|minimumNodeJoinVersion
+init|=
+name|localNode
+argument_list|()
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+decl_stmt|;
+comment|// Sanity check: maybe we don't end up here, because serialization may have failed.
+if|if
+condition|(
+name|node
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|minimumNodeJoinVersion
+argument_list|)
+condition|)
+block|{
+name|callback
+operator|.
+name|onFailure
+argument_list|(
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Can't handle join request from a node with a version ["
+operator|+
+name|node
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|"] that is lower than the minimum compatible version ["
+operator|+
+name|minimumNodeJoinVersion
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+operator|+
+literal|"]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// try and connect to the node, if it fails, we can raise an exception back to the client...
 name|transportService
 operator|.

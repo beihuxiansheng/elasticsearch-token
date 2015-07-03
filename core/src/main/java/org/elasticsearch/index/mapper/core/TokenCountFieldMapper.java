@@ -494,6 +494,8 @@ init|=
 operator|new
 name|TokenCountFieldMapper
 argument_list|(
+name|name
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues
@@ -830,6 +832,9 @@ DECL|method|TokenCountFieldMapper
 specifier|protected
 name|TokenCountFieldMapper
 parameter_list|(
+name|String
+name|simpleName
+parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
@@ -866,6 +871,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|simpleName
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues
@@ -1006,13 +1013,7 @@ argument_list|()
 operator|.
 name|tokenStream
 argument_list|(
-name|fieldType
-argument_list|()
-operator|.
-name|names
-argument_list|()
-operator|.
-name|shortName
+name|simpleName
 argument_list|()
 argument_list|,
 name|valueAndBoost

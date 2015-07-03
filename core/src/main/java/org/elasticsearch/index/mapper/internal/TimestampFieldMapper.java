@@ -1653,6 +1653,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NAME
+argument_list|,
 name|fieldType
 argument_list|,
 name|docValues

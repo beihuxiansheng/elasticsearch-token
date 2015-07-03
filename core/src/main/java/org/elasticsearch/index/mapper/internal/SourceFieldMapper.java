@@ -1690,6 +1690,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|NAME
+argument_list|,
 name|Defaults
 operator|.
 name|FIELD_TYPE

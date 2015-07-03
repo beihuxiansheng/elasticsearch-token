@@ -420,6 +420,10 @@ operator|new
 name|ElectMasterService
 argument_list|(
 name|settings
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
 argument_list|)
 decl_stmt|;
 name|NettyTransport

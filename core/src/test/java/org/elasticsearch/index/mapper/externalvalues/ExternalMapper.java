@@ -814,6 +814,8 @@ return|return
 operator|new
 name|ExternalMapper
 argument_list|(
+name|name
+argument_list|,
 name|fieldType
 argument_list|,
 name|generatedValue
@@ -1148,6 +1150,9 @@ DECL|method|ExternalMapper
 specifier|public
 name|ExternalMapper
 parameter_list|(
+name|String
+name|simpleName
+parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
@@ -1184,6 +1189,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|simpleName
+argument_list|,
 name|fieldType
 argument_list|,
 literal|false
@@ -1514,13 +1521,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|fieldType
-argument_list|()
-operator|.
-name|names
-argument_list|()
-operator|.
-name|shortName
+name|simpleName
 argument_list|()
 argument_list|)
 expr_stmt|;
