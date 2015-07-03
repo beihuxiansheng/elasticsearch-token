@@ -587,7 +587,12 @@ name|ImmutableMap
 operator|.
 name|copyOf
 argument_list|(
+operator|new
+name|TreeMap
+argument_list|<>
+argument_list|(
 name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Map

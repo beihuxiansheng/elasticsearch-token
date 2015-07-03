@@ -1126,8 +1126,8 @@ parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
-name|Boolean
-name|docValues
+name|MappedFieldType
+name|defaultFieldType
 parameter_list|,
 name|Explicit
 argument_list|<
@@ -1141,11 +1141,6 @@ name|Boolean
 argument_list|>
 name|coerce
 parameter_list|,
-annotation|@
-name|Nullable
-name|Settings
-name|fieldDataSettings
-parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -1156,16 +1151,13 @@ name|CopyTo
 name|copyTo
 parameter_list|)
 block|{
-comment|// LUCENE 4 UPGRADE: Since we can't do anything before the super call, we have to push the boost check down to subclasses
 name|super
 argument_list|(
 name|simpleName
 argument_list|,
 name|fieldType
 argument_list|,
-name|docValues
-argument_list|,
-name|fieldDataSettings
+name|defaultFieldType
 argument_list|,
 name|indexSettings
 argument_list|,
