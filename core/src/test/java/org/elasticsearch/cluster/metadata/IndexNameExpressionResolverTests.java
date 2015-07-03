@@ -112,9 +112,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexClosedException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -126,7 +126,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndexMissingException
+name|IndexClosedException
 import|;
 end_import
 
@@ -431,7 +431,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -439,10 +439,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -543,7 +540,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -551,10 +548,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -583,7 +577,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -591,10 +585,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -657,7 +648,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -665,10 +656,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1796,7 +1784,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -1804,10 +1792,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1834,7 +1819,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -1842,10 +1827,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -1874,7 +1856,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -1882,10 +1864,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2529,7 +2508,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -2537,15 +2516,15 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
+name|getResourceId
 argument_list|()
 operator|.
-name|name
+name|toString
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"-*"
+literal|"[-*]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2880,7 +2859,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -2888,10 +2867,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3041,7 +3017,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3049,10 +3025,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3145,7 +3118,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3153,10 +3126,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3185,7 +3155,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3193,10 +3163,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3396,7 +3363,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3404,10 +3371,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3454,7 +3418,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3462,10 +3426,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3641,10 +3602,7 @@ name|assertEquals
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|getName
+name|getIndex
 argument_list|()
 argument_list|,
 literal|"foofoo-closed"
@@ -3812,7 +3770,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3820,10 +3778,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -3871,7 +3826,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -3879,10 +3834,7 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4026,7 +3978,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -4034,10 +3986,10 @@ name|assertThat
 argument_list|(
 name|e
 operator|.
-name|index
+name|getResourceId
 argument_list|()
 operator|.
-name|name
+name|toString
 argument_list|()
 argument_list|,
 name|equalTo
@@ -4101,7 +4053,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IndexMissingException
+name|IndexNotFoundException
 operator|.
 name|class
 argument_list|)
@@ -4306,7 +4258,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IndexMissingException
+name|IndexNotFoundException
 operator|.
 name|class
 argument_list|)
@@ -5302,7 +5254,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -5546,7 +5498,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{

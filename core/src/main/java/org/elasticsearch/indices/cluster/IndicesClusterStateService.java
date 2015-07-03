@@ -380,18 +380,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexShardMissingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|aliases
 operator|.
 name|IndexAliasesService
@@ -5046,7 +5034,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexShardMissingException
+name|ShardNotFoundException
 name|e
 parameter_list|)
 block|{

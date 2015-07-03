@@ -446,6 +446,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|ShardId
@@ -473,18 +485,6 @@ operator|.
 name|indices
 operator|.
 name|IndexClosedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -3087,25 +3087,16 @@ block|}
 catch|catch
 parameter_list|(
 name|IndexClosedException
-name|ice
-parameter_list|)
-block|{
-name|unavailableException
-operator|=
-name|ice
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IndexMissingException
-name|ime
+decl||
+name|IndexNotFoundException
+name|ex
 parameter_list|)
 block|{
 comment|// Fix for issue where bulk request references an index that
 comment|// cannot be auto-created see issue #8125
 name|unavailableException
 operator|=
-name|ime
+name|ex
 expr_stmt|;
 block|}
 block|}

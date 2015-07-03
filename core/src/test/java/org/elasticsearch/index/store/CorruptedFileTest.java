@@ -1736,10 +1736,8 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|IndexShardException
+name|IOException
 argument_list|(
-name|sid
-argument_list|,
 literal|"index check failure"
 argument_list|)
 throw|;

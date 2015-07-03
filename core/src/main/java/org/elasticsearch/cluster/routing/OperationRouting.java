@@ -198,19 +198,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexShardMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -234,9 +222,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexMissingException
+name|shard
+operator|.
+name|ShardNotFoundException
 import|;
 end_import
 
@@ -345,10 +335,6 @@ name|Nullable
 name|String
 name|routing
 parameter_list|)
-throws|throws
-name|IndexMissingException
-throws|,
-name|IndexShardMissingException
 block|{
 return|return
 name|shards
@@ -390,10 +376,6 @@ name|Nullable
 name|String
 name|routing
 parameter_list|)
-throws|throws
-name|IndexMissingException
-throws|,
-name|IndexShardMissingException
 block|{
 return|return
 name|shards
@@ -440,10 +422,6 @@ name|Nullable
 name|String
 name|preference
 parameter_list|)
-throws|throws
-name|IndexMissingException
-throws|,
-name|IndexShardMissingException
 block|{
 return|return
 name|preferenceActiveShardIterator
@@ -497,10 +475,6 @@ name|Nullable
 name|String
 name|preference
 parameter_list|)
-throws|throws
-name|IndexMissingException
-throws|,
-name|IndexShardMissingException
 block|{
 return|return
 name|preferenceActiveShardIterator
@@ -542,8 +516,6 @@ parameter_list|,
 name|String
 name|index
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 return|return
 name|indexRoutingTable
@@ -582,8 +554,6 @@ argument_list|>
 argument_list|>
 name|routing
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 specifier|final
 name|Set
@@ -638,8 +608,6 @@ name|Nullable
 name|String
 name|preference
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 specifier|final
 name|Set
@@ -782,8 +750,6 @@ argument_list|>
 argument_list|>
 name|routing
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 name|routing
 operator|=
@@ -892,7 +858,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardMissingException
+name|ShardNotFoundException
 argument_list|(
 operator|new
 name|ShardId
@@ -1491,13 +1457,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -1539,13 +1501,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -1641,7 +1599,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardMissingException
+name|ShardNotFoundException
 argument_list|(
 operator|new
 name|ShardId

@@ -142,6 +142,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|query
 operator|.
 name|QueryBuilder
@@ -159,18 +171,6 @@ operator|.
 name|query
 operator|.
 name|QueryBuilders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -1480,7 +1480,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IndexMissingException
+name|IndexNotFoundException
 operator|.
 name|class
 argument_list|)

@@ -250,7 +250,7 @@ name|alias
 operator|.
 name|delete
 operator|.
-name|AliasesMissingException
+name|AliasesNotFoundException
 import|;
 end_import
 
@@ -670,7 +670,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|AliasesMissingException
+name|AliasesNotFoundException
 argument_list|(
 name|aliases
 operator|.

@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|ActionRequestBuilder
@@ -553,6 +563,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -6099,7 +6121,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{         }
@@ -6135,7 +6157,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{         }
@@ -10564,13 +10586,13 @@ argument_list|()
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"IndexMissingException or IndexClosedException was expected"
+literal|"IndexNotFoundException or IndexClosedException was expected"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 decl||
 name|IndexClosedException
 name|e

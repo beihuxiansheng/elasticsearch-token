@@ -252,6 +252,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|engine
 operator|.
 name|DocumentMissingException
@@ -269,18 +281,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -1188,7 +1188,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|e
 parameter_list|)
 block|{

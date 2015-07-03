@@ -335,8 +335,6 @@ parameter_list|(
 name|IndexMetaData
 name|indexMetaData
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// Throws an exception if there are too-old segments:
 name|checkSupportedVersion
@@ -372,8 +370,6 @@ parameter_list|(
 name|IndexMetaData
 name|indexMetaData
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -502,8 +498,6 @@ parameter_list|(
 name|IndexMetaData
 name|indexMetaData
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(

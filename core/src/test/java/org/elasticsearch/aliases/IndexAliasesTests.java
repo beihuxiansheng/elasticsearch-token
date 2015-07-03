@@ -314,7 +314,7 @@ name|alias
 operator|.
 name|delete
 operator|.
-name|AliasesMissingException
+name|AliasesNotFoundException
 import|;
 end_import
 
@@ -5935,7 +5935,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|AliasesMissingException
+name|AliasesNotFoundException
 operator|.
 name|class
 argument_list|)

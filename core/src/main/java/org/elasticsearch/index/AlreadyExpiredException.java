@@ -177,9 +177,10 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
+name|setIndex
+argument_list|(
 name|index
-operator|=
-name|index
+argument_list|)
 expr_stmt|;
 name|this
 operator|.

@@ -334,9 +334,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexMissingException
+name|*
 import|;
 end_import
 
@@ -1709,7 +1709,13 @@ argument_list|)
 operator|.
 name|expectedException
 argument_list|(
-name|IndexMissingException
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexNotFoundException
 operator|.
 name|class
 argument_list|)

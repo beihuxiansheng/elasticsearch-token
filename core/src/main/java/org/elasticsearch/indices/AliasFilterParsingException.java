@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -44,18 +54,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -74,7 +72,7 @@ specifier|public
 class|class
 name|AliasFilterParsingException
 extends|extends
-name|IndexException
+name|ElasticsearchException
 block|{
 DECL|method|AliasFilterParsingException
 specifier|public
@@ -95,8 +93,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
-argument_list|,
 literal|"["
 operator|+
 name|name
@@ -106,6 +102,11 @@ operator|+
 name|desc
 argument_list|,
 name|ex
+argument_list|)
+expr_stmt|;
+name|setIndex
+argument_list|(
+name|index
 argument_list|)
 expr_stmt|;
 block|}

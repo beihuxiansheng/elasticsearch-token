@@ -164,9 +164,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -519,7 +519,7 @@ comment|//This should not happen
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|ime
 parameter_list|)
 block|{

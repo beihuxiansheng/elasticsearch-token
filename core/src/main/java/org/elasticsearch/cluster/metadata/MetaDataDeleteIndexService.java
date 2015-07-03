@@ -236,19 +236,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -685,15 +673,11 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|request
 operator|.
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}

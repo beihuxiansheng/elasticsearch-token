@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticsearchWrapperException
 import|;
 end_import
@@ -82,20 +92,6 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
 name|ShardId
 import|;
 end_import
@@ -130,7 +126,7 @@ specifier|public
 class|class
 name|RecoverFilesRecoveryException
 extends|extends
-name|IndexShardException
+name|ElasticsearchException
 implements|implements
 name|ElasticsearchWrapperException
 block|{
@@ -165,19 +161,13 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|shardId
-argument_list|,
-literal|"Failed to transfer ["
-operator|+
-name|numberOfFiles
-operator|+
-literal|"] files with total size of ["
-operator|+
-name|totalFilesSize
-operator|+
-literal|"]"
+literal|"Failed to transfer [{}] files with total size of [{}]"
 argument_list|,
 name|cause
+argument_list|,
+name|numberOfFiles
+argument_list|,
+name|totalFilesSize
 argument_list|)
 expr_stmt|;
 name|Objects
@@ -187,6 +177,11 @@ argument_list|(
 name|totalFilesSize
 argument_list|,
 literal|"totalFilesSize must not be null"
+argument_list|)
+expr_stmt|;
+name|setShard
+argument_list|(
+name|shardId
 argument_list|)
 expr_stmt|;
 name|this

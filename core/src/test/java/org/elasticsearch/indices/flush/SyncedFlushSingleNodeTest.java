@@ -88,6 +88,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|IndexService
 import|;
 end_import
@@ -131,6 +143,20 @@ operator|.
 name|shard
 operator|.
 name|ShardId
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardNotFoundException
 import|;
 end_import
 
@@ -1143,7 +1169,21 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"missing"
+name|ShardNotFoundException
+operator|.
+name|class
+argument_list|,
+name|listener
+operator|.
+name|error
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"no such shard"
 argument_list|,
 name|listener
 operator|.
@@ -1244,7 +1284,7 @@ argument_list|(
 operator|new
 name|ShardId
 argument_list|(
-literal|"nosuchindex"
+literal|"index not found"
 argument_list|,
 literal|0
 argument_list|)

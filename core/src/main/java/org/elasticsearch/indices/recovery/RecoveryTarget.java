@@ -342,7 +342,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexShardMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -413,18 +413,6 @@ operator|.
 name|store
 operator|.
 name|Store
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -1895,11 +1883,11 @@ name|IllegalIndexShardStateException
 operator|||
 name|cause
 operator|instanceof
-name|IndexMissingException
+name|IndexNotFoundException
 operator|||
 name|cause
 operator|instanceof
-name|IndexShardMissingException
+name|ShardNotFoundException
 condition|)
 block|{
 comment|// if the target is not ready yet, retry
