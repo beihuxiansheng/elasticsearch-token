@@ -457,9 +457,6 @@ name|Objects
 operator|.
 name|hash
 argument_list|(
-name|getClass
-argument_list|()
-argument_list|,
 name|fieldName
 argument_list|,
 name|value
