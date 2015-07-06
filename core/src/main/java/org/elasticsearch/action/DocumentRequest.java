@@ -40,6 +40,8 @@ name|DocumentRequest
 parameter_list|<
 name|T
 parameter_list|>
+extends|extends
+name|IndicesRequest
 block|{
 comment|/**      * Get the index that this request operates on      * @return the index      */
 DECL|method|index

@@ -567,10 +567,6 @@ name|clusterState
 parameter_list|,
 name|String
 index|[]
-name|indices
-parameter_list|,
-name|String
-index|[]
 name|concreteIndices
 parameter_list|,
 annotation|@
@@ -585,11 +581,6 @@ name|String
 argument_list|>
 argument_list|>
 name|routing
-parameter_list|,
-annotation|@
-name|Nullable
-name|String
-name|preference
 parameter_list|)
 throws|throws
 name|IndexMissingException
@@ -624,10 +615,6 @@ name|searchShards
 parameter_list|(
 name|ClusterState
 name|clusterState
-parameter_list|,
-name|String
-index|[]
-name|indices
 parameter_list|,
 name|String
 index|[]

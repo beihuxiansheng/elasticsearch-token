@@ -543,6 +543,16 @@ argument_list|()
 expr_stmt|;
 name|bind
 argument_list|(
+name|IndexNameExpressionResolver
+operator|.
+name|class
+argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
+expr_stmt|;
+name|bind
+argument_list|(
 name|RoutingService
 operator|.
 name|class
