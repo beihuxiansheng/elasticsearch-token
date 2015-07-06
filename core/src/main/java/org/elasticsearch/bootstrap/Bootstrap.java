@@ -294,7 +294,7 @@ name|monitor
 operator|.
 name|process
 operator|.
-name|JmxProcessProbe
+name|ProcessProbe
 import|;
 end_import
 
@@ -823,6 +823,19 @@ name|randomId
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|initializeProbes
+specifier|static
+name|void
+name|initializeProbes
+parameter_list|()
+block|{
+comment|// Force probes to be loaded
+name|ProcessProbe
+operator|.
+name|getInstance
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|isMemoryLocked
 specifier|public
 specifier|static
@@ -874,6 +887,10 @@ argument_list|,
 literal|true
 argument_list|)
 argument_list|)
+expr_stmt|;
+comment|// initialize probes before the security manager is installed
+name|initializeProbes
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -1408,7 +1425,10 @@ name|info
 argument_list|(
 literal|"max_open_files [{}]"
 argument_list|,
-name|JmxProcessProbe
+name|ProcessProbe
+operator|.
+name|getInstance
+argument_list|()
 operator|.
 name|getMaxFileDescriptorCount
 argument_list|()

@@ -2588,7 +2588,7 @@ operator|.
 name|getProcess
 argument_list|()
 operator|.
-name|cpu
+name|getCpu
 argument_list|()
 operator|!=
 literal|null
@@ -2602,7 +2602,7 @@ operator|.
 name|getProcess
 argument_list|()
 operator|.
-name|cpu
+name|getCpu
 argument_list|()
 operator|.
 name|getPercent
@@ -2617,7 +2617,7 @@ operator|.
 name|getProcess
 argument_list|()
 operator|.
-name|openFileDescriptors
+name|getOpenFileDescriptors
 argument_list|()
 decl_stmt|;
 if|if
