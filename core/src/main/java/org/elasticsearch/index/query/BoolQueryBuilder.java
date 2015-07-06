@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Returns<code>true</code> iff this query builder has at least one should, must or mustNot clause.      * Otherwise<code>false</code>.      */
+comment|/**      * Returns<code>true</code> iff this query builder has at least one should, must, must not or filter clause.      * Otherwise<code>false</code>.      */
 DECL|method|hasClauses
 specifier|public
 name|boolean
@@ -367,6 +367,11 @@ name|isEmpty
 argument_list|()
 operator|&&
 name|mustNotClauses
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
+name|filterClauses
 operator|.
 name|isEmpty
 argument_list|()
