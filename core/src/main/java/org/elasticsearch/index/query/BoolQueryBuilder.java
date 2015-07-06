@@ -638,6 +638,11 @@ name|mustNotClauses
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|filterClauses
+operator|.
+name|isEmpty
+argument_list|()
 operator|)
 return|;
 block|}
