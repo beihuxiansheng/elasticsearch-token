@@ -292,6 +292,20 @@ name|elasticsearch
 operator|.
 name|monitor
 operator|.
+name|os
+operator|.
+name|OsProbe
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|monitor
+operator|.
 name|process
 operator|.
 name|ProcessProbe
@@ -831,6 +845,11 @@ parameter_list|()
 block|{
 comment|// Force probes to be loaded
 name|ProcessProbe
+operator|.
+name|getInstance
+argument_list|()
+expr_stmt|;
+name|OsProbe
 operator|.
 name|getInstance
 argument_list|()
