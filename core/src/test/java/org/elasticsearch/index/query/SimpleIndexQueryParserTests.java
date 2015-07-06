@@ -11924,9 +11924,6 @@ operator|.
 name|parse
 argument_list|(
 name|spanContainingQuery
-argument_list|()
-operator|.
-name|big
 argument_list|(
 name|spanTermQuery
 argument_list|(
@@ -11934,10 +11931,7 @@ literal|"age"
 argument_list|,
 literal|34
 argument_list|)
-argument_list|)
-operator|.
-name|little
-argument_list|(
+argument_list|,
 name|spanTermQuery
 argument_list|(
 literal|"age"
