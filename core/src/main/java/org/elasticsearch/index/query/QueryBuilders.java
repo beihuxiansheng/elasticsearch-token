@@ -1701,12 +1701,6 @@ operator|new
 name|TermsQueryBuilder
 argument_list|(
 name|name
-argument_list|,
-operator|(
-name|Object
-index|[]
-operator|)
-literal|null
 argument_list|)
 return|;
 block|}
