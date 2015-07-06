@@ -90,8 +90,9 @@ specifier|private
 name|int
 name|flags
 init|=
-operator|-
-literal|1
+name|RegexpQueryParser
+operator|.
+name|DEFAULT_FLAGS_VALUE
 decl_stmt|;
 DECL|field|boost
 specifier|private
