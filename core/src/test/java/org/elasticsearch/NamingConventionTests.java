@@ -513,7 +513,6 @@ condition|)
 block|{
 if|if
 condition|(
-operator|(
 name|clazz
 operator|.
 name|getName
@@ -531,9 +530,18 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
+literal|"IT"
+argument_list|)
+operator|||
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
 literal|"Test"
 argument_list|)
-operator|)
 condition|)
 block|{
 comment|// don't worry about the ones that match the pattern
