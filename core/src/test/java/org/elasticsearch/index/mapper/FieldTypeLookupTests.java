@@ -1335,7 +1335,12 @@ argument_list|,
 name|indexName
 argument_list|)
 argument_list|,
-literal|null
+name|makeFieldType
+argument_list|(
+name|fullName
+argument_list|,
+name|indexName
+argument_list|)
 argument_list|,
 name|dummySettings
 argument_list|,
