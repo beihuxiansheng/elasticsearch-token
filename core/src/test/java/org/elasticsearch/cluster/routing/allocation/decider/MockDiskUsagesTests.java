@@ -1342,8 +1342,6 @@ literal|null
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|fsStats
 argument_list|,
 literal|null
