@@ -399,7 +399,7 @@ name|name
 argument_list|,
 name|fieldType
 argument_list|,
-name|docValues
+name|defaultFieldType
 argument_list|,
 name|ignoreMalformed
 argument_list|(
@@ -410,8 +410,6 @@ name|coerce
 argument_list|(
 name|context
 argument_list|)
-argument_list|,
-name|fieldDataSettings
 argument_list|,
 name|context
 operator|.
@@ -666,8 +664,8 @@ parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
-name|Boolean
-name|docValues
+name|MappedFieldType
+name|defaultFieldType
 parameter_list|,
 name|Explicit
 argument_list|<
@@ -680,11 +678,6 @@ argument_list|<
 name|Boolean
 argument_list|>
 name|coerce
-parameter_list|,
-annotation|@
-name|Nullable
-name|Settings
-name|fieldDataSettings
 parameter_list|,
 name|Settings
 name|indexSettings
@@ -702,13 +695,11 @@ name|simpleName
 argument_list|,
 name|fieldType
 argument_list|,
-name|docValues
+name|defaultFieldType
 argument_list|,
 name|ignoreMalformed
 argument_list|,
 name|coerce
-argument_list|,
-name|fieldDataSettings
 argument_list|,
 name|indexSettings
 argument_list|,

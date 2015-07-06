@@ -152,13 +152,8 @@ parameter_list|,
 name|MappedFieldType
 name|fieldType
 parameter_list|,
-name|Boolean
-name|docValues
-parameter_list|,
-annotation|@
-name|Nullable
-name|Settings
-name|fieldDataSettings
+name|MappedFieldType
+name|defaultFieldType
 parameter_list|,
 name|Settings
 name|indexSettings
@@ -170,9 +165,7 @@ name|simpleName
 argument_list|,
 name|fieldType
 argument_list|,
-name|docValues
-argument_list|,
-name|fieldDataSettings
+name|defaultFieldType
 argument_list|,
 name|indexSettings
 argument_list|,
