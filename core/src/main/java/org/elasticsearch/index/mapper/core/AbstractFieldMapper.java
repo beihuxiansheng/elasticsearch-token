@@ -1782,6 +1782,12 @@ argument_list|(
 name|fieldType
 argument_list|)
 expr_stmt|;
+comment|// the reference ctor freezes the field type
+name|defaultFieldType
+operator|.
+name|freeze
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|defaultFieldType

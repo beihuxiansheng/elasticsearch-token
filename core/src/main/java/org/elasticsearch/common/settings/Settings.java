@@ -68,6 +68,20 @@ name|common
 operator|.
 name|collect
 operator|.
+name|ImmutableSortedMap
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|collect
+operator|.
 name|Iterables
 import|;
 end_import
@@ -579,20 +593,17 @@ name|ClassLoader
 name|classLoader
 parameter_list|)
 block|{
+comment|// we use a sorted map for consistent serialization when using getAsMap()
+comment|// TODO: use Collections.unmodifiableMap with a TreeMap
 name|this
 operator|.
 name|settings
 operator|=
-name|ImmutableMap
+name|ImmutableSortedMap
 operator|.
 name|copyOf
 argument_list|(
-operator|new
-name|TreeMap
-argument_list|<>
-argument_list|(
 name|settings
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|Map
