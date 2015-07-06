@@ -1118,6 +1118,13 @@ name|factories
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|factories
+operator|.
+name|init
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
 name|Aggregator
 index|[]
 name|aggs
@@ -1125,9 +1132,7 @@ init|=
 name|factories
 operator|.
 name|createTopLevelAggregators
-argument_list|(
-name|context
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|BucketCollector
 name|collector

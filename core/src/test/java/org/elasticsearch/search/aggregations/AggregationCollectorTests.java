@@ -307,6 +307,13 @@ argument_list|(
 name|searchContext
 argument_list|)
 decl_stmt|;
+name|factories
+operator|.
+name|init
+argument_list|(
+name|aggregationContext
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Aggregator
 index|[]
@@ -315,9 +322,7 @@ init|=
 name|factories
 operator|.
 name|createTopLevelAggregators
-argument_list|(
-name|aggregationContext
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(

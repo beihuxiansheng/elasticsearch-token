@@ -252,7 +252,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceConfig
+name|ValuesSourceParser
 import|;
 end_import
 
@@ -775,13 +775,15 @@ parameter_list|,
 name|String
 name|type
 parameter_list|,
-name|ValuesSourceConfig
+name|ValuesSourceParser
+operator|.
+name|Input
 argument_list|<
 name|ValuesSource
 operator|.
 name|Numeric
 argument_list|>
-name|valuesSourceConfig
+name|valuesSourceInput
 parameter_list|)
 block|{
 name|super
@@ -790,7 +792,7 @@ name|name
 argument_list|,
 name|type
 argument_list|,
-name|valuesSourceConfig
+name|valuesSourceInput
 argument_list|)
 expr_stmt|;
 block|}

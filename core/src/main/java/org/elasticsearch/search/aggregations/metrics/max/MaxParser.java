@@ -78,7 +78,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceConfig
+name|ValuesSourceParser
 import|;
 end_import
 
@@ -120,13 +120,15 @@ parameter_list|(
 name|String
 name|aggregationName
 parameter_list|,
-name|ValuesSourceConfig
+name|ValuesSourceParser
+operator|.
+name|Input
 argument_list|<
 name|ValuesSource
 operator|.
 name|Numeric
 argument_list|>
-name|config
+name|input
 parameter_list|)
 block|{
 return|return
@@ -137,7 +139,7 @@ name|Factory
 argument_list|(
 name|aggregationName
 argument_list|,
-name|config
+name|input
 argument_list|)
 return|;
 block|}

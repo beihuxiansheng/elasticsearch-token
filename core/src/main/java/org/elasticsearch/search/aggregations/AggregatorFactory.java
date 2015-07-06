@@ -209,6 +209,11 @@ name|Object
 argument_list|>
 name|metaData
 decl_stmt|;
+DECL|field|context
+specifier|private
+name|AggregationContext
+name|context
+decl_stmt|;
 comment|/**      * Constructs a new aggregator factory.      *      * @param name  The aggregation name      * @param type  The aggregation type      */
 DECL|method|AggregatorFactory
 specifier|public
@@ -234,6 +239,47 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * Initializes this factory with the given {@link AggregationContext} ready      * to create {@link Aggregator}s      */
+DECL|method|init
+specifier|public
+specifier|final
+name|void
+name|init
+parameter_list|(
+name|AggregationContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
+name|doInit
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|factories
+operator|.
+name|init
+argument_list|(
+name|context
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doInit
+specifier|protected
+name|void
+name|doInit
+parameter_list|(
+name|AggregationContext
+name|context
+parameter_list|)
+block|{     }
 comment|/**      * Registers sub-factories with this factory. The sub-factory will be responsible for the creation of sub-aggregators under the      * aggregator created by this factory.      *      * @param subFactories  The sub-factories      * @return  this factory (fluent interface)      */
 DECL|method|subFactories
 specifier|public
@@ -340,9 +386,6 @@ specifier|final
 name|Aggregator
 name|create
 parameter_list|(
-name|AggregationContext
-name|context
-parameter_list|,
 name|Aggregator
 name|parent
 parameter_list|,
@@ -431,8 +474,6 @@ name|factory
 operator|.
 name|create
 argument_list|(
-name|context
-argument_list|,
 name|parent
 argument_list|,
 literal|true
@@ -832,8 +873,6 @@ name|factory
 operator|.
 name|create
 argument_list|(
-name|context
-argument_list|,
 name|parent
 argument_list|,
 literal|true

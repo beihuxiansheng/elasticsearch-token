@@ -312,7 +312,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceConfig
+name|ValuesSourceParser
 import|;
 end_import
 
@@ -1117,8 +1117,10 @@ parameter_list|,
 name|String
 name|executionHint
 parameter_list|,
-name|ValuesSourceConfig
-name|vsConfig
+name|ValuesSourceParser
+operator|.
+name|Input
+name|vsInput
 parameter_list|,
 name|int
 name|maxDocsPerValue
@@ -1135,7 +1137,7 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|vsConfig
+name|vsInput
 argument_list|)
 expr_stmt|;
 name|this

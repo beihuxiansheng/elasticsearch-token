@@ -136,7 +136,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceConfig
+name|ValuesSourceParser
 import|;
 end_import
 
@@ -259,11 +259,13 @@ parameter_list|,
 name|String
 name|aggregationName
 parameter_list|,
-name|ValuesSourceConfig
+name|ValuesSourceParser
+operator|.
+name|Input
 argument_list|<
 name|Numeric
 argument_list|>
-name|valuesSourceConfig
+name|valuesSourceInput
 parameter_list|,
 name|double
 index|[]
@@ -311,7 +313,7 @@ name|Factory
 argument_list|(
 name|aggregationName
 argument_list|,
-name|valuesSourceConfig
+name|valuesSourceInput
 argument_list|,
 name|keys
 argument_list|,

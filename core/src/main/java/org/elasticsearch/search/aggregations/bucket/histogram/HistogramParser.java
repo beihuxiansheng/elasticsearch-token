@@ -878,11 +878,6 @@ name|Rounding
 operator|.
 name|OffsetRounding
 argument_list|(
-operator|(
-name|Rounding
-operator|.
-name|Interval
-operator|)
 name|rounding
 argument_list|,
 name|offset
@@ -921,7 +916,7 @@ name|aggregationName
 argument_list|,
 name|vsParser
 operator|.
-name|config
+name|input
 argument_list|()
 argument_list|,
 name|rounding

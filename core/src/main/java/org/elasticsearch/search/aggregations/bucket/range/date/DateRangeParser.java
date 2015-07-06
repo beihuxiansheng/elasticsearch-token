@@ -793,7 +793,7 @@ name|aggregationName
 argument_list|,
 name|vsParser
 operator|.
-name|config
+name|input
 argument_list|()
 argument_list|,
 name|InternalDateRange
