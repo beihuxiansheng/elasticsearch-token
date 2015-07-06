@@ -4467,8 +4467,11 @@ literal|10
 argument_list|,
 literal|false
 argument_list|)
+operator|+
+literal|"a"
 argument_list|)
 expr_stmt|;
+comment|// make sure they are not all empty
 block|}
 name|doc
 operator|.
@@ -4533,7 +4536,13 @@ name|type
 argument_list|(
 literal|"type1"
 argument_list|)
+operator|.
+name|routing
+argument_list|(
+literal|"0"
 argument_list|)
+argument_list|)
+comment|// routing to ensure we hit the shard with the doc
 operator|.
 name|minTermFreq
 argument_list|(
