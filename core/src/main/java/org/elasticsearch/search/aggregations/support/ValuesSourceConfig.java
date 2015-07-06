@@ -101,10 +101,7 @@ parameter_list|>
 block|{
 DECL|field|valueSourceType
 specifier|final
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valueSourceType
 decl_stmt|;
 DECL|field|fieldContext
@@ -145,10 +142,7 @@ DECL|method|ValuesSourceConfig
 specifier|public
 name|ValuesSourceConfig
 parameter_list|(
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valueSourceType
 parameter_list|)
 block|{
@@ -161,10 +155,7 @@ expr_stmt|;
 block|}
 DECL|method|valueSourceType
 specifier|public
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valueSourceType
 parameter_list|()
 block|{

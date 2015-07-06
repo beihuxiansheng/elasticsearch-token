@@ -861,6 +861,19 @@ name|xAxisUnits
 argument_list|)
 return|;
 block|}
+comment|// NORELEASE implement this method when refactoring this aggregation
+annotation|@
+name|Override
+DECL|method|getFactoryPrototype
+specifier|public
+name|PipelineAggregatorFactory
+name|getFactoryPrototype
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 

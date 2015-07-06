@@ -284,7 +284,7 @@ name|aggregations
 operator|.
 name|support
 operator|.
-name|ValuesSourceConfig
+name|ValuesSourceParser
 import|;
 end_import
 
@@ -901,7 +901,9 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|ValuesSourceConfig
+name|ValuesSourceParser
+operator|.
+name|Input
 argument_list|<
 name|ValuesSource
 operator|.

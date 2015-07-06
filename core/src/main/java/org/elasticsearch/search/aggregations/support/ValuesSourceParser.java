@@ -253,6 +253,10 @@ argument_list|,
 name|ValuesSource
 operator|.
 name|class
+argument_list|,
+name|ValuesSourceType
+operator|.
+name|ANY
 argument_list|)
 return|;
 block|}
@@ -295,6 +299,10 @@ operator|.
 name|Numeric
 operator|.
 name|class
+argument_list|,
+name|ValuesSourceType
+operator|.
+name|NUMERIC
 argument_list|)
 operator|.
 name|targetValueType
@@ -344,6 +352,10 @@ operator|.
 name|Bytes
 operator|.
 name|class
+argument_list|,
+name|ValuesSourceType
+operator|.
+name|BYTES
 argument_list|)
 operator|.
 name|targetValueType
@@ -393,6 +405,10 @@ operator|.
 name|GeoPoint
 operator|.
 name|class
+argument_list|,
+name|ValuesSourceType
+operator|.
+name|GEOPOINT
 argument_list|)
 operator|.
 name|targetValueType
@@ -466,10 +482,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|field|valuesSourceType
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valuesSourceType
 init|=
 literal|null
@@ -597,10 +610,7 @@ parameter_list|,
 name|SearchContext
 name|context
 parameter_list|,
-name|Class
-argument_list|<
-name|VS
-argument_list|>
+name|ValuesSourceType
 name|valuesSourceType
 parameter_list|)
 block|{
@@ -1165,6 +1175,9 @@ name|Class
 argument_list|<
 name|VS
 argument_list|>
+name|valuesSourcecClass
+parameter_list|,
+name|ValuesSourceType
 name|valuesSourceType
 parameter_list|)
 block|{

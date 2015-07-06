@@ -186,6 +186,12 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**          * @return an empty {@link AggregatorFactory} instance for this parser          *         that can be used for deserialization          */
+DECL|method|getFactoryPrototype
+name|AggregatorFactory
+name|getFactoryPrototype
+parameter_list|()
+function_decl|;
 block|}
 comment|/**      * Returns whether one of the parents is a {@link BucketsAggregator}.      */
 DECL|method|descendsFromBucketAggregator

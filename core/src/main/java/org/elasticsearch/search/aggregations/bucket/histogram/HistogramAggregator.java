@@ -1335,9 +1335,11 @@ name|parent
 argument_list|)
 return|;
 block|}
-comment|// we need to round the bounds given by the user and we have to do it for every aggregator we crate
+comment|// we need to round the bounds given by the user and we have to do
+comment|// it for every aggregator we create
 comment|// as the rounding is not necessarily an idempotent operation.
-comment|// todo we need to think of a better structure to the factory/agtor code so we won't need to do that
+comment|// todo we need to think of a better structure to the factory/agtor
+comment|// code so we won't need to do that
 name|ExtendedBounds
 name|roundedBounds
 init|=
