@@ -1146,6 +1146,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|performReroute
+specifier|protected
 name|void
 name|performReroute
 parameter_list|(

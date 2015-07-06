@@ -1603,7 +1603,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"cluster state from a different master then the current one, rejecting "
+literal|"cluster state from a different master than the current one, rejecting"
 argument_list|)
 argument_list|)
 expr_stmt|;

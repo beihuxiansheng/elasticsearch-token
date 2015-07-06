@@ -1484,14 +1484,14 @@ name|Exception
 block|{
 name|startCluster
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 expr_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"stopping current master"
+literal|"--> stopping current master"
 argument_list|)
 expr_stmt|;
 name|internalCluster
@@ -1502,7 +1502,49 @@ argument_list|()
 expr_stmt|;
 name|ensureStableCluster
 argument_list|(
+literal|3
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> reducing min master nodes to 2"
+argument_list|)
+expr_stmt|;
+name|assertAcked
+argument_list|(
+name|client
+argument_list|()
+operator|.
+name|admin
+argument_list|()
+operator|.
+name|cluster
+argument_list|()
+operator|.
+name|prepareUpdateSettings
+argument_list|()
+operator|.
+name|setTransientSettings
+argument_list|(
+name|Settings
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|ElectMasterService
+operator|.
+name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
+argument_list|,
 literal|2
+argument_list|)
+argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
@@ -1574,7 +1616,7 @@ argument_list|)
 expr_stmt|;
 name|ensureStableCluster
 argument_list|(
-literal|1
+literal|2
 argument_list|,
 name|master
 argument_list|)
@@ -4334,9 +4376,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test that a document which is indexed on the majority side of a partition, is available from the minory side,      * once the partition is healed      *      * @throws Exception      */
+comment|/**      * Test that a document which is indexed on the majority side of a partition, is available from the minority side,      * once the partition is healed      *      * @throws Exception      */
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+name|value
+operator|=
+literal|"cluster.service:TRACE"
+argument_list|)
 DECL|method|testRejoinDocumentExistsInAllShardCopies
 specifier|public
 name|void
