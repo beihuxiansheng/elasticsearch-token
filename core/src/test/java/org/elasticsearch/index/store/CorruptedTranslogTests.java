@@ -896,8 +896,8 @@ for|for
 control|(
 name|FsStats
 operator|.
-name|Info
-name|info
+name|Path
+name|fsPath
 range|:
 name|nodeStatses
 operator|.
@@ -914,7 +914,7 @@ block|{
 name|String
 name|path
 init|=
-name|info
+name|fsPath
 operator|.
 name|getPath
 argument_list|()

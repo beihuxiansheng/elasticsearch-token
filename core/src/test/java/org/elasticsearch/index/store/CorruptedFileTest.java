@@ -4928,7 +4928,7 @@ for|for
 control|(
 name|FsStats
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStats
@@ -5221,7 +5221,7 @@ for|for
 control|(
 name|FsStats
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStatses
@@ -6182,7 +6182,7 @@ for|for
 control|(
 name|FsStats
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStatses

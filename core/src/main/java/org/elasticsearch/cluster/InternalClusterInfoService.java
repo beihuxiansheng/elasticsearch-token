@@ -1725,7 +1725,7 @@ for|for
 control|(
 name|FsStats
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStats

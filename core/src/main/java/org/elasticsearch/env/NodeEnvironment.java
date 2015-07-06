@@ -324,7 +324,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|JmxFsProbe
+name|FsProbe
 import|;
 end_import
 
@@ -1324,10 +1324,10 @@ expr_stmt|;
 block|}
 name|FsStats
 operator|.
-name|Info
-name|fsInfo
+name|Path
+name|fsPath
 init|=
-name|JmxFsProbe
+name|FsProbe
 operator|.
 name|getFSInfo
 argument_list|(
@@ -1343,7 +1343,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|fsInfo
+name|fsPath
 operator|.
 name|getFree
 argument_list|()
@@ -1356,7 +1356,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|fsInfo
+name|fsPath
 operator|.
 name|getAvailable
 argument_list|()
@@ -1369,7 +1369,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|fsInfo
+name|fsPath
 operator|.
 name|getTotal
 argument_list|()
@@ -1392,7 +1392,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|fsInfo
+name|fsPath
 operator|.
 name|getMount
 argument_list|()
@@ -1405,7 +1405,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|fsInfo
+name|fsPath
 operator|.
 name|getType
 argument_list|()
@@ -1439,13 +1439,13 @@ condition|)
 block|{
 name|FsStats
 operator|.
-name|Info
-name|totFSInfo
+name|Path
+name|totFSPath
 init|=
 operator|new
 name|FsStats
 operator|.
-name|Info
+name|Path
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1492,10 +1492,10 @@ block|{
 comment|// TODO: can/should I use the chosen FsProbe instead (i.e. sigar if it's available)?
 name|FsStats
 operator|.
-name|Info
-name|fsInfo
+name|Path
+name|fsPath
 init|=
-name|JmxFsProbe
+name|FsProbe
 operator|.
 name|getFSInfo
 argument_list|(
@@ -1505,7 +1505,7 @@ decl_stmt|;
 name|String
 name|mount
 init|=
-name|fsInfo
+name|fsPath
 operator|.
 name|getMount
 argument_list|()
@@ -1532,7 +1532,7 @@ expr_stmt|;
 name|String
 name|type
 init|=
-name|fsInfo
+name|fsPath
 operator|.
 name|getType
 argument_list|()
@@ -1555,7 +1555,7 @@ block|}
 name|Boolean
 name|spins
 init|=
-name|fsInfo
+name|fsPath
 operator|.
 name|getSpins
 argument_list|()
@@ -1602,11 +1602,11 @@ literal|"no"
 argument_list|)
 expr_stmt|;
 block|}
-name|totFSInfo
+name|totFSPath
 operator|.
 name|add
 argument_list|(
-name|fsInfo
+name|fsPath
 argument_list|)
 expr_stmt|;
 block|}
@@ -1632,12 +1632,12 @@ name|length
 argument_list|,
 name|allMounts
 argument_list|,
-name|totFSInfo
+name|totFSPath
 operator|.
 name|getAvailable
 argument_list|()
 argument_list|,
-name|totFSInfo
+name|totFSPath
 operator|.
 name|getTotal
 argument_list|()
