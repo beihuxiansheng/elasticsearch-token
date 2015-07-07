@@ -310,7 +310,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -1322,7 +1322,7 @@ operator|=
 literal|"no"
 expr_stmt|;
 block|}
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|fsPath
@@ -1437,13 +1437,13 @@ name|isInfoEnabled
 argument_list|()
 condition|)
 block|{
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|totFSPath
 init|=
 operator|new
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 argument_list|()
@@ -1489,8 +1489,7 @@ range|:
 name|nodePaths
 control|)
 block|{
-comment|// TODO: can/should I use the chosen FsProbe instead (i.e. sigar if it's available)?
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|fsPath

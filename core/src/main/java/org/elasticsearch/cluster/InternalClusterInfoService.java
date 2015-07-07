@@ -346,7 +346,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -1723,7 +1723,7 @@ literal|0
 decl_stmt|;
 for|for
 control|(
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|info

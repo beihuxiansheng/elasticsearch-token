@@ -172,7 +172,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -320,7 +320,7 @@ annotation|@
 name|Nullable
 DECL|field|fs
 specifier|private
-name|FsStats
+name|FsInfo
 name|fs
 decl_stmt|;
 annotation|@
@@ -385,7 +385,7 @@ name|threadPool
 parameter_list|,
 annotation|@
 name|Nullable
-name|FsStats
+name|FsInfo
 name|fs
 parameter_list|,
 annotation|@
@@ -574,7 +574,7 @@ annotation|@
 name|Nullable
 DECL|method|getFs
 specifier|public
-name|FsStats
+name|FsInfo
 name|getFs
 parameter_list|()
 block|{
@@ -781,9 +781,9 @@ condition|)
 block|{
 name|fs
 operator|=
-name|FsStats
+name|FsInfo
 operator|.
-name|readFsStats
+name|readFsInfo
 argument_list|(
 name|in
 argument_list|)

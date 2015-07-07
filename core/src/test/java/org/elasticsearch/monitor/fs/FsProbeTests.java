@@ -96,10 +96,10 @@ name|ElasticsearchTestCase
 block|{
 annotation|@
 name|Test
-DECL|method|testFsStats
+DECL|method|testFsInfo
 specifier|public
 name|void
-name|testFsStats
+name|testFsInfo
 parameter_list|()
 throws|throws
 name|IOException
@@ -126,7 +126,7 @@ argument_list|,
 name|env
 argument_list|)
 decl_stmt|;
-name|FsStats
+name|FsInfo
 name|stats
 init|=
 name|probe
@@ -152,7 +152,7 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|total
@@ -205,7 +205,7 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|path

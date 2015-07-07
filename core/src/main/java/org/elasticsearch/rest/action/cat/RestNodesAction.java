@@ -480,7 +480,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -1876,8 +1876,8 @@ operator|.
 name|getJvm
 argument_list|()
 decl_stmt|;
-name|FsStats
-name|fsStats
+name|FsInfo
+name|fsInfo
 init|=
 name|stats
 operator|==
@@ -2096,13 +2096,13 @@ name|table
 operator|.
 name|addCell
 argument_list|(
-name|fsStats
+name|fsInfo
 operator|==
 literal|null
 condition|?
 literal|null
 else|:
-name|fsStats
+name|fsInfo
 operator|.
 name|getTotal
 argument_list|()
