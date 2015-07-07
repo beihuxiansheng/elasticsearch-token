@@ -556,7 +556,7 @@ operator|=
 name|simpleName
 expr_stmt|;
 block|}
-comment|/** Returns the simple name, which identifies this mapper against other mappers at the same level in the mappers hierarchy      * TODO: make this protected once Mapper, FieldMapper and AbstractFieldMapper are merged together */
+comment|/** Returns the simple name, which identifies this mapper against other mappers at the same level in the mappers hierarchy      * TODO: make this protected once Mapper and FieldMapper are merged together */
 DECL|method|simpleName
 specifier|public
 specifier|final

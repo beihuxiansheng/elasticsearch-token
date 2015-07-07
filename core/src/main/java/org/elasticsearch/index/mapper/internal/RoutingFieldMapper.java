@@ -218,20 +218,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|ParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MetadataFieldMapper
 import|;
 end_import
@@ -246,9 +232,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|AbstractFieldMapper
+name|ParseContext
 import|;
 end_import
 
@@ -362,10 +346,6 @@ DECL|class|Defaults
 specifier|public
 specifier|static
 class|class
-name|Defaults
-extends|extends
-name|AbstractFieldMapper
-operator|.
 name|Defaults
 block|{
 DECL|field|NAME

@@ -290,9 +290,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
+name|mapper
 operator|.
-name|FieldDataType
+name|FieldMapper
 import|;
 end_import
 
@@ -606,7 +606,7 @@ specifier|public
 class|class
 name|CompletionFieldMapper
 extends|extends
-name|AbstractFieldMapper
+name|FieldMapper
 block|{
 DECL|field|CONTENT_TYPE
 specifier|public
@@ -621,10 +621,6 @@ DECL|class|Defaults
 specifier|public
 specifier|static
 class|class
-name|Defaults
-extends|extends
-name|AbstractFieldMapper
-operator|.
 name|Defaults
 block|{
 DECL|field|FIELD_TYPE
@@ -866,7 +862,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 argument_list|<

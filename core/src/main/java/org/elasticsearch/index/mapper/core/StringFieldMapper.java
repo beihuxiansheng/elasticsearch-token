@@ -96,18 +96,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -192,9 +180,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
+name|mapper
 operator|.
-name|FieldDataType
+name|FieldMapper
 import|;
 end_import
 
@@ -406,17 +394,13 @@ name|parseMultiField
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|StringFieldMapper
 specifier|public
 class|class
 name|StringFieldMapper
 extends|extends
-name|AbstractFieldMapper
+name|FieldMapper
 implements|implements
 name|AllFieldMapper
 operator|.
@@ -435,10 +419,6 @@ DECL|class|Defaults
 specifier|public
 specifier|static
 class|class
-name|Defaults
-extends|extends
-name|AbstractFieldMapper
-operator|.
 name|Defaults
 block|{
 DECL|field|FIELD_TYPE
@@ -496,7 +476,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 argument_list|<
@@ -752,9 +732,7 @@ operator|.
 name|boost
 argument_list|()
 operator|==
-name|Defaults
-operator|.
-name|BOOST
+literal|1.0f
 condition|)
 block|{
 name|fieldType
@@ -1095,6 +1073,7 @@ condition|(
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -1105,6 +1084,7 @@ block|{
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setIndexAnalyzer
 argument_list|(
@@ -1123,6 +1103,7 @@ condition|(
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1133,6 +1114,7 @@ block|{
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setSearchAnalyzer
 argument_list|(
@@ -1151,6 +1133,7 @@ condition|(
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchQuoteAnalyzer
 argument_list|()
@@ -1161,6 +1144,7 @@ block|{
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setSearchQuoteAnalyzer
 argument_list|(

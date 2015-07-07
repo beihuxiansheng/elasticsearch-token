@@ -288,7 +288,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperParsingException
+name|FieldMapper
 import|;
 end_import
 
@@ -302,9 +302,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|AbstractFieldMapper
+name|MapperParsingException
 import|;
 end_import
 
@@ -2038,7 +2036,7 @@ expr_stmt|;
 name|String
 name|ftOpts
 init|=
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|termVectorOptionsToString
 argument_list|(
@@ -2159,7 +2157,7 @@ expr_stmt|;
 name|String
 name|ftOpts
 init|=
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|termVectorOptionsToString
 argument_list|(
