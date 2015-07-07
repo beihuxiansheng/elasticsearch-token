@@ -2161,7 +2161,7 @@ parameter_list|)
 block|{
 name|shardSearchStats
 operator|.
-name|onFailedQueryPhase
+name|onFailedFetchPhase
 argument_list|(
 name|context
 argument_list|)
