@@ -218,6 +218,11 @@ specifier|public
 class|class
 name|RangeQueryBuilder
 extends|extends
+name|AbstractQueryBuilder
+argument_list|<
+name|RangeQueryBuilder
+argument_list|>
+implements|implements
 name|MultiTermQueryBuilder
 argument_list|<
 name|RangeQueryBuilder

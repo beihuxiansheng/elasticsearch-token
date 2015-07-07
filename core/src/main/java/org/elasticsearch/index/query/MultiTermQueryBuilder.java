@@ -16,11 +16,10 @@ name|query
 package|;
 end_package
 
-begin_class
-DECL|class|MultiTermQueryBuilder
+begin_interface
+DECL|interface|MultiTermQueryBuilder
 specifier|public
-specifier|abstract
-class|class
+interface|interface
 name|MultiTermQueryBuilder
 parameter_list|<
 name|QB
@@ -31,12 +30,12 @@ name|QB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|AbstractQueryBuilder
+name|QueryBuilder
 argument_list|<
 name|QB
 argument_list|>
 block|{  }
-end_class
+end_interface
 
 end_unit
 
