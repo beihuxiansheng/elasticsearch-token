@@ -294,10 +294,8 @@ name|DATE_TIME_FORMATTER
 block|,
 name|Joda
 operator|.
-name|forPattern
-argument_list|(
-literal|"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd"
-argument_list|)
+name|getStrictStandardDateFormatter
+argument_list|()
 block|}
 decl_stmt|;
 DECL|field|DATE_DETECTION

@@ -215,7 +215,7 @@ name|Joda
 operator|.
 name|forPattern
 argument_list|(
-literal|"dateOptionalTime"
+literal|"strictDateOptionalTime"
 argument_list|)
 decl_stmt|;
 DECL|field|name
