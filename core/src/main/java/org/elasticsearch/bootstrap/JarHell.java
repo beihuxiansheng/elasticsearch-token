@@ -951,6 +951,84 @@ name|URL
 name|url
 parameter_list|)
 block|{
+name|URL
+name|previous
+init|=
+name|clazzes
+operator|.
+name|put
+argument_list|(
+name|clazz
+argument_list|,
+name|url
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|previous
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|previous
+operator|.
+name|equals
+argument_list|(
+name|url
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|clazz
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.xmlbeans"
+argument_list|)
+condition|)
+block|{
+return|return;
+comment|// https://issues.apache.org/jira/browse/XMLBEANS-499
+block|}
+comment|// throw a better exception in this ridiculous case.
+comment|// unfortunately the zip file format allows this buggy possibility
+comment|// UweSays: It can, but should be considered as bug :-)
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"jar hell!"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"class: "
+operator|+
+name|clazz
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"exists multiple times in jar: "
+operator|+
+name|url
+operator|.
+name|getPath
+argument_list|()
+operator|+
+literal|" !!!!!!!!!"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|clazz
@@ -977,25 +1055,6 @@ block|{
 return|return;
 comment|// apparently this is intentional... clean this up
 block|}
-name|URL
-name|previous
-init|=
-name|clazzes
-operator|.
-name|put
-argument_list|(
-name|clazz
-argument_list|,
-name|url
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|previous
-operator|!=
-literal|null
-condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -1036,6 +1095,7 @@ name|getPath
 argument_list|()
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
