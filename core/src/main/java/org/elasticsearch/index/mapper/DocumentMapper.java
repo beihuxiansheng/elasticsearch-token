@@ -2566,6 +2566,9 @@ argument_list|<
 name|FieldMapper
 argument_list|>
 name|fieldMappers
+parameter_list|,
+name|boolean
+name|updateAllTypes
 parameter_list|)
 block|{
 assert|assert
@@ -2583,7 +2586,7 @@ name|objectMappers
 argument_list|,
 name|fieldMappers
 argument_list|,
-literal|true
+name|updateAllTypes
 argument_list|)
 expr_stmt|;
 comment|// update mappers for this document type
@@ -2741,6 +2744,8 @@ name|mergeResult
 operator|.
 name|getNewFieldMappers
 argument_list|()
+argument_list|,
+name|updateAllTypes
 argument_list|)
 expr_stmt|;
 name|refreshSource
