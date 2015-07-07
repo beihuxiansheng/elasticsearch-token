@@ -249,12 +249,6 @@ name|maxDeterminizedStates
 operator|=
 name|value
 expr_stmt|;
-name|this
-operator|.
-name|maxDetermizedStatesSet
-operator|=
-literal|true
-expr_stmt|;
 return|return
 name|this
 return|;
