@@ -135,7 +135,7 @@ expr_stmt|;
 block|}
 DECL|method|stats
 specifier|public
-name|FsStats
+name|FsInfo
 name|stats
 parameter_list|()
 throws|throws
@@ -152,7 +152,7 @@ condition|)
 block|{
 return|return
 operator|new
-name|FsStats
+name|FsInfo
 argument_list|(
 name|System
 operator|.
@@ -160,7 +160,7 @@ name|currentTimeMillis
 argument_list|()
 argument_list|,
 operator|new
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 index|[
@@ -178,14 +178,14 @@ operator|.
 name|nodePaths
 argument_list|()
 decl_stmt|;
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 index|[]
 name|paths
 init|=
 operator|new
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 index|[
@@ -227,7 +227,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|FsStats
+name|FsInfo
 argument_list|(
 name|System
 operator|.
@@ -241,7 +241,7 @@ block|}
 DECL|method|getFSInfo
 specifier|public
 specifier|static
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|getFSInfo
@@ -252,13 +252,13 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|fsPath
 init|=
 operator|new
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 argument_list|()

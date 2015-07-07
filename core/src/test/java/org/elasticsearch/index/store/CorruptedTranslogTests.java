@@ -212,7 +212,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -894,7 +894,7 @@ decl_stmt|;
 comment|// treeset makes sure iteration order is deterministic
 for|for
 control|(
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 name|fsPath

@@ -187,14 +187,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|FsStats
+DECL|class|FsInfo
 specifier|public
 class|class
-name|FsStats
+name|FsInfo
 implements|implements
 name|Iterable
 argument_list|<
-name|FsStats
+name|FsInfo
 operator|.
 name|Path
 argument_list|>
@@ -1046,13 +1046,13 @@ name|Path
 index|[]
 name|paths
 decl_stmt|;
-DECL|method|FsStats
-name|FsStats
+DECL|method|FsInfo
+name|FsInfo
 parameter_list|()
 block|{      }
-DECL|method|FsStats
+DECL|method|FsInfo
 specifier|public
-name|FsStats
+name|FsInfo
 parameter_list|(
 name|long
 name|timestamp
@@ -1211,11 +1211,11 @@ name|paths
 argument_list|)
 return|;
 block|}
-DECL|method|readFsStats
+DECL|method|readFsInfo
 specifier|public
 specifier|static
-name|FsStats
-name|readFsStats
+name|FsInfo
+name|readFsInfo
 parameter_list|(
 name|StreamInput
 name|in
@@ -1223,11 +1223,11 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|FsStats
+name|FsInfo
 name|stats
 init|=
 operator|new
-name|FsStats
+name|FsInfo
 argument_list|()
 decl_stmt|;
 name|stats
