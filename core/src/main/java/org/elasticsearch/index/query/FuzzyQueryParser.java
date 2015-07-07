@@ -333,7 +333,9 @@ decl_stmt|;
 name|boolean
 name|transpositions
 init|=
-literal|false
+name|FuzzyQuery
+operator|.
+name|defaultTranspositions
 decl_stmt|;
 name|String
 name|queryName

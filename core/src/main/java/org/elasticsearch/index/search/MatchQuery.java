@@ -334,13 +334,14 @@ name|FuzzyQuery
 operator|.
 name|defaultMaxExpansions
 decl_stmt|;
-comment|//LUCENE 4 UPGRADE we need a default value for this!
 DECL|field|transpositions
 specifier|protected
 name|boolean
 name|transpositions
 init|=
-literal|false
+name|FuzzyQuery
+operator|.
+name|defaultTranspositions
 decl_stmt|;
 DECL|field|rewriteMethod
 specifier|protected

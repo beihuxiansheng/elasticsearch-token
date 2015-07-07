@@ -2675,7 +2675,6 @@ condition|)
 block|{
 try|try
 block|{
-comment|//LUCENE 4 UPGRADE I disabled transpositions here by default - maybe this needs to be changed
 return|return
 name|currentFieldType
 operator|.
@@ -2697,7 +2696,9 @@ operator|.
 name|fuzzyMaxExpansions
 argument_list|()
 argument_list|,
-literal|false
+name|FuzzyQuery
+operator|.
+name|defaultTranspositions
 argument_list|)
 return|;
 block|}
@@ -2789,7 +2790,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|//LUCENE 4 UPGRADE I disabled transpositions here by default - maybe this needs to be changed
 name|FuzzyQuery
 name|query
 init|=
@@ -2807,7 +2807,9 @@ operator|.
 name|fuzzyMaxExpansions
 argument_list|()
 argument_list|,
-literal|false
+name|FuzzyQuery
+operator|.
+name|defaultTranspositions
 argument_list|)
 decl_stmt|;
 name|QueryParsers
