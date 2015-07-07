@@ -1937,13 +1937,35 @@ name|next
 argument_list|()
 decl_stmt|;
 name|String
-name|propName
+name|fieldName
 init|=
 name|entry
 operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|fieldName
+operator|.
+name|contains
+argument_list|(
+literal|"."
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|MapperParsingException
+argument_list|(
+literal|"Field name ["
+operator|+
+name|fieldName
+operator|+
+literal|"] cannot contain '.'"
+argument_list|)
+throw|;
+block|}
 comment|// Should accept empty arrays, as a work around for when the
 comment|// user can't provide an empty Map. (PHP for example)
 name|boolean
@@ -2095,9 +2117,9 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"No type specified for property ["
+literal|"No type specified for field ["
 operator|+
-name|propName
+name|fieldName
 operator|+
 literal|"]"
 argument_list|)
@@ -2133,7 +2155,7 @@ name|type
 operator|+
 literal|"] declared on field ["
 operator|+
-name|propName
+name|fieldName
 operator|+
 literal|"]"
 argument_list|)
@@ -2147,7 +2169,7 @@ name|typeParser
 operator|.
 name|parse
 argument_list|(
-name|propName
+name|fieldName
 argument_list|,
 name|propNode
 argument_list|,
@@ -2166,7 +2188,7 @@ name|DocumentMapperParser
 operator|.
 name|checkNoRemainingFields
 argument_list|(
-name|propName
+name|fieldName
 argument_list|,
 name|propNode
 argument_list|,
@@ -2202,11 +2224,11 @@ name|MapperParsingException
 argument_list|(
 literal|"Expected map for property [fields] on field ["
 operator|+
-name|propName
+name|fieldName
 operator|+
 literal|"] but got a "
 operator|+
-name|propName
+name|fieldName
 operator|.
 name|getClass
 argument_list|()
