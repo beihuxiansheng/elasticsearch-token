@@ -3267,11 +3267,6 @@ name|docMapper
 operator|.
 name|v1
 argument_list|()
-argument_list|,
-name|docMapper
-operator|.
-name|v1
-argument_list|()
 operator|.
 name|uidMapper
 argument_list|()
@@ -3567,11 +3562,6 @@ name|Engine
 operator|.
 name|Index
 argument_list|(
-name|docMapper
-operator|.
-name|v1
-argument_list|()
-argument_list|,
 name|docMapper
 operator|.
 name|v1

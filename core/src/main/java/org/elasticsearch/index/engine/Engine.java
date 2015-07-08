@@ -3209,12 +3209,6 @@ name|IndexingOperation
 implements|implements
 name|Operation
 block|{
-DECL|field|docMapper
-specifier|private
-specifier|final
-name|DocumentMapper
-name|docMapper
-decl_stmt|;
 DECL|field|uid
 specifier|private
 specifier|final
@@ -3272,9 +3266,6 @@ DECL|method|IndexingOperation
 specifier|public
 name|IndexingOperation
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3297,12 +3288,6 @@ name|boolean
 name|canHaveDuplicates
 parameter_list|)
 block|{
-name|this
-operator|.
-name|docMapper
-operator|=
-name|docMapper
-expr_stmt|;
 name|this
 operator|.
 name|uid
@@ -3350,9 +3335,6 @@ DECL|method|IndexingOperation
 specifier|public
 name|IndexingOperation
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3362,8 +3344,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -3388,18 +3368,6 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|docMapper
-specifier|public
-name|DocumentMapper
-name|docMapper
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|docMapper
-return|;
 block|}
 annotation|@
 name|Override
@@ -3731,9 +3699,6 @@ DECL|method|Create
 specifier|public
 name|Create
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3761,8 +3726,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -3789,9 +3752,6 @@ DECL|method|Create
 specifier|public
 name|Create
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3813,8 +3773,6 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -3837,9 +3795,6 @@ DECL|method|Create
 specifier|public
 name|Create
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3849,8 +3804,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -3923,9 +3876,6 @@ DECL|method|Index
 specifier|public
 name|Index
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3950,8 +3900,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -3972,9 +3920,6 @@ DECL|method|Index
 specifier|public
 name|Index
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -3996,8 +3941,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
@@ -4018,9 +3961,6 @@ DECL|method|Index
 specifier|public
 name|Index
 parameter_list|(
-name|DocumentMapper
-name|docMapper
-parameter_list|,
 name|Term
 name|uid
 parameter_list|,
@@ -4030,8 +3970,6 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|docMapper
-argument_list|,
 name|uid
 argument_list|,
 name|doc
