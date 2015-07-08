@@ -478,7 +478,7 @@ name|add
 argument_list|(
 name|shard
 operator|.
-name|targetRoutingIfRelocating
+name|buildTargetRelocatingShard
 argument_list|()
 argument_list|)
 expr_stmt|;

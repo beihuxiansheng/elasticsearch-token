@@ -1667,8 +1667,9 @@ block|{
 name|ShardRouting
 name|routing
 init|=
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 literal|"test"
 argument_list|,

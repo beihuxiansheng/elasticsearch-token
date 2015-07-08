@@ -6831,8 +6831,9 @@ comment|// Two shards consuming each 80% of disk space while 70% is allowed, so 
 name|ShardRouting
 name|firstRouting
 init|=
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -6856,8 +6857,9 @@ decl_stmt|;
 name|ShardRouting
 name|secondRouting
 init|=
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -7043,8 +7045,9 @@ expr_stmt|;
 comment|// Two shards consuming each 80% of disk space while 70% is allowed, but one is relocating, so shard 0 can stay
 name|firstRouting
 operator|=
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
@@ -7067,8 +7070,9 @@ argument_list|)
 expr_stmt|;
 name|secondRouting
 operator|=
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 literal|"test"
 argument_list|,
