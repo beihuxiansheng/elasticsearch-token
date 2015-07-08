@@ -249,12 +249,19 @@ name|RangeQueryBuilder
 name|query
 decl_stmt|;
 comment|// switch between numeric and date ranges
-if|if
+switch|switch
 condition|(
-name|randomBoolean
-argument_list|()
+name|randomIntBetween
+argument_list|(
+literal|0
+argument_list|,
+literal|2
+argument_list|)
 condition|)
 block|{
+case|case
+literal|0
+case|:
 if|if
 condition|(
 name|randomBoolean
@@ -330,9 +337,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-else|else
-block|{
+break|break;
+case|case
+literal|1
+case|:
 comment|// use mapped date field, using date string representation
 name|query
 operator|=
@@ -398,7 +406,8 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Create timestamp option only then we have a date mapper, otherwise we could trigger exception.
+comment|// Create timestamp option only then we have a date mapper,
+comment|// otherwise we could trigger exception.
 if|if
 condition|(
 name|createContext
@@ -459,6 +468,48 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+break|break;
+case|case
+literal|2
+case|:
+default|default:
+name|query
+operator|=
+operator|new
+name|RangeQueryBuilder
+argument_list|(
+name|STRING_FIELD_NAME
+argument_list|)
+expr_stmt|;
+name|query
+operator|.
+name|from
+argument_list|(
+literal|"a"
+operator|+
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|query
+operator|.
+name|to
+argument_list|(
+literal|"z"
+operator|+
+name|randomAsciiOfLengthBetween
+argument_list|(
+literal|1
+argument_list|,
+literal|10
+argument_list|)
+argument_list|)
+expr_stmt|;
+break|break;
 block|}
 name|query
 operator|.
