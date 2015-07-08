@@ -504,17 +504,18 @@ block|{
 name|String
 name|path
 init|=
-name|URLDecoder
+name|PathUtils
 operator|.
-name|decode
+name|get
 argument_list|(
 name|url
 operator|.
-name|getPath
+name|toURI
 argument_list|()
-argument_list|,
-literal|"UTF-8"
 argument_list|)
+operator|.
+name|toString
+argument_list|()
 decl_stmt|;
 comment|// exclude system resources
 if|if
