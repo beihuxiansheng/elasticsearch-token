@@ -470,7 +470,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|URL
+name|Path
 argument_list|>
 name|clazzes
 init|=
@@ -483,7 +483,7 @@ argument_list|)
 decl_stmt|;
 name|Set
 argument_list|<
-name|String
+name|Path
 argument_list|>
 name|seenJars
 init|=
@@ -501,7 +501,8 @@ range|:
 name|urls
 control|)
 block|{
-name|String
+specifier|final
+name|Path
 name|path
 init|=
 name|PathUtils
@@ -513,9 +514,6 @@ operator|.
 name|toURI
 argument_list|()
 argument_list|)
-operator|.
-name|toString
-argument_list|()
 decl_stmt|;
 comment|// exclude system resources
 if|if
@@ -590,6 +588,9 @@ operator|new
 name|JarFile
 argument_list|(
 name|path
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -778,7 +779,7 @@ name|clazzes
 argument_list|,
 name|entry
 argument_list|,
-name|url
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -904,7 +905,7 @@ name|clazzes
 argument_list|,
 name|entry
 argument_list|,
-name|url
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -925,13 +926,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"proper use of URL to reduce noise"
-argument_list|)
 DECL|method|checkClass
 specifier|static
 name|void
@@ -941,18 +935,18 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|URL
+name|Path
 argument_list|>
 name|clazzes
 parameter_list|,
 name|String
 name|clazz
 parameter_list|,
-name|URL
-name|url
+name|Path
+name|jarpath
 parameter_list|)
 block|{
-name|URL
+name|Path
 name|previous
 init|=
 name|clazzes
@@ -961,7 +955,7 @@ name|put
 argument_list|(
 name|clazz
 argument_list|,
-name|url
+name|jarpath
 argument_list|)
 decl_stmt|;
 if|if
@@ -977,7 +971,7 @@ name|previous
 operator|.
 name|equals
 argument_list|(
-name|url
+name|jarpath
 argument_list|)
 condition|)
 block|{
@@ -1019,10 +1013,7 @@ argument_list|()
 operator|+
 literal|"exists multiple times in jar: "
 operator|+
-name|url
-operator|.
-name|getPath
-argument_list|()
+name|jarpath
 operator|+
 literal|" !!!!!!!!!"
 argument_list|)
@@ -1079,9 +1070,6 @@ operator|+
 literal|"jar1: "
 operator|+
 name|previous
-operator|.
-name|getPath
-argument_list|()
 operator|+
 name|System
 operator|.
@@ -1090,10 +1078,7 @@ argument_list|()
 operator|+
 literal|"jar2: "
 operator|+
-name|url
-operator|.
-name|getPath
-argument_list|()
+name|jarpath
 argument_list|)
 throw|;
 block|}
