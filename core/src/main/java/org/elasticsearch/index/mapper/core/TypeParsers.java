@@ -174,6 +174,20 @@ name|index
 operator|.
 name|mapper
 operator|.
+name|FieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|mapper
+operator|.
 name|MappedFieldType
 operator|.
 name|Loading
@@ -465,7 +479,7 @@ name|pathType
 init|=
 literal|null
 decl_stmt|;
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 name|mainFieldBuilder
@@ -474,7 +488,7 @@ literal|null
 decl_stmt|;
 name|List
 argument_list|<
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 argument_list|>
@@ -798,7 +812,7 @@ block|{
 name|mainFieldBuilder
 operator|=
 operator|(
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 operator|)
@@ -843,7 +857,7 @@ operator|.
 name|add
 argument_list|(
 operator|(
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 operator|)
@@ -990,7 +1004,7 @@ if|if
 condition|(
 name|substitute
 operator|instanceof
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 condition|)
@@ -999,7 +1013,7 @@ name|mainFieldBuilder
 operator|=
 operator|(
 operator|(
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 operator|)
@@ -1444,7 +1458,7 @@ specifier|static
 name|void
 name|parseField
 parameter_list|(
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 name|builder
@@ -1474,6 +1488,7 @@ init|=
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -1484,6 +1499,7 @@ init|=
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -2576,7 +2592,7 @@ specifier|static
 name|boolean
 name|parseMultiField
 parameter_list|(
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 name|builder
@@ -3100,7 +3116,7 @@ parameter_list|,
 name|String
 name|termVector
 parameter_list|,
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 name|builder
@@ -3308,7 +3324,7 @@ parameter_list|,
 name|String
 name|index
 parameter_list|,
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 name|builder
@@ -3564,13 +3580,13 @@ parameter_list|(
 name|Object
 name|propNode
 parameter_list|,
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 name|builder
 parameter_list|)
 block|{
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|CopyTo
 operator|.
@@ -3578,7 +3594,7 @@ name|Builder
 name|copyToBuilder
 init|=
 operator|new
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|CopyTo
 operator|.

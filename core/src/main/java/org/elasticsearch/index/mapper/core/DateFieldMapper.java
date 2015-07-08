@@ -759,7 +759,10 @@ operator|.
 name|ROOT
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|fieldType
+specifier|public
 name|DateFieldType
 name|fieldType
 parameter_list|()
