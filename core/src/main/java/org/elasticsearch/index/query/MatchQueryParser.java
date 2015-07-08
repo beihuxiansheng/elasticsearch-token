@@ -953,6 +953,11 @@ name|QueryParsers
 operator|.
 name|parseRewriteMethod
 argument_list|(
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
+argument_list|,
 name|parser
 operator|.
 name|textOrNull
@@ -989,6 +994,11 @@ name|QueryParsers
 operator|.
 name|parseRewriteMethod
 argument_list|(
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
+argument_list|,
 name|parser
 operator|.
 name|textOrNull
