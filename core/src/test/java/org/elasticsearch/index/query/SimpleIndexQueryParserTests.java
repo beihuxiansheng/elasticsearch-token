@@ -12272,7 +12272,9 @@ operator|.
 name|parse
 argument_list|(
 name|spanNearQuery
-argument_list|()
+argument_list|(
+literal|12
+argument_list|)
 operator|.
 name|clause
 argument_list|(
@@ -12302,11 +12304,6 @@ literal|"age"
 argument_list|,
 literal|36
 argument_list|)
-argument_list|)
-operator|.
-name|slop
-argument_list|(
-literal|12
 argument_list|)
 operator|.
 name|inOrder
