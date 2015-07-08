@@ -1036,8 +1036,7 @@ name|shardSizes
 init|=
 name|info
 operator|.
-name|getShardSizes
-argument_list|()
+name|shardSizes
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -1307,8 +1306,7 @@ literal|"some shard sizes are populated"
 argument_list|,
 name|info
 operator|.
-name|getShardSizes
-argument_list|()
+name|shardSizes
 operator|.
 name|size
 argument_list|()
@@ -1551,8 +1549,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getShardSizes
-argument_list|()
+name|shardSizes
 operator|.
 name|size
 argument_list|()
@@ -1686,8 +1683,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getShardSizes
-argument_list|()
+name|shardSizes
 operator|.
 name|size
 argument_list|()
@@ -1748,8 +1744,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getShardSizes
-argument_list|()
+name|shardSizes
 operator|.
 name|size
 argument_list|()

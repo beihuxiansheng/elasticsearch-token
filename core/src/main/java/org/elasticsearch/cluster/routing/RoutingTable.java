@@ -1740,12 +1740,8 @@ if|if
 condition|(
 name|shardRoutingEntry
 operator|.
-name|state
+name|initializing
 argument_list|()
-operator|==
-name|ShardRoutingState
-operator|.
-name|INITIALIZING
 operator|&&
 name|shardRoutingEntry
 operator|.

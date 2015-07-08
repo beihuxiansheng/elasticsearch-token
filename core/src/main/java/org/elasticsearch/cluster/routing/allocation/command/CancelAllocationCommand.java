@@ -1170,10 +1170,8 @@ argument_list|)
 operator|&&
 name|initializingShardRouting
 operator|.
-name|state
+name|initializing
 argument_list|()
-operator|==
-name|INITIALIZING
 condition|)
 block|{
 name|initializingNode
