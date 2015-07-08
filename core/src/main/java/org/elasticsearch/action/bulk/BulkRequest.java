@@ -152,18 +152,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -1914,6 +1902,59 @@ name|currentFieldName
 argument_list|)
 condition|)
 block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Action/metadata line ["
+operator|+
+name|line
+operator|+
+literal|"] contains a simple value for parameter [fields] while a list is expected"
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Action/metadata line ["
+operator|+
+name|line
+operator|+
+literal|"] contains an unknown parameter ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_ARRAY
+condition|)
+block|{
+if|if
+condition|(
+literal|"fields"
+operator|.
+name|equals
+argument_list|(
+name|currentFieldName
+argument_list|)
+condition|)
+block|{
 name|List
 argument_list|<
 name|Object
@@ -1948,13 +1989,17 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Action/metadata line ["
+literal|"Malformed action/metadata line ["
 operator|+
 name|line
 operator|+
-literal|"] contains an unknown parameter ["
+literal|"], expected a simple value for field ["
 operator|+
 name|currentFieldName
+operator|+
+literal|"] but found ["
+operator|+
+name|token
 operator|+
 literal|"]"
 argument_list|)
