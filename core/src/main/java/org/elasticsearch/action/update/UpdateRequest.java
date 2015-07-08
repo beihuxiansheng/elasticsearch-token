@@ -2747,7 +2747,7 @@ return|;
 block|}
 DECL|method|docAsUpsert
 specifier|public
-name|void
+name|UpdateRequest
 name|docAsUpsert
 parameter_list|(
 name|boolean
@@ -2760,6 +2760,9 @@ name|docAsUpsert
 operator|=
 name|shouldUpsertDoc
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 DECL|method|scriptedUpsert
 specifier|public
@@ -2775,7 +2778,7 @@ return|;
 block|}
 DECL|method|scriptedUpsert
 specifier|public
-name|void
+name|UpdateRequest
 name|scriptedUpsert
 parameter_list|(
 name|boolean
@@ -2788,6 +2791,9 @@ name|scriptedUpsert
 operator|=
 name|scriptedUpsert
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
 annotation|@
 name|Override

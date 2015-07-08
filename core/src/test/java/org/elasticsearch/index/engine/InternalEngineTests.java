@@ -9716,6 +9716,11 @@ argument_list|(
 name|engine
 argument_list|)
 expr_stmt|;
+name|thread
+operator|.
+name|join
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}

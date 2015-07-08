@@ -626,7 +626,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -4926,9 +4926,9 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStats
@@ -5219,9 +5219,9 @@ decl_stmt|;
 comment|// treeset makes sure iteration order is deterministic
 for|for
 control|(
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStatses
@@ -6180,9 +6180,9 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 name|info
 range|:
 name|nodeStatses

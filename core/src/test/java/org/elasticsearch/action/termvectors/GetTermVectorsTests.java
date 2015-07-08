@@ -266,9 +266,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|AbstractFieldMapper
+name|FieldMapper
 import|;
 end_import
 
@@ -1892,7 +1890,7 @@ expr_stmt|;
 name|String
 name|optionString
 init|=
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|termVectorOptionsToString
 argument_list|(

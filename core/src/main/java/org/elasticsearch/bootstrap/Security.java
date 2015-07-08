@@ -345,6 +345,20 @@ argument_list|,
 literal|"es.security.jar.elasticsearch.securemock"
 argument_list|)
 expr_stmt|;
+name|m
+operator|.
+name|put
+argument_list|(
+name|Pattern
+operator|.
+name|compile
+argument_list|(
+literal|".*bcprov-.*\\.jar$"
+argument_list|)
+argument_list|,
+literal|"es.security.jar.bouncycastle.bcprov"
+argument_list|)
+expr_stmt|;
 name|SPECIAL_JARS
 operator|=
 name|Collections
@@ -447,11 +461,37 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
-comment|// TODO: we need to fix plugins to not include duplicate e.g. lucene-core jars,
-comment|// to add back this safety check! see https://github.com/elastic/elasticsearch/issues/11647
-comment|// if (System.getProperty(prop) != null) {
-comment|//    throw new IllegalStateException("property: " + prop + " is unexpectedly set: " + System.getProperty(prop));
-comment|//}
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|prop
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"property: "
+operator|+
+name|prop
+operator|+
+literal|" is unexpectedly set: "
+operator|+
+name|System
+operator|.
+name|getProperty
+argument_list|(
+name|prop
+argument_list|)
+argument_list|)
+throw|;
+block|}
 name|System
 operator|.
 name|setProperty

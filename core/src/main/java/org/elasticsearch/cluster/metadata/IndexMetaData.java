@@ -1219,6 +1219,15 @@ name|SETTING_CREATION_DATE
 init|=
 literal|"index.creation_date"
 decl_stmt|;
+DECL|field|SETTING_PRIORITY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SETTING_PRIORITY
+init|=
+literal|"index.priority"
+decl_stmt|;
 DECL|field|SETTING_CREATION_DATE_STRING
 specifier|public
 specifier|static

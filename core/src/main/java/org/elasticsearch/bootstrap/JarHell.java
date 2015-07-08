@@ -470,7 +470,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|URL
+name|Path
 argument_list|>
 name|clazzes
 init|=
@@ -483,7 +483,7 @@ argument_list|)
 decl_stmt|;
 name|Set
 argument_list|<
-name|String
+name|Path
 argument_list|>
 name|seenJars
 init|=
@@ -501,19 +501,18 @@ range|:
 name|urls
 control|)
 block|{
-name|String
+specifier|final
+name|Path
 name|path
 init|=
-name|URLDecoder
+name|PathUtils
 operator|.
-name|decode
+name|get
 argument_list|(
 name|url
 operator|.
-name|getPath
+name|toURI
 argument_list|()
-argument_list|,
-literal|"UTF-8"
 argument_list|)
 decl_stmt|;
 comment|// exclude system resources
@@ -589,6 +588,9 @@ operator|new
 name|JarFile
 argument_list|(
 name|path
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 init|)
 block|{
@@ -777,7 +779,7 @@ name|clazzes
 argument_list|,
 name|entry
 argument_list|,
-name|url
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -903,7 +905,7 @@ name|clazzes
 argument_list|,
 name|entry
 argument_list|,
-name|url
+name|path
 argument_list|)
 expr_stmt|;
 block|}
@@ -924,13 +926,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"proper use of URL to reduce noise"
-argument_list|)
 DECL|method|checkClass
 specifier|static
 name|void
@@ -940,16 +935,91 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|URL
+name|Path
 argument_list|>
 name|clazzes
 parameter_list|,
 name|String
 name|clazz
 parameter_list|,
-name|URL
-name|url
+name|Path
+name|jarpath
 parameter_list|)
+block|{
+name|Path
+name|previous
+init|=
+name|clazzes
+operator|.
+name|put
+argument_list|(
+name|clazz
+argument_list|,
+name|jarpath
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|previous
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|previous
+operator|.
+name|equals
+argument_list|(
+name|jarpath
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|clazz
+operator|.
+name|startsWith
+argument_list|(
+literal|"org.apache.xmlbeans"
+argument_list|)
+condition|)
+block|{
+return|return;
+comment|// https://issues.apache.org/jira/browse/XMLBEANS-499
+block|}
+comment|// throw a better exception in this ridiculous case.
+comment|// unfortunately the zip file format allows this buggy possibility
+comment|// UweSays: It can, but should be considered as bug :-)
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"jar hell!"
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"class: "
+operator|+
+name|clazz
+operator|+
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+operator|+
+literal|"exists multiple times in jar: "
+operator|+
+name|jarpath
+operator|+
+literal|" !!!!!!!!!"
+argument_list|)
+throw|;
+block|}
+else|else
 block|{
 if|if
 condition|(
@@ -977,25 +1047,6 @@ block|{
 return|return;
 comment|// apparently this is intentional... clean this up
 block|}
-name|URL
-name|previous
-init|=
-name|clazzes
-operator|.
-name|put
-argument_list|(
-name|clazz
-argument_list|,
-name|url
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|previous
-operator|!=
-literal|null
-condition|)
-block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -1019,9 +1070,6 @@ operator|+
 literal|"jar1: "
 operator|+
 name|previous
-operator|.
-name|getPath
-argument_list|()
 operator|+
 name|System
 operator|.
@@ -1030,12 +1078,10 @@ argument_list|()
 operator|+
 literal|"jar2: "
 operator|+
-name|url
-operator|.
-name|getPath
-argument_list|()
+name|jarpath
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}

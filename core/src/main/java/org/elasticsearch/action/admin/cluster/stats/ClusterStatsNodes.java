@@ -286,7 +286,7 @@ name|monitor
 operator|.
 name|fs
 operator|.
-name|FsStats
+name|FsInfo
 import|;
 end_import
 
@@ -398,9 +398,9 @@ name|jvm
 decl_stmt|;
 DECL|field|fs
 specifier|private
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 name|fs
 decl_stmt|;
 DECL|field|plugins
@@ -463,9 +463,9 @@ operator|.
 name|fs
 operator|=
 operator|new
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 argument_list|()
 expr_stmt|;
 name|this
@@ -733,9 +733,9 @@ return|;
 block|}
 DECL|method|getFs
 specifier|public
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 name|getFs
 parameter_list|()
 block|{
@@ -848,9 +848,9 @@ argument_list|)
 expr_stmt|;
 name|fs
 operator|=
-name|FsStats
+name|FsInfo
 operator|.
-name|Info
+name|Path
 operator|.
 name|readInfoFrom
 argument_list|(

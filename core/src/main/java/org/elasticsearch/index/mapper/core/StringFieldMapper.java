@@ -96,18 +96,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|Strings
 import|;
 end_import
@@ -192,9 +180,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|fielddata
+name|mapper
 operator|.
-name|FieldDataType
+name|FieldMapper
 import|;
 end_import
 
@@ -406,17 +394,13 @@ name|parseMultiField
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|StringFieldMapper
 specifier|public
 class|class
 name|StringFieldMapper
 extends|extends
-name|AbstractFieldMapper
+name|FieldMapper
 implements|implements
 name|AllFieldMapper
 operator|.
@@ -435,10 +419,6 @@ DECL|class|Defaults
 specifier|public
 specifier|static
 class|class
-name|Defaults
-extends|extends
-name|AbstractFieldMapper
-operator|.
 name|Defaults
 block|{
 DECL|field|FIELD_TYPE
@@ -496,7 +476,7 @@ specifier|static
 class|class
 name|Builder
 extends|extends
-name|AbstractFieldMapper
+name|FieldMapper
 operator|.
 name|Builder
 argument_list|<
@@ -708,16 +688,6 @@ comment|// index options, as probably what the user really wants
 comment|// if they are set explicitly, we will use those values
 comment|// we also change the values on the default field type so that toXContent emits what
 comment|// differs from the defaults
-name|MappedFieldType
-name|defaultFieldType
-init|=
-name|Defaults
-operator|.
-name|FIELD_TYPE
-operator|.
-name|clone
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|fieldType
@@ -762,9 +732,7 @@ operator|.
 name|boost
 argument_list|()
 operator|==
-name|Defaults
-operator|.
-name|BOOST
+literal|1.0f
 condition|)
 block|{
 name|fieldType
@@ -792,11 +760,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|defaultFieldType
-operator|.
-name|freeze
-argument_list|()
-expr_stmt|;
 name|setupFieldType
 argument_list|(
 name|context
@@ -814,13 +777,9 @@ name|fieldType
 argument_list|,
 name|defaultFieldType
 argument_list|,
-name|docValues
-argument_list|,
 name|positionOffsetGap
 argument_list|,
 name|ignoreAbove
-argument_list|,
-name|fieldDataSettings
 argument_list|,
 name|context
 operator|.
@@ -1114,6 +1073,7 @@ condition|(
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|indexAnalyzer
 argument_list|()
@@ -1124,6 +1084,7 @@ block|{
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setIndexAnalyzer
 argument_list|(
@@ -1142,6 +1103,7 @@ condition|(
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchAnalyzer
 argument_list|()
@@ -1152,6 +1114,7 @@ block|{
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setSearchAnalyzer
 argument_list|(
@@ -1170,6 +1133,7 @@ condition|(
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|searchQuoteAnalyzer
 argument_list|()
@@ -1180,6 +1144,7 @@ block|{
 name|builder
 operator|.
 name|fieldType
+argument_list|()
 operator|.
 name|setSearchQuoteAnalyzer
 argument_list|(
@@ -1389,12 +1354,6 @@ specifier|private
 name|int
 name|ignoreAbove
 decl_stmt|;
-DECL|field|defaultFieldType
-specifier|private
-specifier|final
-name|MappedFieldType
-name|defaultFieldType
-decl_stmt|;
 DECL|method|StringFieldMapper
 specifier|protected
 name|StringFieldMapper
@@ -1408,19 +1367,11 @@ parameter_list|,
 name|MappedFieldType
 name|defaultFieldType
 parameter_list|,
-name|Boolean
-name|docValues
-parameter_list|,
 name|int
 name|positionOffsetGap
 parameter_list|,
 name|int
 name|ignoreAbove
-parameter_list|,
-annotation|@
-name|Nullable
-name|Settings
-name|fieldDataSettings
 parameter_list|,
 name|Settings
 name|indexSettings
@@ -1438,9 +1389,7 @@ name|simpleName
 argument_list|,
 name|fieldType
 argument_list|,
-name|docValues
-argument_list|,
-name|fieldDataSettings
+name|defaultFieldType
 argument_list|,
 name|indexSettings
 argument_list|,
@@ -1490,12 +1439,6 @@ throw|;
 block|}
 name|this
 operator|.
-name|defaultFieldType
-operator|=
-name|defaultFieldType
-expr_stmt|;
-name|this
-operator|.
 name|positionOffsetGap
 operator|=
 name|positionOffsetGap
@@ -1506,34 +1449,6 @@ name|ignoreAbove
 operator|=
 name|ignoreAbove
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|defaultFieldType
-specifier|public
-name|MappedFieldType
-name|defaultFieldType
-parameter_list|()
-block|{
-return|return
-name|defaultFieldType
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|defaultFieldDataType
-specifier|public
-name|FieldDataType
-name|defaultFieldDataType
-parameter_list|()
-block|{
-return|return
-operator|new
-name|FieldDataType
-argument_list|(
-literal|"string"
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override

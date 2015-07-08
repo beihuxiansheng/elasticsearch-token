@@ -2054,6 +2054,14 @@ operator|.
 name|stopDisrupting
 argument_list|()
 expr_stmt|;
+for|for
+control|(
+name|String
+name|node
+range|:
+name|nodes
+control|)
+block|{
 name|ensureStableCluster
 argument_list|(
 literal|3
@@ -2074,8 +2082,13 @@ operator|.
 name|millis
 argument_list|()
 argument_list|)
+argument_list|,
+literal|true
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
+block|}
 name|logger
 operator|.
 name|info
@@ -3506,6 +3519,8 @@ operator|.
 name|millis
 argument_list|()
 argument_list|)
+argument_list|,
+literal|false
 argument_list|,
 name|oldNonMasterNodes
 operator|.
@@ -5954,8 +5969,6 @@ name|timeValueSeconds
 argument_list|(
 literal|30
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -5976,6 +5989,8 @@ argument_list|(
 name|nodeCount
 argument_list|,
 name|timeValue
+argument_list|,
+literal|false
 argument_list|,
 literal|null
 argument_list|)
@@ -6006,6 +6021,8 @@ argument_list|(
 literal|30
 argument_list|)
 argument_list|,
+literal|false
+argument_list|,
 name|viaNode
 argument_list|)
 expr_stmt|;
@@ -6020,6 +6037,9 @@ name|nodeCount
 parameter_list|,
 name|TimeValue
 name|timeValue
+parameter_list|,
+name|boolean
+name|local
 parameter_list|,
 annotation|@
 name|Nullable
@@ -6096,6 +6116,11 @@ operator|.
 name|setTimeout
 argument_list|(
 name|timeValue
+argument_list|)
+operator|.
+name|setLocal
+argument_list|(
+name|local
 argument_list|)
 operator|.
 name|setWaitForRelocatingShards

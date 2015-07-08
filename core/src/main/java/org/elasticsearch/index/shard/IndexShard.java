@@ -4925,6 +4925,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Fails the shard and marks the shard store as corrupted if      *<code>e</code> is caused by index corruption      */
 DECL|method|failShard
 specifier|public
 name|void
@@ -4933,6 +4934,8 @@ parameter_list|(
 name|String
 name|reason
 parameter_list|,
+annotation|@
+name|Nullable
 name|Throwable
 name|e
 parameter_list|)
@@ -7867,45 +7870,6 @@ name|Throwable
 name|failure
 parameter_list|)
 block|{
-try|try
-block|{
-comment|// mark as corrupted, so opening the store will fail
-name|store
-operator|.
-name|markStoreCorrupted
-argument_list|(
-operator|new
-name|IOException
-argument_list|(
-literal|"failed engine (reason: ["
-operator|+
-name|reason
-operator|+
-literal|"])"
-argument_list|,
-name|failure
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to mark shard store as corrupted"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
 for|for
 control|(
 name|Engine
@@ -7945,7 +7909,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
