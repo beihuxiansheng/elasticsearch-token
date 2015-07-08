@@ -2156,9 +2156,12 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"seasonalityType"
+literal|"type"
 argument_list|,
 name|seasonalityType
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
