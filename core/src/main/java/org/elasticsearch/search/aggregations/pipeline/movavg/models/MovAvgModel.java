@@ -131,19 +131,46 @@ specifier|abstract
 class|class
 name|MovAvgModel
 block|{
-comment|/**      * Checks to see this model can produce a new value, without actually running the algo.      * This can be used for models that have certain preconditions that need to be met in order      * to short-circuit execution      *      * @param windowLength  Length of current window      * @return              Returns `true` if calling next() will produce a value, `false` otherwise      */
+comment|/**      * Should this model be fit to the data via a cost minimizing algorithm by default?      *      * @return      */
+DECL|method|minimizeByDefault
+specifier|public
+name|boolean
+name|minimizeByDefault
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Returns if the model can be cost minimized.  Not all models have parameters      * which can be tuned / optimized.      *      * @return      */
+DECL|method|canBeMinimized
+specifier|public
+specifier|abstract
+name|boolean
+name|canBeMinimized
+parameter_list|()
+function_decl|;
+comment|/**      * Generates a "neighboring" model, where one of the tunable parameters has been      * randomly mutated within the allowed range.  Used for minimization      *      * @return      */
+DECL|method|neighboringModel
+specifier|public
+specifier|abstract
+name|MovAvgModel
+name|neighboringModel
+parameter_list|()
+function_decl|;
+comment|/**      * Checks to see this model can produce a new value, without actually running the algo.      * This can be used for models that have certain preconditions that need to be met in order      * to short-circuit execution      *      * @param valuesAvailable Number of values in the current window of values      * @return                Returns `true` if calling next() will produce a value, `false` otherwise      */
 DECL|method|hasValue
 specifier|public
 name|boolean
 name|hasValue
 parameter_list|(
 name|int
-name|windowLength
+name|valuesAvailable
 parameter_list|)
 block|{
 comment|// Default implementation can always provide a next() value
 return|return
-name|windowLength
+name|valuesAvailable
 operator|>
 literal|0
 return|;
@@ -244,7 +271,7 @@ name|int
 name|numPredictions
 parameter_list|)
 function_decl|;
-comment|/**      * Returns an empty set of predictions, filled with NaNs      */
+comment|/**      * Returns an empty set of predictions, filled with NaNs      * @param numPredictions Number of empty predictions to generate      * @return      */
 DECL|method|emptyPredictions
 specifier|protected
 name|double
@@ -292,6 +319,14 @@ name|out
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|/**      * Clone the model, returning an exact copy      *      * @return      */
+DECL|method|clone
+specifier|public
+specifier|abstract
+name|MovAvgModel
+name|clone
+parameter_list|()
 function_decl|;
 comment|/**      * Abstract class which also provides some concrete parsing functionality.      */
 DECL|class|AbstractModelParser
