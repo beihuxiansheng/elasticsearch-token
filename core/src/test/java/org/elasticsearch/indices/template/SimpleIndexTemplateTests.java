@@ -60,16 +60,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionRequestValidationException
@@ -238,20 +228,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|compress
-operator|.
-name|CompressedXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -362,16 +338,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Arrays
@@ -395,22 +361,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|termQuery
 import|;
 end_import
 
@@ -6072,8 +6022,14 @@ literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
+comment|// Before 2.0 alias filters were parsed at alias creation time, in order
+comment|// for filters to work correctly ES required that fields mentioned in those
+comment|// filters exist in the mapping.
+comment|// From 2.0 and higher alias filters are parsed at request time and therefor
+comment|// fields mentioned in filters don't need to exist in the mapping.
+comment|// So the aliases defined in the index template for this index will not fail
+comment|// even though the fields in the alias fields don't exist yet and indexing into
+comment|// an index that doesn't exist yet will succeed
 name|client
 argument_list|()
 operator|.
@@ -6094,47 +6050,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
-name|e
-argument_list|)
-argument_list|,
-name|instanceOf
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|containsString
-argument_list|(
-literal|"failed to parse filter for alias [alias4]"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|response
 operator|=
 name|client
@@ -6173,7 +6088,7 @@ argument_list|()
 argument_list|,
 name|is
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6192,7 +6107,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6206,12 +6121,31 @@ index|[
 literal|0
 index|]
 operator|.
-name|getFailureMessage
+name|getId
 argument_list|()
 argument_list|,
-name|containsString
+name|equalTo
 argument_list|(
-literal|"failed to parse filter for alias [alias4]"
+literal|"test"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|response
+operator|.
+name|getItems
+argument_list|()
+index|[
+literal|0
+index|]
+operator|.
+name|getVersion
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|1l
 argument_list|)
 argument_list|)
 expr_stmt|;
