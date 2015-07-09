@@ -1107,6 +1107,9 @@ literal|"quick"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -1447,6 +1450,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -1549,6 +1555,9 @@ argument_list|,
 literal|"quick lazy huge brown fox"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -2390,6 +2399,9 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|int
 name|iters
 init|=
@@ -2652,6 +2664,9 @@ literal|"test comment"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -2844,6 +2859,9 @@ argument_list|,
 literal|"the quick lazy huge brown fox jumps over the tree"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -4790,6 +4808,9 @@ literal|"quick lazy huge brown fox"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -5002,6 +5023,9 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -5199,6 +5223,9 @@ name|get
 argument_list|()
 expr_stmt|;
 name|refresh
+argument_list|()
+expr_stmt|;
+name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|SearchResponse
@@ -6201,6 +6228,9 @@ literal|"value1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -6522,6 +6552,9 @@ argument_list|,
 literal|"value3"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -6949,6 +6982,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -7283,6 +7319,9 @@ literal|"value3_4"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -7551,6 +7590,9 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -8118,6 +8160,9 @@ literal|true
 argument_list|)
 operator|.
 name|get
+argument_list|()
+expr_stmt|;
+name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|WrapperQueryBuilder
@@ -8716,6 +8761,9 @@ literal|"value1"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|MultiMatchQueryBuilder
 name|builder
 init|=
@@ -9208,6 +9256,9 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|BoolQueryBuilder
 name|boolQuery
 init|=
@@ -9472,6 +9523,9 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|BoolQueryBuilder
 name|boolQuery
 init|=
@@ -9730,6 +9784,9 @@ name|get
 argument_list|()
 expr_stmt|;
 name|refresh
+argument_list|()
+expr_stmt|;
+name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|MultiMatchQueryBuilder
@@ -10095,6 +10152,9 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -10292,6 +10352,9 @@ argument_list|,
 literal|"phrase match"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -10568,6 +10631,9 @@ name|get
 argument_list|()
 expr_stmt|;
 name|refresh
+argument_list|()
+expr_stmt|;
+name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|SearchResponse
@@ -15471,6 +15537,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -17102,6 +17171,9 @@ literal|true
 argument_list|)
 operator|.
 name|get
+argument_list|()
+expr_stmt|;
+name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|logger
@@ -21622,6 +21694,9 @@ literal|999999999999L
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -23750,6 +23825,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -24150,6 +24228,9 @@ argument_list|,
 literal|"trying out Elasticsearch"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -24814,6 +24895,9 @@ literal|"xyz"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|()
+expr_stmt|;
 name|SearchResponse
 name|response
 init|=
@@ -25076,6 +25160,9 @@ argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|ensureYellow
+argument_list|()
 expr_stmt|;
 try|try
 block|{
