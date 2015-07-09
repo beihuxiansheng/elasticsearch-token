@@ -413,6 +413,9 @@ parameter_list|(
 name|Path
 name|tempDir
 parameter_list|,
+name|Settings
+name|additionalSettings
+parameter_list|,
 name|TransportAddress
 modifier|...
 name|transportAddresses
@@ -430,6 +433,11 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
+operator|.
+name|put
+argument_list|(
+name|additionalSettings
+argument_list|)
 operator|.
 name|put
 argument_list|(
