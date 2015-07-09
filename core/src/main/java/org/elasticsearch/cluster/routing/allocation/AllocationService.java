@@ -1067,14 +1067,6 @@ argument_list|(
 name|allocation
 argument_list|)
 expr_stmt|;
-comment|// elect primaries again, in case this is needed with unassigned allocation
-name|changed
-operator||=
-name|electPrimariesAndUnassignedDanglingReplicas
-argument_list|(
-name|allocation
-argument_list|)
-expr_stmt|;
 block|}
 comment|// move shards that no longer can be allocated
 name|changed
