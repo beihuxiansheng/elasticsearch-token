@@ -245,9 +245,9 @@ name|DEFAULT_DELAYED_NODE_LEFT_TIMEOUT
 init|=
 name|TimeValue
 operator|.
-name|timeValueMillis
+name|timeValueMinutes
 argument_list|(
-literal|0
+literal|1
 argument_list|)
 decl_stmt|;
 comment|/**      * Reason why the shard is in unassigned state.      *<p/>      * Note, ordering of the enum is important, make sure to add new values      * at the end and handle version serialization properly.      */
