@@ -2113,9 +2113,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-name|XFieldComparatorSource
-operator|.
-name|MAX_TERM
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2160,9 +2158,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-name|XFieldComparatorSource
-operator|.
-name|MAX_TERM
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
