@@ -12183,6 +12183,15 @@ argument_list|(
 operator|new
 name|QueryInnerHitBuilder
 argument_list|()
+operator|.
+name|addSort
+argument_list|(
+literal|"nested1.n_field1"
+argument_list|,
+name|SortOrder
+operator|.
+name|ASC
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
