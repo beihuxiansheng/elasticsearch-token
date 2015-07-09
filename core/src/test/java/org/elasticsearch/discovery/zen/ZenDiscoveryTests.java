@@ -1773,7 +1773,16 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Can't handle join request from a node with a version [1.6.0] that is lower than the minimum compatible version [2.0.0-SNAPSHOT]"
+literal|"Can't handle join request from a node with a version [1.6.0] that is lower than the minimum compatible version ["
+operator|+
+name|Version
+operator|.
+name|V_2_0_0_beta1
+operator|.
+name|minimumCompatibilityVersion
+argument_list|()
+operator|+
+literal|"]"
 argument_list|)
 argument_list|)
 expr_stmt|;
