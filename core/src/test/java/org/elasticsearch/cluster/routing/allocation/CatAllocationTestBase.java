@@ -506,8 +506,9 @@ expr_stmt|;
 name|ShardRouting
 name|routing
 init|=
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 name|index
 argument_list|,

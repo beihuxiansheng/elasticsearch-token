@@ -524,6 +524,11 @@ name|QueryParsers
 operator|.
 name|parseRewriteMethod
 argument_list|(
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
+argument_list|,
 name|rewriteMethod
 argument_list|,
 literal|null

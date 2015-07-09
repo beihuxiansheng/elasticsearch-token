@@ -756,8 +756,9 @@ case|case
 name|STARTED
 case|:
 return|return
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -790,8 +791,9 @@ case|case
 name|INITIALIZING
 case|:
 return|return
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 name|index
 argument_list|,
@@ -824,8 +826,9 @@ case|case
 name|RELOCATING
 case|:
 return|return
-operator|new
-name|ShardRouting
+name|TestShardRouting
+operator|.
+name|newShardRouting
 argument_list|(
 name|index
 argument_list|,

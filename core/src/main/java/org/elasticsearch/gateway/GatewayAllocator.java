@@ -2295,10 +2295,7 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|assign
 argument_list|(
@@ -2413,10 +2410,7 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|assign
 argument_list|(
@@ -3359,10 +3353,7 @@ name|changed
 operator|=
 literal|true
 expr_stmt|;
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|assign
 argument_list|(

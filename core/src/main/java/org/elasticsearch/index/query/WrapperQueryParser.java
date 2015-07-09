@@ -276,7 +276,7 @@ argument_list|()
 expr_stmt|;
 name|parseContext
 operator|.
-name|combineNamedFilters
+name|combineNamedQueries
 argument_list|(
 name|context
 argument_list|)

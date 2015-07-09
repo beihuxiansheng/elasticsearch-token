@@ -1247,7 +1247,7 @@ name|filter
 argument_list|,
 name|context
 operator|.
-name|copyNamedFilters
+name|copyNamedQueries
 argument_list|()
 argument_list|)
 return|;
@@ -1673,7 +1673,7 @@ name|query
 argument_list|,
 name|parseContext
 operator|.
-name|copyNamedFilters
+name|copyNamedQueries
 argument_list|()
 argument_list|)
 return|;

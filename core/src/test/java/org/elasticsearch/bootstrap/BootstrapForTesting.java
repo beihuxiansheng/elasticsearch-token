@@ -194,6 +194,12 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// initialize probes
+name|Bootstrap
+operator|.
+name|initializeProbes
+argument_list|()
+expr_stmt|;
 comment|// check for jar hell
 try|try
 block|{

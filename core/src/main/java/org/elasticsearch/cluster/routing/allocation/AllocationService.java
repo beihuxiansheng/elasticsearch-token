@@ -270,38 +270,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
-operator|.
-name|INITIALIZING
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRoutingState
-operator|.
-name|RELOCATING
-import|;
-end_import
-
 begin_comment
 comment|/**  * This service manages the node allocation of a cluster. For this reason the  * {@link AllocationService} keeps {@link AllocationDeciders} to choose nodes  * for shard allocation. This class also manages new nodes joining the cluster  * and rerouting of shards.  */
 end_comment
@@ -1095,14 +1063,6 @@ operator||=
 name|shardsAllocators
 operator|.
 name|allocateUnassigned
-argument_list|(
-name|allocation
-argument_list|)
-expr_stmt|;
-comment|// elect primaries again, in case this is needed with unassigned allocation
-name|changed
-operator||=
-name|electPrimariesAndUnassignedDanglingReplicas
 argument_list|(
 name|allocation
 argument_list|)
@@ -1935,10 +1895,8 @@ block|{
 assert|assert
 name|startedShard
 operator|.
-name|state
+name|initializing
 argument_list|()
-operator|==
-name|INITIALIZING
 assert|;
 comment|// retrieve the relocating node id before calling startedShard().
 name|String
@@ -2198,10 +2156,8 @@ if|if
 condition|(
 name|failedShard
 operator|.
-name|state
+name|initializing
 argument_list|()
-operator|==
-name|INITIALIZING
 condition|)
 block|{
 comment|// the shard is initializing and recovering from another node
@@ -2381,10 +2337,8 @@ if|if
 condition|(
 name|failedShard
 operator|.
-name|state
+name|relocating
 argument_list|()
-operator|==
-name|RELOCATING
 condition|)
 block|{
 comment|// the shard is relocating, meaning its the source the shard is relocating from
@@ -2537,10 +2491,8 @@ argument_list|)
 operator|&&
 name|shardRouting
 operator|.
-name|state
+name|initializing
 argument_list|()
-operator|==
-name|INITIALIZING
 condition|)
 block|{
 name|dirty

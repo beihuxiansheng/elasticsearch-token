@@ -28,20 +28,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MatchAllDocsQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -84,7 +70,9 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperService
+name|object
+operator|.
+name|ObjectMapper
 import|;
 end_import
 
@@ -96,11 +84,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|query
 operator|.
-name|object
-operator|.
-name|ObjectMapper
+name|ParsedQuery
 import|;
 end_import
 
@@ -1235,7 +1221,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Query
+name|ParsedQuery
 name|query
 init|=
 literal|null
@@ -1330,8 +1316,9 @@ name|fieldName
 argument_list|)
 condition|)
 block|{
-name|query
-operator|=
+name|Query
+name|q
+init|=
 name|searchContext
 operator|.
 name|queryParserService
@@ -1340,6 +1327,19 @@ operator|.
 name|parseInnerQuery
 argument_list|(
 name|parseContext
+argument_list|)
+decl_stmt|;
+name|query
+operator|=
+operator|new
+name|ParsedQuery
+argument_list|(
+name|q
+argument_list|,
+name|parseContext
+operator|.
+name|copyNamedQueries
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1425,8 +1425,9 @@ condition|)
 block|{
 name|query
 operator|=
-operator|new
-name|MatchAllDocsQuery
+name|ParsedQuery
+operator|.
+name|parsedMatchAllQuery
 argument_list|()
 expr_stmt|;
 block|}
@@ -1458,7 +1459,7 @@ decl_stmt|;
 DECL|field|query
 specifier|private
 specifier|final
-name|Query
+name|ParsedQuery
 name|query
 decl_stmt|;
 DECL|field|childInnerHits
@@ -1481,7 +1482,7 @@ parameter_list|(
 name|SubSearchContext
 name|context
 parameter_list|,
-name|Query
+name|ParsedQuery
 name|query
 parameter_list|,
 name|Map
@@ -1526,7 +1527,7 @@ return|;
 block|}
 DECL|method|query
 specifier|public
-name|Query
+name|ParsedQuery
 name|query
 parameter_list|()
 block|{

@@ -547,6 +547,11 @@ name|setRewriteMethod
 argument_list|(
 name|wildcardQuery
 argument_list|,
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
+argument_list|,
 name|rewriteMethod
 argument_list|)
 expr_stmt|;
@@ -558,6 +563,11 @@ name|QueryParsers
 operator|.
 name|parseRewriteMethod
 argument_list|(
+name|parseContext
+operator|.
+name|parseFieldMatcher
+argument_list|()
+argument_list|,
 name|rewriteMethod
 argument_list|)
 argument_list|)

@@ -999,7 +999,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|copyNamedFilters
+DECL|method|copyNamedQueries
 specifier|public
 name|ImmutableMap
 argument_list|<
@@ -1007,7 +1007,7 @@ name|String
 argument_list|,
 name|Query
 argument_list|>
-name|copyNamedFilters
+name|copyNamedQueries
 parameter_list|()
 block|{
 return|return
@@ -1019,10 +1019,10 @@ name|namedQueries
 argument_list|)
 return|;
 block|}
-DECL|method|combineNamedFilters
+DECL|method|combineNamedQueries
 specifier|public
 name|void
-name|combineNamedFilters
+name|combineNamedQueries
 parameter_list|(
 name|QueryParseContext
 name|context

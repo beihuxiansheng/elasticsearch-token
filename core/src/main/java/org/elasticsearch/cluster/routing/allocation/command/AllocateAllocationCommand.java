@@ -54,6 +54,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|RoutingNodes
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|ShardRouting
 import|;
 end_import
@@ -847,6 +861,7 @@ name|boolean
 name|explain
 parameter_list|)
 block|{
+specifier|final
 name|DiscoveryNode
 name|discoNode
 init|=
@@ -860,6 +875,15 @@ argument_list|(
 name|node
 argument_list|)
 decl_stmt|;
+specifier|final
+name|RoutingNodes
+name|routingNodes
+init|=
+name|allocation
+operator|.
+name|routingNodes
+argument_list|()
+decl_stmt|;
 name|ShardRouting
 name|shardRouting
 init|=
@@ -870,10 +894,7 @@ control|(
 name|ShardRouting
 name|routing
 range|:
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|unassigned
 argument_list|()
@@ -1017,10 +1038,7 @@ block|}
 name|RoutingNode
 name|routingNode
 init|=
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|node
 argument_list|(
@@ -1206,10 +1224,7 @@ name|ShardRouting
 argument_list|>
 name|it
 init|=
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|unassigned
 argument_list|()
@@ -1241,10 +1256,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|assign
 argument_list|(
@@ -1266,10 +1278,7 @@ condition|)
 block|{
 comment|// we need to clear the post allocation flag, since its an explicit allocation of the primary shard
 comment|// and we want to force allocate it (and create a new index for it)
-name|allocation
-operator|.
 name|routingNodes
-argument_list|()
 operator|.
 name|addClearPostAllocationFlag
 argument_list|(
