@@ -302,7 +302,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an {@link DeleteRequest} to the list of actions to execute.      */
+comment|/**      * Adds an {@link UpdateRequest} to the list of actions to execute.      */
 DECL|method|add
 specifier|public
 name|BulkRequestBuilder
@@ -325,7 +325,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds an {@link DeleteRequest} to the list of actions to execute.      */
+comment|/**      * Adds an {@link UpdateRequest} to the list of actions to execute.      */
 DECL|method|add
 specifier|public
 name|BulkRequestBuilder
