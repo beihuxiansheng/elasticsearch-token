@@ -1781,7 +1781,7 @@ name|namedQuery
 init|=
 name|context
 operator|.
-name|copyNamedFilters
+name|copyNamedQueries
 argument_list|()
 operator|.
 name|get
