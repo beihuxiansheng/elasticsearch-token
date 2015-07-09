@@ -18,6 +18,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -1224,6 +1238,16 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// see https://github.com/elastic/elasticsearch/issues/12170
+name|assumeFalse
+argument_list|(
+literal|"windows does not automatically grant permission to the target of symlinks"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|Path
 name|dir
 init|=
