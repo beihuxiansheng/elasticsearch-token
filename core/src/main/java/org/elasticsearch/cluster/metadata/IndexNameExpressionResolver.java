@@ -2300,6 +2300,7 @@ return|;
 block|}
 comment|/**      * Identifies whether the array containing index names given as argument refers to all indices      * The empty or null array identifies all indices      *      * @param aliasesOrIndices the array containing index names      * @return true if the provided array maps to all indices, false otherwise      */
 DECL|method|isAllIndices
+specifier|public
 specifier|static
 name|boolean
 name|isAllIndices
