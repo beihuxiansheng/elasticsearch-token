@@ -5246,7 +5246,11 @@ argument_list|)
 argument_list|,
 operator|new
 name|IndexNameExpressionResolver
-argument_list|()
+argument_list|(
+name|Settings
+operator|.
+name|EMPTY
+argument_list|)
 argument_list|,
 name|Request
 operator|.

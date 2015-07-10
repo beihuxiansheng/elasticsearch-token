@@ -552,6 +552,9 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
+parameter_list|,
+name|AutoCreateIndex
+name|autoCreateIndex
 parameter_list|)
 block|{
 name|super
@@ -603,11 +606,7 @@ name|this
 operator|.
 name|autoCreateIndex
 operator|=
-operator|new
-name|AutoCreateIndex
-argument_list|(
-name|settings
-argument_list|)
+name|autoCreateIndex
 expr_stmt|;
 name|this
 operator|.
@@ -649,6 +648,14 @@ name|listener
 parameter_list|)
 block|{
 comment|// if we don't have a master, we don't have metadata, that's fine, let it find a master using create index API
+name|ClusterState
+name|state
+init|=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|autoCreateIndex
@@ -660,10 +667,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|clusterService
-operator|.
 name|state
-argument_list|()
 argument_list|)
 condition|)
 block|{
