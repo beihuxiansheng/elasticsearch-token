@@ -180,20 +180,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|ClusterState
@@ -307,20 +293,6 @@ operator|.
 name|query
 operator|.
 name|QueryBuilders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParsingException
 import|;
 end_import
 
@@ -10108,6 +10080,11 @@ block|}
 block|}
 annotation|@
 name|Test
+comment|// Before 2.0 alias filters were parsed at alias creation time, in order
+comment|// for filters to work correctly ES required that fields mentioned in those
+comment|// filters exist in the mapping.
+comment|// From 2.0 and higher alias filters are parsed at request time and therefor
+comment|// fields mentioned in filters don't need to exist in the mapping.
 DECL|method|testAddAliasWithFilterNoMapping
 specifier|public
 name|void
@@ -10124,8 +10101,6 @@ literal|"test"
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|client
 argument_list|()
 operator|.
@@ -10157,34 +10132,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|,
-name|instanceOf
-argument_list|(
-name|QueryParsingException
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-try|try
-block|{
 name|client
 argument_list|()
 operator|.
@@ -10224,32 +10171,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|,
-name|instanceOf
-argument_list|(
-name|QueryParsingException
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 name|client
 argument_list|()
 operator|.
@@ -10273,7 +10194,6 @@ operator|.
 name|matchAllQuery
 argument_list|()
 argument_list|)
-comment|//<-- no fail, b/c no field mentioned
 operator|.
 name|get
 argument_list|()
