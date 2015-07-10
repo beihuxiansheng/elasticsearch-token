@@ -1361,7 +1361,7 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|afterIndexDeleted
+name|afterIndexClosed
 parameter_list|(
 name|Index
 name|index
