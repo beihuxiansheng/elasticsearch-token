@@ -541,6 +541,9 @@ if|if
 condition|(
 name|path
 operator|.
+name|toString
+argument_list|()
+operator|.
 name|endsWith
 argument_list|(
 literal|".jar"
