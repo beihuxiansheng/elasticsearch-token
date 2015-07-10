@@ -804,7 +804,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map
@@ -850,9 +850,14 @@ return|return
 operator|new
 name|GroovyScript
 argument_list|(
+name|compiledScript
+argument_list|,
 name|createScript
 argument_list|(
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|allVars
 argument_list|)
@@ -873,7 +878,9 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
-literal|"failed to build executable script"
+literal|"failed to build executable "
+operator|+
+name|compiledScript
 argument_list|,
 name|e
 argument_list|)
@@ -895,7 +902,7 @@ name|SearchScript
 name|search
 parameter_list|(
 specifier|final
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 specifier|final
@@ -990,6 +997,9 @@ operator|=
 name|createScript
 argument_list|(
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|allVars
 argument_list|)
@@ -1007,7 +1017,9 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
-literal|"failed to build search script"
+literal|"failed to build search "
+operator|+
+name|compiledScript
 argument_list|,
 name|e
 argument_list|)
@@ -1017,6 +1029,8 @@ return|return
 operator|new
 name|GroovyScript
 argument_list|(
+name|compiledScript
+argument_list|,
 name|scriptObject
 argument_list|,
 name|leafLookup
@@ -1035,7 +1049,7 @@ specifier|public
 name|Object
 name|execute
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map
@@ -1083,6 +1097,9 @@ init|=
 name|createScript
 argument_list|(
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|allVars
 argument_list|)
@@ -1104,7 +1121,9 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
-literal|"failed to execute script"
+literal|"failed to execute "
+operator|+
+name|compiledScript
 argument_list|,
 name|e
 argument_list|)
@@ -1154,6 +1173,12 @@ name|ExecutableScript
 implements|,
 name|LeafSearchScript
 block|{
+DECL|field|compiledScript
+specifier|private
+specifier|final
+name|CompiledScript
+name|compiledScript
+decl_stmt|;
 DECL|field|script
 specifier|private
 specifier|final
@@ -1187,6 +1212,9 @@ DECL|method|GroovyScript
 specifier|public
 name|GroovyScript
 parameter_list|(
+name|CompiledScript
+name|compiledScript
+parameter_list|,
 name|Script
 name|script
 parameter_list|,
@@ -1196,6 +1224,8 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
+name|compiledScript
+argument_list|,
 name|script
 argument_list|,
 literal|null
@@ -1213,6 +1243,9 @@ DECL|method|GroovyScript
 specifier|public
 name|GroovyScript
 parameter_list|(
+name|CompiledScript
+name|compiledScript
+parameter_list|,
 name|Script
 name|script
 parameter_list|,
@@ -1225,6 +1258,12 @@ name|ESLogger
 name|logger
 parameter_list|)
 block|{
+name|this
+operator|.
+name|compiledScript
+operator|=
+name|compiledScript
+expr_stmt|;
 name|this
 operator|.
 name|script
@@ -1411,7 +1450,9 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"exception running Groovy script"
+literal|"failed to run "
+operator|+
+name|compiledScript
 argument_list|,
 name|e
 argument_list|)
@@ -1421,6 +1462,12 @@ throw|throw
 operator|new
 name|GroovyScriptExecutionException
 argument_list|(
+literal|"failed to run "
+operator|+
+name|compiledScript
+operator|+
+literal|": "
+operator|+
 name|ExceptionsHelper
 operator|.
 name|detailedMessage

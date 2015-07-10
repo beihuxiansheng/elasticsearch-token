@@ -505,7 +505,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map
@@ -602,6 +602,9 @@ operator|(
 name|Script
 operator|)
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|scope
 argument_list|)
@@ -624,7 +627,7 @@ name|SearchScript
 name|search
 parameter_list|(
 specifier|final
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 specifier|final
@@ -804,6 +807,9 @@ operator|(
 name|Script
 operator|)
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|scope
 argument_list|,
@@ -830,7 +836,7 @@ specifier|public
 name|Object
 name|execute
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map
@@ -866,6 +872,9 @@ operator|(
 name|Script
 operator|)
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 decl_stmt|;
 name|Scriptable
 name|scope

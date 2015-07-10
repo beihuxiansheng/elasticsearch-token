@@ -1677,7 +1677,7 @@ name|script
 argument_list|)
 return|;
 block|}
-comment|/**      * Compiles a script straight-away, or returns the previously compiled and cached script, without checking if it can be executed based on settings.      */
+comment|/**      * Compiles a script straight-away, or returns the previously compiled and cached script,      * without checking if it can be executed based on settings.      */
 DECL|method|compileInternal
 specifier|public
 name|CompiledScript
@@ -1709,19 +1709,34 @@ name|script
 operator|.
 name|getLang
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|lang
 operator|==
 literal|null
-condition|)
-block|{
-name|lang
-operator|=
+condition|?
 name|defaultLang
-expr_stmt|;
-block|}
+else|:
+name|script
+operator|.
+name|getLang
+argument_list|()
+decl_stmt|;
+name|ScriptType
+name|type
+init|=
+name|script
+operator|.
+name|getType
+argument_list|()
+decl_stmt|;
+comment|//script.getScript() could return either a name or code for a script,
+comment|//but we check for a file script name first and an indexed script name second
+name|String
+name|name
+init|=
+name|script
+operator|.
+name|getScript
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|logger
@@ -1738,15 +1753,9 @@ literal|"Compiling lang: [{}] type: [{}] script: {}"
 argument_list|,
 name|lang
 argument_list|,
-name|script
-operator|.
-name|getType
-argument_list|()
+name|type
 argument_list|,
-name|script
-operator|.
-name|getScript
-argument_list|()
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -1758,6 +1767,15 @@ argument_list|(
 name|lang
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+name|ScriptType
+operator|.
+name|FILE
+condition|)
+block|{
 name|String
 name|cacheKey
 init|=
@@ -1765,26 +1783,14 @@ name|getCacheKey
 argument_list|(
 name|scriptEngineService
 argument_list|,
-name|script
-operator|.
-name|getScript
-argument_list|()
+name|name
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|script
-operator|.
-name|getType
-argument_list|()
-operator|==
-name|ScriptType
-operator|.
-name|FILE
-condition|)
-block|{
+comment|//On disk scripts will be loaded into the staticCache by the listener
 name|CompiledScript
-name|compiled
+name|compiledScript
 init|=
 name|staticCache
 operator|.
@@ -1793,10 +1799,9 @@ argument_list|(
 name|cacheKey
 argument_list|)
 decl_stmt|;
-comment|//On disk scripts will be loaded into the staticCache by the listener
 if|if
 condition|(
-name|compiled
+name|compiledScript
 operator|==
 literal|null
 condition|)
@@ -1805,19 +1810,23 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unable to find on disk script "
+literal|"Unable to find on disk file script ["
 operator|+
-name|script
-operator|.
-name|getScript
-argument_list|()
+name|name
+operator|+
+literal|"] using lang ["
+operator|+
+name|lang
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}
 return|return
-name|compiled
+name|compiledScript
 return|;
 block|}
+comment|//script.getScript() will be code if the script type is inline
 name|String
 name|code
 init|=
@@ -1828,16 +1837,15 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|script
-operator|.
-name|getType
-argument_list|()
+name|type
 operator|==
 name|ScriptType
 operator|.
 name|INDEXED
 condition|)
 block|{
+comment|//The look up for an indexed script must be done every time in case
+comment|//the script has been updated in the index since the last look up.
 specifier|final
 name|IndexedScript
 name|indexedScript
@@ -1847,12 +1855,15 @@ name|IndexedScript
 argument_list|(
 name|lang
 argument_list|,
-name|script
-operator|.
-name|getScript
-argument_list|()
+name|name
 argument_list|)
 decl_stmt|;
+name|name
+operator|=
+name|indexedScript
+operator|.
+name|id
+expr_stmt|;
 name|code
 operator|=
 name|getScriptFromIndex
@@ -1866,18 +1877,29 @@ operator|.
 name|id
 argument_list|)
 expr_stmt|;
+block|}
+name|String
 name|cacheKey
-operator|=
+init|=
 name|getCacheKey
 argument_list|(
 name|scriptEngineService
 argument_list|,
+name|type
+operator|==
+name|ScriptType
+operator|.
+name|INLINE
+condition|?
+literal|null
+else|:
+name|name
+argument_list|,
 name|code
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|CompiledScript
-name|compiled
+name|compiledScript
 init|=
 name|cache
 operator|.
@@ -1888,17 +1910,24 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|compiled
+name|compiledScript
 operator|==
 literal|null
 condition|)
 block|{
-comment|//Either an un-cached inline script or an indexed script
-name|compiled
+comment|//Either an un-cached inline script or indexed script
+comment|//If the script type is inline the name will be the same as the code for identification in exceptions
+try|try
+block|{
+name|compiledScript
 operator|=
 operator|new
 name|CompiledScript
 argument_list|(
+name|type
+argument_list|,
+name|name
+argument_list|,
 name|lang
 argument_list|,
 name|scriptEngineService
@@ -1909,6 +1938,35 @@ name|code
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|exception
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ScriptException
+argument_list|(
+literal|"Failed to compile "
+operator|+
+name|type
+operator|+
+literal|" script ["
+operator|+
+name|name
+operator|+
+literal|"] using lang ["
+operator|+
+name|lang
+operator|+
+literal|"]"
+argument_list|,
+name|exception
+argument_list|)
+throw|;
+block|}
 comment|//Since the cache key is the script content itself we don't need to
 comment|//invalidate/check the cache if an indexed script changes.
 name|cache
@@ -1917,12 +1975,12 @@ name|put
 argument_list|(
 name|cacheKey
 argument_list|,
-name|compiled
+name|compiledScript
 argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|compiled
+name|compiledScript
 return|;
 block|}
 DECL|method|queryScriptIndex
@@ -2230,21 +2288,25 @@ argument_list|)
 condition|)
 block|{
 comment|//Just try and compile it
-comment|//This will have the benefit of also adding the script to the cache if it compiles
 try|try
 block|{
+name|ScriptEngineService
+name|scriptEngineService
+init|=
+name|getScriptEngineServiceForLang
+argument_list|(
+name|scriptLang
+argument_list|)
+decl_stmt|;
 comment|//we don't know yet what the script will be used for, but if all of the operations for this lang with
-comment|//indexed scripts are disabled, it makes no sense to even compile it and cache it.
+comment|//indexed scripts are disabled, it makes no sense to even compile it.
 if|if
 condition|(
 name|isAnyScriptContextEnabled
 argument_list|(
 name|scriptLang
 argument_list|,
-name|getScriptEngineServiceForLang
-argument_list|(
-name|scriptLang
-argument_list|)
+name|scriptEngineService
 argument_list|,
 name|ScriptType
 operator|.
@@ -2252,17 +2314,22 @@ name|INDEXED
 argument_list|)
 condition|)
 block|{
-name|CompiledScript
-name|compiledScript
+name|Object
+name|compiled
 init|=
-name|compileInternal
+name|scriptEngineService
+operator|.
+name|compile
 argument_list|(
 name|template
+operator|.
+name|getScript
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|compiledScript
+name|compiled
 operator|==
 literal|null
 condition|)
@@ -2832,9 +2899,6 @@ operator|.
 name|executable
 argument_list|(
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 argument_list|,
 name|vars
 argument_list|)
@@ -2878,9 +2942,6 @@ operator|.
 name|search
 argument_list|(
 name|compiledScript
-operator|.
-name|compiled
-argument_list|()
 argument_list|,
 name|lookup
 argument_list|,
@@ -3409,6 +3470,8 @@ name|scriptNameExt
 operator|.
 name|v1
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|staticCache
@@ -3420,6 +3483,15 @@ argument_list|,
 operator|new
 name|CompiledScript
 argument_list|(
+name|ScriptType
+operator|.
+name|FILE
+argument_list|,
+name|scriptNameExt
+operator|.
+name|v1
+argument_list|()
+argument_list|,
 name|engineService
 operator|.
 name|types
@@ -3567,6 +3639,8 @@ name|scriptNameExt
 operator|.
 name|v1
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3821,7 +3895,10 @@ name|ScriptEngineService
 name|scriptEngineService
 parameter_list|,
 name|String
-name|script
+name|name
+parameter_list|,
+name|String
+name|code
 parameter_list|)
 block|{
 name|String
@@ -3840,7 +3917,29 @@ name|lang
 operator|+
 literal|":"
 operator|+
-name|script
+operator|(
+name|name
+operator|!=
+literal|null
+condition|?
+literal|":"
+operator|+
+name|name
+else|:
+literal|""
+operator|)
+operator|+
+operator|(
+name|code
+operator|!=
+literal|null
+condition|?
+literal|":"
+operator|+
+name|code
+else|:
+literal|""
+operator|)
 return|;
 block|}
 DECL|class|IndexedScript

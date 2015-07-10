@@ -140,7 +140,31 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|CompiledScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|LeafSearchScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptException
 import|;
 end_import
 
@@ -197,10 +221,10 @@ name|ExpressionSearchScript
 implements|implements
 name|SearchScript
 block|{
-DECL|field|expression
+DECL|field|compiledScript
 specifier|final
-name|Expression
-name|expression
+name|CompiledScript
+name|compiledScript
 decl_stmt|;
 DECL|field|bindings
 specifier|final
@@ -229,8 +253,8 @@ decl_stmt|;
 DECL|method|ExpressionSearchScript
 name|ExpressionSearchScript
 parameter_list|(
-name|Expression
-name|e
+name|CompiledScript
+name|c
 parameter_list|,
 name|SimpleBindings
 name|b
@@ -239,9 +263,9 @@ name|ReplaceableConstValueSource
 name|v
 parameter_list|)
 block|{
-name|expression
+name|compiledScript
 operator|=
-name|e
+name|c
 expr_stmt|;
 name|bindings
 operator|=
@@ -249,7 +273,15 @@ name|b
 expr_stmt|;
 name|source
 operator|=
-name|expression
+operator|(
+operator|(
+name|Expression
+operator|)
+name|compiledScript
+operator|.
+name|compiled
+argument_list|()
+operator|)
 operator|.
 name|getValueSource
 argument_list|(
@@ -308,6 +340,8 @@ name|double
 name|evaluate
 parameter_list|()
 block|{
+try|try
+block|{
 return|return
 name|values
 operator|.
@@ -316,6 +350,25 @@ argument_list|(
 name|docid
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|exception
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ScriptException
+argument_list|(
+literal|"Error evaluating "
+operator|+
+name|compiledScript
+argument_list|,
+name|exception
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -450,7 +503,9 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't get values"
+literal|"Can't get values using "
+operator|+
+name|compiledScript
 argument_list|,
 name|e
 argument_list|)
@@ -534,7 +589,9 @@ throw|throw
 operator|new
 name|ExpressionScriptExecutionException
 argument_list|(
-literal|"Cannot use expression with text variable"
+literal|"Cannot use expression with text variable using "
+operator|+
+name|compiledScript
 argument_list|)
 throw|;
 block|}

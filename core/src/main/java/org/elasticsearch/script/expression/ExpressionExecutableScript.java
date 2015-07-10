@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|script
 operator|.
+name|CompiledScript
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
 name|ExecutableScript
 import|;
 end_import
@@ -95,11 +107,11 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|expression
+DECL|field|compiledScript
 specifier|public
 specifier|final
-name|Expression
-name|expression
+name|CompiledScript
+name|compiledScript
 decl_stmt|;
 DECL|field|functionValuesMap
 specifier|public
@@ -123,7 +135,7 @@ DECL|method|ExpressionExecutableScript
 specifier|public
 name|ExpressionExecutableScript
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map
@@ -135,13 +147,25 @@ argument_list|>
 name|vars
 parameter_list|)
 block|{
-name|expression
+name|this
+operator|.
+name|compiledScript
 operator|=
+name|compiledScript
+expr_stmt|;
+name|Expression
+name|expression
+init|=
 operator|(
 name|Expression
 operator|)
+name|this
+operator|.
 name|compiledScript
-expr_stmt|;
+operator|.
+name|compiled
+argument_list|()
+decl_stmt|;
 name|int
 name|functionValuesLength
 init|=
@@ -165,6 +189,12 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
+literal|"Error using "
+operator|+
+name|compiledScript
+operator|+
+literal|". "
+operator|+
 literal|"The number of variables in an executable expression script ["
 operator|+
 name|functionValuesLength
@@ -332,6 +362,12 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
+literal|"Error using "
+operator|+
+name|compiledScript
+operator|+
+literal|". "
+operator|+
 literal|"Executable expressions scripts can only process numbers."
 operator|+
 literal|"  The variable ["
@@ -349,6 +385,12 @@ throw|throw
 operator|new
 name|ScriptException
 argument_list|(
+literal|"Error using "
+operator|+
+name|compiledScript
+operator|+
+literal|". "
+operator|+
 literal|"The variable ["
 operator|+
 name|name
@@ -366,8 +408,18 @@ name|Object
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 return|return
-name|expression
+operator|(
+operator|(
+name|Expression
+operator|)
+name|compiledScript
+operator|.
+name|compiled
+argument_list|()
+operator|)
 operator|.
 name|evaluate
 argument_list|(
@@ -376,6 +428,25 @@ argument_list|,
 name|functionValuesArray
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|exception
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ScriptException
+argument_list|(
+literal|"Error evaluating "
+operator|+
+name|compiledScript
+argument_list|,
+name|exception
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
