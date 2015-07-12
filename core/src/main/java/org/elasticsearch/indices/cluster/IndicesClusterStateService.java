@@ -2796,10 +2796,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|aliases
-argument_list|()
-operator|.
-name|equals
+name|equalsAliases
 argument_list|(
 name|event
 operator|.
@@ -2807,9 +2804,6 @@ name|previousState
 argument_list|()
 operator|.
 name|metaData
-argument_list|()
-operator|.
-name|aliases
 argument_list|()
 argument_list|)
 operator|||
