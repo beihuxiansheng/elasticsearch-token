@@ -228,6 +228,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|util
 operator|.
 name|BigArrays
@@ -775,9 +789,6 @@ DECL|field|timeoutInMillis
 specifier|private
 name|long
 name|timeoutInMillis
-init|=
-operator|-
-literal|1
 decl_stmt|;
 comment|// terminate after count
 DECL|field|terminateAfter
@@ -1002,6 +1013,9 @@ name|timeEstimateCounter
 parameter_list|,
 name|ParseFieldMatcher
 name|parseFieldMatcher
+parameter_list|,
+name|TimeValue
+name|timeout
 parameter_list|)
 block|{
 name|super
@@ -1129,6 +1143,15 @@ operator|.
 name|timeEstimateCounter
 operator|=
 name|timeEstimateCounter
+expr_stmt|;
+name|this
+operator|.
+name|timeoutInMillis
+operator|=
+name|timeout
+operator|.
+name|millis
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
