@@ -1374,6 +1374,76 @@ parameter_list|)
 block|{
 comment|// once an index is closed we can just clean up all the pending search context information
 comment|// to release memory and let references to the filesystem go etc.
+name|IndexMetaData
+name|idxMeta
+init|=
+name|SearchService
+operator|.
+name|this
+operator|.
+name|clusterService
+operator|.
+name|state
+argument_list|()
+operator|.
+name|metaData
+argument_list|()
+operator|.
+name|index
+argument_list|(
+name|index
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|idxMeta
+operator|!=
+literal|null
+operator|&&
+name|idxMeta
+operator|.
+name|state
+argument_list|()
+operator|==
+name|IndexMetaData
+operator|.
+name|State
+operator|.
+name|CLOSE
+condition|)
+block|{
+comment|// we need to check if it's really closed
+comment|// since sometimes due to a relocation we already closed the shard and that causes the index to be closed
+comment|// if we then close all the contexts we can get some search failures along the way which are not expected.
+comment|// it's fine to keep the contexts open if the index is still "alive"
+comment|// unfortunately we don't have a clear way to signal today why an index is closed.
+name|afterIndexDeleted
+argument_list|(
+name|index
+argument_list|,
+name|indexSettings
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|afterIndexDeleted
+parameter_list|(
+name|Index
+name|index
+parameter_list|,
+annotation|@
+name|IndexSettings
+name|Settings
+name|indexSettings
+parameter_list|)
+block|{
 name|freeAllContextForIndex
 argument_list|(
 name|index
