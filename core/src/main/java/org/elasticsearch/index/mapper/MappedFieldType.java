@@ -2565,7 +2565,7 @@ specifier|public
 name|Query
 name|prefixQuery
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|,
 annotation|@
