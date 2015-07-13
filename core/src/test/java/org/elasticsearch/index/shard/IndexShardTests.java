@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|store
+operator|.
+name|LockObtainFailedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -893,7 +907,6 @@ expr_stmt|;
 name|ensureGreen
 argument_list|()
 expr_stmt|;
-comment|//IndicesService indicesService = getInstanceFromNode(IndicesService.class);
 name|NodeEnvironment
 name|env
 init|=
@@ -952,7 +965,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchException
+name|LockObtainFailedException
 name|e
 parameter_list|)
 block|{
@@ -1020,7 +1033,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchException
+name|LockObtainFailedException
 name|e
 parameter_list|)
 block|{

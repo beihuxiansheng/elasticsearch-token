@@ -1782,7 +1782,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Acquires, then releases, all {@code write.lock} files in the given      * shard paths. The "write.lock" file is assumed to be under the shard      * path's "index" directory as used by Elasticsearch.      *      * @throws ElasticsearchException if any of the locks could not be acquired      */
+comment|/**      * Acquires, then releases, all {@code write.lock} files in the given      * shard paths. The "write.lock" file is assumed to be under the shard      * path's "index" directory as used by Elasticsearch.      *      * @throws LockObtainFailedException if any of the locks could not be acquired      */
 DECL|method|acquireFSLockForPaths
 specifier|public
 specifier|static
@@ -1904,7 +1904,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ElasticsearchException
+name|LockObtainFailedException
 argument_list|(
 literal|"unable to acquire "
 operator|+
