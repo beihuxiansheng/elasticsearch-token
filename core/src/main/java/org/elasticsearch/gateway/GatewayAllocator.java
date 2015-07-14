@@ -2297,7 +2297,7 @@ expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 operator|new
 name|ShardRouting
@@ -2412,7 +2412,7 @@ expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 operator|new
 name|ShardRouting
@@ -3355,7 +3355,7 @@ literal|true
 expr_stmt|;
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 name|shard
 argument_list|,

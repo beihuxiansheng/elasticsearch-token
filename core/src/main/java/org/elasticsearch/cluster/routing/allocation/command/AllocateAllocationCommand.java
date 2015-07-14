@@ -1258,7 +1258,7 @@ argument_list|()
 expr_stmt|;
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 name|shardRouting
 argument_list|,

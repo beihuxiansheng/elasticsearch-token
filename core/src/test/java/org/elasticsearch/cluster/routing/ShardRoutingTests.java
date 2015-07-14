@@ -438,7 +438,7 @@ try|try
 block|{
 name|routing
 operator|.
-name|assignToNode
+name|initialize
 argument_list|(
 literal|"boom"
 argument_list|)

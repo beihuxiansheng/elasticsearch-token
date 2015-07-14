@@ -1809,7 +1809,7 @@ argument_list|)
 expr_stmt|;
 name|mutable
 operator|.
-name|assignToNode
+name|initialize
 argument_list|(
 literal|"test_node"
 argument_list|)
