@@ -341,7 +341,7 @@ name|Factory
 argument_list|(
 name|aggregationName
 argument_list|,
-name|valuesSourceConfig
+name|valuesSourceInput
 argument_list|,
 name|keys
 argument_list|,
