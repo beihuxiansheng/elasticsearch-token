@@ -162,20 +162,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|engine
-operator|.
-name|Engine
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|query
 operator|.
 name|QueryBuilders
@@ -3660,14 +3646,21 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"_value * 3"
-argument_list|)
-operator|.
-name|lang
+operator|new
+name|Script
 argument_list|(
+literal|"_value * 3"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
 name|ExpressionScriptEngineService
 operator|.
 name|NAME
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -3687,14 +3680,21 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
-literal|"_value - 1.1"
-argument_list|)
-operator|.
-name|lang
+operator|new
+name|Script
 argument_list|(
+literal|"_value - 1.1"
+argument_list|,
+name|ScriptType
+operator|.
+name|INLINE
+argument_list|,
 name|ExpressionScriptEngineService
 operator|.
 name|NAME
+argument_list|,
+literal|null
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
