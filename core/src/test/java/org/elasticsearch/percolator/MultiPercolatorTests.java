@@ -766,7 +766,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|2l
@@ -792,7 +792,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -836,7 +836,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -847,7 +847,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|2l
@@ -906,7 +906,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -917,7 +917,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|4l
@@ -964,7 +964,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -975,7 +975,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|1l
@@ -1043,7 +1043,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1054,7 +1054,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|containsString
@@ -1589,7 +1589,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|2l
@@ -1615,7 +1615,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -1659,7 +1659,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -1670,7 +1670,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|2l
@@ -1729,7 +1729,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -1740,7 +1740,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|4l
@@ -1787,7 +1787,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|nullValue
@@ -1798,7 +1798,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 literal|1l
@@ -1866,7 +1866,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|notNullValue
@@ -1877,7 +1877,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|containsString
@@ -2143,7 +2143,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 name|numQueries
@@ -2286,7 +2286,7 @@ name|assertThat
 argument_list|(
 name|item
 operator|.
-name|errorMessage
+name|getErrorMessage
 argument_list|()
 argument_list|,
 name|containsString
@@ -2470,7 +2470,7 @@ index|[
 name|numPercolateRequest
 index|]
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 name|numQueries
@@ -2739,7 +2739,7 @@ name|assertMatchCount
 argument_list|(
 name|item
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 name|numQueries
@@ -3097,7 +3097,7 @@ index|[
 name|numPercolateRequest
 index|]
 operator|.
-name|response
+name|getResponse
 argument_list|()
 argument_list|,
 name|numQueries
