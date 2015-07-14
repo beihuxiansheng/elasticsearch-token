@@ -801,7 +801,10 @@ name|setFuzzyMinSim
 argument_list|(
 name|settings
 operator|.
-name|fuzzyMinSim
+name|getFuzziness
+argument_list|()
+operator|.
+name|asFloat
 argument_list|()
 argument_list|)
 expr_stmt|;

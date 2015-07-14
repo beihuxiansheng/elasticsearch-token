@@ -1530,7 +1530,7 @@ condition|)
 block|{
 name|qpSettings
 operator|.
-name|fuzzyMinSim
+name|setFuzziness
 argument_list|(
 name|Fuzziness
 operator|.
@@ -1538,9 +1538,6 @@ name|parse
 argument_list|(
 name|parser
 argument_list|)
-operator|.
-name|asSimilarity
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
