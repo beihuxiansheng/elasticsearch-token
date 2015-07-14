@@ -368,6 +368,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|hamcrest
+operator|.
+name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -2125,19 +2135,28 @@ operator|.
 name|endObject
 argument_list|()
 expr_stmt|;
-name|String
-name|expected
-init|=
-literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test_multi\":[\"some value\",\"another value\"],\"test\":\"some value\"}}"
-decl_stmt|;
-name|assertEquals
+name|assertThat
 argument_list|(
-name|expected
-argument_list|,
 name|builder
 operator|.
 name|string
 argument_list|()
+argument_list|,
+name|Matchers
+operator|.
+name|anyOf
+argument_list|(
+comment|// iteration order depends on platform
+name|equalTo
+argument_list|(
+literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test_multi\":[\"some value\",\"another value\"],\"test\":\"some value\"}}"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test\":\"some value\",\"test_multi\":[\"some value\",\"another value\"]}}"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
