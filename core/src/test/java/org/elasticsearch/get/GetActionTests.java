@@ -448,79 +448,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|hasKey
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|startsWith
+name|*
 import|;
 end_import
 
@@ -6549,7 +6477,31 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"VersionConflictEngineException"
+literal|"[type1][1]: version conflict, current [1], provided [2]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|response
+operator|.
+name|getResponses
+argument_list|()
+index|[
+literal|2
+index|]
+operator|.
+name|getFailure
+argument_list|()
+operator|.
+name|getFailure
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|VersionConflictEngineException
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -6887,7 +6839,31 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"VersionConflictEngineException"
+literal|"[type1][1]: version conflict, current [1], provided [2]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|response
+operator|.
+name|getResponses
+argument_list|()
+index|[
+literal|2
+index|]
+operator|.
+name|getFailure
+argument_list|()
+operator|.
+name|getFailure
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|VersionConflictEngineException
+operator|.
+name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7212,7 +7188,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"VersionConflictEngineException"
+literal|"[type1][2]: version conflict, current [2], provided [1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -7607,7 +7583,7 @@ argument_list|()
 argument_list|,
 name|startsWith
 argument_list|(
-literal|"VersionConflictEngineException"
+literal|"[type1][2]: version conflict, current [2], provided [1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
