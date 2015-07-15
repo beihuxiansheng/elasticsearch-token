@@ -2883,6 +2883,11 @@ name|snapshotStatus
 argument_list|(
 name|snapshotId
 argument_list|,
+name|snapshot
+operator|.
+name|version
+argument_list|()
+argument_list|,
 name|shardId
 argument_list|)
 decl_stmt|;

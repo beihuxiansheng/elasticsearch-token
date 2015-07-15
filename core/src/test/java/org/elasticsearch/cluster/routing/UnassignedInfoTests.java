@@ -1096,6 +1096,10 @@ argument_list|,
 literal|"snp1"
 argument_list|)
 argument_list|,
+name|Version
+operator|.
+name|CURRENT
+argument_list|,
 literal|"test"
 argument_list|)
 argument_list|,
@@ -1248,6 +1252,10 @@ literal|"rep1"
 argument_list|,
 literal|"snp1"
 argument_list|)
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
 argument_list|,
 literal|"test"
 argument_list|)

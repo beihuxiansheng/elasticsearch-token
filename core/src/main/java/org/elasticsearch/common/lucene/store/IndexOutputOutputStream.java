@@ -53,14 +53,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * {@link OutputStream} that writes into underlying IndexOutput  */
 end_comment
 
 begin_class
-DECL|class|OutputStreamIndexOutput
+DECL|class|IndexOutputOutputStream
 specifier|public
 class|class
-name|OutputStreamIndexOutput
+name|IndexOutputOutputStream
 extends|extends
 name|OutputStream
 block|{
@@ -70,9 +70,9 @@ specifier|final
 name|IndexOutput
 name|out
 decl_stmt|;
-DECL|method|OutputStreamIndexOutput
+DECL|method|IndexOutputOutputStream
 specifier|public
-name|OutputStreamIndexOutput
+name|IndexOutputOutputStream
 parameter_list|(
 name|IndexOutput
 name|out

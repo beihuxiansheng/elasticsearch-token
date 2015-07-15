@@ -4,13 +4,15 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.snapshots
+DECL|package|org.elasticsearch.common.xcontent
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|snapshots
+name|common
+operator|.
+name|xcontent
 package|;
 end_package
 
@@ -20,11 +22,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
+name|common
 operator|.
-name|metadata
-operator|.
-name|SnapshotId
+name|ParseFieldMatcher
 import|;
 end_import
 
@@ -40,19 +40,7 @@ name|io
 operator|.
 name|stream
 operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|rest
-operator|.
-name|RestStatus
+name|StreamableReader
 import|;
 end_import
 
@@ -67,86 +55,34 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thrown if requested snapshot doesn't exist  */
+comment|/**  * Indicates that the class supports XContent deserialization.  *  * This interface is similar to what {@link StreamableReader} does, only it works with XContent serialization  * instead of binary serialization.  */
 end_comment
 
-begin_class
-DECL|class|SnapshotMissingException
+begin_interface
+DECL|interface|FromXContentBuilder
 specifier|public
-class|class
-name|SnapshotMissingException
-extends|extends
-name|SnapshotException
+interface|interface
+name|FromXContentBuilder
+parameter_list|<
+name|T
+parameter_list|>
 block|{
-DECL|method|SnapshotMissingException
-specifier|public
-name|SnapshotMissingException
+comment|/**      * Parses an object with the type T from parser      */
+DECL|method|fromXContent
+name|T
+name|fromXContent
 parameter_list|(
-name|SnapshotId
-name|snapshot
+name|XContentParser
+name|parser
 parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|snapshot
-argument_list|,
-literal|"is missing"
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SnapshotMissingException
-specifier|public
-name|SnapshotMissingException
-parameter_list|(
-name|SnapshotId
-name|snapshot
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|snapshot
-argument_list|,
-literal|"is missing"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|SnapshotMissingException
-specifier|public
-name|SnapshotMissingException
-parameter_list|(
-name|StreamInput
-name|in
+name|ParseFieldMatcher
+name|parseFieldMatcher
 parameter_list|)
 throws|throws
 name|IOException
-block|{
-name|super
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
+function_decl|;
 block|}
-annotation|@
-name|Override
-DECL|method|status
-specifier|public
-name|RestStatus
-name|status
-parameter_list|()
-block|{
-return|return
-name|RestStatus
-operator|.
-name|NOT_FOUND
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

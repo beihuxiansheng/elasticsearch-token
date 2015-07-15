@@ -8948,7 +8948,7 @@ name|repo
 operator|.
 name|resolve
 argument_list|(
-literal|"snapshot-test-snap-1"
+literal|"snap-test-snap-1.dat"
 argument_list|)
 decl_stmt|;
 try|try
