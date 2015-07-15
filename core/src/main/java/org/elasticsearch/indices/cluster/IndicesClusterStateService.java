@@ -578,18 +578,6 @@ name|ConcurrentMap
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -3134,6 +3122,11 @@ operator|.
 name|getIndexUUID
 argument_list|()
 argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+argument_list|,
 literal|"master "
 operator|+
 name|nodes
@@ -3143,10 +3136,7 @@ argument_list|()
 operator|+
 literal|" marked shard as started, but shard has previous failed. resending shard failure."
 argument_list|,
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -4110,6 +4100,11 @@ operator|.
 name|getIndexUUID
 argument_list|()
 argument_list|,
+name|nodes
+operator|.
+name|masterNode
+argument_list|()
+argument_list|,
 literal|"master "
 operator|+
 name|nodes
@@ -4119,10 +4114,7 @@ argument_list|()
 operator|+
 literal|" marked shard as initializing, but shard is marked as failed, resend shard failure"
 argument_list|,
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -5155,28 +5147,9 @@ name|shardRouting
 argument_list|,
 name|indexUUID
 argument_list|,
-literal|"shard failure ["
-operator|+
 name|message
-operator|+
-literal|"]"
-operator|+
-operator|(
+argument_list|,
 name|failure
-operator|==
-literal|null
-condition|?
-literal|""
-else|:
-literal|"["
-operator|+
-name|detailedMessage
-argument_list|(
-name|failure
-argument_list|)
-operator|+
-literal|"]"
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

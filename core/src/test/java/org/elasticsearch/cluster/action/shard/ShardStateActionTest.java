@@ -555,6 +555,8 @@ operator|+
 literal|"_suffix"
 argument_list|,
 literal|"wrong_uuid"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -578,6 +580,8 @@ name|indexUUID
 argument_list|()
 argument_list|,
 literal|"relocating_to_node"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -615,6 +619,8 @@ name|indexUUID
 argument_list|()
 argument_list|,
 literal|"started shard"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -687,6 +693,8 @@ name|indexUUID
 argument_list|()
 argument_list|,
 literal|"wrong_uuid"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
