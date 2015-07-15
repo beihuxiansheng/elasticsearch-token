@@ -906,7 +906,9 @@ name|maxPort
 init|=
 name|basePort
 operator|+
-literal|1000
+name|InternalTestCluster
+operator|.
+name|PORTS_PER_JVM
 decl_stmt|;
 name|int
 name|tries
@@ -939,7 +941,9 @@ while|while
 condition|(
 name|tries
 operator|<
-literal|1000
+name|InternalTestCluster
+operator|.
+name|PORTS_PER_JVM
 operator|&&
 operator|!
 name|foundPortInRange
