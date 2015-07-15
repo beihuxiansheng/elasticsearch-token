@@ -1594,6 +1594,13 @@ annotation|@
 name|Test
 annotation|@
 name|Slow
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"boaz is looking a this. Example failure: http://build-us-00.elastic.co/job/es_g1gc_master_metal/11653/"
+argument_list|)
 DECL|method|multipleNodesShutdownNonMasterNodes
 specifier|public
 name|void
