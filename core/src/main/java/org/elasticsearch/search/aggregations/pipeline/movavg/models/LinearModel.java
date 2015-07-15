@@ -478,6 +478,11 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
+name|checkUnrecognizedParams
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|LinearModel

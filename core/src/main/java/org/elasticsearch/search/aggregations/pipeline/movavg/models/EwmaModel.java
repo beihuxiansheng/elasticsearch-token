@@ -555,6 +555,11 @@ argument_list|,
 literal|0.3
 argument_list|)
 decl_stmt|;
+name|checkUnrecognizedParams
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|EwmaModel
