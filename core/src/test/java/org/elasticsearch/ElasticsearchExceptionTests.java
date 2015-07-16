@@ -2489,7 +2489,7 @@ block|,
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"baaaam"
+literal|"baaaam booom"
 argument_list|,
 literal|"this is my resource"
 argument_list|)
@@ -2501,9 +2501,9 @@ literal|"tooo new"
 argument_list|,
 literal|1
 argument_list|,
-literal|1
+literal|2
 argument_list|,
-literal|1
+literal|3
 argument_list|)
 block|,
 operator|new
@@ -2513,9 +2513,17 @@ literal|"tooo new"
 argument_list|,
 literal|1
 argument_list|,
-literal|1
+literal|2
 argument_list|,
-literal|1
+literal|3
+argument_list|)
+block|,
+operator|new
+name|IndexFormatTooOldException
+argument_list|(
+literal|"tooo new"
+argument_list|,
+literal|"very old version"
 argument_list|)
 block|,
 operator|new
@@ -2672,40 +2680,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|t
-operator|instanceof
-name|IndexFormatTooNewException
-operator|||
-name|t
-operator|instanceof
-name|IndexFormatTooOldException
-condition|)
-block|{
-comment|// these don't work yet - missing ctors
-name|assertNotEquals
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|ex
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 name|ex
@@ -2736,7 +2710,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ex
