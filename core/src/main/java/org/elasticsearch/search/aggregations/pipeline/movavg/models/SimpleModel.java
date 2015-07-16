@@ -270,7 +270,7 @@ index|[
 name|numPredictions
 index|]
 decl_stmt|;
-comment|// EWMA just emits the same final prediction repeatedly.
+comment|// Simple just emits the same final prediction repeatedly.
 name|Arrays
 operator|.
 name|fill
@@ -461,6 +461,11 @@ parameter_list|)
 throws|throws
 name|ParseException
 block|{
+name|checkUnrecognizedParams
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|SimpleModel

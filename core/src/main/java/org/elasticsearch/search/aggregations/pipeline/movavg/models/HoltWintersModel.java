@@ -1798,6 +1798,13 @@ argument_list|,
 name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
+name|settings
+operator|.
+name|remove
+argument_list|(
+literal|"type"
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1842,6 +1849,11 @@ name|MULTIPLICATIVE
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|checkUnrecognizedParams
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|HoltWintersModel
