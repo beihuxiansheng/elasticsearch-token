@@ -766,17 +766,10 @@ name|ParseException
 argument_list|(
 literal|"Unrecognized parameter(s): ["
 operator|+
-name|String
-operator|.
-name|join
-argument_list|(
-literal|", "
-argument_list|,
 name|settings
 operator|.
 name|keySet
 argument_list|()
-argument_list|)
 operator|+
 literal|"]"
 argument_list|,
