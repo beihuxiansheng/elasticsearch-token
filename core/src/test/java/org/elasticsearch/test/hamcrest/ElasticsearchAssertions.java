@@ -5176,24 +5176,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-name|assertThat
-argument_list|(
-literal|"One or more shards were not successful but didn't trigger a failure"
-argument_list|,
-name|response
-operator|.
-name|getSuccessfulShards
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-name|response
-operator|.
-name|getTotalShards
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 name|response
 return|;
