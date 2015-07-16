@@ -4502,7 +4502,7 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-literal|"(long) _value / 1000 + 1"
+literal|"(long) (_value / 1000 + 1)"
 argument_list|)
 argument_list|)
 argument_list|)
