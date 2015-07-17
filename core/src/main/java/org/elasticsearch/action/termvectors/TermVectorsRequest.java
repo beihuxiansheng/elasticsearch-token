@@ -901,6 +901,15 @@ operator|.
 name|startTime
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|filterSettings
+operator|=
+name|other
+operator|.
+name|filterSettings
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|TermVectorsRequest
 specifier|public
