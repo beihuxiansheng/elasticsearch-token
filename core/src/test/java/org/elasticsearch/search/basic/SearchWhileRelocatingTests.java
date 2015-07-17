@@ -295,11 +295,6 @@ name|SearchWhileRelocatingTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-comment|// @LuceneTestCase.AwaitsFix(bugUrl = "problem with search searching on 1 shard (no replica), " +
-comment|//   "and between getting the cluster state to do the search, and executing it, " +
-comment|//   "the shard has fully relocated (moved from started on one node, to fully started on another node")
-comment|//   ^^ the current impl of the test handles this case gracefully since it can happen with 1 replica as well
-comment|//   we just make sure if we get a partial result without a failure that the postsearch is ok!
 annotation|@
 name|Test
 annotation|@
