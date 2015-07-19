@@ -36,6 +36,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|gateway
+operator|.
+name|PrimaryShardAllocator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|shard
@@ -611,7 +623,7 @@ name|indexDynamicSettings
 operator|.
 name|addDynamicSetting
 argument_list|(
-name|GatewayAllocator
+name|PrimaryShardAllocator
 operator|.
 name|INDEX_RECOVERY_INITIAL_SHARDS
 argument_list|)
