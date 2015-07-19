@@ -715,17 +715,6 @@ name|String
 name|toString
 parameter_list|()
 block|{
-if|if
-condition|(
-name|this
-operator|==
-name|NONE
-condition|)
-block|{
-return|return
-literal|""
-return|;
-block|}
 return|return
 name|super
 operator|.
