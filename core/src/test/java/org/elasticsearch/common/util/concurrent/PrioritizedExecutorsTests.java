@@ -2200,6 +2200,7 @@ argument_list|(
 literal|"test"
 argument_list|)
 decl_stmt|;
+specifier|final
 name|ScheduledThreadPoolExecutor
 name|timer
 init|=
@@ -2305,6 +2306,21 @@ operator|.
 name|await
 argument_list|()
 expr_stmt|;
+comment|// the timeout handler is added post execution (and quickly cancelled). We have allow for this
+comment|// and use assert busy
+name|assertBusy
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 name|assertThat
 argument_list|(
 name|timer
@@ -2319,6 +2335,16 @@ name|equalTo
 argument_list|(
 literal|0
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+argument_list|,
+literal|5
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 name|assertThat
