@@ -3852,6 +3852,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"boaz is looking into failures: http://build-us-00.elastic.co/job/es_core_master_strong/4168/"
+argument_list|)
 DECL|method|firstAllocationFailureTwoNodes
 specifier|public
 name|void
