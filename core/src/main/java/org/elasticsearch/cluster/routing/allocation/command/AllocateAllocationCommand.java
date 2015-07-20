@@ -1218,10 +1218,11 @@ block|}
 comment|// go over and remove it from the unassigned
 for|for
 control|(
-name|Iterator
-argument_list|<
-name|ShardRouting
-argument_list|>
+name|RoutingNodes
+operator|.
+name|UnassignedShards
+operator|.
+name|UnassignedIterator
 name|it
 init|=
 name|routingNodes
@@ -1253,15 +1254,8 @@ continue|continue;
 block|}
 name|it
 operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-name|routingNodes
-operator|.
 name|initialize
 argument_list|(
-name|shardRouting
-argument_list|,
 name|routingNode
 operator|.
 name|nodeId

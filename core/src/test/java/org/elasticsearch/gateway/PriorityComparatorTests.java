@@ -121,7 +121,12 @@ operator|new
 name|RoutingNodes
 operator|.
 name|UnassignedShards
-argument_list|()
+argument_list|(
+operator|(
+name|RoutingNodes
+operator|)
+literal|null
+argument_list|)
 decl_stmt|;
 name|int
 name|numIndices
