@@ -1653,6 +1653,12 @@ specifier|final
 name|EngineFactory
 name|engineFactory
 decl_stmt|;
+DECL|field|wrappingService
+specifier|private
+specifier|final
+name|IndexSearcherWrappingService
+name|wrappingService
+decl_stmt|;
 annotation|@
 name|Nullable
 DECL|field|recoveryState
@@ -1815,6 +1821,9 @@ name|path
 parameter_list|,
 name|BigArrays
 name|bigArrays
+parameter_list|,
+name|IndexSearcherWrappingService
+name|wrappingService
 parameter_list|)
 block|{
 name|super
@@ -1850,6 +1859,12 @@ operator|.
 name|similarityService
 operator|=
 name|similarityService
+expr_stmt|;
+name|this
+operator|.
+name|wrappingService
+operator|=
+name|wrappingService
 expr_stmt|;
 name|Preconditions
 operator|.
@@ -8449,6 +8464,8 @@ name|query
 argument_list|()
 argument_list|,
 name|cachingPolicy
+argument_list|,
+name|wrappingService
 argument_list|,
 name|translogConfig
 argument_list|)
