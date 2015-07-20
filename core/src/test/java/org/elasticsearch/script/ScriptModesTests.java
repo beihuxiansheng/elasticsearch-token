@@ -2394,7 +2394,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 annotation|@
@@ -2419,7 +2419,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|SearchLookup
@@ -2447,7 +2447,7 @@ specifier|public
 name|Object
 name|execute
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map

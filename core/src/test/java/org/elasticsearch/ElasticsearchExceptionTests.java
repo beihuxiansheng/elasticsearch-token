@@ -234,7 +234,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -263,18 +263,6 @@ operator|.
 name|query
 operator|.
 name|TestQueryParsingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -373,6 +361,16 @@ operator|.
 name|transport
 operator|.
 name|RemoteTransportException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
 import|;
 end_import
 
@@ -515,13 +513,9 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|ResourceNotFoundException
 argument_list|(
 literal|"test"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -548,13 +542,9 @@ argument_list|(
 literal|"test"
 argument_list|,
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|ResourceNotFoundException
 argument_list|(
 literal|"test"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -653,15 +643,9 @@ argument_list|(
 literal|"bar"
 argument_list|,
 operator|new
-name|IndexException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 literal|"foo"
-argument_list|)
-argument_list|,
-literal|"index is closed"
 argument_list|,
 operator|new
 name|RuntimeException
@@ -702,7 +686,7 @@ literal|0
 index|]
 argument_list|)
 argument_list|,
-literal|"index_exception"
+literal|"index_not_found_exception"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -715,7 +699,7 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
-literal|"index is closed"
+literal|"no such index"
 argument_list|)
 expr_stmt|;
 name|ShardSearchFailure
@@ -1116,10 +1100,7 @@ literal|0
 index|]
 operator|)
 operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 argument_list|,
 literal|"foo"
@@ -1966,7 +1947,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"line\":1,\"col\":2,\"index\":\"foo\"}"
+literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -2080,6 +2061,105 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|{
+comment|// render header
+name|QueryParsingException
+name|ex
+init|=
+operator|new
+name|TestQueryParsingException
+argument_list|(
+operator|new
+name|Index
+argument_list|(
+literal|"foo"
+argument_list|)
+argument_list|,
+literal|1
+argument_list|,
+literal|2
+argument_list|,
+literal|"foobar"
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|ex
+operator|.
+name|addHeader
+argument_list|(
+literal|"test"
+argument_list|,
+literal|"some value"
+argument_list|)
+expr_stmt|;
+name|ex
+operator|.
+name|addHeader
+argument_list|(
+literal|"test_multi"
+argument_list|,
+literal|"some value"
+argument_list|,
+literal|"another value"
+argument_list|)
+expr_stmt|;
+name|XContentBuilder
+name|builder
+init|=
+name|XContentFactory
+operator|.
+name|jsonBuilder
+argument_list|()
+decl_stmt|;
+name|builder
+operator|.
+name|startObject
+argument_list|()
+expr_stmt|;
+name|ElasticsearchException
+operator|.
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|ToXContent
+operator|.
+name|EMPTY_PARAMS
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|endObject
+argument_list|()
+expr_stmt|;
+name|assertThat
+argument_list|(
+name|builder
+operator|.
+name|string
+argument_list|()
+argument_list|,
+name|Matchers
+operator|.
+name|anyOf
+argument_list|(
+comment|// iteration order depends on platform
+name|equalTo
+argument_list|(
+literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test_multi\":[\"some value\",\"another value\"],\"test\":\"some value\"}}"
+argument_list|)
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test\":\"some value\",\"test_multi\":[\"some value\",\"another value\"]}}"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testSerializeElasticsearchException
 specifier|public
@@ -2149,12 +2229,12 @@ name|assertEquals
 argument_list|(
 name|ex
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|e
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2305,12 +2385,12 @@ name|assertEquals
 argument_list|(
 name|queryParsingException
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|,
 name|e
 operator|.
-name|index
+name|getIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2409,7 +2489,7 @@ block|,
 operator|new
 name|CorruptIndexException
 argument_list|(
-literal|"baaaam"
+literal|"baaaam booom"
 argument_list|,
 literal|"this is my resource"
 argument_list|)
@@ -2421,9 +2501,9 @@ literal|"tooo new"
 argument_list|,
 literal|1
 argument_list|,
-literal|1
+literal|2
 argument_list|,
-literal|1
+literal|3
 argument_list|)
 block|,
 operator|new
@@ -2433,9 +2513,17 @@ literal|"tooo new"
 argument_list|,
 literal|1
 argument_list|,
-literal|1
+literal|2
 argument_list|,
-literal|1
+literal|3
+argument_list|)
+block|,
+operator|new
+name|IndexFormatTooOldException
+argument_list|(
+literal|"tooo new"
+argument_list|,
+literal|"very old version"
 argument_list|)
 block|,
 operator|new
@@ -2592,40 +2680,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|t
-operator|instanceof
-name|IndexFormatTooNewException
-operator|||
-name|t
-operator|instanceof
-name|IndexFormatTooOldException
-condition|)
-block|{
-comment|// these don't work yet - missing ctors
-name|assertNotEquals
-argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|ex
-operator|.
-name|getCause
-argument_list|()
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|assertEquals
 argument_list|(
 name|ex
@@ -2656,7 +2710,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|ex

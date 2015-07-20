@@ -54,11 +54,25 @@ argument_list|(
 literal|"_primary"
 argument_list|)
 block|,
+comment|/**      * Route to replica shards      */
+DECL|enum constant|REPLICA
+name|REPLICA
+argument_list|(
+literal|"_replica"
+argument_list|)
+block|,
 comment|/**      * Route to primary shards first      */
 DECL|enum constant|PRIMARY_FIRST
 name|PRIMARY_FIRST
 argument_list|(
 literal|"_primary_first"
+argument_list|)
+block|,
+comment|/**      * Route to replica shards first      */
+DECL|enum constant|REPLICA_FIRST
+name|REPLICA_FIRST
+argument_list|(
+literal|"_replica_first"
 argument_list|)
 block|,
 comment|/**      * Route to the local shard only      */
@@ -199,6 +213,12 @@ return|return
 name|PRIMARY
 return|;
 case|case
+literal|"_replica"
+case|:
+return|return
+name|REPLICA
+return|;
+case|case
 literal|"_primary_first"
 case|:
 case|case
@@ -206,6 +226,15 @@ literal|"_primaryFirst"
 case|:
 return|return
 name|PRIMARY_FIRST
+return|;
+case|case
+literal|"_replica_first"
+case|:
+case|case
+literal|"_replicaFirst"
+case|:
+return|return
+name|REPLICA_FIRST
 return|;
 case|case
 literal|"_only_local"

@@ -116,6 +116,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|node
 operator|.
 name|DiscoveryNode
@@ -290,7 +304,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexService
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -302,7 +316,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexShardMissingException
+name|IndexService
 import|;
 end_import
 
@@ -344,7 +358,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShardException
+name|ShardId
 import|;
 end_import
 
@@ -358,7 +372,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|ShardNotFoundException
 import|;
 end_import
 
@@ -371,18 +385,6 @@ operator|.
 name|indices
 operator|.
 name|IndexClosedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -549,6 +551,12 @@ specifier|final
 name|TransportService
 name|transportService
 decl_stmt|;
+DECL|field|indexNameExpressionResolver
+specifier|private
+specifier|final
+name|IndexNameExpressionResolver
+name|indexNameExpressionResolver
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|SyncedFlushService
@@ -566,6 +574,9 @@ name|clusterService
 parameter_list|,
 name|TransportService
 name|transportService
+parameter_list|,
+name|IndexNameExpressionResolver
+name|indexNameExpressionResolver
 parameter_list|)
 block|{
 name|super
@@ -590,6 +601,12 @@ operator|.
 name|transportService
 operator|=
 name|transportService
+expr_stmt|;
+name|this
+operator|.
+name|indexNameExpressionResolver
+operator|=
+name|indexNameExpressionResolver
 expr_stmt|;
 name|transportService
 operator|.
@@ -802,13 +819,12 @@ name|String
 index|[]
 name|concreteIndices
 init|=
-name|state
-operator|.
-name|metaData
-argument_list|()
+name|indexNameExpressionResolver
 operator|.
 name|concreteIndices
 argument_list|(
+name|state
+argument_list|,
 name|indicesOptions
 argument_list|,
 name|aliasesOrIndices
@@ -1533,11 +1549,14 @@ throw|;
 block|}
 throw|throw
 operator|new
-name|IndexMissingException
+name|IndexNotFoundException
 argument_list|(
 name|shardId
 operator|.
 name|index
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 throw|;
@@ -1565,7 +1584,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardMissingException
+name|ShardNotFoundException
 argument_list|(
 name|shardId
 argument_list|)
@@ -2854,14 +2873,16 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexShardException
+name|IllegalStateException
 argument_list|(
+literal|"["
+operator|+
 name|request
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-literal|"expected a primary shard"
+operator|+
+literal|"] expected a primary shard"
 argument_list|)
 throw|;
 block|}

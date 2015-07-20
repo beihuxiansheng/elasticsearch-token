@@ -110,6 +110,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|inject
@@ -145,6 +159,18 @@ operator|.
 name|concurrent
 operator|.
 name|AtomicArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -268,6 +294,9 @@ name|shardAction
 parameter_list|,
 name|ActionFilters
 name|actionFilters
+parameter_list|,
+name|IndexNameExpressionResolver
+name|indexNameExpressionResolver
 parameter_list|)
 block|{
 name|super
@@ -283,6 +312,8 @@ argument_list|,
 name|transportService
 argument_list|,
 name|actionFilters
+argument_list|,
+name|indexNameExpressionResolver
 argument_list|,
 name|MultiGetRequest
 operator|.
@@ -455,14 +486,14 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"["
-operator|+
+operator|new
+name|IndexNotFoundException
+argument_list|(
 name|item
 operator|.
 name|index
 argument_list|()
-operator|+
-literal|"] missing"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -495,22 +526,13 @@ expr_stmt|;
 name|String
 name|concreteSingleIndex
 init|=
-name|clusterState
-operator|.
-name|metaData
-argument_list|()
+name|indexNameExpressionResolver
 operator|.
 name|concreteSingleIndex
 argument_list|(
-name|item
-operator|.
-name|index
-argument_list|()
+name|clusterState
 argument_list|,
 name|item
-operator|.
-name|indicesOptions
-argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -566,6 +588,9 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"routing is required for ["
 operator|+
 name|concreteSingleIndex
@@ -585,6 +610,7 @@ name|id
 argument_list|()
 operator|+
 literal|"]"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -850,16 +876,6 @@ name|e
 parameter_list|)
 block|{
 comment|// create failures for all relevant requests
-name|String
-name|message
-init|=
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
-name|e
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -932,7 +948,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|message
+name|e
 argument_list|)
 argument_list|)
 argument_list|)

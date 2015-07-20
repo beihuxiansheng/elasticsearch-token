@@ -2565,7 +2565,7 @@ specifier|public
 name|Query
 name|prefixQuery
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|,
 annotation|@
@@ -2617,7 +2617,7 @@ specifier|public
 name|Query
 name|regexpQuery
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|,
 name|int

@@ -1335,6 +1335,16 @@ name|version
 argument_list|()
 decl_stmt|;
 comment|// -1 version means it does not exists, which is what the API returns, and what we expect to
+if|if
+condition|(
+name|nodeShardState
+operator|.
+name|storeException
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1363,6 +1373,45 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// when there is an store exception, we disregard the reported version and assign it as -1 (same as shard does not exist)
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] on node [{}] has version [{}] but the store can not be opened, treating as version -1"
+argument_list|,
+name|nodeShardState
+operator|.
+name|storeException
+argument_list|()
+argument_list|,
+name|shard
+argument_list|,
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+name|nodesState
+operator|.
+name|put
+argument_list|(
+name|nodeShardState
+operator|.
+name|getNode
+argument_list|()
+argument_list|,
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|int
 name|numberOfAllocationsFound
@@ -2297,7 +2346,7 @@ expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 operator|new
 name|ShardRouting
@@ -2412,7 +2461,7 @@ expr_stmt|;
 comment|// make sure we create one with the version from the recovered state
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 operator|new
 name|ShardRouting
@@ -3355,7 +3404,7 @@ literal|true
 expr_stmt|;
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 name|shard
 argument_list|,

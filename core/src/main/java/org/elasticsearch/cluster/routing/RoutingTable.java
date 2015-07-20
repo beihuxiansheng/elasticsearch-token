@@ -122,7 +122,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|Index
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -137,18 +137,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
 import|;
 end_import
 
@@ -581,8 +569,6 @@ name|ShardRouting
 argument_list|>
 name|allShards
 parameter_list|()
-throws|throws
-name|IndexMissingException
 block|{
 name|List
 argument_list|<
@@ -650,7 +636,7 @@ return|return
 name|shards
 return|;
 block|}
-comment|/**      * All the shards (replicas) for the provided index.      *      * @param index The index to return all the shards (replicas).      * @return All the shards matching the specific index      * @throws IndexMissingException If the index passed does not exists      */
+comment|/**      * All the shards (replicas) for the provided index.      *      * @param index The index to return all the shards (replicas).      * @return All the shards matching the specific index      * @throws IndexNotFoundException If the index passed does not exists      */
 DECL|method|allShards
 specifier|public
 name|List
@@ -662,8 +648,6 @@ parameter_list|(
 name|String
 name|index
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 name|List
 argument_list|<
@@ -693,13 +677,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -744,8 +724,6 @@ parameter_list|,
 name|boolean
 name|includeEmpty
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 return|return
 name|allActiveShardsGrouped
@@ -774,8 +752,6 @@ parameter_list|,
 name|boolean
 name|includeRelocationTargets
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
@@ -938,8 +914,6 @@ parameter_list|,
 name|boolean
 name|includeEmpty
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 return|return
 name|allAssignedShardsGrouped
@@ -968,8 +942,6 @@ parameter_list|,
 name|boolean
 name|includeRelocationTargets
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
@@ -1120,7 +1092,7 @@ name|set
 argument_list|)
 return|;
 block|}
-comment|/**      * All the *active* primary shards for the provided indices grouped (each group is a single element, consisting      * of the primary shard). This is handy for components that expect to get group iterators, but still want in some      * cases to iterate over all primary shards (and not just one shard in replication group).      *      * @param indices The indices to return all the shards (replicas)      * @return All the primary shards grouped into a single shard element group each      * @throws IndexMissingException If an index passed does not exists      * @see IndexRoutingTable#groupByAllIt()      */
+comment|/**      * All the *active* primary shards for the provided indices grouped (each group is a single element, consisting      * of the primary shard). This is handy for components that expect to get group iterators, but still want in some      * cases to iterate over all primary shards (and not just one shard in replication group).      *      * @param indices The indices to return all the shards (replicas)      * @return All the primary shards grouped into a single shard element group each      * @throws IndexNotFoundException If an index passed does not exists      * @see IndexRoutingTable#groupByAllIt()      */
 DECL|method|activePrimaryShardsGrouped
 specifier|public
 name|GroupShardsIterator
@@ -1133,8 +1105,6 @@ parameter_list|,
 name|boolean
 name|includeEmpty
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 comment|// use list here since we need to maintain identity across shards
 name|ArrayList
@@ -1173,13 +1143,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -2015,8 +1981,6 @@ name|String
 modifier|...
 name|indices
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 if|if
 condition|(

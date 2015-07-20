@@ -34,6 +34,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Nullable
@@ -159,6 +169,18 @@ operator|.
 name|script
 operator|.
 name|ScriptEngineService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|script
+operator|.
+name|ScriptException
 import|;
 end_import
 
@@ -402,7 +424,7 @@ specifier|public
 name|Object
 name|execute
 parameter_list|(
-name|Object
+name|CompiledScript
 name|template
 parameter_list|,
 name|Map
@@ -421,6 +443,8 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|UTF8StreamWriter
 name|writer
 init|=
@@ -431,12 +455,16 @@ name|setOutput
 argument_list|(
 name|result
 argument_list|)
-decl_stmt|;
+init|)
+block|{
 operator|(
 operator|(
 name|Mustache
 operator|)
 name|template
+operator|.
+name|compiled
+argument_list|()
 operator|)
 operator|.
 name|execute
@@ -446,17 +474,10 @@ argument_list|,
 name|vars
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|writer
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -464,38 +485,24 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Could not execute query template (failed to flush writer): "
+literal|"Error executing "
+operator|+
+name|template
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-try|try
-block|{
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|error
+throw|throw
+operator|new
+name|ScriptException
 argument_list|(
-literal|"Could not execute query template (failed to close writer): "
+literal|"Error executing "
+operator|+
+name|template
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-block|}
+throw|;
 block|}
 return|return
 name|result
@@ -559,8 +566,8 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|Object
-name|mustache
+name|CompiledScript
+name|compiledScript
 parameter_list|,
 annotation|@
 name|Nullable
@@ -577,10 +584,7 @@ return|return
 operator|new
 name|MustacheExecutableScript
 argument_list|(
-operator|(
-name|Mustache
-operator|)
-name|mustache
+name|compiledScript
 argument_list|,
 name|vars
 argument_list|)
@@ -593,7 +597,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|SearchLookup
@@ -662,11 +666,11 @@ name|MustacheExecutableScript
 implements|implements
 name|ExecutableScript
 block|{
-comment|/** Compiled template object. */
-DECL|field|mustache
+comment|/** Compiled template object wrapper. */
+DECL|field|template
 specifier|private
-name|Mustache
-name|mustache
+name|CompiledScript
+name|template
 decl_stmt|;
 comment|/** Parameters to fill above object with. */
 DECL|field|vars
@@ -679,13 +683,13 @@ name|Object
 argument_list|>
 name|vars
 decl_stmt|;
-comment|/**          * @param mustache the compiled template object          * @param vars the parameters to fill above object with          **/
+comment|/**          * @param template the compiled template object wrapper          * @param vars the parameters to fill above object with          **/
 DECL|method|MustacheExecutableScript
 specifier|public
 name|MustacheExecutableScript
 parameter_list|(
-name|Mustache
-name|mustache
+name|CompiledScript
+name|template
 parameter_list|,
 name|Map
 argument_list|<
@@ -698,9 +702,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mustache
+name|template
 operator|=
-name|mustache
+name|template
 expr_stmt|;
 name|this
 operator|.
@@ -764,6 +768,8 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
+try|try
+init|(
 name|UTF8StreamWriter
 name|writer
 init|=
@@ -774,8 +780,17 @@ name|setOutput
 argument_list|(
 name|result
 argument_list|)
-decl_stmt|;
-name|mustache
+init|)
+block|{
+operator|(
+operator|(
+name|Mustache
+operator|)
+name|template
+operator|.
+name|compiled
+argument_list|()
+operator|)
 operator|.
 name|execute
 argument_list|(
@@ -784,17 +799,10 @@ argument_list|,
 name|vars
 argument_list|)
 expr_stmt|;
-try|try
-block|{
-name|writer
-operator|.
-name|flush
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -802,38 +810,24 @@ name|logger
 operator|.
 name|error
 argument_list|(
-literal|"Could not execute query template (failed to flush writer): "
+literal|"Error running "
+operator|+
+name|template
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-finally|finally
-block|{
-try|try
-block|{
-name|writer
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|error
+throw|throw
+operator|new
+name|ScriptException
 argument_list|(
-literal|"Could not execute query template (failed to close writer): "
+literal|"Error running "
+operator|+
+name|template
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
-block|}
+throw|;
 block|}
 return|return
 name|result

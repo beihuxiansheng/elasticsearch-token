@@ -252,6 +252,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|ShardsIterator
@@ -294,9 +308,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|analysis
-operator|.
-name|*
+name|IndexService
 import|;
 end_import
 
@@ -308,9 +320,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|analysis
 operator|.
-name|FieldMapper
+name|*
 import|;
 end_import
 
@@ -341,18 +353,6 @@ operator|.
 name|internal
 operator|.
 name|AllFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexService
 import|;
 end_import
 
@@ -521,6 +521,9 @@ name|indicesAnalysisService
 parameter_list|,
 name|ActionFilters
 name|actionFilters
+parameter_list|,
+name|IndexNameExpressionResolver
+name|indexNameExpressionResolver
 parameter_list|)
 block|{
 name|super
@@ -538,6 +541,8 @@ argument_list|,
 name|transportService
 argument_list|,
 name|actionFilters
+argument_list|,
+name|indexNameExpressionResolver
 argument_list|,
 name|AnalyzeRequest
 operator|.

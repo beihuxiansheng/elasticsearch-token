@@ -335,8 +335,6 @@ parameter_list|(
 name|IndexMetaData
 name|indexMetaData
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 comment|// Throws an exception if there are too-old segments:
 name|checkSupportedVersion
@@ -372,8 +370,6 @@ parameter_list|(
 name|IndexMetaData
 name|indexMetaData
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -502,8 +498,6 @@ parameter_list|(
 name|IndexMetaData
 name|indexMetaData
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 if|if
 condition|(
@@ -530,7 +524,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
@@ -615,7 +609,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
@@ -654,7 +648,14 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Indices created on or after 2.0 should NOT contain ["
+literal|"Index ["
+operator|+
+name|indexMetaData
+operator|.
+name|getIndex
+argument_list|()
+operator|+
+literal|"] created on or after 2.0 should NOT contain ["
 operator|+
 name|IndexMetaData
 operator|.
@@ -666,7 +667,7 @@ name|IndexMetaData
 operator|.
 name|SETTING_LEGACY_ROUTING_USE_TYPE
 operator|+
-literal|"] in their index settings"
+literal|"] in its index settings"
 argument_list|)
 throw|;
 block|}
@@ -796,7 +797,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{

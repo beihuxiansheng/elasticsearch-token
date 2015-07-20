@@ -80,6 +80,20 @@ name|apache
 operator|.
 name|lucene
 operator|.
+name|index
+operator|.
+name|CorruptIndexException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
 name|search
 operator|.
 name|QueryCachingPolicy
@@ -139,6 +153,16 @@ operator|.
 name|util
 operator|.
 name|ThreadInterruptedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|ElasticsearchCorruptionException
 import|;
 end_import
 
@@ -1207,6 +1231,20 @@ operator|.
 name|query
 operator|.
 name|IndicesQueryCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|recovery
+operator|.
+name|RecoveryFailedException
 import|;
 end_import
 
@@ -5405,9 +5443,30 @@ literal|false
 argument_list|)
 condition|)
 block|{
+try|try
+block|{
 name|checkIndex
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ex
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RecoveryFailedException
+argument_list|(
+name|recoveryState
+argument_list|,
+literal|"check index failed"
+argument_list|,
+name|ex
+argument_list|)
+throw|;
+block|}
 block|}
 name|recoveryState
 operator|.
@@ -7304,7 +7363,7 @@ name|void
 name|checkIndex
 parameter_list|()
 throws|throws
-name|IndexShardException
+name|IOException
 block|{
 if|if
 condition|(
@@ -7319,24 +7378,6 @@ block|{
 name|doCheckIndex
 argument_list|()
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IndexShardException
-argument_list|(
-name|shardId
-argument_list|,
-literal|"exception during checkindex"
-argument_list|,
-name|e
-argument_list|)
-throw|;
 block|}
 finally|finally
 block|{
@@ -7354,8 +7395,6 @@ name|void
 name|doCheckIndex
 parameter_list|()
 throws|throws
-name|IndexShardException
-throws|,
 name|IOException
 block|{
 name|long
@@ -7418,10 +7457,10 @@ argument_list|)
 condition|)
 block|{
 comment|// physical verification only: verify all checksums for the latest commit
-name|boolean
+name|IOException
 name|corrupt
 init|=
-literal|false
+literal|null
 decl_stmt|;
 name|MetadataSnapshot
 name|metadata
@@ -7509,7 +7548,7 @@ argument_list|)
 expr_stmt|;
 name|corrupt
 operator|=
-literal|true
+name|exc
 expr_stmt|;
 block|}
 block|}
@@ -7521,6 +7560,8 @@ expr_stmt|;
 if|if
 condition|(
 name|corrupt
+operator|!=
+literal|null
 condition|)
 block|{
 name|logger
@@ -7547,13 +7588,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 throw|throw
-operator|new
-name|IndexShardException
-argument_list|(
-name|shardId
-argument_list|,
-literal|"index check failure"
-argument_list|)
+name|corrupt
 throw|;
 block|}
 block|}
@@ -7699,11 +7734,9 @@ block|{
 comment|// only throw a failure if we are not going to fix the index
 throw|throw
 operator|new
-name|IndexShardException
+name|IllegalStateException
 argument_list|(
-name|shardId
-argument_list|,
-literal|"index check failure"
+literal|"index check failure but can't fix it"
 argument_list|)
 throw|;
 block|}
@@ -8248,7 +8281,7 @@ name|get
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 operator|!=
 literal|null
@@ -8294,7 +8327,7 @@ name|get
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|)
 assert|;
 return|return
@@ -8304,7 +8337,7 @@ name|get
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|IndexMetaData
 operator|.

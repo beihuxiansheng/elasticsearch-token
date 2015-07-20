@@ -972,6 +972,24 @@ name|TransportMovAvgModelModule
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|aggregations
+operator|.
+name|pipeline
+operator|.
+name|serialdiff
+operator|.
+name|SerialDiffPipelineAggregator
+import|;
+end_import
+
 begin_comment
 comment|/**  * A module that registers all the transport streams for the addAggregation  */
 end_comment
@@ -1228,6 +1246,11 @@ name|registerStreams
 argument_list|()
 expr_stmt|;
 name|BucketSelectorPipelineAggregator
+operator|.
+name|registerStreams
+argument_list|()
+expr_stmt|;
+name|SerialDiffPipelineAggregator
 operator|.
 name|registerStreams
 argument_list|()

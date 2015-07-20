@@ -1773,7 +1773,7 @@ argument_list|()
 argument_list|,
 name|lastSeenClusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|,
 name|request

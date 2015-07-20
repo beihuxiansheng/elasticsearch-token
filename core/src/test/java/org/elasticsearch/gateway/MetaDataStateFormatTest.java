@@ -730,7 +730,7 @@ name|assertThat
 argument_list|(
 name|read
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|equalTo
@@ -2501,12 +2501,12 @@ name|assertEquals
 argument_list|(
 name|meta
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|metaData
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2683,7 +2683,7 @@ name|uuid
 init|=
 name|meta
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 decl_stmt|;
 comment|// write a first state file in the old format
@@ -2706,7 +2706,7 @@ name|assertFalse
 argument_list|(
 name|meta2
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 operator|.
 name|equals
@@ -2846,7 +2846,7 @@ name|assertEquals
 argument_list|(
 name|state
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|uuid
@@ -3328,7 +3328,7 @@ name|assertThat
 argument_list|(
 name|loadedMetaData
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|not
@@ -3344,14 +3344,14 @@ name|assertThat
 argument_list|(
 name|loadedMetaData
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|latestMetaData
 operator|.
-name|uuid
+name|clusterUUID
 argument_list|()
 argument_list|)
 argument_list|)
@@ -3621,7 +3621,7 @@ argument_list|()
 decl_stmt|;
 name|mdBuilder
 operator|.
-name|generateUuidIfNeeded
+name|generateClusterUuidIfNeeded
 argument_list|()
 expr_stmt|;
 for|for

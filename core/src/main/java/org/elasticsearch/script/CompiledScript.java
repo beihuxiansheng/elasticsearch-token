@@ -24,6 +24,20 @@ specifier|public
 class|class
 name|CompiledScript
 block|{
+DECL|field|type
+specifier|private
+specifier|final
+name|ScriptService
+operator|.
+name|ScriptType
+name|type
+decl_stmt|;
+DECL|field|name
+specifier|private
+specifier|final
+name|String
+name|name
+decl_stmt|;
 DECL|field|lang
 specifier|private
 specifier|final
@@ -36,11 +50,19 @@ specifier|final
 name|Object
 name|compiled
 decl_stmt|;
-comment|/**      * Constructor for CompiledScript.      * @param lang The language of the script to be executed.      * @param compiled The compiled script Object that is executable.      */
+comment|/**      * Constructor for CompiledScript.      * @param type The type of script to be executed.      * @param name The name of the script to be executed.      * @param lang The language of the script to be executed.      * @param compiled The compiled script Object that is executable.      */
 DECL|method|CompiledScript
 specifier|public
 name|CompiledScript
 parameter_list|(
+name|ScriptService
+operator|.
+name|ScriptType
+name|type
+parameter_list|,
+name|String
+name|name
+parameter_list|,
 name|String
 name|lang
 parameter_list|,
@@ -50,6 +72,18 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+name|this
+operator|.
 name|lang
 operator|=
 name|lang
@@ -60,6 +94,30 @@ name|compiled
 operator|=
 name|compiled
 expr_stmt|;
+block|}
+comment|/**      * Method to get the type of language.      * @return The type of language the script was compiled in.      */
+DECL|method|type
+specifier|public
+name|ScriptService
+operator|.
+name|ScriptType
+name|type
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+comment|/**      * Method to get the name of the script.      * @return The name of the script to be executed.      */
+DECL|method|name
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
 comment|/**      * Method to get the language.      * @return The language of the script to be executed.      */
 DECL|method|lang
@@ -81,6 +139,29 @@ parameter_list|()
 block|{
 return|return
 name|compiled
+return|;
+block|}
+comment|/**      * @return A string composed of type, lang, and name to describe the CompiledScript.      */
+annotation|@
+name|Override
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|type
+operator|+
+literal|" script ["
+operator|+
+name|name
+operator|+
+literal|"] using lang ["
+operator|+
+name|lang
+operator|+
+literal|"]"
 return|;
 block|}
 block|}

@@ -22,6 +22,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|metadata
@@ -82,7 +92,7 @@ specifier|public
 interface|interface
 name|IndexShardRepository
 block|{
-comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p/>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.Engine#snapshotIndex()} method.      * IndexShardRepository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p/>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param snapshotId          snapshot id      * @param shardId             shard to be snapshotted      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
+comment|/**      * Creates a snapshot of the shard based on the index commit point.      *<p/>      * The index commit point can be obtained by using {@link org.elasticsearch.index.engine.Engine#snapshotIndex} method.      * IndexShardRepository implementations shouldn't release the snapshot index commit point. It is done by the method caller.      *<p/>      * As snapshot process progresses, implementation of this method should update {@link IndexShardSnapshotStatus} object and check      * {@link IndexShardSnapshotStatus#aborted()} to see if the snapshot process should be aborted.      *      * @param snapshotId          snapshot id      * @param shardId             shard to be snapshotted      * @param snapshotIndexCommit commit point      * @param snapshotStatus      snapshot status      */
 DECL|method|snapshot
 name|void
 name|snapshot
@@ -100,13 +110,16 @@ name|IndexShardSnapshotStatus
 name|snapshotStatus
 parameter_list|)
 function_decl|;
-comment|/**      * Restores snapshot of the shard.      *<p/>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param snapshotId      snapshot id      * @param shardId         shard id (in the current index)      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryState   recovery state      */
+comment|/**      * Restores snapshot of the shard.      *<p/>      * The index can be renamed on restore, hence different {@code shardId} and {@code snapshotShardId} are supplied.      *      * @param snapshotId      snapshot id      * @param shardId         shard id (in the current index)      * @param version   version of elasticsearch that created this snapshot      * @param snapshotShardId shard id (in the snapshot)      * @param recoveryState   recovery state      */
 DECL|method|restore
 name|void
 name|restore
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|Version
+name|version
 parameter_list|,
 name|ShardId
 name|shardId
@@ -118,13 +131,16 @@ name|RecoveryState
 name|recoveryState
 parameter_list|)
 function_decl|;
-comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param shardId    shard id      * @return snapshot status      */
+comment|/**      * Retrieve shard snapshot status for the stored snapshot      *      * @param snapshotId snapshot id      * @param version   version of elasticsearch that created this snapshot      * @param shardId    shard id      * @return snapshot status      */
 DECL|method|snapshotStatus
 name|IndexShardSnapshotStatus
 name|snapshotStatus
 parameter_list|(
 name|SnapshotId
 name|snapshotId
+parameter_list|,
+name|Version
+name|version
 parameter_list|,
 name|ShardId
 name|shardId

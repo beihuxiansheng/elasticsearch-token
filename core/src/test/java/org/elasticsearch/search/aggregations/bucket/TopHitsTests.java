@@ -4191,7 +4191,11 @@ argument_list|)
 operator|.
 name|script
 argument_list|(
+operator|new
+name|Script
+argument_list|(
 literal|"_score.doubleValue()"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

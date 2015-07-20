@@ -1325,7 +1325,7 @@ name|getIndex
 argument_list|()
 argument_list|)
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 decl_stmt|;
 name|ClusterName

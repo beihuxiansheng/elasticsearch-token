@@ -1095,7 +1095,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Unable to find on disk script test_script"
+literal|"Unable to find on disk file script [test_script] using lang [test]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1303,10 +1303,16 @@ decl_stmt|;
 name|assertThat
 argument_list|(
 name|compiledScript1
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|sameInstance
 argument_list|(
 name|compiledScript2
+operator|.
+name|compiled
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1385,10 +1391,16 @@ decl_stmt|;
 name|assertThat
 argument_list|(
 name|compiledScript1
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|sameInstance
 argument_list|(
 name|compiledScript2
+operator|.
+name|compiled
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1472,10 +1484,16 @@ decl_stmt|;
 name|assertThat
 argument_list|(
 name|compiledScript1
+operator|.
+name|compiled
+argument_list|()
 argument_list|,
 name|sameInstance
 argument_list|(
 name|compiledScript2
+operator|.
+name|compiled
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3205,7 +3223,7 @@ name|ExecutableScript
 name|executable
 parameter_list|(
 specifier|final
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 annotation|@
@@ -3230,7 +3248,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|SearchLookup
@@ -3258,7 +3276,7 @@ specifier|public
 name|Object
 name|execute
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map

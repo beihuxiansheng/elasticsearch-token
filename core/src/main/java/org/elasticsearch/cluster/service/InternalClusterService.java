@@ -3112,7 +3112,7 @@ argument_list|()
 argument_list|,
 name|newClusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -3193,7 +3193,7 @@ name|append
 argument_list|(
 name|newClusterState
 operator|.
-name|uuid
+name|stateUUID
 argument_list|()
 argument_list|)
 operator|.

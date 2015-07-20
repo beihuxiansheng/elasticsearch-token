@@ -582,7 +582,7 @@ specifier|static
 class|class
 name|BatchOperationException
 extends|extends
-name|IndexShardException
+name|ElasticsearchException
 block|{
 DECL|field|completedOperations
 specifier|private
@@ -609,11 +609,14 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|shardId
-argument_list|,
 name|msg
 argument_list|,
 name|cause
+argument_list|)
+expr_stmt|;
+name|setShard
+argument_list|(
+name|shardId
 argument_list|)
 expr_stmt|;
 name|this

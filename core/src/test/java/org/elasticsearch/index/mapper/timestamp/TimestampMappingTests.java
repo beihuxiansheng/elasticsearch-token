@@ -404,7 +404,7 @@ name|elasticsearch
 operator|.
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 import|;
 end_import
 
@@ -862,7 +862,7 @@ name|asList
 argument_list|(
 name|V_1_5_0
 argument_list|,
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|,
 name|randomVersion
 argument_list|(
@@ -1008,7 +1008,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1080,7 +1080,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1094,7 +1094,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|?
 name|TimestampFieldMapper

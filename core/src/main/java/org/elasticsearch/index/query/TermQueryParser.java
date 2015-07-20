@@ -211,6 +211,23 @@ name|START_OBJECT
 condition|)
 block|{
 comment|// also support a format of "term" : {"field_name" : { ... }}
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+argument_list|,
+literal|"[term] query does not support different field names, use [bool] query instead"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName
@@ -396,6 +413,23 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|fieldName
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+argument_list|,
+literal|"[term] query does not support different field names, use [bool] query instead"
+argument_list|)
+throw|;
+block|}
 name|fieldName
 operator|=
 name|currentFieldName

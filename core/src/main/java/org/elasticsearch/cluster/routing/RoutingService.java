@@ -607,6 +607,7 @@ return|;
 block|}
 comment|// visible for testing
 DECL|method|performReroute
+specifier|protected
 name|void
 name|performReroute
 parameter_list|(

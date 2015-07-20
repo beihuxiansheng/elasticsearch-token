@@ -304,19 +304,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|IndexMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -627,13 +615,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -1058,13 +1042,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -1185,8 +1165,6 @@ argument_list|()
 decl_stmt|;
 comment|// The index might be closed because we couldn't import it due to old incompatible version
 comment|// We need to check that this index can be upgraded to the current version
-try|try
-block|{
 name|indexMetaData
 operator|=
 name|metaDataIndexUpgradeService
@@ -1196,29 +1174,6 @@ argument_list|(
 name|indexMetaData
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IndexException
-argument_list|(
-operator|new
-name|Index
-argument_list|(
-name|index
-argument_list|)
-argument_list|,
-literal|"cannot open the index due to upgrade failure"
-argument_list|,
-name|ex
-argument_list|)
-throw|;
-block|}
 name|mdBuilder
 operator|.
 name|put

@@ -40,6 +40,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|action
 operator|.
 name|admin
@@ -134,9 +144,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -512,7 +522,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IndexMissingException
+name|IndexNotFoundException
 operator|.
 name|class
 argument_list|)

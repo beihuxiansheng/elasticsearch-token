@@ -234,7 +234,7 @@ name|queryName
 init|=
 literal|null
 decl_stmt|;
-name|Object
+name|String
 name|value
 init|=
 literal|null
@@ -401,7 +401,7 @@ name|value
 operator|=
 name|parser
 operator|.
-name|objectBytes
+name|textOrNull
 argument_list|()
 expr_stmt|;
 block|}
@@ -492,7 +492,7 @@ name|value
 operator|=
 name|parser
 operator|.
-name|objectBytes
+name|textOrNull
 argument_list|()
 expr_stmt|;
 block|}

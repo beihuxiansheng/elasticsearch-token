@@ -22,13 +22,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
+name|ElasticsearchException
 import|;
 end_import
 
@@ -38,11 +32,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|shard
+name|io
 operator|.
-name|IndexShardException
+name|stream
+operator|.
+name|StreamInput
 import|;
 end_import
 
@@ -80,7 +76,7 @@ specifier|public
 class|class
 name|TranslogException
 extends|extends
-name|IndexShardException
+name|ElasticsearchException
 block|{
 DECL|method|TranslogException
 specifier|public
@@ -93,11 +89,13 @@ name|String
 name|msg
 parameter_list|)
 block|{
-name|super
+name|this
 argument_list|(
 name|shardId
 argument_list|,
 name|msg
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -117,11 +115,14 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|shardId
-argument_list|,
 name|msg
 argument_list|,
 name|cause
+argument_list|)
+expr_stmt|;
+name|setShard
+argument_list|(
+name|shardId
 argument_list|)
 expr_stmt|;
 block|}

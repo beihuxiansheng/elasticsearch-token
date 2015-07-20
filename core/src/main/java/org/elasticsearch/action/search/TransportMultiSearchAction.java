@@ -22,16 +22,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|ActionListener
@@ -101,6 +91,20 @@ operator|.
 name|block
 operator|.
 name|ClusterBlockLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexNameExpressionResolver
 import|;
 end_import
 
@@ -238,6 +242,9 @@ name|searchAction
 parameter_list|,
 name|ActionFilters
 name|actionFilters
+parameter_list|,
+name|IndexNameExpressionResolver
+name|indexNameExpressionResolver
 parameter_list|)
 block|{
 name|super
@@ -253,6 +260,8 @@ argument_list|,
 name|transportService
 argument_list|,
 name|actionFilters
+argument_list|,
+name|indexNameExpressionResolver
 argument_list|,
 name|MultiSearchRequest
 operator|.

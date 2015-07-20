@@ -654,9 +654,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// only one shard otherwise IDF might be different for comparing scores
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -1091,9 +1088,6 @@ literal|"quick"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -1218,9 +1212,6 @@ literal|"value3"
 argument_list|)
 operator|.
 name|get
-argument_list|()
-expr_stmt|;
-name|ensureGreen
 argument_list|()
 expr_stmt|;
 name|waitForRelocation
@@ -1434,9 +1425,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -1539,9 +1527,6 @@ argument_list|,
 literal|"quick lazy huge brown fox"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -1699,9 +1684,6 @@ argument_list|,
 literal|"quick lazy huge brown fox"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -2094,9 +2076,6 @@ argument_list|,
 name|builders
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|int
 name|queryRounds
 init|=
@@ -2383,9 +2362,6 @@ literal|"bar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|int
 name|iters
 init|=
@@ -2648,9 +2624,6 @@ literal|"test comment"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -2843,9 +2816,6 @@ argument_list|,
 literal|"the quick lazy huge brown fox jumps over the tree"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -3705,9 +3675,6 @@ argument_list|,
 literal|"type=string,analyzer=syns"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -4776,9 +4743,6 @@ literal|"quick lazy huge brown fox"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -4991,9 +4955,6 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -5191,9 +5152,6 @@ name|get
 argument_list|()
 expr_stmt|;
 name|refresh
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|SearchResponse
@@ -5405,9 +5363,6 @@ argument_list|,
 literal|"type=date"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|String
 name|aMonthAgo
@@ -5638,9 +5593,6 @@ literal|"type=date"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|DateTimeZone
 name|timeZone
 init|=
@@ -5766,9 +5718,6 @@ argument_list|,
 literal|"type=date"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -6196,9 +6145,6 @@ literal|"value1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -6520,9 +6466,6 @@ argument_list|,
 literal|"value3"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -6950,9 +6893,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 for|for
 control|(
 name|String
@@ -7287,9 +7227,6 @@ literal|"value3_4"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -7558,9 +7495,6 @@ name|endObject
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -8130,9 +8064,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|WrapperQueryBuilder
 name|wrapper
 init|=
@@ -8244,9 +8175,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -8437,9 +8365,6 @@ argument_list|,
 literal|"type=double"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -8728,9 +8653,6 @@ argument_list|,
 literal|"value1"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|MultiMatchQueryBuilder
 name|builder
@@ -9218,9 +9140,6 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|BoolQueryBuilder
 name|boolQuery
 init|=
@@ -9485,9 +9404,6 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|BoolQueryBuilder
 name|boolQuery
 init|=
@@ -9746,9 +9662,6 @@ name|get
 argument_list|()
 expr_stmt|;
 name|refresh
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|MultiMatchQueryBuilder
@@ -10114,9 +10027,6 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -10314,9 +10224,6 @@ argument_list|,
 literal|"phrase match"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 name|SearchResponse
 name|searchResponse
@@ -10595,9 +10502,6 @@ expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -10829,9 +10733,6 @@ literal|"type=string"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -11021,9 +10922,6 @@ argument_list|,
 literal|"type=double"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -11861,9 +11759,6 @@ argument_list|,
 literal|"type=string"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -12841,9 +12736,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -13397,9 +13289,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -13850,9 +13739,6 @@ argument_list|,
 literal|"type=double"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -15154,9 +15040,6 @@ literal|"type=double"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -15499,9 +15382,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -15562,9 +15442,6 @@ name|DEFAULT_MAX_NUM_SHARDS
 argument_list|)
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -15752,9 +15629,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -15936,9 +15810,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -16275,9 +16146,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -16788,9 +16656,6 @@ literal|"type=date,ignore_malformed=false,format=epoch_millis"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -17118,9 +16983,6 @@ literal|true
 argument_list|)
 operator|.
 name|get
-argument_list|()
-expr_stmt|;
-name|ensureYellow
 argument_list|()
 expr_stmt|;
 name|logger
@@ -17552,9 +17414,6 @@ literal|"type=string,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -17898,9 +17757,6 @@ literal|"type=string,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -18128,9 +17984,6 @@ argument_list|,
 literal|"type=string,analyzer=index,search_analyzer=search"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -18468,9 +18321,6 @@ literal|"type=string,analyzer=my_analyzer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -18565,9 +18415,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -18737,9 +18584,6 @@ literal|"index2"
 argument_list|,
 literal|"index3"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -19057,9 +18901,6 @@ literal|"index2"
 argument_list|,
 literal|"index3"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -19420,9 +19261,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -19713,9 +19551,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -19960,9 +19795,6 @@ name|createIndex
 argument_list|(
 literal|"index2"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -20517,9 +20349,6 @@ name|createIndex
 argument_list|(
 literal|"index3"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -21081,9 +20910,6 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -21239,9 +21065,6 @@ name|createIndex
 argument_list|(
 literal|"test"
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|client
 argument_list|()
@@ -21615,9 +21438,6 @@ literal|999999999999L
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|assertHitCount
 argument_list|(
 name|client
@@ -21709,9 +21529,6 @@ argument_list|,
 literal|"type=integer"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|indexRandom
 argument_list|(
@@ -22775,9 +22592,6 @@ literal|"type=integer"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|indexRandom
 argument_list|(
 literal|true
@@ -23746,9 +23560,6 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|refresh
 argument_list|()
 expr_stmt|;
@@ -23867,9 +23678,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// we only have ngrams as the index analyzer so searches will get standard analyzer
-name|ensureGreen
-argument_list|()
-expr_stmt|;
 name|client
 argument_list|()
 operator|.
@@ -24150,9 +23958,6 @@ literal|"trying out Elasticsearch"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
@@ -24398,9 +24203,6 @@ literal|true
 argument_list|,
 name|docs
 argument_list|)
-expr_stmt|;
-name|ensureGreen
-argument_list|()
 expr_stmt|;
 name|int
 name|iters
@@ -24816,9 +24618,6 @@ literal|"xyz"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
 name|SearchResponse
 name|response
 init|=
@@ -25081,9 +24880,6 @@ argument_list|,
 literal|"foo"
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
 expr_stmt|;
 try|try
 block|{

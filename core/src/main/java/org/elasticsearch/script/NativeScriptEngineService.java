@@ -297,7 +297,7 @@ specifier|public
 name|ExecutableScript
 name|executable
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 annotation|@
@@ -318,6 +318,9 @@ operator|(
 name|NativeScriptFactory
 operator|)
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 decl_stmt|;
 return|return
 name|scriptFactory
@@ -335,7 +338,7 @@ specifier|public
 name|SearchScript
 name|search
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 specifier|final
@@ -362,6 +365,9 @@ operator|(
 name|NativeScriptFactory
 operator|)
 name|compiledScript
+operator|.
+name|compiled
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
@@ -419,7 +425,7 @@ specifier|public
 name|Object
 name|execute
 parameter_list|(
-name|Object
+name|CompiledScript
 name|compiledScript
 parameter_list|,
 name|Map

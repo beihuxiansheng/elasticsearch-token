@@ -164,7 +164,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 literal|"0xDEADBEEF"
 argument_list|)
@@ -354,7 +354,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 literal|"0xDEADBEEF"
 argument_list|)
@@ -491,7 +491,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 literal|"foobar"
 argument_list|)

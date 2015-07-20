@@ -214,9 +214,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexClosedException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -228,7 +228,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|IndexMissingException
+name|IndexClosedException
 import|;
 end_import
 
@@ -1222,7 +1222,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexMissingException
+name|IndexNotFoundException
 name|ex
 parameter_list|)
 block|{

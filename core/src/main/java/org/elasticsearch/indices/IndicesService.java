@@ -1887,7 +1887,7 @@ argument_list|()
 return|;
 block|}
 block|}
-comment|/**      * Returns an IndexService for the specified index if exists otherwise a {@link IndexMissingException} is thrown.      */
+comment|/**      * Returns an IndexService for the specified index if exists otherwise a {@link IndexNotFoundException} is thrown.      */
 DECL|method|indexServiceSafe
 specifier|public
 name|IndexService
@@ -1896,8 +1896,6 @@ parameter_list|(
 name|String
 name|index
 parameter_list|)
-throws|throws
-name|IndexMissingException
 block|{
 name|IndexService
 name|indexService
@@ -1916,13 +1914,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|index
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -3060,14 +3054,14 @@ literal|"] - it's still part of the cluster state ["
 operator|+
 name|index
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"] ["
 operator|+
 name|metaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"]"
@@ -3194,7 +3188,7 @@ literal|"] ["
 operator|+
 name|metaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"]"
@@ -3257,14 +3251,14 @@ literal|"] - it's still part of the cluster state ["
 operator|+
 name|index
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"] ["
 operator|+
 name|metaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 operator|+
 literal|"]"

@@ -982,8 +982,6 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|)
-throws|throws
-name|IndexShardException
 block|{
 if|if
 condition|(
@@ -1157,10 +1155,8 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|IndexShardException
+name|IOException
 argument_list|(
-name|shardId
-argument_list|,
 literal|"index check failure"
 argument_list|)
 throw|;

@@ -655,7 +655,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for restoring snapshots  *<p/>  * Restore operation is performed in several stages.  *<p/>  * First {@link #restoreSnapshot(RestoreRequest, org.elasticsearch.action.ActionListener))}  * method reads information about snapshot and metadata from repository. In update cluster state task it checks restore  * preconditions, restores global state if needed, creates {@link RestoreInProgress} record with list of shards that needs  * to be restored and adds this shard to the routing table using {@link RoutingTable.Builder#addAsRestore(IndexMetaData, RestoreSource)}  * method.  *<p/>  * Individual shards are getting restored as part of normal recovery process in  * {@link StoreRecoveryService#recover(IndexShard, boolean, StoreRecoveryService.RecoveryListener)}  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking  * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property. If this property is not null  * {@code recover} method uses {@link StoreRecoveryService#restore(org.elasticsearch.indices.recovery.RecoveryState)}  * method to start shard restore process.  *<p/>  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(SnapshotId, ShardId)},  * which updates {@link RestoreInProgress} in cluster state or removes it when all shards are completed. In case of  * restore failure a normal recovery fail-over process kicks in.  */
+comment|/**  * Service responsible for restoring snapshots  *<p/>  * Restore operation is performed in several stages.  *<p/>  * First {@link #restoreSnapshot(RestoreRequest, org.elasticsearch.action.ActionListener))}  * method reads information about snapshot and metadata from repository. In update cluster state task it checks restore  * preconditions, restores global state if needed, creates {@link RestoreInProgress} record with list of shards that needs  * to be restored and adds this shard to the routing table using {@link RoutingTable.Builder#addAsRestore(IndexMetaData, RestoreSource)}  * method.  *<p/>  * Individual shards are getting restored as part of normal recovery process in  * {@link StoreRecoveryService#recover(IndexShard, boolean, StoreRecoveryService.RecoveryListener)}  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking  * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property. If this property is not null  * {@code recover} method uses {@link StoreRecoveryService#restore}  * method to start shard restore process.  *<p/>  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(SnapshotId, ShardId)},  * which updates {@link RestoreInProgress} in cluster state or removes it when all shards are completed. In case of  * restore failure a normal recovery fail-over process kicks in.  */
 end_comment
 
 begin_class
@@ -699,7 +699,7 @@ name|SETTING_LEGACY_ROUTING_HASH_FUNCTION
 argument_list|,
 name|SETTING_LEGACY_ROUTING_USE_TYPE
 argument_list|,
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|SETTING_CREATION_DATE
 argument_list|)
@@ -1051,7 +1051,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
@@ -1321,6 +1321,11 @@ name|RestoreSource
 argument_list|(
 name|snapshotId
 argument_list|,
+name|snapshot
+operator|.
+name|version
+argument_list|()
+argument_list|,
 name|index
 argument_list|)
 decl_stmt|;
@@ -1489,7 +1494,7 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|Strings
 operator|.
@@ -1760,11 +1765,11 @@ name|put
 argument_list|(
 name|IndexMetaData
 operator|.
-name|SETTING_UUID
+name|SETTING_INDEX_UUID
 argument_list|,
 name|currentIndexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|)
 argument_list|)

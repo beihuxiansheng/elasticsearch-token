@@ -2186,6 +2186,11 @@ operator|.
 name|snapshotId
 argument_list|()
 argument_list|,
+name|restoreSource
+operator|.
+name|version
+argument_list|()
+argument_list|,
 name|shardId
 argument_list|,
 name|snapshotShardId

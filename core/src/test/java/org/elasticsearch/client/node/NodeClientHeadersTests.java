@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -367,6 +353,8 @@ argument_list|,
 name|threadPool
 argument_list|,
 name|EMPTY_FILTERS
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}

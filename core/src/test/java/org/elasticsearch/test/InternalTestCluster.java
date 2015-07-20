@@ -454,6 +454,20 @@ name|cluster
 operator|.
 name|routing
 operator|.
+name|UnassignedInfo
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|routing
+operator|.
 name|allocation
 operator|.
 name|decider
@@ -1582,6 +1596,16 @@ name|SETTING_CLUSTER_NODE_SEED
 init|=
 literal|"test.cluster.node.seed"
 decl_stmt|;
+comment|/**      * The number of ports in the range used for this JVM      */
+DECL|field|PORTS_PER_JVM
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|PORTS_PER_JVM
+init|=
+literal|100
+decl_stmt|;
 DECL|field|JVM_ORDINAL
 specifier|private
 specifier|static
@@ -1614,7 +1638,7 @@ name|BASE_PORT
 init|=
 literal|9300
 operator|+
-literal|100
+name|PORTS_PER_JVM
 operator|*
 operator|(
 name|JVM_ORDINAL
@@ -4090,6 +4114,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// always default delayed allocation to 0 to make sure we have tests are not delayed
+name|builder
+operator|.
+name|put
+argument_list|(
+name|UnassignedInfo
+operator|.
+name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+argument_list|,
+literal|0
+argument_list|)
+expr_stmt|;
 return|return
 name|builder
 operator|.

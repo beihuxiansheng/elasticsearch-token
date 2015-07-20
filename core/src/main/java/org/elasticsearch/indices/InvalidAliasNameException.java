@@ -20,6 +20,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -39,18 +49,6 @@ operator|.
 name|index
 operator|.
 name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexException
 import|;
 end_import
 
@@ -86,7 +84,7 @@ specifier|public
 class|class
 name|InvalidAliasNameException
 extends|extends
-name|IndexException
+name|ElasticsearchException
 block|{
 DECL|method|InvalidAliasNameException
 specifier|public
@@ -104,15 +102,16 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|index
+literal|"Invalid alias name [{}], {}"
 argument_list|,
-literal|"Invalid alias name ["
-operator|+
 name|name
-operator|+
-literal|"], "
-operator|+
+argument_list|,
 name|desc
+argument_list|)
+expr_stmt|;
+name|setIndex
+argument_list|(
+name|index
 argument_list|)
 expr_stmt|;
 block|}

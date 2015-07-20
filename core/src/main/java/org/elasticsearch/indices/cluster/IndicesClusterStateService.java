@@ -380,18 +380,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexShardMissingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|aliases
 operator|.
 name|IndexAliasesService
@@ -587,18 +575,6 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
 import|;
 end_import
 
@@ -1924,7 +1900,7 @@ name|shard
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"failed to create index"
@@ -2317,7 +2293,7 @@ name|index
 argument_list|,
 name|indexMetaData
 operator|.
-name|uuid
+name|indexUUID
 argument_list|()
 argument_list|,
 name|typesToRefresh
@@ -3143,7 +3119,12 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
+argument_list|()
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
 argument_list|()
 argument_list|,
 literal|"master "
@@ -3155,10 +3136,7 @@ argument_list|()
 operator|+
 literal|" marked shard as started, but shard has previous failed. resending shard failure."
 argument_list|,
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -3172,7 +3150,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"master ["
@@ -3970,7 +3948,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"master "
@@ -4119,7 +4097,12 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
+argument_list|()
+argument_list|,
+name|nodes
+operator|.
+name|masterNode
 argument_list|()
 argument_list|,
 literal|"master "
@@ -4131,10 +4114,7 @@ argument_list|()
 operator|+
 literal|" marked shard as initializing, but shard is marked as failed, resend shard failure"
 argument_list|,
-name|nodes
-operator|.
-name|masterNode
-argument_list|()
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -4424,7 +4404,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"after recovery from store"
@@ -4765,7 +4745,7 @@ name|shardRouting
 argument_list|,
 name|indexMetaData
 operator|.
-name|getUUID
+name|getIndexUUID
 argument_list|()
 argument_list|,
 literal|"after recovery (replica) from node ["
@@ -5046,7 +5026,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexShardMissingException
+name|ShardNotFoundException
 name|e
 parameter_list|)
 block|{
@@ -5167,28 +5147,9 @@ name|shardRouting
 argument_list|,
 name|indexUUID
 argument_list|,
-literal|"shard failure ["
-operator|+
 name|message
-operator|+
-literal|"]"
-operator|+
-operator|(
+argument_list|,
 name|failure
-operator|==
-literal|null
-condition|?
-literal|""
-else|:
-literal|"["
-operator|+
-name|detailedMessage
-argument_list|(
-name|failure
-argument_list|)
-operator|+
-literal|"]"
-operator|)
 argument_list|)
 expr_stmt|;
 block|}

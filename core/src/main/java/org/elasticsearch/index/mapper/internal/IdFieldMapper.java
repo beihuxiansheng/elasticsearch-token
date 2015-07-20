@@ -811,7 +811,7 @@ name|onOrAfter
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
@@ -1199,7 +1199,7 @@ specifier|public
 name|Query
 name|prefixQuery
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|,
 annotation|@
@@ -1337,7 +1337,7 @@ specifier|public
 name|Query
 name|regexpQuery
 parameter_list|(
-name|Object
+name|String
 name|value
 parameter_list|,
 name|int
@@ -1671,7 +1671,7 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_2_0_0
+name|V_2_0_0_beta1
 argument_list|)
 decl_stmt|;
 if|if

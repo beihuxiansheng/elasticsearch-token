@@ -90,35 +90,7 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|ToXContent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|IndexShardException
 import|;
 end_import
 
@@ -189,7 +161,7 @@ name|RestStatus
 name|status
 decl_stmt|;
 DECL|method|DefaultShardOperationFailedException
-specifier|private
+specifier|protected
 name|DefaultShardOperationFailedException
 parameter_list|()
 block|{     }
@@ -197,7 +169,7 @@ DECL|method|DefaultShardOperationFailedException
 specifier|public
 name|DefaultShardOperationFailedException
 parameter_list|(
-name|IndexShardException
+name|ElasticsearchException
 name|e
 parameter_list|)
 block|{
@@ -207,13 +179,7 @@ name|index
 operator|=
 name|e
 operator|.
-name|shardId
-argument_list|()
-operator|.
-name|index
-argument_list|()
-operator|.
-name|name
+name|getIndex
 argument_list|()
 expr_stmt|;
 name|this
@@ -222,7 +188,7 @@ name|shardId
 operator|=
 name|e
 operator|.
-name|shardId
+name|getShardId
 argument_list|()
 operator|.
 name|id

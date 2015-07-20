@@ -218,9 +218,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|indices
+name|index
 operator|.
-name|IndexMissingException
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -590,16 +590,12 @@ argument_list|(
 name|channel
 argument_list|,
 operator|new
-name|IndexMissingException
-argument_list|(
-operator|new
-name|Index
+name|IndexNotFoundException
 argument_list|(
 name|indices
 index|[
 literal|0
 index|]
-argument_list|)
 argument_list|)
 argument_list|)
 return|;

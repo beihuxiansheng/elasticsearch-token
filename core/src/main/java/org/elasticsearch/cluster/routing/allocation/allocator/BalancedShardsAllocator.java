@@ -3308,7 +3308,7 @@ expr_stmt|;
 block|}
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 name|shard
 argument_list|,
@@ -3980,15 +3980,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-assert|assert
-name|candidate
-operator|.
-name|unassigned
-argument_list|()
-assert|;
 name|routingNodes
 operator|.
-name|assign
+name|initialize
 argument_list|(
 name|candidate
 argument_list|,

@@ -92,6 +92,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|ResourceNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|Version
 import|;
 end_import
@@ -275,18 +285,6 @@ operator|.
 name|env
 operator|.
 name|NodeEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|IndexException
 import|;
 end_import
 
@@ -2271,7 +2269,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IndexException
+name|IllegalStateException
 name|ex
 parameter_list|)
 block|{
@@ -2284,7 +2282,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"cannot open the index due to upgrade failure"
+literal|"was created before v0.90.0 and wasn't upgraded"
 argument_list|)
 argument_list|)
 expr_stmt|;
