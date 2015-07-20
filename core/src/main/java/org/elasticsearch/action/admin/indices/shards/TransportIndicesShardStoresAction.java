@@ -619,6 +619,18 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"cluster state used to determine shards [{}]"
+argument_list|,
+name|state
+operator|.
+name|prettyPrint
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// collect relevant shard ids of the requested indices for fetching store infos
 for|for
 control|(
