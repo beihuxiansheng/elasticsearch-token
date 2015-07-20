@@ -952,6 +952,13 @@ name|float
 name|queryBoost
 parameter_list|)
 function_decl|;
+DECL|method|getOriginNanoTime
+specifier|public
+specifier|abstract
+name|long
+name|getOriginNanoTime
+parameter_list|()
+function_decl|;
 DECL|method|nowInMillis
 specifier|public
 specifier|final
