@@ -1252,7 +1252,6 @@ return|;
 block|}
 comment|/**      * Builds a list of nodes and version      */
 DECL|method|buildNodesAndVersions
-specifier|private
 name|NodesAndVersions
 name|buildNodesAndVersions
 parameter_list|(
