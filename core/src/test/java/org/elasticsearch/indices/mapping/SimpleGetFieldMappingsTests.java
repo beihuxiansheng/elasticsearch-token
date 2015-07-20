@@ -116,16 +116,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -238,10 +228,10 @@ name|SimpleGetFieldMappingsTests
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{
-DECL|method|getMappingsWhereThereAreNone
+DECL|method|testGetMappingsWhereThereAreNone
 specifier|public
 name|void
-name|getMappingsWhereThereAreNone
+name|testGetMappingsWhereThereAreNone
 parameter_list|()
 block|{
 name|createIndex
@@ -418,10 +408,10 @@ name|endObject
 argument_list|()
 return|;
 block|}
-DECL|method|simpleGetFieldMappings
+DECL|method|testSimpleGetFieldMappings
 specifier|public
 name|void
-name|simpleGetFieldMappings
+name|testSimpleGetFieldMappings
 parameter_list|()
 throws|throws
 name|Exception
@@ -1478,10 +1468,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|simpleGetFieldMappingsWithDefaults
+DECL|method|testSimpleGetFieldMappingsWithDefaults
 specifier|public
 name|void
-name|simpleGetFieldMappingsWithDefaults
+name|testSimpleGetFieldMappingsWithDefaults
 parameter_list|()
 throws|throws
 name|Exception
@@ -1803,10 +1793,10 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|//fix #6552
-DECL|method|simpleGetFieldMappingsWithPretty
+DECL|method|testSimpleGetFieldMappingsWithPretty
 specifier|public
 name|void
-name|simpleGetFieldMappingsWithPretty
+name|testSimpleGetFieldMappingsWithPretty
 parameter_list|()
 throws|throws
 name|Exception
@@ -2100,8 +2090,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testGetFieldMappingsWithBlocks
 specifier|public
 name|void
