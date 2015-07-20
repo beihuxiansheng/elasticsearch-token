@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.metrics.percentiles
+DECL|package|org.elasticsearch.search.aggregations.metrics.percentiles.tdigest
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|metrics
 operator|.
 name|percentiles
+operator|.
+name|tdigest
 package|;
 end_package
 
@@ -106,26 +108,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|metrics
-operator|.
-name|percentiles
-operator|.
-name|tdigest
-operator|.
-name|TDigestState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|pipeline
 operator|.
 name|PipelineAggregator
@@ -199,10 +181,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractInternalPercentiles
+DECL|class|AbstractInternalTDigestPercentiles
 specifier|abstract
 class|class
-name|AbstractInternalPercentiles
+name|AbstractInternalTDigestPercentiles
 extends|extends
 name|InternalNumericMetricsAggregation
 operator|.
@@ -224,14 +206,14 @@ specifier|private
 name|boolean
 name|keyed
 decl_stmt|;
-DECL|method|AbstractInternalPercentiles
-name|AbstractInternalPercentiles
+DECL|method|AbstractInternalTDigestPercentiles
+name|AbstractInternalTDigestPercentiles
 parameter_list|()
 block|{}
 comment|// for serialization
-DECL|method|AbstractInternalPercentiles
+DECL|method|AbstractInternalTDigestPercentiles
 specifier|public
-name|AbstractInternalPercentiles
+name|AbstractInternalTDigestPercentiles
 parameter_list|(
 name|String
 name|name
@@ -331,11 +313,24 @@ name|double
 name|key
 parameter_list|)
 function_decl|;
+DECL|method|getEstimatedMemoryFootprint
+specifier|public
+name|long
+name|getEstimatedMemoryFootprint
+parameter_list|()
+block|{
+return|return
+name|state
+operator|.
+name|byteSize
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doReduce
 specifier|public
-name|AbstractInternalPercentiles
+name|AbstractInternalTDigestPercentiles
 name|doReduce
 parameter_list|(
 name|List
@@ -362,11 +357,11 @@ name|aggregations
 control|)
 block|{
 specifier|final
-name|AbstractInternalPercentiles
+name|AbstractInternalTDigestPercentiles
 name|percentiles
 init|=
 operator|(
-name|AbstractInternalPercentiles
+name|AbstractInternalTDigestPercentiles
 operator|)
 name|aggregation
 decl_stmt|;
@@ -424,7 +419,7 @@ block|}
 DECL|method|createReduced
 specifier|protected
 specifier|abstract
-name|AbstractInternalPercentiles
+name|AbstractInternalTDigestPercentiles
 name|createReduced
 parameter_list|(
 name|String
