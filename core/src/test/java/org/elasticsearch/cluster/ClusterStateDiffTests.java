@@ -1920,9 +1920,6 @@ name|index
 argument_list|,
 name|i
 argument_list|)
-argument_list|,
-name|randomBoolean
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|int

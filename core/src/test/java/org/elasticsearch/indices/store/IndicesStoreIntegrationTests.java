@@ -2188,8 +2188,6 @@ literal|"test"
 argument_list|,
 name|i
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 operator|.
 name|addShard

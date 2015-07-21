@@ -864,6 +864,47 @@ return|return
 name|shardIdentifier
 return|;
 block|}
+DECL|method|allocatedPostIndexCreate
+specifier|public
+name|boolean
+name|allocatedPostIndexCreate
+parameter_list|()
+block|{
+if|if
+condition|(
+name|active
+argument_list|()
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|// unassigned info is only cleared when a shard moves to started, so
+comment|// for unassigned and initializing (we checked for active() before),
+comment|// we can safely assume it is there
+if|if
+condition|(
+name|unassignedInfo
+operator|.
+name|getReason
+argument_list|()
+operator|==
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|INDEX_CREATED
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * A shard iterator with just this shard in it.      */
 DECL|method|shardsIt
 specifier|public
@@ -1362,6 +1403,34 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|updateUnassignedInfo
+specifier|public
+name|void
+name|updateUnassignedInfo
+parameter_list|(
+name|UnassignedInfo
+name|unassignedInfo
+parameter_list|)
+block|{
+name|ensureNotFrozen
+argument_list|()
+expr_stmt|;
+assert|assert
+name|this
+operator|.
+name|unassignedInfo
+operator|!=
+literal|null
+operator|:
+literal|"can only update unassign info if they are already set"
+assert|;
+name|this
+operator|.
+name|unassignedInfo
+operator|=
+name|unassignedInfo
+expr_stmt|;
+block|}
 comment|// package private mutators start here
 comment|/**      * Moves the shard to unassigned state.      */
 DECL|method|moveToUnassigned
@@ -1594,6 +1663,22 @@ name|AllocationId
 operator|.
 name|newInitializing
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|unassignedInfo
+operator|=
+operator|new
+name|UnassignedInfo
+argument_list|(
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|REINITIALIZED
+argument_list|,
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Set the shards state to<code>STARTED</code>. The shards state must be      *<code>INITIALIZING</code> or<code>RELOCATING</code>. Any relocation will be      * canceled.      */

@@ -1752,8 +1752,6 @@ operator|.
 name|Builder
 argument_list|(
 name|shardId
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|String

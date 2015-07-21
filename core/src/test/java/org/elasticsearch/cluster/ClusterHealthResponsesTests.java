@@ -939,8 +939,6 @@ name|index
 argument_list|,
 name|shardId
 argument_list|)
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 name|ShardRouting

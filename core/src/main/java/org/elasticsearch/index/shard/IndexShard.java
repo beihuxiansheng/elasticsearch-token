@@ -80,20 +80,6 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
-operator|.
-name|CorruptIndexException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
 name|search
 operator|.
 name|QueryCachingPolicy
@@ -153,16 +139,6 @@ operator|.
 name|util
 operator|.
 name|ThreadInterruptedException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchCorruptionException
 import|;
 end_import
 
@@ -279,20 +255,6 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|IndexShardRoutingTable
 import|;
 end_import
 
@@ -6391,8 +6353,8 @@ specifier|public
 name|void
 name|recoverFromStore
 parameter_list|(
-name|IndexShardRoutingTable
-name|shardRoutingTable
+name|ShardRouting
+name|shard
 parameter_list|,
 name|StoreRecoveryService
 operator|.
@@ -6402,13 +6364,21 @@ parameter_list|)
 block|{
 comment|// we are the first primary, recover from the gateway
 comment|// if its post api allocation, the index should exists
+assert|assert
+name|shard
+operator|.
+name|primary
+argument_list|()
+operator|:
+literal|"recover from store only makes sense if the shard is a primary shard"
+assert|;
 specifier|final
 name|boolean
 name|shouldExist
 init|=
-name|shardRoutingTable
+name|shard
 operator|.
-name|primaryAllocatedPostApi
+name|allocatedPostIndexCreate
 argument_list|()
 decl_stmt|;
 name|storeRecoveryService
