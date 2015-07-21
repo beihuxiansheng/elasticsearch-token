@@ -681,7 +681,7 @@ operator|.
 name|indexVersionCreated
 argument_list|()
 operator|.
-name|before
+name|onOrAfter
 argument_list|(
 name|Version
 operator|.
@@ -689,6 +689,10 @@ name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
+return|return
+name|builder
+return|;
+block|}
 name|parseField
 argument_list|(
 name|builder
@@ -702,7 +706,6 @@ argument_list|,
 name|parserContext
 argument_list|)
 expr_stmt|;
-block|}
 for|for
 control|(
 name|Iterator

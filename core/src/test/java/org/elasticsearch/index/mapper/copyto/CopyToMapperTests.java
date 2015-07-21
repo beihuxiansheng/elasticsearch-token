@@ -841,6 +841,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type1"
 argument_list|,
 literal|"1"
@@ -1363,6 +1365,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type1"
 argument_list|,
 literal|"1"
@@ -1565,6 +1569,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type1"
 argument_list|,
 literal|"1"
@@ -2318,6 +2324,8 @@ name|mapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"

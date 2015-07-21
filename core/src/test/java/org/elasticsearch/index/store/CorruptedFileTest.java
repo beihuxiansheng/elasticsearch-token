@@ -504,7 +504,7 @@ name|elasticsearch
 operator|.
 name|gateway
 operator|.
-name|GatewayAllocator
+name|PrimaryShardAllocator
 import|;
 end_import
 
@@ -4427,7 +4427,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|GatewayAllocator
+name|PrimaryShardAllocator
 operator|.
 name|INDEX_RECOVERY_INITIAL_SHARDS
 argument_list|,

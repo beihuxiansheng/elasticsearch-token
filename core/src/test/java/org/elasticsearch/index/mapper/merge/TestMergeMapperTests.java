@@ -1821,6 +1821,8 @@ name|parse
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"test"
+argument_list|,
 name|fieldName
 argument_list|,
 operator|new
@@ -1955,6 +1957,8 @@ name|documentMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"random"
