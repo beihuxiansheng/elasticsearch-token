@@ -1081,6 +1081,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|TestAllocateDecision
+specifier|public
 specifier|static
 class|class
 name|TestAllocateDecision
