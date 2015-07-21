@@ -623,11 +623,11 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"cluster state used to determine shards [{}]"
+literal|"using cluster state version [{}] to determine shards"
 argument_list|,
 name|state
 operator|.
-name|prettyPrint
+name|version
 argument_list|()
 argument_list|)
 expr_stmt|;

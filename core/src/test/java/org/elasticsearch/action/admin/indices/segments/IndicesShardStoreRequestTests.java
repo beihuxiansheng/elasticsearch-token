@@ -414,7 +414,7 @@ name|Test
 annotation|@
 name|TestLogging
 argument_list|(
-literal|"action.admin.indices.shards:TRACE"
+literal|"action.admin.indices.shards:TRACE,cluster.service:TRACE"
 argument_list|)
 DECL|method|testBasic
 specifier|public
