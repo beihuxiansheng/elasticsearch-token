@@ -887,7 +887,15 @@ block|{
 return|return
 name|keyPath
 operator|+
+operator|(
 name|blobName
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|blobName
+operator|)
 return|;
 block|}
 block|}
