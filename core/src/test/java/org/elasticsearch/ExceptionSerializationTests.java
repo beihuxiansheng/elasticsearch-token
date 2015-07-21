@@ -1652,6 +1652,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+specifier|final
 name|ShardRouting
 name|routing
 init|=
@@ -1675,6 +1676,15 @@ name|STARTED
 argument_list|,
 literal|0
 argument_list|)
+decl_stmt|;
+specifier|final
+name|String
+name|routingAsString
+init|=
+name|routing
+operator|.
+name|toString
+argument_list|()
 decl_stmt|;
 name|IllegalShardRoutingStateException
 name|serialize
@@ -1714,7 +1724,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[test][0], node[xyz], relocating [def], [R], s[STARTED]: foo"
+name|routingAsString
+operator|+
+literal|": foo"
 argument_list|,
 name|serialize
 operator|.
@@ -1767,7 +1779,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"[test][0], node[xyz], relocating [def], [R], s[STARTED]: bar"
+name|routingAsString
+operator|+
+literal|": bar"
 argument_list|,
 name|serialize
 operator|.
