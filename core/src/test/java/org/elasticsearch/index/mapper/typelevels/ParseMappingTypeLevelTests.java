@@ -134,7 +134,7 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"_index"
+literal|"_size"
 argument_list|)
 operator|.
 name|field
@@ -199,7 +199,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|indexMapper
+name|sizeFieldMapper
 argument_list|()
 operator|.
 name|enabled
@@ -237,7 +237,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|indexMapper
+name|sizeFieldMapper
 argument_list|()
 operator|.
 name|enabled
