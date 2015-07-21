@@ -1128,7 +1128,12 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
+name|updateTask
+operator|.
+name|onFailure
+argument_list|(
+name|source
+argument_list|,
 operator|new
 name|ElasticsearchException
 argument_list|(
@@ -1140,7 +1145,9 @@ literal|"]"
 argument_list|,
 name|e
 argument_list|)
-throw|;
+argument_list|)
+expr_stmt|;
+return|return;
 block|}
 name|setStateAndNotifyListeners
 argument_list|(

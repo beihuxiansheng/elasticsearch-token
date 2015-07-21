@@ -1219,7 +1219,7 @@ argument_list|,
 operator|new
 name|NodeJoinController
 operator|.
-name|Callback
+name|ElectionCallback
 argument_list|()
 block|{
 annotation|@
@@ -1523,7 +1523,7 @@ argument_list|,
 operator|new
 name|NodeJoinController
 operator|.
-name|Callback
+name|ElectionCallback
 argument_list|()
 block|{
 annotation|@
@@ -2372,7 +2372,7 @@ argument_list|,
 operator|new
 name|NodeJoinController
 operator|.
-name|Callback
+name|ElectionCallback
 argument_list|()
 block|{
 annotation|@
@@ -3207,7 +3207,7 @@ argument_list|,
 operator|new
 name|NodeJoinController
 operator|.
-name|Callback
+name|ElectionCallback
 argument_list|()
 block|{
 annotation|@
