@@ -249,7 +249,7 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// the fake es home
-name|assertTrue
+name|assertFalse
 argument_list|(
 name|permissions
 operator|.
@@ -546,8 +546,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// check that all directories got permissions:
-comment|// homefile: this is needed unless we break out rules for "lib" dir.
-comment|// TODO: make read-only
 name|assertTrue
 argument_list|(
 name|permissions
@@ -559,13 +557,35 @@ name|FilePermission
 argument_list|(
 name|environment
 operator|.
-name|homeFile
+name|binFile
 argument_list|()
 operator|.
 name|toString
 argument_list|()
 argument_list|,
-literal|"read,readlink,write,delete"
+literal|"read"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|permissions
+operator|.
+name|implies
+argument_list|(
+operator|new
+name|FilePermission
+argument_list|(
+name|environment
+operator|.
+name|libFile
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"read"
 argument_list|)
 argument_list|)
 argument_list|)
