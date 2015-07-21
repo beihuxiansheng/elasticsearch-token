@@ -17176,8 +17176,6 @@ name|DocumentMapper
 operator|.
 name|Builder
 argument_list|(
-name|indexName
-argument_list|,
 name|settings
 argument_list|,
 name|rootBuilder
@@ -17191,8 +17189,6 @@ init|=
 operator|new
 name|DocumentMapperParser
 argument_list|(
-name|index
-argument_list|,
 name|settings
 argument_list|,
 name|mapperService

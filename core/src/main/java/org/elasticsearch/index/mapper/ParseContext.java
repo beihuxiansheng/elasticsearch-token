@@ -1526,12 +1526,6 @@ operator|.
 name|newArrayList
 argument_list|()
 decl_stmt|;
-DECL|field|index
-specifier|private
-specifier|final
-name|String
-name|index
-decl_stmt|;
 annotation|@
 name|Nullable
 DECL|field|indexSettings
@@ -1614,9 +1608,6 @@ DECL|method|InternalParseContext
 specifier|public
 name|InternalParseContext
 parameter_list|(
-name|String
-name|index
-parameter_list|,
 annotation|@
 name|Nullable
 name|Settings
@@ -1632,12 +1623,6 @@ name|ContentPath
 name|path
 parameter_list|)
 block|{
-name|this
-operator|.
-name|index
-operator|=
-name|index
-expr_stmt|;
 name|this
 operator|.
 name|indexSettings
@@ -1837,9 +1822,10 @@ name|index
 parameter_list|()
 block|{
 return|return
-name|this
+name|sourceToParse
 operator|.
 name|index
+argument_list|()
 return|;
 block|}
 annotation|@

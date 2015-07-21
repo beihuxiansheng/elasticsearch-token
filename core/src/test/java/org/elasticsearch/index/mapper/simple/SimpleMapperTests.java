@@ -269,8 +269,6 @@ name|docMapper
 init|=
 name|doc
 argument_list|(
-literal|"test"
-argument_list|,
 name|settings
 argument_list|,
 name|rootObject
@@ -1007,8 +1005,6 @@ name|docMapper
 init|=
 name|doc
 argument_list|(
-literal|"test"
-argument_list|,
 name|settings
 argument_list|,
 name|rootObject

@@ -451,8 +451,6 @@ name|ParseContext
 operator|.
 name|InternalParseContext
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|docMapperParser
@@ -468,12 +466,6 @@ argument_list|)
 return|;
 block|}
 block|}
-decl_stmt|;
-DECL|field|index
-specifier|private
-specifier|final
-name|String
-name|index
 decl_stmt|;
 DECL|field|indexSettings
 specifier|private
@@ -503,9 +495,6 @@ DECL|method|DocumentParser
 specifier|public
 name|DocumentParser
 parameter_list|(
-name|String
-name|index
-parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -519,12 +508,6 @@ name|ReleasableLock
 name|parseLock
 parameter_list|)
 block|{
-name|this
-operator|.
-name|index
-operator|=
-name|index
-expr_stmt|;
 name|this
 operator|.
 name|indexSettings

@@ -1378,8 +1378,6 @@ name|ParseContext
 operator|.
 name|InternalParseContext
 argument_list|(
-literal|"test"
-argument_list|,
 name|settings
 argument_list|,
 name|parser
