@@ -36,20 +36,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -92,10 +78,6 @@ name|newArrayList
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SpanOrQueryParser
 specifier|public
@@ -104,13 +86,6 @@ name|SpanOrQueryParser
 extends|extends
 name|BaseQueryParser
 block|{
-annotation|@
-name|Inject
-DECL|method|SpanOrQueryParser
-specifier|public
-name|SpanOrQueryParser
-parameter_list|()
-block|{     }
 annotation|@
 name|Override
 DECL|method|names

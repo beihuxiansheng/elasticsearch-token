@@ -148,6 +148,10 @@ name|Objects
 import|;
 end_import
 
+begin_comment
+comment|/**  * Span query that matches the union of its clauses. Maps to {@link SpanOrQuery}.  */
+end_comment
+
 begin_class
 DECL|class|SpanOrQueryBuilder
 specifier|public
