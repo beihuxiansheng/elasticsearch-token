@@ -604,6 +604,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -616,6 +618,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -689,7 +693,7 @@ argument_list|()
 operator|.
 name|preparePutMapping
 argument_list|(
-literal|"test-0"
+literal|"test"
 argument_list|)
 operator|.
 name|setType
@@ -1094,6 +1098,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -1106,6 +1112,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -1195,6 +1203,9 @@ name|DocumentMapper
 name|mapper
 parameter_list|(
 name|String
+name|indexName
+parameter_list|,
+name|String
 name|type
 parameter_list|,
 name|String
@@ -1206,6 +1217,8 @@ block|{
 return|return
 name|mapper
 argument_list|(
+name|indexName
+argument_list|,
 name|type
 argument_list|,
 name|mapping
@@ -1222,6 +1235,9 @@ name|DocumentMapper
 name|mapper
 parameter_list|(
 name|String
+name|indexName
+parameter_list|,
+name|String
 name|type
 parameter_list|,
 name|String
@@ -1233,17 +1249,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-specifier|final
-name|String
-name|indexName
-init|=
-literal|"test-"
-operator|+
-operator|(
-name|i
-operator|++
-operator|)
-decl_stmt|;
 name|IndexService
 name|index
 decl_stmt|;
@@ -1631,6 +1636,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -1651,6 +1658,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -1775,6 +1784,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -1787,6 +1798,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -1932,6 +1945,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -1944,6 +1959,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -2227,6 +2244,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -2239,6 +2258,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -2552,6 +2573,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -2564,6 +2587,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -2635,6 +2660,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -2704,6 +2731,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -2809,6 +2838,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -2858,6 +2889,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -3044,6 +3077,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test1"
+argument_list|,
 literal|"type"
 argument_list|,
 name|initialMapping
@@ -3054,6 +3089,8 @@ name|mergeMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test2"
+argument_list|,
 literal|"type"
 argument_list|,
 name|updatedMapping
@@ -3297,6 +3334,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -3309,6 +3348,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -3612,6 +3653,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test1"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -3629,6 +3672,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -3680,6 +3725,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"2"
@@ -3731,6 +3778,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"2"
@@ -3781,6 +3830,8 @@ name|currentMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test2"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -3792,6 +3843,8 @@ name|currentMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"2"
@@ -3823,13 +3876,37 @@ name|bytes
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|fail
+argument_list|(
+literal|"expected parse failure"
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
 name|MapperParsingException
 name|e
 parameter_list|)
-block|{}
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"failed to parse [date_field]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testThatEpochCanBeIgnoredWithCustomFormat
 specifier|public
@@ -3899,6 +3976,8 @@ name|defaultMapper
 init|=
 name|mapper
 argument_list|(
+literal|"test1"
+argument_list|,
 literal|"type"
 argument_list|,
 name|mapping
@@ -3932,6 +4011,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -3968,7 +4049,7 @@ argument_list|()
 operator|.
 name|prepareIndex
 argument_list|(
-literal|"test"
+literal|"test2"
 argument_list|,
 literal|"test"
 argument_list|)
@@ -4001,6 +4082,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -4226,6 +4309,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -4257,6 +4342,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -4405,6 +4492,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
@@ -4437,6 +4526,8 @@ name|defaultMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"
