@@ -709,6 +709,11 @@ name|index
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|ensureYellow
+argument_list|(
+name|index
+argument_list|)
+expr_stmt|;
 name|ClusterState
 name|clusterState
 init|=
