@@ -44,9 +44,9 @@ name|support
 operator|.
 name|single
 operator|.
-name|custom
+name|shard
 operator|.
-name|SingleCustomOperationRequest
+name|SingleShardRequest
 import|;
 end_import
 
@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|AnalyzeRequest
 extends|extends
-name|SingleCustomOperationRequest
+name|SingleShardRequest
 argument_list|<
 name|AnalyzeRequest
 argument_list|>
@@ -399,10 +399,7 @@ block|{
 name|ActionRequestValidationException
 name|validationException
 init|=
-name|super
-operator|.
-name|validate
-argument_list|()
+literal|null
 decl_stmt|;
 if|if
 condition|(

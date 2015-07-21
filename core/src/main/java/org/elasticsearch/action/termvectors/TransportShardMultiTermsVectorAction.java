@@ -364,7 +364,10 @@ DECL|method|resolveIndex
 specifier|protected
 name|boolean
 name|resolveIndex
-parameter_list|()
+parameter_list|(
+name|MultiTermVectorsShardRequest
+name|request
+parameter_list|)
 block|{
 return|return
 literal|false
