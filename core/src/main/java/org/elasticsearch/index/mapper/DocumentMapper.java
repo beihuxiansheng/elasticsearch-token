@@ -785,12 +785,6 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-DECL|field|index
-specifier|private
-specifier|final
-name|String
-name|index
-decl_stmt|;
 DECL|field|indexSettings
 specifier|private
 specifier|final
@@ -830,9 +824,6 @@ DECL|method|Builder
 specifier|public
 name|Builder
 parameter_list|(
-name|String
-name|index
-parameter_list|,
 name|Settings
 name|indexSettings
 parameter_list|,
@@ -845,12 +836,6 @@ name|MapperService
 name|mapperService
 parameter_list|)
 block|{
-name|this
-operator|.
-name|index
-operator|=
-name|index
-expr_stmt|;
 name|this
 operator|.
 name|indexSettings
@@ -1382,8 +1367,6 @@ name|DocumentMapper
 argument_list|(
 name|mapperService
 argument_list|,
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|docMapperParser
@@ -1492,9 +1475,6 @@ name|DocumentMapper
 parameter_list|(
 name|MapperService
 name|mapperService
-parameter_list|,
-name|String
-name|index
 parameter_list|,
 annotation|@
 name|Nullable
@@ -1625,8 +1605,6 @@ operator|=
 operator|new
 name|DocumentParser
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|docMapperParser
@@ -2218,6 +2196,9 @@ name|ParsedDocument
 name|parse
 parameter_list|(
 name|String
+name|index
+parameter_list|,
+name|String
 name|type
 parameter_list|,
 name|String
@@ -2237,6 +2218,11 @@ operator|.
 name|source
 argument_list|(
 name|source
+argument_list|)
+operator|.
+name|index
+argument_list|(
+name|index
 argument_list|)
 operator|.
 name|type

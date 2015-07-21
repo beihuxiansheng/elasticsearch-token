@@ -162,9 +162,6 @@ operator|.
 name|Builder
 name|doc
 parameter_list|(
-name|String
-name|index
-parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -183,8 +180,6 @@ name|DocumentMapper
 operator|.
 name|Builder
 argument_list|(
-name|index
-argument_list|,
 name|settings
 argument_list|,
 name|objectBuilder

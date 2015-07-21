@@ -1120,8 +1120,6 @@ operator|=
 operator|new
 name|DocumentMapperParser
 argument_list|(
-name|index
-argument_list|,
 name|indexSettings
 argument_list|,
 name|this
