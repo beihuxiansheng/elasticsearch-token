@@ -1900,8 +1900,6 @@ argument_list|()
 argument_list|,
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|routing
 operator|.
 name|primary
@@ -1910,6 +1908,13 @@ argument_list|,
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
+argument_list|,
+name|shard
+operator|.
+name|shardRouting
+operator|.
+name|allocationId
+argument_list|()
 argument_list|,
 name|shard
 operator|.
