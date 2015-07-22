@@ -258,22 +258,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|clauses
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Must have at least one clause when building a spanOr query"
-argument_list|)
-throw|;
-block|}
 name|builder
 operator|.
 name|startObject
