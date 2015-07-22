@@ -466,8 +466,6 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|assertFalse
@@ -590,8 +588,6 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 for|for
@@ -886,8 +882,6 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|int
@@ -1165,8 +1159,6 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 for|for
@@ -1440,8 +1432,6 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 for|for
@@ -1724,8 +1714,6 @@ literal|"test"
 argument_list|,
 literal|1
 argument_list|)
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 for|for

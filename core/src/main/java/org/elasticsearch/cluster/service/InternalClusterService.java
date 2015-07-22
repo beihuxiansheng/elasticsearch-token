@@ -1939,6 +1939,35 @@ name|getMaxTaskWaitTime
 argument_list|()
 return|;
 block|}
+comment|/** asserts that the current thread is the cluster state update thread */
+DECL|method|assertClusterStateThread
+specifier|public
+name|boolean
+name|assertClusterStateThread
+parameter_list|()
+block|{
+assert|assert
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|InternalClusterService
+operator|.
+name|UPDATE_THREAD_NAME
+argument_list|)
+operator|:
+literal|"not called from the cluster state update thread"
+assert|;
+return|return
+literal|true
+return|;
+block|}
 DECL|class|SourcePrioritizedRunnable
 specifier|static
 specifier|abstract

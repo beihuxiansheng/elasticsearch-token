@@ -409,8 +409,6 @@ name|initShard
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|addShard
@@ -433,8 +431,6 @@ name|startedShard
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|addShard
@@ -457,8 +453,6 @@ name|relocatingShard
 operator|.
 name|shardId
 argument_list|()
-argument_list|,
-literal|true
 argument_list|)
 operator|.
 name|addShard

@@ -2032,6 +2032,8 @@ block|{
 name|UpdateAction
 operator|.
 name|NAME
+operator|+
+literal|"[s]"
 block|,
 name|IndexAction
 operator|.
@@ -2154,6 +2156,8 @@ block|{
 name|UpdateAction
 operator|.
 name|NAME
+operator|+
+literal|"[s]"
 block|,
 name|IndexAction
 operator|.
@@ -2261,6 +2265,8 @@ block|{
 name|UpdateAction
 operator|.
 name|NAME
+operator|+
+literal|"[s]"
 block|,
 name|DeleteAction
 operator|.

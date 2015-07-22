@@ -194,7 +194,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|args
-specifier|protected
+specifier|public
 specifier|static
 name|String
 index|[]

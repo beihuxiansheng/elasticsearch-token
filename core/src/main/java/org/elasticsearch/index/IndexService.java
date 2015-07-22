@@ -1599,7 +1599,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"{} failed to load shard path, trying to archive leftover"
+literal|"{} failed to load shard path, trying to remove leftover"
 argument_list|,
 name|shardId
 argument_list|)

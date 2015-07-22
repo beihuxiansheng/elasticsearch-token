@@ -389,6 +389,12 @@ operator|.
 name|Reason
 operator|.
 name|REROUTE_CANCELLED
+block|,
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|REINITIALIZED
 block|}
 decl_stmt|;
 for|for

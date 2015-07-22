@@ -673,11 +673,6 @@ name|UpdateRequest
 name|request
 parameter_list|)
 block|{
-name|request
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 return|return
 name|internalAdd
 argument_list|(
@@ -701,11 +696,6 @@ name|Object
 name|payload
 parameter_list|)
 block|{
-name|request
-operator|.
-name|beforeLocalFork
-argument_list|()
-expr_stmt|;
 return|return
 name|internalAdd
 argument_list|(
