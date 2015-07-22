@@ -973,18 +973,28 @@ name|SpanOrQueryBuilder
 argument_list|()
 return|;
 block|}
-comment|/** Creates a new {@code span_within} builder. */
+comment|/** Creates a new {@code span_within} builder.     * @param big the big clause, it must enclose {@code little} for a match.     * @param little the little clause, it must be contained within {@code big} for a match.     */
 DECL|method|spanWithinQuery
 specifier|public
 specifier|static
 name|SpanWithinQueryBuilder
 name|spanWithinQuery
-parameter_list|()
+parameter_list|(
+name|SpanQueryBuilder
+name|big
+parameter_list|,
+name|SpanQueryBuilder
+name|little
+parameter_list|)
 block|{
 return|return
 operator|new
 name|SpanWithinQueryBuilder
-argument_list|()
+argument_list|(
+name|big
+argument_list|,
+name|little
+argument_list|)
 return|;
 block|}
 comment|/**      * Creates a new {@code span_containing} builder.      * @param big the big clause, it must enclose {@code little} for a match.      * @param little the little clause, it must be contained within {@code big} for a match.      */
