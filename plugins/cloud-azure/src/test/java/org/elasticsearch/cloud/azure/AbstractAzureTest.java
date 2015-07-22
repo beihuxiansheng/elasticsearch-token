@@ -72,9 +72,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|plugin
 operator|.
-name|PluginsService
+name|cloud
+operator|.
+name|azure
+operator|.
+name|CloudAzurePlugin
 import|;
 end_import
 
@@ -148,11 +152,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|PluginsService
-operator|.
-name|LOAD_PLUGIN_FROM_CLASSPATH
+literal|"plugin.types"
 argument_list|,
-literal|true
+name|CloudAzurePlugin
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|put
