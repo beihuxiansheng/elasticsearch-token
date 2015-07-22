@@ -72,6 +72,11 @@ name|AbstractQueryBuilder
 argument_list|<
 name|QueryWrappingQueryBuilder
 argument_list|>
+implements|implements
+name|MultiTermQueryBuilder
+argument_list|<
+name|QueryWrappingQueryBuilder
+argument_list|>
 block|{
 DECL|field|query
 specifier|private
