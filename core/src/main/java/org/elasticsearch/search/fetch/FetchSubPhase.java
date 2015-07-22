@@ -487,6 +487,24 @@ index|[]
 name|hits
 parameter_list|)
 function_decl|;
+DECL|interface|ContextFactory
+specifier|public
+interface|interface
+name|ContextFactory
+block|{
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+function_decl|;
+DECL|method|newContextInstance
+specifier|public
+name|FetchSubPhaseContext
+name|newContextInstance
+parameter_list|()
+function_decl|;
+block|}
 block|}
 end_interface
 
