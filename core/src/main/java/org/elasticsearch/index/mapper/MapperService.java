@@ -3724,6 +3724,25 @@ name|fieldName
 argument_list|)
 return|;
 block|}
+DECL|method|getAllMetaFields
+specifier|public
+specifier|static
+name|String
+index|[]
+name|getAllMetaFields
+parameter_list|()
+block|{
+return|return
+name|META_FIELDS
+operator|.
+name|toArray
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 comment|/** An analyzer wrapper that can lookup fields within the index mappings */
 DECL|class|MapperAnalyzerWrapper
 specifier|final

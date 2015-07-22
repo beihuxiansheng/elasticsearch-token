@@ -28,7 +28,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|IndexReader
 import|;
 end_import
 
@@ -42,7 +42,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 
@@ -147,20 +147,6 @@ operator|.
 name|fielddata
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -372,6 +358,41 @@ name|LeafReaderContext
 name|context
 parameter_list|)
 block|{
+if|if
+condition|(
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|getFieldInfos
+argument_list|()
+operator|.
+name|fieldInfo
+argument_list|(
+name|fieldNames
+operator|.
+name|indexName
+argument_list|()
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+comment|// If the field doesn't exist, then don't bother with loading and adding an empty instance to the field data cache
+return|return
+name|empty
+argument_list|(
+name|context
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|maxDoc
+argument_list|()
+argument_list|)
+return|;
+block|}
 try|try
 block|{
 name|FD
@@ -427,6 +448,17 @@ throw|;
 block|}
 block|}
 block|}
+comment|/**      * @param maxDoc of the current reader      * @return an empty field data instances for field data lookups of empty segments (returning no values)      */
+DECL|method|empty
+specifier|protected
+specifier|abstract
+name|FD
+name|empty
+parameter_list|(
+name|int
+name|maxDoc
+parameter_list|)
+function_decl|;
 comment|/**      * A {@code PerValueEstimator} is a sub-class that can be used to estimate      * the memory overhead for loading the data. Each field data      * implementation should implement its own {@code PerValueEstimator} if it      * intends to take advantage of the MemoryCircuitBreaker.      *<p/>      * Note that the .beforeLoad(...) and .afterLoad(...) methods must be      * manually called.      */
 DECL|interface|PerValueEstimator
 specifier|public
