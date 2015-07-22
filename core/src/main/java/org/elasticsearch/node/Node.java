@@ -172,22 +172,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|AllocationService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|StopWatch
@@ -882,7 +866,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|SnapshotsService
+name|SnapshotShardsService
 import|;
 end_import
 
@@ -894,7 +878,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|SnapshotShardsService
+name|SnapshotsService
 import|;
 end_import
 
@@ -2099,7 +2083,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-comment|// TODO hack around circular dependecncies problems
+comment|// TODO hack around circular dependencies problems
 name|injector
 operator|.
 name|getInstance

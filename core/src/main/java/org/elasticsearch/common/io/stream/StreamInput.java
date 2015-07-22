@@ -20,34 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|core
-operator|.
-name|JsonLocation
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|core
-operator|.
-name|JsonParseException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -141,16 +113,6 @@ operator|.
 name|util
 operator|.
 name|CharsRefBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchException
 import|;
 end_import
 
@@ -301,18 +263,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|regex
-operator|.
-name|Pattern
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -335,10 +285,6 @@ operator|.
 name|readStackTrace
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|StreamInput
@@ -372,7 +318,7 @@ return|;
 block|}
 DECL|method|setVersion
 specifier|public
-name|StreamInput
+name|void
 name|setVersion
 parameter_list|(
 name|Version
@@ -385,9 +331,6 @@ name|version
 operator|=
 name|version
 expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Reads and returns a single byte.      */
 DECL|method|readByte
@@ -1295,8 +1238,6 @@ argument_list|)
 expr_stmt|;
 name|int
 name|c
-init|=
-literal|0
 decl_stmt|;
 while|while
 condition|(
@@ -1638,6 +1579,11 @@ return|;
 block|}
 annotation|@
 name|Nullable
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|readMap
 specifier|public
 name|Map
@@ -2918,6 +2864,34 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+comment|/**      * Reads a {@link NamedWriteable} from the current stream, by first reading its name and then looking for      * the corresponding entry in the registry by name, so that the proper object can be read and returned.      * Default implementation throws {@link UnsupportedOperationException} as StreamInput doesn't hold a registry.      * Use {@link FilterInputStream} instead which wraps a stream and supports a {@link NamedWriteableRegistry} too.      */
+DECL|method|readNamedWriteable
+parameter_list|<
+name|C
+parameter_list|>
+name|C
+name|readNamedWriteable
+parameter_list|(
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unused"
+argument_list|)
+name|Class
+argument_list|<
+name|C
+argument_list|>
+name|categoryClass
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
 block|}
 DECL|method|wrap
 specifier|public

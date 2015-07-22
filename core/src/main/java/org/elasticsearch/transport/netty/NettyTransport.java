@@ -92,7 +92,17 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|*
+name|ExceptionsHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
 import|;
 end_import
 
@@ -187,6 +197,22 @@ operator|.
 name|inject
 operator|.
 name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|io
+operator|.
+name|stream
+operator|.
+name|NamedWriteableRegistry
 import|;
 end_import
 
@@ -1320,6 +1346,12 @@ name|KeyedLock
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|field|namedWriteableRegistry
+specifier|protected
+specifier|final
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
+decl_stmt|;
 comment|// this lock is here to make sure we close this transport and disconnect all the client nodes
 comment|// connections while no connect operations is going on... (this might help with 100% CPU when stopping the transport?)
 DECL|field|globalLock
@@ -1358,6 +1390,9 @@ name|bigArrays
 parameter_list|,
 name|Version
 name|version
+parameter_list|,
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|super
@@ -1936,6 +1971,12 @@ name|scheduledPing
 argument_list|)
 expr_stmt|;
 block|}
+name|this
+operator|.
+name|namedWriteableRegistry
+operator|=
+name|namedWriteableRegistry
+expr_stmt|;
 block|}
 DECL|method|settings
 specifier|public
@@ -7112,6 +7153,7 @@ name|ChannelPipelineFactory
 block|{
 DECL|field|nettyTransport
 specifier|protected
+specifier|final
 name|NettyTransport
 name|nettyTransport
 decl_stmt|;
