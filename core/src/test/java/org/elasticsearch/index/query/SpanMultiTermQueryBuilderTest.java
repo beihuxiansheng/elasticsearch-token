@@ -260,9 +260,16 @@ init|=
 name|createContext
 argument_list|()
 decl_stmt|;
-comment|// test makes only sense if date field is mapped
+comment|// test makes only sense if we have at least one type registered with date field mapping
 if|if
 condition|(
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+operator|&&
 name|parseContext
 operator|.
 name|fieldMapper
