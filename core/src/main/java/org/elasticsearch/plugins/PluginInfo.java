@@ -730,7 +730,7 @@ literal|"Plugin ["
 operator|+
 name|name
 operator|+
-literal|"] is a site plugin but has no _site"
+literal|"] is a site plugin but has no '_site/' directory"
 argument_list|)
 throw|;
 block|}

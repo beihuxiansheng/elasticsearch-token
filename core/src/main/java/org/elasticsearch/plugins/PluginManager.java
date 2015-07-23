@@ -1035,13 +1035,13 @@ operator|.
 name|toAbsolutePath
 argument_list|()
 operator|+
-literal|" already exists. To update the plugin, uninstall it first using remove "
+literal|" already exists. To update the plugin, uninstall it first using 'remove "
 operator|+
 name|pluginHandle
 operator|.
 name|name
 operator|+
-literal|" command"
+literal|"' command"
 argument_list|)
 throw|;
 block|}

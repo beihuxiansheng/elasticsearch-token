@@ -1103,7 +1103,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"site plugin but has no _site"
+literal|"site plugin but has no '_site"
 argument_list|)
 argument_list|)
 expr_stmt|;
