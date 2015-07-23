@@ -73,6 +73,11 @@ argument_list|<
 name|QueryWrappingQueryBuilder
 argument_list|>
 implements|implements
+name|SpanQueryBuilder
+argument_list|<
+name|QueryWrappingQueryBuilder
+argument_list|>
+implements|,
 name|MultiTermQueryBuilder
 argument_list|<
 name|QueryWrappingQueryBuilder
