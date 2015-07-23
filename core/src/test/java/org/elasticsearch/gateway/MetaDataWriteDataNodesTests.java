@@ -1045,7 +1045,7 @@ name|CLOSE
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/**          * Try the same and see if this also works if node was just restarted.          * Each node holds an array of indices it knows of and checks if it should          * write new meta data by looking up in this array. We need it because if an          * index is closed it will not appear in the shard routing and we therefore          * need to keep track of what we wrote before. However, when the node is          * restarted this array is empty and we have to fill it before we decide          * what we write. This is why I explicitly test for it.          */
+comment|/* Try the same and see if this also works if node was just restarted.          * Each node holds an array of indices it knows of and checks if it should          * write new meta data by looking up in this array. We need it because if an          * index is closed it will not appear in the shard routing and we therefore          * need to keep track of what we wrote before. However, when the node is          * restarted this array is empty and we have to fill it before we decide          * what we write. This is why we explicitly test for it.          */
 name|internalCluster
 argument_list|()
 operator|.
@@ -1246,6 +1246,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// finally check that meta data is also written of index opened again
+name|assertAcked
+argument_list|(
 name|client
 argument_list|()
 operator|.
@@ -1262,35 +1264,15 @@ argument_list|)
 operator|.
 name|get
 argument_list|()
+argument_list|)
 expr_stmt|;
-name|assertBusy
-argument_list|(
-operator|new
-name|Runnable
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|run
-parameter_list|()
-block|{
-try|try
-block|{
-name|ImmutableOpenMap
-argument_list|<
-name|String
-argument_list|,
-name|IndexMetaData
-argument_list|>
 name|indicesMetaData
-init|=
+operator|=
 name|getIndicesMetaDataOnNode
 argument_list|(
 name|dataNode
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|indicesMetaData
@@ -1311,30 +1293,6 @@ name|State
 operator|.
 name|OPEN
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"caught exception while reading meta state: "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|()
-expr_stmt|;
-block|}
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 block|}
