@@ -82,15 +82,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|node
-operator|.
-name|info
+name|plugins
 operator|.
 name|PluginInfo
 import|;
@@ -301,20 +293,6 @@ operator|.
 name|jvm
 operator|.
 name|JvmInfo
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|monitor
-operator|.
-name|os
-operator|.
-name|OsInfo
 import|;
 end_import
 
@@ -890,7 +868,7 @@ name|add
 argument_list|(
 name|PluginInfo
 operator|.
-name|readPluginInfo
+name|readFromStream
 argument_list|(
 name|in
 argument_list|)
