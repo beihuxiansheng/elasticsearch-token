@@ -35,15 +35,6 @@ name|DocumentMapper
 name|mapper
 parameter_list|)
 function_decl|;
-comment|/**      * Invoked just after an existing document type has been removed.      *      * @param mapper The existing document mapper of the type being removed      */
-DECL|method|afterRemove
-name|void
-name|afterRemove
-parameter_list|(
-name|DocumentMapper
-name|mapper
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 
