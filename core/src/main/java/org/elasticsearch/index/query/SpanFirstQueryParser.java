@@ -149,11 +149,10 @@ name|match
 init|=
 literal|null
 decl_stmt|;
-name|int
+name|Integer
 name|end
 init|=
-operator|-
-literal|1
+literal|null
 decl_stmt|;
 name|String
 name|queryName
@@ -379,8 +378,7 @@ if|if
 condition|(
 name|end
 operator|==
-operator|-
-literal|1
+literal|null
 condition|)
 block|{
 throw|throw
