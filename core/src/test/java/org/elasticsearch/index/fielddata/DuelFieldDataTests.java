@@ -4816,6 +4816,18 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|testEmpty
+specifier|public
+name|void
+name|testEmpty
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// No need to test empty usage here
+block|}
 DECL|method|getNumbers
 specifier|private
 name|int

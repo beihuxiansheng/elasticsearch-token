@@ -1653,6 +1653,12 @@ specifier|final
 name|EngineFactory
 name|engineFactory
 decl_stmt|;
+DECL|field|wrappingService
+specifier|private
+specifier|final
+name|IndexSearcherWrappingService
+name|wrappingService
+decl_stmt|;
 annotation|@
 name|Nullable
 DECL|field|recoveryState
@@ -1815,6 +1821,9 @@ name|path
 parameter_list|,
 name|BigArrays
 name|bigArrays
+parameter_list|,
+name|IndexSearcherWrappingService
+name|wrappingService
 parameter_list|)
 block|{
 name|super
@@ -1850,6 +1859,12 @@ operator|.
 name|similarityService
 operator|=
 name|similarityService
+expr_stmt|;
+name|this
+operator|.
+name|wrappingService
+operator|=
+name|wrappingService
 expr_stmt|;
 name|Preconditions
 operator|.
@@ -2519,6 +2534,38 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+operator|(
+name|currentRouting
+operator|==
+literal|null
+operator|||
+name|newRouting
+operator|.
+name|isSameAllocation
+argument_list|(
+name|currentRouting
+argument_list|)
+operator|)
+operator|==
+literal|false
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Trying to set a routing entry with a different allocation. Current "
+operator|+
+name|currentRouting
+operator|+
+literal|", new "
+operator|+
+name|newRouting
+argument_list|)
+throw|;
+block|}
 try|try
 block|{
 if|if
@@ -2528,31 +2575,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-assert|assert
-name|newRouting
-operator|.
-name|version
-argument_list|()
-operator|>
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-operator|:
-literal|"expected: "
-operator|+
-name|newRouting
-operator|.
-name|version
-argument_list|()
-operator|+
-literal|"> "
-operator|+
-name|currentRouting
-operator|.
-name|version
-argument_list|()
-assert|;
 if|if
 condition|(
 operator|!
@@ -2575,12 +2597,12 @@ literal|"suspect illegal state: trying to move shard from primary mode to replic
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if its the same routing, return
+comment|// if its the same routing except for some metadata info, return
 if|if
 condition|(
 name|currentRouting
 operator|.
-name|equals
+name|equalsIgnoringMetaData
 argument_list|(
 name|newRouting
 argument_list|)
@@ -8442,6 +8464,8 @@ name|query
 argument_list|()
 argument_list|,
 name|cachingPolicy
+argument_list|,
+name|wrappingService
 argument_list|,
 name|translogConfig
 argument_list|)

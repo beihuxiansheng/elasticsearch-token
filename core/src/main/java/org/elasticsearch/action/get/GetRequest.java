@@ -458,7 +458,7 @@ name|validationException
 init|=
 name|super
 operator|.
-name|validate
+name|validateNonNullIndex
 argument_list|()
 decl_stmt|;
 if|if

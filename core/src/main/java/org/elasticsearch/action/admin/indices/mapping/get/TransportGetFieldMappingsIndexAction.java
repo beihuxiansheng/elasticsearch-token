@@ -136,9 +136,9 @@ name|support
 operator|.
 name|single
 operator|.
-name|custom
+name|shard
 operator|.
-name|TransportSingleCustomOperationAction
+name|TransportSingleShardAction
 import|;
 end_import
 
@@ -490,7 +490,7 @@ specifier|public
 class|class
 name|TransportGetFieldMappingsIndexAction
 extends|extends
-name|TransportSingleCustomOperationAction
+name|TransportSingleShardAction
 argument_list|<
 name|GetFieldMappingsIndexRequest
 argument_list|,

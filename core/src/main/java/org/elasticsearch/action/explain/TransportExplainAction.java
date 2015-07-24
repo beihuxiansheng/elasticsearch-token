@@ -634,7 +634,10 @@ DECL|method|resolveIndex
 specifier|protected
 name|boolean
 name|resolveIndex
-parameter_list|()
+parameter_list|(
+name|ExplainRequest
+name|request
+parameter_list|)
 block|{
 return|return
 literal|true

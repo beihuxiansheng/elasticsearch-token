@@ -395,6 +395,12 @@ operator|.
 name|Reason
 operator|.
 name|REINITIALIZED
+block|,
+name|UnassignedInfo
+operator|.
+name|Reason
+operator|.
+name|REALLOCATED_REPLICA
 block|}
 decl_stmt|;
 for|for

@@ -783,8 +783,6 @@ argument_list|,
 name|dateTimeZone
 argument_list|,
 name|forcedDateParser
-argument_list|,
-name|context
 argument_list|)
 expr_stmt|;
 block|}

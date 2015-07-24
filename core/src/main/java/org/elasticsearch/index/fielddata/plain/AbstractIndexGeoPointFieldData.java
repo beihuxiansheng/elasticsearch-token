@@ -476,6 +476,26 @@ literal|"can't sort on geo_point field without using specific sorting feature, l
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|empty
+specifier|protected
+name|AtomicGeoPointFieldData
+name|empty
+parameter_list|(
+name|int
+name|maxDoc
+parameter_list|)
+block|{
+return|return
+name|AbstractAtomicGeoPointFieldData
+operator|.
+name|empty
+argument_list|(
+name|maxDoc
+argument_list|)
+return|;
+block|}
 block|}
 end_class
 
