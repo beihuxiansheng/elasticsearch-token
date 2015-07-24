@@ -297,15 +297,9 @@ if|if
 condition|(
 name|shardRouting
 operator|.
-name|shardId
-argument_list|()
-operator|.
-name|equals
+name|isSameShard
 argument_list|(
 name|shard
-operator|.
-name|shardId
-argument_list|()
 argument_list|)
 condition|)
 block|{

@@ -3105,11 +3105,28 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
+name|String
+name|maybeShadowIndicator
+init|=
+name|IndexMetaData
+operator|.
+name|isIndexUsingShadowReplicas
+argument_list|(
+name|indexMetaData
+operator|.
+name|settings
+argument_list|()
+argument_list|)
+condition|?
+literal|"s"
+else|:
+literal|""
+decl_stmt|;
 name|logger
 operator|.
 name|info
 argument_list|(
-literal|"[{}] creating index, cause [{}], templates {}, shards [{}]/[{}], mappings {}"
+literal|"[{}] creating index, cause [{}], templates {}, shards [{}]/[{}{}], mappings {}"
 argument_list|,
 name|request
 operator|.
@@ -3132,6 +3149,8 @@ name|indexMetaData
 operator|.
 name|numberOfReplicas
 argument_list|()
+argument_list|,
+name|maybeShadowIndicator
 argument_list|,
 name|mappings
 operator|.

@@ -76,20 +76,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|MergeSchedulerConfig
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|lucene
@@ -253,6 +239,20 @@ operator|.
 name|indexing
 operator|.
 name|ShardIndexingService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|MergeSchedulerConfig
 import|;
 end_import
 
@@ -527,6 +527,12 @@ specifier|final
 name|QueryCachingPolicy
 name|queryCachingPolicy
 decl_stmt|;
+DECL|field|wrappingService
+specifier|private
+specifier|final
+name|IndexSearcherWrappingService
+name|wrappingService
+decl_stmt|;
 comment|/**      * Index setting for index concurrency / number of threadstates in the indexwriter.      * The default is depending on the number of CPUs in the system. We use a 0.65 the number of CPUs or at least {@value org.apache.lucene.index.IndexWriterConfig#DEFAULT_MAX_THREAD_STATES}      * This setting is<b>not</b> realtime updateable      */
 DECL|field|INDEX_CONCURRENCY_SETTING
 specifier|public
@@ -749,6 +755,9 @@ parameter_list|,
 name|QueryCachingPolicy
 name|queryCachingPolicy
 parameter_list|,
+name|IndexSearcherWrappingService
+name|wrappingService
+parameter_list|,
 name|TranslogConfig
 name|translogConfig
 parameter_list|)
@@ -830,6 +839,12 @@ operator|.
 name|failedEngineListener
 operator|=
 name|failedEngineListener
+expr_stmt|;
+name|this
+operator|.
+name|wrappingService
+operator|=
+name|wrappingService
 expr_stmt|;
 name|this
 operator|.
@@ -1446,6 +1461,16 @@ parameter_list|()
 block|{
 return|return
 name|queryCachingPolicy
+return|;
+block|}
+DECL|method|getWrappingService
+specifier|public
+name|IndexSearcherWrappingService
+name|getWrappingService
+parameter_list|()
+block|{
+return|return
+name|wrappingService
 return|;
 block|}
 comment|/**      * Returns the translog config for this engine      */

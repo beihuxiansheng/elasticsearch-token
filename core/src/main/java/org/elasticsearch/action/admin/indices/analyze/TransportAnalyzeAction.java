@@ -186,9 +186,9 @@ name|support
 operator|.
 name|single
 operator|.
-name|custom
+name|shard
 operator|.
-name|TransportSingleCustomOperationAction
+name|TransportSingleShardAction
 import|;
 end_import
 
@@ -450,7 +450,7 @@ specifier|public
 class|class
 name|TransportAnalyzeAction
 extends|extends
-name|TransportSingleCustomOperationAction
+name|TransportSingleShardAction
 argument_list|<
 name|AnalyzeRequest
 argument_list|,

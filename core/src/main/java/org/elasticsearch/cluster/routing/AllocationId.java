@@ -295,7 +295,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new allocation id representing a cancelled relocation.      *      * Note that this is expected to be called on the allocation id      * of the *source* shard      * */
+comment|/**      * Creates a new allocation id representing a cancelled relocation.      *<p/>      * Note that this is expected to be called on the allocation id      * of the *source* shard      */
 DECL|method|cancelRelocation
 specifier|public
 specifier|static
@@ -327,7 +327,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new allocation id finalizing a relocation.      *      * Note that this is expected to be called on the allocation id      * of the *target* shard and thus it only needs to clear the relocating id.      */
+comment|/**      * Creates a new allocation id finalizing a relocation.      *<p/>      * Note that this is expected to be called on the allocation id      * of the *target* shard and thus it only needs to clear the relocating id.      */
 DECL|method|finishRelocation
 specifier|public
 specifier|static
@@ -398,9 +398,22 @@ name|this
 operator|==
 name|o
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
+if|if
+condition|(
+name|o
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 name|AllocationId
 name|that
 init|=
@@ -421,9 +434,11 @@ operator|.
 name|id
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 return|return
 operator|!
 operator|(
