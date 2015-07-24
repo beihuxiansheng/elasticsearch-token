@@ -311,6 +311,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|validationException
+operator|=
 name|validateInnerQuery
 argument_list|(
 name|filterBuilder
