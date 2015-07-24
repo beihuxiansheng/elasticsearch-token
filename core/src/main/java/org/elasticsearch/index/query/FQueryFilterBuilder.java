@@ -144,7 +144,9 @@ name|PROTOTYPE
 init|=
 operator|new
 name|FQueryFilterBuilder
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 DECL|field|queryBuilder
 specifier|private
@@ -165,24 +167,7 @@ name|this
 operator|.
 name|queryBuilder
 operator|=
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|queryBuilder
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|FQueryFilterBuilder
-specifier|private
-name|FQueryFilterBuilder
-parameter_list|()
-block|{
-name|this
-operator|.
-name|queryBuilder
-operator|=
-literal|null
 expr_stmt|;
 block|}
 comment|/**      * @return the query builder that is wrapped by this {@link FQueryFilterBuilder}      */

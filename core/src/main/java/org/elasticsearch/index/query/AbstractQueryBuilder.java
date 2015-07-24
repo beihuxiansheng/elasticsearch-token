@@ -946,7 +946,6 @@ return|;
 block|}
 DECL|method|validateInnerQueries
 specifier|protected
-specifier|static
 name|QueryValidationException
 name|validateInnerQueries
 parameter_list|(
@@ -989,7 +988,6 @@ return|;
 block|}
 DECL|method|validateInnerQuery
 specifier|protected
-specifier|static
 name|QueryValidationException
 name|validateInnerQuery
 parameter_list|(
@@ -1042,6 +1040,18 @@ name|validationException
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+name|validationException
+operator|=
+name|addValidationError
+argument_list|(
+literal|"inner query cannot be null"
+argument_list|,
+name|validationException
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|validationException

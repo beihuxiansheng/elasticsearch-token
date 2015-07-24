@@ -237,7 +237,9 @@ name|PROTOTYPE
 init|=
 operator|new
 name|SpanNearQueryBuilder
-argument_list|()
+argument_list|(
+literal|0
+argument_list|)
 decl_stmt|;
 comment|/**      * @param slop controls the maximum number of intervening unmatched positions permitted      */
 DECL|method|SpanNearQueryBuilder
@@ -253,19 +255,6 @@ operator|.
 name|slop
 operator|=
 name|slop
-expr_stmt|;
-block|}
-comment|/**      * only used for prototype      */
-DECL|method|SpanNearQueryBuilder
-specifier|private
-name|SpanNearQueryBuilder
-parameter_list|()
-block|{
-name|this
-operator|.
-name|slop
-operator|=
-literal|0
 expr_stmt|;
 block|}
 comment|/**      * @return the maximum number of intervening unmatched positions permitted      */

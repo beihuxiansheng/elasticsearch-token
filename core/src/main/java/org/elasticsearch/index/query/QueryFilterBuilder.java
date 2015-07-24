@@ -150,7 +150,9 @@ name|PROTOTYPE
 init|=
 operator|new
 name|QueryFilterBuilder
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
 DECL|method|QueryFilterBuilder
@@ -165,24 +167,7 @@ name|this
 operator|.
 name|queryBuilder
 operator|=
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|queryBuilder
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|QueryFilterBuilder
-specifier|private
-name|QueryFilterBuilder
-parameter_list|()
-block|{
-name|this
-operator|.
-name|queryBuilder
-operator|=
-literal|null
 expr_stmt|;
 block|}
 comment|/**      * @return the query builder that is wrapped by this {@link QueryFilterBuilder}      */
