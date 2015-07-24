@@ -1039,6 +1039,21 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
+annotation|@
+name|Override
+DECL|method|isClosed
+specifier|public
+name|boolean
+name|isClosed
+parameter_list|()
+block|{
+return|return
+name|parser
+operator|.
+name|isClosed
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

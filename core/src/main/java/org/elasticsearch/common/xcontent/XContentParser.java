@@ -557,6 +557,11 @@ name|XContentLocation
 name|getTokenLocation
 parameter_list|()
 function_decl|;
+DECL|method|isClosed
+name|boolean
+name|isClosed
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
