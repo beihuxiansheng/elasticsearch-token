@@ -218,12 +218,7 @@ name|queries
 operator|.
 name|add
 argument_list|(
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|queryBuilder
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return

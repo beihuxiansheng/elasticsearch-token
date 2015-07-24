@@ -150,7 +150,9 @@ name|PROTOTYPE
 init|=
 operator|new
 name|NotQueryBuilder
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 DECL|method|NotQueryBuilder
 specifier|public
@@ -164,24 +166,7 @@ name|this
 operator|.
 name|filter
 operator|=
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|filter
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|NotQueryBuilder
-specifier|private
-name|NotQueryBuilder
-parameter_list|()
-block|{
-name|this
-operator|.
-name|filter
-operator|=
-literal|null
 expr_stmt|;
 block|}
 comment|/**      * @return the filter added to "not".      */

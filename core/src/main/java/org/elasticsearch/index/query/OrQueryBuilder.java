@@ -233,12 +233,7 @@ name|filters
 operator|.
 name|add
 argument_list|(
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|filter
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -257,12 +252,7 @@ name|filters
 operator|.
 name|add
 argument_list|(
-name|Objects
-operator|.
-name|requireNonNull
-argument_list|(
 name|filterBuilder
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
