@@ -375,10 +375,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|PercentileRanksTests
+DECL|class|TDigestPercentileRanksTests
 specifier|public
 class|class
-name|PercentileRanksTests
+name|TDigestPercentileRanksTests
 extends|extends
 name|AbstractNumericTests
 block|{
@@ -498,7 +498,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|PercentileRanksTests
+name|TDigestPercentileRanksTests
 operator|.
 name|class
 argument_list|)

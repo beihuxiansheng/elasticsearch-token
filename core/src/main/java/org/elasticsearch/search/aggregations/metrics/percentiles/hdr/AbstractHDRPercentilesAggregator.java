@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.search.aggregations.metrics.percentiles
+DECL|package|org.elasticsearch.search.aggregations.metrics.percentiles.hdr
 package|package
 name|org
 operator|.
@@ -17,8 +17,20 @@ operator|.
 name|metrics
 operator|.
 name|percentiles
+operator|.
+name|hdr
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|HdrHistogram
+operator|.
+name|DoubleHistogram
+import|;
+end_import
 
 begin_import
 import|import
@@ -172,26 +184,6 @@ name|search
 operator|.
 name|aggregations
 operator|.
-name|metrics
-operator|.
-name|percentiles
-operator|.
-name|tdigest
-operator|.
-name|TDigestState
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
 name|pipeline
 operator|.
 name|PipelineAggregator
@@ -279,11 +271,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractPercentilesAggregator
+DECL|class|AbstractHDRPercentilesAggregator
 specifier|public
 specifier|abstract
 class|class
-name|AbstractPercentilesAggregator
+name|AbstractHDRPercentilesAggregator
 extends|extends
 name|NumericMetricsAggregator
 operator|.
@@ -341,15 +333,15 @@ DECL|field|states
 specifier|protected
 name|ObjectArray
 argument_list|<
-name|TDigestState
+name|DoubleHistogram
 argument_list|>
 name|states
 decl_stmt|;
-DECL|field|compression
+DECL|field|numberOfSignificantValueDigits
 specifier|protected
 specifier|final
-name|double
-name|compression
+name|int
+name|numberOfSignificantValueDigits
 decl_stmt|;
 DECL|field|keyed
 specifier|protected
@@ -357,9 +349,9 @@ specifier|final
 name|boolean
 name|keyed
 decl_stmt|;
-DECL|method|AbstractPercentilesAggregator
+DECL|method|AbstractHDRPercentilesAggregator
 specifier|public
-name|AbstractPercentilesAggregator
+name|AbstractHDRPercentilesAggregator
 parameter_list|(
 name|String
 name|name
@@ -379,8 +371,8 @@ name|double
 index|[]
 name|keys
 parameter_list|,
-name|double
-name|compression
+name|int
+name|numberOfSignificantValueDigits
 parameter_list|,
 name|boolean
 name|keyed
@@ -458,9 +450,9 @@ name|keys
 expr_stmt|;
 name|this
 operator|.
-name|compression
+name|numberOfSignificantValueDigits
 operator|=
-name|compression
+name|numberOfSignificantValueDigits
 expr_stmt|;
 block|}
 annotation|@
@@ -569,7 +561,7 @@ operator|+
 literal|1
 argument_list|)
 expr_stmt|;
-name|TDigestState
+name|DoubleHistogram
 name|state
 init|=
 name|states
@@ -589,9 +581,22 @@ block|{
 name|state
 operator|=
 operator|new
-name|TDigestState
+name|DoubleHistogram
 argument_list|(
-name|compression
+name|numberOfSignificantValueDigits
+argument_list|)
+expr_stmt|;
+comment|// Set the histogram to autosize so it can resize itself as
+comment|// the data range increases. Resize operations should be
+comment|// rare as the histogram buckets are exponential (on the top
+comment|// level). In the future we could expose the range as an
+comment|// option on the request so the histogram can be fixed at
+comment|// initialisation and doesn't need resizing.
+name|state
+operator|.
+name|setAutoResize
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 name|states
@@ -637,7 +642,7 @@ control|)
 block|{
 name|state
 operator|.
-name|add
+name|recordValue
 argument_list|(
 name|values
 operator|.
@@ -681,7 +686,7 @@ return|;
 block|}
 DECL|method|getState
 specifier|protected
-name|TDigestState
+name|DoubleHistogram
 name|getState
 parameter_list|(
 name|long
@@ -703,7 +708,7 @@ literal|null
 return|;
 block|}
 specifier|final
-name|TDigestState
+name|DoubleHistogram
 name|state
 init|=
 name|states
