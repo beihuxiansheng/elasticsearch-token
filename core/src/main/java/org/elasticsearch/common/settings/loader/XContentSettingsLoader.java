@@ -356,11 +356,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 comment|// ensure we reached the end of the stream
-name|Exception
-name|exception
-init|=
-literal|null
-decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
@@ -397,17 +392,32 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|exception
-operator|=
+throw|throw
+operator|new
+name|ElasticsearchParseException
+argument_list|(
+literal|"malformed, expected end of settings but encountered additional content starting at line number: [{}], column number: [{}]"
+argument_list|,
 name|e
-expr_stmt|;
+argument_list|,
+name|jp
+operator|.
+name|getTokenLocation
+argument_list|()
+operator|.
+name|lineNumber
+argument_list|,
+name|jp
+operator|.
+name|getTokenLocation
+argument_list|()
+operator|.
+name|columnNumber
+argument_list|)
+throw|;
 block|}
 if|if
 condition|(
-name|exception
-operator|!=
-literal|null
-operator|||
 name|lastToken
 operator|!=
 literal|null
@@ -417,14 +427,7 @@ throw|throw
 operator|new
 name|ElasticsearchParseException
 argument_list|(
-literal|"malformed, expected end of settings but encountered additional content starting at columnNumber: [{}], lineNumber: [{}]"
-argument_list|,
-name|jp
-operator|.
-name|getTokenLocation
-argument_list|()
-operator|.
-name|columnNumber
+literal|"malformed, expected end of settings but encountered additional content starting at line number: [{}], column number: [{}]"
 argument_list|,
 name|jp
 operator|.
@@ -432,6 +435,13 @@ name|getTokenLocation
 argument_list|()
 operator|.
 name|lineNumber
+argument_list|,
+name|jp
+operator|.
+name|getTokenLocation
+argument_list|()
+operator|.
+name|columnNumber
 argument_list|)
 throw|;
 block|}
