@@ -16,13 +16,46 @@ name|fetch
 package|;
 end_package
 
-begin_interface
-DECL|interface|FetchSubPhaseContext
+begin_class
+DECL|class|FetchSubPhaseContext
 specifier|public
-interface|interface
+class|class
 name|FetchSubPhaseContext
-block|{  }
-end_interface
+block|{
+DECL|field|hitExecutionNeeded
+specifier|private
+name|boolean
+name|hitExecutionNeeded
+init|=
+literal|false
+decl_stmt|;
+DECL|method|setHitExecutionNeeded
+name|void
+name|setHitExecutionNeeded
+parameter_list|(
+name|boolean
+name|hitExecutionNeeded
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hitExecutionNeeded
+operator|=
+name|hitExecutionNeeded
+expr_stmt|;
+block|}
+DECL|method|hitExecutionNeeded
+specifier|public
+name|boolean
+name|hitExecutionNeeded
+parameter_list|()
+block|{
+return|return
+name|hitExecutionNeeded
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

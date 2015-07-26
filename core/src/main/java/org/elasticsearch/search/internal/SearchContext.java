@@ -1825,18 +1825,6 @@ name|Counter
 name|timeEstimateCounter
 parameter_list|()
 function_decl|;
-DECL|method|hasFetchSubPhaseContext
-specifier|public
-specifier|abstract
-name|boolean
-name|hasFetchSubPhaseContext
-parameter_list|(
-name|FetchSubPhase
-operator|.
-name|ContextFactory
-name|contextFactory
-parameter_list|)
-function_decl|;
 comment|/**      * The life time of an object that is used during search execution.      */
 DECL|enum|Lifetime
 specifier|public

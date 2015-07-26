@@ -400,10 +400,13 @@ block|{
 return|return
 name|context
 operator|.
-name|hasFetchSubPhaseContext
+name|getFetchSubPhaseContext
 argument_list|(
 name|CONTEXT_FACTORY
 argument_list|)
+operator|.
+name|hitExecutionNeeded
+argument_list|()
 return|;
 block|}
 annotation|@
