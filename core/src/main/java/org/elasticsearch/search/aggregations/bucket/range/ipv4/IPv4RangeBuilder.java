@@ -596,9 +596,6 @@ condition|)
 block|{
 name|longTo
 operator|=
-name|InternalIPv4Range
-operator|.
-name|MAX_IP
 operator|-
 literal|1
 expr_stmt|;
