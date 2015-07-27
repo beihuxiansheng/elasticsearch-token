@@ -2289,7 +2289,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// with no sigar, this may not be available
 name|cpuPercent
 operator|+=
 name|nodeStats
