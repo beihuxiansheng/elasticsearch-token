@@ -3491,7 +3491,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * This method deletes the shard contents on disk for the given shard ID. This method will fail if the shard deleting      * is prevented by {@link #canDeleteShardContent(org.elasticsearch.index.shard.ShardId, org.elasticsearch.cluster.metadata.IndexMetaData)}      * of if the shards lock can not be acquired.      * @param reason the reason for the shard deletion      * @param shardId the shards ID to delete      * @param metaData the shards index metadata. This is required to access the indexes settings etc.      * @throws IOException if an IOException occurs      */
+comment|/**      * This method deletes the shard contents on disk for the given shard ID. This method will fail if the shard deleting      * is prevented by {@link #canDeleteShardContent(org.elasticsearch.index.shard.ShardId, org.elasticsearch.cluster.metadata.IndexMetaData)}      * of if the shards lock can not be acquired.      *      * On data nodes, if the deleted shard is the last shard folder in its index, the method will attempt to remove the index folder as well.      *      * @param reason the reason for the shard deletion      * @param shardId the shards ID to delete      * @param clusterState . This is required to access the indexes settings etc.      * @throws IOException if an IOException occurs      */
 end_comment
 
 begin_function
@@ -3506,12 +3506,32 @@ parameter_list|,
 name|ShardId
 name|shardId
 parameter_list|,
-name|IndexMetaData
-name|metaData
+name|ClusterState
+name|clusterState
 parameter_list|)
 throws|throws
 name|IOException
 block|{
+specifier|final
+name|IndexMetaData
+name|metaData
+init|=
+name|clusterState
+operator|.
+name|getMetaData
+argument_list|()
+operator|.
+name|indices
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|shardId
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+decl_stmt|;
 specifier|final
 name|Settings
 name|indexSettings
@@ -3554,15 +3574,109 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|.
-name|trace
+name|debug
 argument_list|(
-literal|"{} deleting shard reason [{}]"
+literal|"{} deleted shard reason [{}]"
 argument_list|,
 name|shardId
 argument_list|,
 name|reason
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|clusterState
+operator|.
+name|nodes
+argument_list|()
+operator|.
+name|localNode
+argument_list|()
+operator|.
+name|isMasterNode
+argument_list|()
+operator|==
+literal|false
+operator|&&
+comment|// master nodes keep the index meta data, even if having no shards..
+name|canDeleteIndexContents
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+argument_list|,
+name|indexSettings
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|nodeEnv
+operator|.
+name|findAllShardIds
+argument_list|(
+name|shardId
+operator|.
+name|index
+argument_list|()
+argument_list|)
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+comment|// note that deleteIndexStore have more safety checks and may throw an exception if index was concurrently created.
+name|deleteIndexStore
+argument_list|(
+literal|"no longer used"
+argument_list|,
+name|metaData
+argument_list|,
+name|clusterState
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// wrap the exception to indicate we already deleted the shard
+throw|throw
+operator|new
+name|ElasticsearchException
+argument_list|(
+literal|"failed to delete unused index after deleting its last shard ("
+operator|+
+name|shardId
+operator|+
+literal|")"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|trace
+argument_list|(
+literal|"[{}] still has shard stores, leaving as is"
+argument_list|,
+name|shardId
+operator|.
+name|index
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_function
 
