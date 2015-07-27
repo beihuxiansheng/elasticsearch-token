@@ -2820,6 +2820,13 @@ annotation|@
 name|Override
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"fails with -Dtests.seed=5BFFA768633A0A59 but only if run as a whole test class not if run as a single test method"
+argument_list|)
 DECL|method|testScript_ExplicitSingleValued_WithParams
 specifier|public
 name|void
