@@ -504,6 +504,21 @@ name|Listener
 name|listener
 parameter_list|)
 block|{
+if|if
+condition|(
+name|client
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|Exception
+argument_list|(
+literal|"The client you specified while building a BulkProcessor is null"
+argument_list|)
+throw|;
+block|}
 return|return
 operator|new
 name|Builder
