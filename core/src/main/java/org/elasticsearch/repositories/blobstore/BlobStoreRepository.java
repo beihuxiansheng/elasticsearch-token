@@ -2946,6 +2946,16 @@ name|bytes
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|snapshotsBlobContainer
+operator|.
+name|blobExists
+argument_list|(
+name|SNAPSHOTS_FILE
+argument_list|)
+condition|)
+block|{
 name|snapshotsBlobContainer
 operator|.
 name|deleteBlob
@@ -2953,6 +2963,7 @@ argument_list|(
 name|SNAPSHOTS_FILE
 argument_list|)
 expr_stmt|;
+block|}
 try|try
 init|(
 name|OutputStream
