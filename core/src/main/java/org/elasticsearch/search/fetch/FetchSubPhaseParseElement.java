@@ -56,6 +56,10 @@ name|SearchContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * A parse element for a {@link org.elasticsearch.search.fetch.FetchSubPhase} that is used when parsing a search request.  */
+end_comment
+
 begin_class
 DECL|class|FetchSubPhaseParseElement
 specifier|public
@@ -68,6 +72,7 @@ block|{
 annotation|@
 name|Override
 DECL|method|parse
+specifier|final
 specifier|public
 name|void
 name|parse
@@ -92,6 +97,7 @@ name|getContextFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// this is to make sure that the SubFetchPhase knows it should execute
 name|fetchSubPhaseContext
 operator|.
 name|setHitExecutionNeeded
@@ -107,6 +113,7 @@ name|fetchSubPhaseContext
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Implement the actual parsing here.      */
 DECL|method|innerParse
 specifier|protected
 specifier|abstract
@@ -122,6 +129,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Return the ContextFactory for this FetchSubPhase.      */
 DECL|method|getContextFactory
 specifier|protected
 specifier|abstract

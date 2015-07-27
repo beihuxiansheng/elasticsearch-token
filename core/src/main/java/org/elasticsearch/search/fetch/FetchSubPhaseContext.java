@@ -16,12 +16,17 @@ name|fetch
 package|;
 end_package
 
+begin_comment
+comment|/**  * This class stores  if or if not a FetchSubPhase is supposed to execute.  * It be extended by FetchSubPhases to hold information the phase needs to execute on hits.  * See {@link org.elasticsearch.search.fetch.FetchSubPhase.ContextFactory} and also {@link org.elasticsearch.search.fetch.fielddata.FieldDataFieldsContext} for an example.  */
+end_comment
+
 begin_class
 DECL|class|FetchSubPhaseContext
 specifier|public
 class|class
 name|FetchSubPhaseContext
 block|{
+comment|// This is to store if the FetchSubPhase should be executed at all.
 DECL|field|hitExecutionNeeded
 specifier|private
 name|boolean
@@ -29,6 +34,7 @@ name|hitExecutionNeeded
 init|=
 literal|false
 decl_stmt|;
+comment|/**      * Set if this phase should be executed at all.      */
 DECL|method|setHitExecutionNeeded
 name|void
 name|setHitExecutionNeeded
@@ -44,6 +50,7 @@ operator|=
 name|hitExecutionNeeded
 expr_stmt|;
 block|}
+comment|/**      * Returns if this phase be executed at all.      */
 DECL|method|hitExecutionNeeded
 specifier|public
 name|boolean

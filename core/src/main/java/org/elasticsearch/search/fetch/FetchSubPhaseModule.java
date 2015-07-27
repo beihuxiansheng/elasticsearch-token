@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Module for registering fetch sub phases. Fetch phases are executed when the document is finally  * retrieved from the shard. To implement a new fetch phase one needs to implement the following classes and interfaces  *<p/>  *<ul>  *<li>  {@link FetchSubPhaseParseElement}</li>  *<li>  {@link FetchSubPhase}</li>  *<li>  {@link FetchSubPhaseContext}</li>  *</ul>  *<p/>  * The FetchSubPhase must then be registered with this module with {@link FetchSubPhaseModule#registerFetchSubPhase(Class<? extends FetchSubPhase>)}.  * See {@link FieldDataFieldsFetchSubPhase} for an example.  */
 end_comment
 
 begin_class
