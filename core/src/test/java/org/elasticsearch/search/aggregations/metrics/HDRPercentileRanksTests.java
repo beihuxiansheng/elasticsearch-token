@@ -1970,6 +1970,13 @@ annotation|@
 name|Override
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Fails with seed: B75FCDC119D90BBE, Colin to fix"
+argument_list|)
 DECL|method|testSingleValuedField_WithValueScript_WithParams
 specifier|public
 name|void
@@ -2862,6 +2869,13 @@ annotation|@
 name|Override
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Fails with seed: B75FCDC119D90BBE, Colin to fix"
+argument_list|)
 DECL|method|testScript_SingleValued_WithParams
 specifier|public
 name|void
