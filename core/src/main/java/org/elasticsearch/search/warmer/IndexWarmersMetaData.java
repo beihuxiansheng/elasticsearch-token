@@ -1328,14 +1328,14 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"queryCache"
+literal|"requestCache"
 operator|.
 name|equals
 argument_list|(
 name|currentFieldName
 argument_list|)
 operator|||
-literal|"query_cache"
+literal|"request_cache"
 operator|.
 name|equals
 argument_list|(
@@ -1534,7 +1534,7 @@ name|builder
 operator|.
 name|field
 argument_list|(
-literal|"queryCache"
+literal|"requestCache"
 argument_list|,
 name|entry
 operator|.

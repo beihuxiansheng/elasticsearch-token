@@ -2783,21 +2783,21 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets if this request should use the query cache or not, assuming that it can (for      * example, if "now" is used, it will never be cached). By default (not set, or null,      * will default to the index level setting if query cache is enabled or not).      */
-DECL|method|setQueryCache
+comment|/**      * Sets if this request should use the request cache or not, assuming that it can (for      * example, if "now" is used, it will never be cached). By default (not set, or null,      * will default to the index level setting if request cache is enabled or not).      */
+DECL|method|setRequestCache
 specifier|public
 name|SearchRequestBuilder
-name|setQueryCache
+name|setRequestCache
 parameter_list|(
 name|Boolean
-name|queryCache
+name|requestCache
 parameter_list|)
 block|{
 name|request
 operator|.
-name|queryCache
+name|requestCache
 argument_list|(
-name|queryCache
+name|requestCache
 argument_list|)
 expr_stmt|;
 return|return

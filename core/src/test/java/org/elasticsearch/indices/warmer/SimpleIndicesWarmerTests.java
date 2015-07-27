@@ -3315,7 +3315,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)

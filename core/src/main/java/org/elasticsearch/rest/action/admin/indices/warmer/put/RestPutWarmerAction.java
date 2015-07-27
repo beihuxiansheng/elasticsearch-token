@@ -442,13 +442,13 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|queryCache
+name|requestCache
 argument_list|(
 name|request
 operator|.
 name|paramAsBoolean
 argument_list|(
-literal|"query_cache"
+literal|"request_cache"
 argument_list|,
 literal|null
 argument_list|)
