@@ -513,8 +513,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -563,7 +563,7 @@ condition|)
 block|{
 name|typesForQuery
 operator|=
-name|parseContext
+name|context
 operator|.
 name|queryTypes
 argument_list|()
@@ -593,7 +593,7 @@ condition|)
 block|{
 name|typesForQuery
 operator|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()

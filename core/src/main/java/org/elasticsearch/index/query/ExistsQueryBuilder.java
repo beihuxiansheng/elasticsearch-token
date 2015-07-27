@@ -288,8 +288,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -297,7 +297,7 @@ block|{
 return|return
 name|newFilter
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|name
 argument_list|)
@@ -322,8 +322,8 @@ specifier|static
 name|Query
 name|newFilter
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|String
 name|fieldPattern
@@ -340,7 +340,7 @@ name|FieldNamesFieldMapper
 operator|.
 name|FieldNamesFieldType
 operator|)
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -370,7 +370,7 @@ block|}
 name|ObjectMapper
 name|objectMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|getObjectMapper
 argument_list|(
@@ -398,7 +398,7 @@ name|String
 argument_list|>
 name|fields
 init|=
-name|parseContext
+name|context
 operator|.
 name|simpleMatchToIndexNames
 argument_list|(
@@ -439,7 +439,7 @@ block|{
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -496,7 +496,7 @@ name|termQuery
 argument_list|(
 name|f
 argument_list|,
-name|parseContext
+name|context
 argument_list|)
 expr_stmt|;
 block|}

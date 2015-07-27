@@ -110,6 +110,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|QueryShardContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryParseContext
 import|;
 end_import
@@ -268,7 +282,7 @@ name|String
 index|[]
 name|origTypes
 init|=
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypesWithPrevious
 argument_list|(
@@ -308,7 +322,7 @@ argument_list|(
 name|old
 argument_list|)
 expr_stmt|;
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(
@@ -372,7 +386,7 @@ name|String
 index|[]
 name|origTypes
 init|=
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypesWithPrevious
 argument_list|(
@@ -395,7 +409,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(

@@ -427,8 +427,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -436,7 +436,7 @@ block|{
 return|return
 name|newFilter
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|fieldPattern
 argument_list|,
@@ -452,8 +452,8 @@ specifier|static
 name|Query
 name|newFilter
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|String
 name|fieldPattern
@@ -476,9 +476,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 literal|"missing must have either existence, or null_value, or both set to true"
 argument_list|)
@@ -495,7 +495,7 @@ name|FieldNamesFieldMapper
 operator|.
 name|FieldNamesFieldType
 operator|)
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -525,7 +525,7 @@ block|}
 name|ObjectMapper
 name|objectMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|getObjectMapper
 argument_list|(
@@ -553,7 +553,7 @@ name|String
 argument_list|>
 name|fields
 init|=
-name|parseContext
+name|context
 operator|.
 name|simpleMatchToIndexNames
 argument_list|(
@@ -618,7 +618,7 @@ block|{
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -675,7 +675,7 @@ name|termQuery
 argument_list|(
 name|f
 argument_list|,
-name|parseContext
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -776,7 +776,7 @@ block|{
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(

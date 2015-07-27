@@ -50,22 +50,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spans
-operator|.
-name|SpanQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -101,16 +85,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
 import|;
 end_import
 
@@ -225,7 +199,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -424,7 +398,7 @@ expr_stmt|;
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -543,7 +517,7 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|=
-name|createContext
+name|createParseContext
 argument_list|()
 expr_stmt|;
 name|parser

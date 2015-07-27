@@ -215,8 +215,8 @@ specifier|public
 name|Query
 name|toQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

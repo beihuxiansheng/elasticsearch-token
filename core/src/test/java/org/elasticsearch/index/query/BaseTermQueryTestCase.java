@@ -243,7 +243,7 @@ name|void
 name|testValidate
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 block|{
 name|QB
 name|queryBuilder

@@ -1285,7 +1285,7 @@ name|randomBoolean
 argument_list|()
 condition|)
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(
@@ -1326,7 +1326,7 @@ name|void
 name|afterTest
 parameter_list|()
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|removeTypes
 argument_list|()
@@ -1429,7 +1429,7 @@ decl_stmt|;
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|String
@@ -1529,10 +1529,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|QueryParseContext
+name|QueryShardContext
 name|context
 init|=
-name|createContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|context
@@ -1787,7 +1787,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Checks the result of {@link QueryBuilder#toQuery(QueryParseContext)} given the original {@link QueryBuilder} and {@link QueryParseContext}.      * Verifies that named queries and boost are properly handled and delegates to {@link #doAssertLuceneQuery(AbstractQueryBuilder, Query, QueryParseContext)}      * for query specific checks.      */
+comment|/**      * Checks the result of {@link QueryBuilder#toQuery(QueryShardContext)} given the original {@link QueryBuilder} and {@link QueryShardContext}.      * Verifies that named queries and boost are properly handled and delegates to {@link #doAssertLuceneQuery(AbstractQueryBuilder, Query, QueryShardContext)}      * for query specific checks.      */
 DECL|method|assertLuceneQuery
 specifier|protected
 specifier|final
@@ -1800,7 +1800,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -1877,7 +1877,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Checks the result of {@link QueryBuilder#toQuery(QueryParseContext)} given the original {@link QueryBuilder} and {@link QueryParseContext}.      * Contains the query specific checks to be implemented by subclasses.      */
+comment|/**      * Checks the result of {@link QueryBuilder#toQuery(QueryShardContext)} given the original {@link QueryBuilder} and {@link QueryShardContext}.      * Contains the query specific checks to be implemented by subclasses.      */
 DECL|method|doAssertLuceneQuery
 specifier|protected
 specifier|abstract
@@ -1890,7 +1890,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -2013,26 +2013,26 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * @return a new {@link QueryParseContext} based on the base test index and queryParserService      */
-DECL|method|createContext
+comment|/**      * @return a new {@link QueryShardContext} based on the base test index and queryParserService      */
+DECL|method|createShardContext
 specifier|protected
 specifier|static
-name|QueryParseContext
-name|createContext
+name|QueryShardContext
+name|createShardContext
 parameter_list|()
 block|{
-name|QueryParseContext
-name|queryParseContext
+name|QueryShardContext
+name|queryCreationContext
 init|=
 operator|new
-name|QueryParseContext
+name|QueryShardContext
 argument_list|(
 name|index
 argument_list|,
 name|queryParserService
 argument_list|)
 decl_stmt|;
-name|queryParseContext
+name|queryCreationContext
 operator|.
 name|parseFieldMatcher
 argument_list|(
@@ -2042,7 +2042,28 @@ name|EMPTY
 argument_list|)
 expr_stmt|;
 return|return
-name|queryParseContext
+name|queryCreationContext
+return|;
+block|}
+comment|/**      * @return a new {@link QueryParseContext} based on the base test index and queryParserService      */
+DECL|method|createParseContext
+specifier|protected
+specifier|static
+name|QueryParseContext
+name|createParseContext
+parameter_list|()
+block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|createShardContext
+argument_list|()
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
+return|return
+name|parseContext
 return|;
 block|}
 DECL|method|assertQueryHeader

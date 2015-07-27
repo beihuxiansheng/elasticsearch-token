@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Exception that can be used when parsing queries with a given {@link QueryParseContext}.  * Can contain information about location of the error.  */
 end_comment
 
 begin_class
@@ -342,7 +342,37 @@ operator|=
 name|col
 expr_stmt|;
 block|}
-comment|/**      * Line number of the location of the error      *       * @return the line number or -1 if unknown      */
+DECL|method|QueryParsingException
+specifier|public
+name|QueryParsingException
+parameter_list|(
+name|StreamInput
+name|in
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|super
+argument_list|(
+name|in
+argument_list|)
+expr_stmt|;
+name|lineNumber
+operator|=
+name|in
+operator|.
+name|readInt
+argument_list|()
+expr_stmt|;
+name|columnNumber
+operator|=
+name|in
+operator|.
+name|readInt
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Line number of the location of the error      *      * @return the line number or -1 if unknown      */
 DECL|method|getLineNumber
 specifier|public
 name|int
@@ -353,7 +383,7 @@ return|return
 name|lineNumber
 return|;
 block|}
-comment|/**      * Column number of the location of the error      *       * @return the column number or -1 if unknown      */
+comment|/**      * Column number of the location of the error      *      * @return the column number or -1 if unknown      */
 DECL|method|getColumnNumber
 specifier|public
 name|int
@@ -463,36 +493,6 @@ name|writeInt
 argument_list|(
 name|columnNumber
 argument_list|)
-expr_stmt|;
-block|}
-DECL|method|QueryParsingException
-specifier|public
-name|QueryParsingException
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|super
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-name|lineNumber
-operator|=
-name|in
-operator|.
-name|readInt
-argument_list|()
-expr_stmt|;
-name|columnNumber
-operator|=
-name|in
-operator|.
-name|readInt
-argument_list|()
 expr_stmt|;
 block|}
 block|}

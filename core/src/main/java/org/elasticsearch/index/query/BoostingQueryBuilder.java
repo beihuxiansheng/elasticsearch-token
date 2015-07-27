@@ -438,8 +438,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -451,7 +451,7 @@ name|positiveQuery
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 name|Query
@@ -461,7 +461,7 @@ name|negativeQuery
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 comment|// make upstream queries ignore this query by returning `null`

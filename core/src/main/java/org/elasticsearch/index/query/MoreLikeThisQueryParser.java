@@ -704,14 +704,22 @@ specifier|public
 name|Query
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|QueryParsingException
 block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|context
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -731,7 +739,7 @@ name|mltQuery
 operator|.
 name|setSimilarity
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|searchSimilarity
 argument_list|()
@@ -1206,7 +1214,7 @@ condition|)
 block|{
 name|analyzer
 operator|=
-name|parseContext
+name|context
 operator|.
 name|analysisService
 argument_list|()
@@ -1454,7 +1462,7 @@ decl_stmt|;
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -1871,7 +1879,7 @@ condition|)
 block|{
 name|analyzer
 operator|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1908,7 +1916,7 @@ name|Lists
 operator|.
 name|newArrayList
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|defaultField
 argument_list|()
@@ -1959,7 +1967,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseContext
+name|context
 operator|.
 name|addNamedQuery
 argument_list|(
@@ -2080,7 +2088,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|parseContext
+name|context
 operator|.
 name|queryTypes
 argument_list|()
@@ -2119,7 +2127,7 @@ name|item
 operator|.
 name|type
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|queryTypes
 argument_list|()

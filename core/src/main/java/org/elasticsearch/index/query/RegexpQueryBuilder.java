@@ -643,11 +643,11 @@ specifier|public
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -660,7 +660,7 @@ name|QueryParsers
 operator|.
 name|parseRewriteMethod
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|parseFieldMatcher
 argument_list|()
@@ -678,7 +678,7 @@ decl_stmt|;
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -706,7 +706,7 @@ name|maxDeterminizedStates
 argument_list|,
 name|method
 argument_list|,
-name|parseContext
+name|context
 argument_list|)
 expr_stmt|;
 block|}

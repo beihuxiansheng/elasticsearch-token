@@ -60,7 +60,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -98,8 +98,8 @@ DECL|method|parse
 name|ScoreFunction
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|XContentParser
 name|parser

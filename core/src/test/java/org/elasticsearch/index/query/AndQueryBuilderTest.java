@@ -260,7 +260,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -459,7 +459,7 @@ name|void
 name|testNoInnerQueries
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -476,7 +476,7 @@ name|andQuery
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -502,7 +502,7 @@ block|{
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|String
@@ -545,9 +545,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
 operator|.
 name|queryParser
 argument_list|(

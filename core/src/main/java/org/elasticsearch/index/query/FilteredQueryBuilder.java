@@ -340,11 +340,11 @@ specifier|public
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -355,7 +355,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 name|Query
@@ -365,7 +365,7 @@ name|filterBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 if|if

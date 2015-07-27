@@ -467,7 +467,7 @@ name|injector
 decl_stmt|;
 DECL|field|context
 specifier|private
-name|QueryParseContext
+name|QueryShardContext
 name|context
 decl_stmt|;
 annotation|@
@@ -692,7 +692,7 @@ decl_stmt|;
 name|context
 operator|=
 operator|new
-name|QueryParseContext
+name|QueryShardContext
 argument_list|(
 name|index
 argument_list|,

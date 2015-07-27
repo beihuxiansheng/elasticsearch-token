@@ -130,20 +130,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|MapperService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|object
 operator|.
 name|ObjectMapper
@@ -160,7 +146,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -174,7 +160,21 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParsingException
+name|QueryShardException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryParseContext
 import|;
 end_import
 
@@ -212,6 +212,12 @@ specifier|public
 class|class
 name|NestedInnerQueryParseSupport
 block|{
+DECL|field|shardContext
+specifier|protected
+specifier|final
+name|QueryShardContext
+name|shardContext
+decl_stmt|;
 DECL|field|parseContext
 specifier|protected
 specifier|final
@@ -304,10 +310,23 @@ operator|.
 name|queryParserService
 argument_list|()
 operator|.
-name|getParseContext
+name|getShardContext
+argument_list|()
+operator|.
+name|parseContext
 argument_list|()
 expr_stmt|;
-name|parseContext
+name|shardContext
+operator|=
+name|searchContext
+operator|.
+name|queryParserService
+argument_list|()
+operator|.
+name|getShardContext
+argument_list|()
+expr_stmt|;
+name|shardContext
 operator|.
 name|reset
 argument_list|(
@@ -319,15 +338,24 @@ DECL|method|NestedInnerQueryParseSupport
 specifier|public
 name|NestedInnerQueryParseSupport
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|this
 operator|.
 name|parseContext
 operator|=
+name|context
+operator|.
 name|parseContext
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|shardContext
+operator|=
+name|context
 expr_stmt|;
 block|}
 DECL|method|query
@@ -488,9 +516,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|shardContext
 argument_list|,
 literal|"[nested] requires 'path' field"
 argument_list|)
@@ -504,9 +532,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|shardContext
 argument_list|,
 literal|"[nested] requires either 'query' or 'filter' field"
 argument_list|)
@@ -606,9 +634,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|shardContext
 argument_list|,
 literal|"[nested] requires 'path' field"
 argument_list|)
@@ -622,9 +650,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|shardContext
 argument_list|,
 literal|"[nested] requires either 'query' or 'filter' field"
 argument_list|)
@@ -707,7 +735,7 @@ name|path
 expr_stmt|;
 name|nestedObjectMapper
 operator|=
-name|parseContext
+name|shardContext
 operator|.
 name|getObjectMapper
 argument_list|(
@@ -723,9 +751,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|shardContext
 argument_list|,
 literal|"[nested] failed to find nested object under path ["
 operator|+
@@ -749,9 +777,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
-name|parseContext
+name|shardContext
 argument_list|,
 literal|"[nested] nested object under path ["
 operator|+
@@ -821,7 +849,7 @@ block|{
 name|ObjectMapper
 name|objectMapper
 init|=
-name|parseContext
+name|shardContext
 operator|.
 name|nestedScope
 argument_list|()
@@ -838,7 +866,7 @@ condition|)
 block|{
 name|parentFilter
 operator|=
-name|parseContext
+name|shardContext
 operator|.
 name|bitsetFilter
 argument_list|(
@@ -853,7 +881,7 @@ else|else
 block|{
 name|parentFilter
 operator|=
-name|parseContext
+name|shardContext
 operator|.
 name|bitsetFilter
 argument_list|(
@@ -866,7 +894,7 @@ expr_stmt|;
 block|}
 name|childFilter
 operator|=
-name|parseContext
+name|shardContext
 operator|.
 name|bitsetFilter
 argument_list|(
@@ -878,7 +906,7 @@ argument_list|)
 expr_stmt|;
 name|parentObjectMapper
 operator|=
-name|parseContext
+name|shardContext
 operator|.
 name|nestedScope
 argument_list|()
@@ -895,7 +923,7 @@ name|void
 name|resetPathLevel
 parameter_list|()
 block|{
-name|parseContext
+name|shardContext
 operator|.
 name|nestedScope
 argument_list|()

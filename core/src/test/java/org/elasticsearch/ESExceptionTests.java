@@ -248,6 +248,20 @@ name|index
 operator|.
 name|query
 operator|.
+name|QueryShardException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
 name|QueryParsingException
 import|;
 end_import
@@ -2592,7 +2606,7 @@ argument_list|(
 literal|"this exception is unknown"
 argument_list|,
 operator|new
-name|QueryParsingException
+name|QueryShardException
 argument_list|(
 operator|new
 name|Index

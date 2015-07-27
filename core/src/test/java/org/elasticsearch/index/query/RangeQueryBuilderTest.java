@@ -350,7 +350,7 @@ comment|// Create timestamp option only then we have a date mapper,
 comment|// otherwise we could trigger exception.
 if|if
 condition|(
-name|createContext
+name|createShardContext
 argument_list|()
 operator|.
 name|mapperService
@@ -510,7 +510,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -789,7 +789,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|QueryParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)
@@ -799,7 +799,7 @@ name|void
 name|testToQueryNonDateWithTimezone
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -833,7 +833,7 @@ name|query
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -844,7 +844,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|QueryParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)
@@ -854,7 +854,7 @@ name|void
 name|testToQueryUnmappedWithTimezone
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -888,7 +888,7 @@ name|query
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;

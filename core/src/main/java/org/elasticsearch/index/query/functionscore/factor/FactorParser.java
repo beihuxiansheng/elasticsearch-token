@@ -26,22 +26,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -110,7 +94,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -125,6 +109,22 @@ operator|.
 name|query
 operator|.
 name|QueryParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|functionscore
+operator|.
+name|ScoreFunctionParser
 import|;
 end_import
 
@@ -179,8 +179,8 @@ specifier|public
 name|ScoreFunction
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|XContentParser
 name|parser

@@ -299,7 +299,7 @@ specifier|public
 name|SpanQuery
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws

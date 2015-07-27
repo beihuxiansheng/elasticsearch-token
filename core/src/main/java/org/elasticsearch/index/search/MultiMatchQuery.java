@@ -168,20 +168,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|MappedFieldType
 import|;
 end_import
@@ -210,7 +196,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -299,13 +285,13 @@ DECL|method|MultiMatchQuery
 specifier|public
 name|MultiMatchQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -1050,7 +1036,7 @@ decl_stmt|;
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(

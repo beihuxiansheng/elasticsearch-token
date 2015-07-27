@@ -423,14 +423,22 @@ specifier|public
 name|Query
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|QueryParsingException
 block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|context
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -455,7 +463,7 @@ name|qpSettings
 operator|.
 name|defaultField
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|defaultField
 argument_list|()
@@ -465,7 +473,7 @@ name|qpSettings
 operator|.
 name|lenient
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|queryStringLenient
 argument_list|()
@@ -750,7 +758,7 @@ control|(
 name|String
 name|field
 range|:
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1074,7 +1082,7 @@ block|{
 name|NamedAnalyzer
 name|analyzer
 init|=
-name|parseContext
+name|context
 operator|.
 name|analysisService
 argument_list|()
@@ -1140,7 +1148,7 @@ block|{
 name|NamedAnalyzer
 name|analyzer
 init|=
-name|parseContext
+name|context
 operator|.
 name|analysisService
 argument_list|()
@@ -1874,7 +1882,7 @@ name|qpSettings
 operator|.
 name|defaultAnalyzer
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1887,7 +1895,7 @@ name|qpSettings
 operator|.
 name|defaultQuoteAnalyzer
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1934,7 +1942,7 @@ name|qpSettings
 operator|.
 name|queryTypes
 argument_list|(
-name|parseContext
+name|context
 operator|.
 name|queryTypes
 argument_list|()
@@ -1943,7 +1951,7 @@ expr_stmt|;
 name|MapperQueryParser
 name|queryParser
 init|=
-name|parseContext
+name|context
 operator|.
 name|queryParser
 argument_list|(
@@ -2041,7 +2049,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseContext
+name|context
 operator|.
 name|addNamedQuery
 argument_list|(

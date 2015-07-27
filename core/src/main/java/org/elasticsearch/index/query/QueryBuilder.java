@@ -134,13 +134,13 @@ name|QueryValidationException
 name|validate
 parameter_list|()
 function_decl|;
-comment|/**      * Converts this QueryBuilder to a lucene {@link Query}.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param parseContext additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryParsingException      * @throws IOException      */
+comment|/**      * Converts this QueryBuilder to a lucene {@link Query}.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryShardException      * @throws IOException      */
 DECL|method|toQuery
 name|Query
 name|toQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
