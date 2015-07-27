@@ -1208,6 +1208,11 @@ operator|.
 name|previousState
 argument_list|()
 argument_list|,
+name|event
+operator|.
+name|previousState
+argument_list|()
+argument_list|,
 name|oldIndicesList
 argument_list|)
 argument_list|)
@@ -1229,6 +1234,11 @@ argument_list|(
 name|event
 operator|.
 name|state
+argument_list|()
+argument_list|,
+name|event
+operator|.
+name|previousState
 argument_list|()
 argument_list|,
 name|oldIndicesList

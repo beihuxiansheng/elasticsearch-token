@@ -826,10 +826,7 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|aliases
-argument_list|()
-operator|.
-name|containsKey
+name|hasAlias
 argument_list|(
 name|indexMetaData
 operator|.

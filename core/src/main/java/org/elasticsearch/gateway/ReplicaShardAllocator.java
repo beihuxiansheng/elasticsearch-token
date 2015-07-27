@@ -434,6 +434,19 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// if we are allocating a replica because of index creation, no need to go and find a copy, there isn't one...
+if|if
+condition|(
+name|shard
+operator|.
+name|allocatedPostIndexCreate
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+continue|continue;
+block|}
 name|AsyncShardFetch
 operator|.
 name|FetchResult
@@ -712,6 +725,19 @@ name|shard
 operator|.
 name|primary
 argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
+comment|// if we are allocating a replica because of index creation, no need to go and find a copy, there isn't one...
+if|if
+condition|(
+name|shard
+operator|.
+name|allocatedPostIndexCreate
+argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
 continue|continue;
