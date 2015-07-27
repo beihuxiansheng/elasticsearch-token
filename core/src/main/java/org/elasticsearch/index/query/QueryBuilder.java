@@ -152,6 +152,36 @@ name|BytesReference
 name|buildAsBytes
 parameter_list|()
 function_decl|;
+comment|/**      * Sets the query name for the query.      */
+DECL|method|queryName
+name|QB
+name|queryName
+parameter_list|(
+name|String
+name|queryName
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the query name for the query.      */
+DECL|method|queryName
+name|String
+name|queryName
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the boost for this query.      */
+DECL|method|boost
+name|float
+name|boost
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the boost for this query.  Documents matching this query will (in addition to the normal      * weightings) have their score multiplied by the boost provided.      */
+DECL|method|boost
+name|QB
+name|boost
+parameter_list|(
+name|float
+name|boost
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

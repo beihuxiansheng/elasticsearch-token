@@ -438,8 +438,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|queryName
 specifier|public
+specifier|final
 name|QB
 name|queryName
 parameter_list|(
@@ -461,6 +464,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the query name for the query.      */
+annotation|@
+name|Override
 DECL|method|queryName
 specifier|public
 specifier|final
@@ -473,6 +478,8 @@ name|queryName
 return|;
 block|}
 comment|/**      * Returns the boost for this query.      */
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
 specifier|final
@@ -492,8 +499,11 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Override
 DECL|method|boost
 specifier|public
+specifier|final
 name|QB
 name|boost
 parameter_list|(

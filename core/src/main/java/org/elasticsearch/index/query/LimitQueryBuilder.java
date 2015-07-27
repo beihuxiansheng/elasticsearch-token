@@ -176,6 +176,16 @@ operator|=
 name|limit
 expr_stmt|;
 block|}
+DECL|method|limit
+specifier|public
+name|int
+name|limit
+parameter_list|()
+block|{
+return|return
+name|limit
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doXContent
