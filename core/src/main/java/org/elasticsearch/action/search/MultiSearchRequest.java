@@ -911,7 +911,7 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"query_cache"
+literal|"request_cache"
 operator|.
 name|equals
 argument_list|(
@@ -921,7 +921,7 @@ name|getKey
 argument_list|()
 argument_list|)
 operator|||
-literal|"queryCache"
+literal|"requestCache"
 operator|.
 name|equals
 argument_list|(
@@ -934,7 +934,7 @@ condition|)
 block|{
 name|searchRequest
 operator|.
-name|queryCache
+name|requestCache
 argument_list|(
 name|nodeBooleanValue
 argument_list|(

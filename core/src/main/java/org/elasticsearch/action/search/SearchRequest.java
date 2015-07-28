@@ -1885,21 +1885,21 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets if this request should use the query cache or not, assuming that it can (for      * example, if "now" is used, it will never be cached). By default (not set, or null,      * will default to the index level setting if query cache is enabled or not).      */
-DECL|method|queryCache
+comment|/**      * Sets if this request should use the request cache or not, assuming that it can (for      * example, if "now" is used, it will never be cached). By default (not set, or null,      * will default to the index level setting if request cache is enabled or not).      */
+DECL|method|requestCache
 specifier|public
 name|SearchRequest
-name|queryCache
+name|requestCache
 parameter_list|(
 name|Boolean
-name|queryCache
+name|requestCache
 parameter_list|)
 block|{
 name|this
 operator|.
 name|requestCache
 operator|=
-name|queryCache
+name|requestCache
 expr_stmt|;
 return|return
 name|this

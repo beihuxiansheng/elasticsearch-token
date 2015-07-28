@@ -3360,7 +3360,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|false
 argument_list|)
@@ -3444,7 +3444,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
@@ -3663,7 +3663,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|setQueryCache
+name|setRequestCache
 argument_list|(
 literal|true
 argument_list|)
