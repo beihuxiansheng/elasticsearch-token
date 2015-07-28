@@ -4285,7 +4285,7 @@ argument_list|()
 expr_stmt|;
 name|assertDateFormat
 argument_list|(
-literal|"epoch_millis||dateOptionalTime"
+literal|"epoch_millis||date_optional_time"
 argument_list|)
 expr_stmt|;
 name|DocumentMapper
@@ -4624,7 +4624,7 @@ name|field
 argument_list|(
 literal|"format"
 argument_list|,
-literal|"dateOptionalTime"
+literal|"date_optional_time"
 argument_list|)
 operator|.
 name|endObject
@@ -4710,7 +4710,7 @@ argument_list|()
 expr_stmt|;
 name|assertDateFormat
 argument_list|(
-literal|"epoch_millis||dateOptionalTime"
+literal|"epoch_millis||date_optional_time"
 argument_list|)
 expr_stmt|;
 comment|// index doc
@@ -4788,7 +4788,7 @@ name|field
 argument_list|(
 literal|"format"
 argument_list|,
-literal|"strictDateOptionalTime||epoch_millis"
+literal|"strict_date_optional_time||epoch_millis"
 argument_list|)
 operator|.
 name|endObject
@@ -4851,7 +4851,7 @@ argument_list|)
 expr_stmt|;
 name|assertDateFormat
 argument_list|(
-literal|"strictDateOptionalTime||epoch_millis"
+literal|"strict_date_optional_time||epoch_millis"
 argument_list|)
 expr_stmt|;
 block|}

@@ -658,7 +658,7 @@ name|Joda
 operator|.
 name|forPattern
 argument_list|(
-literal|"strictDateOptionalTime||epoch_millis"
+literal|"strict_date_optional_time||epoch_millis"
 argument_list|,
 name|Locale
 operator|.
@@ -676,7 +676,7 @@ name|Joda
 operator|.
 name|forPattern
 argument_list|(
-literal|"dateOptionalTime"
+literal|"date_optional_time"
 argument_list|,
 name|Locale
 operator|.
