@@ -1184,9 +1184,15 @@ name|NO
 argument_list|,
 name|NAME
 argument_list|,
-literal|"too many shards on nodes for attribute: [%s]"
+literal|"too many shards on node for attribute: [%s], required per attribute: [%d], node count: [%d], leftover: [%d]"
 argument_list|,
 name|awarenessAttribute
+argument_list|,
+name|requiredCountPerAttribute
+argument_list|,
+name|currentNodeCount
+argument_list|,
+name|leftoverPerAttribute
 argument_list|)
 return|;
 block|}

@@ -985,8 +985,12 @@ operator|.
 name|timeoutInMillis
 argument_list|()
 operator|!=
-operator|-
-literal|1
+name|SearchService
+operator|.
+name|NO_TIMEOUT
+operator|.
+name|millis
+argument_list|()
 decl_stmt|;
 specifier|final
 name|boolean
