@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * Tests for EsExecutors and its components like EsAbortPolicy.  */
 end_comment
 
 begin_class
@@ -154,8 +154,6 @@ argument_list|)
 index|]
 return|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFixedForcedExecution
 specifier|public
 name|void
@@ -456,8 +454,6 @@ name|shutdownNow
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testFixedRejected
 specifier|public
 name|void
@@ -725,8 +721,6 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScaleUp
 specifier|public
 name|void
@@ -960,8 +954,6 @@ name|pool
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
 DECL|method|testScaleDown
 specifier|public
 name|void
