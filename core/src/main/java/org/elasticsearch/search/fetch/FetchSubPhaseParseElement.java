@@ -66,6 +66,11 @@ specifier|public
 specifier|abstract
 class|class
 name|FetchSubPhaseParseElement
+parameter_list|<
+name|SubPhaseContext
+extends|extends
+name|FetchSubPhaseContext
+parameter_list|>
 implements|implements
 name|SearchParseElement
 block|{
@@ -86,7 +91,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|FetchSubPhaseContext
+name|SubPhaseContext
 name|fetchSubPhaseContext
 init|=
 name|context
@@ -123,7 +128,7 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|FetchSubPhaseContext
+name|SubPhaseContext
 name|fetchSubPhaseContext
 parameter_list|)
 throws|throws
@@ -136,6 +141,9 @@ specifier|abstract
 name|FetchSubPhase
 operator|.
 name|ContextFactory
+argument_list|<
+name|SubPhaseContext
+argument_list|>
 name|getContextFactory
 parameter_list|()
 function_decl|;

@@ -492,6 +492,11 @@ DECL|interface|ContextFactory
 specifier|public
 interface|interface
 name|ContextFactory
+parameter_list|<
+name|SubPhaseContext
+extends|extends
+name|FetchSubPhaseContext
+parameter_list|>
 block|{
 comment|/**          * The name of the context.          */
 DECL|method|getName
@@ -503,7 +508,7 @@ function_decl|;
 comment|/**          * Creates a new instance of a FetchSubPhaseContext that holds all information a FetchSubPhase needs to execute on hits.          */
 DECL|method|newContextInstance
 specifier|public
-name|FetchSubPhaseContext
+name|SubPhaseContext
 name|newContextInstance
 parameter_list|()
 function_decl|;

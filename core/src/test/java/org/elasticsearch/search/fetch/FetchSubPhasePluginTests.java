@@ -1329,6 +1329,9 @@ class|class
 name|TermVectorsFetchParseElement
 extends|extends
 name|FetchSubPhaseParseElement
+argument_list|<
+name|TermVectorsFetchContext
+argument_list|>
 block|{
 annotation|@
 name|Override
@@ -1340,8 +1343,8 @@ parameter_list|(
 name|XContentParser
 name|parser
 parameter_list|,
-name|FetchSubPhaseContext
-name|fetchSubPhaseContext
+name|TermVectorsFetchContext
+name|termVectorsFetchContext
 parameter_list|)
 throws|throws
 name|Exception
@@ -1355,14 +1358,6 @@ name|parser
 operator|.
 name|currentToken
 argument_list|()
-decl_stmt|;
-name|TermVectorsFetchContext
-name|termVectorsFetchContext
-init|=
-operator|(
-name|TermVectorsFetchContext
-operator|)
-name|fetchSubPhaseContext
 decl_stmt|;
 if|if
 condition|(
