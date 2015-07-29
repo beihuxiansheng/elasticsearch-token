@@ -172,6 +172,9 @@ specifier|static
 name|PrioritizedEsThreadPoolExecutor
 name|newSinglePrioritizing
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|ThreadFactory
 name|threadFactory
 parameter_list|)
@@ -180,6 +183,8 @@ return|return
 operator|new
 name|PrioritizedEsThreadPoolExecutor
 argument_list|(
+name|name
+argument_list|,
 literal|1
 argument_list|,
 literal|1
@@ -200,6 +205,9 @@ specifier|static
 name|EsThreadPoolExecutor
 name|newScaling
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|int
 name|min
 parameter_list|,
@@ -234,6 +242,8 @@ init|=
 operator|new
 name|EsThreadPoolExecutor
 argument_list|(
+name|name
+argument_list|,
 name|min
 argument_list|,
 name|max
@@ -267,6 +277,9 @@ specifier|static
 name|EsThreadPoolExecutor
 name|newCached
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|long
 name|keepAliveTime
 parameter_list|,
@@ -281,6 +294,8 @@ return|return
 operator|new
 name|EsThreadPoolExecutor
 argument_list|(
+name|name
+argument_list|,
 literal|0
 argument_list|,
 name|Integer
@@ -312,6 +327,9 @@ specifier|static
 name|EsThreadPoolExecutor
 name|newFixed
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|int
 name|size
 parameter_list|,
@@ -367,6 +385,8 @@ return|return
 operator|new
 name|EsThreadPoolExecutor
 argument_list|(
+name|name
+argument_list|,
 name|size
 argument_list|,
 name|size

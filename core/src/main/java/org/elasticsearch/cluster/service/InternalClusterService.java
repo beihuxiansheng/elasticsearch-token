@@ -959,6 +959,8 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|UPDATE_THREAD_NAME
+argument_list|,
 name|daemonThreadFactory
 argument_list|(
 name|settings

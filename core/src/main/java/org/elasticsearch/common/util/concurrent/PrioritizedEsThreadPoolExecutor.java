@@ -155,6 +155,9 @@ decl_stmt|;
 DECL|method|PrioritizedEsThreadPoolExecutor
 name|PrioritizedEsThreadPoolExecutor
 parameter_list|(
+name|String
+name|name
+parameter_list|,
 name|int
 name|corePoolSize
 parameter_list|,
@@ -173,6 +176,8 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
+name|name
+argument_list|,
 name|corePoolSize
 argument_list|,
 name|maximumPoolSize

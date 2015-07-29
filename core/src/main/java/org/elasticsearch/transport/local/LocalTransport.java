@@ -602,6 +602,8 @@ name|EsExecutors
 operator|.
 name|newFixed
 argument_list|(
+name|LOCAL_TRANSPORT_THREAD_NAME_PREFIX
+argument_list|,
 name|workerCount
 argument_list|,
 name|queueSize

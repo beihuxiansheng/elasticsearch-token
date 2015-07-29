@@ -313,6 +313,9 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|getTestName
+argument_list|()
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory
@@ -684,6 +687,9 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|getTestName
+argument_list|()
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory
@@ -1055,6 +1061,9 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|getTestName
+argument_list|()
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory
@@ -1426,6 +1435,9 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|getTestName
+argument_list|()
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory
@@ -1813,6 +1825,9 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|getTestName
+argument_list|()
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory
@@ -2227,6 +2242,9 @@ name|EsExecutors
 operator|.
 name|newSinglePrioritizing
 argument_list|(
+name|getTestName
+argument_list|()
+argument_list|,
 name|EsExecutors
 operator|.
 name|daemonThreadFactory
