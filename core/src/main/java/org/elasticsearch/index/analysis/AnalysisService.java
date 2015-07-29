@@ -152,6 +152,22 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|mapper
+operator|.
+name|core
+operator|.
+name|StringFieldMapper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|settings
 operator|.
 name|IndexSettings
@@ -1614,6 +1630,24 @@ name|values
 argument_list|()
 control|)
 block|{
+comment|/*              * Lucene defaults positionOffsetGap to 0 in all analyzers but              * Elasticsearch defaults them to 0 only before version 2.1              * and 100 afterwards so we override the positionOffsetGap if it              * doesn't match here.              */
+name|int
+name|overridePositionOffsetGap
+init|=
+name|StringFieldMapper
+operator|.
+name|Defaults
+operator|.
+name|positionOffsetGap
+argument_list|(
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|indexSettings
+argument_list|)
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|analyzerFactory
@@ -1632,6 +1666,13 @@ name|build
 argument_list|(
 name|this
 argument_list|)
+expr_stmt|;
+comment|/*                  * Custom analyzers already default to the correct, version                  * dependent positionOffsetGap and the user is be able to                  * configure the positionOffsetGap directly on the analyzer so                  * we disable overriding the positionOffsetGap to preserve the                  * user's setting.                  */
+name|overridePositionOffsetGap
+operator|=
+name|Integer
+operator|.
+name|MIN_VALUE
 expr_stmt|;
 block|}
 name|Analyzer
@@ -1667,7 +1708,6 @@ block|}
 name|NamedAnalyzer
 name|analyzer
 decl_stmt|;
-comment|// if we got a named analyzer back, use it...
 if|if
 condition|(
 name|analyzerF
@@ -1675,6 +1715,7 @@ operator|instanceof
 name|NamedAnalyzer
 condition|)
 block|{
+comment|// if we got a named analyzer back, use it...
 name|analyzer
 operator|=
 operator|(
@@ -1682,6 +1723,37 @@ name|NamedAnalyzer
 operator|)
 name|analyzerF
 expr_stmt|;
+if|if
+condition|(
+name|overridePositionOffsetGap
+operator|>=
+literal|0
+operator|&&
+name|analyzer
+operator|.
+name|getPositionIncrementGap
+argument_list|(
+name|analyzer
+operator|.
+name|name
+argument_list|()
+argument_list|)
+operator|!=
+name|overridePositionOffsetGap
+condition|)
+block|{
+comment|// unless the positionOffsetGap needs to be overridden
+name|analyzer
+operator|=
+operator|new
+name|NamedAnalyzer
+argument_list|(
+name|analyzer
+argument_list|,
+name|overridePositionOffsetGap
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -1701,6 +1773,8 @@ name|scope
 argument_list|()
 argument_list|,
 name|analyzerF
+argument_list|,
+name|overridePositionOffsetGap
 argument_list|)
 expr_stmt|;
 block|}
