@@ -115,6 +115,8 @@ argument_list|(
 name|parser
 argument_list|,
 name|fetchSubPhaseContext
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -130,6 +132,9 @@ name|parser
 parameter_list|,
 name|SubPhaseContext
 name|fetchSubPhaseContext
+parameter_list|,
+name|SearchContext
+name|searchContext
 parameter_list|)
 throws|throws
 name|Exception

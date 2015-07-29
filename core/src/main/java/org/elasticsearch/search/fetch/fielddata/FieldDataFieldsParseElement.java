@@ -127,6 +127,9 @@ name|parser
 parameter_list|,
 name|FieldDataFieldsContext
 name|fieldDataFieldsContext
+parameter_list|,
+name|SearchContext
+name|searchContext
 parameter_list|)
 throws|throws
 name|Exception
