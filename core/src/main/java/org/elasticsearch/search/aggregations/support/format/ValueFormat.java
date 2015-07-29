@@ -36,6 +36,18 @@ name|DateFieldMapper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTimeZone
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -291,6 +303,9 @@ name|format
 parameter_list|(
 name|String
 name|format
+parameter_list|,
+name|DateTimeZone
+name|timezone
 parameter_list|)
 block|{
 return|return
@@ -305,6 +320,8 @@ operator|.
 name|DateTime
 argument_list|(
 name|format
+argument_list|,
+name|timezone
 argument_list|)
 argument_list|,
 operator|new
@@ -327,6 +344,9 @@ name|DateFieldMapper
 operator|.
 name|DateFieldType
 name|fieldType
+parameter_list|,
+name|DateTimeZone
+name|timezone
 parameter_list|)
 block|{
 return|return
@@ -348,6 +368,8 @@ operator|.
 name|mapper
 argument_list|(
 name|fieldType
+argument_list|,
+name|timezone
 argument_list|)
 argument_list|,
 name|ValueParser
@@ -400,6 +422,10 @@ return|return
 name|format
 argument_list|(
 name|pattern
+argument_list|,
+name|DateTimeZone
+operator|.
+name|UTC
 argument_list|)
 return|;
 block|}

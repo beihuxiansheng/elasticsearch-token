@@ -268,6 +268,21 @@ name|DateTimeZone
 name|timeZone
 parameter_list|)
 block|{
+if|if
+condition|(
+name|timeZone
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Setting null as timezone is not supported"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|timeZone
