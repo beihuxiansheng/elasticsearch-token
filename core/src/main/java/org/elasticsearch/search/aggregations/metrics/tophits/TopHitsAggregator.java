@@ -813,6 +813,28 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
+comment|// In the QueryPhase we don't need this protection, because it is build into the IndexSearcher,
+comment|// but here we create collectors ourselves and we need prevent OOM because of crazy an offset and size.
+name|topN
+operator|=
+name|Math
+operator|.
+name|min
+argument_list|(
+name|topN
+argument_list|,
+name|subSearchContext
+operator|.
+name|searcher
+argument_list|()
+operator|.
+name|getIndexReader
+argument_list|()
+operator|.
+name|maxDoc
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|TopDocsCollector
 argument_list|<
 name|?
