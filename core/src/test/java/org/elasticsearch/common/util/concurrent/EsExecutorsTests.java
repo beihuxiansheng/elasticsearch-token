@@ -1506,7 +1506,7 @@ name|message
 argument_list|,
 name|containsString
 argument_list|(
-literal|"state = Running"
+literal|"[Running"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1665,7 +1665,7 @@ name|message
 argument_list|,
 name|containsString
 argument_list|(
-literal|"state = Terminated"
+literal|"[Terminated"
 argument_list|)
 argument_list|)
 expr_stmt|;
