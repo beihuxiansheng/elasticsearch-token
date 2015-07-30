@@ -859,6 +859,11 @@ name|assignedShard
 operator|.
 name|started
 argument_list|()
+operator|||
+name|assignedShard
+operator|.
+name|initializing
+argument_list|()
 condition|)
 block|{
 name|RoutingNode
