@@ -36,22 +36,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -391,13 +375,6 @@ comment|/**  *  */
 end_comment
 
 begin_class
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"single test methods fail with occassional seeds (see HDRPercentilesTests.testScript_ExplicitSingleValued_WithParams for example) but only if run as a whole test class not if run as a single test method"
-argument_list|)
 DECL|class|HDRPercentileRanksTests
 specifier|public
 class|class
@@ -2892,13 +2869,6 @@ annotation|@
 name|Override
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"Fails with seed: B75FCDC119D90BBE, Colin to fix"
-argument_list|)
 DECL|method|testScript_SingleValued_WithParams
 specifier|public
 name|void
