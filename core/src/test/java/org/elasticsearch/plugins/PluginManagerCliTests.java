@@ -118,6 +118,24 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|cli
+operator|.
+name|CliTool
+operator|.
+name|ExitStatus
+operator|.
+name|OK_AND_EXIT
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -173,10 +191,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|OK
-operator|.
-name|status
-argument_list|()
+name|OK_AND_EXIT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -213,10 +228,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|OK
-operator|.
-name|status
-argument_list|()
+name|OK_AND_EXIT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -280,10 +292,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|OK
-operator|.
-name|status
-argument_list|()
+name|OK_AND_EXIT
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -320,10 +329,7 @@ argument_list|)
 argument_list|,
 name|is
 argument_list|(
-name|OK
-operator|.
-name|status
-argument_list|()
+name|OK_AND_EXIT
 argument_list|)
 argument_list|)
 expr_stmt|;
