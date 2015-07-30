@@ -379,6 +379,7 @@ name|expressionResolvers
 decl_stmt|;
 DECL|field|dateMathExpressionResolver
 specifier|private
+specifier|final
 name|DateMathExpressionResolver
 name|dateMathExpressionResolver
 decl_stmt|;
