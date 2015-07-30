@@ -96,6 +96,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|RealtimeRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ValidateActions
 import|;
 end_import
@@ -315,6 +327,8 @@ name|DocumentRequest
 argument_list|<
 name|TermVectorsRequest
 argument_list|>
+implements|,
+name|RealtimeRequest
 block|{
 DECL|field|type
 specifier|private
@@ -1539,6 +1553,8 @@ name|realtime
 return|;
 block|}
 comment|/**      * Choose whether term vectors be generated real-time.      */
+annotation|@
+name|Override
 DECL|method|realtime
 specifier|public
 name|TermVectorsRequest
