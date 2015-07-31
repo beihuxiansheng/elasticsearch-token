@@ -86,6 +86,10 @@ name|Collections
 import|;
 end_import
 
+begin_comment
+comment|/** A site-only plugin, just serves resources */
+end_comment
+
 begin_class
 DECL|class|SitePlugin
 specifier|final
