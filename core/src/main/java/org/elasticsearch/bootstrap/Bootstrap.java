@@ -1088,7 +1088,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Exception
+name|Throwable
 block|{
 name|BootstrapCLIParser
 name|bootstrapCLIParser
