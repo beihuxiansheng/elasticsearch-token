@@ -65,6 +65,8 @@ operator|.
 name|cli
 operator|.
 name|CliTool
+operator|.
+name|ExitStatus
 import|;
 end_import
 
@@ -478,6 +480,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|PluginInfoTests
+operator|.
+name|writeProperties
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ElasticsearchIntegrationTest
@@ -527,20 +543,6 @@ operator|.
 name|Matchers
 operator|.
 name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|plugins
-operator|.
-name|PluginInfoTests
-operator|.
-name|writeProperties
 import|;
 end_import
 
@@ -2890,41 +2892,11 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|int
-name|status
-init|=
-operator|new
-name|PluginManagerCliParser
-argument_list|(
-name|terminal
-argument_list|)
-operator|.
-name|execute
-argument_list|(
-name|args
+name|assertStatus
 argument_list|(
 literal|"remove "
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|assertThat
-argument_list|(
-literal|"Terminal output was: "
-operator|+
-name|terminal
-operator|.
-name|getTerminalOutput
-argument_list|()
 argument_list|,
-name|status
-argument_list|,
-name|is
-argument_list|(
 name|USAGE
-operator|.
-name|status
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -2938,23 +2910,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|int
-name|status
-init|=
-operator|new
-name|PluginManagerCliParser
-argument_list|(
-name|terminal
-argument_list|)
-operator|.
-name|execute
-argument_list|(
-name|args
+name|assertStatus
 argument_list|(
 literal|"remove file://whatever"
+argument_list|,
+name|USAGE
 argument_list|)
-argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|terminal
@@ -2968,26 +2930,6 @@ name|containsString
 argument_list|(
 literal|"Illegal plugin name"
 argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-literal|"Terminal output was: "
-operator|+
-name|terminal
-operator|.
-name|getTerminalOutput
-argument_list|()
-argument_list|,
-name|status
-argument_list|,
-name|is
-argument_list|(
-name|USAGE
-operator|.
-name|status
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3238,8 +3180,6 @@ name|assertStatus
 argument_list|(
 name|command
 argument_list|,
-name|CliTool
-operator|.
 name|ExitStatus
 operator|.
 name|OK
@@ -3254,13 +3194,11 @@ parameter_list|(
 name|String
 name|command
 parameter_list|,
-name|CliTool
-operator|.
 name|ExitStatus
 name|exitStatus
 parameter_list|)
 block|{
-name|int
+name|ExitStatus
 name|status
 init|=
 operator|new
@@ -3291,9 +3229,6 @@ argument_list|,
 name|is
 argument_list|(
 name|exitStatus
-operator|.
-name|status
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
