@@ -350,6 +350,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Collection
 import|;
 end_import
@@ -689,8 +699,6 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Can't load plugins into classloader"
-argument_list|,
 name|ex
 argument_list|)
 throw|;
@@ -2033,8 +2041,6 @@ range|:
 name|stream
 control|)
 block|{
-try|try
-block|{
 if|if
 condition|(
 name|FileSystemUtils
@@ -2208,27 +2214,6 @@ name|urls
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to add plugin ["
-operator|+
-name|plugin
-operator|+
-literal|"]"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 block|}
 return|return
 name|bundles
@@ -2368,19 +2353,21 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|warn
+throw|throw
+operator|new
+name|IllegalStateException
 argument_list|(
-literal|"failed to load bundle {} due to jar hell"
-argument_list|,
+literal|"failed to load bundle "
+operator|+
 name|bundle
 operator|.
 name|urls
+operator|+
+literal|" due to jar hell"
 argument_list|,
 name|e
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 comment|// create a child to load the plugins in this bundle
 name|ClassLoader
@@ -2442,8 +2429,6 @@ operator|.
 name|plugins
 control|)
 block|{
-try|try
-block|{
 specifier|final
 name|Plugin
 name|plugin
@@ -2473,7 +2458,19 @@ else|else
 block|{
 name|plugin
 operator|=
-literal|null
+operator|new
+name|SitePlugin
+argument_list|(
+name|pluginInfo
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|pluginInfo
+operator|.
+name|getDescription
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 name|plugins
@@ -2490,29 +2487,6 @@ name|plugin
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to load plugin from ["
-operator|+
-name|bundle
-operator|.
-name|urls
-operator|+
-literal|"]"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 return|return
