@@ -351,6 +351,15 @@ range|:
 name|preferences
 control|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> Testing out preference={}"
+argument_list|,
+name|pref
+argument_list|)
+expr_stmt|;
 name|SearchResponse
 name|searchResponse
 init|=
