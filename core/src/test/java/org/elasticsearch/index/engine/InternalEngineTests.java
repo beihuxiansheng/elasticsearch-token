@@ -12181,8 +12181,6 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Slow
-annotation|@
 name|Test
 DECL|method|testEnableGcDeletes
 specifier|public

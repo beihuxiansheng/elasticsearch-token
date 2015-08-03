@@ -324,7 +324,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertAllSuccessful
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoTimeout
 import|;
 end_import
 
@@ -365,8 +413,6 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|recoverWhileUnderLoadAllocateReplicasTest
 specifier|public
 name|void
@@ -721,8 +767,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|recoverWhileUnderLoadAllocateReplicasRelocatePrimariesTest
 specifier|public
 name|void
@@ -1075,8 +1119,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|recoverWhileUnderLoadWithReducedAllowedNodes
 specifier|public
 name|void
@@ -1627,8 +1669,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|recoverWhileRelocating
 specifier|public
 name|void

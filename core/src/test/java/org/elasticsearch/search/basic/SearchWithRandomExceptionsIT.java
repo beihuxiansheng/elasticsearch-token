@@ -410,7 +410,39 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
 import|;
 end_import
 
@@ -424,9 +456,6 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Slow
-comment|// maybe due to all the logging?
 annotation|@
 name|TestLogging
 argument_list|(

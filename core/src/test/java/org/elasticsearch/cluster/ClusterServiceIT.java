@@ -3630,8 +3630,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testLocalNodeMasterListenerCallbacks
 specifier|public
 name|void

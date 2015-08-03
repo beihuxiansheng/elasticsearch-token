@@ -261,8 +261,6 @@ block|{
 comment|/**      * This test tries to simulate load while creating an index and indexing documents      * while the index is being created.      */
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testAutoGenerateIdNoDuplicates
 specifier|public
 name|void

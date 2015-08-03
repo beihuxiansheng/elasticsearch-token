@@ -46,20 +46,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -310,15 +296,7 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|Slow
 annotation|@
 name|ClusterScope
 argument_list|(

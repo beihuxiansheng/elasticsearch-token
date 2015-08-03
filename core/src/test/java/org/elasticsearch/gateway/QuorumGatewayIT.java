@@ -329,8 +329,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testChangeInitialShardsRecovery
 specifier|public
 name|void
@@ -966,8 +964,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testQuorumRecovery
 specifier|public
 name|void

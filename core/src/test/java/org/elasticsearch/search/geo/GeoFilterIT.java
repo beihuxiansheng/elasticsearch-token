@@ -2838,8 +2838,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|bulktest
 specifier|public
 name|void

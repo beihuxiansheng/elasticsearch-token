@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -675,8 +659,6 @@ comment|/**  * Additional tests that aim at testing more complex aggregation tre
 end_comment
 
 begin_class
-annotation|@
-name|Slow
 DECL|class|EquivalenceIT
 specifier|public
 class|class

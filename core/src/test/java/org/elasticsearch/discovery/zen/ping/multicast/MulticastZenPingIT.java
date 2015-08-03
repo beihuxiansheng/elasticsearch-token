@@ -288,15 +288,11 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-DECL|class|MulticastZenPingTests
+DECL|class|MulticastZenPingIT
 specifier|public
 class|class
-name|MulticastZenPingTests
+name|MulticastZenPingIT
 extends|extends
 name|ElasticsearchTestCase
 block|{

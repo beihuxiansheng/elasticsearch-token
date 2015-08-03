@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -115,10 +101,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|Slow
 DECL|class|NetworkPartitionIT
 specifier|public
 class|class

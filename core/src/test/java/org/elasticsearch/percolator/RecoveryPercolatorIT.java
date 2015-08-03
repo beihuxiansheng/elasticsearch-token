@@ -388,7 +388,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|matchAllQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|rangeQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -446,7 +478,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertHitCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertMatchCount
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
 import|;
 end_import
 
@@ -458,7 +538,55 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|arrayContainingInAnyOrder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|arrayWithSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|emptyArray
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -505,8 +633,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testRestartNodePercolator1
 specifier|public
 name|void
@@ -758,8 +884,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testRestartNodePercolator2
 specifier|public
 name|void
@@ -1442,8 +1566,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testLoadingPercolateQueriesDuringCloseAndOpen
 specifier|public
 name|void
@@ -1884,8 +2006,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testSinglePercolator_recovery
 specifier|public
 name|void
@@ -1902,8 +2022,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testMultiPercolator_recovery
 specifier|public
 name|void

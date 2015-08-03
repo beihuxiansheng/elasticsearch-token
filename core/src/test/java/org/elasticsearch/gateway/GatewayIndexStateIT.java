@@ -18,22 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -368,10 +352,6 @@ name|nullValue
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -386,8 +366,6 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|Slow
 DECL|class|GatewayIndexStateIT
 specifier|public
 class|class

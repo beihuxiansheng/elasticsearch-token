@@ -384,10 +384,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|Slow
 DECL|method|testReusePeerRecovery
 specifier|public
 name|void

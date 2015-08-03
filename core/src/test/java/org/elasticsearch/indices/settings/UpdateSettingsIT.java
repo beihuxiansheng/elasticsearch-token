@@ -1136,8 +1136,6 @@ block|}
 comment|// #6626: make sure we can update throttle settings and the changes take effect
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testUpdateThrottleSettings
 specifier|public
 name|void

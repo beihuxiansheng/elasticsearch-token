@@ -18,22 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -476,13 +460,45 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
 
 begin_class
 annotation|@
@@ -498,8 +514,6 @@ name|Scope
 operator|.
 name|TEST
 argument_list|)
-annotation|@
-name|Slow
 DECL|class|RecoveryFromGatewayIT
 specifier|public
 class|class
@@ -509,8 +523,6 @@ name|ElasticsearchIntegrationTest
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testOneNodeRecoverFromGateway
 specifier|public
 name|void
@@ -975,8 +987,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testSingleNodeNoFlush
 specifier|public
 name|void
@@ -1690,8 +1700,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testSingleNodeWithFlush
 specifier|public
 name|void
@@ -1929,8 +1937,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testTwoNodeFirstNodeCleared
 specifier|public
 name|void
@@ -2194,8 +2200,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testLatestVersionLoaded
 specifier|public
 name|void
@@ -3003,8 +3007,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 annotation|@
 name|TestLogging
 argument_list|(
@@ -3951,8 +3953,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testRecoveryDifferentNodeOrderStartup
 specifier|public
 name|void

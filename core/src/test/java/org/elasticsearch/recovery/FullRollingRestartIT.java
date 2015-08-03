@@ -270,8 +270,6 @@ return|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testFullRollingRestart
 specifier|public
 name|void
