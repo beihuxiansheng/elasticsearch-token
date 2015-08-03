@@ -487,6 +487,32 @@ index|[]
 name|hits
 parameter_list|)
 function_decl|;
+comment|/**      * This interface is in the fetch phase plugin mechanism.      * Whenever a new search is executed we create a new {@link SearchContext} that holds individual contexts for each {@link org.elasticsearch.search.fetch.FetchSubPhase}.      * Fetch phases that use the plugin mechanism must provide a ContextFactory to the SearchContext that creates the fetch phase context and also associates them with a name.      * See {@link SearchContext#getFetchSubPhaseContext(FetchSubPhase.ContextFactory)}      */
+DECL|interface|ContextFactory
+specifier|public
+interface|interface
+name|ContextFactory
+parameter_list|<
+name|SubPhaseContext
+extends|extends
+name|FetchSubPhaseContext
+parameter_list|>
+block|{
+comment|/**          * The name of the context.          */
+DECL|method|getName
+specifier|public
+name|String
+name|getName
+parameter_list|()
+function_decl|;
+comment|/**          * Creates a new instance of a FetchSubPhaseContext that holds all information a FetchSubPhase needs to execute on hits.          */
+DECL|method|newContextInstance
+specifier|public
+name|SubPhaseContext
+name|newContextInstance
+parameter_list|()
+function_decl|;
+block|}
 block|}
 end_interface
 
