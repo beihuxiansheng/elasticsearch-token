@@ -71,20 +71,20 @@ import|;
 end_import
 
 begin_comment
-comment|/** Rest API tests subset 3 */
+comment|/** Rest API tests subset 6 */
 end_comment
 
 begin_class
-DECL|class|Rest3Tests
+DECL|class|Rest6IT
 specifier|public
 class|class
-name|Rest3Tests
+name|Rest6IT
 extends|extends
 name|ElasticsearchRestTestCase
 block|{
-DECL|method|Rest3Tests
+DECL|method|Rest6IT
 specifier|public
-name|Rest3Tests
+name|Rest6IT
 parameter_list|(
 annotation|@
 name|Name
@@ -121,7 +121,7 @@ block|{
 return|return
 name|createParameters
 argument_list|(
-literal|3
+literal|6
 argument_list|,
 literal|8
 argument_list|)
