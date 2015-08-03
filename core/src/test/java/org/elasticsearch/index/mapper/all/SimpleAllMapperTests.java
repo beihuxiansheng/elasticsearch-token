@@ -492,11 +492,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 import|;
@@ -508,11 +506,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToStringFromClasspath
 import|;
@@ -591,18 +587,6 @@ operator|.
 name|Matchers
 operator|.
 name|hasSize
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
 import|;
 end_import
 

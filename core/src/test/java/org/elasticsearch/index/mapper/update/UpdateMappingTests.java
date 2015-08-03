@@ -220,11 +220,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToStringFromClasspath
 import|;

@@ -36,11 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|StreamsUtils
 import|;
 end_import
 
@@ -168,7 +166,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
@@ -731,7 +729,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
@@ -1037,7 +1035,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
@@ -1380,7 +1378,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(

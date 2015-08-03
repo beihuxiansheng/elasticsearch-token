@@ -44,11 +44,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|ESTestCase
 import|;
 end_import
 
@@ -60,7 +58,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|StreamsUtils
 import|;
 end_import
 
@@ -81,16 +79,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -712,7 +700,7 @@ expr_stmt|;
 name|String
 name|expectedDocs
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToStringFromClasspath
 argument_list|(
