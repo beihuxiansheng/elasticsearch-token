@@ -92,7 +92,7 @@ name|registerScript
 argument_list|(
 literal|"native_explainable_script"
 argument_list|,
-name|ExplainableScriptTests
+name|ExplainableScriptIT
 operator|.
 name|MyNativeScriptFactory
 operator|.

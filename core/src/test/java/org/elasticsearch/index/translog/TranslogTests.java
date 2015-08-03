@@ -156,7 +156,7 @@ name|elasticsearch
 operator|.
 name|bwcompat
 operator|.
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 import|;
 end_import
 
@@ -8705,7 +8705,7 @@ name|getDataPath
 argument_list|(
 literal|"/"
 operator|+
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 operator|.
 name|class
 operator|.

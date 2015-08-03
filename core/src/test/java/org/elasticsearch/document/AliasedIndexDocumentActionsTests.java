@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|AliasedIndexDocumentActionsTests
 extends|extends
-name|DocumentActionsTests
+name|DocumentActionsIT
 block|{
 annotation|@
 name|Override
