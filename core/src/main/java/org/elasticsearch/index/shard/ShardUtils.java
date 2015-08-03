@@ -239,15 +239,22 @@ return|;
 block|}
 else|else
 block|{
+comment|// We need to use FilterLeafReader#getDelegate and not FilterLeafReader#unwrap, because
+comment|// If there are multiple levels of filtered leaf readers then with the unwrap() method it immediately
+comment|// returns the most inner leaf reader and thus skipping of over any other filtered leaf reader that
+comment|// may be instance of ElasticsearchLeafReader. This can cause us to miss the shardId.
 return|return
 name|getElasticsearchLeafReader
 argument_list|(
+operator|(
+operator|(
 name|FilterLeafReader
-operator|.
-name|unwrap
-argument_list|(
+operator|)
 name|reader
-argument_list|)
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -289,10 +296,24 @@ return|;
 block|}
 else|else
 block|{
+comment|// We need to use FilterDirectoryReader#getDelegate and not FilterDirectoryReader#unwrap, because
+comment|// If there are multiple levels of filtered leaf readers then with the unwrap() method it immediately
+comment|// returns the most inner leaf reader and thus skipping of over any other filtered leaf reader that
+comment|// may be instance of ElasticsearchLeafReader. This can cause us to miss the shardId.
 return|return
-literal|null
+name|getElasticsearchDirectoryReader
+argument_list|(
+operator|(
+operator|(
+name|FilterDirectoryReader
+operator|)
+name|reader
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
+argument_list|)
 return|;
-comment|// lucene needs a getDelegate method on FilteredDirectoryReader - not a big deal here
 block|}
 block|}
 return|return

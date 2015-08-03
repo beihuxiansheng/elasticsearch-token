@@ -34,6 +34,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|fetch
+operator|.
+name|FetchSubPhaseContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -51,6 +65,8 @@ DECL|class|FieldDataFieldsContext
 specifier|public
 class|class
 name|FieldDataFieldsContext
+extends|extends
+name|FetchSubPhaseContext
 block|{
 DECL|class|FieldDataField
 specifier|public

@@ -454,17 +454,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"plugins."
-operator|+
-name|PluginsService
-operator|.
-name|LOAD_PLUGIN_FROM_CLASSPATH
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|ClusterName
 operator|.
 name|SETTING

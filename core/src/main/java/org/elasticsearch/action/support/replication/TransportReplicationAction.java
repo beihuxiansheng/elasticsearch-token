@@ -2593,7 +2593,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// no commit: check threadpool rejection.
 name|finishAsFailed
 argument_list|(
 name|t
@@ -5437,6 +5436,14 @@ argument_list|,
 name|request
 operator|.
 name|source
+argument_list|()
+argument_list|)
+operator|.
+name|index
+argument_list|(
+name|request
+operator|.
+name|index
 argument_list|()
 argument_list|)
 operator|.

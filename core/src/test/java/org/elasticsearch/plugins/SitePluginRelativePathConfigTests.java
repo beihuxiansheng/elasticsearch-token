@@ -326,7 +326,7 @@ name|relativizeToRootIfNecessary
 argument_list|(
 name|getDataPath
 argument_list|(
-literal|"/org/elasticsearch/plugins"
+literal|"/org/elasticsearch/test_plugins"
 argument_list|)
 argument_list|)
 operator|.

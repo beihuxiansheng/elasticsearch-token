@@ -1408,11 +1408,6 @@ operator|.
 name|fieldType
 argument_list|()
 decl_stmt|;
-name|ifdService
-operator|.
-name|onMappingUpdate
-argument_list|()
-expr_stmt|;
 name|ifd
 operator|=
 name|ifdService

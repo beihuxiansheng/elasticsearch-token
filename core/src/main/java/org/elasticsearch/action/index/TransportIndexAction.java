@@ -350,6 +350,20 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|engine
+operator|.
+name|EngineClosedException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|mapper
 operator|.
 name|Mapping
@@ -538,6 +552,9 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
+parameter_list|,
+name|AutoCreateIndex
+name|autoCreateIndex
 parameter_list|)
 block|{
 name|super
@@ -589,11 +606,7 @@ name|this
 operator|.
 name|autoCreateIndex
 operator|=
-operator|new
-name|AutoCreateIndex
-argument_list|(
-name|settings
-argument_list|)
+name|autoCreateIndex
 expr_stmt|;
 name|this
 operator|.
@@ -635,6 +648,14 @@ name|listener
 parameter_list|)
 block|{
 comment|// if we don't have a master, we don't have metadata, that's fine, let it find a master using create index API
+name|ClusterState
+name|state
+init|=
+name|clusterService
+operator|.
+name|state
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|autoCreateIndex
@@ -646,10 +667,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|clusterService
-operator|.
 name|state
-argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1275,6 +1293,14 @@ name|source
 argument_list|()
 argument_list|)
 operator|.
+name|index
+argument_list|(
+name|shardId
+operator|.
+name|getIndex
+argument_list|()
+argument_list|)
+operator|.
 name|type
 argument_list|(
 name|request
@@ -1545,6 +1571,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|indexShard
 operator|.
 name|sync
@@ -1552,6 +1580,16 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EngineClosedException
+name|e
+parameter_list|)
+block|{
+comment|// ignore, the engine is already closed and we do not want the
+comment|// operation to be retried, because it has been modified
+block|}
 block|}
 block|}
 block|}

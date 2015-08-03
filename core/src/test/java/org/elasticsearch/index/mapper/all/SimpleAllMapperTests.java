@@ -693,6 +693,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -935,6 +937,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -1108,6 +1112,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -1318,6 +1324,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -1556,6 +1564,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -1669,6 +1679,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -1808,6 +1820,8 @@ name|builtDocMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -1989,6 +2003,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -2192,6 +2208,8 @@ name|builtDocMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -2778,6 +2796,8 @@ name|parse
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"test"
+argument_list|,
 literal|"1"
 argument_list|,
 operator|new
@@ -3227,6 +3247,8 @@ name|parse
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"test"
+argument_list|,
 literal|"1"
 argument_list|,
 name|builder
@@ -3347,6 +3369,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"1"
@@ -3672,17 +3696,6 @@ operator|.
 name|put
 argument_list|(
 name|SizeFieldMapper
-operator|.
-name|NAME
-argument_list|,
-literal|"{\"enabled\" : true}"
-argument_list|)
-expr_stmt|;
-name|rootTypes
-operator|.
-name|put
-argument_list|(
-name|IndexFieldMapper
 operator|.
 name|NAME
 argument_list|,
@@ -4258,6 +4271,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"type"
 argument_list|,
 literal|"1"

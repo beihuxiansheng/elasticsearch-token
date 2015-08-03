@@ -831,6 +831,9 @@ operator|.
 name|READ
 argument_list|)
 expr_stmt|;
+comment|// TODO: I think startTime() should become part of ActionRequest and that should be used both for index name
+comment|// date math expressions and $now in scripts. This way all apis will deal with now in the same way instead
+comment|// of just for the _search api
 name|String
 index|[]
 name|concreteIndices
@@ -844,6 +847,9 @@ argument_list|,
 name|request
 operator|.
 name|indicesOptions
+argument_list|()
+argument_list|,
+name|startTime
 argument_list|()
 argument_list|,
 name|request

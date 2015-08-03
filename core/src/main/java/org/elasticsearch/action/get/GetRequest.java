@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|RealtimeRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ValidateActions
 import|;
 end_import
@@ -182,6 +194,8 @@ name|SingleShardRequest
 argument_list|<
 name|GetRequest
 argument_list|>
+implements|implements
+name|RealtimeRequest
 block|{
 DECL|field|type
 specifier|private
@@ -458,7 +472,7 @@ name|validationException
 init|=
 name|super
 operator|.
-name|validate
+name|validateNonNullIndex
 argument_list|()
 decl_stmt|;
 if|if
@@ -818,6 +832,8 @@ operator|.
 name|realtime
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|realtime
 specifier|public
 name|GetRequest

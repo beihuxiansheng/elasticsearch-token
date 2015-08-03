@@ -478,18 +478,18 @@ name|doc
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|DocumentMapperParser
 specifier|public
 class|class
 name|DocumentMapperParser
-extends|extends
-name|AbstractIndexComponent
 block|{
+DECL|field|indexSettings
+specifier|private
+specifier|final
+name|Settings
+name|indexSettings
+decl_stmt|;
 DECL|field|mapperService
 specifier|final
 name|MapperService
@@ -594,9 +594,6 @@ DECL|method|DocumentMapperParser
 specifier|public
 name|DocumentMapperParser
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
 annotation|@
 name|IndexSettings
 name|Settings
@@ -615,12 +612,11 @@ name|ScriptService
 name|scriptService
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|index
-argument_list|,
+name|this
+operator|.
 name|indexSettings
-argument_list|)
+operator|=
+name|indexSettings
 expr_stmt|;
 name|this
 operator|.
@@ -1666,11 +1662,6 @@ name|docBuilder
 init|=
 name|doc
 argument_list|(
-name|index
-operator|.
-name|name
-argument_list|()
-argument_list|,
 name|indexSettings
 argument_list|,
 operator|(

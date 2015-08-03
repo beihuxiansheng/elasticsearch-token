@@ -418,6 +418,18 @@ name|equalTo
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ElasticsearchIntegrationTest
@@ -1328,18 +1340,17 @@ operator|.
 name|metaData
 argument_list|()
 operator|.
-name|aliases
-argument_list|()
-argument_list|,
-name|equalTo
+name|equalsAliases
 argument_list|(
 name|clusterState
 operator|.
 name|metaData
 argument_list|()
-operator|.
-name|aliases
-argument_list|()
+argument_list|)
+argument_list|,
+name|is
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1920,9 +1931,6 @@ name|index
 argument_list|,
 name|i
 argument_list|)
-argument_list|,
-name|randomBoolean
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|int

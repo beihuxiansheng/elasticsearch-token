@@ -32,9 +32,9 @@ name|support
 operator|.
 name|single
 operator|.
-name|custom
+name|shard
 operator|.
-name|SingleCustomOperationRequestBuilder
+name|SingleShardOperationRequestBuilder
 import|;
 end_import
 
@@ -60,7 +60,7 @@ specifier|public
 class|class
 name|AnalyzeRequestBuilder
 extends|extends
-name|SingleCustomOperationRequestBuilder
+name|SingleShardOperationRequestBuilder
 argument_list|<
 name|AnalyzeRequest
 argument_list|,
@@ -128,27 +128,6 @@ name|text
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-comment|/**      * Sets the index to use to analyzer the text (for example, if it holds specific analyzers      * registered).      */
-DECL|method|setIndex
-specifier|public
-name|AnalyzeRequestBuilder
-name|setIndex
-parameter_list|(
-name|String
-name|index
-parameter_list|)
-block|{
-name|request
-operator|.
-name|index
-argument_list|(
-name|index
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 comment|/**      * Sets the analyzer name to use in order to analyze the text.      *      * @param analyzer The analyzer name.      */
 DECL|method|setAnalyzer

@@ -305,6 +305,14 @@ block|,
 comment|/**          * Unassigned as a result of explicit cancel reroute command.          */
 DECL|enum constant|REROUTE_CANCELLED
 name|REROUTE_CANCELLED
+block|,
+comment|/**          * When a shard moves from started back to initializing, for example, during shadow replica          */
+DECL|enum constant|REINITIALIZED
+name|REINITIALIZED
+block|,
+comment|/**          * A better replica location is identified and causes the existing replica allocation to be cancelled.          */
+DECL|enum constant|REALLOCATED_REPLICA
+name|REALLOCATED_REPLICA
 block|;     }
 DECL|field|reason
 specifier|private

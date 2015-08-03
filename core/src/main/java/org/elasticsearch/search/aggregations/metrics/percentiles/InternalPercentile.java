@@ -22,6 +22,7 @@ end_package
 
 begin_class
 DECL|class|InternalPercentile
+specifier|public
 class|class
 name|InternalPercentile
 implements|implements
@@ -40,6 +41,7 @@ name|double
 name|value
 decl_stmt|;
 DECL|method|InternalPercentile
+specifier|public
 name|InternalPercentile
 parameter_list|(
 name|double

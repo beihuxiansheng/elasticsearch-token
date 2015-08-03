@@ -55,6 +55,15 @@ argument_list|<
 name|Percentile
 argument_list|>
 block|{
+DECL|field|TYPE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPE_NAME
+init|=
+literal|"percentiles"
+decl_stmt|;
 comment|/**      * Return the value associated with the provided percentile.      */
 DECL|method|percentile
 name|double

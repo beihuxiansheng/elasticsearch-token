@@ -836,6 +836,15 @@ name|changed
 operator||=
 name|replicaShardAllocator
 operator|.
+name|processExistingRecoveries
+argument_list|(
+name|allocation
+argument_list|)
+expr_stmt|;
+name|changed
+operator||=
+name|replicaShardAllocator
+operator|.
 name|allocateUnassigned
 argument_list|(
 name|allocation

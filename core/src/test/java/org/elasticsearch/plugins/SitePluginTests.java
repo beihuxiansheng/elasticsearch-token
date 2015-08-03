@@ -315,7 +315,7 @@ name|pluginDir
 init|=
 name|getDataPath
 argument_list|(
-literal|"/org/elasticsearch/plugins"
+literal|"/org/elasticsearch/test_plugins"
 argument_list|)
 decl_stmt|;
 return|return

@@ -505,8 +505,11 @@ comment|// if the new cluster state has a new master then we cannot know if an i
 comment|// is actually supposed to be deleted or imported as dangling instead. for example a new master might not have
 comment|// the index in its cluster state because it was started with an empty data folder and in this case we want to
 comment|// import as dangling. we check here for new master too to be on the safe side in this case.
-comment|// norelease because we are not sure this is actually a good solution
-comment|// See discussion on https://github.com/elastic/elasticsearch/pull/9952
+comment|// This means that under certain conditions deleted indices might be reimported if a master fails while the deletion
+comment|// request is issued and a node receives the cluster state that would trigger the deletion from the new master.
+comment|// See test MetaDataWriteDataNodesTests.testIndicesDeleted()
+comment|// See discussion on https://github.com/elastic/elasticsearch/pull/9952 and
+comment|// https://github.com/elastic/elasticsearch/issues/11665
 if|if
 condition|(
 name|hasNewMaster

@@ -96,6 +96,18 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
+name|RealtimeRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|action
+operator|.
 name|ValidateActions
 import|;
 end_import
@@ -315,6 +327,8 @@ name|DocumentRequest
 argument_list|<
 name|TermVectorsRequest
 argument_list|>
+implements|,
+name|RealtimeRequest
 block|{
 DECL|field|type
 specifier|private
@@ -899,6 +913,15 @@ operator|=
 name|other
 operator|.
 name|startTime
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|filterSettings
+operator|=
+name|other
+operator|.
+name|filterSettings
 argument_list|()
 expr_stmt|;
 block|}
@@ -1530,6 +1553,8 @@ name|realtime
 return|;
 block|}
 comment|/**      * Choose whether term vectors be generated real-time.      */
+annotation|@
+name|Override
 DECL|method|realtime
 specifier|public
 name|TermVectorsRequest
@@ -1790,7 +1815,7 @@ name|validationException
 init|=
 name|super
 operator|.
-name|validate
+name|validateNonNullIndex
 argument_list|()
 decl_stmt|;
 if|if

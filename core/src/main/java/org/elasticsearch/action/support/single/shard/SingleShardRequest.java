@@ -90,6 +90,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Nullable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -161,15 +173,6 @@ argument_list|>
 implements|implements
 name|IndicesRequest
 block|{
-DECL|field|internalShardId
-name|ShardId
-name|internalShardId
-decl_stmt|;
-DECL|field|index
-specifier|protected
-name|String
-name|index
-decl_stmt|;
 DECL|field|INDICES_OPTIONS
 specifier|public
 specifier|static
@@ -181,6 +184,18 @@ name|IndicesOptions
 operator|.
 name|strictSingleIndexNoExpandForbidClosed
 argument_list|()
+decl_stmt|;
+comment|/**      * The concrete index name      *      * Whether index property is optional depends on the concrete implementation. If index property is required the      * concrete implementation should use {@link #validateNonNullIndex()} to check if the index property has been set      */
+annotation|@
+name|Nullable
+DECL|field|index
+specifier|protected
+name|String
+name|index
+decl_stmt|;
+DECL|field|internalShardId
+name|ShardId
+name|internalShardId
 decl_stmt|;
 DECL|field|threadedOperation
 specifier|private
@@ -246,12 +261,11 @@ operator|=
 name|index
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
+comment|/**      * @return a validation exception if the index property hasn't been set      */
+DECL|method|validateNonNullIndex
+specifier|protected
 name|ActionRequestValidationException
-name|validate
+name|validateNonNullIndex
 parameter_list|()
 block|{
 name|ActionRequestValidationException
@@ -282,6 +296,9 @@ return|return
 name|validationException
 return|;
 block|}
+comment|/**      * @return The concrete index this request is targeted for or<code>null</code> if index is optional.      *         Whether index property is optional depends on the concrete implementation. If index property      *         is required the concrete implementation should use {@link #validateNonNullIndex()} to check      *         if the index property has been set      */
+annotation|@
+name|Nullable
 DECL|method|index
 specifier|public
 name|String
@@ -433,7 +450,7 @@ name|index
 operator|=
 name|in
 operator|.
-name|readString
+name|readOptionalString
 argument_list|()
 expr_stmt|;
 comment|// no need to pass threading over the network, they are always false when coming throw a thread pool
@@ -467,7 +484,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeString
+name|writeOptionalString
 argument_list|(
 name|index
 argument_list|)

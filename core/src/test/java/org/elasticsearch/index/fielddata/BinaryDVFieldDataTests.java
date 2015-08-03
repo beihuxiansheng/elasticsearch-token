@@ -354,6 +354,8 @@ name|parse
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"test"
+argument_list|,
 literal|"1"
 argument_list|,
 name|doc
@@ -407,6 +409,8 @@ name|parse
 argument_list|(
 literal|"test"
 argument_list|,
+literal|"test"
+argument_list|,
 literal|"2"
 argument_list|,
 name|doc
@@ -444,6 +448,8 @@ name|mapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"3"
@@ -552,6 +558,8 @@ name|mapper
 operator|.
 name|parse
 argument_list|(
+literal|"test"
+argument_list|,
 literal|"test"
 argument_list|,
 literal|"4"

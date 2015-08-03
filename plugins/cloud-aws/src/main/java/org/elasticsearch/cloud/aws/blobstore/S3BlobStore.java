@@ -429,6 +429,11 @@ name|numberOfRetries
 operator|=
 name|maxRetries
 expr_stmt|;
+comment|// Note: the method client.doesBucketExist() may return 'true' is the bucket exists
+comment|// but we don't have access to it (ie, 403 Forbidden response code)
+comment|// Also, if invalid security credentials are used to execute this method, the
+comment|// client is not able to distinguish between bucket permission errors and
+comment|// invalid credential errors, and this method could return an incorrect result.
 if|if
 condition|(
 operator|!
