@@ -11459,8 +11459,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testSortMissingStrings
 specifier|public
 name|void

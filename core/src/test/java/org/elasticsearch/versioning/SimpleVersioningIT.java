@@ -4363,8 +4363,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testRandomIDsAndVersions
 specifier|public
 name|void
@@ -5702,8 +5700,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testDeleteNotLost
 specifier|public
 name|void

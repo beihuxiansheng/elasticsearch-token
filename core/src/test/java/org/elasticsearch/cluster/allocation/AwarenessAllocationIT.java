@@ -689,8 +689,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testAwarenessZones
 specifier|public
 name|void
@@ -1179,8 +1177,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testAwarenessZonesIncrementalNodes
 specifier|public
 name|void

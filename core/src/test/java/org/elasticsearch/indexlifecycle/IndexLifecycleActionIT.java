@@ -408,8 +408,6 @@ extends|extends
 name|ElasticsearchIntegrationTest
 block|{
 annotation|@
-name|Slow
-annotation|@
 name|Test
 DECL|method|testIndexLifecycleActionsWith11Shards1Backup
 specifier|public

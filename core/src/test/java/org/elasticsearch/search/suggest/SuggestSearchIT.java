@@ -3658,8 +3658,6 @@ block|}
 annotation|@
 name|Test
 annotation|@
-name|Slow
-annotation|@
 name|Nightly
 DECL|method|testMarvelHerosPhraseSuggest
 specifier|public

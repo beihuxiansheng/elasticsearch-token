@@ -5223,8 +5223,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testConcurrentUpdateWithRetryOnConflict
 specifier|public
 name|void
@@ -5702,8 +5700,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|stressUpdateDeleteConcurrency
 specifier|public
 name|void

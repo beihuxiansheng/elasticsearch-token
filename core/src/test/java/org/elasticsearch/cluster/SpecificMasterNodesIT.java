@@ -156,10 +156,6 @@ name|*
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 annotation|@
 name|ClusterScope
@@ -174,8 +170,6 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|Slow
 DECL|class|SpecificMasterNodesIT
 specifier|public
 class|class

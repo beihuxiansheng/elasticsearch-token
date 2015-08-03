@@ -5616,8 +5616,6 @@ block|}
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Slow
 DECL|method|testScoring
 specifier|public
 name|void

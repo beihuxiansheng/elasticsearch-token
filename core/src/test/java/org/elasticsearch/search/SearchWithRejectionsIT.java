@@ -218,10 +218,6 @@ name|Scope
 operator|.
 name|SUITE
 argument_list|)
-annotation|@
-name|LuceneTestCase
-operator|.
-name|Slow
 DECL|class|SearchWithRejectionsIT
 specifier|public
 class|class
