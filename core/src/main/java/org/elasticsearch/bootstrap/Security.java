@@ -558,8 +558,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: improve test infra so we can reduce permissions where read/write
-comment|// is not really needed...
 name|Permissions
 name|policy
 init|=
@@ -567,16 +565,17 @@ operator|new
 name|Permissions
 argument_list|()
 decl_stmt|;
+comment|// read-only dirs
 name|addPath
 argument_list|(
 name|policy
 argument_list|,
 name|environment
 operator|.
-name|tmpFile
+name|binFile
 argument_list|()
 argument_list|,
-literal|"read,readlink,write,delete"
+literal|"read,readlink"
 argument_list|)
 expr_stmt|;
 name|addPath
@@ -585,7 +584,19 @@ name|policy
 argument_list|,
 name|environment
 operator|.
-name|homeFile
+name|libFile
+argument_list|()
+argument_list|,
+literal|"read,readlink"
+argument_list|)
+expr_stmt|;
+name|addPath
+argument_list|(
+name|policy
+argument_list|,
+name|environment
+operator|.
+name|tmpFile
 argument_list|()
 argument_list|,
 literal|"read,readlink,write,delete"

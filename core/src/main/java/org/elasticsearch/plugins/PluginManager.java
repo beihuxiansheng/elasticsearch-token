@@ -2783,13 +2783,8 @@ block|{
 return|return
 name|env
 operator|.
-name|homeFile
+name|binFile
 argument_list|()
-operator|.
-name|resolve
-argument_list|(
-literal|"bin"
-argument_list|)
 operator|.
 name|resolve
 argument_list|(
