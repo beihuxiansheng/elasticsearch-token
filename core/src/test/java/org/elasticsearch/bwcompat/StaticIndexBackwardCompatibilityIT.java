@@ -135,10 +135,10 @@ name|maxNumDataNodes
 operator|=
 literal|0
 argument_list|)
-DECL|class|StaticIndexBackwardCompatibilityTest
+DECL|class|StaticIndexBackwardCompatibilityIT
 specifier|public
 class|class
-name|StaticIndexBackwardCompatibilityTest
+name|StaticIndexBackwardCompatibilityIT
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

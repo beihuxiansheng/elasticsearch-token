@@ -249,10 +249,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GetIndexBackwardsCompatibilityTests
+DECL|class|GetIndexBackwardsCompatibilityIT
 specifier|public
 class|class
-name|GetIndexBackwardsCompatibilityTests
+name|GetIndexBackwardsCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

@@ -1004,12 +1004,12 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-DECL|class|DedicatedClusterSnapshotRestoreTests
+DECL|class|DedicatedClusterSnapshotRestoreIT
 specifier|public
 class|class
-name|DedicatedClusterSnapshotRestoreTests
+name|DedicatedClusterSnapshotRestoreIT
 extends|extends
-name|AbstractSnapshotTests
+name|AbstractSnapshotIT
 block|{
 annotation|@
 name|Test

@@ -186,7 +186,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|AbstractSnapshotTests
+name|AbstractSnapshotIT
 import|;
 end_import
 
@@ -459,7 +459,7 @@ specifier|public
 class|class
 name|RestoreBackwardsCompatTests
 extends|extends
-name|AbstractSnapshotTests
+name|AbstractSnapshotIT
 block|{
 annotation|@
 name|Override

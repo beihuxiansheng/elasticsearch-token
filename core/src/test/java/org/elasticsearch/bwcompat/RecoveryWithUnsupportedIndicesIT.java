@@ -63,12 +63,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|RecoveryWithUnsupportedIndicesTests
+DECL|class|RecoveryWithUnsupportedIndicesIT
 specifier|public
 class|class
-name|RecoveryWithUnsupportedIndicesTests
+name|RecoveryWithUnsupportedIndicesIT
 extends|extends
-name|StaticIndexBackwardCompatibilityTest
+name|StaticIndexBackwardCompatibilityIT
 block|{
 annotation|@
 name|Test

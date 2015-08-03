@@ -81,10 +81,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|UnicastBackwardsCompatibilityTest
+DECL|class|UnicastBackwardsCompatibilityIT
 specifier|public
 class|class
-name|UnicastBackwardsCompatibilityTest
+name|UnicastBackwardsCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

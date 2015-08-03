@@ -306,10 +306,10 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
-DECL|class|RecoveryBackwardsCompatibilityTests
+DECL|class|RecoveryBackwardsCompatibilityIT
 specifier|public
 class|class
-name|RecoveryBackwardsCompatibilityTests
+name|RecoveryBackwardsCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

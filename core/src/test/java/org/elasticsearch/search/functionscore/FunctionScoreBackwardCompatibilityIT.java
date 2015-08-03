@@ -283,10 +283,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|FunctionScoreBackwardCompatibilityTests
+DECL|class|FunctionScoreBackwardCompatibilityIT
 specifier|public
 class|class
-name|FunctionScoreBackwardCompatibilityTests
+name|FunctionScoreBackwardCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

@@ -765,10 +765,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|BasicBackwardsCompatibilityTest
+DECL|class|BasicBackwardsCompatibilityIT
 specifier|public
 class|class
-name|BasicBackwardsCompatibilityTest
+name|BasicBackwardsCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

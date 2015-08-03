@@ -841,12 +841,12 @@ end_import
 begin_class
 annotation|@
 name|Slow
-DECL|class|SharedClusterSnapshotRestoreTests
+DECL|class|SharedClusterSnapshotRestoreIT
 specifier|public
 class|class
-name|SharedClusterSnapshotRestoreTests
+name|SharedClusterSnapshotRestoreIT
 extends|extends
-name|AbstractSnapshotTests
+name|AbstractSnapshotIT
 block|{
 annotation|@
 name|Test

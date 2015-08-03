@@ -51,10 +51,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|AliasedIndexDocumentActionsTests
+DECL|class|AliasedIndexDocumentActionsIT
 specifier|public
 class|class
-name|AliasedIndexDocumentActionsTests
+name|AliasedIndexDocumentActionsIT
 extends|extends
 name|DocumentActionsIT
 block|{

@@ -252,10 +252,10 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
-DECL|class|BasicAnalysisBackwardCompatibilityTests
+DECL|class|BasicAnalysisBackwardCompatibilityIT
 specifier|public
 class|class
-name|BasicAnalysisBackwardCompatibilityTests
+name|BasicAnalysisBackwardCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

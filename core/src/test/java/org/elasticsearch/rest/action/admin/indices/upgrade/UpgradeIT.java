@@ -397,10 +397,10 @@ operator|.
 name|TEST
 argument_list|)
 comment|// test scope since we set cluster wide settings
-DECL|class|UpgradeTest
+DECL|class|UpgradeIT
 specifier|public
 class|class
-name|UpgradeTest
+name|UpgradeIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{
@@ -1726,7 +1726,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|class
 argument_list|)
