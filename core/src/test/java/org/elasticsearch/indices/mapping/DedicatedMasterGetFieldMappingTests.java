@@ -125,7 +125,7 @@ specifier|public
 class|class
 name|DedicatedMasterGetFieldMappingTests
 extends|extends
-name|SimpleGetFieldMappingsTests
+name|SimpleGetFieldMappingsIT
 block|{
 annotation|@
 name|Before
