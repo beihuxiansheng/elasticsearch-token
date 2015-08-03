@@ -36,6 +36,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Throwable
 block|{
 name|Bootstrap
 operator|.
