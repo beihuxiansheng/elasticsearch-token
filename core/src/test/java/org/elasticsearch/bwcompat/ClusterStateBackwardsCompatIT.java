@@ -239,10 +239,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ClusterStateBackwardsCompatTests
+DECL|class|ClusterStateBackwardsCompatIT
 specifier|public
 class|class
-name|ClusterStateBackwardsCompatTests
+name|ClusterStateBackwardsCompatIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

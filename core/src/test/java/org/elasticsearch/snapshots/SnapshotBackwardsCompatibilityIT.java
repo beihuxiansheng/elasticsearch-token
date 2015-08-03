@@ -409,10 +409,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SnapshotBackwardsCompatibilityTest
+DECL|class|SnapshotBackwardsCompatibilityIT
 specifier|public
 class|class
-name|SnapshotBackwardsCompatibilityTest
+name|SnapshotBackwardsCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

@@ -360,7 +360,7 @@ name|indices
 operator|.
 name|upgrade
 operator|.
-name|UpgradeTest
+name|UpgradeIT
 import|;
 end_import
 
@@ -3378,7 +3378,7 @@ operator|==
 literal|false
 condition|)
 block|{
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|assertNotUpgraded
 argument_list|(
@@ -3409,7 +3409,7 @@ name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|assertUpgraded
 argument_list|(

@@ -355,11 +355,11 @@ end_comment
 begin_class
 annotation|@
 name|Ignore
-DECL|class|AbstractSnapshotTests
+DECL|class|AbstractSnapshotIT
 specifier|public
 specifier|abstract
 class|class
-name|AbstractSnapshotTests
+name|AbstractSnapshotIT
 extends|extends
 name|ElasticsearchIntegrationTest
 block|{

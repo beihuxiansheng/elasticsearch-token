@@ -120,10 +120,10 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-DECL|class|DedicatedMasterGetFieldMappingTests
+DECL|class|DedicatedMasterGetFieldMappingIT
 specifier|public
 class|class
-name|DedicatedMasterGetFieldMappingTests
+name|DedicatedMasterGetFieldMappingIT
 extends|extends
 name|SimpleGetFieldMappingsIT
 block|{

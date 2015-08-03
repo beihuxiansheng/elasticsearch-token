@@ -273,10 +273,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|SignificantTermsBackwardCompatibilityTests
+DECL|class|SignificantTermsBackwardCompatibilityIT
 specifier|public
 class|class
-name|SignificantTermsBackwardCompatibilityTests
+name|SignificantTermsBackwardCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

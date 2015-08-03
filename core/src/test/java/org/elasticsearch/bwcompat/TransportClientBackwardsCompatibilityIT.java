@@ -215,10 +215,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|TransportClientBackwardsCompatibilityTest
+DECL|class|TransportClientBackwardsCompatibilityIT
 specifier|public
 class|class
-name|TransportClientBackwardsCompatibilityTest
+name|TransportClientBackwardsCompatibilityIT
 extends|extends
 name|ElasticsearchBackwardsCompatIntegrationTest
 block|{

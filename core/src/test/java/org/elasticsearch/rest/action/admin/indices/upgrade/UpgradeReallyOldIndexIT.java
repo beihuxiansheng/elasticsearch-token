@@ -40,7 +40,7 @@ name|elasticsearch
 operator|.
 name|bwcompat
 operator|.
-name|StaticIndexBackwardCompatibilityTest
+name|StaticIndexBackwardCompatibilityIT
 import|;
 end_import
 
@@ -99,12 +99,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|UpgradeReallyOldIndexTest
+DECL|class|UpgradeReallyOldIndexIT
 specifier|public
 class|class
-name|UpgradeReallyOldIndexTest
+name|UpgradeReallyOldIndexIT
 extends|extends
-name|StaticIndexBackwardCompatibilityTest
+name|StaticIndexBackwardCompatibilityIT
 block|{
 DECL|method|testUpgrade_0_90_6
 specifier|public
@@ -144,7 +144,7 @@ literal|"4.5.1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|assertNotUpgraded
 argument_list|(
@@ -156,7 +156,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|hasAncientSegments
 argument_list|(
@@ -194,7 +194,7 @@ argument_list|)
 expr_stmt|;
 name|assertFalse
 argument_list|(
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|hasAncientSegments
 argument_list|(
@@ -206,7 +206,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// This index has only ancient segments, so it should now be fully upgraded:
-name|UpgradeTest
+name|UpgradeIT
 operator|.
 name|assertUpgraded
 argument_list|(
