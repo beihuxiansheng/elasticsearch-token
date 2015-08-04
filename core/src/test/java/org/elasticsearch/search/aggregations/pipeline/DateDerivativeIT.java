@@ -166,22 +166,6 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|SimpleValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
 name|derivative
 operator|.
 name|Derivative
@@ -212,7 +196,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -462,15 +446,15 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 DECL|class|DateDerivativeIT
 specifier|public
 class|class
 name|DateDerivativeIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|date
 specifier|private

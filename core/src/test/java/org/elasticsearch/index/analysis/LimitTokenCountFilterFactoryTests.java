@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|LimitTokenCountFilterFactoryTests
 extends|extends
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 block|{
 annotation|@
 name|Test

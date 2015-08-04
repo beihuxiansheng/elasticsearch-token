@@ -108,7 +108,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -428,7 +428,7 @@ specifier|public
 class|class
 name|RandomScoreFunctionIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|testConsistentHitsWithSameSeed
 specifier|public
@@ -2085,8 +2085,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 DECL|method|checkDistribution
 specifier|public
 name|void

@@ -172,22 +172,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|MultiTermQuery
-operator|.
-name|RewriteMethod
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|join
 operator|.
 name|ToParentBlockJoinQuery
@@ -680,7 +664,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -852,7 +836,7 @@ specifier|public
 class|class
 name|SimpleIndexQueryParserTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|field|queryParser
 specifier|private

@@ -192,7 +192,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -201,12 +201,12 @@ comment|/** Simple tests for this filterreader */
 end_comment
 
 begin_class
-DECL|class|ElasticsearchDirectoryReaderTests
+DECL|class|ESDirectoryReaderTests
 specifier|public
 class|class
-name|ElasticsearchDirectoryReaderTests
+name|ESDirectoryReaderTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|/** Test that core cache key (needed for NRT) is working */
 DECL|method|testCoreCacheKey

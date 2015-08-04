@@ -34,6 +34,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -132,21 +146,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|PluginsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -194,13 +196,13 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -218,12 +220,21 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
+annotation|@
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/12622"
+argument_list|)
 DECL|class|GceComputeEngineTest
 specifier|public
 class|class
 name|GceComputeEngineTest
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|getPort
 specifier|public
@@ -540,8 +551,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|nodes_with_different_tags_and_no_tag_set
 specifier|public
 name|void
@@ -581,11 +590,9 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * We need to ignore this test from elasticsearch version 1.2.1 as      * expected nodes running is 2 and this test will create 2 clusters with one node each.      * @see org.elasticsearch.test.ElasticsearchIntegrationTest#ensureClusterSizeConsistency()      * TODO Reactivate when it will be possible to set the number of running nodes      */
+comment|/**      * We need to ignore this test from elasticsearch version 1.2.1 as      * expected nodes running is 2 and this test will create 2 clusters with one node each.      * @see ESIntegTestCase#ensureClusterSizeConsistency()      * TODO Reactivate when it will be possible to set the number of running nodes      */
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|nodes_with_different_tags_and_one_tag_set
 specifier|public
 name|void
@@ -651,11 +658,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * We need to ignore this test from elasticsearch version 1.2.1 as      * expected nodes running is 2 and this test will create 2 clusters with one node each.      * @see org.elasticsearch.test.ElasticsearchIntegrationTest#ensureClusterSizeConsistency()      * TODO Reactivate when it will be possible to set the number of running nodes      */
+comment|/**      * We need to ignore this test from elasticsearch version 1.2.1 as      * expected nodes running is 2 and this test will create 2 clusters with one node each.      * @see ESIntegTestCase#ensureClusterSizeConsistency()      * TODO Reactivate when it will be possible to set the number of running nodes      */
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|nodes_with_different_tags_and_two_tag_set
 specifier|public
 name|void
@@ -737,8 +742,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|nodes_with_same_tags_and_no_tag_set
 specifier|public
 name|void
@@ -780,8 +783,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|nodes_with_same_tags_and_one_tag_set
 specifier|public
 name|void
@@ -849,8 +850,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|nodes_with_same_tags_and_two_tags_set
 specifier|public
 name|void
@@ -932,8 +931,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|multiple_zones_and_two_nodes_in_same_zone
 specifier|public
 name|void
@@ -1027,8 +1024,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|multiple_zones_and_two_nodes_in_different_zones
 specifier|public
 name|void
@@ -1123,8 +1118,6 @@ block|}
 comment|/**      * For issue https://github.com/elastic/elasticsearch-cloud-gce/issues/43      */
 annotation|@
 name|Test
-annotation|@
-name|Ignore
 DECL|method|zero_node_43
 specifier|public
 name|void

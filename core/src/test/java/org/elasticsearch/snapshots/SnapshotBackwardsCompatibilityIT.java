@@ -182,24 +182,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|decider
-operator|.
-name|EnableAllocationDecider
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|io
@@ -244,7 +226,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 import|;
 end_import
 
@@ -414,7 +396,7 @@ specifier|public
 class|class
 name|SnapshotBackwardsCompatibilityIT
 extends|extends
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 block|{
 annotation|@
 name|Test

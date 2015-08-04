@@ -254,7 +254,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -364,7 +364,7 @@ end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
@@ -377,7 +377,7 @@ specifier|public
 class|class
 name|RepositoriesTests
 extends|extends
-name|AbstractSnapshotIT
+name|AbstractSnapshotIntegTestCase
 block|{
 annotation|@
 name|Test

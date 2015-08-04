@@ -68,22 +68,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|core
-operator|.
-name|DateFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|object
 operator|.
 name|RootObjectMapper
@@ -98,7 +82,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -111,18 +95,6 @@ operator|.
 name|time
 operator|.
 name|DateTime
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTimeFieldType
 import|;
 end_import
 
@@ -228,7 +200,7 @@ specifier|public
 class|class
 name|SimpleJodaTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Test

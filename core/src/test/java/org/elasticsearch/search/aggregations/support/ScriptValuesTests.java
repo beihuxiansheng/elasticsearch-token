@@ -134,7 +134,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|ScriptValuesTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|class|FakeSearchScript
 specifier|private

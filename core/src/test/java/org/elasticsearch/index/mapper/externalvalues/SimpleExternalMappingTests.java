@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|SimpleExternalMappingTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 annotation|@
 name|Test

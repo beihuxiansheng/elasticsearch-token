@@ -72,6 +72,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -86,7 +98,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -98,19 +110,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple class that ensures that all subclasses concrete of ElasticsearchTestCase end with either Test | Tests  */
+comment|/**  * Simple class that ensures that all subclasses concrete of ESTestCase end with either Test | Tests  */
 end_comment
 
 begin_class
@@ -234,7 +234,7 @@ specifier|public
 class|class
 name|NamingConventionTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|// see https://github.com/elasticsearch/elasticsearch/issues/9945
 DECL|method|testNamingConventions
@@ -691,33 +691,6 @@ name|clazz
 parameter_list|)
 block|{
 return|return
-name|ElasticsearchTestCase
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|clazz
-argument_list|)
-operator|||
-name|ElasticsearchTestCase
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|clazz
-argument_list|)
-operator|||
-name|ElasticsearchTokenStreamTestCase
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|clazz
-argument_list|)
-operator|||
 name|LuceneTestCase
 operator|.
 name|class
@@ -947,21 +920,21 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
 name|getSimpleName
 argument_list|()
 argument_list|,
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
 name|getSimpleName
 argument_list|()
 argument_list|,
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 operator|.
 name|class
 operator|.
@@ -980,7 +953,7 @@ name|assertTrue
 argument_list|(
 literal|"Not all subclasses of "
 operator|+
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
@@ -1041,6 +1014,13 @@ expr_stmt|;
 block|}
 comment|/*      * Some test the test classes      */
 annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Ignoring test the tester"
+argument_list|)
+annotation|@
 name|Ignore
 DECL|class|NotImplementingTests
 specifier|public
@@ -1049,6 +1029,13 @@ specifier|final
 class|class
 name|NotImplementingTests
 block|{}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Ignoring test the tester"
+argument_list|)
 annotation|@
 name|Ignore
 DECL|class|NotImplementingTest
@@ -1065,7 +1052,7 @@ specifier|final
 class|class
 name|WrongName
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{}
 DECL|class|WrongNameTheSecond
 specifier|public
@@ -1074,7 +1061,7 @@ specifier|final
 class|class
 name|WrongNameTheSecond
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{}
 DECL|class|PlainUnit
 specifier|public

@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -178,7 +178,7 @@ specifier|public
 class|class
 name|DedicatedAggregationIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|// https://github.com/elasticsearch/elasticsearch/issues/7240
 annotation|@

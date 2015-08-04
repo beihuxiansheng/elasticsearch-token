@@ -206,7 +206,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -311,7 +311,7 @@ decl_stmt|;
 name|AllocationService
 name|strategy
 init|=
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 operator|.
 name|createAllocationService
 argument_list|(
@@ -472,7 +472,7 @@ name|nb
 operator|.
 name|put
 argument_list|(
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 operator|.
 name|newNode
 argument_list|(

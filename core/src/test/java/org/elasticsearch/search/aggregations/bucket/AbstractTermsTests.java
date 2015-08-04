@@ -94,17 +94,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -141,15 +131,13 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|AbstractTermsTests
 specifier|public
 specifier|abstract
 class|class
 name|AbstractTermsTests
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|randomExecutionHint
 specifier|public

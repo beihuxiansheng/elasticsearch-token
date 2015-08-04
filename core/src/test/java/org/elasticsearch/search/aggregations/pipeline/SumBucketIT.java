@@ -152,22 +152,6 @@ name|aggregations
 operator|.
 name|pipeline
 operator|.
-name|InternalSimpleValue
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|aggregations
-operator|.
-name|pipeline
-operator|.
 name|BucketHelpers
 operator|.
 name|GapPolicy
@@ -182,7 +166,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -370,15 +354,15 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 DECL|class|SumBucketIT
 specifier|public
 class|class
 name|SumBucketIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|SINGLE_VALUED_FIELD_NAME
 specifier|private

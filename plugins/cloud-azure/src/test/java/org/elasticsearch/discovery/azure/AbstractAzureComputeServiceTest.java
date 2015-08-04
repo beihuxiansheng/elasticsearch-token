@@ -126,7 +126,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -137,7 +137,7 @@ specifier|abstract
 class|class
 name|AbstractAzureComputeServiceTest
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|mock
 specifier|private

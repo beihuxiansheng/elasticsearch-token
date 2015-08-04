@@ -1214,7 +1214,7 @@ specifier|public
 class|class
 name|SharedClusterSnapshotRestoreIT
 extends|extends
-name|AbstractSnapshotIT
+name|AbstractSnapshotIntegTestCase
 block|{
 annotation|@
 name|Test

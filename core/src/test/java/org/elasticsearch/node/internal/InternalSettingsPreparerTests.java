@@ -92,7 +92,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -214,7 +214,7 @@ specifier|public
 class|class
 name|InternalSettingsPreparerTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Before

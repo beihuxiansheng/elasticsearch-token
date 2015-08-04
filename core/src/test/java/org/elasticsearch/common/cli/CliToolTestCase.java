@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -190,20 +190,14 @@ name|hasSize
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-annotation|@
-name|Ignore
 DECL|class|CliToolTestCase
 specifier|public
 specifier|abstract
 class|class
 name|CliToolTestCase
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Before

@@ -484,9 +484,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-operator|.
-name|ClusterScope
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -498,7 +496,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
+operator|.
+name|ClusterScope
 import|;
 end_import
 
@@ -656,7 +656,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 import|;
@@ -729,7 +729,7 @@ specifier|public
 class|class
 name|IndexRecoveryIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|INDEX_NAME
 specifier|private

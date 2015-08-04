@@ -158,7 +158,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 import|;
 end_import
 
@@ -278,7 +278,7 @@ specifier|public
 class|class
 name|SignificantTermsBackwardCompatibilityIT
 extends|extends
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 block|{
 DECL|field|INDEX_NAME
 specifier|static

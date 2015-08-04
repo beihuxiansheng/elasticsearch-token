@@ -486,7 +486,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -498,7 +498,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -512,7 +512,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 import|;
@@ -759,7 +759,7 @@ specifier|public
 class|class
 name|IndexStatsIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Override
@@ -4281,7 +4281,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// Optimize& flush and wait; else we sometimes get a "Delete Index failed - not acked"
-comment|// when ElasticsearchIntegrationTest.after tries to remove indices created by the test:
+comment|// when ESIntegTestCase.after tries to remove indices created by the test:
 name|logger
 operator|.
 name|info

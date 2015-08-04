@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|TestSectionParserTests
 extends|extends
-name|AbstractParserTests
+name|AbstractParserTestCase
 block|{
 annotation|@
 name|Test

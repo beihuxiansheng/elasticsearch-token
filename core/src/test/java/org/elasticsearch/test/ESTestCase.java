@@ -831,11 +831,11 @@ annotation|@
 name|LuceneTestCase
 operator|.
 name|SuppressReproduceLine
-DECL|class|ElasticsearchTestCase
+DECL|class|ESTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticsearchTestCase
+name|ESTestCase
 extends|extends
 name|LuceneTestCase
 block|{
@@ -888,7 +888,7 @@ parameter_list|()
 throws|throws
 name|Throwable
 block|{
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|this
 operator|.
@@ -925,7 +925,7 @@ operator|==
 literal|false
 condition|)
 block|{
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|this
 operator|.

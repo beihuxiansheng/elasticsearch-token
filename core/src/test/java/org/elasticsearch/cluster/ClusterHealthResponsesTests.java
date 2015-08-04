@@ -258,7 +258,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -334,7 +334,7 @@ specifier|public
 class|class
 name|ClusterHealthResponsesTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|indexNameExpressionResolver
 specifier|private

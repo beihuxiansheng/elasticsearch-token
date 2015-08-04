@@ -302,6 +302,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|gateway
 operator|.
 name|NoopGatewayAllocator
@@ -333,18 +345,6 @@ operator|.
 name|shard
 operator|.
 name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -472,7 +472,7 @@ specifier|public
 class|class
 name|DiskThresholdDeciderTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|method|makeShardsAllocators
 specifier|private

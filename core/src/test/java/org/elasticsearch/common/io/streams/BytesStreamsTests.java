@@ -100,7 +100,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|BytesStreamsTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Test
@@ -1750,7 +1750,12 @@ block|}
 comment|// we ignore this test for now since all existing callers of BytesStreamOutput happily
 comment|// call bytes() after close().
 annotation|@
-name|Ignore
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/12620"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testAccessAfterClose

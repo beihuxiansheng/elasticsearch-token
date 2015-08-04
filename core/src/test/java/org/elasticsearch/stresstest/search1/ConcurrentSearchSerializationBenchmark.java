@@ -171,15 +171,10 @@ comment|/**  * Tests that data don't get corrupted while reading it over the str
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Stress Test"
-argument_list|)
-DECL|class|ConcurrentSearchSerializationTests
+DECL|class|ConcurrentSearchSerializationBenchmark
 specifier|public
 class|class
-name|ConcurrentSearchSerializationTests
+name|ConcurrentSearchSerializationBenchmark
 block|{
 DECL|method|main
 specifier|public

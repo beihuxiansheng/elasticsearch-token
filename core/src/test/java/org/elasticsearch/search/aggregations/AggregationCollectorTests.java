@@ -96,7 +96,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -116,7 +116,7 @@ specifier|public
 class|class
 name|AggregationCollectorTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testNeedsScores
 specifier|public

@@ -54,7 +54,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|GeoHashUtilsTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|/**      * Pass condition: lat=42.6, lng=-5.6 should be encoded as "ezs42e44yx96",      * lat=57.64911 lng=10.40744 should be encoded as "u4pruydqqvj8"      */
 annotation|@

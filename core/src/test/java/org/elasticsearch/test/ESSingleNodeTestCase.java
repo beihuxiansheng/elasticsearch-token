@@ -443,15 +443,13 @@ comment|/**  * A test that keep a singleton node started for all tests that can 
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-DECL|class|ElasticsearchSingleNodeTest
+DECL|class|ESSingleNodeTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|NODE
 specifier|private

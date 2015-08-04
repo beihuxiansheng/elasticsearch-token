@@ -230,7 +230,7 @@ specifier|public
 class|class
 name|BalanceUnbalancedClusterTest
 extends|extends
-name|CatAllocationTestBase
+name|CatAllocationTestCase
 block|{
 annotation|@
 name|Override

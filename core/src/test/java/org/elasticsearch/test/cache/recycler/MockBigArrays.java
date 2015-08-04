@@ -288,7 +288,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -494,7 +494,7 @@ comment|// copy (snapshot) have been released
 name|boolean
 name|success
 init|=
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|awaitBusy
 argument_list|(

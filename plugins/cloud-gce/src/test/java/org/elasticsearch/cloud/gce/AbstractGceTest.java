@@ -88,9 +88,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|test
 operator|.
-name|PluginsService
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -102,19 +102,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ThirdParty
 import|;
@@ -133,7 +121,7 @@ specifier|abstract
 class|class
 name|AbstractGceTest
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Override

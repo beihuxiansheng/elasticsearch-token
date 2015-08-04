@@ -393,13 +393,13 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|ElasticsearchAllocationTestCase
+DECL|class|ESAllocationTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|method|createAllocationService
 specifier|public

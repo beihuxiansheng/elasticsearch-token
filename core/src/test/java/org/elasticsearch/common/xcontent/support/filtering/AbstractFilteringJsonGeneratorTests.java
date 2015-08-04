@@ -56,7 +56,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -133,7 +133,7 @@ specifier|abstract
 class|class
 name|AbstractFilteringJsonGeneratorTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|method|getXContentType
 specifier|protected

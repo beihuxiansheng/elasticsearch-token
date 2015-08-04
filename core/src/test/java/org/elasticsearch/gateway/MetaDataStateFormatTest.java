@@ -308,7 +308,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -578,7 +578,7 @@ specifier|public
 class|class
 name|MetaDataStateFormatTest
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|/**      * Ensure we can read a pre-generated cluster state.      */
 DECL|method|testReadClusterState

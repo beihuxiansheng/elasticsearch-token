@@ -390,22 +390,6 @@ name|mapper
 operator|.
 name|internal
 operator|.
-name|IndexFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
 name|SizeFieldMapper
 import|;
 end_import
@@ -418,7 +402,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -640,7 +624,7 @@ specifier|public
 class|class
 name|SimpleAllMapperTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testSimpleAllMappers
 specifier|public

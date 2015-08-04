@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -138,7 +124,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -267,7 +253,7 @@ specifier|public
 class|class
 name|BlobStoreTest
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Test

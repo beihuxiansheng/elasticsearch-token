@@ -280,7 +280,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -301,16 +301,6 @@ operator|.
 name|hamcrest
 operator|.
 name|StringDescription
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -337,15 +327,13 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Ignore
-DECL|class|AbstractChildTests
+DECL|class|AbstractChildTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractChildTests
+name|AbstractChildTestCase
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 comment|/**      * The name of the field within the child type that stores a score to use in test queries.      *<p />      * Its type is {@code double}.      */
 DECL|field|CHILD_SCORE_NAME

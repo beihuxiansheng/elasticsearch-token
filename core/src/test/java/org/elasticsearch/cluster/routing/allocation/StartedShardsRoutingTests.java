@@ -114,23 +114,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -174,18 +160,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|isEmptyOrNullString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|nullValue
 import|;
 end_import
@@ -196,7 +170,7 @@ specifier|public
 class|class
 name|StartedShardsRoutingTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 annotation|@
 name|Test

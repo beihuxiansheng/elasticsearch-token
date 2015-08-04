@@ -44,7 +44,7 @@ specifier|public
 class|class
 name|SmbMMapDirectoryTest
 extends|extends
-name|ElasticSearchBaseDirectoryTestCase
+name|ESBaseDirectoryTestCase
 block|{
 annotation|@
 name|Override

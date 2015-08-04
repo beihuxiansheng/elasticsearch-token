@@ -294,7 +294,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 import|;
 end_import
 
@@ -306,7 +306,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -384,13 +384,13 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -402,7 +402,7 @@ specifier|public
 class|class
 name|UpgradeIT
 extends|extends
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 block|{
 annotation|@
 name|BeforeClass

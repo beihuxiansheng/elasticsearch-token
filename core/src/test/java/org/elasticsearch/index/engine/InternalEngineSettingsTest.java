@@ -64,7 +64,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|InternalEngineSettingsTest
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testSettingsUpdate
 specifier|public

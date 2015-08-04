@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -240,7 +240,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|TESTS_CLUSTER
 import|;
@@ -256,7 +256,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|REST_TESTS_BLACKLIST
 import|;
@@ -272,7 +272,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|REST_TESTS_SPEC
 import|;
@@ -288,7 +288,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|REST_TESTS_SUITE
 import|;
@@ -304,7 +304,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|Rest
 import|;
@@ -332,7 +332,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 argument_list|)

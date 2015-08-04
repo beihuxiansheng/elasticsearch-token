@@ -118,7 +118,7 @@ specifier|public
 class|class
 name|RestApiParserTests
 extends|extends
-name|AbstractParserTests
+name|AbstractParserTestCase
 block|{
 annotation|@
 name|Test

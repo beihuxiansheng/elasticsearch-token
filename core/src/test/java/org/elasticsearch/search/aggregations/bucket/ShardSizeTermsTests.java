@@ -160,7 +160,7 @@ specifier|public
 class|class
 name|ShardSizeTermsTests
 extends|extends
-name|ShardSizeTests
+name|ShardSizeTestCase
 block|{
 annotation|@
 name|Test

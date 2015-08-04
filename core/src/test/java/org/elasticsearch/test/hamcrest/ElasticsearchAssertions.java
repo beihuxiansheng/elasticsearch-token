@@ -852,7 +852,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|*
 import|;

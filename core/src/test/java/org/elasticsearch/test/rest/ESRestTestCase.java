@@ -230,7 +230,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -242,7 +242,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -702,7 +702,7 @@ end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|Rest
 annotation|@
@@ -733,13 +733,13 @@ operator|.
 name|MINUTE
 argument_list|)
 comment|// timeout the suite after 40min and fail the test.
-DECL|class|ElasticsearchRestTestCase
+DECL|class|ESRestTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|/**      * Property that allows to control whether the REST tests are run (default) or not      */
 DECL|field|TESTS_REST
@@ -777,7 +777,7 @@ literal|true
 argument_list|,
 name|sysProperty
 operator|=
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|TESTS_REST
 argument_list|)
@@ -881,9 +881,9 @@ specifier|final
 name|RestTestCandidate
 name|testCandidate
 decl_stmt|;
-DECL|method|ElasticsearchRestTestCase
+DECL|method|ESRestTestCase
 specifier|public
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 parameter_list|(
 name|RestTestCandidate
 name|testCandidate

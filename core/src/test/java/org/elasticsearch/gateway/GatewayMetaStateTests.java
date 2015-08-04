@@ -160,7 +160,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -238,7 +238,7 @@ specifier|public
 class|class
 name|GatewayMetaStateTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|method|generateEvent
 name|ClusterChangedEvent

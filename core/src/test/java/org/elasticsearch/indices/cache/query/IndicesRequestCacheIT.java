@@ -126,7 +126,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -206,7 +206,7 @@ specifier|public
 class|class
 name|IndicesRequestCacheIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|// One of the primary purposes of the query cache is to cache aggs results
 DECL|method|testCacheAggs

@@ -38,17 +38,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTokenStreamTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -92,24 +82,18 @@ name|SETTING_VERSION_CREATED
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|AnalyzerBackwardsCompatTests
 specifier|public
 class|class
 name|AnalyzerBackwardsCompatTests
 extends|extends
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 block|{
-annotation|@
-name|Ignore
-DECL|method|testNoStopwordsAfter
+DECL|method|assertNoStopwordsAfter
 specifier|private
 name|void
-name|testNoStopwordsAfter
+name|assertNoStopwordsAfter
 parameter_list|(
 name|org
 operator|.
@@ -330,7 +314,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|testNoStopwordsAfter
+name|assertNoStopwordsAfter
 argument_list|(
 name|org
 operator|.
@@ -352,7 +336,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|testNoStopwordsAfter
+name|assertNoStopwordsAfter
 argument_list|(
 name|org
 operator|.
@@ -374,7 +358,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|testNoStopwordsAfter
+name|assertNoStopwordsAfter
 argument_list|(
 name|org
 operator|.

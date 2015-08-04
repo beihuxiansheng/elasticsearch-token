@@ -310,7 +310,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -439,12 +439,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|ElasticsearchExceptionTests
+DECL|class|ESExceptionTests
 specifier|public
 class|class
-name|ElasticsearchExceptionTests
+name|ESExceptionTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Test

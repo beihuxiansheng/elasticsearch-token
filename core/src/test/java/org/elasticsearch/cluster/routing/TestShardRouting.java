@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -438,7 +438,7 @@ return|return
 operator|new
 name|UnassignedInfo
 argument_list|(
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|randomFrom
 argument_list|(

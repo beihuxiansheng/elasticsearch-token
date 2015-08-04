@@ -66,7 +66,7 @@ specifier|public
 class|class
 name|RestIT
 extends|extends
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 block|{
 DECL|method|RestIT
 specifier|public

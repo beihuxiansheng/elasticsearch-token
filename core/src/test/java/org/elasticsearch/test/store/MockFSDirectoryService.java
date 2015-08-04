@@ -336,7 +336,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -348,7 +348,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -608,7 +608,7 @@ name|indexSettings
 operator|.
 name|getAsLong
 argument_list|(
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|SETTING_INDEX_SEED
 argument_list|,
@@ -1031,7 +1031,7 @@ name|dir
 argument_list|)
 condition|)
 block|{
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|checkIndexFailed
 operator|=
@@ -1114,7 +1114,7 @@ operator|.
 name|clean
 condition|)
 block|{
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|checkIndexFailed
 operator|=

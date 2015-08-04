@@ -760,7 +760,7 @@ specifier|public
 class|class
 name|ParentQueryTests
 extends|extends
-name|AbstractChildTests
+name|AbstractChildTestCase
 block|{
 annotation|@
 name|BeforeClass

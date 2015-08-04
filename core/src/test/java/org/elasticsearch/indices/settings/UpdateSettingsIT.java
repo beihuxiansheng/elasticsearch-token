@@ -262,7 +262,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -348,7 +348,7 @@ specifier|public
 class|class
 name|UpdateSettingsIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Test
@@ -1974,7 +1974,7 @@ name|newSumThrottleTime
 argument_list|)
 expr_stmt|;
 comment|// Optimize& flush and wait; else we sometimes get a "Delete Index failed - not acked"
-comment|// when ElasticsearchIntegrationTest.after tries to remove indices created by the test:
+comment|// when ESIntegTestCase.after tries to remove indices created by the test:
 comment|// Wait for merges to finish
 name|client
 argument_list|()

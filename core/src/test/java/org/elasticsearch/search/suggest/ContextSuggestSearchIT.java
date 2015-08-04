@@ -302,7 +302,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -434,7 +434,7 @@ specifier|public
 class|class
 name|ContextSuggestSearchIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|INDEX
 specifier|private

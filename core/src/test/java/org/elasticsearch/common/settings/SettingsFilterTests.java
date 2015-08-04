@@ -54,6 +54,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|rest
 operator|.
 name|FakeRestRequest
@@ -69,18 +81,6 @@ operator|.
 name|rest
 operator|.
 name|RestRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchTestCase
 import|;
 end_import
 
@@ -122,7 +122,7 @@ specifier|public
 class|class
 name|SettingsFilterTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 annotation|@
 name|Test
