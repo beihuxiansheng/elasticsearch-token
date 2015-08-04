@@ -184,7 +184,7 @@ argument_list|()
 decl_stmt|;
 name|assumeTrue
 argument_list|(
-literal|"this test will not work from an IDE unless you pass test.cluster pointing to a running instance"
+literal|"this test will not work from an IDE unless you pass tests.cluster pointing to a running instance"
 argument_list|,
 name|cluster
 operator|instanceof
