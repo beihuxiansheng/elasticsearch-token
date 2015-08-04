@@ -89,11 +89,11 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuiteScopeTestCase
-DECL|class|AbstractNumericTests
+DECL|class|AbstractNumericTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractNumericTests
+name|AbstractNumericTestCase
 extends|extends
 name|ESIntegTestCase
 block|{

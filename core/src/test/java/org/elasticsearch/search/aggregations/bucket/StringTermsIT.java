@@ -685,12 +685,12 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuiteScopeTestCase
-DECL|class|StringTermsTests
+DECL|class|StringTermsIT
 specifier|public
 class|class
-name|StringTermsTests
+name|StringTermsIT
 extends|extends
-name|AbstractTermsTests
+name|AbstractTermsTestCase
 block|{
 DECL|field|SINGLE_VALUED_FIELD_NAME
 specifier|private

@@ -273,12 +273,12 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|StatsTests
+DECL|class|StatsIT
 specifier|public
 class|class
-name|StatsTests
+name|StatsIT
 extends|extends
-name|AbstractNumericTests
+name|AbstractNumericTestCase
 block|{
 annotation|@
 name|Override

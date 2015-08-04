@@ -405,11 +405,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractTermVectorsTests
+DECL|class|AbstractTermVectorsTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractTermVectorsTests
+name|AbstractTermVectorsTestCase
 extends|extends
 name|ESIntegTestCase
 block|{

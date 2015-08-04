@@ -169,12 +169,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|MultiTermVectorsTests
+DECL|class|MultiTermVectorsIT
 specifier|public
 class|class
-name|MultiTermVectorsTests
+name|MultiTermVectorsIT
 extends|extends
-name|AbstractTermVectorsTests
+name|AbstractTermVectorsTestCase
 block|{
 annotation|@
 name|Test
@@ -186,7 +186,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|AbstractTermVectorsTests
+name|AbstractTermVectorsTestCase
 operator|.
 name|TestFieldSetting
 index|[]
@@ -224,7 +224,7 @@ argument_list|(
 name|testDocs
 argument_list|)
 decl_stmt|;
-name|AbstractTermVectorsTests
+name|AbstractTermVectorsTestCase
 operator|.
 name|TestConfig
 index|[]
@@ -250,7 +250,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|AbstractTermVectorsTests
+name|AbstractTermVectorsTestCase
 operator|.
 name|TestConfig
 name|test
