@@ -54,20 +54,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|xcontent
@@ -130,7 +116,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -218,7 +204,7 @@ specifier|public
 class|class
 name|FieldDataFilterIntegrationIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Override

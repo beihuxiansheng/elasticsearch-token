@@ -176,7 +176,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 import|;
 end_import
 
@@ -244,7 +244,7 @@ specifier|public
 class|class
 name|ClusterStateBackwardsCompatIT
 extends|extends
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 block|{
 annotation|@
 name|Test

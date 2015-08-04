@@ -238,18 +238,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|PluginsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|repositories
 operator|.
 name|RepositoryMissingException
@@ -300,7 +288,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -314,7 +302,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 import|;

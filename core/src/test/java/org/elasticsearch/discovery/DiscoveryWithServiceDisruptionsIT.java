@@ -438,7 +438,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -531,16 +531,6 @@ operator|.
 name|junit
 operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -652,7 +642,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -666,7 +656,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 import|;
@@ -723,7 +713,7 @@ specifier|public
 class|class
 name|DiscoveryWithServiceDisruptionsIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|DISRUPTION_HEALING_OVERHEAD
 specifier|private
@@ -5946,8 +5936,10 @@ expr_stmt|;
 block|}
 comment|// tests if indices are really deleted even if a master transition inbetween
 annotation|@
-name|Ignore
+name|AwaitsFix
 argument_list|(
+name|bugUrl
+operator|=
 literal|"https://github.com/elastic/elasticsearch/issues/11665"
 argument_list|)
 annotation|@

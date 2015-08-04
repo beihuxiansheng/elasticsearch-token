@@ -166,7 +166,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -290,7 +290,7 @@ specifier|public
 class|class
 name|ExistsMissingIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|// TODO: move this to a unit test somewhere...
 DECL|method|testEmptyIndex

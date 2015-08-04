@@ -66,19 +66,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|VersionUtils
+name|ESTestCase
 import|;
 end_import
 
@@ -242,7 +230,7 @@ specifier|public
 class|class
 name|RestTestParserTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|parser
 specifier|private

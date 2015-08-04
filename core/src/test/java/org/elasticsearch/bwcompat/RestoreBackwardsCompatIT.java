@@ -170,7 +170,7 @@ name|elasticsearch
 operator|.
 name|snapshots
 operator|.
-name|AbstractSnapshotIT
+name|AbstractSnapshotIntegTestCase
 import|;
 end_import
 
@@ -218,7 +218,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -232,7 +232,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 import|;
@@ -477,7 +477,7 @@ specifier|public
 class|class
 name|RestoreBackwardsCompatIT
 extends|extends
-name|AbstractSnapshotIT
+name|AbstractSnapshotIntegTestCase
 block|{
 annotation|@
 name|Override

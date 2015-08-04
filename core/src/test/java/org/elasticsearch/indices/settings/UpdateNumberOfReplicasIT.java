@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -232,7 +232,7 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
@@ -245,7 +245,7 @@ specifier|public
 class|class
 name|UpdateNumberOfReplicasIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Override

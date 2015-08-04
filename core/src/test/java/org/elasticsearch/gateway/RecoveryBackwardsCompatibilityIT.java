@@ -18,20 +18,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -188,7 +174,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 import|;
 end_import
 
@@ -200,7 +186,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -282,7 +268,7 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
@@ -292,7 +278,7 @@ literal|0
 argument_list|,
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -311,7 +297,7 @@ specifier|public
 class|class
 name|RecoveryBackwardsCompatibilityIT
 extends|extends
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 block|{
 annotation|@
 name|Override

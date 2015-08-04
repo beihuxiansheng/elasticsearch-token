@@ -80,7 +80,7 @@ specifier|public
 class|class
 name|Rest2IT
 extends|extends
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 block|{
 DECL|method|Rest2IT
 specifier|public

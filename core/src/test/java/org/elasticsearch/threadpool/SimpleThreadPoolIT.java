@@ -216,7 +216,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -228,7 +228,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -242,7 +242,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -438,7 +438,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 import|;
@@ -499,7 +499,7 @@ specifier|public
 class|class
 name|SimpleThreadPoolIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Override
@@ -959,7 +959,7 @@ name|threadNames
 control|)
 block|{
 comment|// ignore some shared threads we know that are created within the same VM, like the shared discovery one
-comment|// or the ones that are occasionally come up from ElasticsearchSingleNodeTest
+comment|// or the ones that are occasionally come up from ESSingleNodeTestCase
 if|if
 condition|(
 name|threadName
@@ -981,7 +981,7 @@ name|contains
 argument_list|(
 literal|"["
 operator|+
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 operator|.
 name|nodeName
 argument_list|()
@@ -1019,7 +1019,7 @@ name|Pattern
 operator|.
 name|quote
 argument_list|(
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|SUITE_CLUSTER_NODE_PREFIX
 argument_list|)
@@ -1030,7 +1030,7 @@ name|Pattern
 operator|.
 name|quote
 argument_list|(
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|TEST_CLUSTER_NODE_PREFIX
 argument_list|)

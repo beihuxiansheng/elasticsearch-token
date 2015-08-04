@@ -268,20 +268,11 @@ name|termQuery
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Stress Test"
-argument_list|)
-DECL|class|Search1StressTest
+DECL|class|Search1StressBenchmark
 specifier|public
 class|class
-name|Search1StressTest
+name|Search1StressBenchmark
 block|{
 DECL|field|logger
 specifier|private
@@ -441,7 +432,7 @@ name|client
 decl_stmt|;
 DECL|method|setNumberOfNodes
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setNumberOfNodes
 parameter_list|(
 name|int
@@ -460,7 +451,7 @@ return|;
 block|}
 DECL|method|setPreIndexDocs
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setPreIndexDocs
 parameter_list|(
 name|SizeValue
@@ -479,7 +470,7 @@ return|;
 block|}
 DECL|method|setIndexers
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setIndexers
 parameter_list|(
 name|int
@@ -498,7 +489,7 @@ return|;
 block|}
 DECL|method|setIndexerThrottle
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setIndexerThrottle
 parameter_list|(
 name|TimeValue
@@ -517,7 +508,7 @@ return|;
 block|}
 DECL|method|setSearchers
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setSearchers
 parameter_list|(
 name|int
@@ -536,7 +527,7 @@ return|;
 block|}
 DECL|method|setSearcherThrottle
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setSearcherThrottle
 parameter_list|(
 name|TimeValue
@@ -555,7 +546,7 @@ return|;
 block|}
 DECL|method|setNumberOfIndices
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setNumberOfIndices
 parameter_list|(
 name|int
@@ -574,7 +565,7 @@ return|;
 block|}
 DECL|method|setNumberOfTypes
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setNumberOfTypes
 parameter_list|(
 name|int
@@ -593,7 +584,7 @@ return|;
 block|}
 DECL|method|setNumberOfValues
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setNumberOfValues
 parameter_list|(
 name|int
@@ -612,7 +603,7 @@ return|;
 block|}
 DECL|method|setNumberOfHits
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setNumberOfHits
 parameter_list|(
 name|int
@@ -631,7 +622,7 @@ return|;
 block|}
 DECL|method|setFlusherThrottle
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setFlusherThrottle
 parameter_list|(
 name|TimeValue
@@ -650,7 +641,7 @@ return|;
 block|}
 DECL|method|setSettings
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setSettings
 parameter_list|(
 name|Settings
@@ -669,7 +660,7 @@ return|;
 block|}
 DECL|method|setPeriod
 specifier|public
-name|Search1StressTest
+name|Search1StressBenchmark
 name|setPeriod
 parameter_list|(
 name|TimeValue
@@ -1927,11 +1918,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Search1StressTest
+name|Search1StressBenchmark
 name|test
 init|=
 operator|new
-name|Search1StressTest
+name|Search1StressBenchmark
 argument_list|()
 operator|.
 name|setPeriod

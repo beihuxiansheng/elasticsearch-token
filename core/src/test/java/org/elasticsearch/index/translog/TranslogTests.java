@@ -326,7 +326,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -593,7 +593,7 @@ specifier|public
 class|class
 name|TranslogTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|PARSE_LEGACY_ID_PATTERN
 specifier|private

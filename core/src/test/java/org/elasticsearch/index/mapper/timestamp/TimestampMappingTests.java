@@ -308,7 +308,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -490,7 +490,7 @@ specifier|public
 class|class
 name|TimestampMappingTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|field|BWC_SETTINGS
 name|Settings

@@ -88,18 +88,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|IndexNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|IndexService
 import|;
 end_import
@@ -180,7 +168,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -214,7 +202,7 @@ specifier|public
 class|class
 name|SyncedFlushSingleNodeTest
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testModificationPreventsFlushing
 specifier|public

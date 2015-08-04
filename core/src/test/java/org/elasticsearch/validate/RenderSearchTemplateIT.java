@@ -152,7 +152,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -228,15 +228,15 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 DECL|class|RenderSearchTemplateIT
 specifier|public
 class|class
 name|RenderSearchTemplateIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|TEMPLATE_CONTENTS
 specifier|private

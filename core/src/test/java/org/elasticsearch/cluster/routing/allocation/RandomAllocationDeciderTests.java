@@ -278,9 +278,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|gateway
-operator|.
-name|NoopGatewayAllocator
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -292,7 +290,9 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|gateway
+operator|.
+name|NoopGatewayAllocator
 import|;
 end_import
 
@@ -396,7 +396,7 @@ specifier|public
 class|class
 name|RandomAllocationDeciderTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 comment|/* This test will make random allocation decision on a growing and shrinking      * cluster leading to a random distribution of the shards. After a certain      * amount of iterations the test allows allocation unless the same shard is      * already allocated on a node and balances the cluster to gain optimal      * balance.*/
 annotation|@

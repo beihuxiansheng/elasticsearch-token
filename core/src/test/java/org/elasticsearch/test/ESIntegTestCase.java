@@ -1759,12 +1759,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ElasticsearchIntegrationTest} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p/>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p/>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIntegrationTest extends ElasticsearchIntegrationTest {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ElasticsearchIntegrationTest} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value InternalTestCluster#TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
+comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p/>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p/>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIntegrationTest extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value InternalTestCluster#TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 annotation|@
 name|LuceneTestCase
 operator|.
@@ -1773,13 +1771,13 @@ argument_list|(
 literal|"ExtrasFS"
 argument_list|)
 comment|// doesn't work with potential multi data path from test cluster yet
-DECL|class|ElasticsearchIntegrationTest
+DECL|class|ESIntegTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|/**      * Property that controls whether ThirdParty Integration tests are run (not the default).      */
 DECL|field|SYSPROP_THIRDPARTY
@@ -1817,7 +1815,7 @@ literal|false
 argument_list|,
 name|sysProperty
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|SYSPROP_THIRDPARTY
 argument_list|)
@@ -1975,7 +1973,7 @@ decl_stmt|;
 DECL|field|INSTANCE
 specifier|private
 specifier|static
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 name|INSTANCE
 init|=
 literal|null
@@ -2131,7 +2129,7 @@ literal|"unable to create new native thread"
 argument_list|)
 condition|)
 block|{
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|printStackDump
 argument_list|(
@@ -8922,7 +8920,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The scope of a test cluster used together with      * {@link org.elasticsearch.test.ElasticsearchIntegrationTest.ClusterScope} annotations on {@link org.elasticsearch.test.ElasticsearchIntegrationTest} subclasses.      */
+comment|/**      * The scope of a test cluster used together with      * {@link ESIntegTestCase.ClusterScope} annotations on {@link ESIntegTestCase} subclasses.      */
 DECL|enum|Scope
 specifier|public
 enum|enum
@@ -8936,7 +8934,7 @@ comment|/**          * A test exclusive test cluster          */
 DECL|enum constant|TEST
 name|TEST
 block|}
-comment|/**      * Defines a cluster scope for a {@link org.elasticsearch.test.ElasticsearchIntegrationTest} subclass.      * By default if no {@link ClusterScope} annotation is present {@link org.elasticsearch.test.ElasticsearchIntegrationTest.Scope#SUITE} is used      * together with randomly chosen settings like number of nodes etc.      */
+comment|/**      * Defines a cluster scope for a {@link ESIntegTestCase} subclass.      * By default if no {@link ClusterScope} annotation is present {@link ESIntegTestCase.Scope#SUITE} is used      * together with randomly chosen settings like number of nodes etc.      */
 annotation|@
 name|Retention
 argument_list|(
@@ -8958,7 +8956,7 @@ specifier|public
 annotation_defn|@interface
 name|ClusterScope
 block|{
-comment|/**          * Returns the scope. {@link org.elasticsearch.test.ElasticsearchIntegrationTest.Scope#SUITE} is default.          */
+comment|/**          * Returns the scope. {@link ESIntegTestCase.Scope#SUITE} is default.          */
 DECL|field|Scope.SUITE
 name|Scope
 name|scope
@@ -9291,7 +9289,7 @@ name|class
 operator|||
 name|clazz
 operator|==
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|class
 condition|)
@@ -11032,7 +11030,7 @@ comment|// note we need to do this this way to make sure this is reproducible
 name|INSTANCE
 operator|=
 operator|(
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|)
 name|targetClass
 operator|.
@@ -11525,7 +11523,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * This method is executed iff the test is annotated with {@link SuiteScopeTest}      * before the first test of this class is executed.      *      * @see SuiteScopeTest      */
+comment|/**      * This method is executed iff the test is annotated with {@link SuiteScopeTestCase}      * before the first test of this class is executed.      *      * @see SuiteScopeTestCase      */
 DECL|method|setupSuiteScopeCluster
 specifier|protected
 name|void
@@ -11552,7 +11550,7 @@ name|clazz
 operator|.
 name|getAnnotation
 argument_list|(
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 operator|.
 name|class
 argument_list|)
@@ -11560,7 +11558,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * If a test is annotated with {@link org.elasticsearch.test.ElasticsearchIntegrationTest.SuiteScopeTest}      * the checks and modifications that are applied to the used test cluster are only done after all tests      * of this class are executed. This also has the side-effect of a suite level setup method {@link #setupSuiteScopeCluster()}      * that is executed in a separate test instance. Variables that need to be accessible across test instances must be static.      */
+comment|/**      * If a test is annotated with {@link SuiteScopeTestCase}      * the checks and modifications that are applied to the used test cluster are only done after all tests      * of this class are executed. This also has the side-effect of a suite level setup method {@link #setupSuiteScopeCluster()}      * that is executed in a separate test instance. Variables that need to be accessible across test instances must be static.      */
 annotation|@
 name|Retention
 argument_list|(
@@ -11570,12 +11568,10 @@ name|RUNTIME
 argument_list|)
 annotation|@
 name|Inherited
-annotation|@
-name|Ignore
-DECL|interface|SuiteScopeTest
+DECL|interface|SuiteScopeTestCase
 specifier|public
 annotation_defn|@interface
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 block|{     }
 block|}
 end_class

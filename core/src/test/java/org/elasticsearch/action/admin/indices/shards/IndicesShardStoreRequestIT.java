@@ -84,24 +84,6 @@ name|elasticsearch
 operator|.
 name|action
 operator|.
-name|admin
-operator|.
-name|indices
-operator|.
-name|shards
-operator|.
-name|IndicesShardStoresResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
 name|index
 operator|.
 name|IndexRequestBuilder
@@ -248,7 +230,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -360,13 +342,13 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -377,7 +359,7 @@ specifier|public
 class|class
 name|IndicesShardStoreRequestIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 annotation|@
 name|Test

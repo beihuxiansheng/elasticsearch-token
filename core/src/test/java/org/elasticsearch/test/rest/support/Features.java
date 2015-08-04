@@ -40,7 +40,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -120,7 +120,7 @@ argument_list|(
 name|feature
 argument_list|)
 operator|&&
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|cluster
 argument_list|()

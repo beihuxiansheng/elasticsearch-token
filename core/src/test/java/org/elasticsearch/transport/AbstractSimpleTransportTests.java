@@ -134,7 +134,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -307,7 +307,7 @@ specifier|abstract
 class|class
 name|AbstractSimpleTransportTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|threadPool
 specifier|protected

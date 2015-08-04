@@ -164,7 +164,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -228,7 +228,7 @@ specifier|public
 class|class
 name|IndicesServiceTest
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|getIndicesService
 specifier|public

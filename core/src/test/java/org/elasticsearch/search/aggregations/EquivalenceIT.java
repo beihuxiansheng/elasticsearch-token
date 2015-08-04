@@ -350,7 +350,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -664,7 +664,7 @@ specifier|public
 class|class
 name|EquivalenceIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|// Make sure that unordered, reversed, disjoint and/or overlapping ranges are supported
 comment|// Duel with filters

@@ -270,7 +270,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -355,7 +355,7 @@ specifier|abstract
 class|class
 name|AbstractFieldDataTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|field|indexService
 specifier|protected

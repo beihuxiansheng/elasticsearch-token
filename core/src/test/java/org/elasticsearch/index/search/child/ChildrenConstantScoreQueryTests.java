@@ -710,7 +710,7 @@ specifier|public
 class|class
 name|ChildrenConstantScoreQueryTests
 extends|extends
-name|AbstractChildTests
+name|AbstractChildTestCase
 block|{
 annotation|@
 name|BeforeClass

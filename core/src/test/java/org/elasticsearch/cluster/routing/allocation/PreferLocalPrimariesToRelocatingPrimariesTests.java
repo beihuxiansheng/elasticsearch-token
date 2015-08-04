@@ -132,7 +132,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -200,7 +200,7 @@ specifier|public
 class|class
 name|PreferLocalPrimariesToRelocatingPrimariesTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 annotation|@
 name|Test

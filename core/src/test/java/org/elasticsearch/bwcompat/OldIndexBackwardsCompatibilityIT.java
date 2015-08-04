@@ -438,7 +438,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -734,13 +734,13 @@ end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -762,7 +762,7 @@ specifier|public
 class|class
 name|OldIndexBackwardsCompatibilityIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|// TODO: test for proper exception on unsupported indexes (maybe via separate test?)
 comment|// We have a 0.20.6.zip etc for this.

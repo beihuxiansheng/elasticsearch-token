@@ -54,7 +54,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|CJKFilterFactoryTests
 extends|extends
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 block|{
 DECL|field|RESOURCE
 specifier|private

@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -194,7 +194,7 @@ specifier|public
 class|class
 name|UpdateThreadPoolSettingsTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|method|info
 specifier|private

@@ -48,17 +48,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -117,15 +107,13 @@ comment|/**  * Base class that lets you start a node with plugins.  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
 DECL|class|PluginTestCase
 specifier|public
 specifier|abstract
 class|class
 name|PluginTestCase
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|startNodeWithPlugins
 specifier|public

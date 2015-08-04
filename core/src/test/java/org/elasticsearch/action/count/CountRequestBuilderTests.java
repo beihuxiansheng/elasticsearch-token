@@ -162,7 +162,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -236,7 +236,7 @@ specifier|public
 class|class
 name|CountRequestBuilderTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|client
 specifier|private

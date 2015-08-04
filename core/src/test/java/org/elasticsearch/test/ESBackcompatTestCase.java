@@ -388,11 +388,11 @@ end_comment
 
 begin_class
 annotation|@
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 operator|.
 name|Backwards
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 argument_list|(
@@ -406,7 +406,7 @@ literal|2
 argument_list|,
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -420,15 +420,13 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
-annotation|@
-name|Ignore
-DECL|class|ElasticsearchBackwardsCompatIntegrationTest
+DECL|class|ESBackcompatTestCase
 specifier|public
 specifier|abstract
 class|class
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|/**      * Key used to set the path for the elasticsearch executable used to run backwards compatibility tests from      * via the commandline -D{@value #TESTS_BACKWARDS_COMPATIBILITY}      */
 DECL|field|TESTS_BACKWARDS_COMPATIBILITY
@@ -748,7 +746,7 @@ name|class
 operator|||
 name|clazz
 operator|==
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|class
 condition|)
@@ -1416,7 +1414,7 @@ literal|false
 argument_list|,
 name|sysProperty
 operator|=
-name|ElasticsearchBackwardsCompatIntegrationTest
+name|ESBackcompatTestCase
 operator|.
 name|TESTS_BACKWARDS_COMPATIBILITY
 argument_list|)
@@ -1442,8 +1440,6 @@ operator|.
 name|TYPE
 block|}
 argument_list|)
-annotation|@
-name|Ignore
 DECL|interface|CompatibilityVersion
 specifier|public
 annotation_defn|@interface

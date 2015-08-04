@@ -946,7 +946,7 @@ specifier|public
 class|class
 name|ChildrenQueryTests
 extends|extends
-name|AbstractChildTests
+name|AbstractChildTestCase
 block|{
 annotation|@
 name|BeforeClass

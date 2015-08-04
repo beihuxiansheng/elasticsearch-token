@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|AssertionParsersTests
 extends|extends
-name|AbstractParserTests
+name|AbstractParserTestCase
 block|{
 annotation|@
 name|Test

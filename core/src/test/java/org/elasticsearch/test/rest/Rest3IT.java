@@ -80,7 +80,7 @@ specifier|public
 class|class
 name|Rest3IT
 extends|extends
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 block|{
 DECL|method|Rest3IT
 specifier|public

@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -256,7 +256,7 @@ specifier|public
 class|class
 name|IndexActionIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 comment|/**      * This test tries to simulate load while creating an index and indexing documents      * while the index is being created.      */
 annotation|@

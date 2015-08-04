@@ -148,7 +148,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -178,7 +178,7 @@ specifier|public
 class|class
 name|MultiValueModeTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|method|randomRootDocs
 specifier|private

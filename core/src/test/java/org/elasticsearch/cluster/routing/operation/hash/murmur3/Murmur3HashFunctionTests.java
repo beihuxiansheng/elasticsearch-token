@@ -100,7 +100,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|Murmur3HashFunctionTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|method|test
 specifier|public

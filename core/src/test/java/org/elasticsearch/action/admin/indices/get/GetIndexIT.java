@@ -40,16 +40,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ResourceNotFoundException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -174,7 +164,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -280,15 +270,15 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 DECL|class|GetIndexIT
 specifier|public
 class|class
 name|GetIndexIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|allFeatures
 specifier|private

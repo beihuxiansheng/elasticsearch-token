@@ -132,7 +132,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -271,15 +271,13 @@ comment|/**  * A base testscase that allows to run tests based on the output of 
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-DECL|class|CatAllocationTestBase
+DECL|class|CatAllocationTestCase
 specifier|public
 specifier|abstract
 class|class
-name|CatAllocationTestBase
+name|CatAllocationTestCase
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|method|getCatPath
 specifier|protected

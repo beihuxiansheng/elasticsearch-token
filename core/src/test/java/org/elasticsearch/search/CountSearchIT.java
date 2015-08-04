@@ -82,7 +82,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|CountSearchIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|testDuelCountQueryThenFetch
 specifier|public

@@ -224,17 +224,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -310,7 +300,7 @@ specifier|public
 class|class
 name|ParentFieldLoadingIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|indexSettings
 specifier|private

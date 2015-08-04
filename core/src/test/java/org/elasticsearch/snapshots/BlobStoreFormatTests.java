@@ -364,7 +364,7 @@ specifier|public
 class|class
 name|BlobStoreFormatTests
 extends|extends
-name|AbstractSnapshotIT
+name|AbstractSnapshotIntegTestCase
 block|{
 DECL|field|parseFieldMatcher
 specifier|private

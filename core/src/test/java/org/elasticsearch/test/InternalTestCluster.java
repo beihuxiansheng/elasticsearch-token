@@ -1082,18 +1082,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
-operator|.
-name|PluginsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|script
 operator|.
 name|ScriptService
@@ -1482,7 +1470,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|assertBusy
 import|;
@@ -1541,7 +1529,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * InternalTestCluster manages a set of JVM private nodes and allows convenient access to them.  * The cluster supports randomized configuration such that nodes started in the cluster will  * automatically load asserting services tracking resources like file handles or open searchers.  *<p>  * The Cluster is bound to a test lifecycle where tests must call {@link #beforeTest(java.util.Random, double)} and  * {@link #afterTest()} to initialize and reset the cluster in order to be more reproducible. The term "more" relates  * to the async nature of Elasticsearch in combination with randomized testing. Once Threads and asynchronous calls  * are involved reproducibility is very limited. This class should only be used through {@link ElasticsearchIntegrationTest}.  *</p>  */
+comment|/**  * InternalTestCluster manages a set of JVM private nodes and allows convenient access to them.  * The cluster supports randomized configuration such that nodes started in the cluster will  * automatically load asserting services tracking resources like file handles or open searchers.  *<p>  * The Cluster is bound to a test lifecycle where tests must call {@link #beforeTest(java.util.Random, double)} and  * {@link #afterTest()} to initialize and reset the cluster in order to be more reproducible. The term "more" relates  * to the async nature of Elasticsearch in combination with randomized testing. Once Threads and asynchronous calls  * are involved reproducibility is very limited. This class should only be used through {@link ESIntegTestCase}.  *</p>  */
 end_comment
 
 begin_class
@@ -1576,7 +1564,7 @@ name|SettingsSource
 operator|.
 name|EMPTY
 decl_stmt|;
-comment|/**      * A boolean value to enable or disable mock modules. This is useful to test the      * system without asserting modules that to make sure they don't hide any bugs in      * production.      *      * @see ElasticsearchIntegrationTest      */
+comment|/**      * A boolean value to enable or disable mock modules. This is useful to test the      * system without asserting modules that to make sure they don't hide any bugs in      * production.      *      * @see ESIntegTestCase      */
 DECL|field|TESTS_ENABLE_MOCK_MODULES
 specifier|public
 specifier|static

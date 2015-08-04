@@ -74,26 +74,6 @@ name|cluster
 operator|.
 name|snapshots
 operator|.
-name|delete
-operator|.
-name|DeleteSnapshotResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|admin
-operator|.
-name|cluster
-operator|.
-name|snapshots
-operator|.
 name|get
 operator|.
 name|GetSnapshotsResponse
@@ -202,7 +182,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -214,7 +194,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -338,7 +318,7 @@ name|ClusterScope
 argument_list|(
 name|scope
 operator|=
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -349,7 +329,7 @@ specifier|public
 class|class
 name|SnapshotBlocksIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|INDEX_NAME
 specifier|protected

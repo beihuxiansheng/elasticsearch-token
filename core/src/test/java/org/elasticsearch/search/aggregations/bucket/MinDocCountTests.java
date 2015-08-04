@@ -222,7 +222,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -420,9 +420,9 @@ end_import
 
 begin_class
 annotation|@
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
-name|SuiteScopeTest
+name|SuiteScopeTestCase
 DECL|class|MinDocCountTests
 specifier|public
 class|class

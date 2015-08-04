@@ -238,7 +238,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -416,7 +416,7 @@ specifier|public
 class|class
 name|TribeIT
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|field|SECOND_CLUSTER_NODE_PREFIX
 specifier|public
@@ -454,7 +454,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|beforeClass
 argument_list|()

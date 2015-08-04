@@ -334,21 +334,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -423,7 +411,7 @@ specifier|abstract
 class|class
 name|AbstractTermVectorsTests
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|class|TestFieldSetting
 specifier|protected
