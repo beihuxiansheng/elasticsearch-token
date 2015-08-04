@@ -98,6 +98,7 @@ name|JsonPath
 name|parsedResponse
 decl_stmt|;
 DECL|method|RestResponse
+specifier|public
 name|RestResponse
 parameter_list|(
 name|HttpResponse
