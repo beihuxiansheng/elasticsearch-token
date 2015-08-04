@@ -513,7 +513,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|Exception
+name|NullPointerException
 argument_list|(
 literal|"The client you specified while building a BulkProcessor is null"
 argument_list|)
