@@ -191,12 +191,6 @@ specifier|final
 name|Settings
 name|settings
 decl_stmt|;
-DECL|field|homeFile
-specifier|private
-specifier|final
-name|Path
-name|homeFile
-decl_stmt|;
 DECL|field|dataFiles
 specifier|private
 specifier|final
@@ -229,6 +223,20 @@ specifier|private
 specifier|final
 name|Path
 name|pluginsFile
+decl_stmt|;
+comment|/** location of bin/, used by plugin manager */
+DECL|field|binFile
+specifier|private
+specifier|final
+name|Path
+name|binFile
+decl_stmt|;
+comment|/** location of lib/, */
+DECL|field|libFile
+specifier|private
+specifier|final
+name|Path
+name|libFile
 decl_stmt|;
 DECL|field|logsFile
 specifier|private
@@ -343,6 +351,10 @@ name|settings
 operator|=
 name|settings
 expr_stmt|;
+specifier|final
+name|Path
+name|homeFile
+decl_stmt|;
 if|if
 condition|(
 name|settings
@@ -762,6 +774,24 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+name|binFile
+operator|=
+name|homeFile
+operator|.
+name|resolve
+argument_list|(
+literal|"bin"
+argument_list|)
+expr_stmt|;
+name|libFile
+operator|=
+name|homeFile
+operator|.
+name|resolve
+argument_list|(
+literal|"lib"
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * The settings used to build this environment.      */
 DECL|method|settings
@@ -774,17 +804,6 @@ return|return
 name|this
 operator|.
 name|settings
-return|;
-block|}
-comment|/**      * The home of the installation.      */
-DECL|method|homeFile
-specifier|public
-name|Path
-name|homeFile
-parameter_list|()
-block|{
-return|return
-name|homeFile
 return|;
 block|}
 comment|/**      * The data location.      */
@@ -1091,6 +1110,26 @@ parameter_list|()
 block|{
 return|return
 name|pluginsFile
+return|;
+block|}
+DECL|method|binFile
+specifier|public
+name|Path
+name|binFile
+parameter_list|()
+block|{
+return|return
+name|binFile
+return|;
+block|}
+DECL|method|libFile
+specifier|public
+name|Path
+name|libFile
+parameter_list|()
+block|{
+return|return
+name|libFile
 return|;
 block|}
 DECL|method|logsFile

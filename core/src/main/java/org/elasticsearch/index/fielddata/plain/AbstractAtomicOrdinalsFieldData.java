@@ -243,9 +243,6 @@ name|getOrdinalsValues
 parameter_list|()
 block|{
 return|return
-operator|(
-name|RandomAccessOrds
-operator|)
 name|DocValues
 operator|.
 name|emptySortedSet

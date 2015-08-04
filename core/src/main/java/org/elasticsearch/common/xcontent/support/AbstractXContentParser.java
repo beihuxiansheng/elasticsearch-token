@@ -1596,6 +1596,15 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|isClosed
+specifier|public
+specifier|abstract
+name|boolean
+name|isClosed
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

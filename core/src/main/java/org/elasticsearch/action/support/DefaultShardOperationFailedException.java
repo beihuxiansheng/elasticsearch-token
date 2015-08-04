@@ -161,7 +161,7 @@ name|RestStatus
 name|status
 decl_stmt|;
 DECL|method|DefaultShardOperationFailedException
-specifier|private
+specifier|protected
 name|DefaultShardOperationFailedException
 parameter_list|()
 block|{     }

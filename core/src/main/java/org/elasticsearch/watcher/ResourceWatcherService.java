@@ -184,7 +184,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|25
+literal|30
 argument_list|)
 argument_list|)
 block|,

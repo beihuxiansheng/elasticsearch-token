@@ -419,7 +419,7 @@ name|startObject
 argument_list|(
 name|Fields
 operator|.
-name|QUERY_CACHE_STATS
+name|REQUEST_CACHE_STATS
 argument_list|)
 expr_stmt|;
 name|builder
@@ -488,11 +488,11 @@ specifier|final
 class|class
 name|Fields
 block|{
-DECL|field|QUERY_CACHE_STATS
+DECL|field|REQUEST_CACHE_STATS
 specifier|static
 specifier|final
 name|XContentBuilderString
-name|QUERY_CACHE_STATS
+name|REQUEST_CACHE_STATS
 init|=
 operator|new
 name|XContentBuilderString

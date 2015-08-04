@@ -594,6 +594,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|execute
+argument_list|(
+name|command
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|timeout
@@ -641,13 +648,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|super
-operator|.
-name|execute
-argument_list|(
-name|command
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -943,11 +943,20 @@ name|insertionOrder
 decl_stmt|;
 DECL|field|timeoutFuture
 specifier|private
+specifier|volatile
 name|ScheduledFuture
 argument_list|<
 name|?
 argument_list|>
 name|timeoutFuture
+decl_stmt|;
+DECL|field|started
+specifier|private
+specifier|volatile
+name|boolean
+name|started
+init|=
+literal|false
 decl_stmt|;
 DECL|method|TieBreakingPrioritizedRunnable
 name|TieBreakingPrioritizedRunnable
@@ -1011,6 +1020,12 @@ name|void
 name|run
 parameter_list|()
 block|{
+comment|// make the task as stared. This is needed for synchronization with the timeout handling
+comment|// see  #scheduleTimeout()
+name|started
+operator|=
+literal|true
+expr_stmt|;
 name|FutureUtils
 operator|.
 name|cancel
@@ -1143,6 +1158,20 @@ operator|.
 name|NANOSECONDS
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|started
+condition|)
+block|{
+comment|// if the actual action already it might have missed the setting of the future. Clean it ourselves.
+name|FutureUtils
+operator|.
+name|cancel
+argument_list|(
+name|timeoutFuture
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**          * Timeout callback might remain in the timer scheduling queue for some time and it might hold          * the pointers to other objects. As a result it's possible to run out of memory if a large number of          * tasks are executed          */
 DECL|method|runAndClean

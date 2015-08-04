@@ -612,6 +612,9 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
+parameter_list|,
+name|AutoCreateIndex
+name|autoCreateIndex
 parameter_list|)
 block|{
 name|super
@@ -657,11 +660,7 @@ name|this
 operator|.
 name|autoCreateIndex
 operator|=
-operator|new
-name|AutoCreateIndex
-argument_list|(
-name|settings
-argument_list|)
+name|autoCreateIndex
 expr_stmt|;
 name|this
 operator|.

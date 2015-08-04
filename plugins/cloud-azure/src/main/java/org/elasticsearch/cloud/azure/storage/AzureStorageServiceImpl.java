@@ -937,7 +937,7 @@ name|newMapBuilder
 argument_list|()
 decl_stmt|;
 name|CloudBlobContainer
-name|blob_container
+name|blobContainer
 init|=
 name|client
 operator|.
@@ -948,7 +948,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|blob_container
+name|blobContainer
 operator|.
 name|exists
 argument_list|()
@@ -959,13 +959,21 @@ control|(
 name|ListBlobItem
 name|blobItem
 range|:
-name|blob_container
+name|blobContainer
 operator|.
 name|listBlobs
 argument_list|(
 name|keyPath
 operator|+
+operator|(
 name|prefix
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|prefix
+operator|)
 argument_list|)
 control|)
 block|{
@@ -986,8 +994,10 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
+comment|// uri.getPath is of the form /container/keyPath.* and we want to strip off the /container/
+comment|// this requires 1 + container.length() + 1, with each 1 corresponding to one of the /
 name|String
-name|blobpath
+name|blobPath
 init|=
 name|uri
 operator|.
@@ -996,6 +1006,8 @@ argument_list|()
 operator|.
 name|substring
 argument_list|(
+literal|1
+operator|+
 name|container
 operator|.
 name|length
@@ -1004,15 +1016,27 @@ operator|+
 literal|1
 argument_list|)
 decl_stmt|;
-name|BlobProperties
-name|properties
+name|CloudBlockBlob
+name|blob
 init|=
-name|blob_container
+name|blobContainer
 operator|.
 name|getBlockBlobReference
 argument_list|(
-name|blobpath
+name|blobPath
 argument_list|)
+decl_stmt|;
+comment|// fetch the blob attributes from Azure (getBlockBlobReference does not do this)
+comment|// this is needed to retrieve the blob length (among other metadata) from Azure Storage
+name|blob
+operator|.
+name|downloadAttributes
+argument_list|()
+expr_stmt|;
+name|BlobProperties
+name|properties
+init|=
+name|blob
 operator|.
 name|getProperties
 argument_list|()
@@ -1020,7 +1044,7 @@ decl_stmt|;
 name|String
 name|name
 init|=
-name|blobpath
+name|blobPath
 operator|.
 name|substring
 argument_list|(
@@ -1028,8 +1052,6 @@ name|keyPath
 operator|.
 name|length
 argument_list|()
-operator|+
-literal|1
 argument_list|)
 decl_stmt|;
 name|logger

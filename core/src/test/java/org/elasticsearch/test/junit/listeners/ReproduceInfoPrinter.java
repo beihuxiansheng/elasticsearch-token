@@ -389,6 +389,27 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * true if we are running maven integration tests (mvn verify)      */
+DECL|method|inVerifyPhase
+specifier|static
+name|boolean
+name|inVerifyPhase
+parameter_list|()
+block|{
+return|return
+name|Boolean
+operator|.
+name|parseBoolean
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.verify.phase"
+argument_list|)
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|testFailure
@@ -423,6 +444,22 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|inVerifyPhase
+argument_list|()
+condition|)
+block|{
+name|b
+operator|.
+name|append
+argument_list|(
+literal|"REPRODUCE WITH: mvn verify -Pdev -Dskip.unit.tests"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|b
 operator|.
 name|append
@@ -430,6 +467,7 @@ argument_list|(
 literal|"REPRODUCE WITH: mvn test -Pdev"
 argument_list|)
 expr_stmt|;
+block|}
 name|MavenMessageBuilder
 name|mavenMessageBuilder
 init|=
@@ -713,7 +751,18 @@ block|{
 name|appendProperties
 argument_list|(
 literal|"es.logger.level"
-argument_list|,
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|inVerifyPhase
+argument_list|()
+condition|)
+block|{
+comment|// these properties only make sense for unit tests
+name|appendProperties
+argument_list|(
 literal|"es.node.mode"
 argument_list|,
 literal|"es.node.local"
@@ -723,7 +772,11 @@ argument_list|,
 name|InternalTestCluster
 operator|.
 name|TESTS_ENABLE_MOCK_MODULES
-argument_list|,
+argument_list|)
+expr_stmt|;
+block|}
+name|appendProperties
+argument_list|(
 literal|"tests.assertion.disabled"
 argument_list|,
 literal|"tests.security.manager"

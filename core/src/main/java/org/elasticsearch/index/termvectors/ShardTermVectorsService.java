@@ -2223,6 +2223,11 @@ argument_list|(
 name|doc
 argument_list|)
 operator|.
+name|index
+argument_list|(
+name|index
+argument_list|)
+operator|.
 name|type
 argument_list|(
 name|type

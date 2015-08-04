@@ -103,6 +103,22 @@ DECL|method|SnapshotMissingException
 specifier|public
 name|SnapshotMissingException
 parameter_list|(
+name|SnapshotId
+name|snapshot
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|snapshot
+argument_list|,
+literal|"is missing"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SnapshotMissingException
+specifier|public
+name|SnapshotMissingException
+parameter_list|(
 name|StreamInput
 name|in
 parameter_list|)

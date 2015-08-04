@@ -2593,7 +2593,6 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|// no commit: check threadpool rejection.
 name|finishAsFailed
 argument_list|(
 name|t
@@ -4735,20 +4734,18 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failed to perform "
-operator|+
-name|actionName
-operator|+
-literal|" on remote replica "
-operator|+
-name|node
-operator|+
+literal|"{} failed to perform {} on node {}"
+argument_list|,
+name|exp
+argument_list|,
 name|shardIt
 operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|exp
+name|actionName
+argument_list|,
+name|node
 argument_list|)
 expr_stmt|;
 name|shardStateAction
@@ -4762,20 +4759,15 @@ operator|.
 name|getIndexUUID
 argument_list|()
 argument_list|,
-literal|"Failed to perform ["
+literal|"failed to perform "
 operator|+
 name|actionName
 operator|+
-literal|"] on replica, message ["
+literal|" on replica on node "
 operator|+
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
+name|node
+argument_list|,
 name|exp
-argument_list|)
-operator|+
-literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -5444,6 +5436,14 @@ argument_list|,
 name|request
 operator|.
 name|source
+argument_list|()
+argument_list|)
+operator|.
+name|index
+argument_list|(
+name|request
+operator|.
+name|index
 argument_list|()
 argument_list|)
 operator|.

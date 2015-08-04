@@ -307,6 +307,8 @@ name|Item
 argument_list|>
 implements|,
 name|CompositeIndicesRequest
+implements|,
+name|RealtimeRequest
 block|{
 comment|/**      * A single get item.      */
 DECL|class|Item
@@ -1594,6 +1596,8 @@ operator|.
 name|realtime
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|realtime
 specifier|public
 name|MultiGetRequest

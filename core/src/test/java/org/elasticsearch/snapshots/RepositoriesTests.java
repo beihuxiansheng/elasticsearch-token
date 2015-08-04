@@ -377,7 +377,7 @@ specifier|public
 class|class
 name|RepositoriesTests
 extends|extends
-name|AbstractSnapshotTests
+name|AbstractSnapshotIT
 block|{
 annotation|@
 name|Test

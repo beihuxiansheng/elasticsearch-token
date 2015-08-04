@@ -773,6 +773,11 @@ argument_list|,
 literal|0.1
 argument_list|)
 decl_stmt|;
+name|checkUnrecognizedParams
+argument_list|(
+name|settings
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|HoltLinearModel
