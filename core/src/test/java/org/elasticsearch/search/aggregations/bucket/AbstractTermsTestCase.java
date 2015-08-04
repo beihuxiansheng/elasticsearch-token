@@ -131,11 +131,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractTermsTests
+DECL|class|AbstractTermsTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractTermsTests
+name|AbstractTermsTestCase
 extends|extends
 name|ESIntegTestCase
 block|{

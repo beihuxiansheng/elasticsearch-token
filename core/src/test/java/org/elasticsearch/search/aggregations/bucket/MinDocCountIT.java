@@ -423,12 +423,12 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuiteScopeTestCase
-DECL|class|MinDocCountTests
+DECL|class|MinDocCountIT
 specifier|public
 class|class
-name|MinDocCountTests
+name|MinDocCountIT
 extends|extends
-name|AbstractTermsTests
+name|AbstractTermsTestCase
 block|{
 DECL|field|QUERY
 specifier|private

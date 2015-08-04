@@ -155,10 +155,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ShardSizeTermsTests
+DECL|class|ShardSizeTermsIT
 specifier|public
 class|class
-name|ShardSizeTermsTests
+name|ShardSizeTermsIT
 extends|extends
 name|ShardSizeTestCase
 block|{

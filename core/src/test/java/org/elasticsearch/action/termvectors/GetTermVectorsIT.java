@@ -540,7 +540,7 @@ specifier|public
 class|class
 name|GetTermVectorsIT
 extends|extends
-name|AbstractTermVectorsTests
+name|AbstractTermVectorsTestCase
 block|{
 annotation|@
 name|Test

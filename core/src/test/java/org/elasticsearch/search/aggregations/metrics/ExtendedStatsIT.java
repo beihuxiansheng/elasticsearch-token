@@ -275,12 +275,12 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ExtendedStatsTests
+DECL|class|ExtendedStatsIT
 specifier|public
 class|class
-name|ExtendedStatsTests
+name|ExtendedStatsIT
 extends|extends
-name|AbstractNumericTests
+name|AbstractNumericTestCase
 block|{
 DECL|method|stdDev
 specifier|private
