@@ -92,7 +92,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -266,7 +266,7 @@ name|settings
 operator|.
 name|getAsLong
 argument_list|(
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|SETTING_INDEX_SEED
 argument_list|,

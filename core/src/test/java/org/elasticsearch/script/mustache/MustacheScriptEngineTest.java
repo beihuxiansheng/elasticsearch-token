@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|MustacheScriptEngineTest
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|qe
 specifier|private

@@ -296,7 +296,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -396,7 +396,7 @@ specifier|public
 class|class
 name|ReplicaShardAllocatorTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|field|shardId
 specifier|private

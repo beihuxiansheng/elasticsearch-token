@@ -62,7 +62,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -92,7 +92,7 @@ specifier|public
 class|class
 name|LongHashTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|field|hash
 name|LongHash

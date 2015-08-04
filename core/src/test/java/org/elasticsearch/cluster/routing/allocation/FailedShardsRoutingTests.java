@@ -22,20 +22,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -214,7 +200,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -292,7 +278,7 @@ specifier|public
 class|class
 name|FailedShardsRoutingTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private

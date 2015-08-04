@@ -36,23 +36,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -84,7 +70,7 @@ specifier|public
 class|class
 name|OsProbeTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|probe
 name|OsProbe

@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -276,7 +260,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -288,7 +272,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|ClusterScope
 import|;
@@ -368,7 +352,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 operator|.
 name|Scope
 operator|.
@@ -418,8 +402,6 @@ end_import
 
 begin_class
 annotation|@
-name|Slow
-annotation|@
 name|ClusterScope
 argument_list|(
 name|scope
@@ -435,7 +417,7 @@ specifier|public
 class|class
 name|DeleteByQueryTests
 extends|extends
-name|ElasticsearchIntegrationTest
+name|ESIntegTestCase
 block|{
 DECL|method|nodeSettings
 specifier|protected

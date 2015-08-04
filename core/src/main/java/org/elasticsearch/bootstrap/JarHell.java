@@ -277,6 +277,13 @@ class|class
 name|JarHell
 block|{
 comment|/** Simple driver class, can be used eg. from builds. Returns non-zero on jar-hell */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"command line tool"
+argument_list|)
 DECL|method|main
 specifier|public
 specifier|static
@@ -290,8 +297,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"checking for jar hell..."
+argument_list|)
+expr_stmt|;
 name|checkJarHell
 argument_list|()
+expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"no jar hell found"
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Checks the current classloader for duplicate classes      * @throws IllegalStateException if jar hell was found      */

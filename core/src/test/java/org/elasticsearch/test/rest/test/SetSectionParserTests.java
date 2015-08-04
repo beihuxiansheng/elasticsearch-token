@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|SetSectionParserTests
 extends|extends
-name|AbstractParserTests
+name|AbstractParserTestCase
 block|{
 annotation|@
 name|Test

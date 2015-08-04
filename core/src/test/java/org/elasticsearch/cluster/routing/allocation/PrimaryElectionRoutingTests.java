@@ -146,7 +146,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 import|;
 end_import
 
@@ -242,7 +242,7 @@ specifier|public
 class|class
 name|PrimaryElectionRoutingTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private

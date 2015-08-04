@@ -176,7 +176,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -338,7 +338,7 @@ specifier|public
 class|class
 name|ZenFaultDetectionTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|threadPool
 specifier|protected

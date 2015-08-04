@@ -50,16 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -163,20 +153,6 @@ operator|.
 name|bytes
 operator|.
 name|BytesArray
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|FileSystemUtils
 import|;
 end_import
 
@@ -360,7 +336,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -417,18 +393,6 @@ operator|.
 name|file
 operator|.
 name|Path
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|file
-operator|.
-name|StandardCopyOption
 import|;
 end_import
 
@@ -566,7 +530,7 @@ specifier|public
 class|class
 name|IndexShardTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testFlushOnDeleteSetting
 specifier|public

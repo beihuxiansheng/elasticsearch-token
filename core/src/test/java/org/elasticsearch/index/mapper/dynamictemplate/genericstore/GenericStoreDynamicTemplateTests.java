@@ -98,20 +98,6 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMappers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
 name|ParseContext
 operator|.
 name|Document
@@ -140,7 +126,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -208,7 +194,7 @@ specifier|public
 class|class
 name|GenericStoreDynamicTemplateTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 annotation|@
 name|Test

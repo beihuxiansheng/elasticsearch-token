@@ -54,7 +54,7 @@ name|test
 operator|.
 name|rest
 operator|.
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 import|;
 end_import
 
@@ -104,7 +104,7 @@ specifier|public
 class|class
 name|CloudAWSRestIT
 extends|extends
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 block|{
 DECL|method|CloudAWSRestIT
 specifier|public
@@ -143,7 +143,7 @@ throws|,
 name|RestTestParseException
 block|{
 return|return
-name|ElasticsearchRestTestCase
+name|ESRestTestCase
 operator|.
 name|createParameters
 argument_list|(

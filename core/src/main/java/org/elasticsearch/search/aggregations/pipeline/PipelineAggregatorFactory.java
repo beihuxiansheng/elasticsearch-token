@@ -99,7 +99,7 @@ name|Object
 argument_list|>
 name|metaData
 decl_stmt|;
-comment|/**      * Constructs a new pipeline aggregator factory.      *       * @param name      *            The aggregation name      * @param type      *            The aggregation type      */
+comment|/**      * Constructs a new pipeline aggregator factory.      *      * @param name      *            The aggregation name      * @param type      *            The aggregation type      */
 DECL|method|PipelineAggregatorFactory
 specifier|public
 name|PipelineAggregatorFactory
@@ -134,7 +134,17 @@ operator|=
 name|bucketsPaths
 expr_stmt|;
 block|}
-comment|/**      * Validates the state of this factory (makes sure the factory is properly      * configured)      *       * @param pipelineAggregatorFactories      * @param factories      * @param parent      */
+DECL|method|name
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+comment|/**      * Validates the state of this factory (makes sure the factory is properly      * configured)      *      * @param pipelineAggregatorFactories      * @param factories      * @param parent      */
 DECL|method|validate
 specifier|public
 specifier|final
@@ -182,7 +192,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates the pipeline aggregator      *       * @param context      *            The aggregation context      * @param parent      *            The parent aggregator (if this is a top level factory, the      *            parent will be {@code null})      * @param collectsFromSingleBucket      *            If true then the created aggregator will only be collected      *            with<tt>0</tt> as a bucket ordinal. Some factories can take      *            advantage of this in order to return more optimized      *            implementations.      *       * @return The created aggregator      */
+comment|/**      * Creates the pipeline aggregator      *      * @param context      *            The aggregation context      * @param parent      *            The parent aggregator (if this is a top level factory, the      *            parent will be {@code null})      * @param collectsFromSingleBucket      *            If true then the created aggregator will only be collected      *            with<tt>0</tt> as a bucket ordinal. Some factories can take      *            advantage of this in order to return more optimized      *            implementations.      *      * @return The created aggregator      */
 DECL|method|create
 specifier|public
 specifier|final

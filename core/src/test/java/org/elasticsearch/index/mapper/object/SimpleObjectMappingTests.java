@@ -42,20 +42,6 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|XContentBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
 name|XContentFactory
 import|;
 end_import
@@ -96,7 +82,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -120,7 +106,7 @@ specifier|public
 class|class
 name|SimpleObjectMappingTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 annotation|@
 name|Test

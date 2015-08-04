@@ -148,7 +148,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -170,7 +170,7 @@ specifier|public
 class|class
 name|SizeMappingTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testSizeEnabled
 specifier|public

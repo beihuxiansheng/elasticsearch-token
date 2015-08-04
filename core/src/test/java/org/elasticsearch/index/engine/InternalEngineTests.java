@@ -306,7 +306,7 @@ name|elasticsearch
 operator|.
 name|bwcompat
 operator|.
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 import|;
 end_import
 
@@ -854,7 +854,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -1102,7 +1102,7 @@ specifier|public
 class|class
 name|InternalEngineTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|PARSE_LEGACY_ID_PATTERN
 specifier|private
@@ -12181,8 +12181,6 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Slow
-annotation|@
 name|Test
 DECL|method|testEnableGcDeletes
 specifier|public
@@ -15277,7 +15275,7 @@ name|getDataPath
 argument_list|(
 literal|"/"
 operator|+
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 operator|.
 name|class
 operator|.

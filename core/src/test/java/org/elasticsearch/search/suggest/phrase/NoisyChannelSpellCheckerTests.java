@@ -364,20 +364,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|search
@@ -400,7 +386,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -474,7 +460,7 @@ specifier|public
 class|class
 name|NoisyChannelSpellCheckerTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|space
 specifier|private

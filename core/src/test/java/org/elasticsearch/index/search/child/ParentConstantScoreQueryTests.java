@@ -686,7 +686,7 @@ specifier|public
 class|class
 name|ParentConstantScoreQueryTests
 extends|extends
-name|AbstractChildTests
+name|AbstractChildTestCase
 block|{
 annotation|@
 name|BeforeClass

@@ -114,23 +114,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -209,7 +195,7 @@ specifier|abstract
 class|class
 name|AbstractCompressedStreamTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|compressor
 specifier|private
@@ -276,7 +262,7 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|400000
+literal|100000
 argument_list|)
 index|]
 decl_stmt|;
@@ -320,7 +306,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -636,7 +622,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -1102,7 +1088,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -1607,7 +1593,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -2519,7 +2505,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread

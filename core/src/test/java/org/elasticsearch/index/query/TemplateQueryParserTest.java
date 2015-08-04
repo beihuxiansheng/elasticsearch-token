@@ -376,7 +376,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -449,7 +449,7 @@ comment|/**  * Test parsing and executing a template request.  */
 end_comment
 
 begin_comment
-comment|// NOTE: this can't be migrated to ElasticsearchSingleNodeTest because of the custom path.conf
+comment|// NOTE: this can't be migrated to ESSingleNodeTestCase because of the custom path.conf
 end_comment
 
 begin_class
@@ -458,7 +458,7 @@ specifier|public
 class|class
 name|TemplateQueryParserTest
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|injector
 specifier|private

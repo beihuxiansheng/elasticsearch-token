@@ -606,7 +606,7 @@ argument_list|(
 literal|"dump all threads on AssertionError"
 argument_list|)
 expr_stmt|;
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|printStackDump
 argument_list|(

@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -144,7 +144,7 @@ specifier|public
 class|class
 name|ScriptScoreFunctionTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|/**      * Tests https://github.com/elasticsearch/elasticsearch/issues/2426      */
 annotation|@

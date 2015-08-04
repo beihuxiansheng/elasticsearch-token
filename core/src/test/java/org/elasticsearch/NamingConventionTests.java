@@ -72,6 +72,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -86,7 +98,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -98,7 +110,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -110,7 +122,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -225,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple class that ensures that all subclasses concrete of ElasticsearchTestCase end with either Test | Tests  */
+comment|/**  * Simple class that ensures that all subclasses concrete of ESTestCase end with either Test | Tests  */
 end_comment
 
 begin_class
@@ -234,7 +246,7 @@ specifier|public
 class|class
 name|NamingConventionTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|// see https://github.com/elasticsearch/elasticsearch/issues/9945
 DECL|method|testNamingConventions
@@ -279,6 +291,18 @@ argument_list|<
 name|Class
 argument_list|>
 name|missingSuffix
+init|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+decl_stmt|;
+specifier|final
+name|Set
+argument_list|<
+name|Class
+argument_list|>
+name|integTestsInDisguise
 init|=
 operator|new
 name|HashSet
@@ -530,21 +554,31 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"IT"
-argument_list|)
-operator|||
-name|clazz
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|endsWith
-argument_list|(
 literal|"Test"
 argument_list|)
 condition|)
 block|{
 comment|// don't worry about the ones that match the pattern
+if|if
+condition|(
+name|ESIntegTestCase
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+name|integTestsInDisguise
+operator|.
+name|add
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|isTestCase
@@ -563,6 +597,40 @@ name|clazz
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"IT"
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|isTestCase
+argument_list|(
+name|clazz
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|notImplementing
+operator|.
+name|add
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+block|}
+comment|// otherwise fine
 block|}
 elseif|else
 if|if
@@ -691,33 +759,6 @@ name|clazz
 parameter_list|)
 block|{
 return|return
-name|ElasticsearchTestCase
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|clazz
-argument_list|)
-operator|||
-name|ElasticsearchTestCase
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|clazz
-argument_list|)
-operator|||
-name|ElasticsearchTokenStreamTestCase
-operator|.
-name|class
-operator|.
-name|isAssignableFrom
-argument_list|(
-name|clazz
-argument_list|)
-operator|||
 name|LuceneTestCase
 operator|.
 name|class
@@ -947,21 +988,21 @@ argument_list|)
 operator|.
 name|join
 argument_list|(
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
 name|getSimpleName
 argument_list|()
 argument_list|,
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
 name|getSimpleName
 argument_list|()
 argument_list|,
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 operator|.
 name|class
 operator|.
@@ -980,7 +1021,7 @@ name|assertTrue
 argument_list|(
 literal|"Not all subclasses of "
 operator|+
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|class
 operator|.
@@ -1038,8 +1079,27 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Subclasses of ESIntegTestCase should end with IT as they are integration tests: "
+operator|+
+name|integTestsInDisguise
+argument_list|,
+name|integTestsInDisguise
+operator|.
+name|isEmpty
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/*      * Some test the test classes      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Ignoring test the tester"
+argument_list|)
 annotation|@
 name|Ignore
 DECL|class|NotImplementingTests
@@ -1049,6 +1109,13 @@ specifier|final
 class|class
 name|NotImplementingTests
 block|{}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"Ignoring test the tester"
+argument_list|)
 annotation|@
 name|Ignore
 DECL|class|NotImplementingTest
@@ -1065,7 +1132,7 @@ specifier|final
 class|class
 name|WrongName
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{}
 DECL|class|WrongNameTheSecond
 specifier|public
@@ -1074,7 +1141,7 @@ specifier|final
 class|class
 name|WrongNameTheSecond
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{}
 DECL|class|PlainUnit
 specifier|public

@@ -941,9 +941,9 @@ specifier|final
 name|long
 name|insertionOrder
 decl_stmt|;
+comment|// these two variables are protected by 'this'
 DECL|field|timeoutFuture
 specifier|private
-specifier|volatile
 name|ScheduledFuture
 argument_list|<
 name|?
@@ -952,7 +952,6 @@ name|timeoutFuture
 decl_stmt|;
 DECL|field|started
 specifier|private
-specifier|volatile
 name|boolean
 name|started
 init|=
@@ -1020,6 +1019,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 comment|// make the task as stared. This is needed for synchronization with the timeout handling
 comment|// see  #scheduleTimeout()
 name|started
@@ -1033,6 +1037,7 @@ argument_list|(
 name|timeoutFuture
 argument_list|)
 expr_stmt|;
+block|}
 name|runAndClean
 argument_list|(
 name|runnable
@@ -1112,6 +1117,33 @@ name|TimeValue
 name|timeValue
 parameter_list|)
 block|{
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
+if|if
+condition|(
+name|timeoutFuture
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"scheduleTimeout may only be called once"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|started
+operator|==
+literal|false
+condition|)
+block|{
 name|timeoutFuture
 operator|=
 name|timer
@@ -1158,19 +1190,7 @@ operator|.
 name|NANOSECONDS
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|started
-condition|)
-block|{
-comment|// if the actual action already it might have missed the setting of the future. Clean it ourselves.
-name|FutureUtils
-operator|.
-name|cancel
-argument_list|(
-name|timeoutFuture
-argument_list|)
-expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**          * Timeout callback might remain in the timer scheduling queue for some time and it might hold          * the pointers to other objects. As a result it's possible to run out of memory if a large number of          * tasks are executed          */

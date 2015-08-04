@@ -256,7 +256,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -318,7 +318,7 @@ specifier|public
 class|class
 name|CompletionTokenStreamTest
 extends|extends
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 block|{
 DECL|field|suggester
 specifier|final

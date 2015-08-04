@@ -112,7 +112,19 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
 import|;
 end_import
 
@@ -195,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test doesn't extend {@link org.elasticsearch.test.ElasticsearchIntegrationTest} as the internal cluster ignores system properties  * all the time, while we need to make the tribe node accept them in this case, so that we can verify that they are not read again as part  * of the tribe client nodes initialization. Note that the started nodes will obey to the 'node.mode' settings as the internal cluster does.  */
+comment|/**  * This test doesn't extend {@link ESIntegTestCase} as the internal cluster ignores system properties  * all the time, while we need to make the tribe node accept them in this case, so that we can verify that they are not read again as part  * of the tribe client nodes initialization. Note that the started nodes will obey to the 'node.mode' settings as the internal cluster does.  */
 end_comment
 
 begin_class
@@ -204,7 +216,7 @@ specifier|public
 class|class
 name|TribeUnitTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|tribe1
 specifier|private

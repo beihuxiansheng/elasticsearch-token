@@ -98,7 +98,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 import|;
 end_import
 
@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|PatternAnalyzerTest
 extends|extends
-name|ElasticsearchTokenStreamTestCase
+name|ESTokenStreamTestCase
 block|{
 comment|/**    * Test PatternAnalyzer when it is configured with a non-word pattern.    */
 DECL|method|testNonWordPattern

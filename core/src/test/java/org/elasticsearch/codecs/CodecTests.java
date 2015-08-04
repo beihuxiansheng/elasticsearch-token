@@ -32,22 +32,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -144,7 +128,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -192,19 +176,13 @@ name|containsString
 import|;
 end_import
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
-annotation|@
-name|Slow
 DECL|class|CodecTests
 specifier|public
 class|class
 name|CodecTests
 extends|extends
-name|ElasticsearchSingleNodeTest
+name|ESSingleNodeTestCase
 block|{
 DECL|method|testAcceptPostingsFormat
 specifier|public

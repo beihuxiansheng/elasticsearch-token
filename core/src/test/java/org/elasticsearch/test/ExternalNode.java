@@ -1068,7 +1068,7 @@ throws|throws
 name|InterruptedException
 block|{
 return|return
-name|ElasticsearchTestCase
+name|ESTestCase
 operator|.
 name|awaitBusy
 argument_list|(

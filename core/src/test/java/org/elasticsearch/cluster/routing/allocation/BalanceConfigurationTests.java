@@ -258,6 +258,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESAllocationTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|gateway
 operator|.
 name|NoopGatewayAllocator
@@ -275,18 +287,6 @@ operator|.
 name|settings
 operator|.
 name|NodeSettingsService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|ElasticsearchAllocationTestCase
 import|;
 end_import
 
@@ -364,7 +364,7 @@ specifier|public
 class|class
 name|BalanceConfigurationTests
 extends|extends
-name|ElasticsearchAllocationTestCase
+name|ESAllocationTestCase
 block|{
 DECL|field|logger
 specifier|private

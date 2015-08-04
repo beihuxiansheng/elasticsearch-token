@@ -20,20 +20,6 @@ begin_import
 import|import
 name|com
 operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
 name|google
 operator|.
 name|common
@@ -108,7 +94,7 @@ name|elasticsearch
 operator|.
 name|bwcompat
 operator|.
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 import|;
 end_import
 
@@ -240,7 +226,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -323,7 +309,7 @@ specifier|public
 class|class
 name|MultiDataPathUpgraderTests
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|method|testUpgradeRandomPaths
 specifier|public
@@ -1140,7 +1126,7 @@ name|getDataPath
 argument_list|(
 literal|"/"
 operator|+
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 operator|.
 name|class
 operator|.
@@ -1506,7 +1492,7 @@ argument_list|,
 name|indexName
 argument_list|)
 expr_stmt|;
-name|OldIndexBackwardsCompatibilityTests
+name|OldIndexBackwardsCompatibilityIT
 operator|.
 name|copyIndex
 argument_list|(

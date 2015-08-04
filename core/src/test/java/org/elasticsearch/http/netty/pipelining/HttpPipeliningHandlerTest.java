@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -248,18 +248,6 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|Executors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -444,7 +432,7 @@ specifier|public
 class|class
 name|HttpPipeliningHandlerTest
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 DECL|field|RESPONSE_TIMEOUT
 specifier|private

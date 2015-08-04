@@ -226,7 +226,7 @@ specifier|public
 class|class
 name|DoSectionParserTests
 extends|extends
-name|AbstractParserTests
+name|AbstractParserTestCase
 block|{
 annotation|@
 name|Test

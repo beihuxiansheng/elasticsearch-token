@@ -1298,12 +1298,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using home [{}], config [{}], data [{}], logs [{}], plugins [{}]"
-argument_list|,
-name|env
-operator|.
-name|homeFile
-argument_list|()
+literal|"using config [{}], data [{}], logs [{}], plugins [{}]"
 argument_list|,
 name|env
 operator|.
