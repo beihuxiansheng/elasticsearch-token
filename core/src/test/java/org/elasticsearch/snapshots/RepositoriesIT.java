@@ -372,10 +372,10 @@ name|minNumDataNodes
 operator|=
 literal|2
 argument_list|)
-DECL|class|RepositoriesTests
+DECL|class|RepositoriesIT
 specifier|public
 class|class
-name|RepositoriesTests
+name|RepositoriesIT
 extends|extends
 name|AbstractSnapshotIntegTestCase
 block|{

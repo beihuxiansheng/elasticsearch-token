@@ -359,10 +359,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|BlobStoreFormatTests
+DECL|class|BlobStoreFormatIT
 specifier|public
 class|class
-name|BlobStoreFormatTests
+name|BlobStoreFormatIT
 extends|extends
 name|AbstractSnapshotIntegTestCase
 block|{
