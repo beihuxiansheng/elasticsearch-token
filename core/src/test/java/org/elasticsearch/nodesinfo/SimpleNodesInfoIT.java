@@ -168,10 +168,10 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
-DECL|class|SimpleNodesInfoTests
+DECL|class|SimpleNodesInfoIT
 specifier|public
 class|class
-name|SimpleNodesInfoTests
+name|SimpleNodesInfoIT
 extends|extends
 name|PluginTestCase
 block|{
