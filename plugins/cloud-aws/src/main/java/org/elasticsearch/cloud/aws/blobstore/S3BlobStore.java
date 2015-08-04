@@ -434,6 +434,20 @@ comment|// but we don't have access to it (ie, 403 Forbidden response code)
 comment|// Also, if invalid security credentials are used to execute this method, the
 comment|// client is not able to distinguish between bucket permission errors and
 comment|// invalid credential errors, and this method could return an incorrect result.
+name|int
+name|retry
+init|=
+literal|0
+decl_stmt|;
+while|while
+condition|(
+name|retry
+operator|<=
+name|maxRetries
+condition|)
+block|{
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -471,6 +485,45 @@ argument_list|(
 name|bucket
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+break|break;
+block|}
+catch|catch
+parameter_list|(
+name|AmazonClientException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|shouldRetry
+argument_list|(
+name|e
+argument_list|)
+operator|&&
+name|retry
+operator|<
+name|maxRetries
+condition|)
+block|{
+name|retry
+operator|++
+expr_stmt|;
+block|}
+else|else
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"S3 client create bucket failed"
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 block|}
 block|}
