@@ -8614,6 +8614,8 @@ name|Location
 name|location
 parameter_list|)
 block|{
+try|try
+block|{
 specifier|final
 name|Engine
 name|engine
@@ -8621,8 +8623,6 @@ init|=
 name|engine
 argument_list|()
 decl_stmt|;
-try|try
-block|{
 name|engine
 operator|.
 name|getTranslog
@@ -8633,6 +8633,14 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|EngineClosedException
+name|ex
+parameter_list|)
+block|{
+comment|// that's fine since we already synced everything on engine close - this also is conform with the methods documentation
 block|}
 catch|catch
 parameter_list|(
