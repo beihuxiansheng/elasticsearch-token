@@ -1223,9 +1223,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -1257,7 +1254,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptDocs
+literal|null
 argument_list|)
 decl_stmt|;
 if|if
@@ -1315,7 +1312,7 @@ name|getDocIdSet
 argument_list|(
 name|context
 argument_list|,
-name|acceptDocs
+literal|null
 argument_list|)
 decl_stmt|;
 if|if

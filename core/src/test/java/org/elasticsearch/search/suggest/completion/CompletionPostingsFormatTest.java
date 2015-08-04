@@ -86,9 +86,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene50
+name|lucene53
 operator|.
-name|Lucene50Codec
+name|Lucene53Codec
 import|;
 end_import
 
@@ -385,20 +385,6 @@ operator|.
 name|store
 operator|.
 name|RAMDirectory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
 import|;
 end_import
 
@@ -2285,7 +2271,7 @@ name|Codec
 name|codec
 init|=
 operator|new
-name|Lucene50Codec
+name|Lucene53Codec
 argument_list|()
 block|{
 specifier|public
@@ -3118,9 +3104,6 @@ specifier|public
 name|PostingsEnum
 name|postings
 parameter_list|(
-name|Bits
-name|liveDocs
-parameter_list|,
 name|PostingsEnum
 name|reuse
 parameter_list|,
@@ -3156,7 +3139,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|current
+name|data
 operator|.
 name|pos
 return|;
@@ -3197,7 +3180,7 @@ throws|throws
 name|IOException
 block|{
 return|return
-name|current
+name|data
 operator|.
 name|payload
 return|;

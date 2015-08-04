@@ -2267,7 +2267,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_2_1
+name|LUCENE_5_3_0
 assert|;
 comment|// TODO: remove this hack in Lucene 5.4, use UsageTrackingQueryCachingPolicy directly
 comment|// See https://issues.apache.org/jira/browse/LUCENE-6748
