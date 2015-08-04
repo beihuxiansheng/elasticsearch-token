@@ -1737,7 +1737,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|10
 argument_list|,
-literal|10000
+literal|3072
 argument_list|)
 decl_stmt|;
 for|for
@@ -2177,7 +2177,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|10
 argument_list|,
-literal|10000
+literal|3072
 argument_list|)
 decl_stmt|;
 for|for
@@ -2625,7 +2625,7 @@ name|scaledRandomIntBetween
 argument_list|(
 literal|10
 argument_list|,
-literal|10000
+literal|3072
 argument_list|)
 decl_stmt|;
 name|List

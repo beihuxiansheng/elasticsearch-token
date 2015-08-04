@@ -648,7 +648,7 @@ name|atLeast
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|1000
+literal|200
 argument_list|,
 literal|1500
 argument_list|)
@@ -1633,7 +1633,7 @@ name|atLeast
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|1000
+literal|200
 argument_list|,
 literal|1500
 argument_list|)
@@ -1651,7 +1651,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|40
+literal|10
 argument_list|)
 decl_stmt|;
 name|byte
@@ -2497,7 +2497,7 @@ name|atLeast
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|1000
+literal|200
 argument_list|,
 literal|1500
 argument_list|)
@@ -2515,7 +2515,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|40
+literal|10
 argument_list|)
 decl_stmt|;
 name|float
@@ -3187,7 +3187,7 @@ name|atLeast
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|1000
+literal|200
 argument_list|,
 literal|1500
 argument_list|)
@@ -4249,7 +4249,7 @@ name|atLeast
 init|=
 name|scaledRandomIntBetween
 argument_list|(
-literal|1000
+literal|200
 argument_list|,
 literal|1500
 argument_list|)
@@ -4266,7 +4266,7 @@ name|randomIntBetween
 argument_list|(
 literal|2
 argument_list|,
-literal|40
+literal|10
 argument_list|)
 decl_stmt|;
 comment|// to test deduplication

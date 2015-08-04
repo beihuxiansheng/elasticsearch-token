@@ -262,7 +262,7 @@ name|r
 argument_list|,
 literal|1
 argument_list|,
-literal|400000
+literal|100000
 argument_list|)
 index|]
 decl_stmt|;
@@ -306,7 +306,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -622,7 +622,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -1088,7 +1088,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -1593,7 +1593,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
@@ -2505,7 +2505,7 @@ name|r
 argument_list|,
 literal|2
 argument_list|,
-literal|10
+literal|6
 argument_list|)
 decl_stmt|;
 name|Thread
