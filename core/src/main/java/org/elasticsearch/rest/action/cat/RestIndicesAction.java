@@ -2324,8 +2324,7 @@ argument_list|()
 argument_list|,
 name|DateTimeZone
 operator|.
-name|getDefault
-argument_list|()
+name|UTC
 argument_list|)
 argument_list|)
 expr_stmt|;
