@@ -1644,31 +1644,6 @@ name|v
 operator|.
 name|minor
 decl_stmt|;
-if|if
-condition|(
-name|v
-operator|.
-name|equals
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-condition|)
-block|{
-name|assertTrue
-argument_list|(
-literal|"Remove this once beta1 is released"
-argument_list|,
-name|v
-operator|.
-name|snapshot
-argument_list|()
-argument_list|)
-expr_stmt|;
-continue|continue;
-comment|// this is just a temporary fix until we have a snapshot for the beta since we now have 2 unreleased version of the same major.minor group
-block|}
 name|Version
 name|maxBranchVersion
 init|=
