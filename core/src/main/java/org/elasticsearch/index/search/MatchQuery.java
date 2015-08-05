@@ -184,7 +184,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -257,11 +257,11 @@ block|,
 DECL|enum constant|ALL
 name|ALL
 block|}
-DECL|field|parseContext
+DECL|field|context
 specifier|protected
 specifier|final
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 decl_stmt|;
 DECL|field|analyzer
 specifier|protected
@@ -361,15 +361,15 @@ DECL|method|MatchQuery
 specifier|public
 name|MatchQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 block|{
 name|this
 operator|.
-name|parseContext
+name|context
 operator|=
-name|parseContext
+name|context
 expr_stmt|;
 block|}
 DECL|method|setAnalyzer
@@ -609,7 +609,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|parseContext
+name|context
 operator|.
 name|getSearchAnalyzer
 argument_list|(
@@ -618,7 +618,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -632,7 +632,7 @@ block|{
 name|Analyzer
 name|analyzer
 init|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -697,7 +697,7 @@ decl_stmt|;
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -754,7 +754,7 @@ name|termQuery
 argument_list|(
 name|value
 argument_list|,
-name|parseContext
+name|context
 argument_list|)
 return|;
 block|}

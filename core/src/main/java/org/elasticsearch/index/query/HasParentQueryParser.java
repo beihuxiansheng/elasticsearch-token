@@ -462,14 +462,22 @@ specifier|public
 name|Query
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|QueryParsingException
 block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|context
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -951,7 +959,7 @@ name|parentType
 argument_list|,
 name|score
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|innerHits
 argument_list|)
@@ -981,7 +989,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseContext
+name|context
 operator|.
 name|addNamedQuery
 argument_list|(
@@ -1009,8 +1017,8 @@ parameter_list|,
 name|boolean
 name|score
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|Tuple
 argument_list|<
@@ -1026,7 +1034,7 @@ block|{
 name|DocumentMapper
 name|parentDocMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1047,7 +1055,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|context
+operator|.
 name|parseContext
+argument_list|()
 argument_list|,
 literal|"[has_parent] query configured 'parent_type' ["
 operator|+
@@ -1072,7 +1083,7 @@ name|ParsedQuery
 argument_list|(
 name|innerQuery
 argument_list|,
-name|parseContext
+name|context
 operator|.
 name|copyNamedQueries
 argument_list|()
@@ -1097,7 +1108,7 @@ name|parsedQuery
 argument_list|,
 literal|null
 argument_list|,
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1122,7 +1133,7 @@ argument_list|()
 else|:
 name|parentType
 decl_stmt|;
-name|parseContext
+name|context
 operator|.
 name|addInnerHits
 argument_list|(
@@ -1165,7 +1176,7 @@ control|(
 name|DocumentMapper
 name|documentMapper
 range|:
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1195,7 +1206,7 @@ block|{
 name|DocumentMapper
 name|parentTypeDocumentMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1210,7 +1221,7 @@ argument_list|)
 decl_stmt|;
 name|parentChildIndexFieldData
 operator|=
-name|parseContext
+name|context
 operator|.
 name|getForField
 argument_list|(
@@ -1252,7 +1263,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|context
+operator|.
 name|parseContext
+argument_list|()
 argument_list|,
 literal|"[has_parent] no _parent field configured"
 argument_list|)
@@ -1276,7 +1290,7 @@ block|{
 name|DocumentMapper
 name|documentMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1328,7 +1342,7 @@ block|{
 name|DocumentMapper
 name|documentMapper
 init|=
-name|parseContext
+name|context
 operator|.
 name|mapperService
 argument_list|()
@@ -1410,7 +1424,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|parseContext
+name|context
 operator|.
 name|indexVersionCreated
 argument_list|()

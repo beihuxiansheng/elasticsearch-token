@@ -306,7 +306,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -887,7 +887,7 @@ expr_stmt|;
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -1063,7 +1063,7 @@ expr_stmt|;
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -1229,7 +1229,7 @@ expr_stmt|;
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -1425,7 +1425,7 @@ expr_stmt|;
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|XContentParser

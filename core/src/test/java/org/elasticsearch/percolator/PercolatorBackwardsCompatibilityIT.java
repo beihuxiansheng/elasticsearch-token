@@ -86,11 +86,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -100,9 +98,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|index
 operator|.
-name|ESIntegTestCase
+name|query
+operator|.
+name|QueryShardException
 import|;
 end_import
 
@@ -485,7 +485,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)

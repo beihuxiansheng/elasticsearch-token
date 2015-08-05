@@ -418,7 +418,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParsingException
+name|QueryShardException
 import|;
 end_import
 
@@ -17515,7 +17515,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)
@@ -17590,7 +17590,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)
@@ -19120,7 +19120,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|QueryShardException
 operator|.
 name|class
 argument_list|)

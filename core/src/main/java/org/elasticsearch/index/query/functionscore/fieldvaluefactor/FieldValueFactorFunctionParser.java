@@ -104,7 +104,7 @@ name|index
 operator|.
 name|mapper
 operator|.
-name|FieldMapper
+name|MappedFieldType
 import|;
 end_import
 
@@ -116,9 +116,9 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|mapper
+name|query
 operator|.
-name|MappedFieldType
+name|QueryShardContext
 import|;
 end_import
 
@@ -232,8 +232,8 @@ specifier|public
 name|ScoreFunction
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|XContentParser
 name|parser
@@ -243,6 +243,14 @@ name|IOException
 throws|,
 name|QueryParsingException
 block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|context
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
 name|String
 name|currentFieldName
 init|=

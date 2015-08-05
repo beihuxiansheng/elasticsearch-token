@@ -191,7 +191,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -335,10 +335,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|QueryParseContext
+name|QueryShardContext
 name|context
 init|=
-name|createContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|context

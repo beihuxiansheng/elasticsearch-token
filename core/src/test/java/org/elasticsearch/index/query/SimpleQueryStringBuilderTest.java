@@ -489,7 +489,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -928,7 +928,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -963,7 +963,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -998,7 +998,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;

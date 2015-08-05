@@ -376,7 +376,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -518,8 +518,8 @@ specifier|public
 name|ScoreFunction
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|XContentParser
 name|parser
@@ -616,7 +616,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|parseContext
+name|context
 operator|.
 name|parseFieldMatcher
 argument_list|()
@@ -692,7 +692,7 @@ name|fieldName
 argument_list|,
 name|variableParser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 name|MultiValueMode
 operator|.
@@ -725,8 +725,8 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|MultiValueMode
 name|mode
@@ -739,7 +739,7 @@ comment|// the doc later
 name|MappedFieldType
 name|fieldType
 init|=
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -757,7 +757,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|context
+operator|.
 name|parseContext
+argument_list|()
 argument_list|,
 literal|"unknown field [{}]"
 argument_list|,
@@ -787,7 +790,7 @@ name|fieldName
 argument_list|,
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 operator|(
 name|DateFieldMapper
@@ -817,7 +820,7 @@ name|fieldName
 argument_list|,
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 operator|(
 name|GeoPointFieldMapper
@@ -847,7 +850,7 @@ name|fieldName
 argument_list|,
 name|parser
 argument_list|,
-name|parseContext
+name|context
 argument_list|,
 operator|(
 name|NumberFieldMapper
@@ -866,7 +869,10 @@ throw|throw
 operator|new
 name|QueryParsingException
 argument_list|(
+name|context
+operator|.
 name|parseContext
+argument_list|()
 argument_list|,
 literal|"field [{}] is of type [{}], but only numeric types are supported."
 argument_list|,
@@ -888,8 +894,8 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|NumberFieldMapper
 operator|.
@@ -1112,7 +1118,7 @@ block|}
 name|IndexNumericFieldData
 name|numericFieldData
 init|=
-name|parseContext
+name|context
 operator|.
 name|getForField
 argument_list|(
@@ -1151,8 +1157,8 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|GeoPointFieldMapper
 operator|.
@@ -1395,7 +1401,7 @@ decl_stmt|;
 name|IndexGeoPointFieldData
 name|indexFieldData
 init|=
-name|parseContext
+name|context
 operator|.
 name|getForField
 argument_list|(
@@ -1434,8 +1440,8 @@ parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|DateFieldMapper
 operator|.
@@ -1733,7 +1739,7 @@ decl_stmt|;
 name|IndexNumericFieldData
 name|numericFieldData
 init|=
-name|parseContext
+name|context
 operator|.
 name|getForField
 argument_list|(

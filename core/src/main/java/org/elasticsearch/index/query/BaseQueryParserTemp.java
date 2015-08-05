@@ -78,6 +78,9 @@ init|=
 name|parse
 argument_list|(
 name|parseContext
+operator|.
+name|shardContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

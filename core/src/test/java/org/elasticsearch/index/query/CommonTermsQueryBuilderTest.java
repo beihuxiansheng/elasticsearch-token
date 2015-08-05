@@ -327,7 +327,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -493,10 +493,10 @@ argument_list|,
 literal|""
 argument_list|)
 decl_stmt|;
-name|QueryParseContext
+name|QueryShardContext
 name|context
 init|=
-name|createContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 name|context

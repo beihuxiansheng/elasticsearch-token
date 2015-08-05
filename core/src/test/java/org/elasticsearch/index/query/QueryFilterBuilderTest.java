@@ -184,7 +184,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -282,7 +282,7 @@ block|{
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 comment|// create inner filter
@@ -330,9 +330,6 @@ name|innerQuery
 init|=
 name|context
 operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
 name|queryParser
 argument_list|(
 name|ConstantScoreQueryBuilder
@@ -364,7 +361,7 @@ name|queryFilterQuery
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)

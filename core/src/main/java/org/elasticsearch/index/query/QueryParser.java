@@ -77,15 +77,15 @@ DECL|method|parse
 name|Query
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|QueryParsingException
 function_decl|;
-comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryParseContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      * @throws IOException      * @throws QueryParsingException      */
+comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      * @throws IOException      * @throws QueryParsingException      */
 DECL|method|fromXContent
 name|QueryBuilder
 name|fromXContent

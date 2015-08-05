@@ -1811,7 +1811,7 @@ operator|.
 name|queryParserService
 argument_list|()
 operator|.
-name|getParseContext
+name|getShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;

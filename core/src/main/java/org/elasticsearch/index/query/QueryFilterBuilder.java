@@ -223,8 +223,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -239,7 +239,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 if|if

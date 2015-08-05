@@ -338,8 +338,8 @@ specifier|final
 name|Query
 name|toQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -349,7 +349,7 @@ name|query
 init|=
 name|doToQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 if|if
@@ -373,7 +373,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseContext
+name|context
 operator|.
 name|addNamedQuery
 argument_list|(
@@ -394,14 +394,14 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 block|{
 return|return
-name|parseContext
+name|context
 operator|.
 name|indexQueryParserService
 argument_list|()
@@ -414,7 +414,7 @@ argument_list|)
 operator|.
 name|parse
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 return|;
 block|}
@@ -876,7 +876,7 @@ return|return
 name|obj
 return|;
 block|}
-comment|/**      * Helper method to convert collection of {@link QueryBuilder} instances to lucene      * {@link Query} instances. {@link QueryBuilder} that return<tt>null</tt> calling      * their {@link QueryBuilder#toQuery(QueryParseContext)} method are not added to the      * resulting collection.      *      * @throws IOException      * @throws QueryParsingException      */
+comment|/**      * Helper method to convert collection of {@link QueryBuilder} instances to lucene      * {@link Query} instances. {@link QueryBuilder} that return<tt>null</tt> calling      * their {@link QueryBuilder#toQuery(QueryShardContext)} method are not added to the      * resulting collection.      *      * @throws IOException      * @throws QueryShardException      */
 DECL|method|toQueries
 specifier|protected
 specifier|static
@@ -892,11 +892,11 @@ name|QueryBuilder
 argument_list|>
 name|queryBuilders
 parameter_list|,
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -931,7 +931,7 @@ name|queryBuilder
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 if|if

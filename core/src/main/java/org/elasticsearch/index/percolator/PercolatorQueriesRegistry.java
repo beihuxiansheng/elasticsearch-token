@@ -336,7 +336,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -1217,6 +1217,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|//norelease this method parses from xcontent to lucene query, need to re-investigate how to split context here
 DECL|method|parseQuery
 specifier|private
 name|Query
@@ -1242,7 +1243,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypesWithPrevious
 argument_list|(
@@ -1255,12 +1256,12 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-name|QueryParseContext
+name|QueryShardContext
 name|context
 init|=
 name|queryParserService
 operator|.
-name|getParseContext
+name|getShardContext
 argument_list|()
 decl_stmt|;
 try|try
@@ -1322,6 +1323,9 @@ operator|new
 name|QueryParsingException
 argument_list|(
 name|context
+operator|.
+name|parseContext
+argument_list|()
 argument_list|,
 literal|"Failed to parse"
 argument_list|,
@@ -1338,7 +1342,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(

@@ -891,8 +891,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -908,7 +908,7 @@ argument_list|)
 decl_stmt|;
 name|addBooleanClauses
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|booleanQuery
 argument_list|,
@@ -923,7 +923,7 @@ argument_list|)
 expr_stmt|;
 name|addBooleanClauses
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|booleanQuery
 argument_list|,
@@ -938,7 +938,7 @@ argument_list|)
 expr_stmt|;
 name|addBooleanClauses
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|booleanQuery
 argument_list|,
@@ -953,7 +953,7 @@ argument_list|)
 expr_stmt|;
 name|addBooleanClauses
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|booleanQuery
 argument_list|,
@@ -1062,8 +1062,8 @@ specifier|static
 name|void
 name|addBooleanClauses
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|BooleanQuery
 name|booleanQuery
@@ -1095,7 +1095,7 @@ name|query
 operator|.
 name|toQuery
 argument_list|(
-name|parseContext
+name|context
 argument_list|)
 decl_stmt|;
 if|if

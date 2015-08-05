@@ -188,7 +188,7 @@ argument_list|<
 name|OrQueryBuilder
 argument_list|>
 block|{
-comment|/*     @Override     protected Query doCreateExpectedQuery(OrQueryBuilder queryBuilder, QueryParseContext context) throws QueryParsingException, IOException {         if (queryBuilder.filters().isEmpty()) {             return null;         }         BooleanQuery query = new BooleanQuery();         for (QueryBuilder subQuery : queryBuilder.filters()) {             Query innerQuery = subQuery.toQuery(context);             // ignore queries that are null             if (innerQuery != null) {                 query.add(innerQuery, Occur.SHOULD);             }         }         if (query.clauses().isEmpty()) {             return null;         }         return query;     } */
+comment|/*     @Override     protected Query doCreateExpectedQuery(OrQueryBuilder queryBuilder, QueryCreationContext context) throws QueryCreationException, IOException {         if (queryBuilder.filters().isEmpty()) {             return null;         }         BooleanQuery query = new BooleanQuery();         for (QueryBuilder subQuery : queryBuilder.filters()) {             Query innerQuery = subQuery.toQuery(context);             // ignore queries that are null             if (innerQuery != null) {                 query.add(innerQuery, Occur.SHOULD);             }         }         if (query.clauses().isEmpty()) {             return null;         }         return query;     } */
 comment|/**      * @return an OrQueryBuilder with random limit between 0 and 20      */
 annotation|@
 name|Override
@@ -261,7 +261,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -461,7 +461,7 @@ name|void
 name|testNoInnerQueries
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|QueryShardException
 throws|,
 name|IOException
 block|{
@@ -478,7 +478,7 @@ name|orQuery
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 argument_list|)
@@ -504,7 +504,7 @@ block|{
 name|QueryParseContext
 name|context
 init|=
-name|createContext
+name|createParseContext
 argument_list|()
 decl_stmt|;
 name|String
@@ -547,9 +547,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|context
-operator|.
-name|indexQueryParserService
-argument_list|()
 operator|.
 name|queryParser
 argument_list|(

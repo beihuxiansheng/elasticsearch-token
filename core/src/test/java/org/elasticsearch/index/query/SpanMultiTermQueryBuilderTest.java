@@ -155,7 +155,7 @@ parameter_list|,
 name|Query
 name|query
 parameter_list|,
-name|QueryParseContext
+name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
@@ -318,10 +318,10 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 init|=
-name|createContext
+name|createShardContext
 argument_list|()
 decl_stmt|;
 comment|// test makes only sense if we have at least one type registered with date field mapping
@@ -334,7 +334,7 @@ name|length
 operator|>
 literal|0
 operator|&&
-name|parseContext
+name|context
 operator|.
 name|fieldMapper
 argument_list|(
@@ -363,7 +363,7 @@ argument_list|)
 operator|.
 name|toQuery
 argument_list|(
-name|createContext
+name|createShardContext
 argument_list|()
 argument_list|)
 expr_stmt|;

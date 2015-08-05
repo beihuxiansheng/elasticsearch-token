@@ -523,14 +523,22 @@ specifier|public
 name|Query
 name|parse
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
 throws|,
 name|QueryParsingException
 block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|context
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
 name|XContentParser
 name|parser
 init|=
@@ -891,7 +899,7 @@ name|currentFieldName
 operator|=
 name|parseFiltersAndFunctions
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|parser
 argument_list|,
@@ -950,7 +958,7 @@ argument_list|)
 operator|.
 name|parse
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|parser
 argument_list|)
@@ -1323,7 +1331,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|parseContext
+name|context
 operator|.
 name|addNamedQuery
 argument_list|(
@@ -1396,8 +1404,8 @@ specifier|private
 name|String
 name|parseFiltersAndFunctions
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|,
 name|XContentParser
 name|parser
@@ -1416,6 +1424,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|QueryParseContext
+name|parseContext
+init|=
+name|context
+operator|.
+name|parseContext
+argument_list|()
+decl_stmt|;
 name|XContentParser
 operator|.
 name|Token
@@ -1591,7 +1607,7 @@ name|functionParser
 operator|.
 name|parse
 argument_list|(
-name|parseContext
+name|context
 argument_list|,
 name|parser
 argument_list|)
@@ -1881,6 +1897,7 @@ return|return
 name|cf
 return|;
 block|}
+comment|//norelease to be removed once all queries are moved over to extend BaseQueryParser
 annotation|@
 name|Override
 DECL|method|fromXContent
@@ -1902,6 +1919,9 @@ init|=
 name|parse
 argument_list|(
 name|parseContext
+operator|.
+name|shardContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

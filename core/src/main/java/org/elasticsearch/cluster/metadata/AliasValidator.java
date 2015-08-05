@@ -152,7 +152,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -685,12 +685,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|QueryParseContext
+name|QueryShardContext
 name|context
 init|=
 name|indexQueryParserService
 operator|.
-name|getParseContext
+name|getShardContext
 argument_list|()
 decl_stmt|;
 try|try
@@ -703,6 +703,9 @@ name|parser
 argument_list|)
 expr_stmt|;
 name|context
+operator|.
+name|parseContext
+argument_list|()
 operator|.
 name|parseInnerFilter
 argument_list|()

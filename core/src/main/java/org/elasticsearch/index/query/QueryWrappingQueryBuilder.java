@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link QueryBuilder#toQuery(QueryParseContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  */
+comment|/**  * QueryBuilder implementation that  holds a lucene query, which can be returned by {@link QueryBuilder#toQuery(QueryShardContext)}.  * Doesn't support conversion to {@link org.elasticsearch.common.xcontent.XContent} via {@link #doXContent(XContentBuilder, Params)}.  */
 end_comment
 
 begin_comment
@@ -150,8 +150,8 @@ specifier|protected
 name|Query
 name|doToQuery
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|QueryShardContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

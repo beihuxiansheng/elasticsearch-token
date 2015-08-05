@@ -346,7 +346,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParseContext
+name|QueryShardContext
 import|;
 end_import
 
@@ -711,7 +711,7 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|setTypes
 argument_list|(
@@ -734,7 +734,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-name|QueryParseContext
+name|QueryShardContext
 operator|.
 name|removeTypes
 argument_list|()

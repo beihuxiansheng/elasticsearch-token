@@ -154,7 +154,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|QueryParsingException
+name|QueryShardException
 import|;
 end_import
 
@@ -689,7 +689,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|QueryParsingException
+name|QueryShardException
 block|{
 name|String
 name|heuristicName
