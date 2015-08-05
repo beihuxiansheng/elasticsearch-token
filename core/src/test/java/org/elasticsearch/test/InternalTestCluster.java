@@ -2588,6 +2588,8 @@ name|EsExecutors
 operator|.
 name|newCached
 argument_list|(
+literal|"test runner"
+argument_list|,
 literal|0
 argument_list|,
 name|TimeUnit
