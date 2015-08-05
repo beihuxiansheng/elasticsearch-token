@@ -249,7 +249,7 @@ name|innerFilter
 init|=
 name|filterBuilder
 operator|.
-name|toQuery
+name|toFilter
 argument_list|(
 name|context
 argument_list|)
@@ -270,12 +270,7 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|filterBuilder
-operator|.
-name|toQuery
-argument_list|(
-name|context
-argument_list|)
+name|innerFilter
 argument_list|)
 return|;
 block|}

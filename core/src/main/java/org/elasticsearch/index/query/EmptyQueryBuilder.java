@@ -241,6 +241,24 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|toFilter
+specifier|public
+name|Query
+name|toFilter
+parameter_list|(
+name|QueryShardContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+comment|// empty
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|validate
 specifier|public
 name|QueryValidationException

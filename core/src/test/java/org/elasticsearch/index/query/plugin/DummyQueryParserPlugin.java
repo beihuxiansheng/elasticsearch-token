@@ -395,9 +395,6 @@ name|DummyQuery
 argument_list|(
 name|context
 operator|.
-name|parseContext
-argument_list|()
-operator|.
 name|isFilter
 argument_list|()
 argument_list|)

@@ -170,11 +170,6 @@ name|Index
 name|index
 decl_stmt|;
 comment|//norelease this flag is also used in the QueryShardContext, we need to make sure we set it there correctly in doToQuery()
-DECL|field|isFilter
-specifier|private
-name|boolean
-name|isFilter
-decl_stmt|;
 DECL|field|parseFieldMatcher
 specifier|private
 name|ParseFieldMatcher
@@ -752,6 +747,7 @@ block|}
 comment|/**      * @return a new QueryBuilder based on the current state of the parser, but does so that the inner query      * is parsed to a filter      * @throws IOException      */
 annotation|@
 name|Nullable
+comment|//norelease setting and checking the isFilter Flag should completely be moved to toQuery/toFilter after query refactoring
 DECL|method|parseInnerFilterToQueryBuilder
 specifier|public
 name|QueryBuilder
@@ -764,10 +760,18 @@ specifier|final
 name|boolean
 name|originalIsFilter
 init|=
+name|this
+operator|.
+name|shardContext
+operator|.
 name|isFilter
 decl_stmt|;
 try|try
 block|{
+name|this
+operator|.
+name|shardContext
+operator|.
 name|isFilter
 operator|=
 literal|true
@@ -779,12 +783,17 @@ return|;
 block|}
 finally|finally
 block|{
+name|this
+operator|.
+name|shardContext
+operator|.
 name|isFilter
 operator|=
 name|originalIsFilter
 expr_stmt|;
 block|}
 block|}
+comment|//norelease setting and checking the isFilter Flag should completely be moved to toQuery/toFilter after query refactoring
 DECL|method|parseInnerFilterToQueryBuilder
 name|QueryBuilder
 name|parseInnerFilterToQueryBuilder
@@ -801,10 +810,18 @@ specifier|final
 name|boolean
 name|originalIsFilter
 init|=
+name|this
+operator|.
+name|shardContext
+operator|.
 name|isFilter
 decl_stmt|;
 try|try
 block|{
+name|this
+operator|.
+name|shardContext
+operator|.
 name|isFilter
 operator|=
 literal|true
@@ -849,23 +866,15 @@ return|;
 block|}
 finally|finally
 block|{
+name|this
+operator|.
+name|shardContext
+operator|.
 name|isFilter
 operator|=
 name|originalIsFilter
 expr_stmt|;
 block|}
-block|}
-DECL|method|isFilter
-specifier|public
-name|boolean
-name|isFilter
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|isFilter
-return|;
 block|}
 DECL|method|parseFieldMatcher
 specifier|public

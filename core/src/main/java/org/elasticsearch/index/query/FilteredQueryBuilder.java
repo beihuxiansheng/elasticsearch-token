@@ -363,7 +363,7 @@ name|filter
 init|=
 name|filterBuilder
 operator|.
-name|toQuery
+name|toFilter
 argument_list|(
 name|context
 argument_list|)

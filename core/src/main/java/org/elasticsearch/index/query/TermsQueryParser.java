@@ -1201,7 +1201,7 @@ name|query
 decl_stmt|;
 if|if
 condition|(
-name|parseContext
+name|context
 operator|.
 name|isFilter
 argument_list|()

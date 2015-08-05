@@ -669,7 +669,6 @@ name|QueryParseContext
 name|parseContext
 decl_stmt|;
 DECL|field|isFilter
-specifier|private
 name|boolean
 name|isFilter
 decl_stmt|;
