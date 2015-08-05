@@ -266,6 +266,14 @@ specifier|volatile
 name|ScheduledFuture
 name|registeredNextDelayFuture
 decl_stmt|;
+DECL|field|unassignedShardsAllocatedTimestamp
+specifier|private
+specifier|volatile
+name|long
+name|unassignedShardsAllocatedTimestamp
+init|=
+literal|0
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RoutingService
@@ -375,6 +383,23 @@ operator|.
 name|allocationService
 return|;
 block|}
+comment|/**      * Update the last time the allocator tried to assign unassigned shards      *      * This is used so that both the GatewayAllocator and RoutingService use a      * consistent timestamp for comparing which shards have been delayed to      * avoid a race condition where GatewayAllocator thinks the shard should      * be delayed and the RoutingService thinks it has already passed the delay      * and that the GatewayAllocator has/will handle it.      */
+DECL|method|setUnassignedShardsAllocatedTimestamp
+specifier|public
+name|void
+name|setUnassignedShardsAllocatedTimestamp
+parameter_list|(
+name|long
+name|timeInMillis
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unassignedShardsAllocatedTimestamp
+operator|=
+name|timeInMillis
+expr_stmt|;
+block|}
 comment|/**      * Initiates a reroute.      */
 DECL|method|reroute
 specifier|public
@@ -473,6 +498,10 @@ name|registeredNextDelaySetting
 operator|=
 name|nextDelaySetting
 expr_stmt|;
+comment|// We use System.currentTimeMillis here because we want the
+comment|// next delay from the "now" perspective, rather than the
+comment|// delay from the last time the GatewayAllocator tried to
+comment|// assign/delay the shard
 name|TimeValue
 name|nextDelay
 init|=
@@ -484,6 +513,11 @@ name|UnassignedInfo
 operator|.
 name|findNextDelayedAllocationIn
 argument_list|(
+name|System
+operator|.
+name|currentTimeMillis
+argument_list|()
+argument_list|,
 name|settings
 argument_list|,
 name|event
@@ -493,16 +527,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"delaying allocation for [{}] unassigned shards, next check in [{}]"
-argument_list|,
+name|int
+name|unassignedDelayedShards
+init|=
 name|UnassignedInfo
 operator|.
 name|getNumberOfDelayedUnassigned
 argument_list|(
+name|unassignedShardsAllocatedTimestamp
+argument_list|,
 name|settings
 argument_list|,
 name|event
@@ -510,6 +543,21 @@ operator|.
 name|state
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|unassignedDelayedShards
+operator|>
+literal|0
+condition|)
+block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"delaying allocation for [{}] unassigned shards, next check in [{}]"
+argument_list|,
+name|unassignedDelayedShards
 argument_list|,
 name|nextDelay
 argument_list|)
@@ -572,10 +620,17 @@ argument_list|,
 name|t
 argument_list|)
 expr_stmt|;
+name|registeredNextDelaySetting
+operator|=
+name|Long
+operator|.
+name|MAX_VALUE
+expr_stmt|;
 block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
