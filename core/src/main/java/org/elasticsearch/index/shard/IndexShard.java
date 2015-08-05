@@ -5331,7 +5331,10 @@ argument_list|,
 name|Mapping
 argument_list|>
 name|performTranslogRecovery
-parameter_list|()
+parameter_list|(
+name|boolean
+name|indexExists
+parameter_list|)
 block|{
 specifier|final
 name|Map
@@ -5345,6 +5348,8 @@ init|=
 name|internalPerformTranslogRecovery
 argument_list|(
 literal|false
+argument_list|,
+name|indexExists
 argument_list|)
 decl_stmt|;
 assert|assert
@@ -5382,6 +5387,9 @@ name|internalPerformTranslogRecovery
 parameter_list|(
 name|boolean
 name|skipTranslogRecovery
+parameter_list|,
+name|boolean
+name|indexExists
 parameter_list|)
 block|{
 if|if
@@ -5472,6 +5480,15 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|engineConfig
+operator|.
+name|setCreate
+argument_list|(
+name|indexExists
+operator|==
+literal|false
+argument_list|)
+expr_stmt|;
 name|createNewEngine
 argument_list|(
 name|skipTranslogRecovery
@@ -5489,15 +5506,12 @@ name|getRecoveredTypes
 argument_list|()
 return|;
 block|}
-comment|/**      * After the store has been recovered, we need to start the engine. This method starts a new engine but skips      * the replay of the transaction log which is required in cases where we restore a previous index or recover from      * a remote peer.      *      * @param wipeTranslogs if set to<code>true</code> all skipped / uncommitted translogs are removed.      */
+comment|/**      * After the store has been recovered, we need to start the engine. This method starts a new engine but skips      * the replay of the transaction log which is required in cases where we restore a previous index or recover from      * a remote peer.      */
 DECL|method|skipTranslogRecovery
 specifier|public
 name|void
 name|skipTranslogRecovery
-parameter_list|(
-name|boolean
-name|wipeTranslogs
-parameter_list|)
+parameter_list|()
 throws|throws
 name|IOException
 block|{
@@ -5519,6 +5533,8 @@ name|recoveredTypes
 init|=
 name|internalPerformTranslogRecovery
 argument_list|(
+literal|true
+argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;

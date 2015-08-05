@@ -643,6 +643,14 @@ name|skipInitialTranslogRecovery
 operator|:
 literal|"can not recover from gateway"
 assert|;
+name|config
+operator|.
+name|setCreate
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// hardcoded - we always expect an index to be present
 return|return
 name|engineFactory
 operator|.
