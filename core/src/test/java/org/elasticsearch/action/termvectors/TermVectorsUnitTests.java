@@ -200,20 +200,6 @@ name|common
 operator|.
 name|io
 operator|.
-name|Streams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
 name|stream
 operator|.
 name|InputStreamStreamInput
@@ -363,6 +349,18 @@ operator|.
 name|test
 operator|.
 name|ESTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
 import|;
 end_import
 
@@ -2199,7 +2197,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
@@ -2240,7 +2238,7 @@ argument_list|)
 expr_stmt|;
 name|data
 operator|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(
@@ -2501,7 +2499,7 @@ name|byte
 index|[]
 name|data
 init|=
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 argument_list|(

@@ -1571,8 +1571,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-try|try
-block|{
 name|indexShard
 operator|.
 name|sync
@@ -1580,16 +1578,6 @@ argument_list|(
 name|location
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|EngineClosedException
-name|e
-parameter_list|)
-block|{
-comment|// ignore, the engine is already closed and we do not want the
-comment|// operation to be retried, because it has been modified
-block|}
 block|}
 block|}
 block|}

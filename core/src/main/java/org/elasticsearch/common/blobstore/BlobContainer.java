@@ -66,6 +66,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -115,13 +125,27 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Deletes a blob with giving name.      *      * If blob exist but cannot be deleted an exception has to be thrown.      */
+comment|/**      * Deletes a blob with giving name.      *      * If a blob exists but cannot be deleted an exception has to be thrown.      */
 DECL|method|deleteBlob
 name|void
 name|deleteBlob
 parameter_list|(
 name|String
 name|blobName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Deletes blobs with giving names.      *      * If a blob exists but cannot be deleted an exception has to be thrown.      */
+DECL|method|deleteBlobs
+name|void
+name|deleteBlobs
+parameter_list|(
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+name|blobNames
 parameter_list|)
 throws|throws
 name|IOException
