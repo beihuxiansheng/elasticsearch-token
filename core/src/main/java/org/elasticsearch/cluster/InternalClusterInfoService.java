@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -229,20 +215,6 @@ operator|.
 name|node
 operator|.
 name|DiscoveryNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
-name|ShardRouting
 import|;
 end_import
 
@@ -467,7 +439,7 @@ decl_stmt|;
 DECL|field|usages
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -478,7 +450,7 @@ decl_stmt|;
 DECL|field|shardSizes
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -585,18 +557,18 @@ name|this
 operator|.
 name|usages
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 name|this
 operator|.
 name|shardSizes
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 name|this
@@ -1226,9 +1198,9 @@ argument_list|)
 expr_stmt|;
 name|usages
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|newUsages
 argument_list|)
@@ -1822,9 +1794,9 @@ block|}
 block|}
 name|usages
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|newUsages
 argument_list|)
@@ -1903,9 +1875,9 @@ block|}
 comment|// we empty the usages list, to be safe - we don't know what's going on.
 name|usages
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 block|}
@@ -2024,9 +1996,9 @@ expr_stmt|;
 block|}
 name|shardSizes
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableMap
 argument_list|(
 name|newShardSizes
 argument_list|)
@@ -2105,9 +2077,9 @@ block|}
 comment|// we empty the usages list, to be safe - we don't know what's going on.
 name|shardSizes
 operator|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|of
+name|emptyMap
 argument_list|()
 expr_stmt|;
 block|}

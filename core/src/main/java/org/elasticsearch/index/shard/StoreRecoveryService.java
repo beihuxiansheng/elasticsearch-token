@@ -1742,7 +1742,9 @@ operator|=
 name|indexShard
 operator|.
 name|performTranslogRecovery
-argument_list|()
+argument_list|(
+name|indexShouldExists
+argument_list|)
 expr_stmt|;
 name|indexShard
 operator|.
@@ -2201,9 +2203,7 @@ expr_stmt|;
 name|indexShard
 operator|.
 name|skipTranslogRecovery
-argument_list|(
-literal|true
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|indexShard
 operator|.

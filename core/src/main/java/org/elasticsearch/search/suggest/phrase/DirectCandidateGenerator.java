@@ -1001,10 +1001,12 @@ operator|.
 name|toBytesRef
 argument_list|()
 decl_stmt|;
+comment|// We should not use frequency(term) here because it will analyze the term again
+comment|// If preFilter and postFilter are the same analyzer it would fail.
 name|long
 name|freq
 init|=
-name|frequency
+name|internalFrequency
 argument_list|(
 name|term
 argument_list|)

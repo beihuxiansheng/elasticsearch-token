@@ -695,6 +695,8 @@ name|EsExecutors
 operator|.
 name|newScaling
 argument_list|(
+literal|"recovery_stream"
+argument_list|,
 literal|0
 argument_list|,
 name|concurrentStreams
@@ -743,6 +745,8 @@ name|EsExecutors
 operator|.
 name|newScaling
 argument_list|(
+literal|"small_file_recovery_stream"
+argument_list|,
 literal|0
 argument_list|,
 name|concurrentSmallFileStreams

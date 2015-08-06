@@ -930,21 +930,14 @@ name|translogGeneration
 decl_stmt|;
 try|try
 block|{
-comment|// TODO: would be better if ES could tell us "from above" whether this shard was already here, instead of using Lucene's API
-comment|// (which relies on IO ops, directory listing, and has had scary bugs in the past):
+specifier|final
 name|boolean
 name|create
 init|=
-operator|!
-name|Lucene
+name|engineConfig
 operator|.
-name|indexExists
-argument_list|(
-name|store
-operator|.
-name|directory
+name|isCreate
 argument_list|()
-argument_list|)
 decl_stmt|;
 name|writer
 operator|=

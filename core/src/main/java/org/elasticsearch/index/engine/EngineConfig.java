@@ -700,6 +700,13 @@ specifier|private
 name|TranslogConfig
 name|translogConfig
 decl_stmt|;
+DECL|field|create
+specifier|private
+name|boolean
+name|create
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Creates a new {@link org.elasticsearch.index.engine.EngineConfig}      */
 DECL|method|EngineConfig
 specifier|public
@@ -1482,6 +1489,34 @@ parameter_list|()
 block|{
 return|return
 name|translogConfig
+return|;
+block|}
+comment|/**      * Iff set to<code>true</code> the engine will create a new lucene index when opening the engine.      * Otherwise the lucene index writer is opened in append mode. The default is<code>false</code>      */
+DECL|method|setCreate
+specifier|public
+name|void
+name|setCreate
+parameter_list|(
+name|boolean
+name|create
+parameter_list|)
+block|{
+name|this
+operator|.
+name|create
+operator|=
+name|create
+expr_stmt|;
+block|}
+comment|/**      * Iff<code>true</code> the engine should create a new lucene index when opening the engine.      * Otherwise the lucene index writer should be opened in append mode. The default is<code>false</code>      */
+DECL|method|isCreate
+specifier|public
+name|boolean
+name|isCreate
+parameter_list|()
+block|{
+return|return
+name|create
 return|;
 block|}
 block|}

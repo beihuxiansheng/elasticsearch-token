@@ -1008,6 +1008,8 @@ name|EsExecutors
 operator|.
 name|newScaling
 argument_list|(
+literal|"unicast_connect"
+argument_list|,
 literal|0
 argument_list|,
 name|concurrentConnects

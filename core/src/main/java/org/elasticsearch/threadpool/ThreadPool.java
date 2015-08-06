@@ -2896,6 +2896,8 @@ name|EsExecutors
 operator|.
 name|newCached
 argument_list|(
+name|name
+argument_list|,
 name|keepAlive
 operator|.
 name|millis
@@ -3278,6 +3280,8 @@ name|EsExecutors
 operator|.
 name|newFixed
 argument_list|(
+name|name
+argument_list|,
 name|size
 argument_list|,
 name|queueSize
@@ -3760,6 +3764,8 @@ name|EsExecutors
 operator|.
 name|newScaling
 argument_list|(
+name|name
+argument_list|,
 name|min
 argument_list|,
 name|size

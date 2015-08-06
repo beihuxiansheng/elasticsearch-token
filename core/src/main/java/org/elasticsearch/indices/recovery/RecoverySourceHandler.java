@@ -2855,6 +2855,9 @@ name|targetNode
 argument_list|()
 argument_list|)
 expr_stmt|;
+throw|throw
+name|exception
+throw|;
 block|}
 else|else
 block|{
