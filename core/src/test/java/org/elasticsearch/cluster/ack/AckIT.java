@@ -1581,7 +1581,7 @@ name|shardRouting
 range|:
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|routingNodeIter
@@ -1637,7 +1637,7 @@ name|shardRouting
 range|:
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|routingNodeIter
@@ -1941,7 +1941,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|routingNodeIter
@@ -2010,7 +2010,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|routingNodeIter
@@ -2219,7 +2219,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{

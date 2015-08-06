@@ -2410,10 +2410,6 @@ argument_list|(
 name|shardRouting
 argument_list|)
 expr_stmt|;
-name|removed
-operator|=
-literal|true
-expr_stmt|;
 break|break;
 block|}
 block|}

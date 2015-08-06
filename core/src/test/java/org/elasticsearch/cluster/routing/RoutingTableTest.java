@@ -772,7 +772,7 @@ name|this
 operator|.
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState

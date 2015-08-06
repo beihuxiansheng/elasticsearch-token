@@ -46,18 +46,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterInfoService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -934,7 +922,7 @@ name|initializingShards
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState

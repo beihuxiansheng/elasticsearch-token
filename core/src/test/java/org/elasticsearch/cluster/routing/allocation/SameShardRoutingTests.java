@@ -573,7 +573,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|ShardRoutingState
@@ -604,7 +604,7 @@ name|clusterState
 argument_list|,
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -639,7 +639,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|ShardRoutingState
@@ -659,7 +659,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|ShardRoutingState
@@ -773,7 +773,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|ShardRoutingState
@@ -793,7 +793,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|ShardRoutingState
@@ -814,7 +814,7 @@ name|shardRouting
 range|:
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState

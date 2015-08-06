@@ -830,7 +830,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -909,7 +909,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -928,7 +928,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -997,7 +997,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1071,7 +1071,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1090,7 +1090,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1203,7 +1203,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1222,7 +1222,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1316,7 +1316,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1355,7 +1355,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1472,7 +1472,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1491,7 +1491,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2016,7 +2016,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2090,7 +2090,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2109,7 +2109,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2221,7 +2221,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2240,7 +2240,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2538,7 +2538,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2557,7 +2557,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2669,7 +2669,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2688,7 +2688,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node

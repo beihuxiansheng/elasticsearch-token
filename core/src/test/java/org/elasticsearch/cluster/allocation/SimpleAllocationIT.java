@@ -206,7 +206,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -228,7 +228,7 @@ name|node
 range|:
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{
@@ -319,7 +319,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -341,7 +341,7 @@ name|node
 range|:
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{
@@ -446,7 +446,7 @@ name|assertThat
 argument_list|(
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -468,7 +468,7 @@ name|node
 range|:
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{

@@ -591,7 +591,7 @@ while|while
 condition|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|hasUnassignedShards
@@ -608,7 +608,7 @@ name|i
 argument_list|,
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -631,7 +631,7 @@ name|clusterState
 argument_list|,
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState

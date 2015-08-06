@@ -570,7 +570,7 @@ operator|.
 name|state
 argument_list|()
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node

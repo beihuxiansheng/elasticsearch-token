@@ -2272,7 +2272,7 @@ name|append
 argument_list|(
 name|previousClusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|prettyPrint
@@ -3275,7 +3275,7 @@ name|append
 argument_list|(
 name|newClusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|prettyPrint

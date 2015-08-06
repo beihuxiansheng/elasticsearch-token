@@ -3517,7 +3517,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -3899,7 +3899,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node

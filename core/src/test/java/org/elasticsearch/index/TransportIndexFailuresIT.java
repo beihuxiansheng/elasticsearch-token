@@ -979,7 +979,7 @@ name|rn
 init|=
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|logger

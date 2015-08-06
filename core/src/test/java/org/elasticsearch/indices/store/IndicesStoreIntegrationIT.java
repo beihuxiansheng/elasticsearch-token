@@ -2915,7 +2915,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
