@@ -242,6 +242,11 @@ name|ReplaceableConstValueSource
 name|specialValue
 decl_stmt|;
 comment|// _value
+DECL|field|needsScores
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 DECL|field|scorer
 name|Scorer
 name|scorer
@@ -261,6 +266,9 @@ name|b
 parameter_list|,
 name|ReplaceableConstValueSource
 name|v
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 block|{
 name|compiledScript
@@ -292,6 +300,24 @@ name|specialValue
 operator|=
 name|v
 expr_stmt|;
+name|this
+operator|.
+name|needsScores
+operator|=
+name|needsScores
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+name|needsScores
+return|;
 block|}
 annotation|@
 name|Override

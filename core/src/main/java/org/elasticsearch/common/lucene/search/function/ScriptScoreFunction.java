@@ -565,10 +565,11 @@ name|boolean
 name|needsScores
 parameter_list|()
 block|{
-comment|// Scripts might use _score so we return true here
-comment|// TODO: Make scripts able to tell us whether they use scores
 return|return
-literal|true
+name|script
+operator|.
+name|needsScores
+argument_list|()
 return|;
 block|}
 annotation|@
