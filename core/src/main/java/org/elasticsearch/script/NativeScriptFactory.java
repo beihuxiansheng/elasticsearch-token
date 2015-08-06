@@ -62,6 +62,12 @@ argument_list|>
 name|params
 parameter_list|)
 function_decl|;
+comment|/**      * Indicates if document scores may be needed by the produced scripts.      *       * @return {@code true} if scores are needed.      */
+DECL|method|needsScores
+name|boolean
+name|needsScores
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
