@@ -276,10 +276,7 @@ name|queryId
 init|=
 name|ConstantScoreQueryBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|getName
-argument_list|()
+name|NAME
 decl_stmt|;
 name|String
 name|queryString

@@ -356,7 +356,7 @@ name|innerQueryBuilder
 init|=
 name|in
 operator|.
-name|readNamedWriteable
+name|readQuery
 argument_list|()
 decl_stmt|;
 name|FQueryFilterBuilder
@@ -387,7 +387,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeNamedWriteable
+name|writeQuery
 argument_list|(
 name|queryBuilder
 argument_list|)
@@ -395,10 +395,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getName
+DECL|method|getWriteableName
 specifier|public
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 block|{
 return|return

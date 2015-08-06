@@ -273,10 +273,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getName
+DECL|method|getWriteableName
 specifier|public
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 block|{
 return|return

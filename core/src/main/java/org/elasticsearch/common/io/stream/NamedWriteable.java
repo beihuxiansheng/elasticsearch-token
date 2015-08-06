@@ -37,9 +37,9 @@ name|T
 argument_list|>
 block|{
 comment|/**      * Returns the name of the writeable object      */
-DECL|method|getName
+DECL|method|getWriteableName
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 function_decl|;
 block|}

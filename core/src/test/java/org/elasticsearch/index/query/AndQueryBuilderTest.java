@@ -538,10 +538,7 @@ name|parser
 argument_list|,
 name|AndQueryBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|getName
-argument_list|()
+name|NAME
 argument_list|)
 expr_stmt|;
 name|context
@@ -550,10 +547,7 @@ name|queryParser
 argument_list|(
 name|AndQueryBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|getName
-argument_list|()
+name|NAME
 argument_list|)
 operator|.
 name|fromXContent

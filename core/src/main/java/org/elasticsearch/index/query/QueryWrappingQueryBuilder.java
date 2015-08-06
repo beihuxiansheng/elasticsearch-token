@@ -162,10 +162,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getName
+DECL|method|getWriteableName
 specifier|public
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 block|{
 comment|// this should not be called since we overwrite BaseQueryBuilder#toQuery() in this class

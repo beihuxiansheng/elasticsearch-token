@@ -152,7 +152,7 @@ name|BytesReference
 name|buildAsBytes
 parameter_list|()
 function_decl|;
-comment|/**      * Sets the query name for the query.      */
+comment|/**      * Sets the arbitrary name to be assigned to the query (see named queries).      */
 DECL|method|queryName
 name|QB
 name|queryName
@@ -161,7 +161,7 @@ name|String
 name|queryName
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the query name for the query.      */
+comment|/**      * Returns the arbitrary name assigned to the query (see named queries).      */
 DECL|method|queryName
 name|String
 name|queryName
@@ -181,6 +181,12 @@ parameter_list|(
 name|float
 name|boost
 parameter_list|)
+function_decl|;
+comment|/**      * Returns the name that identifies uniquely the query      */
+DECL|method|getName
+name|String
+name|getName
+parameter_list|()
 function_decl|;
 block|}
 end_interface
