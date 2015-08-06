@@ -733,6 +733,9 @@ specifier|public
 name|long
 name|getDelayAllocationExpirationIn
 parameter_list|(
+name|long
+name|unassignedShardsAllocatedTimestamp
+parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -764,10 +767,7 @@ block|}
 name|long
 name|delta
 init|=
-name|System
-operator|.
-name|currentTimeMillis
-argument_list|()
+name|unassignedShardsAllocatedTimestamp
 operator|-
 name|timestamp
 decl_stmt|;
@@ -796,6 +796,9 @@ specifier|static
 name|int
 name|getNumberOfDelayedUnassigned
 parameter_list|(
+name|long
+name|unassignedShardsAllocatedTimestamp
+parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -862,6 +865,8 @@ argument_list|()
 operator|.
 name|getDelayAllocationExpirationIn
 argument_list|(
+name|unassignedShardsAllocatedTimestamp
+argument_list|,
 name|settings
 argument_list|,
 name|indexMetaData
@@ -1007,6 +1012,9 @@ specifier|static
 name|long
 name|findNextDelayedAllocationIn
 parameter_list|(
+name|long
+name|unassignedShardsAllocatedTimestamp
+parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -1075,6 +1083,8 @@ argument_list|()
 operator|.
 name|getDelayAllocationExpirationIn
 argument_list|(
+name|unassignedShardsAllocatedTimestamp
+argument_list|,
 name|settings
 argument_list|,
 name|indexMetaData

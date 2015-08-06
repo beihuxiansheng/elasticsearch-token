@@ -58,6 +58,12 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Indicates if document scores may be needed by this {@link SearchScript}.      *       * @return {@code true} if scores are needed.      */
+DECL|method|needsScores
+name|boolean
+name|needsScores
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
