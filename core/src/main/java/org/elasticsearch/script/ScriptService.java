@@ -1273,13 +1273,8 @@ name|scriptsDirectory
 operator|=
 name|env
 operator|.
-name|configFile
+name|scriptsFile
 argument_list|()
-operator|.
-name|resolve
-argument_list|(
-literal|"scripts"
-argument_list|)
 expr_stmt|;
 if|if
 condition|(
