@@ -180,6 +180,9 @@ name|settings
 parameter_list|,
 name|Version
 name|version
+parameter_list|,
+name|NamedWriteableRegistry
+name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|int
@@ -254,9 +257,7 @@ name|NON_RECYCLING_INSTANCE
 argument_list|,
 name|version
 argument_list|,
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
+name|namedWriteableRegistry
 argument_list|)
 argument_list|,
 name|threadPool
