@@ -989,6 +989,13 @@ name|Query
 name|query
 parameter_list|)
 block|{
+if|if
+condition|(
+name|query
+operator|!=
+literal|null
+condition|)
+block|{
 name|namedQueries
 operator|.
 name|put
@@ -998,6 +1005,7 @@ argument_list|,
 name|query
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|copyNamedQueries
 specifier|public
