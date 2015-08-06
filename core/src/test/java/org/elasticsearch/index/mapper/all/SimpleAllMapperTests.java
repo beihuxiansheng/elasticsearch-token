@@ -384,13 +384,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|test
 operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
-name|SizeFieldMapper
+name|ESSingleNodeTestCase
 import|;
 end_import
 
@@ -400,9 +396,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|index
 operator|.
-name|ESSingleNodeTestCase
+name|mapper
+operator|.
+name|internal
+operator|.
+name|TimestampFieldMapper
 import|;
 end_import
 
@@ -3663,7 +3663,7 @@ name|rootTypes
 operator|.
 name|put
 argument_list|(
-name|SizeFieldMapper
+name|TimestampFieldMapper
 operator|.
 name|NAME
 argument_list|,
