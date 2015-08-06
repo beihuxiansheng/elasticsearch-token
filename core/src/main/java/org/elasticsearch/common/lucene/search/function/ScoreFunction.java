@@ -98,6 +98,14 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Indicates if document scores are needed by this function.      *       * @return {@code true} if scores are needed.      */
+DECL|method|needsScores
+specifier|public
+specifier|abstract
+name|boolean
+name|needsScores
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

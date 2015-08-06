@@ -451,6 +451,18 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|needsScores
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * The Type class encapsulates the modification types that can be applied      * to the score/value product.      */
 DECL|enum|Modifier
 specifier|public
