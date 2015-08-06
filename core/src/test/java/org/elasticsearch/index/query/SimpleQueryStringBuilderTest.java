@@ -917,7 +917,26 @@ name|SimpleQueryStringBuilder
 argument_list|(
 literal|"The quick brown fox."
 argument_list|)
+operator|.
+name|field
+argument_list|(
+name|STRING_FIELD_NAME
+argument_list|)
 decl_stmt|;
+name|QueryShardContext
+name|shardContext
+init|=
+name|createShardContext
+argument_list|()
+decl_stmt|;
+name|shardContext
+operator|.
+name|setAllowUnmappedFields
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// to avoid occasional cases in setup where we didn't add types but strict field resolution
 name|BooleanQuery
 name|boolQuery
 init|=
@@ -928,8 +947,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|createShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -963,8 +981,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|createShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -998,8 +1015,7 @@ name|qb
 operator|.
 name|toQuery
 argument_list|(
-name|createShardContext
-argument_list|()
+name|shardContext
 argument_list|)
 expr_stmt|;
 name|assertThat
