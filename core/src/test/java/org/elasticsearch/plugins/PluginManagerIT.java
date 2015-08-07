@@ -1500,6 +1500,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+literal|"fake-plugin"
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -1513,6 +1517,15 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
+literal|"java.version"
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+argument_list|,
 literal|"jvm"
 argument_list|,
 literal|"true"
@@ -1524,9 +1537,7 @@ argument_list|)
 decl_stmt|;
 name|assertStatus
 argument_list|(
-literal|"install --url "
-operator|+
-name|pluginUrl
+literal|"install"
 argument_list|,
 name|USAGE
 argument_list|)
@@ -1628,6 +1639,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -1701,10 +1716,6 @@ decl_stmt|;
 name|assertStatusOk
 argument_list|(
 literal|"install "
-operator|+
-name|pluginName
-operator|+
-literal|" --url "
 operator|+
 name|pluginUrl
 operator|+
@@ -1905,6 +1916,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -1967,9 +1982,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2130,6 +2143,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"2.0"
@@ -2171,9 +2188,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2421,6 +2436,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"3.0"
@@ -2462,9 +2481,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2612,6 +2629,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+literal|"fake-plugin"
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -2679,9 +2700,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2812,6 +2831,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -2853,9 +2876,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2933,6 +2954,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -2952,9 +2977,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -3073,9 +3096,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -3174,9 +3195,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginDescriptor
+literal|"install %s --verbose"
 argument_list|,
 name|pluginCoordinates
 argument_list|)
@@ -3552,6 +3571,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0.0"
@@ -3878,7 +3901,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install foo --url http://user:pass@localhost:12345/foo.zip --verbose"
+literal|"install http://user:pass@localhost:12345/foo.zip --verbose"
 argument_list|)
 argument_list|,
 name|CliTool
@@ -4118,7 +4141,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install foo --url https://user:pass@localhost:%s/foo.zip --verbose --timeout 1s"
+literal|"install https://user:pass@localhost:%s/foo.zip --verbose --timeout 1s"
 argument_list|,
 name|port
 argument_list|)

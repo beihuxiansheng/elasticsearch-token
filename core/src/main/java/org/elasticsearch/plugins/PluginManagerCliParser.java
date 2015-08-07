@@ -186,9 +186,19 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|net
 operator|.
-name|IOException
+name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URL
 import|;
 end_import
 
@@ -954,26 +964,6 @@ name|options
 argument_list|(
 name|option
 argument_list|(
-literal|"u"
-argument_list|,
-literal|"url"
-argument_list|)
-operator|.
-name|required
-argument_list|(
-literal|false
-argument_list|)
-operator|.
-name|hasArg
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-operator|.
-name|options
-argument_list|(
-name|option
-argument_list|(
 literal|"t"
 argument_list|,
 literal|"timeout"
@@ -1014,6 +1004,7 @@ operator|.
 name|getArgs
 argument_list|()
 decl_stmt|;
+comment|// install [plugin-name/url]
 if|if
 condition|(
 operator|(
@@ -1040,7 +1031,7 @@ name|USAGE
 argument_list|,
 name|terminal
 argument_list|,
-literal|"plugin name is missing (type -h for help)"
+literal|"plugin name or url is missing (type -h for help)"
 argument_list|)
 return|;
 block|}
@@ -1052,6 +1043,36 @@ index|[
 literal|0
 index|]
 decl_stmt|;
+name|URL
+name|optionalPluginUrl
+init|=
+literal|null
+decl_stmt|;
+comment|// try parsing cli argument as URL
+try|try
+block|{
+name|optionalPluginUrl
+operator|=
+operator|new
+name|URL
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+name|name
+operator|=
+literal|null
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|MalformedURLException
+name|e
+parameter_list|)
+block|{
+comment|// we tried to parse the cli argument as url and failed
+comment|// continue treating it as a symbolic plugin name like `analysis-icu` etc.
+block|}
 name|TimeValue
 name|timeout
 init|=
@@ -1069,16 +1090,6 @@ argument_list|,
 name|DEFAULT_TIMEOUT
 argument_list|,
 literal|"cli"
-argument_list|)
-decl_stmt|;
-name|String
-name|url
-init|=
-name|cli
-operator|.
-name|getOptionValue
-argument_list|(
-literal|"u"
 argument_list|)
 decl_stmt|;
 name|OutputMode
@@ -1132,7 +1143,7 @@ name|name
 argument_list|,
 name|outputMode
 argument_list|,
-name|url
+name|optionalPluginUrl
 argument_list|,
 name|timeout
 argument_list|)
@@ -1150,7 +1161,7 @@ name|outputMode
 decl_stmt|;
 DECL|field|url
 specifier|final
-name|String
+name|URL
 name|url
 decl_stmt|;
 DECL|field|timeout
@@ -1170,7 +1181,7 @@ parameter_list|,
 name|OutputMode
 name|outputMode
 parameter_list|,
-name|String
+name|URL
 name|url
 parameter_list|,
 name|TimeValue
@@ -1238,6 +1249,13 @@ argument_list|,
 name|timeout
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
 name|terminal
 operator|.
 name|println
@@ -1254,6 +1272,21 @@ operator|+
 literal|"..."
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|terminal
+operator|.
+name|println
+argument_list|(
+literal|"-> Installing from "
+operator|+
+name|url
+operator|+
+literal|"..."
+argument_list|)
+expr_stmt|;
+block|}
 name|pluginManager
 operator|.
 name|downloadAndExtract
