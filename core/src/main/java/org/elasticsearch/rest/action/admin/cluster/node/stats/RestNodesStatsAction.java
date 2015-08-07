@@ -536,6 +536,18 @@ literal|"breaker"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|nodesStatsRequest
+operator|.
+name|script
+argument_list|(
+name|metrics
+operator|.
+name|contains
+argument_list|(
+literal|"script"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// check for index specific metrics
 if|if
 condition|(

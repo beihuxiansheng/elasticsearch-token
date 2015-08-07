@@ -772,6 +772,15 @@ name|SCRIPT_CACHE_SIZE_SETTING
 init|=
 literal|"script.cache.max_size"
 decl_stmt|;
+DECL|field|SCRIPT_CACHE_SIZE_DEFAULT
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|SCRIPT_CACHE_SIZE_DEFAULT
+init|=
+literal|100
+decl_stmt|;
 DECL|field|SCRIPT_CACHE_EXPIRE_SETTING
 specifier|public
 specifier|static
@@ -904,6 +913,16 @@ name|Client
 name|client
 init|=
 literal|null
+decl_stmt|;
+DECL|field|scriptMetrics
+specifier|private
+specifier|final
+name|ScriptMetrics
+name|scriptMetrics
+init|=
+operator|new
+name|ScriptMetrics
+argument_list|()
 decl_stmt|;
 comment|/**      * @deprecated Use {@link org.elasticsearch.script.Script.ScriptField} instead. This should be removed in      *             2.0      */
 DECL|field|SCRIPT_LANG
@@ -1053,7 +1072,7 @@ name|getAsInt
 argument_list|(
 name|SCRIPT_CACHE_SIZE_SETTING
 argument_list|,
-literal|100
+name|SCRIPT_CACHE_SIZE_DEFAULT
 argument_list|)
 decl_stmt|;
 name|TimeValue
@@ -1964,6 +1983,11 @@ throw|;
 block|}
 comment|//Since the cache key is the script content itself we don't need to
 comment|//invalidate/check the cache if an indexed script changes.
+name|scriptMetrics
+operator|.
+name|onCompilation
+argument_list|()
+expr_stmt|;
 name|cache
 operator|.
 name|put
@@ -3100,6 +3124,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|stats
+specifier|public
+name|ScriptStats
+name|stats
+parameter_list|()
+block|{
+return|return
+name|scriptMetrics
+operator|.
+name|stats
+argument_list|()
+return|;
+block|}
 comment|/**      * A small listener for the script cache that calls each      * {@code ScriptEngineService}'s {@code scriptRemoved} method when the      * script has been removed from the cache      */
 DECL|class|ScriptCacheRemovalListener
 specifier|private
@@ -3150,6 +3187,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|scriptMetrics
+operator|.
+name|onCacheEviction
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|ScriptEngineService
@@ -3503,6 +3545,11 @@ name|script
 argument_list|)
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|scriptMetrics
+operator|.
+name|onCompilation
+argument_list|()
 expr_stmt|;
 block|}
 block|}
