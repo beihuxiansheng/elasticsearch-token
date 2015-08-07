@@ -134,6 +134,16 @@ name|Path
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -209,6 +219,13 @@ name|type
 operator|.
 name|name
 argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 argument_list|)
 operator|.
 name|build
