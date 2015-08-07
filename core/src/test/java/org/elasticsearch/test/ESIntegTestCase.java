@@ -172,6 +172,20 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|routing
 operator|.
 name|UnassignedInfo
@@ -193,6 +207,18 @@ operator|.
 name|decider
 operator|.
 name|EnableAllocationDecider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|env
+operator|.
+name|NodeEnvironment
 import|;
 end_import
 
@@ -4273,15 +4299,47 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
-comment|// norelease: disabled because custom data paths don't play well against
-comment|// an external test cluster: the security manager is not happy that random
-comment|// files are touched. See http://build-us-00.elastic.co/job/es_core_master_strong/4357/console
 comment|// 30% of the time
-comment|// if (randomInt(9)< 3) {
-comment|//     final Path dataPath = createTempDir();
-comment|//     logger.info("using custom data_path for index: [{}]", dataPath);
-comment|//    builder.put(IndexMetaData.SETTING_DATA_PATH, dataPath);
-comment|// }
+if|if
+condition|(
+name|randomInt
+argument_list|(
+literal|9
+argument_list|)
+operator|<
+literal|3
+condition|)
+block|{
+specifier|final
+name|String
+name|dataPath
+init|=
+name|randomAsciiOfLength
+argument_list|(
+literal|10
+argument_list|)
+decl_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"using custom data_path for index: [{}]"
+argument_list|,
+name|dataPath
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|put
+argument_list|(
+name|IndexMetaData
+operator|.
+name|SETTING_DATA_PATH
+argument_list|,
+name|dataPath
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|builder
 operator|.
@@ -9500,6 +9558,15 @@ operator|.
 name|CLUSTER_ROUTING_ALLOCATION_HIGH_DISK_WATERMARK
 argument_list|,
 literal|"1b"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+name|NodeEnvironment
+operator|.
+name|SETTING_CUSTOM_DATA_PATH_ENABLED
+argument_list|,
+literal|true
 argument_list|)
 operator|.
 name|put

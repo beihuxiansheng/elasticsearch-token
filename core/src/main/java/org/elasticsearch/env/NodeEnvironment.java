@@ -643,6 +643,12 @@ name|NodePath
 index|[]
 name|nodePaths
 decl_stmt|;
+DECL|field|sharedDataPath
+specifier|private
+specifier|final
+name|Path
+name|sharedDataPath
+decl_stmt|;
 DECL|field|locks
 specifier|private
 specifier|final
@@ -821,6 +827,10 @@ name|nodePaths
 operator|=
 literal|null
 expr_stmt|;
+name|sharedDataPath
+operator|=
+literal|null
+expr_stmt|;
 name|locks
 operator|=
 literal|null
@@ -861,6 +871,13 @@ operator|.
 name|length
 index|]
 decl_stmt|;
+name|sharedDataPath
+operator|=
+name|environment
+operator|.
+name|sharedDataFile
+argument_list|()
+expr_stmt|;
 name|int
 name|localNodeId
 init|=
@@ -3997,13 +4014,6 @@ literal|null
 return|;
 block|}
 comment|/**      * Resolve the custom path for a index's shard.      * Uses the {@code IndexMetaData.SETTING_DATA_PATH} setting to determine      * the root path for the index.      *      * @param indexSettings settings for the index      */
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"Lee is working on it: https://github.com/elastic/elasticsearch/pull/11065"
-argument_list|)
 DECL|method|resolveCustomLocation
 specifier|private
 name|Path
@@ -4051,9 +4061,9 @@ name|addNodeId
 condition|)
 block|{
 return|return
-name|PathUtils
+name|sharedDataPath
 operator|.
-name|get
+name|resolve
 argument_list|(
 name|customDataDir
 argument_list|)
@@ -4074,9 +4084,9 @@ block|}
 else|else
 block|{
 return|return
-name|PathUtils
+name|sharedDataPath
 operator|.
-name|get
+name|resolve
 argument_list|(
 name|customDataDir
 argument_list|)
