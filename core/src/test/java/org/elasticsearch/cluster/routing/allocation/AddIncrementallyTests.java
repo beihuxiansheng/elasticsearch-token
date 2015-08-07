@@ -424,7 +424,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -452,7 +452,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -492,7 +492,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -520,7 +520,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -548,7 +548,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -676,7 +676,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -738,7 +738,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -811,7 +811,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -843,7 +843,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -902,7 +902,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1007,7 +1007,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1035,7 +1035,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1075,7 +1075,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1103,7 +1103,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1131,7 +1131,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -1247,14 +1247,14 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1282,7 +1282,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1310,7 +1310,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1379,7 +1379,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -1403,7 +1403,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1431,7 +1431,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1459,7 +1459,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1487,7 +1487,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1572,14 +1572,14 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1607,7 +1607,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1635,7 +1635,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1663,7 +1663,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1748,14 +1748,14 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1783,7 +1783,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1811,7 +1811,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1839,7 +1839,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1918,13 +1918,6 @@ name|routingTable
 argument_list|)
 operator|.
 name|build
-argument_list|()
-expr_stmt|;
-name|routingNodes
-operator|=
-name|clusterState
-operator|.
-name|routingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2046,7 +2039,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2074,7 +2067,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2114,7 +2107,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2142,7 +2135,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2170,7 +2163,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2286,14 +2279,14 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2321,7 +2314,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2349,7 +2342,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2418,7 +2411,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -2442,7 +2435,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2470,7 +2463,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2498,7 +2491,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2526,7 +2519,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2611,14 +2604,14 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2646,7 +2639,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2674,7 +2667,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2702,7 +2695,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2787,14 +2780,14 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2822,7 +2815,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2850,7 +2843,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2878,7 +2871,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -2963,7 +2956,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -3074,7 +3067,7 @@ name|node
 range|:
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{
@@ -3130,7 +3123,7 @@ name|node
 range|:
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{
@@ -3288,7 +3281,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 comment|// move initializing to started
@@ -3357,7 +3350,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if
@@ -3638,7 +3631,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|logger
@@ -3652,7 +3645,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -3695,7 +3688,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -3709,7 +3702,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -3752,7 +3745,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -3827,7 +3820,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if
@@ -4029,7 +4022,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|logger
@@ -4043,7 +4036,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -4086,7 +4079,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -4100,7 +4093,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -4143,7 +4136,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -4218,7 +4211,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if
@@ -4358,7 +4351,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|logger
@@ -4409,7 +4402,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -4459,7 +4452,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -4502,7 +4495,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -4577,7 +4570,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if

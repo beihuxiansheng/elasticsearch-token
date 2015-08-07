@@ -654,11 +654,14 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: needsScores
-comment|// if we dont need scores, just return the underlying Weight?
-name|Weight
-name|subQueryWeight
-init|=
+if|if
+condition|(
+name|needsScores
+operator|==
+literal|false
+condition|)
+block|{
+return|return
 name|subQuery
 operator|.
 name|createWeight
@@ -667,6 +670,16 @@ name|searcher
 argument_list|,
 name|needsScores
 argument_list|)
+return|;
+block|}
+name|boolean
+name|subQueryNeedsScores
+init|=
+name|combineFunction
+operator|!=
+name|CombineFunction
+operator|.
+name|REPLACE
 decl_stmt|;
 name|Weight
 index|[]
@@ -697,6 +710,18 @@ operator|++
 name|i
 control|)
 block|{
+name|subQueryNeedsScores
+operator||=
+name|filterFunctions
+index|[
+name|i
+index|]
+operator|.
+name|function
+operator|.
+name|needsScores
+argument_list|()
+expr_stmt|;
 name|filterWeights
 index|[
 name|i
@@ -717,6 +742,18 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+name|Weight
+name|subQueryWeight
+init|=
+name|subQuery
+operator|.
+name|createWeight
+argument_list|(
+name|searcher
+argument_list|,
+name|subQueryNeedsScores
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|CustomBoostFactorWeight
@@ -726,6 +763,8 @@ argument_list|,
 name|subQueryWeight
 argument_list|,
 name|filterWeights
+argument_list|,
+name|subQueryNeedsScores
 argument_list|)
 return|;
 block|}
@@ -746,6 +785,11 @@ name|Weight
 index|[]
 name|filterWeights
 decl_stmt|;
+DECL|field|needsScores
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 DECL|method|CustomBoostFactorWeight
 specifier|public
 name|CustomBoostFactorWeight
@@ -759,6 +803,9 @@ parameter_list|,
 name|Weight
 index|[]
 name|filterWeights
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -779,6 +826,12 @@ operator|.
 name|filterWeights
 operator|=
 name|filterWeights
+expr_stmt|;
+name|this
+operator|.
+name|needsScores
+operator|=
+name|needsScores
 expr_stmt|;
 block|}
 annotation|@
@@ -1025,6 +1078,8 @@ argument_list|,
 name|combineFunction
 argument_list|,
 name|minScore
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -1607,6 +1662,12 @@ name|Bits
 index|[]
 name|docSets
 decl_stmt|;
+DECL|field|needsScores
+specifier|private
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 DECL|method|FiltersFunctionFactorScorer
 specifier|private
 name|FiltersFunctionFactorScorer
@@ -1640,6 +1701,9 @@ name|scoreCombiner
 parameter_list|,
 name|Float
 name|minScore
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -1681,6 +1745,12 @@ name|docSets
 operator|=
 name|docSets
 expr_stmt|;
+name|this
+operator|.
+name|needsScores
+operator|=
+name|needsScores
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1705,13 +1775,20 @@ name|factor
 init|=
 literal|1.0f
 decl_stmt|;
+comment|// Even if the weight is created with needsScores=false, it might
+comment|// be costly to call score(), so we explicitly check if scores
+comment|// are needed
 name|float
 name|subQueryScore
 init|=
+name|needsScores
+condition|?
 name|scorer
 operator|.
 name|score
 argument_list|()
+else|:
+literal|0f
 decl_stmt|;
 if|if
 condition|(

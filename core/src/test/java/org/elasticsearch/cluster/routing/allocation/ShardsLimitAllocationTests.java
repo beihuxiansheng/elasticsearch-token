@@ -515,7 +515,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -540,7 +540,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -573,7 +573,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|routingTable
@@ -616,7 +616,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -641,7 +641,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -666,7 +666,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -691,7 +691,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -716,7 +716,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -742,7 +742,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -1029,7 +1029,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|routingTable
@@ -1074,7 +1074,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|STARTED
@@ -1260,7 +1260,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -1305,7 +1305,7 @@ name|numberOfShardsOfType
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|STARTED
@@ -1324,7 +1324,7 @@ name|shardRouting
 range|:
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1354,7 +1354,7 @@ name|shardRouting
 range|:
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1506,7 +1506,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1529,7 +1529,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1552,7 +1552,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1575,7 +1575,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1600,7 +1600,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -1644,7 +1644,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1667,7 +1667,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node

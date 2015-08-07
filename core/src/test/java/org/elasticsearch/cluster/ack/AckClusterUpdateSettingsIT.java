@@ -601,7 +601,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|metaData

@@ -475,7 +475,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|prevRoutingTable
@@ -534,7 +534,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|prevRoutingTable
@@ -664,7 +664,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -1026,7 +1026,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|rerouteResult
@@ -1069,7 +1069,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat
@@ -1215,7 +1215,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|assertThat

@@ -1236,22 +1236,6 @@ name|mapper
 operator|.
 name|internal
 operator|.
-name|SizeFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|internal
-operator|.
 name|TimestampFieldMapper
 import|;
 end_import
@@ -2410,33 +2394,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|mappings
-operator|.
-name|endObject
-argument_list|()
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|mappings
-operator|.
-name|startObject
-argument_list|(
-name|SizeFieldMapper
-operator|.
-name|NAME
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"enabled"
-argument_list|,
-name|randomBoolean
-argument_list|()
-argument_list|)
 operator|.
 name|endObject
 argument_list|()
@@ -4330,45 +4287,15 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+comment|// norelease: disabled because custom data paths don't play well against
+comment|// an external test cluster: the security manager is not happy that random
+comment|// files are touched. See http://build-us-00.elastic.co/job/es_core_master_strong/4357/console
 comment|// 30% of the time
-if|if
-condition|(
-name|randomInt
-argument_list|(
-literal|9
-argument_list|)
-operator|<
-literal|3
-condition|)
-block|{
-specifier|final
-name|Path
-name|dataPath
-init|=
-name|createTempDir
-argument_list|()
-decl_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"using custom data_path for index: [{}]"
-argument_list|,
-name|dataPath
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|put
-argument_list|(
-name|IndexMetaData
-operator|.
-name|SETTING_DATA_PATH
-argument_list|,
-name|dataPath
-argument_list|)
-expr_stmt|;
-block|}
+comment|// if (randomInt(9)< 3) {
+comment|//     final Path dataPath = createTempDir();
+comment|//     logger.info("using custom data_path for index: [{}]", dataPath);
+comment|//    builder.put(IndexMetaData.SETTING_DATA_PATH, dataPath);
+comment|// }
 return|return
 name|builder
 operator|.

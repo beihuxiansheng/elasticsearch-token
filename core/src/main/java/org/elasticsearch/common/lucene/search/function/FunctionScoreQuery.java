@@ -208,7 +208,7 @@ name|function
 operator|==
 literal|null
 condition|?
-name|combineFunction
+name|CombineFunction
 operator|.
 name|MULT
 else|:
@@ -392,8 +392,45 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO: needsScores
-comment|// if we don't need scores, just return the underlying weight?
+if|if
+condition|(
+name|needsScores
+operator|==
+literal|false
+condition|)
+block|{
+return|return
+name|subQuery
+operator|.
+name|createWeight
+argument_list|(
+name|searcher
+argument_list|,
+name|needsScores
+argument_list|)
+return|;
+block|}
+name|boolean
+name|subQueryNeedsScores
+init|=
+name|combineFunction
+operator|!=
+name|CombineFunction
+operator|.
+name|REPLACE
+comment|// if we don't replace we need the original score
+operator|||
+name|function
+operator|==
+literal|null
+comment|// when the function is null, we just multiply the score, so we need it
+operator|||
+name|function
+operator|.
+name|needsScores
+argument_list|()
+decl_stmt|;
+comment|// some scripts can replace with a script that returns eg. 1/_score
 name|Weight
 name|subQueryWeight
 init|=
@@ -403,7 +440,7 @@ name|createWeight
 argument_list|(
 name|searcher
 argument_list|,
-name|needsScores
+name|subQueryNeedsScores
 argument_list|)
 decl_stmt|;
 return|return
@@ -413,6 +450,8 @@ argument_list|(
 name|this
 argument_list|,
 name|subQueryWeight
+argument_list|,
+name|subQueryNeedsScores
 argument_list|)
 return|;
 block|}
@@ -427,6 +466,11 @@ specifier|final
 name|Weight
 name|subQueryWeight
 decl_stmt|;
+DECL|field|needsScores
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 DECL|method|CustomBoostFactorWeight
 specifier|public
 name|CustomBoostFactorWeight
@@ -436,6 +480,9 @@ name|parent
 parameter_list|,
 name|Weight
 name|subQueryWeight
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -450,6 +497,12 @@ operator|.
 name|subQueryWeight
 operator|=
 name|subQueryWeight
+expr_stmt|;
+name|this
+operator|.
+name|needsScores
+operator|=
+name|needsScores
 expr_stmt|;
 block|}
 annotation|@
@@ -607,6 +660,8 @@ argument_list|,
 name|combineFunction
 argument_list|,
 name|minScore
+argument_list|,
+name|needsScores
 argument_list|)
 return|;
 block|}
@@ -712,6 +767,12 @@ specifier|final
 name|LeafScoreFunction
 name|function
 decl_stmt|;
+DECL|field|needsScores
+specifier|private
+specifier|final
+name|boolean
+name|needsScores
+decl_stmt|;
 DECL|method|FunctionFactorScorer
 specifier|private
 name|FunctionFactorScorer
@@ -733,6 +794,9 @@ name|scoreCombiner
 parameter_list|,
 name|Float
 name|minScore
+parameter_list|,
+name|boolean
+name|needsScores
 parameter_list|)
 throws|throws
 name|IOException
@@ -756,6 +820,12 @@ name|function
 operator|=
 name|function
 expr_stmt|;
+name|this
+operator|.
+name|needsScores
+operator|=
+name|needsScores
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -767,13 +837,20 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// Even if the weight is created with needsScores=false, it might
+comment|// be costly to call score(), so we explicitly check if scores
+comment|// are needed
 name|float
 name|score
 init|=
+name|needsScores
+condition|?
 name|scorer
 operator|.
 name|score
 argument_list|()
+else|:
+literal|0f
 decl_stmt|;
 if|if
 condition|(

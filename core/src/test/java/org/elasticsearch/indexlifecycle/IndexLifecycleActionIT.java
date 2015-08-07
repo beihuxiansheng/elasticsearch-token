@@ -616,7 +616,7 @@ name|routingNodeEntry1
 init|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -925,7 +925,7 @@ name|assertNodesPresent
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|node1
@@ -937,7 +937,7 @@ name|routingNodeEntry1
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -980,7 +980,7 @@ name|routingNodeEntry2
 init|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1285,7 +1285,7 @@ name|assertNodesPresent
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|node1
@@ -1299,7 +1299,7 @@ name|routingNodeEntry1
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1311,7 +1311,7 @@ name|routingNodeEntry2
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1324,7 +1324,7 @@ name|routingNodeEntry3
 init|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1703,7 +1703,7 @@ name|assertNodesPresent
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|node3
@@ -1715,7 +1715,7 @@ name|routingNodeEntry2
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1727,7 +1727,7 @@ name|routingNodeEntry3
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1885,7 +1885,7 @@ name|assertNodesPresent
 argument_list|(
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 argument_list|,
 name|node3
@@ -1897,7 +1897,7 @@ name|routingNodeEntry2
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node
@@ -1922,7 +1922,7 @@ name|routingNodeEntry3
 operator|=
 name|clusterState
 operator|.
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|node

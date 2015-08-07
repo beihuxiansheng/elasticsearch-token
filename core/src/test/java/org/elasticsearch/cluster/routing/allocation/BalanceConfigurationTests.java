@@ -50,18 +50,6 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|ClusterInfoService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
 name|ClusterState
 import|;
 end_import
@@ -1068,7 +1056,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|logger
@@ -1082,7 +1070,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -1125,7 +1113,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1139,7 +1127,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -1182,7 +1170,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1242,7 +1230,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if
@@ -1350,7 +1338,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 comment|// move initializing to started
@@ -1404,7 +1392,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if
@@ -1523,7 +1511,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 name|logger
@@ -1574,7 +1562,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1624,7 +1612,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1667,7 +1655,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|logger
@@ -1727,7 +1715,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 if|if
@@ -3207,7 +3195,7 @@ name|routingNodes
 init|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 for|for
@@ -3266,7 +3254,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 name|routingTable
@@ -3309,7 +3297,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 for|for
@@ -3394,7 +3382,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 for|for
@@ -3472,7 +3460,7 @@ name|routingNodes
 operator|=
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 expr_stmt|;
 for|for

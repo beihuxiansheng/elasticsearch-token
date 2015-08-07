@@ -1156,32 +1156,6 @@ name|routingTable
 argument_list|()
 return|;
 block|}
-DECL|method|routingNodes
-specifier|public
-name|RoutingNodes
-name|routingNodes
-parameter_list|()
-block|{
-return|return
-name|routingTable
-operator|.
-name|routingNodes
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
-DECL|method|getRoutingNodes
-specifier|public
-name|RoutingNodes
-name|getRoutingNodes
-parameter_list|()
-block|{
-return|return
-name|readOnlyRoutingNodes
-argument_list|()
-return|;
-block|}
 DECL|method|blocks
 specifier|public
 name|ClusterBlocks
@@ -1286,11 +1260,11 @@ return|return
 name|wasReadFromDiff
 return|;
 block|}
-comment|/**      * Returns a built (on demand) routing nodes view of the routing table.<b>NOTE, the routing nodes      * are mutable, use them just for read operations</b>      */
-DECL|method|readOnlyRoutingNodes
+comment|/**      * Returns a built (on demand) routing nodes view of the routing table.      */
+DECL|method|getRoutingNodes
 specifier|public
 name|RoutingNodes
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 parameter_list|()
 block|{
 if|if
@@ -1306,9 +1280,8 @@ return|;
 block|}
 name|routingNodes
 operator|=
-name|routingTable
-operator|.
-name|routingNodes
+operator|new
+name|RoutingNodes
 argument_list|(
 name|this
 argument_list|)
@@ -1427,7 +1400,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|prettyPrint
@@ -2801,7 +2774,7 @@ control|(
 name|ShardRouting
 name|shardRouting
 range|:
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|unassigned
@@ -2835,7 +2808,7 @@ control|(
 name|RoutingNode
 name|routingNode
 range|:
-name|readOnlyRoutingNodes
+name|getRoutingNodes
 argument_list|()
 control|)
 block|{

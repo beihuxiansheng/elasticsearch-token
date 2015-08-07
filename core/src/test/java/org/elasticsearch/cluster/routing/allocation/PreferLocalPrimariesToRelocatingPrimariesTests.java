@@ -521,7 +521,7 @@ condition|(
 operator|!
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -543,7 +543,7 @@ name|clusterState
 argument_list|,
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -757,7 +757,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -778,7 +778,7 @@ name|assertThat
 argument_list|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -898,7 +898,7 @@ while|while
 condition|(
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -929,7 +929,7 @@ name|routing
 range|:
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -966,7 +966,7 @@ name|totalNumberOfShards
 operator|-
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState
@@ -979,7 +979,7 @@ argument_list|()
 operator|-
 name|clusterState
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 operator|.
 name|shardsWithState

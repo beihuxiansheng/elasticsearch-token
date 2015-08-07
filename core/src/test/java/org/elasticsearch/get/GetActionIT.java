@@ -10246,12 +10246,6 @@ literal|"      \"_timestamp\": {\n"
 operator|+
 literal|"        \"enabled\": true\n"
 operator|+
-literal|"      },\n"
-operator|+
-literal|"      \"_size\": {\n"
-operator|+
-literal|"        \"enabled\": true\n"
-operator|+
 literal|"      }\n"
 operator|+
 literal|"    }\n"
@@ -10328,8 +10322,6 @@ name|fieldsList
 init|=
 block|{
 literal|"_timestamp"
-block|,
-literal|"_size"
 block|,
 literal|"_routing"
 block|}

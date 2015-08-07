@@ -549,7 +549,7 @@ decl_stmt|;
 return|return
 name|queryBuilder
 operator|.
-name|conbineGrouped
+name|combineGrouped
 argument_list|(
 name|queries
 argument_list|)
@@ -758,10 +758,10 @@ name|boostValue
 argument_list|)
 return|;
 block|}
-DECL|method|conbineGrouped
+DECL|method|combineGrouped
 specifier|public
 name|Query
-name|conbineGrouped
+name|combineGrouped
 parameter_list|(
 name|List
 argument_list|<
@@ -1313,9 +1313,7 @@ name|fieldAndFieldType
 operator|.
 name|field
 argument_list|,
-name|fieldAndFieldType
-operator|.
-name|boost
+literal|1f
 argument_list|,
 name|value
 argument_list|,

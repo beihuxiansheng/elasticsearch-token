@@ -590,7 +590,7 @@ name|routingNodes
 init|=
 name|state
 operator|.
-name|routingNodes
+name|getRoutingNodes
 argument_list|()
 decl_stmt|;
 specifier|final

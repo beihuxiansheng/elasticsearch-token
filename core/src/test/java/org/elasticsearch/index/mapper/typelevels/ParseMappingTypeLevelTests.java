@@ -134,7 +134,7 @@ argument_list|)
 operator|.
 name|startObject
 argument_list|(
-literal|"_size"
+literal|"_timestamp"
 argument_list|)
 operator|.
 name|field
@@ -199,7 +199,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|sizeFieldMapper
+name|timestampFieldMapper
 argument_list|()
 operator|.
 name|enabled
@@ -237,7 +237,7 @@ name|assertThat
 argument_list|(
 name|mapper
 operator|.
-name|sizeFieldMapper
+name|timestampFieldMapper
 argument_list|()
 operator|.
 name|enabled

@@ -1316,9 +1316,11 @@ name|boolean
 name|needsScores
 parameter_list|()
 block|{
-comment|// TODO: add a way to know whether scripts are using scores
 return|return
-literal|true
+name|script
+operator|.
+name|needsScores
+argument_list|()
 return|;
 block|}
 block|}
@@ -1696,9 +1698,11 @@ name|boolean
 name|needsScores
 parameter_list|()
 block|{
-comment|// TODO: add a way to know whether scripts are using scores
 return|return
-literal|true
+name|script
+operator|.
+name|needsScores
+argument_list|()
 return|;
 block|}
 annotation|@
@@ -2359,9 +2363,11 @@ name|boolean
 name|needsScores
 parameter_list|()
 block|{
-comment|// TODO: add a way to know whether scripts are using scores
 return|return
-literal|true
+name|script
+operator|.
+name|needsScores
+argument_list|()
 return|;
 block|}
 block|}
@@ -2419,9 +2425,11 @@ name|boolean
 name|needsScores
 parameter_list|()
 block|{
-comment|// TODO: add a way to know whether scripts are using scores
 return|return
-literal|true
+name|script
+operator|.
+name|needsScores
+argument_list|()
 return|;
 block|}
 annotation|@

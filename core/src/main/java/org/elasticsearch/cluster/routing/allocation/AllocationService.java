@@ -399,10 +399,10 @@ block|{
 name|RoutingNodes
 name|routingNodes
 init|=
+name|getMutableRoutingNodes
+argument_list|(
 name|clusterState
-operator|.
-name|routingNodes
-argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// shuffle the unassigned nodes, just so we won't have things like poison failed shards
 name|routingNodes
@@ -578,10 +578,10 @@ block|{
 name|RoutingNodes
 name|routingNodes
 init|=
+name|getMutableRoutingNodes
+argument_list|(
 name|clusterState
-operator|.
-name|routingNodes
-argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// shuffle the unassigned nodes, just so we won't have things like poison failed shards
 name|routingNodes
@@ -772,10 +772,10 @@ block|{
 name|RoutingNodes
 name|routingNodes
 init|=
+name|getMutableRoutingNodes
+argument_list|(
 name|clusterState
-operator|.
-name|routingNodes
-argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// we don't shuffle the unassigned shards here, to try and get as close as possible to
 comment|// a consistent result of the effect the commands have on the routing
@@ -917,10 +917,10 @@ block|{
 name|RoutingNodes
 name|routingNodes
 init|=
+name|getMutableRoutingNodes
+argument_list|(
 name|clusterState
-operator|.
-name|routingNodes
-argument_list|()
+argument_list|)
 decl_stmt|;
 comment|// shuffle the unassigned nodes, just so we won't have things like poison failed shards
 name|routingNodes
@@ -2604,6 +2604,31 @@ literal|" was matched but wasn't removed"
 assert|;
 return|return
 literal|true
+return|;
+block|}
+DECL|method|getMutableRoutingNodes
+specifier|private
+name|RoutingNodes
+name|getMutableRoutingNodes
+parameter_list|(
+name|ClusterState
+name|clusterState
+parameter_list|)
+block|{
+name|RoutingNodes
+name|routingNodes
+init|=
+operator|new
+name|RoutingNodes
+argument_list|(
+name|clusterState
+argument_list|,
+literal|false
+argument_list|)
+decl_stmt|;
+comment|// this is a costly operation - only call this once!
+return|return
+name|routingNodes
 return|;
 block|}
 block|}

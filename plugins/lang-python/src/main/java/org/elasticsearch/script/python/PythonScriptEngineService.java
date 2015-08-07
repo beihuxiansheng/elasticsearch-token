@@ -507,6 +507,18 @@ name|leafLookup
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+name|boolean
+name|needsScores
+parameter_list|()
+block|{
+comment|// TODO: can we reliably know if a python script makes use of _score
+return|return
+literal|true
+return|;
+block|}
 block|}
 return|;
 block|}
