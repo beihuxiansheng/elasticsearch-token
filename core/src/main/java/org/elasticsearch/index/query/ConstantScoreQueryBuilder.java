@@ -327,10 +327,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getName
+DECL|method|getWriteableName
 specifier|public
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 block|{
 return|return
@@ -396,7 +396,7 @@ name|innerFilterBuilder
 init|=
 name|in
 operator|.
-name|readNamedWriteable
+name|readQuery
 argument_list|()
 decl_stmt|;
 return|return
@@ -422,7 +422,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeNamedWriteable
+name|writeQuery
 argument_list|(
 name|filterBuilder
 argument_list|)

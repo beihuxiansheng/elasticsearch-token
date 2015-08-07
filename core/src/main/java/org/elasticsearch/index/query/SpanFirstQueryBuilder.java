@@ -410,9 +410,12 @@ block|{
 name|SpanQueryBuilder
 name|matchBuilder
 init|=
+operator|(
+name|SpanQueryBuilder
+operator|)
 name|in
 operator|.
-name|readNamedWriteable
+name|readQuery
 argument_list|()
 decl_stmt|;
 name|int
@@ -448,7 +451,7 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeNamedWriteable
+name|writeQuery
 argument_list|(
 name|matchBuilder
 argument_list|)
@@ -517,10 +520,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getName
+DECL|method|getWriteableName
 specifier|public
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 block|{
 return|return

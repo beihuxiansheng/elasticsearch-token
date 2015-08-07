@@ -535,10 +535,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getName
+DECL|method|getWriteableName
 specifier|public
 name|String
-name|getName
+name|getWriteableName
 parameter_list|()
 block|{
 return|return
@@ -563,7 +563,7 @@ name|query
 init|=
 name|in
 operator|.
-name|readNamedWriteable
+name|readQuery
 argument_list|()
 decl_stmt|;
 name|QueryBuilder
@@ -571,7 +571,7 @@ name|filter
 init|=
 name|in
 operator|.
-name|readNamedWriteable
+name|readQuery
 argument_list|()
 decl_stmt|;
 name|FilteredQueryBuilder
@@ -604,14 +604,14 @@ name|IOException
 block|{
 name|out
 operator|.
-name|writeNamedWriteable
+name|writeQuery
 argument_list|(
 name|queryBuilder
 argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeNamedWriteable
+name|writeQuery
 argument_list|(
 name|filterBuilder
 argument_list|)

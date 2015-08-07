@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -29,12 +39,13 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wraps a {@link StreamInput} and associates it with a {@link NamedWriteableRegistry}  */
+comment|/**  * Wraps a {@link StreamInput} and delegates to it. To be used to add functionality to an existing stream by subclassing.  */
 end_comment
 
 begin_class
 DECL|class|FilterStreamInput
 specifier|public
+specifier|abstract
 class|class
 name|FilterStreamInput
 extends|extends
@@ -47,21 +58,13 @@ name|StreamInput
 name|delegate
 decl_stmt|;
 DECL|method|FilterStreamInput
-specifier|public
+specifier|protected
 name|FilterStreamInput
 parameter_list|(
 name|StreamInput
 name|delegate
-parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|namedWriteableRegistry
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|delegate
@@ -165,6 +168,40 @@ name|delegate
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getVersion
+specifier|public
+name|Version
+name|getVersion
+parameter_list|()
+block|{
+return|return
+name|delegate
+operator|.
+name|getVersion
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setVersion
+specifier|public
+name|void
+name|setVersion
+parameter_list|(
+name|Version
+name|version
+parameter_list|)
+block|{
+name|delegate
+operator|.
+name|setVersion
+argument_list|(
+name|version
+argument_list|)
 expr_stmt|;
 block|}
 block|}

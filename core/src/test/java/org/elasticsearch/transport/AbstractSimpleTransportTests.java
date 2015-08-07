@@ -468,7 +468,9 @@ argument_list|()
 argument_list|,
 name|version0
 argument_list|,
-name|namedWriteableRegistry
+operator|new
+name|NamedWriteableRegistry
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|nodeA
@@ -534,7 +536,9 @@ argument_list|()
 argument_list|,
 name|version1
 argument_list|,
-name|namedWriteableRegistry
+operator|new
+name|NamedWriteableRegistry
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|nodeB

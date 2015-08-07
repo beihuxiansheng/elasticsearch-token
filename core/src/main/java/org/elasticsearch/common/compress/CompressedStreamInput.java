@@ -142,7 +142,7 @@ annotation|@
 name|Override
 DECL|method|setVersion
 specifier|public
-name|StreamInput
+name|void
 name|setVersion
 parameter_list|(
 name|Version
@@ -156,14 +156,13 @@ argument_list|(
 name|version
 argument_list|)
 expr_stmt|;
-return|return
 name|super
 operator|.
 name|setVersion
 argument_list|(
 name|version
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 comment|/**      * Method is overridden to report number of bytes that can now be read      * from decoded data buffer, without reading bytes from the underlying      * stream.      * Never throws an exception; returns number of bytes available without      * further reads from underlying source; -1 if stream has been closed, or      * 0 if an actual read (and possible blocking) is needed to find out.      */
 annotation|@

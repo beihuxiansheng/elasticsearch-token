@@ -319,10 +319,7 @@ name|parser
 argument_list|,
 name|ConstantScoreQueryBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|getName
-argument_list|()
+name|NAME
 argument_list|)
 expr_stmt|;
 name|QueryBuilder
@@ -334,10 +331,7 @@ name|queryParser
 argument_list|(
 name|ConstantScoreQueryBuilder
 operator|.
-name|PROTOTYPE
-operator|.
-name|getName
-argument_list|()
+name|NAME
 argument_list|)
 operator|.
 name|fromXContent
