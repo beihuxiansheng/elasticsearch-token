@@ -3186,16 +3186,11 @@ argument_list|(
 operator|new
 name|Script
 argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"%d+%d"
-argument_list|,
 name|i
-argument_list|,
+operator|+
+literal|" + "
+operator|+
 name|i
-argument_list|)
 argument_list|,
 name|ScriptType
 operator|.
