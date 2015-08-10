@@ -3157,12 +3157,7 @@ argument_list|)
 operator|.
 name|setType
 argument_list|(
-name|MockRepositoryModule
-operator|.
-name|class
-operator|.
-name|getCanonicalName
-argument_list|()
+literal|"mock"
 argument_list|)
 operator|.
 name|setSettings
@@ -3536,12 +3531,7 @@ argument_list|)
 operator|.
 name|setType
 argument_list|(
-name|MockRepositoryModule
-operator|.
-name|class
-operator|.
-name|getCanonicalName
-argument_list|()
+literal|"mock"
 argument_list|)
 operator|.
 name|setSettings

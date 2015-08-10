@@ -227,7 +227,7 @@ name|GceComputeServiceAbstractMock
 extends|extends
 name|AbstractLifecycleComponent
 argument_list|<
-name|GceComputeServiceAbstractMock
+name|GceComputeService
 argument_list|>
 implements|implements
 name|GceComputeService
