@@ -919,6 +919,10 @@ if|if
 condition|(
 operator|!
 name|downloaded
+operator|&&
+name|url
+operator|==
+literal|null
 condition|)
 block|{
 comment|// We try all possible locations

@@ -1437,6 +1437,9 @@ operator|.
 name|values
 argument_list|()
 argument_list|)
+operator|.
+name|getSettingsKey
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
