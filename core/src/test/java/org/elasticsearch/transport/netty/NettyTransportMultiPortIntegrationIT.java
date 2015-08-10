@@ -365,12 +365,7 @@ name|TransportModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|NettyTransport
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+literal|"netty"
 argument_list|)
 operator|.
 name|put
@@ -445,12 +440,7 @@ name|TransportModule
 operator|.
 name|TRANSPORT_TYPE_KEY
 argument_list|,
-name|NettyTransport
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+literal|"netty"
 argument_list|)
 operator|.
 name|put

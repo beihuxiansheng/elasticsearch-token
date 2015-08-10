@@ -328,7 +328,7 @@ name|GceComputeServiceImpl
 extends|extends
 name|AbstractLifecycleComponent
 argument_list|<
-name|GceComputeServiceImpl
+name|GceComputeService
 argument_list|>
 implements|implements
 name|GceComputeService
