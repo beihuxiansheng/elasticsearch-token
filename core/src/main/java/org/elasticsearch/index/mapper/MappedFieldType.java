@@ -1661,11 +1661,17 @@ operator|!
 name|names
 argument_list|()
 operator|.
+name|indexName
+argument_list|()
+operator|.
 name|equals
 argument_list|(
 name|other
 operator|.
 name|names
+argument_list|()
+operator|.
+name|indexName
 argument_list|()
 argument_list|)
 condition|)

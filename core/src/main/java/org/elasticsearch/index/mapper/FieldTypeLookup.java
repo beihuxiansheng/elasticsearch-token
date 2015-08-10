@@ -649,13 +649,6 @@ comment|// only check compat if they are the same type
 name|boolean
 name|strict
 init|=
-name|ref
-operator|.
-name|getNumAssociatedMappers
-argument_list|()
-operator|>
-literal|1
-operator|&&
 name|updateAllTypes
 operator|==
 literal|false
@@ -705,7 +698,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] conflicts with existing mapping in other types"
+literal|"] conflicts with existing mapping in other types:\n"
 operator|+
 name|conflicts
 operator|.
@@ -719,7 +712,7 @@ comment|// field type for the index name must be compatible too
 name|MappedFieldTypeReference
 name|indexNameRef
 init|=
-name|fullNameToFieldType
+name|indexNameToFieldType
 operator|.
 name|get
 argument_list|(
@@ -753,7 +746,7 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|ref
+name|indexNameRef
 operator|.
 name|get
 argument_list|()
@@ -780,13 +773,6 @@ comment|// only check compat if they are the same type
 name|boolean
 name|strict
 init|=
-name|indexNameRef
-operator|.
-name|getNumAssociatedMappers
-argument_list|()
-operator|>
-literal|1
-operator|&&
 name|updateAllTypes
 operator|==
 literal|false
