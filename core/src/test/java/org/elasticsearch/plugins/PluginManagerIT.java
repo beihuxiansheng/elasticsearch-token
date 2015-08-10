@@ -3404,6 +3404,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/pull/12766"
+argument_list|)
 DECL|method|testThatBasicAuthIsSupportedWithHttps
 specifier|public
 name|void
