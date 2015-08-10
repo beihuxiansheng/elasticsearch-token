@@ -250,7 +250,7 @@ name|luceneQuery
 init|=
 name|filter
 operator|.
-name|toQuery
+name|toFilter
 argument_list|(
 name|context
 argument_list|)

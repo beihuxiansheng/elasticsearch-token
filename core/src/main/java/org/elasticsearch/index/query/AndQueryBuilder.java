@@ -386,7 +386,7 @@ name|innerQuery
 init|=
 name|f
 operator|.
-name|toQuery
+name|toFilter
 argument_list|(
 name|context
 argument_list|)

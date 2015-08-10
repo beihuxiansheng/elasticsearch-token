@@ -248,7 +248,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// inner query builder can potentially be `null`, in that case we ignore it
 name|Query
 name|innerQuery
 init|=

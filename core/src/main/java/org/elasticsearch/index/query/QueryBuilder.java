@@ -145,6 +145,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Converts this QueryBuilder to an unscored lucene {@link Query} that acts as a filter.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryShardException      * @throws IOException      */
+DECL|method|toFilter
+name|Query
+name|toFilter
+parameter_list|(
+name|QueryShardContext
+name|context
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns a {@link org.elasticsearch.common.bytes.BytesReference}      * containing the {@link ToXContent} output in binary format.      * Builds the request based on the default {@link XContentType}, either {@link Requests#CONTENT_TYPE} or provided as a constructor argument      */
 comment|//norelease once we move to serializing queries over the wire in Streamable format, this method shouldn't be needed anymore
 DECL|method|buildAsBytes
