@@ -3625,6 +3625,26 @@ operator|.
 name|IO_ERROR
 argument_list|)
 expr_stmt|;
+comment|// ensure that we did not try any other data source like download.elastic.co, in case we specified our own local URL
+name|assertThat
+argument_list|(
+name|terminal
+operator|.
+name|getTerminalOutput
+argument_list|()
+argument_list|,
+name|not
+argument_list|(
+name|hasItem
+argument_list|(
+name|containsString
+argument_list|(
+literal|"download.elastic.co"
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertThat
 argument_list|(
 name|requests
