@@ -195,6 +195,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|setScript
+specifier|public
+name|NodesStatsRequestBuilder
+name|setScript
+parameter_list|(
+name|boolean
+name|script
+parameter_list|)
+block|{
+name|request
+operator|.
+name|script
+argument_list|(
+name|script
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Should the node indices stats be returned.      */
 DECL|method|setIndices
 specifier|public
