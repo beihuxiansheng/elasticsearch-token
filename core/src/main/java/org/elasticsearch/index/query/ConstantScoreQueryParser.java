@@ -79,7 +79,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for constant_score query  */
 end_comment
 
 begin_class
@@ -89,6 +89,9 @@ class|class
 name|ConstantScoreQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|ConstantScoreQueryBuilder
+argument_list|>
 block|{
 DECL|field|INNER_QUERY_FIELD
 specifier|private
@@ -145,7 +148,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|ConstantScoreQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

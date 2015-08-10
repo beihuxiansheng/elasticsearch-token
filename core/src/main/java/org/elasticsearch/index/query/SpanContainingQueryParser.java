@@ -20,22 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|spans
-operator|.
-name|SpanContainingQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|common
@@ -83,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser for {@link SpanContainingQuery}  */
+comment|/**  * Parser for span_containing query  */
 end_comment
 
 begin_class
@@ -93,6 +77,9 @@ class|class
 name|SpanContainingQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SpanContainingQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -134,7 +121,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|SpanContainingQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

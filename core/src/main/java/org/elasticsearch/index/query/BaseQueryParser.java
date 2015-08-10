@@ -41,7 +41,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Class used during the query parsers refactoring. Will be removed once we can parse search requests on the coordinating node.  * All query parsers that have a refactored "fromXContent" method can be changed to extend this instead of {@link BaseQueryParserTemp}.  * Keeps old {@link QueryParser#parse(QueryShardContext)} method as a stub delegating to  * {@link QueryParser#fromXContent(QueryShardContext)} and {@link QueryBuilder#toQuery(QueryShardContext)}}  */
+comment|/**  * Class used during the query parsers refactoring. Will be removed once we can parse search requests on the coordinating node.  * All query parsers that have a refactored "fromXContent" method can be changed to extend this instead of {@link BaseQueryParserTemp}.  * Keeps old {@link QueryParser#parse(QueryShardContext)} method as a stub delegating to  * {@link QueryParser#fromXContent(QueryParseContext)} and {@link QueryBuilder#toQuery(QueryShardContext)}}  */
 end_comment
 
 begin_comment
@@ -54,8 +54,19 @@ specifier|public
 specifier|abstract
 class|class
 name|BaseQueryParser
+parameter_list|<
+name|QB
+extends|extends
+name|QueryBuilder
+parameter_list|<
+name|QB
+parameter_list|>
+parameter_list|>
 implements|implements
 name|QueryParser
+argument_list|<
+name|QB
+argument_list|>
 block|{
 annotation|@
 name|Override

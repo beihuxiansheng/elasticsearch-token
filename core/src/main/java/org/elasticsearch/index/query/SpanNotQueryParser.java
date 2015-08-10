@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for span_not query  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|SpanNotQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SpanNotQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -118,7 +121,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|SpanNotQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

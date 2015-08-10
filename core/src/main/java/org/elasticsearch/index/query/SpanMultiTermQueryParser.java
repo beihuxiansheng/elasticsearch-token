@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for span_multi query  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|SpanMultiTermQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SpanMultiTermQueryBuilder
+argument_list|>
 block|{
 DECL|field|MATCH_NAME
 specifier|public
@@ -127,7 +130,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|SpanMultiTermQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

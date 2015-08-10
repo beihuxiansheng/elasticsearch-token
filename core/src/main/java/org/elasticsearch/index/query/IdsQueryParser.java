@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser for the IdsQuery.  */
+comment|/**  * Parser for ids query  */
 end_comment
 
 begin_class
@@ -99,6 +99,9 @@ class|class
 name|IdsQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|IdsQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -132,7 +135,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|IdsQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

@@ -54,6 +54,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for regexp query  */
+end_comment
+
 begin_class
 DECL|class|RegexpQueryParser
 specifier|public
@@ -61,21 +65,10 @@ class|class
 name|RegexpQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|RegexpQueryBuilder
+argument_list|>
 block|{
-DECL|field|DEFAULT_FLAGS_VALUE
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|DEFAULT_FLAGS_VALUE
-init|=
-name|RegexpFlag
-operator|.
-name|ALL
-operator|.
-name|value
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RegexpQueryParser
@@ -107,7 +100,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|RegexpQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

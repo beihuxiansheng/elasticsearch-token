@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parser code for MatchAllQuery  */
+comment|/**  * Parser for match_all query  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|MatchAllQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|MatchAllQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject

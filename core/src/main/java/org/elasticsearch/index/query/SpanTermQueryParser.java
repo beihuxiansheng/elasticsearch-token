@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses the json representation of a spantermquery into the Elasticsearch internal  * query builder representation.  */
+comment|/**  * Parser for span_term query  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|SpanTermQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SpanTermQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -118,7 +121,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|SpanTermQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

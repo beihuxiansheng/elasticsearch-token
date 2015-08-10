@@ -40,6 +40,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for query filter  * @deprecated use any query instead directly, possible since queries and filters are merged.  */
+end_comment
+
 begin_class
 annotation|@
 name|Deprecated
@@ -49,6 +53,9 @@ class|class
 name|QueryFilterParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|QueryFilterBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -81,7 +88,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|QueryFilterBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

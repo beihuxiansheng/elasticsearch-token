@@ -68,6 +68,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for type query  */
+end_comment
+
 begin_class
 DECL|class|TypeQueryParser
 specifier|public
@@ -75,6 +79,9 @@ class|class
 name|TypeQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|TypeQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -107,7 +114,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|TypeQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

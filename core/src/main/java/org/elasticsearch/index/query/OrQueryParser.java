@@ -80,6 +80,10 @@ name|newArrayList
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for or query  * @deprecated use bool query instead  */
+end_comment
+
 begin_class
 annotation|@
 name|Deprecated
@@ -89,6 +93,9 @@ class|class
 name|OrQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|OrQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -121,7 +128,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|OrQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

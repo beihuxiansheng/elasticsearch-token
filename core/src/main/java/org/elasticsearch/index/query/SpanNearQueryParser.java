@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for span_near query  */
 end_comment
 
 begin_class
@@ -103,6 +103,9 @@ class|class
 name|SpanNearQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SpanNearQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -144,7 +147,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|SpanNearQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -420,15 +423,10 @@ condition|)
 block|{
 name|slop
 operator|=
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 name|parser
 operator|.
 name|intValue
 argument_list|()
-argument_list|)
 expr_stmt|;
 block|}
 elseif|else

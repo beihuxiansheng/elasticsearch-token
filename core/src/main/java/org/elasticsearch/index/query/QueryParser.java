@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Defines a query parser that is able to read and parse a query object in {@link org.elasticsearch.common.xcontent.XContent}  * format and create an internal object representing the query, implementing {@link QueryBuilder}, which can be streamed to other nodes.  */
 end_comment
 
 begin_interface
@@ -61,6 +61,14 @@ DECL|interface|QueryParser
 specifier|public
 interface|interface
 name|QueryParser
+parameter_list|<
+name|QB
+extends|extends
+name|QueryBuilder
+parameter_list|<
+name|QB
+parameter_list|>
+parameter_list|>
 block|{
 comment|/**      * The names this query parser is registered under.      */
 DECL|method|names
@@ -87,7 +95,7 @@ name|QueryParsingException
 function_decl|;
 comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      * @throws IOException      * @throws QueryParsingException      */
 DECL|method|fromXContent
-name|QueryBuilder
+name|QB
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
@@ -100,12 +108,7 @@ name|QueryParsingException
 function_decl|;
 comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
 DECL|method|getBuilderPrototype
-name|QueryBuilder
-argument_list|<
-name|?
-extends|extends
-name|QueryBuilder
-argument_list|>
+name|QB
 name|getBuilderPrototype
 parameter_list|()
 function_decl|;

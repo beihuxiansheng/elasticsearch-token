@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @deprecated Use {@link BoolQueryParser} instead.  */
+comment|/**  * Parser for filtered query.  * @deprecated Use {@link BoolQueryParser} instead.  */
 end_comment
 
 begin_class
@@ -67,6 +67,9 @@ class|class
 name|FilteredQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|FilteredQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -99,7 +102,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|FilteredQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

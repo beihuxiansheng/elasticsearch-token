@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for range query  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|RangeQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|RangeQueryBuilder
+argument_list|>
 block|{
 DECL|field|FIELDDATA_FIELD
 specifier|private

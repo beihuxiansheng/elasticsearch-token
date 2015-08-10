@@ -78,6 +78,10 @@ name|newArrayList
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for span_or query  */
+end_comment
+
 begin_class
 DECL|class|SpanOrQueryParser
 specifier|public
@@ -85,6 +89,9 @@ class|class
 name|SpanOrQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SpanOrQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Override
@@ -119,7 +126,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|SpanOrQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

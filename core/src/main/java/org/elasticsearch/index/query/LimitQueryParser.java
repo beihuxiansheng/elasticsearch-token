@@ -54,6 +54,10 @@ name|IOException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Parser for limit query  * @deprecated use terminate_after feature instead  */
+end_comment
+
 begin_class
 annotation|@
 name|Deprecated
@@ -63,6 +67,9 @@ class|class
 name|LimitQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|LimitQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -95,7 +102,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|LimitQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

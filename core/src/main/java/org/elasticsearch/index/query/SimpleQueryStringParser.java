@@ -107,6 +107,9 @@ class|class
 name|SimpleQueryStringParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|SimpleQueryStringBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject

@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for not query  */
 end_comment
 
 begin_class
@@ -77,6 +77,9 @@ class|class
 name|NotQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|NotQueryBuilder
+argument_list|>
 block|{
 DECL|field|QUERY_FIELD
 specifier|private
@@ -124,7 +127,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|NotQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

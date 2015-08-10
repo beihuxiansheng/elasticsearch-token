@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for script query  */
 end_comment
 
 begin_class
@@ -143,6 +143,9 @@ class|class
 name|ScriptQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|ScriptQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -175,7 +178,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|ScriptQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for dis_max query  */
 end_comment
 
 begin_class
@@ -103,6 +103,9 @@ class|class
 name|DisMaxQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|DisMaxQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -144,7 +147,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|DisMaxQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

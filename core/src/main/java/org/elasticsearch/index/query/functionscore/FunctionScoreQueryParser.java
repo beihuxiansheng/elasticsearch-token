@@ -337,7 +337,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for function_score query  */
 end_comment
 
 begin_class

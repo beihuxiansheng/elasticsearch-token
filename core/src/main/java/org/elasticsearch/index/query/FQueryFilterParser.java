@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The "fquery" filter is the same as the {@link QueryFilterParser} except that it allows also to  * associate a name with the query filter.  */
+comment|/**  * The "fquery" filter is the same as the {@link QueryFilterParser} except that it allows also to  * associate a name with the query filter.  * @deprecated Useless now that queries and filters are merged: pass the  *             query as a filter directly.  */
 end_comment
 
 begin_class
@@ -67,6 +67,9 @@ class|class
 name|FQueryFilterParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|FQueryFilterBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -99,7 +102,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|FQueryFilterBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext

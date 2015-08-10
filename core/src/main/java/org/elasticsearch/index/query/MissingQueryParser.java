@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * Parser for missing query  */
 end_comment
 
 begin_class
@@ -65,6 +65,9 @@ class|class
 name|MissingQueryParser
 extends|extends
 name|BaseQueryParser
+argument_list|<
+name|MissingQueryBuilder
+argument_list|>
 block|{
 annotation|@
 name|Inject
@@ -97,7 +100,7 @@ annotation|@
 name|Override
 DECL|method|fromXContent
 specifier|public
-name|QueryBuilder
+name|MissingQueryBuilder
 name|fromXContent
 parameter_list|(
 name|QueryParseContext
