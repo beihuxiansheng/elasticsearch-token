@@ -162,6 +162,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Objects
 import|;
 end_import
@@ -352,7 +362,11 @@ operator|=
 name|fuzziness
 operator|.
 name|toUpperCase
-argument_list|()
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Creates a {@link Fuzziness} instance from an edit distance. The value must be one of<tt>[0, 1, 2]</tt>      */
