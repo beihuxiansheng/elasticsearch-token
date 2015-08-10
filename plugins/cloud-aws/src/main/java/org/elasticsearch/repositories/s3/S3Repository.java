@@ -859,7 +859,12 @@ name|get
 argument_list|(
 literal|"base_path"
 argument_list|,
-literal|null
+name|settings
+operator|.
+name|get
+argument_list|(
+literal|"repositories.s3.base_path"
+argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
