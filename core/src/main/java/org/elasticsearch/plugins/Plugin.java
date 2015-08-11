@@ -233,7 +233,7 @@ name|Module
 name|module
 parameter_list|)
 function_decl|;
-comment|/**      * Additional node settings loaded by the plugin      */
+comment|/**      * Additional node settings loaded by the plugin. Note that settings that are explicit in the nodes settings can't be      * overwritten with the additional settings. These settings added if they don't exist.      */
 DECL|method|additionalSettings
 name|Settings
 name|additionalSettings

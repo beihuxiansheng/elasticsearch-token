@@ -1316,6 +1316,7 @@ name|Settings
 name|updatedSettings
 parameter_list|()
 block|{
+specifier|final
 name|Settings
 operator|.
 name|Builder
@@ -1325,13 +1326,6 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-name|this
-operator|.
-name|settings
-argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -1362,6 +1356,13 @@ expr_stmt|;
 block|}
 return|return
 name|builder
+operator|.
+name|put
+argument_list|(
+name|this
+operator|.
+name|settings
+argument_list|)
 operator|.
 name|build
 argument_list|()
