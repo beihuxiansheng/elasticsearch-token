@@ -92,6 +92,16 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|Strings
@@ -871,6 +881,39 @@ operator|.
 name|nextToken
 argument_list|()
 expr_stmt|;
+block|}
+comment|// try to parse the next token, this should be null if the object is ended properly
+comment|// but will throw a JSON exception if the extra tokens is not valid JSON (this will be handled by the catch)
+if|if
+condition|(
+name|Version
+operator|.
+name|indexCreated
+argument_list|(
+name|indexSettings
+argument_list|)
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0_beta1
+argument_list|)
+condition|)
+block|{
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+assert|assert
+name|token
+operator|==
+literal|null
+assert|;
+comment|// double check, in tests, that we didn't end parsing early
 block|}
 for|for
 control|(
