@@ -108,15 +108,6 @@ name|SimpleQueryStringParser
 extends|extends
 name|BaseQueryParser
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"simple_query_string"
-decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|SimpleQueryStringParser
@@ -494,6 +485,8 @@ name|parseContext
 argument_list|,
 literal|"["
 operator|+
+name|SimpleQueryStringBuilder
+operator|.
 name|NAME
 operator|+
 literal|"] query does not support ["
