@@ -282,15 +282,7 @@ name|numClientNodes
 operator|=
 literal|0
 argument_list|)
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/12788"
-argument_list|)
+comment|//@LuceneTestCase.AwaitsFix(bugUrl = "https://github.com/elastic/elasticsearch/issues/12788")
 DECL|class|NettyTransportMultiPortIntegrationIT
 specifier|public
 class|class
@@ -397,6 +389,14 @@ literal|"node.mode"
 argument_list|,
 literal|"network"
 argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"node.local"
+argument_list|,
+literal|false
+argument_list|)
+comment|// ensure randomization doesn't set local mode, since this has higher precedence
 operator|.
 name|put
 argument_list|(
