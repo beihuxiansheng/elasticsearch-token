@@ -253,6 +253,11 @@ argument_list|(
 literal|"foo"
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|analyzer
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|version

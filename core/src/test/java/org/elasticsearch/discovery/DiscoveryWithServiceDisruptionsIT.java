@@ -1093,11 +1093,11 @@ comment|// still long to induce failures but to long so test won't time out
 operator|.
 name|put
 argument_list|(
-name|TransportModule
-operator|.
-name|TRANSPORT_SERVICE_TYPE_KEY
+literal|"plugin.types"
 argument_list|,
 name|MockTransportService
+operator|.
+name|Plugin
 operator|.
 name|class
 operator|.

@@ -30,6 +30,22 @@ name|Settings
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|plugin
+operator|.
+name|cloud
+operator|.
+name|azure
+operator|.
+name|CloudAzurePlugin
+import|;
+end_import
+
 begin_class
 DECL|class|SmbSimpleFsTest
 specifier|public

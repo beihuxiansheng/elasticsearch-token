@@ -740,20 +740,6 @@ name|cluster
 operator|.
 name|metadata
 operator|.
-name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
 name|MappingMetaData
 import|;
 end_import
@@ -1710,7 +1696,7 @@ name|test
 operator|.
 name|XContentTestUtils
 operator|.
-name|mapsEqualIgnoringArrayOrder
+name|differenceBetweenMapsIgnoringArrayOrder
 import|;
 end_import
 
@@ -6683,11 +6669,11 @@ name|localClusterStateSize
 argument_list|)
 expr_stmt|;
 comment|// Compare JSON serialization
-name|assertTrue
+name|assertNull
 argument_list|(
 literal|"clusterstate JSON serialization does not match"
 argument_list|,
-name|mapsEqualIgnoringArrayOrder
+name|differenceBetweenMapsIgnoringArrayOrder
 argument_list|(
 name|masterStateMap
 argument_list|,

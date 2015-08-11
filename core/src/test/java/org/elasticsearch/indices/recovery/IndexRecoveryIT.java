@@ -4518,11 +4518,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|TransportModule
-operator|.
-name|TRANSPORT_SERVICE_TYPE_KEY
+literal|"plugin.types"
 argument_list|,
 name|MockTransportService
+operator|.
+name|Plugin
 operator|.
 name|class
 operator|.
