@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.configured
+DECL|package|org.elasticsearch.plugin.example
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|configured
+name|example
 package|;
 end_package
 
@@ -133,24 +133,24 @@ comment|/**  * Example of adding a cat action with a plugin.  */
 end_comment
 
 begin_class
-DECL|class|ConfiguredExampleCatAction
+DECL|class|ExampleCatAction
 specifier|public
 class|class
-name|ConfiguredExampleCatAction
+name|ExampleCatAction
 extends|extends
 name|AbstractCatAction
 block|{
 DECL|field|config
 specifier|private
 specifier|final
-name|ConfiguredExamplePluginConfiguration
+name|ExamplePluginConfiguration
 name|config
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|ConfiguredExampleCatAction
+DECL|method|ExampleCatAction
 specifier|public
-name|ConfiguredExampleCatAction
+name|ExampleCatAction
 parameter_list|(
 name|Settings
 name|settings
@@ -161,7 +161,7 @@ parameter_list|,
 name|Client
 name|client
 parameter_list|,
-name|ConfiguredExamplePluginConfiguration
+name|ExamplePluginConfiguration
 name|config
 parameter_list|)
 block|{

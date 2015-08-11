@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.plugin.configured
+DECL|package|org.elasticsearch.plugin.example
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|configured
+name|example
 package|;
 end_package
 
@@ -289,10 +289,10 @@ comment|/**  * Example configuration.  */
 end_comment
 
 begin_class
-DECL|class|ConfiguredExamplePluginConfiguration
+DECL|class|ExamplePluginConfiguration
 specifier|public
 class|class
-name|ConfiguredExamplePluginConfiguration
+name|ExamplePluginConfiguration
 block|{
 DECL|field|test
 specifier|private
@@ -303,9 +303,9 @@ literal|"not set in config"
 decl_stmt|;
 annotation|@
 name|Inject
-DECL|method|ConfiguredExamplePluginConfiguration
+DECL|method|ExamplePluginConfiguration
 specifier|public
-name|ConfiguredExamplePluginConfiguration
+name|ExamplePluginConfiguration
 parameter_list|(
 name|Environment
 name|env
@@ -324,7 +324,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"example-configured/example.yaml"
+literal|"jvm-example/example.yaml"
 argument_list|)
 decl_stmt|;
 name|String
