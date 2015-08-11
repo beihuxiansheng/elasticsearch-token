@@ -974,7 +974,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// Use the default field (_all) if no fields specified
+comment|// Use the default field if no fields specified
 if|if
 condition|(
 name|fieldsAndWeights
@@ -983,21 +983,18 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-name|String
-name|field
-init|=
-name|context
-operator|.
-name|defaultField
-argument_list|()
-decl_stmt|;
 name|fieldsAndWeights
 operator|.
 name|put
 argument_list|(
-name|field
+name|context
+operator|.
+name|defaultField
+argument_list|()
 argument_list|,
-literal|1.0F
+name|AbstractQueryBuilder
+operator|.
+name|DEFAULT_BOOST
 argument_list|)
 expr_stmt|;
 block|}
