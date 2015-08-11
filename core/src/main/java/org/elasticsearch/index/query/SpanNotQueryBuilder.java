@@ -239,10 +239,10 @@ name|exclude
 expr_stmt|;
 block|}
 comment|/**      * @return the span query whose matches are filtered      */
-DECL|method|include
+DECL|method|includeQuery
 specifier|public
 name|SpanQueryBuilder
-name|include
+name|includeQuery
 parameter_list|()
 block|{
 return|return
@@ -252,10 +252,10 @@ name|include
 return|;
 block|}
 comment|/**      * @return the span query whose matches must not overlap      */
-DECL|method|exclude
+DECL|method|excludeQuery
 specifier|public
 name|SpanQueryBuilder
-name|exclude
+name|excludeQuery
 parameter_list|()
 block|{
 return|return
@@ -501,9 +501,7 @@ name|excludeQuery
 operator|instanceof
 name|SpanQuery
 assert|;
-name|SpanNotQuery
-name|query
-init|=
+return|return
 operator|new
 name|SpanNotQuery
 argument_list|(
@@ -521,9 +519,6 @@ name|pre
 argument_list|,
 name|post
 argument_list|)
-decl_stmt|;
-return|return
-name|query
 return|;
 block|}
 annotation|@

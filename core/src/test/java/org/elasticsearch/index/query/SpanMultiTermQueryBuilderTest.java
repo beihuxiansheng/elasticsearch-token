@@ -186,7 +186,7 @@ name|multiTermQuery
 init|=
 name|queryBuilder
 operator|.
-name|multiTermQueryBuilder
+name|innerQuery
 argument_list|()
 operator|.
 name|toQuery

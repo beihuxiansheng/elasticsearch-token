@@ -146,6 +146,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -220,24 +230,17 @@ modifier|...
 name|filters
 parameter_list|)
 block|{
-for|for
-control|(
-name|QueryBuilder
-name|filter
-range|:
-name|filters
-control|)
-block|{
+name|Collections
+operator|.
+name|addAll
+argument_list|(
 name|this
 operator|.
 name|filters
-operator|.
-name|add
-argument_list|(
-name|filter
+argument_list|,
+name|filters
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Adds a filter to the list of filters to "and".      * @param filterBuilder nested filter, no<tt>null</tt> value allowed      */
 DECL|method|add
@@ -260,14 +263,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @return the list of filters added to "and".      */
-DECL|method|filters
+comment|/**      * @return the list of queries added to "and".      */
+DECL|method|innerQueries
 specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
 argument_list|>
-name|filters
+name|innerQueries
 parameter_list|()
 block|{
 return|return

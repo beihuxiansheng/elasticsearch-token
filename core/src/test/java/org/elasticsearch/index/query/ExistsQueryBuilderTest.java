@@ -256,7 +256,7 @@ name|fieldPattern
 init|=
 name|queryBuilder
 operator|.
-name|name
+name|fieldName
 argument_list|()
 decl_stmt|;
 name|ObjectMapper

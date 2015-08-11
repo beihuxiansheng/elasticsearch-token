@@ -194,10 +194,10 @@ name|negativeQuery
 expr_stmt|;
 block|}
 comment|/**      * Get the positive query for this boosting query.      */
-DECL|method|positive
+DECL|method|positiveQuery
 specifier|public
 name|QueryBuilder
-name|positive
+name|positiveQuery
 parameter_list|()
 block|{
 return|return
@@ -207,10 +207,10 @@ name|positiveQuery
 return|;
 block|}
 comment|/**      * Get the negative query for this boosting query.      */
-DECL|method|negative
+DECL|method|negativeQuery
 specifier|public
 name|QueryBuilder
-name|negative
+name|negativeQuery
 parameter_list|()
 block|{
 return|return

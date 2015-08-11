@@ -420,10 +420,10 @@ name|queryText
 expr_stmt|;
 block|}
 comment|/** Returns the text to parse the query from. */
-DECL|method|text
+DECL|method|value
 specifier|public
 name|String
-name|text
+name|value
 parameter_list|()
 block|{
 return|return

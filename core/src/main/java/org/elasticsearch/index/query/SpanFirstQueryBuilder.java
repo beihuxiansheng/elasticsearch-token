@@ -206,10 +206,10 @@ name|end
 expr_stmt|;
 block|}
 comment|/**      * @return the inner {@link SpanQueryBuilder} defined in this query      */
-DECL|method|matchBuilder
+DECL|method|innerQuery
 specifier|public
 name|SpanQueryBuilder
-name|matchBuilder
+name|innerQuery
 parameter_list|()
 block|{
 return|return

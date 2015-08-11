@@ -271,7 +271,7 @@ if|if
 condition|(
 name|queryBuilder
 operator|.
-name|filters
+name|innerQueries
 argument_list|()
 operator|.
 name|isEmpty
@@ -307,7 +307,7 @@ name|subQuery
 range|:
 name|queryBuilder
 operator|.
-name|filters
+name|innerQueries
 argument_list|()
 control|)
 block|{

@@ -169,11 +169,11 @@ operator|=
 name|filter
 expr_stmt|;
 block|}
-comment|/**      * @return the filter added to "not".      */
-DECL|method|filter
+comment|/**      * @return the query added to "not".      */
+DECL|method|innerQuery
 specifier|public
 name|QueryBuilder
-name|filter
+name|innerQuery
 parameter_list|()
 block|{
 return|return

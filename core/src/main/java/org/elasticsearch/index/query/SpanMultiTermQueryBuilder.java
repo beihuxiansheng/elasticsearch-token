@@ -188,10 +188,10 @@ operator|=
 name|multiTermQueryBuilder
 expr_stmt|;
 block|}
-DECL|method|multiTermQueryBuilder
+DECL|method|innerQuery
 specifier|public
 name|MultiTermQueryBuilder
-name|multiTermQueryBuilder
+name|innerQuery
 parameter_list|()
 block|{
 return|return

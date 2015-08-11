@@ -169,10 +169,10 @@ name|filterBuilder
 expr_stmt|;
 block|}
 comment|/**      * @return the query that was wrapped in this constant score query      */
-DECL|method|query
+DECL|method|innerQuery
 specifier|public
 name|QueryBuilder
-name|query
+name|innerQuery
 parameter_list|()
 block|{
 return|return

@@ -214,7 +214,7 @@ name|filter
 init|=
 name|queryBuilder
 operator|.
-name|filter
+name|innerQuery
 argument_list|()
 operator|.
 name|toQuery

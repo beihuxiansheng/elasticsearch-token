@@ -243,7 +243,7 @@ operator|.
 name|getTerm
 argument_list|()
 operator|.
-name|bytes
+name|text
 argument_list|()
 argument_list|,
 name|equalTo

@@ -226,13 +226,13 @@ name|this
 return|;
 block|}
 comment|/**      * @return an immutable list copy of the current sub-queries of this disjunction      */
-DECL|method|queries
+DECL|method|innerQueries
 specifier|public
 name|List
 argument_list|<
 name|QueryBuilder
 argument_list|>
-name|queries
+name|innerQueries
 parameter_list|()
 block|{
 return|return

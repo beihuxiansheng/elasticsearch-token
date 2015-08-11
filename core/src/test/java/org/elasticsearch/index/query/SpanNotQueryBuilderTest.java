@@ -343,7 +343,7 @@ name|equalTo
 argument_list|(
 name|queryBuilder
 operator|.
-name|exclude
+name|excludeQuery
 argument_list|()
 operator|.
 name|toQuery
@@ -364,7 +364,7 @@ name|equalTo
 argument_list|(
 name|queryBuilder
 operator|.
-name|include
+name|includeQuery
 argument_list|()
 operator|.
 name|toQuery
@@ -972,7 +972,7 @@ name|assertNotNull
 argument_list|(
 name|query
 operator|.
-name|include
+name|includeQuery
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -980,7 +980,7 @@ name|assertNotNull
 argument_list|(
 name|query
 operator|.
-name|exclude
+name|excludeQuery
 argument_list|()
 argument_list|)
 expr_stmt|;

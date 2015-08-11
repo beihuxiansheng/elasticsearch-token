@@ -686,7 +686,7 @@ argument_list|()
 argument_list|,
 name|queryBuilder
 operator|.
-name|text
+name|value
 argument_list|()
 operator|.
 name|toLowerCase
@@ -781,7 +781,7 @@ name|field
 argument_list|,
 name|queryBuilder
 operator|.
-name|text
+name|value
 argument_list|()
 operator|.
 name|toLowerCase
@@ -1623,7 +1623,7 @@ name|assertThat
 argument_list|(
 name|queryBuilder
 operator|.
-name|text
+name|value
 argument_list|()
 argument_list|,
 name|equalTo

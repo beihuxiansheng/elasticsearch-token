@@ -258,10 +258,10 @@ name|PROTOTYPE
 expr_stmt|;
 block|}
 comment|/** Returns the query to apply the filter to. */
-DECL|method|query
+DECL|method|innerQuery
 specifier|public
 name|QueryBuilder
-name|query
+name|innerQuery
 parameter_list|()
 block|{
 return|return
@@ -269,10 +269,10 @@ name|queryBuilder
 return|;
 block|}
 comment|/** Returns the filter to apply to the query results. */
-DECL|method|filter
+DECL|method|innerFilter
 specifier|public
 name|QueryBuilder
-name|filter
+name|innerFilter
 parameter_list|()
 block|{
 return|return

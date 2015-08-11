@@ -186,7 +186,7 @@ name|innerQuery
 init|=
 name|queryBuilder
 operator|.
-name|query
+name|innerQuery
 argument_list|()
 operator|.
 name|toQuery

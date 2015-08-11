@@ -172,7 +172,7 @@ name|positive
 init|=
 name|queryBuilder
 operator|.
-name|positive
+name|positiveQuery
 argument_list|()
 operator|.
 name|toQuery
@@ -185,7 +185,7 @@ name|negative
 init|=
 name|queryBuilder
 operator|.
-name|negative
+name|negativeQuery
 argument_list|()
 operator|.
 name|toQuery

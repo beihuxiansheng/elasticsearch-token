@@ -430,10 +430,10 @@ operator|.
 name|fieldName
 return|;
 block|}
-DECL|method|text
+DECL|method|value
 specifier|public
 name|Object
-name|text
+name|value
 parameter_list|()
 block|{
 return|return

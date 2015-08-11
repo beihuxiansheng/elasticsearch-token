@@ -209,10 +209,10 @@ name|big
 expr_stmt|;
 block|}
 comment|/**      * @return the big clause, it must enclose {@code little} for a match.      */
-DECL|method|big
+DECL|method|bigQuery
 specifier|public
 name|SpanQueryBuilder
-name|big
+name|bigQuery
 parameter_list|()
 block|{
 return|return
@@ -222,10 +222,10 @@ name|big
 return|;
 block|}
 comment|/**      * @return the little clause, it must be contained within {@code big} for a match.      */
-DECL|method|little
+DECL|method|littleQuery
 specifier|public
 name|SpanQueryBuilder
-name|little
+name|littleQuery
 parameter_list|()
 block|{
 return|return
