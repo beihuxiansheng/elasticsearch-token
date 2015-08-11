@@ -248,7 +248,7 @@ name|Parser
 argument_list|>
 name|pipelineAggregatorParsers
 decl_stmt|;
-comment|/**      * Constructs the AggregatorParsers out of all the given parsers      *      * @param aggParsers      *            The available aggregator parsers (dynamically injected by the      *            {@link org.elasticsearch.search.aggregations.AggregationModule}      *            ).      */
+comment|/**      * Constructs the AggregatorParsers out of all the given parsers      *      * @param aggParsers      *            The available aggregator parsers (dynamically injected by the      *            {@link org.elasticsearch.search.SearchModule}      *            ).      */
 annotation|@
 name|Inject
 DECL|method|AggregatorParsers

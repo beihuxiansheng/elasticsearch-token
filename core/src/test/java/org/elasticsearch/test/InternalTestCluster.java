@@ -998,20 +998,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|store
-operator|.
-name|IndexStoreModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesService
@@ -1166,7 +1152,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchService
+name|SearchModule
 import|;
 end_import
 
@@ -1178,7 +1164,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchServiceModule
+name|SearchService
 import|;
 end_import
 
@@ -1267,20 +1253,6 @@ operator|.
 name|store
 operator|.
 name|MockFSIndexStore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|store
-operator|.
-name|MockFSIndexStoreModule
 import|;
 end_import
 
@@ -3308,9 +3280,9 @@ name|builder
 operator|.
 name|put
 argument_list|(
-name|SearchServiceModule
+name|SearchModule
 operator|.
-name|IMPL
+name|SEARCH_SERVICE_IMPL
 argument_list|,
 name|MockSearchService
 operator|.
