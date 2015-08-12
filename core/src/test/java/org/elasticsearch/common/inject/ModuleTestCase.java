@@ -360,6 +360,15 @@ name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|" didn't contain: "
+operator|+
+name|msg
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
 operator|.
 name|contains
 argument_list|(
