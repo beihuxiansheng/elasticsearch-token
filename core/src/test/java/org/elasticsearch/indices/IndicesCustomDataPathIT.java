@@ -313,13 +313,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"node.enable_custom_paths"
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"path.shared_data"
 argument_list|,
 name|dataPath

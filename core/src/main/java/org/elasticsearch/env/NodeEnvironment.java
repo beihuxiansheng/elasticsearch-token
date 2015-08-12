@@ -696,12 +696,6 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|customPathsEnabled
-specifier|private
-specifier|final
-name|boolean
-name|customPathsEnabled
-decl_stmt|;
 comment|// Setting to automatically append node id to custom data paths
 DECL|field|ADD_NODE_ID_TO_CUSTOM_PATH
 specifier|public
@@ -711,16 +705,6 @@ name|String
 name|ADD_NODE_ID_TO_CUSTOM_PATH
 init|=
 literal|"node.add_id_to_custom_path"
-decl_stmt|;
-comment|// Setting to enable custom index.data_path setting for new indices
-DECL|field|SETTING_CUSTOM_DATA_PATH_ENABLED
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|SETTING_CUSTOM_DATA_PATH_ENABLED
-init|=
-literal|"node.enable_custom_paths"
 decl_stmt|;
 comment|// If enabled, the [verbose] SegmentInfos.infoStream logging is sent to System.out:
 DECL|field|SETTING_ENABLE_LUCENE_SEGMENT_INFOS_TRACE
@@ -797,19 +781,6 @@ argument_list|(
 name|ADD_NODE_ID_TO_CUSTOM_PATH
 argument_list|,
 literal|true
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|customPathsEnabled
-operator|=
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-name|SETTING_CUSTOM_DATA_PATH_ENABLED
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -3976,17 +3947,6 @@ return|return
 name|settings
 return|;
 block|}
-comment|/** return true if custom paths are allowed for indices */
-DECL|method|isCustomPathsEnabled
-specifier|public
-name|boolean
-name|isCustomPathsEnabled
-parameter_list|()
-block|{
-return|return
-name|customPathsEnabled
-return|;
-block|}
 comment|/**      * @param indexSettings settings for an index      * @return true if the index has a custom data path      */
 DECL|method|hasCustomDataPath
 specifier|public
@@ -4053,7 +4013,9 @@ condition|)
 block|{
 comment|// This assert is because this should be caught by MetaDataCreateIndexService
 assert|assert
-name|customPathsEnabled
+name|sharedDataPath
+operator|!=
+literal|null
 assert|;
 if|if
 condition|(

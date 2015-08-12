@@ -9562,15 +9562,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|NodeEnvironment
-operator|.
-name|SETTING_CUSTOM_DATA_PATH_ENABLED
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"script.indexed"
 argument_list|,
 literal|"on"

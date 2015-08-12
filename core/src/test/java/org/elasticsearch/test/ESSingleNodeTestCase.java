@@ -813,15 +813,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|NodeEnvironment
-operator|.
-name|SETTING_CUSTOM_DATA_PATH_ENABLED
-argument_list|,
-literal|true
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|IndexMetaData
 operator|.
 name|SETTING_NUMBER_OF_SHARDS
