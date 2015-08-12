@@ -129,6 +129,7 @@ end_comment
 begin_class
 DECL|class|ModuleTestCase
 specifier|public
+specifier|abstract
 class|class
 name|ModuleTestCase
 extends|extends
