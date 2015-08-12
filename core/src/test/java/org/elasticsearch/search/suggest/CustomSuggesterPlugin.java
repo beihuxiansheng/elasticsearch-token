@@ -28,6 +28,18 @@ name|AbstractPlugin
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|SearchModule
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -69,11 +81,11 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|SuggestModule
-name|suggestModule
+name|SearchModule
+name|searchModule
 parameter_list|)
 block|{
-name|suggestModule
+name|searchModule
 operator|.
 name|registerSuggester
 argument_list|(

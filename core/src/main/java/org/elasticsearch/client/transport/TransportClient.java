@@ -390,7 +390,7 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|TransportSearchModule
+name|SearchModule
 import|;
 end_import
 
@@ -829,8 +829,12 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TransportSearchModule
-argument_list|()
+name|TransportModule
+argument_list|(
+name|this
+operator|.
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|modules
@@ -838,12 +842,23 @@ operator|.
 name|add
 argument_list|(
 operator|new
-name|TransportModule
+name|SearchModule
 argument_list|(
 name|this
 operator|.
 name|settings
 argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|configure
+parameter_list|()
+block|{
+comment|// noop
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 name|modules
