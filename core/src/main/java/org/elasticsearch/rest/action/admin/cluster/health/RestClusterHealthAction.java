@@ -152,7 +152,7 @@ name|action
 operator|.
 name|support
 operator|.
-name|RestToXContentListener
+name|RestStatusToXContentListener
 import|;
 end_import
 
@@ -438,7 +438,7 @@ argument_list|(
 name|clusterHealthRequest
 argument_list|,
 operator|new
-name|RestToXContentListener
+name|RestStatusToXContentListener
 argument_list|<
 name|ClusterHealthResponse
 argument_list|>
