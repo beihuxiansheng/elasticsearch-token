@@ -277,6 +277,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+comment|// Filter global settings
 name|settingsFilter
 operator|.
 name|addFilter
@@ -303,6 +304,21 @@ operator|.
 name|addFilter
 argument_list|(
 literal|"cloud.aws.secret_key"
+argument_list|)
+expr_stmt|;
+comment|// Filter repository-specific settings
+name|settingsFilter
+operator|.
+name|addFilter
+argument_list|(
+literal|"access_key"
+argument_list|)
+expr_stmt|;
+name|settingsFilter
+operator|.
+name|addFilter
+argument_list|(
+literal|"secret_key"
 argument_list|)
 expr_stmt|;
 comment|// add specific ec2 name resolver
