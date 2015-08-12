@@ -1158,6 +1158,17 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// NOTE: This is not in the original guice. We rethrow here to expose any explicit errors in configure()
+throw|throw
+name|e
+throw|;
+block|}
+catch|catch
+parameter_list|(
 name|RuntimeException
 name|e
 parameter_list|)
