@@ -172,6 +172,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doRequest
+specifier|protected
 specifier|abstract
 name|void
 name|doRequest
@@ -190,6 +191,7 @@ name|client
 parameter_list|)
 function_decl|;
 DECL|method|documentation
+specifier|protected
 specifier|abstract
 name|void
 name|documentation
@@ -199,6 +201,7 @@ name|sb
 parameter_list|)
 function_decl|;
 DECL|method|getTableWithHeader
+specifier|protected
 specifier|abstract
 name|Table
 name|getTableWithHeader

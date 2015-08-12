@@ -302,6 +302,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|documentation
+specifier|protected
 name|void
 name|documentation
 parameter_list|(
@@ -472,6 +473,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|getTableWithHeader
+specifier|protected
 name|Table
 name|getTableWithHeader
 parameter_list|(
