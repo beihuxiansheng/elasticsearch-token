@@ -3254,6 +3254,25 @@ range|:
 name|stream
 control|)
 block|{
+comment|// Skip files added by Lucene's ExtraFS
+if|if
+condition|(
+name|file
+operator|.
+name|getFileName
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"extra"
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|logger
 operator|.
 name|info
