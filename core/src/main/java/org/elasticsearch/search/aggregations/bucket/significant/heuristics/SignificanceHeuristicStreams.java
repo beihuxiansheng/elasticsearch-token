@@ -300,6 +300,34 @@ name|Stream
 name|stream
 parameter_list|)
 block|{
+if|if
+condition|(
+name|STREAMS
+operator|.
+name|containsKey
+argument_list|(
+name|stream
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Can't register stream with name ["
+operator|+
+name|stream
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"] more than once"
+argument_list|)
+throw|;
+block|}
 name|HashMap
 argument_list|<
 name|String

@@ -40,12 +40,6 @@ specifier|public
 interface|interface
 name|Highlighter
 block|{
-DECL|method|names
-name|String
-index|[]
-name|names
-parameter_list|()
-function_decl|;
 DECL|method|highlight
 name|HighlightField
 name|highlight
