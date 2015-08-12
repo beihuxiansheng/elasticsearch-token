@@ -384,6 +384,13 @@ name|TestLogging
 argument_list|(
 literal|"_root:DEBUG,index:TRACE"
 argument_list|)
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"path shenanigans, Lee is looking into it"
+argument_list|)
 DECL|method|testDataPathCanBeChanged
 specifier|public
 name|void
@@ -970,6 +977,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"path shenanigans, Lee is looking into it"
+argument_list|)
 DECL|method|testIndexCreatedWithCustomPathAndTemplate
 specifier|public
 name|void
