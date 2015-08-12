@@ -264,6 +264,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|env
+operator|.
+name|NodeEnvironment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|index
 operator|.
 name|IndexService
@@ -775,6 +787,19 @@ argument_list|(
 literal|"path.home"
 argument_list|,
 name|createTempDir
+argument_list|()
+argument_list|)
+comment|// TODO: use a consistent data path for custom paths
+comment|// This needs to tie into the ESIntegTestCase#indexSettings() method
+operator|.
+name|put
+argument_list|(
+literal|"path.shared_data"
+argument_list|,
+name|createTempDir
+argument_list|()
+operator|.
+name|getParent
 argument_list|()
 argument_list|)
 operator|.

@@ -28,6 +28,18 @@ name|AbstractPlugin
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|SearchModule
+import|;
+end_import
+
 begin_class
 DECL|class|CustomHighlighterPlugin
 specifier|public
@@ -65,7 +77,7 @@ specifier|public
 name|void
 name|onModule
 parameter_list|(
-name|HighlightModule
+name|SearchModule
 name|highlightModule
 parameter_list|)
 block|{

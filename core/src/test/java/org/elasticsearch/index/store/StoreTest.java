@@ -5679,6 +5679,8 @@ operator|(
 name|int
 operator|)
 name|len
+operator|-
+literal|1
 argument_list|)
 decl_stmt|;
 name|long

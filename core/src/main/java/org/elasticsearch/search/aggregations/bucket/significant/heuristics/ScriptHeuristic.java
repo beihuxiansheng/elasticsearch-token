@@ -656,8 +656,6 @@ specifier|final
 name|ScriptService
 name|scriptService
 decl_stmt|;
-annotation|@
-name|Inject
 DECL|method|ScriptHeuristicParser
 specifier|public
 name|ScriptHeuristicParser

@@ -399,6 +399,11 @@ operator|.
 name|LAZY
 argument_list|)
 argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -540,6 +545,11 @@ argument_list|,
 literal|"_parent"
 argument_list|,
 literal|"type=parent"
+argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -687,6 +697,11 @@ operator|.
 name|EAGER
 argument_list|)
 argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ensureGreen
@@ -832,6 +847,11 @@ name|Loading
 operator|.
 name|EAGER_GLOBAL_ORDINALS
 argument_list|)
+argument_list|)
+operator|.
+name|setUpdateAllTypes
+argument_list|(
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
