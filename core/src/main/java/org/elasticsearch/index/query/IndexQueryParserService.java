@@ -681,9 +681,21 @@ operator|.
 name|queryStringLenient
 return|;
 block|}
+comment|//norelease we might want to get rid of this as it was temporarily introduced for our default doToQuery impl
+comment|//seems to be used only in tests
 DECL|method|queryParser
 specifier|public
 name|QueryParser
+argument_list|<
+name|?
+extends|extends
+name|QueryBuilder
+argument_list|<
+name|?
+extends|extends
+name|QueryBuilder
+argument_list|>
+argument_list|>
 name|queryParser
 parameter_list|(
 name|String
@@ -1318,16 +1330,11 @@ argument_list|(
 name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
-name|QueryBuilder
-name|query
-init|=
+return|return
 name|parseContext
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
-decl_stmt|;
-return|return
-name|query
 return|;
 block|}
 annotation|@
