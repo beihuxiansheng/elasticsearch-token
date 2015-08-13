@@ -130,11 +130,6 @@ name|createTempDir
 argument_list|()
 argument_list|)
 operator|.
-name|loadFromClasspath
-argument_list|(
-literal|"org/elasticsearch/index/analysis/phonetic-1.yml"
-argument_list|)
-operator|.
 name|build
 argument_list|()
 decl_stmt|;
