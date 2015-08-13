@@ -4088,9 +4088,6 @@ argument_list|(
 name|shardId
 argument_list|,
 name|shardRouting
-operator|.
-name|primary
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|indexShard

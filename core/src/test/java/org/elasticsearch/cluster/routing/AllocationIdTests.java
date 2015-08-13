@@ -128,6 +128,9 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|AllocationId
@@ -277,6 +280,9 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|shard
@@ -304,6 +310,9 @@ operator|.
 name|relocate
 argument_list|(
 literal|"node2"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -504,6 +513,9 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|shard
@@ -531,6 +543,9 @@ operator|.
 name|relocate
 argument_list|(
 literal|"node2"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -683,6 +698,9 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|shard
@@ -774,6 +792,9 @@ operator|.
 name|initialize
 argument_list|(
 literal|"node1"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|shard
