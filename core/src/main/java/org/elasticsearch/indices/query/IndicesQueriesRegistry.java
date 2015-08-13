@@ -197,9 +197,6 @@ parameter_list|,
 name|Set
 argument_list|<
 name|QueryParser
-argument_list|<
-name|?
-argument_list|>
 argument_list|>
 name|injectedQueryParsers
 parameter_list|,
