@@ -1812,12 +1812,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|//if the initial lucene query is null, changing its boost won't have any effect, we shouldn't test that
+comment|//few queries also don't support boost, their setter is a no-op
 comment|//otherwise makes sure that boost is taken into account in toQuery
 if|if
 condition|(
 name|firstLuceneQuery
 operator|!=
 literal|null
+operator|&&
+name|supportsBoostAndQueryName
+argument_list|()
 condition|)
 block|{
 name|secondQuery
@@ -1835,13 +1839,6 @@ name|randomFloat
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//some queries don't support boost, their setter is a no-op
-if|if
-condition|(
-name|supportsBoostAndQueryName
-argument_list|()
-condition|)
-block|{
 name|Query
 name|thirdLuceneQuery
 init|=
@@ -1867,7 +1864,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}
