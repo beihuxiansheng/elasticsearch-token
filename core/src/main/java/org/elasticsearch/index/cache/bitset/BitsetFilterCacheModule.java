@@ -73,18 +73,7 @@ specifier|protected
 name|void
 name|configure
 parameter_list|()
-block|{
-name|bind
-argument_list|(
-name|BitsetFilterCache
-operator|.
-name|class
-argument_list|)
-operator|.
-name|asEagerSingleton
-argument_list|()
-expr_stmt|;
-block|}
+block|{      }
 block|}
 end_class
 

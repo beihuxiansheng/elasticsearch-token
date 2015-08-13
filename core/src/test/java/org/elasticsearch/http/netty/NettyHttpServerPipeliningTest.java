@@ -162,11 +162,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|common
 operator|.
-name|cache
-operator|.
-name|recycler
+name|util
 operator|.
 name|MockBigArrays
 import|;
@@ -177,8 +175,6 @@ import|import
 name|org
 operator|.
 name|elasticsearch
-operator|.
-name|test
 operator|.
 name|cache
 operator|.
