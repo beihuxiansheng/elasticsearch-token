@@ -89,6 +89,8 @@ name|searchModule
 operator|.
 name|registerSuggester
 argument_list|(
+literal|"custom"
+argument_list|,
 name|CustomSuggester
 operator|.
 name|class

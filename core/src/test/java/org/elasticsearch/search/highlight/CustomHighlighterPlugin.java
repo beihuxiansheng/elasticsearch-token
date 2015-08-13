@@ -85,6 +85,8 @@ name|highlightModule
 operator|.
 name|registerHighlighter
 argument_list|(
+literal|"test-custom"
+argument_list|,
 name|CustomHighlighter
 operator|.
 name|class

@@ -5531,9 +5531,17 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
-name|this
-return|;
+throw|throw
+operator|new
+name|SettingsException
+argument_list|(
+literal|"Failed to load settings from ["
+operator|+
+name|resourceName
+operator|+
+literal|"]"
+argument_list|)
+throw|;
 block|}
 return|return
 name|loadFromStream

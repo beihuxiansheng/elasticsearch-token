@@ -111,14 +111,6 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-DECL|method|names
-specifier|public
-specifier|abstract
-name|String
-index|[]
-name|names
-parameter_list|()
-function_decl|;
 DECL|method|getContextParser
 specifier|public
 specifier|abstract
