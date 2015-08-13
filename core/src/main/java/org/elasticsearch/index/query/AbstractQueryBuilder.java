@@ -835,8 +835,6 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-literal|31
-operator|*
 name|Objects
 operator|.
 name|hash
@@ -847,10 +845,10 @@ argument_list|,
 name|queryName
 argument_list|,
 name|boost
-argument_list|)
-operator|+
+argument_list|,
 name|doHashCode
 argument_list|()
+argument_list|)
 return|;
 block|}
 comment|//norelease to be made abstract once all queries are refactored
