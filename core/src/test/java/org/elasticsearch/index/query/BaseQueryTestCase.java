@@ -2048,8 +2048,6 @@ block|{
 name|QueryBuilder
 argument_list|<
 name|?
-extends|extends
-name|QueryBuilder
 argument_list|>
 name|prototype
 init|=

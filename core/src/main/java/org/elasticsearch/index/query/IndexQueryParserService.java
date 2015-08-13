@@ -688,13 +688,6 @@ specifier|public
 name|QueryParser
 argument_list|<
 name|?
-extends|extends
-name|QueryBuilder
-argument_list|<
-name|?
-extends|extends
-name|QueryBuilder
-argument_list|>
 argument_list|>
 name|queryParser
 parameter_list|(
