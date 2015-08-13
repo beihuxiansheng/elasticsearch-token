@@ -250,7 +250,9 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|XShapeCollection
+name|multiPoints
+init|=
 operator|new
 name|XShapeCollection
 argument_list|<>
@@ -259,6 +261,16 @@ name|shapes
 argument_list|,
 name|SPATIAL_CONTEXT
 argument_list|)
+decl_stmt|;
+name|multiPoints
+operator|.
+name|setPointsOnly
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|multiPoints
 return|;
 block|}
 annotation|@
