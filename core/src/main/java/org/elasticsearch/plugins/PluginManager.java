@@ -2851,7 +2851,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Elasticsearch new download service uses groupId org.elasticsearch.plugins from 2.0.0
+comment|// Elasticsearch new download service uses groupId org.elasticsearch.plugin from 2.0.0
 if|if
 condition|(
 name|user
