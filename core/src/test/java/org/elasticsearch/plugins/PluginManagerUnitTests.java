@@ -703,7 +703,14 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
+literal|"http://download.elastic.co/elasticsearch/staging/elasticsearch-%s-%s/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
+argument_list|,
+name|Version
+operator|.
+name|CURRENT
+operator|.
+name|number
+argument_list|()
 argument_list|,
 name|Build
 operator|.
