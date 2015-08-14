@@ -883,25 +883,6 @@ throw|;
 block|}
 annotation|@
 name|Override
-DECL|method|updateRewriteQuery
-specifier|public
-name|SearchContext
-name|updateRewriteQuery
-parameter_list|(
-name|Query
-name|rewriteQuery
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"Not supported"
-argument_list|)
-throw|;
-block|}
-annotation|@
-name|Override
 DECL|method|from
 specifier|public
 name|int
