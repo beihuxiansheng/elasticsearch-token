@@ -153,7 +153,7 @@ specifier|final
 name|String
 name|RESOURCE
 init|=
-literal|"org/elasticsearch/index/analysis/keep_analysis.json"
+literal|"/org/elasticsearch/index/analysis/keep_analysis.json"
 decl_stmt|;
 annotation|@
 name|Test

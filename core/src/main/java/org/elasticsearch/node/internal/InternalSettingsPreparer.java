@@ -1137,14 +1137,6 @@ name|Settings
 operator|.
 name|builder
 argument_list|()
-operator|.
-name|classLoader
-argument_list|(
-name|settings
-operator|.
-name|getClassLoaderIfSet
-argument_list|()
-argument_list|)
 decl_stmt|;
 while|while
 condition|(
