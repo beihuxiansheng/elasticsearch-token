@@ -66,9 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
+name|common
 operator|.
-name|FailedToResolveConfigException
+name|settings
+operator|.
+name|SettingsException
 import|;
 end_import
 
@@ -358,7 +360,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|FailedToResolveConfigException
+name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
