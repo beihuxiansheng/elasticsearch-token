@@ -10917,7 +10917,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Test date histogram aggregation with hour interval, timezone shift and      * extended bounds      */
+comment|/**      * Test date histogram aggregation with hour interval, timezone shift and      * extended bounds (see https://github.com/elastic/elasticsearch/issues/12278)      */
 annotation|@
 name|Test
 DECL|method|singleValueField_WithExtendedBoundsTimezone
@@ -11016,6 +11016,8 @@ return|;
 block|}
 block|}
 decl_stmt|;
+comment|// we pick a random timezone offset of +12/-12 hours and insert two documents
+comment|// one at 00:00 in that time zone and one at 12:00
 name|List
 argument_list|<
 name|IndexRequestBuilder
@@ -11141,6 +11143,7 @@ name|response
 init|=
 literal|null
 decl_stmt|;
+comment|// retrieve those docs with the same time zone and extended bounds
 name|response
 operator|=
 name|client
