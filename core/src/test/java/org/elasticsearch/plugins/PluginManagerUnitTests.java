@@ -447,7 +447,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
 argument_list|,
 name|Build
 operator|.
@@ -503,7 +503,7 @@ literal|"http"
 argument_list|,
 literal|"download.elastic.co"
 argument_list|,
-literal|"/elasticsearch/release/org/elasticsearch/plugin/"
+literal|"/elasticsearch/release/org/elasticsearch/plugin/elasticsearch-"
 operator|+
 name|pluginName
 operator|+
@@ -516,7 +516,7 @@ operator|.
 name|number
 argument_list|()
 operator|+
-literal|"/"
+literal|"/elasticsearch-"
 operator|+
 name|pluginName
 operator|+
@@ -580,6 +580,13 @@ name|OFFICIAL_PLUGINS
 operator|.
 name|asList
 argument_list|()
+argument_list|)
+operator|.
+name|replaceFirst
+argument_list|(
+literal|"elasticsearch-"
+argument_list|,
+literal|""
 argument_list|)
 decl_stmt|;
 name|PluginManager
@@ -668,7 +675,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
 argument_list|,
 name|Build
 operator|.
@@ -725,7 +732,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
 argument_list|,
 name|randomPluginName
 argument_list|,

@@ -2618,7 +2618,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"http://download.elastic.co/elasticsearch/staging/%s/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
 argument_list|,
 name|Build
 operator|.
@@ -2650,7 +2650,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/elasticsearch-%s/%s/elasticsearch-%s-%s.zip"
 argument_list|,
 name|repo
 argument_list|,
