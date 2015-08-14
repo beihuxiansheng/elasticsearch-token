@@ -294,30 +294,23 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertEquals
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+literal|"Can't register the same [allocation_decider] more than once for ["
+operator|+
+name|EnableAllocationDecider
 operator|.
-name|contains
-argument_list|(
-literal|"Cannot register AllocationDecider"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|e
+name|class
 operator|.
-name|getMessage
+name|getName
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"twice"
-argument_list|)
+operator|+
+literal|"]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -461,17 +454,14 @@ name|IllegalArgumentException
 name|e
 parameter_list|)
 block|{
-name|assertTrue
+name|assertEquals
 argument_list|(
 name|e
 operator|.
 name|getMessage
 argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"already registered"
-argument_list|)
+argument_list|,
+literal|"Can't register the same [shards_allocator] more than once for [balanced]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -515,7 +505,7 @@ name|assertBindingFailure
 argument_list|(
 name|module
 argument_list|,
-literal|"Unknown ShardsAllocator"
+literal|"Unknown [shards_allocator]"
 argument_list|)
 expr_stmt|;
 block|}

@@ -572,9 +572,7 @@ name|index
 operator|.
 name|cache
 operator|.
-name|bitset
-operator|.
-name|ShardBitsetFilterCache
+name|IndexCacheModule
 import|;
 end_import
 
@@ -588,11 +586,9 @@ name|index
 operator|.
 name|cache
 operator|.
-name|query
+name|bitset
 operator|.
-name|QueryCacheModule
-operator|.
-name|QueryCacheSettings
+name|ShardBitsetFilterCache
 import|;
 end_import
 
@@ -2245,7 +2241,7 @@ name|indexSettings
 operator|.
 name|getAsBoolean
 argument_list|(
-name|QueryCacheSettings
+name|IndexCacheModule
 operator|.
 name|QUERY_CACHE_EVERYTHING
 argument_list|,

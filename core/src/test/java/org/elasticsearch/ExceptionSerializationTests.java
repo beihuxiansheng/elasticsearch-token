@@ -1591,12 +1591,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
-name|Thread
-operator|.
-name|currentThread
+name|getClass
 argument_list|()
 operator|.
-name|getContextClassLoader
+name|getClassLoader
 argument_list|()
 operator|.
 name|loadClass

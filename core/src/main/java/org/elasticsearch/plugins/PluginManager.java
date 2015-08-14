@@ -392,6 +392,15 @@ specifier|public
 class|class
 name|PluginManager
 block|{
+DECL|field|PROPERTY_SUPPORT_STAGING_URLS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PROPERTY_SUPPORT_STAGING_URLS
+init|=
+literal|"es.plugins.staging"
+decl_stmt|;
 DECL|enum|OutputMode
 specifier|public
 enum|enum
@@ -2571,12 +2580,18 @@ block|{
 comment|// TODO Update to https
 if|if
 condition|(
-name|Version
+operator|!
+name|Strings
 operator|.
-name|CURRENT
+name|isNullOrEmpty
+argument_list|(
+name|System
 operator|.
-name|snapshot
-argument_list|()
+name|getProperty
+argument_list|(
+name|PROPERTY_SUPPORT_STAGING_URLS
+argument_list|)
+argument_list|)
 condition|)
 block|{
 name|addUrl
@@ -2591,7 +2606,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/snapshot/org/elasticsearch/plugin/%s/%s-SNAPSHOT/%s-%s-SNAPSHOT.zip"
+literal|"http://download.elastic.co/elasticsearch/staging/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|repo
 argument_list|,
