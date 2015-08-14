@@ -522,7 +522,8 @@ operator|=
 operator|new
 name|GroovyClassLoader
 argument_list|(
-name|settings
+name|getClass
+argument_list|()
 operator|.
 name|getClassLoader
 argument_list|()

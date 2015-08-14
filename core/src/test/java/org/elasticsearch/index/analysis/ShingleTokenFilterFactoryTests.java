@@ -182,7 +182,7 @@ specifier|final
 name|String
 name|RESOURCE
 init|=
-literal|"org/elasticsearch/index/analysis/shingle_analysis.json"
+literal|"/org/elasticsearch/index/analysis/shingle_analysis.json"
 decl_stmt|;
 annotation|@
 name|Test
