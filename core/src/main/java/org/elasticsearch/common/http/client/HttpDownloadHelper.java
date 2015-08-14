@@ -465,6 +465,12 @@ index|[]
 name|filebytes
 parameter_list|)
 function_decl|;
+comment|/** Human-readable name for the checksum format */
+DECL|method|name
+name|String
+name|name
+parameter_list|()
+function_decl|;
 block|}
 comment|/** Checksummer for SHA1 */
 DECL|field|SHA1_CHECKSUM
@@ -501,6 +507,17 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+literal|"SHA1"
 return|;
 block|}
 block|}
@@ -540,6 +557,17 @@ argument_list|)
 operator|.
 name|toString
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|name
+parameter_list|()
+block|{
+return|return
+literal|"MD5"
 return|;
 block|}
 block|}
@@ -627,7 +655,14 @@ throw|throw
 operator|new
 name|ElasticsearchCorruptionException
 argument_list|(
-literal|"invalid format for checksum file, expected 1 line, got: "
+literal|"invalid format for checksum file ("
+operator|+
+name|hashFunc
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"), expected 1 line, got: "
 operator|+
 name|checksumLines
 operator|.
@@ -672,7 +707,14 @@ throw|throw
 operator|new
 name|ElasticsearchCorruptionException
 argument_list|(
-literal|"incorrect hash, file hash: ["
+literal|"incorrect hash ("
+operator|+
+name|hashFunc
+operator|.
+name|name
+argument_list|()
+operator|+
+literal|"), file hash: ["
 operator|+
 name|fileHex
 operator|+
