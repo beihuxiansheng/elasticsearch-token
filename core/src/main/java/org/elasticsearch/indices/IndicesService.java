@@ -2054,6 +2054,14 @@ argument_list|(
 name|settings
 argument_list|)
 operator|.
+name|classLoader
+argument_list|(
+name|settings
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;

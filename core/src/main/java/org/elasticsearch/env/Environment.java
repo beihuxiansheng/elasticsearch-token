@@ -1366,11 +1366,12 @@ throw|;
 block|}
 block|}
 comment|// try and load it from the classpath directly
-comment|// TODO: remove this, users can look up their own config on classpath
 name|URL
 name|resource
 init|=
-name|getClass
+name|settings
+operator|.
+name|getClassLoader
 argument_list|()
 operator|.
 name|getResource
@@ -1403,7 +1404,9 @@ condition|)
 block|{
 name|resource
 operator|=
-name|getClass
+name|settings
+operator|.
+name|getClassLoader
 argument_list|()
 operator|.
 name|getResource
