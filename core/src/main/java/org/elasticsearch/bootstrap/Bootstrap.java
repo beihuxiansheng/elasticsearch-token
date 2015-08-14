@@ -942,12 +942,9 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|settings
+name|Class
 operator|.
-name|getClassLoader
-argument_list|()
-operator|.
-name|loadClass
+name|forName
 argument_list|(
 literal|"org.apache.log4j.Logger"
 argument_list|)
