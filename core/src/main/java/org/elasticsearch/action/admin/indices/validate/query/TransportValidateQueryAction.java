@@ -1428,10 +1428,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|searchContext
 operator|.
 name|close
 argument_list|()
