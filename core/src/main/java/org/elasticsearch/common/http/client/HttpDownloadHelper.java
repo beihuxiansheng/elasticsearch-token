@@ -651,6 +651,10 @@ operator|.
 name|readAllLines
 argument_list|(
 name|checksumFile
+argument_list|,
+name|Charsets
+operator|.
+name|UTF_8
 argument_list|)
 decl_stmt|;
 if|if
