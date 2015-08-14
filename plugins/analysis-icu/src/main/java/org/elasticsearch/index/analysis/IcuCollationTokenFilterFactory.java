@@ -148,18 +148,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|FailedToResolveConfigException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|Index
@@ -330,8 +318,6 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToResolveConfigException
-decl||
 name|IOException
 decl||
 name|SecurityException
