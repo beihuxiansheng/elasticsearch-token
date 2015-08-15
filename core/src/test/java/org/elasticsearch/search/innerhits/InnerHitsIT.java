@@ -1796,6 +1796,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/12905"
+argument_list|)
 DECL|method|testRandomNested
 specifier|public
 name|void
