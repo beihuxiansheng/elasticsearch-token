@@ -166,9 +166,7 @@ name|elasticsearch
 operator|.
 name|indices
 operator|.
-name|analysis
-operator|.
-name|IndicesAnalysisModule
+name|IndicesModule
 import|;
 end_import
 
@@ -319,6 +317,29 @@ name|build
 argument_list|()
 expr_stmt|;
 block|}
+name|IndicesModule
+name|indicesModule
+init|=
+operator|new
+name|IndicesModule
+argument_list|(
+name|settings
+argument_list|)
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|configure
+parameter_list|()
+block|{
+comment|// skip services
+name|bindHunspellExtension
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+decl_stmt|;
 name|Injector
 name|parentInjector
 init|=
@@ -344,9 +365,7 @@ name|settings
 argument_list|)
 argument_list|)
 argument_list|,
-operator|new
-name|IndicesAnalysisModule
-argument_list|()
+name|indicesModule
 argument_list|)
 operator|.
 name|createInjector

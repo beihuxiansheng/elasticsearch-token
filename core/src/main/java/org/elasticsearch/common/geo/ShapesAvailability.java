@@ -16,18 +16,6 @@ name|geo
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Classes
-import|;
-end_import
-
 begin_comment
 comment|/**  */
 end_comment
@@ -123,7 +111,7 @@ DECL|method|ShapesAvailability
 specifier|private
 name|ShapesAvailability
 parameter_list|()
-block|{      }
+block|{}
 block|}
 end_class
 
