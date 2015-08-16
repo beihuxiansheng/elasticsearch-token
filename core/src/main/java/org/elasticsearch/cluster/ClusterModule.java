@@ -1714,7 +1714,7 @@ name|INDICES_RECOVERY_FILE_CHUNK_SIZE
 argument_list|,
 name|Validator
 operator|.
-name|BYTES_SIZE
+name|POSITIVE_BYTES_SIZE
 argument_list|)
 expr_stmt|;
 name|registerClusterDynamicSetting

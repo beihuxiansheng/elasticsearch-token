@@ -979,6 +979,28 @@ argument_list|(
 name|fileName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|tempFileNames
+operator|.
+name|containsKey
+argument_list|(
+name|tempFileName
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"output for file ["
+operator|+
+name|fileName
+operator|+
+literal|"] has already been created"
+argument_list|)
+throw|;
+block|}
 comment|// add first, before it's created
 name|tempFileNames
 operator|.

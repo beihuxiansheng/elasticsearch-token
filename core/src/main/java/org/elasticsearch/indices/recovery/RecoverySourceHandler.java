@@ -1967,6 +1967,12 @@ init|=
 operator|(
 name|int
 operator|)
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
 name|recoverySettings
 operator|.
 name|fileChunkSize
@@ -1974,7 +1980,9 @@ argument_list|()
 operator|.
 name|bytes
 argument_list|()
+argument_list|)
 decl_stmt|;
+comment|// at least one!
 specifier|final
 name|byte
 index|[]
