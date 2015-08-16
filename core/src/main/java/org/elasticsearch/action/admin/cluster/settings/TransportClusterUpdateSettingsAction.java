@@ -1141,6 +1141,11 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|clusterService
+operator|.
+name|state
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1294,6 +1299,11 @@ argument_list|,
 name|entry
 operator|.
 name|getValue
+argument_list|()
+argument_list|,
+name|clusterService
+operator|.
+name|state
 argument_list|()
 argument_list|)
 decl_stmt|;
