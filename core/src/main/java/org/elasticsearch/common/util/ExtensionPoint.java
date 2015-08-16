@@ -125,7 +125,7 @@ argument_list|>
 index|[]
 name|singletons
 decl_stmt|;
-comment|/**      * Creates a new extension point      *      * @param name           the human readable underscore case name of the extension poing. This is used in error messages etc.      * @param extensionClass the base class that should be extended      * @param singletons     a list of singletons to bind with this extension point - these are bound in {@link #bind(Binder)}      */
+comment|/**      * Creates a new extension point      *      * @param name           the human readable underscore case name of the extension point. This is used in error messages etc.      * @param extensionClass the base class that should be extended      * @param singletons     a list of singletons to bind with this extension point - these are bound in {@link #bind(Binder)}      */
 DECL|method|ExtensionPoint
 specifier|public
 name|ExtensionPoint
@@ -177,27 +177,6 @@ name|Binder
 name|binder
 parameter_list|)
 block|{
-if|if
-condition|(
-name|singletons
-operator|==
-literal|null
-operator|||
-name|singletons
-operator|.
-name|length
-operator|==
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Can't bind empty or null singletons"
-argument_list|)
-throw|;
-block|}
 for|for
 control|(
 name|Class

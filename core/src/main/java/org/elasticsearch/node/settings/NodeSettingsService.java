@@ -481,7 +481,7 @@ operator|=
 name|lastSettingsApplied
 expr_stmt|;
 block|}
-comment|/**      * Only settings registered in {@link org.elasticsearch.cluster.settings.ClusterDynamicSettingsModule} can be changed dynamically.      */
+comment|/**      * Only settings registered in {@link org.elasticsearch.cluster.ClusterModule} can be changed dynamically.      */
 DECL|method|addListener
 specifier|public
 name|void
@@ -522,7 +522,6 @@ expr_stmt|;
 block|}
 DECL|interface|Listener
 specifier|public
-specifier|static
 interface|interface
 name|Listener
 block|{

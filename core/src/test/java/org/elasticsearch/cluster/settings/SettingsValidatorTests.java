@@ -79,6 +79,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"anything goes"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -96,6 +98,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10m"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -113,6 +117,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10g"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -130,6 +136,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"bad timing"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -147,6 +155,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10m"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -164,6 +174,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10g"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -181,6 +193,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"bad"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -198,6 +212,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -215,6 +231,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2.3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -232,6 +250,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -249,6 +269,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0.0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -266,6 +288,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1.0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -283,6 +307,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2.3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -300,6 +326,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -317,6 +345,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2.3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -334,6 +364,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -351,6 +383,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"2.0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -368,6 +402,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"1.0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -385,6 +421,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2.3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -402,6 +440,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -419,6 +459,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0.0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -436,6 +478,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1.0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -453,6 +497,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2.3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -470,6 +516,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -487,6 +535,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -504,6 +554,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -521,6 +573,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -538,6 +592,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -555,6 +611,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2.3"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -572,6 +630,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -589,6 +649,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -606,6 +668,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -623,6 +687,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -640,6 +706,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -657,6 +725,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -674,6 +744,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -691,6 +763,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -708,6 +782,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -725,6 +801,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"10.2"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -742,6 +820,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"asdasd"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -759,6 +839,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -776,6 +858,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"20"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -793,6 +877,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -810,6 +896,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"101%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -827,6 +915,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"100%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -844,6 +934,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"99%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -861,6 +953,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -878,6 +972,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"asdasd"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -895,6 +991,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"20"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -912,6 +1010,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"20mb"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -929,6 +1029,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"-1%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -946,6 +1048,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"101%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|notNullValue
@@ -963,6 +1067,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"100%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -980,6 +1086,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"99%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -997,6 +1105,8 @@ argument_list|(
 literal|""
 argument_list|,
 literal|"0%"
+argument_list|,
+literal|null
 argument_list|)
 argument_list|,
 name|nullValue
@@ -1015,15 +1125,19 @@ throws|throws
 name|Exception
 block|{
 name|DynamicSettings
+operator|.
+name|Builder
 name|ds
 init|=
 operator|new
 name|DynamicSettings
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|ds
 operator|.
-name|addDynamicSetting
+name|addSetting
 argument_list|(
 literal|"my.test.*"
 argument_list|,
@@ -1037,11 +1151,16 @@ name|valid
 init|=
 name|ds
 operator|.
+name|build
+argument_list|()
+operator|.
 name|validateDynamicSetting
 argument_list|(
 literal|"my.test.setting"
 argument_list|,
 literal|"-1"
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
