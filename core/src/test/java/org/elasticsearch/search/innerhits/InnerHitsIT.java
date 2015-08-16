@@ -355,15 +355,6 @@ comment|/**  */
 end_comment
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/12905"
-argument_list|)
 DECL|class|InnerHitsIT
 specifier|public
 class|class
