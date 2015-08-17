@@ -141,13 +141,6 @@ literal|"monitor.process.refresh_interval"
 argument_list|,
 literal|0
 argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"monitor.network.refresh_interval"
-argument_list|,
-literal|0
-argument_list|)
 argument_list|)
 operator|.
 name|node
