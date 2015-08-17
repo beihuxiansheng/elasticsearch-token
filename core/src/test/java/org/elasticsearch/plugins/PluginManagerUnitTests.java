@@ -392,6 +392,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/12934"
+argument_list|)
 DECL|method|testSimplifiedNaming
 specifier|public
 name|void
