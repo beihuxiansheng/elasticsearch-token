@@ -640,18 +640,6 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|TransportModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|transport
-operator|.
 name|TransportRequest
 import|;
 end_import
@@ -3752,7 +3740,7 @@ return|return
 operator|!
 name|recoveryResponse
 operator|.
-name|shardResponses
+name|shardRecoveryStates
 argument_list|()
 operator|.
 name|get
