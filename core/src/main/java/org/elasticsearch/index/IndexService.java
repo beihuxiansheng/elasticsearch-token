@@ -1700,8 +1700,9 @@ operator|.
 name|getExpectedShardSize
 argument_list|()
 operator|==
-operator|-
-literal|1
+name|ShardRouting
+operator|.
+name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 condition|?
 name|getAvgShardSizeInBytes
 argument_list|()
