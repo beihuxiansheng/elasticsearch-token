@@ -182,7 +182,7 @@ specifier|private
 specifier|final
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<
 name|QueryCache
 argument_list|>
@@ -209,7 +209,7 @@ operator|=
 operator|new
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<>
 argument_list|(
 literal|"query_cache"
