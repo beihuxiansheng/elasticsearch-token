@@ -347,8 +347,6 @@ operator|.
 name|metadata
 operator|.
 name|MetaData
-operator|.
-name|Custom
 import|;
 end_import
 
@@ -363,6 +361,8 @@ operator|.
 name|metadata
 operator|.
 name|MetaData
+operator|.
+name|Custom
 import|;
 end_import
 
@@ -682,21 +682,7 @@ name|snapshots
 operator|.
 name|mockstore
 operator|.
-name|MockRepositoryModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|snapshots
-operator|.
-name|mockstore
-operator|.
-name|MockRepositoryPlugin
+name|MockRepository
 import|;
 end_import
 
@@ -723,16 +709,6 @@ operator|.
 name|rest
 operator|.
 name|FakeRestRequest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -964,7 +940,103 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|allOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThanOrEqualTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -6104,7 +6176,9 @@ name|put
 argument_list|(
 literal|"plugin.types"
 argument_list|,
-name|MockRepositoryPlugin
+name|MockRepository
+operator|.
+name|Plugin
 operator|.
 name|class
 operator|.
@@ -6265,7 +6339,9 @@ name|put
 argument_list|(
 literal|"plugin.types"
 argument_list|,
-name|MockRepositoryPlugin
+name|MockRepository
+operator|.
+name|Plugin
 operator|.
 name|class
 operator|.
