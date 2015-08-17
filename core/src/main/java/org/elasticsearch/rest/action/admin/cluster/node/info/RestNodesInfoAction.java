@@ -248,8 +248,6 @@ literal|"http"
 argument_list|,
 literal|"jvm"
 argument_list|,
-literal|"network"
-argument_list|,
 literal|"os"
 argument_list|,
 literal|"plugins"
@@ -602,18 +600,6 @@ operator|.
 name|contains
 argument_list|(
 literal|"thread_pool"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|nodesInfoRequest
-operator|.
-name|network
-argument_list|(
-name|metrics
-operator|.
-name|contains
-argument_list|(
-literal|"network"
 argument_list|)
 argument_list|)
 expr_stmt|;

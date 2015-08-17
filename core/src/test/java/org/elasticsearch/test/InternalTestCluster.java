@@ -1080,18 +1080,6 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|SearchModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
 name|SearchService
 import|;
 end_import
@@ -11454,8 +11442,6 @@ argument_list|(
 name|CommonStatsFlags
 operator|.
 name|ALL
-argument_list|,
-literal|false
 argument_list|,
 literal|false
 argument_list|,

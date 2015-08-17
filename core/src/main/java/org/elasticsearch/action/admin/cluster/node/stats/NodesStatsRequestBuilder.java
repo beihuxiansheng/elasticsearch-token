@@ -320,27 +320,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the node Network stats be returned.      */
-DECL|method|setNetwork
-specifier|public
-name|NodesStatsRequestBuilder
-name|setNetwork
-parameter_list|(
-name|boolean
-name|network
-parameter_list|)
-block|{
-name|request
-operator|.
-name|network
-argument_list|(
-name|network
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Should the node file system stats be returned.      */
 DECL|method|setFs
 specifier|public
