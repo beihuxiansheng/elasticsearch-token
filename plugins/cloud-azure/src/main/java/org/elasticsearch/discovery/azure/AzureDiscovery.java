@@ -245,11 +245,6 @@ name|discoverySettings
 parameter_list|,
 name|ElectMasterService
 name|electMasterService
-parameter_list|,
-annotation|@
-name|ClusterDynamicSettings
-name|DynamicSettings
-name|dynamicSettings
 parameter_list|)
 block|{
 name|super
@@ -271,8 +266,6 @@ argument_list|,
 name|electMasterService
 argument_list|,
 name|discoverySettings
-argument_list|,
-name|dynamicSettings
 argument_list|)
 expr_stmt|;
 block|}

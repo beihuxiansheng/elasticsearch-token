@@ -2871,6 +2871,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 operator|.
+name|clear
+argument_list|()
+operator|.
 name|get
 argument_list|()
 operator|.

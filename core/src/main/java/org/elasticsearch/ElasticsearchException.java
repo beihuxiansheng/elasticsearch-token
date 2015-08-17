@@ -2862,16 +2862,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|FailedToResolveConfigException
-operator|.
-name|class
-block|,
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|UnavailableShardsException

@@ -539,9 +539,6 @@ argument_list|()
 expr_stmt|;
 name|context
 operator|.
-name|searcher
-argument_list|()
-operator|.
 name|queryCollectors
 argument_list|()
 operator|.
@@ -1018,9 +1015,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 name|context
-operator|.
-name|searcher
-argument_list|()
 operator|.
 name|queryCollectors
 argument_list|()

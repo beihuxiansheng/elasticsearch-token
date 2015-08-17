@@ -3574,6 +3574,12 @@ decl_stmt|;
 name|long
 name|chunkSize
 init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|1
+argument_list|,
 name|statsResponse
 operator|.
 name|getIndex
@@ -3600,6 +3606,7 @@ name|bytes
 argument_list|()
 operator|/
 literal|10
+argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(

@@ -7812,6 +7812,8 @@ operator|new
 name|ElasticsearchException
 argument_list|(
 literal|"failed to refresh store stats"
+argument_list|,
+name|ex
 argument_list|)
 throw|;
 block|}

@@ -68,6 +68,20 @@ name|lucene
 operator|.
 name|search
 operator|.
+name|Collector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
 name|Query
 import|;
 end_import
@@ -643,6 +657,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -1388,25 +1412,6 @@ name|Query
 name|query
 parameter_list|()
 function_decl|;
-comment|/**      * Has the query been rewritten already?      */
-DECL|method|queryRewritten
-specifier|public
-specifier|abstract
-name|boolean
-name|queryRewritten
-parameter_list|()
-function_decl|;
-comment|/**      * Rewrites the query and updates it. Only happens once.      */
-DECL|method|updateRewriteQuery
-specifier|public
-specifier|abstract
-name|SearchContext
-name|updateRewriteQuery
-parameter_list|(
-name|Query
-name|rewriteQuery
-parameter_list|)
-function_decl|;
 DECL|method|from
 specifier|public
 specifier|abstract
@@ -1815,6 +1820,22 @@ specifier|public
 specifier|abstract
 name|Counter
 name|timeEstimateCounter
+parameter_list|()
+function_decl|;
+comment|/** Return a view of the additional query collectors that should be run for this context. */
+DECL|method|queryCollectors
+specifier|public
+specifier|abstract
+name|Map
+argument_list|<
+name|Class
+argument_list|<
+name|?
+argument_list|>
+argument_list|,
+name|Collector
+argument_list|>
+name|queryCollectors
 parameter_list|()
 function_decl|;
 comment|/**      * The life time of an object that is used during search execution.      */

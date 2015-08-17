@@ -1312,8 +1312,6 @@ name|processFirstPhaseResult
 argument_list|(
 name|shardIndex
 argument_list|,
-name|shard
-argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
@@ -2504,9 +2502,6 @@ name|processFirstPhaseResult
 parameter_list|(
 name|int
 name|shardIndex
-parameter_list|,
-name|ShardRouting
-name|shard
 parameter_list|,
 name|FirstResult
 name|result

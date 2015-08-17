@@ -24,11 +24,7 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|routing
-operator|.
-name|allocation
-operator|.
-name|AllocationModule
+name|ClusterModule
 import|;
 end_import
 
@@ -219,7 +215,7 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AllocationModule
+name|ClusterModule
 operator|.
 name|SHARDS_ALLOCATOR_TYPE_KEY
 argument_list|,
@@ -246,11 +242,11 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-name|AllocationModule
+name|ClusterModule
 operator|.
 name|SHARDS_ALLOCATOR_TYPE_KEY
 argument_list|,
-name|AllocationModule
+name|ClusterModule
 operator|.
 name|BALANCED_ALLOCATOR
 argument_list|)

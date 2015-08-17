@@ -1367,6 +1367,9 @@ name|explanation
 operator|=
 name|searchContext
 operator|.
+name|parsedQuery
+argument_list|()
+operator|.
 name|query
 argument_list|()
 operator|.
