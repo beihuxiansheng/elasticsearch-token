@@ -333,8 +333,6 @@ argument_list|,
 literal|"version"
 argument_list|,
 literal|"user"
-argument_list|,
-literal|"repo"
 argument_list|)
 decl_stmt|;
 name|String
