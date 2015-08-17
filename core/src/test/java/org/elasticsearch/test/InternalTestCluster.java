@@ -4190,10 +4190,11 @@ name|append
 argument_list|(
 name|NetworkUtils
 operator|.
-name|getLocalHostName
-argument_list|(
-literal|"__default_host__"
-argument_list|)
+name|getLocalHost
+argument_list|()
+operator|.
+name|getHostName
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder
