@@ -850,6 +850,8 @@ argument_list|(
 name|ParseFieldMatcher
 operator|.
 name|STRICT
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|this
@@ -919,6 +921,8 @@ argument_list|(
 name|ParseFieldMatcher
 operator|.
 name|STRICT
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|this

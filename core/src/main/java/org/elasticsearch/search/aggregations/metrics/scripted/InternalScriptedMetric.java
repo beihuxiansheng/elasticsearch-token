@@ -571,6 +571,8 @@ operator|.
 name|Standard
 operator|.
 name|AGGS
+argument_list|,
+name|reduceContext
 argument_list|)
 decl_stmt|;
 name|ExecutableScript

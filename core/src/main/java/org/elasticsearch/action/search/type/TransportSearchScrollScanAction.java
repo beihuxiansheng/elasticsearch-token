@@ -1429,6 +1429,8 @@ argument_list|,
 name|queryFetchResults
 argument_list|,
 name|queryFetchResults
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 operator|(

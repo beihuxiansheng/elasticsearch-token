@@ -188,6 +188,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|HasContextAndHeaders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|HppcMaps
@@ -2194,6 +2206,9 @@ extends|extends
 name|FetchSearchResultProvider
 argument_list|>
 name|fetchResultsArr
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 block|{
 name|List
@@ -2932,6 +2947,8 @@ argument_list|(
 name|bigArrays
 argument_list|,
 name|scriptService
+argument_list|,
+name|headersContext
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3012,6 +3029,8 @@ argument_list|(
 name|bigArrays
 argument_list|,
 name|scriptService
+argument_list|,
+name|headersContext
 argument_list|)
 argument_list|)
 decl_stmt|;
