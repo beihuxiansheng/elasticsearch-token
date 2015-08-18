@@ -612,47 +612,6 @@ else|:
 literal|true
 return|;
 block|}
-comment|/** Returns localhost, or if its misconfigured, falls back to loopback. Use with caution!!!! */
-comment|// TODO: can we remove this?
-DECL|method|getLocalHost
-specifier|public
-specifier|static
-name|InetAddress
-name|getLocalHost
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-name|InetAddress
-operator|.
-name|getLocalHost
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|UnknownHostException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to resolve local host, fallback to loopback"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-return|return
-name|InetAddress
-operator|.
-name|getLoopbackAddress
-argument_list|()
-return|;
-block|}
-block|}
 comment|/** Returns addresses for all loopback interfaces that are up. */
 DECL|method|getLoopbackAddresses
 specifier|public
