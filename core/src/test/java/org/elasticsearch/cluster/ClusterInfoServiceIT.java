@@ -897,7 +897,7 @@ name|putArray
 argument_list|(
 literal|"plugin.types"
 argument_list|,
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
