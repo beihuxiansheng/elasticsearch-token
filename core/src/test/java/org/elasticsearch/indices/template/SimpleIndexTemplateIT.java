@@ -3329,11 +3329,6 @@ literal|"typeY"
 argument_list|,
 literal|"typeZ"
 argument_list|)
-operator|.
-name|execution
-argument_list|(
-literal|"bool"
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.

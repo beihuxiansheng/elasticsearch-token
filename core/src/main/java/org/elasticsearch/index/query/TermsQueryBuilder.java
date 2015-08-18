@@ -103,11 +103,6 @@ specifier|private
 name|Boolean
 name|disableCoord
 decl_stmt|;
-DECL|field|execution
-specifier|private
-name|String
-name|execution
-decl_stmt|;
 DECL|field|lookupIndex
 specifier|private
 name|String
@@ -313,29 +308,7 @@ operator|=
 name|values
 expr_stmt|;
 block|}
-comment|/**      * Sets the execution mode for the terms filter. Cane be either "plain", "bool"      * "and". Defaults to "plain".      * @deprecated elasticsearch now makes better decisions on its own      */
-annotation|@
-name|Deprecated
-DECL|method|execution
-specifier|public
-name|TermsQueryBuilder
-name|execution
-parameter_list|(
-name|String
-name|execution
-parameter_list|)
-block|{
-name|this
-operator|.
-name|execution
-operator|=
-name|execution
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**<<<<<<< HEAD      * Sets the index name to lookup the terms from. =======      * Sets the minimum number of matches across the provided terms. Defaults to<tt>1</tt>.      * @deprecated use [bool] query instead      */
+comment|/**      * Sets the minimum number of matches across the provided terms. Defaults to<tt>1</tt>.      * @deprecated use [bool] query instead      */
 annotation|@
 name|Deprecated
 DECL|method|minimumShouldMatch
@@ -379,7 +352,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the filter name for the filter that can be used when searching for matched_filters per hit.>>>>>>> master      */
+comment|/**      * Sets the index name to lookup the terms from.      */
 DECL|method|lookupIndex
 specifier|public
 name|TermsQueryBuilder
@@ -591,23 +564,6 @@ argument_list|(
 name|name
 argument_list|,
 name|values
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|execution
-operator|!=
-literal|null
-condition|)
-block|{
-name|builder
-operator|.
-name|field
-argument_list|(
-literal|"execution"
-argument_list|,
-name|execution
 argument_list|)
 expr_stmt|;
 block|}
