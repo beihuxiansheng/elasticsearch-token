@@ -320,6 +320,7 @@ comment|/**      * @param type the ec2 hostname type to discover.      * @return
 DECL|method|resolve
 specifier|public
 name|InetAddress
+index|[]
 name|resolve
 parameter_list|(
 name|Ec2HostnameType
@@ -438,13 +439,19 @@ return|return
 literal|null
 return|;
 block|}
+comment|// only one address: because we explicitly ask for only one via the Ec2HostnameType
 return|return
+operator|new
+name|InetAddress
+index|[]
+block|{
 name|InetAddress
 operator|.
 name|getByName
 argument_list|(
 name|metadataResult
 argument_list|)
+block|}
 return|;
 block|}
 catch|catch
@@ -522,6 +529,7 @@ name|Override
 DECL|method|resolveDefault
 specifier|public
 name|InetAddress
+index|[]
 name|resolveDefault
 parameter_list|()
 block|{
@@ -536,6 +544,7 @@ name|Override
 DECL|method|resolveIfPossible
 specifier|public
 name|InetAddress
+index|[]
 name|resolveIfPossible
 parameter_list|(
 name|String
