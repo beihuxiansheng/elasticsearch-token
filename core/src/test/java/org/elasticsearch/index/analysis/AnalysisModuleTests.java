@@ -458,31 +458,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
+name|*
 import|;
 end_import
 
@@ -1795,9 +1771,20 @@ operator|.
 name|getMessage
 argument_list|()
 argument_list|,
+name|either
+argument_list|(
 name|equalTo
 argument_list|(
 literal|"analyzer name must not start with '_'. got \"_invalid_name\""
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
+name|equalTo
+argument_list|(
+literal|"analyzer name must not start with '_'. got \"_invalidName\""
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
