@@ -985,12 +985,17 @@ name|bufferSize
 argument_list|,
 name|ttl
 argument_list|,
+comment|// don't use publish address, the use case for that is e.g. a firewall or proxy and
+comment|// may not even be bound to an interface on this machine! use the first bound address.
 name|networkService
 operator|.
-name|resolvePublishHostAddress
+name|resolveBindHostAddress
 argument_list|(
 name|address
 argument_list|)
+index|[
+literal|0
+index|]
 argument_list|,
 name|deferToInterface
 argument_list|)

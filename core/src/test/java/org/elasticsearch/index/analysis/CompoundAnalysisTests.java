@@ -276,20 +276,6 @@ name|indices
 operator|.
 name|analysis
 operator|.
-name|IndicesAnalysisModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|indices
-operator|.
-name|analysis
-operator|.
 name|IndicesAnalysisService
 import|;
 end_import
@@ -380,7 +366,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|hasItems
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -445,10 +455,6 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|)
-argument_list|,
-operator|new
-name|IndicesAnalysisModule
-argument_list|()
 argument_list|)
 operator|.
 name|createInjector
@@ -695,10 +701,6 @@ argument_list|(
 name|settings
 argument_list|)
 argument_list|)
-argument_list|,
-operator|new
-name|IndicesAnalysisModule
-argument_list|()
 argument_list|)
 operator|.
 name|createInjector

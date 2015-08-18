@@ -108,7 +108,7 @@ name|Highlighters
 extends|extends
 name|ExtensionPoint
 operator|.
-name|MapExtensionPoint
+name|ClassMap
 argument_list|<
 name|Highlighter
 argument_list|>

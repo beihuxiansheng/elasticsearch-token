@@ -276,7 +276,7 @@ operator|=
 name|jp
 expr_stmt|;
 block|}
-comment|//norelease this is still used in BaseQueryParserTemp and FunctionScoreQueryParse, remove if not needed there anymore
+comment|//norelease this is still used in BaseQueryParserTemp and FunctionScoreQueryParser, remove if not needed there anymore
 annotation|@
 name|Deprecated
 DECL|method|shardContext
