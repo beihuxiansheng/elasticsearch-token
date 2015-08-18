@@ -87,7 +87,7 @@ name|sortKey
 argument_list|(
 name|localhostv4
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 operator|<
 name|NetworkUtils
@@ -96,7 +96,7 @@ name|sortKey
 argument_list|(
 name|localhostv6
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -108,7 +108,7 @@ name|sortKey
 argument_list|(
 name|localhostv6
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 operator|<
 name|NetworkUtils
@@ -117,7 +117,7 @@ name|sortKey
 argument_list|(
 name|localhostv4
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
