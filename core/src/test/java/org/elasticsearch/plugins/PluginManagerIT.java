@@ -3840,6 +3840,13 @@ argument_list|(
 literal|"elasticsearch-lang-python"
 argument_list|)
 expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
+literal|"elasticsearch-mapper-murmur3"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|PluginManager
