@@ -3095,7 +3095,7 @@ literal|"plugin.types"
 argument_list|,
 name|MockTransportService
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
@@ -3104,7 +3104,7 @@ argument_list|()
 argument_list|,
 name|MockFSIndexStore
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
@@ -3127,7 +3127,7 @@ argument_list|()
 argument_list|,
 name|MockSearchService
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
@@ -3150,7 +3150,7 @@ literal|"plugin.types"
 argument_list|,
 name|AssertingLocalTransport
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.

@@ -132,7 +132,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -201,13 +201,13 @@ name|AbstractAzureRepositoryServiceTest
 extends|extends
 name|AbstractAzureTest
 block|{
-DECL|class|Plugin
+DECL|class|TestPlugin
 specifier|public
 specifier|static
 class|class
-name|Plugin
+name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override
@@ -387,7 +387,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.

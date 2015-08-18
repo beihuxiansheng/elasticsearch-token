@@ -1265,7 +1265,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|services
+name|nodeServices
 argument_list|()
 control|)
 block|{

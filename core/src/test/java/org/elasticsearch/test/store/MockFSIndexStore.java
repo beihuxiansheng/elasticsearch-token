@@ -148,7 +148,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -160,13 +160,13 @@ name|MockFSIndexStore
 extends|extends
 name|IndexStore
 block|{
-DECL|class|Plugin
+DECL|class|TestPlugin
 specifier|public
 specifier|static
 class|class
-name|Plugin
+name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

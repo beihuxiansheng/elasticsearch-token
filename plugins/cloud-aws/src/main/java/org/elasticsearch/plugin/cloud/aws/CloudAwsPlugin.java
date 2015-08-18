@@ -120,13 +120,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|plugins
 operator|.
-name|snapshots
-operator|.
-name|blobstore
-operator|.
-name|BlobStoreIndexShardRepository
+name|Plugin
 import|;
 end_import
 
@@ -136,9 +132,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|index
 operator|.
-name|AbstractPlugin
+name|snapshots
+operator|.
+name|blobstore
+operator|.
+name|BlobStoreIndexShardRepository
 import|;
 end_import
 
@@ -198,7 +198,7 @@ specifier|public
 class|class
 name|CloudAwsPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 DECL|field|settings
 specifier|private
@@ -247,17 +247,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|modules
+DECL|method|nodeModules
 specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
-name|modules
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
+name|nodeModules
+parameter_list|()
 block|{
 name|Collection
 argument_list|<
@@ -298,7 +295,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|services
+DECL|method|nodeServices
 specifier|public
 name|Collection
 argument_list|<
@@ -309,7 +306,7 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|services
+name|nodeServices
 parameter_list|()
 block|{
 name|Collection

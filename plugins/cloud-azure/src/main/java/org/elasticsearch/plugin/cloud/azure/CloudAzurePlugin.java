@@ -184,7 +184,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -235,6 +235,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -260,7 +270,7 @@ specifier|public
 class|class
 name|CloudAzurePlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 DECL|field|settings
 specifier|private
@@ -331,28 +341,18 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|modules
+DECL|method|nodeModules
 specifier|public
 name|Collection
 argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
 name|Module
 argument_list|>
-argument_list|>
-name|modules
+name|nodeModules
 parameter_list|()
 block|{
-name|Collection
+name|List
 argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
 name|Module
-argument_list|>
 argument_list|>
 name|modules
 init|=
@@ -375,9 +375,11 @@ name|modules
 operator|.
 name|add
 argument_list|(
+operator|new
 name|AzureModule
-operator|.
-name|class
+argument_list|(
+name|settings
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

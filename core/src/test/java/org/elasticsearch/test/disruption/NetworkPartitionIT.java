@@ -131,7 +131,7 @@ literal|"plugin.types"
 argument_list|,
 name|MockTransportService
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.

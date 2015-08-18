@@ -336,7 +336,7 @@ argument_list|()
 argument_list|,
 name|TestAwsS3Service
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
