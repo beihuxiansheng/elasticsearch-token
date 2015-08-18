@@ -158,6 +158,24 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
+name|routing
+operator|.
+name|allocation
+operator|.
+name|decider
+operator|.
+name|EnableAllocationDecider
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
 name|service
 operator|.
 name|PendingClusterTask
@@ -434,6 +452,21 @@ name|nodeSettings
 argument_list|(
 name|nodeOrdinal
 argument_list|)
+argument_list|)
+comment|// Rebalancing is causing some checks after restore to randomly fail
+comment|// due to https://github.com/elastic/elasticsearch/issues/9421
+operator|.
+name|put
+argument_list|(
+name|EnableAllocationDecider
+operator|.
+name|CLUSTER_ROUTING_REBALANCE_ENABLE
+argument_list|,
+name|EnableAllocationDecider
+operator|.
+name|Rebalance
+operator|.
+name|NONE
 argument_list|)
 operator|.
 name|extendArray

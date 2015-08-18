@@ -229,27 +229,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the node Network info be returned.      */
-DECL|method|setNetwork
-specifier|public
-name|NodesInfoRequestBuilder
-name|setNetwork
-parameter_list|(
-name|boolean
-name|network
-parameter_list|)
-block|{
-name|request
-operator|.
-name|network
-argument_list|(
-name|network
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Should the node Transport info be returned.      */
 DECL|method|setTransport
 specifier|public

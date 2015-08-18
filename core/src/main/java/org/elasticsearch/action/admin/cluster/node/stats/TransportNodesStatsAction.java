@@ -537,11 +537,6 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|network
-argument_list|()
-argument_list|,
-name|request
-operator|.
 name|fs
 argument_list|()
 argument_list|,

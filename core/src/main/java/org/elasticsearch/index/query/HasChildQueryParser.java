@@ -1795,6 +1795,13 @@ argument_list|(
 name|indexReader
 argument_list|)
 decl_stmt|;
+name|indexSearcher
+operator|.
+name|setQueryCache
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|IndexParentChildFieldData
 name|indexParentChildFieldData
 init|=

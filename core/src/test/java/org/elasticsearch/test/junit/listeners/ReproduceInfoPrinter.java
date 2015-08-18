@@ -782,12 +782,11 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-operator|!
 name|inVerifyPhase
 argument_list|()
 condition|)
 block|{
-comment|// these properties only make sense for unit tests
+comment|// these properties only make sense for integration tests
 name|appendProperties
 argument_list|(
 literal|"es.node.mode"

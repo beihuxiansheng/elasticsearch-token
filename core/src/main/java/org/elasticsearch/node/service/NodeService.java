@@ -704,9 +704,6 @@ name|boolean
 name|threadPool
 parameter_list|,
 name|boolean
-name|network
-parameter_list|,
-name|boolean
 name|transport
 parameter_list|,
 name|boolean
@@ -948,9 +945,6 @@ name|jvm
 parameter_list|,
 name|boolean
 name|threadPool
-parameter_list|,
-name|boolean
-name|network
 parameter_list|,
 name|boolean
 name|fs

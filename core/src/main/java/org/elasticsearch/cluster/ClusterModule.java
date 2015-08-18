@@ -1301,7 +1301,7 @@ specifier|private
 specifier|final
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<
 name|ShardsAllocator
 argument_list|>
@@ -1310,7 +1310,7 @@ init|=
 operator|new
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<>
 argument_list|(
 literal|"shards_allocator"
@@ -1325,7 +1325,7 @@ specifier|private
 specifier|final
 name|ExtensionPoint
 operator|.
-name|SetExtensionPoint
+name|ClassSet
 argument_list|<
 name|AllocationDecider
 argument_list|>
@@ -1334,7 +1334,7 @@ init|=
 operator|new
 name|ExtensionPoint
 operator|.
-name|SetExtensionPoint
+name|ClassSet
 argument_list|<>
 argument_list|(
 literal|"allocation_decider"
@@ -1353,7 +1353,7 @@ specifier|private
 specifier|final
 name|ExtensionPoint
 operator|.
-name|SetExtensionPoint
+name|ClassSet
 argument_list|<
 name|IndexTemplateFilter
 argument_list|>
@@ -1362,7 +1362,7 @@ init|=
 operator|new
 name|ExtensionPoint
 operator|.
-name|SetExtensionPoint
+name|ClassSet
 argument_list|<>
 argument_list|(
 literal|"index_template_filter"
@@ -1714,7 +1714,7 @@ name|INDICES_RECOVERY_FILE_CHUNK_SIZE
 argument_list|,
 name|Validator
 operator|.
-name|BYTES_SIZE
+name|POSITIVE_BYTES_SIZE
 argument_list|)
 expr_stmt|;
 name|registerClusterDynamicSetting
