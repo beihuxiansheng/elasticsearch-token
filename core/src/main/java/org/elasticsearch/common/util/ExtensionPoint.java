@@ -498,7 +498,7 @@ name|EMPTY_SET
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Binds the extension class to the class that is registered for the give configured for the settings key in          * the settings object.          *          * @param binder       the binder to use          * @param settings     the settings to look up the key to find the implemetation to bind          * @param settingsKey  the key to use with the settings          * @param defaultValue the default value if they settings doesn't contain the key          * @return the actual bound type key          */
+comment|/**          * Binds the extension class to the class that is registered for the give configured for the settings key in          * the settings object.          *          * @param binder       the binder to use          * @param settings     the settings to look up the key to find the implementation to bind          * @param settingsKey  the key to use with the settings          * @param defaultValue the default value if the settings do not contain the key, or null if there is no default          * @return the actual bound type key          */
 DECL|method|bindType
 specifier|public
 name|String
@@ -530,6 +530,25 @@ argument_list|,
 name|defaultValue
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Missing setting ["
+operator|+
+name|settingsKey
+operator|+
+literal|"]"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|Class
 argument_list|<

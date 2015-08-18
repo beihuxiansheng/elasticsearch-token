@@ -63,11 +63,14 @@ name|DirectoryReader
 name|reader
 parameter_list|)
 function_decl|;
-comment|/**      * @param searcher The provided index searcher to be wrapped to add custom functionality      * @return a new index searcher wrapping the provided index searcher or if no wrapping was performed      *         the provided index searcher      */
+comment|/**      * @param engineConfig  The engine config which can be used to get the query cache and query cache policy from      *                      when creating a new index searcher      * @param searcher      The provided index searcher to be wrapped to add custom functionality      * @return a new index searcher wrapping the provided index searcher or if no wrapping was performed      *         the provided index searcher      */
 DECL|method|wrap
 name|IndexSearcher
 name|wrap
 parameter_list|(
+name|EngineConfig
+name|engineConfig
+parameter_list|,
 name|IndexSearcher
 name|searcher
 parameter_list|)

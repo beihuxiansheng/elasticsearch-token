@@ -63,6 +63,24 @@ argument_list|<
 name|TransportAddress
 argument_list|>
 block|{
+comment|/**      * Returns the host string for this transport address      */
+DECL|method|getHost
+name|String
+name|getHost
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the address string for this transport address      */
+DECL|method|getAddress
+name|String
+name|getAddress
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the port of this transport address if applicable      */
+DECL|method|getPort
+name|int
+name|getPort
+parameter_list|()
+function_decl|;
 DECL|method|uniqueAddressTypeId
 name|short
 name|uniqueAddressTypeId
@@ -75,6 +93,12 @@ parameter_list|(
 name|TransportAddress
 name|other
 parameter_list|)
+function_decl|;
+DECL|method|toString
+specifier|public
+name|String
+name|toString
+parameter_list|()
 function_decl|;
 block|}
 end_interface

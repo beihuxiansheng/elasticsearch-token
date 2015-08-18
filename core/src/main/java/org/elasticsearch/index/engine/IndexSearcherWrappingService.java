@@ -295,6 +295,8 @@ name|wrapper
 operator|.
 name|wrap
 argument_list|(
+name|engineConfig
+argument_list|,
 name|innerIndexSearcher
 argument_list|)
 decl_stmt|;
