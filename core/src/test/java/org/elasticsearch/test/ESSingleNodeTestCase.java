@@ -264,18 +264,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|env
-operator|.
-name|NodeEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|index
 operator|.
 name|IndexService
@@ -389,16 +377,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -422,31 +400,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
+name|*
 import|;
 end_import
 
@@ -1375,19 +1329,6 @@ argument_list|,
 name|bigArrays
 argument_list|,
 name|indexService
-argument_list|,
-name|indexService
-operator|.
-name|cache
-argument_list|()
-operator|.
-name|query
-argument_list|()
-argument_list|,
-name|indexService
-operator|.
-name|fieldData
-argument_list|()
 argument_list|)
 return|;
 block|}
