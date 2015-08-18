@@ -526,6 +526,8 @@ literal|"elasticsearch-lang-javascript"
 argument_list|,
 literal|"elasticsearch-lang-python"
 argument_list|,
+literal|"elasticsearch-mapper-murmur3"
+argument_list|,
 literal|"elasticsearch-mapper-size"
 argument_list|)
 operator|.

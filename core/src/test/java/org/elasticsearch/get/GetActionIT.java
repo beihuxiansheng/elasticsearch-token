@@ -10725,10 +10725,6 @@ block|{
 literal|"token_count"
 block|,
 literal|"text.token_count"
-block|,
-literal|"murmur"
-block|,
-literal|"text.murmur"
 block|}
 decl_stmt|;
 comment|// before refresh - document is only in translog
@@ -10803,10 +10799,6 @@ block|{
 literal|"token_count"
 block|,
 literal|"text.token_count"
-block|,
-literal|"murmur"
-block|,
-literal|"text.murmur"
 block|}
 decl_stmt|;
 comment|// before refresh - document is only in translog
@@ -10942,18 +10934,6 @@ literal|"\""
 operator|+
 literal|"        },\n"
 operator|+
-literal|"        \"murmur\": {\n"
-operator|+
-literal|"          \"type\": \"murmur3\",\n"
-operator|+
-literal|"          \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\""
-operator|+
-literal|"        },\n"
-operator|+
 literal|"        \"text\": {\n"
 operator|+
 literal|"          \"type\": \"string\",\n"
@@ -10965,18 +10945,6 @@ operator|+
 literal|"              \"type\": \"token_count\",\n"
 operator|+
 literal|"              \"analyzer\": \"standard\",\n"
-operator|+
-literal|"              \"store\": \""
-operator|+
-name|storedString
-operator|+
-literal|"\""
-operator|+
-literal|"            },\n"
-operator|+
-literal|"            \"murmur\": {\n"
-operator|+
-literal|"              \"type\": \"murmur3\",\n"
 operator|+
 literal|"              \"store\": \""
 operator|+
@@ -11027,8 +10995,6 @@ name|String
 name|doc
 init|=
 literal|"{\n"
-operator|+
-literal|"  \"murmur\": \"Some value that can be hashed\",\n"
 operator|+
 literal|"  \"token_count\": \"A text with five words.\",\n"
 operator|+
