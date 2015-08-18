@@ -129,6 +129,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|/** Adds a new repository type to the registry, bound to the given implementation classes. */
 DECL|method|registerRepository
 specifier|public
 name|void
@@ -173,6 +174,7 @@ name|shardRepositoryType
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Looks up the given type and binds the implementation into the given binder.      * Throws an {@link IllegalArgumentException} if the given type does not exist.      */
 DECL|method|bindType
 specifier|public
 name|void
