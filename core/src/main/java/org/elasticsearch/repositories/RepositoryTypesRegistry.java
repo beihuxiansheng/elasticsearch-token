@@ -86,7 +86,7 @@ specifier|private
 specifier|final
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<
 name|Repository
 argument_list|>
@@ -95,7 +95,7 @@ init|=
 operator|new
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<>
 argument_list|(
 literal|"repository"
@@ -110,7 +110,7 @@ specifier|private
 specifier|final
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<
 name|IndexShardRepository
 argument_list|>
@@ -119,7 +119,7 @@ init|=
 operator|new
 name|ExtensionPoint
 operator|.
-name|TypeExtensionPoint
+name|SelectedType
 argument_list|<>
 argument_list|(
 literal|"index_repository"
