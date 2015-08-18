@@ -977,6 +977,8 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
+literal|"127.0.0.1"
+argument_list|,
 name|nextPort
 argument_list|)
 argument_list|)
