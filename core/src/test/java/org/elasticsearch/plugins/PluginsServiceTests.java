@@ -80,7 +80,7 @@ specifier|static
 class|class
 name|AdditionalSettingsPlugin1
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override
@@ -154,7 +154,7 @@ specifier|static
 class|class
 name|AdditionalSettingsPlugin2
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override
