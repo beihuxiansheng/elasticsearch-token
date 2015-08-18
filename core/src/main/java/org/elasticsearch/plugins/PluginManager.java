@@ -666,7 +666,7 @@ block|}
 if|if
 condition|(
 operator|!
-name|Files
+name|Environment
 operator|.
 name|isWritable
 argument_list|(
@@ -1603,7 +1603,7 @@ throw|;
 block|}
 if|if
 condition|(
-name|Files
+name|Environment
 operator|.
 name|getFileStore
 argument_list|(
