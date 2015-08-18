@@ -202,11 +202,11 @@ block|{}
 comment|/**      * By default we bind to any addresses on an interface/name, unless restricted by :ipv4 etc.      * This property is unrelated to that, this is about what we *publish*. Today the code pretty much      * expects one address so this is used for the sort order.      * @deprecated transition mechanism only      */
 annotation|@
 name|Deprecated
-DECL|field|PREFER_V4
+DECL|field|PREFER_V6
 specifier|static
 specifier|final
 name|boolean
-name|PREFER_V4
+name|PREFER_V6
 init|=
 name|Boolean
 operator|.
@@ -216,9 +216,9 @@ name|System
 operator|.
 name|getProperty
 argument_list|(
-literal|"java.net.preferIPv4Stack"
+literal|"java.net.preferIPv6Addresses"
 argument_list|,
-literal|"true"
+literal|"false"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -232,7 +232,7 @@ name|InetAddress
 name|address
 parameter_list|,
 name|boolean
-name|prefer_v4
+name|prefer_v6
 parameter_list|)
 block|{
 name|int
@@ -247,9 +247,7 @@ name|length
 decl_stmt|;
 if|if
 condition|(
-name|prefer_v4
-operator|==
-literal|false
+name|prefer_v6
 condition|)
 block|{
 name|key
@@ -380,14 +378,14 @@ name|sortKey
 argument_list|(
 name|left
 argument_list|,
-name|PREFER_V4
+name|PREFER_V6
 argument_list|)
 argument_list|,
 name|sortKey
 argument_list|(
 name|right
 argument_list|,
-name|PREFER_V4
+name|PREFER_V6
 argument_list|)
 argument_list|)
 decl_stmt|;
