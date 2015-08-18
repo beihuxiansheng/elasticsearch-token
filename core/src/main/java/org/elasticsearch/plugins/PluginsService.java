@@ -1419,7 +1419,7 @@ name|setting
 operator|+
 literal|"] "
 operator|+
-literal|"in plugin "
+literal|"in plugin ["
 operator|+
 name|plugin
 operator|.
@@ -1429,9 +1429,11 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|", already added in plugin "
+literal|"], already added in plugin ["
 operator|+
 name|oldPlugin
+operator|+
+literal|"]"
 argument_list|)
 throw|;
 block|}

@@ -444,7 +444,7 @@ name|msg
 operator|.
 name|contains
 argument_list|(
-literal|"plugin additional-settings1"
+literal|"plugin [additional-settings1]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -456,7 +456,7 @@ name|msg
 operator|.
 name|contains
 argument_list|(
-literal|"plugin additional-settings2"
+literal|"plugin [additional-settings2]"
 argument_list|)
 argument_list|)
 expr_stmt|;
