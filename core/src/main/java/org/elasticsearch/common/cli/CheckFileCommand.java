@@ -361,7 +361,7 @@ block|{
 name|boolean
 name|supportsPosixPermissions
 init|=
-name|Files
+name|Environment
 operator|.
 name|getFileStore
 argument_list|(
