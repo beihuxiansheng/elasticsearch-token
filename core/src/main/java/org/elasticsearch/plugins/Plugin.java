@@ -76,39 +76,63 @@ name|Collection
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
 begin_comment
 comment|/**  * An extension point allowing to plug in custom functionality.  *<p/>  * A plugin can be register custom extensions to builtin behavior by implementing<tt>onModule(AnyModule)</tt>,  * and registering the extension with the given module.  */
 end_comment
 
-begin_interface
-DECL|interface|Plugin
+begin_class
+DECL|class|Plugin
 specifier|public
-interface|interface
+specifier|abstract
+class|class
 name|Plugin
 block|{
 comment|/**      * The name of the plugin.      */
 DECL|method|name
+specifier|public
+specifier|abstract
 name|String
 name|name
 parameter_list|()
 function_decl|;
 comment|/**      * The description of the plugin.      */
 DECL|method|description
+specifier|public
+specifier|abstract
 name|String
 name|description
 parameter_list|()
 function_decl|;
 comment|/**      * Node level modules.      */
 DECL|method|nodeModules
+specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
 name|nodeModules
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Node level services that will be automatically started/stopped/closed.      */
 DECL|method|nodeServices
+specifier|public
 name|Collection
 argument_list|<
 name|Class
@@ -120,18 +144,37 @@ argument_list|>
 argument_list|>
 name|nodeServices
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Per index modules.      */
 DECL|method|indexModules
+specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
 name|indexModules
-parameter_list|()
-function_decl|;
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Per index services that will be automatically closed.      */
 DECL|method|indexServices
+specifier|public
 name|Collection
 argument_list|<
 name|Class
@@ -143,18 +186,37 @@ argument_list|>
 argument_list|>
 name|indexServices
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Per index shard module.      */
 DECL|method|shardModules
+specifier|public
 name|Collection
 argument_list|<
 name|Module
 argument_list|>
 name|shardModules
-parameter_list|()
-function_decl|;
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Per index shard service that will be automatically closed.      */
 DECL|method|shardServices
+specifier|public
 name|Collection
 argument_list|<
 name|Class
@@ -166,15 +228,31 @@ argument_list|>
 argument_list|>
 name|shardServices
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+return|;
+block|}
 comment|/**      * Additional node settings loaded by the plugin. Note that settings that are explicit in the nodes settings can't be      * overwritten with the additional settings. These settings added if they don't exist.      */
 DECL|method|additionalSettings
+specifier|public
 name|Settings
 name|additionalSettings
 parameter_list|()
-function_decl|;
+block|{
+return|return
+name|Settings
+operator|.
+name|Builder
+operator|.
+name|EMPTY_SETTINGS
+return|;
 block|}
-end_interface
+block|}
+end_class
 
 end_unit
 

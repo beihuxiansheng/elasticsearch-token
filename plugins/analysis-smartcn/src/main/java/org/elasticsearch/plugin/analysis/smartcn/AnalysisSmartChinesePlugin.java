@@ -84,17 +84,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
+name|Plugin
 import|;
 end_import
 
@@ -128,7 +118,7 @@ specifier|public
 class|class
 name|AnalysisSmartChinesePlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

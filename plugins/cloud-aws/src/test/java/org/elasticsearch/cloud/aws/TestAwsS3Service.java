@@ -76,7 +76,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -98,13 +98,13 @@ name|TestAwsS3Service
 extends|extends
 name|InternalAwsS3Service
 block|{
-DECL|class|Plugin
+DECL|class|TestPlugin
 specifier|public
 specifier|static
 class|class
-name|Plugin
+name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

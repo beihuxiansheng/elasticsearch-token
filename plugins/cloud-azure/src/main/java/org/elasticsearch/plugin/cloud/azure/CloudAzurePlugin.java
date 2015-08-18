@@ -168,7 +168,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -242,22 +242,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|AzureModule
-operator|.
-name|isSnapshotReady
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
@@ -268,7 +252,7 @@ specifier|public
 class|class
 name|CloudAzurePlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 DECL|field|settings
 specifier|private

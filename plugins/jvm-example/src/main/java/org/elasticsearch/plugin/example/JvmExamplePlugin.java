@@ -177,7 +177,7 @@ DECL|class|JvmExamplePlugin
 specifier|public
 class|class
 name|JvmExamplePlugin
-implements|implements
+extends|extends
 name|Plugin
 block|{
 DECL|field|settings
@@ -295,7 +295,10 @@ argument_list|<
 name|Module
 argument_list|>
 name|indexModules
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 return|return
 name|Collections
@@ -336,7 +339,10 @@ argument_list|<
 name|Module
 argument_list|>
 name|shardModules
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 return|return
 name|Collections

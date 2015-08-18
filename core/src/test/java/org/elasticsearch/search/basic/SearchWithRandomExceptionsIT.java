@@ -252,7 +252,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -2033,7 +2033,7 @@ literal|"plugin.types"
 argument_list|,
 name|RandomExceptionDirectoryReaderWrapper
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
@@ -2567,13 +2567,13 @@ name|MockEngineSupport
 operator|.
 name|DirectoryReaderWrapper
 block|{
-DECL|class|Plugin
+DECL|class|TestPlugin
 specifier|public
 specifier|static
 class|class
-name|Plugin
+name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

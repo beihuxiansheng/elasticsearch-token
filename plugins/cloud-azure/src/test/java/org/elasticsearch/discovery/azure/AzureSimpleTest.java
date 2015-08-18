@@ -170,7 +170,7 @@ name|super
 argument_list|(
 name|AzureComputeServiceSimpleMock
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.

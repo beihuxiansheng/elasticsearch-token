@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -314,7 +314,7 @@ specifier|static
 class|class
 name|SettingsFilteringPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 comment|/**          * The name of the plugin.          */
 annotation|@
@@ -351,7 +351,10 @@ argument_list|<
 name|Module
 argument_list|>
 name|indexModules
-parameter_list|()
+parameter_list|(
+name|Settings
+name|indexSettings
+parameter_list|)
 block|{
 return|return
 name|Collections

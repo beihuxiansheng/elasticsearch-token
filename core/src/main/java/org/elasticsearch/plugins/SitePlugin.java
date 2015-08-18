@@ -24,7 +24,7 @@ specifier|final
 class|class
 name|SitePlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 DECL|field|name
 specifier|final

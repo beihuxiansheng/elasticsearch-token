@@ -432,7 +432,7 @@ specifier|static
 class|class
 name|CountingSentRequestsPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

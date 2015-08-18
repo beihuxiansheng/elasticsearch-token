@@ -52,7 +52,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -82,7 +82,7 @@ specifier|public
 class|class
 name|DummyAnalysisPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 comment|/**      * The name of the plugin.      */
 annotation|@

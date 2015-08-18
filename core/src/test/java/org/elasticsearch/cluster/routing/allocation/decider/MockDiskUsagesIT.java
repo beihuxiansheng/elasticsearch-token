@@ -351,7 +351,7 @@ literal|"plugin.types"
 argument_list|,
 name|MockInternalClusterInfoService
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.

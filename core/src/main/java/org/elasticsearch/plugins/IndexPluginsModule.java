@@ -153,7 +153,9 @@ return|return
 name|pluginsService
 operator|.
 name|indexModules
-argument_list|()
+argument_list|(
+name|settings
+argument_list|)
 return|;
 block|}
 annotation|@
