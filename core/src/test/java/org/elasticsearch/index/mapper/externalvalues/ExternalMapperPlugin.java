@@ -55,6 +55,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
 import|import static
 name|com
 operator|.
@@ -78,7 +88,6 @@ name|ExternalMapperPlugin
 extends|extends
 name|AbstractPlugin
 block|{
-comment|/**      * The name of the plugin.      */
 annotation|@
 name|Override
 DECL|method|name
@@ -91,7 +100,6 @@ return|return
 literal|"external-mappers"
 return|;
 block|}
-comment|/**      * The description of the plugin.      */
 annotation|@
 name|Override
 DECL|method|description
@@ -110,41 +118,23 @@ DECL|method|indexModules
 specifier|public
 name|Collection
 argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
 name|Module
-argument_list|>
 argument_list|>
 name|indexModules
 parameter_list|()
 block|{
-name|Collection
-argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-argument_list|>
-name|modules
-init|=
-name|newArrayList
-argument_list|()
-decl_stmt|;
-name|modules
-operator|.
-name|add
-argument_list|(
-name|ExternalIndexModule
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 return|return
-name|modules
+name|Collections
+operator|.
+expr|<
+name|Module
+operator|>
+name|singletonList
+argument_list|(
+operator|new
+name|ExternalIndexModule
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}

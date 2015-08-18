@@ -5981,7 +5981,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|services
+DECL|method|nodeServices
 specifier|public
 name|Collection
 argument_list|<
@@ -5992,7 +5992,7 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|services
+name|nodeServices
 parameter_list|()
 block|{
 name|List

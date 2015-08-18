@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension point allowing to plug in custom functionality.  *<p/>  * A plugin can be dynamically injected with {@link Module} by implementing<tt>onModule(AnyModule)</tt> method  * removing the need to override {@link #processModule(org.elasticsearch.common.inject.Module)} and check using  * instanceof.  */
+comment|/**  * An extension point allowing to plug in custom functionality.  *<p/>  * A plugin can be register custom extensions to builtin behavior by implementing<tt>onModule(AnyModule)</tt>,  * and registering the extension with the given module.  */
 end_comment
 
 begin_interface
@@ -98,36 +98,17 @@ name|String
 name|description
 parameter_list|()
 function_decl|;
-comment|/**      * Node level modules (classes, will automatically be created).      */
-DECL|method|modules
+comment|/**      * Node level modules.      */
+DECL|method|nodeModules
 name|Collection
 argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
 name|Module
 argument_list|>
-argument_list|>
-name|modules
+name|nodeModules
 parameter_list|()
 function_decl|;
-comment|/**      * Node level modules (instances)      *      * @param settings The node level settings.      */
-DECL|method|modules
-name|Collection
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-name|modules
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
-function_decl|;
 comment|/**      * Node level services that will be automatically started/stopped/closed.      */
-DECL|method|services
+DECL|method|nodeServices
 name|Collection
 argument_list|<
 name|Class
@@ -137,36 +118,17 @@ extends|extends
 name|LifecycleComponent
 argument_list|>
 argument_list|>
-name|services
+name|nodeServices
 parameter_list|()
 function_decl|;
 comment|/**      * Per index modules.      */
 DECL|method|indexModules
 name|Collection
 argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
 name|Module
-argument_list|>
 argument_list|>
 name|indexModules
 parameter_list|()
-function_decl|;
-comment|/**      * Per index modules.      */
-DECL|method|indexModules
-name|Collection
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-name|indexModules
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
 function_decl|;
 comment|/**      * Per index services that will be automatically closed.      */
 DECL|method|indexServices
@@ -186,29 +148,10 @@ comment|/**      * Per index shard module.      */
 DECL|method|shardModules
 name|Collection
 argument_list|<
-name|Class
-argument_list|<
-name|?
-extends|extends
 name|Module
-argument_list|>
 argument_list|>
 name|shardModules
 parameter_list|()
-function_decl|;
-comment|/**      * Per index shard module.      */
-DECL|method|shardModules
-name|Collection
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-name|shardModules
-parameter_list|(
-name|Settings
-name|settings
-parameter_list|)
 function_decl|;
 comment|/**      * Per index shard service that will be automatically closed.      */
 DECL|method|shardServices
@@ -223,15 +166,6 @@ argument_list|>
 argument_list|>
 name|shardServices
 parameter_list|()
-function_decl|;
-comment|/**      * Process a specific module. Note, its simpler to implement a custom<tt>onModule(AnyModule module)</tt>      * method, which will be automatically be called by the relevant type.      */
-DECL|method|processModule
-name|void
-name|processModule
-parameter_list|(
-name|Module
-name|module
-parameter_list|)
 function_decl|;
 comment|/**      * Additional node settings loaded by the plugin. Note that settings that are explicit in the nodes settings can't be      * overwritten with the additional settings. These settings added if they don't exist.      */
 DECL|method|additionalSettings
