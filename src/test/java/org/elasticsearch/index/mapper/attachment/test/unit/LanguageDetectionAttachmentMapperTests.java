@@ -180,9 +180,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|xcontent
 operator|.
-name|Streams
+name|XContentFactory
+operator|.
+name|jsonBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
 operator|.
 name|copyToBytesFromClasspath
 import|;
@@ -194,29 +208,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToStringFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentFactory
-operator|.
-name|jsonBuilder
 import|;
 end_import
 
@@ -470,6 +466,8 @@ name|parse
 argument_list|(
 literal|"person"
 argument_list|,
+literal|"person"
+argument_list|,
 literal|"1"
 argument_list|,
 name|xcb
@@ -689,6 +687,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"

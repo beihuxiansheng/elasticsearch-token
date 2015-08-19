@@ -156,49 +156,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Streams
-operator|.
-name|copyToBytesFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Streams
-operator|.
-name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -215,6 +173,34 @@ operator|.
 name|XContentFactory
 operator|.
 name|jsonBuilder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToBytesFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -336,6 +322,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -490,6 +478,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -715,6 +705,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"

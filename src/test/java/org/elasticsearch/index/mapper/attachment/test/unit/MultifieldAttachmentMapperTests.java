@@ -24,18 +24,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -225,16 +213,26 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|io
-operator|.
-name|Streams
+name|StreamsUtils
 operator|.
 name|copyToStringFromClasspath
 import|;
@@ -692,8 +690,6 @@ name|newMapperService
 argument_list|(
 name|createTempDir
 argument_list|()
-argument_list|,
-name|threadPool
 argument_list|)
 decl_stmt|;
 name|mapperService
@@ -742,6 +738,8 @@ name|documentMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
@@ -970,6 +968,8 @@ name|documentMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"
