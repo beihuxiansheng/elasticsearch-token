@@ -294,6 +294,9 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
+parameter_list|,
+name|DestructiveOperations
+name|destructiveOperations
 parameter_list|)
 block|{
 name|super
@@ -329,15 +332,7 @@ name|this
 operator|.
 name|destructiveOperations
 operator|=
-operator|new
-name|DestructiveOperations
-argument_list|(
-name|logger
-argument_list|,
-name|settings
-argument_list|,
-name|nodeSettingsService
-argument_list|)
+name|destructiveOperations
 expr_stmt|;
 block|}
 annotation|@
