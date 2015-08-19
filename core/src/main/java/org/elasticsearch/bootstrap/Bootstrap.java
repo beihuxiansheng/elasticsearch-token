@@ -1393,6 +1393,18 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// disable console logging, so user does not see the exception twice (jvm will show it already)
+if|if
+condition|(
+name|foreground
+condition|)
+block|{
+name|Loggers
+operator|.
+name|disableConsoleLogging
+argument_list|()
+expr_stmt|;
+block|}
 name|ESLogger
 name|logger
 init|=
@@ -1447,6 +1459,18 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// re-enable it if appropriate, so they can see any logging during the shutdown process
+if|if
+condition|(
+name|foreground
+condition|)
+block|{
+name|Loggers
+operator|.
+name|enableConsoleLogging
+argument_list|()
+expr_stmt|;
+block|}
 throw|throw
 name|e
 throw|;
