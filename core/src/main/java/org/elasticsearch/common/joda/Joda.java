@@ -2724,6 +2724,12 @@ name|shortFormatter
 operator|.
 name|getParser
 argument_list|()
+block|,
+operator|new
+name|EpochTimeParser
+argument_list|(
+literal|true
+argument_list|)
 block|}
 argument_list|)
 decl_stmt|;
@@ -2731,7 +2737,7 @@ return|return
 operator|new
 name|FormatDateTimeFormatter
 argument_list|(
-literal|"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd"
+literal|"yyyy/MM/dd HH:mm:ss||yyyy/MM/dd||epoch_millis"
 argument_list|,
 name|builder
 operator|.
