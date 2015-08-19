@@ -90,7 +90,10 @@ operator|)
 literal|3
 argument_list|)
 block|,
-comment|/**      * Performs scanning of the results which executes the search without any sorting.      * It will automatically start scrolling the result set.      */
+comment|/**      * Performs scanning of the results which executes the search without any sorting.      * It will automatically start scrolling the result set.      * @deprecated will be removed in 3.0, you should do a regular scroll instead, ordered by `_doc`      */
+DECL|enum constant|Deprecated
+annotation|@
+name|Deprecated
 DECL|enum constant|SCAN
 name|SCAN
 argument_list|(
@@ -139,6 +142,24 @@ operator|.
 name|withAllDeprecated
 argument_list|(
 literal|"query_then_fetch"
+argument_list|)
+decl_stmt|;
+DECL|field|SCAN_VALUE
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|SCAN_VALUE
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"scan"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"query_then_fetch sorting on `_doc`"
 argument_list|)
 decl_stmt|;
 DECL|field|id
@@ -367,11 +388,13 @@ block|}
 elseif|else
 if|if
 condition|(
-literal|"scan"
+name|parseFieldMatcher
 operator|.
-name|equals
+name|match
 argument_list|(
 name|searchType
+argument_list|,
+name|SCAN_VALUE
 argument_list|)
 condition|)
 block|{

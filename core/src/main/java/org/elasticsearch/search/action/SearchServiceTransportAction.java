@@ -2545,6 +2545,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Deprecated
+comment|// remove in 3.0
 DECL|class|SearchScanTransportHandler
 class|class
 name|SearchScanTransportHandler
