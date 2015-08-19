@@ -391,6 +391,11 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
+name|IfConfig
+operator|.
+name|logIfNecessary
+argument_list|()
+expr_stmt|;
 name|InetSocketTransportAddress
 operator|.
 name|setResolveAddress
