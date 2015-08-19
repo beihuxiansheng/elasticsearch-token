@@ -362,11 +362,11 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|io
+name|xcontent
 operator|.
-name|Streams
+name|XContentFactory
 operator|.
-name|copyToStringFromClasspath
+name|jsonBuilder
 import|;
 end_import
 
@@ -376,13 +376,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|test
 operator|.
-name|xcontent
+name|StreamsUtils
 operator|.
-name|XContentFactory
-operator|.
-name|jsonBuilder
+name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -736,6 +734,8 @@ name|docMapper
 operator|.
 name|parse
 argument_list|(
+literal|"person"
+argument_list|,
 literal|"person"
 argument_list|,
 literal|"1"

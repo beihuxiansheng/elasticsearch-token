@@ -68,7 +68,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ElasticsearchTestCase
+name|ESTestCase
 import|;
 end_import
 
@@ -118,7 +118,7 @@ specifier|public
 class|class
 name|AttachmentUnitTestCase
 extends|extends
-name|ElasticsearchTestCase
+name|ESTestCase
 block|{
 comment|/**      * We can have issues with some JVMs and Locale      * See https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/105      */
 annotation|@

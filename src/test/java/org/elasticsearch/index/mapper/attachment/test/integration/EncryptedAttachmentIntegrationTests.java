@@ -70,9 +70,13 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|plugin
 operator|.
-name|PluginsService
+name|mapper
+operator|.
+name|attachments
+operator|.
+name|MapperAttachmentsPlugin
 import|;
 end_import
 
@@ -87,22 +91,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-operator|.
-name|Slow
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -113,38 +101,6 @@ operator|.
 name|Requests
 operator|.
 name|putMappingRequest
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Streams
-operator|.
-name|copyToBytesFromClasspath
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|Streams
-operator|.
-name|copyToStringFromClasspath
 import|;
 end_import
 
@@ -200,6 +156,34 @@ begin_import
 import|import static
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToBytesFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|StreamsUtils
+operator|.
+name|copyToStringFromClasspath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|hamcrest
 operator|.
 name|Matchers
@@ -209,12 +193,10 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test case for issue https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/18  */
+comment|/**  * Test case for issue https://github.com/elasticsearch/elasticsearch-mapper-attachments/issues/18  * TODO Change this to a real IT  */
 end_comment
 
 begin_class
-annotation|@
-name|Slow
 DECL|class|EncryptedAttachmentIntegrationTests
 specifier|public
 class|class
@@ -258,13 +240,14 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"plugins."
-operator|+
-name|PluginsService
-operator|.
-name|LOAD_PLUGIN_FROM_CLASSPATH
+literal|"plugin.types"
 argument_list|,
-literal|true
+name|MapperAttachmentsPlugin
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 operator|.
 name|build
