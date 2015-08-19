@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -70,19 +56,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Arrays
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|hamcrest
+name|util
 operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
+name|List
 import|;
 end_import
 
@@ -562,9 +546,9 @@ name|String
 argument_list|>
 name|indicesList
 init|=
-name|ImmutableList
+name|Arrays
 operator|.
-name|copyOf
+name|asList
 argument_list|(
 name|indices
 argument_list|)

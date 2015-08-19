@@ -50,20 +50,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -259,6 +245,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -1160,7 +1156,7 @@ name|storeStatuses
 decl_stmt|;
 DECL|field|failures
 specifier|private
-name|ImmutableList
+name|List
 argument_list|<
 name|Failure
 argument_list|>
@@ -1184,7 +1180,7 @@ argument_list|>
 argument_list|>
 name|storeStatuses
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|Failure
 argument_list|>
@@ -1226,12 +1222,12 @@ operator|>
 name|of
 argument_list|()
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
 expr|<
 name|Failure
 operator|>
-name|of
+name|emptyList
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1261,7 +1257,7 @@ block|}
 comment|/**      * Returns node {@link Failure}s encountered      * while executing the request      */
 DECL|method|getFailures
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|Failure
 argument_list|>
@@ -1469,17 +1465,15 @@ operator|.
 name|readVInt
 argument_list|()
 decl_stmt|;
-name|ImmutableList
-operator|.
-name|Builder
+name|List
 argument_list|<
 name|Failure
 argument_list|>
 name|failureBuilder
 init|=
-name|ImmutableList
-operator|.
-name|builder
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1519,10 +1513,12 @@ argument_list|()
 expr_stmt|;
 name|failures
 operator|=
-name|failureBuilder
+name|Collections
 operator|.
-name|build
-argument_list|()
+name|unmodifiableList
+argument_list|(
+name|failureBuilder
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

@@ -26,20 +26,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableMap
 import|;
 end_import
@@ -677,6 +663,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -2372,9 +2368,9 @@ block|{
 comment|// nested field has an object value in the _source. This just means the nested field has just one inner object, which is valid, but uncommon.
 name|nestedParsedSource
 operator|=
-name|ImmutableList
+name|Collections
 operator|.
-name|of
+name|singletonList
 argument_list|(
 operator|(
 name|Map

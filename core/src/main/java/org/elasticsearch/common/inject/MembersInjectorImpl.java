@@ -26,20 +26,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableSet
 import|;
 end_import
@@ -124,6 +110,16 @@ name|InjectionPoint
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Injects members of instances of a given type.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -159,7 +155,7 @@ decl_stmt|;
 DECL|field|memberInjectors
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|SingleMemberInjector
 argument_list|>
@@ -168,7 +164,7 @@ decl_stmt|;
 DECL|field|userMembersInjectors
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|MembersInjector
 argument_list|<
@@ -182,7 +178,7 @@ decl_stmt|;
 DECL|field|injectionListeners
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|InjectionListener
 argument_list|<
@@ -211,7 +207,7 @@ name|T
 argument_list|>
 name|encounter
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|SingleMemberInjector
 argument_list|>
@@ -257,7 +253,7 @@ expr_stmt|;
 block|}
 DECL|method|getMemberInjectors
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|SingleMemberInjector
 argument_list|>

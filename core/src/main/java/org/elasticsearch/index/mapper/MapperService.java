@@ -66,20 +66,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableMap
 import|;
 end_import
@@ -639,6 +625,16 @@ operator|.
 name|util
 operator|.
 name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -3292,9 +3288,9 @@ condition|)
 block|{
 comment|// no wildcards
 return|return
-name|ImmutableList
+name|Collections
 operator|.
-name|of
+name|singletonList
 argument_list|(
 name|pattern
 argument_list|)

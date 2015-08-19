@@ -48,20 +48,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -223,6 +209,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -589,9 +585,9 @@ name|facetField
 init|=
 name|randomFrom
 argument_list|(
-name|ImmutableList
+name|Arrays
 operator|.
-name|of
+name|asList
 argument_list|(
 literal|"foo.token_count"
 argument_list|,
@@ -1121,9 +1117,9 @@ name|rangeQuery
 argument_list|(
 name|randomFrom
 argument_list|(
-name|ImmutableList
+name|Arrays
 operator|.
-name|of
+name|asList
 argument_list|(
 literal|"foo.token_count"
 argument_list|,

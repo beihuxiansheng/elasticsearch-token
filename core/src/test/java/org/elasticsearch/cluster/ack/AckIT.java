@@ -438,15 +438,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
+name|List
 import|;
 end_import
 
@@ -877,7 +873,7 @@ name|ObjectObjectCursor
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|IndexWarmersMetaData
 operator|.

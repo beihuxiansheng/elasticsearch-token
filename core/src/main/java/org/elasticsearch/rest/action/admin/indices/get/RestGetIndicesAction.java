@@ -38,20 +38,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -381,6 +367,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -878,7 +874,7 @@ specifier|private
 name|void
 name|writeAliases
 parameter_list|(
-name|ImmutableList
+name|List
 argument_list|<
 name|AliasMetaData
 argument_list|>
@@ -1061,7 +1057,7 @@ specifier|private
 name|void
 name|writeWarmers
 parameter_list|(
-name|ImmutableList
+name|List
 argument_list|<
 name|IndexWarmersMetaData
 operator|.

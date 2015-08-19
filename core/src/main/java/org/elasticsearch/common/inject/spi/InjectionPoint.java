@@ -28,20 +28,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableSet
 import|;
 end_import
@@ -210,7 +196,7 @@ decl_stmt|;
 DECL|field|dependencies
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|Dependency
 argument_list|<
@@ -226,7 +212,7 @@ parameter_list|(
 name|Member
 name|member
 parameter_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|Dependency
 argument_list|<
@@ -475,7 +461,7 @@ name|this
 operator|.
 name|dependencies
 operator|=
-name|ImmutableList
+name|Collections
 operator|.
 expr|<
 name|Dependency
@@ -483,7 +469,7 @@ argument_list|<
 name|?
 argument_list|>
 operator|>
-name|of
+name|singletonList
 argument_list|(
 name|newDependency
 argument_list|(
@@ -504,7 +490,7 @@ expr_stmt|;
 block|}
 DECL|method|forMember
 specifier|private
-name|ImmutableList
+name|List
 argument_list|<
 name|Dependency
 argument_list|<
@@ -666,9 +652,9 @@ name|throwConfigurationExceptionIfErrorsExist
 argument_list|()
 expr_stmt|;
 return|return
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|dependencies
 argument_list|)

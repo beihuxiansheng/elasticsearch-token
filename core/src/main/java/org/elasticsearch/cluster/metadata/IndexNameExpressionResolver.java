@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -371,7 +357,7 @@ block|{
 DECL|field|expressionResolvers
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|ExpressionResolver
 argument_list|>
@@ -400,9 +386,9 @@ argument_list|)
 expr_stmt|;
 name|expressionResolvers
 operator|=
-name|ImmutableList
+name|Arrays
 operator|.
-name|of
+name|asList
 argument_list|(
 name|dateMathExpressionResolver
 operator|=
