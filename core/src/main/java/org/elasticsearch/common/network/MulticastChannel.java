@@ -52,6 +52,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -1202,6 +1214,13 @@ comment|// we delegate here to the close with our listener, not with the delegat
 block|}
 block|}
 comment|/**      * Simple implementation of a channel.      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"I bind to wildcard addresses. I am a total nightmare"
+argument_list|)
 DECL|class|Plain
 specifier|private
 specifier|static

@@ -393,7 +393,7 @@ name|getAsBoolean
 argument_list|(
 literal|"discovery.zen.ping.multicast.enabled"
 argument_list|,
-literal|true
+literal|false
 argument_list|)
 condition|)
 block|{
@@ -419,7 +419,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// always add the unicast hosts, so it will be able to receive unicast requests even when working in multicast
+comment|// always add the unicast hosts, or things get angry!
 name|zenPingsBuilder
 operator|.
 name|add

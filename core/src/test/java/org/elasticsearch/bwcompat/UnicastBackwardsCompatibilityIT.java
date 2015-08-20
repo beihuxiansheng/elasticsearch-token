@@ -126,13 +126,6 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-literal|"discovery.zen.ping.multicast.enabled"
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|put
-argument_list|(
 literal|"discovery.zen.ping.unicast.hosts"
 argument_list|,
 literal|"localhost:9380,localhost:9381,localhost:9390,localhost:9391"
@@ -176,13 +169,6 @@ argument_list|,
 literal|9390
 operator|+
 name|nodeOrdinal
-argument_list|)
-operator|.
-name|put
-argument_list|(
-literal|"discovery.zen.ping.multicast.enabled"
-argument_list|,
-literal|false
 argument_list|)
 operator|.
 name|put

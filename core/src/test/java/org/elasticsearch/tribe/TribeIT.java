@@ -465,6 +465,11 @@ operator|=
 operator|new
 name|InternalTestCluster
 argument_list|(
+name|InternalTestCluster
+operator|.
+name|configuredNodeMode
+argument_list|()
+argument_list|,
 name|randomLong
 argument_list|()
 argument_list|,

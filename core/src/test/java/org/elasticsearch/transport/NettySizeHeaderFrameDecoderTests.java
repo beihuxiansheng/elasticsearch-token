@@ -260,6 +260,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|InetAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|Socket
 import|;
 end_import
@@ -347,7 +357,7 @@ name|port
 decl_stmt|;
 DECL|field|host
 specifier|private
-name|String
+name|InetAddress
 name|host
 decl_stmt|;
 annotation|@
@@ -484,7 +494,7 @@ operator|.
 name|address
 argument_list|()
 operator|.
-name|getHostString
+name|getAddress
 argument_list|()
 expr_stmt|;
 block|}

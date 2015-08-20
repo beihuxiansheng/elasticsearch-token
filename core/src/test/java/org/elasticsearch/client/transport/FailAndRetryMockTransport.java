@@ -618,6 +618,9 @@ name|addressesFromString
 parameter_list|(
 name|String
 name|address
+parameter_list|,
+name|int
+name|perAddressLimit
 parameter_list|)
 throws|throws
 name|Exception

@@ -708,6 +708,10 @@ name|transportClientRatio
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|ESIntegTestCase
+operator|.
+name|SuppressLocalMode
 DECL|class|DiscoveryWithServiceDisruptionsIT
 specifier|public
 class|class
@@ -1085,6 +1089,28 @@ comment|// just to make test quicker
 operator|.
 name|put
 argument_list|(
+literal|"transport.host"
+argument_list|,
+literal|"127.0.0.1"
+argument_list|)
+comment|// only bind on one IF we use v4 here by default
+operator|.
+name|put
+argument_list|(
+literal|"transport.bind_host"
+argument_list|,
+literal|"127.0.0.1"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"transport.publish_host"
+argument_list|,
+literal|"127.0.0.1"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 literal|"gateway.local.list_timeout"
 argument_list|,
 literal|"10s"
@@ -1127,6 +1153,9 @@ block|{
 if|if
 condition|(
 name|randomBoolean
+argument_list|()
+operator|&&
+name|canUseMuticast
 argument_list|()
 condition|)
 block|{
@@ -1183,6 +1212,13 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"---> configured multicast"
+argument_list|)
+expr_stmt|;
 comment|// TODO: Rarely use default settings form some of these
 name|Settings
 name|settings
@@ -1199,12 +1235,22 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"discovery.zen.ping.multicast.enabled"
+argument_list|,
+literal|true
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|ElectMasterService
 operator|.
 name|DISCOVERY_ZEN_MINIMUM_MASTER_NODES
 argument_list|,
 name|minimumMasterNode
 argument_list|)
+operator|.
+name|put
+argument_list|()
 operator|.
 name|build
 argument_list|()
@@ -1266,6 +1312,13 @@ operator|+
 literal|1
 expr_stmt|;
 block|}
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"---> configured unicast"
+argument_list|)
+expr_stmt|;
 comment|// TODO: Rarely use default settings form some of these
 name|Settings
 name|nodeSettings

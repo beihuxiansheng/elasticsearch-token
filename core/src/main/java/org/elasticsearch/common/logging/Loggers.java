@@ -473,6 +473,13 @@ literal|null
 return|;
 block|}
 block|}
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"do not know what this method does"
+argument_list|)
 DECL|method|getLogger
 specifier|public
 specifier|static

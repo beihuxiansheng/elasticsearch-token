@@ -680,6 +680,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|InternalTestCluster
 import|;
 end_import
@@ -695,6 +707,18 @@ operator|.
 name|rest
 operator|.
 name|FakeRestRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|transport
+operator|.
+name|TransportModule
 import|;
 end_import
 
@@ -1043,7 +1067,16 @@ argument_list|,
 name|numDataNodes
 operator|=
 literal|0
+argument_list|,
+name|transportClientRatio
+operator|=
+literal|0
 argument_list|)
+annotation|@
+name|ESIntegTestCase
+operator|.
+name|SuppressLocalMode
+comment|// TODO only restorePersistentSettingsTest needs this maybe factor out?
 DECL|class|DedicatedClusterSnapshotRestoreIT
 specifier|public
 class|class
