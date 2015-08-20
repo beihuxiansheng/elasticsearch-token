@@ -5306,9 +5306,10 @@ name|local
 operator|.
 name|add
 argument_list|(
-literal|"::1"
+literal|"[::1]"
 argument_list|)
 expr_stmt|;
+comment|// may get ports appended!
 block|}
 return|return
 name|local
