@@ -295,6 +295,11 @@ specifier|private
 name|Integer
 name|maxDeterminizedStates
 decl_stmt|;
+DECL|field|escape
+specifier|private
+name|Boolean
+name|escape
+decl_stmt|;
 DECL|method|QueryStringQueryBuilder
 specifier|public
 name|QueryStringQueryBuilder
@@ -465,7 +470,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *<p/>      *<p>In default mode ({@link FieldQueryBuilder.Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *<p/>      *<p>In {@link FieldQueryBuilder.Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
+comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *<p/>      *<p>In default mode ({@link Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *<p/>      *<p>In {@link Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
 DECL|method|defaultOperator
 specifier|public
 name|QueryStringQueryBuilder
@@ -897,6 +902,26 @@ operator|.
 name|timeZone
 operator|=
 name|timeZone
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Set to<tt>true</tt> to enable escaping of the query string      */
+DECL|method|escape
+specifier|public
+name|QueryStringQueryBuilder
+name|escape
+parameter_list|(
+name|boolean
+name|escape
+parameter_list|)
+block|{
+name|this
+operator|.
+name|escape
+operator|=
+name|escape
 expr_stmt|;
 return|return
 name|this
@@ -1438,6 +1463,23 @@ argument_list|(
 literal|"time_zone"
 argument_list|,
 name|timeZone
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|escape
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|.
+name|field
+argument_list|(
+literal|"escape"
+argument_list|,
+name|escape
 argument_list|)
 expr_stmt|;
 block|}
