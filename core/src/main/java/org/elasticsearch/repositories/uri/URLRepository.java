@@ -764,7 +764,7 @@ literal|"]"
 argument_list|)
 throw|;
 block|}
-comment|// We didn't match white list - try to resolve against repo.path
+comment|// We didn't match white list - try to resolve against path.repo
 name|URL
 name|normalizedUrl
 init|=
