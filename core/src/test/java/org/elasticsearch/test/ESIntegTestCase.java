@@ -11529,55 +11529,6 @@ specifier|public
 annotation_defn|@interface
 name|SuppressNetworkMode
 block|{}
-comment|/**      * Annotation used to set if working multicast is required to run the test.      * By default, tests annotated with @Multicast won't be executed.      * Set -Dtests.multicast=true when running test to launch multicast tests      */
-annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|Inherited
-annotation|@
-name|TestGroup
-argument_list|(
-name|enabled
-operator|=
-literal|false
-argument_list|,
-name|sysProperty
-operator|=
-literal|"tests.multicast"
-argument_list|)
-DECL|interface|Multicast
-specifier|public
-annotation_defn|@interface
-name|Multicast
-block|{     }
-comment|/**      * Returns true if tests can use multicast. Default is false.      * To disable an entire test use {@link org.elasticsearch.test.ESIntegTestCase.Multicast} instead      */
-DECL|method|canUseMuticast
-specifier|protected
-name|boolean
-name|canUseMuticast
-parameter_list|()
-block|{
-return|return
-name|Boolean
-operator|.
-name|parseBoolean
-argument_list|(
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"tests.multicast"
-argument_list|,
-literal|"false"
-argument_list|)
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 
