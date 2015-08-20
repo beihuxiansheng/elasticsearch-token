@@ -206,11 +206,25 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|query
+name|search
 operator|.
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|search
+operator|.
+name|MatchQuery
 import|;
 end_import
 
@@ -1523,8 +1537,6 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Type
 operator|.
 name|PHRASE
@@ -4738,8 +4750,6 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Type
 operator|.
 name|PHRASE
@@ -4780,8 +4790,6 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
-operator|.
 name|Type
 operator|.
 name|PHRASE
@@ -9132,7 +9140,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9151,7 +9159,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9199,7 +9207,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9218,7 +9226,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9265,7 +9273,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9398,7 +9406,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9419,7 +9427,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9470,7 +9478,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9491,7 +9499,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.
@@ -9538,7 +9546,7 @@ argument_list|)
 operator|.
 name|zeroTermsQuery
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 operator|.

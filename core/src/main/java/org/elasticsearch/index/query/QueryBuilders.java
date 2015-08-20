@@ -138,6 +138,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|search
+operator|.
+name|MatchQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|Script
@@ -238,7 +252,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -321,7 +335,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -354,7 +368,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.

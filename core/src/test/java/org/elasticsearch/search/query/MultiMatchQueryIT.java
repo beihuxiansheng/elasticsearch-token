@@ -180,6 +180,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|index
+operator|.
+name|search
+operator|.
+name|MatchQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|SearchHit
@@ -1100,7 +1114,7 @@ name|ExecutionException
 throws|,
 name|InterruptedException
 block|{
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 name|type
@@ -1110,7 +1124,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -1580,7 +1594,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -1645,7 +1659,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -1709,7 +1723,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -2022,7 +2036,7 @@ name|matchQueryBuilder
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -2242,7 +2256,7 @@ operator|.
 name|getCount
 argument_list|()
 decl_stmt|;
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 name|type
@@ -2252,7 +2266,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -3029,7 +3043,7 @@ operator|++
 control|)
 block|{
 block|{
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 name|type
@@ -3039,7 +3053,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -3229,7 +3243,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 name|type
@@ -3239,7 +3253,7 @@ argument_list|()
 condition|?
 literal|null
 else|:
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -3587,7 +3601,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -3815,7 +3829,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -3892,7 +3906,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -5521,7 +5535,7 @@ condition|)
 block|{
 name|oType
 operator|=
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -5540,7 +5554,7 @@ condition|)
 block|{
 name|oType
 operator|=
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -5563,7 +5577,7 @@ condition|)
 block|{
 name|oType
 operator|=
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.
@@ -5582,7 +5596,7 @@ condition|)
 block|{
 name|oType
 operator|=
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|Type
 operator|.

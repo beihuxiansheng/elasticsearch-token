@@ -274,7 +274,7 @@ literal|null
 decl_stmt|;
 DECL|field|zeroTermsQuery
 specifier|private
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 name|zeroTermsQuery
@@ -997,7 +997,7 @@ specifier|public
 name|MultiMatchQueryBuilder
 name|zeroTermsQuery
 parameter_list|(
-name|MatchQueryBuilder
+name|MatchQuery
 operator|.
 name|ZeroTermsQuery
 name|zeroTermsQuery
