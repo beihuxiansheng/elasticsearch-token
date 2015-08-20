@@ -136,7 +136,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -156,7 +156,7 @@ specifier|public
 class|class
 name|DummyQueryParserPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

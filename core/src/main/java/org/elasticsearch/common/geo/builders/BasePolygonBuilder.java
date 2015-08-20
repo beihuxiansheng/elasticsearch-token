@@ -78,15 +78,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|commons
+name|common
 operator|.
-name|lang3
+name|collect
 operator|.
-name|tuple
-operator|.
-name|Pair
+name|Tuple
 import|;
 end_import
 
@@ -351,7 +349,7 @@ name|thisRef
 argument_list|()
 return|;
 block|}
-comment|/**      * build new hole to the polygon      * @param hole linear ring defining the hole      * @return this      */
+comment|/**      * build new hole to the polygon      * @return this      */
 DECL|method|hole
 specifier|public
 name|Ring
@@ -1373,7 +1371,7 @@ name|HashMap
 argument_list|<
 name|Coordinate
 argument_list|,
-name|Pair
+name|Tuple
 argument_list|<
 name|Edge
 argument_list|,
@@ -1471,7 +1469,7 @@ operator|.
 name|coordinate
 argument_list|)
 operator|.
-name|getRight
+name|v2
 argument_list|()
 decl_stmt|;
 comment|// correct the graph pointers by correcting the 'next' pointer for both the
@@ -1524,7 +1522,7 @@ operator|.
 name|coordinate
 argument_list|)
 operator|.
-name|getLeft
+name|v1
 argument_list|()
 expr_stmt|;
 operator|++
@@ -1560,9 +1558,13 @@ name|current
 operator|.
 name|coordinate
 argument_list|,
-name|Pair
-operator|.
-name|of
+operator|new
+name|Tuple
+argument_list|<
+name|Edge
+argument_list|,
+name|Edge
+argument_list|>
 argument_list|(
 name|prev
 argument_list|,

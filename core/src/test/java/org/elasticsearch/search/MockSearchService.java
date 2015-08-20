@@ -144,7 +144,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -157,18 +157,6 @@ operator|.
 name|script
 operator|.
 name|ScriptService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|SearchService
 import|;
 end_import
 
@@ -280,13 +268,13 @@ name|MockSearchService
 extends|extends
 name|SearchService
 block|{
-DECL|class|Plugin
+DECL|class|TestPlugin
 specifier|public
 specifier|static
 class|class
-name|Plugin
+name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

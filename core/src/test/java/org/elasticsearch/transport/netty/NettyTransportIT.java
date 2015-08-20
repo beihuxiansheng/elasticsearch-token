@@ -238,7 +238,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -526,7 +526,7 @@ literal|"plugin.types"
 argument_list|,
 name|ExceptionThrowingNettyTransport
 operator|.
-name|Plugin
+name|TestPlugin
 operator|.
 name|class
 operator|.
@@ -660,13 +660,13 @@ name|ExceptionThrowingNettyTransport
 extends|extends
 name|NettyTransport
 block|{
-DECL|class|Plugin
+DECL|class|TestPlugin
 specifier|public
 specifier|static
 class|class
-name|Plugin
+name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 annotation|@
 name|Override

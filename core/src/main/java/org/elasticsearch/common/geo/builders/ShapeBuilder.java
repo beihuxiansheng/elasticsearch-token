@@ -124,22 +124,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang3
-operator|.
-name|tuple
-operator|.
-name|Pair
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchParseException
@@ -154,7 +138,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Explicit
+name|collect
+operator|.
+name|Tuple
 import|;
 end_import
 
@@ -1966,7 +1952,8 @@ DECL|method|range
 specifier|private
 specifier|static
 specifier|final
-name|Pair
+name|double
+index|[]
 name|range
 parameter_list|(
 name|Coordinate
@@ -2142,28 +2129,18 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|Pair
-operator|.
-name|of
-argument_list|(
-name|Pair
-operator|.
-name|of
-argument_list|(
+operator|new
+name|double
+index|[]
+block|{
 name|minX
-argument_list|,
+block|,
 name|maxX
-argument_list|)
-argument_list|,
-name|Pair
-operator|.
-name|of
-argument_list|(
+block|,
 name|minY
-argument_list|,
+block|,
 name|maxY
-argument_list|)
-argument_list|)
+block|}
 return|;
 block|}
 comment|/**          * Concatenate a set of points to a polygon          *           * @param component          *            component id of the polygon          * @param direction          *            direction of the ring          * @param points          *            list of points to concatenate          * @param pointOffset          *            index of the first point          * @param edges          *            Array of edges to write the result to          * @param edgeOffset          *            index of the first edge in the result          * @param length          *            number of points to use          * @return the edges creates          */
@@ -2573,12 +2550,8 @@ comment|// since GeoJSON doesn't specify (and doesn't need to) GEO core will ass
 comment|// thus if orientation is computed as cw, the logic will translate points across dateline
 comment|// and convert to a right handed system
 comment|// compute the bounding box and calculate range
-name|Pair
-argument_list|<
-name|Pair
-argument_list|,
-name|Pair
-argument_list|>
+name|double
+index|[]
 name|range
 init|=
 name|range
@@ -2594,27 +2567,15 @@ specifier|final
 name|double
 name|rng
 init|=
-operator|(
-name|Double
-operator|)
 name|range
-operator|.
-name|getLeft
-argument_list|()
-operator|.
-name|getRight
-argument_list|()
+index|[
+literal|1
+index|]
 operator|-
-operator|(
-name|Double
-operator|)
 name|range
-operator|.
-name|getLeft
-argument_list|()
-operator|.
-name|getLeft
-argument_list|()
+index|[
+literal|0
+index|]
 decl_stmt|;
 comment|// translate the points if the following is true
 comment|//   1.  shell orientation is cw and range is greater than a hemisphere (180 degrees) but not spanning 2 hemispheres

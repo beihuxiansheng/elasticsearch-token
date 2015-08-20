@@ -46,34 +46,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|net
@@ -178,12 +150,22 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
 
 begin_comment
-comment|/**  * Utilities for network interfaces / addresses  */
+comment|/**  * Utilities for network interfaces / addresses binding and publishing.  * Its only intended for that purpose, not general purpose usage!!!!  */
 end_comment
 
 begin_class
@@ -329,7 +311,6 @@ comment|/**       * Sorts addresses by order of preference. This is used to pick
 annotation|@
 name|Deprecated
 DECL|method|sortAddresses
-specifier|private
 specifier|static
 name|void
 name|sortAddresses
@@ -428,22 +409,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|logger
-specifier|private
-specifier|final
-specifier|static
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|NetworkUtils
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/** Return all interfaces (and subinterfaces) on the system */
 DECL|method|getInterfaces
 specifier|static
@@ -612,50 +577,8 @@ else|:
 literal|true
 return|;
 block|}
-comment|/** Returns localhost, or if its misconfigured, falls back to loopback. Use with caution!!!! */
-comment|// TODO: can we remove this?
-DECL|method|getLocalHost
-specifier|public
-specifier|static
-name|InetAddress
-name|getLocalHost
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-name|InetAddress
-operator|.
-name|getLocalHost
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|UnknownHostException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"failed to resolve local host, fallback to loopback"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-return|return
-name|InetAddress
-operator|.
-name|getLoopbackAddress
-argument_list|()
-return|;
-block|}
-block|}
 comment|/** Returns addresses for all loopback interfaces that are up. */
 DECL|method|getLoopbackAddresses
-specifier|public
 specifier|static
 name|InetAddress
 index|[]
@@ -756,7 +679,6 @@ return|;
 block|}
 comment|/** Returns addresses for the first non-loopback interface that is up. */
 DECL|method|getFirstNonLoopbackAddresses
-specifier|public
 specifier|static
 name|InetAddress
 index|[]
@@ -860,7 +782,6 @@ return|;
 block|}
 comment|/** Returns addresses for the given interface (it must be marked up) */
 DECL|method|getAddressesForInterface
-specifier|public
 specifier|static
 name|InetAddress
 index|[]
@@ -984,7 +905,6 @@ return|;
 block|}
 comment|/** Returns addresses for the given host, sorted by order of preference */
 DECL|method|getAllByName
-specifier|public
 specifier|static
 name|InetAddress
 index|[]
@@ -1007,7 +927,21 @@ argument_list|(
 name|host
 argument_list|)
 decl_stmt|;
-name|sortAddresses
+comment|// deduplicate, in case of resolver misconfiguration
+comment|// stuff like https://bugzilla.redhat.com/show_bug.cgi?id=496300
+name|List
+argument_list|<
+name|InetAddress
+argument_list|>
+name|unique
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|(
 name|Arrays
 operator|.
@@ -1016,14 +950,31 @@ argument_list|(
 name|addresses
 argument_list|)
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|sortAddresses
+argument_list|(
+name|unique
+argument_list|)
 expr_stmt|;
 return|return
-name|addresses
+name|unique
+operator|.
+name|toArray
+argument_list|(
+operator|new
+name|InetAddress
+index|[
+name|unique
+operator|.
+name|size
+argument_list|()
+index|]
+argument_list|)
 return|;
 block|}
 comment|/** Returns only the IPV4 addresses in {@code addresses} */
 DECL|method|filterIPV4
-specifier|public
 specifier|static
 name|InetAddress
 index|[]
@@ -1110,7 +1061,6 @@ return|;
 block|}
 comment|/** Returns only the IPV6 addresses in {@code addresses} */
 DECL|method|filterIPV6
-specifier|public
 specifier|static
 name|InetAddress
 index|[]

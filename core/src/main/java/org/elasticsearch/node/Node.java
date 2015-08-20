@@ -1846,7 +1846,7 @@ name|plugin
 range|:
 name|pluginsService
 operator|.
-name|services
+name|nodeServices
 argument_list|()
 control|)
 block|{
@@ -2407,7 +2407,7 @@ name|plugin
 range|:
 name|pluginsService
 operator|.
-name|services
+name|nodeServices
 argument_list|()
 control|)
 block|{
@@ -2944,7 +2944,7 @@ name|plugin
 range|:
 name|pluginsService
 operator|.
-name|services
+name|nodeServices
 argument_list|()
 control|)
 block|{

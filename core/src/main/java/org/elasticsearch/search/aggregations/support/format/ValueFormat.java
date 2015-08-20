@@ -330,6 +330,8 @@ operator|.
 name|DateMath
 argument_list|(
 name|format
+argument_list|,
+name|timezone
 argument_list|)
 argument_list|)
 return|;
@@ -379,12 +381,14 @@ operator|.
 name|mapper
 argument_list|(
 name|fieldType
+argument_list|,
+name|timezone
 argument_list|)
 argument_list|)
 return|;
 block|}
 DECL|method|DateTime
-specifier|public
+specifier|private
 name|DateTime
 parameter_list|(
 name|String

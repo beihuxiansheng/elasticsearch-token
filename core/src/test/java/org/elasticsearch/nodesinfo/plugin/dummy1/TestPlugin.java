@@ -26,7 +26,7 @@ name|elasticsearch
 operator|.
 name|plugins
 operator|.
-name|AbstractPlugin
+name|Plugin
 import|;
 end_import
 
@@ -36,7 +36,7 @@ specifier|public
 class|class
 name|TestPlugin
 extends|extends
-name|AbstractPlugin
+name|Plugin
 block|{
 DECL|class|Fields
 specifier|static
