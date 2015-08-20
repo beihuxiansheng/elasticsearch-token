@@ -315,10 +315,7 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
-name|InternalTestCluster
-operator|.
-name|configuredNodeMode
-argument_list|()
+literal|"local"
 argument_list|,
 name|clusterSeed
 argument_list|,
@@ -345,10 +342,7 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
-name|InternalTestCluster
-operator|.
-name|configuredNodeMode
-argument_list|()
+literal|"local"
 argument_list|,
 name|clusterSeed
 argument_list|,
@@ -680,10 +674,7 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
-name|InternalTestCluster
-operator|.
-name|configuredNodeMode
-argument_list|()
+literal|"local"
 argument_list|,
 name|clusterSeed
 argument_list|,
@@ -710,10 +701,7 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
-name|InternalTestCluster
-operator|.
-name|configuredNodeMode
-argument_list|()
+literal|"local"
 argument_list|,
 name|clusterSeed
 argument_list|,
