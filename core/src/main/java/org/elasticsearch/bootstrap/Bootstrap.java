@@ -1472,7 +1472,11 @@ argument_list|()
 expr_stmt|;
 block|}
 throw|throw
+operator|new
+name|StartupError
+argument_list|(
 name|e
+argument_list|)
 throw|;
 block|}
 block|}
