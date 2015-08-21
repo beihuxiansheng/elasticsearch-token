@@ -259,7 +259,6 @@ argument_list|,
 name|discoverySettings
 argument_list|)
 expr_stmt|;
-comment|// See related issue in AWS plugin https://github.com/elastic/elasticsearch-cloud-aws/issues/179
 block|}
 block|}
 end_class
