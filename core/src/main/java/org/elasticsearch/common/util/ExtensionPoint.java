@@ -789,6 +789,9 @@ name|to
 argument_list|(
 name|clazz
 argument_list|)
+operator|.
+name|asEagerSingleton
+argument_list|()
 expr_stmt|;
 block|}
 block|}

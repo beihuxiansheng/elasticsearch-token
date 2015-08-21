@@ -140,37 +140,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|*
 import|;
 end_import
 
@@ -585,10 +555,14 @@ name|addressesFromString
 parameter_list|(
 name|String
 name|address
+parameter_list|,
+name|int
+name|perAddressLimit
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// WTF
 return|return
 operator|new
 name|TransportAddress
@@ -749,6 +723,23 @@ name|void
 name|close
 parameter_list|()
 block|{      }
+annotation|@
+name|Override
+DECL|method|getLocalAddresses
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getLocalAddresses
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|EMPTY_LIST
+return|;
+block|}
 block|}
 end_class
 

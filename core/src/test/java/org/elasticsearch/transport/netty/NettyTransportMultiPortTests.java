@@ -1069,6 +1069,11 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
+name|InetAddress
+operator|.
+name|getLoopbackAddress
+argument_list|()
+argument_list|,
 name|nextPort
 argument_list|)
 argument_list|)
@@ -1235,7 +1240,12 @@ argument_list|(
 operator|new
 name|InetSocketTransportAddress
 argument_list|(
+name|InetAddress
+operator|.
+name|getByName
+argument_list|(
 literal|"localhost"
+argument_list|)
 argument_list|,
 name|port
 argument_list|)
@@ -1322,7 +1332,12 @@ argument_list|(
 operator|new
 name|InetSocketTransportAddress
 argument_list|(
+name|InetAddress
+operator|.
+name|getByName
+argument_list|(
 name|host
+argument_list|)
 argument_list|,
 name|port
 argument_list|)

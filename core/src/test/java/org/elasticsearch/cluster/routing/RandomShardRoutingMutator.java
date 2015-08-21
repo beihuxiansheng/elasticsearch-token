@@ -176,6 +176,9 @@ name|randomFrom
 argument_list|(
 name|nodes
 argument_list|)
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 block|}

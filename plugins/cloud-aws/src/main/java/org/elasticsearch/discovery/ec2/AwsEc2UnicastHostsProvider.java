@@ -857,6 +857,7 @@ condition|)
 block|{
 try|try
 block|{
+comment|// we only limit to 1 port per address, makes no sense to ping 100 ports
 name|TransportAddress
 index|[]
 name|addresses
@@ -866,9 +867,10 @@ operator|.
 name|addressesFromString
 argument_list|(
 name|address
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
-comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
 for|for
 control|(
 name|int
@@ -876,19 +878,11 @@ name|i
 init|=
 literal|0
 init|;
-operator|(
 name|i
 operator|<
 name|addresses
 operator|.
 name|length
-operator|&&
-name|i
-operator|<
-name|UnicastZenPing
-operator|.
-name|LIMIT_PORTS_COUNT
-operator|)
 condition|;
 name|i
 operator|++

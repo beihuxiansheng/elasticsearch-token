@@ -239,7 +239,7 @@ name|NODE_MODE
 init|=
 name|InternalTestCluster
 operator|.
-name|nodeMode
+name|configuredNodeMode
 argument_list|()
 decl_stmt|;
 annotation|@

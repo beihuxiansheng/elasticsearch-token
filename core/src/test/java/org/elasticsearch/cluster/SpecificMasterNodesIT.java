@@ -170,6 +170,10 @@ name|numDataNodes
 operator|=
 literal|0
 argument_list|)
+annotation|@
+name|ESIntegTestCase
+operator|.
+name|SuppressLocalMode
 DECL|class|SpecificMasterNodesIT
 specifier|public
 class|class

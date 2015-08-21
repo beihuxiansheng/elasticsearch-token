@@ -434,9 +434,10 @@ name|put
 argument_list|(
 literal|"node.mode"
 argument_list|,
-name|InternalTestCluster
+name|internalCluster
+argument_list|()
 operator|.
-name|nodeMode
+name|getNodeMode
 argument_list|()
 argument_list|)
 operator|.

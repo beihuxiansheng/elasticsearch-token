@@ -396,20 +396,6 @@ operator|.
 name|logIfNecessary
 argument_list|()
 expr_stmt|;
-name|InetSocketTransportAddress
-operator|.
-name|setResolveAddress
-argument_list|(
-name|settings
-operator|.
-name|getAsBoolean
-argument_list|(
-literal|"network.address.serialization.resolve"
-argument_list|,
-literal|false
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Add a custom name resolver.      */
 DECL|method|addCustomNameResolver
