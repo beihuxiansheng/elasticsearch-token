@@ -729,6 +729,13 @@ throw|;
 block|}
 name|JarHell
 operator|.
+name|checkVersionFormat
+argument_list|(
+name|javaVersionString
+argument_list|)
+expr_stmt|;
+name|JarHell
+operator|.
 name|checkJavaVersion
 argument_list|(
 name|name
