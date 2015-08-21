@@ -1103,8 +1103,15 @@ argument_list|(
 literal|"scrolling documents terminated"
 argument_list|)
 expr_stmt|;
+comment|// if scrollId is null we are on the first request - just pass the nextScrollId which sill be non-null if the query matched no docs
 name|finishHim
 argument_list|(
+name|scrollId
+operator|==
+literal|null
+condition|?
+name|nextScrollId
+else|:
 name|scrollId
 argument_list|,
 literal|false
@@ -1127,8 +1134,15 @@ argument_list|(
 literal|"scrolling documents timed out"
 argument_list|)
 expr_stmt|;
+comment|// if scrollId is null we are on the first request - just pass the nextScrollId which sill be non-null if the query matched no docs
 name|finishHim
 argument_list|(
+name|scrollId
+operator|==
+literal|null
+condition|?
+name|nextScrollId
+else|:
 name|scrollId
 argument_list|,
 literal|true
