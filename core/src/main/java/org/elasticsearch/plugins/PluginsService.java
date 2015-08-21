@@ -695,6 +695,8 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
+literal|"Unable to initialize plugins"
+argument_list|,
 name|ex
 argument_list|)
 throw|;
@@ -1850,7 +1852,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Bootstrap
+name|PluginsService
 operator|.
 name|class
 argument_list|)
@@ -1863,6 +1865,7 @@ operator|.
 name|pluginsFile
 argument_list|()
 decl_stmt|;
+comment|// TODO: remove this leniency, but tests bogusly rely on it
 if|if
 condition|(
 operator|!

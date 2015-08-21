@@ -570,6 +570,8 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
+literal|"path.home"
+argument_list|,
 name|environment
 operator|.
 name|binFile
@@ -581,6 +583,8 @@ expr_stmt|;
 name|addPath
 argument_list|(
 name|policy
+argument_list|,
+literal|"path.home"
 argument_list|,
 name|environment
 operator|.
@@ -594,6 +598,8 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
+literal|"path.plugins"
+argument_list|,
 name|environment
 operator|.
 name|pluginsFile
@@ -606,6 +612,8 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
+literal|"path.conf"
+argument_list|,
 name|environment
 operator|.
 name|configFile
@@ -617,6 +625,8 @@ expr_stmt|;
 name|addPath
 argument_list|(
 name|policy
+argument_list|,
+literal|"path.scripts"
 argument_list|,
 name|environment
 operator|.
@@ -631,6 +641,8 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
+literal|"java.io.tmpdir"
+argument_list|,
 name|environment
 operator|.
 name|tmpFile
@@ -642,6 +654,8 @@ expr_stmt|;
 name|addPath
 argument_list|(
 name|policy
+argument_list|,
+literal|"path.logs"
 argument_list|,
 name|environment
 operator|.
@@ -664,6 +678,8 @@ block|{
 name|addPath
 argument_list|(
 name|policy
+argument_list|,
+literal|"path.shared_data"
 argument_list|,
 name|environment
 operator|.
@@ -689,6 +705,8 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
+literal|"path.data"
+argument_list|,
 name|path
 argument_list|,
 literal|"read,readlink,write,delete"
@@ -710,6 +728,8 @@ name|addPath
 argument_list|(
 name|policy
 argument_list|,
+literal|"path.data"
+argument_list|,
 name|path
 argument_list|,
 literal|"read,readlink,write,delete"
@@ -730,6 +750,8 @@ block|{
 name|addPath
 argument_list|(
 name|policy
+argument_list|,
+literal|"path.repo"
 argument_list|,
 name|path
 argument_list|,
@@ -772,7 +794,7 @@ return|return
 name|policy
 return|;
 block|}
-comment|/** Add access to path (and all files underneath it */
+comment|/**      * Add access to path (and all files underneath it)      * @param policy current policy to add permissions to      * @param configurationName the configuration name associated with the path (for error messages only)      * @param path the path itself      * @param permissions set of filepermissions to grant to the path      */
 DECL|method|addPath
 specifier|static
 name|void
@@ -781,21 +803,49 @@ parameter_list|(
 name|Permissions
 name|policy
 parameter_list|,
+name|String
+name|configurationName
+parameter_list|,
 name|Path
 name|path
 parameter_list|,
 name|String
 name|permissions
 parameter_list|)
-throws|throws
-name|IOException
 block|{
-comment|// paths may not exist yet
+comment|// paths may not exist yet, this also checks accessibility
+try|try
+block|{
 name|ensureDirectoryExists
 argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Unable to access '"
+operator|+
+name|configurationName
+operator|+
+literal|"' ("
+operator|+
+name|path
+operator|+
+literal|")"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// add each path twice: once for itself, again for files underneath it
 name|policy
 operator|.

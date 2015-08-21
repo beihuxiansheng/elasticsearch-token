@@ -151,21 +151,9 @@ name|message
 init|=
 name|cause
 operator|.
-name|getMessage
+name|toString
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|message
-operator|==
-literal|null
-condition|)
-block|{
-name|message
-operator|=
-literal|"Unknown Error"
-expr_stmt|;
-block|}
 name|s
 operator|.
 name|println

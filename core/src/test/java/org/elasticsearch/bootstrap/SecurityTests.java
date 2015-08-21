@@ -1440,6 +1440,8 @@ name|addPath
 argument_list|(
 name|permissions
 argument_list|,
+literal|"testing"
+argument_list|,
 name|link
 argument_list|,
 literal|"read"
