@@ -637,6 +637,10 @@ argument_list|,
 name|nodesAndVersions
 operator|.
 name|highestVersion
+argument_list|,
+name|ShardRouting
+operator|.
+name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
 expr_stmt|;
 block|}
@@ -711,6 +715,10 @@ argument_list|,
 name|nodesAndVersions
 operator|.
 name|highestVersion
+argument_list|,
+name|ShardRouting
+operator|.
+name|UNAVAILABLE_EXPECTED_SHARD_SIZE
 argument_list|)
 expr_stmt|;
 block|}

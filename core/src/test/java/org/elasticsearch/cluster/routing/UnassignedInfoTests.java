@@ -1848,6 +1848,9 @@ operator|.
 name|initialize
 argument_list|(
 literal|"test_node"
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 expr_stmt|;
 name|assertThat
