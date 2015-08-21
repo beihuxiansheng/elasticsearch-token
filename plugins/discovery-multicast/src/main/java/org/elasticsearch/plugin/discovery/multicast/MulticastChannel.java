@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.network
+DECL|package|org.elasticsearch.plugin.discovery.multicast
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|plugin
 operator|.
-name|network
+name|discovery
+operator|.
+name|multicast
 package|;
 end_package
 
