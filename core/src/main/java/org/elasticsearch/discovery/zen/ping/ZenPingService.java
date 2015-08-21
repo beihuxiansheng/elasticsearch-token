@@ -309,15 +309,6 @@ range|:
 name|zenPings
 control|)
 block|{
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|"Starting ping: "
-operator|+
-name|zenPing
-argument_list|)
-expr_stmt|;
 name|zenPing
 operator|.
 name|start
