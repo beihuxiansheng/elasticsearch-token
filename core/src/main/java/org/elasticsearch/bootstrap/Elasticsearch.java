@@ -37,7 +37,7 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Throwable
+name|StartupError
 block|{
 name|Bootstrap
 operator|.
