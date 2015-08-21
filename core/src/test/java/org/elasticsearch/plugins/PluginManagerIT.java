@@ -3867,6 +3867,13 @@ argument_list|(
 literal|"mapper-size"
 argument_list|)
 expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
+literal|"discovery-multicast"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|PluginManager
