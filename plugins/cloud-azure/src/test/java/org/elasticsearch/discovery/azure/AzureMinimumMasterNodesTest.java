@@ -198,9 +198,6 @@ operator|.
 name|TestPlugin
 operator|.
 name|class
-operator|.
-name|getName
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

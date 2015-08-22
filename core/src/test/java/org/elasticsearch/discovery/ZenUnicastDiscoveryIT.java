@@ -206,7 +206,7 @@ block|{
 return|return
 name|discoveryConfig
 operator|.
-name|node
+name|nodeSettings
 argument_list|(
 name|nodeOrdinal
 argument_list|)
