@@ -133,13 +133,6 @@ name|Injector
 name|createInjector
 parameter_list|()
 block|{
-name|Modules
-operator|.
-name|processModules
-argument_list|(
-name|modules
-argument_list|)
-expr_stmt|;
 name|Injector
 name|injector
 init|=
@@ -182,13 +175,6 @@ name|Injector
 name|injector
 parameter_list|)
 block|{
-name|Modules
-operator|.
-name|processModules
-argument_list|(
-name|modules
-argument_list|)
-expr_stmt|;
 name|Injector
 name|childInjector
 init|=
