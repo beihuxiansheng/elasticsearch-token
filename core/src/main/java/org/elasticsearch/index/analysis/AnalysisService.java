@@ -1630,15 +1630,15 @@ name|values
 argument_list|()
 control|)
 block|{
-comment|/*              * Lucene defaults positionOffsetGap to 0 in all analyzers but              * Elasticsearch defaults them to 0 only before version 2.1              * and 100 afterwards so we override the positionOffsetGap if it              * doesn't match here.              */
+comment|/*              * Lucene defaults positionIncrementGap to 0 in all analyzers but              * Elasticsearch defaults them to 0 only before version 2.0              * and 100 afterwards so we override the positionIncrementGap if it              * doesn't match here.              */
 name|int
-name|overridePositionOffsetGap
+name|overridePositionIncrementGap
 init|=
 name|StringFieldMapper
 operator|.
 name|Defaults
 operator|.
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|(
 name|Version
 operator|.
@@ -1667,8 +1667,8 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|/*                  * Custom analyzers already default to the correct, version                  * dependent positionOffsetGap and the user is be able to                  * configure the positionOffsetGap directly on the analyzer so                  * we disable overriding the positionOffsetGap to preserve the                  * user's setting.                  */
-name|overridePositionOffsetGap
+comment|/*                  * Custom analyzers already default to the correct, version                  * dependent positionIncrementGap and the user is be able to                  * configure the positionIncrementGap directly on the analyzer so                  * we disable overriding the positionIncrementGap to preserve the                  * user's setting.                  */
+name|overridePositionIncrementGap
 operator|=
 name|Integer
 operator|.
@@ -1725,7 +1725,7 @@ name|analyzerF
 expr_stmt|;
 if|if
 condition|(
-name|overridePositionOffsetGap
+name|overridePositionIncrementGap
 operator|>=
 literal|0
 operator|&&
@@ -1739,10 +1739,10 @@ name|name
 argument_list|()
 argument_list|)
 operator|!=
-name|overridePositionOffsetGap
+name|overridePositionIncrementGap
 condition|)
 block|{
-comment|// unless the positionOffsetGap needs to be overridden
+comment|// unless the positionIncrementGap needs to be overridden
 name|analyzer
 operator|=
 operator|new
@@ -1750,7 +1750,7 @@ name|NamedAnalyzer
 argument_list|(
 name|analyzer
 argument_list|,
-name|overridePositionOffsetGap
+name|overridePositionIncrementGap
 argument_list|)
 expr_stmt|;
 block|}
@@ -1774,7 +1774,7 @@ argument_list|()
 argument_list|,
 name|analyzerF
 argument_list|,
-name|overridePositionOffsetGap
+name|overridePositionIncrementGap
 argument_list|)
 expr_stmt|;
 block|}

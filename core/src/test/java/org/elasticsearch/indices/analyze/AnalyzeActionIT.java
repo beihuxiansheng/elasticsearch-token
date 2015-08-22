@@ -2254,7 +2254,7 @@ name|setSource
 argument_list|(
 literal|"simple"
 argument_list|,
-literal|"type=string,analyzer=simple,position_offset_gap=100"
+literal|"type=string,analyzer=simple,position_increment_gap=100"
 argument_list|)
 operator|.
 name|get

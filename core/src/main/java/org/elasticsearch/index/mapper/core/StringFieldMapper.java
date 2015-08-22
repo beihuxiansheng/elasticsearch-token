@@ -425,12 +425,12 @@ name|CONTENT_TYPE
 init|=
 literal|"string"
 decl_stmt|;
-DECL|field|POSITION_OFFSET_GAP_USE_ANALYZER
+DECL|field|POSITION_INCREMENT_GAP_USE_ANALYZER
 specifier|private
 specifier|static
 specifier|final
 name|int
-name|POSITION_OFFSET_GAP_USE_ANALYZER
+name|POSITION_INCREMENT_GAP_USE_ANALYZER
 init|=
 operator|-
 literal|1
@@ -470,22 +470,22 @@ name|NULL_VALUE
 init|=
 literal|null
 decl_stmt|;
-comment|/**          * Post 2.0 default for position_offset_gap. Set to 100 so that          * phrase queries of reasonably high slop will not match across field          * values.          */
-DECL|field|POSITION_OFFSET_GAP
+comment|/**          * Post 2.0 default for position_increment_gap. Set to 100 so that          * phrase queries of reasonably high slop will not match across field          * values.          */
+DECL|field|POSITION_INCREMENT_GAP
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|POSITION_OFFSET_GAP
+name|POSITION_INCREMENT_GAP
 init|=
 literal|100
 decl_stmt|;
-DECL|field|POSITION_OFFSET_GAP_PRE_2_0
+DECL|field|POSITION_INCREMENT_GAP_PRE_2_0
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|POSITION_OFFSET_GAP_PRE_2_0
+name|POSITION_INCREMENT_GAP_PRE_2_0
 init|=
 literal|0
 decl_stmt|;
@@ -499,12 +499,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**          * The default position_offset_gap for a particular version of Elasticsearch.          */
-DECL|method|positionOffsetGap
+comment|/**          * The default position_increment_gap for a particular version of Elasticsearch.          */
+DECL|method|positionIncrementGap
 specifier|public
 specifier|static
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|(
 name|Version
 name|version
@@ -523,11 +523,11 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|POSITION_OFFSET_GAP_PRE_2_0
+name|POSITION_INCREMENT_GAP_PRE_2_0
 return|;
 block|}
 return|return
-name|POSITION_OFFSET_GAP
+name|POSITION_INCREMENT_GAP
 return|;
 block|}
 block|}
@@ -555,13 +555,13 @@ name|Defaults
 operator|.
 name|NULL_VALUE
 decl_stmt|;
-comment|/**          * The distance between tokens from different values in the same field.          * POSITION_OFFSET_GAP_USE_ANALYZER means default to the analyzer's          * setting which in turn defaults to Defaults.POSITION_OFFSET_GAP.          */
-DECL|field|positionOffsetGap
+comment|/**          * The distance between tokens from different values in the same field.          * POSITION_INCREMENT_GAP_USE_ANALYZER means default to the analyzer's          * setting which in turn defaults to Defaults.POSITION_INCREMENT_GAP.          */
+DECL|field|positionIncrementGap
 specifier|protected
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 init|=
-name|POSITION_OFFSET_GAP_USE_ANALYZER
+name|POSITION_INCREMENT_GAP_USE_ANALYZER
 decl_stmt|;
 DECL|field|ignoreAbove
 specifier|protected
@@ -616,20 +616,20 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|positionOffsetGap
+DECL|method|positionIncrementGap
 specifier|public
 name|Builder
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|(
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|)
 block|{
 name|this
 operator|.
-name|positionOffsetGap
+name|positionIncrementGap
 operator|=
-name|positionOffsetGap
+name|positionIncrementGap
 expr_stmt|;
 return|return
 name|this
@@ -689,9 +689,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|positionOffsetGap
+name|positionIncrementGap
 operator|!=
-name|POSITION_OFFSET_GAP_USE_ANALYZER
+name|POSITION_INCREMENT_GAP_USE_ANALYZER
 condition|)
 block|{
 name|fieldType
@@ -706,7 +706,7 @@ operator|.
 name|indexAnalyzer
 argument_list|()
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -722,7 +722,7 @@ operator|.
 name|searchAnalyzer
 argument_list|()
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -738,7 +738,7 @@ operator|.
 name|searchQuoteAnalyzer
 argument_list|()
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -837,7 +837,7 @@ name|fieldType
 argument_list|,
 name|defaultFieldType
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|,
 name|ignoreAbove
 argument_list|,
@@ -1107,12 +1107,31 @@ name|propName
 operator|.
 name|equals
 argument_list|(
+literal|"position_increment_gap"
+argument_list|)
+operator|||
+name|parserContext
+operator|.
+name|indexVersionCreated
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0
+argument_list|)
+operator|&&
+name|propName
+operator|.
+name|equals
+argument_list|(
 literal|"position_offset_gap"
 argument_list|)
 condition|)
 block|{
 name|int
-name|newPositionOffsetGap
+name|newPositionIncrementGap
 init|=
 name|XContentMapValues
 operator|.
@@ -1126,7 +1145,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|newPositionOffsetGap
+name|newPositionIncrementGap
 operator|<
 literal|0
 condition|)
@@ -1135,19 +1154,19 @@ throw|throw
 operator|new
 name|MapperParsingException
 argument_list|(
-literal|"positions_offset_gap less than 0 aren't allowed."
+literal|"positions_increment_gap less than 0 aren't allowed."
 argument_list|)
 throw|;
 block|}
 name|builder
 operator|.
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|(
-name|newPositionOffsetGap
+name|newPositionIncrementGap
 argument_list|)
 expr_stmt|;
 comment|// we need to update to actual analyzers if they are not set in this case...
-comment|// so we can inject the position offset gap...
+comment|// so we can inject the position increment gap...
 if|if
 condition|(
 name|builder
@@ -1424,10 +1443,10 @@ specifier|private
 name|Boolean
 name|includeInAll
 decl_stmt|;
-DECL|field|positionOffsetGap
+DECL|field|positionIncrementGap
 specifier|private
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 decl_stmt|;
 DECL|field|ignoreAbove
 specifier|private
@@ -1448,7 +1467,7 @@ name|MappedFieldType
 name|defaultFieldType
 parameter_list|,
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|,
 name|int
 name|ignoreAbove
@@ -1519,9 +1538,9 @@ throw|;
 block|}
 name|this
 operator|.
-name|positionOffsetGap
+name|positionIncrementGap
 operator|=
-name|positionOffsetGap
+name|positionIncrementGap
 expr_stmt|;
 name|this
 operator|.
@@ -1613,16 +1632,16 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getPositionOffsetGap
+DECL|method|getPositionIncrementGap
 specifier|public
 name|int
-name|getPositionOffsetGap
+name|getPositionIncrementGap
 parameter_list|()
 block|{
 return|return
 name|this
 operator|.
-name|positionOffsetGap
+name|positionIncrementGap
 return|;
 block|}
 DECL|method|getIgnoreAbove
@@ -2297,18 +2316,18 @@ if|if
 condition|(
 name|includeDefaults
 operator|||
-name|positionOffsetGap
+name|positionIncrementGap
 operator|!=
-name|POSITION_OFFSET_GAP_USE_ANALYZER
+name|POSITION_INCREMENT_GAP_USE_ANALYZER
 condition|)
 block|{
 name|builder
 operator|.
 name|field
 argument_list|(
-literal|"position_offset_gap"
+literal|"position_increment_gap"
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 expr_stmt|;
 block|}
