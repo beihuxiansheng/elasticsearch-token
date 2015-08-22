@@ -552,6 +552,15 @@ name|ACTION_NAME
 init|=
 literal|"internal:discovery/zen/unicast"
 decl_stmt|;
+DECL|field|DISCOVERY_ZEN_PING_UNICAST_HOSTS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DISCOVERY_ZEN_PING_UNICAST_HOSTS
+init|=
+literal|"discovery.zen.ping.unicast.hosts"
+decl_stmt|;
 comment|// these limits are per-address
 DECL|field|LIMIT_FOREIGN_PORTS_COUNT
 specifier|public
@@ -811,7 +820,7 @@ name|settings
 operator|.
 name|getAsArray
 argument_list|(
-literal|"discovery.zen.ping.unicast.hosts"
+name|DISCOVERY_ZEN_PING_UNICAST_HOSTS
 argument_list|)
 decl_stmt|;
 comment|// trim the hosts

@@ -60,7 +60,7 @@ name|elasticsearch
 operator|.
 name|bootstrap
 operator|.
-name|Bootstrap
+name|BootstrapForTesting
 import|;
 end_import
 
@@ -397,14 +397,10 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-name|Bootstrap
+name|BootstrapForTesting
 operator|.
-name|initializeNatives
-argument_list|(
-literal|true
-argument_list|,
-literal|false
-argument_list|)
+name|ensureInitialized
+argument_list|()
 expr_stmt|;
 name|Settings
 name|settings

@@ -15,62 +15,50 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * This class starts elasticsearch.  */
+comment|/**   * Exposes system startup information   */
 end_comment
 
 begin_class
-DECL|class|Elasticsearch
+DECL|class|BootstrapInfo
 specifier|public
 specifier|final
 class|class
-name|Elasticsearch
+name|BootstrapInfo
 block|{
 comment|/** no instantiation */
-DECL|method|Elasticsearch
+DECL|method|BootstrapInfo
 specifier|private
-name|Elasticsearch
+name|BootstrapInfo
 parameter_list|()
 block|{}
-comment|/**      * Main entry point for starting elasticsearch      */
-DECL|method|main
+comment|/**       * Returns true if we successfully loaded native libraries.      *<p>      * If this returns false, then native operations such as locking      * memory did not work.      */
+DECL|method|isNativesAvailable
 specifier|public
 specifier|static
-name|void
-name|main
-parameter_list|(
-name|String
-index|[]
-name|args
-parameter_list|)
-throws|throws
-name|StartupError
+name|boolean
+name|isNativesAvailable
+parameter_list|()
 block|{
-try|try
-block|{
-name|Bootstrap
+return|return
+name|Natives
 operator|.
-name|init
-argument_list|(
-name|args
-argument_list|)
-expr_stmt|;
+name|JNA_AVAILABLE
+return|;
 block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|t
-parameter_list|)
+comment|/**       * Returns true if we were able to lock the process's address space.      */
+DECL|method|isMemoryLocked
+specifier|public
+specifier|static
+name|boolean
+name|isMemoryLocked
+parameter_list|()
 block|{
-comment|// format exceptions to the console in a special way
-comment|// to avoid 2MB stacktraces from guice, etc.
-throw|throw
-operator|new
-name|StartupError
-argument_list|(
-name|t
-argument_list|)
-throw|;
-block|}
+return|return
+name|Natives
+operator|.
+name|isMemoryLocked
+argument_list|()
+return|;
 block|}
 block|}
 end_class
