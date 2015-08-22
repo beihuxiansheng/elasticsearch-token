@@ -66,18 +66,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|bootstrap
-operator|.
-name|Bootstrap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -1864,7 +1852,7 @@ name|Loggers
 operator|.
 name|getLogger
 argument_list|(
-name|Bootstrap
+name|Elements
 operator|.
 name|class
 argument_list|)

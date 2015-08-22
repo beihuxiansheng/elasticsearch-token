@@ -94,6 +94,12 @@ specifier|final
 class|class
 name|JVMCheck
 block|{
+comment|/** no instantiation */
+DECL|method|JVMCheck
+specifier|private
+name|JVMCheck
+parameter_list|()
+block|{}
 comment|/**      * URL with latest JVM recommendations      */
 DECL|field|JVM_RECOMMENDATIONS
 specifier|static

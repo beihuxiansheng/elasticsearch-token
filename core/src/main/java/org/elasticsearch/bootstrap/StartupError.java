@@ -68,6 +68,7 @@ end_comment
 
 begin_class
 DECL|class|StartupError
+specifier|final
 class|class
 name|StartupError
 extends|extends
