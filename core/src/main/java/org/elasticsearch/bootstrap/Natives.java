@@ -48,9 +48,16 @@ end_comment
 
 begin_class
 DECL|class|Natives
+specifier|final
 class|class
 name|Natives
 block|{
+comment|/** no instantiation */
+DECL|method|Natives
+specifier|private
+name|Natives
+parameter_list|()
+block|{}
 DECL|field|logger
 specifier|private
 specifier|static
@@ -68,16 +75,19 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// marker to determine if the JNA class files are available to the JVM
-DECL|field|jnaAvailable
-specifier|private
+DECL|field|JNA_AVAILABLE
 specifier|static
+specifier|final
 name|boolean
-name|jnaAvailable
-init|=
-literal|false
+name|JNA_AVAILABLE
 decl_stmt|;
 static|static
 block|{
+name|boolean
+name|v
+init|=
+literal|false
+decl_stmt|;
 try|try
 block|{
 comment|// load one of the main JNA classes to see if the classes are available. this does not ensure that all native
@@ -89,7 +99,7 @@ argument_list|(
 literal|"com.sun.jna.Native"
 argument_list|)
 expr_stmt|;
-name|jnaAvailable
+name|v
 operator|=
 literal|true
 expr_stmt|;
@@ -126,6 +136,10 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|JNA_AVAILABLE
+operator|=
+name|v
+expr_stmt|;
 block|}
 DECL|method|tryMlockall
 specifier|static
@@ -136,7 +150,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|jnaAvailable
+name|JNA_AVAILABLE
 condition|)
 block|{
 name|logger
@@ -163,7 +177,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|jnaAvailable
+name|JNA_AVAILABLE
 condition|)
 block|{
 name|logger
@@ -193,7 +207,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|jnaAvailable
+name|JNA_AVAILABLE
 condition|)
 block|{
 name|logger
@@ -223,7 +237,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|jnaAvailable
+name|JNA_AVAILABLE
 condition|)
 block|{
 name|logger
@@ -252,7 +266,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|jnaAvailable
+name|JNA_AVAILABLE
 condition|)
 block|{
 return|return

@@ -226,7 +226,7 @@ end_import
 
 begin_class
 DECL|class|BootstrapCLIParser
-specifier|public
+specifier|final
 class|class
 name|BootstrapCLIParser
 extends|extends
