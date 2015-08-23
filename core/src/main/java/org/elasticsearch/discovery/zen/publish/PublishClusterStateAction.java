@@ -870,6 +870,15 @@ argument_list|,
 name|publishResponseHandler
 argument_list|)
 decl_stmt|;
+specifier|final
+name|long
+name|publishingStartInNanos
+init|=
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+decl_stmt|;
 comment|// we build these early as a best effort not to commit in the case of error.
 comment|// sadly this is not water tight as it may that a failed diff based publishing to a node
 comment|// will cause a full serialization based on an older version, which may fail after the
@@ -963,19 +972,32 @@ name|getCommitTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|publishTimeout
-operator|.
-name|millis
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
-comment|// only wait if the publish timeout is configured...
 try|try
 block|{
+name|long
+name|timeLeftInNanos
+init|=
+name|Math
+operator|.
+name|max
+argument_list|(
+literal|0
+argument_list|,
+name|publishTimeout
+operator|.
+name|nanos
+argument_list|()
+operator|-
+operator|(
+name|System
+operator|.
+name|nanoTime
+argument_list|()
+operator|-
+name|publishingStartInNanos
+operator|)
+argument_list|)
+decl_stmt|;
 name|sendingController
 operator|.
 name|setPublishingTimedOut
@@ -985,7 +1007,12 @@ name|publishResponseHandler
 operator|.
 name|awaitAllNodes
 argument_list|(
-name|publishTimeout
+name|TimeValue
+operator|.
+name|timeValueNanos
+argument_list|(
+name|timeLeftInNanos
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1050,7 +1077,6 @@ operator|.
 name|interrupt
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|buildDiffAndSerializeStates
@@ -3074,6 +3100,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{              }
+comment|//nocommit: make sure we prevent publishing successfully!
 if|if
 condition|(
 name|committed

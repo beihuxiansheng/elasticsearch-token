@@ -146,6 +146,7 @@ name|DiscoverySettings
 extends|extends
 name|AbstractComponent
 block|{
+comment|/**      * sets the timeout for a complete publishing cycle, including both sending and committing. the master      * will continute to process the next cluster state update after this time has elapsed      **/
 DECL|field|PUBLISH_TIMEOUT
 specifier|public
 specifier|static
@@ -155,6 +156,7 @@ name|PUBLISH_TIMEOUT
 init|=
 literal|"discovery.zen.publish_timeout"
 decl_stmt|;
+comment|/**      * sets the timeout for receiving enough acks for a specific cluster state and committing it. failing      * to receive responses within this window will cause the cluster state change to be rejected.      */
 DECL|field|COMMIT_TIMEOUT
 specifier|public
 specifier|static
@@ -207,7 +209,7 @@ name|TimeValue
 operator|.
 name|timeValueSeconds
 argument_list|(
-literal|1
+literal|30
 argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_NO_MASTER_BLOCK
