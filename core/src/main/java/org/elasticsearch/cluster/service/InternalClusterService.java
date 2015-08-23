@@ -2896,7 +2896,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"publishing cluster state version {}"
+literal|"publishing cluster state version [{}]"
 argument_list|,
 name|newClusterState
 operator|.
@@ -2904,6 +2904,8 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|discoveryService
 operator|.
 name|publish
@@ -2913,6 +2915,40 @@ argument_list|,
 name|ackListener
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"failing [{}]: failed to publish cluster state version [{}]"
+argument_list|,
+name|t
+argument_list|,
+name|source
+argument_list|,
+name|newClusterState
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|updateTask
+operator|.
+name|onFailure
+argument_list|(
+name|source
+argument_list|,
+name|t
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 block|}
 comment|// update the current cluster state
 name|clusterState

@@ -1252,6 +1252,7 @@ return|;
 block|}
 comment|// Used for testing and logging to determine how this cluster state was send over the wire
 DECL|method|wasReadFromDiff
+specifier|public
 name|boolean
 name|wasReadFromDiff
 parameter_list|()

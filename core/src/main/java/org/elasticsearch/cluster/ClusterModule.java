@@ -2007,6 +2007,17 @@ argument_list|)
 expr_stmt|;
 name|registerClusterDynamicSetting
 argument_list|(
+name|DiscoverySettings
+operator|.
+name|COMMIT_TIMEOUT
+argument_list|,
+name|Validator
+operator|.
+name|TIME_NON_NEGATIVE
+argument_list|)
+expr_stmt|;
+name|registerClusterDynamicSetting
+argument_list|(
 name|HierarchyCircuitBreakerService
 operator|.
 name|TOTAL_CIRCUIT_BREAKER_LIMIT_SETTING

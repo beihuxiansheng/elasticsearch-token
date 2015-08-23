@@ -240,20 +240,6 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingNode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|routing
-operator|.
 name|RoutingService
 import|;
 end_import
@@ -2266,11 +2252,12 @@ name|FailedToCommitException
 name|t
 parameter_list|)
 block|{
+comment|// cluster service logs a WARN message
 name|logger
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"failed to publish [{}] (not enough nodes acknowledged, min master nodes [{}])"
+literal|"failed to publish cluster state version [{}] (not enough nodes acknowledged, min master nodes [{}])"
 argument_list|,
 name|clusterChangedEvent
 operator|.
@@ -4990,7 +4977,7 @@ name|ClusterState
 name|newClusterState
 parameter_list|)
 block|{
-name|rejectNewClusterStateIfNeeded
+name|validateStateIsFromCurrentMaster
 argument_list|(
 name|logger
 argument_list|,
@@ -5055,11 +5042,11 @@ return|;
 block|}
 block|}
 comment|/**      * In the case we follow an elected master the new cluster state needs to have the same elected master      * This method checks for this and throws an exception if needed      */
-DECL|method|rejectNewClusterStateIfNeeded
+DECL|method|validateStateIsFromCurrentMaster
 specifier|public
 specifier|static
 name|void
-name|rejectNewClusterStateIfNeeded
+name|validateStateIsFromCurrentMaster
 parameter_list|(
 name|ESLogger
 name|logger
