@@ -5094,7 +5094,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"received a cluster state from a different master then the current one, rejecting (received {}, current {})"
+literal|"received a cluster state from a different master than the current one, rejecting (received {}, current {})"
 argument_list|,
 name|newClusterState
 operator|.
@@ -5114,7 +5114,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"cluster state from a different master then the current one, rejecting (received "
+literal|"cluster state from a different master than the current one, rejecting (received "
 operator|+
 name|newClusterState
 operator|.
