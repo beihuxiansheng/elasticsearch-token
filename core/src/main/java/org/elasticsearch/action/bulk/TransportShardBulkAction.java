@@ -826,6 +826,9 @@ argument_list|()
 operator|.
 name|shardId
 argument_list|()
+operator|.
+name|id
+argument_list|()
 argument_list|)
 operator|.
 name|shardsIt

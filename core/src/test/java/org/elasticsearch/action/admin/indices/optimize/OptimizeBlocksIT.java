@@ -418,7 +418,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareFlush
+name|prepareOptimize
 argument_list|()
 argument_list|)
 expr_stmt|;

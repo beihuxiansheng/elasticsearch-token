@@ -30,9 +30,9 @@ name|action
 operator|.
 name|support
 operator|.
-name|broadcast
+name|replication
 operator|.
-name|BroadcastShardRequest
+name|ReplicationRequest
 import|;
 end_import
 
@@ -70,20 +70,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|shard
-operator|.
-name|ShardId
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -92,16 +78,16 @@ name|IOException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|ShardFlushRequest
+specifier|public
 class|class
 name|ShardFlushRequest
 extends|extends
-name|BroadcastShardRequest
+name|ReplicationRequest
+argument_list|<
+name|ShardFlushRequest
+argument_list|>
 block|{
 DECL|field|request
 specifier|private
@@ -113,23 +99,15 @@ name|FlushRequest
 argument_list|()
 decl_stmt|;
 DECL|method|ShardFlushRequest
-name|ShardFlushRequest
-parameter_list|()
-block|{     }
-DECL|method|ShardFlushRequest
+specifier|public
 name|ShardFlushRequest
 parameter_list|(
-name|ShardId
-name|shardId
-parameter_list|,
 name|FlushRequest
 name|request
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|shardId
-argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
@@ -139,6 +117,20 @@ name|request
 operator|=
 name|request
 expr_stmt|;
+block|}
+DECL|method|ShardFlushRequest
+specifier|public
+name|ShardFlushRequest
+parameter_list|()
+block|{     }
+DECL|method|getRequest
+name|FlushRequest
+name|getRequest
+parameter_list|()
+block|{
+return|return
+name|request
+return|;
 block|}
 annotation|@
 name|Override
@@ -195,15 +187,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getRequest
-name|FlushRequest
-name|getRequest
-parameter_list|()
-block|{
-return|return
-name|request
-return|;
 block|}
 block|}
 end_class
