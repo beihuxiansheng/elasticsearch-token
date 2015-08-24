@@ -239,7 +239,13 @@ name|FieldData
 operator|.
 name|emptySortedNumericDoubles
 argument_list|(
-literal|0
+name|ctx
+operator|.
+name|reader
+argument_list|()
+operator|.
+name|maxDoc
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
