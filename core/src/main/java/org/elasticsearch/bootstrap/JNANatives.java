@@ -117,6 +117,12 @@ DECL|class|JNANatives
 class|class
 name|JNANatives
 block|{
+comment|/** no instantiation */
+DECL|method|JNANatives
+specifier|private
+name|JNANatives
+parameter_list|()
+block|{}
 DECL|field|logger
 specifier|private
 specifier|static
@@ -135,7 +141,6 @@ argument_list|)
 decl_stmt|;
 comment|// Set to true, in case native mlockall call was successful
 DECL|field|LOCAL_MLOCKALL
-specifier|public
 specifier|static
 name|boolean
 name|LOCAL_MLOCKALL

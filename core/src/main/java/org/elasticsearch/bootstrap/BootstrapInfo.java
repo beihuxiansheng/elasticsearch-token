@@ -4,40 +4,64 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.inject
+DECL|package|org.elasticsearch.bootstrap
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|inject
+name|bootstrap
 package|;
 end_package
 
 begin_comment
-comment|/**  * This interface can be added to a Module to spawn sub modules. DO NOT USE.  *  * This is fundamentally broken.  *<ul>  *<li>If you have a plugin with multiple modules, return all the modules at once.</li>  *<li>If you are trying to make the implementation of a module "pluggable", don't do it.  * This is not extendable because custom implementations (using onModule) cannot be  * registered before spawnModules() is called.</li>  *</ul>  */
+comment|/**   * Exposes system startup information   */
 end_comment
 
-begin_interface
-DECL|interface|SpawnModules
+begin_class
+DECL|class|BootstrapInfo
 specifier|public
-interface|interface
-name|SpawnModules
+specifier|final
+class|class
+name|BootstrapInfo
 block|{
-DECL|method|spawnModules
-name|Iterable
-argument_list|<
-name|?
-extends|extends
-name|Module
-argument_list|>
-name|spawnModules
+comment|/** no instantiation */
+DECL|method|BootstrapInfo
+specifier|private
+name|BootstrapInfo
 parameter_list|()
-function_decl|;
+block|{}
+comment|/**       * Returns true if we successfully loaded native libraries.      *<p>      * If this returns false, then native operations such as locking      * memory did not work.      */
+DECL|method|isNativesAvailable
+specifier|public
+specifier|static
+name|boolean
+name|isNativesAvailable
+parameter_list|()
+block|{
+return|return
+name|Natives
+operator|.
+name|JNA_AVAILABLE
+return|;
 block|}
-end_interface
+comment|/**       * Returns true if we were able to lock the process's address space.      */
+DECL|method|isMemoryLocked
+specifier|public
+specifier|static
+name|boolean
+name|isMemoryLocked
+parameter_list|()
+block|{
+return|return
+name|Natives
+operator|.
+name|isMemoryLocked
+argument_list|()
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

@@ -84,16 +84,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|ByteArrayInputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|IOException
 import|;
 end_import
@@ -186,7 +176,67 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Enumeration
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -227,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** Simple check for duplicate class files across the classpath */
+comment|/**  * Simple check for duplicate class files across the classpath.  *<p>  * This class checks for incompatibilities in the following ways:  *<ul>  *<li>Checks that class files are not duplicated across jars.</li>  *<li>Checks any {@code X-Compile-Target-JDK} value in the jar  *       manifest is compatible with current JRE</li>  *<li>Checks any {@code X-Compile-Elasticsearch-Version} value in  *       the jar manifest is compatible with the current ES</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -236,6 +286,12 @@ specifier|public
 class|class
 name|JarHell
 block|{
+comment|/** no instantiation */
+DECL|method|JarHell
+specifier|private
+name|JarHell
+parameter_list|()
+block|{}
 comment|/** Simple driver class, can be used eg. from builds. Returns non-zero on jar-hell */
 annotation|@
 name|SuppressForbidden
