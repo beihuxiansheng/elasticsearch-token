@@ -22207,7 +22207,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"ToParentBlockJoinQuery (+*:* #random_access(QueryWrapperFilter(_type:__nested)))"
+literal|"ToParentBlockJoinQuery (+*:* #QueryWrapperFilter(_type:__nested))"
 argument_list|)
 argument_list|)
 expr_stmt|;
