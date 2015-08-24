@@ -5328,7 +5328,7 @@ name|QUEUE_SIZE
 argument_list|,
 name|queueSize
 operator|.
-name|toString
+name|singles
 argument_list|()
 argument_list|)
 expr_stmt|;
