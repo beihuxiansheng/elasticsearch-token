@@ -128,6 +128,7 @@ end_comment
 
 begin_class
 DECL|class|JNAKernel32Library
+specifier|final
 class|class
 name|JNAKernel32Library
 block|{
@@ -499,6 +500,9 @@ name|Override
 DECL|method|getFieldOrder
 specifier|protected
 name|List
+argument_list|<
+name|String
+argument_list|>
 name|getFieldOrder
 parameter_list|()
 block|{

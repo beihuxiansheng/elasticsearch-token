@@ -15,17 +15,23 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * A wrapper around {@link Bootstrap} just so the process will look nicely on things like jps.  */
+comment|/**  * This class starts elasticsearch.  */
 end_comment
 
 begin_class
 DECL|class|Elasticsearch
 specifier|public
+specifier|final
 class|class
 name|Elasticsearch
-extends|extends
-name|Bootstrap
 block|{
+comment|/** no instantiation */
+DECL|method|Elasticsearch
+specifier|private
+name|Elasticsearch
+parameter_list|()
+block|{}
+comment|/**      * Main entry point for starting elasticsearch      */
 DECL|method|main
 specifier|public
 specifier|static
@@ -37,15 +43,34 @@ index|[]
 name|args
 parameter_list|)
 throws|throws
-name|Throwable
+name|StartupError
+block|{
+try|try
 block|{
 name|Bootstrap
 operator|.
-name|main
+name|init
 argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+comment|// format exceptions to the console in a special way
+comment|// to avoid 2MB stacktraces from guice, etc.
+throw|throw
+operator|new
+name|StartupError
+argument_list|(
+name|t
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class

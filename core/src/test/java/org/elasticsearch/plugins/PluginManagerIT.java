@@ -496,6 +496,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|InetAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|InetSocketAddress
 import|;
 end_import
@@ -1500,6 +1510,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+literal|"fake-plugin"
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -1513,6 +1527,15 @@ operator|.
 name|toString
 argument_list|()
 argument_list|,
+literal|"java.version"
+argument_list|,
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.specification.version"
+argument_list|)
+argument_list|,
 literal|"jvm"
 argument_list|,
 literal|"true"
@@ -1524,9 +1547,7 @@ argument_list|)
 decl_stmt|;
 name|assertStatus
 argument_list|(
-literal|"install --url "
-operator|+
-name|pluginUrl
+literal|"install"
 argument_list|,
 name|USAGE
 argument_list|)
@@ -1628,6 +1649,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -1701,10 +1726,6 @@ decl_stmt|;
 name|assertStatusOk
 argument_list|(
 literal|"install "
-operator|+
-name|pluginName
-operator|+
-literal|" --url "
 operator|+
 name|pluginUrl
 operator|+
@@ -1905,6 +1926,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -1967,9 +1992,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2130,6 +2153,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"2.0"
@@ -2171,9 +2198,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2421,6 +2446,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"3.0"
@@ -2462,9 +2491,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2612,6 +2639,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+literal|"fake-plugin"
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -2679,9 +2710,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2812,6 +2841,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -2853,9 +2886,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -2933,6 +2964,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0"
@@ -2952,9 +2987,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -3073,9 +3106,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginName
+literal|"install %s --verbose"
 argument_list|,
 name|pluginUrl
 argument_list|)
@@ -3174,9 +3205,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install %s --url %s --verbose"
-argument_list|,
-name|pluginDescriptor
+literal|"install %s --verbose"
 argument_list|,
 name|pluginCoordinates
 argument_list|)
@@ -3552,6 +3581,10 @@ literal|"description"
 argument_list|,
 literal|"fake desc"
 argument_list|,
+literal|"name"
+argument_list|,
+name|pluginName
+argument_list|,
 literal|"version"
 argument_list|,
 literal|"1.0.0"
@@ -3834,6 +3867,13 @@ argument_list|(
 literal|"mapper-size"
 argument_list|)
 expr_stmt|;
+name|PluginManager
+operator|.
+name|checkForOfficialPlugins
+argument_list|(
+literal|"discovery-multicast"
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|PluginManager
@@ -3878,7 +3918,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install foo --url http://user:pass@localhost:12345/foo.zip --verbose"
+literal|"install http://user:pass@localhost:12345/foo.zip --verbose"
 argument_list|)
 argument_list|,
 name|CliTool
@@ -4085,7 +4125,12 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
+name|InetAddress
+operator|.
+name|getByName
+argument_list|(
 literal|"localhost"
+argument_list|)
 argument_list|,
 literal|0
 argument_list|)
@@ -4118,7 +4163,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"install foo --url https://user:pass@localhost:%s/foo.zip --verbose --timeout 1s"
+literal|"install https://user:pass@localhost:%s/foo.zip --verbose --timeout 1s"
 argument_list|,
 name|port
 argument_list|)
@@ -4390,13 +4435,6 @@ name|settings
 init|=
 name|settingsBuilder
 argument_list|()
-operator|.
-name|put
-argument_list|(
-literal|"discovery.zen.ping.multicast.enabled"
-argument_list|,
-literal|false
-argument_list|)
 operator|.
 name|put
 argument_list|(

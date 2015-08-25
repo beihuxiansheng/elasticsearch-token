@@ -94,6 +94,20 @@ name|common
 operator|.
 name|network
 operator|.
+name|NetworkAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|network
+operator|.
 name|NetworkService
 import|;
 end_import
@@ -2122,7 +2136,7 @@ decl_stmt|;
 specifier|final
 name|AtomicReference
 argument_list|<
-name|SocketAddress
+name|InetSocketAddress
 argument_list|>
 name|boundSocket
 init|=
@@ -2188,6 +2202,9 @@ name|boundSocket
 operator|.
 name|set
 argument_list|(
+operator|(
+name|InetSocketAddress
+operator|)
 name|channel
 operator|.
 name|getLocalAddress
@@ -2247,12 +2264,17 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Bound http to address [{}]"
+literal|"Bound http to address {{}}"
 argument_list|,
+name|NetworkAddress
+operator|.
+name|format
+argument_list|(
 name|boundSocket
 operator|.
 name|get
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

@@ -158,6 +158,20 @@ name|common
 operator|.
 name|network
 operator|.
+name|NetworkAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|network
+operator|.
 name|NetworkService
 import|;
 end_import
@@ -674,10 +688,12 @@ condition|)
 block|{
 name|ipAddress
 operator|=
-name|inetAddress
+name|NetworkAddress
 operator|.
-name|getHostAddress
-argument_list|()
+name|formatAddress
+argument_list|(
+name|inetAddress
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -1245,6 +1261,8 @@ expr_stmt|;
 block|}
 block|}
 comment|// ip_private is a single IP Address. We need to build a TransportAddress from it
+comment|// If user has set `es_port` metadata, we don't need to ping all ports
+comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
 name|TransportAddress
 index|[]
 name|addresses
@@ -1254,10 +1272,18 @@ operator|.
 name|addressesFromString
 argument_list|(
 name|address
+argument_list|,
+literal|1
 argument_list|)
 decl_stmt|;
-comment|// If user has set `es_port` metadata, we don't need to ping all ports
-comment|// we only limit to 1 addresses, makes no sense to ping 100 ports
+for|for
+control|(
+name|TransportAddress
+name|transportAddress
+range|:
+name|addresses
+control|)
+block|{
 name|logger
 operator|.
 name|trace
@@ -1270,10 +1296,7 @@ name|type
 argument_list|,
 name|ip_private
 argument_list|,
-name|addresses
-index|[
-literal|0
-index|]
+name|transportAddress
 argument_list|,
 name|status
 argument_list|)
@@ -1293,10 +1316,7 @@ literal|"-"
 operator|+
 literal|0
 argument_list|,
-name|addresses
-index|[
-literal|0
-index|]
+name|transportAddress
 argument_list|,
 name|version
 operator|.
@@ -1305,6 +1325,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch

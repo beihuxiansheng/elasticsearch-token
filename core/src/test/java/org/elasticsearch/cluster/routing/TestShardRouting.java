@@ -94,6 +94,9 @@ name|state
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 return|;
 block|}
@@ -156,6 +159,9 @@ name|state
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 return|;
 block|}
@@ -218,6 +224,9 @@ argument_list|,
 name|allocationId
 argument_list|,
 literal|true
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 return|;
 block|}
@@ -283,6 +292,9 @@ name|state
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 return|;
 block|}
@@ -348,6 +360,9 @@ name|state
 argument_list|)
 argument_list|,
 literal|true
+argument_list|,
+operator|-
+literal|1
 argument_list|)
 return|;
 block|}

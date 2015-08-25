@@ -167,6 +167,8 @@ class|class
 name|CardinalityAggregatorFactory
 extends|extends
 name|ValuesSourceAggregatorFactory
+operator|.
+name|LeafOnly
 argument_list|<
 name|ValuesSource
 argument_list|>

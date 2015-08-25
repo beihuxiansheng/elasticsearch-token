@@ -24,7 +24,7 @@ name|elasticsearch
 operator|.
 name|bootstrap
 operator|.
-name|Bootstrap
+name|BootstrapInfo
 import|;
 end_import
 
@@ -498,7 +498,7 @@ operator|.
 name|pid
 argument_list|()
 argument_list|,
-name|Bootstrap
+name|BootstrapInfo
 operator|.
 name|isMemoryLocked
 argument_list|()

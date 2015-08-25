@@ -315,6 +315,8 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
+literal|"local"
+argument_list|,
 name|clusterSeed
 argument_list|,
 name|baseDir
@@ -340,6 +342,8 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
+literal|"local"
+argument_list|,
 name|clusterSeed
 argument_list|,
 name|baseDir
@@ -670,6 +674,8 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
+literal|"local"
+argument_list|,
 name|clusterSeed
 argument_list|,
 name|baseDir
@@ -695,6 +701,8 @@ init|=
 operator|new
 name|InternalTestCluster
 argument_list|(
+literal|"local"
+argument_list|,
 name|clusterSeed
 argument_list|,
 name|baseDir

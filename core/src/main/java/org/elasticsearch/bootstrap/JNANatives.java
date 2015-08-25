@@ -117,6 +117,12 @@ DECL|class|JNANatives
 class|class
 name|JNANatives
 block|{
+comment|/** no instantiation */
+DECL|method|JNANatives
+specifier|private
+name|JNANatives
+parameter_list|()
+block|{}
 DECL|field|logger
 specifier|private
 specifier|static
@@ -135,7 +141,6 @@ argument_list|)
 decl_stmt|;
 comment|// Set to true, in case native mlockall call was successful
 DECL|field|LOCAL_MLOCKALL
-specifier|public
 specifier|static
 name|boolean
 name|LOCAL_MLOCKALL
@@ -317,8 +322,13 @@ operator|+
 literal|",reason="
 operator|+
 name|errMsg
-operator|+
-literal|". This can result in part of the JVM being swapped out."
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"This can result in part of the JVM being swapped out."
 argument_list|)
 expr_stmt|;
 if|if
@@ -362,17 +372,39 @@ name|LINUX
 condition|)
 block|{
 comment|// give specific instructions for the linux case to make it easy
+name|String
+name|user
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"user.name"
+argument_list|)
+decl_stmt|;
 name|logger
 operator|.
 name|warn
 argument_list|(
 literal|"These can be adjusted by modifying /etc/security/limits.conf, for example: \n"
 operator|+
-literal|"\t# allow user 'esuser' mlockall\n"
+literal|"\t# allow user '"
 operator|+
-literal|"\tesuser soft memlock unlimited\n"
+name|user
 operator|+
-literal|"\tesuser hard memlock unlimited"
+literal|"' mlockall\n"
+operator|+
+literal|"\t"
+operator|+
+name|user
+operator|+
+literal|" soft memlock unlimited\n"
+operator|+
+literal|"\t"
+operator|+
+name|user
+operator|+
+literal|" hard memlock unlimited"
 argument_list|)
 expr_stmt|;
 name|logger

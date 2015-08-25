@@ -499,6 +499,8 @@ name|addPath
 argument_list|(
 name|perms
 argument_list|,
+literal|"java.io.tmpdir"
+argument_list|,
 name|javaTmpDir
 argument_list|,
 literal|"read,readlink,write,delete"

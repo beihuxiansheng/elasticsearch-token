@@ -4,15 +4,17 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.common.network
+DECL|package|org.elasticsearch.plugin.discovery.multicast
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|plugin
 operator|.
-name|network
+name|discovery
+operator|.
+name|multicast
 package|;
 end_package
 
@@ -41,6 +43,18 @@ operator|.
 name|util
 operator|.
 name|IOUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
 import|;
 end_import
 
@@ -1202,6 +1216,13 @@ comment|// we delegate here to the close with our listener, not with the delegat
 block|}
 block|}
 comment|/**      * Simple implementation of a channel.      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"I bind to wildcard addresses. I am a total nightmare"
+argument_list|)
 DECL|class|Plain
 specifier|private
 specifier|static

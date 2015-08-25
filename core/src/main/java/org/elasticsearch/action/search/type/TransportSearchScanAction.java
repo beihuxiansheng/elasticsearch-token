@@ -285,6 +285,9 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
+comment|// remove in 3.0
 DECL|class|TransportSearchScanAction
 specifier|public
 class|class

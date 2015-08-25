@@ -740,7 +740,7 @@ name|text
 argument_list|,
 name|containsString
 argument_list|(
-literal|"{\"type\":\"file_not_found_exception\",\"reason\":\"/foo/bar\"}"
+literal|"{\"type\":\"file_not_found_exception\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -750,7 +750,7 @@ name|text
 argument_list|,
 name|containsString
 argument_list|(
-literal|"\"error_trace\":{\"message\":\"an error occurred reading data\""
+literal|"\"stack_trace\":\"[an error occurred reading data]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1195,20 +1195,6 @@ argument_list|(
 name|request
 argument_list|,
 literal|true
-argument_list|)
-expr_stmt|;
-name|request
-operator|.
-name|params
-argument_list|()
-operator|.
-name|put
-argument_list|(
-name|ElasticsearchException
-operator|.
-name|REST_EXCEPTION_SKIP_STACK_TRACE
-argument_list|,
-literal|"true"
 argument_list|)
 expr_stmt|;
 block|}

@@ -48,16 +48,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -125,36 +115,6 @@ operator|.
 name|collect
 operator|.
 name|Tuple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|CreationException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|inject
-operator|.
-name|spi
-operator|.
-name|Message
 import|;
 end_import
 
@@ -338,35 +298,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-operator|.
-name|newHashSet
 import|;
 end_import
 
@@ -389,12 +323,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A main entry point when starting from the command line.  */
+comment|/**  * Internal startup code.  */
 end_comment
 
 begin_class
 DECL|class|Bootstrap
-specifier|public
+specifier|final
 class|class
 name|Bootstrap
 block|{
@@ -710,20 +644,6 @@ operator|.
 name|getInstance
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|isMemoryLocked
-specifier|public
-specifier|static
-name|boolean
-name|isMemoryLocked
-parameter_list|()
-block|{
-return|return
-name|Natives
-operator|.
-name|isMemoryLocked
-argument_list|()
-return|;
 block|}
 DECL|method|setup
 specifier|private
@@ -1074,11 +994,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|main
-specifier|public
+comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
+DECL|method|init
 specifier|static
 name|void
-name|main
+name|init
 parameter_list|(
 name|String
 index|[]
@@ -1393,6 +1313,18 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// disable console logging, so user does not see the exception twice (jvm will show it already)
+if|if
+condition|(
+name|foreground
+condition|)
+block|{
+name|Loggers
+operator|.
+name|disableConsoleLogging
+argument_list|()
+expr_stmt|;
+block|}
 name|ESLogger
 name|logger
 init|=
@@ -1447,6 +1379,18 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+comment|// re-enable it if appropriate, so they can see any logging during the shutdown process
+if|if
+condition|(
+name|foreground
+condition|)
+block|{
+name|Loggers
+operator|.
+name|enableConsoleLogging
+argument_list|()
+expr_stmt|;
+block|}
 throw|throw
 name|e
 throw|;
