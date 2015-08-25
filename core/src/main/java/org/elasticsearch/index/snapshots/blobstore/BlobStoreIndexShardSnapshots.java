@@ -276,7 +276,12 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|shardSnapshots
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Map between blob names and file info
@@ -479,10 +484,15 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -682,10 +692,15 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

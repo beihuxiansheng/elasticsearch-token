@@ -625,10 +625,15 @@ name|Collections
 operator|.
 name|unmodifiableCollection
 argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|danglingIndices
 operator|.
 name|values
 argument_list|()
+argument_list|)
 argument_list|)
 argument_list|,
 operator|new

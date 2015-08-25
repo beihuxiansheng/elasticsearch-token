@@ -3120,7 +3120,12 @@ name|Collections
 operator|.
 name|unmodifiableList
 argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
 name|shards
+argument_list|)
 argument_list|)
 argument_list|)
 return|;
