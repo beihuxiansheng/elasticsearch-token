@@ -1938,16 +1938,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|qpSettings
-operator|.
-name|queryTypes
-argument_list|(
-name|context
-operator|.
-name|queryTypes
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|MapperQueryParser
 name|queryParser
 init|=
