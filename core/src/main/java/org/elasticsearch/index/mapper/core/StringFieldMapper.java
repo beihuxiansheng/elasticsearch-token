@@ -470,7 +470,7 @@ name|NULL_VALUE
 init|=
 literal|null
 decl_stmt|;
-comment|/**          * Post 2.1 default for position_offset_gap. Set to 100 so that          * phrase queries of reasonably high slop will not match across field          * values.          */
+comment|/**          * Post 2.0 default for position_offset_gap. Set to 100 so that          * phrase queries of reasonably high slop will not match across field          * values.          */
 DECL|field|POSITION_OFFSET_GAP
 specifier|public
 specifier|static
@@ -480,12 +480,12 @@ name|POSITION_OFFSET_GAP
 init|=
 literal|100
 decl_stmt|;
-DECL|field|POSITION_OFFSET_GAP_PRE_2_1
+DECL|field|POSITION_OFFSET_GAP_PRE_2_0
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|POSITION_OFFSET_GAP_PRE_2_1
+name|POSITION_OFFSET_GAP_PRE_2_0
 init|=
 literal|0
 decl_stmt|;
@@ -518,12 +518,12 @@ name|before
 argument_list|(
 name|Version
 operator|.
-name|V_2_1_0
+name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
 return|return
-name|POSITION_OFFSET_GAP_PRE_2_1
+name|POSITION_OFFSET_GAP_PRE_2_0
 return|;
 block|}
 return|return
