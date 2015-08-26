@@ -6150,14 +6150,37 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// todo better way of checking conflict?
 name|assertThat
 argument_list|(
-literal|"mapper [point] has different lat_lon"
+literal|"mapper [point] has different [lat_lon]"
+argument_list|,
+name|isIn
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|mergeResult
+operator|.
+name|buildConflicts
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"mapper [point] has different [ignore_malformed]"
 argument_list|,
 name|isIn
 argument_list|(

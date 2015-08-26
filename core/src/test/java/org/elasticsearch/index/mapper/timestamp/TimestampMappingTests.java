@@ -4979,15 +4979,13 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-literal|"mapper [_timestamp] has different index values"
+literal|"mapper [_timestamp] has different [index] values"
 argument_list|,
-literal|"mapper [_timestamp] has different store values"
+literal|"mapper [_timestamp] has different [store] values"
 argument_list|,
 literal|"Cannot update default in _timestamp value. Value is 1970-01-01 now encountering 1970-01-02"
 argument_list|,
 literal|"Cannot update path in _timestamp value. Value is foo path in merged mapping is bar"
-argument_list|,
-literal|"mapper [_timestamp] has different tokenize values"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -5301,14 +5299,14 @@ name|expectedConflicts
 operator|.
 name|add
 argument_list|(
-literal|"mapper [_timestamp] has different index values"
+literal|"mapper [_timestamp] has different [index] values"
 argument_list|)
 expr_stmt|;
 name|expectedConflicts
 operator|.
 name|add
 argument_list|(
-literal|"mapper [_timestamp] has different tokenize values"
+literal|"mapper [_timestamp] has different [tokenize] values"
 argument_list|)
 expr_stmt|;
 if|if
@@ -5334,7 +5332,7 @@ name|expectedConflicts
 operator|.
 name|add
 argument_list|(
-literal|"mapper [_timestamp] has different doc_values values"
+literal|"mapper [_timestamp] has different [doc_values] values"
 argument_list|)
 expr_stmt|;
 block|}

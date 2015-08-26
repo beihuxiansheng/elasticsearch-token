@@ -1329,7 +1329,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"has different store values"
+literal|"has different [store] values"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1370,7 +1370,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"has different store values"
+literal|"has different [store] values"
 argument_list|)
 argument_list|)
 expr_stmt|;

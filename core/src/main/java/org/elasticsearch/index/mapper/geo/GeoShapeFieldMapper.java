@@ -1984,7 +1984,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different strategy"
+literal|"] has different [strategy]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2017,7 +2017,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different tree"
+literal|"] has different [tree]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2046,7 +2046,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different tree_levels"
+literal|"] has different [tree_levels]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2073,9 +2073,69 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different precision"
+literal|"] has different [precision]"
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|strict
+condition|)
+block|{
+if|if
+condition|(
+name|orientation
+argument_list|()
+operator|!=
+name|other
+operator|.
+name|orientation
+argument_list|()
+condition|)
+block|{
+name|conflicts
+operator|.
+name|add
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] is used by multiple types. Set update_all_types to true to update [orientation] across all types."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|distanceErrorPct
+argument_list|()
+operator|!=
+name|other
+operator|.
+name|distanceErrorPct
+argument_list|()
+condition|)
+block|{
+name|conflicts
+operator|.
+name|add
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] is used by multiple types. Set update_all_types to true to update [distance_error_pct] across all types."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getLevels

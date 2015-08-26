@@ -1597,7 +1597,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"mapper [name] has different index values"
+literal|"mapper [name] has different [index] values"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1613,7 +1613,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"mapper [name] has different store values"
+literal|"mapper [name] has different [store] values"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1691,7 +1691,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"mapper [name] has different index values"
+literal|"mapper [name] has different [index] values"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1707,7 +1707,7 @@ index|]
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"mapper [name] has different store values"
+literal|"mapper [name] has different [store] values"
 argument_list|)
 argument_list|)
 expr_stmt|;

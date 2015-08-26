@@ -956,6 +956,64 @@ name|MappedFieldType
 operator|)
 name|o
 decl_stmt|;
+comment|// check similarity first because we need to check the name, and it might be null
+comment|// TODO: SimilarityProvider should have equals?
+if|if
+condition|(
+name|similarity
+operator|==
+literal|null
+operator|||
+name|fieldType
+operator|.
+name|similarity
+operator|==
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|similarity
+operator|!=
+name|fieldType
+operator|.
+name|similarity
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|similarity
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|fieldType
+operator|.
+name|similarity
+operator|.
+name|name
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+block|}
 return|return
 name|boost
 operator|==
@@ -1013,17 +1071,6 @@ name|fieldType
 operator|.
 name|searchQuoteAnalyzer
 argument_list|()
-argument_list|)
-operator|&&
-name|Objects
-operator|.
-name|equals
-argument_list|(
-name|similarity
-argument_list|,
-name|fieldType
-operator|.
-name|similarity
 argument_list|)
 operator|&&
 name|Objects
@@ -1102,6 +1149,15 @@ argument_list|,
 name|searchQuoteAnalyzer
 argument_list|,
 name|similarity
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|similarity
+operator|.
+name|name
+argument_list|()
 argument_list|,
 name|normsLoading
 argument_list|,
@@ -1289,7 +1345,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different index values"
+literal|"] has different [index] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1316,7 +1372,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different store values"
+literal|"] has different [store] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1347,7 +1403,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different doc_values values"
+literal|"] has different [doc_values] values, cannot change from disabled to enabled"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1375,34 +1431,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] cannot enable norms (`norms.enabled`)"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|tokenized
-argument_list|()
-operator|!=
-name|other
-operator|.
-name|tokenized
-argument_list|()
-condition|)
-block|{
-name|conflicts
-operator|.
-name|add
-argument_list|(
-literal|"mapper ["
-operator|+
-name|names
-argument_list|()
-operator|.
-name|fullName
-argument_list|()
-operator|+
-literal|"] has different tokenize values"
+literal|"] has different [omit_norms] values, cannot change from disable to enabled"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1429,7 +1458,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different store_term_vector values"
+literal|"] has different [store_term_vector] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1456,7 +1485,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different store_term_vector_offsets values"
+literal|"] has different [store_term_vector_offsets] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1483,7 +1512,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different store_term_vector_positions values"
+literal|"] has different [store_term_vector_positions] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1510,7 +1539,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different store_term_vector_payloads values"
+literal|"] has different [store_term_vector_payloads] values"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1571,7 +1600,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different analyzer"
+literal|"] has different [analyzer]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1612,7 +1641,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different analyzer"
+literal|"] has different [analyzer]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1651,7 +1680,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different analyzer"
+literal|"] has different [analyzer]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1688,7 +1717,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different index_name"
+literal|"] has different [index_name]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1722,7 +1751,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different similarity"
+literal|"] has different [similarity]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1808,7 +1837,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] is used by multiple types. Set update_all_types to true to update [norms].loading across all types."
+literal|"] is used by multiple types. Set update_all_types to true to update [norms.loading] across all types."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1843,6 +1872,40 @@ name|fullName
 argument_list|()
 operator|+
 literal|"] is used by multiple types. Set update_all_types to true to update [search_analyzer] across all types."
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|Objects
+operator|.
+name|equals
+argument_list|(
+name|searchQuoteAnalyzer
+argument_list|()
+argument_list|,
+name|other
+operator|.
+name|searchQuoteAnalyzer
+argument_list|()
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
+name|conflicts
+operator|.
+name|add
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] is used by multiple types. Set update_all_types to true to update [search_quote_analyzer] across all types."
 argument_list|)
 expr_stmt|;
 block|}
