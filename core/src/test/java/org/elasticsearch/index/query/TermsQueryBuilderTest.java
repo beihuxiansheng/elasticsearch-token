@@ -150,7 +150,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|BeforeClass
+name|Before
 import|;
 end_import
 
@@ -229,20 +229,16 @@ argument_list|>
 block|{
 DECL|field|termsLookupFetchService
 specifier|private
-specifier|static
 name|MockTermsLookupFetchService
 name|termsLookupFetchService
 decl_stmt|;
 annotation|@
-name|BeforeClass
+name|Before
 DECL|method|mockTermsLookupFetchService
 specifier|public
-specifier|static
 name|void
 name|mockTermsLookupFetchService
 parameter_list|()
-throws|throws
-name|IOException
 block|{
 name|termsLookupFetchService
 operator|=
