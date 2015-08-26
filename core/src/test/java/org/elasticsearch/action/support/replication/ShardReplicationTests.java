@@ -5063,16 +5063,7 @@ decl_stmt|;
 DECL|method|Request
 name|Request
 parameter_list|()
-block|{
-name|this
-operator|.
-name|operationThreaded
-argument_list|(
-name|randomBoolean
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
+block|{         }
 DECL|method|Request
 name|Request
 parameter_list|(

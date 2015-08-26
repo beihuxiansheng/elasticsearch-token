@@ -166,36 +166,6 @@ name|request
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Controls if the operation will be executed on a separate thread when executed locally. Defaults      * to<tt>true</tt> when running in embedded mode.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|setOperationThreaded
-specifier|public
-specifier|final
-name|RequestBuilder
-name|setOperationThreaded
-parameter_list|(
-name|boolean
-name|threadedOperation
-parameter_list|)
-block|{
-name|request
-operator|.
-name|operationThreaded
-argument_list|(
-name|threadedOperation
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|RequestBuilder
-operator|)
-name|this
-return|;
-block|}
 comment|/**      * A timeout to wait if the index operation can't be performed immediately. Defaults to<tt>1m</tt>.      */
 annotation|@
 name|SuppressWarnings
