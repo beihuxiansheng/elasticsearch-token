@@ -363,6 +363,7 @@ name|double
 name|sigma
 decl_stmt|;
 DECL|method|InternalExtendedStats
+specifier|protected
 name|InternalExtendedStats
 parameter_list|()
 block|{}
