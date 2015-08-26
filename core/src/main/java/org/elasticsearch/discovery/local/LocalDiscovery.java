@@ -2024,9 +2024,14 @@ argument_list|)
 expr_stmt|;
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"sending diff cluster state version with size {} to [{}]"
+literal|"sending diff cluster state version [{}] with size {} to [{}]"
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
 argument_list|,
 name|clusterStateDiffBytes
 operator|.
@@ -2051,9 +2056,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"incompatible cluster state version - resending complete cluster state"
+literal|"incompatible cluster state version [{}] - resending complete cluster state"
 argument_list|,
 name|ex
+argument_list|,
+name|clusterState
+operator|.
+name|version
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
