@@ -178,7 +178,7 @@ name|fieldPattern
 operator|=
 name|randomFrom
 argument_list|(
-name|mappedFieldNames
+name|MAPPED_FIELD_NAMES
 argument_list|)
 expr_stmt|;
 block|}

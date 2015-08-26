@@ -165,11 +165,11 @@ specifier|final
 name|int
 name|end
 decl_stmt|;
-DECL|field|SPAN_FIRST_QUERY_BUILDER
+DECL|field|PROTOTYPE
 specifier|static
 specifier|final
 name|SpanFirstQueryBuilder
-name|SPAN_FIRST_QUERY_BUILDER
+name|PROTOTYPE
 init|=
 operator|new
 name|SpanFirstQueryBuilder

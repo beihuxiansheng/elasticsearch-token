@@ -837,34 +837,7 @@ operator|.
 name|queryStringLenient
 return|;
 block|}
-comment|//norelease we might want to get rid of this as it was temporarily introduced for our default doToQuery impl
-comment|//seems to be used only in tests
-DECL|method|queryParser
-specifier|public
-name|QueryParser
-argument_list|<
-name|?
-argument_list|>
-name|queryParser
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-return|return
-name|indicesQueriesRegistry
-operator|.
-name|queryParsers
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|name
-argument_list|)
-return|;
-block|}
 DECL|method|indicesQueriesRegistry
-specifier|public
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|()

@@ -462,7 +462,13 @@ operator|.
 name|indexQueryParserService
 argument_list|()
 operator|.
-name|queryParser
+name|indicesQueriesRegistry
+argument_list|()
+operator|.
+name|queryParsers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 name|getName
 argument_list|()

@@ -92,7 +92,7 @@ argument_list|()
 condition|?
 name|randomFrom
 argument_list|(
-name|mappedFieldNames
+name|MAPPED_FIELD_NAMES
 argument_list|)
 else|:
 name|randomAsciiOfLengthBetween

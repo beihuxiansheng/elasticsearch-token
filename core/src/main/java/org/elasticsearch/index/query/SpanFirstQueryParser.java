@@ -432,7 +432,7 @@ block|{
 return|return
 name|SpanFirstQueryBuilder
 operator|.
-name|SPAN_FIRST_QUERY_BUILDER
+name|PROTOTYPE
 return|;
 block|}
 block|}
