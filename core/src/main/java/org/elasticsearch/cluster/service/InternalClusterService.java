@@ -310,20 +310,6 @@ name|common
 operator|.
 name|transport
 operator|.
-name|BoundTransportAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|transport
-operator|.
 name|TransportAddress
 import|;
 end_import
@@ -2918,7 +2904,9 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Throwable
+name|Discovery
+operator|.
+name|FailedToCommitClusterStateException
 name|t
 parameter_list|)
 block|{
@@ -2926,7 +2914,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"failing [{}]: failed to publish cluster state version [{}]"
+literal|"failing [{}]: failed to commit cluster state version [{}]"
 argument_list|,
 name|t
 argument_list|,

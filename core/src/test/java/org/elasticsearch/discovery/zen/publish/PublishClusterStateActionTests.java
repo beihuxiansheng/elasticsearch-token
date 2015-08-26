@@ -2699,7 +2699,7 @@ name|previousClusterState
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test concurrent publishing works correctly (although not strictly required, it's a good testamne      */
+comment|/**      * Test not waiting publishing works correctly (i.e., publishing times out)      */
 annotation|@
 name|Test
 DECL|method|testSimultaneousClusterStatePublishing
@@ -3404,7 +3404,9 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|ElasticsearchException
+name|Discovery
+operator|.
+name|FailedToCommitClusterStateException
 name|e
 parameter_list|)
 block|{
@@ -3431,7 +3433,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"Simulated"
+literal|"failed to serialize"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3672,9 +3674,9 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|PublishClusterStateAction
+name|Discovery
 operator|.
-name|FailedToCommitException
+name|FailedToCommitClusterStateException
 name|expected
 parameter_list|)
 block|{
@@ -4300,9 +4302,9 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|PublishClusterStateAction
+name|Discovery
 operator|.
-name|FailedToCommitException
+name|FailedToCommitClusterStateException
 name|exception
 parameter_list|)
 block|{
@@ -5462,9 +5464,9 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|PublishClusterStateAction
+name|Discovery
 operator|.
-name|FailedToCommitException
+name|FailedToCommitClusterStateException
 name|OK
 parameter_list|)
 block|{

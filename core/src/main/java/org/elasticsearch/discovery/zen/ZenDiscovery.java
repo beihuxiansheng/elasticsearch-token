@@ -2246,9 +2246,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|PublishClusterStateAction
-operator|.
-name|FailedToCommitException
+name|FailedToCommitClusterStateException
 name|t
 parameter_list|)
 block|{
