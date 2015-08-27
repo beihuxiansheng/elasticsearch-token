@@ -54,6 +54,20 @@ name|lucene
 operator|.
 name|util
 operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
 name|IOUtils
 import|;
 end_import
@@ -5526,22 +5540,13 @@ argument_list|(
 literal|"}"
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assumeFalse
 argument_list|(
-name|expectedSubSequence
-argument_list|)
-expr_stmt|;
-name|System
+literal|"Some path weirdness on windows"
+argument_list|,
+name|Constants
 operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|xContent
+name|WINDOWS
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -5555,8 +5560,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// "shard_path":{"state_path":"/private/var/folders/qj/rsr2js6n275f3r88r1z5bbgw0000gn/T/org.elasticsearch.index.shard.IndexShardTests_EE3FC3D62D02988A-001/tempDir-001/data/single-node-cluster-CHILD_VM=[0]-CLUSTER_SEED=[9012992977055748205]-HASH=[13FDF896A8B7DEC0]/nodes/0","data_path":"/private/var/folders/qj/rsr2js6n275f3r88r1z5bbgw0000gn/T/org.elasticsearch.index.shard.IndexShardTests_EE3FC3D62D02988A-001/tempDir-001/data/single-node-cluster-CHILD_VM=[0]-CLUSTER_SEED=[9012992977055748205]-HASH=[13FDF896A8B7DEC0]/nodes/0","is_custom_data_path":"false}
-comment|// "shard_path":{"state_path":"/private/var/folders/qj/rsr2js6n275f3r88r1z5bbgw0000gn/T/org.elasticsearch.index.shard.IndexShardTests_EE3FC3D62D02988A-001/tempDir-001/data/single-node-cluster-CHILD_VM=[0]-CLUSTER_SEED=[9012992977055748205]-HASH=[13FDF896A8B7DEC0]/nodes/0","data_path":"/private/var/folders/qj/rsr2js6n275f3r88r1z5bbgw0000gn/T/org.elasticsearch.index.shard.IndexShardTests_EE3FC3D62D02988A-001/tempDir-001/data/single-node-cluster-CHILD_VM=[0]-CLUSTER_SEED=[9012992977055748205]-HASH=[13FDF896A8B7DEC0]/nodes/0","is_custom_data_path":false}
 block|}
 end_class
 
