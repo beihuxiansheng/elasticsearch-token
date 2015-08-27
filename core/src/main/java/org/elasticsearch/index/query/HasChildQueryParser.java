@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|Filter
 import|;
 end_import
 
@@ -68,7 +68,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Filter
+name|IndexSearcher
 import|;
 end_import
 
@@ -113,18 +113,6 @@ operator|.
 name|join
 operator|.
 name|BitDocIdSetFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParseField
 import|;
 end_import
 
@@ -178,7 +166,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Strings
+name|ParseField
 import|;
 end_import
 
@@ -190,9 +178,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|Tuple
+name|Strings
 import|;
 end_import
 
@@ -404,9 +390,11 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
-name|internal
+name|fetch
 operator|.
-name|SearchContext
+name|innerhits
+operator|.
+name|InnerHitsSubSearchContext
 import|;
 end_import
 
@@ -420,7 +408,7 @@ name|search
 operator|.
 name|internal
 operator|.
-name|SubSearchContext
+name|SearchContext
 import|;
 end_import
 
@@ -583,12 +571,7 @@ name|queryName
 init|=
 literal|null
 decl_stmt|;
-name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|SubSearchContext
-argument_list|>
+name|InnerHitsSubSearchContext
 name|innerHits
 init|=
 literal|null
@@ -1147,7 +1130,7 @@ name|ParentChildInnerHits
 argument_list|(
 name|innerHits
 operator|.
-name|v2
+name|getSubSearchContext
 argument_list|()
 argument_list|,
 name|parsedQuery
@@ -1167,14 +1150,14 @@ name|name
 init|=
 name|innerHits
 operator|.
-name|v1
+name|getName
 argument_list|()
 operator|!=
 literal|null
 condition|?
 name|innerHits
 operator|.
-name|v1
+name|getName
 argument_list|()
 else|:
 name|childType
