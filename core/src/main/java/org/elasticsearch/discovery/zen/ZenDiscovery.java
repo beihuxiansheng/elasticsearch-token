@@ -1314,6 +1314,8 @@ name|TimeValue
 operator|.
 name|timeValueMillis
 argument_list|(
+name|this
+operator|.
 name|pingTimeout
 operator|.
 name|millis
