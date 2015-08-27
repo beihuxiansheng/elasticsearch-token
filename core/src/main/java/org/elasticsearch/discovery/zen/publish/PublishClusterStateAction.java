@@ -886,6 +886,8 @@ name|t
 parameter_list|)
 block|{
 comment|// try to fail committing, in cause it's still on going
+if|if
+condition|(
 name|sendingController
 operator|.
 name|markAsFailed
@@ -899,15 +901,6 @@ argument_list|()
 operator|+
 literal|"]"
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|sendingController
-operator|.
-name|isCommitted
-argument_list|()
-operator|==
-literal|false
 condition|)
 block|{
 comment|// signal the change should be rejected
@@ -1404,8 +1397,6 @@ parameter_list|(
 name|ClusterState
 name|clusterState
 parameter_list|,
-annotation|@
-name|Nullable
 name|Map
 argument_list|<
 name|Version
@@ -1649,6 +1640,9 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// -> no need to put a timeout on the options here, because we want the response to eventually be received
+comment|//  and not log an error if it arrives after the timeout
+comment|// -> no need to compress, we already compressed the bytes
 name|TransportRequestOptions
 name|options
 init|=
@@ -1671,8 +1665,6 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-comment|// no need to put a timeout on the options here, because we want the response to eventually be received
-comment|// and not log an error if it arrives after the timeout
 name|transportService
 operator|.
 name|sendRequest
@@ -1694,7 +1686,6 @@ argument_list|)
 argument_list|,
 name|options
 argument_list|,
-comment|// no need to compress, we already compressed the bytes
 operator|new
 name|EmptyTransportResponseHandler
 argument_list|(
@@ -1911,11 +1902,6 @@ name|Type
 operator|.
 name|STATE
 argument_list|)
-operator|.
-name|withCompress
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 comment|// no need to put a timeout on the options here, because we want the response to eventually be received
 comment|// and not log an error if it arrives after the timeout
@@ -1938,7 +1924,6 @@ argument_list|)
 argument_list|,
 name|options
 argument_list|,
-comment|// no need to compress, we already compressed the bytes
 operator|new
 name|EmptyTransportResponseHandler
 argument_list|(
