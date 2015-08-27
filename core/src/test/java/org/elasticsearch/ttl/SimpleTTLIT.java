@@ -412,18 +412,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|lessThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|lessThanOrEqualTo
 import|;
 end_import
@@ -2362,7 +2350,7 @@ argument_list|)
 argument_list|,
 name|both
 argument_list|(
-name|lessThan
+name|lessThanOrEqualTo
 argument_list|(
 name|firstTtl
 argument_list|)
@@ -2414,7 +2402,7 @@ argument_list|)
 argument_list|,
 name|both
 argument_list|(
-name|lessThan
+name|lessThanOrEqualTo
 argument_list|(
 name|firstTtl
 argument_list|)
@@ -2465,7 +2453,7 @@ argument_list|)
 argument_list|,
 name|both
 argument_list|(
-name|lessThan
+name|lessThanOrEqualTo
 argument_list|(
 name|secondTtl
 argument_list|)
@@ -2521,7 +2509,7 @@ argument_list|)
 argument_list|,
 name|both
 argument_list|(
-name|lessThan
+name|lessThanOrEqualTo
 argument_list|(
 name|secondTtl
 argument_list|)
@@ -2575,7 +2563,7 @@ argument_list|(
 name|update
 argument_list|)
 argument_list|,
-name|lessThan
+name|lessThanOrEqualTo
 argument_list|(
 name|thirdTtl
 argument_list|)
