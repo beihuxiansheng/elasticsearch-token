@@ -3429,6 +3429,15 @@ name|Version
 operator|.
 name|V_1_0_0_Beta2
 argument_list|)
+operator|||
+name|version
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0_beta1
+argument_list|)
 condition|)
 block|{
 comment|// TODO: remove this once #10262 is fixed

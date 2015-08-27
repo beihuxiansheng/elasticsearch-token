@@ -216,7 +216,6 @@ block|{
 name|testGap
 argument_list|(
 name|client
-argument_list|()
 argument_list|,
 name|indexName
 argument_list|,
