@@ -1234,7 +1234,7 @@ argument_list|,
 name|dataPathToShardCount
 argument_list|)
 decl_stmt|;
-comment|// This was the original failure: on a node with 2 disks that have nearly equal
+comment|// #11122: this was the original failure: on a node with 2 disks that have nearly equal
 comment|// free space, we would always allocate all N incoming shards to the one path that
 comment|// had the most free space, never using the other drive unless new shards arrive
 comment|// after the first shards started using storage:
