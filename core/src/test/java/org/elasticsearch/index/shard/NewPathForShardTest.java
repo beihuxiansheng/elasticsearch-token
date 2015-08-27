@@ -390,6 +390,10 @@ name|settingsBuilder
 import|;
 end_import
 
+begin_comment
+comment|/** Separate test class from ShardPathTests because we need static (BeforeClass) setup to install mock filesystems... */
+end_comment
+
 begin_class
 DECL|class|NewPathForShardTest
 specifier|public
@@ -398,7 +402,7 @@ name|NewPathForShardTest
 extends|extends
 name|ESTestCase
 block|{
-comment|// Sneakiness to install a mock filesystem to pretend how much free space we have on each path.data:
+comment|// Sneakiness to install mock file stores so we can pretend how much free space we have on each path.data:
 DECL|field|aFileStore
 specifier|private
 specifier|static
@@ -441,6 +445,13 @@ throws|throws
 name|Exception
 block|{
 comment|// Necessary so when Environment.clinit runs, to gather all FileStores, it sees ours:
+name|origFileSystem
+operator|=
+name|FileSystems
+operator|.
+name|getDefault
+argument_list|()
+expr_stmt|;
 name|Field
 name|field
 init|=
@@ -459,15 +470,6 @@ name|setAccessible
 argument_list|(
 literal|true
 argument_list|)
-expr_stmt|;
-comment|// nocommit can't double Filter maybe?
-comment|// origFileSystem = (FileSystem) field.get(null);
-name|origFileSystem
-operator|=
-name|FileSystems
-operator|.
-name|getDefault
-argument_list|()
 expr_stmt|;
 name|FileSystem
 name|mock
@@ -740,7 +742,6 @@ return|return
 name|desc
 return|;
 block|}
-comment|// TODO: we can enable mocking of these when we need them later:
 annotation|@
 name|Override
 DECL|method|isReadOnly
@@ -1016,7 +1017,7 @@ name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// a has lots of free space, but b has little, so new shard should go to a:
+comment|// Path a has lots of free space, but b has little, so new shard should go to a:
 name|aFileStore
 operator|.
 name|usableSpace
@@ -1084,7 +1085,7 @@ literal|"/a/"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// test the reverse: b has lots of free space, but a has little, so new shard should go to b:
+comment|// Test the reverse: b has lots of free space, but a has little, so new shard should go to b:
 name|aFileStore
 operator|.
 name|usableSpace
@@ -1150,7 +1151,7 @@ literal|"/b/"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// now a and be have equal usable space; we allocate two shards to the node, and each should go to different paths:
+comment|// Now a and be have equal usable space; we allocate two shards to the node, and each should go to different paths:
 name|aFileStore
 operator|.
 name|usableSpace
@@ -1234,8 +1235,9 @@ name|dataPathToShardCount
 argument_list|)
 decl_stmt|;
 comment|// This was the original failure: on a node with 2 disks that have nearly equal
-comment|// free space, we would always allocate all incoming shards to the one path that
-comment|// had the most free space:
+comment|// free space, we would always allocate all N incoming shards to the one path that
+comment|// had the most free space, never using the other drive unless new shards arrive
+comment|// after the first shards started using storage:
 name|assertNotEquals
 argument_list|(
 name|result1
