@@ -1041,7 +1041,10 @@ argument_list|,
 literal|"index"
 argument_list|,
 name|i
+operator|+
+literal|1
 argument_list|)
+comment|// we add 1 to the index field to make sure that the scripts below never compute log(0)
 operator|.
 name|get
 argument_list|()
