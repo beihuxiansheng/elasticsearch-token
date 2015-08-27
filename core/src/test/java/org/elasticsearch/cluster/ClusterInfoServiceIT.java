@@ -1054,7 +1054,7 @@ name|usages
 init|=
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 decl_stmt|;
 name|Map
@@ -1317,7 +1317,7 @@ literal|"some usages are populated"
 argument_list|,
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -1563,7 +1563,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -1698,7 +1698,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -1759,7 +1759,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size

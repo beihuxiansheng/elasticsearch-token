@@ -369,6 +369,8 @@ literal|"node_t1"
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|100
@@ -393,6 +395,8 @@ literal|"node_t2"
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|100
@@ -416,6 +420,8 @@ argument_list|(
 literal|"node_t3"
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|100
 argument_list|,

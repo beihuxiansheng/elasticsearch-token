@@ -531,6 +531,8 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -560,6 +562,8 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -588,6 +592,8 @@ literal|2
 argument_list|)
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|100
 argument_list|,
@@ -724,7 +730,7 @@ literal|"--> got: {} nodes"
 argument_list|,
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -735,7 +741,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -880,6 +886,8 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -909,6 +917,8 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -937,6 +947,8 @@ literal|2
 argument_list|)
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|100
 argument_list|,
@@ -1177,6 +1189,8 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -1206,6 +1220,8 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -1234,6 +1250,8 @@ literal|2
 argument_list|)
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|100
 argument_list|,
