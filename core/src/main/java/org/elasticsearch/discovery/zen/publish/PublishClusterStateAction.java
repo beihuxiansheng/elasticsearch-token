@@ -100,18 +100,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Nullable
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -1449,13 +1437,6 @@ name|version
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|serializedStates
-operator|!=
-literal|null
-condition|)
-block|{
 name|serializedStates
 operator|.
 name|put
@@ -1468,7 +1449,6 @@ argument_list|,
 name|bytes
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -3031,6 +3011,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Coordinates acknowledgments of the sent cluster state from the different nodes. Commits the change      * after `minimum_master_nodes` have successfully responded or fails the entire change. After committing      * the cluster state, will trigger a commit message to all nodes that responded previously and responds immediately      * to all future acknowledgments.      */
 DECL|class|SendingController
 class|class
 name|SendingController
@@ -3379,7 +3360,7 @@ name|isMasterNode
 argument_list|()
 condition|)
 block|{
-name|onMasterNodeSendAck
+name|checkForCommitOrFailIfNoPending
 argument_list|(
 name|node
 argument_list|)
@@ -3387,14 +3368,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|onMasterNodeSendAck
+comment|/**          * check if enough master node responded to commit the change. fails the commit          * if there are no more pending master nodes but not enough acks to commit.          */
+DECL|method|checkForCommitOrFailIfNoPending
 specifier|synchronized
 specifier|private
 name|void
-name|onMasterNodeSendAck
+name|checkForCommitOrFailIfNoPending
 parameter_list|(
 name|DiscoveryNode
-name|node
+name|masterNode
 parameter_list|)
 block|{
 name|logger
@@ -3403,7 +3385,7 @@ name|trace
 argument_list|(
 literal|"master node {} acked cluster state version [{}]. processing ... (current pending [{}], needed [{}])"
 argument_list|,
-name|node
+name|masterNode
 argument_list|,
 name|clusterState
 operator|.
@@ -3456,21 +3438,16 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|onMasterNodeDone
-argument_list|(
-name|node
-argument_list|)
+name|decrementPendingMasterAcksAndChangeForFailure
+argument_list|()
 expr_stmt|;
 block|}
-DECL|method|onMasterNodeDone
+DECL|method|decrementPendingMasterAcksAndChangeForFailure
 specifier|synchronized
 specifier|private
 name|void
-name|onMasterNodeDone
-parameter_list|(
-name|DiscoveryNode
-name|node
-parameter_list|)
+name|decrementPendingMasterAcksAndChangeForFailure
+parameter_list|()
 block|{
 name|pendingMasterNodes
 operator|--
@@ -3488,11 +3465,11 @@ condition|)
 block|{
 name|markAsFailed
 argument_list|(
-literal|"no more pending master nodes, but ["
+literal|"no more pending master nodes, but failed to reach needed acks (["
 operator|+
 name|neededMastersToCommit
 operator|+
-literal|"] acks are still needed"
+literal|"] left)"
 argument_list|)
 expr_stmt|;
 block|}
@@ -3536,10 +3513,8 @@ argument_list|,
 name|neededMastersToCommit
 argument_list|)
 expr_stmt|;
-name|onMasterNodeDone
-argument_list|(
-name|node
-argument_list|)
+name|decrementPendingMasterAcksAndChangeForFailure
+argument_list|()
 expr_stmt|;
 block|}
 name|publishResponseHandler
