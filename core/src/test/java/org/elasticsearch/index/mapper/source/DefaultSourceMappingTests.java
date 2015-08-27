@@ -238,7 +238,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
 import|;
 end_import
 
@@ -1811,7 +1811,7 @@ argument_list|(
 literal|"my_type"
 argument_list|)
 operator|.
-name|v1
+name|getDocumentMapper
 argument_list|()
 decl_stmt|;
 name|assertThat
