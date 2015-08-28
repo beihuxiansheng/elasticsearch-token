@@ -66,20 +66,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -477,6 +463,22 @@ operator|.
 name|util
 operator|.
 name|Iterator
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
+operator|.
+name|newLinkedList
 import|;
 end_import
 
@@ -1175,8 +1177,6 @@ name|FieldMapper
 argument_list|>
 name|remainingFieldMappers
 init|=
-name|Lists
-operator|.
 name|newLinkedList
 argument_list|(
 name|allFieldMappers

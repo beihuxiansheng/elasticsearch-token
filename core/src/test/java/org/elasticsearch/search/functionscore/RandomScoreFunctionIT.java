@@ -124,16 +124,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -174,22 +164,6 @@ end_import
 
 begin_import
 import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -216,39 +190,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|functionScoreQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchQuery
+name|*
 import|;
 end_import
 
@@ -266,43 +208,7 @@ name|functionscore
 operator|.
 name|ScoreFunctionBuilders
 operator|.
-name|fieldValueFactorFunction
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionBuilders
-operator|.
-name|randomFunction
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
-name|ScoreFunctionBuilders
-operator|.
-name|scriptFunction
+name|*
 import|;
 end_import
 
@@ -346,79 +252,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|allOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThan
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|greaterThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|lessThanOrEqualTo
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|nullValue
+name|*
 import|;
 end_import
 
@@ -1028,7 +862,9 @@ literal|"body"
 argument_list|,
 name|randomFrom
 argument_list|(
-name|newArrayList
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 literal|"foo"
 argument_list|,
