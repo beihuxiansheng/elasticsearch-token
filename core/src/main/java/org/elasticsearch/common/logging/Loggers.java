@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -122,23 +108,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|ArrayList
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
+name|List
 import|;
 end_import
 
@@ -151,6 +131,22 @@ operator|.
 name|Arrays
 operator|.
 name|asList
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
+operator|.
+name|asArrayList
 import|;
 end_import
 
@@ -264,9 +260,7 @@ operator|.
 name|index
 argument_list|()
 argument_list|,
-name|Lists
-operator|.
-name|asList
+name|asArrayList
 argument_list|(
 name|Integer
 operator|.
@@ -320,9 +314,7 @@ name|loggerName
 argument_list|,
 name|settings
 argument_list|,
-name|Lists
-operator|.
-name|asList
+name|asArrayList
 argument_list|(
 name|shardId
 operator|.
@@ -383,9 +375,7 @@ name|clazz
 argument_list|,
 name|settings
 argument_list|,
-name|Lists
-operator|.
-name|asList
+name|asArrayList
 argument_list|(
 name|SPACE
 argument_list|,
@@ -503,7 +493,9 @@ name|String
 argument_list|>
 name|prefixesList
 init|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

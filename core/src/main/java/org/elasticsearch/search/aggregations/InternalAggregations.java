@@ -82,20 +82,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Maps
 import|;
 end_import
@@ -312,6 +298,22 @@ name|newHashMap
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
+operator|.
+name|eagerTransform
+import|;
+end_import
+
 begin_comment
 comment|/**  * An internal implementation of {@link Aggregations}.  */
 end_comment
@@ -462,9 +464,7 @@ name|asList
 parameter_list|()
 block|{
 return|return
-name|Lists
-operator|.
-name|transform
+name|eagerTransform
 argument_list|(
 name|aggregations
 argument_list|,
@@ -1120,9 +1120,9 @@ else|else
 block|{
 name|aggregations
 operator|=
-name|Lists
-operator|.
-name|newArrayListWithCapacity
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

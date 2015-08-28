@@ -24,7 +24,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectMap
+name|ObjectObjectHashMap
 import|;
 end_import
 
@@ -36,21 +36,7 @@ name|carrotsearch
 operator|.
 name|hppc
 operator|.
-name|ObjectObjectHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
+name|ObjectObjectMap
 import|;
 end_import
 
@@ -333,9 +319,9 @@ parameter_list|)
 block|{
 name|fields
 operator|=
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
@@ -1521,9 +1507,9 @@ name|Document
 argument_list|>
 name|documents
 init|=
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 annotation|@
@@ -1686,9 +1672,9 @@ name|this
 operator|.
 name|documents
 operator|=
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|this
