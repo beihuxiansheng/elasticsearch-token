@@ -366,22 +366,6 @@ end_import
 
 begin_import
 import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -393,6 +377,22 @@ operator|.
 name|ShardRoutingState
 operator|.
 name|INITIALIZING
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
+operator|.
+name|arrayAsArrayList
 import|;
 end_import
 
@@ -1036,7 +1036,7 @@ name|applyStartedShards
 argument_list|(
 name|clusterState
 argument_list|,
-name|newArrayList
+name|arrayAsArrayList
 argument_list|(
 name|initializingShards
 operator|.

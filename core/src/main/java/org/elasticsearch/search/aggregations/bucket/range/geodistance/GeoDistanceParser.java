@@ -1203,6 +1203,10 @@ literal|" in ["
 operator|+
 name|aggregationName
 operator|+
+literal|"]: ["
+operator|+
+name|currentFieldName
+operator|+
 literal|"]."
 argument_list|,
 name|parser

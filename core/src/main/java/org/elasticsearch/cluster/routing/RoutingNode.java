@@ -84,22 +84,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
-import|;
-end_import
-
 begin_comment
 comment|/**  * A {@link RoutingNode} represents a cluster node associated with a single {@link DiscoveryNode} including all shards  * that are hosted on that nodes. Each {@link RoutingNode} has a unique node id that can be used to identify the node.  */
 end_comment
@@ -419,7 +403,9 @@ name|ShardRouting
 argument_list|>
 name|shards
 init|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -485,7 +471,9 @@ name|ShardRouting
 argument_list|>
 name|shards
 init|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

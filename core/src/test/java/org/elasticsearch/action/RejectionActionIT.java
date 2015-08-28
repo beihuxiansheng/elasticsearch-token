@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -400,9 +386,9 @@ name|Object
 argument_list|>
 name|responses
 init|=
-name|Lists
-operator|.
-name|newCopyOnWriteArrayList
+operator|new
+name|CopyOnWriteArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

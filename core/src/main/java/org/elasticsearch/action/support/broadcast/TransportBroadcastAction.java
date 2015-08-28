@@ -319,12 +319,6 @@ argument_list|,
 name|Response
 argument_list|>
 block|{
-DECL|field|threadPool
-specifier|protected
-specifier|final
-name|ThreadPool
-name|threadPool
-decl_stmt|;
 DECL|field|clusterService
 specifier|protected
 specifier|final
@@ -411,12 +405,6 @@ operator|.
 name|transportService
 operator|=
 name|transportService
-expr_stmt|;
-name|this
-operator|.
-name|threadPool
-operator|=
-name|threadPool
 expr_stmt|;
 name|this
 operator|.

@@ -118,6 +118,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -139,22 +149,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
 import|;
 end_import
 
@@ -1399,7 +1393,9 @@ parameter_list|()
 block|{
 name|deletes
 operator|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|diffs
@@ -1431,7 +1427,9 @@ name|IOException
 block|{
 name|deletes
 operator|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|diffs

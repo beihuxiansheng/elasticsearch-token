@@ -28,21 +28,17 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Lists
+name|Sets
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
+name|ArrayList
 import|;
 end_import
 
@@ -221,9 +217,9 @@ name|getTestSections
 parameter_list|()
 block|{
 return|return
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|(
 name|testSections
 argument_list|)

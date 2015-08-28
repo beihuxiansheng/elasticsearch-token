@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -160,7 +146,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|ShardId
+name|IndexShard
 import|;
 end_import
 
@@ -174,7 +160,7 @@ name|index
 operator|.
 name|shard
 operator|.
-name|IndexShard
+name|ShardId
 import|;
 end_import
 
@@ -187,6 +173,16 @@ operator|.
 name|threadpool
 operator|.
 name|ThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -614,9 +610,9 @@ name|TerminationHandle
 argument_list|>
 name|terminationHandles
 init|=
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// get a handle on pending tasks

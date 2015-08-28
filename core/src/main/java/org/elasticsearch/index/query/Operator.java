@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -99,6 +85,20 @@ operator|.
 name|stream
 operator|.
 name|Writeable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
 import|;
 end_import
 
@@ -378,9 +378,9 @@ name|IllegalArgumentException
 argument_list|(
 literal|"operator needs to be either "
 operator|+
-name|Lists
+name|CollectionUtils
 operator|.
-name|newArrayList
+name|arrayAsArrayList
 argument_list|(
 name|Operator
 operator|.

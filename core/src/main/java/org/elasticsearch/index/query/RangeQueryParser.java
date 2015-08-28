@@ -99,6 +99,24 @@ argument_list|(
 literal|"[no replacement]"
 argument_list|)
 decl_stmt|;
+DECL|field|NAME_FIELD
+specifier|private
+specifier|static
+specifier|final
+name|ParseField
+name|NAME_FIELD
+init|=
+operator|new
+name|ParseField
+argument_list|(
+literal|"_name"
+argument_list|)
+operator|.
+name|withAllDeprecated
+argument_list|(
+literal|"query name is not supported in short version of range query"
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|RangeQueryParser
@@ -623,11 +641,16 @@ condition|)
 block|{
 if|if
 condition|(
-literal|"_name"
+name|parseContext
 operator|.
-name|equals
+name|parseFieldMatcher
+argument_list|()
+operator|.
+name|match
 argument_list|(
 name|currentFieldName
+argument_list|,
+name|NAME_FIELD
 argument_list|)
 condition|)
 block|{

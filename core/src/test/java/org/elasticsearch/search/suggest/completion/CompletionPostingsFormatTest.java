@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -855,9 +841,9 @@ name|CompletionLookupProvider
 argument_list|>
 name|providers
 init|=
-name|Lists
+name|Arrays
 operator|.
-name|newArrayList
+name|asList
 argument_list|(
 name|providerV1
 argument_list|,

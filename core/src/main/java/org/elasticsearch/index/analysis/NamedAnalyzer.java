@@ -74,11 +74,11 @@ specifier|final
 name|Analyzer
 name|analyzer
 decl_stmt|;
-DECL|field|positionOffsetGap
+DECL|field|positionIncrementGap
 specifier|private
 specifier|final
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 decl_stmt|;
 DECL|method|NamedAnalyzer
 specifier|public
@@ -88,7 +88,7 @@ name|NamedAnalyzer
 name|analyzer
 parameter_list|,
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|)
 block|{
 name|this
@@ -108,7 +108,7 @@ operator|.
 name|analyzer
 argument_list|()
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 expr_stmt|;
 block|}
@@ -177,7 +177,7 @@ name|Analyzer
 name|analyzer
 parameter_list|,
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|)
 block|{
 name|super
@@ -205,9 +205,9 @@ name|analyzer
 expr_stmt|;
 name|this
 operator|.
-name|positionOffsetGap
+name|positionIncrementGap
 operator|=
-name|positionOffsetGap
+name|positionIncrementGap
 expr_stmt|;
 block|}
 comment|/**      * The name of the analyzer.      */
@@ -279,7 +279,7 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|positionOffsetGap
+name|positionIncrementGap
 operator|!=
 name|Integer
 operator|.
@@ -287,7 +287,7 @@ name|MIN_VALUE
 condition|)
 block|{
 return|return
-name|positionOffsetGap
+name|positionIncrementGap
 return|;
 block|}
 return|return

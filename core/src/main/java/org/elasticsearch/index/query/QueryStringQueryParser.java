@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -275,6 +261,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -733,12 +729,11 @@ name|qpSettings
 operator|.
 name|fields
 argument_list|(
-name|Lists
-operator|.
-expr|<
+operator|new
+name|ArrayList
+argument_list|<
 name|String
-operator|>
-name|newArrayList
+argument_list|>
 argument_list|()
 argument_list|)
 expr_stmt|;

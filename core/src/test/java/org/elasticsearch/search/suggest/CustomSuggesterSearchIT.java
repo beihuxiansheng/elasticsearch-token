@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -69,6 +55,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
 import|;
 end_import
 
@@ -168,7 +168,7 @@ name|test
 operator|.
 name|ESIntegTestCase
 operator|.
-name|*
+name|Scope
 import|;
 end_import
 
@@ -453,6 +453,7 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 comment|// TODO: infer type once JI-9019884 is fixed
+comment|// TODO: see also JDK-8039214
 name|List
 argument_list|<
 name|Suggest
@@ -474,7 +475,7 @@ argument_list|>
 argument_list|>
 name|suggestions
 init|=
-name|Lists
+name|CollectionUtils
 operator|.
 expr|<
 name|Suggest
@@ -494,7 +495,7 @@ operator|.
 name|Option
 argument_list|>
 operator|>
-name|newArrayList
+name|iterableAsArrayList
 argument_list|(
 name|searchResponse
 operator|.
@@ -505,9 +506,6 @@ name|getSuggestion
 argument_list|(
 literal|"someName"
 argument_list|)
-operator|.
-name|iterator
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertThat

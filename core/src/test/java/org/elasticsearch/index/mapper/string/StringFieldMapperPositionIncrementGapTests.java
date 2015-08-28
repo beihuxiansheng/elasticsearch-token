@@ -163,18 +163,18 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests that position_offset_gap is read from the mapper and applies as  * expected in queries.  */
+comment|/**  * Tests that position_increment_gap is read from the mapper and applies as  * expected in queries.  */
 end_comment
 
 begin_class
-DECL|class|StringFieldMapperPositionOffsetGapTests
+DECL|class|StringFieldMapperPositionIncrementGapTests
 specifier|public
 class|class
-name|StringFieldMapperPositionOffsetGapTests
+name|StringFieldMapperPositionIncrementGapTests
 extends|extends
 name|ESSingleNodeTestCase
 block|{
-comment|/**      * The default position_offset_gap should be large enough that most      * "sensible" queries phrase slops won't match across values.      */
+comment|/**      * The default position_increment_gap should be large enough that most      * "sensible" queries phrase slops won't match across values.      */
 DECL|method|testDefault
 specifier|public
 name|void
@@ -216,7 +216,6 @@ block|{
 name|testGap
 argument_list|(
 name|client
-argument_list|()
 argument_list|,
 name|indexName
 argument_list|,
@@ -225,7 +224,7 @@ argument_list|,
 literal|100
 argument_list|)
 expr_stmt|;
-comment|// No match across gap using default slop with default positionOffsetGap
+comment|// No match across gap using default slop with default positionIncrementGap
 name|assertHitCount
 argument_list|(
 name|client
@@ -398,7 +397,7 @@ argument_list|,
 literal|0
 argument_list|)
 expr_stmt|;
-comment|/*          * Phrases match across different values using default slop with pre-2.0 default          * position_offset_gap.          */
+comment|/*          * Phrases match across different values using default slop with pre-2.0 default          * position_increment_gap.          */
 name|assertHitCount
 argument_list|(
 name|client
@@ -516,13 +515,13 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"positions_offset_gap less than 0 aren't allowed"
+literal|"positions_increment_gap less than 0 aren't allowed"
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Tests that the default actually defaults to the position_offset_gap      * configured in the analyzer. This behavior is very old and a little      * strange but not worth breaking some thought.      */
+comment|/**      * Tests that the default actually defaults to the position_increment_gap      * configured in the analyzer. This behavior is very old and a little      * strange but not worth breaking some thought.      */
 DECL|method|testDefaultDefaultsToAnalyzer
 specifier|public
 name|void
@@ -579,7 +578,7 @@ name|settings
 operator|.
 name|field
 argument_list|(
-literal|"position_offset_gap"
+literal|"position_increment_gap"
 argument_list|,
 literal|2
 argument_list|)
@@ -604,14 +603,14 @@ literal|2
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Build an index named "test" with a field named "string" with the provided      * positionOffsetGap that uses the standard analyzer.      */
+comment|/**      * Build an index named "test" with a field named "string" with the provided      * positionIncrementGap that uses the standard analyzer.      */
 DECL|method|setupGapInMapping
 specifier|private
 name|void
 name|setupGapInMapping
 parameter_list|(
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|)
 throws|throws
 name|IOException
@@ -650,9 +649,9 @@ name|mapping
 operator|.
 name|field
 argument_list|(
-literal|"position_offset_gap"
+literal|"position_increment_gap"
 argument_list|,
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 expr_stmt|;
 name|client
@@ -680,7 +679,7 @@ name|get
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Build an index named "test" with the provided settings and and a field      * named "string" that uses the specified analyzer and default      * position_offset_gap.      */
+comment|/**      * Build an index named "test" with the provided settings and and a field      * named "string" that uses the specified analyzer and default      * position_increment_gap.      */
 DECL|method|setupAnalyzer
 specifier|private
 name|void
@@ -780,7 +779,7 @@ name|String
 name|type
 parameter_list|,
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|)
 throws|throws
 name|IOException
@@ -846,7 +845,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|positionOffsetGap
+name|positionIncrementGap
 operator|>
 literal|0
 condition|)
@@ -872,7 +871,7 @@ argument_list|)
 operator|.
 name|slop
 argument_list|(
-name|positionOffsetGap
+name|positionIncrementGap
 operator|-
 literal|1
 argument_list|)
@@ -906,7 +905,7 @@ argument_list|)
 operator|.
 name|slop
 argument_list|(
-name|positionOffsetGap
+name|positionIncrementGap
 argument_list|)
 argument_list|)
 operator|.
@@ -936,7 +935,7 @@ argument_list|)
 operator|.
 name|slop
 argument_list|(
-name|positionOffsetGap
+name|positionIncrementGap
 operator|+
 literal|1
 argument_list|)

@@ -322,7 +322,7 @@ name|mapper
 operator|.
 name|string
 operator|.
-name|StringFieldMapperPositionOffsetGapTests
+name|StringFieldMapperPositionIncrementGapTests
 import|;
 end_import
 
@@ -2500,7 +2500,7 @@ argument_list|,
 name|version
 argument_list|)
 expr_stmt|;
-name|assertPositionOffsetGapDefaults
+name|assertPositionIncrementGapDefaults
 argument_list|(
 name|indexName
 argument_list|,
@@ -3429,6 +3429,15 @@ name|Version
 operator|.
 name|V_1_0_0_Beta2
 argument_list|)
+operator|||
+name|version
+operator|.
+name|onOrAfter
+argument_list|(
+name|Version
+operator|.
+name|V_2_0_0_beta1
+argument_list|)
 condition|)
 block|{
 comment|// TODO: remove this once #10262 is fixed
@@ -3473,9 +3482,9 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|assertPositionOffsetGapDefaults
+DECL|method|assertPositionIncrementGapDefaults
 name|void
-name|assertPositionOffsetGapDefaults
+name|assertPositionIncrementGapDefaults
 parameter_list|(
 name|String
 name|indexName
@@ -3498,7 +3507,7 @@ name|V_2_0_0_beta1
 argument_list|)
 condition|)
 block|{
-name|StringFieldMapperPositionOffsetGapTests
+name|StringFieldMapperPositionIncrementGapTests
 operator|.
 name|assertGapIsZero
 argument_list|(
@@ -3513,7 +3522,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|StringFieldMapperPositionOffsetGapTests
+name|StringFieldMapperPositionIncrementGapTests
 operator|.
 name|assertGapIsOneHundred
 argument_list|(

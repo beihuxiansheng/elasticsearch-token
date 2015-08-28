@@ -205,9 +205,9 @@ name|QueryBuilder
 argument_list|>
 name|filters
 init|=
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|PROTOTYPE
