@@ -1040,6 +1040,13 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
+literal|"node.testattr"
+argument_list|,
+literal|"test"
+argument_list|)
+operator|.
+name|put
+argument_list|(
 name|super
 operator|.
 name|nodeSettings
