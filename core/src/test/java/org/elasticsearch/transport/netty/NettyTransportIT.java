@@ -805,8 +805,6 @@ argument_list|,
 name|name
 argument_list|,
 name|groupSettings
-argument_list|,
-name|namedWriteableRegistry
 argument_list|)
 return|;
 block|}
@@ -836,9 +834,6 @@ name|name
 parameter_list|,
 name|Settings
 name|groupSettings
-parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|super
@@ -848,8 +843,6 @@ argument_list|,
 name|name
 argument_list|,
 name|groupSettings
-argument_list|,
-name|namedWriteableRegistry
 argument_list|)
 expr_stmt|;
 name|this

@@ -330,17 +330,6 @@ specifier|protected
 name|ThreadPool
 name|threadPool
 decl_stmt|;
-DECL|field|namedWriteableRegistry
-specifier|protected
-specifier|static
-specifier|final
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
-init|=
-operator|new
-name|NamedWriteableRegistry
-argument_list|()
-decl_stmt|;
 DECL|field|version0
 specifier|protected
 specifier|static

@@ -7674,8 +7674,6 @@ argument_list|,
 name|name
 argument_list|,
 name|settings
-argument_list|,
-name|namedWriteableRegistry
 argument_list|)
 return|;
 block|}
@@ -7705,12 +7703,6 @@ specifier|final
 name|Settings
 name|settings
 decl_stmt|;
-DECL|field|namedWriteableRegistry
-specifier|protected
-specifier|final
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
-decl_stmt|;
 DECL|method|ServerChannelPipelineFactory
 specifier|public
 name|ServerChannelPipelineFactory
@@ -7723,9 +7715,6 @@ name|name
 parameter_list|,
 name|Settings
 name|settings
-parameter_list|,
-name|NamedWriteableRegistry
-name|namedWriteableRegistry
 parameter_list|)
 block|{
 name|this
@@ -7745,12 +7734,6 @@ operator|.
 name|settings
 operator|=
 name|settings
-expr_stmt|;
-name|this
-operator|.
-name|namedWriteableRegistry
-operator|=
-name|namedWriteableRegistry
 expr_stmt|;
 block|}
 annotation|@
@@ -7886,8 +7869,6 @@ operator|.
 name|logger
 argument_list|,
 name|name
-argument_list|,
-name|namedWriteableRegistry
 argument_list|)
 argument_list|)
 expr_stmt|;
