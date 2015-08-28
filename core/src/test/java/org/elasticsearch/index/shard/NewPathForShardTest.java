@@ -76,6 +76,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|cluster
@@ -952,6 +966,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|assumeFalse
+argument_list|(
+literal|"Consistenty fails on windows ('could not remove the following files')"
+argument_list|,
+name|Constants
+operator|.
+name|WINDOWS
+argument_list|)
+expr_stmt|;
 name|Path
 name|path
 init|=
