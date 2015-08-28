@@ -260,6 +260,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|PathUtils
@@ -395,6 +407,13 @@ comment|/** Separate test class from ShardPathTests because we need static (Befo
 end_comment
 
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"ProviderMismatchException if I try to use PathUtils.getDefault instead"
+argument_list|)
 DECL|class|NewPathForShardTest
 specifier|public
 class|class
@@ -560,6 +579,13 @@ literal|null
 expr_stmt|;
 block|}
 comment|/** Mock file system that fakes usable space for each FileStore */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"ProviderMismatchException if I try to use PathUtils.getDefault instead"
+argument_list|)
 DECL|class|MockUsableSpaceFileSystemProvider
 specifier|static
 class|class
