@@ -3051,17 +3051,13 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// writes and reads of these are protected under synchronization
 DECL|field|committedOrFailedLatch
 specifier|final
 name|CountDownLatch
 name|committedOrFailedLatch
 decl_stmt|;
-comment|// writes and reads of these are protected under synchronization
-DECL|field|committedOrFailed
-name|boolean
-name|committedOrFailed
-decl_stmt|;
-comment|// true if a decision was made w.r.t committing or failing
+comment|// 0 count indicates that a decision was made w.r.t committing or failing
 DECL|field|committed
 name|boolean
 name|committed
@@ -3172,12 +3168,6 @@ operator|=
 name|neededMastersToCommit
 operator|==
 literal|0
-expr_stmt|;
-name|this
-operator|.
-name|committedOrFailed
-operator|=
-name|committed
 expr_stmt|;
 name|this
 operator|.
@@ -3325,6 +3315,7 @@ elseif|else
 if|if
 condition|(
 name|committedOrFailed
+argument_list|()
 condition|)
 block|{
 name|logger
@@ -3367,6 +3358,22 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+DECL|method|committedOrFailed
+specifier|private
+specifier|synchronized
+name|boolean
+name|committedOrFailed
+parameter_list|()
+block|{
+return|return
+name|committedOrFailedLatch
+operator|.
+name|getCount
+argument_list|()
+operator|==
+literal|0
+return|;
 block|}
 comment|/**          * check if enough master node responded to commit the change. fails the commit          * if there are no more pending master nodes but not enough acks to commit.          */
 DECL|method|checkForCommitOrFailIfNoPending
@@ -3538,6 +3545,7 @@ block|{
 if|if
 condition|(
 name|committedOrFailed
+argument_list|()
 condition|)
 block|{
 return|return
@@ -3557,10 +3565,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|committed
-operator|=
-literal|true
-expr_stmt|;
-name|committedOrFailed
 operator|=
 literal|true
 expr_stmt|;
@@ -3587,6 +3591,7 @@ block|{
 if|if
 condition|(
 name|committedOrFailed
+argument_list|()
 condition|)
 block|{
 return|return
@@ -3608,10 +3613,6 @@ argument_list|()
 argument_list|,
 name|reason
 argument_list|)
-expr_stmt|;
-name|committedOrFailed
-operator|=
-literal|true
 expr_stmt|;
 name|committed
 operator|=
