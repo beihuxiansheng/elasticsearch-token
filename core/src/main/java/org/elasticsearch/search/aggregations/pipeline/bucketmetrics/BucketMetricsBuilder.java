@@ -299,6 +299,8 @@ parameter_list|,
 name|Params
 name|params
 parameter_list|)
+throws|throws
+name|IOException
 block|{     }
 block|}
 end_class
