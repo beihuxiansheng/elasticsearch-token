@@ -189,12 +189,6 @@ parameter_list|(
 name|Index
 name|index
 parameter_list|,
-name|int
-name|line
-parameter_list|,
-name|int
-name|col
-parameter_list|,
 name|String
 name|msg
 parameter_list|,
