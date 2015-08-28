@@ -66,6 +66,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|util
+operator|.
+name|CollectionUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -125,22 +139,6 @@ operator|.
 name|util
 operator|.
 name|Locale
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|CollectionUtils
-operator|.
-name|iterableAsArrayList
 import|;
 end_import
 
@@ -455,6 +453,7 @@ name|actionGet
 argument_list|()
 decl_stmt|;
 comment|// TODO: infer type once JI-9019884 is fixed
+comment|// TODO: see also JDK-8039214
 name|List
 argument_list|<
 name|Suggest
@@ -476,6 +475,26 @@ argument_list|>
 argument_list|>
 name|suggestions
 init|=
+name|CollectionUtils
+operator|.
+expr|<
+name|Suggest
+operator|.
+name|Suggestion
+operator|.
+name|Entry
+argument_list|<
+name|?
+extends|extends
+name|Suggest
+operator|.
+name|Suggestion
+operator|.
+name|Entry
+operator|.
+name|Option
+argument_list|>
+operator|>
 name|iterableAsArrayList
 argument_list|(
 name|searchResponse
