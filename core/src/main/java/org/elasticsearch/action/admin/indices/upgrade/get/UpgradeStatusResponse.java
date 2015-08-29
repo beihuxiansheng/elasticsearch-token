@@ -231,7 +231,7 @@ decl_stmt|;
 DECL|method|UpgradeStatusResponse
 name|UpgradeStatusResponse
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|UpgradeStatusResponse
 name|UpgradeStatusResponse
 parameter_list|(
