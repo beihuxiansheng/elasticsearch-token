@@ -566,7 +566,7 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
-literal|"_na_"
+literal|"/dev/null"
 argument_list|,
 literal|100
 argument_list|,
@@ -597,7 +597,7 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
-literal|"_na_"
+literal|"/dev/null"
 argument_list|,
 literal|100
 argument_list|,
@@ -628,7 +628,7 @@ argument_list|)
 argument_list|,
 literal|"n3"
 argument_list|,
-literal|"_na_"
+literal|"/dev/null"
 argument_list|,
 literal|100
 argument_list|,
@@ -1535,7 +1535,7 @@ name|FsInfo
 operator|.
 name|Path
 argument_list|(
-literal|"/path.data"
+literal|"/dev/null"
 argument_list|,
 literal|null
 argument_list|,

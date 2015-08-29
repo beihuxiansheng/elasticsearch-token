@@ -69,7 +69,7 @@ name|DiskUsage
 argument_list|>
 name|leastAvailableSpaceUsage
 decl_stmt|;
-DECL|field|mostAvailabeSpaceUsage
+DECL|field|mostAvailableSpaceUsage
 specifier|private
 specifier|final
 name|Map
@@ -78,7 +78,7 @@ name|String
 argument_list|,
 name|DiskUsage
 argument_list|>
-name|mostAvailabeSpaceUsage
+name|mostAvailableSpaceUsage
 decl_stmt|;
 DECL|field|shardSizes
 specifier|final
@@ -101,6 +101,17 @@ operator|new
 name|ClusterInfo
 argument_list|()
 decl_stmt|;
+DECL|field|routingToDataPath
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|ShardRouting
+argument_list|,
+name|String
+argument_list|>
+name|routingToDataPath
+decl_stmt|;
 DECL|method|ClusterInfo
 specifier|protected
 name|ClusterInfo
@@ -119,10 +130,14 @@ argument_list|,
 name|Collections
 operator|.
 name|EMPTY_MAP
+argument_list|,
+name|Collections
+operator|.
+name|EMPTY_MAP
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new ClusterInfo instance.      *      * @param leastAvailableSpaceUsage a node id to disk usage mapping for the path that has the least available space on the node.      * @param mostAvailableSpaceUsage  a node id to disk usage mapping for the path that has the most available space on the node.      * @param shardSizes a shardkey to size in bytes mapping per shard.      * @see #shardIdentifierFromRouting      */
+comment|/**      * Creates a new ClusterInfo instance.      *      * @param leastAvailableSpaceUsage a node id to disk usage mapping for the path that has the least available space on the node.      * @param mostAvailableSpaceUsage  a node id to disk usage mapping for the path that has the most available space on the node.      * @param shardSizes a shardkey to size in bytes mapping per shard.      * @param routingToDataPath the shard routing to datapath mapping      * @see #shardIdentifierFromRouting      */
 DECL|method|ClusterInfo
 specifier|public
 name|ClusterInfo
@@ -153,6 +168,14 @@ argument_list|,
 name|Long
 argument_list|>
 name|shardSizes
+parameter_list|,
+name|Map
+argument_list|<
+name|ShardRouting
+argument_list|,
+name|String
+argument_list|>
+name|routingToDataPath
 parameter_list|)
 block|{
 name|this
@@ -169,9 +192,15 @@ name|shardSizes
 expr_stmt|;
 name|this
 operator|.
-name|mostAvailabeSpaceUsage
+name|mostAvailableSpaceUsage
 operator|=
 name|mostAvailableSpaceUsage
+expr_stmt|;
+name|this
+operator|.
+name|routingToDataPath
+operator|=
+name|routingToDataPath
 expr_stmt|;
 block|}
 comment|/**      * Returns a node id to disk usage mapping for the path that has the least available space on the node.      */
@@ -207,7 +236,7 @@ block|{
 return|return
 name|this
 operator|.
-name|mostAvailabeSpaceUsage
+name|mostAvailableSpaceUsage
 return|;
 block|}
 comment|/**      * Returns the shard size for the given shard routing or<code>null</code> it that metric is not available.      */
@@ -229,6 +258,25 @@ name|shardIdentifierFromRouting
 argument_list|(
 name|shardRouting
 argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the nodes absolute data-path the given shard is allocated on or<code>null</code> if the information is not available.      */
+DECL|method|getDataPath
+specifier|public
+name|String
+name|getDataPath
+parameter_list|(
+name|ShardRouting
+name|shardRouting
+parameter_list|)
+block|{
+return|return
+name|routingToDataPath
+operator|.
+name|get
+argument_list|(
+name|shardRouting
 argument_list|)
 return|;
 block|}
