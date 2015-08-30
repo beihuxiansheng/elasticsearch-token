@@ -1408,7 +1408,7 @@ name|IndicesStatsAction
 operator|.
 name|NAME
 operator|+
-literal|"[s]"
+literal|"[n]"
 argument_list|)
 decl_stmt|;
 comment|// drop all outgoing stats requests to force a timeout.
