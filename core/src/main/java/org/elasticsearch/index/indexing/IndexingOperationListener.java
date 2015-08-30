@@ -125,6 +125,21 @@ name|Index
 name|index
 parameter_list|)
 block|{      }
+comment|/**      * Called after the indexing operation occurred with exception.      */
+DECL|method|postIndex
+specifier|public
+name|void
+name|postIndex
+parameter_list|(
+name|Engine
+operator|.
+name|Index
+name|index
+parameter_list|,
+name|Throwable
+name|ex
+parameter_list|)
+block|{      }
 comment|/**      * Called before the delete occurs.      */
 DECL|method|preDelete
 specifier|public
