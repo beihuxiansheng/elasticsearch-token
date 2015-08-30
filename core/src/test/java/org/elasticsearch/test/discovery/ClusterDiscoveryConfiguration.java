@@ -567,7 +567,7 @@ literal|30000
 operator|+
 name|InternalTestCluster
 operator|.
-name|BASE_PORT
+name|JVM_BASE_PORT_OFFEST
 return|;
 block|}
 annotation|@

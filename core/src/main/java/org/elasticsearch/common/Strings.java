@@ -3827,11 +3827,16 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
+comment|//e.g. _name stays as-is, _first_name becomes _firstName
 if|if
 condition|(
 name|c
 operator|==
 literal|'_'
+operator|&&
+name|i
+operator|>
+literal|0
 condition|)
 block|{
 if|if

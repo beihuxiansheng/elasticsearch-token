@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -41,6 +27,16 @@ operator|.
 name|test
 operator|.
 name|ESIntegTestCase
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -75,9 +71,9 @@ name|String
 argument_list|>
 name|SUPPORTED
 init|=
-name|Lists
+name|Arrays
 operator|.
-name|newArrayList
+name|asList
 argument_list|(
 literal|"stash_in_path"
 argument_list|,

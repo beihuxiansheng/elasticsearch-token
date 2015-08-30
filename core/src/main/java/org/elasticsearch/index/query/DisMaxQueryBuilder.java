@@ -50,22 +50,6 @@ name|ArrayList
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
-import|;
-end_import
-
 begin_comment
 comment|/**  * A query that generates the union of documents produced by its sub-queries, and that scores each document  * with the maximum score for that document as produced by any sub-query, plus a tie breaking increment for any  * additional matching sub-queries.  */
 end_comment
@@ -91,7 +75,9 @@ name|QueryBuilder
 argument_list|>
 name|queries
 init|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|boost

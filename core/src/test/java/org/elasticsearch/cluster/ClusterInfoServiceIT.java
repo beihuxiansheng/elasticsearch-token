@@ -1074,7 +1074,7 @@ name|usages
 init|=
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 decl_stmt|;
 name|Map
@@ -1337,7 +1337,7 @@ literal|"some usages are populated"
 argument_list|,
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -1428,7 +1428,7 @@ name|IndicesStatsAction
 operator|.
 name|NAME
 operator|+
-literal|"[s]"
+literal|"[n]"
 argument_list|)
 decl_stmt|;
 comment|// drop all outgoing stats requests to force a timeout.
@@ -1583,7 +1583,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -1718,7 +1718,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -1779,7 +1779,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size

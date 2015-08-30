@@ -32,20 +32,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Maps
 import|;
 end_import
@@ -182,6 +168,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -235,7 +231,7 @@ decl_stmt|;
 DECL|method|UpgradeStatusResponse
 name|UpgradeStatusResponse
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|UpgradeStatusResponse
 name|UpgradeStatusResponse
 parameter_list|(
@@ -356,9 +352,9 @@ name|ShardUpgradeStatus
 argument_list|>
 name|shards
 init|=
-name|Lists
-operator|.
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

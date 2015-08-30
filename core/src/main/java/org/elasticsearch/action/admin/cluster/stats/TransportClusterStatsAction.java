@@ -868,11 +868,6 @@ name|ShardStats
 argument_list|(
 name|indexShard
 argument_list|,
-name|indexShard
-operator|.
-name|routingEntry
-argument_list|()
-argument_list|,
 name|SHARD_STATS_FLAGS
 argument_list|)
 argument_list|)

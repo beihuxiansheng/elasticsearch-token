@@ -265,7 +265,7 @@ argument_list|)
 operator|.
 name|debug
 argument_list|(
-literal|"using encoder [{}] and decoder[{}] "
+literal|"using decoder[{}] "
 argument_list|,
 name|this
 operator|.
