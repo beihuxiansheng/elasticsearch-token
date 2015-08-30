@@ -334,7 +334,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|SettingsSource
+name|NodeConfigurationSource
 import|;
 end_import
 
@@ -407,16 +407,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
 import|;
 end_import
 
@@ -591,7 +581,7 @@ name|getRandom
 argument_list|()
 argument_list|)
 argument_list|,
-name|SettingsSource
+name|NodeConfigurationSource
 operator|.
 name|EMPTY
 argument_list|,

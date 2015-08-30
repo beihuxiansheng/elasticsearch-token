@@ -70,9 +70,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|plugins
+name|test
 operator|.
-name|PluginTestCase
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -173,7 +173,7 @@ specifier|public
 class|class
 name|SimpleNodesInfoIT
 extends|extends
-name|PluginTestCase
+name|ESIntegTestCase
 block|{
 DECL|class|Fields
 specifier|static
