@@ -360,59 +360,6 @@ operator|.
 name|index
 return|;
 block|}
-comment|/**      * @deprecated replaced by calls to parseInnerFilterToQueryBuilder(String queryName) for the resulting queries      */
-annotation|@
-name|Nullable
-annotation|@
-name|Deprecated
-comment|//norelease should be possible to remove after refactoring all queries
-DECL|method|parseInnerFilter
-specifier|public
-name|Query
-name|parseInnerFilter
-parameter_list|(
-name|String
-name|queryName
-parameter_list|)
-throws|throws
-name|IOException
-throws|,
-name|QueryShardException
-block|{
-assert|assert
-name|this
-operator|.
-name|shardContext
-operator|!=
-literal|null
-assert|;
-name|QueryBuilder
-name|builder
-init|=
-name|parseInnerFilterToQueryBuilder
-argument_list|(
-name|queryName
-argument_list|)
-decl_stmt|;
-return|return
-operator|(
-name|builder
-operator|!=
-literal|null
-operator|)
-condition|?
-name|builder
-operator|.
-name|toQuery
-argument_list|(
-name|this
-operator|.
-name|shardContext
-argument_list|)
-else|:
-literal|null
-return|;
-block|}
 comment|/**      * @deprecated replaced by calls to parseInnerFilterToQueryBuilder() for the resulting queries      */
 annotation|@
 name|Nullable
@@ -475,7 +422,7 @@ annotation|@
 name|Nullable
 annotation|@
 name|Deprecated
-comment|//norelease should be possible to remove after refactoring all queries
+comment|//norelease this method will be removed once all queries are refactored
 DECL|method|parseInnerQuery
 specifier|public
 name|Query
@@ -745,8 +692,6 @@ name|result
 return|;
 block|}
 comment|/**      * @return a new QueryBuilder based on the current state of the parser, but does so that the inner query      * is parsed to a filter      * @throws IOException      */
-annotation|@
-name|Nullable
 comment|//norelease setting and checking the isFilter Flag should completely be moved to toQuery/toFilter after query refactoring
 DECL|method|parseInnerFilterToQueryBuilder
 specifier|public
@@ -795,6 +740,7 @@ block|}
 block|}
 comment|//norelease setting and checking the isFilter Flag should completely be moved to toQuery/toFilter after query refactoring
 DECL|method|parseInnerFilterToQueryBuilder
+specifier|public
 name|QueryBuilder
 name|parseInnerFilterToQueryBuilder
 parameter_list|(
