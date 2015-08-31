@@ -1123,11 +1123,14 @@ return|;
 block|}
 DECL|method|resolveIndex
 specifier|protected
-specifier|abstract
 name|boolean
 name|resolveIndex
 parameter_list|()
-function_decl|;
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|/**      * Resolves the request, by default doing nothing. Can be subclassed to do      * additional processing or validation depending on the incoming request      */
 DECL|method|resolveRequest
 specifier|protected
