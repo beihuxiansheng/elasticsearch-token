@@ -544,6 +544,9 @@ argument_list|<
 name|ShardOperationFailedException
 argument_list|>
 name|shardFailures
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 block|{
 return|return

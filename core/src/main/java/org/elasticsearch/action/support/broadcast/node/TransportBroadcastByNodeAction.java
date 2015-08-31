@@ -754,6 +754,9 @@ name|ShardRouting
 argument_list|>
 argument_list|>
 name|nodes
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 block|{
 name|int
@@ -1002,6 +1005,8 @@ argument_list|,
 name|broadcastByNodeResponses
 argument_list|,
 name|exceptions
+argument_list|,
+name|clusterState
 argument_list|)
 return|;
 block|}
@@ -1018,7 +1023,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates a new response to the underlying request.      *      * @param request          the underlying request      * @param totalShards      the total number of shards considered for execution of the operation      * @param successfulShards the total number of shards for which execution of the operation was successful      * @param failedShards     the total number of shards for which execution of the operation failed      * @param results          the per-node aggregated shard-level results      * @param shardFailures    the exceptions corresponding to shard operationa failures      * @return the response      */
+comment|/**      * Creates a new response to the underlying request.      *      * @param request          the underlying request      * @param totalShards      the total number of shards considered for execution of the operation      * @param successfulShards the total number of shards for which execution of the operation was successful      * @param failedShards     the total number of shards for which execution of the operation failed      * @param results          the per-node aggregated shard-level results      * @param shardFailures    the exceptions corresponding to shard operationa failures      * @param clusterState     the cluster state      * @return the response      */
 DECL|method|newResponse
 specifier|protected
 specifier|abstract
@@ -1048,6 +1053,9 @@ argument_list|<
 name|ShardOperationFailedException
 argument_list|>
 name|shardFailures
+parameter_list|,
+name|ClusterState
+name|clusterState
 parameter_list|)
 function_decl|;
 comment|/**      * Deserialize a request from an input stream      *      * @param in input stream      * @return a de-serialized request      * @throws IOException      */
@@ -1902,6 +1910,8 @@ argument_list|,
 name|unavailableShardExceptions
 argument_list|,
 name|nodeIds
+argument_list|,
+name|clusterState
 argument_list|)
 expr_stmt|;
 block|}
