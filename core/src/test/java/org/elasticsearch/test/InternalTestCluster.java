@@ -1566,16 +1566,6 @@ name|NodeConfigurationSource
 operator|.
 name|EMPTY
 decl_stmt|;
-comment|/**      * A boolean value to enable or disable mock modules. This is useful to test the      * system without asserting modules that to make sure they don't hide any bugs in      * production.      *      * @see ESIntegTestCase      */
-DECL|field|TESTS_ENABLE_MOCK_MODULES
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|TESTS_ENABLE_MOCK_MODULES
-init|=
-literal|"tests.enable_mock_modules"
-decl_stmt|;
 comment|/**      * A node level setting that holds a per node random seed that is consistent across node restarts      */
 DECL|field|SETTING_CLUSTER_NODE_SEED
 specifier|public
@@ -1712,22 +1702,6 @@ init|=
 name|GLOBAL_HTTP_BASE_PORT
 operator|+
 name|CLUSTER_BASE_PORT_OFFSET
-decl_stmt|;
-DECL|field|ENABLE_MOCK_MODULES
-specifier|private
-specifier|static
-specifier|final
-name|boolean
-name|ENABLE_MOCK_MODULES
-init|=
-name|RandomizedTest
-operator|.
-name|systemPropertyAsBoolean
-argument_list|(
-name|TESTS_ENABLE_MOCK_MODULES
-argument_list|,
-literal|true
-argument_list|)
 decl_stmt|;
 DECL|field|DEFAULT_MIN_NUM_DATA_NODES
 specifier|static
@@ -1880,6 +1854,12 @@ specifier|final
 name|ExecutorService
 name|executor
 decl_stmt|;
+DECL|field|enableMockModules
+specifier|private
+specifier|final
+name|boolean
+name|enableMockModules
+decl_stmt|;
 comment|/**      * All nodes started by the cluster will have their name set to nodePrefix followed by a positive number      */
 DECL|field|nodePrefix
 specifier|private
@@ -1936,6 +1916,9 @@ name|enableHttpPipelining
 parameter_list|,
 name|String
 name|nodePrefix
+parameter_list|,
+name|boolean
+name|enableMockModules
 parameter_list|)
 block|{
 name|super
@@ -2125,6 +2108,12 @@ name|nodePrefix
 operator|!=
 literal|null
 assert|;
+name|this
+operator|.
+name|enableMockModules
+operator|=
+name|enableMockModules
+expr_stmt|;
 comment|/*          *  TODO          *  - we might want start some master only nodes?          *  - we could add a flag that returns a client to the master all the time?          *  - we could add a flag that never returns a client to the master          *  - along those lines use a dedicated node that is master eligible and let all other nodes be only data nodes          */
 name|sharedNodesSeeds
 operator|=
@@ -3038,7 +3027,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|ENABLE_MOCK_MODULES
+name|enableMockModules
 operator|&&
 name|usually
 argument_list|(
@@ -3097,7 +3086,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|isLocalTransportConfigured
@@ -3115,6 +3103,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|plugins
