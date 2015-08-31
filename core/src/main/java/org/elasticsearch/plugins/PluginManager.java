@@ -2899,7 +2899,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// TODO Update to https
 if|if
 condition|(
 operator|!
@@ -2928,7 +2927,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|version
 argument_list|,
@@ -2962,7 +2961,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|name
 argument_list|,
@@ -2978,7 +2977,6 @@ block|}
 else|else
 block|{
 comment|// Elasticsearch old download service
-comment|// TODO Update to https
 name|addUrl
 argument_list|(
 name|urls
@@ -2991,7 +2989,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/%1$s/%2$s/%2$s-%3$s.zip"
+literal|"https://download.elastic.co/%1$s/%2$s/%2$s-%3$s.zip"
 argument_list|,
 name|user
 argument_list|,
@@ -3014,7 +3012,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://search.maven.org/remotecontent?filepath=%1$s/%2$s/%3$s/%2$s-%3$s.zip"
+literal|"https://search.maven.org/remotecontent?filepath=%1$s/%2$s/%3$s/%2$s-%3$s.zip"
 argument_list|,
 name|user
 operator|.
