@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -101,6 +87,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -232,7 +228,7 @@ expr_stmt|;
 block|}
 DECL|method|getMembersInjectors
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|MembersInjector
 argument_list|<
@@ -249,7 +245,7 @@ name|membersInjectors
 operator|==
 literal|null
 condition|?
-name|ImmutableList
+name|Collections
 operator|.
 expr|<
 name|MembersInjector
@@ -259,12 +255,12 @@ super|super
 name|T
 argument_list|>
 operator|>
-name|of
+name|emptyList
 argument_list|()
 else|:
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|membersInjectors
 argument_list|)
@@ -272,7 +268,7 @@ return|;
 block|}
 DECL|method|getInjectionListeners
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|InjectionListener
 argument_list|<
@@ -289,7 +285,7 @@ name|injectionListeners
 operator|==
 literal|null
 condition|?
-name|ImmutableList
+name|Collections
 operator|.
 expr|<
 name|InjectionListener
@@ -299,12 +295,12 @@ super|super
 name|T
 argument_list|>
 operator|>
-name|of
+name|emptyList
 argument_list|()
 else|:
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|injectionListeners
 argument_list|)

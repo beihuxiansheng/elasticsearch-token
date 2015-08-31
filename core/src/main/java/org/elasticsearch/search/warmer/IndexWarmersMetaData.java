@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -693,7 +679,7 @@ block|}
 DECL|field|entries
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|Entry
 argument_list|>
@@ -712,9 +698,9 @@ name|this
 operator|.
 name|entries
 operator|=
-name|ImmutableList
+name|Arrays
 operator|.
-name|copyOf
+name|asList
 argument_list|(
 name|entries
 argument_list|)
@@ -722,7 +708,7 @@ expr_stmt|;
 block|}
 DECL|method|entries
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|Entry
 argument_list|>

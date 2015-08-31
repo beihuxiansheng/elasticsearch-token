@@ -28,20 +28,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1344,9 +1330,9 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
-name|of
+name|emptyList
 argument_list|()
 argument_list|)
 argument_list|)
