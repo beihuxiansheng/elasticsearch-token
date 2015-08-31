@@ -570,11 +570,16 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown TransportService ["
+literal|"Unknown TransportService type ["
 operator|+
 name|typeName
 operator|+
-literal|"]"
+literal|"], known types are: "
+operator|+
+name|transportServices
+operator|.
+name|keySet
+argument_list|()
 argument_list|)
 throw|;
 block|}

@@ -446,6 +446,9 @@ name|get
 argument_list|(
 name|shardStats
 operator|.
+name|getShardRouting
+argument_list|()
+operator|.
 name|getIndex
 argument_list|()
 argument_list|)
@@ -468,6 +471,9 @@ operator|.
 name|put
 argument_list|(
 name|shardStats
+operator|.
+name|getShardRouting
+argument_list|()
 operator|.
 name|getIndex
 argument_list|()

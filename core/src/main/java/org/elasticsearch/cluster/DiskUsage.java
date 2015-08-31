@@ -60,6 +60,11 @@ specifier|final
 name|String
 name|nodeName
 decl_stmt|;
+DECL|field|path
+specifier|final
+name|String
+name|path
+decl_stmt|;
 DECL|field|totalBytes
 specifier|final
 name|long
@@ -80,6 +85,9 @@ name|nodeId
 parameter_list|,
 name|String
 name|nodeName
+parameter_list|,
+name|String
+name|path
 parameter_list|,
 name|long
 name|totalBytes
@@ -112,6 +120,12 @@ name|totalBytes
 operator|=
 name|totalBytes
 expr_stmt|;
+name|this
+operator|.
+name|path
+operator|=
+name|path
+expr_stmt|;
 block|}
 DECL|method|getNodeId
 specifier|public
@@ -131,6 +145,16 @@ parameter_list|()
 block|{
 return|return
 name|nodeName
+return|;
+block|}
+DECL|method|getPath
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
 return|;
 block|}
 DECL|method|getFreeDiskAsPercentage
@@ -228,6 +252,10 @@ operator|+
 literal|"]["
 operator|+
 name|nodeName
+operator|+
+literal|"]["
+operator|+
+name|path
 operator|+
 literal|"] free: "
 operator|+

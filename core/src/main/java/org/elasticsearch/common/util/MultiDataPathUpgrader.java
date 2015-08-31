@@ -1249,6 +1249,8 @@ return|return
 operator|new
 name|ShardPath
 argument_list|(
+literal|false
+argument_list|,
 name|target
 operator|.
 name|path

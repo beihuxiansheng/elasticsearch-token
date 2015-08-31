@@ -44,9 +44,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|metadata
+name|SnapshotsInProgress
 operator|.
-name|SnapshotId
+name|State
 import|;
 end_import
 
@@ -58,9 +58,9 @@ name|elasticsearch
 operator|.
 name|cluster
 operator|.
-name|SnapshotsInProgress
+name|metadata
 operator|.
-name|State
+name|SnapshotId
 import|;
 end_import
 
@@ -225,22 +225,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-operator|.
-name|newArrayList
 import|;
 end_import
 
@@ -492,7 +476,9 @@ name|SnapshotIndexShardStatus
 argument_list|>
 name|shards
 init|=
-name|newArrayList
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

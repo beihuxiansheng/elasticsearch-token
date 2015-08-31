@@ -2556,6 +2556,7 @@ literal|3
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|/*              * The whole point of this test is to test these things with deleted              * docs in the index so we turn off detect_noop to make sure that              * the updates cause that.              */
 name|UpdateResponse
 name|updateResponse
 init|=
@@ -2581,6 +2582,11 @@ argument_list|(
 literal|"count"
 argument_list|,
 literal|1
+argument_list|)
+operator|.
+name|setDetectNoop
+argument_list|(
+literal|false
 argument_list|)
 operator|.
 name|get

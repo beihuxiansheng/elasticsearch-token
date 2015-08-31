@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -213,6 +199,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
 import|;
 end_import
 
@@ -629,14 +625,13 @@ init|=
 operator|new
 name|ScriptContextRegistry
 argument_list|(
-name|Lists
-operator|.
-expr|<
+operator|new
+name|ArrayList
+argument_list|<
 name|ScriptContext
 operator|.
 name|Plugin
-operator|>
-name|newArrayList
+argument_list|>
 argument_list|()
 argument_list|)
 decl_stmt|;

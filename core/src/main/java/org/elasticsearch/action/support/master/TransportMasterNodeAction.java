@@ -654,7 +654,7 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"can't execute due to a cluster block: [{}], retrying"
+literal|"can't execute due to a cluster block, retrying"
 argument_list|,
 name|blockException
 argument_list|)

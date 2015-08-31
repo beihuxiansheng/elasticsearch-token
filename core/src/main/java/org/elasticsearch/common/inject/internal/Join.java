@@ -20,15 +20,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
+name|util
 operator|.
-name|Lists
+name|CollectionUtils
 import|;
 end_import
 
@@ -192,9 +192,9 @@ name|join
 argument_list|(
 name|delimiter
 argument_list|,
-name|Lists
+name|CollectionUtils
 operator|.
-name|newArrayList
+name|asArrayList
 argument_list|(
 name|firstToken
 argument_list|,
@@ -401,9 +401,9 @@ name|appendable
 argument_list|,
 name|delimiter
 argument_list|,
-name|Lists
+name|CollectionUtils
 operator|.
-name|newArrayList
+name|asArrayList
 argument_list|(
 name|firstToken
 argument_list|,

@@ -237,6 +237,12 @@ name|String
 name|verificationToken
 parameter_list|)
 function_decl|;
+comment|/**      * Returns true if the repository supports only read operations      * @return true if the repository is read/only      */
+DECL|method|readOnly
+name|boolean
+name|readOnly
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

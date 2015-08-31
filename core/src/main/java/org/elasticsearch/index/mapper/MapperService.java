@@ -222,7 +222,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|Query
+name|ConstantScoreQuery
 import|;
 end_import
 
@@ -236,7 +236,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
+name|Query
 import|;
 end_import
 
@@ -311,20 +311,6 @@ operator|.
 name|collect
 operator|.
 name|ImmutableOpenMap
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 
@@ -2609,12 +2595,7 @@ block|}
 comment|/**      * Returns the document mapper created, including a mapping update if the      * type has been dynamically created.      */
 DECL|method|documentMapperWithAutoCreate
 specifier|public
-name|Tuple
-argument_list|<
-name|DocumentMapper
-argument_list|,
-name|Mapping
-argument_list|>
+name|DocumentMapperForType
 name|documentMapperWithAutoCreate
 parameter_list|(
 name|String
@@ -2639,9 +2620,8 @@ literal|null
 condition|)
 block|{
 return|return
-name|Tuple
-operator|.
-name|tuple
+operator|new
+name|DocumentMapperForType
 argument_list|(
 name|mapper
 argument_list|,
@@ -2679,9 +2659,8 @@ literal|true
 argument_list|)
 expr_stmt|;
 return|return
-name|Tuple
-operator|.
-name|tuple
+operator|new
+name|DocumentMapperForType
 argument_list|(
 name|mapper
 argument_list|,

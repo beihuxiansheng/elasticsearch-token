@@ -381,7 +381,7 @@ name|setInstanceEndpoints
 argument_list|(
 name|CollectionUtils
 operator|.
-name|newArrayList
+name|newSingletonArrayList
 argument_list|(
 name|endpoint
 argument_list|)
@@ -393,7 +393,7 @@ name|setRoleInstances
 argument_list|(
 name|CollectionUtils
 operator|.
-name|newArrayList
+name|newSingletonArrayList
 argument_list|(
 name|instance
 argument_list|)
@@ -405,7 +405,7 @@ name|setDeployments
 argument_list|(
 name|CollectionUtils
 operator|.
-name|newArrayList
+name|newSingletonArrayList
 argument_list|(
 name|deployment
 argument_list|)

@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -223,6 +209,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
 import|;
 end_import
 
@@ -4275,9 +4275,9 @@ name|DiscoveryNode
 argument_list|>
 name|discoveryNodes
 init|=
-name|Lists
+name|CollectionUtils
 operator|.
-name|newArrayList
+name|iterableAsArrayList
 argument_list|(
 name|clusterState
 operator|.

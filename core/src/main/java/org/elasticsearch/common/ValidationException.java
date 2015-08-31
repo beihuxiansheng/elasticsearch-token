@@ -74,6 +74,7 @@ block|}
 comment|/**      * Add a new validation error to the accumulating validation errors      * @param error the error to add      */
 DECL|method|addValidationError
 specifier|public
+specifier|final
 name|void
 name|addValidationError
 parameter_list|(
@@ -92,6 +93,7 @@ block|}
 comment|/**      * Add a sequence of validation errors to the accumulating validation errors      * @param errors the errors to add      */
 DECL|method|addValidationErrors
 specifier|public
+specifier|final
 name|void
 name|addValidationErrors
 parameter_list|(
@@ -119,9 +121,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the validation errors accumulated      * @return      */
+comment|/**      * Returns the validation errors accumulated      */
 DECL|method|validationErrors
 specifier|public
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -137,6 +140,7 @@ annotation|@
 name|Override
 DECL|method|getMessage
 specifier|public
+specifier|final
 name|String
 name|getMessage
 parameter_list|()

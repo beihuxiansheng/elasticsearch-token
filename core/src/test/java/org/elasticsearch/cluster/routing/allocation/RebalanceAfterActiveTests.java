@@ -437,15 +437,7 @@ block|{
 return|return
 operator|new
 name|ClusterInfo
-argument_list|(
-name|Collections
-operator|.
-name|EMPTY_MAP
-argument_list|,
-name|Collections
-operator|.
-name|EMPTY_MAP
-argument_list|)
+argument_list|()
 block|{
 annotation|@
 name|Override

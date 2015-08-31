@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Lists
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -631,9 +617,9 @@ name|InternalAggregations
 argument_list|>
 name|aggregationsList
 init|=
-name|Lists
-operator|.
-name|newArrayListWithCapacity
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|(
 name|buckets
 operator|.
@@ -1341,9 +1327,9 @@ name|Bucket
 argument_list|>
 name|buckets
 init|=
-name|Lists
-operator|.
-name|newArrayListWithCapacity
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

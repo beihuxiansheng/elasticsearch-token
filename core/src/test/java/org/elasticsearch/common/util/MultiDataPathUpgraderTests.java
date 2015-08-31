@@ -638,6 +638,8 @@ init|=
 operator|new
 name|ShardPath
 argument_list|(
+literal|false
+argument_list|,
 name|path
 argument_list|,
 name|path
@@ -1512,6 +1514,8 @@ init|=
 operator|new
 name|ShardPath
 argument_list|(
+literal|false
+argument_list|,
 name|nodeEnvironment
 operator|.
 name|availableShardPaths

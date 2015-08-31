@@ -106,20 +106,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
-operator|.
-name|Tuple
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -728,12 +714,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+name|ScrollIdForNode
 index|[]
 name|context
 init|=
@@ -759,12 +740,7 @@ name|i
 operator|++
 control|)
 block|{
-name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+name|ScrollIdForNode
 name|target
 init|=
 name|context
@@ -781,7 +757,7 @@ name|get
 argument_list|(
 name|target
 operator|.
-name|v1
+name|getNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -800,7 +776,7 @@ name|node
 argument_list|,
 name|target
 operator|.
-name|v2
+name|getScrollId
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -823,7 +799,7 @@ literal|"Node ["
 operator|+
 name|target
 operator|.
-name|v1
+name|getNode
 argument_list|()
 operator|+
 literal|"] not available for scroll request ["
@@ -860,12 +836,7 @@ block|}
 block|}
 for|for
 control|(
-name|Tuple
-argument_list|<
-name|String
-argument_list|,
-name|Long
-argument_list|>
+name|ScrollIdForNode
 name|target
 range|:
 name|scrollId
@@ -883,7 +854,7 @@ name|get
 argument_list|(
 name|target
 operator|.
-name|v1
+name|getNode
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -910,7 +881,7 @@ literal|"Node ["
 operator|+
 name|target
 operator|.
-name|v1
+name|getNode
 argument_list|()
 operator|+
 literal|"] not available for scroll request ["

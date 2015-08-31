@@ -110,6 +110,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|indices
+operator|.
+name|recovery
+operator|.
+name|RecoveryState
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -179,7 +193,7 @@ name|detailed
 init|=
 literal|false
 decl_stmt|;
-DECL|field|shardResponses
+DECL|field|shardRecoveryStates
 specifier|private
 name|Map
 argument_list|<
@@ -187,10 +201,10 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ShardRecoveryResponse
+name|RecoveryState
 argument_list|>
 argument_list|>
-name|shardResponses
+name|shardRecoveryStates
 init|=
 operator|new
 name|HashMap
@@ -202,7 +216,7 @@ specifier|public
 name|RecoveryResponse
 parameter_list|()
 block|{ }
-comment|/**      * Constructs recovery information for a collection of indices and associated shards. Keeps track of how many total shards      * were seen, and out of those how many were successfully processed and how many failed.      *      * @param totalShards       Total count of shards seen      * @param successfulShards  Count of shards successfully processed      * @param failedShards      Count of shards which failed to process      * @param detailed          Display detailed metrics      * @param shardResponses    Map of indices to shard recovery information      * @param shardFailures     List of failures processing shards      */
+comment|/**      * Constructs recovery information for a collection of indices and associated shards. Keeps track of how many total shards      * were seen, and out of those how many were successfully processed and how many failed.      *      * @param totalShards       Total count of shards seen      * @param successfulShards  Count of shards successfully processed      * @param failedShards      Count of shards which failed to process      * @param detailed          Display detailed metrics      * @param shardRecoveryStates    Map of indices to shard recovery information      * @param shardFailures     List of failures processing shards      */
 DECL|method|RecoveryResponse
 specifier|public
 name|RecoveryResponse
@@ -225,10 +239,10 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ShardRecoveryResponse
+name|RecoveryState
 argument_list|>
 argument_list|>
-name|shardResponses
+name|shardRecoveryStates
 parameter_list|,
 name|List
 argument_list|<
@@ -250,9 +264,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|shardResponses
+name|shardRecoveryStates
 operator|=
-name|shardResponses
+name|shardRecoveryStates
 expr_stmt|;
 name|this
 operator|.
@@ -268,7 +282,7 @@ name|hasRecoveries
 parameter_list|()
 block|{
 return|return
-name|shardResponses
+name|shardRecoveryStates
 operator|.
 name|size
 argument_list|()
@@ -302,7 +316,7 @@ operator|=
 name|detailed
 expr_stmt|;
 block|}
-DECL|method|shardResponses
+DECL|method|shardRecoveryStates
 specifier|public
 name|Map
 argument_list|<
@@ -310,14 +324,14 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ShardRecoveryResponse
+name|RecoveryState
 argument_list|>
 argument_list|>
-name|shardResponses
+name|shardRecoveryStates
 parameter_list|()
 block|{
 return|return
-name|shardResponses
+name|shardRecoveryStates
 return|;
 block|}
 annotation|@
@@ -347,7 +361,7 @@ control|(
 name|String
 name|index
 range|:
-name|shardResponses
+name|shardRecoveryStates
 operator|.
 name|keySet
 argument_list|()
@@ -355,11 +369,11 @@ control|)
 block|{
 name|List
 argument_list|<
-name|ShardRecoveryResponse
+name|RecoveryState
 argument_list|>
-name|responses
+name|recoveryStates
 init|=
-name|shardResponses
+name|shardRecoveryStates
 operator|.
 name|get
 argument_list|(
@@ -368,11 +382,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|responses
+name|recoveryStates
 operator|==
 literal|null
 operator|||
-name|responses
+name|recoveryStates
 operator|.
 name|size
 argument_list|()
@@ -398,10 +412,10 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|ShardRecoveryResponse
-name|recoveryResponse
+name|RecoveryState
+name|recoveryState
 range|:
-name|responses
+name|recoveryStates
 control|)
 block|{
 name|builder
@@ -409,7 +423,7 @@ operator|.
 name|startObject
 argument_list|()
 expr_stmt|;
-name|recoveryResponse
+name|recoveryState
 operator|.
 name|toXContent
 argument_list|(
@@ -464,7 +478,7 @@ name|out
 operator|.
 name|writeVInt
 argument_list|(
-name|shardResponses
+name|shardRecoveryStates
 operator|.
 name|size
 argument_list|()
@@ -480,12 +494,12 @@ name|String
 argument_list|,
 name|List
 argument_list|<
-name|ShardRecoveryResponse
+name|RecoveryState
 argument_list|>
 argument_list|>
 name|entry
 range|:
-name|shardResponses
+name|shardRecoveryStates
 operator|.
 name|entrySet
 argument_list|()
@@ -516,8 +530,8 @@ argument_list|)
 expr_stmt|;
 for|for
 control|(
-name|ShardRecoveryResponse
-name|recoveryResponse
+name|RecoveryState
+name|recoveryState
 range|:
 name|entry
 operator|.
@@ -525,7 +539,7 @@ name|getValue
 argument_list|()
 control|)
 block|{
-name|recoveryResponse
+name|recoveryState
 operator|.
 name|writeTo
 argument_list|(
@@ -596,7 +610,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ShardRecoveryResponse
+name|RecoveryState
 argument_list|>
 name|list
 init|=
@@ -626,16 +640,16 @@ name|list
 operator|.
 name|add
 argument_list|(
-name|ShardRecoveryResponse
+name|RecoveryState
 operator|.
-name|readShardRecoveryResponse
+name|readRecoveryState
 argument_list|(
 name|in
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|shardResponses
+name|shardRecoveryStates
 operator|.
 name|put
 argument_list|(

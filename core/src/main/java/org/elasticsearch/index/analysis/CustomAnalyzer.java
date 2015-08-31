@@ -160,7 +160,7 @@ index|[]
 name|tokenFilters
 parameter_list|,
 name|int
-name|positionOffsetGap
+name|positionIncrementGap
 parameter_list|,
 name|int
 name|offsetGap
@@ -188,7 +188,7 @@ name|this
 operator|.
 name|positionIncrementGap
 operator|=
-name|positionOffsetGap
+name|positionIncrementGap
 expr_stmt|;
 name|this
 operator|.
