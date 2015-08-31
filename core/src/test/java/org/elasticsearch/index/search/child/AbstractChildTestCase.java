@@ -1248,8 +1248,13 @@ operator|.
 name|parseContext
 argument_list|()
 operator|.
-name|parseInnerQuery
+name|parseInnerQueryBuilder
 argument_list|()
+operator|.
+name|toQuery
+argument_list|(
+name|context
+argument_list|)
 return|;
 block|}
 block|}
