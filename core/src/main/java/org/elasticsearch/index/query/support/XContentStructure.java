@@ -142,6 +142,10 @@ begin_comment
 comment|/**  * XContentStructure is a class used to capture a subset of query, to be parsed  * at a later time when more information (in this case, types) is available.  * Note that using this class requires copying the parser's data, which will  * result in additional overhead versus parsing the inner query/filter  * immediately, however, the extra overhead means that the type not be  * extracted prior to query parsing (in the case of unordered JSON).  */
 end_comment
 
+begin_comment
+comment|//norelease we should be able to delete this class once all queries are refactored
+end_comment
+
 begin_class
 DECL|class|XContentStructure
 specifier|public
@@ -332,6 +336,9 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * InnerQuery is an extension of {@code XContentStructure} that eagerly      * parses the query in a streaming manner if the types are available at      * construction time.      */
+comment|//norelease we should be able to delete this class once all queries are refactored
+annotation|@
+name|Deprecated
 DECL|class|InnerQuery
 specifier|public
 specifier|static
