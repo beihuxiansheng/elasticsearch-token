@@ -366,10 +366,6 @@ decl_stmt|;
 name|parseQuery
 argument_list|(
 name|queryString
-argument_list|,
-name|NotQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 block|}

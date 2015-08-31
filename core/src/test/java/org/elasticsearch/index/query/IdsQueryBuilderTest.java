@@ -173,10 +173,6 @@ decl_stmt|;
 name|parseQuery
 argument_list|(
 name|noIdsFieldQuery
-argument_list|,
-name|IdsQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 block|}

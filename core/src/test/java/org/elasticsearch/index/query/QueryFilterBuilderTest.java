@@ -231,7 +231,7 @@ comment|// create inner filter
 name|String
 name|queryString
 init|=
-literal|"{ \"constant_score\" : { \"filter\" : {} }"
+literal|"{ \"constant_score\" : { \"filter\" : {} } }"
 decl_stmt|;
 name|QueryBuilder
 argument_list|<
@@ -242,10 +242,6 @@ init|=
 name|parseQuery
 argument_list|(
 name|queryString
-argument_list|,
-name|ConstantScoreQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 decl_stmt|;
 comment|// check that when wrapping this filter, toQuery() returns null

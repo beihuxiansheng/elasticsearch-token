@@ -390,10 +390,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|SpanFirstQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 name|fail
@@ -473,10 +469,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|SpanFirstQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 name|fail

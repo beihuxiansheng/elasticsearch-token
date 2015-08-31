@@ -1084,10 +1084,6 @@ init|=
 name|parseQuery
 argument_list|(
 name|query
-argument_list|,
-name|TermsQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 decl_stmt|;
 name|assertThat

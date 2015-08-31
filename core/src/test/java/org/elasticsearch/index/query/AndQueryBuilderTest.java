@@ -430,10 +430,6 @@ block|{
 name|parseQuery
 argument_list|(
 literal|"{ \"and\" : {}"
-argument_list|,
-name|AndQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 block|}
@@ -643,10 +639,6 @@ decl_stmt|;
 name|parseQuery
 argument_list|(
 name|queryString
-argument_list|,
-name|AndQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 block|}

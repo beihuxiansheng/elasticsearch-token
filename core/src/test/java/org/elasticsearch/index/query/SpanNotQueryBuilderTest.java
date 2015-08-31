@@ -858,10 +858,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|SpanNotQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -989,10 +985,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|SpanNotQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1117,10 +1109,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|SpanNotQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1275,10 +1263,6 @@ name|builder
 operator|.
 name|string
 argument_list|()
-argument_list|,
-name|SpanNotQueryBuilder
-operator|.
-name|NAME
 argument_list|)
 expr_stmt|;
 name|fail
