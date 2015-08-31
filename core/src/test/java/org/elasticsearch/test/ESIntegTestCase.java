@@ -10609,6 +10609,9 @@ argument_list|,
 name|externalClusterClientSettings
 argument_list|()
 argument_list|,
+name|transportClientPlugins
+argument_list|()
+argument_list|,
 name|transportAddresses
 argument_list|)
 return|;
