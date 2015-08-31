@@ -314,6 +314,8 @@ argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|InternalTestCluster
@@ -341,6 +343,8 @@ argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// TODO: this is not ideal - we should have a way to make sure ports are initialized in the same way
@@ -720,6 +724,8 @@ argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|InternalTestCluster
@@ -747,6 +753,8 @@ argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertClusters

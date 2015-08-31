@@ -590,6 +590,8 @@ argument_list|,
 literal|false
 argument_list|,
 name|SECOND_CLUSTER_NODE_PREFIX
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|cluster2

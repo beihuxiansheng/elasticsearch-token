@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|ESTestCase
+name|ESIntegTestCase
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|InternalTestCluster
+name|ESTestCase
 import|;
 end_import
 
@@ -795,7 +795,7 @@ literal|"es.node.local"
 argument_list|,
 name|TESTS_CLUSTER
 argument_list|,
-name|InternalTestCluster
+name|ESIntegTestCase
 operator|.
 name|TESTS_ENABLE_MOCK_MODULES
 argument_list|)
