@@ -1409,9 +1409,6 @@ name|terms
 operator|=
 name|context
 operator|.
-name|indexQueryParserService
-argument_list|()
-operator|.
 name|handleTermsLookup
 argument_list|(
 name|termsLookup
