@@ -2135,7 +2135,10 @@ literal|"shard [{}] - count {}, primary {}"
 argument_list|,
 name|shardStats
 operator|.
-name|getShardId
+name|getShardRouting
+argument_list|()
+operator|.
+name|id
 argument_list|()
 argument_list|,
 name|docsStats

@@ -224,6 +224,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|plugins
+operator|.
+name|Plugin
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -237,6 +249,16 @@ operator|.
 name|junit
 operator|.
 name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
 import|;
 end_import
 
@@ -375,21 +397,6 @@ argument_list|(
 name|nodeOrdinal
 argument_list|)
 argument_list|)
-comment|// Use the mock internal cluster info service, which has fake-able disk usages
-operator|.
-name|extendArray
-argument_list|(
-literal|"plugin.types"
-argument_list|,
-name|MockInternalClusterInfoService
-operator|.
-name|TestPlugin
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 comment|// Update more frequently
 operator|.
 name|put
@@ -403,6 +410,34 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|nodePlugins
+specifier|protected
+name|Collection
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Plugin
+argument_list|>
+argument_list|>
+name|nodePlugins
+parameter_list|()
+block|{
+comment|// Use the mock internal cluster info service, which has fake-able disk usages
+return|return
+name|pluginList
+argument_list|(
+name|MockInternalClusterInfoService
+operator|.
+name|TestPlugin
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -531,6 +566,8 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"/dev/null"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -560,6 +597,8 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"/dev/null"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -588,6 +627,8 @@ literal|2
 argument_list|)
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"/dev/null"
 argument_list|,
 literal|100
 argument_list|,
@@ -724,7 +765,7 @@ literal|"--> got: {} nodes"
 argument_list|,
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -735,7 +776,7 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|getNodeDiskUsages
+name|getNodeLeastAvailableDiskUsages
 argument_list|()
 operator|.
 name|size
@@ -880,6 +921,8 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -909,6 +952,8 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -937,6 +982,8 @@ literal|2
 argument_list|)
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|100
 argument_list|,
@@ -1177,6 +1224,8 @@ argument_list|)
 argument_list|,
 literal|"n1"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -1206,6 +1255,8 @@ argument_list|)
 argument_list|,
 literal|"n2"
 argument_list|,
+literal|"_na_"
+argument_list|,
 literal|100
 argument_list|,
 literal|50
@@ -1234,6 +1285,8 @@ literal|2
 argument_list|)
 argument_list|,
 literal|"n3"
+argument_list|,
+literal|"_na_"
 argument_list|,
 literal|100
 argument_list|,
@@ -1482,7 +1535,7 @@ name|FsInfo
 operator|.
 name|Path
 argument_list|(
-literal|"/path.data"
+literal|"/dev/null"
 argument_list|,
 literal|null
 argument_list|,

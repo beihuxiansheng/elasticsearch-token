@@ -767,6 +767,11 @@ literal|"Malformed content, must start with an object"
 argument_list|)
 throw|;
 block|}
+name|boolean
+name|emptyDoc
+init|=
+literal|false
+decl_stmt|;
 if|if
 condition|(
 name|mapping
@@ -777,11 +782,6 @@ name|isEnabled
 argument_list|()
 condition|)
 block|{
-name|boolean
-name|emptyDoc
-init|=
-literal|false
-decl_stmt|;
 name|token
 operator|=
 name|parser
@@ -826,6 +826,7 @@ literal|"Malformed content, after first object, either the type field or the act
 argument_list|)
 throw|;
 block|}
+block|}
 for|for
 control|(
 name|MetadataFieldMapper
@@ -844,6 +845,26 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|mapping
+operator|.
+name|root
+operator|.
+name|isEnabled
+argument_list|()
+operator|==
+literal|false
+condition|)
+block|{
+comment|// entire type is disabled
+name|parser
+operator|.
+name|skipChildren
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|emptyDoc
@@ -895,16 +916,6 @@ name|postParse
 argument_list|(
 name|context
 argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-comment|// entire type is disabled
-name|parser
-operator|.
-name|skipChildren
-argument_list|()
 expr_stmt|;
 block|}
 comment|// try to parse the next token, this should be null if the object is ended properly
