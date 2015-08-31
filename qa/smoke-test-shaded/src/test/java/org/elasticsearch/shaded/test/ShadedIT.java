@@ -338,7 +338,7 @@ name|Class
 operator|.
 name|forName
 argument_list|(
-literal|"org.elasticsearch.common.collect.ImmutableList"
+literal|"org.elasticsearch.common.cache.LoadingCache"
 argument_list|)
 expr_stmt|;
 name|Class
@@ -377,7 +377,7 @@ name|Class
 operator|.
 name|forName
 argument_list|(
-literal|"com.google.common.collect.ImmutableList"
+literal|"com.google.common.cache.LoadingCache"
 argument_list|)
 expr_stmt|;
 block|}
