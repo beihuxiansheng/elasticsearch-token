@@ -192,12 +192,8 @@ name|query
 operator|.
 name|minimumNumberShouldMatch
 argument_list|(
-name|randomIntBetween
-argument_list|(
-literal|1
-argument_list|,
-literal|10
-argument_list|)
+name|randomMinimumShouldMatch
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

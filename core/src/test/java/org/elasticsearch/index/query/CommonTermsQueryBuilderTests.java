@@ -284,14 +284,8 @@ name|query
 operator|.
 name|analyzer
 argument_list|(
-name|randomFrom
-argument_list|(
-literal|"simple"
-argument_list|,
-literal|"keyword"
-argument_list|,
-literal|"whitespace"
-argument_list|)
+name|randomAnalyzer
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

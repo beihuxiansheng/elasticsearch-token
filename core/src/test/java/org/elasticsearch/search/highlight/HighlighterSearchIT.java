@@ -8410,7 +8410,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"foo.plain^5"
+literal|"foo.plain"
+argument_list|,
+literal|5
 argument_list|)
 argument_list|)
 operator|.
@@ -8449,7 +8451,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"foo.plain^5"
+literal|"foo.plain"
+argument_list|,
+literal|5
 argument_list|)
 operator|.
 name|field
@@ -8459,7 +8463,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"bar.plain^5"
+literal|"bar.plain"
+argument_list|,
+literal|5
 argument_list|)
 decl_stmt|;
 name|resp
@@ -22079,7 +22085,9 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"field1^100"
+literal|"field1"
+argument_list|,
+literal|100
 argument_list|)
 operator|.
 name|autoGeneratePhraseQueries
