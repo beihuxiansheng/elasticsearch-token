@@ -397,21 +397,21 @@ init|=
 block|{
 literal|"[_all] enabled is true now encountering false"
 block|,
-literal|"[_all] cannot enable norms (`norms.enabled`)"
+literal|"[_all] has different [omit_norms] values"
 block|,
-literal|"[_all] has different store values"
+literal|"[_all] has different [store] values"
 block|,
-literal|"[_all] has different store_term_vector values"
+literal|"[_all] has different [store_term_vector] values"
 block|,
-literal|"[_all] has different store_term_vector_offsets values"
+literal|"[_all] has different [store_term_vector_offsets] values"
 block|,
-literal|"[_all] has different store_term_vector_positions values"
+literal|"[_all] has different [store_term_vector_positions] values"
 block|,
-literal|"[_all] has different store_term_vector_payloads values"
+literal|"[_all] has different [store_term_vector_payloads] values"
 block|,
-literal|"[_all] has different analyzer"
+literal|"[_all] has different [analyzer]"
 block|,
-literal|"[_all] has different similarity"
+literal|"[_all] has different [similarity]"
 block|}
 decl_stmt|;
 comment|// fielddata and search_analyzer should not report conflict

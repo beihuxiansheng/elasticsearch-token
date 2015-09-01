@@ -3022,7 +3022,7 @@ argument_list|)
 decl_stmt|;
 name|assertThat
 argument_list|(
-literal|"mapper [shape] has different strategy"
+literal|"mapper [shape] has different [strategy]"
 argument_list|,
 name|isIn
 argument_list|(
@@ -3032,7 +3032,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"mapper [shape] has different tree"
+literal|"mapper [shape] has different [tree]"
 argument_list|,
 name|isIn
 argument_list|(
@@ -3042,7 +3042,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"mapper [shape] has different tree_levels"
+literal|"mapper [shape] has different [tree_levels]"
 argument_list|,
 name|isIn
 argument_list|(
@@ -3052,7 +3052,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"mapper [shape] has different precision"
+literal|"mapper [shape] has different [precision]"
 argument_list|,
 name|isIn
 argument_list|(
