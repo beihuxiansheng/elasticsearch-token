@@ -342,11 +342,9 @@ name|initialSettings
 init|=
 name|InternalSettingsPreparer
 operator|.
-name|prepareSettings
+name|prepareSettingsAndEnvironment
 argument_list|(
 name|EMPTY
-argument_list|,
-literal|true
 argument_list|,
 name|Terminal
 operator|.

@@ -592,7 +592,7 @@ name|onModuleMethod
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Constructs a new PluginService      * @param settings The settings of the system      * @param environment The environment of the system      * @param classpathPlugins Plugins that exist in the classpath which should be loaded      */
+comment|/**      * Constructs a new PluginService      * @param settings The settings of the system      * @param pluginsDirectory The directory plugins exist in, or null if plugins should not be loaded from the filesystem      * @param classpathPlugins Plugins that exist in the classpath which should be loaded      */
 DECL|method|PluginsService
 specifier|public
 name|PluginsService
@@ -600,8 +600,8 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|Environment
-name|environment
+name|Path
+name|pluginsDirectory
 parameter_list|,
 name|Collection
 argument_list|<
@@ -724,6 +724,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// now, find all the ones that are in plugins/
+if|if
+condition|(
+name|pluginsDirectory
+operator|!=
+literal|null
+condition|)
+block|{
 try|try
 block|{
 name|List
@@ -734,7 +741,7 @@ name|bundles
 init|=
 name|getPluginBundles
 argument_list|(
-name|environment
+name|pluginsDirectory
 argument_list|)
 decl_stmt|;
 name|tupleBuilder
@@ -763,6 +770,7 @@ argument_list|,
 name|ex
 argument_list|)
 throw|;
+block|}
 block|}
 name|plugins
 operator|=
@@ -1903,8 +1911,8 @@ name|Bundle
 argument_list|>
 name|getPluginBundles
 parameter_list|(
-name|Environment
-name|environment
+name|Path
+name|pluginsDirectory
 parameter_list|)
 throws|throws
 name|IOException
@@ -1920,14 +1928,6 @@ name|PluginsService
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|Path
-name|pluginsDirectory
-init|=
-name|environment
-operator|.
-name|pluginsFile
-argument_list|()
 decl_stmt|;
 comment|// TODO: remove this leniency, but tests bogusly rely on it
 if|if

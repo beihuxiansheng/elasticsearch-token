@@ -4464,11 +4464,11 @@ decl_stmt|;
 return|return
 name|InternalSettingsPreparer
 operator|.
-name|prepareSettings
+name|prepareSettingsAndEnvironment
 argument_list|(
 name|settings
 argument_list|,
-literal|false
+literal|null
 argument_list|)
 return|;
 block|}

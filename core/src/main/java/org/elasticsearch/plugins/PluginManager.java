@@ -2107,6 +2107,9 @@ operator|.
 name|getPluginBundles
 argument_list|(
 name|environment
+operator|.
+name|pluginsFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// if we aren't isolated, we need to jarhellcheck against any other non-isolated plugins

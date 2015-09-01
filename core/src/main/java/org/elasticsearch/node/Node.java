@@ -1195,11 +1195,11 @@ name|tuple
 init|=
 name|InternalSettingsPreparer
 operator|.
-name|prepareSettings
+name|prepareSettingsAndEnvironment
 argument_list|(
 name|pSettings
 argument_list|,
-name|loadConfigSettings
+literal|null
 argument_list|)
 decl_stmt|;
 name|tuple
@@ -1348,6 +1348,9 @@ argument_list|,
 name|tuple
 operator|.
 name|v2
+argument_list|()
+operator|.
+name|pluginsFile
 argument_list|()
 argument_list|,
 name|classpathPlugins
