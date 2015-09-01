@@ -329,8 +329,9 @@ argument_list|,
 name|blockSetting
 argument_list|)
 expr_stmt|;
-name|assertBlocked
-argument_list|(
+name|FlushResponse
+name|flushResponse
+init|=
 name|client
 argument_list|()
 operator|.
@@ -344,6 +345,13 @@ name|prepareFlush
 argument_list|(
 literal|"test"
 argument_list|)
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|assertBlocked
+argument_list|(
+name|flushResponse
 argument_list|)
 expr_stmt|;
 block|}
@@ -419,6 +427,9 @@ name|indices
 argument_list|()
 operator|.
 name|prepareFlush
+argument_list|()
+operator|.
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -117,7 +117,6 @@ end_comment
 begin_class
 DECL|class|BroadcastResponse
 specifier|public
-specifier|abstract
 class|class
 name|BroadcastResponse
 extends|extends
@@ -161,12 +160,12 @@ init|=
 name|EMPTY
 decl_stmt|;
 DECL|method|BroadcastResponse
-specifier|protected
+specifier|public
 name|BroadcastResponse
 parameter_list|()
 block|{     }
 DECL|method|BroadcastResponse
-specifier|protected
+specifier|public
 name|BroadcastResponse
 parameter_list|(
 name|int

@@ -3587,6 +3587,7 @@ return|;
 block|}
 comment|/**      * This Tracer can be used to signal start and end of a recovery.      * This is used to test the following:      * Whenever a node deletes a shard because it was relocated somewhere else, it first      * checks if enough other copies are started somewhere else. The node sends a ShardActiveRequest      * to the other nodes that should have a copy according to cluster state.      * The nodes that receive this request check if the shard is in state STARTED in which case they      * respond with "true". If they have the shard in POST_RECOVERY they register a cluster state      * observer that checks at each update if the shard has moved to STARTED.      * To test that this mechanism actually works, this can be triggered by blocking the cluster      * state processing when a recover starts and only unblocking it shortly after the node receives      * the ShardActiveRequest.      */
 DECL|class|ReclocationStartEndTracer
+specifier|public
 specifier|static
 class|class
 name|ReclocationStartEndTracer
@@ -3614,6 +3615,7 @@ name|CountDownLatch
 name|receivedShardExistsRequestLatch
 decl_stmt|;
 DECL|method|ReclocationStartEndTracer
+specifier|public
 name|ReclocationStartEndTracer
 parameter_list|(
 name|ESLogger

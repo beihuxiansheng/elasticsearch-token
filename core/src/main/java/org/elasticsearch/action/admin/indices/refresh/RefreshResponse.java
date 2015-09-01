@@ -50,48 +50,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamInput
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|io
-operator|.
-name|stream
-operator|.
-name|StreamOutput
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -101,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The response of a refresh action.  *  *  */
+comment|/**  * The response of a refresh action.  */
 end_comment
 
 begin_class
@@ -115,7 +73,7 @@ block|{
 DECL|method|RefreshResponse
 name|RefreshResponse
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|RefreshResponse
 name|RefreshResponse
 parameter_list|(
@@ -144,48 +102,6 @@ argument_list|,
 name|failedShards
 argument_list|,
 name|shardFailures
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|readFrom
-specifier|public
-name|void
-name|readFrom
-parameter_list|(
-name|StreamInput
-name|in
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|super
-operator|.
-name|readFrom
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|writeTo
-specifier|public
-name|void
-name|writeTo
-parameter_list|(
-name|StreamOutput
-name|out
-parameter_list|)
-throws|throws
-name|IOException
-block|{
-name|super
-operator|.
-name|writeTo
-argument_list|(
-name|out
 argument_list|)
 expr_stmt|;
 block|}

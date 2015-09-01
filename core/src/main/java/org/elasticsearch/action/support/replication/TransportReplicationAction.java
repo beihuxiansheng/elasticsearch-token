@@ -2097,6 +2097,8 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|doRun
 specifier|protected
 name|void
@@ -3978,7 +3980,7 @@ name|state
 argument_list|()
 decl_stmt|;
 name|int
-name|numberOfUnassignedOrShadowReplicas
+name|numberOfUnassignedOrIgnoredReplicas
 init|=
 literal|0
 decl_stmt|;
@@ -4074,15 +4076,15 @@ block|}
 elseif|else
 if|if
 condition|(
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
+name|shouldExecuteReplication
 argument_list|(
 name|indexMetaData
 operator|.
 name|settings
 argument_list|()
 argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 comment|// If the replicas use shadow replicas, there is no reason to
@@ -4092,7 +4094,7 @@ comment|// this delays mapping updates on replicas because they have
 comment|// to wait until they get the new mapping through the cluster
 comment|// state, which is why we recommend pre-defined mappings for
 comment|// indices using shadow replicas
-name|numberOfUnassignedOrShadowReplicas
+name|numberOfUnassignedOrIgnoredReplicas
 operator|++
 expr_stmt|;
 block|}
@@ -4105,7 +4107,7 @@ name|unassigned
 argument_list|()
 condition|)
 block|{
-name|numberOfUnassignedOrShadowReplicas
+name|numberOfUnassignedOrIgnoredReplicas
 operator|++
 expr_stmt|;
 block|}
@@ -4192,7 +4194,7 @@ name|unassigned
 argument_list|()
 condition|)
 block|{
-name|numberOfUnassignedOrShadowReplicas
+name|numberOfUnassignedOrIgnoredReplicas
 operator|++
 expr_stmt|;
 block|}
@@ -4223,15 +4225,15 @@ block|}
 elseif|else
 if|if
 condition|(
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
+name|shouldExecuteReplication
 argument_list|(
 name|indexMetaData
 operator|.
 name|settings
 argument_list|()
 argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 comment|// If the replicas use shadow replicas, there is no reason to
@@ -4241,7 +4243,7 @@ comment|// this delays mapping updates on replicas because they have
 comment|// to wait until they get the new mapping through the cluster
 comment|// state, which is why we recommend pre-defined mappings for
 comment|// indices using shadow replicas
-name|numberOfUnassignedOrShadowReplicas
+name|numberOfUnassignedOrIgnoredReplicas
 operator|++
 expr_stmt|;
 block|}
@@ -4277,7 +4279,7 @@ literal|1
 operator|+
 name|numberOfPendingShardInstances
 operator|+
-name|numberOfUnassignedOrShadowReplicas
+name|numberOfUnassignedOrIgnoredReplicas
 expr_stmt|;
 name|this
 operator|.
@@ -4481,17 +4483,13 @@ block|}
 elseif|else
 if|if
 condition|(
-name|IndexMetaData
-operator|.
-name|isIndexUsingShadowReplicas
+name|shouldExecuteReplication
 argument_list|(
 name|indexMetaData
 operator|.
 name|settings
 argument_list|()
 argument_list|)
-operator|==
-literal|false
 condition|)
 block|{
 name|performOnReplica
@@ -5168,6 +5166,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|/**      * Indicated whether this operation should be replicated to shadow replicas or not. If this method returns true the replication phase will be skipped.      * For example writes such as index and delete don't need to be replicated on shadow replicas but refresh and flush do.      */
+DECL|method|shouldExecuteReplication
+specifier|protected
+name|boolean
+name|shouldExecuteReplication
+parameter_list|(
+name|Settings
+name|settings
+parameter_list|)
+block|{
+return|return
+name|IndexMetaData
+operator|.
+name|isIndexUsingShadowReplicas
+argument_list|(
+name|settings
+argument_list|)
+operator|==
+literal|false
+return|;
 block|}
 comment|/**      * Internal request class that gets built on each node. Holds the original request plus additional info.      */
 DECL|class|InternalRequest

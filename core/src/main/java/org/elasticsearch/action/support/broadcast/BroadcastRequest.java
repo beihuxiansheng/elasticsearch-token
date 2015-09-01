@@ -102,11 +102,37 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -117,7 +143,6 @@ end_comment
 begin_class
 DECL|class|BroadcastRequest
 specifier|public
-specifier|abstract
 class|class
 name|BroadcastRequest
 parameter_list|<
@@ -152,7 +177,7 @@ name|strictExpandOpenAndForbidClosed
 argument_list|()
 decl_stmt|;
 DECL|method|BroadcastRequest
-specifier|protected
+specifier|public
 name|BroadcastRequest
 parameter_list|()
 block|{      }
