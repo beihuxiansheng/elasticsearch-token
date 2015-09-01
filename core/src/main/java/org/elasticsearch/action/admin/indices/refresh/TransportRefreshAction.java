@@ -306,11 +306,6 @@ name|setShardId
 argument_list|(
 name|shardId
 argument_list|)
-operator|.
-name|timeout
-argument_list|(
-literal|"0ms"
-argument_list|)
 return|;
 block|}
 annotation|@

@@ -1965,6 +1965,13 @@ return|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/13238"
+argument_list|)
 DECL|method|testTimeoutFlush
 specifier|public
 name|void
@@ -2456,6 +2463,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/13238"
+argument_list|)
 DECL|method|testTimeoutRefresh
 specifier|public
 name|void
