@@ -544,6 +544,8 @@ range|:
 name|listeners
 control|)
 block|{
+try|try
+block|{
 name|create
 operator|=
 name|listener
@@ -553,6 +555,25 @@ argument_list|(
 name|create
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"preCreate listener [{}] failed"
+argument_list|,
+name|e
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|create
@@ -739,7 +760,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postCreate listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -762,7 +783,47 @@ parameter_list|,
 name|Throwable
 name|ex
 parameter_list|)
-block|{     }
+block|{
+for|for
+control|(
+name|IndexingOperationListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+try|try
+block|{
+name|listener
+operator|.
+name|postCreate
+argument_list|(
+name|create
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"postCreate listener [{}] failed"
+argument_list|,
+name|e
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 DECL|method|preIndex
 specifier|public
 name|Engine
@@ -804,8 +865,8 @@ range|:
 name|listeners
 control|)
 block|{
-name|index
-operator|=
+try|try
+block|{
 name|listener
 operator|.
 name|preIndex
@@ -813,6 +874,25 @@ argument_list|(
 name|index
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"preIndex listener [{}] failed"
+argument_list|,
+name|e
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|index
@@ -857,7 +937,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postIndexUnderLock listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -971,7 +1051,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postIndex listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1045,7 +1125,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postIndex listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1096,6 +1176,8 @@ range|:
 name|listeners
 control|)
 block|{
+try|try
+block|{
 name|delete
 operator|=
 name|listener
@@ -1105,6 +1187,25 @@ argument_list|(
 name|delete
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"preDelete listener [{}] failed"
+argument_list|,
+name|e
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|delete
@@ -1149,7 +1250,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postDeleteUnderLock listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1254,7 +1355,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postDelete listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1298,6 +1399,45 @@ operator|.
 name|dec
 argument_list|()
 expr_stmt|;
+for|for
+control|(
+name|IndexingOperationListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+try|try
+block|{
+name|listener
+operator|.
+name|postDelete
+argument_list|(
+name|delete
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"postDelete listener [{}] failed"
+argument_list|,
+name|e
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|noopUpdate
 specifier|public
