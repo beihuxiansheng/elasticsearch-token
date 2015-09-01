@@ -2482,11 +2482,6 @@ expr_stmt|;
 name|randomIndexTemplate
 argument_list|()
 expr_stmt|;
-name|printTestMessage
-argument_list|(
-literal|"before"
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2536,6 +2531,16 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
+operator|&&
+operator|(
+name|getTestName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"<unknown>"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|logger
@@ -4064,11 +4069,6 @@ init|=
 name|getCurrentClusterScope
 argument_list|()
 decl_stmt|;
-name|printTestMessage
-argument_list|(
-literal|"cleaning up after"
-argument_list|)
-expr_stmt|;
 name|clearDisruptionScheme
 argument_list|()
 expr_stmt|;
@@ -4236,11 +4236,6 @@ expr_stmt|;
 comment|// it is ok to leave persistent / transient cluster state behind if scope is TEST
 block|}
 block|}
-name|printTestMessage
-argument_list|(
-literal|"cleaned up after"
-argument_list|)
-expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -11730,10 +11725,20 @@ name|runTestScopeLifecycle
 argument_list|()
 condition|)
 block|{
+name|printTestMessage
+argument_list|(
+literal|"setup"
+argument_list|)
+expr_stmt|;
 name|beforeInternal
 argument_list|()
 expr_stmt|;
 block|}
+name|printTestMessage
+argument_list|(
+literal|"starting"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After
@@ -11746,6 +11751,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|printTestMessage
+argument_list|(
+literal|"finished"
+argument_list|)
+expr_stmt|;
 comment|// Deleting indices is going to clear search contexts implicitely so we
 comment|// need to check that there are no more in-flight search contexts before
 comment|// we remove indices
@@ -11760,9 +11770,19 @@ name|runTestScopeLifecycle
 argument_list|()
 condition|)
 block|{
+name|printTestMessage
+argument_list|(
+literal|"cleaning up after"
+argument_list|)
+expr_stmt|;
 name|afterInternal
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|printTestMessage
+argument_list|(
+literal|"cleaned up after"
 argument_list|)
 expr_stmt|;
 block|}
@@ -11787,6 +11807,13 @@ condition|)
 block|{
 try|try
 block|{
+name|INSTANCE
+operator|.
+name|printTestMessage
+argument_list|(
+literal|"cleaning up after"
+argument_list|)
+expr_stmt|;
 name|INSTANCE
 operator|.
 name|afterInternal
@@ -11868,6 +11895,13 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+name|INSTANCE
+operator|.
+name|printTestMessage
+argument_list|(
+literal|"setup"
+argument_list|)
+expr_stmt|;
 name|INSTANCE
 operator|.
 name|beforeInternal
