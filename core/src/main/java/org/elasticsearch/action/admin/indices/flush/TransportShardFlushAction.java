@@ -306,7 +306,11 @@ specifier|final
 name|String
 name|NAME
 init|=
-literal|"indices:data/write/flush"
+name|FlushAction
+operator|.
+name|NAME
+operator|+
+literal|"[s]"
 decl_stmt|;
 annotation|@
 name|Inject
