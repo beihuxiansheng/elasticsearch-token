@@ -1073,6 +1073,8 @@ operator|.
 name|likeFields
 argument_list|)
 decl_stmt|;
+name|mltQuery
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch
@@ -1168,6 +1170,8 @@ argument_list|,
 name|readers
 argument_list|)
 decl_stmt|;
+name|mltQuery
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch

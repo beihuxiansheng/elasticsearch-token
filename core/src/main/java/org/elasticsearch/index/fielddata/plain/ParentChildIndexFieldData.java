@@ -1314,8 +1314,6 @@ name|estimatedTermsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docsEnum
 argument_list|,
 name|PostingsEnum

@@ -1000,6 +1000,8 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
+name|booleanQuery
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch

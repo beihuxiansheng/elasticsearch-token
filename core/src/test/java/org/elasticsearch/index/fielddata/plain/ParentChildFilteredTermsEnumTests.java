@@ -391,8 +391,6 @@ operator|.
 name|postings
 argument_list|(
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -703,8 +701,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;

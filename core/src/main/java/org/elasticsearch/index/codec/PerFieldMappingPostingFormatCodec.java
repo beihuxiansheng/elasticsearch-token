@@ -56,7 +56,7 @@ name|codecs
 operator|.
 name|lucene50
 operator|.
-name|Lucene50Codec
+name|Lucene50StoredFieldsFormat
 import|;
 end_import
 
@@ -70,9 +70,9 @@ name|lucene
 operator|.
 name|codecs
 operator|.
-name|lucene50
+name|lucene53
 operator|.
-name|Lucene50StoredFieldsFormat
+name|Lucene53Codec
 import|;
 end_import
 
@@ -101,20 +101,6 @@ operator|.
 name|lucene
 operator|.
 name|Lucene
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -176,7 +162,7 @@ specifier|public
 class|class
 name|PerFieldMappingPostingFormatCodec
 extends|extends
-name|Lucene50Codec
+name|Lucene53Codec
 block|{
 DECL|field|logger
 specifier|private

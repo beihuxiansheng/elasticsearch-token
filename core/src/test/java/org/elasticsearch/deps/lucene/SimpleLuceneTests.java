@@ -1623,11 +1623,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|atomicReader
-operator|.
-name|getLiveDocs
-argument_list|()
-argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
@@ -1697,11 +1692,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|atomicReader
-operator|.
-name|getLiveDocs
-argument_list|()
-argument_list|,
 name|termDocs
 argument_list|)
 expr_stmt|;

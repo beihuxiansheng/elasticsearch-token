@@ -1415,6 +1415,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|query
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch
@@ -1423,10 +1425,6 @@ name|bq
 argument_list|,
 name|minShouldMatch
 argument_list|)
-expr_stmt|;
-name|query
-operator|=
-name|bq
 expr_stmt|;
 block|}
 name|query

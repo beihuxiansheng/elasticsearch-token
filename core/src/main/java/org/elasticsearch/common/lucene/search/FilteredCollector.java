@@ -210,8 +210,6 @@ operator|.
 name|scorer
 argument_list|(
 name|context
-argument_list|,
-literal|null
 argument_list|)
 decl_stmt|;
 specifier|final
