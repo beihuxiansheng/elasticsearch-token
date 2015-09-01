@@ -58,6 +58,20 @@ name|cluster
 operator|.
 name|metadata
 operator|.
+name|IndexMetaData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
 name|MetaData
 import|;
 end_import
@@ -275,6 +289,18 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|gateway
+operator|.
+name|PriorityComparator
 import|;
 end_import
 
@@ -2549,6 +2575,17 @@ name|deciders
 argument_list|()
 decl_stmt|;
 specifier|final
+name|PriorityComparator
+name|secondaryComparator
+init|=
+name|PriorityComparator
+operator|.
+name|getAllocationComparator
+argument_list|(
+name|allocation
+argument_list|)
+decl_stmt|;
+specifier|final
 name|Comparator
 argument_list|<
 name|ShardRouting
@@ -2645,8 +2682,31 @@ name|getId
 argument_list|()
 return|;
 block|}
+comment|// this comparator is more expensive than all the others up there
+comment|// that's why it's added last even though it could be easier to read
+comment|// if we'd apply it earlier. this comparator will only differentiate across
+comment|// indices all shards of the same index is treated equally.
+specifier|final
+name|int
+name|secondary
+init|=
+name|secondaryComparator
+operator|.
+name|compare
+argument_list|(
+name|o1
+argument_list|,
+name|o2
+argument_list|)
+decl_stmt|;
 return|return
+name|secondary
+operator|==
+literal|0
+condition|?
 name|indexCmp
+else|:
+name|secondary
 return|;
 block|}
 block|}
