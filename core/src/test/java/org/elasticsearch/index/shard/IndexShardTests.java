@@ -6380,6 +6380,17 @@ name|Throwable
 name|ex
 parameter_list|)
 block|{
+if|if
+condition|(
+name|ex
+operator|==
+literal|null
+condition|)
+block|{
+name|fail
+argument_list|()
+expr_stmt|;
+block|}
 name|postIndexWithExceptionCalled
 operator|.
 name|set
