@@ -80,6 +80,18 @@ name|is
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|greaterThan
+import|;
+end_import
+
 begin_class
 DECL|class|SmokeTestClientIT
 specifier|public
@@ -124,17 +136,36 @@ operator|.
 name|get
 argument_list|()
 decl_stmt|;
-comment|// END SNIPPET: java-doc-admin-cluster-health
-name|assertThat
-argument_list|(
+name|String
+name|clusterName
+init|=
 name|health
 operator|.
 name|getClusterName
 argument_list|()
-argument_list|,
-name|is
+decl_stmt|;
+name|int
+name|numberOfNodes
+init|=
+name|health
+operator|.
+name|getNumberOfNodes
+argument_list|()
+decl_stmt|;
+comment|// END SNIPPET: java-doc-admin-cluster-health
+name|assertThat
 argument_list|(
-literal|"elasticsearch"
+literal|"cluster ["
+operator|+
+name|clusterName
+operator|+
+literal|"] should have at least 1 node"
+argument_list|,
+name|numberOfNodes
+argument_list|,
+name|greaterThan
+argument_list|(
+literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
