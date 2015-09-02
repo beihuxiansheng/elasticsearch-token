@@ -203,13 +203,13 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractAzureRepositoryServiceTest
+DECL|class|AbstractAzureRepositoryServiceTestCaseCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAzureRepositoryServiceTest
+name|AbstractAzureRepositoryServiceTestCaseCase
 extends|extends
-name|AbstractAzureTest
+name|AbstractAzureTestCase
 block|{
 DECL|class|TestPlugin
 specifier|public
@@ -277,9 +277,9 @@ name|AzureStorageService
 argument_list|>
 name|mock
 decl_stmt|;
-DECL|method|AbstractAzureRepositoryServiceTest
+DECL|method|AbstractAzureRepositoryServiceTestCaseCase
 specifier|public
-name|AbstractAzureRepositoryServiceTest
+name|AbstractAzureRepositoryServiceTestCaseCase
 parameter_list|(
 name|String
 name|basePath

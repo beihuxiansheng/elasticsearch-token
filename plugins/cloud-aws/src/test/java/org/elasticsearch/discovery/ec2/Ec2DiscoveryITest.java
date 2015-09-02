@@ -26,7 +26,7 @@ name|cloud
 operator|.
 name|aws
 operator|.
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 import|;
 end_import
 
@@ -167,7 +167,7 @@ specifier|public
 class|class
 name|Ec2DiscoveryITest
 extends|extends
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 block|{
 annotation|@
 name|Override

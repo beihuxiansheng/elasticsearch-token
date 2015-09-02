@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|S3ProxiedSnapshotRestoreOverHttpsTest
 extends|extends
-name|AbstractS3SnapshotRestoreTest
+name|AbstractS3SnapshotRestoreTestCase
 block|{
 DECL|field|proxySet
 specifier|private

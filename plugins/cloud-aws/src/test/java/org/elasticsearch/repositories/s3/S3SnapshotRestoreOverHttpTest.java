@@ -40,7 +40,7 @@ specifier|public
 class|class
 name|S3SnapshotRestoreOverHttpTest
 extends|extends
-name|AbstractS3SnapshotRestoreTest
+name|AbstractS3SnapshotRestoreTestCase
 block|{
 annotation|@
 name|Override

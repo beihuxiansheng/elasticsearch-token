@@ -44,7 +44,7 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|AbstractAzureTest
+name|AbstractAzureTestCase
 import|;
 end_import
 
@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This test needs Azure to run and -Dtests.thirdparty=true to be set  * and -Des.config=/path/to/elasticsearch.yml  * @see org.elasticsearch.cloud.azure.AbstractAzureTest  */
+comment|/**  * This test needs Azure to run and -Dtests.thirdparty=true to be set  * and -Des.config=/path/to/elasticsearch.yml  * @see AbstractAzureTestCase  */
 end_comment
 
 begin_class
@@ -129,7 +129,7 @@ specifier|public
 class|class
 name|AzureSimpleITest
 extends|extends
-name|AbstractAzureTest
+name|AbstractAzureTestCase
 block|{
 annotation|@
 name|Override

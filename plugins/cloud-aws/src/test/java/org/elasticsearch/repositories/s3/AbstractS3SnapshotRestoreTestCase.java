@@ -172,7 +172,7 @@ name|cloud
 operator|.
 name|aws
 operator|.
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 import|;
 end_import
 
@@ -432,13 +432,13 @@ name|transportClientRatio
 operator|=
 literal|0.0
 argument_list|)
-DECL|class|AbstractS3SnapshotRestoreTest
+DECL|class|AbstractS3SnapshotRestoreTestCase
 specifier|abstract
 specifier|public
 class|class
-name|AbstractS3SnapshotRestoreTest
+name|AbstractS3SnapshotRestoreTestCase
 extends|extends
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 block|{
 annotation|@
 name|Override

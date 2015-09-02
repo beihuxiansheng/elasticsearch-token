@@ -117,11 +117,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractAzureFsTest
+DECL|class|AbstractAzureFsTestCase
 specifier|abstract
 specifier|public
 class|class
-name|AbstractAzureFsTest
+name|AbstractAzureFsTestCase
 extends|extends
 name|ESIntegTestCase
 block|{

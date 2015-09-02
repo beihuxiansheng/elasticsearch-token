@@ -137,11 +137,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractAzureComputeServiceTest
+DECL|class|AbstractAzureComputeServiceTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAzureComputeServiceTest
+name|AbstractAzureComputeServiceTestCase
 extends|extends
 name|ESIntegTestCase
 block|{
@@ -155,9 +155,9 @@ name|Plugin
 argument_list|>
 name|mockPlugin
 decl_stmt|;
-DECL|method|AbstractAzureComputeServiceTest
+DECL|method|AbstractAzureComputeServiceTestCase
 specifier|public
-name|AbstractAzureComputeServiceTest
+name|AbstractAzureComputeServiceTestCase
 parameter_list|(
 name|Class
 argument_list|<

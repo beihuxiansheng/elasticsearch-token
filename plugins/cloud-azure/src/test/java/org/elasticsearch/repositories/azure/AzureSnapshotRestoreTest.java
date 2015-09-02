@@ -98,23 +98,7 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|AbstractAzureRepositoryServiceTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cloud
-operator|.
-name|azure
-operator|.
-name|storage
-operator|.
-name|AzureStorageServiceMock
+name|AbstractAzureRepositoryServiceTestCaseCase
 import|;
 end_import
 
@@ -247,7 +231,7 @@ specifier|public
 class|class
 name|AzureSnapshotRestoreTest
 extends|extends
-name|AbstractAzureRepositoryServiceTest
+name|AbstractAzureRepositoryServiceTestCaseCase
 block|{
 DECL|method|AzureSnapshotRestoreTest
 specifier|public

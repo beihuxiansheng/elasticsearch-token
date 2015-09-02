@@ -26,7 +26,7 @@ name|cloud
 operator|.
 name|azure
 operator|.
-name|AbstractAzureComputeServiceTest
+name|AbstractAzureComputeServiceTestCase
 import|;
 end_import
 
@@ -184,7 +184,7 @@ specifier|public
 class|class
 name|AzureMinimumMasterNodesTest
 extends|extends
-name|AbstractAzureComputeServiceTest
+name|AbstractAzureComputeServiceTestCase
 block|{
 DECL|method|AzureMinimumMasterNodesTest
 specifier|public
