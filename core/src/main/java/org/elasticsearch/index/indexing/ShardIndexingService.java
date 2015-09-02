@@ -1260,13 +1260,6 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-name|listener
-operator|.
-name|postDelete
-argument_list|(
-name|delete
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|postDelete
