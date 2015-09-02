@@ -673,12 +673,12 @@ name|AliasAction
 name|filter
 parameter_list|(
 name|QueryBuilder
-name|filterBuilder
+name|queryBuilder
 parameter_list|)
 block|{
 if|if
 condition|(
-name|filterBuilder
+name|queryBuilder
 operator|==
 literal|null
 condition|)
@@ -703,7 +703,7 @@ operator|.
 name|jsonBuilder
 argument_list|()
 decl_stmt|;
-name|filterBuilder
+name|queryBuilder
 operator|.
 name|toXContent
 argument_list|(
