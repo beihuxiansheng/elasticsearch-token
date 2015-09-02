@@ -283,6 +283,15 @@ comment|/**  * {@link ESSmokeClientTestCase} is an abstract base class to run in
 end_comment
 
 begin_class
+annotation|@
+name|LuceneTestCase
+operator|.
+name|SuppressSysoutChecks
+argument_list|(
+name|bugUrl
+operator|=
+literal|"we log a lot on purpose"
+argument_list|)
 DECL|class|ESSmokeClientTestCase
 specifier|public
 specifier|abstract
