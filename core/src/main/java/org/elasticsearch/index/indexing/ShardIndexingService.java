@@ -781,6 +781,8 @@ range|:
 name|listeners
 control|)
 block|{
+name|index
+operator|=
 name|listener
 operator|.
 name|preIndex
