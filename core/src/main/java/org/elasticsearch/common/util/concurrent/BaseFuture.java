@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|annotations
-operator|.
-name|Beta
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -372,8 +358,6 @@ return|return
 name|result
 return|;
 block|}
-annotation|@
-name|Beta
 DECL|method|done
 specifier|protected
 name|void
