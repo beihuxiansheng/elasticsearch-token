@@ -189,11 +189,11 @@ comment|/**  * Test streaming compression (e.g. used for recovery)  */
 end_comment
 
 begin_class
-DECL|class|AbstractCompressedStreamTests
+DECL|class|AbstractCompressedStreamTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractCompressedStreamTests
+name|AbstractCompressedStreamTestCase
 extends|extends
 name|ESTestCase
 block|{
@@ -203,9 +203,9 @@ specifier|final
 name|Compressor
 name|compressor
 decl_stmt|;
-DECL|method|AbstractCompressedStreamTests
+DECL|method|AbstractCompressedStreamTestCase
 specifier|protected
-name|AbstractCompressedStreamTests
+name|AbstractCompressedStreamTestCase
 parameter_list|(
 name|Compressor
 name|compressor

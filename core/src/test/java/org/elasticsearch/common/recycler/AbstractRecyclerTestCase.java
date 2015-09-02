@@ -75,11 +75,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractRecyclerTests
+DECL|class|AbstractRecyclerTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractRecyclerTests
+name|AbstractRecyclerTestCase
 extends|extends
 name|ESTestCase
 block|{

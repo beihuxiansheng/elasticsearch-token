@@ -172,7 +172,7 @@ specifier|public
 class|class
 name|BinaryDVFieldDataTests
 extends|extends
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 block|{
 annotation|@
 name|Override

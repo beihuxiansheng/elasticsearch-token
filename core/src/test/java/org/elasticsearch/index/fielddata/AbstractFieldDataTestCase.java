@@ -349,11 +349,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractFieldDataTests
+DECL|class|AbstractFieldDataTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 extends|extends
 name|ESSingleNodeTestCase
 block|{

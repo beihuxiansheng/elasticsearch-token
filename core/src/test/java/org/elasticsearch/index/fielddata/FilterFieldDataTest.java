@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|FilterFieldDataTest
 extends|extends
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 block|{
 annotation|@
 name|Override
