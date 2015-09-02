@@ -291,6 +291,9 @@ name|prepareRefresh
 argument_list|(
 literal|"test"
 argument_list|)
+operator|.
+name|get
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -366,6 +369,9 @@ name|indices
 argument_list|()
 operator|.
 name|prepareRefresh
+argument_list|()
+operator|.
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;

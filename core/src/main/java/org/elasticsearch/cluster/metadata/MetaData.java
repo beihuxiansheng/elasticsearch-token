@@ -94,20 +94,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableSet
 import|;
 end_import
@@ -1657,7 +1643,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|AliasMetaData
 argument_list|>
@@ -1714,7 +1700,7 @@ name|Builder
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|AliasMetaData
 argument_list|>
@@ -1888,9 +1874,9 @@ name|put
 argument_list|(
 name|index
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|filteredValues
 argument_list|)
@@ -2341,7 +2327,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|IndexWarmersMetaData
 operator|.
@@ -2416,7 +2402,7 @@ name|Builder
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|IndexWarmersMetaData
 operator|.
@@ -2500,6 +2486,7 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// TODO: make this a List so we don't have to copy below
 name|Collection
 argument_list|<
 name|IndexWarmersMetaData
@@ -2652,11 +2639,16 @@ name|put
 argument_list|(
 name|index
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
 argument_list|(
 name|filteredWarmers
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|elasticsearch
 operator|.
-name|IOException
+name|common
+operator|.
+name|HasContextAndHeaders
 import|;
 end_import
 
@@ -68,6 +70,16 @@ name|IndexQueryParserService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
 begin_interface
 DECL|interface|SuggestContextParser
 specifier|public
@@ -89,6 +101,9 @@ name|mapperService
 parameter_list|,
 name|IndexQueryParserService
 name|queryParserService
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 throws|throws
 name|IOException

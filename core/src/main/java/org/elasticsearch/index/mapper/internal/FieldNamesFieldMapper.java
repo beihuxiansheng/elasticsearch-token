@@ -981,6 +981,17 @@ name|boolean
 name|strict
 parameter_list|)
 block|{
+name|super
+operator|.
+name|checkCompatibility
+argument_list|(
+name|fieldType
+argument_list|,
+name|conflicts
+argument_list|,
+name|strict
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|strict

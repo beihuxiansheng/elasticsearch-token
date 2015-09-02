@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -197,6 +183,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -331,7 +327,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|AliasMetaData
 argument_list|>
@@ -364,7 +360,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|AliasMetaData
 argument_list|>
@@ -881,7 +877,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|Entry
 argument_list|>
@@ -914,7 +910,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ImmutableList
+name|List
 argument_list|<
 name|Entry
 argument_list|>

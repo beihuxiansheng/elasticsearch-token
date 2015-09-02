@@ -64,16 +64,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
 name|inject
@@ -486,7 +476,7 @@ name|nanos
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*     * We are mmapping docvalues as well as term dictionaries, all other files are served through NIOFS     * this provides good random access performance while not creating unnecessary mmaps for files like stored     * fields etc.     */
+comment|/*     * We are mmapping norms, docvalues as well as term dictionaries, all other files are served through NIOFS     * this provides good random access performance while not creating unnecessary mmaps for files like stored     * fields etc.     */
 DECL|field|PRIMARY_EXTENSIONS
 specifier|private
 specifier|static
@@ -505,6 +495,8 @@ name|Sets
 operator|.
 name|newHashSet
 argument_list|(
+literal|"nvd"
+argument_list|,
 literal|"dvd"
 argument_list|,
 literal|"tim"

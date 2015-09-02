@@ -68,20 +68,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|BytesRef
 import|;
 end_import
@@ -103,16 +89,6 @@ operator|.
 name|util
 operator|.
 name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
 import|;
 end_import
 
@@ -294,9 +270,6 @@ specifier|public
 name|PostingsEnum
 name|postings
 parameter_list|(
-name|Bits
-name|liveDocs
-parameter_list|,
 name|PostingsEnum
 name|reuse
 parameter_list|,
@@ -344,8 +317,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|liveDocs
-argument_list|,
 literal|null
 argument_list|,
 name|flags
@@ -408,8 +379,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-name|liveDocs
-argument_list|,
 literal|null
 argument_list|,
 name|flags

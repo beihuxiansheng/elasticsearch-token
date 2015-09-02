@@ -38,20 +38,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -139,6 +125,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -353,9 +349,9 @@ name|put
 argument_list|(
 name|key
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|value
 argument_list|)

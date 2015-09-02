@@ -40,6 +40,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URL
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|CodeSource
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|security
 operator|.
 name|Permission
@@ -186,6 +206,39 @@ name|Permission
 name|permission
 parameter_list|)
 block|{
+name|CodeSource
+name|codeSource
+init|=
+name|domain
+operator|.
+name|getCodeSource
+argument_list|()
+decl_stmt|;
+comment|// codesource can be null when reducing privileges via doPrivileged()
+if|if
+condition|(
+name|codeSource
+operator|!=
+literal|null
+condition|)
+block|{
+name|URL
+name|location
+init|=
+name|codeSource
+operator|.
+name|getLocation
+argument_list|()
+decl_stmt|;
+comment|// location can be null... ??? nobody knows
+comment|// https://bugs.openjdk.java.net/browse/JDK-8129972
+if|if
+condition|(
+name|location
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// run groovy scripts with no permissions
 if|if
 condition|(
@@ -193,13 +246,7 @@ literal|"/groovy/script"
 operator|.
 name|equals
 argument_list|(
-name|domain
-operator|.
-name|getCodeSource
-argument_list|()
-operator|.
-name|getLocation
-argument_list|()
+name|location
 operator|.
 name|getFile
 argument_list|()
@@ -210,6 +257,9 @@ return|return
 literal|false
 return|;
 block|}
+block|}
+block|}
+comment|// otherwise defer to template + dynamic file permissions
 return|return
 name|template
 operator|.

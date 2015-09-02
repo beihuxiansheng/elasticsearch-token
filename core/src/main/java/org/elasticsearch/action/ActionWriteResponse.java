@@ -215,7 +215,6 @@ end_comment
 begin_class
 DECL|class|ActionWriteResponse
 specifier|public
-specifier|abstract
 class|class
 name|ActionWriteResponse
 extends|extends

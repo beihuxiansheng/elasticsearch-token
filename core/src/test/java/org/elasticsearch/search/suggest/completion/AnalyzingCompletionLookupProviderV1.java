@@ -1082,8 +1082,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docsEnum
 argument_list|,
 name|PostingsEnum
@@ -2110,11 +2108,6 @@ name|prototype
 operator|.
 name|toFiniteStrings
 argument_list|(
-name|prototype
-operator|.
-name|getTokenStreamToAutomaton
-argument_list|()
-argument_list|,
 name|stream
 argument_list|)
 return|;

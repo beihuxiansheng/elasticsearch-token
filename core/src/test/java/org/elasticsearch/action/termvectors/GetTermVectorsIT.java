@@ -2625,8 +2625,6 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|ALL
@@ -3622,8 +3620,6 @@ name|iterator
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|,
 name|PostingsEnum
@@ -5132,8 +5128,6 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|ALL
@@ -5900,8 +5894,6 @@ name|postings
 argument_list|(
 literal|null
 argument_list|,
-literal|null
-argument_list|,
 name|PostingsEnum
 operator|.
 name|ALL
@@ -5914,8 +5906,6 @@ name|iter1
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 literal|null
 argument_list|,
 name|PostingsEnum

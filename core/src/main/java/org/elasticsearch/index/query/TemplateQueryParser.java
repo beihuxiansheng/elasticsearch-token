@@ -160,6 +160,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -375,6 +389,11 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
+argument_list|,
+name|SearchContext
+operator|.
+name|current
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BytesReference

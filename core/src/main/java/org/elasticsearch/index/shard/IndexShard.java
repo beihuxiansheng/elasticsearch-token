@@ -1298,6 +1298,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|EnumSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Locale
 import|;
 end_import
@@ -1732,6 +1742,31 @@ specifier|private
 specifier|final
 name|IndexShardOperationCounter
 name|indexShardOperationCounter
+decl_stmt|;
+DECL|field|readAllowedStates
+specifier|private
+name|EnumSet
+argument_list|<
+name|IndexShardState
+argument_list|>
+name|readAllowedStates
+init|=
+name|EnumSet
+operator|.
+name|of
+argument_list|(
+name|IndexShardState
+operator|.
+name|STARTED
+argument_list|,
+name|IndexShardState
+operator|.
+name|RELOCATED
+argument_list|,
+name|IndexShardState
+operator|.
+name|POST_RECOVERY
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Inject
@@ -2267,7 +2302,7 @@ name|util
 operator|.
 name|Version
 operator|.
-name|LUCENE_5_2_1
+name|LUCENE_5_3_0
 assert|;
 comment|// TODO: remove this hack in Lucene 5.4, use UsageTrackingQueryCachingPolicy directly
 comment|// See https://issues.apache.org/jira/browse/LUCENE-6748
@@ -5882,17 +5917,14 @@ decl_stmt|;
 comment|// one time volatile read
 if|if
 condition|(
-name|state
-operator|!=
-name|IndexShardState
+name|readAllowedStates
 operator|.
-name|STARTED
-operator|&&
+name|contains
+argument_list|(
 name|state
-operator|!=
-name|IndexShardState
-operator|.
-name|RELOCATED
+argument_list|)
+operator|==
+literal|false
 condition|)
 block|{
 throw|throw
@@ -5903,7 +5935,12 @@ name|shardId
 argument_list|,
 name|state
 argument_list|,
-literal|"operations only allowed when started/relocated"
+literal|"operations only allowed when shard state is one of "
+operator|+
+name|readAllowedStates
+operator|.
+name|toString
+argument_list|()
 argument_list|)
 throw|;
 block|}

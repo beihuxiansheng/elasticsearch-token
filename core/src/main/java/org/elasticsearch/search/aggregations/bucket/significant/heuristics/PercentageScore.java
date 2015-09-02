@@ -120,6 +120,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -230,7 +244,7 @@ return|return
 name|INSTANCE
 return|;
 block|}
-comment|/**      * Indicates the significance of a term in a sample by determining what percentage      * of all occurrences of a term are found in the sample.       */
+comment|/**      * Indicates the significance of a term in a sample by determining what percentage      * of all occurrences of a term are found in the sample.      */
 annotation|@
 name|Override
 DECL|method|getScore
@@ -332,6 +346,9 @@ name|parser
 parameter_list|,
 name|ParseFieldMatcher
 name|parseFieldMatcher
+parameter_list|,
+name|SearchContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException

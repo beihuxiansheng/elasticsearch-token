@@ -26,20 +26,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableSet
 import|;
 end_import
@@ -169,6 +155,16 @@ operator|.
 name|io
 operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -345,9 +341,9 @@ block|{
 comment|// Can happen if the document doesn't have the field to highlight
 name|textsToHighlight
 operator|=
-name|ImmutableList
+name|Collections
 operator|.
-name|of
+name|emptyList
 argument_list|()
 expr_stmt|;
 block|}

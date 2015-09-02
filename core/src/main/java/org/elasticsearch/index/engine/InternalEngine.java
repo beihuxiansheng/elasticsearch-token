@@ -1154,12 +1154,15 @@ operator|=
 operator|new
 name|Object
 index|[
-name|engineConfig
+name|Runtime
 operator|.
-name|getIndexConcurrency
+name|getRuntime
+argument_list|()
+operator|.
+name|availableProcessors
 argument_list|()
 operator|*
-literal|50
+literal|10
 index|]
 expr_stmt|;
 comment|// we multiply it to have enough...
@@ -6177,16 +6180,6 @@ name|getIndexingBufferSize
 argument_list|()
 operator|.
 name|mbFrac
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|iwc
-operator|.
-name|setMaxThreadStates
-argument_list|(
-name|engineConfig
-operator|.
-name|getIndexConcurrency
 argument_list|()
 argument_list|)
 expr_stmt|;

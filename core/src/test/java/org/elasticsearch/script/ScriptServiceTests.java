@@ -50,6 +50,30 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ContextAndHeaderHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|HasContextAndHeaders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Nullable
 import|;
 end_import
@@ -795,6 +819,9 @@ name|scriptLang
 parameter_list|,
 name|String
 name|id
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 block|{
 comment|//mock the script that gets retrieved from an index
@@ -886,6 +913,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -996,6 +1030,8 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1072,6 +1108,8 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|fail
@@ -1111,6 +1149,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -1152,6 +1197,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1211,6 +1258,8 @@ operator|.
 name|SEARCH
 block|}
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1239,6 +1288,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -1271,6 +1327,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|CompiledScript
@@ -1298,6 +1356,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1327,6 +1387,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -1359,6 +1426,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|CompiledScript
@@ -1386,6 +1455,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1415,6 +1486,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -1452,6 +1530,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|CompiledScript
@@ -1479,6 +1559,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 decl_stmt|;
 name|assertThat
@@ -1508,6 +1590,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|Settings
 operator|.
 name|Builder
@@ -1617,6 +1706,8 @@ operator|.
 name|INLINE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileRejected
@@ -1632,6 +1723,8 @@ operator|.
 name|INDEXED
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1647,6 +1740,8 @@ operator|.
 name|FILE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 comment|//expression engine is sandboxed, all scripts are enabled by default
@@ -1702,6 +1797,8 @@ operator|.
 name|INLINE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1717,6 +1814,8 @@ operator|.
 name|INDEXED
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1732,6 +1831,8 @@ operator|.
 name|FILE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 block|}
@@ -1749,6 +1850,8 @@ operator|.
 name|INLINE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1764,6 +1867,8 @@ operator|.
 name|INDEXED
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1779,6 +1884,8 @@ operator|.
 name|FILE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 comment|//custom engine is sandboxed, all scripts are enabled by default
@@ -1793,6 +1900,8 @@ operator|.
 name|INLINE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1806,6 +1915,8 @@ operator|.
 name|INDEXED
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertCompileAccepted
@@ -1819,6 +1930,8 @@ operator|.
 name|FILE
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 block|}
@@ -1833,6 +1946,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 comment|//collect the fine-grained settings to set for this run
 name|int
 name|numScriptSettings
@@ -2749,6 +2869,8 @@ argument_list|,
 name|scriptType
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2764,6 +2886,8 @@ argument_list|,
 name|scriptType
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 break|break;
@@ -2787,6 +2911,8 @@ argument_list|,
 name|scriptType
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 block|}
@@ -2801,6 +2927,8 @@ argument_list|,
 name|scriptType
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 block|}
@@ -2821,6 +2949,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -2931,6 +3066,8 @@ name|pluginName
 argument_list|,
 name|unknownContext
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|fail
@@ -2980,6 +3117,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -3009,6 +3153,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3035,6 +3181,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -3064,6 +3217,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3147,6 +3302,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -3205,6 +3367,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 block|}
@@ -3232,6 +3396,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|Settings
 operator|.
 name|Builder
@@ -3283,6 +3454,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|scriptService
@@ -3307,6 +3480,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3333,6 +3508,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -3367,6 +3549,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3393,6 +3577,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|buildScriptService
 argument_list|(
 name|Settings
@@ -3422,6 +3613,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3448,6 +3641,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+name|ContextAndHeaderHolder
+name|contextAndHeaders
+init|=
+operator|new
+name|ContextAndHeaderHolder
+argument_list|()
+decl_stmt|;
 name|Settings
 operator|.
 name|Builder
@@ -3499,6 +3699,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|scriptService
@@ -3523,6 +3725,8 @@ name|randomFrom
 argument_list|(
 name|scriptContexts
 argument_list|)
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -3626,6 +3830,9 @@ name|scriptType
 parameter_list|,
 name|ScriptContext
 name|scriptContext
+parameter_list|,
+name|HasContextAndHeaders
+name|contextAndHeaders
 parameter_list|)
 block|{
 try|try
@@ -3647,6 +3854,8 @@ literal|null
 argument_list|)
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 expr_stmt|;
 name|fail
@@ -3692,6 +3901,9 @@ name|scriptType
 parameter_list|,
 name|ScriptContext
 name|scriptContext
+parameter_list|,
+name|HasContextAndHeaders
+name|contextAndHeaders
 parameter_list|)
 block|{
 name|assertThat
@@ -3713,6 +3925,8 @@ literal|null
 argument_list|)
 argument_list|,
 name|scriptContext
+argument_list|,
+name|contextAndHeaders
 argument_list|)
 argument_list|,
 name|notNullValue

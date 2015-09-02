@@ -629,16 +629,6 @@ name|charsRef
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|fillBytesRef
-specifier|public
-name|void
-name|fillBytesRef
-parameter_list|()
-block|{
-comment|// does nothing - we change in place
-block|}
-annotation|@
-name|Override
 DECL|method|builder
 specifier|public
 name|BytesRefBuilder

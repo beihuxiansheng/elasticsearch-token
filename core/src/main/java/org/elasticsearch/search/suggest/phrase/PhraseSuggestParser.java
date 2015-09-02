@@ -82,6 +82,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|HasContextAndHeaders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParseFieldMatcher
 import|;
 end_import
@@ -324,6 +336,9 @@ name|mapperService
 parameter_list|,
 name|IndexQueryParserService
 name|queryParserService
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -1150,6 +1165,8 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
+argument_list|,
+name|headersContext
 argument_list|)
 decl_stmt|;
 name|suggestion

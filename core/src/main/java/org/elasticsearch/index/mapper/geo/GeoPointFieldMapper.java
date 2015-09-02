@@ -2553,7 +2553,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different lat_lon"
+literal|"] has different [lat_lon]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2580,7 +2580,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different geohash"
+literal|"] has different [geohash]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2607,7 +2607,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different geohash_precision"
+literal|"] has different [geohash_precision]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2634,7 +2634,7 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different geohash_prefix"
+literal|"] has different [geohash_prefix]"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2675,7 +2675,61 @@ operator|.
 name|fullName
 argument_list|()
 operator|+
-literal|"] has different precision_step"
+literal|"] has different [precision_step]"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ignoreMalformed
+argument_list|()
+operator|!=
+name|other
+operator|.
+name|ignoreMalformed
+argument_list|()
+condition|)
+block|{
+name|conflicts
+operator|.
+name|add
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] has different [ignore_malformed]"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|coerce
+argument_list|()
+operator|!=
+name|other
+operator|.
+name|coerce
+argument_list|()
+condition|)
+block|{
+name|conflicts
+operator|.
+name|add
+argument_list|(
+literal|"mapper ["
+operator|+
+name|names
+argument_list|()
+operator|.
+name|fullName
+argument_list|()
+operator|+
+literal|"] has different [coerce]"
 argument_list|)
 expr_stmt|;
 block|}

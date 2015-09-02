@@ -2380,7 +2380,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"(field:huge field:brown) +field:pidgin"
+literal|"+field:pidgin (field:huge field:brown)"
 argument_list|)
 argument_list|,
 literal|true
@@ -2429,7 +2429,7 @@ argument_list|)
 argument_list|,
 name|containsString
 argument_list|(
-literal|"(field:huge field:brown) +field:pidgin"
+literal|"+field:pidgin (field:huge field:brown)"
 argument_list|)
 argument_list|,
 literal|true

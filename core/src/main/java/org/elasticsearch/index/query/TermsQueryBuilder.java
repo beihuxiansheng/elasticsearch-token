@@ -1690,6 +1690,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|bq
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch

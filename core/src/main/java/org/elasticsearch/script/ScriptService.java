@@ -276,6 +276,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|HasContextAndHeaders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|ParseField
 import|;
 end_import
@@ -925,6 +937,8 @@ name|ScriptMetrics
 argument_list|()
 decl_stmt|;
 comment|/**      * @deprecated Use {@link org.elasticsearch.script.Script.ScriptField} instead. This should be removed in      *             2.0      */
+annotation|@
+name|Deprecated
 DECL|field|SCRIPT_LANG
 specifier|public
 specifier|static
@@ -941,6 +955,8 @@ literal|"script_lang"
 argument_list|)
 decl_stmt|;
 comment|/**      * @deprecated Use {@link ScriptType#getParseField()} instead. This should      *             be removed in 2.0      */
+annotation|@
+name|Deprecated
 DECL|field|SCRIPT_FILE
 specifier|public
 specifier|static
@@ -955,6 +971,8 @@ literal|"script_file"
 argument_list|)
 decl_stmt|;
 comment|/**      * @deprecated Use {@link ScriptType#getParseField()} instead. This should      *             be removed in 2.0      */
+annotation|@
+name|Deprecated
 DECL|field|SCRIPT_ID
 specifier|public
 specifier|static
@@ -969,6 +987,8 @@ literal|"script_id"
 argument_list|)
 decl_stmt|;
 comment|/**      * @deprecated Use {@link ScriptType#getParseField()} instead. This should      *             be removed in 2.0      */
+annotation|@
+name|Deprecated
 DECL|field|SCRIPT_INLINE
 specifier|public
 specifier|static
@@ -1499,6 +1519,9 @@ name|script
 parameter_list|,
 name|ScriptContext
 name|scriptContext
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 block|{
 if|if
@@ -1688,6 +1711,8 @@ return|return
 name|compileInternal
 argument_list|(
 name|script
+argument_list|,
+name|headersContext
 argument_list|)
 return|;
 block|}
@@ -1699,6 +1724,9 @@ name|compileInternal
 parameter_list|(
 name|Script
 name|script
+parameter_list|,
+name|HasContextAndHeaders
+name|context
 parameter_list|)
 block|{
 if|if
@@ -1889,6 +1917,8 @@ argument_list|,
 name|indexedScript
 operator|.
 name|id
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -2144,6 +2174,9 @@ name|scriptLang
 parameter_list|,
 name|String
 name|id
+parameter_list|,
+name|HasContextAndHeaders
+name|context
 parameter_list|)
 block|{
 if|if
@@ -2185,10 +2218,7 @@ name|getRequest
 operator|.
 name|copyContextAndHeadersFrom
 argument_list|(
-name|SearchContext
-operator|.
-name|current
-argument_list|()
+name|context
 argument_list|)
 expr_stmt|;
 name|GetResponse
@@ -2869,6 +2899,9 @@ name|script
 parameter_list|,
 name|ScriptContext
 name|scriptContext
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 block|{
 return|return
@@ -2879,6 +2912,8 @@ argument_list|(
 name|script
 argument_list|,
 name|scriptContext
+argument_list|,
+name|headersContext
 argument_list|)
 argument_list|,
 name|script
@@ -2947,6 +2982,11 @@ argument_list|(
 name|script
 argument_list|,
 name|scriptContext
+argument_list|,
+name|SearchContext
+operator|.
+name|current
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return

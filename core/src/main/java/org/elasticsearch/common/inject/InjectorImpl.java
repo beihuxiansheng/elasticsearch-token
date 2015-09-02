@@ -26,20 +26,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|ImmutableSet
 import|;
 end_import
@@ -485,6 +471,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
 import|;
 end_import
 
@@ -1021,9 +1017,9 @@ block|{
 return|return
 name|createChildInjector
 argument_list|(
-name|ImmutableList
+name|Arrays
 operator|.
-name|copyOf
+name|asList
 argument_list|(
 name|modules
 argument_list|)
@@ -4105,7 +4101,7 @@ name|type
 argument_list|)
 argument_list|)
 else|:
-name|ImmutableList
+name|Collections
 operator|.
 expr|<
 name|Binding
@@ -4113,7 +4109,7 @@ argument_list|<
 name|T
 argument_list|>
 operator|>
-name|of
+name|emptyList
 argument_list|()
 return|;
 block|}

@@ -948,6 +948,8 @@ name|MatchAllDocsQuery
 argument_list|()
 return|;
 block|}
+name|booleanQuery
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch

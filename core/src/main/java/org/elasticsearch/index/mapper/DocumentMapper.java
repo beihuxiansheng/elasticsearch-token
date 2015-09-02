@@ -1663,9 +1663,6 @@ name|newFieldMappers
 operator|.
 name|add
 argument_list|(
-operator|(
-name|FieldMapper
-operator|)
 name|metadataMapper
 argument_list|)
 expr_stmt|;
@@ -2833,6 +2830,8 @@ operator|.
 name|Standard
 operator|.
 name|MAPPING
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|Map

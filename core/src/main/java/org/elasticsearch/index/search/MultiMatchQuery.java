@@ -337,6 +337,8 @@ operator|instanceof
 name|BooleanQuery
 condition|)
 block|{
+name|query
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch

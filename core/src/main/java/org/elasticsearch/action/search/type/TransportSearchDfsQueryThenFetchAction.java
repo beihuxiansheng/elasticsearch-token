@@ -300,7 +300,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|ShardFetchSearchRequest
+name|FetchSearchResult
 import|;
 end_import
 
@@ -314,7 +314,7 @@ name|search
 operator|.
 name|fetch
 operator|.
-name|FetchSearchResult
+name|ShardFetchSearchRequest
 import|;
 end_import
 
@@ -1426,6 +1426,8 @@ argument_list|,
 name|queryResults
 argument_list|,
 name|fetchResults
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|String

@@ -392,7 +392,6 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-comment|// ImmutableList to List results incompatible type
 name|ImmutableOpenMap
 argument_list|<
 name|String

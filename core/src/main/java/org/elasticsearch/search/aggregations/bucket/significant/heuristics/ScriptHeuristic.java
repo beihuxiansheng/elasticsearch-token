@@ -64,20 +64,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|io
 operator|.
 name|stream
@@ -209,6 +195,20 @@ operator|.
 name|aggregations
 operator|.
 name|InternalAggregation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
 import|;
 end_import
 
@@ -458,6 +458,8 @@ operator|=
 name|script
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initialize
 specifier|public
 name|void
@@ -485,6 +487,8 @@ operator|.
 name|Standard
 operator|.
 name|AGGS
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 name|searchScript
@@ -683,6 +687,9 @@ name|parser
 parameter_list|,
 name|ParseFieldMatcher
 name|parseFieldMatcher
+parameter_list|,
+name|SearchContext
+name|context
 parameter_list|)
 throws|throws
 name|IOException
@@ -987,6 +994,8 @@ operator|.
 name|Standard
 operator|.
 name|AGGS
+argument_list|,
+name|context
 argument_list|)
 expr_stmt|;
 block|}
@@ -1141,6 +1150,8 @@ specifier|public
 name|long
 name|value
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|intValue
 specifier|public
 name|int
@@ -1154,6 +1165,8 @@ operator|)
 name|value
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|longValue
 specifier|public
 name|long
@@ -1173,9 +1186,6 @@ name|floatValue
 parameter_list|()
 block|{
 return|return
-operator|(
-name|float
-operator|)
 name|value
 return|;
 block|}
@@ -1188,9 +1198,6 @@ name|doubleValue
 parameter_list|()
 block|{
 return|return
-operator|(
-name|double
-operator|)
 name|value
 return|;
 block|}
