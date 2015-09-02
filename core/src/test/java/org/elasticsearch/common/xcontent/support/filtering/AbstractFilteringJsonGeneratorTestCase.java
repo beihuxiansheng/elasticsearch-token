@@ -127,11 +127,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|AbstractFilteringJsonGeneratorTests
+DECL|class|AbstractFilteringJsonGeneratorTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractFilteringJsonGeneratorTests
+name|AbstractFilteringJsonGeneratorTestCase
 extends|extends
 name|ESTestCase
 block|{

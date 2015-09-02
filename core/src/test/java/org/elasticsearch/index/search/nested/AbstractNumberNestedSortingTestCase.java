@@ -344,7 +344,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 import|;
 end_import
 
@@ -465,13 +465,13 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|AbstractNumberNestedSortingTests
+DECL|class|AbstractNumberNestedSortingTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractNumberNestedSortingTests
+name|AbstractNumberNestedSortingTestCase
 extends|extends
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 block|{
 annotation|@
 name|Test

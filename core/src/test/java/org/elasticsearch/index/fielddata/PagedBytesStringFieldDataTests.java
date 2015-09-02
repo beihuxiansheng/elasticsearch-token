@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|PagedBytesStringFieldDataTests
 extends|extends
-name|AbstractStringFieldDataTests
+name|AbstractStringFieldDataTestCase
 block|{
 annotation|@
 name|Override

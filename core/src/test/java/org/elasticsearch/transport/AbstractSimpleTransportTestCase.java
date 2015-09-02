@@ -317,11 +317,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|AbstractSimpleTransportTests
+DECL|class|AbstractSimpleTransportTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractSimpleTransportTests
+name|AbstractSimpleTransportTestCase
 extends|extends
 name|ESTestCase
 block|{

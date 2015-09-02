@@ -147,11 +147,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|AbstractCompressedXContentTests
+DECL|class|AbstractCompressedXContentTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractCompressedXContentTests
+name|AbstractCompressedXContentTestCase
 extends|extends
 name|ESTestCase
 block|{
@@ -161,9 +161,9 @@ specifier|final
 name|Compressor
 name|compressor
 decl_stmt|;
-DECL|method|AbstractCompressedXContentTests
+DECL|method|AbstractCompressedXContentTestCase
 specifier|protected
-name|AbstractCompressedXContentTests
+name|AbstractCompressedXContentTestCase
 parameter_list|(
 name|Compressor
 name|compressor

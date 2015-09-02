@@ -641,13 +641,13 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|AbstractStringFieldDataTests
+DECL|class|AbstractStringFieldDataTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractStringFieldDataTests
+name|AbstractStringFieldDataTestCase
 extends|extends
-name|AbstractFieldDataImplTests
+name|AbstractFieldDataImplTestCase
 block|{
 DECL|method|addField
 specifier|private

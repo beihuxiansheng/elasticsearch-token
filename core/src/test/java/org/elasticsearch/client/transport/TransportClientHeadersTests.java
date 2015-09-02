@@ -122,7 +122,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|AbstractClientHeadersTests
+name|AbstractClientHeadersTestCase
 import|;
 end_import
 
@@ -394,16 +394,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
@@ -456,7 +446,7 @@ specifier|public
 class|class
 name|TransportClientHeadersTests
 extends|extends
-name|AbstractClientHeadersTests
+name|AbstractClientHeadersTestCase
 block|{
 DECL|field|address
 specifier|private

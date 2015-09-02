@@ -601,11 +601,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|AbstractClientHeadersTests
+DECL|class|AbstractClientHeadersTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractClientHeadersTests
+name|AbstractClientHeadersTestCase
 extends|extends
 name|ESTestCase
 block|{

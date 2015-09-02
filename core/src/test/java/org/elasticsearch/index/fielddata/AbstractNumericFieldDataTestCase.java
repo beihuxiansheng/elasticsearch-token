@@ -163,13 +163,13 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|AbstractNumericFieldDataTests
+DECL|class|AbstractNumericFieldDataTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractNumericFieldDataTests
+name|AbstractNumericFieldDataTestCase
 extends|extends
-name|AbstractFieldDataImplTests
+name|AbstractFieldDataImplTestCase
 block|{
 annotation|@
 name|Override
