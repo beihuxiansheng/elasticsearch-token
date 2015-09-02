@@ -958,8 +958,6 @@ range|:
 name|listeners
 control|)
 block|{
-try|try
-block|{
 name|listener
 operator|.
 name|postIndex
@@ -969,25 +967,6 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"postIndex listener [{}] failed"
-argument_list|,
-name|e
-argument_list|,
-name|listener
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|preDelete
