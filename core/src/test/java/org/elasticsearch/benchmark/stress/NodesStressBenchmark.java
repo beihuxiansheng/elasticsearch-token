@@ -319,10 +319,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|NodesStressTest
+DECL|class|NodesStressBenchmark
 specifier|public
 class|class
-name|NodesStressTest
+name|NodesStressBenchmark
 block|{
 DECL|field|nodes
 specifier|private
@@ -436,14 +436,14 @@ specifier|private
 name|CyclicBarrier
 name|barrier2
 decl_stmt|;
-DECL|method|NodesStressTest
+DECL|method|NodesStressBenchmark
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 parameter_list|()
 block|{     }
 DECL|method|numberOfNodes
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|numberOfNodes
 parameter_list|(
 name|int
@@ -462,7 +462,7 @@ return|;
 block|}
 DECL|method|fieldNumLimit
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|fieldNumLimit
 parameter_list|(
 name|int
@@ -481,7 +481,7 @@ return|;
 block|}
 DECL|method|searchIterations
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|searchIterations
 parameter_list|(
 name|int
@@ -500,7 +500,7 @@ return|;
 block|}
 DECL|method|searcherThreads
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|searcherThreads
 parameter_list|(
 name|int
@@ -521,7 +521,7 @@ return|;
 block|}
 DECL|method|indexIterations
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|indexIterations
 parameter_list|(
 name|long
@@ -540,7 +540,7 @@ return|;
 block|}
 DECL|method|indexThreads
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|indexThreads
 parameter_list|(
 name|int
@@ -561,7 +561,7 @@ return|;
 block|}
 DECL|method|sleepAfterDone
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|sleepAfterDone
 parameter_list|(
 name|TimeValue
@@ -580,7 +580,7 @@ return|;
 block|}
 DECL|method|sleepBeforeClose
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|sleepBeforeClose
 parameter_list|(
 name|TimeValue
@@ -599,7 +599,7 @@ return|;
 block|}
 DECL|method|build
 specifier|public
-name|NodesStressTest
+name|NodesStressBenchmark
 name|build
 parameter_list|(
 name|Settings
@@ -1478,11 +1478,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|NodesStressTest
+name|NodesStressBenchmark
 name|test
 init|=
 operator|new
-name|NodesStressTest
+name|NodesStressBenchmark
 argument_list|()
 operator|.
 name|numberOfNodes
