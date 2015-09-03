@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|twitter
-operator|.
-name|jsr166e
-operator|.
-name|LongAdder
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -41,6 +29,20 @@ operator|.
 name|concurrent
 operator|.
 name|FutureUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|LongAdder
 import|;
 end_import
 

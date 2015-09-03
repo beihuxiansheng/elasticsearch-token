@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|twitter
+name|util
 operator|.
-name|jsr166e
+name|concurrent
+operator|.
+name|atomic
 operator|.
 name|LongAdder
 import|;

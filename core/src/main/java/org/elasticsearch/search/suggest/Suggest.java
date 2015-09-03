@@ -766,6 +766,7 @@ name|i
 operator|++
 control|)
 block|{
+comment|// TODO: remove these complicated generics
 name|Suggestion
 argument_list|<
 name|?
@@ -834,7 +835,14 @@ name|suggestion
 operator|=
 operator|new
 name|Suggestion
-argument_list|<>
+argument_list|<
+name|Entry
+argument_list|<
+name|?
+extends|extends
+name|Option
+argument_list|>
+argument_list|>
 argument_list|()
 expr_stmt|;
 break|break;
