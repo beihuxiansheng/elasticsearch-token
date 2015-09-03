@@ -774,15 +774,6 @@ operator|.
 name|concat
 argument_list|(
 name|list
-operator|.
-name|toArray
-argument_list|(
-operator|new
-name|Collection
-index|[
-literal|0
-index|]
-argument_list|)
 argument_list|)
 return|;
 block|}

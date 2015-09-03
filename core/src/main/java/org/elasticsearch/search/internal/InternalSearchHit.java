@@ -2284,6 +2284,9 @@ operator|.
 name|name
 argument_list|()
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|field
 operator|.
 name|value

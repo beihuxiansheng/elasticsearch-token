@@ -795,6 +795,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}
@@ -888,6 +890,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}
@@ -1257,6 +1261,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1278,6 +1284,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -1328,6 +1336,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1348,6 +1358,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -1398,6 +1410,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1418,6 +1432,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -1468,6 +1484,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1488,6 +1506,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}
@@ -1677,6 +1697,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1697,6 +1719,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1717,6 +1741,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -1769,6 +1795,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1789,6 +1817,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1809,6 +1839,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -1861,6 +1893,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1881,6 +1915,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1901,6 +1937,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -1953,6 +1991,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1973,6 +2013,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1993,6 +2035,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -2045,6 +2089,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2065,6 +2111,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2086,6 +2134,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -2138,6 +2188,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2158,6 +2210,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2178,6 +2232,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|rsp
@@ -2230,6 +2286,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2250,6 +2308,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2270,6 +2330,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}
@@ -2537,6 +2599,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2557,6 +2621,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}
@@ -2824,6 +2890,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2844,6 +2912,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -2864,6 +2934,8 @@ argument_list|)
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+literal|0.0D
 argument_list|)
 expr_stmt|;
 block|}

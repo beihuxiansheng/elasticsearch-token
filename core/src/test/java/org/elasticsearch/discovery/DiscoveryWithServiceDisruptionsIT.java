@@ -46,6 +46,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|ElasticsearchException
@@ -5894,6 +5910,13 @@ block|}
 comment|/*      * Tests a visibility issue if a shard is in POST_RECOVERY      *      * When a user indexes a document, then refreshes and then a executes a search and all are successful and no timeouts etc then      * the document must be visible for the search.      *      * When a primary is relocating from node_1 to node_2, there can be a short time where both old and new primary      * are started and accept indexing and read requests. However, the new primary might not be visible to nodes      * that lag behind one cluster state. If such a node then sends a refresh to the index, this refresh request      * must reach the new primary on node_2 too. Otherwise a different node that searches on the new primary might not      * find the indexed document although a refresh was executed before.      *      * In detail:      * Cluster state 0:      * node_1: [index][0] STARTED   (ShardRoutingState)      * node_2: no shard      *      * 0. primary ([index][0]) relocates from node_1 to node_2      * Cluster state 1:      * node_1: [index][0] RELOCATING   (ShardRoutingState), (STARTED from IndexShardState perspective on node_1)      * node_2: [index][0] INITIALIZING (ShardRoutingState), (IndexShardState on node_2 is RECOVERING)      *      * 1. node_2 is done recovering, moves its shard to IndexShardState.POST_RECOVERY and sends a message to master that the shard is ShardRoutingState.STARTED      * Cluster state is still the same but the IndexShardState on node_2 has changed and it now accepts writes and reads:      * node_1: [index][0] RELOCATING   (ShardRoutingState), (STARTED from IndexShardState perspective on node_1)      * node_2: [index][0] INITIALIZING (ShardRoutingState), (IndexShardState on node_2 is POST_RECOVERY)      *      * 2. any node receives an index request which is then executed on node_1 and node_2      *      * 3. node_3 sends a refresh but it is a little behind with cluster state processing and still on cluster state 0.      * If refresh was a broadcast operation it send it to node_1 only because it does not know node_2 has a shard too      *      * 4. node_3 catches up with the cluster state and acks it to master which now can process the shard started message      *  from node_2 before and updates cluster state to:      * Cluster state 2:      * node_1: [index][0] no shard      * node_2: [index][0] STARTED (ShardRoutingState), (IndexShardState on node_2 is still POST_RECOVERY)      *      * master sends this to all nodes.      *      * 5. node_4 and node_3 process cluster state 2, but node_1 and node_2 have not yet      *      * If now node_4 searches for document that was indexed before, it will search at node_2 because it is on      * cluster state 2. It should be able to retrieve it with a search because the refresh from before was      * successful.      */
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/13316"
+argument_list|)
 DECL|method|testReadOnPostRecoveryShards
 specifier|public
 name|void

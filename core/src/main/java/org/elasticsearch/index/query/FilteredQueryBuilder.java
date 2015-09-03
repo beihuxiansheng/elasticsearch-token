@@ -26,20 +26,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -379,45 +365,6 @@ comment|// Most likely this query was generated from the JSON query DSL - it par
 comment|// the whole filtered query as there is nothing to filter on. See FilteredQueryParser for an example.
 return|return
 literal|null
-return|;
-block|}
-if|if
-condition|(
-name|filter
-operator|==
-literal|null
-operator|||
-name|Queries
-operator|.
-name|isConstantMatchAllQuery
-argument_list|(
-name|filter
-argument_list|)
-condition|)
-block|{
-comment|// no filter, or match all filter
-return|return
-name|query
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|Queries
-operator|.
-name|isConstantMatchAllQuery
-argument_list|(
-name|query
-argument_list|)
-condition|)
-block|{
-comment|// if its a match_all query, use constant_score
-return|return
-operator|new
-name|ConstantScoreQuery
-argument_list|(
-name|filter
-argument_list|)
 return|;
 block|}
 comment|// use a BooleanQuery
