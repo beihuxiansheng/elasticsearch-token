@@ -533,6 +533,15 @@ argument_list|)
 expr_stmt|;
 name|put
 argument_list|(
+literal|"decimaldigit"
+argument_list|,
+name|DecimalDigitFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|put
+argument_list|(
 literal|"delimitedpayload"
 argument_list|,
 name|DelimitedPayloadTokenFilterFactory
@@ -1212,6 +1221,16 @@ comment|// puts the type into the payload
 name|put
 argument_list|(
 literal|"typeaspayload"
+argument_list|,
+name|Void
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+comment|// fingerprint
+name|put
+argument_list|(
+literal|"fingerprint"
 argument_list|,
 name|Void
 operator|.
