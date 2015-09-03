@@ -172,7 +172,7 @@ name|cloud
 operator|.
 name|aws
 operator|.
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 import|;
 end_import
 
@@ -416,7 +416,7 @@ specifier|public
 class|class
 name|AbstractS3SnapshotRestoreTest
 extends|extends
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 block|{
 annotation|@
 name|Override

@@ -78,11 +78,11 @@ name|elasticsearch
 operator|.
 name|plugin
 operator|.
-name|discovery
+name|repository
 operator|.
-name|ec2
+name|s3
 operator|.
-name|Ec2DiscoveryPlugin
+name|S3RepositoryPlugin
 import|;
 end_import
 
@@ -159,11 +159,11 @@ end_comment
 begin_class
 annotation|@
 name|ThirdParty
-DECL|class|AbstractAwsTest
+DECL|class|AbstractAwsTestCase
 specifier|public
 specifier|abstract
 class|class
-name|AbstractAwsTest
+name|AbstractAwsTestCase
 extends|extends
 name|ESIntegTestCase
 block|{
@@ -327,7 +327,16 @@ name|extendArray
 argument_list|(
 literal|"plugin.types"
 argument_list|,
-name|Ec2DiscoveryPlugin
+name|S3RepositoryPlugin
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|TestAwsS3Service
+operator|.
+name|TestPlugin
 operator|.
 name|class
 operator|.

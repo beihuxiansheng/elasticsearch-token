@@ -35,10 +35,10 @@ comment|/**  */
 end_comment
 
 begin_class
-DECL|class|S3SnapshotRestoreOverHttpsTest
+DECL|class|S3SnapshotRestoreOverHttpsTests
 specifier|public
 class|class
-name|S3SnapshotRestoreOverHttpsTest
+name|S3SnapshotRestoreOverHttpsTests
 extends|extends
 name|AbstractS3SnapshotRestoreTest
 block|{

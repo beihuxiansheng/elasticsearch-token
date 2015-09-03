@@ -61,10 +61,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|AWSSignersTest
+DECL|class|AWSSignersTests
 specifier|public
 class|class
-name|AWSSignersTest
+name|AWSSignersTests
 extends|extends
 name|ESTestCase
 block|{

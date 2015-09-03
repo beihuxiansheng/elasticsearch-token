@@ -103,10 +103,10 @@ comment|/**  * Unit test for {@link S3OutputStream}.  */
 end_comment
 
 begin_class
-DECL|class|S3OutputStreamTest
+DECL|class|S3OutputStreamTests
 specifier|public
 class|class
-name|S3OutputStreamTest
+name|S3OutputStreamTests
 extends|extends
 name|ESTestCase
 block|{

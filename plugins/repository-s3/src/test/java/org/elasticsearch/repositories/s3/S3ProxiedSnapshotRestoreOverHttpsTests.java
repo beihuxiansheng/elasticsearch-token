@@ -45,10 +45,10 @@ comment|/**  * This will only run if you define in your `elasticsearch.yml` file
 end_comment
 
 begin_class
-DECL|class|S3ProxiedSnapshotRestoreOverHttpsTest
+DECL|class|S3ProxiedSnapshotRestoreOverHttpsTests
 specifier|public
 class|class
-name|S3ProxiedSnapshotRestoreOverHttpsTest
+name|S3ProxiedSnapshotRestoreOverHttpsTests
 extends|extends
 name|AbstractS3SnapshotRestoreTest
 block|{
