@@ -1273,6 +1273,11 @@ operator|.
 name|setBoost
 argument_list|(
 name|boost
+operator|*
+name|query
+operator|.
+name|getBoost
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
