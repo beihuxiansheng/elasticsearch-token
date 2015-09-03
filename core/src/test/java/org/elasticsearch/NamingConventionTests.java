@@ -14,6 +14,16 @@ end_package
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|google
@@ -28,30 +38,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -61,18 +47,6 @@ operator|.
 name|util
 operator|.
 name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|SuppressForbidden
 import|;
 end_import
 
@@ -123,16 +97,6 @@ operator|.
 name|test
 operator|.
 name|ESTokenStreamTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -198,7 +162,43 @@ name|nio
 operator|.
 name|file
 operator|.
-name|*
+name|FileVisitResult
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|FileVisitor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Path
 import|;
 end_import
 
@@ -1073,7 +1073,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|" match the naming convention. Concrete classes must end with [Test|Tests]:\n"
+literal|" match the naming convention. Concrete classes must end with [Tests]:\n"
 operator|+
 name|Joiner
 operator|.
@@ -1095,7 +1095,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Classes ending with [Test|Tests] are abstract or interfaces:\n"
+literal|"Classes ending with [Tests] are abstract or interfaces:\n"
 operator|+
 name|Joiner
 operator|.
@@ -1165,7 +1165,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Classes ending with [Test|Tests] must subclass ["
+literal|"Classes ending with [Tests] must subclass ["
 operator|+
 name|classesToSubclass
 operator|+
