@@ -94,7 +94,7 @@ literal|0
 case|:
 return|return
 operator|new
-name|MatchAllQueryBuilderTest
+name|MatchAllQueryBuilderTests
 argument_list|()
 operator|.
 name|createTestQueryBuilder
@@ -105,7 +105,7 @@ literal|1
 case|:
 return|return
 operator|new
-name|TermQueryBuilderTest
+name|TermQueryBuilderTests
 argument_list|()
 operator|.
 name|createTestQueryBuilder
@@ -116,7 +116,7 @@ literal|2
 case|:
 return|return
 operator|new
-name|IdsQueryBuilderTest
+name|IdsQueryBuilderTests
 argument_list|()
 operator|.
 name|createTestQueryBuilder
