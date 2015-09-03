@@ -484,7 +484,7 @@ name|innerHitsQueryParserHelper
 operator|.
 name|parse
 argument_list|(
-name|parseContext
+name|parser
 argument_list|)
 argument_list|)
 expr_stmt|;

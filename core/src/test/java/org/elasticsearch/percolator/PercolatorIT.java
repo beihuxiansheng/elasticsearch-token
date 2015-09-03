@@ -376,20 +376,6 @@ name|index
 operator|.
 name|query
 operator|.
-name|MatchQueryBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
 name|Operator
 import|;
 end_import
@@ -452,7 +438,7 @@ name|query
 operator|.
 name|support
 operator|.
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 import|;
 end_import
 
@@ -18839,7 +18825,7 @@ operator|.
 name|innerHit
 argument_list|(
 operator|new
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 argument_list|()
 argument_list|)
 argument_list|)

@@ -964,9 +964,17 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
+comment|// we have to prefer CURRENT since with the range of versions we support it's rather unlikely to get the current actually.
 name|Version
 name|version
 init|=
+name|randomBoolean
+argument_list|()
+condition|?
+name|Version
+operator|.
+name|CURRENT
+else|:
 name|VersionUtils
 operator|.
 name|randomVersionBetween
@@ -1516,6 +1524,24 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|setSearchContext
+argument_list|(
+name|types
+argument_list|)
+expr_stmt|;
+comment|// TODO should this be set after we parsed and before we build the query? it makes more sense?
+block|}
+block|}
+DECL|method|setSearchContext
+specifier|protected
+name|void
+name|setSearchContext
+parameter_list|(
+name|String
+index|[]
+name|types
+parameter_list|)
+block|{
 name|TestSearchContext
 name|testSearchContext
 init|=
@@ -1537,7 +1563,6 @@ argument_list|(
 name|testSearchContext
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|After
@@ -2625,7 +2650,7 @@ return|;
 block|}
 comment|//we use the streaming infra to create a copy of the query provided as argument
 DECL|method|copyQuery
-specifier|private
+specifier|protected
 name|QB
 name|copyQuery
 parameter_list|(

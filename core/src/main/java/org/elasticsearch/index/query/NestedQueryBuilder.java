@@ -42,7 +42,7 @@ name|query
 operator|.
 name|support
 operator|.
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 import|;
 end_import
 
@@ -105,7 +105,7 @@ name|scoreMode
 decl_stmt|;
 DECL|field|innerHit
 specifier|private
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 name|innerHit
 decl_stmt|;
 DECL|field|PROTOTYPE
@@ -192,7 +192,7 @@ specifier|public
 name|NestedQueryBuilder
 name|innerHit
 parameter_list|(
-name|QueryInnerHitBuilder
+name|QueryInnerHits
 name|innerHit
 parameter_list|)
 block|{
@@ -283,24 +283,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|builder
-operator|.
-name|startObject
-argument_list|(
-literal|"inner_hits"
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|value
-argument_list|(
 name|innerHit
-argument_list|)
-expr_stmt|;
-name|builder
 operator|.
-name|endObject
-argument_list|()
+name|toXContent
+argument_list|(
+name|builder
+argument_list|,
+name|params
+argument_list|)
 expr_stmt|;
 block|}
 name|builder

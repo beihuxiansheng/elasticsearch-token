@@ -2197,7 +2197,7 @@ name|childValue
 argument_list|)
 argument_list|)
 operator|.
-name|setShortCircuitCutoff
+name|shortCircuitCutoff
 argument_list|(
 name|shortCircuitParentDocSet
 argument_list|)
@@ -2221,7 +2221,7 @@ name|childValue
 argument_list|)
 argument_list|)
 operator|.
-name|setShortCircuitCutoff
+name|shortCircuitCutoff
 argument_list|(
 name|shortCircuitParentDocSet
 argument_list|)
