@@ -240,7 +240,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetCachingWrapperFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -256,7 +256,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|QueryBitSetProducer
 import|;
 end_import
 
@@ -604,14 +604,11 @@ operator|.
 name|HitContext
 argument_list|()
 decl_stmt|;
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 init|=
 operator|new
-name|BitDocIdSetCachingWrapperFilter
-argument_list|(
-operator|new
-name|QueryWrapperFilter
+name|QueryBitSetProducer
 argument_list|(
 operator|new
 name|TermQuery
@@ -622,7 +619,6 @@ argument_list|(
 literal|"type"
 argument_list|,
 literal|"parent"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -665,11 +661,27 @@ block|{
 name|DocIdSetIterator
 name|parents
 init|=
-name|parentFilter
+operator|new
+name|QueryWrapperFilter
+argument_list|(
+operator|new
+name|TermQuery
+argument_list|(
+operator|new
+name|Term
+argument_list|(
+literal|"type"
+argument_list|,
+literal|"parent"
+argument_list|)
+argument_list|)
+argument_list|)
 operator|.
 name|getDocIdSet
 argument_list|(
 name|leaf
+argument_list|,
+literal|null
 argument_list|)
 operator|.
 name|iterator

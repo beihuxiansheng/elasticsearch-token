@@ -847,10 +847,14 @@ else|else
 block|{
 specifier|final
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -877,6 +881,9 @@ expr_stmt|;
 block|}
 return|return
 name|booleanQuery
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 block|}

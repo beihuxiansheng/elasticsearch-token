@@ -1236,10 +1236,14 @@ block|}
 else|else
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|parentsFilter
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -1291,6 +1295,9 @@ block|}
 name|parentFilter
 operator|=
 name|parentsFilter
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 if|if

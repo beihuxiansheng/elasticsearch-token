@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|IndexReader
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|IndexReader
+name|LeafReaderContext
 import|;
 end_import
 
@@ -54,7 +54,49 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|DocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|FieldComparatorSource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Filter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|SortField
 import|;
 end_import
 
@@ -70,7 +112,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -85,6 +127,20 @@ operator|.
 name|util
 operator|.
 name|BitDocIdSet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|BitSet
 import|;
 end_import
 
@@ -489,7 +545,7 @@ block|{
 DECL|field|rootFilter
 specifier|private
 specifier|final
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|rootFilter
 decl_stmt|;
 DECL|field|innerFilter
@@ -502,7 +558,7 @@ DECL|method|Nested
 specifier|public
 name|Nested
 parameter_list|(
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|rootFilter
 parameter_list|,
 name|Filter
@@ -525,7 +581,7 @@ block|}
 comment|/**              * Get a {@link BitDocIdSet} that matches the root documents.              */
 DECL|method|rootDocs
 specifier|public
-name|BitDocIdSet
+name|BitSet
 name|rootDocs
 parameter_list|(
 name|LeafReaderContext
@@ -537,7 +593,7 @@ block|{
 return|return
 name|rootFilter
 operator|.
-name|getDocIdSet
+name|getBitSet
 argument_list|(
 name|ctx
 argument_list|)

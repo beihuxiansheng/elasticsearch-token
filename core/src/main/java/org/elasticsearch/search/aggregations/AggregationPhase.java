@@ -735,9 +735,9 @@ name|filtered
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
-decl_stmt|;
-name|filtered
 operator|.
 name|add
 argument_list|(
@@ -747,8 +747,6 @@ name|Occur
 operator|.
 name|MUST
 argument_list|)
-expr_stmt|;
-name|filtered
 operator|.
 name|add
 argument_list|(
@@ -758,7 +756,10 @@ name|Occur
 operator|.
 name|FILTER
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|query
 operator|=
 name|filtered

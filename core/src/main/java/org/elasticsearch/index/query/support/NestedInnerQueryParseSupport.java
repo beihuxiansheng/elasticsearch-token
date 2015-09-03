@@ -58,7 +58,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -268,7 +268,7 @@ literal|false
 decl_stmt|;
 DECL|field|parentFilter
 specifier|protected
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 decl_stmt|;
 DECL|field|childFilter
