@@ -3001,6 +3001,8 @@ name|index
 argument_list|()
 argument_list|,
 name|indexSettings
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3334,6 +3336,8 @@ argument_list|,
 name|metaData
 argument_list|,
 name|clusterState
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -3380,6 +3384,9 @@ name|metaData
 parameter_list|,
 name|ClusterState
 name|clusterState
+parameter_list|,
+name|boolean
+name|closed
 parameter_list|)
 throws|throws
 name|IOException
@@ -3553,6 +3560,8 @@ argument_list|,
 name|index
 argument_list|,
 name|indexSettings
+argument_list|,
+name|closed
 argument_list|)
 expr_stmt|;
 block|}
@@ -3573,6 +3582,9 @@ name|index
 parameter_list|,
 name|Settings
 name|indexSettings
+parameter_list|,
+name|boolean
+name|closed
 parameter_list|)
 throws|throws
 name|IOException
@@ -3605,6 +3617,8 @@ argument_list|(
 name|index
 argument_list|,
 name|indexSettings
+argument_list|,
+name|closed
 argument_list|)
 condition|)
 block|{
@@ -3866,6 +3880,8 @@ name|index
 argument_list|()
 argument_list|,
 name|indexSettings
+argument_list|,
+literal|false
 argument_list|)
 condition|)
 block|{
@@ -3895,6 +3911,8 @@ argument_list|,
 name|metaData
 argument_list|,
 name|clusterState
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -3954,6 +3972,9 @@ name|index
 parameter_list|,
 name|Settings
 name|indexSettings
+parameter_list|,
+name|boolean
+name|closed
 parameter_list|)
 block|{
 specifier|final
@@ -3972,6 +3993,8 @@ name|name
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// Closed indices may be deleted, even if they are on a shared
+comment|// filesystem. Since it is closed we aren't deleting it for relocation
 if|if
 condition|(
 name|IndexMetaData
@@ -3982,6 +4005,8 @@ name|indexSettings
 argument_list|)
 operator|==
 literal|false
+operator|||
+name|closed
 condition|)
 block|{
 if|if
