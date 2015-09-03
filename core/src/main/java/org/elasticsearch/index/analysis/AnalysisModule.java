@@ -3082,6 +3082,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|tokenFiltersBindings
+operator|.
+name|processTokenFilter
+argument_list|(
+literal|"decimal_digit"
+argument_list|,
+name|DecimalDigitFilterFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
