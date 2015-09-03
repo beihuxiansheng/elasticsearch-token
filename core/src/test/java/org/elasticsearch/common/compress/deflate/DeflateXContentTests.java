@@ -28,7 +28,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|AbstractCompressedXContentTests
+name|AbstractCompressedXContentTestCase
 import|;
 end_import
 
@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|DeflateXContentTests
 extends|extends
-name|AbstractCompressedXContentTests
+name|AbstractCompressedXContentTestCase
 block|{
 DECL|method|DeflateXContentTests
 specifier|public

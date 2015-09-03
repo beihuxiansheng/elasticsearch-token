@@ -1186,6 +1186,9 @@ operator|.
 name|get
 argument_list|()
 expr_stmt|;
+name|ensureGreen
+argument_list|()
+expr_stmt|;
 name|waitForRelocation
 argument_list|()
 expr_stmt|;

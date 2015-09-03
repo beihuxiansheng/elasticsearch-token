@@ -597,7 +597,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postCreateUnderLock listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -739,7 +739,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postCreate listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -762,7 +762,47 @@ parameter_list|,
 name|Throwable
 name|ex
 parameter_list|)
-block|{     }
+block|{
+for|for
+control|(
+name|IndexingOperationListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+try|try
+block|{
+name|listener
+operator|.
+name|postCreate
+argument_list|(
+name|create
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"postCreate listener [{}] failed"
+argument_list|,
+name|t
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 DECL|method|preIndex
 specifier|public
 name|Engine
@@ -857,7 +897,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postIndexUnderLock listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -971,7 +1011,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postIndex listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1015,6 +1055,45 @@ operator|.
 name|dec
 argument_list|()
 expr_stmt|;
+for|for
+control|(
+name|IndexingOperationListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+try|try
+block|{
+name|listener
+operator|.
+name|postIndex
+argument_list|(
+name|index
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"postIndex listener [{}] failed"
+argument_list|,
+name|t
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|preDelete
 specifier|public
@@ -1110,7 +1189,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postDeleteUnderLock listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1215,7 +1294,7 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"post listener [{}] failed"
+literal|"postDelete listener [{}] failed"
 argument_list|,
 name|e
 argument_list|,
@@ -1259,6 +1338,45 @@ operator|.
 name|dec
 argument_list|()
 expr_stmt|;
+for|for
+control|(
+name|IndexingOperationListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+try|try
+block|{
+name|listener
+operator|.
+name|postDelete
+argument_list|(
+name|delete
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"postDelete listener [{}] failed"
+argument_list|,
+name|t
+argument_list|,
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|noopUpdate
 specifier|public

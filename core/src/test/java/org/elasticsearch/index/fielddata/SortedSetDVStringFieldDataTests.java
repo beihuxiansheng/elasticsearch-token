@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|SortedSetDVStringFieldDataTests
 extends|extends
-name|AbstractStringFieldDataTests
+name|AbstractStringFieldDataTestCase
 block|{
 annotation|@
 name|Override

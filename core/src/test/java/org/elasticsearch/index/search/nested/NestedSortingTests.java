@@ -416,7 +416,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 import|;
 end_import
 
@@ -594,7 +594,7 @@ specifier|public
 class|class
 name|NestedSortingTests
 extends|extends
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 block|{
 annotation|@
 name|Override

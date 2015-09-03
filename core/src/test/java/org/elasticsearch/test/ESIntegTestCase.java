@@ -2127,7 +2127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p/>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p/>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIntegrationTest extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIntegrationTest extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
+comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p/>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p/>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIT extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIT extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
 end_comment
 
 begin_class
@@ -2482,11 +2482,6 @@ expr_stmt|;
 name|randomIndexTemplate
 argument_list|()
 expr_stmt|;
-name|printTestMessage
-argument_list|(
-literal|"before"
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -2536,6 +2531,16 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
+operator|&&
+operator|(
+name|getTestName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"<unknown>"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|logger
@@ -4064,11 +4069,6 @@ init|=
 name|getCurrentClusterScope
 argument_list|()
 decl_stmt|;
-name|printTestMessage
-argument_list|(
-literal|"cleaning up after"
-argument_list|)
-expr_stmt|;
 name|clearDisruptionScheme
 argument_list|()
 expr_stmt|;
@@ -4236,11 +4236,6 @@ expr_stmt|;
 comment|// it is ok to leave persistent / transient cluster state behind if scope is TEST
 block|}
 block|}
-name|printTestMessage
-argument_list|(
-literal|"cleaned up after"
-argument_list|)
-expr_stmt|;
 name|success
 operator|=
 literal|true
@@ -11730,10 +11725,20 @@ name|runTestScopeLifecycle
 argument_list|()
 condition|)
 block|{
+name|printTestMessage
+argument_list|(
+literal|"setup"
+argument_list|)
+expr_stmt|;
 name|beforeInternal
 argument_list|()
 expr_stmt|;
 block|}
+name|printTestMessage
+argument_list|(
+literal|"starting"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After
@@ -11746,6 +11751,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|printTestMessage
+argument_list|(
+literal|"finished"
+argument_list|)
+expr_stmt|;
 comment|// Deleting indices is going to clear search contexts implicitely so we
 comment|// need to check that there are no more in-flight search contexts before
 comment|// we remove indices
@@ -11760,9 +11770,19 @@ name|runTestScopeLifecycle
 argument_list|()
 condition|)
 block|{
+name|printTestMessage
+argument_list|(
+literal|"cleaning up after"
+argument_list|)
+expr_stmt|;
 name|afterInternal
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|printTestMessage
+argument_list|(
+literal|"cleaned up after"
 argument_list|)
 expr_stmt|;
 block|}
@@ -11787,6 +11807,13 @@ condition|)
 block|{
 try|try
 block|{
+name|INSTANCE
+operator|.
+name|printTestMessage
+argument_list|(
+literal|"cleaning up after"
+argument_list|)
+expr_stmt|;
 name|INSTANCE
 operator|.
 name|afterInternal
@@ -11868,6 +11895,13 @@ literal|false
 decl_stmt|;
 try|try
 block|{
+name|INSTANCE
+operator|.
+name|printTestMessage
+argument_list|(
+literal|"setup"
+argument_list|)
+expr_stmt|;
 name|INSTANCE
 operator|.
 name|beforeInternal

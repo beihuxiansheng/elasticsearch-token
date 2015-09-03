@@ -22,7 +22,7 @@ specifier|public
 class|class
 name|QueueRecyclerTests
 extends|extends
-name|AbstractRecyclerTests
+name|AbstractRecyclerTestCase
 block|{
 annotation|@
 name|Override

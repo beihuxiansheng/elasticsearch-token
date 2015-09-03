@@ -6841,6 +6841,18 @@ literal|100L
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> total number of simulated failures during restore: [{}]"
+argument_list|,
+name|getFailureCount
+argument_list|(
+literal|"test-repo"
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

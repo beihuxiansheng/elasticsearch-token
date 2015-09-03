@@ -102,7 +102,7 @@ name|elasticsearch
 operator|.
 name|client
 operator|.
-name|AbstractClientHeadersTests
+name|AbstractClientHeadersTestCase
 import|;
 end_import
 
@@ -188,7 +188,7 @@ specifier|public
 class|class
 name|NodeClientHeadersTests
 extends|extends
-name|AbstractClientHeadersTests
+name|AbstractClientHeadersTestCase
 block|{
 DECL|field|EMPTY_FILTERS
 specifier|private
