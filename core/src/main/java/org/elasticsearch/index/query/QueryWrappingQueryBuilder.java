@@ -102,24 +102,6 @@ name|query
 operator|=
 name|query
 expr_stmt|;
-comment|//hack to make sure that the boost from the wrapped query is used, otherwise it gets overwritten.
-if|if
-condition|(
-name|query
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|boost
-operator|=
-name|query
-operator|.
-name|getBoost
-argument_list|()
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -174,6 +156,19 @@ operator|new
 name|UnsupportedOperationException
 argument_list|()
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|setFinalBoost
+specifier|protected
+name|void
+name|setFinalBoost
+parameter_list|(
+name|Query
+name|query
+parameter_list|)
+block|{
+comment|//no-op the wrapper lucene query has already its boost set
 block|}
 block|}
 end_class
