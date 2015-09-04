@@ -130,7 +130,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -850,7 +850,7 @@ return|;
 block|}
 DECL|method|bitsetFilter
 specifier|public
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|bitsetFilter
 parameter_list|(
 name|Filter
@@ -862,7 +862,7 @@ name|indexQueryParser
 operator|.
 name|bitsetFilterCache
 operator|.
-name|getBitDocIdSetFilter
+name|getBitSetProducer
 argument_list|(
 name|filter
 argument_list|)

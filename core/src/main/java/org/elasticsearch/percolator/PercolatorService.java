@@ -5989,10 +5989,14 @@ literal|null
 condition|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|booleanFilter
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|booleanFilter
@@ -6027,6 +6031,9 @@ expr_stmt|;
 name|filter
 operator|=
 name|booleanFilter
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 else|else

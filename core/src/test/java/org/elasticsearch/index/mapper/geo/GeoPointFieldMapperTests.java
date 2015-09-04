@@ -5986,7 +5986,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"ignore_malformed"
+literal|"coerce"
 argument_list|,
 literal|true
 argument_list|)
@@ -6079,7 +6079,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"ignore_malformed"
+literal|"coerce"
 argument_list|,
 literal|false
 argument_list|)
@@ -6180,7 +6180,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"mapper [point] has different [ignore_malformed]"
+literal|"mapper [point] has different [coerce]"
 argument_list|,
 name|isIn
 argument_list|(
@@ -6250,7 +6250,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"ignore_malformed"
+literal|"coerce"
 argument_list|,
 literal|true
 argument_list|)

@@ -2972,7 +2972,7 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String)}.              */
+comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, long, long)}.              */
 annotation|@
 name|Override
 DECL|method|remove

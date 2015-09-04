@@ -1050,10 +1050,14 @@ block|{
 comment|// this strategy doesn't support disjoint anymore: but it did before, including creating lucene fieldcache (!)
 comment|// in this case, execute disjoint as exists&& !intersects
 name|BooleanQuery
+operator|.
+name|Builder
 name|bool
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|Query
@@ -1117,6 +1121,9 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 name|bool
+operator|.
+name|build
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

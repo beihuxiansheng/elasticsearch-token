@@ -856,6 +856,22 @@ end_import
 
 begin_import
 import|import static
+name|com
+operator|.
+name|google
+operator|.
+name|common
+operator|.
+name|base
+operator|.
+name|Predicates
+operator|.
+name|notNull
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
 name|elasticsearch
@@ -5570,15 +5586,15 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|filter
-argument_list|(
-name|isNull
-argument_list|()
-argument_list|)
-operator|.
 name|transform
 argument_list|(
 name|urlFunction
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|notNull
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Assert

@@ -2288,10 +2288,14 @@ expr_stmt|;
 block|}
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|boolQuery
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|boolQuery
@@ -2324,6 +2328,9 @@ expr_stmt|;
 block|}
 return|return
 name|boolQuery
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 return|return
@@ -2578,6 +2585,8 @@ name|void
 name|handleExclude
 parameter_list|(
 name|BooleanQuery
+operator|.
+name|Builder
 name|boolQuery
 parameter_list|,
 name|MultiTermVectorsRequest

@@ -1089,10 +1089,14 @@ condition|)
 block|{
 specifier|final
 name|BooleanQuery
+operator|.
+name|Builder
 name|filtered
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|filtered
@@ -1120,6 +1124,9 @@ expr_stmt|;
 name|query
 operator|=
 name|filtered
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 comment|// if all filter elements returned null, just use the query

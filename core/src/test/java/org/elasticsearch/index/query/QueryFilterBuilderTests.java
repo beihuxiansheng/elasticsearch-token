@@ -206,10 +206,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|supportsBoostAndQueryName
+DECL|method|supportsBoostAndQueryNameParsing
 specifier|protected
 name|boolean
-name|supportsBoostAndQueryName
+name|supportsBoostAndQueryNameParsing
 parameter_list|()
 block|{
 return|return

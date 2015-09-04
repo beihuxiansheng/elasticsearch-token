@@ -126,7 +126,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -1381,7 +1381,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|rootDocumentsFilter
 init|=
 name|context
@@ -1389,7 +1389,7 @@ operator|.
 name|bitsetFilterCache
 argument_list|()
 operator|.
-name|getBitDocIdSetFilter
+name|getBitSetProducer
 argument_list|(
 name|Queries
 operator|.
@@ -1596,9 +1596,6 @@ name|rootDocs
 argument_list|(
 name|context
 argument_list|)
-operator|.
-name|bits
-argument_list|()
 decl_stmt|;
 specifier|final
 name|DocIdSet

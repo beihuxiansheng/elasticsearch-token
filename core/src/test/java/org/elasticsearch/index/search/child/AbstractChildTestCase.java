@@ -114,7 +114,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -1168,7 +1168,7 @@ block|}
 block|}
 DECL|method|wrapWithBitSetFilter
 specifier|static
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|wrapWithBitSetFilter
 parameter_list|(
 name|Filter
@@ -1184,7 +1184,7 @@ operator|.
 name|bitsetFilterCache
 argument_list|()
 operator|.
-name|getBitDocIdSetFilter
+name|getBitSetProducer
 argument_list|(
 name|filter
 argument_list|)

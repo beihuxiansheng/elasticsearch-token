@@ -422,10 +422,14 @@ argument_list|()
 return|;
 block|}
 name|BooleanQuery
-name|boolFilter
+operator|.
+name|Builder
+name|boolFilterBuilder
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -552,7 +556,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-name|boolFilter
+name|boolFilterBuilder
 operator|.
 name|add
 argument_list|(
@@ -570,7 +574,10 @@ return|return
 operator|new
 name|ConstantScoreQuery
 argument_list|(
-name|boolFilter
+name|boolFilterBuilder
+operator|.
+name|build
+argument_list|()
 argument_list|)
 return|;
 block|}

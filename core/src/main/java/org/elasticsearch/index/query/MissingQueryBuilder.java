@@ -601,10 +601,14 @@ name|existence
 condition|)
 block|{
 name|BooleanQuery
+operator|.
+name|Builder
 name|boolFilter
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -748,6 +752,9 @@ block|}
 name|existenceFilter
 operator|=
 name|boolFilter
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 name|existenceFilter
 operator|=
@@ -817,14 +824,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|BooleanQuery
-name|combined
-init|=
+name|filter
+operator|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
-decl_stmt|;
-name|combined
 operator|.
 name|add
 argument_list|(
@@ -836,8 +842,6 @@ name|Occur
 operator|.
 name|SHOULD
 argument_list|)
-expr_stmt|;
-name|combined
 operator|.
 name|add
 argument_list|(
@@ -849,11 +853,9 @@ name|Occur
 operator|.
 name|SHOULD
 argument_list|)
-expr_stmt|;
-comment|// cache the not filter as well, so it will be faster
-name|filter
-operator|=
-name|combined
+operator|.
+name|build
+argument_list|()
 expr_stmt|;
 block|}
 else|else
