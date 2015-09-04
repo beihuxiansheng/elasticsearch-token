@@ -744,6 +744,8 @@ parameter_list|,
 name|SearchContext
 name|context
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 return|return
 literal|false
