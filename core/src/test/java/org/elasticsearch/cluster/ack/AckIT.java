@@ -18,6 +18,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|carrotsearch
+operator|.
+name|hppc
+operator|.
+name|cursors
+operator|.
+name|ObjectObjectCursor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|elasticsearch
@@ -282,7 +296,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|ShardRouting
+name|RoutingNode
 import|;
 end_import
 
@@ -296,7 +310,7 @@ name|cluster
 operator|.
 name|routing
 operator|.
-name|RoutingNode
+name|ShardRouting
 import|;
 end_import
 
@@ -410,34 +424,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|hppc
-operator|.
-name|cursors
-operator|.
-name|ObjectObjectCursor
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -470,7 +456,39 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|*
+name|SETTING_NUMBER_OF_REPLICAS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|SETTING_NUMBER_OF_SHARDS
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|cluster
+operator|.
+name|metadata
+operator|.
+name|IndexMetaData
+operator|.
+name|State
 import|;
 end_import
 
@@ -528,7 +546,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -1038,22 +1080,8 @@ name|assertTrue
 argument_list|(
 name|awaitBusy
 argument_list|(
-operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|input
-parameter_list|)
+parameter_list|()
+lambda|->
 block|{
 for|for
 control|(
@@ -1107,7 +1135,6 @@ block|}
 return|return
 literal|true
 return|;
-block|}
 block|}
 argument_list|)
 argument_list|)
@@ -1393,23 +1420,8 @@ name|assertTrue
 argument_list|(
 name|awaitBusy
 argument_list|(
-operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
-block|{
-comment|// wait until they are all deleted
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|input
-parameter_list|)
+parameter_list|()
+lambda|->
 block|{
 for|for
 control|(
@@ -1463,7 +1475,6 @@ block|}
 return|return
 literal|true
 return|;
-block|}
 block|}
 argument_list|)
 argument_list|)

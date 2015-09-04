@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -498,26 +484,8 @@ block|{             }
 block|}
 name|awaitBusy
 argument_list|(
-operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|input
-parameter_list|)
-block|{
-comment|// we must wait here because the requests to release search contexts might still be in flight
-comment|// although the search request has already returned
-return|return
+parameter_list|()
+lambda|->
 name|client
 argument_list|()
 operator|.
@@ -546,9 +514,6 @@ name|getOpenContexts
 argument_list|()
 operator|==
 literal|0
-return|;
-block|}
-block|}
 argument_list|,
 literal|1
 argument_list|,

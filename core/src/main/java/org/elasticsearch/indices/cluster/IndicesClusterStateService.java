@@ -44,20 +44,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -3391,48 +3377,6 @@ name|shardRouting
 argument_list|)
 decl_stmt|;
 comment|// check if there is an existing recovery going, and if so, and the source node is not the same, cancel the recovery to restart it
-specifier|final
-name|Predicate
-argument_list|<
-name|RecoveryStatus
-argument_list|>
-name|shouldCancel
-init|=
-operator|new
-name|Predicate
-argument_list|<
-name|RecoveryStatus
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|apply
-parameter_list|(
-annotation|@
-name|Nullable
-name|RecoveryStatus
-name|status
-parameter_list|)
-block|{
-return|return
-name|status
-operator|.
-name|sourceNode
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-name|sourceNode
-argument_list|)
-operator|==
-literal|false
-return|;
-block|}
-block|}
-decl_stmt|;
 if|if
 condition|(
 name|recoveryTarget
@@ -3446,7 +3390,18 @@ argument_list|()
 argument_list|,
 literal|"recovery source node changed"
 argument_list|,
-name|shouldCancel
+name|status
+lambda|->
+operator|!
+name|status
+operator|.
+name|sourceNode
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|sourceNode
+argument_list|)
 argument_list|)
 condition|)
 block|{
@@ -3470,7 +3425,7 @@ name|currentRoutingEntry
 argument_list|,
 name|shardRouting
 argument_list|)
-expr_stmt|;
+block|;
 comment|// closing the shard will also cancel any ongoing recovery.
 name|indexService
 operator|.
@@ -3483,7 +3438,7 @@ argument_list|()
 argument_list|,
 literal|"removing shard (recovery source node changed)"
 argument_list|)
-expr_stmt|;
+empty_stmt|;
 name|shardHasBeenRemoved
 operator|=
 literal|true
@@ -3573,6 +3528,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|cleanFailedShards
 specifier|private
 name|void
@@ -3841,6 +3799,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|applyInitializingShard
 specifier|private
 name|void
@@ -4478,7 +4439,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * Finds the routing source node for peer recovery, return null if its not found. Note, this method expects the shard      * routing to *require* peer recovery, use {@link #isPeerRecovery(org.elasticsearch.cluster.routing.ShardRouting)} to      * check if its needed or not.      */
+end_comment
+
+begin_function
 DECL|method|findSourceNodeForPeerRecovery
 specifier|private
 name|DiscoveryNode
@@ -4672,6 +4639,9 @@ return|return
 name|sourceNode
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|isPeerRecovery
 specifier|private
 name|boolean
@@ -4696,6 +4666,9 @@ operator|!=
 literal|null
 return|;
 block|}
+end_function
+
+begin_class
 DECL|class|PeerRecoveryListener
 specifier|private
 class|class
@@ -4819,6 +4792,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_class
+
+begin_function
 DECL|method|handleRecoveryFailure
 specifier|private
 name|void
@@ -4857,6 +4833,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|removeIndex
 specifier|private
 name|void
@@ -4905,6 +4884,9 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|clearSeenMappings
 specifier|private
 name|void
@@ -4954,6 +4936,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|deleteIndex
 specifier|private
 name|void
@@ -5003,6 +4988,9 @@ name|index
 argument_list|)
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|failAndRemoveShard
 specifier|private
 name|void
@@ -5112,6 +5100,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|sendFailShard
 specifier|private
 name|void
@@ -5212,6 +5203,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_class
 DECL|class|FailedEngineHandler
 specifier|private
 class|class
@@ -5387,8 +5381,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 end_class
 
+unit|}
 end_unit
 
