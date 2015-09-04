@@ -24,20 +24,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|Sets
@@ -749,6 +735,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -4868,7 +4864,7 @@ condition|(
 operator|!
 name|Objects
 operator|.
-name|equal
+name|equals
 argument_list|(
 name|stateToProcess
 operator|.
