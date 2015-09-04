@@ -858,6 +858,11 @@ comment|// No docs of the specified type don't exist on this shard
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight
@@ -904,6 +909,11 @@ block|{
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight

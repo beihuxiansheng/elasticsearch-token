@@ -414,9 +414,6 @@ name|rootDocs
 argument_list|(
 name|context
 argument_list|)
-operator|.
-name|bits
-argument_list|()
 decl_stmt|;
 specifier|final
 name|DocIdSet

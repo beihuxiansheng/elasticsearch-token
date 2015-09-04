@@ -254,21 +254,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
+name|BitSetProducer
 import|;
 end_import
 
@@ -563,7 +549,7 @@ decl_stmt|;
 DECL|field|nonNestedDocsFilter
 specifier|protected
 specifier|final
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|nonNestedDocsFilter
 decl_stmt|;
 DECL|method|ChildrenQuery
@@ -597,7 +583,7 @@ parameter_list|,
 name|int
 name|shortCircuitParentDocSet
 parameter_list|,
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|nonNestedDocsFilter
 parameter_list|)
 block|{
@@ -1043,6 +1029,11 @@ comment|// No docs of the specified type exist on this shard
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight
@@ -1257,6 +1248,11 @@ block|{
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight

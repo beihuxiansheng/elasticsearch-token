@@ -102,7 +102,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -117,20 +117,6 @@ operator|.
 name|util
 operator|.
 name|BitSet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Bits
 import|;
 end_import
 
@@ -701,7 +687,7 @@ name|nestedTypeFilter
 argument_list|()
 expr_stmt|;
 block|}
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 init|=
 name|context
@@ -709,7 +695,7 @@ operator|.
 name|bitsetFilterCache
 argument_list|()
 operator|.
-name|getBitDocIdSetFilter
+name|getBitSetProducer
 argument_list|(
 name|rawParentFilter
 argument_list|)
@@ -898,7 +884,7 @@ block|{
 DECL|field|parentFilter
 specifier|private
 specifier|final
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 decl_stmt|;
 DECL|field|childFilter
@@ -922,7 +908,7 @@ decl_stmt|;
 DECL|method|NestedChildrenQuery
 name|NestedChildrenQuery
 parameter_list|(
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|parentFilter
 parameter_list|,
 name|Filter
@@ -1207,13 +1193,10 @@ name|parents
 init|=
 name|parentFilter
 operator|.
-name|getDocIdSet
+name|getBitSet
 argument_list|(
 name|context
 argument_list|)
-operator|.
-name|bits
-argument_list|()
 decl_stmt|;
 specifier|final
 name|int
@@ -1687,9 +1670,9 @@ name|q
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
-decl_stmt|;
-name|q
 operator|.
 name|add
 argument_list|(
@@ -1702,9 +1685,7 @@ name|Occur
 operator|.
 name|MUST
 argument_list|)
-expr_stmt|;
 comment|// Only include docs that have the current hit as parent
-name|q
 operator|.
 name|add
 argument_list|(
@@ -1724,9 +1705,7 @@ name|Occur
 operator|.
 name|MUST
 argument_list|)
-expr_stmt|;
 comment|// Only include docs that have this inner hits type
-name|q
 operator|.
 name|add
 argument_list|(
@@ -1739,7 +1718,10 @@ name|Occur
 operator|.
 name|MUST
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|size

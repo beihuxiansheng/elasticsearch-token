@@ -579,6 +579,11 @@ block|{
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight
@@ -634,6 +639,11 @@ block|{
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight
@@ -679,6 +689,11 @@ block|{
 return|return
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 operator|.
 name|createWeight

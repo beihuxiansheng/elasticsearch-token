@@ -112,7 +112,7 @@ name|search
 operator|.
 name|join
 operator|.
-name|BitDocIdSetFilter
+name|BitSetProducer
 import|;
 end_import
 
@@ -1239,7 +1239,7 @@ literal|"[has_child] 'max_children' is less than 'min_children'"
 argument_list|)
 throw|;
 block|}
-name|BitDocIdSetFilter
+name|BitSetProducer
 name|nonNestedDocsFilter
 init|=
 literal|null

@@ -1511,9 +1511,9 @@ name|filtered
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
-decl_stmt|;
-name|filtered
 operator|.
 name|add
 argument_list|(
@@ -1524,8 +1524,6 @@ name|Occur
 operator|.
 name|MUST
 argument_list|)
-expr_stmt|;
-name|filtered
 operator|.
 name|add
 argument_list|(
@@ -1535,7 +1533,10 @@ name|Occur
 operator|.
 name|FILTER
 argument_list|)
-expr_stmt|;
+operator|.
+name|build
+argument_list|()
+decl_stmt|;
 name|parsedQuery
 argument_list|(
 operator|new
@@ -1625,10 +1626,14 @@ literal|null
 return|;
 block|}
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 if|if
@@ -1674,6 +1679,9 @@ operator|new
 name|ConstantScoreQuery
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|)
 return|;
 block|}
