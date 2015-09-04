@@ -5308,7 +5308,7 @@ decl_stmt|;
 try|try
 init|(
 name|XContentParser
-name|_
+name|autoCloses
 init|=
 name|parser
 init|)
