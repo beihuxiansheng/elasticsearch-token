@@ -200,22 +200,6 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|filteredQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
 name|matchAllQuery
 import|;
 end_import
@@ -499,18 +483,12 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|filteredQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|,
 name|scriptQuery
 argument_list|(
 operator|new
 name|Script
 argument_list|(
 literal|"doc['num1'].value> 1"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -864,11 +842,6 @@ argument_list|()
 operator|.
 name|setQuery
 argument_list|(
-name|filteredQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|,
 name|scriptQuery
 argument_list|(
 operator|new
@@ -883,7 +856,6 @@ argument_list|,
 literal|null
 argument_list|,
 name|params
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

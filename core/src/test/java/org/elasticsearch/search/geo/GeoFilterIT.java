@@ -3077,11 +3077,6 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|filteredQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|,
 name|geoBoundingBoxQuery
 argument_list|(
 literal|"pin"
@@ -3101,7 +3096,6 @@ operator|-
 literal|90
 argument_list|,
 literal|179.99999
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -3134,11 +3128,6 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|filteredQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|,
 name|geoDistanceQuery
 argument_list|(
 literal|"pin"
@@ -3154,7 +3143,6 @@ argument_list|(
 literal|51.11
 argument_list|,
 literal|9.851
-argument_list|)
 argument_list|)
 argument_list|)
 operator|.

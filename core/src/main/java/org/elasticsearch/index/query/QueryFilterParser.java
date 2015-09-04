@@ -26,20 +26,6 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|ConstantScoreQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
 name|Query
 import|;
 end_import
@@ -67,6 +53,10 @@ operator|.
 name|IOException
 import|;
 end_import
+
+begin_comment
+comment|// TODO: remove when https://github.com/elastic/elasticsearch/issues/13326 is fixed
+end_comment
 
 begin_class
 annotation|@
@@ -128,14 +118,10 @@ throws|,
 name|QueryParsingException
 block|{
 return|return
-operator|new
-name|ConstantScoreQuery
-argument_list|(
 name|parseContext
 operator|.
 name|parseInnerQuery
 argument_list|()
-argument_list|)
 return|;
 block|}
 block|}
