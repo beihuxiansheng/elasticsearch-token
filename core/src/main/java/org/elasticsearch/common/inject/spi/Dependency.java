@@ -26,20 +26,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|ImmutableSet
@@ -77,6 +63,16 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -333,7 +329,7 @@ block|{
 return|return
 name|Objects
 operator|.
-name|hashCode
+name|hash
 argument_list|(
 name|injectionPoint
 argument_list|,
@@ -372,7 +368,7 @@ decl_stmt|;
 return|return
 name|Objects
 operator|.
-name|equal
+name|equals
 argument_list|(
 name|injectionPoint
 argument_list|,
@@ -383,7 +379,7 @@ argument_list|)
 operator|&&
 name|Objects
 operator|.
-name|equal
+name|equals
 argument_list|(
 name|parameterIndex
 argument_list|,
@@ -394,7 +390,7 @@ argument_list|)
 operator|&&
 name|Objects
 operator|.
-name|equal
+name|equals
 argument_list|(
 name|key
 argument_list|,
