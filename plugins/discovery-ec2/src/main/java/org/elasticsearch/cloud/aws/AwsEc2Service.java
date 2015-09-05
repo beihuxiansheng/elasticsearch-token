@@ -611,8 +611,6 @@ argument_list|,
 name|awsSigner
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|AwsSigner
 operator|.
 name|configureSigner
@@ -622,23 +620,6 @@ argument_list|,
 name|clientConfiguration
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IllegalArgumentException
-name|e
-parameter_list|)
-block|{
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"wrong signer set for [cloud.aws.ec2.signer] or [cloud.aws.signer]: [{}]"
-argument_list|,
-name|awsSigner
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 name|AWSCredentialsProvider
 name|credentials
