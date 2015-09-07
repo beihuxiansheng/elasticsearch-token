@@ -18,13 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
-operator|.
-name|base
 operator|.
 name|Strings
 import|;
