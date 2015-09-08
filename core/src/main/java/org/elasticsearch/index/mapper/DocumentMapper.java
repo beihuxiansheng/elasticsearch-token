@@ -1116,6 +1116,12 @@ name|ParentFieldMapper
 operator|.
 name|NAME
 argument_list|)
+argument_list|,
+comment|/* parent type */
+name|builder
+operator|.
+name|name
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

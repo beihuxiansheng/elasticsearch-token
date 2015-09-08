@@ -667,18 +667,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -3493,7 +3481,9 @@ name|documentMapperParser
 argument_list|()
 operator|.
 name|parserContext
-argument_list|()
+argument_list|(
+name|type
+argument_list|)
 decl_stmt|;
 name|Mapper
 operator|.

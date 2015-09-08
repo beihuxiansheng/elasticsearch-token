@@ -1248,7 +1248,10 @@ name|TypeParser
 operator|.
 name|ParserContext
 name|parserContext
-parameter_list|()
+parameter_list|(
+name|String
+name|type
+parameter_list|)
 block|{
 return|return
 operator|new
@@ -1258,6 +1261,8 @@ name|TypeParser
 operator|.
 name|ParserContext
 argument_list|(
+name|type
+argument_list|,
 name|analysisService
 argument_list|,
 name|similarityLookupService
@@ -1682,7 +1687,9 @@ name|ParserContext
 name|parserContext
 init|=
 name|parserContext
-argument_list|()
+argument_list|(
+name|type
+argument_list|)
 decl_stmt|;
 comment|// parse RootObjectMapper
 name|DocumentMapper

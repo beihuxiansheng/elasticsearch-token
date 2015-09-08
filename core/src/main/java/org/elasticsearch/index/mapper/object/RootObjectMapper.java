@@ -1566,7 +1566,9 @@ name|docMapperParser
 argument_list|()
 operator|.
 name|parserContext
-argument_list|()
+argument_list|(
+name|name
+argument_list|)
 decl_stmt|;
 name|String
 name|mappingType
