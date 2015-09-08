@@ -245,6 +245,9 @@ name|Environment
 argument_list|(
 name|settings
 argument_list|)
+operator|.
+name|pluginsFile
+argument_list|()
 argument_list|,
 name|Arrays
 operator|.

@@ -4987,8 +4987,6 @@ name|MockNode
 argument_list|(
 name|finalSettings
 argument_list|,
-literal|true
-argument_list|,
 name|version
 argument_list|,
 name|plugins
@@ -6079,8 +6077,6 @@ operator|new
 name|MockNode
 argument_list|(
 name|finalSettings
-argument_list|,
-literal|true
 argument_list|,
 name|version
 argument_list|,
