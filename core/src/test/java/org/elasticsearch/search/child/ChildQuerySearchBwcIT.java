@@ -800,9 +800,9 @@ literal|"1"
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|score
 argument_list|(
-literal|"score"
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -1017,9 +1017,9 @@ literal|"1"
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|score
 argument_list|(
-literal|"score"
+literal|true
 argument_list|)
 argument_list|)
 operator|.

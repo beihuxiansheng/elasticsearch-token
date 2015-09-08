@@ -785,6 +785,7 @@ parameter_list|>
 extends|extends
 name|ESTestCase
 block|{
+comment|// TODO rename this AbstractQueryTestCase
 DECL|field|STRING_FIELD_NAME
 specifier|protected
 specifier|static
@@ -1835,6 +1836,8 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
+comment|// TODO this should set context.parseFieldMatcher(ParseFieldMatcher.STRICT);
+comment|// all our builders should only create non-deprecated XContent.
 return|return
 name|context
 operator|.

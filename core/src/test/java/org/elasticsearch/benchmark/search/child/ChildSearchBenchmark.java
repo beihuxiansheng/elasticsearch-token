@@ -2568,9 +2568,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|score
 argument_list|(
-literal|"score"
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -2627,9 +2627,9 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|score
 argument_list|(
-literal|"score"
+literal|true
 argument_list|)
 argument_list|)
 operator|.
@@ -2736,9 +2736,9 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|scoreType
+name|score
 argument_list|(
-literal|"score"
+literal|true
 argument_list|)
 argument_list|)
 operator|.
