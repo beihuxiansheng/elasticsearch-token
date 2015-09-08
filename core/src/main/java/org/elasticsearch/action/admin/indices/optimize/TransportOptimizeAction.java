@@ -479,6 +479,8 @@ parameter_list|,
 name|ShardRouting
 name|shardRouting
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|IndexShard
 name|indexShard

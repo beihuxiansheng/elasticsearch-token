@@ -1081,6 +1081,7 @@ expr_stmt|;
 block|}
 DECL|method|refreshReader
 specifier|protected
+specifier|final
 name|LeafReaderContext
 name|refreshReader
 parameter_list|()
@@ -1103,13 +1104,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|LeafReader
-name|reader
-init|=
-name|SlowCompositeReaderWrapper
-operator|.
-name|wrap
-argument_list|(
 name|topLevelReader
 operator|=
 name|DirectoryReader
@@ -1120,6 +1114,15 @@ name|writer
 argument_list|,
 literal|true
 argument_list|)
+expr_stmt|;
+name|LeafReader
+name|reader
+init|=
+name|SlowCompositeReaderWrapper
+operator|.
+name|wrap
+argument_list|(
+name|topLevelReader
 argument_list|)
 decl_stmt|;
 name|readerContext

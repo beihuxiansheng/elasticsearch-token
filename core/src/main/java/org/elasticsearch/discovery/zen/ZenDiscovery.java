@@ -5810,7 +5810,7 @@ return|;
 block|}
 block|}
 DECL|method|rejoin
-specifier|private
+specifier|protected
 name|ClusterState
 name|rejoin
 parameter_list|(
