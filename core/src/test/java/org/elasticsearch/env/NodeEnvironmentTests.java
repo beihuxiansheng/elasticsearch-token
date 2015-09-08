@@ -1496,7 +1496,7 @@ expr_stmt|;
 try|try
 init|(
 name|ShardLock
-name|_
+name|autoCloses
 init|=
 name|env
 operator|.
@@ -1891,7 +1891,7 @@ block|{
 try|try
 init|(
 name|ShardLock
-name|_
+name|autoCloses
 init|=
 name|env
 operator|.

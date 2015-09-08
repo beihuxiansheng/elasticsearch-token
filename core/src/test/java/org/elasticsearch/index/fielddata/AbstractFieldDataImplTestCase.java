@@ -26,7 +26,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|LeafReaderContext
+name|DirectoryReader
 import|;
 end_import
 
@@ -40,7 +40,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|DirectoryReader
+name|LeafReaderContext
 import|;
 end_import
 

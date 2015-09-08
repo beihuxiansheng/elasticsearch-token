@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -39,6 +25,18 @@ operator|.
 name|cli
 operator|.
 name|CommandLine
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Strings
 import|;
 end_import
 
@@ -901,7 +899,7 @@ literal|"-> Removing "
 operator|+
 name|Strings
 operator|.
-name|nullToEmpty
+name|coalesceToEmpty
 argument_list|(
 name|pluginName
 argument_list|)
@@ -1264,7 +1262,7 @@ literal|"-> Installing "
 operator|+
 name|Strings
 operator|.
-name|nullToEmpty
+name|coalesceToEmpty
 argument_list|(
 name|name
 argument_list|)
