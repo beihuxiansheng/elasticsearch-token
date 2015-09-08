@@ -339,6 +339,7 @@ class|class
 name|InternalSettingsPreparer
 block|{
 DECL|field|ALLOWED_SUFFIXES
+specifier|private
 specifier|static
 specifier|final
 name|String
