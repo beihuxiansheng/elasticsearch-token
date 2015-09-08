@@ -586,8 +586,6 @@ argument_list|)
 expr_stmt|;
 name|Bootstrap
 operator|.
-name|INSTANCE
-operator|.
 name|stop
 argument_list|()
 expr_stmt|;
@@ -958,7 +956,7 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|stop
-specifier|private
+specifier|static
 name|void
 name|stop
 parameter_list|()
@@ -969,12 +967,16 @@ name|Releasables
 operator|.
 name|close
 argument_list|(
+name|INSTANCE
+operator|.
 name|node
 argument_list|)
 expr_stmt|;
 block|}
 finally|finally
 block|{
+name|INSTANCE
+operator|.
 name|keepAliveLatch
 operator|.
 name|countDown
