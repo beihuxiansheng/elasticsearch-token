@@ -1100,23 +1100,18 @@ specifier|final
 name|Client
 name|client
 decl_stmt|;
-comment|/**      * Constructs a node with the given settings.      *      * @param preparedSettings Base settings to configure the node with      * @param loadConfigSettings true if settings should also be loaded and merged from configuration files      */
+comment|/**      * Constructs a node with the given settings.      *      * @param preparedSettings Base settings to configure the node with      */
 DECL|method|Node
 specifier|public
 name|Node
 parameter_list|(
 name|Settings
 name|preparedSettings
-parameter_list|,
-name|boolean
-name|loadConfigSettings
 parameter_list|)
 block|{
 name|this
 argument_list|(
 name|preparedSettings
-argument_list|,
-name|loadConfigSettings
 argument_list|,
 name|Version
 operator|.
@@ -1142,9 +1137,6 @@ name|Node
 parameter_list|(
 name|Settings
 name|preparedSettings
-parameter_list|,
-name|boolean
-name|loadConfigSettings
 parameter_list|,
 name|Version
 name|version
@@ -1186,7 +1178,7 @@ name|build
 argument_list|()
 decl_stmt|;
 name|Environment
-name|env
+name|tmpEnv
 init|=
 name|InternalSettingsPreparer
 operator|.
@@ -1198,13 +1190,13 @@ literal|null
 argument_list|)
 decl_stmt|;
 name|Settings
-name|settings
+name|tmpSettings
 init|=
 name|TribeService
 operator|.
 name|processSettings
 argument_list|(
-name|env
+name|tmpEnv
 operator|.
 name|settings
 argument_list|()
@@ -1221,7 +1213,7 @@ name|Node
 operator|.
 name|class
 argument_list|,
-name|settings
+name|tmpSettings
 operator|.
 name|get
 argument_list|(
@@ -1281,7 +1273,7 @@ name|debug
 argument_list|(
 literal|"using config [{}], data [{}], logs [{}], plugins [{}]"
 argument_list|,
-name|env
+name|tmpEnv
 operator|.
 name|configFile
 argument_list|()
@@ -1290,18 +1282,18 @@ name|Arrays
 operator|.
 name|toString
 argument_list|(
-name|env
+name|tmpEnv
 operator|.
 name|dataFiles
 argument_list|()
 argument_list|)
 argument_list|,
-name|env
+name|tmpEnv
 operator|.
 name|logsFile
 argument_list|()
 argument_list|,
-name|env
+name|tmpEnv
 operator|.
 name|pluginsFile
 argument_list|()
@@ -1315,9 +1307,9 @@ operator|=
 operator|new
 name|PluginsService
 argument_list|(
-name|settings
+name|tmpSettings
 argument_list|,
-name|env
+name|tmpEnv
 operator|.
 name|pluginsFile
 argument_list|()
@@ -1471,6 +1463,8 @@ argument_list|(
 operator|new
 name|SettingsModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1502,6 +1496,8 @@ argument_list|(
 operator|new
 name|ScriptModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1535,6 +1531,8 @@ argument_list|(
 operator|new
 name|ClusterNameModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1557,6 +1555,8 @@ argument_list|(
 operator|new
 name|DiscoveryModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1568,6 +1568,8 @@ argument_list|(
 operator|new
 name|ClusterModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)
@@ -1579,6 +1581,8 @@ argument_list|(
 operator|new
 name|RestModule
 argument_list|(
+name|this
+operator|.
 name|settings
 argument_list|)
 argument_list|)

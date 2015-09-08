@@ -782,11 +782,6 @@ name|settings
 argument_list|(
 name|nodeSettings
 argument_list|)
-operator|.
-name|loadConfigSettings
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 name|node
 operator|=

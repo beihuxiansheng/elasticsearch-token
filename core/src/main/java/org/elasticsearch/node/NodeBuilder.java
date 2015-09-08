@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A node builder is used to construct a {@link Node} instance.  *<p/>  *<p>Settings will be loaded relative to the ES home (with or without<tt>config/</tt> prefix) and if not found,  * within the classpath (with or without<tt>config/<tt> prefix). The settings file loaded can either be named  *<tt>elasticsearch.yml</tt> or<tt>elasticsearch.json</tt>). Loading settings can be disabled by calling  * {@link #loadConfigSettings(boolean)} with<tt>false<tt>.  *<p/>  *<p>Explicit settings can be passed by using the {@link #settings(org.elasticsearch.common.settings.Settings)} method.  *<p/>  *<p>In any case, settings will be resolved from system properties as well that are either prefixed with<tt>es.</tt>  * or<tt>elasticsearch.</tt>.  *<p/>  *<p>An example for creating a simple node with optional settings loaded from the classpath:  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder().node();  *</pre>  *<p/>  *<p>An example for creating a node with explicit settings (in this case, a node in the cluster that does not hold  * data):  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder()  *                      .settings(Settings.settingsBuilder().put("node.data", false)  *                      .node();  *</pre>  *<p/>  *<p>When done with the node, make sure you call {@link Node#close()} on it.  *  *  */
+comment|/**  * A node builder is used to construct a {@link Node} instance.  *<p/>  *<p>Settings will be loaded relative to the ES home (with or without<tt>config/</tt> prefix) and if not found,  * within the classpath (with or without<tt>config/<tt> prefix). The settings file loaded can either be named  *<tt>elasticsearch.yml</tt> or<tt>elasticsearch.json</tt>).  *<p/>  *<p>Explicit settings can be passed by using the {@link #settings(org.elasticsearch.common.settings.Settings)} method.  *<p/>  *<p>In any case, settings will be resolved from system properties as well that are either prefixed with<tt>es.</tt>  * or<tt>elasticsearch.</tt>.  *<p/>  *<p>An example for creating a simple node with optional settings loaded from the classpath:  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder().node();  *</pre>  *<p/>  *<p>An example for creating a node with explicit settings (in this case, a node in the cluster that does not hold  * data):  *<p/>  *<pre>  * Node node = NodeBuilder.nodeBuilder()  *                      .settings(Settings.settingsBuilder().put("node.data", false)  *                      .node();  *</pre>  *<p/>  *<p>When done with the node, make sure you call {@link Node#close()} on it.  *  *  */
 end_comment
 
 begin_class
@@ -50,13 +50,6 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-decl_stmt|;
-DECL|field|loadConfigSettings
-specifier|private
-name|boolean
-name|loadConfigSettings
-init|=
-literal|true
 decl_stmt|;
 comment|/**      * A convenient factory method to create a {@link NodeBuilder}.      */
 DECL|method|nodeBuilder
@@ -138,26 +131,6 @@ name|put
 argument_list|(
 name|settings
 argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Should the node builder automatically try and load config settings from the file system / classpath. Defaults      * to<tt>true</tt>.      */
-DECL|method|loadConfigSettings
-specifier|public
-name|NodeBuilder
-name|loadConfigSettings
-parameter_list|(
-name|boolean
-name|loadConfigSettings
-parameter_list|)
-block|{
-name|this
-operator|.
-name|loadConfigSettings
-operator|=
-name|loadConfigSettings
 expr_stmt|;
 return|return
 name|this
@@ -270,8 +243,6 @@ name|settings
 operator|.
 name|build
 argument_list|()
-argument_list|,
-name|loadConfigSettings
 argument_list|)
 return|;
 block|}

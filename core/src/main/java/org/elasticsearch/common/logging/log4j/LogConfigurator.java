@@ -524,6 +524,7 @@ name|loaded
 operator|=
 literal|true
 expr_stmt|;
+comment|// TODO: this is partly a copy of InternalSettingsPreparer...we should pass in Environment and not do all this...
 name|Environment
 name|environment
 init|=
@@ -741,7 +742,6 @@ expr_stmt|;
 block|}
 comment|/**      * sets the loaded flag to false so that logging configuration can be      * overridden. Should only be used in tests.      */
 DECL|method|reset
-specifier|public
 specifier|static
 name|void
 name|reset
@@ -753,7 +753,6 @@ literal|false
 expr_stmt|;
 block|}
 DECL|method|resolveConfig
-specifier|public
 specifier|static
 name|void
 name|resolveConfig
@@ -892,7 +891,6 @@ throw|;
 block|}
 block|}
 DECL|method|loadConfig
-specifier|public
 specifier|static
 name|void
 name|loadConfig

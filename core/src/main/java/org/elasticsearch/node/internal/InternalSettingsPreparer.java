@@ -466,7 +466,7 @@ name|Terminal
 name|terminal
 parameter_list|)
 block|{
-comment|// just create enough settings to build the environment
+comment|// just create enough settings to build the environment, to get the config dir
 name|Settings
 operator|.
 name|Builder
@@ -765,39 +765,6 @@ name|environment
 operator|.
 name|configFile
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|environment
-operator|=
-operator|new
-name|Environment
-argument_list|(
-name|output
-operator|.
-name|build
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// we put back the path.logs so we can use it in the logging configuration file
-name|output
-operator|.
-name|put
-argument_list|(
-literal|"path.logs"
-argument_list|,
-name|cleanPath
-argument_list|(
-name|environment
-operator|.
-name|logsFile
-argument_list|()
-operator|.
-name|toAbsolutePath
-argument_list|()
-operator|.
-name|toString
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
