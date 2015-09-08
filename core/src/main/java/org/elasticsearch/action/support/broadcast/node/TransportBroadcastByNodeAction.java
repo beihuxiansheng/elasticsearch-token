@@ -1084,6 +1084,8 @@ parameter_list|,
 name|ShardRouting
 name|shardRouting
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 comment|/**      * Determines the shards on which this operation will be executed on. The operation is executed once per shard.      *      * @param clusterState    the cluster state      * @param request         the underlying request      * @param concreteIndices the concrete indices on which to execute the operation      * @return the shards on which to execute the operation      */
 DECL|method|shards
