@@ -749,9 +749,9 @@ block|}
 comment|// ensure explicit path to logs dir exists
 name|props
 operator|.
-name|put
+name|setProperty
 argument_list|(
-literal|"path.logs"
+literal|"log4j.path.logs"
 argument_list|,
 name|cleanPath
 argument_list|(
