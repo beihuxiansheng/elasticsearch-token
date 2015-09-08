@@ -88,10 +88,10 @@ name|BaseQueryTestCase
 block|{
 annotation|@
 name|Override
-DECL|method|supportsBoostAndQueryNameParsing
+DECL|method|supportsBoostAndQueryName
 specifier|protected
 name|boolean
-name|supportsBoostAndQueryNameParsing
+name|supportsBoostAndQueryName
 parameter_list|()
 block|{
 return|return

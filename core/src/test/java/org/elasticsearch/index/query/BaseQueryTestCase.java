@@ -1596,6 +1596,13 @@ init|=
 name|doCreateTestQueryBuilder
 argument_list|()
 decl_stmt|;
+comment|//we should not set boost and query name for queries that don't parse it
+if|if
+condition|(
+name|supportsBoostAndQueryName
+argument_list|()
+condition|)
+block|{
 if|if
 condition|(
 name|randomBoolean
@@ -1636,6 +1643,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 return|return
 name|query
 return|;
@@ -1665,32 +1673,6 @@ init|=
 name|createTestQueryBuilder
 argument_list|()
 decl_stmt|;
-comment|//we should not set boost and query name for queries that don't parse it, so we simply reset them to their default values
-if|if
-condition|(
-name|supportsBoostAndQueryNameParsing
-argument_list|()
-operator|==
-literal|false
-condition|)
-block|{
-name|testQuery
-operator|.
-name|boost
-argument_list|(
-name|AbstractQueryBuilder
-operator|.
-name|DEFAULT_BOOST
-argument_list|)
-expr_stmt|;
-name|testQuery
-operator|.
-name|queryName
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 name|assertParsedQuery
 argument_list|(
 name|testQuery
@@ -1993,6 +1975,9 @@ condition|(
 name|firstLuceneQuery
 operator|!=
 literal|null
+operator|&&
+name|supportsBoostAndQueryName
+argument_list|()
 condition|)
 block|{
 name|secondQuery
@@ -2038,10 +2023,10 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Few queries allow you to set the boost and queryName on the java api, although the corresponding parser doesn't parse them as they are not supported.      * This method allows to disable boost and queryName related tests for those queries. Those queries are easy to identify: their parsers      * don't parse `boost` and `_name` as they don't apply to the specific query: filter query, wrapper query and match_none      */
-DECL|method|supportsBoostAndQueryNameParsing
+DECL|method|supportsBoostAndQueryName
 specifier|protected
 name|boolean
-name|supportsBoostAndQueryNameParsing
+name|supportsBoostAndQueryName
 parameter_list|()
 block|{
 return|return
@@ -2109,6 +2094,9 @@ condition|(
 name|query
 operator|!=
 literal|null
+operator|&&
+name|supportsBoostAndQueryName
+argument_list|()
 condition|)
 block|{
 name|assertBoost
@@ -2129,6 +2117,7 @@ name|context
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows to override boost assertions for queries that don't have the default behaviour      */
 DECL|method|assertBoost
 specifier|protected
 name|void

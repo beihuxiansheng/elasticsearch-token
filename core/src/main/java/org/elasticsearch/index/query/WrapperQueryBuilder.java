@@ -428,22 +428,7 @@ name|Query
 name|query
 parameter_list|)
 block|{
-if|if
-condition|(
-name|boost
-operator|!=
-name|DEFAULT_BOOST
-condition|)
-block|{
-comment|//if both the wrapped query and the wrapper hold a boost, the main one coming from the wrapper takes precedence
-name|query
-operator|.
-name|setBoost
-argument_list|(
-name|boost
-argument_list|)
-expr_stmt|;
-block|}
+comment|//no-op this query doesn't support boost
 block|}
 annotation|@
 name|Override
