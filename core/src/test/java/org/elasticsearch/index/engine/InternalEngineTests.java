@@ -15557,14 +15557,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Path
-name|dir
-init|=
-name|getDataPath
-argument_list|(
-literal|"/indices/bwc"
-argument_list|)
-decl_stmt|;
 try|try
 init|(
 name|DirectoryStream
@@ -15577,7 +15569,8 @@ name|Files
 operator|.
 name|newDirectoryStream
 argument_list|(
-name|dir
+name|getBwcIndicesPath
+argument_list|()
 argument_list|,
 literal|"index-*.zip"
 argument_list|)

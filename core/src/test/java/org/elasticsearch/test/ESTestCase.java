@@ -2621,6 +2621,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+DECL|method|getBwcIndicesPath
+specifier|public
+name|Path
+name|getBwcIndicesPath
+parameter_list|()
+block|{
+return|return
+name|getDataPath
+argument_list|(
+literal|"/indices/bwc"
+argument_list|)
+return|;
+block|}
 comment|/** Returns a random number of temporary paths. */
 DECL|method|tmpPaths
 specifier|public
