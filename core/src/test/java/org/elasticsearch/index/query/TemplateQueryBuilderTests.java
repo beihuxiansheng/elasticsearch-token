@@ -247,8 +247,7 @@ name|templateBase
 operator|.
 name|toQuery
 argument_list|(
-name|createShardContext
-argument_list|()
+name|context
 argument_list|)
 argument_list|,
 name|query
