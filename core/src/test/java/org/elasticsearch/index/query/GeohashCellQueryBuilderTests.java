@@ -444,6 +444,35 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Overridden here to ensure the test is only run if at least one type is      * present in the mappings. Geo queries do not execute if the field is not      * explicitly mapped      */
+annotation|@
+name|Override
+DECL|method|testToQuery
+specifier|public
+name|void
+name|testToQuery
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|assumeTrue
+argument_list|(
+literal|"test runs only when at least a type is registered"
+argument_list|,
+name|getCurrentTypes
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|testToQuery
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Test
 DECL|method|testNullField
