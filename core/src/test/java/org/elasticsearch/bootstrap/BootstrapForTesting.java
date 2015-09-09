@@ -338,7 +338,7 @@ name|systemPropertyAsBoolean
 argument_list|(
 literal|"tests.security.manager"
 argument_list|,
-literal|false
+literal|true
 argument_list|)
 condition|)
 block|{
