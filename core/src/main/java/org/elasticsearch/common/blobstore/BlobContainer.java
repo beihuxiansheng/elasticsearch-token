@@ -18,15 +18,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
+name|bytes
 operator|.
-name|ImmutableMap
+name|BytesReference
 import|;
 end_import
 
@@ -47,16 +47,6 @@ operator|.
 name|io
 operator|.
 name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|OutputStream
 import|;
 end_import
 
@@ -103,10 +93,10 @@ name|String
 name|blobName
 parameter_list|)
 function_decl|;
-comment|/**      * Creates a new {@link InputStream} for the given blob name      */
-DECL|method|openInput
+comment|/**      * Creates a new InputStream for the given blob name      */
+DECL|method|readBlob
 name|InputStream
-name|openInput
+name|readBlob
 parameter_list|(
 name|String
 name|blobName
@@ -114,13 +104,33 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates a new OutputStream for the given blob name      */
-DECL|method|createOutput
-name|OutputStream
-name|createOutput
+comment|/**      * Reads blob content from the input stream and writes it to the blob store      */
+DECL|method|writeBlob
+name|void
+name|writeBlob
 parameter_list|(
 name|String
 name|blobName
+parameter_list|,
+name|InputStream
+name|inputStream
+parameter_list|,
+name|long
+name|blobSize
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Writes bytes to the blob      */
+DECL|method|writeBlob
+name|void
+name|writeBlob
+parameter_list|(
+name|String
+name|blobName
+parameter_list|,
+name|BytesReference
+name|bytes
 parameter_list|)
 throws|throws
 name|IOException
