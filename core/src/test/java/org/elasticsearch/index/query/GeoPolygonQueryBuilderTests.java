@@ -303,7 +303,7 @@ operator|=
 operator|new
 name|GeoPolygonQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|,
 name|polygon
 argument_list|)
@@ -316,7 +316,7 @@ operator|=
 operator|new
 name|GeoPolygonQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 expr_stmt|;
 for|for
@@ -773,7 +773,7 @@ init|=
 operator|new
 name|GeoPolygonQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|QueryValidationException
@@ -858,7 +858,7 @@ init|=
 operator|new
 name|GeoPolygonQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|builder
@@ -982,7 +982,7 @@ init|=
 operator|new
 name|GeoPolygonQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|builder
@@ -1114,7 +1114,7 @@ name|builder
 operator|.
 name|startObject
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 expr_stmt|;
 name|builder

@@ -201,7 +201,7 @@ init|=
 operator|new
 name|Builder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|builder
@@ -586,7 +586,7 @@ init|=
 operator|new
 name|Builder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|QueryValidationException
@@ -673,7 +673,7 @@ init|=
 operator|new
 name|Builder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|builder

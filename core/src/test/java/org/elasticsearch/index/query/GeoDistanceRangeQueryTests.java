@@ -193,7 +193,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 if|if
@@ -1033,7 +1033,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|builder
@@ -1125,7 +1125,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|String
@@ -1227,7 +1227,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|String
@@ -1347,7 +1347,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|String
@@ -1467,7 +1467,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|String
@@ -1583,7 +1583,7 @@ init|=
 operator|new
 name|GeoDistanceRangeQueryBuilder
 argument_list|(
-name|GEO_FIELD_NAME
+name|GEO_POINT_FIELD_NAME
 argument_list|)
 decl_stmt|;
 name|double
