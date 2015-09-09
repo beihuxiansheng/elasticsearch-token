@@ -474,7 +474,7 @@ name|DeleteByQueryRequest
 name|indices
 parameter_list|(
 name|String
-modifier|...
+index|[]
 name|indices
 parameter_list|)
 block|{
@@ -609,6 +609,11 @@ name|DeleteByQueryRequest
 name|source
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 name|querySource
 parameter_list|)
 block|{

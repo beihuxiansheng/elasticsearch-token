@@ -442,6 +442,7 @@ name|availabilityZones
 init|=
 operator|new
 name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|availabilityZones
