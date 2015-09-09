@@ -4835,16 +4835,17 @@ argument_list|(
 literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
-name|translog
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
 comment|// we need to refresh in order to clear older version values
 name|refresh
 argument_list|(
 literal|"version_table_flush"
 argument_list|)
+expr_stmt|;
+comment|// after refresh documents can be retrieved from the index so we can now commit the translog
+name|translog
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
