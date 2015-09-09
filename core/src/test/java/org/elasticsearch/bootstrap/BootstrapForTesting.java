@@ -646,7 +646,7 @@ operator|.
 name|setSecurityManager
 argument_list|(
 operator|new
-name|XTestSecurityManager
+name|TestSecurityManager
 argument_list|()
 argument_list|)
 expr_stmt|;
