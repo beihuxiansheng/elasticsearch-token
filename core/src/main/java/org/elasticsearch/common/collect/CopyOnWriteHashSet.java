@@ -60,15 +60,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
+name|AbstractMap
 import|;
 end_import
 
@@ -368,9 +364,11 @@ name|input
 parameter_list|)
 block|{
 return|return
-name|Maps
+operator|new
+name|AbstractMap
 operator|.
-name|immutableEntry
+name|SimpleImmutableEntry
+argument_list|<>
 argument_list|(
 name|input
 argument_list|,

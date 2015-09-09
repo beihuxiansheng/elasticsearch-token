@@ -360,6 +360,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -381,22 +391,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
 import|;
 end_import
 
@@ -563,7 +557,9 @@ name|Integer
 argument_list|>
 name|successfulPrimaryShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map
@@ -587,7 +583,9 @@ argument_list|>
 argument_list|>
 name|versions
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -817,7 +815,9 @@ argument_list|>
 argument_list|>
 name|updatedVersions
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|MetaData

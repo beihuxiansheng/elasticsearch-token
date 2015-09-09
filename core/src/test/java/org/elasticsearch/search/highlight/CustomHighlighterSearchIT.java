@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -41,20 +27,6 @@ operator|.
 name|search
 operator|.
 name|SearchResponse
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
 import|;
 end_import
 
@@ -170,23 +142,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|common
-operator|.
-name|settings
-operator|.
-name|Settings
-operator|.
-name|settingsBuilder
+name|Map
 import|;
 end_import
 
@@ -442,9 +408,9 @@ name|Object
 argument_list|>
 name|options
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|options
@@ -549,9 +515,9 @@ name|Object
 argument_list|>
 name|options
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|options

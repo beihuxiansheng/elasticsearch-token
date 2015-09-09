@@ -60,20 +60,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -275,22 +261,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
 import|;
 end_import
 
@@ -516,7 +486,9 @@ name|InternalAggregation
 argument_list|>
 name|aggregationsAsMap
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -548,13 +520,11 @@ name|aggregationsAsMap
 expr_stmt|;
 block|}
 return|return
-name|Maps
-operator|.
-name|transformValues
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|aggregationsAsMap
-argument_list|,
-name|SUPERTYPE_CAST
 argument_list|)
 return|;
 block|}

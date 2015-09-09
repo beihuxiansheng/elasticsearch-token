@@ -204,23 +204,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
+name|Map
 import|;
 end_import
 
@@ -435,7 +429,9 @@ name|TokenizerFactory
 argument_list|>
 name|tokenizers
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -699,7 +695,9 @@ name|CharFilterFactory
 argument_list|>
 name|charFilters
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -963,7 +961,9 @@ name|TokenFilterFactory
 argument_list|>
 name|tokenFilters
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1228,7 +1228,9 @@ name|AnalyzerProvider
 argument_list|>
 name|analyzerProviders
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1616,7 +1618,9 @@ name|NamedAnalyzer
 argument_list|>
 name|analyzers
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

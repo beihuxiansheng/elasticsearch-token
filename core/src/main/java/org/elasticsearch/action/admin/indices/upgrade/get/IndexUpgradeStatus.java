@@ -24,15 +24,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
+name|ArrayList
 import|;
 end_import
 
@@ -42,7 +38,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|HashMap
 import|;
 end_import
 
@@ -132,9 +128,9 @@ argument_list|>
 argument_list|>
 name|tmpIndexShards
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -204,9 +200,9 @@ expr_stmt|;
 block|}
 name|indexShards
 operator|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for

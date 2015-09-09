@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -85,6 +71,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|IdentityHashMap
 import|;
 end_import
 
@@ -185,9 +181,9 @@ argument_list|>
 argument_list|>
 name|pendingInjection
 init|=
-name|Maps
-operator|.
-name|newIdentityHashMap
+operator|new
+name|IdentityHashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Registers an instance for member injection when that step is performed.      *      * @param instance an instance that optionally has members to be injected (each annotated with      * @param source   the source location that this injection was requested      * @Inject).      */

@@ -20,15 +20,15 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|collect
+name|index
 operator|.
-name|Maps
+name|IndexReader
 import|;
 end_import
 
@@ -57,20 +57,6 @@ operator|.
 name|index
 operator|.
 name|LeafReaderContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|index
-operator|.
-name|IndexReader
 import|;
 end_import
 
@@ -190,22 +176,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|core
-operator|.
-name|CompletionFieldMapper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|search
 operator|.
 name|suggest
@@ -289,6 +259,16 @@ operator|.
 name|util
 operator|.
 name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -490,9 +470,9 @@ name|Option
 argument_list|>
 name|results
 init|=
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|indexReader
 operator|.
