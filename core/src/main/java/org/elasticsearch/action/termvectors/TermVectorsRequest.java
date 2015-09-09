@@ -2994,7 +2994,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|readPerFieldAnalyzer
-specifier|private
+specifier|public
 specifier|static
 name|Map
 argument_list|<

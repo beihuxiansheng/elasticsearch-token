@@ -386,6 +386,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|action
+operator|.
+name|support
+operator|.
+name|TransportActions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|cluster
 operator|.
 name|routing
@@ -4821,16 +4835,17 @@ argument_list|(
 literal|"finished commit for flush"
 argument_list|)
 expr_stmt|;
-name|translog
-operator|.
-name|commit
-argument_list|()
-expr_stmt|;
 comment|// we need to refresh in order to clear older version values
 name|refresh
 argument_list|(
 literal|"version_table_flush"
 argument_list|)
+expr_stmt|;
+comment|// after refresh documents can be retrieved from the index so we can now commit the translog
+name|translog
+operator|.
+name|commit
+argument_list|()
 expr_stmt|;
 block|}
 catch|catch
@@ -5108,6 +5123,10 @@ name|upgradeOnlyAncientSegments
 parameter_list|)
 throws|throws
 name|EngineException
+throws|,
+name|EngineClosedException
+throws|,
+name|IOException
 block|{
 comment|/*          * We do NOT acquire the readlock here since we are waiting on the merges to finish          * that's fine since the IW.rollback should stop all the threads and trigger an IOException          * causing us to fail the forceMerge          *          * The way we implement upgrades is a bit hackish in the sense that we set an instance          * variable and that this setting will thus apply to the next forced merge that will be run.          * This is ok because (1) this is the only place we call forceMerge, (2) we have a single          * thread for optimize, and the 'optimizeLock' guarding this code, and (3) ConcurrentMergeScheduler          * syncs calls to findForcedMerges.          */
 assert|assert
@@ -5286,26 +5305,15 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-name|ForceMergeFailedEngineException
-name|ex
-init|=
-operator|new
-name|ForceMergeFailedEngineException
-argument_list|(
-name|shardId
-argument_list|,
-name|t
-argument_list|)
-decl_stmt|;
 name|maybeFailEngine
 argument_list|(
 literal|"force merge"
 argument_list|,
-name|ex
+name|t
 argument_list|)
 expr_stmt|;
 throw|throw
-name|ex
+name|t
 throw|;
 block|}
 finally|finally

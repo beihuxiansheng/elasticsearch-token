@@ -1625,13 +1625,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|ThrottlingAllocationDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_CONCURRENT_RECOVERIES

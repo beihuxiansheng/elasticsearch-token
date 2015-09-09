@@ -22,23 +22,19 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
+name|collect
 operator|.
-name|Throwables
+name|ImmutableMap
 import|;
 end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
+name|ExceptionsHelper
 import|;
 end_import
 
@@ -592,7 +588,31 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -1900,9 +1920,9 @@ name|fail
 argument_list|(
 literal|"Exception cause unwrapping ran for 10 levels: "
 operator|+
-name|Throwables
+name|ExceptionsHelper
 operator|.
-name|getStackTraceAsString
+name|stackTrace
 argument_list|(
 name|t
 argument_list|)

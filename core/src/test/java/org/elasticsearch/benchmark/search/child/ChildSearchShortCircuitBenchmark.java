@@ -198,9 +198,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|search
-operator|.
-name|child
+name|query
 operator|.
 name|ScoreType
 import|;
@@ -328,55 +326,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|filteredQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|hasChildQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchQuery
+name|*
 import|;
 end_import
 

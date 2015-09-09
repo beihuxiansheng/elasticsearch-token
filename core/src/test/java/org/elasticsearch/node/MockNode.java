@@ -98,9 +98,6 @@ parameter_list|(
 name|Settings
 name|settings
 parameter_list|,
-name|boolean
-name|loadConfigSettings
-parameter_list|,
 name|Version
 name|version
 parameter_list|,
@@ -119,8 +116,6 @@ block|{
 name|super
 argument_list|(
 name|settings
-argument_list|,
-name|loadConfigSettings
 argument_list|,
 name|version
 argument_list|,

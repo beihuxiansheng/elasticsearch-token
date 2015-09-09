@@ -904,7 +904,9 @@ operator|new
 name|ParentFieldMapper
 operator|.
 name|Builder
-argument_list|()
+argument_list|(
+literal|"_type"
+argument_list|)
 operator|.
 name|type
 argument_list|(

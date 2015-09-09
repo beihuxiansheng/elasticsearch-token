@@ -250,6 +250,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|Strings
+operator|.
+name|cleanPath
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -524,6 +538,7 @@ name|loaded
 operator|=
 literal|true
 expr_stmt|;
+comment|// TODO: this is partly a copy of InternalSettingsPreparer...we should pass in Environment and not do all this...
 name|Environment
 name|environment
 init|=
@@ -731,6 +746,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// ensure explicit path to logs dir exists
+name|props
+operator|.
+name|setProperty
+argument_list|(
+literal|"log4j.path.logs"
+argument_list|,
+name|cleanPath
+argument_list|(
+name|environment
+operator|.
+name|logsFile
+argument_list|()
+operator|.
+name|toAbsolutePath
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|PropertyConfigurator
 operator|.
 name|configure
@@ -741,7 +778,6 @@ expr_stmt|;
 block|}
 comment|/**      * sets the loaded flag to false so that logging configuration can be      * overridden. Should only be used in tests.      */
 DECL|method|reset
-specifier|public
 specifier|static
 name|void
 name|reset
@@ -753,7 +789,6 @@ literal|false
 expr_stmt|;
 block|}
 DECL|method|resolveConfig
-specifier|public
 specifier|static
 name|void
 name|resolveConfig
@@ -892,7 +927,6 @@ throw|;
 block|}
 block|}
 DECL|method|loadConfig
-specifier|public
 specifier|static
 name|void
 name|loadConfig

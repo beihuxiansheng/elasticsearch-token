@@ -142,9 +142,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|search
-operator|.
-name|child
+name|query
 operator|.
 name|ScoreType
 import|;

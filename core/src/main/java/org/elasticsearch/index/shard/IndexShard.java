@@ -4651,6 +4651,8 @@ parameter_list|(
 name|OptimizeRequest
 name|optimize
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyStarted
 argument_list|()
@@ -4716,6 +4718,8 @@ parameter_list|(
 name|UpgradeRequest
 name|upgrade
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|verifyStarted
 argument_list|()

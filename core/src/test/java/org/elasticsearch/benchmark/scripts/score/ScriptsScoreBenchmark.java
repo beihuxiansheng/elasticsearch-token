@@ -343,8 +343,6 @@ name|MockNode
 argument_list|(
 name|settings
 argument_list|,
-literal|true
-argument_list|,
 name|Version
 operator|.
 name|CURRENT

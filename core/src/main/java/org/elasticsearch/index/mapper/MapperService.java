@@ -667,18 +667,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|function
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -1757,20 +1745,6 @@ throw|;
 block|}
 if|if
 condition|(
-name|Version
-operator|.
-name|indexCreated
-argument_list|(
-name|indexSettings
-argument_list|)
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|&&
 name|mapper
 operator|.
 name|type
@@ -3493,7 +3467,9 @@ name|documentMapperParser
 argument_list|()
 operator|.
 name|parserContext
-argument_list|()
+argument_list|(
+name|type
+argument_list|)
 decl_stmt|;
 name|Mapper
 operator|.

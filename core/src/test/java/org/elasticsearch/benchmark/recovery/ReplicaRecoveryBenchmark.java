@@ -406,13 +406,6 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"gateway.type"
-argument_list|,
-literal|"local"
-argument_list|)
-operator|.
-name|put
-argument_list|(
 name|DiskThresholdDecider
 operator|.
 name|CLUSTER_ROUTING_ALLOCATION_DISK_THRESHOLD_ENABLED
