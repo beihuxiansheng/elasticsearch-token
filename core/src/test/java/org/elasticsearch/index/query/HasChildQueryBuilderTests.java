@@ -50,16 +50,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|Version
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|action
 operator|.
 name|admin
@@ -98,7 +88,35 @@ name|common
 operator|.
 name|xcontent
 operator|.
-name|*
+name|ToXContent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|XContentFactory
 import|;
 end_import
 
@@ -250,7 +268,7 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|*
+name|instanceOf
 import|;
 end_import
 
@@ -665,21 +683,7 @@ name|query
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|context
-operator|.
-name|indexVersionCreated
-argument_list|()
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-condition|)
+else|else
 block|{
 name|assertThat
 argument_list|(
@@ -752,11 +756,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// WTF is this why do we have two?
-block|}
-else|else
-block|{
-comment|//TODO
-comment|/*assertThat(query, instanceOf(ChildrenQuery.class));             ChildrenQuery lpq = (ChildrenQuery) query;             assertEquals(queryBuilder.minChildren(), lpq.getMinChildren());             assertEquals(queryBuilder.maxChildren(), lpq.getMaxChildren());             assertEquals(queryBuilder.scoreType(), lpq.getScoreType());             assertEquals(queryBuilder.shortCircuitCutoff(), lpq.getShortCircuitParentDocSet());*/
 block|}
 if|if
 condition|(
