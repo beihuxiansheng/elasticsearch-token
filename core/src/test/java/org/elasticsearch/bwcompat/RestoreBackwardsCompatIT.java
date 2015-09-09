@@ -885,7 +885,7 @@ block|{
 return|return
 name|getDataPath
 argument_list|(
-literal|"."
+literal|"/indices/bwc"
 argument_list|)
 return|;
 block|}
@@ -1062,6 +1062,8 @@ block|{
 name|String
 name|repoFile
 init|=
+literal|"/indices/bwc/"
+operator|+
 name|prefix
 operator|+
 literal|"-"

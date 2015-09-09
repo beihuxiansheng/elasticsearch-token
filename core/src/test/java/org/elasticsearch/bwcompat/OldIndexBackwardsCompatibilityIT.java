@@ -846,7 +846,7 @@ name|dir
 init|=
 name|getDataPath
 argument_list|(
-literal|"."
+literal|"/indices/bwc"
 argument_list|)
 decl_stmt|;
 try|try
