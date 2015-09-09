@@ -3138,7 +3138,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -3492,7 +3492,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -3506,7 +3506,7 @@ return|return;
 block|}
 name|fail
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -3553,7 +3553,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -6825,7 +6825,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
