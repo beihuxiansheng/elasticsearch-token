@@ -13447,6 +13447,7 @@ literal|1
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// TODO: why do we even support passing null??
 name|searchResponse
 operator|=
 name|client
@@ -13461,6 +13462,10 @@ name|constantScoreQuery
 argument_list|(
 name|idsQuery
 argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 operator|.
@@ -13884,6 +13889,10 @@ name|setQuery
 argument_list|(
 name|idsQuery
 argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 operator|.

@@ -1409,6 +1409,7 @@ literal|1
 index|]
 expr_stmt|;
 block|}
+break|break;
 default|default:
 break|break;
 block|}

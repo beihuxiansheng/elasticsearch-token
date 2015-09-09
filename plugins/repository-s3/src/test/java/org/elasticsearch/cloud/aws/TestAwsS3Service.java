@@ -153,7 +153,7 @@ name|S3Module
 name|s3Module
 parameter_list|)
 block|{
-name|s3Module
+name|S3Module
 operator|.
 name|s3ServiceImpl
 operator|=

@@ -3707,6 +3707,11 @@ return|return
 name|result
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"fallthrough"
+argument_list|)
 DECL|method|resolveExpression
 name|String
 name|resolveExpression

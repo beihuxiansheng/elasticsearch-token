@@ -389,6 +389,10 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
 name|fields
 argument_list|)
 operator|.

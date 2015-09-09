@@ -2718,6 +2718,10 @@ argument_list|)
 expr_stmt|;
 name|testExpectActionRequestValidationException
 argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

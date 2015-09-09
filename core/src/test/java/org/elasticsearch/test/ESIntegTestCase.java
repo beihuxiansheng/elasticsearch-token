@@ -10392,9 +10392,17 @@ argument_list|()
 return|;
 block|}
 comment|/** Helper method to create list of plugins without specifying generic types. */
+annotation|@
+name|SafeVarargs
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"varargs"
+argument_list|)
+comment|// due to type erasure, the varargs type is non-reifiable, which casues this warning
 DECL|method|pluginList
 specifier|protected
-specifier|static
+specifier|final
 name|Collection
 argument_list|<
 name|Class

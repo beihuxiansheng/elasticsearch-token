@@ -1440,6 +1440,9 @@ name|info
 argument_list|(
 literal|"--> paths: [{}]"
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|shardPaths
 argument_list|)
 expr_stmt|;

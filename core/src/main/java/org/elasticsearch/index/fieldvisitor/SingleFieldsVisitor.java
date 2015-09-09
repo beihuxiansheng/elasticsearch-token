@@ -279,6 +279,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// TODO: this switch seems very wrong...either each case should be breaking, or this should not be a switch
 switch|switch
 condition|(
 name|field
