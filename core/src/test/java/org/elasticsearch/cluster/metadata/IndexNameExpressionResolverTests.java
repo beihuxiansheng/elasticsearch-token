@@ -789,6 +789,10 @@ name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -846,6 +850,10 @@ name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -2767,6 +2775,10 @@ name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;

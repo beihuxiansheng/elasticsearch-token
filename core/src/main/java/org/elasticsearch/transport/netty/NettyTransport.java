@@ -3652,6 +3652,9 @@ name|debug
 argument_list|(
 literal|"binding server bootstrap to: {}"
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|addresses
 argument_list|)
 expr_stmt|;

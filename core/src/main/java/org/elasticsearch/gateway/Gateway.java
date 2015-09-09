@@ -184,6 +184,16 @@ name|Path
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -1033,6 +1043,9 @@ name|trace
 argument_list|(
 literal|"removing node data paths: [{}]"
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|dataPaths
 argument_list|)
 expr_stmt|;

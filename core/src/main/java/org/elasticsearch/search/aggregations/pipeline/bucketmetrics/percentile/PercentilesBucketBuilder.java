@@ -155,6 +155,10 @@ operator|.
 name|getPreferredName
 argument_list|()
 argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
 name|percents
 argument_list|)
 expr_stmt|;
