@@ -32,6 +32,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|XGeoHashUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -39,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link GeoHashUtils}  */
+comment|/**  * Tests for {@link org.apache.lucene.util.XGeoHashUtils}  */
 end_comment
 
 begin_class
@@ -58,6 +72,22 @@ name|void
 name|testGeohashAsLongRoutines
 parameter_list|()
 block|{
+specifier|final
+name|GeoPoint
+name|expected
+init|=
+operator|new
+name|GeoPoint
+argument_list|()
+decl_stmt|;
+specifier|final
+name|GeoPoint
+name|actual
+init|=
+operator|new
+name|GeoPoint
+argument_list|()
+decl_stmt|;
 comment|//Ensure that for all points at all supported levels of precision
 comment|// that the long encoding of a geohash is compatible with its
 comment|// String based counterpart
@@ -111,41 +141,44 @@ block|{
 name|long
 name|geoAsLong
 init|=
-name|GeoHashUtils
+name|XGeoHashUtils
 operator|.
-name|encodeAsLong
+name|longEncode
 argument_list|(
-name|lat
-argument_list|,
 name|lng
+argument_list|,
+name|lat
 argument_list|,
 name|p
 argument_list|)
 decl_stmt|;
-name|String
-name|geohash
-init|=
-name|GeoHashUtils
-operator|.
-name|encode
-argument_list|(
-name|lat
-argument_list|,
-name|lng
-argument_list|,
-name|p
-argument_list|)
-decl_stmt|;
+comment|// string encode from geohashlong encoded location
 name|String
 name|geohashFromLong
 init|=
-name|GeoHashUtils
+name|XGeoHashUtils
 operator|.
-name|toString
+name|stringEncode
 argument_list|(
 name|geoAsLong
 argument_list|)
 decl_stmt|;
+comment|// string encode from full res lat lon
+name|String
+name|geohash
+init|=
+name|XGeoHashUtils
+operator|.
+name|stringEncode
+argument_list|(
+name|lng
+argument_list|,
+name|lat
+argument_list|,
+name|p
+argument_list|)
+decl_stmt|;
+comment|// ensure both strings are the same
 name|assertEquals
 argument_list|(
 name|geohash
@@ -153,31 +186,27 @@ argument_list|,
 name|geohashFromLong
 argument_list|)
 expr_stmt|;
-name|GeoPoint
-name|pos
-init|=
-name|GeoHashUtils
+comment|// decode from the full-res geohash string
+name|expected
 operator|.
-name|decode
+name|resetFromGeoHash
 argument_list|(
 name|geohash
 argument_list|)
-decl_stmt|;
-name|GeoPoint
-name|pos2
-init|=
-name|GeoHashUtils
+expr_stmt|;
+comment|// decode from the geohash encoded long
+name|actual
 operator|.
-name|decode
+name|resetFromGeoHash
 argument_list|(
 name|geoAsLong
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|assertEquals
 argument_list|(
-name|pos
+name|expected
 argument_list|,
-name|pos2
+name|actual
 argument_list|)
 expr_stmt|;
 block|}

@@ -24,13 +24,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|geo
+name|util
 operator|.
-name|GeoHashUtils
+name|XGeoHashUtils
 import|;
 end_import
 
@@ -1036,9 +1036,9 @@ name|value
 parameter_list|)
 block|{
 return|return
-name|GeoHashUtils
+name|XGeoHashUtils
 operator|.
-name|toString
+name|stringEncode
 argument_list|(
 name|value
 argument_list|)

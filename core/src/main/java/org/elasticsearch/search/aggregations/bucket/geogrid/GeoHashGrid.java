@@ -26,6 +26,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|geo
+operator|.
+name|GeoPoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|aggregations
@@ -68,7 +82,14 @@ extends|extends
 name|MultiBucketsAggregation
 operator|.
 name|Bucket
-block|{      }
+block|{
+DECL|method|getCentroid
+specifier|public
+name|GeoPoint
+name|getCentroid
+parameter_list|()
+function_decl|;
+block|}
 comment|/**      * @return  The buckets of this aggregation (each bucket representing a geohash grid cell)      */
 annotation|@
 name|Override
