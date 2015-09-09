@@ -3010,6 +3010,11 @@ argument_list|)
 decl_stmt|;
 name|queryCreationContext
 operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|queryCreationContext
+operator|.
 name|parseFieldMatcher
 argument_list|(
 name|ParseFieldMatcher

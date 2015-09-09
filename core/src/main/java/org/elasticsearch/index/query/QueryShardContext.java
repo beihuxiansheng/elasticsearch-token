@@ -703,7 +703,7 @@ name|parseFieldMatcher
 return|;
 block|}
 DECL|method|reset
-specifier|private
+specifier|public
 name|void
 name|reset
 parameter_list|()
