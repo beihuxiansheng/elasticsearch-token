@@ -81,7 +81,7 @@ specifier|final
 name|String
 name|IDEA_TEST_RUNNER_PACKAGE
 init|=
-literal|"com.intellij.rt.execution.junit.JUnitStarter."
+literal|"com.intellij.rt.execution.junit."
 decl_stmt|;
 comment|/**    * Creates a new TestSecurityManager. This ctor is called on JVM startup,    * when {@code -Djava.security.manager=org.apache.lucene.util.TestSecurityManager}    * is passed to JVM.    */
 DECL|method|XTestSecurityManager
