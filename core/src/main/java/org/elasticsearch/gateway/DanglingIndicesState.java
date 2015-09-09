@@ -24,7 +24,7 @@ name|common
 operator|.
 name|collect
 operator|.
-name|*
+name|ImmutableMap
 import|;
 end_import
 
@@ -143,6 +143,16 @@ operator|.
 name|util
 operator|.
 name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -441,9 +451,9 @@ name|IndexMetaData
 argument_list|>
 name|newIndices
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

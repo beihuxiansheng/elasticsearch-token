@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -186,9 +172,9 @@ name|ScriptEngineService
 argument_list|>
 name|filteredEngines
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|scriptEngines
 argument_list|)
@@ -250,9 +236,9 @@ name|ScriptMode
 argument_list|>
 name|scriptModesMap
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|//file scripts are enabled by default, for any language
