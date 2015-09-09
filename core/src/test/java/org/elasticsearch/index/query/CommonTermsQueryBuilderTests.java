@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|CommonTermsQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|CommonTermsQueryBuilder
 argument_list|>

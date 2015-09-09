@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|BoostingQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|BoostingQueryBuilder
 argument_list|>

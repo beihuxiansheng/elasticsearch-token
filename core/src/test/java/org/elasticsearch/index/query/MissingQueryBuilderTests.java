@@ -68,7 +68,7 @@ specifier|public
 class|class
 name|MissingQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|MissingQueryBuilder
 argument_list|>

@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|RangeQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|RangeQueryBuilder
 argument_list|>

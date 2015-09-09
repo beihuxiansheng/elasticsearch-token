@@ -125,7 +125,7 @@ specifier|public
 class|class
 name|FilteredQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|FilteredQueryBuilder
 argument_list|>

@@ -87,7 +87,7 @@ specifier|public
 class|class
 name|QueryFilterBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|QueryFilterBuilder
 argument_list|>

@@ -142,7 +142,7 @@ specifier|public
 class|class
 name|IdsQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|IdsQueryBuilder
 argument_list|>

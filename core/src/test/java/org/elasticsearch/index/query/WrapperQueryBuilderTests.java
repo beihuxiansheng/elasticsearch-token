@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|WrapperQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|WrapperQueryBuilder
 argument_list|>

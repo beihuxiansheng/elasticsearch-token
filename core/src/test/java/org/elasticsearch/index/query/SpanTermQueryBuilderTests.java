@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|SpanTermQueryBuilderTests
 extends|extends
-name|BaseTermQueryTestCase
+name|AbstractTermQueryTestCase
 argument_list|<
 name|SpanTermQueryBuilder
 argument_list|>

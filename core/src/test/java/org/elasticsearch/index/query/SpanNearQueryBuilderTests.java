@@ -122,7 +122,7 @@ specifier|public
 class|class
 name|SpanNearQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SpanNearQueryBuilder
 argument_list|>

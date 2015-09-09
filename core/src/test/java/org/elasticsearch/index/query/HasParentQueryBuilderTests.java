@@ -274,7 +274,7 @@ specifier|public
 class|class
 name|HasParentQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|HasParentQueryBuilder
 argument_list|>
@@ -580,12 +580,8 @@ argument_list|,
 name|randomBoolean
 argument_list|()
 argument_list|,
-name|SearchContext
-operator|.
-name|current
+name|randomBoolean
 argument_list|()
-operator|==
-literal|null
 condition|?
 literal|null
 else|:

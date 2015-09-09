@@ -91,9 +91,9 @@ init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"filter"
-argument_list|,
 literal|"query"
+argument_list|,
+literal|"filter"
 argument_list|)
 decl_stmt|;
 annotation|@

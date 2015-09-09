@@ -879,11 +879,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|BaseQueryTestCase
+DECL|class|AbstractQueryTestCase
 specifier|public
 specifier|abstract
 class|class
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 parameter_list|<
 name|QB
 extends|extends
@@ -895,7 +895,6 @@ parameter_list|>
 extends|extends
 name|ESTestCase
 block|{
-comment|// TODO rename this AbstractQueryTestCase
 DECL|field|geohashGenerator
 specifier|private
 specifier|static
@@ -1096,6 +1095,13 @@ specifier|static
 name|NamedWriteableRegistry
 name|namedWriteableRegistry
 decl_stmt|;
+DECL|field|randomTypes
+specifier|private
+specifier|static
+name|String
+index|[]
+name|randomTypes
+decl_stmt|;
 comment|/**      * Setup for the whole base test class.      * @throws IOException      */
 annotation|@
 name|BeforeClass
@@ -1147,7 +1153,7 @@ name|put
 argument_list|(
 literal|"name"
 argument_list|,
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 operator|.
 name|class
 operator|.
@@ -1641,6 +1647,10 @@ name|namedWriteableRegistry
 operator|=
 literal|null
 expr_stmt|;
+name|randomTypes
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Before
@@ -1651,38 +1661,11 @@ name|beforeTest
 parameter_list|()
 block|{
 comment|//set some random types to be queried as part the search request, before each test
-name|String
-index|[]
-name|types
-init|=
+name|randomTypes
+operator|=
 name|getRandomTypes
 argument_list|()
-decl_stmt|;
-comment|//some query (e.g. range query) have a different behaviour depending on whether the current search context is set or not
-comment|//which is why we randomly set the search context, which will internally also do QueryParseContext.setTypes(types)
-if|if
-condition|(
-name|randomBoolean
-argument_list|()
-condition|)
-block|{
-name|QueryShardContext
-operator|.
-name|setTypes
-argument_list|(
-name|types
-argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-name|setSearchContext
-argument_list|(
-name|types
-argument_list|)
-expr_stmt|;
-comment|// TODO should this be set after we parsed and before we build the query? it makes more sense?
-block|}
 block|}
 DECL|method|setSearchContext
 specifier|protected
@@ -1865,6 +1848,10 @@ name|alternateVersion
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -1906,6 +1893,37 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+name|assertParsedQuery
+argument_list|(
+name|queryAsString
+argument_list|,
+name|expectedQuery
+argument_list|,
+name|getDefaultParseFieldMatcher
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|assertParsedQuery
+specifier|protected
+name|void
+name|assertParsedQuery
+parameter_list|(
+name|String
+name|queryAsString
+parameter_list|,
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|expectedQuery
+parameter_list|,
+name|ParseFieldMatcher
+name|matcher
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|QueryBuilder
 argument_list|<
 name|?
@@ -1915,6 +1933,8 @@ init|=
 name|parseQuery
 argument_list|(
 name|queryAsString
+argument_list|,
+name|matcher
 argument_list|)
 decl_stmt|;
 name|assertNotSame
@@ -1959,6 +1979,33 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+return|return
+name|parseQuery
+argument_list|(
+name|queryAsString
+argument_list|,
+name|getDefaultParseFieldMatcher
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|method|parseQuery
+specifier|protected
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|parseQuery
+parameter_list|(
+name|String
+name|queryAsString
+parameter_list|,
+name|ParseFieldMatcher
+name|matcher
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 name|XContentParser
 name|parser
 init|=
@@ -1987,13 +2034,31 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-comment|// TODO this should set context.parseFieldMatcher(ParseFieldMatcher.STRICT);
-comment|// all our builders should only create non-deprecated XContent.
+name|context
+operator|.
+name|parseFieldMatcher
+argument_list|(
+name|matcher
+argument_list|)
+expr_stmt|;
 return|return
 name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
+return|;
+block|}
+comment|/**      * Returns the default {@link ParseFieldMatcher} used for parsing non-alternative XContent representations.      * The default is {@link ParseFieldMatcher#STRICT}.      * Note: Queries returned from {@link #getAlternateVersions()} are always parsed with {@link ParseFieldMatcher#EMPTY} as they might      * not be backwards compatible.      */
+DECL|method|getDefaultParseFieldMatcher
+specifier|protected
+name|ParseFieldMatcher
+name|getDefaultParseFieldMatcher
+parameter_list|()
+block|{
+return|return
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 return|;
 block|}
 comment|/**      * Test creates the {@link Query} from the {@link QueryBuilder} under test and delegates the      * assertions being made on the result to the implementing subclass.      */
@@ -2026,6 +2091,12 @@ init|=
 name|createTestQueryBuilder
 argument_list|()
 decl_stmt|;
+name|setSearchContext
+argument_list|(
+name|randomTypes
+argument_list|)
+expr_stmt|;
+comment|// only set search context for toQuery to be more realistic
 name|Query
 name|firstLuceneQuery
 init|=
@@ -2045,6 +2116,12 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+name|SearchContext
+operator|.
+name|removeCurrent
+argument_list|()
+expr_stmt|;
+comment|// remove after assertLuceneQuery since the assertLuceneQuery impl might access the context as well
 name|QB
 name|secondQuery
 init|=
@@ -2092,6 +2169,12 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+name|setSearchContext
+argument_list|(
+name|randomTypes
+argument_list|)
+expr_stmt|;
+comment|// only set search context for toQuery to be more realistic
 name|Query
 name|secondLuceneQuery
 init|=
@@ -2111,6 +2194,12 @@ argument_list|,
 name|context
 argument_list|)
 expr_stmt|;
+name|SearchContext
+operator|.
+name|removeCurrent
+argument_list|()
+expr_stmt|;
+comment|// remove after assertLuceneQuery since the assertLuceneQuery impl might access the context as well
 name|assertThat
 argument_list|(
 literal|"two equivalent query builders lead to different lucene queries"
@@ -2149,6 +2238,12 @@ name|randomFloat
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|setSearchContext
+argument_list|(
+name|randomTypes
+argument_list|)
+expr_stmt|;
+comment|// only set search context for toQuery to be more realistic
 name|Query
 name|thirdLuceneQuery
 init|=
@@ -2159,6 +2254,11 @@ argument_list|(
 name|context
 argument_list|)
 decl_stmt|;
+name|SearchContext
+operator|.
+name|removeCurrent
+argument_list|()
+expr_stmt|;
 name|assertThat
 argument_list|(
 literal|"modifying the boost doesn't affect the corresponding lucene query"
@@ -2993,7 +3093,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * create a random value for either {@link BaseQueryTestCase#BOOLEAN_FIELD_NAME}, {@link BaseQueryTestCase#INT_FIELD_NAME},      * {@link BaseQueryTestCase#DOUBLE_FIELD_NAME}, {@link BaseQueryTestCase#STRING_FIELD_NAME} or      * {@link BaseQueryTestCase#DATE_FIELD_NAME}, or a String value by default      */
+comment|/**      * create a random value for either {@link AbstractQueryTestCase#BOOLEAN_FIELD_NAME}, {@link AbstractQueryTestCase#INT_FIELD_NAME},      * {@link AbstractQueryTestCase#DOUBLE_FIELD_NAME}, {@link AbstractQueryTestCase#STRING_FIELD_NAME} or      * {@link AbstractQueryTestCase#DATE_FIELD_NAME}, or a String value by default      */
 DECL|method|getRandomValueForFieldName
 specifier|protected
 specifier|static

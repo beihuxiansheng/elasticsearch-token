@@ -84,7 +84,7 @@ specifier|public
 class|class
 name|MatchNoneQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 block|{
 annotation|@
 name|Override

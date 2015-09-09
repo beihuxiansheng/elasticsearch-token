@@ -152,7 +152,7 @@ specifier|public
 class|class
 name|ExistsQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|ExistsQueryBuilder
 argument_list|>

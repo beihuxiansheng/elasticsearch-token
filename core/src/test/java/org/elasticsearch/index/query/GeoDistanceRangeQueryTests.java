@@ -174,7 +174,7 @@ specifier|public
 class|class
 name|GeoDistanceRangeQueryTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|GeoDistanceRangeQueryBuilder
 argument_list|>

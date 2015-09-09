@@ -122,7 +122,7 @@ specifier|public
 class|class
 name|DisMaxQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|DisMaxQueryBuilder
 argument_list|>

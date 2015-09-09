@@ -59,11 +59,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|BaseTermQueryTestCase
+DECL|class|AbstractTermQueryTestCase
 specifier|public
 specifier|abstract
 class|class
-name|BaseTermQueryTestCase
+name|AbstractTermQueryTestCase
 parameter_list|<
 name|QB
 extends|extends
@@ -73,7 +73,7 @@ name|QB
 parameter_list|>
 parameter_list|>
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|QB
 argument_list|>

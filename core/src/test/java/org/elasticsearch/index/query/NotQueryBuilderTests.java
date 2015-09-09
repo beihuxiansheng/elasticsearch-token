@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|NotQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|NotQueryBuilder
 argument_list|>

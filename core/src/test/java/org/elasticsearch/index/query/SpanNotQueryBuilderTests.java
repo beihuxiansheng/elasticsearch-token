@@ -144,7 +144,7 @@ specifier|public
 class|class
 name|SpanNotQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SpanNotQueryBuilder
 argument_list|>

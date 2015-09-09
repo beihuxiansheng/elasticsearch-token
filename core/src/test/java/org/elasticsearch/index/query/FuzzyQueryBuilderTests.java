@@ -146,7 +146,7 @@ specifier|public
 class|class
 name|FuzzyQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|FuzzyQueryBuilder
 argument_list|>

@@ -106,7 +106,7 @@ specifier|public
 class|class
 name|PrefixQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|PrefixQueryBuilder
 argument_list|>

@@ -278,7 +278,7 @@ specifier|public
 class|class
 name|HasChildQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|HasChildQueryBuilder
 argument_list|>
@@ -624,12 +624,8 @@ name|values
 argument_list|()
 argument_list|)
 argument_list|,
-name|SearchContext
-operator|.
-name|current
+name|randomBoolean
 argument_list|()
-operator|==
-literal|null
 condition|?
 literal|null
 else|:

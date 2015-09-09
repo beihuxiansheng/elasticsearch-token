@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|SpanMultiTermQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SpanMultiTermQueryBuilder
 argument_list|>

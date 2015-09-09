@@ -56,7 +56,7 @@ specifier|public
 class|class
 name|IndicesQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|IndicesQueryBuilder
 argument_list|>
