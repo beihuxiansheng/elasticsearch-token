@@ -2094,9 +2094,6 @@ condition|(
 name|query
 operator|!=
 literal|null
-operator|&&
-name|supportsBoostAndQueryName
-argument_list|()
 condition|)
 block|{
 name|assertBoost
