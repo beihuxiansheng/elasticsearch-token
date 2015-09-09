@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.index.search.child
+DECL|package|org.elasticsearch.index.query
 package|package
 name|org
 operator|.
@@ -12,9 +12,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|search
-operator|.
-name|child
+name|query
 package|;
 end_package
 

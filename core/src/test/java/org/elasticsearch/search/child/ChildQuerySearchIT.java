@@ -208,24 +208,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
-operator|.
-name|query
-operator|.
-name|index
-operator|.
-name|IndexQueryCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|mapper
 operator|.
 name|MergeMappingException
@@ -282,9 +264,7 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|search
-operator|.
-name|child
+name|query
 operator|.
 name|ScoreType
 import|;
@@ -16244,9 +16224,6 @@ name|minChildren
 parameter_list|,
 name|int
 name|maxChildren
-parameter_list|,
-name|int
-name|cutoff
 parameter_list|)
 throws|throws
 name|SearchPhaseExecutionException
@@ -16357,11 +16334,6 @@ name|maxChildren
 argument_list|(
 name|maxChildren
 argument_list|)
-operator|.
-name|setShortCircuitCutoff
-argument_list|(
-name|cutoff
-argument_list|)
 argument_list|)
 operator|.
 name|addSort
@@ -16396,9 +16368,6 @@ name|minChildren
 parameter_list|,
 name|int
 name|maxChildren
-parameter_list|,
-name|int
-name|cutoff
 parameter_list|)
 throws|throws
 name|SearchPhaseExecutionException
@@ -16440,11 +16409,6 @@ operator|.
 name|maxChildren
 argument_list|(
 name|maxChildren
-argument_list|)
-operator|.
-name|setShortCircuitCutoff
-argument_list|(
-name|cutoff
 argument_list|)
 argument_list|)
 argument_list|)
@@ -16526,17 +16490,6 @@ expr_stmt|;
 name|SearchResponse
 name|response
 decl_stmt|;
-name|int
-name|cutoff
-init|=
-name|getRandom
-argument_list|()
-operator|.
-name|nextInt
-argument_list|(
-literal|4
-argument_list|)
-decl_stmt|;
 comment|// Score mode = NONE
 name|response
 operator|=
@@ -16547,8 +16500,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16708,8 +16659,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16869,8 +16818,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -16986,8 +16933,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17059,8 +17004,6 @@ argument_list|,
 literal|4
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17088,8 +17031,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|4
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17249,8 +17190,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|3
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17410,8 +17349,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17527,8 +17464,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17602,8 +17537,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|fail
@@ -17640,8 +17573,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17801,8 +17732,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -17962,8 +17891,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18079,8 +18006,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18152,8 +18077,6 @@ argument_list|,
 literal|4
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18181,8 +18104,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|4
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18342,8 +18263,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|3
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18503,8 +18422,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18620,8 +18537,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18695,8 +18610,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|fail
@@ -18733,8 +18646,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -18894,8 +18805,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19055,8 +18964,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19172,8 +19079,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19245,8 +19150,6 @@ argument_list|,
 literal|4
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19274,8 +19177,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|4
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19435,8 +19336,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|3
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19596,8 +19495,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19713,8 +19610,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19788,8 +19683,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|fail
@@ -19826,8 +19719,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -19987,8 +19878,6 @@ argument_list|,
 literal|1
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20148,8 +20037,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20265,8 +20152,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20338,8 +20223,6 @@ argument_list|,
 literal|4
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20367,8 +20250,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|4
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20528,8 +20409,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|3
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20689,8 +20568,6 @@ argument_list|,
 literal|0
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20806,8 +20683,6 @@ argument_list|,
 literal|2
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -20881,8 +20756,6 @@ argument_list|,
 literal|3
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|fail
@@ -20917,8 +20790,6 @@ argument_list|(
 literal|0
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21076,8 +20947,6 @@ argument_list|(
 literal|1
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21235,8 +21104,6 @@ argument_list|(
 literal|2
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21350,8 +21217,6 @@ argument_list|(
 literal|3
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21421,8 +21286,6 @@ argument_list|(
 literal|4
 argument_list|,
 literal|0
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21448,8 +21311,6 @@ argument_list|(
 literal|0
 argument_list|,
 literal|4
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21607,8 +21468,6 @@ argument_list|(
 literal|0
 argument_list|,
 literal|3
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21766,8 +21625,6 @@ argument_list|(
 literal|0
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21881,8 +21738,6 @@ argument_list|(
 literal|2
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|assertThat
@@ -21954,8 +21809,6 @@ argument_list|(
 literal|3
 argument_list|,
 literal|2
-argument_list|,
-name|cutoff
 argument_list|)
 expr_stmt|;
 name|fail
@@ -22156,16 +22009,6 @@ argument_list|,
 name|queryBuilder
 argument_list|)
 decl_stmt|;
-name|hasChildQueryBuilder
-operator|.
-name|setShortCircuitCutoff
-argument_list|(
-name|randomInt
-argument_list|(
-literal|10
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 name|hasChildQueryBuilder
 return|;

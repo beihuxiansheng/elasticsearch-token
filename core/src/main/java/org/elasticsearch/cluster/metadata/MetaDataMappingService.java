@@ -2524,23 +2524,6 @@ comment|// and a put mapping api call, so we don't which type did exist before.
 comment|// Also the order of the mappings may be backwards.
 if|if
 condition|(
-name|Version
-operator|.
-name|indexCreated
-argument_list|(
-name|indexService
-operator|.
-name|getIndexSettings
-argument_list|()
-argument_list|)
-operator|.
-name|onOrAfter
-argument_list|(
-name|Version
-operator|.
-name|V_2_0_0_beta1
-argument_list|)
-operator|&&
 name|newMapper
 operator|.
 name|parentFieldMapper
