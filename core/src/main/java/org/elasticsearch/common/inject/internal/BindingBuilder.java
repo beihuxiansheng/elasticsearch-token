@@ -138,23 +138,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Set
+name|Objects
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|Set
 import|;
 end_import
 
@@ -348,7 +342,9 @@ argument_list|>
 name|linkedKey
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|linkedKey
 argument_list|,
@@ -546,7 +542,9 @@ argument_list|>
 name|provider
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|provider
 argument_list|,
@@ -711,7 +709,9 @@ argument_list|>
 name|providerKey
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|providerKey
 argument_list|,
