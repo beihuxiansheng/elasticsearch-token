@@ -1848,10 +1848,6 @@ name|alternateVersion
 operator|.
 name|getValue
 argument_list|()
-argument_list|,
-name|ParseFieldMatcher
-operator|.
-name|EMPTY
 argument_list|)
 expr_stmt|;
 block|}
@@ -1899,8 +1895,9 @@ name|queryAsString
 argument_list|,
 name|expectedQuery
 argument_list|,
-name|getDefaultParseFieldMatcher
-argument_list|()
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 argument_list|)
 expr_stmt|;
 block|}
@@ -1984,8 +1981,9 @@ name|parseQuery
 argument_list|(
 name|queryAsString
 argument_list|,
-name|getDefaultParseFieldMatcher
-argument_list|()
+name|ParseFieldMatcher
+operator|.
+name|STRICT
 argument_list|)
 return|;
 block|}
@@ -2046,19 +2044,6 @@ name|context
 operator|.
 name|parseInnerQueryBuilder
 argument_list|()
-return|;
-block|}
-comment|/**      * Returns the default {@link ParseFieldMatcher} used for parsing non-alternative XContent representations.      * The default is {@link ParseFieldMatcher#STRICT}.      * Note: Queries returned from {@link #getAlternateVersions()} are always parsed with {@link ParseFieldMatcher#EMPTY} as they might      * not be backwards compatible.      */
-DECL|method|getDefaultParseFieldMatcher
-specifier|protected
-name|ParseFieldMatcher
-name|getDefaultParseFieldMatcher
-parameter_list|()
-block|{
-return|return
-name|ParseFieldMatcher
-operator|.
-name|STRICT
 return|;
 block|}
 comment|/**      * Test creates the {@link Query} from the {@link QueryBuilder} under test and delegates the      * assertions being made on the result to the implementing subclass.      */
@@ -2436,6 +2421,24 @@ init|=
 name|createTestQueryBuilder
 argument_list|()
 decl_stmt|;
+name|assertSerialization
+argument_list|(
+name|testQuery
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Serialize the given query builder and asserts that both are equal      */
+DECL|method|assertSerialization
+specifier|protected
+name|QB
+name|assertSerialization
+parameter_list|(
+name|QB
+name|testQuery
+parameter_list|)
+throws|throws
+name|IOException
+block|{
 try|try
 init|(
 name|BytesStreamOutput
@@ -2529,6 +2532,12 @@ argument_list|,
 name|testQuery
 argument_list|)
 expr_stmt|;
+return|return
+operator|(
+name|QB
+operator|)
+name|deserializedQuery
+return|;
 block|}
 block|}
 block|}

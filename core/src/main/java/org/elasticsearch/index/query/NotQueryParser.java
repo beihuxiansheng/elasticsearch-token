@@ -361,7 +361,7 @@ name|QueryParsingException
 argument_list|(
 name|parseContext
 argument_list|,
-literal|"filter is required when using `not` query"
+literal|"query is required when using `not` query"
 argument_list|)
 throw|;
 block|}
