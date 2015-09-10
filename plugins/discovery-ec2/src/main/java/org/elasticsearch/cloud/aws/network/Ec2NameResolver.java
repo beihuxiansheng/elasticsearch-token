@@ -42,7 +42,7 @@ name|cloud
 operator|.
 name|aws
 operator|.
-name|AwsEc2Service
+name|AwsEc2ServiceImpl
 import|;
 end_import
 
@@ -338,7 +338,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-name|AwsEc2Service
+name|AwsEc2ServiceImpl
 operator|.
 name|EC2_METADATA_URL
 operator|+

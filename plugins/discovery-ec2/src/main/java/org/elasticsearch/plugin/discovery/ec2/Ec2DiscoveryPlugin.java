@@ -28,7 +28,7 @@ name|cloud
 operator|.
 name|aws
 operator|.
-name|AwsEc2Service
+name|AwsEc2ServiceImpl
 import|;
 end_import
 
@@ -330,7 +330,7 @@ name|services
 operator|.
 name|add
 argument_list|(
-name|AwsEc2Service
+name|AwsEc2ServiceImpl
 operator|.
 name|class
 argument_list|)
