@@ -1483,6 +1483,13 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
+name|indexSearcher
+operator|.
+name|setQueryCache
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
 name|String
 name|joinField
 init|=
