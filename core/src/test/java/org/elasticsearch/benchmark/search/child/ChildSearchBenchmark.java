@@ -2295,7 +2295,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"max"
 argument_list|)
@@ -2354,7 +2354,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"max"
 argument_list|)
@@ -2463,7 +2463,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"max"
 argument_list|)
@@ -2582,7 +2582,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"score"
 argument_list|)
@@ -2641,7 +2641,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"score"
 argument_list|)
@@ -2750,7 +2750,7 @@ name|matchAllQuery
 argument_list|()
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"score"
 argument_list|)

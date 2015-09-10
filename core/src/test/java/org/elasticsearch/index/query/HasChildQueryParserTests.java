@@ -20,13 +20,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|elasticsearch
+name|apache
 operator|.
-name|index
+name|lucene
 operator|.
-name|query
+name|search
 operator|.
-name|ScoreType
+name|join
+operator|.
+name|ScoreMode
 import|;
 end_import
 
@@ -76,15 +78,11 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  * Tests {@link ScoreType} to ensure backward compatibility of any changes.  */
-end_comment
-
 begin_class
-DECL|class|ScoreTypeTests
+DECL|class|HasChildQueryParserTests
 specifier|public
 class|class
-name|ScoreTypeTests
+name|HasChildQueryParserTests
 extends|extends
 name|ESTestCase
 block|{
@@ -100,15 +98,15 @@ name|assertThat
 argument_list|(
 literal|"fromString(min) != MIN"
 argument_list|,
-name|ScoreType
+name|ScoreMode
 operator|.
-name|MIN
+name|Min
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|"min"
 argument_list|)
@@ -128,15 +126,15 @@ name|assertThat
 argument_list|(
 literal|"fromString(max) != MAX"
 argument_list|,
-name|ScoreType
+name|ScoreMode
 operator|.
-name|MAX
+name|Max
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|"max"
 argument_list|)
@@ -156,15 +154,15 @@ name|assertThat
 argument_list|(
 literal|"fromString(avg) != AVG"
 argument_list|,
-name|ScoreType
+name|ScoreMode
 operator|.
-name|AVG
+name|Avg
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|"avg"
 argument_list|)
@@ -182,37 +180,17 @@ parameter_list|()
 block|{
 name|assertThat
 argument_list|(
-literal|"fromString(sum) != SUM"
-argument_list|,
-name|ScoreType
-operator|.
-name|SUM
-argument_list|,
-name|equalTo
-argument_list|(
-name|ScoreType
-operator|.
-name|fromString
-argument_list|(
-literal|"sum"
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// allowed for consistency with ScoreMode.Total:
-name|assertThat
-argument_list|(
 literal|"fromString(total) != SUM"
 argument_list|,
-name|ScoreType
+name|ScoreMode
 operator|.
-name|SUM
+name|Total
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|"total"
 argument_list|)
@@ -232,15 +210,15 @@ name|assertThat
 argument_list|(
 literal|"fromString(none) != NONE"
 argument_list|,
-name|ScoreType
+name|ScoreMode
 operator|.
-name|NONE
+name|None
 argument_list|,
 name|equalTo
 argument_list|(
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|"none"
 argument_list|)
@@ -264,9 +242,9 @@ name|void
 name|nullFromString_throwsException
 parameter_list|()
 block|{
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|null
 argument_list|)
@@ -288,9 +266,9 @@ name|void
 name|unrecognizedFromString_throwsException
 parameter_list|()
 block|{
-name|ScoreType
+name|HasChildQueryParser
 operator|.
-name|fromString
+name|parseScoreMode
 argument_list|(
 literal|"unrecognized value"
 argument_list|)
