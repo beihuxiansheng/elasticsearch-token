@@ -1553,13 +1553,6 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|filteredQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|,
-name|QueryBuilders
-operator|.
 name|boolQuery
 argument_list|()
 operator|.
@@ -1596,7 +1589,6 @@ literal|7
 argument_list|)
 operator|+
 literal|"/01"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -1674,13 +1666,6 @@ name|setQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|filteredQuery
-argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|,
-name|QueryBuilders
-operator|.
 name|boolQuery
 argument_list|()
 operator|.
@@ -1728,7 +1713,6 @@ argument_list|)
 argument_list|)
 operator|+
 literal|"/01"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
