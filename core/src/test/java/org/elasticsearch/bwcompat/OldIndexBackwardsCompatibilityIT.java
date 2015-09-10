@@ -1367,7 +1367,10 @@ comment|// decompress the index
 name|Path
 name|backwardsIndex
 init|=
-name|getDataPath
+name|getBwcIndicesPath
+argument_list|()
+operator|.
+name|resolve
 argument_list|(
 name|indexFile
 argument_list|)
