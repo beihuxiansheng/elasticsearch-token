@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -725,6 +711,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -5612,9 +5608,9 @@ name|DiscoveryNode
 argument_list|>
 name|activeNodes
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// nodes discovered who has previously been part of the cluster and do not ping for the very first time
@@ -5624,9 +5620,9 @@ name|DiscoveryNode
 argument_list|>
 name|joinedOnceActiveNodes
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

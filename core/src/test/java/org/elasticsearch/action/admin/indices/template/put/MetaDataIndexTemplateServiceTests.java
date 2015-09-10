@@ -24,20 +24,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -57,20 +43,6 @@ operator|.
 name|metadata
 operator|.
 name|IndexMetaData
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|cluster
-operator|.
-name|metadata
-operator|.
-name|IndexTemplateFilter
 import|;
 end_import
 
@@ -183,6 +155,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -563,12 +545,9 @@ name|CURRENT
 argument_list|,
 literal|null
 argument_list|,
-name|Sets
-operator|.
-expr|<
-name|IndexTemplateFilter
-operator|>
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 argument_list|,
 literal|null

@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -227,6 +213,16 @@ operator|.
 name|util
 operator|.
 name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -3261,9 +3257,9 @@ name|String
 argument_list|>
 name|names
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -3517,9 +3513,9 @@ argument_list|)
 expr_stmt|;
 name|names
 operator|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
@@ -3773,9 +3769,9 @@ argument_list|)
 expr_stmt|;
 name|names
 operator|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 expr_stmt|;
 for|for
