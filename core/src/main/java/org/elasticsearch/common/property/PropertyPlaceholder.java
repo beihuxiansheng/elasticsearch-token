@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -49,6 +35,16 @@ operator|.
 name|util
 operator|.
 name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -137,18 +133,18 @@ name|boolean
 name|ignoreUnresolvablePlaceholders
 parameter_list|)
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|placeholderPrefix
 argument_list|,
 literal|"Argument 'placeholderPrefix' must not be null."
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|placeholderSuffix
 argument_list|,
@@ -187,9 +183,9 @@ name|PlaceholderResolver
 name|placeholderResolver
 parameter_list|)
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|value
 argument_list|,

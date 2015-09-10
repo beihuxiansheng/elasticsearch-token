@@ -221,18 +221,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|Objects
 import|;
 end_import
 
@@ -276,7 +270,9 @@ name|this
 operator|.
 name|delegate
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|delegate
 argument_list|,

@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -80,9 +66,9 @@ name|apache
 operator|.
 name|lucene
 operator|.
-name|index
+name|search
 operator|.
-name|LeafReaderContext
+name|QueryCachingPolicy
 import|;
 end_import
 
@@ -96,7 +82,7 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|UsageTrackingQueryCachingPolicy
 import|;
 end_import
 
@@ -1288,37 +1274,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|EnumSet
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Locale
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|*
 import|;
 end_import
 
@@ -1889,18 +1845,18 @@ name|wrappingService
 operator|=
 name|wrappingService
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|store
 argument_list|,
 literal|"Store must be provided to the index shard"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|deletionPolicy
 argument_list|,
