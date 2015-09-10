@@ -286,7 +286,7 @@ specifier|public
 class|class
 name|MatchQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|MatchQueryBuilder
 argument_list|>
@@ -343,6 +343,13 @@ argument_list|,
 literal|3
 argument_list|)
 decl_stmt|;
+name|StringBuilder
+name|builder
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -358,8 +365,10 @@ name|i
 operator|++
 control|)
 block|{
-name|value
-operator|+=
+name|builder
+operator|.
+name|append
+argument_list|(
 name|randomAsciiOfLengthBetween
 argument_list|(
 literal|1
@@ -368,16 +377,15 @@ literal|10
 argument_list|)
 operator|+
 literal|" "
+argument_list|)
 expr_stmt|;
 block|}
 name|value
 operator|=
-operator|(
-operator|(
-name|String
-operator|)
-name|value
-operator|)
+name|builder
+operator|.
+name|toString
+argument_list|()
 operator|.
 name|trim
 argument_list|()
