@@ -388,7 +388,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the parser that is registered under the given pipeline aggregator      * type.      *       * @param type      *            The pipeline aggregator type      * @return The parser associated with the given pipeline aggregator type.      */
+comment|/**      * Returns the parser that is registered under the given pipeline aggregator      * type.      *      * @param type      *            The pipeline aggregator type      * @return The parser associated with the given pipeline aggregator type.      */
 DECL|method|pipelineAggregator
 specifier|public
 name|PipelineAggregator
@@ -1328,6 +1328,31 @@ name|getTokenLocation
 argument_list|()
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|level
+operator|==
+literal|0
+condition|)
+block|{
+name|pipelineAggregatorFactory
+operator|.
+name|validate
+argument_list|(
+literal|null
+argument_list|,
+name|factories
+operator|.
+name|getAggregatorFactories
+argument_list|()
+argument_list|,
+name|factories
+operator|.
+name|getPipelineAggregatorFactories
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 name|factories
 operator|.
