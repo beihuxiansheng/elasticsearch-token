@@ -8072,13 +8072,10 @@ operator|.
 name|ARC
 argument_list|)
 operator|.
-name|lat
+name|point
 argument_list|(
 name|lat
-argument_list|)
-operator|.
-name|lon
-argument_list|(
+argument_list|,
 name|lon
 argument_list|)
 operator|.

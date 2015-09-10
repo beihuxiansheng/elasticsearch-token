@@ -1463,7 +1463,7 @@ throw|;
 block|}
 block|}
 DECL|method|xRandomPoint
-specifier|protected
+specifier|public
 specifier|static
 name|Point
 name|xRandomPoint
@@ -1578,7 +1578,7 @@ name|p
 return|;
 block|}
 DECL|method|xRandomRectangle
-specifier|protected
+specifier|public
 specifier|static
 name|Rectangle
 name|xRandomRectangle
