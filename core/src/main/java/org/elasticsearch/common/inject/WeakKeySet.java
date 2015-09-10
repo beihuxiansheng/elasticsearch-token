@@ -18,15 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
+name|HashSet
 import|;
 end_import
 
@@ -59,9 +55,9 @@ name|String
 argument_list|>
 name|backingSet
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|add
