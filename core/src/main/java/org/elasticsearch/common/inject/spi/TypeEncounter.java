@@ -79,6 +79,11 @@ comment|/**  * Context of an injectable type encounter. Enables reporting errors
 end_comment
 
 begin_interface
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"overloads"
+argument_list|)
 DECL|interface|TypeEncounter
 specifier|public
 interface|interface

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -143,6 +129,16 @@ operator|.
 name|attribute
 operator|.
 name|PosixFilePermissions
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -292,9 +288,9 @@ argument_list|>
 argument_list|>
 name|permissions
 init|=
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|paths
 operator|.
@@ -309,9 +305,9 @@ name|String
 argument_list|>
 name|owners
 init|=
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|paths
 operator|.
@@ -326,9 +322,9 @@ name|String
 argument_list|>
 name|groups
 init|=
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|paths
 operator|.

@@ -236,6 +236,16 @@ name|TransportService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  * Open index action  */
 end_comment
@@ -561,6 +571,9 @@ literal|"failed to open indices [{}]"
 argument_list|,
 name|t
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|concreteIndices
 argument_list|)
 expr_stmt|;

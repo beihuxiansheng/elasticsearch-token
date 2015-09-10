@@ -2584,7 +2584,7 @@ name|field
 argument_list|(
 literal|"script"
 argument_list|,
-literal|"{ \"query\": { \"match\": { \"name\": \"Star Wars\" }}}"
+literal|"{ \"match\": { \"name\": \"Star Wars\" }}"
 argument_list|)
 operator|.
 name|endObject
@@ -3443,11 +3443,6 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
-literal|"query"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
 literal|"match_phrase"
 argument_list|)
 operator|.
@@ -3457,9 +3452,6 @@ literal|"title"
 argument_list|,
 literal|"{{suggestion}}"
 argument_list|)
-operator|.
-name|endObject
-argument_list|()
 operator|.
 name|endObject
 argument_list|()

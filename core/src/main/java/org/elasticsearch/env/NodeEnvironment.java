@@ -490,7 +490,7 @@ name|this
 operator|.
 name|fileStore
 operator|=
-name|environment
+name|Environment
 operator|.
 name|getFileStore
 argument_list|(

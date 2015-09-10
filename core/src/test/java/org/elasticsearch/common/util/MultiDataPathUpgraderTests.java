@@ -1567,6 +1567,9 @@ name|info
 argument_list|(
 literal|"{}"
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|FileSystemUtils
 operator|.
 name|files

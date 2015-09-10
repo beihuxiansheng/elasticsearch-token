@@ -44,6 +44,10 @@ begin_comment
 comment|/**  * Parser for query filter  * @deprecated use any query instead directly, possible since queries and filters are merged.  */
 end_comment
 
+begin_comment
+comment|// TODO: remove when https://github.com/elastic/elasticsearch/issues/13326 is fixed
+end_comment
+
 begin_class
 annotation|@
 name|Deprecated

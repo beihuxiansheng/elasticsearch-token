@@ -15751,7 +15751,10 @@ name|constantScoreQuery
 argument_list|(
 name|QueryBuilders
 operator|.
-name|andQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|must
 argument_list|(
 name|QueryBuilders
 operator|.
@@ -15759,7 +15762,10 @@ name|queryStringQuery
 argument_list|(
 literal|"root"
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|must
+argument_list|(
 name|QueryBuilders
 operator|.
 name|termQuery

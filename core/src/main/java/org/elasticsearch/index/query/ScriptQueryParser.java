@@ -98,18 +98,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|script
-operator|.
-name|SearchScript
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -124,7 +112,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
@@ -134,23 +122,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
+name|Map
 import|;
 end_import
 
@@ -510,7 +482,9 @@ condition|)
 block|{
 name|params
 operator|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}

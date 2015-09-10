@@ -1441,6 +1441,10 @@ name|array
 argument_list|(
 literal|"precision"
 argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
 name|precisions
 operator|.
 name|toArray
@@ -1553,6 +1557,10 @@ name|array
 argument_list|(
 literal|"precision"
 argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
 name|precisions
 operator|.
 name|toArray

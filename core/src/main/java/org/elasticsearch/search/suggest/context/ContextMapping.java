@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -326,6 +312,16 @@ name|SortedMap
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeMap
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link ContextMapping} is used t define a context that may used  * in conjunction with a suggester. To define a suggester that depends on a  * specific context derived class of {@link ContextMapping} will be  * used to specify the kind of additional information required in order to make  * suggestions.  */
 end_comment
@@ -362,9 +358,9 @@ name|ContextMapping
 argument_list|>
 name|EMPTY_MAPPING
 init|=
-name|Maps
-operator|.
-name|newTreeMap
+operator|new
+name|TreeMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Dummy Context Config matching the Dummy Mapping by providing an empty context*/
@@ -380,9 +376,9 @@ name|ContextConfig
 argument_list|>
 name|EMPTY_CONFIG
 init|=
-name|Maps
-operator|.
-name|newTreeMap
+operator|new
+name|TreeMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/** Dummy Context matching the Dummy Mapping by not wrapping a {@link TokenStream} */

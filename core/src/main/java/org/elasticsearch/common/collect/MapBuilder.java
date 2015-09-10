@@ -36,23 +36,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
+name|Map
 import|;
 end_import
 
@@ -139,7 +133,9 @@ name|V
 argument_list|>
 name|map
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|MapBuilder
@@ -151,7 +147,9 @@ name|this
 operator|.
 name|map
 operator|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
@@ -172,7 +170,9 @@ name|this
 operator|.
 name|map
 operator|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|map
 argument_list|)

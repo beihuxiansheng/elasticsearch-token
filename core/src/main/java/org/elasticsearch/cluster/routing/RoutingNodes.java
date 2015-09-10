@@ -268,22 +268,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Maps
-operator|.
-name|newHashMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Sets
 operator|.
 name|newHashSet
@@ -334,7 +318,9 @@ name|RoutingNode
 argument_list|>
 name|nodesToShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|unassignedShards
@@ -363,7 +349,9 @@ argument_list|>
 argument_list|>
 name|assignedShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|customs
@@ -505,7 +493,9 @@ argument_list|>
 argument_list|>
 name|nodesToShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// fill in the nodeToShards with the "live" nodes

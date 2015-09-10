@@ -80,7 +80,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|AndQueryBuilder
+name|BoolQueryBuilder
 import|;
 end_import
 
@@ -803,7 +803,7 @@ name|QueryBuilder
 name|emptyFilter
 init|=
 operator|new
-name|AndQueryBuilder
+name|BoolQueryBuilder
 argument_list|()
 decl_stmt|;
 name|SearchResponse

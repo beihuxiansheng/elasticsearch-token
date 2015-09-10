@@ -40,20 +40,6 @@ name|common
 operator|.
 name|collect
 operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
 name|Sets
 import|;
 end_import
@@ -521,6 +507,16 @@ operator|.
 name|util
 operator|.
 name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -1008,9 +1004,9 @@ block|{
 comment|//makes a copy of the parameters before modifying them for this specific request
 name|requestParams
 operator|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|params
 argument_list|)
@@ -1296,9 +1292,9 @@ name|String
 argument_list|>
 name|pathParts
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if

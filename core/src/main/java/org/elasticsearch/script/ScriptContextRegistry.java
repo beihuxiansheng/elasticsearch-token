@@ -58,15 +58,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
+name|HashMap
 import|;
 end_import
 
@@ -134,9 +130,9 @@ name|ScriptContext
 argument_list|>
 name|scriptContexts
 init|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

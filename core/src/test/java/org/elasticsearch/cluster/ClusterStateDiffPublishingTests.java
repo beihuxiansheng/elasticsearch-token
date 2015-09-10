@@ -414,6 +414,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -480,17 +490,13 @@ end_import
 
 begin_import
 import|import static
-name|com
+name|org
 operator|.
-name|google
+name|hamcrest
 operator|.
-name|common
+name|Matchers
 operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
+name|containsString
 import|;
 end_import
 
@@ -502,7 +508,43 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|emptyIterable
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|nullValue
 import|;
 end_import
 
@@ -529,7 +571,9 @@ name|MockNode
 argument_list|>
 name|nodes
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|class|MockNode
