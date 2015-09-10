@@ -144,7 +144,7 @@ specifier|public
 class|class
 name|SimpleQueryStringBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SimpleQueryStringBuilder
 argument_list|>

@@ -96,7 +96,7 @@ specifier|public
 class|class
 name|SpanWithinQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SpanWithinQueryBuilder
 argument_list|>

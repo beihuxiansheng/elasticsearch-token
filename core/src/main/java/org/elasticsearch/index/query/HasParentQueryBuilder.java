@@ -466,6 +466,17 @@ return|return
 name|score
 return|;
 block|}
+comment|/**      * Returns the parents type name      */
+DECL|method|type
+specifier|public
+name|String
+name|type
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
 comment|/**      *  Returns inner hit definition in the scope of this query and reusing the defined type and query.      */
 DECL|method|innerHit
 specifier|public

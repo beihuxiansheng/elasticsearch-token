@@ -112,7 +112,7 @@ specifier|public
 class|class
 name|TypeQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|TypeQueryBuilder
 argument_list|>

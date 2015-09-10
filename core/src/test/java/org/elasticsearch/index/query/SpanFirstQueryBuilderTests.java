@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|SpanFirstQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SpanFirstQueryBuilder
 argument_list|>

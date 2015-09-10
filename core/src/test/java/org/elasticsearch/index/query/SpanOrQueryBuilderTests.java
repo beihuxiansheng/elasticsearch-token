@@ -122,7 +122,7 @@ specifier|public
 class|class
 name|SpanOrQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|SpanOrQueryBuilder
 argument_list|>

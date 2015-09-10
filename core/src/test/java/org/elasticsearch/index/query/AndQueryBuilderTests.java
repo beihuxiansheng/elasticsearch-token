@@ -111,7 +111,7 @@ specifier|public
 class|class
 name|AndQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|AndQueryBuilder
 argument_list|>

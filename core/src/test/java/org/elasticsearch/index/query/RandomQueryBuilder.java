@@ -167,7 +167,7 @@ init|=
 operator|new
 name|RangeQueryBuilder
 argument_list|(
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 operator|.
 name|STRING_FIELD_NAME
 argument_list|)

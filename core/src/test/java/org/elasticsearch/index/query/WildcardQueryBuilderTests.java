@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|WildcardQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|WildcardQueryBuilder
 argument_list|>

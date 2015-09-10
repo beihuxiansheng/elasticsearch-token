@@ -110,7 +110,7 @@ specifier|public
 class|class
 name|FieldMaskingSpanQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|FieldMaskingSpanQueryBuilder
 argument_list|>

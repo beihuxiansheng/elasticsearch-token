@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|BoolQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|BoolQueryBuilder
 argument_list|>

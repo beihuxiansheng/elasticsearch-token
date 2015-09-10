@@ -82,7 +82,7 @@ specifier|public
 class|class
 name|ConstantScoreQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|ConstantScoreQueryBuilder
 argument_list|>

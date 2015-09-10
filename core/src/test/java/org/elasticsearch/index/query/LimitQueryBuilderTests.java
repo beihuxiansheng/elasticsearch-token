@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|LimitQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|LimitQueryBuilder
 argument_list|>

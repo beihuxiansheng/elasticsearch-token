@@ -180,10 +180,8 @@ specifier|public
 class|class
 name|GeohashCellQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
-name|GeohashCellQuery
-operator|.
 name|Builder
 argument_list|>
 block|{

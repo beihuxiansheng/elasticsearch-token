@@ -126,7 +126,7 @@ specifier|public
 class|class
 name|TermQueryBuilderTests
 extends|extends
-name|BaseTermQueryTestCase
+name|AbstractTermQueryTestCase
 argument_list|<
 name|TermQueryBuilder
 argument_list|>

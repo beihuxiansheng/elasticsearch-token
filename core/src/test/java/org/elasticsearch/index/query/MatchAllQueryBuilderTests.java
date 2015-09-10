@@ -72,7 +72,7 @@ specifier|public
 class|class
 name|MatchAllQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|MatchAllQueryBuilder
 argument_list|>

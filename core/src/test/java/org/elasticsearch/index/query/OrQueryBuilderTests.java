@@ -111,7 +111,7 @@ specifier|public
 class|class
 name|OrQueryBuilderTests
 extends|extends
-name|BaseQueryTestCase
+name|AbstractQueryTestCase
 argument_list|<
 name|OrQueryBuilder
 argument_list|>
