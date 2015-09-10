@@ -625,7 +625,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -891,7 +891,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1306,7 +1306,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1363,7 +1363,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1441,7 +1441,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1522,7 +1522,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1744,7 +1744,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1788,7 +1788,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -1975,7 +1975,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -2176,7 +2176,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -2425,7 +2425,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -2478,7 +2478,7 @@ argument_list|,
 literal|"int_value"
 argument_list|)
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -3060,7 +3060,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -3120,7 +3120,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -3187,7 +3187,7 @@ operator|new
 name|MoreLikeThisQueryBuilder
 argument_list|()
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -3731,7 +3731,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|addLikeItem
+name|like
 argument_list|(
 operator|new
 name|Item
@@ -5356,7 +5356,7 @@ name|doc
 argument_list|)
 argument_list|)
 operator|.
-name|ignoreLike
+name|unlike
 argument_list|(
 name|docs
 operator|.
