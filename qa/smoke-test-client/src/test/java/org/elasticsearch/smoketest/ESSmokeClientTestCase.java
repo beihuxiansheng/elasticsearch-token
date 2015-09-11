@@ -323,6 +323,7 @@ decl_stmt|;
 DECL|field|logger
 specifier|protected
 specifier|static
+specifier|final
 name|ESLogger
 name|logger
 init|=
