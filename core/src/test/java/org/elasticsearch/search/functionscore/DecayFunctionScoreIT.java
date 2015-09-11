@@ -3534,7 +3534,7 @@ argument_list|()
 argument_list|,
 name|closeTo
 argument_list|(
-literal|0.30685282
+literal|0.153426408
 argument_list|,
 literal|1.e-5
 argument_list|)
@@ -3670,7 +3670,7 @@ argument_list|()
 argument_list|,
 name|closeTo
 argument_list|(
-literal|1.0
+literal|0.5
 argument_list|,
 literal|1.e-5
 argument_list|)
@@ -3806,13 +3806,9 @@ argument_list|()
 argument_list|,
 name|closeTo
 argument_list|(
-literal|2.0
-operator|*
-operator|(
 literal|0.30685282
 operator|+
 literal|0.5
-operator|)
 argument_list|,
 literal|1.e-5
 argument_list|)
@@ -3986,6 +3982,8 @@ literal|0.30685282
 operator|+
 literal|0.5
 operator|)
+operator|/
+literal|2
 argument_list|,
 literal|1.e-5
 argument_list|)
@@ -4121,11 +4119,7 @@ argument_list|()
 argument_list|,
 name|closeTo
 argument_list|(
-literal|2.0
-operator|*
-operator|(
 literal|0.30685282
-operator|)
 argument_list|,
 literal|1.e-5
 argument_list|)
@@ -4261,7 +4255,7 @@ argument_list|()
 argument_list|,
 name|closeTo
 argument_list|(
-literal|1.0
+literal|0.5
 argument_list|,
 literal|1.e-5
 argument_list|)
