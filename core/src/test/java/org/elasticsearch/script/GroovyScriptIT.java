@@ -761,12 +761,6 @@ name|setQuery
 argument_list|(
 name|functionScoreQuery
 argument_list|(
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|add
-argument_list|(
 name|scriptFunction
 argument_list|(
 operator|new
@@ -922,10 +916,7 @@ literal|"foo"
 argument_list|,
 literal|"dog"
 argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
+argument_list|,
 name|scriptFunction
 argument_list|(
 operator|new
@@ -992,10 +983,7 @@ literal|"foo"
 argument_list|,
 literal|"dog"
 argument_list|)
-argument_list|)
-operator|.
-name|add
-argument_list|(
+argument_list|,
 name|scriptFunction
 argument_list|(
 operator|new

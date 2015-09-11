@@ -1130,7 +1130,7 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      *      * @param queryBuilder The query to custom score      */
+comment|/**      * A function_score query with no functions.      *      * @param queryBuilder The query to custom score      * @return the function score query      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
@@ -1149,18 +1149,53 @@ name|queryBuilder
 argument_list|)
 return|;
 block|}
-comment|/**      * A query that allows to define a custom scoring function.      */
+comment|/**      * A query that allows to define a custom scoring function      *      * @param queryBuilder The query to custom score      * @param filterFunctionBuilders the filters and functions to execute      * @return the function score query      */
 DECL|method|functionScoreQuery
 specifier|public
 specifier|static
 name|FunctionScoreQueryBuilder
 name|functionScoreQuery
-parameter_list|()
+parameter_list|(
+name|QueryBuilder
+name|queryBuilder
+parameter_list|,
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
+index|[]
+name|filterFunctionBuilders
+parameter_list|)
 block|{
 return|return
 operator|new
 name|FunctionScoreQueryBuilder
-argument_list|()
+argument_list|(
+name|queryBuilder
+argument_list|,
+name|filterFunctionBuilders
+argument_list|)
+return|;
+block|}
+comment|/**      * A query that allows to define a custom scoring function      *      * @param filterFunctionBuilders the filters and functions to execute      * @return the function score query      */
+DECL|method|functionScoreQuery
+specifier|public
+specifier|static
+name|FunctionScoreQueryBuilder
+name|functionScoreQuery
+parameter_list|(
+name|FunctionScoreQueryBuilder
+operator|.
+name|FilterFunctionBuilder
+index|[]
+name|filterFunctionBuilders
+parameter_list|)
+block|{
+return|return
+operator|new
+name|FunctionScoreQueryBuilder
+argument_list|(
+name|filterFunctionBuilders
+argument_list|)
 return|;
 block|}
 comment|/**      * A query that allows to define a custom scoring function.      *      * @param function The function builder used to custom score      */
@@ -1202,13 +1237,10 @@ operator|new
 name|FunctionScoreQueryBuilder
 argument_list|(
 name|queryBuilder
-argument_list|)
-operator|)
-operator|.
-name|add
-argument_list|(
+argument_list|,
 name|function
 argument_list|)
+operator|)
 return|;
 block|}
 comment|/**      * A more like this query that finds documents that are "like" the provided {@link MoreLikeThisQueryBuilder#likeText(String)}      * which is checked against the fields the query is constructed with.      *      * @param fields The fields to run the query against      */
