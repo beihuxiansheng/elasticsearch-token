@@ -30,25 +30,11 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Queues
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|ElasticsearchException
+name|ArrayDeque
 import|;
 end_import
 
@@ -157,12 +143,9 @@ argument_list|<>
 argument_list|(
 name|c
 argument_list|,
-name|Queues
-operator|.
-expr|<
-name|T
-operator|>
-name|newArrayDeque
+operator|new
+name|ArrayDeque
+argument_list|<>
 argument_list|()
 argument_list|,
 name|limit
