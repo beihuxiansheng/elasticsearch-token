@@ -500,9 +500,9 @@ argument_list|,
 name|cache
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|numericType
 argument_list|)

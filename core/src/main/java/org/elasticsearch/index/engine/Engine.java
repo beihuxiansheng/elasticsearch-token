@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -698,6 +684,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|TimeUnit
@@ -910,9 +906,9 @@ name|EngineConfig
 name|engineConfig
 parameter_list|)
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|engineConfig
 operator|.
@@ -922,9 +918,9 @@ argument_list|,
 literal|"Store must be provided to the engine"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|engineConfig
 operator|.

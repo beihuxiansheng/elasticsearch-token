@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -159,6 +145,16 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -744,18 +740,18 @@ name|String
 name|source
 parameter_list|)
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|transportService
 argument_list|,
 literal|"Configured transport service may not be null"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|source
 argument_list|,
@@ -792,18 +788,18 @@ name|String
 name|source
 parameter_list|)
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|transport
 argument_list|,
 literal|"Configured transport may not be null"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|source
 argument_list|,

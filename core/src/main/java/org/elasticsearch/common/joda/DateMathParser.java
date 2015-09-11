@@ -70,25 +70,19 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|Callable
+name|Objects
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
+name|concurrent
 operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|Callable
 import|;
 end_import
 
@@ -116,7 +110,9 @@ name|FormatDateTimeFormatter
 name|dateTimeFormatter
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|dateTimeFormatter
 argument_list|)

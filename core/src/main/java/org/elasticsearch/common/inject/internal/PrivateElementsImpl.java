@@ -192,6 +192,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -209,22 +219,6 @@ operator|.
 name|Preconditions
 operator|.
 name|checkArgument
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -333,7 +327,9 @@ name|this
 operator|.
 name|source
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|source
 argument_list|,
@@ -425,7 +421,9 @@ name|this
 operator|.
 name|injector
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|injector
 argument_list|,
