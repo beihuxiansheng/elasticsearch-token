@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -922,9 +908,9 @@ condition|)
 block|{
 name|filesSet
 operator|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|files

@@ -1058,10 +1058,6 @@ argument_list|(
 literal|"score_mode"
 argument_list|,
 literal|"scoreMode"
-argument_list|,
-literal|"score_type"
-argument_list|,
-literal|"scoreType"
 argument_list|)
 argument_list|)
 decl_stmt|;

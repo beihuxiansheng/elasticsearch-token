@@ -76,7 +76,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
+name|List
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
+name|Objects
 import|;
 end_import
 
@@ -103,22 +103,6 @@ operator|.
 name|Preconditions
 operator|.
 name|checkArgument
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -244,7 +228,9 @@ name|type
 operator|=
 name|canonicalize
 argument_list|(
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|type
 argument_list|,

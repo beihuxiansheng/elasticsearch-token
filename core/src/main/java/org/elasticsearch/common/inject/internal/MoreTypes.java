@@ -168,22 +168,6 @@ name|checkArgument
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
-import|;
-end_import
-
 begin_comment
 comment|/**  * Static methods for working with types that we aren't publishing in the  * public {@code Types} API.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -1815,7 +1799,9 @@ name|Member
 name|member
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|member
 argument_list|,
@@ -2018,7 +2004,9 @@ name|Member
 name|member
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|member
 argument_list|,
@@ -2578,7 +2566,9 @@ name|t
 operator|++
 control|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|this
 operator|.
@@ -3011,7 +3001,9 @@ operator|==
 literal|1
 condition|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|lowerBounds
 index|[
@@ -3068,7 +3060,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|upperBounds
 index|[

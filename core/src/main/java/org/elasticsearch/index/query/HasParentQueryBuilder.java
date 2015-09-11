@@ -280,6 +280,15 @@ name|NAME
 init|=
 literal|"has_parent"
 decl_stmt|;
+DECL|field|DEFAULT_SCORE
+specifier|public
+specifier|static
+specifier|final
+name|boolean
+name|DEFAULT_SCORE
+init|=
+literal|false
+decl_stmt|;
 DECL|field|query
 specifier|private
 specifier|final
@@ -297,7 +306,7 @@ specifier|private
 name|boolean
 name|score
 init|=
-literal|false
+name|DEFAULT_SCORE
 decl_stmt|;
 DECL|field|innerHit
 specifier|private

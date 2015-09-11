@@ -48,6 +48,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Objects
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|*
@@ -65,22 +75,6 @@ operator|.
 name|locks
 operator|.
 name|AbstractQueuedSynchronizer
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -332,7 +326,9 @@ name|sync
 operator|.
 name|setException
 argument_list|(
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|throwable
 argument_list|)

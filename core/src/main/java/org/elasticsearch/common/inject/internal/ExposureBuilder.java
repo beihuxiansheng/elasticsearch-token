@@ -74,6 +74,16 @@ name|Annotation
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  * For private binder's expose() method.  */
 end_comment
@@ -188,17 +198,9 @@ argument_list|>
 name|annotationType
 parameter_list|)
 block|{
-name|com
+name|Objects
 operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|annotationType
 argument_list|,
@@ -234,17 +236,9 @@ name|Annotation
 name|annotation
 parameter_list|)
 block|{
-name|com
+name|Objects
 operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|annotation
 argument_list|,

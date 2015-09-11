@@ -588,6 +588,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -631,22 +641,6 @@ operator|.
 name|concurrent
 operator|.
 name|CopyOnWriteArrayList
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-operator|.
-name|newHashSet
 import|;
 end_import
 
@@ -889,7 +883,9 @@ name|Snapshot
 argument_list|>
 name|snapshotSet
 init|=
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -4732,7 +4728,9 @@ name|String
 argument_list|>
 name|missing
 init|=
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -4741,7 +4739,9 @@ name|String
 argument_list|>
 name|closed
 init|=
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

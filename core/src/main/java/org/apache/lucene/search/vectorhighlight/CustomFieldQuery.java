@@ -392,6 +392,9 @@ argument_list|<
 name|Query
 argument_list|>
 name|flatQueries
+parameter_list|,
+name|float
+name|boost
 parameter_list|)
 throws|throws
 name|IOException
@@ -424,6 +427,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -450,6 +455,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -476,6 +483,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -502,6 +511,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 name|flatten
@@ -542,6 +553,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -568,6 +581,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -652,6 +667,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -666,6 +683,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|boost
 argument_list|)
 expr_stmt|;
 block|}
@@ -774,6 +793,11 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|orig
+operator|.
+name|getBoost
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -881,6 +905,11 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+name|orig
+operator|.
+name|getBoost
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1010,6 +1039,8 @@ argument_list|,
 name|reader
 argument_list|,
 name|flatQueries
+argument_list|,
+literal|1.0F
 argument_list|)
 expr_stmt|;
 block|}

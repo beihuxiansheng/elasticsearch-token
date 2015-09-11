@@ -124,22 +124,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
-import|;
-end_import
-
 begin_comment
 comment|/**  * An error message and the context in which it occurred. Messages are usually created internally by  * Guice and its extensions. Messages can be created explicitly in a module using {@link  * org.elasticsearch.common.inject.Binder#addError(Throwable) addError()} statements:  *<pre>  *     try {  *       bindPropertiesFromFile();  *     } catch (IOException e) {  *       addError(e);  *     }</pre>  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -209,7 +193,9 @@ name|this
 operator|.
 name|message
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|message
 argument_list|,

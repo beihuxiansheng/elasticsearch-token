@@ -130,8 +130,6 @@ init|=
 operator|new
 name|ParseField
 argument_list|(
-literal|"score_type"
-argument_list|,
 literal|"score_mode"
 argument_list|)
 operator|.
@@ -222,7 +220,9 @@ decl_stmt|;
 name|boolean
 name|score
 init|=
-literal|false
+name|HasParentQueryBuilder
+operator|.
+name|DEFAULT_SCORE
 decl_stmt|;
 name|String
 name|queryName
@@ -298,10 +298,6 @@ operator|.
 name|START_OBJECT
 condition|)
 block|{
-comment|// Usually, the query would be parsed here, but the child
-comment|// type may not have been extracted yet, so use the
-comment|// XContentStructure.<type> facade to parse if available,
-comment|// or delay parsing if not.
 if|if
 condition|(
 name|parseContext
@@ -410,9 +406,8 @@ name|SCORE_FIELD
 argument_list|)
 condition|)
 block|{
-comment|// deprecated we use a boolean now
 name|String
-name|scoreTypeValue
+name|scoreModeValue
 init|=
 name|parser
 operator|.
@@ -425,7 +420,7 @@ literal|"score"
 operator|.
 name|equals
 argument_list|(
-name|scoreTypeValue
+name|scoreModeValue
 argument_list|)
 condition|)
 block|{
@@ -441,7 +436,7 @@ literal|"none"
 operator|.
 name|equals
 argument_list|(
-name|scoreTypeValue
+name|scoreModeValue
 argument_list|)
 condition|)
 block|{
@@ -449,6 +444,22 @@ name|score
 operator|=
 literal|false
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|parseContext
+argument_list|,
+literal|"[has_parent] query does not support ["
+operator|+
+name|scoreModeValue
+operator|+
+literal|"] as an option for score_mode"
+argument_list|)
+throw|;
 block|}
 block|}
 elseif|else

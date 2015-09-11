@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -59,6 +45,16 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeSet
 import|;
 end_import
 
@@ -97,9 +93,9 @@ name|TestSection
 argument_list|>
 name|testSections
 init|=
-name|Sets
-operator|.
-name|newTreeSet
+operator|new
+name|TreeSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|RestTestSuite

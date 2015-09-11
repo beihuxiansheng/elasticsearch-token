@@ -841,14 +841,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Path
-name|dir
-init|=
-name|getDataPath
-argument_list|(
-literal|"."
-argument_list|)
-decl_stmt|;
 try|try
 init|(
 name|DirectoryStream
@@ -861,7 +853,8 @@ name|Files
 operator|.
 name|newDirectoryStream
 argument_list|(
-name|dir
+name|getBwcIndicesPath
+argument_list|()
 argument_list|,
 name|prefix
 operator|+
@@ -1374,7 +1367,10 @@ comment|// decompress the index
 name|Path
 name|backwardsIndex
 init|=
-name|getDataPath
+name|getBwcIndicesPath
+argument_list|()
+operator|.
+name|resolve
 argument_list|(
 name|indexFile
 argument_list|)

@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -279,6 +265,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashSet
 import|;
 end_import
 
@@ -669,9 +665,9 @@ name|Key
 argument_list|>
 name|overriddenKeys
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 specifier|final
@@ -686,9 +682,9 @@ argument_list|>
 argument_list|>
 name|overridesScopeAnnotations
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// execute the overrides module, keeping track of which keys and scopes are bound
@@ -941,9 +937,9 @@ argument_list|>
 argument_list|>
 name|skippedExposes
 init|=
-name|Sets
-operator|.
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for

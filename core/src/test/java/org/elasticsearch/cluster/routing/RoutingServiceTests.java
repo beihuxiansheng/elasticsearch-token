@@ -166,6 +166,22 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|test
+operator|.
+name|junit
+operator|.
+name|annotations
+operator|.
+name|TestLogging
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|threadpool
 operator|.
 name|ThreadPool
@@ -712,6 +728,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|TestLogging
+argument_list|(
+literal|"_root:DEBUG"
+argument_list|)
 DECL|method|testDelayedUnassignedScheduleReroute
 specifier|public
 name|void
@@ -948,8 +969,10 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|assertThat
+name|assertFalse
 argument_list|(
+literal|"no shards should be unassigned"
+argument_list|,
 name|clusterState
 operator|.
 name|getRoutingNodes
@@ -957,11 +980,6 @@ argument_list|()
 operator|.
 name|hasUnassigned
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|false
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// remove node2 and reroute
@@ -1068,17 +1086,14 @@ name|void
 name|run
 parameter_list|()
 block|{
-name|assertThat
+name|assertTrue
 argument_list|(
+literal|"routing service should have run a reroute"
+argument_list|,
 name|routingService
 operator|.
 name|hasReroutedAndClear
 argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1579,6 +1594,15 @@ name|String
 name|reason
 parameter_list|)
 block|{
+name|logger
+operator|.
+name|info
+argument_list|(
+literal|"--> performing fake reroute [{}]"
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 name|rerouted
 operator|.
 name|set
