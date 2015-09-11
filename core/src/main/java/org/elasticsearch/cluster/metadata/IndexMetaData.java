@@ -60,20 +60,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -195,18 +181,6 @@ operator|.
 name|routing
 operator|.
 name|Murmur3HashFunction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Classes
 import|;
 end_import
 
@@ -1564,7 +1538,7 @@ name|aliases
 operator|=
 name|aliases
 expr_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1609,7 +1583,7 @@ name|requireMap
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1654,7 +1628,7 @@ name|includeMap
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
