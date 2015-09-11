@@ -701,7 +701,11 @@ argument_list|()
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|request
+argument_list|)
 argument_list|)
 operator|.
 name|execute
@@ -767,7 +771,11 @@ argument_list|()
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|request
+argument_list|)
 argument_list|)
 operator|.
 name|execute

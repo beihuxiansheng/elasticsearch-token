@@ -178,6 +178,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -489,13 +503,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
-literal|"{ xxx }"
-operator|.
-name|getBytes
+operator|new
+name|BytesArray
 argument_list|(
-name|Charsets
-operator|.
-name|UTF_8
+literal|"{ xxx }"
 argument_list|)
 argument_list|)
 argument_list|)
@@ -831,13 +842,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
-literal|"{ xxx }"
-operator|.
-name|getBytes
+operator|new
+name|BytesArray
 argument_list|(
-name|Charsets
-operator|.
-name|UTF_8
+literal|"{ xxx }"
 argument_list|)
 argument_list|)
 argument_list|)

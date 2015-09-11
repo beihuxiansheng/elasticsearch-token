@@ -164,6 +164,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|collect
 operator|.
 name|HppcMaps
@@ -15599,7 +15613,11 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{\"query\": {\"has_child\": {\"type\": \"posts\", \"query\": {\"match\": {\"field\": \"bar\"}}}}}"
+argument_list|)
 argument_list|)
 operator|.
 name|get
@@ -15625,7 +15643,11 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{\"query\": {\"has_child\": {\"query\": {\"match\": {\"field\": \"bar\"}}, \"type\": \"posts\"}}}"
+argument_list|)
 argument_list|)
 operator|.
 name|get
