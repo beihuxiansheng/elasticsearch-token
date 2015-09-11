@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|carrotsearch
-operator|.
-name|randomizedtesting
-operator|.
-name|annotations
-operator|.
-name|Repeat
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -335,13 +321,6 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Repeat
-argument_list|(
-name|iterations
-operator|=
-literal|100
-argument_list|)
 DECL|class|GeoShapeQueryBuilderTests
 specifier|public
 class|class
