@@ -420,10 +420,14 @@ else|else
 block|{
 comment|// we need to bench here a bit, to see maybe it makes sense to use OrFilter
 name|BooleanQuery
+operator|.
+name|Builder
 name|combined
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 for|for
@@ -508,6 +512,9 @@ block|}
 block|}
 return|return
 name|combined
+operator|.
+name|build
+argument_list|()
 return|;
 block|}
 block|}

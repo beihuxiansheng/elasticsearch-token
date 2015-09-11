@@ -52,6 +52,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|Template
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|search
 operator|.
 name|suggest
@@ -78,7 +90,37 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -91,6 +133,16 @@ operator|.
 name|Map
 operator|.
 name|Entry
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -181,7 +233,7 @@ name|postTag
 decl_stmt|;
 DECL|field|collateQuery
 specifier|private
-name|String
+name|Template
 name|collateQuery
 decl_stmt|;
 DECL|field|collateParams
@@ -250,7 +302,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum percentage of the terms that at most considered to be      * misspellings in order to form a correction. This method accepts a float      * value in the range [0..1) as a fraction of the actual query terms a      * number<tt>&gt;=1</tt> as an absolut number of query terms.      *       * The default is set to<tt>1.0</tt> which corresponds to that only      * corrections with at most 1 missspelled term are returned.      */
+comment|/**      * Sets the maximum percentage of the terms that at most considered to be      * misspellings in order to form a correction. This method accepts a float      * value in the range [0..1) as a fraction of the actual query terms a      * number<tt>&gt;=1</tt> as an absolut number of query terms.      *      * The default is set to<tt>1.0</tt> which corresponds to that only      * corrections with at most 1 missspelled term are returned.      */
 DECL|method|maxErrors
 specifier|public
 name|PhraseSuggestionBuilder
@@ -541,7 +593,31 @@ name|this
 operator|.
 name|collateQuery
 operator|=
+operator|new
+name|Template
+argument_list|(
 name|collateQuery
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a query used for filtering out suggested phrases (collation).      */
+DECL|method|collateQuery
+specifier|public
+name|PhraseSuggestionBuilder
+name|collateQuery
+parameter_list|(
+name|Template
+name|collateQueryTemplate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|collateQuery
+operator|=
+name|collateQueryTemplate
 expr_stmt|;
 return|return
 name|this
@@ -946,7 +1022,7 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * Creates a new {@link DirectCandidateGenerator}      *       * @param field      *            the field this candidate generator operates on.      */
+comment|/**      * Creates a new {@link DirectCandidateGenerator}      *      * @param field      *            the field this candidate generator operates on.      */
 DECL|method|candidateGenerator
 specifier|public
 specifier|static
@@ -981,7 +1057,7 @@ specifier|final
 name|double
 name|discount
 decl_stmt|;
-comment|/**          * Creates a Stupid-Backoff smoothing model.          *           * @param discount          *            the discount given to lower order ngrams if the higher order ngram doesn't exits          */
+comment|/**          * Creates a Stupid-Backoff smoothing model.          *          * @param discount          *            the discount given to lower order ngrams if the higher order ngram doesn't exits          */
 DECL|method|StupidBackoff
 specifier|public
 name|StupidBackoff
@@ -1032,7 +1108,7 @@ name|builder
 return|;
 block|}
 block|}
-comment|/**      * An<a href="http://en.wikipedia.org/wiki/Additive_smoothing">additive      * smoothing</a> model.       *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
+comment|/**      * An<a href="http://en.wikipedia.org/wiki/Additive_smoothing">additive      * smoothing</a> model.      *<p>      * See<a      * href="http://en.wikipedia.org/wiki/N-gram#Smoothing_techniques">N-Gram      * Smoothing</a> for details.      *</p>      */
 DECL|class|Laplace
 specifier|public
 specifier|static
@@ -1048,7 +1124,7 @@ specifier|final
 name|double
 name|alpha
 decl_stmt|;
-comment|/**          * Creates a Laplace smoothing model.          *           * @param discount          *            the discount given to lower order ngrams if the higher order ngram doesn't exits          */
+comment|/**          * Creates a Laplace smoothing model.          *          * @param discount          *            the discount given to lower order ngrams if the higher order ngram doesn't exits          */
 DECL|method|Laplace
 specifier|public
 name|Laplace
@@ -1212,7 +1288,7 @@ specifier|final
 name|double
 name|unigramLambda
 decl_stmt|;
-comment|/**          * Creates a linear interpolation smoothing model.          *           * Note: the lambdas must sum up to one.          *           * @param trigramLambda          *            the trigram lambda          * @param bigramLambda          *            the bigram lambda          * @param unigramLambda          *            the unigram lambda          */
+comment|/**          * Creates a linear interpolation smoothing model.          *          * Note: the lambdas must sum up to one.          *          * @param trigramLambda          *            the trigram lambda          * @param bigramLambda          *            the bigram lambda          * @param unigramLambda          *            the unigram lambda          */
 DECL|method|LinearInterpolation
 specifier|public
 name|LinearInterpolation
@@ -1299,7 +1375,7 @@ name|builder
 return|;
 block|}
 block|}
-comment|/**      * {@link CandidateGenerator} base class.       */
+comment|/**      * {@link CandidateGenerator} base class.      */
 DECL|class|CandidateGenerator
 specifier|public
 specifier|static
@@ -1341,7 +1417,7 @@ name|type
 return|;
 block|}
 block|}
-comment|/**      *       *      */
+comment|/**      *      *      */
 DECL|class|DirectCandidateGenerator
 specifier|public
 specifier|static

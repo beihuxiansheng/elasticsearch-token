@@ -1680,6 +1680,10 @@ argument_list|()
 operator|.
 name|prepareClose
 argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 operator|.
@@ -1760,6 +1764,10 @@ argument_list|()
 operator|.
 name|prepareOpen
 argument_list|(
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 operator|.

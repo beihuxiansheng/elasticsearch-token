@@ -86,6 +86,20 @@ name|MappedFieldType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|shard
+operator|.
+name|ShardId
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple field data cache abstraction on the *index* level.  */
 end_comment
@@ -169,18 +183,22 @@ DECL|method|clear
 name|void
 name|clear
 parameter_list|(
-name|Object
-name|coreCacheKey
+name|IndexReader
+name|reader
 parameter_list|)
 function_decl|;
 DECL|interface|Listener
 interface|interface
 name|Listener
 block|{
-DECL|method|onLoad
+comment|/**          * Called after the fielddata is loaded during the cache phase          */
+DECL|method|onCache
 name|void
-name|onLoad
+name|onCache
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|MappedFieldType
 operator|.
 name|Names
@@ -193,10 +211,14 @@ name|Accountable
 name|ramUsage
 parameter_list|)
 function_decl|;
-DECL|method|onUnload
+comment|/**          * Called after the fielddata is unloaded          */
+DECL|method|onRemoval
 name|void
-name|onUnload
+name|onRemoval
 parameter_list|(
+name|ShardId
+name|shardId
+parameter_list|,
 name|MappedFieldType
 operator|.
 name|Names
@@ -329,10 +351,10 @@ specifier|public
 name|void
 name|clear
 parameter_list|(
-name|Object
-name|coreCacheKey
+name|IndexReader
+name|reader
 parameter_list|)
-block|{          }
+block|{         }
 block|}
 block|}
 end_interface

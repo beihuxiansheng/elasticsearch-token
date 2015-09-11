@@ -71,7 +71,7 @@ name|Create
 name|create
 parameter_list|)
 block|{      }
-comment|/**      * Called after the indexing operation occurred.      */
+comment|/**      * Called after create index operation occurred.      */
 DECL|method|postCreate
 specifier|public
 name|void
@@ -81,6 +81,21 @@ name|Engine
 operator|.
 name|Create
 name|create
+parameter_list|)
+block|{      }
+comment|/**      * Called after create index operation occurred with exception.      */
+DECL|method|postCreate
+specifier|public
+name|void
+name|postCreate
+parameter_list|(
+name|Engine
+operator|.
+name|Create
+name|create
+parameter_list|,
+name|Throwable
+name|ex
 parameter_list|)
 block|{      }
 comment|/**      * Called before the indexing occurs.      */
@@ -125,6 +140,21 @@ name|Index
 name|index
 parameter_list|)
 block|{      }
+comment|/**      * Called after the indexing operation occurred with exception.      */
+DECL|method|postIndex
+specifier|public
+name|void
+name|postIndex
+parameter_list|(
+name|Engine
+operator|.
+name|Index
+name|index
+parameter_list|,
+name|Throwable
+name|ex
+parameter_list|)
+block|{      }
 comment|/**      * Called before the delete occurs.      */
 DECL|method|preDelete
 specifier|public
@@ -165,6 +195,21 @@ name|Engine
 operator|.
 name|Delete
 name|delete
+parameter_list|)
+block|{      }
+comment|/**      * Called after the delete operation occurred with exception.      */
+DECL|method|postDelete
+specifier|public
+name|void
+name|postDelete
+parameter_list|(
+name|Engine
+operator|.
+name|Delete
+name|delete
+parameter_list|,
+name|Throwable
+name|ex
 parameter_list|)
 block|{      }
 block|}

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -47,6 +33,16 @@ operator|.
 name|elasticsearch
 operator|.
 name|Version
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
 import|;
 end_import
 
@@ -263,9 +259,9 @@ name|T
 argument_list|>
 name|mapModel
 init|=
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)
@@ -348,9 +344,9 @@ name|T
 argument_list|>
 name|mapModel
 init|=
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

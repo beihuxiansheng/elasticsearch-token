@@ -184,7 +184,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|andQuery
+name|boolQuery
 import|;
 end_import
 
@@ -201,22 +201,6 @@ operator|.
 name|QueryBuilders
 operator|.
 name|matchAllQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|notQuery
 import|;
 end_import
 
@@ -769,14 +753,21 @@ argument_list|)
 operator|.
 name|setPostFilter
 argument_list|(
-name|andQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|must
 argument_list|(
 name|matchAllQuery
 argument_list|()
-argument_list|,
-name|notQuery
+argument_list|)
+operator|.
+name|mustNot
 argument_list|(
-name|andQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|must
 argument_list|(
 name|termQuery
 argument_list|(
@@ -784,13 +775,15 @@ literal|"field1"
 argument_list|,
 literal|"value1"
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|must
+argument_list|(
 name|termQuery
 argument_list|(
 literal|"field1"
 argument_list|,
 literal|"value2"
-argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)

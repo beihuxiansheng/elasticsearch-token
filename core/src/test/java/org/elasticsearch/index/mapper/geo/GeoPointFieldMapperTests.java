@@ -5986,7 +5986,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"ignore_malformed"
+literal|"coerce"
 argument_list|,
 literal|true
 argument_list|)
@@ -6079,7 +6079,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"ignore_malformed"
+literal|"coerce"
 argument_list|,
 literal|false
 argument_list|)
@@ -6150,14 +6150,37 @@ name|length
 argument_list|,
 name|equalTo
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// todo better way of checking conflict?
 name|assertThat
 argument_list|(
-literal|"mapper [point] has different lat_lon"
+literal|"mapper [point] has different [lat_lon]"
+argument_list|,
+name|isIn
+argument_list|(
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|mergeResult
+operator|.
+name|buildConflicts
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertThat
+argument_list|(
+literal|"mapper [point] has different [coerce]"
 argument_list|,
 name|isIn
 argument_list|(
@@ -6227,7 +6250,7 @@ argument_list|)
 operator|.
 name|field
 argument_list|(
-literal|"ignore_malformed"
+literal|"coerce"
 argument_list|,
 literal|true
 argument_list|)

@@ -470,7 +470,7 @@ specifier|public
 class|class
 name|DuelFieldDataTests
 extends|extends
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 block|{
 annotation|@
 name|Override

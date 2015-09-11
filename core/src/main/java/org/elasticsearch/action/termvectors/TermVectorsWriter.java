@@ -968,8 +968,6 @@ name|iterator
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docsEnum
 argument_list|)
 expr_stmt|;
@@ -1043,8 +1041,6 @@ name|iterator
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docsAndPosEnum
 argument_list|,
 name|PostingsEnum

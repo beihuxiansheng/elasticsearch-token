@@ -900,6 +900,15 @@ name|table
 operator|.
 name|addCell
 argument_list|(
+literal|"indexing.index_failed"
+argument_list|,
+literal|"alias:iif,indexingIndexFailed;default:false;text-align:right;desc:number of failed indexing ops"
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
 literal|"merges.current"
 argument_list|,
 literal|"alias:mc,mergesCurrent;default:false;text-align:right;desc:number of current merges"
@@ -2141,6 +2150,28 @@ name|getTotal
 argument_list|()
 operator|.
 name|getIndexCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|table
+operator|.
+name|addCell
+argument_list|(
+name|shardStats
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|shardStats
+operator|.
+name|getIndexing
+argument_list|()
+operator|.
+name|getTotal
+argument_list|()
+operator|.
+name|getIndexFailedCount
 argument_list|()
 argument_list|)
 expr_stmt|;

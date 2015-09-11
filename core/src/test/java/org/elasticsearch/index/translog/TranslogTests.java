@@ -3138,7 +3138,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -3492,7 +3492,7 @@ name|translogDir
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -3506,7 +3506,7 @@ return|return;
 block|}
 name|fail
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -3553,7 +3553,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -6825,7 +6825,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-name|translog
+name|Translog
 operator|.
 name|getFilename
 argument_list|(
@@ -8882,32 +8882,6 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|Path
-name|dir
-init|=
-name|getDataPath
-argument_list|(
-literal|"/"
-operator|+
-name|OldIndexBackwardsCompatibilityIT
-operator|.
-name|class
-operator|.
-name|getPackage
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|replace
-argument_list|(
-literal|'.'
-argument_list|,
-literal|'/'
-argument_list|)
-argument_list|)
-decl_stmt|;
-comment|// the files are in the same pkg as the OldIndexBackwardsCompatibilityTests test
 try|try
 init|(
 name|DirectoryStream
@@ -8920,7 +8894,8 @@ name|Files
 operator|.
 name|newDirectoryStream
 argument_list|(
-name|dir
+name|getBwcIndicesPath
+argument_list|()
 argument_list|,
 literal|"index-*.zip"
 argument_list|)

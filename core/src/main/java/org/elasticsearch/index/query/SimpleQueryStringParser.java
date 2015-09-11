@@ -1246,6 +1246,8 @@ operator|instanceof
 name|BooleanQuery
 condition|)
 block|{
+name|query
+operator|=
 name|Queries
 operator|.
 name|applyMinimumShouldMatch
@@ -1271,6 +1273,11 @@ operator|.
 name|setBoost
 argument_list|(
 name|boost
+operator|*
+name|query
+operator|.
+name|getBoost
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

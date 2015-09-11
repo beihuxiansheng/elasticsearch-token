@@ -587,7 +587,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This is an older implementation of the AnalyzingCompletionLookupProvider class  * We use this to test for backwards compatibility in our tests, namely  * CompletionPostingsFormatTest  * This ensures upgrades between versions work smoothly  */
+comment|/**  * This is an older implementation of the AnalyzingCompletionLookupProvider class  * We use this to test for backwards compatibility in our tests, namely  * CompletionPostingsFormatTests  * This ensures upgrades between versions work smoothly  */
 end_comment
 
 begin_class
@@ -1082,8 +1082,6 @@ name|termsEnum
 operator|.
 name|postings
 argument_list|(
-literal|null
-argument_list|,
 name|docsEnum
 argument_list|,
 name|PostingsEnum
@@ -2110,11 +2108,6 @@ name|prototype
 operator|.
 name|toFiniteStrings
 argument_list|(
-name|prototype
-operator|.
-name|getTokenStreamToAutomaton
-argument_list|()
-argument_list|,
 name|stream
 argument_list|)
 return|;

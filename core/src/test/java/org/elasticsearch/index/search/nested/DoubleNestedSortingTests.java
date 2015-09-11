@@ -402,7 +402,7 @@ specifier|public
 class|class
 name|DoubleNestedSortingTests
 extends|extends
-name|AbstractNumberNestedSortingTests
+name|AbstractNumberNestedSortingTestCase
 block|{
 annotation|@
 name|Override

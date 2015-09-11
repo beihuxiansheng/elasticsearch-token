@@ -54,7 +54,7 @@ specifier|public
 class|class
 name|YamlFilteringGeneratorTests
 extends|extends
-name|AbstractFilteringJsonGeneratorTests
+name|AbstractFilteringJsonGeneratorTestCase
 block|{
 annotation|@
 name|Override

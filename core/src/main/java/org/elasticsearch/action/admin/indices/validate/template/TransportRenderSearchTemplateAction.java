@@ -340,6 +340,8 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|BytesReference

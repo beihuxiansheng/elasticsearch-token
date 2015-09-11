@@ -26,20 +26,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|ImmutableMap
@@ -157,18 +143,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
+name|Objects
 import|;
 end_import
 
@@ -184,7 +164,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|checkNotNull
+name|checkArgument
 import|;
 end_import
 
@@ -1043,7 +1023,7 @@ decl_stmt|;
 return|return
 name|Objects
 operator|.
-name|equal
+name|equals
 argument_list|(
 name|pa
 operator|.
@@ -1819,7 +1799,9 @@ name|Member
 name|member
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|member
 argument_list|,
@@ -2022,7 +2004,9 @@ name|Member
 name|member
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|member
 argument_list|,
@@ -2582,7 +2566,9 @@ name|t
 operator|++
 control|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|this
 operator|.
@@ -3015,7 +3001,9 @@ operator|==
 literal|1
 condition|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|lowerBounds
 index|[
@@ -3072,7 +3060,9 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|upperBounds
 index|[

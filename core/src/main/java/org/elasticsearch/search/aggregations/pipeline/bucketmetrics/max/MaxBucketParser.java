@@ -92,6 +92,16 @@ name|ValueFormatter
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
 begin_class
 DECL|class|MaxBucketParser
 specifier|public
@@ -136,6 +146,14 @@ name|gapPolicy
 parameter_list|,
 name|ValueFormatter
 name|formatter
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|unparsedParams
 parameter_list|)
 block|{
 return|return

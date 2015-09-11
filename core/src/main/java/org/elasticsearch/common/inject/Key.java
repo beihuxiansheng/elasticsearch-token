@@ -89,18 +89,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
+name|Objects
 import|;
 end_import
 
@@ -116,7 +110,7 @@ name|base
 operator|.
 name|Preconditions
 operator|.
-name|checkNotNull
+name|checkArgument
 import|;
 end_import
 
@@ -1224,7 +1218,9 @@ name|Annotation
 name|annotation
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|annotation
 argument_list|,
@@ -1299,7 +1295,9 @@ argument_list|>
 name|annotationType
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|annotationType
 argument_list|,
@@ -1494,7 +1492,9 @@ name|this
 operator|.
 name|annotation
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|annotation
 argument_list|,
@@ -1682,7 +1682,9 @@ name|this
 operator|.
 name|annotationType
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|annotationType
 argument_list|,

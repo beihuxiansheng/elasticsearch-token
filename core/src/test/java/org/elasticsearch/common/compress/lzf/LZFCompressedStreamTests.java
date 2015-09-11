@@ -28,7 +28,7 @@ name|common
 operator|.
 name|compress
 operator|.
-name|AbstractCompressedStreamTests
+name|AbstractCompressedStreamTestCase
 import|;
 end_import
 
@@ -38,7 +38,7 @@ specifier|public
 class|class
 name|LZFCompressedStreamTests
 extends|extends
-name|AbstractCompressedStreamTests
+name|AbstractCompressedStreamTestCase
 block|{
 DECL|method|LZFCompressedStreamTests
 specifier|public

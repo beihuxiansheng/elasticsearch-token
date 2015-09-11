@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -504,9 +490,9 @@ argument_list|)
 expr_stmt|;
 name|forcedAwarenessAttributes
 operator|=
-name|Maps
-operator|.
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 expr_stmt|;
 name|Map
@@ -872,6 +858,11 @@ condition|(
 name|assignedShard
 operator|.
 name|started
+argument_list|()
+operator|||
+name|assignedShard
+operator|.
+name|initializing
 argument_list|()
 condition|)
 block|{

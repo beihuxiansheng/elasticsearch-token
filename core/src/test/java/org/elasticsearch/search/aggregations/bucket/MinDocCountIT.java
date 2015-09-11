@@ -2305,12 +2305,9 @@ name|secondFailure
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
 throw|throw
 name|ae
 throw|;
-block|}
 block|}
 block|}
 block|}

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -94,7 +80,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|IdentityHashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
 import|;
 end_import
 
@@ -117,22 +123,6 @@ operator|.
 name|concurrent
 operator|.
 name|CountDownLatch
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
 import|;
 end_import
 
@@ -185,9 +175,9 @@ argument_list|>
 argument_list|>
 name|pendingInjection
 init|=
-name|Maps
-operator|.
-name|newIdentityHashMap
+operator|new
+name|IdentityHashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|/**      * Registers an instance for member injection when that step is performed.      *      * @param instance an instance that optionally has members to be injected (each annotated with      * @param source   the source location that this injection was requested      * @Inject).      */
@@ -218,7 +208,9 @@ argument_list|>
 name|injectionPoints
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|source
 argument_list|)
@@ -484,7 +476,9 @@ name|this
 operator|.
 name|instance
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|instance
 argument_list|,
@@ -495,7 +489,9 @@ name|this
 operator|.
 name|source
 operator|=
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|source
 argument_list|,

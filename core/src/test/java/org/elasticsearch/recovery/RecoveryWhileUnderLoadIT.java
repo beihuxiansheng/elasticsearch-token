@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -373,18 +359,6 @@ operator|.
 name|ElasticsearchAssertions
 operator|.
 name|assertNoTimeout
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|equalTo
 import|;
 end_import
 
@@ -2135,7 +2109,10 @@ literal|"shard [{}] - count {}, primary {}"
 argument_list|,
 name|shardStats
 operator|.
-name|getShardId
+name|getShardRouting
+argument_list|()
+operator|.
+name|id
 argument_list|()
 argument_list|,
 name|docsStats
@@ -2161,29 +2138,15 @@ argument_list|(
 literal|"--> trying to wait"
 argument_list|)
 expr_stmt|;
-name|assertThat
+name|assertTrue
 argument_list|(
 name|awaitBusy
 argument_list|(
-operator|new
-name|Predicate
-argument_list|<
-name|Object
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|boolean
-name|apply
-parameter_list|(
-name|Object
-name|o
-parameter_list|)
+parameter_list|()
+lambda|->
 block|{
 name|boolean
-name|error
+name|errorOccurred
 init|=
 literal|false
 decl_stmt|;
@@ -2238,7 +2201,7 @@ operator|!=
 name|numberOfDocs
 condition|)
 block|{
-name|error
+name|errorOccurred
 operator|=
 literal|true
 expr_stmt|;
@@ -2246,9 +2209,8 @@ block|}
 block|}
 return|return
 operator|!
-name|error
+name|errorOccurred
 return|;
-block|}
 block|}
 argument_list|,
 literal|5
@@ -2256,11 +2218,6 @@ argument_list|,
 name|TimeUnit
 operator|.
 name|MINUTES
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;

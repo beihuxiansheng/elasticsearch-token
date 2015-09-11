@@ -416,7 +416,7 @@ name|index
 operator|.
 name|fielddata
 operator|.
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 import|;
 end_import
 
@@ -594,7 +594,7 @@ specifier|public
 class|class
 name|NestedSortingTests
 extends|extends
-name|AbstractFieldDataTests
+name|AbstractFieldDataTestCase
 block|{
 annotation|@
 name|Override
@@ -3619,10 +3619,14 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 name|BooleanQuery
+operator|.
+name|Builder
 name|bq
 init|=
 operator|new
 name|BooleanQuery
+operator|.
+name|Builder
 argument_list|()
 decl_stmt|;
 name|bq
@@ -3663,6 +3667,9 @@ operator|new
 name|QueryWrapperFilter
 argument_list|(
 name|bq
+operator|.
+name|build
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|nestedComparatorSource

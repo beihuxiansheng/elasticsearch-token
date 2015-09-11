@@ -452,22 +452,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
-import|;
-end_import
-
 begin_comment
 comment|/**  * Helper for translating an update request to an index, delete request or update response.  */
 end_comment
@@ -2120,6 +2104,8 @@ operator|.
 name|Standard
 operator|.
 name|UPDATE
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|script
@@ -2418,7 +2404,9 @@ condition|)
 block|{
 name|fields
 operator|=
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 literal|2
 argument_list|)

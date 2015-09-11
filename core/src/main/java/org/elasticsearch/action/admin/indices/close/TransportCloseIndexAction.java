@@ -236,6 +236,16 @@ name|TransportService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
 begin_comment
 comment|/**  * Close index action  */
 end_comment
@@ -294,6 +304,9 @@ name|actionFilters
 parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
+parameter_list|,
+name|DestructiveOperations
+name|destructiveOperations
 parameter_list|)
 block|{
 name|super
@@ -329,15 +342,7 @@ name|this
 operator|.
 name|destructiveOperations
 operator|=
-operator|new
-name|DestructiveOperations
-argument_list|(
-name|logger
-argument_list|,
-name|settings
-argument_list|,
-name|nodeSettingsService
-argument_list|)
+name|destructiveOperations
 expr_stmt|;
 block|}
 annotation|@
@@ -566,6 +571,9 @@ literal|"failed to close indices [{}]"
 argument_list|,
 name|t
 argument_list|,
+operator|(
+name|Object
+operator|)
 name|concreteIndices
 argument_list|)
 expr_stmt|;

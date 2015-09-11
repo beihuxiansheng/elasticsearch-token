@@ -50,20 +50,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -293,6 +279,18 @@ operator|.
 name|concurrent
 operator|.
 name|ExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
 import|;
 end_import
 
@@ -1825,10 +1823,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|apply
+DECL|method|test
 specifier|public
 name|boolean
-name|apply
+name|test
 parameter_list|(
 name|Settings
 name|settings

@@ -508,22 +508,6 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|filteredQuery
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
 name|fuzzyQuery
 import|;
 end_import
@@ -12044,6 +12028,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Broken now that BoostingQuery does not extend BooleanQuery anymore"
+argument_list|)
 DECL|method|testBoostingQueryTermVector
 specifier|public
 name|void
@@ -13403,7 +13394,7 @@ literal|2
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"here is another one that is very<em>long</em><em>tag</em> and has the tag token near the end"
+literal|"here is another one that is very<em>long</em><em>tag</em> and has the<em>tag</em> token near the end"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -13498,7 +13489,7 @@ literal|2
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"here is another one that is very<em>long</em><em>tag</em> and has the tag token near the end"
+literal|"here is another one that is very<em>long</em><em>tag</em> and has the<em>tag</em> token near the end"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -17474,7 +17465,7 @@ literal|1
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"The<xxx>quick</xxx><xxx>brown</xxx> fox jumps over the lazy quick dog"
+literal|"The<xxx>quick</xxx><xxx>brown</xxx> fox jumps over the lazy<xxx>quick</xxx> dog"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -21235,14 +21226,12 @@ argument_list|)
 operator|.
 name|should
 argument_list|(
-name|filteredQuery
+name|constantScoreQuery
 argument_list|(
 name|queryStringQuery
 argument_list|(
 literal|"field1:photo*"
 argument_list|)
-argument_list|,
-literal|null
 argument_list|)
 argument_list|)
 argument_list|)
@@ -21514,13 +21503,19 @@ argument_list|()
 operator|.
 name|query
 argument_list|(
-name|filteredQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|must
 argument_list|(
 name|queryStringQuery
 argument_list|(
 literal|"field1:photo*"
 argument_list|)
-argument_list|,
+argument_list|)
+operator|.
+name|filter
+argument_list|(
 name|missingQuery
 argument_list|(
 literal|"field_null"
@@ -21853,6 +21848,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Broken now that BoostingQuery does not extend BooleanQuery anymore"
+argument_list|)
 DECL|method|testFastVectorHighlighterPhraseBoost
 specifier|public
 name|void

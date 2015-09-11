@@ -222,6 +222,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -243,22 +253,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMapWithExpectedSize
 import|;
 end_import
 
@@ -1386,7 +1380,9 @@ else|else
 block|{
 name|fields
 operator|=
-name|newHashMapWithExpectedSize
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|(
 name|size
 argument_list|)

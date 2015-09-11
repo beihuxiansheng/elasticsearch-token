@@ -1024,6 +1024,8 @@ argument_list|(
 name|percolatorTypeId
 argument_list|,
 name|shardResults
+argument_list|,
+name|request
 argument_list|)
 decl_stmt|;
 name|long

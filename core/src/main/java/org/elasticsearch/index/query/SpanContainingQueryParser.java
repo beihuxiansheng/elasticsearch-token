@@ -477,6 +477,13 @@ argument_list|,
 name|little
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|boost
+operator|!=
+literal|1.0F
+condition|)
+block|{
 name|query
 operator|.
 name|setBoost
@@ -484,6 +491,7 @@ argument_list|(
 name|boost
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|queryName

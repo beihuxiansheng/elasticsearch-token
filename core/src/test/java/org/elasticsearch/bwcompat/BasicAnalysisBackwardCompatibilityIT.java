@@ -389,6 +389,10 @@ name|addMapping
 argument_list|(
 literal|"type"
 argument_list|,
+operator|(
+name|Object
+index|[]
+operator|)
 name|fields
 argument_list|)
 operator|.
@@ -943,6 +947,28 @@ condition|)
 block|{
 continue|continue;
 comment|// SORANI was added in 1.3.0
+block|}
+if|if
+condition|(
+name|preBuiltAnalyzers
+operator|==
+name|PreBuiltAnalyzers
+operator|.
+name|LITHUANIAN
+operator|&&
+name|compatibilityVersion
+argument_list|()
+operator|.
+name|before
+argument_list|(
+name|Version
+operator|.
+name|V_2_1_0
+argument_list|)
+condition|)
+block|{
+continue|continue;
+comment|// LITHUANIAN was added in 2.1.0
 block|}
 return|return
 name|preBuiltAnalyzers

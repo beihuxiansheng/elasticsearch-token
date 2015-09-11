@@ -50,20 +50,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Predicate
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|Iterables
@@ -226,6 +212,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -261,34 +257,14 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
+name|function
 operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-operator|.
-name|newHashSet
+name|Predicate
 import|;
 end_import
 
@@ -336,7 +312,9 @@ name|RoutingNode
 argument_list|>
 name|nodesToShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|unassignedShards
@@ -365,7 +343,9 @@ argument_list|>
 argument_list|>
 name|assignedShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|customs
@@ -507,7 +487,9 @@ argument_list|>
 argument_list|>
 name|nodesToShards
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 comment|// fill in the nodeToShards with the "live" nodes
@@ -1515,7 +1497,7 @@ if|if
 condition|(
 name|predicate
 operator|.
-name|apply
+name|test
 argument_list|(
 name|shardRouting
 argument_list|)
@@ -2972,7 +2954,7 @@ name|current
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String)}.              */
+comment|/**              * Unsupported operation, just there for the interface. Use {@link #removeAndIgnore()} or              * {@link #initialize(String, long, long)}.              */
 annotation|@
 name|Override
 DECL|method|remove
@@ -3280,7 +3262,9 @@ name|ShardId
 argument_list|>
 name|seenShards
 init|=
-name|newHashSet
+operator|new
+name|HashSet
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|Map

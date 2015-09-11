@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -198,6 +184,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|EnumSet
 import|;
 end_import
@@ -209,16 +205,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
 import|;
 end_import
 
@@ -264,7 +250,7 @@ decl_stmt|;
 DECL|field|repositories
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|RepositoryMetaData
 argument_list|>
@@ -284,9 +270,9 @@ name|this
 operator|.
 name|repositories
 operator|=
-name|ImmutableList
+name|Arrays
 operator|.
-name|copyOf
+name|asList
 argument_list|(
 name|repositories
 argument_list|)
@@ -295,7 +281,7 @@ block|}
 comment|/**      * Returns list of currently registered repositories      *      * @return list of repositories      */
 DECL|method|repositories
 specifier|public
-name|ImmutableList
+name|List
 argument_list|<
 name|RepositoryMetaData
 argument_list|>

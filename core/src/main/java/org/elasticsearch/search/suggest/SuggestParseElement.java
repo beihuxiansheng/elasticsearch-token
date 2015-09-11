@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|HasContextAndHeaders
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -144,23 +156,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
+name|HashMap
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Maps
-operator|.
-name|newHashMap
+name|Map
 import|;
 end_import
 
@@ -247,6 +253,8 @@ argument_list|()
 operator|.
 name|shardId
 argument_list|()
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 name|context
@@ -276,6 +284,9 @@ name|index
 parameter_list|,
 name|int
 name|shardId
+parameter_list|,
+name|HasContextAndHeaders
+name|headersContext
 parameter_list|)
 throws|throws
 name|IOException
@@ -305,7 +316,9 @@ name|SuggestionContext
 argument_list|>
 name|suggestionContexts
 init|=
-name|newHashMap
+operator|new
+name|HashMap
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|XContentParser
@@ -574,6 +587,8 @@ argument_list|,
 name|mapperService
 argument_list|,
 name|queryParserService
+argument_list|,
+name|headersContext
 argument_list|)
 expr_stmt|;
 block|}

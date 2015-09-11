@@ -236,20 +236,6 @@ name|lucene
 operator|.
 name|util
 operator|.
-name|Bits
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
 name|Version
 import|;
 end_import
@@ -413,9 +399,6 @@ name|scorer
 parameter_list|(
 name|LeafReaderContext
 name|context
-parameter_list|,
-name|Bits
-name|acceptDocs
 parameter_list|)
 throws|throws
 name|IOException
@@ -598,25 +581,12 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// IndexReader wrapping is disabled because of LUCENE-6500.
-comment|// Add it back when we are on 5.3
-assert|assert
-name|Version
-operator|.
-name|LATEST
-operator|==
-name|Version
-operator|.
-name|LUCENE_5_2_1
-assert|;
 name|IndexSearcher
 name|searcher
 init|=
 name|newSearcher
 argument_list|(
 name|reader
-argument_list|,
-literal|false
 argument_list|)
 decl_stmt|;
 name|reader
@@ -720,24 +690,11 @@ operator|.
 name|getReader
 argument_list|()
 decl_stmt|;
-comment|// IndexReader wrapping is disabled because of LUCENE-6500.
-comment|// Add it back when we are on 5.3
-assert|assert
-name|Version
-operator|.
-name|LATEST
-operator|==
-name|Version
-operator|.
-name|LUCENE_5_2_1
-assert|;
 name|searcher
 operator|=
 name|newSearcher
 argument_list|(
 name|reader2
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 name|reader2

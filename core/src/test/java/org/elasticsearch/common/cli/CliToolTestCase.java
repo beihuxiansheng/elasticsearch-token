@@ -659,14 +659,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
 name|Strings
 operator|.
 name|isNullOrEmpty

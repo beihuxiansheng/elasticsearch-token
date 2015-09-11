@@ -24,9 +24,23 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|logging
+name|component
 operator|.
-name|ESLogger
+name|AbstractComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|inject
+operator|.
+name|Inject
 import|;
 end_import
 
@@ -68,6 +82,8 @@ specifier|public
 specifier|final
 class|class
 name|DestructiveOperations
+extends|extends
+name|AbstractComponent
 implements|implements
 name|NodeSettingsService
 operator|.
@@ -83,28 +99,18 @@ name|REQUIRES_NAME
 init|=
 literal|"action.destructive_requires_name"
 decl_stmt|;
-DECL|field|logger
-specifier|private
-specifier|final
-name|ESLogger
-name|logger
-decl_stmt|;
 DECL|field|destructiveRequiresName
 specifier|private
 specifier|volatile
 name|boolean
 name|destructiveRequiresName
 decl_stmt|;
-comment|// TODO: Turn into a component that can be reused and wired up into all the transport actions where
-comment|// this helper logic is required. Note: also added the logger as argument, otherwise the same log
-comment|// statement is printed several times, this can removed once this becomes a component.
+annotation|@
+name|Inject
 DECL|method|DestructiveOperations
 specifier|public
 name|DestructiveOperations
 parameter_list|(
-name|ESLogger
-name|logger
-parameter_list|,
 name|Settings
 name|settings
 parameter_list|,
@@ -112,11 +118,10 @@ name|NodeSettingsService
 name|nodeSettingsService
 parameter_list|)
 block|{
-name|this
-operator|.
-name|logger
-operator|=
-name|logger
+name|super
+argument_list|(
+name|settings
+argument_list|)
 expr_stmt|;
 name|destructiveRequiresName
 operator|=
@@ -256,7 +261,9 @@ name|settings
 operator|.
 name|getAsBoolean
 argument_list|(
-literal|"action.destructive_requires_name"
+name|DestructiveOperations
+operator|.
+name|REQUIRES_NAME
 argument_list|,
 name|destructiveRequiresName
 argument_list|)

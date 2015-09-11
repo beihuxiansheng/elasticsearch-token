@@ -134,7 +134,7 @@ name|elasticsearch
 operator|.
 name|transport
 operator|.
-name|AbstractSimpleTransportTests
+name|AbstractSimpleTransportTestCase
 import|;
 end_import
 
@@ -186,7 +186,7 @@ specifier|public
 class|class
 name|SimpleNettyTransportTests
 extends|extends
-name|AbstractSimpleTransportTests
+name|AbstractSimpleTransportTestCase
 block|{
 annotation|@
 name|Override

@@ -128,7 +128,7 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
-name|SettingsSource
+name|NodeConfigurationSource
 import|;
 end_import
 
@@ -250,10 +250,10 @@ argument_list|,
 literal|10
 argument_list|)
 decl_stmt|;
-name|SettingsSource
-name|settingsSource
+name|NodeConfigurationSource
+name|nodeConfigurationSource
 init|=
-name|SettingsSource
+name|NodeConfigurationSource
 operator|.
 name|EMPTY
 decl_stmt|;
@@ -307,13 +307,15 @@ name|maxNumDataNodes
 argument_list|,
 name|clusterName
 argument_list|,
-name|settingsSource
+name|nodeConfigurationSource
 argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|InternalTestCluster
@@ -334,13 +336,15 @@ name|maxNumDataNodes
 argument_list|,
 name|clusterName
 argument_list|,
-name|settingsSource
+name|nodeConfigurationSource
 argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// TODO: this is not ideal - we should have a way to make sure ports are initialized in the same way
@@ -651,10 +655,10 @@ literal|"shared2"
 decl_stmt|;
 comment|//clusterName("shared", Integer.toString(CHILD_JVM_ID), clusterSeed);
 comment|/*while (clusterName.equals(clusterName1)) {             clusterName1 = clusterName("shared", Integer.toString(CHILD_JVM_ID), clusterSeed);   // spin until the time changes         }*/
-name|SettingsSource
-name|settingsSource
+name|NodeConfigurationSource
+name|nodeConfigurationSource
 init|=
-name|SettingsSource
+name|NodeConfigurationSource
 operator|.
 name|EMPTY
 decl_stmt|;
@@ -713,13 +717,15 @@ name|maxNumDataNodes
 argument_list|,
 name|clusterName1
 argument_list|,
-name|settingsSource
+name|nodeConfigurationSource
 argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|InternalTestCluster
@@ -740,13 +746,15 @@ name|maxNumDataNodes
 argument_list|,
 name|clusterName2
 argument_list|,
-name|settingsSource
+name|nodeConfigurationSource
 argument_list|,
 name|numClientNodes
 argument_list|,
 name|enableHttpPipelining
 argument_list|,
 name|nodePrefix
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|assertClusters

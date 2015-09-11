@@ -4414,7 +4414,7 @@ index|]
 operator|.
 name|contains
 argument_list|(
-literal|"cannot enable norms"
+literal|"different [omit_norms]"
 argument_list|)
 argument_list|)
 expr_stmt|;

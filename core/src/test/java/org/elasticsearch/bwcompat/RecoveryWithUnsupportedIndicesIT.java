@@ -99,7 +99,10 @@ name|nodeSettings
 init|=
 name|prepareBackwardsDataDir
 argument_list|(
-name|getDataPath
+name|getBwcIndicesPath
+argument_list|()
+operator|.
+name|resolve
 argument_list|(
 name|indexName
 operator|+

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -138,6 +124,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -170,7 +166,7 @@ decl_stmt|;
 DECL|field|typeListenerBindings
 specifier|private
 specifier|final
-name|ImmutableList
+name|List
 argument_list|<
 name|TypeListenerBinding
 argument_list|>
@@ -263,9 +259,9 @@ name|this
 operator|.
 name|typeListenerBindings
 operator|=
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|typeListenerBindings
 argument_list|)
@@ -407,7 +403,7 @@ name|getPartialValue
 argument_list|()
 expr_stmt|;
 block|}
-name|ImmutableList
+name|List
 argument_list|<
 name|SingleMemberInjector
 argument_list|>
@@ -529,7 +525,7 @@ return|;
 block|}
 comment|/**      * Returns the injectors for the specified injection points.      */
 DECL|method|getInjectors
-name|ImmutableList
+name|List
 argument_list|<
 name|SingleMemberInjector
 argument_list|>
@@ -639,9 +635,9 @@ comment|// ignored for now
 block|}
 block|}
 return|return
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableList
 argument_list|(
 name|injectors
 argument_list|)

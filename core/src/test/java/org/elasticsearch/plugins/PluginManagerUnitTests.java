@@ -473,7 +473,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|Version
 operator|.
@@ -531,7 +531,7 @@ init|=
 operator|new
 name|URL
 argument_list|(
-literal|"http"
+literal|"https"
 argument_list|,
 literal|"download.elastic.co"
 argument_list|,
@@ -699,7 +699,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|Version
 operator|.
@@ -762,7 +762,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|randomPluginName
 argument_list|,

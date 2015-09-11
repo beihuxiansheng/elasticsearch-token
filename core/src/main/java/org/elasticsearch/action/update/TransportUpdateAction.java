@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -537,6 +523,16 @@ operator|.
 name|transport
 operator|.
 name|TransportService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -1168,9 +1164,9 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
-name|of
+name|singletonList
 argument_list|(
 name|shard
 argument_list|)
@@ -1187,12 +1183,12 @@ operator|.
 name|shardId
 argument_list|()
 argument_list|,
-name|ImmutableList
+name|Collections
 operator|.
 expr|<
 name|ShardRouting
 operator|>
-name|of
+name|emptyList
 argument_list|()
 argument_list|)
 return|;

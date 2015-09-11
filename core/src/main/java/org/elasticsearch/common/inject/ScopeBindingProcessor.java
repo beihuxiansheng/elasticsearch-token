@@ -77,18 +77,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|Objects
 import|;
 end_import
 
@@ -208,7 +202,9 @@ name|state
 operator|.
 name|getScope
 argument_list|(
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|annotationType
 argument_list|,
@@ -245,7 +241,9 @@ name|putAnnotation
 argument_list|(
 name|annotationType
 argument_list|,
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|scope
 argument_list|,

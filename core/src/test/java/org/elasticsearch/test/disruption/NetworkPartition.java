@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -119,6 +105,26 @@ operator|.
 name|transport
 operator|.
 name|TransportService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
 import|;
 end_import
 
@@ -366,7 +372,7 @@ expr_stmt|;
 block|}
 DECL|method|getNodesSideOne
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -374,9 +380,9 @@ name|getNodesSideOne
 parameter_list|()
 block|{
 return|return
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableCollection
 argument_list|(
 name|nodesSideOne
 argument_list|)
@@ -384,7 +390,7 @@ return|;
 block|}
 DECL|method|getNodesSideTwo
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -392,9 +398,9 @@ name|getNodesSideTwo
 parameter_list|()
 block|{
 return|return
-name|ImmutableList
+name|Collections
 operator|.
-name|copyOf
+name|unmodifiableCollection
 argument_list|(
 name|nodesSideTwo
 argument_list|)
@@ -402,7 +408,7 @@ return|;
 block|}
 DECL|method|getMajoritySide
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>
@@ -437,7 +443,7 @@ block|}
 block|}
 DECL|method|getMinoritySide
 specifier|public
-name|List
+name|Collection
 argument_list|<
 name|String
 argument_list|>

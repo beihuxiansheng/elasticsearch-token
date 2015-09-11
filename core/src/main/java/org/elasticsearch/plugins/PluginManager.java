@@ -22,20 +22,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|collect
 operator|.
 name|ImmutableSet
@@ -129,6 +115,18 @@ operator|.
 name|bootstrap
 operator|.
 name|JarHell
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|Strings
 import|;
 end_import
 
@@ -514,13 +512,13 @@ literal|"analysis-smartcn"
 argument_list|,
 literal|"analysis-stempel"
 argument_list|,
-literal|"cloud-aws"
-argument_list|,
 literal|"cloud-azure"
 argument_list|,
 literal|"cloud-gce"
 argument_list|,
 literal|"delete-by-query"
+argument_list|,
+literal|"discovery-ec2"
 argument_list|,
 literal|"discovery-multicast"
 argument_list|,
@@ -531,6 +529,8 @@ argument_list|,
 literal|"mapper-murmur3"
 argument_list|,
 literal|"mapper-size"
+argument_list|,
+literal|"repository-s3"
 argument_list|)
 operator|.
 name|build
@@ -2107,6 +2107,9 @@ operator|.
 name|getPluginBundles
 argument_list|(
 name|environment
+operator|.
+name|pluginsFile
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// if we aren't isolated, we need to jarhellcheck against any other non-isolated plugins
@@ -2899,7 +2902,6 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// TODO Update to https
 if|if
 condition|(
 operator|!
@@ -2928,7 +2930,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/staging/%s-%s/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|version
 argument_list|,
@@ -2962,7 +2964,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
+literal|"https://download.elastic.co/elasticsearch/release/org/elasticsearch/plugin/%s/%s/%s-%s.zip"
 argument_list|,
 name|name
 argument_list|,
@@ -2978,7 +2980,6 @@ block|}
 else|else
 block|{
 comment|// Elasticsearch old download service
-comment|// TODO Update to https
 name|addUrl
 argument_list|(
 name|urls
@@ -2991,7 +2992,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://download.elastic.co/%1$s/%2$s/%2$s-%3$s.zip"
+literal|"https://download.elastic.co/%1$s/%2$s/%2$s-%3$s.zip"
 argument_list|,
 name|user
 argument_list|,
@@ -3014,7 +3015,7 @@ name|Locale
 operator|.
 name|ROOT
 argument_list|,
-literal|"http://search.maven.org/remotecontent?filepath=%1$s/%2$s/%3$s/%2$s-%3$s.zip"
+literal|"https://search.maven.org/remotecontent?filepath=%1$s/%2$s/%3$s/%2$s-%3$s.zip"
 argument_list|,
 name|user
 operator|.

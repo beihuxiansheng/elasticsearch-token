@@ -32,20 +32,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -158,6 +144,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+import|;
+end_import
+
 begin_comment
 comment|/**  * Simple utility methods for file and stream copying.  * All copy methods use a block size of 4096 bytes,  * and close all affected streams when done.  *<p/>  *<p>Mainly for use within the framework,  * but also useful for application code.  */
 end_comment
@@ -233,18 +229,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|in
 argument_list|,
 literal|"No InputStream specified"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|out
 argument_list|,
@@ -356,18 +352,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|in
 argument_list|,
 literal|"No input byte array specified"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|out
 argument_list|,
@@ -423,18 +419,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|in
 argument_list|,
 literal|"No Reader specified"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|out
 argument_list|,
@@ -555,18 +551,18 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|in
 argument_list|,
 literal|"No input String specified"
 argument_list|)
 expr_stmt|;
-name|Preconditions
+name|Objects
 operator|.
-name|checkNotNull
+name|requireNonNull
 argument_list|(
 name|out
 argument_list|,

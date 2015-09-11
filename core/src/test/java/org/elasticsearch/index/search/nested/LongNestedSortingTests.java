@@ -160,7 +160,7 @@ specifier|public
 class|class
 name|LongNestedSortingTests
 extends|extends
-name|AbstractNumberNestedSortingTests
+name|AbstractNumberNestedSortingTestCase
 block|{
 annotation|@
 name|Override

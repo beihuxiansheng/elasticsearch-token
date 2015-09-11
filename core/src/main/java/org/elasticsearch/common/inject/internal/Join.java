@@ -73,18 +73,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|google
+name|util
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkNotNull
+name|Objects
 import|;
 end_import
 
@@ -182,7 +176,9 @@ modifier|...
 name|otherTokens
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|otherTokens
 argument_list|)
@@ -389,7 +385,9 @@ modifier|...
 name|otherTokens
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|otherTokens
 argument_list|)
@@ -438,12 +436,16 @@ name|tokens
 parameter_list|)
 block|{
 comment|/* This method is the workhorse of the class */
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|appendable
 argument_list|)
 expr_stmt|;
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|delimiter
 argument_list|)
@@ -544,17 +546,23 @@ argument_list|>
 name|map
 parameter_list|)
 block|{
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|appendable
 argument_list|)
 expr_stmt|;
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|keyValueSeparator
 argument_list|)
 expr_stmt|;
-name|checkNotNull
+name|Objects
+operator|.
+name|requireNonNull
 argument_list|(
 name|entryDelimiter
 argument_list|)

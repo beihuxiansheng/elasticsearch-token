@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Sets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -112,9 +98,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|IndexNotFoundException
+name|settings
+operator|.
+name|Settings
 import|;
 end_import
 
@@ -124,11 +112,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
+name|index
 operator|.
-name|settings
-operator|.
-name|Settings
+name|IndexNotFoundException
 import|;
 end_import
 
@@ -198,13 +184,15 @@ end_import
 
 begin_import
 import|import static
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
+name|util
+operator|.
+name|set
 operator|.
 name|Sets
 operator|.
@@ -220,7 +208,79 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|arrayContaining
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|arrayContainingInAnyOrder
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|arrayWithSize
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|emptyArray
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|notNullValue
 import|;
 end_import
 
@@ -789,6 +849,10 @@ name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -846,6 +910,10 @@ name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -2767,6 +2835,10 @@ name|concreteIndices
 argument_list|(
 name|context
 argument_list|,
+operator|(
+name|String
+index|[]
+operator|)
 literal|null
 argument_list|)
 expr_stmt|;
@@ -4418,8 +4490,6 @@ argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-name|Sets
-operator|.
 name|newHashSet
 argument_list|(
 literal|"kuku"

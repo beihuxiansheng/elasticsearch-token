@@ -312,7 +312,7 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|filteredQuery
+name|boolQuery
 import|;
 end_import
 
@@ -1369,11 +1369,17 @@ argument_list|)
 operator|.
 name|setQuery
 argument_list|(
-name|filteredQuery
+name|boolQuery
+argument_list|()
+operator|.
+name|must
 argument_list|(
 name|matchAllQuery
 argument_list|()
-argument_list|,
+argument_list|)
+operator|.
+name|filter
+argument_list|(
 name|hasChildQuery
 argument_list|(
 literal|"child"
@@ -1587,7 +1593,7 @@ name|i
 argument_list|)
 argument_list|)
 operator|.
-name|scoreType
+name|scoreMode
 argument_list|(
 literal|"max"
 argument_list|)

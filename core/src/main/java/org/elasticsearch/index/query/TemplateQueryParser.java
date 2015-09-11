@@ -160,6 +160,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|internal
+operator|.
+name|SearchContext
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -322,7 +336,7 @@ name|NAME
 block|}
 return|;
 block|}
-comment|/**      * Parses the template query replacing template parameters with provided      * values. Handles both submitting the template as part of the request as      * well as referencing only the template name.      *       * @param parseContext      *            parse context containing the templated query.      */
+comment|/**      * Parses the template query replacing template parameters with provided      * values. Handles both submitting the template as part of the request as      * well as referencing only the template name.      *      * @param parseContext      *            parse context containing the templated query.      */
 annotation|@
 name|Override
 annotation|@
@@ -375,6 +389,11 @@ operator|.
 name|Standard
 operator|.
 name|SEARCH
+argument_list|,
+name|SearchContext
+operator|.
+name|current
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|BytesReference

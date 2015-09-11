@@ -24,20 +24,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableList
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -226,6 +212,16 @@ name|TransportService
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_comment
 comment|/**  * Internal Actions executed on the master fetching the warmer from the cluster state metadata.  *  * Note: this is an internal API and should not be used / called by any client code.  */
 end_comment
@@ -391,7 +387,7 @@ name|ImmutableOpenMap
 argument_list|<
 name|String
 argument_list|,
-name|ImmutableList
+name|List
 argument_list|<
 name|IndexWarmersMetaData
 operator|.

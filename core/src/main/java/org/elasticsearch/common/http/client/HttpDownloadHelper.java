@@ -40,20 +40,6 @@ name|google
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Strings
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
 name|hash
 operator|.
 name|Hashing
@@ -116,9 +102,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|unit
-operator|.
-name|TimeValue
+name|Strings
 import|;
 end_import
 
@@ -130,9 +114,9 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|util
+name|unit
 operator|.
-name|ByteArray
+name|TimeValue
 import|;
 end_import
 
@@ -232,29 +216,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|Callable
 import|;
 end_import
 
@@ -759,33 +721,6 @@ comment|// checksum file doesn't exist
 return|return
 literal|false
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-if|if
-condition|(
-name|ExceptionsHelper
-operator|.
-name|unwrapCause
-argument_list|(
-name|e
-argument_list|)
-operator|instanceof
-name|FileNotFoundException
-condition|)
-block|{
-comment|// checksum file didn't exist
-return|return
-literal|false
-return|;
-block|}
-throw|throw
-name|e
-throw|;
 block|}
 finally|finally
 block|{
@@ -1479,27 +1414,6 @@ argument_list|(
 literal|"Location"
 argument_list|)
 decl_stmt|;
-name|String
-name|message
-init|=
-name|aSource
-operator|+
-operator|(
-name|responseCode
-operator|==
-name|HttpURLConnection
-operator|.
-name|HTTP_MOVED_PERM
-condition|?
-literal|" permanently"
-else|:
-literal|""
-operator|)
-operator|+
-literal|" moved to "
-operator|+
-name|newLocation
-decl_stmt|;
 name|URL
 name|newURL
 init|=
@@ -1666,19 +1580,7 @@ literal|null
 condition|)
 block|{
 throw|throw
-operator|new
-name|IOException
-argument_list|(
-literal|"Can't get "
-operator|+
-name|source
-operator|+
-literal|" to "
-operator|+
-name|dest
-argument_list|,
 name|lastEx
-argument_list|)
 throw|;
 block|}
 name|os
