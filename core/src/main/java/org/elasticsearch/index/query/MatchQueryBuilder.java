@@ -741,7 +741,7 @@ operator|.
 name|prefixLength
 return|;
 block|}
-comment|/**      * When using fuzzy or prefix type query, the number of term expansions to use. Defaults to unbounded      * so its recommended to set it to a reasonable value for faster execution.      */
+comment|/**      * When using fuzzy or prefix type query, the number of term expansions to use.      */
 DECL|method|maxExpansions
 specifier|public
 name|MatchQueryBuilder
@@ -751,6 +751,21 @@ name|int
 name|maxExpansions
 parameter_list|)
 block|{
+if|if
+condition|(
+name|maxExpansions
+operator|<
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No negative maxExpansions allowed."
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|maxExpansions
@@ -970,6 +985,25 @@ name|ZeroTermsQuery
 name|zeroTermsQuery
 parameter_list|)
 block|{
+if|if
+condition|(
+name|zeroTermsQuery
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"["
+operator|+
+name|NAME
+operator|+
+literal|"] requires zeroTermsQuery to be non-null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|zeroTermsQuery
