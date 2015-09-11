@@ -66,6 +66,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|MalformedURLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|file
@@ -324,6 +334,8 @@ specifier|public
 name|void
 name|testUrlSpacesInPath
 parameter_list|()
+throws|throws
+name|MalformedURLException
 block|{
 name|CliToolTestCase
 operator|.
@@ -344,7 +356,7 @@ argument_list|()
 operator|.
 name|resolve
 argument_list|(
-literal|"foo"
+literal|"foo deps"
 argument_list|)
 decl_stmt|;
 name|String
@@ -355,11 +367,22 @@ operator|.
 name|toAbsolutePath
 argument_list|()
 operator|.
+name|toUri
+argument_list|()
+operator|.
+name|toURL
+argument_list|()
+operator|.
 name|toString
 argument_list|()
-operator|+
-literal|"%20deps"
 decl_stmt|;
+name|logger
+operator|.
+name|warn
+argument_list|(
+name|finalDir
+argument_list|)
+expr_stmt|;
 name|CliTool
 operator|.
 name|ExitStatus
@@ -375,7 +398,7 @@ name|execute
 argument_list|(
 name|args
 argument_list|(
-literal|"install file://"
+literal|"install "
 operator|+
 name|finalDir
 argument_list|)
