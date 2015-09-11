@@ -93,10 +93,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ShapeRalationTests
+DECL|class|ShapeRelationTests
 specifier|public
 class|class
-name|ShapeRalationTests
+name|ShapeRelationTests
 extends|extends
 name|ESTestCase
 block|{
