@@ -2114,7 +2114,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -2145,7 +2147,9 @@ name|build
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|List
 argument_list|<

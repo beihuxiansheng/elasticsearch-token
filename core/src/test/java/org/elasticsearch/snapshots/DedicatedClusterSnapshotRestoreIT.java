@@ -40,22 +40,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ListenableFuture
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -6965,7 +6949,9 @@ argument_list|,
 name|asyncNodes
 argument_list|)
 expr_stmt|;
-name|ListenableFuture
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|List
 argument_list|<

@@ -16,22 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ListenableFuture
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -275,6 +259,18 @@ operator|.
 name|ESIntegTestCase
 operator|.
 name|ClusterScope
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|InternalTestCluster
 import|;
 end_import
 
@@ -1745,7 +1741,9 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|ListenableFuture
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -1759,7 +1757,9 @@ argument_list|(
 name|settings
 argument_list|)
 decl_stmt|;
-name|ListenableFuture
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
