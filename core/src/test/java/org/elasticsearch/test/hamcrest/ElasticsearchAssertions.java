@@ -5269,7 +5269,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|ThrowableWrapper
-specifier|private
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -5401,13 +5401,6 @@ name|Matchers
 operator|.
 name|notNullValue
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|constructor
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
 argument_list|)
 expr_stmt|;
 name|Streamable
