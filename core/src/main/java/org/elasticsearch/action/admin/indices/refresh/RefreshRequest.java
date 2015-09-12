@@ -64,6 +64,7 @@ name|RefreshRequest
 argument_list|>
 block|{
 DECL|method|RefreshRequest
+specifier|public
 name|RefreshRequest
 parameter_list|()
 block|{     }

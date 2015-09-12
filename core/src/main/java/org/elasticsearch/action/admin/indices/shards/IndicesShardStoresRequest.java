@@ -234,6 +234,7 @@ name|indices
 expr_stmt|;
 block|}
 DECL|method|IndicesShardStoresRequest
+specifier|public
 name|IndicesShardStoresRequest
 parameter_list|()
 block|{     }

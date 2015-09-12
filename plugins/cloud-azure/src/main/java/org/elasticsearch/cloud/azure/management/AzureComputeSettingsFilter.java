@@ -105,7 +105,7 @@ block|{
 annotation|@
 name|Inject
 DECL|method|AzureComputeSettingsFilter
-specifier|protected
+specifier|public
 name|AzureComputeSettingsFilter
 parameter_list|(
 name|Settings

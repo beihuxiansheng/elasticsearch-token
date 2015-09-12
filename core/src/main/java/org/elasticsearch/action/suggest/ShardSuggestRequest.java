@@ -108,6 +108,7 @@ end_comment
 
 begin_class
 DECL|class|ShardSuggestRequest
+specifier|public
 specifier|final
 class|class
 name|ShardSuggestRequest
@@ -120,6 +121,7 @@ name|BytesReference
 name|suggestSource
 decl_stmt|;
 DECL|method|ShardSuggestRequest
+specifier|public
 name|ShardSuggestRequest
 parameter_list|()
 block|{     }

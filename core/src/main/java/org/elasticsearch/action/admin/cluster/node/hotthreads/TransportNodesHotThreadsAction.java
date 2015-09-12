@@ -589,6 +589,7 @@ literal|false
 return|;
 block|}
 DECL|class|NodeRequest
+specifier|public
 specifier|static
 class|class
 name|NodeRequest
@@ -600,6 +601,7 @@ name|NodesHotThreadsRequest
 name|request
 decl_stmt|;
 DECL|method|NodeRequest
+specifier|public
 name|NodeRequest
 parameter_list|()
 block|{         }

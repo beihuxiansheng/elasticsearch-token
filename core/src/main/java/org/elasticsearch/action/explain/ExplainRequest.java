@@ -236,6 +236,7 @@ name|long
 name|nowInMillis
 decl_stmt|;
 DECL|method|ExplainRequest
+specifier|public
 name|ExplainRequest
 parameter_list|()
 block|{     }

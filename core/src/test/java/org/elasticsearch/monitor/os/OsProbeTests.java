@@ -288,15 +288,6 @@ name|getMem
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: once java 9 is sorted out make these hard checks (currently 9-ea and 9-ea-jigsaw will differ)
-if|if
-condition|(
-operator|!
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
 name|assertThat
 argument_list|(
 name|stats
@@ -414,7 +405,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 name|assertNotNull
 argument_list|(
 name|stats
@@ -516,15 +506,6 @@ block|}
 else|else
 block|{
 comment|// On platforms with no swap
-comment|// TODO: one java 9 is sorted out make these hard checks (currently 9-ea and 9-ea-jigsaw will differ)
-if|if
-condition|(
-operator|!
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
 name|assertThat
 argument_list|(
 name|stats
@@ -582,7 +563,6 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

@@ -289,6 +289,7 @@ name|long
 name|nowInMillis
 decl_stmt|;
 DECL|method|ValidateQueryRequest
+specifier|public
 name|ValidateQueryRequest
 parameter_list|()
 block|{

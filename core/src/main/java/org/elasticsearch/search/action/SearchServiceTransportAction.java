@@ -1506,6 +1506,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|ScrollFreeContextRequest
+specifier|public
 specifier|static
 class|class
 name|ScrollFreeContextRequest
@@ -1518,6 +1519,7 @@ name|long
 name|id
 decl_stmt|;
 DECL|method|ScrollFreeContextRequest
+specifier|public
 name|ScrollFreeContextRequest
 parameter_list|()
 block|{         }
@@ -1635,6 +1637,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|SearchFreeContextRequest
+specifier|public
 specifier|static
 class|class
 name|SearchFreeContextRequest
@@ -1649,6 +1652,7 @@ name|OriginalIndices
 name|originalIndices
 decl_stmt|;
 DECL|method|SearchFreeContextRequest
+specifier|public
 name|SearchFreeContextRequest
 parameter_list|()
 block|{         }
@@ -1949,6 +1953,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ClearScrollContextsRequest
+specifier|public
 specifier|static
 class|class
 name|ClearScrollContextsRequest
@@ -1956,6 +1961,7 @@ extends|extends
 name|TransportRequest
 block|{
 DECL|method|ClearScrollContextsRequest
+specifier|public
 name|ClearScrollContextsRequest
 parameter_list|()
 block|{         }

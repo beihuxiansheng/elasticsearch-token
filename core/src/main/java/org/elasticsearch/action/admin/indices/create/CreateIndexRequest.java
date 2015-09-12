@@ -536,6 +536,7 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|CreateIndexRequest
+specifier|public
 name|CreateIndexRequest
 parameter_list|()
 block|{     }

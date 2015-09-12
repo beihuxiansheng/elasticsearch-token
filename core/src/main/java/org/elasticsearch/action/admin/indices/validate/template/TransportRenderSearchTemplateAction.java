@@ -216,7 +216,7 @@ decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportRenderSearchTemplateAction
-specifier|protected
+specifier|public
 name|TransportRenderSearchTemplateAction
 parameter_list|(
 name|ScriptService

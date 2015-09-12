@@ -444,6 +444,7 @@ operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
 DECL|method|RestoreSnapshotRequest
+specifier|public
 name|RestoreSnapshotRequest
 parameter_list|()
 block|{     }

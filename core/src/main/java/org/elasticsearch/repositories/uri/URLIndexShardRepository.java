@@ -111,6 +111,7 @@ block|{
 annotation|@
 name|Inject
 DECL|method|URLIndexShardRepository
+specifier|public
 name|URLIndexShardRepository
 parameter_list|(
 name|Settings

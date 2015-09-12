@@ -252,7 +252,7 @@ block|}
 annotation|@
 name|Inject
 DECL|method|AzureComputeServiceSimpleMock
-specifier|protected
+specifier|public
 name|AzureComputeServiceSimpleMock
 parameter_list|(
 name|Settings

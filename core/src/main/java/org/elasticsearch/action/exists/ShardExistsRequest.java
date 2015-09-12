@@ -128,6 +128,7 @@ end_import
 
 begin_class
 DECL|class|ShardExistsRequest
+specifier|public
 class|class
 name|ShardExistsRequest
 extends|extends
@@ -167,6 +168,7 @@ index|[]
 name|filteringAliases
 decl_stmt|;
 DECL|method|ShardExistsRequest
+specifier|public
 name|ShardExistsRequest
 parameter_list|()
 block|{     }

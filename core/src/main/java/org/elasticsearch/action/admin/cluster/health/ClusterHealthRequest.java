@@ -258,6 +258,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|ClusterHealthRequest
+specifier|public
 name|ClusterHealthRequest
 parameter_list|()
 block|{     }

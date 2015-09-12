@@ -188,6 +188,7 @@ literal|false
 argument_list|)
 decl_stmt|;
 DECL|method|CloseIndexRequest
+specifier|public
 name|CloseIndexRequest
 parameter_list|()
 block|{     }

@@ -132,6 +132,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|ClearIndicesCacheRequest
+specifier|public
 name|ClearIndicesCacheRequest
 parameter_list|()
 block|{     }

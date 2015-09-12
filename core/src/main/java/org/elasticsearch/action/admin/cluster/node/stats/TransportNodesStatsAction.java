@@ -571,6 +571,7 @@ literal|false
 return|;
 block|}
 DECL|class|NodeStatsRequest
+specifier|public
 specifier|static
 class|class
 name|NodeStatsRequest
@@ -582,6 +583,7 @@ name|NodesStatsRequest
 name|request
 decl_stmt|;
 DECL|method|NodeStatsRequest
+specifier|public
 name|NodeStatsRequest
 parameter_list|()
 block|{         }

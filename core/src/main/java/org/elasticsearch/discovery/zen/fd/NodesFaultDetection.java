@@ -1310,6 +1310,7 @@ operator|.
 name|UNKNOWN_VERSION
 decl_stmt|;
 DECL|method|PingRequest
+specifier|public
 name|PingRequest
 parameter_list|()
 block|{         }

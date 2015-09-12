@@ -87,7 +87,7 @@ extends|extends
 name|TransportRequest
 block|{
 DECL|method|ActionRequest
-specifier|protected
+specifier|public
 name|ActionRequest
 parameter_list|()
 block|{

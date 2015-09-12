@@ -4224,6 +4224,7 @@ block|}
 return|;
 block|}
 DECL|class|Request
+specifier|public
 specifier|static
 class|class
 name|Request
@@ -4256,6 +4257,7 @@ name|AtomicInteger
 argument_list|()
 decl_stmt|;
 DECL|method|Request
+specifier|public
 name|Request
 parameter_list|()
 block|{         }

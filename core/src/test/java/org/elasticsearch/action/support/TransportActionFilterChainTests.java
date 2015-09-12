@@ -2830,7 +2830,7 @@ parameter_list|)
 function_decl|;
 block|}
 DECL|class|TestRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|TestRequest

@@ -205,7 +205,7 @@ init|=
 literal|true
 decl_stmt|;
 DECL|method|SingleShardRequest
-specifier|protected
+specifier|public
 name|SingleShardRequest
 parameter_list|()
 block|{     }

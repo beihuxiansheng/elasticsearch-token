@@ -821,6 +821,7 @@ parameter_list|()
 function_decl|;
 comment|/**      * The actual multibinder plays several roles:      *<p/>      *<p>As a Multibinder, it acts as a factory for LinkedBindingBuilders for      * each of the set's elements. Each binding is given an annotation that      * identifies it as a part of this set.      *<p/>      *<p>As a Module, it installs the binding to the set itself. As a module,      * this implements equals() and hashcode() in order to trick Guice into      * executing its configure() method only once. That makes it so that      * multiple multibinders can be created for the same target collection, but      * only one is bound. Since the list of bindings is retrieved from the      * injector itself (and not the multibinder), each multibinder has access to      * all contributions from all multibinders.      *<p/>      *<p>As a Provider, this constructs the set instances.      *<p/>      *<p>We use a subclass to hide 'implements Module, Provider' from the public      * API.      */
 DECL|class|RealMultibinder
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -1063,6 +1064,7 @@ comment|/**          * Invoked by Guice at Injector-creation time to prepare pro
 annotation|@
 name|Inject
 DECL|method|initialize
+specifier|public
 name|void
 name|initialize
 parameter_list|(
