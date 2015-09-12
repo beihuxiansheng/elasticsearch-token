@@ -8375,6 +8375,8 @@ argument_list|,
 name|indexAliasesService
 argument_list|,
 name|indexCache
+argument_list|,
+name|logger
 argument_list|)
 block|{
 annotation|@
