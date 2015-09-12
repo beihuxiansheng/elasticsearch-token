@@ -561,6 +561,7 @@ literal|false
 return|;
 block|}
 DECL|class|NodeInfoRequest
+specifier|public
 specifier|static
 class|class
 name|NodeInfoRequest
@@ -572,6 +573,7 @@ name|NodesInfoRequest
 name|request
 decl_stmt|;
 DECL|method|NodeInfoRequest
+specifier|public
 name|NodeInfoRequest
 parameter_list|()
 block|{         }

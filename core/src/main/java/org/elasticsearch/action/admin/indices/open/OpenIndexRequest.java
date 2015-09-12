@@ -188,6 +188,7 @@ literal|true
 argument_list|)
 decl_stmt|;
 DECL|method|OpenIndexRequest
+specifier|public
 name|OpenIndexRequest
 parameter_list|()
 block|{     }

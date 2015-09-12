@@ -874,6 +874,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|VerifyNodeRepositoryRequest
+specifier|public
 specifier|static
 class|class
 name|VerifyNodeRepositoryRequest
@@ -891,6 +892,7 @@ name|String
 name|verificationToken
 decl_stmt|;
 DECL|method|VerifyNodeRepositoryRequest
+specifier|public
 name|VerifyNodeRepositoryRequest
 parameter_list|()
 block|{         }

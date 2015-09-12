@@ -138,6 +138,7 @@ end_comment
 
 begin_class
 DECL|class|ShardValidateQueryRequest
+specifier|public
 class|class
 name|ShardValidateQueryRequest
 extends|extends
@@ -182,6 +183,7 @@ index|[]
 name|filteringAliases
 decl_stmt|;
 DECL|method|ShardValidateQueryRequest
+specifier|public
 name|ShardValidateQueryRequest
 parameter_list|()
 block|{      }

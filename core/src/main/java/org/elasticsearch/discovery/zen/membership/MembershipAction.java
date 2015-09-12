@@ -630,6 +630,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|JoinRequest
+specifier|public
 specifier|static
 class|class
 name|JoinRequest
@@ -641,7 +642,7 @@ name|DiscoveryNode
 name|node
 decl_stmt|;
 DECL|method|JoinRequest
-specifier|private
+specifier|public
 name|JoinRequest
 parameter_list|()
 block|{         }
@@ -836,6 +837,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ValidateJoinRequest
+specifier|public
 specifier|static
 class|class
 name|ValidateJoinRequest
@@ -843,6 +845,7 @@ extends|extends
 name|TransportRequest
 block|{
 DECL|method|ValidateJoinRequest
+specifier|public
 name|ValidateJoinRequest
 parameter_list|()
 block|{         }
@@ -887,6 +890,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|LeaveRequest
+specifier|public
 specifier|static
 class|class
 name|LeaveRequest
@@ -899,7 +903,7 @@ name|DiscoveryNode
 name|node
 decl_stmt|;
 DECL|method|LeaveRequest
-specifier|private
+specifier|public
 name|LeaveRequest
 parameter_list|()
 block|{         }

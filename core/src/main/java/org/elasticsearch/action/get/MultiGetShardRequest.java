@@ -169,6 +169,7 @@ argument_list|>
 name|items
 decl_stmt|;
 DECL|method|MultiGetShardRequest
+specifier|public
 name|MultiGetShardRequest
 parameter_list|()
 block|{      }

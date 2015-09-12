@@ -90,6 +90,7 @@ end_comment
 
 begin_class
 DECL|class|RecoveryPrepareForTranslogOperationsRequest
+specifier|public
 class|class
 name|RecoveryPrepareForTranslogOperationsRequest
 extends|extends
@@ -117,6 +118,7 @@ operator|.
 name|UNKNOWN
 decl_stmt|;
 DECL|method|RecoveryPrepareForTranslogOperationsRequest
+specifier|public
 name|RecoveryPrepareForTranslogOperationsRequest
 parameter_list|()
 block|{     }

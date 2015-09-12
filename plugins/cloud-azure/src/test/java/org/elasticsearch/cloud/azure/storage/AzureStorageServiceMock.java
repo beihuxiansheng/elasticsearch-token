@@ -245,7 +245,7 @@ decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|AzureStorageServiceMock
-specifier|protected
+specifier|public
 name|AzureStorageServiceMock
 parameter_list|(
 name|Settings

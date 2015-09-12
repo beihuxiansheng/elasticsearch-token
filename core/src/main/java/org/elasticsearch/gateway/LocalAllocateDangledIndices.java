@@ -1204,6 +1204,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|AllocateDangledRequest
+specifier|public
 specifier|static
 class|class
 name|AllocateDangledRequest
@@ -1220,6 +1221,7 @@ index|[]
 name|indices
 decl_stmt|;
 DECL|method|AllocateDangledRequest
+specifier|public
 name|AllocateDangledRequest
 parameter_list|()
 block|{         }

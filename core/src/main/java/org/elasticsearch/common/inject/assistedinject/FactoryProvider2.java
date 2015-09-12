@@ -392,6 +392,7 @@ end_comment
 
 begin_class
 DECL|class|FactoryProvider2
+specifier|public
 specifier|final
 class|class
 name|FactoryProvider2
@@ -991,6 +992,7 @@ comment|/**      * At injector-creation time, we initialize the invocation handl
 annotation|@
 name|Inject
 DECL|method|initialize
+specifier|public
 name|void
 name|initialize
 parameter_list|(

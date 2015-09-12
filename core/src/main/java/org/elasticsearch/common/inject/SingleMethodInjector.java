@@ -256,25 +256,6 @@ name|modifiers
 argument_list|)
 condition|)
 block|{         }
-if|if
-condition|(
-operator|!
-name|Modifier
-operator|.
-name|isPublic
-argument_list|(
-name|modifiers
-argument_list|)
-condition|)
-block|{
-name|method
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 operator|new
 name|MethodInvoker

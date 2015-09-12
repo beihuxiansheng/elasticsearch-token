@@ -150,7 +150,7 @@ name|OriginalIndices
 name|originalIndices
 decl_stmt|;
 DECL|method|BroadcastShardRequest
-specifier|protected
+specifier|public
 name|BroadcastShardRequest
 parameter_list|()
 block|{     }

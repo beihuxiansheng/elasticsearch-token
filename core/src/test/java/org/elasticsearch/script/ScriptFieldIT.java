@@ -742,6 +742,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|IntArrayScriptFactory
+specifier|public
 specifier|static
 class|class
 name|IntArrayScriptFactory
@@ -806,6 +807,7 @@ return|;
 block|}
 block|}
 DECL|class|LongArrayScriptFactory
+specifier|public
 specifier|static
 class|class
 name|LongArrayScriptFactory
@@ -870,6 +872,7 @@ return|;
 block|}
 block|}
 DECL|class|FloatArrayScriptFactory
+specifier|public
 specifier|static
 class|class
 name|FloatArrayScriptFactory
@@ -934,6 +937,7 @@ return|;
 block|}
 block|}
 DECL|class|DoubleArrayScriptFactory
+specifier|public
 specifier|static
 class|class
 name|DoubleArrayScriptFactory

@@ -74,7 +74,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|TransportRequest
-specifier|protected
+specifier|public
 name|TransportRequest
 parameter_list|()
 block|{     }

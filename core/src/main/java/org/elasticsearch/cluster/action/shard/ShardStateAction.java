@@ -1575,6 +1575,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ShardRoutingEntry
+specifier|public
 specifier|static
 class|class
 name|ShardRoutingEntry
@@ -1608,6 +1609,7 @@ name|processed
 decl_stmt|;
 comment|// state field, no need to serialize
 DECL|method|ShardRoutingEntry
+specifier|public
 name|ShardRoutingEntry
 parameter_list|()
 block|{         }

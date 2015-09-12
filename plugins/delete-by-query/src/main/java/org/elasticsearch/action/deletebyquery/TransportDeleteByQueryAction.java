@@ -390,7 +390,7 @@ decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportDeleteByQueryAction
-specifier|protected
+specifier|public
 name|TransportDeleteByQueryAction
 parameter_list|(
 name|Settings

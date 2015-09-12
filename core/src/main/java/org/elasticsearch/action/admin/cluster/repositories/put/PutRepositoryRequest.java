@@ -300,6 +300,7 @@ init|=
 name|EMPTY_SETTINGS
 decl_stmt|;
 DECL|method|PutRepositoryRequest
+specifier|public
 name|PutRepositoryRequest
 parameter_list|()
 block|{     }

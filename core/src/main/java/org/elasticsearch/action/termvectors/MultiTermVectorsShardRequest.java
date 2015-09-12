@@ -153,6 +153,7 @@ argument_list|>
 name|requests
 decl_stmt|;
 DECL|method|MultiTermVectorsShardRequest
+specifier|public
 name|MultiTermVectorsShardRequest
 parameter_list|()
 block|{      }

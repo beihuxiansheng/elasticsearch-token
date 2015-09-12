@@ -164,6 +164,7 @@ name|Type
 name|recoveryType
 decl_stmt|;
 DECL|method|StartRecoveryRequest
+specifier|public
 name|StartRecoveryRequest
 parameter_list|()
 block|{     }

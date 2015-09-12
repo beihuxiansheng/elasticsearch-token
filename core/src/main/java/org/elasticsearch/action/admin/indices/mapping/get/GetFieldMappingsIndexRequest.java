@@ -134,6 +134,7 @@ end_import
 
 begin_class
 DECL|class|GetFieldMappingsIndexRequest
+specifier|public
 class|class
 name|GetFieldMappingsIndexRequest
 extends|extends
@@ -178,6 +179,7 @@ name|OriginalIndices
 name|originalIndices
 decl_stmt|;
 DECL|method|GetFieldMappingsIndexRequest
+specifier|public
 name|GetFieldMappingsIndexRequest
 parameter_list|()
 block|{     }

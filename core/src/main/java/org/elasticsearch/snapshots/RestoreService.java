@@ -6012,6 +6012,7 @@ block|}
 block|}
 comment|/**      * Internal class that is used to send notifications about finished shard restore operations to master node      */
 DECL|class|UpdateIndexShardRestoreStatusRequest
+specifier|public
 specifier|static
 class|class
 name|UpdateIndexShardRestoreStatusRequest
@@ -6040,7 +6041,7 @@ name|processed
 decl_stmt|;
 comment|// state field, no need to serialize
 DECL|method|UpdateIndexShardRestoreStatusRequest
-specifier|private
+specifier|public
 name|UpdateIndexShardRestoreStatusRequest
 parameter_list|()
 block|{          }

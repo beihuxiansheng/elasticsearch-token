@@ -477,6 +477,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|NodeMappingRefreshRequest
+specifier|public
 name|NodeMappingRefreshRequest
 parameter_list|()
 block|{         }

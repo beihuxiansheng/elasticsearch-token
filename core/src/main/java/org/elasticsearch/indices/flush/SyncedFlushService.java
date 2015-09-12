@@ -2917,6 +2917,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|PreSyncedFlushRequest
+specifier|public
 specifier|final
 specifier|static
 class|class
@@ -2930,6 +2931,7 @@ name|ShardId
 name|shardId
 decl_stmt|;
 DECL|method|PreSyncedFlushRequest
+specifier|public
 name|PreSyncedFlushRequest
 parameter_list|()
 block|{         }
@@ -3145,6 +3147,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|SyncedFlushRequest
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -3500,6 +3503,7 @@ return|;
 block|}
 block|}
 DECL|class|InFlightOpsRequest
+specifier|public
 specifier|static
 specifier|final
 class|class

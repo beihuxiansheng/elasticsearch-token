@@ -823,6 +823,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|NodeIndexDeletedMessage
+specifier|public
 specifier|static
 class|class
 name|NodeIndexDeletedMessage
@@ -838,6 +839,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|NodeIndexDeletedMessage
+specifier|public
 name|NodeIndexDeletedMessage
 parameter_list|()
 block|{         }
@@ -936,6 +938,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|NodeIndexStoreDeletedMessage
+specifier|public
 specifier|static
 class|class
 name|NodeIndexStoreDeletedMessage
@@ -951,6 +954,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|NodeIndexStoreDeletedMessage
+specifier|public
 name|NodeIndexStoreDeletedMessage
 parameter_list|()
 block|{         }

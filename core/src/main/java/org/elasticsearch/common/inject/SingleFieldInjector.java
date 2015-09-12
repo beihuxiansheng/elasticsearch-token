@@ -209,14 +209,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// Ewwwww...
-name|field
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 name|factory
 operator|=
 name|injector

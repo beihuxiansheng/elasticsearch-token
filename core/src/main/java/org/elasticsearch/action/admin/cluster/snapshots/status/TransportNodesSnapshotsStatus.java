@@ -988,6 +988,7 @@ literal|true
 return|;
 block|}
 DECL|class|Request
+specifier|public
 specifier|static
 class|class
 name|Request
@@ -1272,6 +1273,7 @@ block|}
 block|}
 block|}
 DECL|class|NodeRequest
+specifier|public
 specifier|static
 class|class
 name|NodeRequest
@@ -1285,6 +1287,7 @@ index|[]
 name|snapshotIds
 decl_stmt|;
 DECL|method|NodeRequest
+specifier|public
 name|NodeRequest
 parameter_list|()
 block|{         }

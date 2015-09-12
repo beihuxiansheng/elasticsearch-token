@@ -385,13 +385,6 @@ parameter_list|)
 throws|throws
 name|Throwable
 block|{
-name|constructor
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 return|return

@@ -2313,7 +2313,7 @@ block|}
 block|}
 block|}
 DECL|class|NodeRequest
-specifier|protected
+specifier|public
 class|class
 name|NodeRequest
 extends|extends
@@ -2340,7 +2340,7 @@ name|Request
 name|indicesLevelRequest
 decl_stmt|;
 DECL|method|NodeRequest
-specifier|protected
+specifier|public
 name|NodeRequest
 parameter_list|()
 block|{         }
