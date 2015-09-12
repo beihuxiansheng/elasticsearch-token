@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|nio
 operator|.
-name|common
+name|charset
 operator|.
-name|base
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -918,7 +916,7 @@ name|os
 argument_list|,
 literal|false
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 operator|.
@@ -998,7 +996,7 @@ operator|.
 name|toBytes
 argument_list|()
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)

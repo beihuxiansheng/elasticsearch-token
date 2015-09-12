@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|nio
 operator|.
-name|common
+name|charset
 operator|.
-name|base
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -105,18 +103,6 @@ operator|.
 name|net
 operator|.
 name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
 import|;
 end_import
 
@@ -776,7 +762,7 @@ literal|"file1"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -814,7 +800,7 @@ literal|"file2"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -935,7 +921,7 @@ literal|"UPDATED"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -1080,6 +1066,12 @@ argument_list|(
 name|file
 argument_list|)
 argument_list|,
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
 name|StandardCharsets
 operator|.
 name|UTF_8
