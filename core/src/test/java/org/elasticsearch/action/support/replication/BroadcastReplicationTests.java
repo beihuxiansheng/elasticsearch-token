@@ -1627,8 +1627,8 @@ argument_list|(
 literal|"test-broadcast-replication-action"
 argument_list|,
 name|BroadcastRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|settings
 argument_list|,

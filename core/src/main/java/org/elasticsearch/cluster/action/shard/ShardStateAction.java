@@ -530,8 +530,8 @@ argument_list|(
 name|SHARD_STARTED_ACTION_NAME
 argument_list|,
 name|ShardRoutingEntry
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -551,8 +551,8 @@ argument_list|(
 name|SHARD_FAILED_ACTION_NAME
 argument_list|,
 name|ShardRoutingEntry
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

@@ -484,12 +484,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|FieldStatsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|FieldStatsShardRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

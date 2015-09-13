@@ -1349,8 +1349,8 @@ argument_list|(
 name|UPDATE_RESTORE_ACTION_NAME
 argument_list|,
 name|UpdateIndexShardRestoreStatusRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

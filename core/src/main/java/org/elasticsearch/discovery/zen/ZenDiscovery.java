@@ -1634,8 +1634,8 @@ argument_list|(
 name|DISCOVERY_REJOIN_ACTION_NAME
 argument_list|,
 name|RejoinClusterRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

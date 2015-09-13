@@ -424,8 +424,8 @@ argument_list|(
 name|ACTION_NAME
 argument_list|,
 name|VerifyNodeRepositoryRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

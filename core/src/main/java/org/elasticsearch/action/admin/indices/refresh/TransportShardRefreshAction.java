@@ -385,12 +385,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|ReplicationRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ReplicationRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

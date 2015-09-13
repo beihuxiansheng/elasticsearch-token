@@ -419,8 +419,8 @@ argument_list|(
 name|MASTER_PING_ACTION_NAME
 argument_list|,
 name|MasterPingRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

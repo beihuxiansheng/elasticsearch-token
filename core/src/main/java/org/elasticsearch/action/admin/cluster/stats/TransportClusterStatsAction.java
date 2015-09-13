@@ -585,12 +585,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|ClusterStatsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ClusterStatsNodeRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

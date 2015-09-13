@@ -575,8 +575,8 @@ argument_list|,
 name|TransportRequest
 operator|.
 name|Empty
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

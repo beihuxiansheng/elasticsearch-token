@@ -367,8 +367,8 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|DeleteWarmerRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 block|}

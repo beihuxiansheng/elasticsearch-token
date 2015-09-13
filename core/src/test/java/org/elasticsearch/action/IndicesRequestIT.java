@@ -1317,6 +1317,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -6072,7 +6084,7 @@ parameter_list|(
 name|String
 name|action
 parameter_list|,
-name|Class
+name|Supplier
 argument_list|<
 name|Request
 argument_list|>
@@ -6128,7 +6140,7 @@ parameter_list|(
 name|String
 name|action
 parameter_list|,
-name|Callable
+name|Supplier
 argument_list|<
 name|Request
 argument_list|>

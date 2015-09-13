@@ -370,6 +370,18 @@ name|CopyOnWriteArrayList
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base class for requests that should be executed on all shards of an index or several indices.  * This action sends shard requests to all primary shards of the indices and they are then replicated like write requests  */
 end_comment
@@ -424,7 +436,7 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
-name|Class
+name|Supplier
 argument_list|<
 name|Request
 argument_list|>

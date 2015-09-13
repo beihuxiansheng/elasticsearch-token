@@ -366,6 +366,18 @@ name|AtomicReferenceArray
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_comment
 comment|/**  * Abstraction for transporting aggregated shard-level operations in a single request (NodeRequest) per-node  * and executing the shard-level operations serially on the receiving node. Each shard-level operation can produce a  * result (ShardOperationResult), these per-node shard-level results are aggregated into a single result  * (BroadcastByNodeResponse) to the coordinating node. These per-node results are aggregated into a single result (Result)  * to the client.  *  * @param<Request>              the underlying client request  * @param<Response>             the response to the client request  * @param<ShardOperationResult> per-shard operation results  */
 end_comment
@@ -439,7 +451,7 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|Class
+name|Supplier
 argument_list|<
 name|Request
 argument_list|>
