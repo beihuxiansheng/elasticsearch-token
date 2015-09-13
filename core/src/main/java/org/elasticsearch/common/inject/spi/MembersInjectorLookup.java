@@ -70,20 +70,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkState
-import|;
-end_import
-
 begin_comment
 comment|/**  * A lookup of the members injector for a type. Lookups are created explicitly in a module using  * {@link org.elasticsearch.common.inject.Binder#getMembersInjector(Class) getMembersInjector()} statements:  *<pre>  *     MembersInjector&lt;PaymentService&gt; membersInjector  *         = getMembersInjector(PaymentService.class);</pre>  *  * @author crazybob@google.com (Bob Lee)  * @since 2.0  */
 end_comment
@@ -229,17 +215,23 @@ argument_list|>
 name|delegate
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|this
 operator|.
 name|delegate
-operator|==
+operator|!=
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"delegate already initialized"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
 name|delegate
@@ -324,15 +316,21 @@ name|T
 name|instance
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|delegate
-operator|!=
+operator|==
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"This MembersInjector cannot be used until the Injector has been created."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|delegate
 operator|.
 name|injectMembers

@@ -73,16 +73,12 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkState
+name|Locale
 import|;
 end_import
 
@@ -161,13 +157,25 @@ name|Object
 name|partialValue
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|this
 operator|.
 name|partialValue
-operator|==
+operator|!=
 literal|null
+condition|)
+block|{
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|Locale
+operator|.
+name|ROOT
 argument_list|,
 literal|"Can't clobber existing partial value %s with %s"
 argument_list|,
@@ -177,7 +185,15 @@ name|partialValue
 argument_list|,
 name|partialValue
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+name|message
+argument_list|)
+throw|;
+block|}
 name|ConfigurationException
 name|result
 init|=

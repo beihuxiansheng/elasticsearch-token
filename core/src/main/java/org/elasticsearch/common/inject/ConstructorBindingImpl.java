@@ -120,20 +120,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkState
-import|;
-end_import
-
 begin_class
 DECL|class|ConstructorBindingImpl
 class|class
@@ -348,17 +334,23 @@ argument_list|>
 name|visitor
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|factory
 operator|.
 name|constructorInjector
-operator|!=
+operator|==
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"not initialized"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|visitor
 operator|.
@@ -376,17 +368,23 @@ name|InjectionPoint
 name|getConstructor
 parameter_list|()
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|factory
 operator|.
 name|constructorInjector
-operator|!=
+operator|==
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"Binding is not ready"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|factory
 operator|.
@@ -410,17 +408,23 @@ argument_list|>
 name|getInjectableMembers
 parameter_list|()
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|factory
 operator|.
 name|constructorInjector
-operator|!=
+operator|==
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"Binding is not ready"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|factory
 operator|.
@@ -588,15 +592,21 @@ parameter_list|)
 throws|throws
 name|ErrorsException
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|constructorInjector
-operator|!=
+operator|==
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"Constructor not ready"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 comment|// This may not actually be safe because it could return a super type of T (if that's all the
 comment|// client needs), but it should be OK in practice thanks to the wonders of erasure.
 return|return

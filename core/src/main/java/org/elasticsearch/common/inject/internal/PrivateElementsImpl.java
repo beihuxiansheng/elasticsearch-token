@@ -160,20 +160,6 @@ name|checkArgument
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkState
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -342,17 +328,23 @@ name|Injector
 name|injector
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|this
 operator|.
 name|injector
-operator|==
+operator|!=
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"injector already initialized"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
 name|injector

@@ -220,20 +220,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Preconditions
-operator|.
-name|checkState
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|internal
@@ -958,15 +944,21 @@ index|[]
 name|args
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|injector
-operator|!=
+operator|==
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"Factories.create() factories cannot be used until they're initialized by Guice."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 specifier|final
 name|Key
 argument_list|<
