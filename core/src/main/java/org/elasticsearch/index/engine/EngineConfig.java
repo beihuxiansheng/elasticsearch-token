@@ -527,7 +527,7 @@ name|INDEX_GC_DELETES_SETTING
 init|=
 literal|"index.gc_deletes"
 decl_stmt|;
-comment|/**      * Index setting to control the initial index buffer size.      * This setting is<b>not</b> realtime updateable.      */
+comment|/**      * Index setting to control the initial index buffer size.  NOTE: this setting is somewhat      * useless, since IndexingMemoryController will take over quickly and partition the      * indices.memory.index_buffer_size for this node across all shards.      *      *<p>This setting is<b>not</b> realtime updateable.      */
 DECL|field|INDEX_BUFFER_SIZE_SETTING
 specifier|public
 specifier|static

@@ -6133,6 +6133,28 @@ name|ByteSizeValue
 name|shardTranslogBufferSize
 parameter_list|)
 block|{
+name|Engine
+name|engine
+init|=
+name|engineUnsafe
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|==
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"updateBufferSize: engine is closed; skipping"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 specifier|final
 name|EngineConfig
 name|config
@@ -6167,16 +6189,8 @@ name|shardIndexingBufferSize
 operator|.
 name|bytes
 argument_list|()
-operator|&&
-name|engineUnsafe
-argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
-comment|// its inactive, make sure we do a refresh / full IW flush in this case, since the memory
-comment|// changes only after a "data" change has happened to the writer
-comment|// the index writer lazily allocates memory and a refresh will clean it all up.
 if|if
 condition|(
 name|shardIndexingBufferSize
@@ -6184,14 +6198,11 @@ operator|==
 name|EngineConfig
 operator|.
 name|INACTIVE_SHARD_INDEXING_BUFFER
-operator|&&
-name|preValue
-operator|!=
-name|EngineConfig
-operator|.
-name|INACTIVE_SHARD_INDEXING_BUFFER
 condition|)
 block|{
+comment|// it's inactive: make sure we do a refresh / full IW flush in this case, since the memory
+comment|// changes only after a "data" change has happened to the writer
+comment|// the index writer lazily allocates memory and a refresh will clean it all up.
 name|logger
 operator|.
 name|debug
@@ -6242,20 +6253,13 @@ name|shardIndexingBufferSize
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|Engine
+comment|// so we push changes these changes down to IndexWriter:
 name|engine
-init|=
-name|engineUnsafe
+operator|.
+name|onSettingsChanged
 argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|engine
-operator|!=
-literal|null
-condition|)
-block|{
+expr_stmt|;
+block|}
 name|engine
 operator|.
 name|getTranslog
@@ -6266,7 +6270,6 @@ argument_list|(
 name|shardTranslogBufferSize
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|markAsInactive
 specifier|public
@@ -7102,6 +7105,13 @@ condition|(
 name|change
 condition|)
 block|{
+name|engine
+argument_list|()
+operator|.
+name|onSettingsChanged
+argument_list|()
+expr_stmt|;
+comment|// TODO: why force a refresh here...?
 name|refresh
 argument_list|(
 literal|"apply settings"

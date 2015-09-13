@@ -351,6 +351,15 @@ argument_list|<
 name|IndexingMemoryController
 argument_list|>
 block|{
+DECL|field|INDEX_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INDEX_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.index_buffer_size"
+decl_stmt|;
 DECL|field|threadPool
 specifier|private
 specifier|final
@@ -493,7 +502,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"indices.memory.index_buffer_size"
+name|INDEX_BUFFER_SIZE_SETTING
 argument_list|,
 literal|"10%"
 argument_list|)
@@ -653,7 +662,7 @@ name|parseBytesSizeValue
 argument_list|(
 name|indexingBufferSetting
 argument_list|,
-literal|null
+name|INDEX_BUFFER_SIZE_SETTING
 argument_list|)
 expr_stmt|;
 block|}
@@ -983,7 +992,7 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using index_buffer_size [{}], with min_shard_index_buffer_size [{}], max_shard_index_buffer_size [{}], shard_inactive_time [{}]"
+literal|"using index_buffer_size [{}], with min_shard_index_buffer_size [{}], max_shard_index_buffer_size [{}], shard_inactive_time [{}], indices.memory.interval [{}]"
 argument_list|,
 name|this
 operator|.
@@ -1000,6 +1009,10 @@ argument_list|,
 name|this
 operator|.
 name|inactiveTime
+argument_list|,
+name|this
+operator|.
+name|interval
 argument_list|)
 expr_stmt|;
 block|}
@@ -1103,23 +1116,9 @@ name|ShardStatusChangeType
 argument_list|>
 name|changes
 init|=
-name|EnumSet
-operator|.
-name|noneOf
-argument_list|(
-name|ShardStatusChangeType
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|changes
-operator|.
-name|addAll
-argument_list|(
 name|purgeDeletedAndClosedShards
 argument_list|()
-argument_list|)
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|List
 argument_list|<
@@ -1167,6 +1166,32 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"ignore EngineClosedException while marking shard [{}][{}] as inactive"
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1175,17 +1200,45 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"ignore FlushNotAllowedException while marking shard [{}][{}] as inactive"
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|index
+argument_list|()
+operator|.
+name|name
+argument_list|()
+argument_list|,
+name|indexShard
+operator|.
+name|shardId
+argument_list|()
+operator|.
+name|id
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 if|if
 condition|(
-operator|!
 name|changes
 operator|.
 name|isEmpty
 argument_list|()
+operator|==
+literal|false
 condition|)
 block|{
+comment|// Something changed: recompute indexing buffers:
 name|calcAndSetShardBuffers
 argument_list|(
 name|activeShards
@@ -1253,7 +1306,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-comment|// not ready to be updated yet.
+comment|// not ready to be updated yet
 continue|continue;
 block|}
 if|if
@@ -1266,7 +1319,7 @@ operator|==
 literal|false
 condition|)
 block|{
-comment|// not relevant for memory related issues.
+comment|// shadow replica doesn't have an indexing buffer
 continue|continue;
 block|}
 specifier|final
@@ -1292,12 +1345,12 @@ name|EngineClosedException
 name|e
 parameter_list|)
 block|{
-comment|// not ready yet to be checked for in activity
+comment|// not ready yet to be checked for activity
 continue|continue;
 block|}
 specifier|final
 name|long
-name|time
+name|timeMS
 init|=
 name|threadPool
 operator|.
@@ -1352,7 +1405,7 @@ name|ADDED
 argument_list|)
 expr_stmt|;
 block|}
-comment|// check if it is deemed to be inactive (sam translogFileGeneration and numberOfOperations over a long period of time)
+comment|// consider shard inactive if it has same translogFileGeneration and no operations for a long time
 if|if
 condition|(
 name|status
@@ -1376,53 +1429,39 @@ if|if
 condition|(
 name|status
 operator|.
-name|time
+name|timeMS
 operator|==
 operator|-
 literal|1
 condition|)
 block|{
-comment|// first time
+comment|// first time we noticed the shard become idle
 name|status
 operator|.
-name|time
+name|timeMS
 operator|=
-name|time
+name|timeMS
 expr_stmt|;
 block|}
-comment|// inactive?
+comment|// mark it as inactive only if enough time has passed
 if|if
 condition|(
 name|status
 operator|.
 name|activeIndexing
-condition|)
-block|{
-comment|// mark it as inactive only if enough time has passed and there are no ongoing merges going on...
-if|if
-condition|(
+operator|&&
 operator|(
-name|time
+name|timeMS
 operator|-
 name|status
 operator|.
-name|time
+name|timeMS
 operator|)
 operator|>
 name|inactiveTime
 operator|.
 name|millis
 argument_list|()
-operator|&&
-name|indexShard
-operator|.
-name|mergeStats
-argument_list|()
-operator|.
-name|getCurrent
-argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 comment|// inactive for this amount of time, mark it
@@ -1482,7 +1521,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
 else|else
 block|{
 if|if
@@ -1537,7 +1575,7 @@ expr_stmt|;
 block|}
 name|status
 operator|.
-name|time
+name|timeMS
 operator|=
 operator|-
 literal|1
@@ -1550,15 +1588,6 @@ operator|=
 name|translog
 operator|.
 name|currentFileGeneration
-argument_list|()
-expr_stmt|;
-name|status
-operator|.
-name|translogNumberOfOperations
-operator|=
-name|translog
-operator|.
-name|totalOperations
 argument_list|()
 expr_stmt|;
 if|if
@@ -1648,11 +1677,7 @@ argument_list|)
 decl_stmt|;
 name|boolean
 name|remove
-init|=
-literal|false
 decl_stmt|;
-try|try
-block|{
 if|if
 condition|(
 name|indexService
@@ -1664,8 +1689,9 @@ name|remove
 operator|=
 literal|true
 expr_stmt|;
-continue|continue;
 block|}
+else|else
+block|{
 name|IndexShard
 name|indexShard
 init|=
@@ -1690,8 +1716,9 @@ name|remove
 operator|=
 literal|true
 expr_stmt|;
-continue|continue;
 block|}
+else|else
+block|{
 name|remove
 operator|=
 operator|!
@@ -1706,8 +1733,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-finally|finally
-block|{
+block|}
 if|if
 condition|(
 name|remove
@@ -1727,7 +1753,6 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 block|}
 return|return
@@ -1753,6 +1778,15 @@ operator|==
 literal|0
 condition|)
 block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"no active shards (reason={})"
+argument_list|,
+name|reason
+argument_list|)
+expr_stmt|;
 return|return;
 block|}
 name|ByteSizeValue
@@ -2022,6 +2056,7 @@ block|,
 name|BECAME_INACTIVE
 block|}
 DECL|class|ShardIndexingStatus
+specifier|private
 specifier|static
 class|class
 name|ShardIndexingStatus
@@ -2033,22 +2068,15 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-DECL|field|translogNumberOfOperations
-name|int
-name|translogNumberOfOperations
-init|=
-operator|-
-literal|1
-decl_stmt|;
 DECL|field|activeIndexing
 name|boolean
 name|activeIndexing
 init|=
 literal|true
 decl_stmt|;
-DECL|field|time
+DECL|field|timeMS
 name|long
-name|time
+name|timeMS
 init|=
 operator|-
 literal|1
