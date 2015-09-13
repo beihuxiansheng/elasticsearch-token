@@ -111,6 +111,7 @@ argument_list|>
 name|scriptContexts
 decl_stmt|;
 DECL|method|ScriptContextRegistry
+specifier|public
 name|ScriptContextRegistry
 parameter_list|(
 name|Iterable

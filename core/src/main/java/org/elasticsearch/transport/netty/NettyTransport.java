@@ -1829,8 +1829,8 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
+comment|// package private for testing
 DECL|field|serverOpenChannels
-specifier|protected
 specifier|volatile
 name|OpenChannelsHandler
 name|serverOpenChannels
