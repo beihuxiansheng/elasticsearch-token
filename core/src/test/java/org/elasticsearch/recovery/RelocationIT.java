@@ -3193,6 +3193,13 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"https://github.com/elastic/elasticsearch/issues/13542"
+argument_list|)
 DECL|method|testMoveShardsWhileRelocation
 specifier|public
 name|void
