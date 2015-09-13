@@ -18,15 +18,11 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
+name|ElasticsearchParseException
 import|;
 end_import
 
@@ -36,7 +32,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ElasticsearchParseException
+name|common
+operator|.
+name|Preconditions
 import|;
 end_import
 

@@ -18,45 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|FuzzyQuery
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|automaton
-operator|.
-name|LevenshteinAutomata
+name|ParseField
 import|;
 end_import
 
@@ -68,7 +36,7 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|ParseField
+name|Preconditions
 import|;
 end_import
 

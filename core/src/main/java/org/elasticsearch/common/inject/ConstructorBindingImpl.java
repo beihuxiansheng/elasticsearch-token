@@ -122,13 +122,11 @@ end_import
 
 begin_import
 import|import static
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
-operator|.
-name|base
 operator|.
 name|Preconditions
 operator|.
