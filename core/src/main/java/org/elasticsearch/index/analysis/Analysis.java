@@ -2118,6 +2118,8 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 name|message
+argument_list|,
+name|ioe
 argument_list|)
 throw|;
 block|}
@@ -2366,6 +2368,8 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 name|message
+argument_list|,
+name|ioe
 argument_list|)
 throw|;
 block|}

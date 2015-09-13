@@ -311,6 +311,20 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
+DECL|method|ElasticsearchException
+specifier|public
+name|ElasticsearchException
+parameter_list|(
+name|Throwable
+name|cause
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message.      *      * The message can be parameterized using<code>{}</code> as placeholders for the given      * arguments      *      * @param msg the detail message      * @param args the arguments for the message      */
 DECL|method|ElasticsearchException
 specifier|public

@@ -553,9 +553,6 @@ operator|new
 name|RuntimeException
 argument_list|(
 name|e
-operator|.
-name|getMessage
-argument_list|()
 argument_list|)
 throw|;
 block|}
@@ -705,9 +702,6 @@ argument_list|(
 name|e
 operator|.
 name|getTargetException
-argument_list|()
-operator|.
-name|getMessage
 argument_list|()
 argument_list|)
 throw|;
