@@ -897,8 +897,8 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+comment|// package private for testing
 DECL|field|serverOpenChannels
-specifier|protected
 name|OpenChannelsHandler
 name|serverOpenChannels
 decl_stmt|;
