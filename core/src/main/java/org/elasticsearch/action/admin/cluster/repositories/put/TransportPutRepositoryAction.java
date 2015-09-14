@@ -278,8 +278,8 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|PutRepositoryRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|this

@@ -329,12 +329,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|NodesStatsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|NodeStatsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

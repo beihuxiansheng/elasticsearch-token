@@ -477,12 +477,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|PercolateRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|PercolateShardRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

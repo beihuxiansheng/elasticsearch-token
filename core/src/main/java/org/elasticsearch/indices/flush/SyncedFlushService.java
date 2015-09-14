@@ -615,8 +615,8 @@ argument_list|(
 name|PRE_SYNCED_FLUSH_ACTION_NAME
 argument_list|,
 name|PreSyncedFlushRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -636,8 +636,8 @@ argument_list|(
 name|SYNCED_FLUSH_ACTION_NAME
 argument_list|,
 name|SyncedFlushRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -657,8 +657,8 @@ argument_list|(
 name|IN_FLIGHT_OPS_ACTION_NAME
 argument_list|,
 name|InFlightOpsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

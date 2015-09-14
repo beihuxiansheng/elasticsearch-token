@@ -359,8 +359,8 @@ argument_list|(
 name|INDEX_DELETED_ACTION_NAME
 argument_list|,
 name|NodeIndexDeletedMessage
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -380,8 +380,8 @@ argument_list|(
 name|INDEX_STORE_DELETED_ACTION_NAME
 argument_list|,
 name|NodeIndexStoreDeletedMessage
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

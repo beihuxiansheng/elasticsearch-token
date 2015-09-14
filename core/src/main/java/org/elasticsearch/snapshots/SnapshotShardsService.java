@@ -827,8 +827,8 @@ argument_list|(
 name|UPDATE_SNAPSHOT_ACTION_NAME
 argument_list|,
 name|UpdateIndexShardSnapshotStatusRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

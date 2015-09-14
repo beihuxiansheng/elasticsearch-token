@@ -356,8 +356,8 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|IndicesSegmentsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

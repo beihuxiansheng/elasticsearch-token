@@ -343,8 +343,8 @@ argument_list|(
 name|DISCOVERY_JOIN_ACTION_NAME
 argument_list|,
 name|JoinRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -364,8 +364,8 @@ argument_list|(
 name|DISCOVERY_JOIN_VALIDATE_ACTION_NAME
 argument_list|,
 name|ValidateJoinRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -385,8 +385,8 @@ argument_list|(
 name|DISCOVERY_LEAVE_ACTION_NAME
 argument_list|,
 name|LeaveRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

@@ -500,12 +500,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|DeleteRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|DeleteRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

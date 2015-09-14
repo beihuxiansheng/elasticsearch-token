@@ -787,8 +787,8 @@ argument_list|(
 name|ACTION_SHARD_EXISTS
 argument_list|,
 name|ShardActiveRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

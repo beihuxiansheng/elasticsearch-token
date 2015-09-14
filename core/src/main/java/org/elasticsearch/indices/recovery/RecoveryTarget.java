@@ -702,8 +702,8 @@ operator|.
 name|FILES_INFO
 argument_list|,
 name|RecoveryFilesInfoRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -725,8 +725,8 @@ operator|.
 name|FILE_CHUNK
 argument_list|,
 name|RecoveryFileChunkRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -748,8 +748,8 @@ operator|.
 name|CLEAN_FILES
 argument_list|,
 name|RecoveryCleanFilesRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -771,8 +771,8 @@ operator|.
 name|PREPARE_TRANSLOG
 argument_list|,
 name|RecoveryPrepareForTranslogOperationsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -794,8 +794,8 @@ operator|.
 name|TRANSLOG_OPS
 argument_list|,
 name|RecoveryTranslogOperationsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -817,8 +817,8 @@ operator|.
 name|FINALIZE
 argument_list|,
 name|RecoveryFinalizeRecoveryRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

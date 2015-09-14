@@ -660,12 +660,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|NodeRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

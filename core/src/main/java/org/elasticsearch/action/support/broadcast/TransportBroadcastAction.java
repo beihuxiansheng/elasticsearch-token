@@ -284,6 +284,18 @@ name|AtomicReferenceArray
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Supplier
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -361,13 +373,13 @@ parameter_list|,
 name|IndexNameExpressionResolver
 name|indexNameExpressionResolver
 parameter_list|,
-name|Class
+name|Supplier
 argument_list|<
 name|Request
 argument_list|>
 name|request
 parameter_list|,
-name|Class
+name|Supplier
 argument_list|<
 name|ShardRequest
 argument_list|>

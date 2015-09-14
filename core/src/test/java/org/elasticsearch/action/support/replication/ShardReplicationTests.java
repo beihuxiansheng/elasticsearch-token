@@ -4441,12 +4441,12 @@ name|EMPTY
 argument_list|)
 argument_list|,
 name|Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
