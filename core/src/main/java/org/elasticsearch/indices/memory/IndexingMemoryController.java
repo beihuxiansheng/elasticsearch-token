@@ -1287,7 +1287,7 @@ block|{
 comment|// ignore
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"ignore EngineClosedException while marking shard [{}][{}] as inactive"
 argument_list|,
@@ -1321,7 +1321,7 @@ block|{
 comment|// ignore
 name|logger
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"ignore FlushNotAllowedException while marking shard [{}][{}] as inactive"
 argument_list|,
