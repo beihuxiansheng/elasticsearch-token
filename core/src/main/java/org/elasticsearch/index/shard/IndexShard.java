@@ -7107,12 +7107,6 @@ operator|.
 name|onSettingsChanged
 argument_list|()
 expr_stmt|;
-comment|// TODO: why force a refresh here...?
-name|refresh
-argument_list|(
-literal|"apply settings"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}

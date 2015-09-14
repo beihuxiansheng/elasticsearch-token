@@ -7309,6 +7309,14 @@ expr_stmt|;
 name|updateIndexWriterSettings
 argument_list|()
 expr_stmt|;
+comment|// config().getVersionMapSize() may have changed:
+name|checkVersionMapRefresh
+argument_list|()
+expr_stmt|;
+comment|// config().isEnableGcDeletes() or config.getGcDeletesInMillis() may have changed:
+name|maybePruneDeletedTombstones
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getMergeStats
 specifier|public
