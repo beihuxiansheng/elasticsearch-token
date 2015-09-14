@@ -82,20 +82,6 @@ name|Collections
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Indicates that there was a runtime failure while providing an instance.  *  * @author kevinb@google.com (Kevin Bourrillion)  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
@@ -141,17 +127,22 @@ argument_list|(
 name|messages
 argument_list|)
 expr_stmt|;
-name|checkArgument
-argument_list|(
-operator|!
+if|if
+condition|(
 name|this
 operator|.
 name|messages
 operator|.
 name|isEmpty
 argument_list|()
-argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|()
+throw|;
+block|}
 name|initCause
 argument_list|(
 name|Errors

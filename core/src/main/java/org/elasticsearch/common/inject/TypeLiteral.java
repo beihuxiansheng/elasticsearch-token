@@ -98,20 +98,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|inject
 operator|.
 name|internal
@@ -1033,24 +1019,29 @@ argument_list|>
 name|supertype
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|supertype
 operator|.
 name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s is not a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|supertype
-argument_list|,
-name|this
-operator|.
+operator|+
+literal|" is not a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|resolve
 argument_list|(
@@ -1080,8 +1071,9 @@ name|Field
 name|field
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|field
 operator|.
 name|getDeclaringClass
@@ -1091,14 +1083,20 @@ name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s is not defined by a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|field
-argument_list|,
+operator|+
+literal|" is not defined by a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|resolve
 argument_list|(
@@ -1144,8 +1142,9 @@ name|Method
 operator|)
 name|methodOrConstructor
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|method
 operator|.
 name|getDeclaringClass
@@ -1155,14 +1154,20 @@ name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s is not defined by a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|method
-argument_list|,
+operator|+
+literal|" is not defined by a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|genericParameterTypes
 operator|=
 name|method
@@ -1187,8 +1192,9 @@ name|Constructor
 operator|)
 name|methodOrConstructor
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|constructor
 operator|.
 name|getDeclaringClass
@@ -1198,14 +1204,20 @@ name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s does not construct a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|constructor
-argument_list|,
+operator|+
+literal|" does not construct a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|genericParameterTypes
 operator|=
 name|constructor
@@ -1268,8 +1280,9 @@ name|Method
 operator|)
 name|methodOrConstructor
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|method
 operator|.
 name|getDeclaringClass
@@ -1279,14 +1292,20 @@ name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s is not defined by a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|method
-argument_list|,
+operator|+
+literal|" is not defined by a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|genericExceptionTypes
 operator|=
 name|method
@@ -1317,8 +1336,9 @@ argument_list|>
 operator|)
 name|methodOrConstructor
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|constructor
 operator|.
 name|getDeclaringClass
@@ -1328,14 +1348,20 @@ name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s does not construct a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|constructor
-argument_list|,
+operator|+
+literal|" does not construct a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|genericExceptionTypes
 operator|=
 name|constructor
@@ -1376,8 +1402,9 @@ name|Method
 name|method
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|method
 operator|.
 name|getDeclaringClass
@@ -1387,14 +1414,20 @@ name|isAssignableFrom
 argument_list|(
 name|rawType
 argument_list|)
-argument_list|,
-literal|"%s is not defined by a supertype of %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|method
-argument_list|,
+operator|+
+literal|" is not defined by a supertype of "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|resolve
 argument_list|(

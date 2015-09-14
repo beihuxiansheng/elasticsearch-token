@@ -146,20 +146,6 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -617,19 +603,25 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|source
-operator|!=
+operator|==
 literal|null
-argument_list|,
-literal|"%s not exposed by %s."
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|key
-argument_list|,
-name|this
+operator|+
+literal|" not exposed by "
+operator|+
+literal|"."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 name|source
 return|;

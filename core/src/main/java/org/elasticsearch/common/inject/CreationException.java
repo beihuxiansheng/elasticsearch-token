@@ -72,20 +72,6 @@ name|Collection
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Thrown when errors occur while creating a {@link Injector}. Includes a list of encountered  * errors. Clients should catch this exception, log it, and stop execution.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -130,17 +116,22 @@ argument_list|(
 name|messages
 argument_list|)
 expr_stmt|;
-name|checkArgument
-argument_list|(
-operator|!
+if|if
+condition|(
 name|this
 operator|.
 name|messages
 operator|.
 name|isEmpty
 argument_list|()
-argument_list|)
-expr_stmt|;
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|()
+throw|;
+block|}
 name|initCause
 argument_list|(
 name|Errors

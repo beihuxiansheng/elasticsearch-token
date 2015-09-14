@@ -162,20 +162,6 @@ name|*
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Exposes elements of a module so they can be inspected, validated or {@link  * Element#applyTo(Binder) rewritten}.  *  * @author jessewilson@google.com (Jesse Wilson)  * @since 2.0  */
 end_comment
@@ -643,8 +629,10 @@ name|SourceProvider
 name|sourceProvider
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|source
 operator|==
 literal|null
@@ -652,8 +640,15 @@ operator|^
 name|sourceProvider
 operator|==
 literal|null
-argument_list|)
-expr_stmt|;
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|()
+throw|;
+block|}
 name|this
 operator|.
 name|stage

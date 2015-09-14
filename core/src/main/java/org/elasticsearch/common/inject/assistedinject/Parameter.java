@@ -68,20 +68,6 @@ name|Type
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Models a method or constructor parameter.  *  * @author jmourits@google.com (Jerome Mourits)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -604,19 +590,27 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|bindingAnnotation
-operator|==
+operator|!=
 literal|null
-argument_list|,
-literal|"Parameter has multiple binding annotations: %s and %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Parameter has multiple binding annotations: "
+operator|+
 name|bindingAnnotation
-argument_list|,
+operator|+
+literal|" and "
+operator|+
 name|a
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|bindingAnnotation
 operator|=
 name|a
