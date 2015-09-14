@@ -1328,10 +1328,6 @@ name|AtomicReference
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|IndexShard
 specifier|public
@@ -6133,28 +6129,6 @@ name|ByteSizeValue
 name|shardTranslogBufferSize
 parameter_list|)
 block|{
-name|Engine
-name|engine
-init|=
-name|engineUnsafe
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|engine
-operator|==
-literal|null
-condition|)
-block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"updateBufferSize: engine is closed; skipping"
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 specifier|final
 name|EngineConfig
 name|config
@@ -6177,6 +6151,28 @@ argument_list|(
 name|shardIndexingBufferSize
 argument_list|)
 expr_stmt|;
+name|Engine
+name|engine
+init|=
+name|engineUnsafe
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|engine
+operator|==
+literal|null
+condition|)
+block|{
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"updateBufferSize: engine is closed; skipping"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// update engine if it is already started.
 if|if
 condition|(
@@ -7827,6 +7823,7 @@ return|return
 name|engine
 return|;
 block|}
+comment|/** NOTE: returns null if engine is not yet started (e.g. recovery phase 1, copying over index files, is still running), or if engine is      *  closed. */
 DECL|method|engineUnsafe
 specifier|protected
 name|Engine
