@@ -713,6 +713,13 @@ name|request
 operator|.
 name|indices
 argument_list|()
+operator|==
+literal|null
+operator|||
+name|request
+operator|.
+name|indices
+argument_list|()
 operator|.
 name|length
 operator|==
@@ -1242,6 +1249,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|request
+operator|.
+name|indices
+argument_list|()
+operator|!=
+literal|null
+operator|&&
 name|request
 operator|.
 name|indices

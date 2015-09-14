@@ -90,24 +90,6 @@ name|query
 operator|.
 name|functionscore
 operator|.
-name|factor
-operator|.
-name|FactorParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|functionscore
-operator|.
 name|fieldvaluefactor
 operator|.
 name|FieldValueFactorFunctionParser
@@ -268,16 +250,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|// build-in parsers
-name|addParser
-argument_list|(
-operator|new
-name|FactorParser
-argument_list|()
-argument_list|,
-name|map
-argument_list|)
-expr_stmt|;
+comment|// built-in parsers
 name|addParser
 argument_list|(
 operator|new

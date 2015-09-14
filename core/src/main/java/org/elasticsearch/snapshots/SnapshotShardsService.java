@@ -2762,7 +2762,7 @@ block|}
 block|}
 comment|/**      * Internal request that is used to send changes in snapshot status to master      */
 DECL|class|UpdateIndexShardSnapshotStatusRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|UpdateIndexShardSnapshotStatusRequest

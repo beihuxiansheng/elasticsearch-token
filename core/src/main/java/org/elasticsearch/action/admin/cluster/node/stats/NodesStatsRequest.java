@@ -168,7 +168,7 @@ name|boolean
 name|script
 decl_stmt|;
 DECL|method|NodesStatsRequest
-specifier|protected
+specifier|public
 name|NodesStatsRequest
 parameter_list|()
 block|{     }

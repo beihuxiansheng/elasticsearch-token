@@ -1880,7 +1880,7 @@ block|}
 block|}
 block|}
 DECL|class|MasterPingRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|MasterPingRequest
@@ -1903,7 +1903,7 @@ name|ClusterName
 name|clusterName
 decl_stmt|;
 DECL|method|MasterPingRequest
-specifier|private
+specifier|public
 name|MasterPingRequest
 parameter_list|()
 block|{         }

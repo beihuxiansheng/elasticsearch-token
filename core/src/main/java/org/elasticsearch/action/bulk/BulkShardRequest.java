@@ -135,6 +135,7 @@ name|boolean
 name|refresh
 decl_stmt|;
 DECL|method|BulkShardRequest
+specifier|public
 name|BulkShardRequest
 parameter_list|()
 block|{     }

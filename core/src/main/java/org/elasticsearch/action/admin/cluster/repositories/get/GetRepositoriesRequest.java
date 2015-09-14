@@ -144,6 +144,7 @@ operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
 DECL|method|GetRepositoriesRequest
+specifier|public
 name|GetRepositoriesRequest
 parameter_list|()
 block|{     }

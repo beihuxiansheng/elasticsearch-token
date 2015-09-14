@@ -106,7 +106,7 @@ name|allocation
 operator|.
 name|decider
 operator|.
-name|DisableAllocationDecider
+name|EnableAllocationDecider
 import|;
 end_import
 
@@ -419,14 +419,14 @@ decl_stmt|;
 name|String
 name|key2
 init|=
-name|DisableAllocationDecider
+name|EnableAllocationDecider
 operator|.
-name|CLUSTER_ROUTING_ALLOCATION_DISABLE_ALLOCATION
+name|CLUSTER_ROUTING_ALLOCATION_ENABLE
 decl_stmt|;
 name|boolean
 name|value2
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|Settings
 name|transientSettings1

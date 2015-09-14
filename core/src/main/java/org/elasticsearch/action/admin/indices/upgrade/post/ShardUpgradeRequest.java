@@ -100,6 +100,7 @@ end_comment
 
 begin_class
 DECL|class|ShardUpgradeRequest
+specifier|public
 specifier|final
 class|class
 name|ShardUpgradeRequest
@@ -116,6 +117,7 @@ name|UpgradeRequest
 argument_list|()
 decl_stmt|;
 DECL|method|ShardUpgradeRequest
+specifier|public
 name|ShardUpgradeRequest
 parameter_list|()
 block|{     }

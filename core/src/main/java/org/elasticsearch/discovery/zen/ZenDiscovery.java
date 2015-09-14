@@ -6028,6 +6028,7 @@ name|rejoinOnMasterGone
 return|;
 block|}
 DECL|class|RejoinClusterRequest
+specifier|public
 specifier|static
 class|class
 name|RejoinClusterRequest
@@ -6054,6 +6055,7 @@ name|fromNodeId
 expr_stmt|;
 block|}
 DECL|method|RejoinClusterRequest
+specifier|public
 name|RejoinClusterRequest
 parameter_list|()
 block|{         }

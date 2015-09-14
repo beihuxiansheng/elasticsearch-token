@@ -298,6 +298,7 @@ name|long
 name|nowInMillis
 decl_stmt|;
 DECL|method|ExistsRequest
+specifier|public
 name|ExistsRequest
 parameter_list|()
 block|{     }

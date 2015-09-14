@@ -328,18 +328,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|bwcompat
-operator|.
-name|OldIndexBackwardsCompatibilityIT
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cluster
 operator|.
 name|metadata
@@ -411,6 +399,20 @@ operator|.
 name|io
 operator|.
 name|FileSystemUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|logging
+operator|.
+name|ESLogger
 import|;
 end_import
 
@@ -2165,6 +2167,8 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+name|logger
 argument_list|)
 argument_list|,
 name|IndexSearcher
@@ -17497,6 +17501,9 @@ name|TranslogHandler
 parameter_list|(
 name|String
 name|indexName
+parameter_list|,
+name|ESLogger
+name|logger
 parameter_list|)
 block|{
 name|super
@@ -17516,6 +17523,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|null
+argument_list|,
+name|logger
 argument_list|)
 expr_stmt|;
 name|Settings

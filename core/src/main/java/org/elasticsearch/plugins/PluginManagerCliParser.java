@@ -204,6 +204,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URLDecoder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Locale
@@ -1272,7 +1282,17 @@ name|println
 argument_list|(
 literal|"-> Installing from "
 operator|+
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
 name|url
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+literal|"UTF-8"
+argument_list|)
 operator|+
 literal|"..."
 argument_list|)

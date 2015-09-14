@@ -91,7 +91,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|BaseNodeRequest
-specifier|protected
+specifier|public
 name|BaseNodeRequest
 parameter_list|()
 block|{      }

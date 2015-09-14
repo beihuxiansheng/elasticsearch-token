@@ -104,6 +104,7 @@ end_comment
 
 begin_class
 DECL|class|RecoveryCleanFilesRequest
+specifier|public
 class|class
 name|RecoveryCleanFilesRequest
 extends|extends
@@ -138,6 +139,7 @@ operator|.
 name|UNKNOWN
 decl_stmt|;
 DECL|method|RecoveryCleanFilesRequest
+specifier|public
 name|RecoveryCleanFilesRequest
 parameter_list|()
 block|{     }

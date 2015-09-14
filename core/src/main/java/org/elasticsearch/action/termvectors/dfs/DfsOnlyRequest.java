@@ -261,6 +261,7 @@ name|long
 name|nowInMillis
 decl_stmt|;
 DECL|method|DfsOnlyRequest
+specifier|public
 name|DfsOnlyRequest
 parameter_list|()
 block|{      }

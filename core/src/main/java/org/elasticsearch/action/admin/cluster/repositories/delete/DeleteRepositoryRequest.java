@@ -127,6 +127,7 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|DeleteRepositoryRequest
+specifier|public
 name|DeleteRepositoryRequest
 parameter_list|()
 block|{     }

@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableMap
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -145,6 +131,16 @@ operator|.
 name|settings
 operator|.
 name|NodeSettingsService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -295,7 +291,7 @@ argument_list|(
 name|settings
 argument_list|)
 expr_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -340,7 +336,7 @@ name|requireMap
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -385,7 +381,7 @@ name|includeMap
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -823,7 +819,7 @@ name|Settings
 name|settings
 parameter_list|)
 block|{
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -862,7 +858,7 @@ name|requireMap
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -901,7 +897,7 @@ name|includeMap
 argument_list|)
 expr_stmt|;
 block|}
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

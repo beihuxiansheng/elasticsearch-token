@@ -4335,6 +4335,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|StringMessageRequest
+specifier|public
 specifier|static
 class|class
 name|StringMessageRequest
@@ -4375,6 +4376,7 @@ name|timeout
 expr_stmt|;
 block|}
 DECL|method|StringMessageRequest
+specifier|public
 name|StringMessageRequest
 parameter_list|()
 block|{         }
@@ -4564,6 +4566,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|Version0Request
+specifier|public
 specifier|static
 class|class
 name|Version0Request
@@ -4632,6 +4635,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|Version1Request
+specifier|public
 specifier|static
 class|class
 name|Version1Request
@@ -6606,7 +6610,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|TestRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|TestRequest

@@ -228,6 +228,7 @@ operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
 DECL|method|DeleteWarmerRequest
+specifier|public
 name|DeleteWarmerRequest
 parameter_list|()
 block|{     }

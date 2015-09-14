@@ -1076,6 +1076,7 @@ literal|false
 return|;
 block|}
 DECL|class|ClusterStatsNodeRequest
+specifier|public
 specifier|static
 class|class
 name|ClusterStatsNodeRequest
@@ -1087,6 +1088,7 @@ name|ClusterStatsRequest
 name|request
 decl_stmt|;
 DECL|method|ClusterStatsNodeRequest
+specifier|public
 name|ClusterStatsNodeRequest
 parameter_list|()
 block|{         }

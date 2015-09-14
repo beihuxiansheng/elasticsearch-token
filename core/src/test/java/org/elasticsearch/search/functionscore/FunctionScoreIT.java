@@ -76,6 +76,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|geo
 operator|.
 name|GeoPoint
@@ -1439,7 +1453,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"6.0 = function score, product of:\n  1.0 = ConstantScore(text_field:value), product of:\n    1.0 = boost\n    1.0 = queryNorm\n  6.0 = min of:\n    6.0 = function score, score mode [multiply]\n      1.0 = function score, product of:\n        1.0 = match filter: *:*\n        1.0 = Function for field geo_point_field:\n          1.0 = exp(-0.5*pow(MIN of: [Math.max(arcDistance([10.0, 20.0](=doc value),[10.0, 20.0](=origin)) - 0.0(=offset), 0)],2.0)/7.213475204444817E11)\n      2.0 = function score, product of:\n        1.0 = match filter: *:*\n        2.0 = product of:\n          1.0 = field value function: ln(doc['double_field'].value * factor=1.0)\n          2.0 = weight\n      3.0 = function score, product of:\n        1.0 = match filter: *:*\n        3.0 = product of:\n          1.0 = script score function, computed with script:\"[script: _index['text_field']['value'].tf(), type: inline, lang: null, params: null]\n            1.0 = _score: \n              1.0 = ConstantScore(text_field:value), product of:\n                1.0 = boost\n                1.0 = queryNorm\n          3.0 = weight\n    3.4028235E38 = maxBoost\n  1.0 = queryBoost\n"
+literal|"6.0 = function score, product of:\n  1.0 = ConstantScore(text_field:value), product of:\n    1.0 = boost\n    1.0 = queryNorm\n  6.0 = min of:\n    6.0 = function score, score mode [multiply]\n      1.0 = function score, product of:\n        1.0 = match filter: *:*\n        1.0 = Function for field geo_point_field:\n          1.0 = exp(-0.5*pow(MIN of: [Math.max(arcDistance([10.0, 20.0](=doc value),[10.0, 20.0](=origin)) - 0.0(=offset), 0)],2.0)/7.213475204444817E11)\n      2.0 = function score, product of:\n        1.0 = match filter: *:*\n        2.0 = product of:\n          1.0 = field value function: ln(doc['double_field'].value * factor=1.0)\n          2.0 = weight\n      3.0 = function score, product of:\n        1.0 = match filter: *:*\n        3.0 = product of:\n          1.0 = script score function, computed with script:\"[script: _index['text_field']['value'].tf(), type: inline, lang: null, params: null]\n            1.0 = _score: \n              1.0 = ConstantScore(text_field:value), product of:\n                1.0 = boost\n                1.0 = queryNorm\n          3.0 = weight\n    3.4028235E38 = maxBoost\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1512,7 +1526,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"4.0 = function score, product of:\n  1.0 = ConstantScore(text_field:value), product of:\n    1.0 = boost\n    1.0 = queryNorm\n  4.0 = min of:\n    4.0 = product of:\n      1.0 = constant score 1.0 - no function provided\n      4.0 = weight\n    3.4028235E38 = maxBoost\n  1.0 = queryBoost\n"
+literal|"4.0 = function score, product of:\n  1.0 = ConstantScore(text_field:value), product of:\n    1.0 = boost\n    1.0 = queryNorm\n  4.0 = min of:\n    4.0 = product of:\n      1.0 = constant score 1.0 - no function provided\n      4.0 = weight\n    3.4028235E38 = maxBoost\n"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2862,7 +2876,11 @@ argument_list|()
 operator|.
 name|source
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|query
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
@@ -2944,7 +2962,11 @@ argument_list|()
 operator|.
 name|source
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 name|query
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

@@ -173,6 +173,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -534,9 +548,7 @@ name|putWarmerRequest
 argument_list|,
 operator|new
 name|AcknowledgedRestListener
-argument_list|<
-name|PutWarmerResponse
-argument_list|>
+argument_list|<>
 argument_list|(
 name|channel
 argument_list|)

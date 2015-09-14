@@ -188,7 +188,7 @@ name|inputStream
 init|=
 name|blobContainer
 operator|.
-name|openInput
+name|readBlob
 argument_list|(
 name|blobName
 argument_list|)

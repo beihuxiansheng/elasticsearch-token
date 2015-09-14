@@ -105,7 +105,7 @@ block|{
 annotation|@
 name|Inject
 DECL|method|AzureStorageSettingsFilter
-specifier|protected
+specifier|public
 name|AzureStorageSettingsFilter
 parameter_list|(
 name|Settings

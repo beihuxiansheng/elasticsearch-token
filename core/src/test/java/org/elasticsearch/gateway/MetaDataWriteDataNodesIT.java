@@ -424,7 +424,9 @@ operator|.
 name|EMPTY
 argument_list|)
 decl_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -436,7 +438,9 @@ operator|.
 name|startDataOnlyNodeAsync
 argument_list|()
 decl_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>

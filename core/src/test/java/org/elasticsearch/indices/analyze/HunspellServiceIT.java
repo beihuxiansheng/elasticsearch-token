@@ -141,18 +141,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|reflect
-operator|.
-name|Field
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -656,7 +644,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: open up a getter on Dictionary
+comment|// TODO: on next upgrade of lucene, just use new getter
 DECL|method|assertIgnoreCase
 specifier|private
 name|void
@@ -671,37 +659,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Field
-name|f
-init|=
-name|Dictionary
-operator|.
-name|class
-operator|.
-name|getDeclaredField
-argument_list|(
-literal|"ignoreCase"
-argument_list|)
-decl_stmt|;
-name|f
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-name|expected
-argument_list|,
-name|f
-operator|.
-name|getBoolean
-argument_list|(
-name|dictionary
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// assertEquals(expected, dictionary.getIgnoreCase());
 block|}
 block|}
 end_class

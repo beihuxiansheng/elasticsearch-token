@@ -174,6 +174,7 @@ name|strictExpandOpen
 argument_list|()
 decl_stmt|;
 DECL|method|TypesExistsRequest
+specifier|public
 name|TypesExistsRequest
 parameter_list|()
 block|{     }

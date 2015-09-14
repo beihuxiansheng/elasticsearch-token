@@ -224,6 +224,7 @@ name|BytesReference
 name|suggestSource
 decl_stmt|;
 DECL|method|SuggestRequest
+specifier|public
 name|SuggestRequest
 parameter_list|()
 block|{     }

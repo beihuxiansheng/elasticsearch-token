@@ -5950,7 +5950,9 @@ literal|1
 argument_list|)
 expr_stmt|;
 comment|// we could probably write a test without a dedicated master node but it is easier if we use one
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -5963,7 +5965,9 @@ name|startMasterOnlyNodeAsync
 argument_list|()
 decl_stmt|;
 comment|// node_1 will have the shard in the beginning
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -7195,7 +7199,9 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -7207,7 +7213,9 @@ operator|.
 name|startMasterOnlyNodeAsync
 argument_list|()
 decl_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -7289,7 +7297,9 @@ argument_list|(
 literal|"test"
 argument_list|)
 expr_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -7702,7 +7712,9 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|List
 argument_list|<
@@ -7719,7 +7731,9 @@ argument_list|(
 literal|2
 argument_list|)
 decl_stmt|;
-name|Future
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
