@@ -44,20 +44,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|UnmodifiableIterator
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -325,7 +311,7 @@ annotation|@
 name|Override
 DECL|method|iterator
 specifier|public
-name|UnmodifiableIterator
+name|Iterator
 argument_list|<
 name|IndexRoutingTable
 argument_list|>

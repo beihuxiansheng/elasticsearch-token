@@ -22,20 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ObjectArrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -93,6 +79,20 @@ operator|.
 name|stream
 operator|.
 name|StreamOutput
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|ArrayUtils
 import|;
 end_import
 
@@ -633,11 +633,11 @@ block|{
 return|return
 name|features
 argument_list|(
-name|ObjectArrays
+name|ArrayUtils
 operator|.
 name|concat
 argument_list|(
-name|featuresAsEnums
+name|features
 argument_list|()
 argument_list|,
 name|features
