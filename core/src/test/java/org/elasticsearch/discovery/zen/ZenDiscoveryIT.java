@@ -1629,7 +1629,7 @@ name|node
 argument_list|,
 name|PublishClusterStateAction
 operator|.
-name|ACTION_NAME
+name|SEND_ACTION_NAME
 argument_list|,
 operator|new
 name|BytesTransportRequest
