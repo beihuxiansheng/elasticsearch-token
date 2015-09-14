@@ -6187,6 +6187,12 @@ name|bytes
 argument_list|()
 condition|)
 block|{
+comment|// so we push changes these changes down to IndexWriter:
+name|engine
+operator|.
+name|onSettingsChanged
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|shardIndexingBufferSize
@@ -6249,12 +6255,6 @@ name|shardIndexingBufferSize
 argument_list|)
 expr_stmt|;
 block|}
-comment|// so we push changes these changes down to IndexWriter:
-name|engine
-operator|.
-name|onSettingsChanged
-argument_list|()
-expr_stmt|;
 block|}
 name|engine
 operator|.
