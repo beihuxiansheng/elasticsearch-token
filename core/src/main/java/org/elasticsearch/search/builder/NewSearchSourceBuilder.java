@@ -1019,62 +1019,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// NOCOMMIT Do we need these methods?
-comment|// /**
-comment|// * Constructs a new search source builder with a raw search query.
-comment|// */
-comment|// public NewSearchSourceBuilder query(byte[] queryBinary) {
-comment|// return query(queryBinary, 0, queryBinary.length);
-comment|// }
-comment|//
-comment|// /**
-comment|// * Constructs a new search source builder with a raw search query.
-comment|// */
-comment|// public NewSearchSourceBuilder query(byte[] queryBinary, int
-comment|// queryBinaryOffset, int queryBinaryLength) {
-comment|// return query(new BytesArray(queryBinary, queryBinaryOffset,
-comment|// queryBinaryLength));
-comment|// }
-comment|// /**
-comment|// * Constructs a new search source builder with a raw search query.
-comment|// */
-comment|// public NewSearchSourceBuilder query(BytesReference queryBinary) {
-comment|// if (this.queryBuilder == null) {
-comment|// this.queryBuilder = new QuerySourceBuilder();
-comment|// }
-comment|// this.queryBuilder.setQuery(queryBinary);
-comment|// return this;
-comment|// }
-comment|//
-comment|// /**
-comment|// * Constructs a new search source builder with a raw search query.
-comment|// */
-comment|// public NewSearchSourceBuilder query(String queryString) {
-comment|// return query(queryString.getBytes(Charsets.UTF_8));
-comment|// }
-comment|//
-comment|// /**
-comment|// * Constructs a new search source builder with a query from a builder.
-comment|// */
-comment|// public NewSearchSourceBuilder query(XContentBuilder query) {
-comment|// return query(query.bytes());
-comment|// }
-comment|//
-comment|// /**
-comment|// * Constructs a new search source builder with a query from a map.
-comment|// */
-comment|// @SuppressWarnings("unchecked")
-comment|// public NewSearchSourceBuilder query(Map query) {
-comment|// try {
-comment|// XContentBuilder builder =
-comment|// XContentFactory.contentBuilder(Requests.CONTENT_TYPE);
-comment|// builder.map(query);
-comment|// return query(builder);
-comment|// } catch (IOException e) {
-comment|// throw new ElasticsearchGenerationException("Failed to generate [" + query
-comment|// + "]", e);
-comment|// }
-comment|// }
 comment|/**      * Sets a filter that will be executed after the query has been executed and      * only has affect on the search hits (not aggregations). This filter is      * always executed as last filtering mechanism.      */
 DECL|method|postFilter
 specifier|public
@@ -1098,69 +1042,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// NOCOMMIT do we need these methods?
-comment|// /**
-comment|// * Sets a filter on the query executed that only applies to the search
-comment|// query
-comment|// * (and not aggs for example).
-comment|// */
-comment|// public NewSearchSourceBuilder postFilter(String postFilterString) {
-comment|// return postFilter(postFilterString.getBytes(Charsets.UTF_8));
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a filter on the query executed that only applies to the search
-comment|// query
-comment|// * (and not aggs for example).
-comment|// */
-comment|// public NewSearchSourceBuilder postFilter(byte[] postFilter) {
-comment|// return postFilter(postFilter, 0, postFilter.length);
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a filter on the query executed that only applies to the search
-comment|// query
-comment|// * (and not aggs for example).
-comment|// */
-comment|// public NewSearchSourceBuilder postFilter(byte[] postFilterBinary, int
-comment|// postFilterBinaryOffset, int postFilterBinaryLength) {
-comment|// return postFilter(new BytesArray(postFilterBinary,
-comment|// postFilterBinaryOffset, postFilterBinaryLength));
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a filter on the query executed that only applies to the search
-comment|// query
-comment|// * (and not aggs for example).
-comment|// */
-comment|// public NewSearchSourceBuilder postFilter(BytesReference postFilterBinary)
-comment|// {
-comment|// this.filterBinary = postFilterBinary;
-comment|// return this;
-comment|// }
-comment|//
-comment|// /**
-comment|// * Constructs a new search source builder with a query from a builder.
-comment|// */
-comment|// public NewSearchSourceBuilder postFilter(XContentBuilder postFilter) {
-comment|// return postFilter(postFilter.bytes());
-comment|// }
-comment|//
-comment|// /**
-comment|// * Constructs a new search source builder with a query from a map.
-comment|// */
-comment|// @SuppressWarnings("unchecked")
-comment|// public NewSearchSourceBuilder postFilter(Map postFilter) {
-comment|// try {
-comment|// XContentBuilder builder =
-comment|// XContentFactory.contentBuilder(Requests.CONTENT_TYPE);
-comment|// builder.map(postFilter);
-comment|// return postFilter(builder);
-comment|// } catch (IOException e) {
-comment|// throw new ElasticsearchGenerationException("Failed to generate [" +
-comment|// postFilter + "]", e);
-comment|// }
-comment|// }
 comment|/**      * From index to start the search from. Defaults to<tt>0</tt>.      */
 DECL|method|from
 specifier|public
@@ -1549,54 +1430,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// NOCOMMIT do we need these methods?
-comment|// /**
-comment|// * Sets a raw (xcontent / json) addAggregation.
-comment|// */
-comment|// public NewSearchSourceBuilder aggregations(byte[] aggregationsBinary) {
-comment|// return aggregations(aggregationsBinary, 0, aggregationsBinary.length);
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a raw (xcontent / json) addAggregation.
-comment|// */
-comment|// public NewSearchSourceBuilder aggregations(byte[] aggregationsBinary, int
-comment|// aggregationsBinaryOffset, int aggregationsBinaryLength) {
-comment|// return aggregations(new BytesArray(aggregationsBinary,
-comment|// aggregationsBinaryOffset, aggregationsBinaryLength));
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a raw (xcontent / json) addAggregation.
-comment|// */
-comment|// public NewSearchSourceBuilder aggregations(BytesReference
-comment|// aggregationsBinary) {
-comment|// this.aggregationsBinary = aggregationsBinary;
-comment|// return this;
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a raw (xcontent / json) addAggregation.
-comment|// */
-comment|// public NewSearchSourceBuilder aggregations(XContentBuilder aggs) {
-comment|// return aggregations(aggs.bytes());
-comment|// }
-comment|//
-comment|// /**
-comment|// * Sets a raw (xcontent / json) addAggregation.
-comment|// */
-comment|// @SuppressWarnings("unchecked")
-comment|// public NewSearchSourceBuilder aggregations(Map aggregations) {
-comment|// try {
-comment|// XContentBuilder builder =
-comment|// XContentFactory.contentBuilder(Requests.CONTENT_TYPE);
-comment|// builder.map(aggregations);
-comment|// return aggregations(builder);
-comment|// } catch (IOException e) {
-comment|// throw new ElasticsearchGenerationException("Failed to generate [" +
-comment|// aggregations + "]", e);
-comment|// }
-comment|// }
 comment|/**      * Set the rescore window size for rescores that don't specify their window.      */
 DECL|method|defaultRescoreWindowSize
 specifier|public
@@ -1617,13 +1450,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// NOCOMMIT do we need this?
-comment|// public HighlightBuilder highlighter() {
-comment|// if (highlightBuilder == null) {
-comment|// highlightBuilder = new HighlightBuilder();
-comment|// }
-comment|// return highlightBuilder;
-comment|// }
 comment|/**      * Adds highlight to perform as part of the search.      */
 DECL|method|highlight
 specifier|public
@@ -1666,13 +1492,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// NOCOMMIT do we need this?
-comment|// public InnerHitsBuilder innerHitsBuilder() {
-comment|// if (innerHitsBuilder == null) {
-comment|// innerHitsBuilder = new InnerHitsBuilder();
-comment|// }
-comment|// return innerHitsBuilder;
-comment|// }
 DECL|method|innerHits
 specifier|public
 name|NewSearchSourceBuilder
@@ -1714,13 +1533,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// NOCOMMIT do we need this?
-comment|// public SuggestBuilder suggest() {
-comment|// if (suggestBuilder == null) {
-comment|// suggestBuilder = new SuggestBuilder("suggest");
-comment|// }
-comment|// return suggestBuilder;
-comment|// }
 DECL|method|suggest
 specifier|public
 name|NewSearchSourceBuilder
@@ -3958,15 +3770,6 @@ name|postQueryBuilder
 argument_list|)
 expr_stmt|;
 block|}
-comment|// NOCOMMIT do we need this?
-comment|// if (filterBinary != null) {
-comment|// if (XContentFactory.xContentType(filterBinary) ==
-comment|// builder.contentType()) {
-comment|// builder.rawField("filter", filterBinary);
-comment|// } else {
-comment|// builder.field("filter_binary", filterBinary);
-comment|// }
-comment|// }
 if|if
 condition|(
 name|minScore
@@ -4419,15 +4222,6 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-comment|// NOCOMMIT do we need this?
-comment|// if (aggregationsBinary != null) {
-comment|// if (XContentFactory.xContentType(aggregationsBinary) ==
-comment|// builder.contentType()) {
-comment|// builder.rawField("aggregations", aggregationsBinary);
-comment|// } else {
-comment|// builder.field("aggregations_binary", aggregationsBinary);
-comment|// }
-comment|// }
 if|if
 condition|(
 name|highlightBuilder
