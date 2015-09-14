@@ -60,9 +60,8 @@ name|void
 name|setup
 parameter_list|()
 block|{
-name|FileSystem
-name|mock
-init|=
+name|installMock
+argument_list|(
 name|LuceneTestCase
 operator|.
 name|getBaseTempDirForTestClass
@@ -70,7 +69,20 @@ argument_list|()
 operator|.
 name|getFileSystem
 argument_list|()
-decl_stmt|;
+argument_list|)
+expr_stmt|;
+block|}
+comment|/** Installs a mock filesystem for testing */
+DECL|method|installMock
+specifier|public
+specifier|static
+name|void
+name|installMock
+parameter_list|(
+name|FileSystem
+name|mock
+parameter_list|)
+block|{
 name|PathUtils
 operator|.
 name|DEFAULT
