@@ -946,7 +946,7 @@ literal|"["
 operator|+
 name|NAME
 operator|+
-literal|"] no mapping for for type ["
+literal|"] no mapping found for type ["
 operator|+
 name|type
 operator|+

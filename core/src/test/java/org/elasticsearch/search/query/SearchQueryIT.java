@@ -18560,13 +18560,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/12822"
-argument_list|)
-annotation|@
 name|Test
 comment|// https://github.com/elasticsearch/elasticsearch/issues/2416
 DECL|method|testIndicesQuerySkipParsing
@@ -18786,7 +18779,7 @@ argument_list|()
 argument_list|,
 name|containsString
 argument_list|(
-literal|"No mapping for for type [child]"
+literal|"no mapping found for type [child]"
 argument_list|)
 argument_list|)
 expr_stmt|;
