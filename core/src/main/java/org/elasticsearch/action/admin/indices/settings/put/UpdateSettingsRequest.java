@@ -309,6 +309,7 @@ init|=
 name|EMPTY_SETTINGS
 decl_stmt|;
 DECL|method|UpdateSettingsRequest
+specifier|public
 name|UpdateSettingsRequest
 parameter_list|()
 block|{     }

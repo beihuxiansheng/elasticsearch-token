@@ -244,6 +244,7 @@ operator|.
 name|DEFAULT_ACK_TIMEOUT
 decl_stmt|;
 DECL|method|DeleteIndexRequest
+specifier|public
 name|DeleteIndexRequest
 parameter_list|()
 block|{     }

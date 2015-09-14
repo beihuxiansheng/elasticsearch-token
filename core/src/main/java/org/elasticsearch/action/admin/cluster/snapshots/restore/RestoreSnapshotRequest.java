@@ -444,6 +444,7 @@ operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
 DECL|method|RestoreSnapshotRequest
+specifier|public
 name|RestoreSnapshotRequest
 parameter_list|()
 block|{     }
@@ -1832,6 +1833,18 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|IndicesOptions
+operator|.
+name|isIndicesOptions
+argument_list|(
+name|name
+argument_list|)
+operator|==
+literal|false
+condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -1841,6 +1854,7 @@ operator|+
 name|name
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 name|indicesOptions

@@ -127,6 +127,7 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|VerifyRepositoryRequest
+specifier|public
 name|VerifyRepositoryRequest
 parameter_list|()
 block|{     }

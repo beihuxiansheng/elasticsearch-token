@@ -348,8 +348,8 @@ argument_list|(
 name|PING_ACTION_NAME
 argument_list|,
 name|PingRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1310,6 +1310,7 @@ operator|.
 name|UNKNOWN_VERSION
 decl_stmt|;
 DECL|method|PingRequest
+specifier|public
 name|PingRequest
 parameter_list|()
 block|{         }

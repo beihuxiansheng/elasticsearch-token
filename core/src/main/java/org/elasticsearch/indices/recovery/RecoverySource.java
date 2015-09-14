@@ -498,8 +498,8 @@ operator|.
 name|START_RECOVERY
 argument_list|,
 name|StartRecoveryRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

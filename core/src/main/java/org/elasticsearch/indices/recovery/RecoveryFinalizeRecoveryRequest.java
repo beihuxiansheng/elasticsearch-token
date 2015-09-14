@@ -90,6 +90,7 @@ end_comment
 
 begin_class
 DECL|class|RecoveryFinalizeRecoveryRequest
+specifier|public
 class|class
 name|RecoveryFinalizeRecoveryRequest
 extends|extends
@@ -106,6 +107,7 @@ name|ShardId
 name|shardId
 decl_stmt|;
 DECL|method|RecoveryFinalizeRecoveryRequest
+specifier|public
 name|RecoveryFinalizeRecoveryRequest
 parameter_list|()
 block|{     }

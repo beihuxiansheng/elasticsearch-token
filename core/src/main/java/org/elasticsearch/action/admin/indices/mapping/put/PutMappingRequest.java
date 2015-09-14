@@ -317,6 +317,7 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|PutMappingRequest
+specifier|public
 name|PutMappingRequest
 parameter_list|()
 block|{     }

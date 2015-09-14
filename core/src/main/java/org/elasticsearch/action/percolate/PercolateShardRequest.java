@@ -157,6 +157,7 @@ name|long
 name|startTime
 decl_stmt|;
 DECL|method|PercolateShardRequest
+specifier|public
 name|PercolateShardRequest
 parameter_list|()
 block|{     }

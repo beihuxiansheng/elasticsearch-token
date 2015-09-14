@@ -477,8 +477,8 @@ argument_list|(
 literal|"benchmark"
 argument_list|,
 name|BenchmarkMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

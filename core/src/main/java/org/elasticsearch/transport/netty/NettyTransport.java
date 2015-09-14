@@ -18,15 +18,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|nio
 operator|.
-name|common
+name|charset
 operator|.
-name|base
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -1829,8 +1827,8 @@ specifier|final
 name|ThreadPool
 name|threadPool
 decl_stmt|;
+comment|// package private for testing
 DECL|field|serverOpenChannels
-specifier|protected
 specifier|volatile
 name|OpenChannelsHandler
 name|serverOpenChannels
@@ -5671,7 +5669,7 @@ argument_list|()
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)

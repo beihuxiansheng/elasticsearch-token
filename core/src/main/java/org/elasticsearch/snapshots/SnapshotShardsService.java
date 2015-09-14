@@ -827,8 +827,8 @@ argument_list|(
 name|UPDATE_SNAPSHOT_ACTION_NAME
 argument_list|,
 name|UpdateIndexShardSnapshotStatusRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2762,7 +2762,7 @@ block|}
 block|}
 comment|/**      * Internal request that is used to send changes in snapshot status to master      */
 DECL|class|UpdateIndexShardSnapshotStatusRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|UpdateIndexShardSnapshotStatusRequest

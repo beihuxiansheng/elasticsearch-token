@@ -585,12 +585,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|ClusterStatsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ClusterStatsNodeRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1076,6 +1076,7 @@ literal|false
 return|;
 block|}
 DECL|class|ClusterStatsNodeRequest
+specifier|public
 specifier|static
 class|class
 name|ClusterStatsNodeRequest
@@ -1087,6 +1088,7 @@ name|ClusterStatsRequest
 name|request
 decl_stmt|;
 DECL|method|ClusterStatsNodeRequest
+specifier|public
 name|ClusterStatsNodeRequest
 parameter_list|()
 block|{         }

@@ -250,15 +250,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO: once java 9 is sorted out make these hard checks (currently 9-ea and 9-ea-jigsaw will differ)
-if|if
-condition|(
-operator|!
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
 name|assertThat
 argument_list|(
 name|stats
@@ -285,7 +276,6 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|ProcessStats
 operator|.
@@ -342,15 +332,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// CPU time can return -1 if the the platform does not support this operation, let's see which platforms fail
-if|if
-condition|(
-operator|!
-name|Constants
-operator|.
-name|JRE_IS_MINIMUM_JAVA9
-condition|)
-block|{
-comment|// TODO: once java 9 is sorted out make these hard checks (currently 9-ea and 9-ea-jigsaw will differ)
 name|assertThat
 argument_list|(
 name|cpu
@@ -391,7 +372,6 @@ literal|0L
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 end_class

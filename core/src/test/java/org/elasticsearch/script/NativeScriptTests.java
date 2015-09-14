@@ -725,6 +725,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|MyNativeScriptFactory
+specifier|public
 specifier|static
 class|class
 name|MyNativeScriptFactory

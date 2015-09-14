@@ -181,6 +181,7 @@ argument_list|>
 name|versions
 decl_stmt|;
 DECL|method|UpgradeSettingsRequest
+specifier|public
 name|UpgradeSettingsRequest
 parameter_list|()
 block|{     }

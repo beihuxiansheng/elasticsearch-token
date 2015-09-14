@@ -161,6 +161,7 @@ literal|true
 decl_stmt|;
 comment|// for serialization
 DECL|method|NodesHotThreadsRequest
+specifier|public
 name|NodesHotThreadsRequest
 parameter_list|()
 block|{      }

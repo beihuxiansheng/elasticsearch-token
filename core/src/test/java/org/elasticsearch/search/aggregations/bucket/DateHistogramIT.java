@@ -452,23 +452,7 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|assertAcked
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|test
-operator|.
-name|hamcrest
-operator|.
-name|ElasticsearchAssertions
-operator|.
-name|assertSearchResponse
+name|*
 import|;
 end_import
 
@@ -5822,7 +5806,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The script will change to document date values to the following:      *      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
+comment|/**      * The script will change to document date values to the following:      *<p/>      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
 annotation|@
 name|Test
 DECL|method|multiValuedField_WithValueScript
@@ -6285,7 +6269,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The script will change to document date values to the following:      *      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      *      */
+comment|/**      * The script will change to document date values to the following:      *<p/>      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
 annotation|@
 name|Test
 DECL|method|multiValuedField_WithValueScript_WithInheritedSubAggregator
@@ -11553,20 +11537,19 @@ operator|.
 name|actionGet
 argument_list|()
 decl_stmt|;
-name|assertThat
+name|assertSearchHits
 argument_list|(
 name|response
-operator|.
-name|getHits
-argument_list|()
-operator|.
-name|getTotalHits
-argument_list|()
 argument_list|,
-name|equalTo
-argument_list|(
-literal|5l
-argument_list|)
+literal|"0"
+argument_list|,
+literal|"1"
+argument_list|,
+literal|"2"
+argument_list|,
+literal|"3"
+argument_list|,
+literal|"4"
 argument_list|)
 expr_stmt|;
 name|Histogram

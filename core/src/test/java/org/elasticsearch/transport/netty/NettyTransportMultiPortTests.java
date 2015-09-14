@@ -30,15 +30,13 @@ end_import
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|nio
 operator|.
-name|common
+name|charset
 operator|.
-name|base
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -1478,7 +1476,7 @@ literal|"foo"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -502,7 +488,7 @@ name|boolean
 name|checkClusterUniqueSettings
 parameter_list|)
 block|{
-name|ImmutableSet
+name|Set
 argument_list|<
 name|Map
 operator|.

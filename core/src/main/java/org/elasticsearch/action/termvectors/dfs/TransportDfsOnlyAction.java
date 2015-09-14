@@ -462,12 +462,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|DfsOnlyRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ShardDfsOnlyRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

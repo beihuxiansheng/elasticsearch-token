@@ -64,6 +64,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -467,6 +481,9 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{\"query\": {\"match_all\": {}},"
 operator|+
 literal|"\"sort\":{\"_script\": {\"script\": \""
@@ -474,6 +491,7 @@ operator|+
 name|script
 operator|+
 literal|"; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}"
+argument_list|)
 argument_list|)
 operator|.
 name|get
@@ -555,6 +573,9 @@ argument_list|)
 operator|.
 name|setSource
 argument_list|(
+operator|new
+name|BytesArray
+argument_list|(
 literal|"{\"query\": {\"match_all\": {}},"
 operator|+
 literal|"\"sort\":{\"_script\": {\"script\": \""
@@ -562,6 +583,7 @@ operator|+
 name|script
 operator|+
 literal|"; doc['foo'].value + 2\", \"type\": \"number\", \"lang\": \"groovy\"}}}"
+argument_list|)
 argument_list|)
 operator|.
 name|get

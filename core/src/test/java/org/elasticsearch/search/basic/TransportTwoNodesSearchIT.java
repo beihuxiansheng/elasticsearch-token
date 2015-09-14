@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Charsets
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -91,6 +77,20 @@ operator|.
 name|client
 operator|.
 name|Requests
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|bytes
+operator|.
+name|BytesArray
 import|;
 end_import
 
@@ -2818,9 +2818,6 @@ operator|.
 name|setSource
 argument_list|(
 name|source
-operator|.
-name|buildAsBytes
-argument_list|()
 argument_list|)
 operator|.
 name|get
@@ -3333,13 +3330,10 @@ argument_list|)
 operator|.
 name|source
 argument_list|(
-literal|"{ xxx }"
-operator|.
-name|getBytes
+operator|new
+name|BytesArray
 argument_list|(
-name|Charsets
-operator|.
-name|UTF_8
+literal|"{ xxx }"
 argument_list|)
 argument_list|)
 argument_list|)

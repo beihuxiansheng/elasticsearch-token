@@ -123,9 +123,8 @@ operator|.
 name|getDefault
 argument_list|()
 decl_stmt|;
-comment|/** can be changed by tests (via reflection) */
+comment|/** can be changed by tests */
 DECL|field|DEFAULT
-specifier|private
 specifier|static
 specifier|volatile
 name|FileSystem

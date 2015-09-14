@@ -524,8 +524,8 @@ argument_list|(
 name|FREE_CONTEXT_SCROLL_ACTION_NAME
 argument_list|,
 name|ScrollFreeContextRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -546,8 +546,8 @@ argument_list|(
 name|FREE_CONTEXT_ACTION_NAME
 argument_list|,
 name|SearchFreeContextRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -570,8 +570,8 @@ argument_list|(
 name|CLEAR_SCROLL_CONTEXTS_ACTION_NAME
 argument_list|,
 name|ClearScrollContextsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -591,8 +591,8 @@ argument_list|(
 name|DFS_ACTION_NAME
 argument_list|,
 name|ShardSearchTransportRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -612,8 +612,8 @@ argument_list|(
 name|QUERY_ACTION_NAME
 argument_list|,
 name|ShardSearchTransportRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -633,8 +633,8 @@ argument_list|(
 name|QUERY_ID_ACTION_NAME
 argument_list|,
 name|QuerySearchRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -654,8 +654,8 @@ argument_list|(
 name|QUERY_SCROLL_ACTION_NAME
 argument_list|,
 name|InternalScrollSearchRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -675,8 +675,8 @@ argument_list|(
 name|QUERY_FETCH_ACTION_NAME
 argument_list|,
 name|ShardSearchTransportRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -696,8 +696,8 @@ argument_list|(
 name|QUERY_QUERY_FETCH_ACTION_NAME
 argument_list|,
 name|QuerySearchRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -717,8 +717,8 @@ argument_list|(
 name|QUERY_FETCH_SCROLL_ACTION_NAME
 argument_list|,
 name|InternalScrollSearchRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -738,8 +738,8 @@ argument_list|(
 name|FETCH_ID_SCROLL_ACTION_NAME
 argument_list|,
 name|ShardFetchRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -760,8 +760,8 @@ argument_list|(
 name|FETCH_ID_ACTION_NAME
 argument_list|,
 name|ShardFetchSearchRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1506,6 +1506,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|ScrollFreeContextRequest
+specifier|public
 specifier|static
 class|class
 name|ScrollFreeContextRequest
@@ -1518,6 +1519,7 @@ name|long
 name|id
 decl_stmt|;
 DECL|method|ScrollFreeContextRequest
+specifier|public
 name|ScrollFreeContextRequest
 parameter_list|()
 block|{         }
@@ -1635,6 +1637,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|SearchFreeContextRequest
+specifier|public
 specifier|static
 class|class
 name|SearchFreeContextRequest
@@ -1649,6 +1652,7 @@ name|OriginalIndices
 name|originalIndices
 decl_stmt|;
 DECL|method|SearchFreeContextRequest
+specifier|public
 name|SearchFreeContextRequest
 parameter_list|()
 block|{         }
@@ -1949,6 +1953,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|ClearScrollContextsRequest
+specifier|public
 specifier|static
 class|class
 name|ClearScrollContextsRequest
@@ -1956,6 +1961,7 @@ extends|extends
 name|TransportRequest
 block|{
 DECL|method|ClearScrollContextsRequest
+specifier|public
 name|ClearScrollContextsRequest
 parameter_list|()
 block|{         }

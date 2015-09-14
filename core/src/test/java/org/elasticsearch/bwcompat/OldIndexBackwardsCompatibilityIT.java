@@ -16,22 +16,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ListenableFuture
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -450,6 +434,18 @@ name|elasticsearch
 operator|.
 name|test
 operator|.
+name|InternalTestCluster
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
 name|VersionUtils
 import|;
 end_import
@@ -669,6 +665,18 @@ operator|.
 name|util
 operator|.
 name|TreeSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
 import|;
 end_import
 
@@ -962,7 +970,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ListenableFuture
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|List
 argument_list|<
@@ -1020,7 +1030,9 @@ literal|false
 argument_list|)
 decl_stmt|;
 comment|// workaround for dangling index loading issue when node is master
-name|ListenableFuture
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>
@@ -1080,7 +1092,9 @@ literal|false
 argument_list|)
 expr_stmt|;
 comment|// workaround for dangling index loading issue when node is master
-name|ListenableFuture
+name|InternalTestCluster
+operator|.
+name|Async
 argument_list|<
 name|String
 argument_list|>

@@ -167,6 +167,7 @@ operator|.
 name|EMPTY_ARRAY
 decl_stmt|;
 DECL|method|GetSnapshotsRequest
+specifier|public
 name|GetSnapshotsRequest
 parameter_list|()
 block|{     }

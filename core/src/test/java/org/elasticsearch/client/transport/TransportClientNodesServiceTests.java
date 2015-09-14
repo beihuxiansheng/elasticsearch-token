@@ -1053,7 +1053,7 @@ block|}
 block|}
 block|}
 DECL|class|TestRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|TestRequest

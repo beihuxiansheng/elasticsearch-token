@@ -189,6 +189,7 @@ argument_list|)
 decl_stmt|;
 comment|// for serialization
 DECL|method|IndicesExistsRequest
+specifier|public
 name|IndicesExistsRequest
 parameter_list|()
 block|{      }

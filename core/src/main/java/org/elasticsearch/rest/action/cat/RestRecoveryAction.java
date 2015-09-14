@@ -301,7 +301,7 @@ block|{
 annotation|@
 name|Inject
 DECL|method|RestRecoveryAction
-specifier|protected
+specifier|public
 name|RestRecoveryAction
 parameter_list|(
 name|Settings

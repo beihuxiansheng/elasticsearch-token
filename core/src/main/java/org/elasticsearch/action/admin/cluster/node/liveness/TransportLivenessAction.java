@@ -152,8 +152,8 @@ argument_list|(
 name|NAME
 argument_list|,
 name|LivenessRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

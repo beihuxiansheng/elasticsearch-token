@@ -789,8 +789,8 @@ argument_list|(
 literal|"sayHello"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1276,8 +1276,8 @@ argument_list|(
 literal|"localNode"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1505,8 +1505,8 @@ argument_list|,
 name|TransportRequest
 operator|.
 name|Empty
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1780,8 +1780,8 @@ argument_list|(
 literal|"sayHello"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2072,8 +2072,8 @@ argument_list|(
 literal|"sayHelloException"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2393,8 +2393,8 @@ argument_list|(
 literal|"foobar"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2540,8 +2540,8 @@ argument_list|(
 literal|"sayHelloTimeoutNoResponse"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2757,8 +2757,8 @@ argument_list|(
 literal|"sayHelloTimeoutDelayedResponse"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -3417,8 +3417,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -3436,8 +3436,8 @@ argument_list|(
 literal|"testError"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -3455,8 +3455,8 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -3474,8 +3474,8 @@ argument_list|(
 literal|"testError"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -4335,6 +4335,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|StringMessageRequest
+specifier|public
 specifier|static
 class|class
 name|StringMessageRequest
@@ -4375,6 +4376,7 @@ name|timeout
 expr_stmt|;
 block|}
 DECL|method|StringMessageRequest
+specifier|public
 name|StringMessageRequest
 parameter_list|()
 block|{         }
@@ -4564,6 +4566,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|Version0Request
+specifier|public
 specifier|static
 class|class
 name|Version0Request
@@ -4632,6 +4635,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|Version1Request
+specifier|public
 specifier|static
 class|class
 name|Version1Request
@@ -4908,8 +4912,8 @@ argument_list|(
 literal|"/version"
 argument_list|,
 name|Version1Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -5133,8 +5137,8 @@ argument_list|(
 literal|"/version"
 argument_list|,
 name|Version0Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -5370,8 +5374,8 @@ argument_list|(
 literal|"/version"
 argument_list|,
 name|Version1Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -5624,8 +5628,8 @@ argument_list|(
 literal|"/version"
 argument_list|,
 name|Version0Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -5828,8 +5832,8 @@ argument_list|(
 literal|"sayHello"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -6095,8 +6099,8 @@ argument_list|(
 literal|"sayHello"
 argument_list|,
 name|StringMessageRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -6400,8 +6404,8 @@ argument_list|(
 literal|"action1"
 argument_list|,
 name|TestRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -6606,7 +6610,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|class|TestRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|TestRequest

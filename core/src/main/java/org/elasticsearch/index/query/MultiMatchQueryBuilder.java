@@ -569,6 +569,19 @@ name|type
 return|;
 block|}
 block|}
+comment|/**      * Returns the type (for testing)      */
+DECL|method|getType
+specifier|public
+name|MultiMatchQueryBuilder
+operator|.
+name|Type
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
 comment|/**      * Constructs a new text query.      */
 DECL|method|MultiMatchQueryBuilder
 specifier|public

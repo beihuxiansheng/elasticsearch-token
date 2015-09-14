@@ -1150,7 +1150,6 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|// TODO: if values are -1, this should return -1 to show its unsupported?
 DECL|method|calculatePercentage
 specifier|private
 specifier|static

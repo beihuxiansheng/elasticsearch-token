@@ -291,8 +291,8 @@ argument_list|(
 name|ACTION_NAME
 argument_list|,
 name|NodeMappingRefreshRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -477,6 +477,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|NodeMappingRefreshRequest
+specifier|public
 name|NodeMappingRefreshRequest
 parameter_list|()
 block|{         }

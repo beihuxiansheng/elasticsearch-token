@@ -141,30 +141,6 @@ operator|.
 name|getMember
 argument_list|()
 decl_stmt|;
-comment|// Use FastConstructor if the constructor is public.
-if|if
-condition|(
-name|Modifier
-operator|.
-name|isPublic
-argument_list|(
-name|constructor
-operator|.
-name|getModifiers
-argument_list|()
-argument_list|)
-condition|)
-block|{         }
-else|else
-block|{
-name|constructor
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 operator|new
 name|ConstructionProxy
@@ -222,6 +198,10 @@ throw|throw
 operator|new
 name|AssertionError
 argument_list|(
+literal|"Wrong access modifiers on "
+operator|+
+name|constructor
+argument_list|,
 name|e
 argument_list|)
 throw|;

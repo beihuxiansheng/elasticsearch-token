@@ -94,6 +94,7 @@ name|ClusterStatsRequest
 argument_list|>
 block|{
 DECL|method|ClusterStatsRequest
+specifier|public
 name|ClusterStatsRequest
 parameter_list|()
 block|{     }

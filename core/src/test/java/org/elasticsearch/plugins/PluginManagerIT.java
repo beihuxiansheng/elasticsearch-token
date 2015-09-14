@@ -16,15 +16,13 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|google
+name|nio
 operator|.
-name|common
+name|charset
 operator|.
-name|base
-operator|.
-name|Charsets
+name|StandardCharsets
 import|;
 end_import
 
@@ -137,20 +135,6 @@ operator|.
 name|CliToolTestCase
 operator|.
 name|CaptureOutputTerminal
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 
@@ -507,18 +491,6 @@ operator|.
 name|net
 operator|.
 name|InetSocketAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|nio
-operator|.
-name|charset
-operator|.
-name|StandardCharsets
 import|;
 end_import
 
@@ -1030,7 +1002,7 @@ operator|+
 literal|".sha1"
 argument_list|)
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -1114,7 +1086,7 @@ operator|+
 literal|".md5"
 argument_list|)
 argument_list|,
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)
@@ -4241,7 +4213,7 @@ literal|"user:pass"
 operator|.
 name|getBytes
 argument_list|(
-name|Charsets
+name|StandardCharsets
 operator|.
 name|UTF_8
 argument_list|)

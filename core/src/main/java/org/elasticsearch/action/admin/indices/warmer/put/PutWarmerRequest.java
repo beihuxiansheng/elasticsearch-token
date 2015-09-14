@@ -190,6 +190,7 @@ name|SearchRequest
 name|searchRequest
 decl_stmt|;
 DECL|method|PutWarmerRequest
+specifier|public
 name|PutWarmerRequest
 parameter_list|()
 block|{     }

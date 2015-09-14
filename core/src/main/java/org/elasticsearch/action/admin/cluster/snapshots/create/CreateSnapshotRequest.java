@@ -438,6 +438,7 @@ name|boolean
 name|waitForCompletion
 decl_stmt|;
 DECL|method|CreateSnapshotRequest
+specifier|public
 name|CreateSnapshotRequest
 parameter_list|()
 block|{     }

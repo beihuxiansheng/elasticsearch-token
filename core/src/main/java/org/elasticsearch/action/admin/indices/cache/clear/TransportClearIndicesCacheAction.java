@@ -385,8 +385,8 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|ClearIndicesCacheRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

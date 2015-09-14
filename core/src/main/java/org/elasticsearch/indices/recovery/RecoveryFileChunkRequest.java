@@ -165,7 +165,6 @@ name|RecoveryFileChunkRequest
 extends|extends
 name|TransportRequest
 block|{
-comment|// public for testing
 DECL|field|lastChunk
 specifier|private
 name|boolean
@@ -207,6 +206,7 @@ name|int
 name|totalTranslogOps
 decl_stmt|;
 DECL|method|RecoveryFileChunkRequest
+specifier|public
 name|RecoveryFileChunkRequest
 parameter_list|()
 block|{     }

@@ -308,13 +308,6 @@ argument_list|)
 operator|!=
 literal|null
 expr_stmt|;
-name|method
-operator|.
-name|setAccessible
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getKey
 specifier|public

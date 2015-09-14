@@ -787,8 +787,8 @@ argument_list|(
 name|ACTION_SHARD_EXISTS
 argument_list|,
 name|ShardActiveRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2375,7 +2375,7 @@ return|;
 block|}
 block|}
 DECL|class|ShardActiveRequest
-specifier|private
+specifier|public
 specifier|static
 class|class
 name|ShardActiveRequest
@@ -2405,6 +2405,7 @@ name|ShardId
 name|shardId
 decl_stmt|;
 DECL|method|ShardActiveRequest
+specifier|public
 name|ShardActiveRequest
 parameter_list|()
 block|{         }

@@ -251,7 +251,7 @@ block|{
 annotation|@
 name|Inject
 DECL|method|RestCountAction
-specifier|protected
+specifier|public
 name|RestCountAction
 parameter_list|(
 name|Settings

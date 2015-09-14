@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|SuppressForbidden
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|util
@@ -76,7 +88,18 @@ begin_comment
 comment|/**  * Lazily creates (and caches) values for keys. If creating the value fails (with errors), an  * exception is thrown on retrieval.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
+begin_comment
+comment|// TODO remove this suppression once we get rid of the CacheBuilder and friends
+end_comment
+
 begin_class
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"this uses Function in it's method declaration somewhere"
+argument_list|)
 DECL|class|FailableCache
 specifier|public
 specifier|abstract

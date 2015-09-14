@@ -110,6 +110,7 @@ end_comment
 
 begin_class
 DECL|class|RecoveryFilesInfoRequest
+specifier|public
 class|class
 name|RecoveryFilesInfoRequest
 extends|extends
@@ -158,6 +159,7 @@ name|int
 name|totalTranslogOps
 decl_stmt|;
 DECL|method|RecoveryFilesInfoRequest
+specifier|public
 name|RecoveryFilesInfoRequest
 parameter_list|()
 block|{     }

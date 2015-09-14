@@ -232,8 +232,8 @@ operator|.
 name|NAME
 argument_list|,
 name|FlushRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|settings
 argument_list|,

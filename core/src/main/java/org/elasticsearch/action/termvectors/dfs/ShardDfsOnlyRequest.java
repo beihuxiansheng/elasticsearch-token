@@ -132,6 +132,7 @@ end_import
 
 begin_class
 DECL|class|ShardDfsOnlyRequest
+specifier|public
 class|class
 name|ShardDfsOnlyRequest
 extends|extends
@@ -147,6 +148,7 @@ name|ShardSearchTransportRequest
 argument_list|()
 decl_stmt|;
 DECL|method|ShardDfsOnlyRequest
+specifier|public
 name|ShardDfsOnlyRequest
 parameter_list|()
 block|{      }

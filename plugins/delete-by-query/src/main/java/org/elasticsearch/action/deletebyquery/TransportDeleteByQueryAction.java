@@ -390,7 +390,7 @@ decl_stmt|;
 annotation|@
 name|Inject
 DECL|method|TransportDeleteByQueryAction
-specifier|protected
+specifier|public
 name|TransportDeleteByQueryAction
 parameter_list|(
 name|Settings
@@ -435,8 +435,8 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|DeleteByQueryRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|)
 expr_stmt|;
 name|this

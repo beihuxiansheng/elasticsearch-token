@@ -120,6 +120,7 @@ init|=
 literal|false
 decl_stmt|;
 DECL|method|FlushRequest
+specifier|public
 name|FlushRequest
 parameter_list|()
 block|{     }

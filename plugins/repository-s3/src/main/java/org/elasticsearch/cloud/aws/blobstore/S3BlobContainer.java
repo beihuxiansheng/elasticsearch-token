@@ -110,7 +110,7 @@ name|blobstore
 operator|.
 name|support
 operator|.
-name|AbstractBlobContainer
+name|AbstractLegacyBlobContainer
 import|;
 end_import
 
@@ -204,7 +204,7 @@ specifier|public
 class|class
 name|S3BlobContainer
 extends|extends
-name|AbstractBlobContainer
+name|AbstractLegacyBlobContainer
 block|{
 DECL|field|blobStore
 specifier|protected

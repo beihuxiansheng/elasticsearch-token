@@ -523,12 +523,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|Request
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|NodeRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -1144,6 +1144,7 @@ literal|true
 return|;
 block|}
 DECL|class|Request
+specifier|public
 specifier|static
 class|class
 name|Request
@@ -1473,6 +1474,7 @@ block|}
 block|}
 block|}
 DECL|class|NodeRequest
+specifier|public
 specifier|static
 class|class
 name|NodeRequest
@@ -1490,6 +1492,7 @@ name|String
 name|indexUUID
 decl_stmt|;
 DECL|method|NodeRequest
+specifier|public
 name|NodeRequest
 parameter_list|()
 block|{         }
@@ -1648,6 +1651,7 @@ init|=
 literal|null
 decl_stmt|;
 DECL|method|NodeGatewayStartedShards
+specifier|public
 name|NodeGatewayStartedShards
 parameter_list|()
 block|{         }

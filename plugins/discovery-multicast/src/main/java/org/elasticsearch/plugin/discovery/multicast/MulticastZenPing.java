@@ -871,8 +871,8 @@ argument_list|(
 name|ACTION_NAME
 argument_list|,
 name|MulticastPingResponse
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2132,6 +2132,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|MulticastPingResponse
+specifier|public
 specifier|static
 class|class
 name|MulticastPingResponse
@@ -2147,6 +2148,7 @@ name|PingResponse
 name|pingResponse
 decl_stmt|;
 DECL|method|MulticastPingResponse
+specifier|public
 name|MulticastPingResponse
 parameter_list|()
 block|{         }

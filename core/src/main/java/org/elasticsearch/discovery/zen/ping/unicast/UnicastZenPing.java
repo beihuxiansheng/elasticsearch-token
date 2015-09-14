@@ -1242,8 +1242,8 @@ argument_list|(
 name|ACTION_NAME
 argument_list|,
 name|UnicastPingRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -3177,6 +3177,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|UnicastPingRequest
+specifier|public
 specifier|static
 class|class
 name|UnicastPingRequest
@@ -3196,6 +3197,7 @@ name|PingResponse
 name|pingResponse
 decl_stmt|;
 DECL|method|UnicastPingRequest
+specifier|public
 name|UnicastPingRequest
 parameter_list|()
 block|{         }

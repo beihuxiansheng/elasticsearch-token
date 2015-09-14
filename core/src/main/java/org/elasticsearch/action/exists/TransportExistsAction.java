@@ -641,12 +641,12 @@ argument_list|,
 name|indexNameExpressionResolver
 argument_list|,
 name|ExistsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ShardExistsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.

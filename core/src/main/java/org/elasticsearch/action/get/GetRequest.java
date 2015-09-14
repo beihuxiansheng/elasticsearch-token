@@ -263,6 +263,7 @@ name|boolean
 name|ignoreErrorsOnGeneratedFields
 decl_stmt|;
 DECL|method|GetRequest
+specifier|public
 name|GetRequest
 parameter_list|()
 block|{

@@ -615,8 +615,8 @@ argument_list|(
 name|PRE_SYNCED_FLUSH_ACTION_NAME
 argument_list|,
 name|PreSyncedFlushRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -636,8 +636,8 @@ argument_list|(
 name|SYNCED_FLUSH_ACTION_NAME
 argument_list|,
 name|SyncedFlushRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -657,8 +657,8 @@ argument_list|(
 name|IN_FLIGHT_OPS_ACTION_NAME
 argument_list|,
 name|InFlightOpsRequest
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -2917,6 +2917,7 @@ argument_list|)
 return|;
 block|}
 DECL|class|PreSyncedFlushRequest
+specifier|public
 specifier|final
 specifier|static
 class|class
@@ -2930,6 +2931,7 @@ name|ShardId
 name|shardId
 decl_stmt|;
 DECL|method|PreSyncedFlushRequest
+specifier|public
 name|PreSyncedFlushRequest
 parameter_list|()
 block|{         }
@@ -3145,6 +3147,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|SyncedFlushRequest
+specifier|public
 specifier|static
 specifier|final
 class|class
@@ -3500,6 +3503,7 @@ return|;
 block|}
 block|}
 DECL|class|InFlightOpsRequest
+specifier|public
 specifier|static
 specifier|final
 class|class

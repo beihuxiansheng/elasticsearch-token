@@ -898,6 +898,16 @@ name|ramBytesUsed
 argument_list|()
 return|;
 block|}
+DECL|method|getMaxAnalyzedPathsForOneInput
+specifier|public
+name|int
+name|getMaxAnalyzedPathsForOneInput
+parameter_list|()
+block|{
+return|return
+name|maxAnalyzedPathsForOneInput
+return|;
+block|}
 comment|// Replaces SEP with epsilon or remaps them if
 comment|// we were asked to preserve them:
 DECL|method|replaceSep

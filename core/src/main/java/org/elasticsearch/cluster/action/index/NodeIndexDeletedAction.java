@@ -359,8 +359,8 @@ argument_list|(
 name|INDEX_DELETED_ACTION_NAME
 argument_list|,
 name|NodeIndexDeletedMessage
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -380,8 +380,8 @@ argument_list|(
 name|INDEX_STORE_DELETED_ACTION_NAME
 argument_list|,
 name|NodeIndexStoreDeletedMessage
-operator|.
-name|class
+operator|::
+operator|new
 argument_list|,
 name|ThreadPool
 operator|.
@@ -823,6 +823,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|NodeIndexDeletedMessage
+specifier|public
 specifier|static
 class|class
 name|NodeIndexDeletedMessage
@@ -838,6 +839,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|NodeIndexDeletedMessage
+specifier|public
 name|NodeIndexDeletedMessage
 parameter_list|()
 block|{         }
@@ -936,6 +938,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|class|NodeIndexStoreDeletedMessage
+specifier|public
 specifier|static
 class|class
 name|NodeIndexStoreDeletedMessage
@@ -951,6 +954,7 @@ name|String
 name|nodeId
 decl_stmt|;
 DECL|method|NodeIndexStoreDeletedMessage
+specifier|public
 name|NodeIndexStoreDeletedMessage
 parameter_list|()
 block|{         }
