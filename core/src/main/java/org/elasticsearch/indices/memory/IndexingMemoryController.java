@@ -351,6 +351,7 @@ argument_list|<
 name|IndexingMemoryController
 argument_list|>
 block|{
+comment|/** How much heap (% or bytes) we will share across all actively indexing shards on this node (default: 10%). */
 DECL|field|INDEX_BUFFER_SIZE_SETTING
 specifier|public
 specifier|static
@@ -359,6 +360,116 @@ name|String
 name|INDEX_BUFFER_SIZE_SETTING
 init|=
 literal|"indices.memory.index_buffer_size"
+decl_stmt|;
+comment|/** Only applies when<code>indices.memory.index_buffer_size</code> is a %, to set a floor on the actual size in bytes (default: 48 MB). */
+DECL|field|MIN_INDEX_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MIN_INDEX_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.min_index_buffer_size"
+decl_stmt|;
+comment|/** Only applies when<code>indices.memory.index_buffer_size</code> is a %, to set a ceiling on the actual size in bytes (default: not set). */
+DECL|field|MAX_INDEX_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAX_INDEX_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.max_index_buffer_size"
+decl_stmt|;
+comment|/** Sets a floor on the per-shard index buffer size (default: 4 MB). */
+DECL|field|MIN_SHARD_INDEX_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MIN_SHARD_INDEX_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.min_shard_index_buffer_size"
+decl_stmt|;
+comment|/** Sets a ceiling on the per-shard index buffer size (default: 512 MB). */
+DECL|field|MAX_SHARD_INDEX_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAX_SHARD_INDEX_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.max_shard_index_buffer_size"
+decl_stmt|;
+comment|/** How much heap (% or bytes) we will share across all actively indexing shards for the translog buffer (default: 1%). */
+DECL|field|TRANSLOG_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TRANSLOG_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.translog_buffer_size"
+decl_stmt|;
+comment|/** Only applies when<code>indices.memory.translog_buffer_size</code> is a %, to set a floor on the actual size in bytes (default: 256 KB). */
+DECL|field|MIN_TRANSLOG_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MIN_TRANSLOG_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.min_translog_buffer_size"
+decl_stmt|;
+comment|/** Only applies when<code>indices.memory.translog_buffer_size</code> is a %, to set a ceiling on the actual size in bytes (default: not set). */
+DECL|field|MAX_TRANSLOG_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAX_TRANSLOG_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.max_translog_buffer_size"
+decl_stmt|;
+comment|/** Sets a floor on the per-shard translog buffer size (default: 2 KB). */
+DECL|field|MIN_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MIN_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.min_shard_translog_buffer_size"
+decl_stmt|;
+comment|/** Sets a ceiling on the per-shard translog buffer size (default: 64 KB). */
+DECL|field|MAX_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAX_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
+init|=
+literal|"indices.memory.max_shard_translog_buffer_size"
+decl_stmt|;
+comment|/** If we see no indexing operations after this much time for a given shard, we consider that shard inactive (default: 5 minutes). */
+DECL|field|SHARD_INACTIVE_TIME_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHARD_INACTIVE_TIME_SETTING
+init|=
+literal|"indices.memory.shard_inactive_time"
+decl_stmt|;
+comment|/** How frequently we check shards to find inactive ones (default: 30 seconds). */
+DECL|field|SHARD_INACTIVE_INTERVAL_TIME_SETTING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SHARD_INACTIVE_INTERVAL_TIME_SETTING
+init|=
+literal|"indices.memory.interval"
 decl_stmt|;
 DECL|field|threadPool
 specifier|private
@@ -584,7 +695,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.min_index_buffer_size"
+name|MIN_INDEX_BUFFER_SIZE_SETTING
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -606,7 +717,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.max_index_buffer_size"
+name|MAX_INDEX_BUFFER_SIZE_SETTING
 argument_list|,
 literal|null
 argument_list|)
@@ -682,7 +793,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.min_shard_index_buffer_size"
+name|MIN_SHARD_INDEX_BUFFER_SIZE_SETTING
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -706,7 +817,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.max_shard_index_buffer_size"
+name|MAX_SHARD_INDEX_BUFFER_SIZE_SETTING
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -731,7 +842,7 @@ name|settings
 operator|.
 name|get
 argument_list|(
-literal|"indices.memory.translog_buffer_size"
+name|TRANSLOG_BUFFER_SIZE_SETTING
 argument_list|,
 literal|"1%"
 argument_list|)
@@ -813,7 +924,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.min_translog_buffer_size"
+name|MIN_TRANSLOG_BUFFER_SIZE_SETTING
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -835,7 +946,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.max_translog_buffer_size"
+name|MAX_TRANSLOG_BUFFER_SIZE_SETTING
 argument_list|,
 literal|null
 argument_list|)
@@ -911,7 +1022,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.min_shard_translog_buffer_size"
+name|MIN_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -934,7 +1045,7 @@ name|settings
 operator|.
 name|getAsBytesSize
 argument_list|(
-literal|"indices.memory.max_shard_translog_buffer_size"
+name|MAX_SHARD_TRANSLOG_BUFFER_SIZE_SETTING
 argument_list|,
 operator|new
 name|ByteSizeValue
@@ -957,7 +1068,7 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"indices.memory.shard_inactive_time"
+name|SHARD_INACTIVE_TIME_SETTING
 argument_list|,
 name|TimeValue
 operator|.
@@ -978,7 +1089,7 @@ name|settings
 operator|.
 name|getAsTime
 argument_list|(
-literal|"indices.memory.interval"
+name|SHARD_INACTIVE_INTERVAL_TIME_SETTING
 argument_list|,
 name|TimeValue
 operator|.
@@ -992,23 +1103,31 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"using index_buffer_size [{}], with min_shard_index_buffer_size [{}], max_shard_index_buffer_size [{}], shard_inactive_time [{}], indices.memory.interval [{}]"
+literal|"using indexing buffer size [{}], with {} [{}], {} [{}], {} [{}], {} [{}]"
 argument_list|,
 name|this
 operator|.
 name|indexingBuffer
 argument_list|,
+name|MIN_SHARD_INDEX_BUFFER_SIZE_SETTING
+argument_list|,
 name|this
 operator|.
 name|minShardIndexBufferSize
+argument_list|,
+name|MAX_SHARD_INDEX_BUFFER_SIZE_SETTING
 argument_list|,
 name|this
 operator|.
 name|maxShardIndexBufferSize
 argument_list|,
+name|SHARD_INACTIVE_TIME_SETTING
+argument_list|,
 name|this
 operator|.
 name|inactiveTime
+argument_list|,
+name|SHARD_INACTIVE_INTERVAL_TIME_SETTING
 argument_list|,
 name|this
 operator|.

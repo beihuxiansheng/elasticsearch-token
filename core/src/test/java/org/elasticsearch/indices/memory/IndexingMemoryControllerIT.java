@@ -512,7 +512,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"indices.memory.shard_inactive_time"
+name|IndexingMemoryController
+operator|.
+name|SHARD_INACTIVE_TIME_SETTING
 argument_list|,
 literal|"100ms"
 argument_list|)
@@ -848,7 +850,9 @@ argument_list|()
 operator|.
 name|put
 argument_list|(
-literal|"indices.memory.shard_inactive_time"
+name|IndexingMemoryController
+operator|.
+name|SHARD_INACTIVE_TIME_SETTING
 argument_list|,
 literal|"100000h"
 argument_list|,
@@ -1123,7 +1127,9 @@ comment|// make sure we get what we set :)
 operator|.
 name|put
 argument_list|(
-literal|"indices.memory.interval"
+name|IndexingMemoryController
+operator|.
+name|SHARD_INACTIVE_INTERVAL_TIME_SETTING
 argument_list|,
 literal|"100ms"
 argument_list|)
