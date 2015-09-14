@@ -527,16 +527,6 @@ name|INDEX_GC_DELETES_SETTING
 init|=
 literal|"index.gc_deletes"
 decl_stmt|;
-comment|/**      * Index setting to control the initial index buffer size.      * This setting is<b>not</b> realtime updateable.      */
-DECL|field|INDEX_BUFFER_SIZE_SETTING
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|INDEX_BUFFER_SIZE_SETTING
-init|=
-literal|"index.buffer_size"
-decl_stmt|;
 comment|/**      * Index setting to change the low level lucene codec used for writing new segments.      * This setting is<b>not</b> realtime updateable.      */
 DECL|field|INDEX_CODEC_SETTING
 specifier|public
@@ -854,14 +844,7 @@ argument_list|)
 expr_stmt|;
 name|indexingBufferSize
 operator|=
-name|indexSettings
-operator|.
-name|getAsBytesSize
-argument_list|(
-name|INDEX_BUFFER_SIZE_SETTING
-argument_list|,
 name|DEFAULT_INDEX_BUFFER_SIZE
-argument_list|)
 expr_stmt|;
 name|gcDeletesInMillis
 operator|=
@@ -980,7 +963,6 @@ name|long
 call|)
 argument_list|(
 operator|(
-operator|(
 name|double
 operator|)
 name|indexingBufferSize
@@ -992,7 +974,6 @@ operator|(
 name|percent
 operator|/
 literal|100
-operator|)
 operator|)
 argument_list|)
 argument_list|)
