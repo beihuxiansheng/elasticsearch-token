@@ -6963,7 +6963,8 @@ operator|.
 name|length
 argument_list|()
 decl_stmt|;
-comment|// Check that the non-master node has the same version of the cluster state as the master and that this node didn't disconnect from the master
+comment|// Check that the non-master node has the same version of the cluster state as the master and
+comment|// that the master node matches the master (otherwise there is no requirement for the cluster state to match)
 if|if
 condition|(
 name|masterClusterState
@@ -6976,17 +6977,17 @@ operator|.
 name|version
 argument_list|()
 operator|&&
+name|masterId
+operator|.
+name|equals
+argument_list|(
 name|localClusterState
 operator|.
 name|nodes
 argument_list|()
 operator|.
-name|nodes
+name|masterNodeId
 argument_list|()
-operator|.
-name|containsKey
-argument_list|(
-name|masterId
 argument_list|)
 condition|)
 block|{
