@@ -1424,6 +1424,8 @@ name|terminal
 operator|.
 name|println
 argument_list|(
+name|VERBOSE
+argument_list|,
 literal|"%s"
 argument_list|,
 name|info

@@ -1362,20 +1362,21 @@ name|toString
 parameter_list|()
 block|{
 specifier|final
-name|StringBuffer
-name|sb
+name|StringBuilder
+name|information
 init|=
 operator|new
-name|StringBuffer
-argument_list|(
-literal|"PluginInfo{"
-argument_list|)
-decl_stmt|;
-name|sb
+name|StringBuilder
+argument_list|()
 operator|.
 name|append
 argument_list|(
-literal|"name='"
+literal|"- Plugin information:\n"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"Name: "
 argument_list|)
 operator|.
 name|append
@@ -1385,14 +1386,12 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|"\n"
 argument_list|)
-expr_stmt|;
-name|sb
 operator|.
 name|append
 argument_list|(
-literal|", description='"
+literal|"Description: "
 argument_list|)
 operator|.
 name|append
@@ -1402,68 +1401,27 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|"\n"
 argument_list|)
-expr_stmt|;
-name|sb
 operator|.
 name|append
 argument_list|(
-literal|", site="
+literal|"Site: "
 argument_list|)
 operator|.
 name|append
 argument_list|(
 name|site
 argument_list|)
-expr_stmt|;
-name|sb
 operator|.
 name|append
 argument_list|(
-literal|", jvm="
+literal|"\n"
 argument_list|)
 operator|.
 name|append
 argument_list|(
-name|jvm
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|jvm
-condition|)
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", classname="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|classname
-argument_list|)
-expr_stmt|;
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", isolated="
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|isolated
-argument_list|)
-expr_stmt|;
-block|}
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", version='"
+literal|"Version: "
 argument_list|)
 operator|.
 name|append
@@ -1473,18 +1431,61 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-literal|'\''
+literal|"\n"
 argument_list|)
-expr_stmt|;
-name|sb
 operator|.
 name|append
 argument_list|(
-literal|'}'
+literal|"JVM: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|jvm
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\n"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|jvm
+condition|)
+block|{
+name|information
+operator|.
+name|append
+argument_list|(
+literal|" * Classname: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|classname
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\n"
 argument_list|)
 expr_stmt|;
+name|information
+operator|.
+name|append
+argument_list|(
+literal|" * Isolated: "
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|isolated
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|sb
+name|information
 operator|.
 name|toString
 argument_list|()
