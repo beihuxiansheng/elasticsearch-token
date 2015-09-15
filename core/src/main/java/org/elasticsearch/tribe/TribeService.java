@@ -2222,6 +2222,9 @@ argument_list|(
 name|currentState
 argument_list|)
 operator|.
+name|incrementVersion
+argument_list|()
+operator|.
 name|blocks
 argument_list|(
 name|blocks
