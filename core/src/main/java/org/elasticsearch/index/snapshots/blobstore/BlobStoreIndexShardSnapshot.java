@@ -551,14 +551,49 @@ return|return
 name|partSize
 return|;
 block|}
-comment|/**          * Return maximum number of bytes in a part          *          * @return maximum number of bytes in a part          */
+comment|/**          * Returns the size (in bytes) of a given part          *          * @return the size (in bytes) of a given part          */
 DECL|method|partBytes
 specifier|public
 name|long
 name|partBytes
-parameter_list|()
+parameter_list|(
+name|int
+name|part
+parameter_list|)
+block|{
+if|if
+condition|(
+name|numberOfParts
+operator|==
+literal|1
+condition|)
 block|{
 return|return
+name|length
+argument_list|()
+return|;
+block|}
+comment|// First and last-but-one parts have a size equal to partBytes
+if|if
+condition|(
+name|part
+operator|<
+operator|(
+name|numberOfParts
+operator|-
+literal|1
+operator|)
+condition|)
+block|{
+return|return
+name|partBytes
+return|;
+block|}
+comment|// Last part size is deducted from the length and the number of parts
+return|return
+name|length
+argument_list|()
+operator|%
 name|partBytes
 return|;
 block|}

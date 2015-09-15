@@ -504,14 +504,14 @@ name|assertThat
 argument_list|(
 name|info
 operator|.
-name|partBytes
+name|partSize
 argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
 name|parsedInfo
 operator|.
-name|partBytes
+name|partSize
 argument_list|()
 argument_list|)
 argument_list|)
