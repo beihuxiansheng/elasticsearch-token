@@ -182,6 +182,18 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
+name|IndexNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
 name|shard
 operator|.
 name|ShardId
@@ -516,14 +528,14 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-literal|"["
-operator|+
+operator|new
+name|IndexNotFoundException
+argument_list|(
 name|termVectorsRequest
 operator|.
 name|index
 argument_list|()
-operator|+
-literal|"] missing"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -598,6 +610,9 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"routing is required for ["
 operator|+
 name|concreteSingleIndex
@@ -617,6 +632,7 @@ name|id
 argument_list|()
 operator|+
 literal|"]"
+argument_list|)
 argument_list|)
 argument_list|)
 argument_list|)
@@ -891,16 +907,6 @@ name|e
 parameter_list|)
 block|{
 comment|// create failures for all relevant requests
-name|String
-name|message
-init|=
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
-name|e
-argument_list|)
-decl_stmt|;
 for|for
 control|(
 name|int
@@ -971,7 +977,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|message
+name|e
 argument_list|)
 argument_list|)
 argument_list|)

@@ -91,7 +91,7 @@ name|nodeId
 decl_stmt|;
 DECL|field|cause
 specifier|private
-name|String
+name|Throwable
 name|cause
 decl_stmt|;
 DECL|method|VerificationFailure
@@ -105,7 +105,7 @@ parameter_list|(
 name|String
 name|nodeId
 parameter_list|,
-name|String
+name|Throwable
 name|cause
 parameter_list|)
 block|{
@@ -134,7 +134,7 @@ return|;
 block|}
 DECL|method|cause
 specifier|public
-name|String
+name|Throwable
 name|cause
 parameter_list|()
 block|{
@@ -166,7 +166,7 @@ name|cause
 operator|=
 name|in
 operator|.
-name|readOptionalString
+name|readThrowable
 argument_list|()
 expr_stmt|;
 block|}
@@ -192,7 +192,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeOptionalString
+name|writeThrowable
 argument_list|(
 name|cause
 argument_list|)

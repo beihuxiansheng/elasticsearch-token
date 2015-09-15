@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cloud
 operator|.
 name|aws
@@ -388,14 +378,9 @@ name|logger
 operator|.
 name|debug
 argument_list|(
-literal|"failed to get metadata for [placement/availability-zone]: "
-operator|+
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
+literal|"failed to get metadata for [placement/availability-zone]"
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

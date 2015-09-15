@@ -90,6 +90,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|script
+operator|.
+name|groovy
+operator|.
+name|GroovyScriptExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|test
 operator|.
 name|ESIntegTestCase
@@ -153,6 +167,18 @@ operator|.
 name|CoreMatchers
 operator|.
 name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|instanceOf
 import|;
 end_import
 
@@ -621,6 +647,21 @@ range|:
 name|fails
 control|)
 block|{
+name|assertThat
+argument_list|(
+name|fail
+operator|.
+name|getCause
+argument_list|()
+argument_list|,
+name|instanceOf
+argument_list|(
+name|GroovyScriptExecutionException
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"unexpected exception"
@@ -648,7 +689,7 @@ argument_list|)
 operator|.
 name|contains
 argument_list|(
-literal|"accesscontrolexception[access denied"
+literal|"[access denied"
 argument_list|)
 argument_list|)
 expr_stmt|;

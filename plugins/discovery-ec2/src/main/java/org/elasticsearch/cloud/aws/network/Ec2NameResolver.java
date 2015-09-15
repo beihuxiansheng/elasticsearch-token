@@ -38,16 +38,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cloud
 operator|.
 name|aws
@@ -475,14 +465,9 @@ name|type
 operator|.
 name|configName
 operator|+
-literal|"]: "
-operator|+
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
+literal|"]"
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -498,14 +483,9 @@ name|type
 operator|.
 name|configName
 operator|+
-literal|"]: "
-operator|+
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
+literal|"]"
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

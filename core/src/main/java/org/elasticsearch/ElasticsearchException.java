@@ -1390,7 +1390,6 @@ block|}
 comment|/**      * Renders a cause exception as xcontent      */
 DECL|method|causeToXContent
 specifier|protected
-specifier|final
 name|void
 name|causeToXContent
 parameter_list|(

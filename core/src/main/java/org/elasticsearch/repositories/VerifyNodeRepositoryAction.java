@@ -629,12 +629,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|t
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -743,12 +738,7 @@ operator|.
 name|id
 argument_list|()
 argument_list|,
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|exp
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
