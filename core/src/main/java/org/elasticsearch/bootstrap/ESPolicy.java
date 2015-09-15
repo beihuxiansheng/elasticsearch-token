@@ -231,6 +231,11 @@ literal|"read"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|groovy
+operator|.
+name|setReadOnly
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
