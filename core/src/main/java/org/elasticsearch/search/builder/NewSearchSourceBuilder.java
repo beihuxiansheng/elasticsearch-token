@@ -490,9 +490,14 @@ begin_comment
 comment|/**  * A search source builder allowing to easily build search source. Simple  * construction using  * {@link org.elasticsearch.search.builder.NewSearchSourceBuilder#searchSource()}.  *  * @see org.elasticsearch.action.search.SearchRequest#source(NewSearchSourceBuilder)  */
 end_comment
 
+begin_comment
+comment|/**  *  */
+end_comment
+
 begin_class
 DECL|class|NewSearchSourceBuilder
 specifier|public
+specifier|final
 class|class
 name|NewSearchSourceBuilder
 extends|extends
@@ -816,20 +821,6 @@ name|NewSearchSourceBuilder
 argument_list|()
 return|;
 block|}
-comment|/**      * A static factory method to construct new search highlights.      */
-DECL|method|highlight
-specifier|public
-specifier|static
-name|HighlightBuilder
-name|highlight
-parameter_list|()
-block|{
-return|return
-operator|new
-name|HighlightBuilder
-argument_list|()
-return|;
-block|}
 DECL|field|queryBuilder
 specifier|private
 name|QueryBuilder
@@ -996,7 +987,7 @@ specifier|public
 name|NewSearchSourceBuilder
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new search source builder with a search query.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
+comment|/**      * Sets the search query for this request.      *      * @see org.elasticsearch.index.query.QueryBuilders      */
 DECL|method|query
 specifier|public
 name|NewSearchSourceBuilder
@@ -1017,6 +1008,20 @@ name|query
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the query for this request      */
+DECL|method|query
+specifier|public
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|query
+parameter_list|()
+block|{
+return|return
+name|queryBuilder
 return|;
 block|}
 comment|/**      * Sets a filter that will be executed after the query has been executed and      * only has affect on the search hits (not aggregations). This filter is      * always executed as last filtering mechanism.      */
@@ -1042,6 +1047,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the post filter for this request      */
+DECL|method|postFilter
+specifier|public
+name|QueryBuilder
+argument_list|<
+name|?
+argument_list|>
+name|postFilter
+parameter_list|()
+block|{
+return|return
+name|postQueryBuilder
+return|;
+block|}
 comment|/**      * From index to start the search from. Defaults to<tt>0</tt>.      */
 DECL|method|from
 specifier|public
@@ -1060,6 +1079,17 @@ name|from
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the from index to start the search from.      **/
+DECL|method|from
+specifier|public
+name|int
+name|from
+parameter_list|()
+block|{
+return|return
+name|from
 return|;
 block|}
 comment|/**      * The number of search hits to return. Defaults to<tt>10</tt>.      */
@@ -1082,6 +1112,17 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the number of search hits to return.      */
+DECL|method|size
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|size
+return|;
+block|}
 comment|/**      * Sets the minimum score below which docs will be filtered out.      */
 DECL|method|minScore
 specifier|public
@@ -1100,6 +1141,17 @@ name|minScore
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the minimum score below which docs will be filtered out.      */
+DECL|method|minScore
+specifier|public
+name|float
+name|minScore
+parameter_list|()
+block|{
+return|return
+name|minScore
 return|;
 block|}
 comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with      * an explanation of the hit (ranking).      */
@@ -1122,6 +1174,17 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Indicates whether each search hit will be returned with an explanation of      * the hit (ranking)      */
+DECL|method|explain
+specifier|public
+name|Boolean
+name|explain
+parameter_list|()
+block|{
+return|return
+name|explain
+return|;
+block|}
 comment|/**      * Should each {@link org.elasticsearch.search.SearchHit} be returned with a      * version associated with it.      */
 DECL|method|version
 specifier|public
@@ -1142,6 +1205,17 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Indicates whether the document's version will be included in the search      * hits.      */
+DECL|method|version
+specifier|public
+name|Boolean
+name|version
+parameter_list|()
+block|{
+return|return
+name|version
+return|;
+block|}
 comment|/**      * An optional timeout to control how long search is allowed to take.      */
 DECL|method|timeout
 specifier|public
@@ -1165,42 +1239,15 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * An optional timeout to control how long search is allowed to take.      */
-DECL|method|timeout
+comment|/**      * Gets the timeout to control how long search is allowed to take.      */
+DECL|method|timeoutInMillis
 specifier|public
-name|NewSearchSourceBuilder
-name|timeout
-parameter_list|(
-name|String
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
+name|long
 name|timeoutInMillis
-operator|=
-name|TimeValue
-operator|.
-name|parseTimeValue
-argument_list|(
-name|timeout
-argument_list|,
-literal|null
-argument_list|,
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-operator|+
-literal|".timeout"
-argument_list|)
-operator|.
-name|millis
-argument_list|()
-expr_stmt|;
+parameter_list|()
+block|{
 return|return
-name|this
+name|timeoutInMillis
 return|;
 block|}
 comment|/**      * An optional terminate_after to terminate the search after collecting      *<code>terminateAfter</code> documents      */
@@ -1236,6 +1283,17 @@ name|terminateAfter
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the number of documents to terminate after collecting.      */
+DECL|method|terminateAfter
+specifier|public
+name|int
+name|terminateAfter
+parameter_list|()
+block|{
+return|return
+name|terminateAfter
 return|;
 block|}
 comment|/**      * Adds a sort against the given field name and the sort ordering.      *      * @param name      *            The name of the field      * @param order      *            The sort ordering      * @throws IOException      */
@@ -1352,6 +1410,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the bytes representing the sort builders for this request.      */
+DECL|method|sorts
+specifier|public
+name|List
+argument_list|<
+name|BytesReference
+argument_list|>
+name|sorts
+parameter_list|()
+block|{
+return|return
+name|sorts
+return|;
+block|}
 comment|/**      * Applies when sorting, and controls if scores will be tracked as well.      * Defaults to<tt>false</tt>.      */
 DECL|method|trackScores
 specifier|public
@@ -1372,7 +1444,18 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add an get to perform as part of the search.      */
+comment|/**      * Indicates whether scores will be tracked for this request.      */
+DECL|method|trackScores
+specifier|public
+name|boolean
+name|trackScores
+parameter_list|()
+block|{
+return|return
+name|trackScores
+return|;
+block|}
+comment|/**      * Add an aggregation to perform as part of the search.      */
 DECL|method|aggregation
 specifier|public
 name|NewSearchSourceBuilder
@@ -1430,6 +1513,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the bytes representing the aggregation builders for this request.      */
+DECL|method|aggregations
+specifier|public
+name|List
+argument_list|<
+name|BytesReference
+argument_list|>
+name|aggregations
+parameter_list|()
+block|{
+return|return
+name|aggregations
+return|;
+block|}
 comment|/**      * Set the rescore window size for rescores that don't specify their window.      */
 DECL|method|defaultRescoreWindowSize
 specifier|public
@@ -1448,6 +1545,17 @@ name|defaultRescoreWindowSize
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Get the rescore window size for rescores that don't specify their window.      */
+DECL|method|defaultRescoreWindowSize
+specifier|public
+name|int
+name|defaultRescoreWindowSize
+parameter_list|()
+block|{
+return|return
+name|defaultRescoreWindowSize
 return|;
 block|}
 comment|/**      * Adds highlight to perform as part of the search.      */
@@ -1492,6 +1600,17 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the bytes representing the hightlighter builder for this request.      */
+DECL|method|highlight
+specifier|public
+name|BytesReference
+name|highlight
+parameter_list|()
+block|{
+return|return
+name|highlightBuilder
+return|;
+block|}
 DECL|method|innerHits
 specifier|public
 name|NewSearchSourceBuilder
@@ -1533,6 +1652,17 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the bytes representing the inner hits builder for this request.      */
+DECL|method|innerHits
+specifier|public
+name|BytesReference
+name|innerHits
+parameter_list|()
+block|{
+return|return
+name|innerHitsBuilder
+return|;
+block|}
 DECL|method|suggest
 specifier|public
 name|NewSearchSourceBuilder
@@ -1572,6 +1702,17 @@ argument_list|()
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the bytes representing the suggester builder for this request.      */
+DECL|method|suggest
+specifier|public
+name|BytesReference
+name|suggest
+parameter_list|()
+block|{
+return|return
+name|suggestBuilder
 return|;
 block|}
 DECL|method|addRescorer
@@ -1643,6 +1784,20 @@ literal|null
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the bytes representing the rescore builders for this request.      */
+DECL|method|rescores
+specifier|public
+name|List
+argument_list|<
+name|BytesReference
+argument_list|>
+name|rescores
+parameter_list|()
+block|{
+return|return
+name|rescoreBuilders
 return|;
 block|}
 comment|/**      * Indicates whether the response should contain the stored _source for      * every hit      */
@@ -1798,6 +1953,17 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the {@link FetchSourceContext} which defines how the _source should      * be fetched.      */
+DECL|method|fetchSource
+specifier|public
+name|FetchSourceContext
+name|fetchSource
+parameter_list|()
+block|{
+return|return
+name|fetchSourceContext
+return|;
+block|}
 comment|/**      * Sets no fields to be loaded, resulting in only id and type to be returned      * per field.      */
 DECL|method|noFields
 specifier|public
@@ -1880,40 +2046,18 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Adds a field to load and return (note, it must be stored) as part of the      * search request. If none are specified, the source of the document will be      * return.      */
-DECL|method|field
+comment|/**      * Gets the fields to load and return as part of the search request.      */
+DECL|method|fieldNames
 specifier|public
-name|NewSearchSourceBuilder
-name|field
-parameter_list|(
+name|List
+argument_list|<
 name|String
-name|name
-parameter_list|)
+argument_list|>
+name|fieldNames
+parameter_list|()
 block|{
-if|if
-condition|(
-name|fieldNames
-operator|==
-literal|null
-condition|)
-block|{
-name|fieldNames
-operator|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-expr_stmt|;
-block|}
-name|fieldNames
-operator|.
-name|add
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
 return|return
-name|this
+name|fieldNames
 return|;
 block|}
 comment|/**      * Adds a field to load from the field data cache and return as part of the      * search request.      */
@@ -1950,6 +2094,20 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the field-data fields.      */
+DECL|method|fieldDataFields
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|fieldDataFields
+parameter_list|()
+block|{
+return|return
+name|fieldDataFields
 return|;
 block|}
 comment|/**      * Adds a script field under the given name with the provided script.      *      * @param name      *            The name of the field      * @param script      *            The script      */
@@ -1995,6 +2153,20 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Gets the script fields.      */
+DECL|method|scriptFields
+specifier|public
+name|List
+argument_list|<
+name|ScriptField
+argument_list|>
+name|scriptFields
+parameter_list|()
+block|{
+return|return
+name|scriptFields
 return|;
 block|}
 comment|/**      * Sets the boost a specific index will receive when the query is executeed      * against it.      *      * @param index      *            The index to apply the boost against      * @param indexBoost      *            The boost to apply to the index      */
@@ -2044,6 +2216,20 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Gets the boost a specific indices will receive when the query is      * executeed against them.      */
+DECL|method|indexBoost
+specifier|public
+name|ObjectFloatHashMap
+argument_list|<
+name|String
+argument_list|>
+name|indexBoost
+parameter_list|()
+block|{
+return|return
+name|indexBoost
+return|;
+block|}
 comment|/**      * The stats groups this request will be aggregated under.      */
 DECL|method|stats
 specifier|public
@@ -2063,6 +2249,18 @@ name|statsGroups
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * The stats groups this request will be aggregated under.      */
+DECL|method|stats
+specifier|public
+name|String
+index|[]
+name|stats
+parameter_list|()
+block|{
+return|return
+name|stats
 return|;
 block|}
 DECL|method|fromXContent
@@ -2869,7 +3067,130 @@ name|AGGREGATIONS_FIELD
 argument_list|)
 condition|)
 block|{
-comment|// NOCOMMIT implement aggregations parsing
+name|List
+argument_list|<
+name|BytesReference
+argument_list|>
+name|aggregations
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+operator|)
+operator|!=
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|END_OBJECT
+condition|)
+block|{
+name|currentFieldName
+operator|=
+name|parser
+operator|.
+name|currentName
+argument_list|()
+expr_stmt|;
+name|token
+operator|=
+name|parser
+operator|.
+name|nextToken
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|token
+operator|==
+name|XContentParser
+operator|.
+name|Token
+operator|.
+name|START_OBJECT
+condition|)
+block|{
+name|XContentBuilder
+name|xContentBuilder
+init|=
+name|XContentFactory
+operator|.
+name|contentBuilder
+argument_list|(
+name|parser
+operator|.
+name|contentType
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|xContentBuilder
+operator|.
+name|field
+argument_list|(
+name|currentFieldName
+argument_list|)
+expr_stmt|;
+name|xContentBuilder
+operator|.
+name|copyCurrentStructure
+argument_list|(
+name|parser
+argument_list|)
+expr_stmt|;
+name|aggregations
+operator|.
+name|add
+argument_list|(
+name|xContentBuilder
+operator|.
+name|bytes
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|QueryParsingException
+argument_list|(
+name|context
+argument_list|,
+literal|"Unknown key for a "
+operator|+
+name|token
+operator|+
+literal|" in ["
+operator|+
+name|currentFieldName
+operator|+
+literal|"]."
+argument_list|,
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
+argument_list|)
+throw|;
+block|}
+block|}
+name|builder
+operator|.
+name|indexBoost
+operator|=
+name|indexBoost
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -5914,7 +6235,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeVLong
+name|writeLong
 argument_list|(
 name|timeoutInMillis
 argument_list|)
