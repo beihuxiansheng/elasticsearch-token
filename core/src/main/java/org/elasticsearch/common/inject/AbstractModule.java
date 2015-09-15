@@ -150,22 +150,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkState
-import|;
-end_import
-
 begin_comment
 comment|/**  * A support class for {@link Module}s which reduces repetition and results in  * a more readable configuration. Simply extend this class, implement {@link  * #configure()}, and call the inherited methods which mirror those found in  * {@link Binder}. For example:  *<p/>  *<pre>  * public class MyModule extends AbstractModule {  *   protected void configure() {  *     bind(Service.class).to(ServiceImpl.class).in(Singleton.class);  *     bind(CreditCardPaymentService.class);  *     bind(PaymentService.class).to(CreditCardPaymentService.class);  *     bindConstant().annotatedWith(Names.named("port")).to(8080);  *   }  * }  *</pre>  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -196,17 +180,23 @@ name|Binder
 name|builder
 parameter_list|)
 block|{
-name|checkState
-argument_list|(
+if|if
+condition|(
 name|this
 operator|.
 name|binder
-operator|==
+operator|!=
 literal|null
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
 literal|"Re-entry is not allowed."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
 name|binder

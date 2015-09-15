@@ -152,22 +152,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Static methods for working with types that we aren't publishing in the  * public {@code Types} API.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
@@ -851,16 +835,26 @@ operator|.
 name|getRawType
 argument_list|()
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
+operator|(
 name|rawType
 operator|instanceof
 name|Class
-argument_list|,
-literal|"Expected a Class, but<%s> is of type %s"
-argument_list|,
+operator|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Expected a Class, but<"
+operator|+
 name|type
-argument_list|,
+operator|+
+literal|"> is of type "
+operator|+
 name|type
 operator|.
 name|getClass
@@ -869,7 +863,8 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 return|return
 operator|(
 name|Class
@@ -2477,42 +2472,54 @@ name|Class
 operator|)
 name|rawType
 decl_stmt|;
-name|checkArgument
-argument_list|(
-name|ownerType
-operator|!=
-literal|null
-operator|||
-name|rawTypeAsClass
-operator|.
-name|getEnclosingClass
-argument_list|()
-operator|==
-literal|null
-argument_list|,
-literal|"No owner type for enclosed %s"
-argument_list|,
-name|rawType
-argument_list|)
-expr_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|ownerType
 operator|==
 literal|null
-operator|||
+operator|&&
 name|rawTypeAsClass
 operator|.
 name|getEnclosingClass
 argument_list|()
 operator|!=
 literal|null
-argument_list|,
-literal|"Owner type for unenclosed %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No owner type for enclosed "
+operator|+
 name|rawType
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
+if|if
+condition|(
+name|ownerType
+operator|!=
+literal|null
+operator|&&
+name|rawTypeAsClass
+operator|.
+name|getEnclosingClass
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Owner type for unenclosed "
+operator|+
+name|rawType
+argument_list|)
+throw|;
+block|}
 block|}
 name|this
 operator|.
@@ -2794,6 +2801,9 @@ init|=
 literal|0
 decl_stmt|;
 block|}
+end_class
+
+begin_class
 DECL|class|GenericArrayTypeImpl
 specifier|public
 specifier|static
@@ -2932,7 +2942,13 @@ init|=
 literal|0
 decl_stmt|;
 block|}
+end_class
+
+begin_comment
 comment|/**      * The WildcardType interface supports multiple upper bounds and multiple      * lower bounds. We only support what the Java 6 language needs - at most one      * bound. If a lower bound is set, the upper bound must be Object.class.      */
+end_comment
+
+begin_class
 DECL|class|WildcardTypeImpl
 specifier|public
 specifier|static
@@ -2970,28 +2986,40 @@ index|[]
 name|lowerBounds
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|lowerBounds
 operator|.
 name|length
-operator|<=
+operator|>
 literal|1
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"Must have at most one lower bound."
 argument_list|)
-expr_stmt|;
-name|checkArgument
-argument_list|(
+throw|;
+block|}
+if|if
+condition|(
 name|upperBounds
 operator|.
 name|length
-operator|==
+operator|!=
 literal|1
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"Must have exactly one upper bound."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 if|if
 condition|(
 name|lowerBounds
@@ -3023,20 +3051,26 @@ argument_list|,
 literal|"wildcard bounds"
 argument_list|)
 expr_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|upperBounds
 index|[
 literal|0
 index|]
-operator|==
+operator|!=
 name|Object
 operator|.
 name|class
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"bounded both ways"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
 name|lowerBound
@@ -3247,6 +3281,9 @@ init|=
 literal|0
 decl_stmt|;
 block|}
+end_class
+
+begin_function
 DECL|method|checkNotPrimitive
 specifier|private
 specifier|static
@@ -3260,19 +3297,15 @@ name|String
 name|use
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
-operator|!
-operator|(
+if|if
+condition|(
 name|type
 operator|instanceof
 name|Class
 argument_list|<
 name|?
 argument_list|>
-operator|)
-operator|||
-operator|!
+operator|&&
 operator|(
 operator|(
 name|Class
@@ -3282,16 +3315,30 @@ operator|)
 operator|.
 name|isPrimitive
 argument_list|()
-argument_list|,
-literal|"Primitive types are not allowed in %s: %s"
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Primitive types are not allowed in "
+operator|+
 name|use
-argument_list|,
+operator|+
+literal|": "
+operator|+
 name|type
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
+block|}
+end_function
+
+begin_comment
 comment|/**      * We cannot serialize the built-in Java member classes, which prevents us from using Members in      * our exception types. We workaround this with this serializable implementation. It includes all      * of the API methods, plus everything we use for line numbers and messaging.      */
+end_comment
+
+begin_class
 DECL|class|MemberImpl
 specifier|public
 specifier|static
@@ -3475,7 +3522,13 @@ argument_list|)
 return|;
 block|}
 block|}
+end_class
+
+begin_comment
 comment|/**      * A type formed from other types, such as arrays, parameterized types or wildcard types      */
+end_comment
+
+begin_interface
 DECL|interface|CompositeType
 specifier|private
 interface|interface
@@ -3488,8 +3541,8 @@ name|isFullySpecified
 parameter_list|()
 function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
+unit|}
 end_unit
 
