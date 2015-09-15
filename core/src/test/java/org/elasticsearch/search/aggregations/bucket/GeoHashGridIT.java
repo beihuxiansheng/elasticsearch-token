@@ -1242,15 +1242,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/13558"
-argument_list|)
 DECL|method|simple
 specifier|public
 name|void

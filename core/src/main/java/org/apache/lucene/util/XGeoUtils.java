@@ -105,7 +105,7 @@ name|TOLERANCE
 init|=
 literal|1E
 operator|-
-literal|6
+literal|5
 decl_stmt|;
 comment|/** Minimum longitude value. */
 DECL|field|MIN_LON_INCL
