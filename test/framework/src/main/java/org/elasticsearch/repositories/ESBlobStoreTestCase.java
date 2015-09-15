@@ -4,13 +4,13 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.test
+DECL|package|org.elasticsearch.repositories
 package|package
 name|org
 operator|.
 name|elasticsearch
 operator|.
-name|test
+name|repositories
 package|;
 end_package
 
@@ -67,6 +67,18 @@ operator|.
 name|bytes
 operator|.
 name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|ESTestCase
 import|;
 end_import
 
