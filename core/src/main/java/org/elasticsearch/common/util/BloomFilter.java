@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|primitives
-operator|.
-name|Ints
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -181,6 +167,22 @@ operator|.
 name|unit
 operator|.
 name|SizeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|primitives
+operator|.
+name|Integers
 import|;
 end_import
 
@@ -1492,7 +1494,7 @@ operator|*
 literal|64
 decl_stmt|;
 return|return
-name|Ints
+name|Integers
 operator|.
 name|checkedCast
 argument_list|(
