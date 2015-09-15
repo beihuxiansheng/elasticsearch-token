@@ -4391,9 +4391,6 @@ block|{
 name|ensureOpen
 argument_list|()
 expr_stmt|;
-name|updateIndexWriterSettings
-argument_list|()
-expr_stmt|;
 name|searcherManager
 operator|.
 name|maybeRefreshBlocking
@@ -4731,9 +4728,6 @@ argument_list|()
 init|)
 block|{
 name|ensureOpen
-argument_list|()
-expr_stmt|;
-name|updateIndexWriterSettings
 argument_list|()
 expr_stmt|;
 if|if
@@ -7310,6 +7304,17 @@ block|{
 name|mergeScheduler
 operator|.
 name|refreshConfig
+argument_list|()
+expr_stmt|;
+name|updateIndexWriterSettings
+argument_list|()
+expr_stmt|;
+comment|// config().getVersionMapSize() may have changed:
+name|checkVersionMapRefresh
+argument_list|()
+expr_stmt|;
+comment|// config().isEnableGcDeletes() or config.getGcDeletesInMillis() may have changed:
+name|maybePruneDeletedTombstones
 argument_list|()
 expr_stmt|;
 block|}

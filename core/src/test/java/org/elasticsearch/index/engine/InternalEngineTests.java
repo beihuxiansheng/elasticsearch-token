@@ -2863,6 +2863,11 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|engine
+operator|.
+name|onSettingsChanged
+argument_list|()
+expr_stmt|;
 name|ParsedDocument
 name|doc3
 init|=
@@ -3535,6 +3540,11 @@ name|setCompoundOnFlush
 argument_list|(
 literal|true
 argument_list|)
+expr_stmt|;
+name|engine
+operator|.
+name|onSettingsChanged
+argument_list|()
 expr_stmt|;
 name|ParsedDocument
 name|doc4
