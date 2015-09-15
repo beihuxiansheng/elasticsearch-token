@@ -34,13 +34,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|elasticsearch
 operator|.
 name|common
 operator|.
-name|collect
+name|util
+operator|.
+name|iterable
 operator|.
 name|Iterables
 import|;

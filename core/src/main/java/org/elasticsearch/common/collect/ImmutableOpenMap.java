@@ -100,20 +100,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|UnmodifiableIterator
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -323,7 +309,7 @@ block|}
 comment|/**      * Returns a direct iterator over the keys.      */
 DECL|method|keysIt
 specifier|public
-name|UnmodifiableIterator
+name|Iterator
 argument_list|<
 name|KType
 argument_list|>
@@ -350,7 +336,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|UnmodifiableIterator
+name|Iterator
 argument_list|<
 name|KType
 argument_list|>
@@ -386,6 +372,20 @@ operator|.
 name|value
 return|;
 block|}
+annotation|@
+name|Override
+specifier|public
+specifier|final
+name|void
+name|remove
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
+block|}
 block|}
 return|;
 block|}
@@ -409,7 +409,7 @@ block|}
 comment|/**      * Returns a direct iterator over the keys.      */
 DECL|method|valuesIt
 specifier|public
-name|UnmodifiableIterator
+name|Iterator
 argument_list|<
 name|VType
 argument_list|>
@@ -436,7 +436,7 @@ argument_list|()
 decl_stmt|;
 return|return
 operator|new
-name|UnmodifiableIterator
+name|Iterator
 argument_list|<
 name|VType
 argument_list|>
@@ -471,6 +471,20 @@ argument_list|()
 operator|.
 name|value
 return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+specifier|final
+name|void
+name|remove
+parameter_list|()
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|()
+throw|;
 block|}
 block|}
 return|;

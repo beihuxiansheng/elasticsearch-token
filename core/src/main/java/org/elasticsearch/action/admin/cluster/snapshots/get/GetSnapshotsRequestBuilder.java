@@ -24,20 +24,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ObjectArrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -61,6 +47,20 @@ operator|.
 name|client
 operator|.
 name|ElasticsearchClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|ArrayUtils
 import|;
 end_import
 
@@ -219,7 +219,7 @@ name|request
 operator|.
 name|snapshots
 argument_list|(
-name|ObjectArrays
+name|ArrayUtils
 operator|.
 name|concat
 argument_list|(
@@ -229,10 +229,6 @@ name|snapshots
 argument_list|()
 argument_list|,
 name|snapshots
-argument_list|,
-name|String
-operator|.
-name|class
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -98,22 +98,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *<p/>  *<p>For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *<p/>  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *<p/>  *<p>{@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *<p/>  *<p>Keys do not differentiate between primitive types (int, char, etc.) and  * their correpsonding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -1339,23 +1323,30 @@ argument_list|>
 name|annotationType
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|Annotations
 operator|.
 name|isRetainedAtRuntime
 argument_list|(
 name|annotationType
 argument_list|)
-argument_list|,
-literal|"%s is not retained at runtime. Please annotate it with @Retention(RUNTIME)."
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|annotationType
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|" is not retained at runtime. Please annotate it with @Retention(RUNTIME)."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 block|}
 DECL|method|ensureIsBindingAnnotation
 specifier|private
@@ -1372,21 +1363,28 @@ argument_list|>
 name|annotationType
 parameter_list|)
 block|{
-name|checkArgument
-argument_list|(
+if|if
+condition|(
+operator|!
 name|isBindingAnnotation
 argument_list|(
 name|annotationType
 argument_list|)
-argument_list|,
-literal|"%s is not a binding annotation. Please annotate it with @BindingAnnotation."
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 name|annotationType
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|" is not a binding annotation. Please annotate it with @BindingAnnotation."
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 block|}
 DECL|enum|NullAnnotationStrategy
 specifier|static
