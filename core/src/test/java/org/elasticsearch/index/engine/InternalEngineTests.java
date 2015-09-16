@@ -15068,9 +15068,14 @@ block|}
 catch|catch
 parameter_list|(
 name|EngineCreationFailureException
+decl||
+name|AssertionError
 name|ex
 parameter_list|)
-block|{                 }
+block|{
+comment|// IndexWriter can throw AssertionError on init (if asserts are enabled) if we throw FNFE/NSFE when it asserts that all
+comment|// referenced files in the current commit point do exist
+block|}
 block|}
 name|directory
 operator|.
