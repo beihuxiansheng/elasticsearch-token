@@ -175,13 +175,6 @@ literal|"execution is deprecated and has no effect"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|TermsQueryParser
-specifier|public
-name|TermsQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

@@ -70,13 +70,6 @@ name|BoostingQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|BoostingQueryParser
-specifier|public
-name|BoostingQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

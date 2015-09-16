@@ -91,13 +91,6 @@ init|=
 literal|"match"
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|SpanMultiTermQueryParser
-specifier|public
-name|SpanMultiTermQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

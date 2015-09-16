@@ -75,13 +75,6 @@ extends|extends
 name|BaseQueryParser
 block|{
 annotation|@
-name|Inject
-DECL|method|MatchNoneQueryParser
-specifier|public
-name|MatchNoneQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

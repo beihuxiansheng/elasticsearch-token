@@ -82,13 +82,6 @@ name|FieldMaskingSpanQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|FieldMaskingSpanQueryParser
-specifier|public
-name|FieldMaskingSpanQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

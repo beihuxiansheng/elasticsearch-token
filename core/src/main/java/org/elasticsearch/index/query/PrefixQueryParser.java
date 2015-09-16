@@ -100,13 +100,6 @@ literal|"query name is not supported in short version of prefix query"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|PrefixQueryParser
-specifier|public
-name|PrefixQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

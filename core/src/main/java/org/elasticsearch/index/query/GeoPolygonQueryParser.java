@@ -187,13 +187,6 @@ literal|"points"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|GeoPolygonQueryParser
-specifier|public
-name|GeoPolygonQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

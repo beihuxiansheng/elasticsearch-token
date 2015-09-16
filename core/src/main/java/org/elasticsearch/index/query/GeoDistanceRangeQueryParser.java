@@ -355,13 +355,6 @@ literal|"ignore_malformed"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|GeoDistanceRangeQueryParser
-specifier|public
-name|GeoDistanceRangeQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

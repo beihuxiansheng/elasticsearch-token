@@ -129,13 +129,6 @@ literal|"no_match_filter"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|IndicesQueryParser
-specifier|public
-name|IndicesQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

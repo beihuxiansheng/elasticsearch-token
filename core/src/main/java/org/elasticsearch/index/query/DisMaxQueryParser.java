@@ -102,13 +102,6 @@ name|DisMaxQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|DisMaxQueryParser
-specifier|public
-name|DisMaxQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

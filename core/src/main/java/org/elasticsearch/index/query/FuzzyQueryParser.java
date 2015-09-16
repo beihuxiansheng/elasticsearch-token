@@ -121,13 +121,6 @@ literal|"min_similarity"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|FuzzyQueryParser
-specifier|public
-name|FuzzyQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

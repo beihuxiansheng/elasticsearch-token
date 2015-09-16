@@ -82,13 +82,6 @@ name|SpanNotQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|SpanNotQueryParser
-specifier|public
-name|SpanNotQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

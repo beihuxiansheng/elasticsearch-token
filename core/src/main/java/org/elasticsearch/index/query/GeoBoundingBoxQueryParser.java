@@ -347,13 +347,6 @@ init|=
 literal|"field"
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|GeoBoundingBoxQueryParser
-specifier|public
-name|GeoBoundingBoxQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

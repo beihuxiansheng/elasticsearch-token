@@ -100,13 +100,6 @@ name|IdsQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|IdsQueryParser
-specifier|public
-name|IdsQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

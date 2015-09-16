@@ -207,13 +207,6 @@ extends|extends
 name|BaseQueryParserTemp
 block|{
 annotation|@
-name|Inject
-DECL|method|GeoDistanceQueryParser
-specifier|public
-name|GeoDistanceQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

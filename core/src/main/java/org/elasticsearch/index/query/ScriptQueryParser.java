@@ -142,13 +142,6 @@ name|ScriptQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|ScriptQueryParser
-specifier|public
-name|ScriptQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

@@ -102,13 +102,6 @@ name|SpanNearQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|SpanNearQueryParser
-specifier|public
-name|SpanNearQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

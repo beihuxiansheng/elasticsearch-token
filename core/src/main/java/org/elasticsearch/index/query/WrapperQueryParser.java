@@ -67,13 +67,6 @@ extends|extends
 name|BaseQueryParser
 block|{
 annotation|@
-name|Inject
-DECL|method|WrapperQueryParser
-specifier|public
-name|WrapperQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

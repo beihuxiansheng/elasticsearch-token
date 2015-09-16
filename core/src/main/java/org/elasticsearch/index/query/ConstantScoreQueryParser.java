@@ -109,13 +109,6 @@ literal|"query"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|ConstantScoreQueryParser
-specifier|public
-name|ConstantScoreQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

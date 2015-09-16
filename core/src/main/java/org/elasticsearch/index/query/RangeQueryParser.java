@@ -118,13 +118,6 @@ literal|"query name is not supported in short version of range query"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|RangeQueryParser
-specifier|public
-name|RangeQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

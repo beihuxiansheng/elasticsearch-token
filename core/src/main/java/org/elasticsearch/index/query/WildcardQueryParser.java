@@ -70,13 +70,6 @@ name|WildcardQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|WildcardQueryParser
-specifier|public
-name|WildcardQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

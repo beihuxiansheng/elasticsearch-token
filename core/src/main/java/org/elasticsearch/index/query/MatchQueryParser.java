@@ -125,13 +125,6 @@ extends|extends
 name|BaseQueryParser
 block|{
 annotation|@
-name|Inject
-DECL|method|MatchQueryParser
-specifier|public
-name|MatchQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

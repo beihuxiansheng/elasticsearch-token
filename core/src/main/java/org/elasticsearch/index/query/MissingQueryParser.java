@@ -70,13 +70,6 @@ name|MissingQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|MissingQueryParser
-specifier|public
-name|MissingQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

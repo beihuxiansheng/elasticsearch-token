@@ -173,13 +173,6 @@ extends|extends
 name|BaseQueryParserTemp
 block|{
 annotation|@
-name|Inject
-DECL|method|MultiMatchQueryParser
-specifier|public
-name|MultiMatchQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

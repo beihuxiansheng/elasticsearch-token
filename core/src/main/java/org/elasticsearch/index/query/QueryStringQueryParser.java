@@ -151,13 +151,6 @@ literal|"fuzzy_min_sim"
 argument_list|)
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|method|QueryStringQueryParser
-specifier|public
-name|QueryStringQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

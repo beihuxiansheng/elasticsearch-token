@@ -84,13 +84,6 @@ name|TypeQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|TypeQueryParser
-specifier|public
-name|TypeQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

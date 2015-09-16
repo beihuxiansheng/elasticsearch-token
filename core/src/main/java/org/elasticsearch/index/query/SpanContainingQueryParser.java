@@ -82,13 +82,6 @@ name|SpanContainingQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|SpanContainingQueryParser
-specifier|public
-name|SpanContainingQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

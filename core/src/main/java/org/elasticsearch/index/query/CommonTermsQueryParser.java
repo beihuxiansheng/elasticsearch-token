@@ -70,13 +70,6 @@ name|CommonTermsQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|CommonTermsQueryParser
-specifier|public
-name|CommonTermsQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public

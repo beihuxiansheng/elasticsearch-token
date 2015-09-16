@@ -82,13 +82,6 @@ name|SpanFirstQueryBuilder
 argument_list|>
 block|{
 annotation|@
-name|Inject
-DECL|method|SpanFirstQueryParser
-specifier|public
-name|SpanFirstQueryParser
-parameter_list|()
-block|{     }
-annotation|@
 name|Override
 DECL|method|names
 specifier|public
