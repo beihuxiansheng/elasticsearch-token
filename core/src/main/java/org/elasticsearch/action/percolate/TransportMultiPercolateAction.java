@@ -1812,9 +1812,6 @@ name|item
 operator|.
 name|error
 argument_list|()
-operator|.
-name|string
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -723,12 +723,9 @@ throw|throw
 operator|new
 name|GroovyScriptCompilationException
 argument_list|(
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
+literal|"failed to compile groovy script"
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 throw|;
 block|}
@@ -1477,15 +1474,8 @@ argument_list|(
 literal|"failed to run "
 operator|+
 name|compiledScript
-operator|+
-literal|": "
-operator|+
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
+argument_list|,
 name|e
-argument_list|)
 argument_list|)
 throw|;
 block|}

@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -69,20 +55,6 @@ operator|.
 name|cli
 operator|.
 name|DefaultParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|Tuple
 import|;
 end_import
 
@@ -407,10 +379,8 @@ name|Terminal
 name|terminal
 parameter_list|)
 block|{
-name|Preconditions
-operator|.
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|config
 operator|.
 name|cmds
@@ -418,12 +388,18 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|!=
+operator|==
 literal|0
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"At least one command must be configured"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|this
 operator|.
 name|config

@@ -128,18 +128,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|Classes
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|component
 operator|.
 name|AbstractComponent
@@ -1123,8 +1111,6 @@ name|ImmutableSet
 operator|.
 name|of
 argument_list|(
-literal|"index.buffer_size"
-argument_list|,
 literal|"index.merge.policy.floor_segment"
 argument_list|,
 literal|"index.merge.policy.max_merged_segment"

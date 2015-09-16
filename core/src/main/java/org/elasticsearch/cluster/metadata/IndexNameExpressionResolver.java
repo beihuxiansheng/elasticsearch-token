@@ -3167,10 +3167,17 @@ if|if
 condition|(
 name|expression
 operator|.
-name|endsWith
+name|indexOf
 argument_list|(
 literal|"*"
 argument_list|)
+operator|==
+name|expression
+operator|.
+name|length
+argument_list|()
+operator|-
+literal|1
 condition|)
 block|{
 comment|// Suffix wildcard:

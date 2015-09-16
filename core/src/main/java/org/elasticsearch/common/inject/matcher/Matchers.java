@@ -98,22 +98,6 @@ name|Objects
 import|;
 end_import
 
-begin_import
-import|import static
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|base
-operator|.
-name|Preconditions
-operator|.
-name|checkArgument
-import|;
-end_import
-
 begin_comment
 comment|/**  * Matcher implementations. Supports matching classes and methods.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
@@ -425,21 +409,26 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|checkArgument
-argument_list|(
+if|if
+condition|(
 name|retention
-operator|!=
+operator|==
 literal|null
-operator|&&
+operator|||
 name|retention
 operator|.
 name|value
 argument_list|()
-operator|==
+operator|!=
 name|RetentionPolicy
 operator|.
 name|RUNTIME
-argument_list|,
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
 literal|"Annotation "
 operator|+
 name|annotationType
@@ -449,7 +438,8 @@ argument_list|()
 operator|+
 literal|" is missing RUNTIME retention"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 block|}
 comment|/**      * Returns a matcher which matches elements (methods, classes, etc.)      * with a given annotation.      */
 DECL|method|annotatedWith

@@ -645,7 +645,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"PowerAssertionError[assert false"
+literal|"AssertionError[assert false"
 argument_list|)
 argument_list|,
 name|equalTo

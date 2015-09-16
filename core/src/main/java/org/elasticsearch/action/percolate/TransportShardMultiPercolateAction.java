@@ -699,16 +699,7 @@ name|Item
 argument_list|(
 name|slot
 argument_list|,
-operator|new
-name|StringText
-argument_list|(
-name|ExceptionsHelper
-operator|.
-name|detailedMessage
-argument_list|(
 name|t
-argument_list|)
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1381,7 +1372,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|writeText
+name|writeThrowable
 argument_list|(
 name|item
 operator|.
@@ -1498,9 +1489,12 @@ name|Item
 argument_list|(
 name|slot
 argument_list|,
+operator|(
+name|Throwable
+operator|)
 name|in
 operator|.
-name|readText
+name|readThrowable
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1529,7 +1523,7 @@ decl_stmt|;
 DECL|field|error
 specifier|private
 specifier|final
-name|Text
+name|Throwable
 name|error
 decl_stmt|;
 DECL|method|Item
@@ -1569,7 +1563,7 @@ parameter_list|(
 name|Integer
 name|slot
 parameter_list|,
-name|Text
+name|Throwable
 name|error
 parameter_list|)
 block|{
@@ -1614,7 +1608,7 @@ return|;
 block|}
 DECL|method|error
 specifier|public
-name|Text
+name|Throwable
 name|error
 parameter_list|()
 block|{

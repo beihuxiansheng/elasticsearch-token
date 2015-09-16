@@ -24,32 +24,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ObjectArrays
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|action
-operator|.
-name|ActionListener
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -92,9 +66,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|client
+name|common
 operator|.
-name|IndicesAdminClient
+name|util
+operator|.
+name|ArrayUtils
 import|;
 end_import
 
@@ -184,7 +160,7 @@ name|request
 operator|.
 name|indices
 argument_list|(
-name|ObjectArrays
+name|ArrayUtils
 operator|.
 name|concat
 argument_list|(
@@ -194,10 +170,6 @@ name|indices
 argument_list|()
 argument_list|,
 name|indices
-argument_list|,
-name|String
-operator|.
-name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -240,7 +212,7 @@ name|request
 operator|.
 name|types
 argument_list|(
-name|ObjectArrays
+name|ArrayUtils
 operator|.
 name|concat
 argument_list|(
@@ -250,10 +222,6 @@ name|types
 argument_list|()
 argument_list|,
 name|types
-argument_list|,
-name|String
-operator|.
-name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
