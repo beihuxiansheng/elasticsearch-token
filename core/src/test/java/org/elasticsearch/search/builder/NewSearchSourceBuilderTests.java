@@ -1995,17 +1995,17 @@ block|}
 DECL|method|createSearchSourceBuilder
 specifier|protected
 specifier|final
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|createSearchSourceBuilder
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|builder
 init|=
 operator|new
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 argument_list|()
 decl_stmt|;
 if|if
@@ -2950,7 +2950,7 @@ block|{
 comment|// NORELEASE need a random highlight builder method
 name|builder
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 operator|new
 name|HighlightBuilder
@@ -3181,13 +3181,13 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|testBuilder
 init|=
 name|createSearchSourceBuilder
 argument_list|()
 decl_stmt|;
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|newBuilder
 init|=
 name|parseQuery
@@ -3232,7 +3232,7 @@ expr_stmt|;
 block|}
 DECL|method|parseQuery
 specifier|protected
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|parseQuery
 parameter_list|(
 name|String
@@ -3289,7 +3289,7 @@ name|queryAsString
 argument_list|)
 expr_stmt|;
 return|return
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 operator|.
 name|PROTOTYPE
 operator|.
@@ -3312,7 +3312,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|testBuilder
 init|=
 name|createSearchSourceBuilder
@@ -3357,10 +3357,10 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|deserializedBuilder
 init|=
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 operator|.
 name|PROTOTYPE
 operator|.
@@ -3409,7 +3409,7 @@ parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|firstBuilder
 init|=
 name|createSearchSourceBuilder
@@ -3469,7 +3469,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|secondBuilder
 init|=
 name|copyBuilder
@@ -3531,7 +3531,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|thirdBuilder
 init|=
 name|copyBuilder
@@ -3639,10 +3639,10 @@ block|}
 comment|//we use the streaming infra to create a copy of the query provided as argument
 DECL|method|copyBuilder
 specifier|protected
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|copyBuilder
 parameter_list|(
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|builder
 parameter_list|)
 throws|throws
@@ -3687,10 +3687,10 @@ name|namedWriteableRegistry
 argument_list|)
 init|)
 block|{
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 name|secondQuery
 init|=
-name|NewSearchSourceBuilder
+name|SearchSourceBuilder
 operator|.
 name|PROTOTYPE
 operator|.
