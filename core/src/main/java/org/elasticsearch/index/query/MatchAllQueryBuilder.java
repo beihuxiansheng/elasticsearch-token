@@ -192,19 +192,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|validate
-specifier|public
-name|QueryValidationException
-name|validate
-parameter_list|()
-block|{
-comment|// nothing to validate
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|doEquals
 specifier|protected
 name|boolean
