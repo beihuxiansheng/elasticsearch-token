@@ -17818,11 +17818,6 @@ operator|.
 name|Type
 name|matchQueryType
 init|=
-name|rarely
-argument_list|()
-condition|?
-literal|null
-else|:
 name|RandomPicks
 operator|.
 name|randomFrom
