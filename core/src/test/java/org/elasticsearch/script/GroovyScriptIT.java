@@ -330,13 +330,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/13599"
-argument_list|)
 DECL|method|testGroovyExceptionSerialization
 specifier|public
 name|void
@@ -652,7 +645,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"PowerAssertionError[assert false"
+literal|"AssertionError[assert false"
 argument_list|)
 argument_list|,
 name|equalTo
