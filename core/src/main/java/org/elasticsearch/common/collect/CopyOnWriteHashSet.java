@@ -291,7 +291,11 @@ operator|new
 name|AbstractMap
 operator|.
 name|SimpleImmutableEntry
-argument_list|<>
+argument_list|<
+name|T
+argument_list|,
+name|Boolean
+argument_list|>
 argument_list|(
 name|p
 argument_list|,
