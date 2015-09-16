@@ -2074,41 +2074,11 @@ argument_list|,
 literal|"3"
 argument_list|)
 expr_stmt|;
-comment|// Sending a negative 'flags' value is the same as SimpleQueryStringFlag.ALL
-name|searchResponse
-operator|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|()
-operator|.
-name|setQuery
-argument_list|(
-literal|"{\"simple_query_string\": {\"query\": \"foo bar\", \"flags\": -1}}"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|assertHitCount
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|3l
-argument_list|)
-expr_stmt|;
-name|assertSearchHits
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|"1"
-argument_list|,
-literal|"2"
-argument_list|,
-literal|"3"
-argument_list|)
-expr_stmt|;
+comment|// NORELEASE  This should be tested in SimpleQueryStringQueryBuilderTests
+comment|//        // Sending a negative 'flags' value is the same as SimpleQueryStringFlag.ALL
+comment|//        searchResponse = client().prepareSearch().setQuery("{\"simple_query_string\": {\"query\": \"foo bar\", \"flags\": -1}}").get();
+comment|//        assertHitCount(searchResponse, 3l);
+comment|//        assertSearchHits(searchResponse, "1", "2", "3");
 name|searchResponse
 operator|=
 name|client

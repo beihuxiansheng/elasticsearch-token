@@ -92,6 +92,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|bytes
+operator|.
+name|BytesArray
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|geo
 operator|.
 name|GeoPoint
@@ -300,9 +314,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
-operator|.
-name|ExecutionException
+name|Locale
 import|;
 end_import
 
@@ -312,7 +324,9 @@ name|java
 operator|.
 name|util
 operator|.
-name|Locale
+name|concurrent
+operator|.
+name|ExecutionException
 import|;
 end_import
 
@@ -372,7 +386,39 @@ name|query
 operator|.
 name|QueryBuilders
 operator|.
-name|*
+name|constantScoreQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|functionScoreQuery
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|QueryBuilders
+operator|.
+name|termQuery
 import|;
 end_import
 
@@ -390,7 +436,43 @@ name|functionscore
 operator|.
 name|ScoreFunctionBuilders
 operator|.
-name|*
+name|exponentialDecayFunction
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|functionscore
+operator|.
+name|ScoreFunctionBuilders
+operator|.
+name|gaussDecayFunction
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|index
+operator|.
+name|query
+operator|.
+name|functionscore
+operator|.
+name|ScoreFunctionBuilders
+operator|.
+name|linearDecayFunction
 import|;
 end_import
 
@@ -422,7 +504,55 @@ name|hamcrest
 operator|.
 name|ElasticsearchAssertions
 operator|.
-name|*
+name|assertAcked
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertNoFailures
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertOrderedSearchHits
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|test
+operator|.
+name|hamcrest
+operator|.
+name|ElasticsearchAssertions
+operator|.
+name|assertSearchHits
 import|;
 end_import
 
@@ -434,7 +564,79 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|anyOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|closeTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|containsString
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|equalTo
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|isOneOf
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|lessThan
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|not
 import|;
 end_import
 
@@ -6161,19 +6363,13 @@ call|)
 argument_list|(
 literal|10.0
 operator|*
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|i
-argument_list|)
+operator|)
 operator|/
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|numDocs
-argument_list|)
+operator|)
 argument_list|)
 decl_stmt|;
 name|double
@@ -6190,19 +6386,13 @@ call|)
 argument_list|(
 literal|29.0
 operator|*
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|i
-argument_list|)
+operator|)
 operator|/
-call|(
-name|float
-call|)
-argument_list|(
+operator|(
 name|numDocs
-argument_list|)
+operator|)
 argument_list|)
 operator|+
 literal|1
@@ -8060,10 +8250,6 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-call|(
-name|double
-call|)
-argument_list|(
 literal|1.0
 operator|-
 name|sh
@@ -8075,13 +8261,8 @@ argument_list|)
 operator|.
 name|getScore
 argument_list|()
-argument_list|)
 argument_list|,
 name|closeTo
-argument_list|(
-call|(
-name|double
-call|)
 argument_list|(
 operator|(
 literal|1.0
@@ -8098,7 +8279,6 @@ argument_list|()
 operator|)
 operator|/
 literal|3.0
-argument_list|)
 argument_list|,
 literal|1.e-6d
 argument_list|)
@@ -8193,10 +8373,7 @@ argument_list|)
 argument_list|,
 name|closeTo
 argument_list|(
-call|(
-name|double
-call|)
-argument_list|(
+operator|(
 name|sh
 operator|.
 name|getAt
@@ -8206,7 +8383,7 @@ argument_list|)
 operator|.
 name|getScore
 argument_list|()
-argument_list|)
+operator|)
 argument_list|,
 literal|1.e-6d
 argument_list|)
@@ -8358,6 +8535,11 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
+literal|"query"
+argument_list|)
+operator|.
+name|startObject
+argument_list|(
 literal|"function_score"
 argument_list|)
 operator|.
@@ -8402,6 +8584,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -8415,13 +8600,10 @@ argument_list|()
 operator|.
 name|source
 argument_list|(
-name|searchSource
-argument_list|()
+name|query
 operator|.
-name|query
-argument_list|(
-name|query
-argument_list|)
+name|bytes
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -8491,6 +8673,11 @@ argument_list|()
 operator|.
 name|startObject
 argument_list|(
+literal|"query"
+argument_list|)
+operator|.
+name|startObject
+argument_list|(
 literal|"function_score"
 argument_list|)
 operator|.
@@ -8543,6 +8730,9 @@ argument_list|()
 operator|.
 name|endObject
 argument_list|()
+operator|.
+name|endObject
+argument_list|()
 expr_stmt|;
 try|try
 block|{
@@ -8556,13 +8746,10 @@ argument_list|()
 operator|.
 name|source
 argument_list|(
-name|searchSource
-argument_list|()
+name|query
 operator|.
-name|query
-argument_list|(
-name|query
-argument_list|)
+name|bytes
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -8666,29 +8853,33 @@ name|query
 init|=
 literal|"{\n"
 operator|+
-literal|"    \"function_score\": {\n"
+literal|"    \"query\": {\n"
 operator|+
-literal|"      \"score_mode\": \"sum\",\n"
+literal|"      \"function_score\": {\n"
 operator|+
-literal|"      \"boost_mode\": \"replace\",\n"
+literal|"        \"score_mode\": \"sum\",\n"
 operator|+
-literal|"      \"functions\": [\n"
+literal|"        \"boost_mode\": \"replace\",\n"
 operator|+
-literal|"        {\n"
+literal|"        \"functions\": [\n"
 operator|+
-literal|"          \"filter\": {\n"
+literal|"          {\n"
 operator|+
-literal|"            \"term\": {\n"
+literal|"            \"filter\": {\n"
 operator|+
-literal|"              \"text\": \"baseball\"\n"
+literal|"              \"term\": {\n"
+operator|+
+literal|"                \"text\": \"baseball\"\n"
+operator|+
+literal|"              }\n"
 operator|+
 literal|"            }\n"
 operator|+
 literal|"          }\n"
 operator|+
-literal|"        }\n"
+literal|"        ]\n"
 operator|+
-literal|"      ]\n"
+literal|"      }\n"
 operator|+
 literal|"    }\n"
 operator|+
@@ -8732,10 +8923,8 @@ argument_list|()
 operator|.
 name|source
 argument_list|(
-name|searchSource
-argument_list|()
-operator|.
-name|query
+operator|new
+name|BytesArray
 argument_list|(
 name|query
 argument_list|)
@@ -8791,45 +8980,49 @@ name|query
 operator|=
 literal|"{\n"
 operator|+
-literal|"    \"function_score\": {\n"
+literal|"    \"query\": {\n"
 operator|+
-literal|"      \"score_mode\": \"sum\",\n"
+literal|"      \"function_score\": {\n"
 operator|+
-literal|"      \"boost_mode\": \"replace\",\n"
+literal|"        \"score_mode\": \"sum\",\n"
 operator|+
-literal|"      \"functions\": [\n"
+literal|"        \"boost_mode\": \"replace\",\n"
 operator|+
-literal|"        {\n"
+literal|"        \"functions\": [\n"
 operator|+
-literal|"          \"filter\": {\n"
+literal|"          {\n"
 operator|+
-literal|"            \"term\": {\n"
+literal|"            \"filter\": {\n"
 operator|+
-literal|"              \"text\": \"baseball\"\n"
+literal|"              \"term\": {\n"
 operator|+
-literal|"            }\n"
+literal|"                \"text\": \"baseball\"\n"
+operator|+
+literal|"              }\n"
+operator|+
+literal|"            },\n"
+operator|+
+literal|"            \"weight\": 2\n"
 operator|+
 literal|"          },\n"
 operator|+
-literal|"          \"weight\": 2\n"
+literal|"          {\n"
 operator|+
-literal|"        },\n"
+literal|"            \"filter\": {\n"
 operator|+
-literal|"        {\n"
+literal|"              \"term\": {\n"
 operator|+
-literal|"          \"filter\": {\n"
+literal|"                \"text\": \"baseball\"\n"
 operator|+
-literal|"            \"term\": {\n"
-operator|+
-literal|"              \"text\": \"baseball\"\n"
+literal|"              }\n"
 operator|+
 literal|"            }\n"
 operator|+
 literal|"          }\n"
 operator|+
-literal|"        }\n"
+literal|"        ]\n"
 operator|+
-literal|"      ]\n"
+literal|"      }\n"
 operator|+
 literal|"    }\n"
 operator|+
@@ -8847,10 +9040,8 @@ argument_list|()
 operator|.
 name|source
 argument_list|(
-name|searchSource
-argument_list|()
-operator|.
-name|query
+operator|new
+name|BytesArray
 argument_list|(
 name|query
 argument_list|)

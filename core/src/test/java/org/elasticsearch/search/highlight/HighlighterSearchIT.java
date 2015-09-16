@@ -5177,7 +5177,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -5423,7 +5423,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -5912,7 +5912,7 @@ literal|"quick"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -5970,7 +5970,7 @@ literal|"quick"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6080,7 +6080,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6165,7 +6165,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6254,7 +6254,7 @@ literal|"quick"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6343,7 +6343,7 @@ literal|"qui"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6435,7 +6435,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6533,7 +6533,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6680,7 +6680,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6769,7 +6769,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6863,7 +6863,7 @@ literal|"quick"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -6957,7 +6957,7 @@ literal|"qui"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -7144,7 +7144,7 @@ literal|"t"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -11502,7 +11502,7 @@ literal|0.5f
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -11667,7 +11667,7 @@ literal|0.5f
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -11802,7 +11802,7 @@ literal|100
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -11950,7 +11950,7 @@ literal|100
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -12184,7 +12184,7 @@ literal|"quick bro"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -12272,7 +12272,7 @@ literal|"quick bro"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -12468,7 +12468,7 @@ literal|"fast bro"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -12563,7 +12563,7 @@ literal|"the fast bro"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -12692,7 +12692,7 @@ literal|"a fast quick blue ca"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -16588,7 +16588,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -16671,7 +16671,7 @@ literal|"test"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -16753,7 +16753,7 @@ literal|"quick"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -16840,7 +16840,7 @@ literal|"quick brown"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -16924,7 +16924,7 @@ literal|"quick brown"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -17199,7 +17199,7 @@ literal|"fox"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -17352,7 +17352,7 @@ literal|"fox"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -17857,7 +17857,7 @@ argument_list|(
 name|multiMatchQueryBuilder
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -18056,7 +18056,7 @@ literal|"sentence"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -19349,7 +19349,7 @@ literal|0.5f
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -19495,7 +19495,7 @@ literal|100
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -19725,7 +19725,7 @@ literal|"qui"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -19853,7 +19853,7 @@ literal|"quck"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -19981,7 +19981,7 @@ literal|"qu[a-l]+k"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20109,7 +20109,7 @@ literal|"qui*"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20172,7 +20172,7 @@ literal|"qu*k"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20314,7 +20314,7 @@ literal|"zzzz"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20445,7 +20445,7 @@ literal|"field2"
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20572,7 +20572,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20726,7 +20726,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -20871,7 +20871,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()
@@ -21007,7 +21007,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 operator|.
-name|highlight
+name|highlighter
 argument_list|(
 name|highlight
 argument_list|()

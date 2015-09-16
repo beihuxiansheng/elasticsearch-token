@@ -1390,77 +1390,15 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|passQueryAsStringTest
-specifier|public
-name|void
-name|passQueryAsStringTest
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
-name|client
-argument_list|()
-operator|.
-name|prepareIndex
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-literal|"field1"
-argument_list|,
-literal|"value1_1"
-argument_list|,
-literal|"field2"
-argument_list|,
-literal|"value2_1"
-argument_list|)
-operator|.
-name|setRefresh
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|SearchResponse
-name|searchResponse
-init|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|()
-operator|.
-name|setQuery
-argument_list|(
-literal|"{ \"term\" : { \"field1\" : \"value1_1\" }}"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
-name|assertHitCount
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|1l
-argument_list|)
-expr_stmt|;
-block|}
+comment|// NORELEASE  This should be tested in SearchSourceBuilderTests
+comment|//    @Test
+comment|//    public void passQueryAsStringTest() throws Exception {
+comment|//        createIndex("test");
+comment|//        client().prepareIndex("test", "type1", "1").setSource("field1", "value1_1", "field2", "value2_1").setRefresh(true).get();
+comment|//
+comment|//        SearchResponse searchResponse = client().prepareSearch().setQuery("{ \"term\" : { \"field1\" : \"value1_1\" }}").get();
+comment|//        assertHitCount(searchResponse, 1l);
+comment|//    }
 annotation|@
 name|Test
 DECL|method|testIndexOptions
@@ -3179,39 +3117,10 @@ literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|searchResponse
-operator|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|()
-operator|.
-name|setQuery
-argument_list|(
-literal|"{ \"common\" : { \"field1\" : { \"query\" : \"the lazy fox brown\", \"cutoff_frequency\" : 1, \"minimum_should_match\" : { \"high_freq\" : 4 } } } }"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|assertHitCount
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|1l
-argument_list|)
-expr_stmt|;
-name|assertFirstHit
-argument_list|(
-name|searchResponse
-argument_list|,
-name|hasId
-argument_list|(
-literal|"2"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// NORELEASE  This should be tested in SearchSourceBuilderTests
+comment|//        searchResponse = client().prepareSearch().setQuery("{ \"common\" : { \"field1\" : { \"query\" : \"the lazy fox brown\", \"cutoff_frequency\" : 1, \"minimum_should_match\" : { \"high_freq\" : 4 } } } }").get();
+comment|//        assertHitCount(searchResponse, 1l);
+comment|//        assertFirstHit(searchResponse, hasId("2"));
 comment|// Default
 name|searchResponse
 operator|=
@@ -4104,39 +4013,10 @@ literal|"2"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|searchResponse
-operator|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|()
-operator|.
-name|setQuery
-argument_list|(
-literal|"{ \"common\" : { \"field1\" : { \"query\" : \"the fast lazy fox brown\", \"cutoff_frequency\" : 1, \"minimum_should_match\" : { \"high_freq\" : 6 } } } }"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|assertHitCount
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|1l
-argument_list|)
-expr_stmt|;
-name|assertFirstHit
-argument_list|(
-name|searchResponse
-argument_list|,
-name|hasId
-argument_list|(
-literal|"2"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// NORELEASE  This should be tested in SearchSourceBuilderTests
+comment|//        searchResponse = client().prepareSearch().setQuery("{ \"common\" : { \"field1\" : { \"query\" : \"the fast lazy fox brown\", \"cutoff_frequency\" : 1, \"minimum_should_match\" : { \"high_freq\" : 6 } } } }").get();
+comment|//        assertHitCount(searchResponse, 1l);
+comment|//        assertFirstHit(searchResponse, hasId("2"));
 comment|// Default
 name|searchResponse
 operator|=
@@ -14882,66 +14762,14 @@ literal|2l
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testEmptyTopLevelFilter
-specifier|public
-name|void
-name|testEmptyTopLevelFilter
-parameter_list|()
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareIndex
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-literal|"field"
-argument_list|,
-literal|"value"
-argument_list|)
-operator|.
-name|setRefresh
-argument_list|(
-literal|true
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|SearchResponse
-name|searchResponse
-init|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|()
-operator|.
-name|setPostFilter
-argument_list|(
-literal|"{}"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-decl_stmt|;
-name|assertHitCount
-argument_list|(
-name|searchResponse
-argument_list|,
-literal|1l
-argument_list|)
-expr_stmt|;
-block|}
+comment|// NORELEASE  This should be tested in SearchSourceBuilderTests
+comment|//    @Test
+comment|//    public void testEmptyTopLevelFilter() {
+comment|//        client().prepareIndex("test", "type", "1").setSource("field", "value").setRefresh(true).get();
+comment|//
+comment|//        SearchResponse searchResponse = client().prepareSearch().setPostFilter("{}").get();
+comment|//        assertHitCount(searchResponse, 1l);
+comment|//    }
 annotation|@
 name|Test
 comment|// see #2926
@@ -21729,118 +21557,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|Test
-comment|// see #7686.
-DECL|method|testIdsQueryWithInvalidValues
-specifier|public
-name|void
-name|testIdsQueryWithInvalidValues
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|createIndex
-argument_list|(
-literal|"test"
-argument_list|)
-expr_stmt|;
-name|indexRandom
-argument_list|(
-literal|true
-argument_list|,
-literal|false
-argument_list|,
-name|client
-argument_list|()
-operator|.
-name|prepareIndex
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-literal|"body"
-argument_list|,
-literal|"foo"
-argument_list|)
-argument_list|)
-expr_stmt|;
-try|try
-block|{
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|setTypes
-argument_list|(
-literal|"type"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-literal|"{\n"
-operator|+
-literal|"  \"ids\": {\n"
-operator|+
-literal|"    \"values\": [[\"1\"]]\n"
-operator|+
-literal|"  }\n"
-operator|+
-literal|"}"
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"query is invalid and should have produced a parse exception"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|assertThat
-argument_list|(
-literal|"query could not be parsed due to bad format: "
-operator|+
-name|e
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|e
-operator|.
-name|toString
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Illegal value for id, expecting a string or number, got: START_ARRAY"
-argument_list|)
-argument_list|,
-name|equalTo
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
+comment|// NORELEASE  This should be tested in SearchSourceBuilderTests
+comment|//    @Test // see #7686.
+comment|//    public void testIdsQueryWithInvalidValues() throws Exception {
+comment|//        createIndex("test");
+comment|//        indexRandom(true, false, client().prepareIndex("test", "type", "1").setSource("body", "foo"));
+comment|//
+comment|//        try {
+comment|//            client().prepareSearch("test")
+comment|//                    .setTypes("type")
+comment|//                    .setQuery("{\n" +
+comment|//                            "  \"ids\": {\n" +
+comment|//                            "    \"values\": [[\"1\"]]\n" +
+comment|//                            "  }\n" +
+comment|//                            "}")
+comment|//                    .get();
+comment|//            fail("query is invalid and should have produced a parse exception");
+comment|//        } catch (Exception e) {
+comment|//            assertThat("query could not be parsed due to bad format: " + e.toString(),
+comment|//                    e.toString().contains("Illegal value for id, expecting a string or number, got: START_ARRAY"),
+comment|//                    equalTo(true));
+comment|//        }
+comment|//    }
 block|}
 end_class
 

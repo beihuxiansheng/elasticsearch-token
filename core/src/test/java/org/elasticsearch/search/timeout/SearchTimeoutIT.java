@@ -50,6 +50,20 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|common
+operator|.
+name|unit
+operator|.
+name|TimeValue
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|script
 operator|.
 name|Script
@@ -79,18 +93,14 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|java
 operator|.
-name|elasticsearch
+name|util
 operator|.
-name|index
+name|concurrent
 operator|.
-name|query
-operator|.
-name|QueryBuilders
-operator|.
-name|matchAllQuery
+name|TimeUnit
 import|;
 end_import
 
@@ -231,7 +241,15 @@ argument_list|)
 operator|.
 name|setTimeout
 argument_list|(
-literal|"10ms"
+operator|new
+name|TimeValue
+argument_list|(
+literal|10
+argument_list|,
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+argument_list|)
 argument_list|)
 operator|.
 name|setQuery

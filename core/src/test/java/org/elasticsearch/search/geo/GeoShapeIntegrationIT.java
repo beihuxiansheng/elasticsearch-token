@@ -1937,200 +1937,44 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Test
-DECL|method|testParsingMultipleShapes
-specifier|public
-name|void
-name|testParsingMultipleShapes
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|String
-name|mapping
-init|=
-name|XContentFactory
-operator|.
-name|jsonBuilder
-argument_list|()
-operator|.
-name|startObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"type1"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"properties"
-argument_list|)
-operator|.
-name|startObject
-argument_list|(
-literal|"location1"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"type"
-argument_list|,
-literal|"geo_shape"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|startObject
-argument_list|(
-literal|"location2"
-argument_list|)
-operator|.
-name|field
-argument_list|(
-literal|"type"
-argument_list|,
-literal|"geo_shape"
-argument_list|)
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|endObject
-argument_list|()
-operator|.
-name|string
-argument_list|()
-decl_stmt|;
-name|assertAcked
-argument_list|(
-name|prepareCreate
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|addMapping
-argument_list|(
-literal|"type1"
-argument_list|,
-name|mapping
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|ensureYellow
-argument_list|()
-expr_stmt|;
-name|String
-name|p1
-init|=
-literal|"\"location1\" : {\"type\":\"polygon\", \"coordinates\":[[[-10,-10],[10,-10],[10,10],[-10,10],[-10,-10]]]}"
-decl_stmt|;
-name|String
-name|p2
-init|=
-literal|"\"location2\" : {\"type\":\"polygon\", \"coordinates\":[[[-20,-20],[20,-20],[20,20],[-20,20],[-20,-20]]]}"
-decl_stmt|;
-name|String
-name|o1
-init|=
-literal|"{"
-operator|+
-name|p1
-operator|+
-literal|", "
-operator|+
-name|p2
-operator|+
-literal|"}"
-decl_stmt|;
-name|indexRandom
-argument_list|(
-literal|true
-argument_list|,
-name|client
-argument_list|()
-operator|.
-name|prepareIndex
-argument_list|(
-literal|"test"
-argument_list|,
-literal|"type1"
-argument_list|,
-literal|"1"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-name|o1
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|String
-name|filter
-init|=
-literal|"{\"geo_shape\": {\"location2\": {\"indexed_shape\": {"
-operator|+
-literal|"\"id\": \"1\","
-operator|+
-literal|"\"type\": \"type1\","
-operator|+
-literal|"\"index\": \"test\","
-operator|+
-literal|"\"path\": \"location2\""
-operator|+
-literal|"}}}}"
-decl_stmt|;
-name|SearchResponse
-name|result
-init|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|setQuery
-argument_list|(
-name|QueryBuilders
-operator|.
-name|matchAllQuery
-argument_list|()
-argument_list|)
-operator|.
-name|setPostFilter
-argument_list|(
-name|filter
-argument_list|)
-operator|.
-name|execute
-argument_list|()
-operator|.
-name|actionGet
-argument_list|()
-decl_stmt|;
-name|assertSearchResponse
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
-name|assertHitCount
-argument_list|(
-name|result
-argument_list|,
-literal|1
-argument_list|)
-expr_stmt|;
-block|}
+comment|// NORELEASE  these should be tested in GeoShapeQueryBuilderTests
+comment|//    @Test
+comment|//    public void testParsingMultipleShapes() throws Exception {
+comment|//        String mapping = XContentFactory.jsonBuilder()
+comment|//                .startObject()
+comment|//                .startObject("type1")
+comment|//                .startObject("properties")
+comment|//                .startObject("location1")
+comment|//                .field("type", "geo_shape")
+comment|//                .endObject()
+comment|//                .startObject("location2")
+comment|//                .field("type", "geo_shape")
+comment|//                .endObject()
+comment|//                .endObject()
+comment|//                .endObject()
+comment|//                .endObject()
+comment|//                .string();
+comment|//
+comment|//        assertAcked(prepareCreate("test").addMapping("type1", mapping));
+comment|//        ensureYellow();
+comment|//
+comment|//        String p1 = "\"location1\" : {\"type\":\"polygon\", \"coordinates\":[[[-10,-10],[10,-10],[10,10],[-10,10],[-10,-10]]]}";
+comment|//        String p2 = "\"location2\" : {\"type\":\"polygon\", \"coordinates\":[[[-20,-20],[20,-20],[20,20],[-20,20],[-20,-20]]]}";
+comment|//        String o1 = "{" + p1 + ", " + p2 + "}";
+comment|//
+comment|//        indexRandom(true, client().prepareIndex("test", "type1", "1").setSource(o1));
+comment|//
+comment|//        String filter = "{\"geo_shape\": {\"location2\": {\"indexed_shape\": {"
+comment|//                + "\"id\": \"1\","
+comment|//                + "\"type\": \"type1\","
+comment|//                + "\"index\": \"test\","
+comment|//                + "\"path\": \"location2\""
+comment|//                + "}}}}";
+comment|//
+comment|//        SearchResponse result = client().prepareSearch("test").setQuery(QueryBuilders.matchAllQuery()).setPostFilter(filter).execute().actionGet();
+comment|//        assertSearchResponse(result);
+comment|//        assertHitCount(result, 1);
+comment|//    }
 annotation|@
 name|Test
 DECL|method|testShapeFetchingPath
