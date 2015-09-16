@@ -38,6 +38,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParseFieldMatcher
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|lease
 operator|.
 name|Releasable
@@ -561,6 +573,21 @@ DECL|method|isClosed
 name|boolean
 name|isClosed
 parameter_list|()
+function_decl|;
+comment|/**      * Returns this parsers {@link ParseFieldMatcher}      */
+DECL|method|getParseFieldMatcher
+name|ParseFieldMatcher
+name|getParseFieldMatcher
+parameter_list|()
+function_decl|;
+comment|/**      * Sets this parsers {@link ParseFieldMatcher}      */
+DECL|method|setParseFieldMatcher
+name|void
+name|setParseFieldMatcher
+parameter_list|(
+name|ParseFieldMatcher
+name|matcher
+parameter_list|)
 function_decl|;
 block|}
 end_interface
