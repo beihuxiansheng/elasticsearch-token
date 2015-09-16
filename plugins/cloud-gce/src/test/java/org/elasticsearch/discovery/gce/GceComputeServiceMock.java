@@ -182,6 +182,20 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|network
+operator|.
+name|NetworkService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -265,11 +279,16 @@ name|GceComputeServiceMock
 parameter_list|(
 name|Settings
 name|settings
+parameter_list|,
+name|NetworkService
+name|networkService
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|settings
+argument_list|,
+name|networkService
 argument_list|)
 expr_stmt|;
 name|this
@@ -304,9 +323,7 @@ name|HttpTransport
 name|configureMock
 parameter_list|()
 block|{
-name|HttpTransport
-name|transport
-init|=
+return|return
 operator|new
 name|MockHttpTransport
 argument_list|()
@@ -368,9 +385,9 @@ if|if
 condition|(
 name|url
 operator|.
-name|equals
+name|startsWith
 argument_list|(
-name|TOKEN_SERVER_ENCODED_URL
+name|GCE_METADATA_URL
 argument_list|)
 condition|)
 block|{
@@ -378,7 +395,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"--> Simulate GCE Auth response for [{}]"
+literal|"--> Simulate GCE Auth/Metadata response for [{}]"
 argument_list|,
 name|url
 argument_list|)
@@ -424,9 +441,6 @@ block|}
 return|;
 block|}
 block|}
-decl_stmt|;
-return|return
-name|transport
 return|;
 block|}
 DECL|method|readGoogleInternalJsonResponse
@@ -497,8 +511,6 @@ name|urlRoot
 argument_list|,
 literal|""
 argument_list|)
-operator|+
-literal|".json"
 decl_stmt|;
 name|logger
 operator|.
@@ -521,6 +533,25 @@ argument_list|(
 name|mockFileName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|resource
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"can't read ["
+operator|+
+name|url
+operator|+
+literal|"] in src/test/resources/org/elasticsearch/discovery/gce"
+argument_list|)
+throw|;
+block|}
 try|try
 init|(
 name|InputStream
@@ -569,11 +600,6 @@ name|append
 argument_list|(
 name|s
 argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\n"
-argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -599,16 +625,6 @@ expr_stmt|;
 return|return
 name|response
 return|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 block|}

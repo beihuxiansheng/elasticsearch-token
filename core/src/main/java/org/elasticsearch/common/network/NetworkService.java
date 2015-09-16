@@ -110,16 +110,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|UnknownHostException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|List
@@ -346,6 +336,8 @@ parameter_list|(
 name|String
 name|value
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 block|}
 DECL|field|customNameResolvers
@@ -744,8 +736,6 @@ name|String
 name|host
 parameter_list|)
 throws|throws
-name|UnknownHostException
-throws|,
 name|IOException
 block|{
 if|if
