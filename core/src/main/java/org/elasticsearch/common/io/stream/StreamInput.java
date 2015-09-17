@@ -2358,10 +2358,10 @@ case|case
 literal|0
 case|:
 specifier|final
-name|String
-name|name
+name|int
+name|ord
 init|=
-name|readString
+name|readVInt
 argument_list|()
 decl_stmt|;
 return|return
@@ -2372,7 +2372,7 @@ name|readException
 argument_list|(
 name|this
 argument_list|,
-name|name
+name|ord
 argument_list|)
 return|;
 case|case
