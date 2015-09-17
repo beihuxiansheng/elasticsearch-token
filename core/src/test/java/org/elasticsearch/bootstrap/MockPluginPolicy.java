@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simulates in unit tests per-plugin permissions.  * Unit tests for plugins do not have a proper plugin structure,  * so we don't know which codebases to apply the permission to.  *<p>  * As an approximation, we just exclude es/test/framework classes,  * because they will be present in stacks and fail tests for the   * simple case where an AccessController block is missing.  */
+comment|/**  * Simulates in unit tests per-plugin permissions.  * Unit tests for plugins do not have a proper plugin structure,  * so we don't know which codebases to apply the permission to.  *<p>  * As an approximation, we just exclude es/test/framework classes,  * because they will be present in stacks and fail tests for the   * simple case where an AccessController block is missing, because  * java security checks every codebase in the stacktrace, and we  * are sure to pollute it.  */
 end_comment
 
 begin_class
