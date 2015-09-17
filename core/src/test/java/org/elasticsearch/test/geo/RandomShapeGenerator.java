@@ -910,7 +910,18 @@ parameter_list|)
 throws|throws
 name|InvalidShapeException
 block|{
-return|return
+name|ShapeBuilder
+name|shape
+decl_stmt|;
+name|short
+name|i
+init|=
+literal|0
+decl_stmt|;
+do|do
+block|{
+name|shape
+operator|=
 name|createShape
 argument_list|(
 name|r
@@ -923,9 +934,36 @@ name|st
 argument_list|,
 name|ST_VALIDATE
 argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|shape
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|shape
 return|;
 block|}
-comment|/**      * Creates a random shape useful for randomized testing, NOTE: exercise caution when using this to build random GeometryCollections      * as creating a large random number of random shapes can result in massive resource consumption      * see: {@link org.elasticsearch.search.geo.GeoShapeIntegrationTests#testShapeFilterWithRandomGeoCollection}      *      * The following options are included      * @param nearPoint Create a shape near a provided point      * @param within Create a shape within the provided rectangle (note: if not null this will override the provided point)      * @param st Create a random shape of the provided type      * @return the ShapeBuilder for a random shape      */
+block|}
+do|while
+condition|(
+operator|++
+name|i
+operator|!=
+literal|100
+condition|)
+do|;
+throw|throw
+operator|new
+name|InvalidShapeException
+argument_list|(
+literal|"Unable to create a valid random shape with provided seed"
+argument_list|)
+throw|;
+block|}
+comment|/**      * Creates a random shape useful for randomized testing, NOTE: exercise caution when using this to build random GeometryCollections      * as creating a large random number of random shapes can result in massive resource consumption      * see: {@link org.elasticsearch.search.geo.GeoShapeIntegrationIT#testShapeFilterWithRandomGeoCollection}      *      * The following options are included      * @param nearPoint Create a shape near a provided point      * @param within Create a shape within the provided rectangle (note: if not null this will override the provided point)      * @param st Create a random shape of the provided type      * @return the ShapeBuilder for a random shape      */
 DECL|method|createShape
 specifier|private
 specifier|static
@@ -1424,25 +1462,31 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|InvalidShapeException
+name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// jts bug rarely results in an invalid shape, if it does happen we try again instead of returning null
+comment|// jts bug may occasionally misinterpret coordinate order causing an unhelpful ('geom' assertion)
+comment|// or InvalidShapeException
+if|if
+condition|(
+name|e
+operator|instanceof
+name|InvalidShapeException
+operator|||
+name|e
+operator|instanceof
+name|AssertionError
+condition|)
+block|{
 return|return
-name|createShape
-argument_list|(
-name|r
-argument_list|,
-name|nearPoint
-argument_list|,
-name|within
-argument_list|,
-name|st
-argument_list|,
-name|validate
-argument_list|)
+literal|null
 return|;
+block|}
+comment|// throw any other exception
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 return|return
