@@ -304,16 +304,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|ExceptionsHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|Version
 import|;
 end_import
@@ -15081,30 +15071,6 @@ name|EngineCreationFailureException
 name|ex
 parameter_list|)
 block|{                 }
-catch|catch
-parameter_list|(
-name|AssertionError
-name|ex
-parameter_list|)
-block|{
-comment|// IndexWriter can throw AssertionError on init (if asserts are enabled) if our directory randomly throws FNFE/NSFE when
-comment|// it asserts that all referenced files in the current commit point do exist
-name|assertTrue
-argument_list|(
-name|ExceptionsHelper
-operator|.
-name|stackTrace
-argument_list|(
-name|ex
-argument_list|)
-operator|.
-name|contains
-argument_list|(
-literal|"org.apache.lucene.index.IndexWriter.filesExist"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 name|directory
 operator|.
