@@ -1360,29 +1360,14 @@ name|logger
 operator|.
 name|warn
 argument_list|(
-literal|"Exception caught during discovery {} : {}"
+literal|"Exception caught during discovery: {}"
 argument_list|,
 name|e
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
 argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"Exception caught during discovery"
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 block|}
