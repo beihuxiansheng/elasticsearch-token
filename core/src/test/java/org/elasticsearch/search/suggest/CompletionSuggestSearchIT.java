@@ -90,9 +90,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 operator|.
-name|OptimizeResponse
+name|ForceMergeResponse
 import|;
 end_import
 
@@ -7693,7 +7693,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 name|INDEX
 argument_list|)
@@ -7832,7 +7832,7 @@ name|get
 argument_list|()
 expr_stmt|;
 comment|// we have 2 docs in a segment...
-name|OptimizeResponse
+name|ForceMergeResponse
 name|actionGet
 init|=
 name|client
@@ -7844,7 +7844,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|setFlush
@@ -7917,7 +7917,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|setFlush

@@ -4,11 +4,11 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_comment
-comment|/**  * Optimize index/indices action.  */
+comment|/**  * Force merge index/indices action.  */
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.optimize
+DECL|package|org.elasticsearch.action.admin.indices.forcemerge
 package|package
 name|org
 operator|.
@@ -20,7 +20,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 package|;
 end_package
 

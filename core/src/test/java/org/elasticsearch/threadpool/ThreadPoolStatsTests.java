@@ -693,7 +693,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 argument_list|,
 operator|-
 literal|1
@@ -980,13 +980,13 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|GENERIC
+name|FORCE_MERGE
 argument_list|,
 name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|GENERIC
 argument_list|,
 name|ThreadPool
 operator|.

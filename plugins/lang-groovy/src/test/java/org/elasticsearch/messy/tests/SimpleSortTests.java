@@ -3299,8 +3299,8 @@ literal|"100"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// optimize
-name|optimize
+comment|// force merge
+name|forceMerge
 argument_list|()
 expr_stmt|;
 name|refresh

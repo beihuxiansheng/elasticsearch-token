@@ -526,7 +526,7 @@ name|ThreadPool
 operator|.
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 block|,
 name|ThreadPool
 operator|.
@@ -589,7 +589,7 @@ literal|"i"
 block|,
 literal|"ma"
 block|,
-literal|"o"
+literal|"fm"
 block|,
 literal|"p"
 block|,

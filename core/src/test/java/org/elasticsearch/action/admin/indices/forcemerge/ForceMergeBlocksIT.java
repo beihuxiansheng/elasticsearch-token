@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.optimize
+DECL|package|org.elasticsearch.action.admin.indices.forcemerge
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 package|;
 end_package
 
@@ -138,19 +138,19 @@ name|Scope
 operator|.
 name|TEST
 argument_list|)
-DECL|class|OptimizeBlocksIT
+DECL|class|ForceMergeBlocksIT
 specifier|public
 class|class
-name|OptimizeBlocksIT
+name|ForceMergeBlocksIT
 extends|extends
 name|ESIntegTestCase
 block|{
 annotation|@
 name|Test
-DECL|method|testOptimizeWithBlocks
+DECL|method|testForceMergeWithBlocks
 specifier|public
 name|void
-name|testOptimizeWithBlocks
+name|testForceMergeWithBlocks
 parameter_list|()
 block|{
 name|createIndex
@@ -249,7 +249,7 @@ argument_list|,
 name|blockSetting
 argument_list|)
 expr_stmt|;
-name|OptimizeResponse
+name|ForceMergeResponse
 name|response
 init|=
 name|client
@@ -261,7 +261,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 literal|"test"
 argument_list|)
@@ -340,7 +340,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|(
 literal|"test"
 argument_list|)
@@ -358,10 +358,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Optimizing all indices is blocked when the cluster is read-only
+comment|// Merging all indices is blocked when the cluster is read-only
 try|try
 block|{
-name|OptimizeResponse
+name|ForceMergeResponse
 name|response
 init|=
 name|client
@@ -373,7 +373,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 operator|.
 name|execute
@@ -418,7 +418,7 @@ operator|.
 name|indices
 argument_list|()
 operator|.
-name|prepareOptimize
+name|prepareForceMerge
 argument_list|()
 argument_list|)
 expr_stmt|;

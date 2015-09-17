@@ -82,9 +82,9 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 operator|.
-name|OptimizeResponse
+name|ForceMergeResponse
 import|;
 end_import
 
@@ -603,7 +603,7 @@ name|logger
 operator|.
 name|info
 argument_list|(
-literal|"Optimizing"
+literal|"Force Merging"
 argument_list|)
 expr_stmt|;
 name|waitForRelocation
@@ -613,15 +613,15 @@ operator|.
 name|GREEN
 argument_list|)
 expr_stmt|;
-name|OptimizeResponse
-name|optimizeResponse
+name|ForceMergeResponse
+name|mergeResponse
 init|=
-name|optimize
+name|forceMerge
 argument_list|()
 decl_stmt|;
 name|assertThat
 argument_list|(
-name|optimizeResponse
+name|mergeResponse
 operator|.
 name|getSuccessfulShards
 argument_list|()

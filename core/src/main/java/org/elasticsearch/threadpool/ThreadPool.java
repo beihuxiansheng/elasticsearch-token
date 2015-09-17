@@ -672,14 +672,14 @@ name|SNAPSHOT
 init|=
 literal|"snapshot"
 decl_stmt|;
-DECL|field|OPTIMIZE
+DECL|field|FORCE_MERGE
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|OPTIMIZE
+name|FORCE_MERGE
 init|=
-literal|"optimize"
+literal|"force_merge"
 decl_stmt|;
 DECL|field|FETCH_SHARD_STARTED
 specifier|public
@@ -1379,7 +1379,7 @@ name|put
 argument_list|(
 name|Names
 operator|.
-name|OPTIMIZE
+name|FORCE_MERGE
 argument_list|,
 name|settingsBuilder
 argument_list|()

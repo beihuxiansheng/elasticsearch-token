@@ -4,7 +4,7 @@ comment|/*  * Licensed to Elasticsearch under one or more contributor  * license
 end_comment
 
 begin_package
-DECL|package|org.elasticsearch.action.admin.indices.optimize
+DECL|package|org.elasticsearch.action.admin.indices.forcemerge
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|admin
 operator|.
 name|indices
 operator|.
-name|optimize
+name|forcemerge
 package|;
 end_package
 
@@ -49,32 +49,32 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to optimize one or more indices. In order to optimize on all the indices, pass an empty array or  *<tt>null</tt> for the indices.  *<p>{@link #setMaxNumSegments(int)} allows to control the number of segments to optimize down to. By default, will  * cause the optimize process to optimize down to half the configured number of segments.  */
+comment|/**  * A request to force merge one or more indices. In order to force merge all  * indices, pass an empty array or<tt>null</tt> for the indices.  * {@link #setMaxNumSegments(int)} allows to control the number of segments to force  * merge down to. By default, will cause the force merge process to merge down  * to half the configured number of segments.  */
 end_comment
 
 begin_class
-DECL|class|OptimizeRequestBuilder
+DECL|class|ForceMergeRequestBuilder
 specifier|public
 class|class
-name|OptimizeRequestBuilder
+name|ForceMergeRequestBuilder
 extends|extends
 name|BroadcastOperationRequestBuilder
 argument_list|<
-name|OptimizeRequest
+name|ForceMergeRequest
 argument_list|,
-name|OptimizeResponse
+name|ForceMergeResponse
 argument_list|,
-name|OptimizeRequestBuilder
+name|ForceMergeRequestBuilder
 argument_list|>
 block|{
-DECL|method|OptimizeRequestBuilder
+DECL|method|ForceMergeRequestBuilder
 specifier|public
-name|OptimizeRequestBuilder
+name|ForceMergeRequestBuilder
 parameter_list|(
 name|ElasticsearchClient
 name|client
 parameter_list|,
-name|OptimizeAction
+name|ForceMergeAction
 name|action
 parameter_list|)
 block|{
@@ -85,15 +85,15 @@ argument_list|,
 name|action
 argument_list|,
 operator|new
-name|OptimizeRequest
+name|ForceMergeRequest
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Will optimize the index down to&lt;= maxNumSegments. By default, will cause the optimize      * process to optimize down to half the configured number of segments.      */
+comment|/**      * Will force merge the index down to&lt;= maxNumSegments. By default, will      * cause the merge process to merge down to half the configured number of      * segments.      */
 DECL|method|setMaxNumSegments
 specifier|public
-name|OptimizeRequestBuilder
+name|ForceMergeRequestBuilder
 name|setMaxNumSegments
 parameter_list|(
 name|int
@@ -111,10 +111,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should the optimization only expunge deletes from the index, without full optimization.      * Defaults to full optimization (<tt>false</tt>).      */
+comment|/**      * Should the merge only expunge deletes from the index, without full merging.      * Defaults to full merging (<tt>false</tt>).      */
 DECL|method|setOnlyExpungeDeletes
 specifier|public
-name|OptimizeRequestBuilder
+name|ForceMergeRequestBuilder
 name|setOnlyExpungeDeletes
 parameter_list|(
 name|boolean
@@ -132,10 +132,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Should flush be performed after the optimization. Defaults to<tt>true</tt>.      */
+comment|/**      * Should flush be performed after the merge. Defaults to<tt>true</tt>.      */
 DECL|method|setFlush
 specifier|public
-name|OptimizeRequestBuilder
+name|ForceMergeRequestBuilder
 name|setFlush
 parameter_list|(
 name|boolean

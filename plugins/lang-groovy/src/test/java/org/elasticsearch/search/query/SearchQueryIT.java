@@ -1970,7 +1970,7 @@ expr_stmt|;
 name|waitForRelocation
 argument_list|()
 expr_stmt|;
-name|optimize
+name|forceMerge
 argument_list|()
 expr_stmt|;
 name|refresh
