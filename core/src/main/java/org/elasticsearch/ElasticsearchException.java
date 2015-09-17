@@ -4327,11 +4327,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|discovery
+name|index
 operator|.
-name|Discovery
+name|shard
 operator|.
-name|FailedToCommitClusterStateException
+name|IndexShardRecoveryException
 operator|.
 name|class
 argument_list|,
@@ -4942,6 +4942,7 @@ argument_list|,
 literal|139
 argument_list|)
 expr_stmt|;
+comment|// added in 3.x
 name|exceptions
 operator|.
 name|put
@@ -4950,11 +4951,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|discovery
 operator|.
-name|shard
+name|Discovery
 operator|.
-name|IndexShardRecoveryException
+name|FailedToCommitClusterStateException
 operator|.
 name|class
 argument_list|,
