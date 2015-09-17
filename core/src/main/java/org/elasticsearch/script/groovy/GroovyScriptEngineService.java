@@ -434,6 +434,7 @@ name|AbstractComponent
 implements|implements
 name|ScriptEngineService
 block|{
+comment|/**      * The name of the scripting engine/language.      */
 DECL|field|NAME
 specifier|public
 specifier|static
@@ -442,6 +443,26 @@ name|String
 name|NAME
 init|=
 literal|"groovy"
+decl_stmt|;
+comment|/**      * The setting to enable or disable<code>invokedynamic</code> instruction support in Java 7+.      *<p>      * Note: If this is disabled because<code>invokedynamic</code> is causing issues, then the Groovy      *<code>indy</code> jar needs to be replaced by the non-<code>indy</code> variant of it on the classpath (e.g.,      *<code>groovy-all-2.4.4-indy.jar</code> should be replaced by<code>groovy-all-2.4.4.jar</code>).      *<p>      * Defaults to {@code true}.      */
+DECL|field|GROOVY_INDY_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GROOVY_INDY_ENABLED
+init|=
+literal|"script.groovy.indy"
+decl_stmt|;
+comment|/**      * The name of the Groovy compiler setting to use associated with activating<code>invokedynamic</code> support.      */
+DECL|field|GROOVY_INDY_SETTING_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GROOVY_INDY_SETTING_NAME
+init|=
+literal|"indy"
 decl_stmt|;
 DECL|field|loader
 specifier|private
@@ -513,6 +534,34 @@ name|CONVERSION
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// Implicitly requires Java 7u60 or later to get valid support
+if|if
+condition|(
+name|settings
+operator|.
+name|getAsBoolean
+argument_list|(
+name|GROOVY_INDY_ENABLED
+argument_list|,
+literal|true
+argument_list|)
+condition|)
+block|{
+comment|// maintain any default optimizations
+name|config
+operator|.
+name|getOptimizationOptions
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|GROOVY_INDY_SETTING_NAME
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Groovy class loader to isolate Groovy-land code
 name|this
 operator|.
 name|loader
