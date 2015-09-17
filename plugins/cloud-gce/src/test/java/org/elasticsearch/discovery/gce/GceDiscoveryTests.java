@@ -20,20 +20,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|LuceneTestCase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|elasticsearch
 operator|.
 name|Version
@@ -223,15 +209,6 @@ comment|/**  * This test class uses a GCE HTTP Mock system which allows to simul
 end_comment
 
 begin_class
-annotation|@
-name|LuceneTestCase
-operator|.
-name|AwaitsFix
-argument_list|(
-name|bugUrl
-operator|=
-literal|"https://github.com/elastic/elasticsearch/issues/13623"
-argument_list|)
 DECL|class|GceDiscoveryTests
 specifier|public
 class|class
