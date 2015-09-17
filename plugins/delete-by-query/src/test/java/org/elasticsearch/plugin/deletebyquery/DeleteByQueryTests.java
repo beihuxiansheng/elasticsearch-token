@@ -500,6 +500,8 @@ specifier|public
 name|void
 name|testDeleteByQueryWithNoIndices
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|DeleteByQueryRequestBuilder
 name|delete
@@ -2330,7 +2332,7 @@ name|void
 name|testConcurrentDeleteByQueriesOnDifferentDocs
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 name|createIndex
 argument_list|(
@@ -2748,7 +2750,7 @@ name|void
 name|testConcurrentDeleteByQueriesOnSameDocs
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 name|assertAcked
 argument_list|(
@@ -3155,7 +3157,7 @@ name|void
 name|testDeleteByQueryOnReadOnlyIndex
 parameter_list|()
 throws|throws
-name|InterruptedException
+name|Exception
 block|{
 name|createIndex
 argument_list|(
@@ -3434,6 +3436,24 @@ specifier|private
 name|void
 name|assertSearchContextsClosed
 parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// The scroll id (and thus the underlying search context) is cleared in
+comment|// an async manner in TransportDeleteByQueryAction. so we need to use
+comment|// assertBusy() here to wait for the search context to be released.
+name|assertBusy
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
 block|{
 name|NodesStatsResponse
 name|nodesStats
@@ -3489,6 +3509,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
