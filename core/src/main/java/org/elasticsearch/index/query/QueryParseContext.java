@@ -204,6 +204,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|settings
 operator|.
 name|Settings
@@ -1160,7 +1172,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,
@@ -1234,7 +1246,7 @@ name|Query
 name|parseInnerQuery
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|ParsingException
 throws|,
 name|IOException
 block|{
@@ -1278,7 +1290,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,
@@ -1323,7 +1335,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,
@@ -1368,7 +1380,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,
@@ -1395,7 +1407,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,
@@ -1461,7 +1473,7 @@ name|Query
 name|parseInnerFilter
 parameter_list|()
 throws|throws
-name|QueryParsingException
+name|ParsingException
 throws|,
 name|IOException
 block|{
@@ -1501,7 +1513,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|QueryParsingException
+name|ParsingException
 block|{
 specifier|final
 name|boolean
@@ -1534,7 +1546,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,
@@ -1857,7 +1869,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|this
 argument_list|,

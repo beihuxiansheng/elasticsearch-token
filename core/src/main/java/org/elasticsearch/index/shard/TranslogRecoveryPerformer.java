@@ -298,11 +298,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -1504,7 +1502,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|ex
 parameter_list|)
 block|{

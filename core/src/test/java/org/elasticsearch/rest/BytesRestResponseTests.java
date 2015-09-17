@@ -84,7 +84,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TestQueryParsingException
+name|TestParsingException
 import|;
 end_import
 
@@ -987,7 +987,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1018,7 +1018,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index

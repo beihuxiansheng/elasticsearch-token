@@ -88,6 +88,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|AbstractModule
@@ -955,7 +967,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)

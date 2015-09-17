@@ -204,22 +204,6 @@ name|elasticsearch
 operator|.
 name|index
 operator|.
-name|cache
-operator|.
-name|bitset
-operator|.
-name|BitsetFilterCache
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
 name|engine
 operator|.
 name|Engine
@@ -376,11 +360,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -1349,7 +1331,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,

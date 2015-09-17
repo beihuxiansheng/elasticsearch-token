@@ -128,6 +128,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -187,20 +199,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|mapper
-operator|.
-name|FieldMapper
 import|;
 end_import
 
@@ -359,7 +357,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|QueryParsingException
+name|ParsingException
 block|{
 name|XContentParser
 name|parser
@@ -602,7 +600,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -768,7 +766,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -786,7 +784,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -833,7 +831,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -898,7 +896,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -921,7 +919,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -939,7 +937,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -966,7 +964,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -993,7 +991,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
