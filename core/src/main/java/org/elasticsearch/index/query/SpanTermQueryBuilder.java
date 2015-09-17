@@ -152,9 +152,9 @@ init|=
 operator|new
 name|SpanTermQueryBuilder
 argument_list|(
-literal|null
+literal|"name"
 argument_list|,
-literal|null
+literal|"value"
 argument_list|)
 decl_stmt|;
 comment|/** @see BaseTermQueryBuilder#BaseTermQueryBuilder(String, String) */

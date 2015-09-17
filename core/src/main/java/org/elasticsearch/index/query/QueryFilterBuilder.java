@@ -155,7 +155,9 @@ init|=
 operator|new
 name|QueryFilterBuilder
 argument_list|(
-literal|null
+name|EmptyQueryBuilder
+operator|.
+name|PROTOTYPE
 argument_list|)
 decl_stmt|;
 comment|/**      * A filter that simply wraps a query.      *      * @param queryBuilder The query to wrap as a filter      */
@@ -167,6 +169,21 @@ name|QueryBuilder
 name|queryBuilder
 parameter_list|)
 block|{
+if|if
+condition|(
+name|queryBuilder
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"inner query cannot be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|queryBuilder
@@ -277,23 +294,6 @@ name|query
 parameter_list|)
 block|{
 comment|//no-op this query doesn't support boost
-block|}
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|QueryValidationException
-name|validate
-parameter_list|()
-block|{
-return|return
-name|validateInnerQuery
-argument_list|(
-name|queryBuilder
-argument_list|,
-literal|null
-argument_list|)
-return|;
 block|}
 annotation|@
 name|Override

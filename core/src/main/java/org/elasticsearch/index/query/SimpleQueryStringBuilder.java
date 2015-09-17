@@ -338,7 +338,7 @@ init|=
 operator|new
 name|SimpleQueryStringBuilder
 argument_list|(
-literal|null
+literal|""
 argument_list|)
 decl_stmt|;
 comment|/** Query text to parse. */
@@ -412,6 +412,21 @@ name|String
 name|queryText
 parameter_list|)
 block|{
+if|if
+condition|(
+name|queryText
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"query text missing"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|queryText
@@ -923,42 +938,6 @@ parameter_list|()
 block|{
 return|return
 name|minimumShouldMatch
-return|;
-block|}
-comment|/**      * {@inheritDoc}      *      * Checks that mandatory queryText is neither null nor empty.      * */
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|QueryValidationException
-name|validate
-parameter_list|()
-block|{
-name|QueryValidationException
-name|validationException
-init|=
-literal|null
-decl_stmt|;
-comment|// Query text is required
-if|if
-condition|(
-name|queryText
-operator|==
-literal|null
-condition|)
-block|{
-name|validationException
-operator|=
-name|addValidationError
-argument_list|(
-literal|"query text missing"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validationException
 return|;
 block|}
 annotation|@

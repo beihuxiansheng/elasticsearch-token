@@ -227,7 +227,11 @@ init|=
 operator|new
 name|TemplateQueryBuilder
 argument_list|(
-literal|null
+operator|new
+name|Template
+argument_list|(
+literal|"proto"
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|/**      * @param template      *            the template to use for that query.      * */
@@ -239,6 +243,21 @@ name|Template
 name|template
 parameter_list|)
 block|{
+if|if
+condition|(
+name|template
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"query template cannot be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|template
@@ -497,42 +516,6 @@ name|query
 parameter_list|)
 block|{
 comment|//no-op this query doesn't support boost
-block|}
-annotation|@
-name|Override
-DECL|method|validate
-specifier|public
-name|QueryValidationException
-name|validate
-parameter_list|()
-block|{
-name|QueryValidationException
-name|validationException
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|this
-operator|.
-name|template
-operator|==
-literal|null
-condition|)
-block|{
-name|validationException
-operator|=
-name|addValidationError
-argument_list|(
-literal|"query template cannot be null"
-argument_list|,
-name|validationException
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|validationException
-return|;
 block|}
 annotation|@
 name|Override

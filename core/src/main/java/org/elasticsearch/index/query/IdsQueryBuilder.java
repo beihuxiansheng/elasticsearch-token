@@ -633,19 +633,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|validate
-specifier|public
-name|QueryValidationException
-name|validate
-parameter_list|()
-block|{
-comment|// all fields can be empty or null
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|doReadFrom
 specifier|protected
 name|IdsQueryBuilder

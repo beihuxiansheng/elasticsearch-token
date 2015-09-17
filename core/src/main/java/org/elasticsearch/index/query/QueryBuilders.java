@@ -935,6 +935,9 @@ specifier|static
 name|SpanNearQueryBuilder
 name|spanNearQuery
 parameter_list|(
+name|SpanQueryBuilder
+name|initialClause
+parameter_list|,
 name|int
 name|slop
 parameter_list|)
@@ -943,6 +946,8 @@ return|return
 operator|new
 name|SpanNearQueryBuilder
 argument_list|(
+name|initialClause
+argument_list|,
 name|slop
 argument_list|)
 return|;
@@ -975,12 +980,17 @@ specifier|public
 specifier|static
 name|SpanOrQueryBuilder
 name|spanOrQuery
-parameter_list|()
+parameter_list|(
+name|SpanQueryBuilder
+name|initialClause
+parameter_list|)
 block|{
 return|return
 operator|new
 name|SpanOrQueryBuilder
-argument_list|()
+argument_list|(
+name|initialClause
+argument_list|)
 return|;
 block|}
 comment|/** Creates a new {@code span_within} builder.     * @param big the big clause, it must enclose {@code little} for a match.     * @param little the little clause, it must be contained within {@code big} for a match.     */
