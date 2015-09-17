@@ -2197,7 +2197,10 @@ name|cluster
 argument_list|()
 operator|.
 name|wipe
+argument_list|(
+name|excludeTemplates
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|randomIndexTemplate
 argument_list|()
@@ -3994,7 +3997,10 @@ name|cluster
 argument_list|()
 operator|.
 name|wipe
+argument_list|(
+name|excludeTemplates
 argument_list|()
+argument_list|)
 expr_stmt|;
 comment|// wipe after to make sure we fail in the test that didn't ack the delete
 if|if
@@ -4058,6 +4064,23 @@ comment|// TODO: just let the exception happen, WTF is all this horseshit
 comment|// afterTestRule.forceFailure();
 block|}
 block|}
+block|}
+comment|/**      * @return An exclude set of index templates that will not be removed in between tests.      */
+DECL|method|excludeTemplates
+specifier|protected
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|excludeTemplates
+parameter_list|()
+block|{
+return|return
+name|Collections
+operator|.
+name|emptySet
+argument_list|()
+return|;
 block|}
 DECL|method|beforeIndexDeletion
 specifier|protected
