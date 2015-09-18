@@ -1135,7 +1135,7 @@ operator|.
 name|getFreeBytes
 argument_list|()
 argument_list|,
-name|greaterThanOrEqualTo
+name|greaterThan
 argument_list|(
 literal|0L
 argument_list|)
@@ -1168,7 +1168,7 @@ literal|"shard size is greater than 0"
 argument_list|,
 name|size
 argument_list|,
-name|greaterThan
+name|greaterThanOrEqualTo
 argument_list|(
 literal|0L
 argument_list|)

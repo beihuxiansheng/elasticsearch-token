@@ -55,6 +55,8 @@ operator|.
 name|index
 operator|.
 name|IndexWriter
+operator|.
+name|IndexReaderWarmer
 import|;
 end_import
 
@@ -69,8 +71,6 @@ operator|.
 name|index
 operator|.
 name|IndexWriter
-operator|.
-name|IndexReaderWarmer
 import|;
 end_import
 
@@ -386,11 +386,7 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|support
-operator|.
-name|TransportActions
+name|ExceptionsHelper
 import|;
 end_import
 
@@ -1305,6 +1301,48 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+catch|catch
+parameter_list|(
+name|AssertionError
+name|e
+parameter_list|)
+block|{
+comment|// IndexWriter throws AssertionError on init, if asserts are enabled, if any files don't exist, but tests that
+comment|// randomly throw FNFE/NSFE can also hit this:
+if|if
+condition|(
+name|ExceptionsHelper
+operator|.
+name|stackTrace
+argument_list|(
+name|e
+argument_list|)
+operator|.
+name|contains
+argument_list|(
+literal|"org.apache.lucene.index.IndexWriter.filesExist"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|EngineCreationFailureException
+argument_list|(
+name|shardId
+argument_list|,
+literal|"failed to create engine"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 name|this
 operator|.
