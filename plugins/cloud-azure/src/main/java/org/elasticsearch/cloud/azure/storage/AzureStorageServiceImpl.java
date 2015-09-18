@@ -316,7 +316,7 @@ argument_list|)
 expr_stmt|;
 name|blob
 operator|=
-literal|"http://"
+literal|"https://"
 operator|+
 name|account
 operator|+
@@ -347,7 +347,7 @@ expr_stmt|;
 name|String
 name|storageConnectionString
 init|=
-literal|"DefaultEndpointsProtocol=http;"
+literal|"DefaultEndpointsProtocol=https;"
 operator|+
 literal|"AccountName="
 operator|+
