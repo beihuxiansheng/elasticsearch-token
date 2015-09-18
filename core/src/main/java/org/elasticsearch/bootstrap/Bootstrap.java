@@ -985,6 +985,13 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
+annotation|@
+name|SuppressForbidden
+argument_list|(
+name|reason
+operator|=
+literal|"System#out"
+argument_list|)
 DECL|method|init
 specifier|static
 name|void
@@ -997,6 +1004,16 @@ parameter_list|)
 throws|throws
 name|Throwable
 block|{
+comment|// Set the system property before anything has a chance to trigger its use
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"es.logger.prefix"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
 name|BootstrapCLIParser
 name|bootstrapCLIParser
 init|=
@@ -1038,15 +1055,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"es.logger.prefix"
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
 name|INSTANCE
 operator|=
 operator|new
