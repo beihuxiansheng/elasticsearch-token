@@ -985,13 +985,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * This method is invoked by {@link Elasticsearch#main(String[])}      * to startup elasticsearch.      */
-annotation|@
-name|SuppressForbidden
-argument_list|(
-name|reason
-operator|=
-literal|"System#out"
-argument_list|)
 DECL|method|init
 specifier|static
 name|void
