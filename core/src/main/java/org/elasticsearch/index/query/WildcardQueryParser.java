@@ -24,6 +24,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -101,8 +113,6 @@ name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 name|XContentParser
 name|parser
@@ -135,7 +145,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -333,7 +343,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,
@@ -377,7 +387,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parseContext
 argument_list|,

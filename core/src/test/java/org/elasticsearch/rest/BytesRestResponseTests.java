@@ -84,7 +84,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TestQueryParsingException
+name|TestParsingException
 import|;
 end_import
 
@@ -987,7 +987,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1018,7 +1018,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1093,7 +1093,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"error\":{\"root_cause\":[{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]},\"status\":400}"
+literal|"{\"error\":{\"root_cause\":[{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]},\"status\":400}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1124,7 +1124,7 @@ name|stackTrace
 operator|.
 name|contains
 argument_list|(
-literal|"Caused by: [foo] TestQueryParsingException[foobar]"
+literal|"Caused by: [foo] TestParsingException[foobar]"
 argument_list|)
 argument_list|)
 expr_stmt|;

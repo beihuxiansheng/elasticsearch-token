@@ -48,6 +48,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -195,13 +207,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * test that missing "filter" element causes {@link QueryParsingException}      */
+comment|/**      * test that missing "filter" element causes {@link ParsingException}      */
 annotation|@
 name|Test
 argument_list|(
 name|expected
 operator|=
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)

@@ -161,8 +161,6 @@ name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 return|return
 literal|null
@@ -180,8 +178,6 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 return|return
 literal|null

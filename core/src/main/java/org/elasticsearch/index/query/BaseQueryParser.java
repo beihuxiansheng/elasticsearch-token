@@ -81,8 +81,6 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 return|return
 name|fromXContent

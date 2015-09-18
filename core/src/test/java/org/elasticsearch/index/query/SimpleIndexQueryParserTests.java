@@ -680,6 +680,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesArray
@@ -3435,13 +3447,13 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"we expect a QueryParsingException as we are providing an unknown time_zome"
+literal|"we expect a ParsingException as we are providing an unknown time_zome"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -3563,7 +3575,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|qpe
 parameter_list|)
 block|{
@@ -4584,7 +4596,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)
@@ -8614,7 +8626,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|ex
 parameter_list|)
 block|{
@@ -8703,7 +8715,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|ex
 parameter_list|)
 block|{
@@ -8991,7 +9003,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -16639,7 +16651,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -17964,7 +17976,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)
@@ -18096,7 +18108,7 @@ argument_list|(
 literal|"/org/elasticsearch/index/query/match-query-bad-type.json"
 argument_list|)
 decl_stmt|;
-name|QueryParsingException
+name|ParsingException
 name|expectedException
 init|=
 literal|null
@@ -18116,7 +18128,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|qpe
 parameter_list|)
 block|{
@@ -18208,7 +18220,7 @@ argument_list|(
 literal|"/org/elasticsearch/index/query/multiMatch-query-bad-type.json"
 argument_list|)
 decl_stmt|;
-name|QueryParsingException
+name|ParsingException
 name|expectedException
 init|=
 literal|null
@@ -18228,7 +18240,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|qpe
 parameter_list|)
 block|{
@@ -18746,7 +18758,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -19055,7 +19067,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -19136,7 +19148,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{

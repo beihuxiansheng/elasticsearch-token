@@ -516,7 +516,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"A Range Filter with a specific format but with an unexpected date should raise a QueryParsingException"
+literal|"A Range Filter with a specific format but with an unexpected date should raise a ParsingException"
 argument_list|)
 expr_stmt|;
 block|}
@@ -722,7 +722,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"A Range Query with a specific format but with an unexpected date should raise a QueryParsingException"
+literal|"A Range Query with a specific format but with an unexpected date should raise a ParsingException"
 argument_list|)
 expr_stmt|;
 block|}

@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -79,8 +91,6 @@ name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 return|return
 operator|new

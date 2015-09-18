@@ -459,7 +459,7 @@ return|return
 name|alternateVersions
 return|;
 block|}
-comment|/**      * test `null`return value for missing inner queries      * @throws IOException      * @throws QueryParsingException      */
+comment|/**      * test `null`return value for missing inner queries      * @throws IOException      */
 annotation|@
 name|Test
 DECL|method|testNoInnerQueries
@@ -468,8 +468,6 @@ name|void
 name|testNoInnerQueries
 parameter_list|()
 throws|throws
-name|QueryParsingException
-throws|,
 name|IOException
 block|{
 name|DisMaxQueryBuilder

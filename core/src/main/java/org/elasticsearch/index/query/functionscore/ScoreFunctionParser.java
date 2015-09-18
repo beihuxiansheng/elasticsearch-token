@@ -70,11 +70,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -107,7 +105,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|QueryParsingException
+name|ParsingException
 function_decl|;
 comment|/**      * Returns the name of the function, for example "linear", "gauss" etc. This      * name is used for registering the parser in      * {@link FunctionScoreQueryParser}.      * */
 DECL|method|getNames

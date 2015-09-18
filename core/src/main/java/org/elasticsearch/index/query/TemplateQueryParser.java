@@ -48,6 +48,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentParser
@@ -219,8 +231,6 @@ name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 block|{
 name|XContentParser
 name|parser

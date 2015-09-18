@@ -90,10 +90,8 @@ name|context
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 function_decl|;
-comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      * @throws IOException      * @throws QueryParsingException      */
+comment|/**      * Creates a new {@link QueryBuilder} from the query held by the {@link QueryShardContext}      * in {@link org.elasticsearch.common.xcontent.XContent} format      *      * @param parseContext      *            the input parse context. The state on the parser contained in      *            this context will be changed as a side effect of this method      *            call      * @return the new QueryBuilder      * @throws IOException      */
 DECL|method|fromXContent
 name|QB
 name|fromXContent
@@ -103,8 +101,6 @@ name|parseContext
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|QueryParsingException
 function_decl|;
 comment|/**      * @return an empty {@link QueryBuilder} instance for this parser that can be used for deserialization      */
 DECL|method|getBuilderPrototype

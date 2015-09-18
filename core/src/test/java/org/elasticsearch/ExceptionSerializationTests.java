@@ -590,11 +590,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -1196,7 +1194,7 @@ name|index
 operator|.
 name|query
 operator|.
-name|TestQueryParsingException
+name|TestParsingException
 operator|.
 name|class
 argument_list|,
@@ -2047,21 +2045,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testQueryParsingException
+DECL|method|testParsingException
 specifier|public
 name|void
-name|testQueryParsingException
+name|testParsingException
 parameter_list|()
 throws|throws
 name|IOException
 block|{
-name|QueryParsingException
+name|ParsingException
 name|ex
 init|=
 name|serialize
 argument_list|(
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 operator|new
 name|Index
@@ -2124,7 +2122,7 @@ operator|=
 name|serialize
 argument_list|(
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 literal|null
 argument_list|,

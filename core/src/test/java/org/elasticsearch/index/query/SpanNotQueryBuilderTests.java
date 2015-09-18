@@ -54,6 +54,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|xcontent
 operator|.
 name|XContentBuilder
@@ -915,19 +927,19 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"QueryParsingException should have been caught"
+literal|"ParsingException should have been caught"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"QueryParsingException should have been caught"
+literal|"ParsingException should have been caught"
 argument_list|,
 name|e
 operator|.
@@ -1036,19 +1048,19 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"QueryParsingException should have been caught"
+literal|"ParsingException should have been caught"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"QueryParsingException should have been caught"
+literal|"ParsingException should have been caught"
 argument_list|,
 name|e
 operator|.
@@ -1187,19 +1199,19 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"QueryParsingException should have been caught"
+literal|"ParsingException should have been caught"
 argument_list|)
 expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
 name|assertThat
 argument_list|(
-literal|"QueryParsingException should have been caught"
+literal|"ParsingException should have been caught"
 argument_list|,
 name|e
 operator|.

@@ -883,8 +883,6 @@ name|QueryShardContext
 name|context
 parameter_list|)
 throws|throws
-name|QueryParsingException
-throws|,
 name|IOException
 block|{
 name|Query

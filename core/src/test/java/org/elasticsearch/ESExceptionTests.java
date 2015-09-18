@@ -132,6 +132,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|io
 operator|.
 name|stream
@@ -722,7 +734,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -753,7 +765,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -934,7 +946,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -969,7 +981,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1004,7 +1016,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1105,7 +1117,7 @@ name|assertEquals
 argument_list|(
 operator|(
 operator|(
-name|QueryParsingException
+name|ParsingException
 operator|)
 name|rootCauses
 index|[
@@ -1151,7 +1163,7 @@ name|assertEquals
 argument_list|(
 operator|(
 operator|(
-name|QueryParsingException
+name|ParsingException
 operator|)
 name|rootCauses
 index|[
@@ -1169,7 +1181,7 @@ name|assertEquals
 argument_list|(
 operator|(
 operator|(
-name|QueryParsingException
+name|ParsingException
 operator|)
 name|rootCauses
 index|[
@@ -1282,7 +1294,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1313,7 +1325,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1408,7 +1420,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1439,7 +1451,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1470,7 +1482,7 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -1895,11 +1907,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|{
-name|QueryParsingException
+name|ParsingException
 name|ex
 init|=
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -2060,11 +2072,11 @@ expr_stmt|;
 block|}
 block|{
 comment|// render header
-name|QueryParsingException
+name|ParsingException
 name|ex
 init|=
 operator|new
-name|TestQueryParsingException
+name|TestParsingException
 argument_list|(
 operator|new
 name|Index
@@ -2171,11 +2183,11 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
-name|QueryParsingException
+name|ParsingException
 name|ex
 init|=
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 operator|new
 name|Index
@@ -2212,7 +2224,7 @@ name|bytes
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|QueryParsingException
+name|ParsingException
 name|e
 init|=
 name|in
@@ -2288,11 +2300,11 @@ operator|new
 name|BytesStreamOutput
 argument_list|()
 decl_stmt|;
-name|QueryParsingException
-name|queryParsingException
+name|ParsingException
+name|ParsingException
 init|=
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 operator|new
 name|Index
@@ -2317,7 +2329,7 @@ name|Throwable
 argument_list|(
 literal|"wtf"
 argument_list|,
-name|queryParsingException
+name|ParsingException
 argument_list|)
 decl_stmt|;
 name|out
@@ -2365,11 +2377,11 @@ operator|instanceof
 name|ElasticsearchException
 argument_list|)
 expr_stmt|;
-name|QueryParsingException
+name|ParsingException
 name|e
 init|=
 operator|(
-name|QueryParsingException
+name|ParsingException
 operator|)
 name|throwable
 operator|.
@@ -2378,7 +2390,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|queryParsingException
+name|ParsingException
 operator|.
 name|getIndex
 argument_list|()
@@ -2391,7 +2403,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|queryParsingException
+name|ParsingException
 operator|.
 name|getMessage
 argument_list|()
@@ -2404,7 +2416,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|queryParsingException
+name|ParsingException
 operator|.
 name|getLineNumber
 argument_list|()
@@ -2417,7 +2429,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|queryParsingException
+name|ParsingException
 operator|.
 name|getColumnNumber
 argument_list|()

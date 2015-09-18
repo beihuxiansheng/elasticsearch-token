@@ -138,6 +138,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -982,7 +994,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|getShardContext
 argument_list|()
@@ -1111,7 +1123,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|getShardContext
 argument_list|()
@@ -1208,7 +1220,7 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -1224,7 +1236,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 operator|.
@@ -1263,7 +1275,7 @@ name|String
 name|source
 parameter_list|)
 throws|throws
-name|QueryParsingException
+name|ParsingException
 throws|,
 name|QueryShardException
 block|{
@@ -1304,7 +1316,7 @@ catch|catch
 parameter_list|(
 name|QueryShardException
 decl||
-name|QueryParsingException
+name|ParsingException
 name|e
 parameter_list|)
 block|{
@@ -1320,7 +1332,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|getShardContext
 argument_list|()
@@ -1408,7 +1420,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 operator|.
@@ -1761,7 +1773,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|getShardContext
 argument_list|()
@@ -1809,7 +1821,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|getShardContext
 argument_list|()
@@ -1825,7 +1837,7 @@ throw|;
 block|}
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|getShardContext
 argument_list|()
