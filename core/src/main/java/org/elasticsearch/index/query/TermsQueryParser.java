@@ -340,7 +340,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[terms] query does not support multiple fields"
 argument_list|)
@@ -354,8 +357,6 @@ name|values
 operator|=
 name|parseValues
 argument_list|(
-name|parseContext
-argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
@@ -382,8 +383,6 @@ name|TermsLookup
 operator|.
 name|parseTermsLookup
 argument_list|(
-name|parseContext
-argument_list|,
 name|parser
 argument_list|)
 expr_stmt|;
@@ -531,7 +530,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[terms] query does not support ["
 operator|+
@@ -554,7 +556,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"terms query requires a field name, followed by array of terms or a document lookup specification"
 argument_list|)
@@ -595,9 +600,6 @@ name|Object
 argument_list|>
 name|parseValues
 parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|)
@@ -615,21 +617,12 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|XContentParser
-operator|.
-name|Token
-name|token
-decl_stmt|;
 while|while
 condition|(
-operator|(
-name|token
-operator|=
 name|parser
 operator|.
 name|nextToken
 argument_list|()
-operator|)
 operator|!=
 name|XContentParser
 operator|.
@@ -657,7 +650,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"No value specified for terms query"
 argument_list|)

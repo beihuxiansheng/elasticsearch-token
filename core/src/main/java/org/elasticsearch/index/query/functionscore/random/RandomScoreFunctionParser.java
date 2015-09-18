@@ -410,7 +410,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"random_score seed must be an int, long or string, not '"
 operator|+
@@ -453,7 +456,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"random_score seed must be an int/long or string, not '"
 operator|+
@@ -473,7 +479,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 name|NAMES
 index|[

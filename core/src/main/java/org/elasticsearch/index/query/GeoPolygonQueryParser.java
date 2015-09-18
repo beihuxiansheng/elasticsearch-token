@@ -459,7 +459,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[geo_polygon] query does not support ["
 operator|+
@@ -476,7 +479,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[geo_polygon] query does not support token type ["
 operator|+
@@ -607,7 +613,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[geo_polygon] query does not support ["
 operator|+
@@ -624,7 +633,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[geo_polygon] unexpected token type ["
 operator|+

@@ -26,7 +26,35 @@ name|lucene
 operator|.
 name|search
 operator|.
-name|*
+name|BooleanClause
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|BooleanQuery
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|search
+operator|.
+name|Query
 import|;
 end_import
 
@@ -43,18 +71,6 @@ operator|.
 name|join
 operator|.
 name|ScoreMode
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
 import|;
 end_import
 
@@ -572,12 +588,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParsingException
+name|QueryShardException
 argument_list|(
 name|context
-operator|.
-name|parseContext
-argument_list|()
 argument_list|,
 literal|"[has_parent] query configured 'parent_type' ["
 operator|+
@@ -849,12 +862,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParsingException
+name|QueryShardException
 argument_list|(
 name|context
-operator|.
-name|parseContext
-argument_list|()
 argument_list|,
 literal|"[has_parent] no _parent field configured"
 argument_list|)

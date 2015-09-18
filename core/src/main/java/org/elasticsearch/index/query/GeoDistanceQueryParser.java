@@ -491,7 +491,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[geo_distance] query does not support ["
 operator|+
@@ -910,7 +913,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"geo_distance requires 'distance' to be specified"
 argument_list|)

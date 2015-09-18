@@ -851,7 +851,10 @@ name|functionParserMapper
 operator|.
 name|get
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 name|currentFieldName
 argument_list|)
@@ -1359,7 +1362,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"failed to parse [{}]. malformed query, expected a [{}] while parsing functions but got a [{}] instead"
 argument_list|,
@@ -1470,7 +1476,10 @@ name|functionParserMapper
 operator|.
 name|get
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 name|currentFieldName
 argument_list|)
@@ -1703,7 +1712,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. illegal score_mode [{}]"
 argument_list|,
@@ -1757,7 +1769,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. illegal boost_mode [{}]"
 argument_list|,

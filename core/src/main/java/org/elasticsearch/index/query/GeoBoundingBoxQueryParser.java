@@ -915,7 +915,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"failed to parse [{}] query. unexpected field [{}]"
 argument_list|,

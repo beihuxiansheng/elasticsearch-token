@@ -26,6 +26,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|inject
 operator|.
 name|Inject
@@ -38,23 +50,11 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|common
 operator|.
-name|ParsingException
+name|xcontent
+operator|.
+name|XContentLocation
 import|;
 end_import
 
@@ -336,8 +336,8 @@ specifier|public
 name|ScoreFunctionParser
 name|get
 parameter_list|(
-name|QueryParseContext
-name|parseContext
+name|XContentLocation
+name|contentLocation
 parameter_list|,
 name|String
 name|parserName
@@ -362,7 +362,7 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|contentLocation
 argument_list|,
 literal|"No function with the name ["
 operator|+

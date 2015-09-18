@@ -759,6 +759,12 @@ name|context
 operator|.
 name|parseContext
 argument_list|()
+operator|.
+name|parser
+argument_list|()
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"unknown field [{}]"
 argument_list|,
@@ -870,6 +876,12 @@ argument_list|(
 name|context
 operator|.
 name|parseContext
+argument_list|()
+operator|.
+name|parser
+argument_list|()
+operator|.
+name|getTokenLocation
 argument_list|()
 argument_list|,
 literal|"field [{}] is of type [{}], but only numeric types are supported."

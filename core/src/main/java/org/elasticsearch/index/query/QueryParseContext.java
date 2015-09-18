@@ -98,18 +98,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|query
@@ -175,12 +163,6 @@ specifier|private
 name|XContentParser
 name|parser
 decl_stmt|;
-DECL|field|index
-specifier|private
-specifier|final
-name|Index
-name|index
-decl_stmt|;
 comment|//norelease this flag is also used in the QueryShardContext, we need to make sure we set it there correctly in doToQuery()
 DECL|field|parseFieldMatcher
 specifier|private
@@ -207,19 +189,10 @@ DECL|method|QueryParseContext
 specifier|public
 name|QueryParseContext
 parameter_list|(
-name|Index
-name|index
-parameter_list|,
 name|IndicesQueriesRegistry
 name|registry
 parameter_list|)
 block|{
-name|this
-operator|.
-name|index
-operator|=
-name|index
-expr_stmt|;
 name|this
 operator|.
 name|indicesQueriesRegistry
@@ -245,15 +218,6 @@ operator|.
 name|shardContext
 operator|=
 name|context
-expr_stmt|;
-name|this
-operator|.
-name|index
-operator|=
-name|context
-operator|.
-name|index
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -394,18 +358,6 @@ name|setting
 argument_list|,
 name|CACHE_KEY
 argument_list|)
-return|;
-block|}
-DECL|method|index
-specifier|public
-name|Index
-name|index
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|index
 return|;
 block|}
 comment|/**      * @deprecated replaced by calls to parseInnerFilterToQueryBuilder() for the resulting queries      */
@@ -566,7 +518,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|this
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[_na] query malformed, must start with start_object"
 argument_list|)
@@ -613,7 +568,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|this
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[_na] query malformed, no field after start_object"
 argument_list|)
@@ -658,7 +616,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|this
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[_na] query malformed, no field after start_object"
 argument_list|)
@@ -683,7 +644,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|this
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"No query registered for ["
 operator|+
@@ -837,7 +801,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|this
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"No query registered for ["
 operator|+

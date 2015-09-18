@@ -104,6 +104,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|bytes
 operator|.
 name|BytesReference
@@ -193,22 +205,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentParser
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|cache
-operator|.
-name|bitset
-operator|.
-name|BitsetFilterCache
 import|;
 end_import
 
@@ -367,18 +363,6 @@ operator|.
 name|query
 operator|.
 name|QueryShardContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|ParsingException
 import|;
 end_import
 
@@ -1325,10 +1309,6 @@ operator|.
 name|setMapUnmappedFieldAsString
 argument_list|(
 name|mapUnmappedFieldsAsString
-condition|?
-literal|true
-else|:
-literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -1350,9 +1330,9 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|context
+name|parser
 operator|.
-name|parseContext
+name|getTokenLocation
 argument_list|()
 argument_list|,
 literal|"Failed to parse"

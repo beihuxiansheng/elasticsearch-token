@@ -124,20 +124,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParseContext
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -400,9 +386,6 @@ specifier|static
 name|TermsLookup
 name|parseTermsLookup
 parameter_list|(
-name|QueryParseContext
-name|parseContext
-parameter_list|,
 name|XContentParser
 name|parser
 parameter_list|)
@@ -555,7 +538,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[terms] query does not support ["
 operator|+

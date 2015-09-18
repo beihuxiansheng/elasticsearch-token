@@ -64,22 +64,6 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
 name|settings
 operator|.
 name|Settings
@@ -127,24 +111,6 @@ operator|.
 name|util
 operator|.
 name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|lucene
-operator|.
-name|search
-operator|.
-name|Queries
-operator|.
-name|fixNegativeQueryIfNeeded
 import|;
 end_import
 
@@ -480,7 +446,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[bool] query does not support ["
 operator|+
@@ -606,7 +575,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"bool query does not support ["
 operator|+
@@ -774,7 +746,10 @@ throw|throw
 operator|new
 name|ParsingException
 argument_list|(
-name|parseContext
+name|parser
+operator|.
+name|getTokenLocation
+argument_list|()
 argument_list|,
 literal|"[bool] query does not support ["
 operator|+

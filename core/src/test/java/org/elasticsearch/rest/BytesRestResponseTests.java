@@ -68,23 +68,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|Index
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|TestParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -176,43 +162,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|contains
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|containsString
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|not
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|notNullValue
+name|*
 import|;
 end_import
 
@@ -987,13 +937,11 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestParsingException
+name|ParsingException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|"foo"
-argument_list|)
+literal|1
+argument_list|,
+literal|2
 argument_list|,
 literal|"foobar"
 argument_list|,
@@ -1018,13 +966,11 @@ operator|new
 name|ShardSearchFailure
 argument_list|(
 operator|new
-name|TestParsingException
+name|ParsingException
 argument_list|(
-operator|new
-name|Index
-argument_list|(
-literal|"foo"
-argument_list|)
+literal|1
+argument_list|,
+literal|2
 argument_list|,
 literal|"foobar"
 argument_list|,
@@ -1093,7 +1039,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"error\":{\"root_cause\":[{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]},\"status\":400}"
+literal|"{\"error\":{\"root_cause\":[{\"type\":\"parsing_exception\",\"reason\":\"foobar\",\"line\":1,\"col\":2}],\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"parsing_exception\",\"reason\":\"foobar\",\"line\":1,\"col\":2}}]},\"status\":400}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1124,7 +1070,7 @@ name|stackTrace
 operator|.
 name|contains
 argument_list|(
-literal|"Caused by: [foo] TestParsingException[foobar]"
+literal|"Caused by: ParsingException[foobar]"
 argument_list|)
 argument_list|)
 expr_stmt|;
