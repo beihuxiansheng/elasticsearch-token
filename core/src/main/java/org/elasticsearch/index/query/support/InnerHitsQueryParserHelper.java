@@ -66,11 +66,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -304,7 +302,7 @@ parameter_list|)
 throws|throws
 name|IOException
 throws|,
-name|QueryParsingException
+name|ParsingException
 block|{
 name|String
 name|fieldName
@@ -466,7 +464,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|parserContext
 argument_list|,

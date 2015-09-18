@@ -400,11 +400,9 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
+name|common
 operator|.
-name|query
-operator|.
-name|QueryParsingException
+name|ParsingException
 import|;
 end_import
 
@@ -16934,7 +16932,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)
@@ -17009,7 +17007,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)
@@ -18541,7 +18539,7 @@ argument_list|()
 argument_list|,
 name|instanceOf
 argument_list|(
-name|QueryParsingException
+name|ParsingException
 operator|.
 name|class
 argument_list|)
