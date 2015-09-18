@@ -88,9 +88,7 @@ name|common
 operator|.
 name|util
 operator|.
-name|primitives
-operator|.
-name|Integers
+name|CollectionUtils
 import|;
 end_import
 
@@ -459,7 +457,7 @@ expr_stmt|;
 block|}
 name|unicastHostOrdinals
 operator|=
-name|Integers
+name|CollectionUtils
 operator|.
 name|toArray
 argument_list|(
