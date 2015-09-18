@@ -871,7 +871,7 @@ literal|0
 index|]
 argument_list|)
 argument_list|,
-literal|"test_query_parsing_exception"
+literal|"test_parsing_exception"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1097,7 +1097,7 @@ literal|0
 index|]
 argument_list|)
 argument_list|,
-literal|"test_query_parsing_exception"
+literal|"test_parsing_exception"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1143,7 +1143,7 @@ literal|1
 index|]
 argument_list|)
 argument_list|,
-literal|"test_query_parsing_exception"
+literal|"test_parsing_exception"
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -1399,7 +1399,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]}"
+literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}}]}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1558,7 +1558,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}},{\"shard\":1,\"index\":\"foo1\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo1\"}}]}"
+literal|"{\"type\":\"search_phase_execution_exception\",\"reason\":\"all shards failed\",\"phase\":\"search\",\"grouped\":true,\"failed_shards\":[{\"shard\":1,\"index\":\"foo\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\"}},{\"shard\":1,\"index\":\"foo1\",\"node\":\"node_1\",\"reason\":{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo1\"}}]}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -1960,7 +1960,7 @@ expr_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2}"
+literal|"{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2}"
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -2156,12 +2156,12 @@ argument_list|(
 comment|// iteration order depends on platform
 name|equalTo
 argument_list|(
-literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test_multi\":[\"some value\",\"another value\"],\"test\":\"some value\"}}"
+literal|"{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test_multi\":[\"some value\",\"another value\"],\"test\":\"some value\"}}"
 argument_list|)
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"{\"type\":\"test_query_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test\":\"some value\",\"test_multi\":[\"some value\",\"another value\"]}}"
+literal|"{\"type\":\"test_parsing_exception\",\"reason\":\"foobar\",\"index\":\"foo\",\"line\":1,\"col\":2,\"header\":{\"test\":\"some value\",\"test_multi\":[\"some value\",\"another value\"]}}"
 argument_list|)
 argument_list|)
 argument_list|)
