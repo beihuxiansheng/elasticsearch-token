@@ -560,7 +560,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"must not be null"
+literal|"unit must not be null"
 argument_list|)
 expr_stmt|;
 block|}
@@ -585,7 +585,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"must not be null"
+literal|"unit must not be null"
 argument_list|)
 expr_stmt|;
 block|}

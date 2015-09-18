@@ -488,14 +488,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNull
-argument_list|(
-name|disMaxBuilder
-operator|.
-name|validate
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Test inner query parsing to null. Current DSL allows inner filter element to parse to<tt>null</tt>.      * Those should be ignored upstream. To test this, we use inner {@link ConstantScoreQueryBuilder}      * with empty inner filter.      */
 annotation|@

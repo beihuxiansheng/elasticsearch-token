@@ -128,12 +128,6 @@ argument_list|>
 extends|,
 name|ToXContent
 block|{
-comment|/**      * Validate the query.      * @return a {@link QueryValidationException} containing error messages, {@code null} if query is valid.      * e.g. if fields that are needed to create the lucene query are missing.      */
-DECL|method|validate
-name|QueryValidationException
-name|validate
-parameter_list|()
-function_decl|;
 comment|/**      * Converts this QueryBuilder to a lucene {@link Query}.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryShardException      * @throws IOException      */
 DECL|method|toQuery
 name|Query

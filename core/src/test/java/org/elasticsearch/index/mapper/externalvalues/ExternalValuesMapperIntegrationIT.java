@@ -361,10 +361,7 @@ operator|.
 name|geoDistanceRangeQuery
 argument_list|(
 literal|"field.point"
-argument_list|)
-operator|.
-name|point
-argument_list|(
+argument_list|,
 literal|42.0
 argument_list|,
 literal|51.0
