@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|primitives
-operator|.
-name|Ints
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1492,9 +1478,9 @@ operator|*
 literal|64
 decl_stmt|;
 return|return
-name|Ints
+name|Math
 operator|.
-name|checkedCast
+name|toIntExact
 argument_list|(
 name|remainder
 operator|==
