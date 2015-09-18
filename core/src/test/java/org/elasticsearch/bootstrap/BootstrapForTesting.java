@@ -620,6 +620,32 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// intellij hack: intellij test runner wants setIO and will
+comment|// screw up all test logging without it!
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"tests.maven"
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|perms
+operator|.
+name|add
+argument_list|(
+operator|new
+name|RuntimePermission
+argument_list|(
+literal|"setIO"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 specifier|final
 name|Policy
 name|policy
