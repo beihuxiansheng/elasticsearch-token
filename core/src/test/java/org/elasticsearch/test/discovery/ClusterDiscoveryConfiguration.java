@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|primitives
-operator|.
-name|Ints
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -89,6 +75,20 @@ operator|.
 name|settings
 operator|.
 name|Settings
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|CollectionUtils
 import|;
 end_import
 
@@ -457,7 +457,7 @@ expr_stmt|;
 block|}
 name|unicastHostOrdinals
 operator|=
-name|Ints
+name|CollectionUtils
 operator|.
 name|toArray
 argument_list|(
