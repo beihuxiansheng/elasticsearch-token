@@ -1575,6 +1575,14 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
+name|store
+argument_list|(
+name|fieldType
+operator|.
+name|stored
+argument_list|()
+argument_list|)
+operator|.
 name|omitNorms
 argument_list|(
 literal|true
@@ -4476,10 +4484,7 @@ argument_list|()
 condition|?
 literal|1
 else|:
-name|geohash
-operator|.
-name|length
-argument_list|()
+name|len
 decl_stmt|;
 for|for
 control|(
