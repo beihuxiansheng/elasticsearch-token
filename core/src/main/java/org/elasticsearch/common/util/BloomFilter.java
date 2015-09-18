@@ -172,22 +172,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|util
-operator|.
-name|primitives
-operator|.
-name|Integers
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -1494,9 +1478,9 @@ operator|*
 literal|64
 decl_stmt|;
 return|return
-name|Integers
+name|Math
 operator|.
-name|checkedCast
+name|toIntExact
 argument_list|(
 name|remainder
 operator|==
