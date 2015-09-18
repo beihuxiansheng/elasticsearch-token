@@ -32,34 +32,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|ESLogger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|logging
-operator|.
-name|Loggers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|env
 operator|.
 name|Environment
@@ -587,9 +559,10 @@ comment|// no chance to be interpreted as "all"
 block|}
 block|}
 block|}
-comment|// mapping of insecure plugins to codebase properties
+comment|// mapping of plugins to plugin class name. see getPluginClass why we need this.
+comment|// plugin codebase property is always implicit (es.security.plugin.foobar)
 comment|// note that this is only read once, when policy is parsed.
-DECL|field|INSECURE_PLUGINS
+DECL|field|SPECIAL_PLUGINS
 specifier|static
 specifier|final
 name|Map
@@ -598,7 +571,7 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|INSECURE_PLUGINS
+name|SPECIAL_PLUGINS
 decl_stmt|;
 static|static
 block|{
@@ -621,7 +594,7 @@ name|put
 argument_list|(
 literal|"repository-s3"
 argument_list|,
-literal|"es.security.insecure.plugin.repository-s3"
+literal|"org.elasticsearch.plugin.repository.s3.S3RepositoryPlugin"
 argument_list|)
 expr_stmt|;
 name|m
@@ -630,7 +603,7 @@ name|put
 argument_list|(
 literal|"discovery-ec2"
 argument_list|,
-literal|"es.security.insecure.plugin.discovery-ec2"
+literal|"org.elasticsearch.plugin.discovery.ec2.Ec2DiscoveryPlugin"
 argument_list|)
 expr_stmt|;
 name|m
@@ -639,10 +612,10 @@ name|put
 argument_list|(
 literal|"cloud-gce"
 argument_list|,
-literal|"es.security.insecure.plugin.cloud-gce"
+literal|"org.elasticsearch.plugin.cloud.gce.CloudGcePlugin"
 argument_list|)
 expr_stmt|;
-name|INSECURE_PLUGINS
+name|SPECIAL_PLUGINS
 operator|=
 name|Collections
 operator|.
@@ -651,6 +624,61 @@ argument_list|(
 name|m
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns policy property for plugin, if it has special permissions.      * otherwise returns null.      */
+DECL|method|getPluginProperty
+specifier|static
+name|String
+name|getPluginProperty
+parameter_list|(
+name|String
+name|pluginName
+parameter_list|)
+block|{
+if|if
+condition|(
+name|SPECIAL_PLUGINS
+operator|.
+name|containsKey
+argument_list|(
+name|pluginName
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"es.security.plugin."
+operator|+
+name|pluginName
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
+comment|/**      * Returns plugin class name, if it has special permissions.      * otherwise returns null.      */
+comment|// this is only here to support the intellij IDE
+comment|// it sucks to duplicate information, but its worth the tradeoff: sanity
+comment|// if it gets out of sync, tests will fail.
+DECL|method|getPluginClass
+specifier|static
+name|String
+name|getPluginClass
+parameter_list|(
+name|String
+name|pluginName
+parameter_list|)
+block|{
+return|return
+name|SPECIAL_PLUGINS
+operator|.
+name|get
+argument_list|(
+name|pluginName
+argument_list|)
+return|;
 block|}
 comment|/**      * Sets properties (codebase URLs) for policy files.      * we look for matching plugins and set URLs to fit      */
 annotation|@
@@ -714,9 +742,7 @@ block|{
 name|String
 name|prop
 init|=
-name|INSECURE_PLUGINS
-operator|.
-name|get
+name|getPluginProperty
 argument_list|(
 name|plugin
 operator|.
@@ -785,37 +811,6 @@ operator|+
 literal|"*"
 argument_list|)
 expr_stmt|;
-name|ESLogger
-name|logger
-init|=
-name|Loggers
-operator|.
-name|getLogger
-argument_list|(
-name|Security
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"Adding permissions for insecure plugin [{}]"
-argument_list|,
-name|plugin
-operator|.
-name|getFileName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|warn
-argument_list|(
-literal|"There are unresolved issues with third-party code that may reduce the security of the system"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
@@ -823,14 +818,22 @@ block|}
 for|for
 control|(
 name|String
-name|prop
+name|plugin
 range|:
-name|INSECURE_PLUGINS
+name|SPECIAL_PLUGINS
 operator|.
-name|values
+name|keySet
 argument_list|()
 control|)
 block|{
+name|String
+name|prop
+init|=
+name|getPluginProperty
+argument_list|(
+name|plugin
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|System

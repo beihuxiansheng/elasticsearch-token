@@ -98,7 +98,7 @@ name|unmodifiableSet
 argument_list|(
 name|Security
 operator|.
-name|INSECURE_PLUGINS
+name|SPECIAL_PLUGINS
 operator|.
 name|keySet
 argument_list|()
