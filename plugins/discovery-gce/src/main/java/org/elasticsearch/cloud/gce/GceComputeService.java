@@ -129,6 +129,24 @@ name|VERSION
 init|=
 literal|"Elasticsearch/GceCloud/1.0"
 decl_stmt|;
+DECL|field|RETRY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RETRY
+init|=
+literal|"cloud.gce.retry"
+decl_stmt|;
+DECL|field|MAXWAIT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MAXWAIT
+init|=
+literal|"cloud.gce.max_wait"
+decl_stmt|;
 block|}
 comment|/**      * Return a collection of running instances within the same GCE project      * @return a collection of running instances within the same GCE project      */
 DECL|method|instances
