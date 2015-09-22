@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A global registry of all different types of {@link org.elasticsearch.common.transport.TransportAddress} allowing  * to perform serialization of them.  *<p/>  *<p>By default, adds {@link org.elasticsearch.common.transport.InetSocketTransportAddress}.  *  *  */
+comment|/**  * A global registry of all different types of {@link org.elasticsearch.common.transport.TransportAddress} allowing  * to perform serialization of them.  *<p>  * By default, adds {@link org.elasticsearch.common.transport.InetSocketTransportAddress}.  *  *  */
 end_comment
 
 begin_class

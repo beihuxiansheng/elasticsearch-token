@@ -264,7 +264,7 @@ name|snapshotInfo
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Returns HTTP status      *<p/>      *<ul>      *<li>{@link RestStatus#ACCEPTED}</li> if snapshot is still in progress      *<li>{@link RestStatus#OK}</li> if snapshot was successful or partially successful      *<li>{@link RestStatus#INTERNAL_SERVER_ERROR}</li> if snapshot failed completely      *</ul>      *      * @return      */
+comment|/**      * Returns HTTP status      *<ul>      *<li>{@link RestStatus#ACCEPTED} if snapshot is still in progress</li>      *<li>{@link RestStatus#OK} if snapshot was successful or partially successful</li>      *<li>{@link RestStatus#INTERNAL_SERVER_ERROR} if snapshot failed completely</li>      *</ul>      */
 DECL|method|status
 specifier|public
 name|RestStatus

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Copyright (C) 2006 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright (C) 2006 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a generic type {@code T}. Java doesn't yet provide a way to  * represent generic types, so this class does. Forces clients to create a  * subclass of this class which enables retrieval the type information even at  * runtime.  *<p/>  *<p>For example, to create a type literal for {@code List<String>}, you can  * create an empty anonymous inner class:  *<p/>  *<p/>  * {@code TypeLiteral<List<String>> list = new TypeLiteral<List<String>>() {};}  *<p/>  *<p>This syntax cannot be used to create type literals that have wildcard  * parameters, such as {@code Class<?>} or {@code List<? extends CharSequence>}.  * Such type literals must be constructed programatically, either by {@link  * Method#getGenericReturnType extracting types from members} or by using the  * {@link Types} factory class.  *<p/>  *<p>Along with modeling generic types, this class can resolve type parameters.  * For example, to figure out what type {@code keySet()} returns on a {@code  * Map<Integer, String>}, use this code:<pre>   {@code  *<p/>  *   TypeLiteral<Map<Integer, String>> mapType  *       = new TypeLiteral<Map<Integer, String>>() {};  *   TypeLiteral<?> keySetType  *       = mapType.getReturnType(Map.class.getMethod("keySet"));  *   System.out.println(keySetType); // prints "Set<Integer>"}</pre>  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * Represents a generic type {@code T}. Java doesn't yet provide a way to  * represent generic types, so this class does. Forces clients to create a  * subclass of this class which enables retrieval the type information even at  * runtime.  *<p>  * For example, to create a type literal for {@code List<String>}, you can  * create an empty anonymous inner class:  *<p>  * {@code TypeLiteral<List<String>> list = new TypeLiteral<List<String>>() {};}  *<p>  * This syntax cannot be used to create type literals that have wildcard  * parameters, such as {@code Class<?>} or {@code List<? extends CharSequence>}.  * Such type literals must be constructed programatically, either by {@link  * Method#getGenericReturnType extracting types from members} or by using the  * {@link Types} factory class.  *<p>  * Along with modeling generic types, this class can resolve type parameters.  * For example, to figure out what type {@code keySet()} returns on a {@code  * Map<Integer, String>}, use this code:{@code  *<p>  *   TypeLiteral<Map<Integer, String>> mapType  *       = new TypeLiteral<Map<Integer, String>>() {};  *   TypeLiteral<?> keySetType  *       = mapType.getReturnType(Map.class.getMethod("keySet"));  *   System.out.println(keySetType); // prints "Set<Integer>"}  *  * @author crazybob@google.com (Bob Lee)  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class
@@ -141,7 +141,7 @@ specifier|final
 name|int
 name|hashCode
 decl_stmt|;
-comment|/**      * Constructs a new type literal. Derives represented class from type      * parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      */
+comment|/**      * Constructs a new type literal. Derives represented class from type      * parameter.      *<p>      * Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

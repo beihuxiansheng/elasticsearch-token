@@ -143,7 +143,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * Adds a point with lat and lon      *      * @param lat The latitude      * @param lon The longitude      * @return      */
+comment|/**      * Adds a point with lat and lon      *      * @param lat The latitude      * @param lon The longitude      */
 DECL|method|addPoint
 specifier|public
 name|GeoPolygonQueryBuilder

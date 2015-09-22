@@ -148,7 +148,7 @@ specifier|public
 name|GetRepositoriesRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new get repositories request with a list of repositories.      *<p/>      * If the list of repositories is empty or it contains a single element "_all", all registered repositories      * are returned.      *      * @param repositories list of repositories      */
+comment|/**      * Constructs a new get repositories request with a list of repositories.      *<p>      * If the list of repositories is empty or it contains a single element "_all", all registered repositories      * are returned.      *      * @param repositories list of repositories      */
 DECL|method|GetRepositoriesRequest
 specifier|public
 name|GetRepositoriesRequest
@@ -213,7 +213,7 @@ operator|.
 name|repositories
 return|;
 block|}
-comment|/**      * Sets the list or repositories.      *<p/>      * If the list of repositories is empty or it contains a single element "_all", all registered repositories      * are returned.      *      * @param repositories list of repositories      * @return this request      */
+comment|/**      * Sets the list or repositories.      *<p>      * If the list of repositories is empty or it contains a single element "_all", all registered repositories      * are returned.      *      * @param repositories list of repositories      * @return this request      */
 DECL|method|repositories
 specifier|public
 name|GetRepositoriesRequest

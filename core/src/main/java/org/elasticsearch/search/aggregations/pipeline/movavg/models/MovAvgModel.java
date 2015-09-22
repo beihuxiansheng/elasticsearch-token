@@ -131,7 +131,7 @@ specifier|abstract
 class|class
 name|MovAvgModel
 block|{
-comment|/**      * Should this model be fit to the data via a cost minimizing algorithm by default?      *      * @return      */
+comment|/**      * Should this model be fit to the data via a cost minimizing algorithm by default?      */
 DECL|method|minimizeByDefault
 specifier|public
 name|boolean
@@ -142,7 +142,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns if the model can be cost minimized.  Not all models have parameters      * which can be tuned / optimized.      *      * @return      */
+comment|/**      * Returns if the model can be cost minimized.  Not all models have parameters      * which can be tuned / optimized.      */
 DECL|method|canBeMinimized
 specifier|public
 specifier|abstract
@@ -150,7 +150,7 @@ name|boolean
 name|canBeMinimized
 parameter_list|()
 function_decl|;
-comment|/**      * Generates a "neighboring" model, where one of the tunable parameters has been      * randomly mutated within the allowed range.  Used for minimization      *      * @return      */
+comment|/**      * Generates a "neighboring" model, where one of the tunable parameters has been      * randomly mutated within the allowed range.  Used for minimization      */
 DECL|method|neighboringModel
 specifier|public
 specifier|abstract
@@ -271,7 +271,7 @@ name|int
 name|numPredictions
 parameter_list|)
 function_decl|;
-comment|/**      * Returns an empty set of predictions, filled with NaNs      * @param numPredictions Number of empty predictions to generate      * @return      */
+comment|/**      * Returns an empty set of predictions, filled with NaNs      * @param numPredictions Number of empty predictions to generate      */
 DECL|method|emptyPredictions
 specifier|protected
 name|double
@@ -307,7 +307,7 @@ return|return
 name|predictions
 return|;
 block|}
-comment|/**      * Write the model to the output stream      *      * @param out   Output stream      * @throws IOException      */
+comment|/**      * Write the model to the output stream      *      * @param out   Output stream      */
 DECL|method|writeTo
 specifier|public
 specifier|abstract
@@ -320,7 +320,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Clone the model, returning an exact copy      *      * @return      */
+comment|/**      * Clone the model, returning an exact copy      */
 DECL|method|clone
 specifier|public
 specifier|abstract
@@ -373,7 +373,7 @@ parameter_list|)
 throws|throws
 name|ParseException
 function_decl|;
-comment|/**          * Extracts a 0-1 inclusive double from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws ParseException          *          * @return Double value extracted from settings map          */
+comment|/**          * Extracts a 0-1 inclusive double from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          * @return Double value extracted from settings map          */
 DECL|method|parseDoubleParam
 specifier|protected
 name|double
@@ -517,7 +517,7 @@ literal|0
 argument_list|)
 throw|;
 block|}
-comment|/**          * Extracts an integer from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws ParseException          *          * @return Integer value extracted from settings map          */
+comment|/**          * Extracts an integer from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          * @return Integer value extracted from settings map          */
 DECL|method|parseIntegerParam
 specifier|protected
 name|int
@@ -625,7 +625,7 @@ literal|0
 argument_list|)
 throw|;
 block|}
-comment|/**          * Extracts a boolean from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          *          * @throws SearchParseException          *          * @return Boolean value extracted from settings map          */
+comment|/**          * Extracts a boolean from the settings map, otherwise throws an exception          *          * @param settings      Map of settings provided to this model          * @param name          Name of parameter we are attempting to extract          * @param defaultValue  Default value to be used if value does not exist in map          * @return Boolean value extracted from settings map          */
 DECL|method|parseBoolParam
 specifier|protected
 name|boolean

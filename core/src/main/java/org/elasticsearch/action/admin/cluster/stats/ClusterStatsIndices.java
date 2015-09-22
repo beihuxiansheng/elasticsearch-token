@@ -1344,7 +1344,7 @@ operator|.
 name|indices
 return|;
 block|}
-comment|/**          * maximum replication factor across the indices. See {@link #getReplication          */
+comment|/**          * maximum replication factor across the indices. See {@link #getReplication}          */
 DECL|method|getMaxIndexReplication
 specifier|public
 name|double

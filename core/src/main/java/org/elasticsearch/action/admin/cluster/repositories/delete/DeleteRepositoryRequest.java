@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unregister repository request.  *<p/>  * The unregister repository command just unregisters the repository. No data is getting deleted from the repository.  */
+comment|/**  * Unregister repository request.  *<p>  * The unregister repository command just unregisters the repository. No data is getting deleted from the repository.  */
 end_comment
 
 begin_class

@@ -105,7 +105,7 @@ specifier|private
 name|Scriptable
 name|prototype
 decl_stmt|;
-comment|/**      * Construct      *      * @param scope      * @param map      * @return native map      */
+comment|/**      * Construct      *      * @return native map      */
 DECL|method|wrap
 specifier|public
 specifier|static
@@ -134,7 +134,7 @@ name|map
 argument_list|)
 return|;
 block|}
-comment|/**      * Construct      *      * @param scope      * @param map      */
+comment|/**      * Construct      */
 DECL|method|NativeMap
 specifier|private
 name|NativeMap

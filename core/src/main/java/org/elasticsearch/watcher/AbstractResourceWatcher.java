@@ -185,7 +185,7 @@ parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Will be called periodically      *<p/>      * Implementing watcher should check resource and notify all {@link #listeners()}.      */
+comment|/**      * Will be called periodically      *<p>      * Implementing watcher should check resource and notify all {@link #listeners()}.      */
 DECL|method|doCheckAndNotify
 specifier|protected
 specifier|abstract

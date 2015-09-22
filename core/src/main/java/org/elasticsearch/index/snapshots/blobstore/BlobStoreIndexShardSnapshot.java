@@ -805,7 +805,7 @@ literal|"meta_hash"
 argument_list|)
 decl_stmt|;
 block|}
-comment|/**          * Serializes file info into JSON          *          * @param file    file info          * @param builder XContent builder          * @param params  parameters          * @throws IOException          */
+comment|/**          * Serializes file info into JSON          *          * @param file    file info          * @param builder XContent builder          * @param params  parameters          */
 DECL|method|toXContent
 specifier|public
 specifier|static
@@ -1007,7 +1007,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**          * Parses JSON that represents file info          *          * @param parser parser          * @return file info          * @throws IOException          */
+comment|/**          * Parses JSON that represents file info          *          * @param parser parser          * @return file info          */
 DECL|method|fromXContent
 specifier|public
 specifier|static
@@ -1885,7 +1885,7 @@ literal|"files"
 argument_list|)
 decl_stmt|;
 block|}
-comment|/**      * Serializes shard snapshot metadata info into JSON      *      * @param builder  XContent builder      * @param params   parameters      * @throws IOException      */
+comment|/**      * Serializes shard snapshot metadata info into JSON      *      * @param builder  XContent builder      * @param params   parameters      */
 annotation|@
 name|Override
 DECL|method|toXContent
@@ -2006,7 +2006,7 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * Parses shard snapshot metadata      *      * @param parser parser      * @return shard snapshot metadata      * @throws IOException      */
+comment|/**      * Parses shard snapshot metadata      *      * @param parser parser      * @return shard snapshot metadata      */
 DECL|method|fromXContent
 specifier|public
 name|BlobStoreIndexShardSnapshot

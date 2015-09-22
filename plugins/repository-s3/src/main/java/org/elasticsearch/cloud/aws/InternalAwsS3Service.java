@@ -227,7 +227,7 @@ argument_list|>
 implements|implements
 name|AwsS3Service
 block|{
-comment|/**      * (acceskey, endpoint) -> client      */
+comment|/**      * (acceskey, endpoint) -&gt; client      */
 DECL|field|clients
 specifier|private
 name|Map

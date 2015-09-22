@@ -366,7 +366,7 @@ name|recoveryId
 argument_list|()
 return|;
 block|}
-comment|/**      * gets the {@link RecoveryStatus } for a given id. The RecoveryStatus returned has it's ref count already incremented      * to make sure it's safe to use. However, you must call {@link RecoveryStatus#decRef()} when you are done with it, typically      * by using this method in a try-with-resources clause.      *<p/>      * Returns null if recovery is not found      */
+comment|/**      * gets the {@link RecoveryStatus } for a given id. The RecoveryStatus returned has it's ref count already incremented      * to make sure it's safe to use. However, you must call {@link RecoveryStatus#decRef()} when you are done with it, typically      * by using this method in a try-with-resources clause.      *<p>      * Returns null if recovery is not found      */
 DECL|method|getStatus
 specifier|public
 name|StatusRef

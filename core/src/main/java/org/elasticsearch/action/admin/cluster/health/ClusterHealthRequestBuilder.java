@@ -267,7 +267,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Waits for N number of nodes. Use "12" for exact mapping, ">12" and "<12" for range.      */
+comment|/**      * Waits for N number of nodes. Use "12" for exact mapping, "&gt;12" and "&lt;12" for range.      */
 DECL|method|setWaitForNodes
 specifier|public
 name|ClusterHealthRequestBuilder

@@ -98,7 +98,7 @@ return|return
 name|_innerIter
 return|;
 block|}
-comment|/**    * Validation method to determine whether a docid should be in the result set.    * @param doc docid to be tested    * @return true if input docid should be in the result set, false otherwise.    * @see #FilteredDocIdSetIterator(DocIdSetIterator)    * @throws CollectionTerminatedException if the underlying iterator is exhausted.    */
+comment|/**    * Validation method to determine whether a docid should be in the result set.    * @param doc docid to be tested    * @return true if input docid should be in the result set, false otherwise.    * @see #XFilteredDocIdSetIterator(DocIdSetIterator)    * @throws CollectionTerminatedException if the underlying iterator is exhausted.    */
 DECL|method|match
 specifier|protected
 specifier|abstract

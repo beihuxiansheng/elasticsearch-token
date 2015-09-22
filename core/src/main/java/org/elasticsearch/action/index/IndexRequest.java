@@ -327,7 +327,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *<p/>  *<p>The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *<p/>  *<p>The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p/>  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
+comment|/**  * Index request to index a typed JSON document into a specific index and make it searchable. Best  * created using {@link org.elasticsearch.client.Requests#indexRequest(String)}.  *<p>  * The index requires the {@link #index()}, {@link #type(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *<p>  * The source (content to index) can be set in its bytes form using ({@link #source(byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p>  * If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see IndexResponse  * @see org.elasticsearch.client.Requests#indexRequest(String)  * @see org.elasticsearch.client.Client#index(IndexRequest)  */
 end_comment
 
 begin_class
@@ -1167,7 +1167,7 @@ operator|.
 name|timestamp
 return|;
 block|}
-comment|/**      * Sets the relative ttl value. It musts be> 0 as it makes little sense otherwise. Setting it      * to<tt>null</tt> will reset to have no ttl.      */
+comment|/**      * Sets the relative ttl value. It musts be&gt; 0 as it makes little sense otherwise. Setting it      * to<tt>null</tt> will reset to have no ttl.      */
 DECL|method|ttl
 specifier|public
 name|IndexRequest
@@ -1357,7 +1357,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
+comment|/**      * Sets the document source to index.      *<p>      * Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
 DECL|method|source
 specifier|public
 name|IndexRequest

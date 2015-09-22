@@ -987,7 +987,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Validate that child settings are valid      * @throws IllegalStateException      */
+comment|/**      * Validate that child settings are valid      */
 DECL|method|validateSettings
 specifier|public
 specifier|static
@@ -1231,7 +1231,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Checks whether the parent breaker has been tripped      * @param label      * @throws CircuitBreakingException      */
+comment|/**      * Checks whether the parent breaker has been tripped      */
 DECL|method|checkParentLimit
 specifier|public
 name|void
@@ -1329,7 +1329,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Allows to register a custom circuit breaker.      * Warning: Will overwrite any existing custom breaker with the same name.      *      * @param breakerSettings      */
+comment|/**      * Allows to register a custom circuit breaker.      * Warning: Will overwrite any existing custom breaker with the same name.      */
 annotation|@
 name|Override
 DECL|method|registerBreaker

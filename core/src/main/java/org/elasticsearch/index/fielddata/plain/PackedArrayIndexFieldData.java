@@ -2587,7 +2587,7 @@ literal|4
 argument_list|)
 return|;
 block|}
-comment|/**          * @return A TermsEnum wrapped in a RamAccountingTermsEnum          * @throws IOException          */
+comment|/**          * @return A TermsEnum wrapped in a RamAccountingTermsEnum          */
 annotation|@
 name|Override
 DECL|method|beforeLoad

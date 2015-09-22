@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Copyright (C) 2008 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright (C) 2008 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -347,7 +347,7 @@ parameter_list|)
 block|{         }
 block|}
 decl_stmt|;
-comment|/**      * Returns a builder that creates a module that overlays override modules over the given      * modules. If a key is bound in both sets of modules, only the binding from the override modules      * is kept. This can be used to replace the bindings of a production module with test bindings:      *<pre>      * Module functionalTestModule      *     = Modules.override(new ProductionModule()).with(new TestModule());      *</pre>      *<p/>      *<p>Prefer to write smaller modules that can be reused and tested without overrides.      *      * @param modules the modules whose bindings are open to be overridden      */
+comment|/**      * Returns a builder that creates a module that overlays override modules over the given      * modules. If a key is bound in both sets of modules, only the binding from the override modules      * is kept. This can be used to replace the bindings of a production module with test bindings:      *<pre>      * Module functionalTestModule      *     = Modules.override(new ProductionModule()).with(new TestModule());      *</pre>      *<p>      * Prefer to write smaller modules that can be reused and tested without overrides.      *      * @param modules the modules whose bindings are open to be overridden      */
 DECL|method|override
 specifier|public
 specifier|static
@@ -372,7 +372,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a builder that creates a module that overlays override modules over the given      * modules. If a key is bound in both sets of modules, only the binding from the override modules      * is kept. This can be used to replace the bindings of a production module with test bindings:      *<pre>      * Module functionalTestModule      *     = Modules.override(getProductionModules()).with(getTestModules());      *</pre>      *<p/>      *<p>Prefer to write smaller modules that can be reused and tested without overrides.      *      * @param modules the modules whose bindings are open to be overridden      */
+comment|/**      * Returns a builder that creates a module that overlays override modules over the given      * modules. If a key is bound in both sets of modules, only the binding from the override modules      * is kept. This can be used to replace the bindings of a production module with test bindings:      *<pre>      * Module functionalTestModule      *     = Modules.override(getProductionModules()).with(getTestModules());      *</pre>      *<p>      * Prefer to write smaller modules that can be reused and tested without overrides.      *      * @param modules the modules whose bindings are open to be overridden      */
 DECL|method|override
 specifier|public
 specifier|static

@@ -1063,7 +1063,7 @@ return|return
 name|response
 return|;
 block|}
-comment|/**      * Perform phase1 of the recovery operations. Once this {@link SnapshotIndexCommit}      * snapshot has been performed no commit operations (files being fsync'd)      * are effectively allowed on this index until all recovery phases are done      *<p/>      * Phase1 examines the segment files on the target node and copies over the      * segments that are missing. Only segments that have the same size and      * checksum can be reused      */
+comment|/**      * Perform phase1 of the recovery operations. Once this {@link SnapshotIndexCommit}      * snapshot has been performed no commit operations (files being fsync'd)      * are effectively allowed on this index until all recovery phases are done      *<p>      * Phase1 examines the segment files on the target node and copies over the      * segments that are missing. Only segments that have the same size and      * checksum can be reused      */
 DECL|method|phase1
 specifier|public
 name|void
@@ -3153,7 +3153,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Perform phase2 of the recovery process      *<p/>      * Phase2 takes a snapshot of the current translog *without* acquiring the      * write lock (however, the translog snapshot is a point-in-time view of      * the translog). It then sends each translog operation to the target node      * so it can be replayed into the new shard.      */
+comment|/**      * Perform phase2 of the recovery process      *<p>      * Phase2 takes a snapshot of the current translog *without* acquiring the      * write lock (however, the translog snapshot is a point-in-time view of      * the translog). It then sends each translog operation to the target node      * so it can be replayed into the new shard.      */
 DECL|method|phase2
 specifier|public
 name|void
@@ -3474,7 +3474,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Send the given snapshot's operations to this handler's target node.      *<p/>      * Operations are bulked into a single request depending on an operation      * count limit or size-in-bytes limit      *      * @return the total number of translog operations that were sent      */
+comment|/**      * Send the given snapshot's operations to this handler's target node.      *<p>      * Operations are bulked into a single request depending on an operation      * count limit or size-in-bytes limit      *      * @return the total number of translog operations that were sent      */
 DECL|method|sendSnapshot
 specifier|protected
 name|int

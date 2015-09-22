@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A geohash cell filter that filters {@link GeoPoint}s by their geohashes. Basically the a  * Geohash prefix is defined by the filter and all geohashes that are matching this  * prefix will be returned. The<code>neighbors</code> flag allows to filter  * geohashes that surround the given geohash. In general the neighborhood of a  * geohash is defined by its eight adjacent cells.<br />  * The structure of the {@link GeohashCellQuery} is defined as:  *<pre>  *&quot;geohash_bbox&quot; {  *&quot;field&quot;:&quot;location&quot;,  *&quot;geohash&quot;:&quot;u33d8u5dkx8k&quot;,  *&quot;neighbors&quot;:false  * }  *</pre>  */
+comment|/**  * A geohash cell filter that filters {@link GeoPoint}s by their geohashes. Basically the a  * Geohash prefix is defined by the filter and all geohashes that are matching this  * prefix will be returned. The<code>neighbors</code> flag allows to filter  * geohashes that surround the given geohash. In general the neighborhood of a  * geohash is defined by its eight adjacent cells.<br>  * The structure of the {@link GeohashCellQuery} is defined as:  *<pre>  *&quot;geohash_bbox&quot; {  *&quot;field&quot;:&quot;location&quot;,  *&quot;geohash&quot;:&quot;u33d8u5dkx8k&quot;,  *&quot;neighbors&quot;:false  * }  *</pre>  */
 end_comment
 
 begin_class

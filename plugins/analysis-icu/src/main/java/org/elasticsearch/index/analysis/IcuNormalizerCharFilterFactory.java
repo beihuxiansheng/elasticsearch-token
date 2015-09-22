@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2CharFilter} to normalize character.  *<p/>  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.</p>  *<p>The<tt>mode</tt> can be used to provide 'compose' or 'decompose'. Default is compose.</p>  */
+comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2CharFilter} to normalize character.  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.</p>  *<p>The<tt>mode</tt> can be used to provide 'compose' or 'decompose'. Default is compose.</p>  */
 end_comment
 
 begin_class

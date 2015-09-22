@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link TokenFilterFactory} for {@link TypeFilter}. This filter only  * keep tokens that are contained in the set configured via  * {@value #KEEP_TYPES_KEY} setting.   *<p/>  * Configuration options:  *<p/>  *<ul>  *<li>{@value #KEEP_TYPES_KEY} the array of words / tokens to keep.</li>  *</ul>  */
+comment|/**  * A {@link TokenFilterFactory} for {@link TypeTokenFilter}. This filter only  * keep tokens that are contained in the set configured via  * {@value #KEEP_TYPES_KEY} setting.   *<p>  * Configuration options:  *<ul>  *<li>{@value #KEEP_TYPES_KEY} the array of words / tokens to keep.</li>  *</ul>  */
 end_comment
 
 begin_class

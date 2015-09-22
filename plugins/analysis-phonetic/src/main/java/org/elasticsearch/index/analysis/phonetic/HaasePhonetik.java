@@ -98,7 +98,6 @@ block|,
 literal|"I"
 block|}
 decl_stmt|;
-comment|/**      *      * @return      */
 annotation|@
 name|Override
 DECL|method|getPatterns
@@ -112,7 +111,6 @@ return|return
 name|HAASE_VARIATIONS_PATTERNS
 return|;
 block|}
-comment|/**      *       * @return      */
 annotation|@
 name|Override
 DECL|method|getReplacements
@@ -126,7 +124,6 @@ return|return
 name|HAASE_VARIATIONS_REPLACEMENTS
 return|;
 block|}
-comment|/**      *      * @return      */
 annotation|@
 name|Override
 DECL|method|getCode

@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A stateful lightweight per document set of {@link GeoPoint} values.  * To iterate over values in a document use the following pattern:  *<pre>  *   GeoPointValues values = ..;  *   values.setDocId(docId);  *   final int numValues = values.count();  *   for (int i = 0; i< numValues; i++) {  *       GeoPoint value = values.valueAt(i);  *       // process value  *   }  *</pre>  * The set of values associated with a document might contain duplicates and  * comes in a non-specified order.  */
+comment|/**  * A stateful lightweight per document set of {@link GeoPoint} values.  * To iterate over values in a document use the following pattern:  *<pre>  *   GeoPointValues values = ..;  *   values.setDocId(docId);  *   final int numValues = values.count();  *   for (int i = 0; i&lt; numValues; i++) {  *       GeoPoint value = values.valueAt(i);  *       // process value  *   }  *</pre>  * The set of values associated with a document might contain duplicates and  * comes in a non-specified order.  */
 end_comment
 
 begin_class

@@ -168,7 +168,7 @@ name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads and parses the blob with given name.      *      * If required the checksum of the blob will be verified.      *      * @param blobContainer blob container      * @param blobName blob name      * @return parsed blob object      * @throws IOException      */
+comment|/**      * Reads and parses the blob with given name.      *      * If required the checksum of the blob will be verified.      *      * @param blobContainer blob container      * @param blobName blob name      * @return parsed blob object      */
 DECL|method|readBlob
 specifier|public
 name|T

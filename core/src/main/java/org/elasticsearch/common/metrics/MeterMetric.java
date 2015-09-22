@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A meter metric which measures mean throughput and one-, five-, and  * fifteen-minute exponentially-weighted moving average throughputs.  *  * @see<a href="http://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average">EMA</a>  *<p/>  *      taken from codahale metric module, replaced with LongAdder  */
+comment|/**  * A meter metric which measures mean throughput and one-, five-, and  * fifteen-minute exponentially-weighted moving average throughputs.  *  * @see<a href="http://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average">EMA</a>  *<p>  *      taken from codahale metric module, replaced with LongAdder  */
 end_comment
 
 begin_class

@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A marker annotation on {@link CharFilterFactory}, {@link AnalyzerProvider}, {@link TokenFilterFactory},  * or {@link @TokenizerFactory} which will cause the provider/factory to only be created when explicit settings  * are provided.  */
+comment|/**  * A marker annotation on {@link CharFilterFactory}, {@link AnalyzerProvider}, {@link TokenFilterFactory},  * or {@link TokenizerFactory} which will cause the provider/factory to only be created when explicit settings  * are provided.  */
 end_comment
 
 begin_annotation_defn

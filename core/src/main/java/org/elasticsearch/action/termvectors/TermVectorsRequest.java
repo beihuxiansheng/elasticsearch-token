@@ -357,7 +357,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Request returning the term vector (doc frequency, positions, offsets) for a  * document.  *<p/>  * Note, the {@link #index()}, {@link #type(String)} and {@link #id(String)} are  * required.  */
+comment|/**  * Request returning the term vector (doc frequency, positions, offsets) for a  * document.  *<p>  * Note, the {@link #index()}, {@link #type(String)} and {@link #id(String)} are  * required.  */
 end_comment
 
 begin_class

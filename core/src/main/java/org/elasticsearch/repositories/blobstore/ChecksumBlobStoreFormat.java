@@ -450,7 +450,7 @@ name|DEFAULT_X_CONTENT_TYPE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads blob with specified name without resolving the blobName using using {@link #blobName} method.      *      * @param blobContainer blob container      * @param blobName blob name      * @return      * @throws IOException      */
+comment|/**      * Reads blob with specified name without resolving the blobName using using {@link #blobName} method.      *      * @param blobContainer blob container      * @param blobName blob name      */
 DECL|method|readBlob
 specifier|public
 name|T
@@ -618,7 +618,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Writes blob in atomic manner with resolving the blob name using {@link #blobName} and {@link #tempBlobName} methods.      *<p/>      * The blob will be compressed and checksum will be written if required.      *      * Atomic move might be very inefficient on some repositories. It also cannot override existing files.      *      * @param obj           object to be serialized      * @param blobContainer blob container      * @param name          blob name      * @throws IOException      */
+comment|/**      * Writes blob in atomic manner with resolving the blob name using {@link #blobName} and {@link #tempBlobName} methods.      *<p>      * The blob will be compressed and checksum will be written if required.      *      * Atomic move might be very inefficient on some repositories. It also cannot override existing files.      *      * @param obj           object to be serialized      * @param blobContainer blob container      * @param name          blob name      */
 DECL|method|writeAtomic
 specifier|public
 name|void
@@ -692,7 +692,7 @@ name|ex
 throw|;
 block|}
 block|}
-comment|/**      * Writes blob with resolving the blob name using {@link #blobName} method.      *<p/>      * The blob will be compressed and checksum will be written if required.      *      * @param obj           object to be serialized      * @param blobContainer blob container      * @param name          blob name      * @throws IOException      */
+comment|/**      * Writes blob with resolving the blob name using {@link #blobName} method.      *<p>      * The blob will be compressed and checksum will be written if required.      *      * @param obj           object to be serialized      * @param blobContainer blob container      * @param name          blob name      */
 DECL|method|write
 specifier|public
 name|void
@@ -728,7 +728,7 @@ name|blobName
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes blob in atomic manner without resolving the blobName using using {@link #blobName} method.      *<p/>      * The blob will be compressed and checksum will be written if required.      *      * @param obj           object to be serialized      * @param blobContainer blob container      * @param blobName          blob name      * @throws IOException      */
+comment|/**      * Writes blob in atomic manner without resolving the blobName using using {@link #blobName} method.      *<p>      * The blob will be compressed and checksum will be written if required.      *      * @param obj           object to be serialized      * @param blobContainer blob container      * @param blobName          blob name      */
 DECL|method|writeBlob
 specifier|protected
 name|void

@@ -622,7 +622,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Same as {@link #updateMappingOnMasterSynchronously(String, String, String, Mapping, TimeValue)}      * using the default timeout.      */
+comment|/**      * Same as {@link #updateMappingOnMasterSynchronously(String, String, Mapping, TimeValue)}      * using the default timeout.      */
 DECL|method|updateMappingOnMasterSynchronously
 specifier|public
 name|void

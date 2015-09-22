@@ -1992,7 +1992,7 @@ operator|.
 name|shardId
 return|;
 block|}
-comment|/**      * returns true if this routing has the same allocation ID as another.      *<p/>      * Note: if both shard routing has a null as their {@link #allocationId()}, this method returns false as the routing describe      * no allocation at all..      **/
+comment|/**      * returns true if this routing has the same allocation ID as another.      *<p>      * Note: if both shard routing has a null as their {@link #allocationId()}, this method returns false as the routing describe      * no allocation at all..      **/
 DECL|method|isSameAllocation
 specifier|public
 name|boolean

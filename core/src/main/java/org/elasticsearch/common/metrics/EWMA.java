@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An exponentially-weighted moving average.  *  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg1.pdf">UNIX Load Average Part 1: How It Works</a>  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg2.pdf">UNIX Load Average Part 2: Not Your Average Average</a>  *<p/>  *      Taken from codahale metric module, changed to use LongAdder  */
+comment|/**  * An exponentially-weighted moving average.  *  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg1.pdf">UNIX Load Average Part 1: How It Works</a>  * @see<a href="http://www.teamquest.com/pdfs/whitepaper/ldavg2.pdf">UNIX Load Average Part 2: Not Your Average Average</a>  *<p>  *      Taken from codahale metric module, changed to use LongAdder  */
 end_comment
 
 begin_class

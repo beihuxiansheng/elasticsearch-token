@@ -716,7 +716,7 @@ name|tempFileNames
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * cancel the recovery. calling this method will clean temporary files and release the store      * unless this object is in use (in which case it will be cleaned once all ongoing users call      * {@link #decRef()}      *<p/>      * if {@link #CancellableThreads()} was used, the threads will be interrupted.      */
+comment|/**      * cancel the recovery. calling this method will clean temporary files and release the store      * unless this object is in use (in which case it will be cleaned once all ongoing users call      * {@link #decRef()}      *<p>      * if {@link #CancellableThreads()} was used, the threads will be interrupted.      */
 DECL|method|cancel
 specifier|public
 name|void
@@ -950,7 +950,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates an {@link org.apache.lucene.store.IndexOutput} for the given file name. Note that the      * IndexOutput actually point at a temporary file.      *<p/>      * Note: You can use {@link #getOpenIndexOutput(String)} with the same filename to retrieve the same IndexOutput      * at a later stage      */
+comment|/**      * Creates an {@link org.apache.lucene.store.IndexOutput} for the given file name. Note that the      * IndexOutput actually point at a temporary file.      *<p>      * Note: You can use {@link #getOpenIndexOutput(String)} with the same filename to retrieve the same IndexOutput      * at a later stage      */
 DECL|method|openAndPutIndexOutput
 specifier|public
 name|IndexOutput

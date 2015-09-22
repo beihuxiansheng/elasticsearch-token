@@ -571,7 +571,7 @@ name|void
 name|preCollection
 parameter_list|()
 block|{     }
-comment|/**      * Called after a collection run is finished to build the aggregation for      * the collected state.      *      * @param pipelineAggregators      *            the pipeline aggregators to add to the resulting aggregation      * @param metadata      *            the metadata to add to the resulting aggregation      * @return      */
+comment|/**      * Called after a collection run is finished to build the aggregation for      * the collected state.      *      * @param pipelineAggregators      *            the pipeline aggregators to add to the resulting aggregation      * @param metadata      *            the metadata to add to the resulting aggregation      */
 DECL|method|buildAggregation
 specifier|protected
 specifier|abstract

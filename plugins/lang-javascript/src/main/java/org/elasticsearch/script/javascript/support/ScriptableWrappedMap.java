@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of a Scriptable Map. This is the best choice where you want values to be  * persisted directly to an underlying map supplied on construction. The class automatically  * wraps/unwraps JS objects as they enter/leave the underlying map via the Scriptable interface  * methods - objects are untouched if accessed via the usual Map interface methods.  *<p/>  *<p>Access should be by string key only - not integer index - unless you are sure the wrapped  * map will maintain insertion order of the elements.  *  *  */
+comment|/**  * Implementation of a Scriptable Map. This is the best choice where you want values to be  * persisted directly to an underlying map supplied on construction. The class automatically  * wraps/unwraps JS objects as they enter/leave the underlying map via the Scriptable interface  * methods - objects are untouched if accessed via the usual Map interface methods.  *<p>Access should be by string key only - not integer index - unless you are sure the wrapped  * map will maintain insertion order of the elements.  *  *  */
 end_comment
 
 begin_class
@@ -111,7 +111,7 @@ specifier|private
 name|Scriptable
 name|prototype
 decl_stmt|;
-comment|/**      * Construction      *      * @param scope      * @param map      * @return scriptable wrapped map      */
+comment|/**      * Construction      * @return scriptable wrapped map      */
 DECL|method|wrap
 specifier|public
 specifier|static
@@ -140,7 +140,7 @@ name|map
 argument_list|)
 return|;
 block|}
-comment|/**      * Construct      *      * @param map      */
+comment|/**      * Construct      */
 DECL|method|ScriptableWrappedMap
 specifier|public
 name|ScriptableWrappedMap
@@ -156,7 +156,7 @@ operator|=
 name|map
 expr_stmt|;
 block|}
-comment|/**      * Construct      *      * @param scope      * @param map      */
+comment|/**      * Construct      */
 DECL|method|ScriptableWrappedMap
 specifier|public
 name|ScriptableWrappedMap

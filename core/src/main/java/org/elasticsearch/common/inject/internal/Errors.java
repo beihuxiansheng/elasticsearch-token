@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Copyright (C) 2006 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright (C) 2006 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -409,7 +409,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A collection of error messages. If this type is passed as a method parameter, the method is  * considered to have executed successfully only if new errors were not added to this collection.  *<p/>  *<p>Errors can be chained to provide additional context. To add context, call {@link #withSource}  * to create a new Errors instance that contains additional context. All messages added to the  * returned instance will contain full context.  *<p/>  *<p>To avoid messages with redundant context, {@link #withSource} should be added sparingly. A  * good rule of thumb is to assume a ethod's caller has already specified enough context to  * identify that method. When calling a method that's defined in a different context, call that  * method with an errors object that includes its context.  *  * @author jessewilson@google.com (Jesse Wilson)  */
+comment|/**  * A collection of error messages. If this type is passed as a method parameter, the method is  * considered to have executed successfully only if new errors were not added to this collection.  *<p>  * Errors can be chained to provide additional context. To add context, call {@link #withSource}  * to create a new Errors instance that contains additional context. All messages added to the  * returned instance will contain full context.  *<p>  * To avoid messages with redundant context, {@link #withSource} should be added sparingly. A  * good rule of thumb is to assume a ethod's caller has already specified enough context to  * identify that method. When calling a method that's defined in a different context, call that  * method with an errors object that includes its context.  *  * @author jessewilson@google.com (Jesse Wilson)  */
 end_comment
 
 begin_class

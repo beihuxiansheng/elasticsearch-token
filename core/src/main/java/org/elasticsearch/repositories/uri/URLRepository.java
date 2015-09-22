@@ -231,7 +231,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Read-only URL-based implementation of the BlobStoreRepository  *<p/>  * This repository supports the following settings  *<dl>  *<dt>{@code url}</dt><dd>URL to the root of repository. This is mandatory parameter.</dd>  *<dt>{@code concurrent_streams}</dt><dd>Number of concurrent read/write stream (per repository on each node). Defaults to 5.</dd>  *</ol>  */
+comment|/**  * Read-only URL-based implementation of the BlobStoreRepository  *<p>  * This repository supports the following settings  *<dl>  *<dt>{@code url}</dt><dd>URL to the root of repository. This is mandatory parameter.</dd>  *<dt>{@code concurrent_streams}</dt><dd>Number of concurrent read/write stream (per repository on each node). Defaults to 5.</dd>  *</dl>  */
 end_comment
 
 begin_class
@@ -326,7 +326,7 @@ specifier|private
 name|boolean
 name|listDirectories
 decl_stmt|;
-comment|/**      * Constructs new read-only URL-based repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository shard repository      * @throws IOException      */
+comment|/**      * Constructs new read-only URL-based repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository shard repository      */
 annotation|@
 name|Inject
 DECL|method|URLRepository

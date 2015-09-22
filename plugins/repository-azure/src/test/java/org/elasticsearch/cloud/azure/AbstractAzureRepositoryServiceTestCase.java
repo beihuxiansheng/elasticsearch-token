@@ -252,7 +252,7 @@ name|AzureRepositoryModule
 name|azureRepositoryModule
 parameter_list|)
 block|{
-name|azureRepositoryModule
+name|AzureRepositoryModule
 operator|.
 name|storageServiceImpl
 operator|=

@@ -254,7 +254,7 @@ operator|.
 name|instance
 return|;
 block|}
-comment|/**      * Adds a Console Ctrl Handler.      *      * @param handler      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
+comment|/**      * Adds a Console Ctrl Handler.      *      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
 DECL|method|addConsoleCtrlHandler
 name|boolean
 name|addConsoleCtrlHandler
@@ -331,7 +331,7 @@ name|callbacks
 argument_list|)
 return|;
 block|}
-comment|/**      * Native call to the Kernel32 API to set a new Console Ctrl Handler.      *      * @param handler      * @param add      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
+comment|/**      * Native call to the Kernel32 API to set a new Console Ctrl Handler.      *      * @return true if the handler is correctly set      * @throws java.lang.UnsatisfiedLinkError if the Kernel32 library is not loaded or if the native function is not found      * @throws java.lang.NoClassDefFoundError if the library for native calls is missing      */
 DECL|method|SetConsoleCtrlHandler
 specifier|native
 name|boolean
@@ -346,7 +346,7 @@ name|boolean
 name|add
 parameter_list|)
 function_decl|;
-comment|/**      * Handles consoles event with WIN API      *<p/>      * See http://msdn.microsoft.com/en-us/library/windows/desktop/ms683242%28v=vs.85%29.aspx      */
+comment|/**      * Handles consoles event with WIN API      *<p>      * See http://msdn.microsoft.com/en-us/library/windows/desktop/ms683242%28v=vs.85%29.aspx      */
 DECL|class|NativeHandlerCallback
 class|class
 name|NativeHandlerCallback

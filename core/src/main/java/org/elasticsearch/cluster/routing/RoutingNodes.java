@@ -2022,7 +2022,7 @@ name|replicaSet
 argument_list|)
 return|;
 block|}
-comment|/**      * Cancels the give shard from the Routing nodes internal statistics and cancels      * the relocation if the shard is relocating.      * @param shard      */
+comment|/**      * Cancels the give shard from the Routing nodes internal statistics and cancels      * the relocation if the shard is relocating.      */
 DECL|method|remove
 specifier|private
 name|void

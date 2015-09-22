@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get a document (its source) from an index based on its type (optional) and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *<p/>  *<p>The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)}  * to be set.  *  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
+comment|/**  * A request to get a document (its source) from an index based on its type (optional) and id. Best created using  * {@link org.elasticsearch.client.Requests#getRequest(String)}.  *<p>  * The operation requires the {@link #index()}, {@link #type(String)} and {@link #id(String)}  * to be set.  *  * @see org.elasticsearch.action.get.GetResponse  * @see org.elasticsearch.client.Requests#getRequest(String)  * @see org.elasticsearch.client.Client#get(GetRequest)  */
 end_comment
 
 begin_class

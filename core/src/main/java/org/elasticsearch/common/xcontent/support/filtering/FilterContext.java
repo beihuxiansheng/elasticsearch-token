@@ -652,7 +652,7 @@ return|return
 name|write
 return|;
 block|}
-comment|/**      * Ensure that the full path to the current field is write by the JsonGenerator      *      * @param generator      * @throws IOException      */
+comment|/**      * Ensure that the full path to the current field is write by the JsonGenerator      */
 DECL|method|writePath
 specifier|public
 name|void

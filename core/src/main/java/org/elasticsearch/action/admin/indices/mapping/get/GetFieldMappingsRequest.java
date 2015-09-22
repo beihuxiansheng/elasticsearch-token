@@ -204,7 +204,7 @@ specifier|public
 name|GetFieldMappingsRequest
 parameter_list|()
 block|{      }
-comment|/**      * Indicate whether the receiving node should operate based on local index information or forward requests,      * where needed, to other nodes. If running locally, request will not raise errors if running locally& missing indices.      */
+comment|/**      * Indicate whether the receiving node should operate based on local index information or forward requests,      * where needed, to other nodes. If running locally, request will not raise errors if running locally&amp; missing indices.      */
 DECL|method|local
 specifier|public
 name|GetFieldMappingsRequest

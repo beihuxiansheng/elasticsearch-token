@@ -176,7 +176,7 @@ specifier|final
 name|int
 name|bufferSizeInBytes
 decl_stmt|;
-comment|/**      * Constructs new read-only URL-based blob store      *<p/>      * The following settings are supported      *<dl>      *<dt>buffer_size</dt>      *<dd>- size of the read buffer, defaults to 100KB</dd>      *</dl>      *      * @param settings settings      * @param path     base URL      */
+comment|/**      * Constructs new read-only URL-based blob store      *<p>      * The following settings are supported      *<dl>      *<dt>buffer_size</dt>      *<dd>- size of the read buffer, defaults to 100KB</dd>      *</dl>      *      * @param settings settings      * @param path     base URL      */
 DECL|method|URLBlobStore
 specifier|public
 name|URLBlobStore
@@ -315,7 +315,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * This operation is not supported by URL Blob Store      *      * @param path      */
+comment|/**      * This operation is not supported by URL Blob Store      */
 annotation|@
 name|Override
 DECL|method|delete
@@ -346,7 +346,7 @@ parameter_list|()
 block|{
 comment|// nothing to do here...
 block|}
-comment|/**      * Builds URL using base URL and specified path      *      * @param path relative path      * @return Base URL + path      * @throws MalformedURLException      */
+comment|/**      * Builds URL using base URL and specified path      *      * @param path relative path      * @return Base URL + path      */
 DECL|method|buildPath
 specifier|private
 name|URL

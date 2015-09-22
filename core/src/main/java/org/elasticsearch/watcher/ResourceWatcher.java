@@ -25,7 +25,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract resource watcher interface.  *<p/>  * Different resource watchers can be registered with {@link ResourceWatcherService} to be called  * periodically in order to check for changes in different external resources.  */
+comment|/**  * Abstract resource watcher interface.  *<p>  * Different resource watchers can be registered with {@link ResourceWatcherService} to be called  * periodically in order to check for changes in different external resources.  */
 end_comment
 
 begin_interface

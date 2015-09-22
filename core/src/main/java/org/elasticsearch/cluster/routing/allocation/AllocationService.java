@@ -385,7 +385,7 @@ operator|=
 name|clusterInfoService
 expr_stmt|;
 block|}
-comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.</p>      */
+comment|/**      * Applies the started shards. Note, shards can be called several times within this method.      *<p>      * If the same instance of the routing table is returned, then no change has been made.</p>      */
 DECL|method|applyStartedShards
 specifier|public
 name|RoutingAllocation
@@ -597,7 +597,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Applies the failed shards. Note, shards can be called several times within this method.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.</p>      */
+comment|/**      * Applies the failed shards. Note, shards can be called several times within this method.      *<p>      * If the same instance of the routing table is returned, then no change has been made.</p>      */
 DECL|method|applyFailedShards
 specifier|public
 name|RoutingAllocation
@@ -920,7 +920,7 @@ name|explanations
 argument_list|)
 return|;
 block|}
-comment|/**      * Reroutes the routing table based on the live nodes.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Reroutes the routing table based on the live nodes.      *<p>      * If the same instance of the routing table is returned, then no change has been made.      */
 DECL|method|reroute
 specifier|public
 name|RoutingAllocation
@@ -941,7 +941,7 @@ literal|false
 argument_list|)
 return|;
 block|}
-comment|/**      * Reroutes the routing table based on the live nodes.      *<p/>      *<p>If the same instance of the routing table is returned, then no change has been made.      */
+comment|/**      * Reroutes the routing table based on the live nodes.      *<p>      * If the same instance of the routing table is returned, then no change has been made.      */
 DECL|method|reroute
 specifier|public
 name|RoutingAllocation

@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a gt assert section:  *<p/>  * - gt:    { fields._ttl: 0}  */
+comment|/**  * Represents a gt assert section:  *<p>  * - gt:    { fields._ttl: 0}  */
 end_comment
 
 begin_class

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Copyright (C) 2006 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Copyright (C) 2006 Google Inc.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *<p/>  *<p>For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *<p/>  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *<p/>  *<p>{@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *<p/>  *<p>Keys do not differentiate between primitive types (int, char, etc.) and  * their correpsonding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
+comment|/**  * Binding key consisting of an injection type and an optional annotation.  * Matches the type and annotation at a point of injection.  *<p>  * For example, {@code Key.get(Service.class, Transactional.class)} will  * match:  *<pre>  *   {@literal @}Inject  *   public void setService({@literal @}Transactional Service service) {  *     ...  *   }  *</pre>  *<p>  * {@code Key} supports generic types via subclassing just like {@link  * TypeLiteral}.  *<p>  * Keys do not differentiate between primitive types (int, char, etc.) and  * their correpsonding wrapper types (Integer, Character, etc.). Primitive  * types will be replaced with their wrapper types when keys are created.  *  * @author crazybob@google.com (Bob Lee)  */
 end_comment
 
 begin_class
@@ -132,7 +132,7 @@ specifier|final
 name|int
 name|hashCode
 decl_stmt|;
-comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p/>      *<p>Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *<p/>      *<p>{@code new Key<Foo>(Bar.class) {}}.      */
+comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p>      * Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p>      * Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *<p>      * {@code new Key<Foo>(Bar.class) {}}.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -186,7 +186,7 @@ name|computeHashCode
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p/>      *<p>Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *<p/>      *<p>{@code new Key<Foo>(new Bar()) {}}.      */
+comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p>      * Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p>      * Example usage for a binding of type {@code Foo} annotated with      * {@code @Bar}:      *<p>      * {@code new Key<Foo>(new Bar()) {}}.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -236,7 +236,7 @@ name|computeHashCode
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p/>      *<p>Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p/>      *<p>Example usage for a binding of type {@code Foo}:      *<p/>      *<p>{@code new Key<Foo>() {}}.      */
+comment|/**      * Constructs a new key. Derives the type from this class's type parameter.      *<p>      * Clients create an empty anonymous subclass. Doing so embeds the type      * parameter in the anonymous class's type hierarchy so we can reconstitute it      * at runtime despite erasure.      *<p>      * Example usage for a binding of type {@code Foo}:      *<p>      * {@code new Key<Foo>() {}}.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(

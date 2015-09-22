@@ -469,7 +469,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/***      *      * @param value      * @return true/false      * throws exception if string cannot be parsed to boolean      */
+comment|/***      *      * @return true/false      * throws exception if string cannot be parsed to boolean      */
 DECL|method|parseBooleanExact
 specifier|public
 specifier|static

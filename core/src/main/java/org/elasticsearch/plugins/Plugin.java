@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An extension point allowing to plug in custom functionality.  *<p/>  * A plugin can be register custom extensions to builtin behavior by implementing<tt>onModule(AnyModule)</tt>,  * and registering the extension with the given module.  */
+comment|/**  * An extension point allowing to plug in custom functionality.  *<p>  * A plugin can be register custom extensions to builtin behavior by implementing<tt>onModule(AnyModule)</tt>,  * and registering the extension with the given module.  */
 end_comment
 
 begin_class

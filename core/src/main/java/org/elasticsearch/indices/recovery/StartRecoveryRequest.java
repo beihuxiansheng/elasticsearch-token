@@ -168,7 +168,7 @@ specifier|public
 name|StartRecoveryRequest
 parameter_list|()
 block|{     }
-comment|/**      * Start recovery request.      *      * @param shardId      * @param sourceNode       The node to recover from      * @param targetNode       The node to recover to      * @param markAsRelocated      * @param metadataSnapshot      */
+comment|/**      * Start recovery request.      *      * @param sourceNode       The node to recover from      * @param targetNode       The node to recover to      */
 DECL|method|StartRecoveryRequest
 specifier|public
 name|StartRecoveryRequest

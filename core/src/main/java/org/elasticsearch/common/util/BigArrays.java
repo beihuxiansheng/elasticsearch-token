@@ -2695,7 +2695,7 @@ name|newSize
 argument_list|)
 return|;
 block|}
-comment|/** @see Arrays.hashCode(byte[]) */
+comment|/** @see Arrays#hashCode(byte[]) */
 DECL|method|hashCode
 specifier|public
 name|int
@@ -2757,7 +2757,7 @@ return|return
 name|hash
 return|;
 block|}
-comment|/** @see Arrays.equals(byte[], byte[]) */
+comment|/** @see Arrays#equals(byte[], byte[]) */
 DECL|method|equals
 specifier|public
 name|boolean

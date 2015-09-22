@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This service is responsible for upgrading legacy index metadata to the current version  *<p/>  * Every time an existing index is introduced into cluster this service should be used  * to upgrade the existing index metadata to the latest version of the cluster. It typically  * occurs during cluster upgrade, when dangling indices are imported into the cluster or indices  * are restored from a repository.  */
+comment|/**  * This service is responsible for upgrading legacy index metadata to the current version  *<p>  * Every time an existing index is introduced into cluster this service should be used  * to upgrade the existing index metadata to the latest version of the cluster. It typically  * occurs during cluster upgrade, when dangling indices are imported into the cluster or indices  * are restored from a repository.  */
 end_comment
 
 begin_class
@@ -519,7 +519,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Checks that the index can be upgraded to the current version of the master node.      *      *<p/>      * If the index does not need upgrade it returns the index metadata unchanged, otherwise it returns a modified index metadata. If index      * cannot be updated the method throws an exception.      */
+comment|/**      * Checks that the index can be upgraded to the current version of the master node.      *      *<p>      * If the index does not need upgrade it returns the index metadata unchanged, otherwise it returns a modified index metadata. If index      * cannot be updated the method throws an exception.      */
 DECL|method|upgradeIndexMetaData
 specifier|public
 name|IndexMetaData

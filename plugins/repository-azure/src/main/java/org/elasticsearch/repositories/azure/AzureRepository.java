@@ -281,7 +281,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Azure file system implementation of the BlobStoreRepository  *<p/>  * Azure file system repository supports the following settings:  *<dl>  *<dt>{@code container}</dt><dd>Azure container name. Defaults to elasticsearch-snapshots</dd>  *<dt>{@code base_path}</dt><dd>Specifies the path within bucket to repository data. Defaults to root directory.</dd>  *<dt>{@code chunk_size}</dt><dd>Large file can be divided into chunks. This parameter specifies the chunk size. Defaults to 64mb.</dd>  *<dt>{@code compress}</dt><dd>If set to true metadata files will be stored compressed. Defaults to false.</dd>  *</dl>  */
+comment|/**  * Azure file system implementation of the BlobStoreRepository  *<p>  * Azure file system repository supports the following settings:  *<dl>  *<dt>{@code container}</dt><dd>Azure container name. Defaults to elasticsearch-snapshots</dd>  *<dt>{@code base_path}</dt><dd>Specifies the path within bucket to repository data. Defaults to root directory.</dd>  *<dt>{@code chunk_size}</dt><dd>Large file can be divided into chunks. This parameter specifies the chunk size. Defaults to 64mb.</dd>  *<dt>{@code compress}</dt><dd>If set to true metadata files will be stored compressed. Defaults to false.</dd>  *</dl>  */
 end_comment
 
 begin_class

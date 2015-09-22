@@ -376,7 +376,7 @@ name|XAnalyzingSuggester
 extends|extends
 name|Lookup
 block|{
-comment|/**    * FST<Weight,Surface>:     *  input is the analyzed form, with a null byte between terms    *  weights are encoded as costs: (Integer.MAX_VALUE-weight)    *  surface is the original, unanalyzed form.    */
+comment|/**    * FST&lt;Weight,Surface&gt;:     *  input is the analyzed form, with a null byte between terms    *  weights are encoded as costs: (Integer.MAX_VALUE-weight)    *  surface is the original, unanalyzed form.    */
 DECL|field|fst
 specifier|private
 name|FST
@@ -420,7 +420,7 @@ specifier|final
 name|boolean
 name|preserveSep
 decl_stmt|;
-comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)} to always    *  return the exact match first, regardless of score.  This    *  has no performance impact but could result in    *  low-quality suggestions. */
+comment|/** Include this flag in the options parameter to {@code    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)} to always    *  return the exact match first, regardless of score.  This    *  has no performance impact but could result in    *  low-quality suggestions. */
 DECL|field|EXACT_FIRST
 specifier|public
 specifier|static
@@ -430,7 +430,7 @@ name|EXACT_FIRST
 init|=
 literal|1
 decl_stmt|;
-comment|/** Include this flag in the options parameter to {@link    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)} to preserve    *  token separators when matching. */
+comment|/** Include this flag in the options parameter to {@code    *  #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)} to preserve    *  token separators when matching. */
 DECL|field|PRESERVE_SEP
 specifier|public
 specifier|static
@@ -547,7 +547,7 @@ name|count
 init|=
 literal|0
 decl_stmt|;
-comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
+comment|/**    * Calls {@code #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)    * AnalyzingSuggester(analyzer, analyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|XAnalyzingSuggester
 specifier|public
 name|XAnalyzingSuggester
@@ -591,7 +591,7 @@ name|HOLE_CHARACTER
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * Calls {@link #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)    * AnalyzingSuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
+comment|/**    * Calls {@code #XAnalyzingSuggester(Analyzer,Analyzer,int,int,int,boolean,FST,boolean,int,int,int,int,int)    * AnalyzingSuggester(indexAnalyzer, queryAnalyzer, EXACT_FIRST |    * PRESERVE_SEP, 256, -1)}    */
 DECL|method|XAnalyzingSuggester
 specifier|public
 name|XAnalyzingSuggester
@@ -4919,7 +4919,7 @@ name|UnsupportedOperationException
 argument_list|()
 throw|;
 block|}
-comment|/** cost -> weight */
+comment|/** cost -&gt; weight */
 DECL|method|decodeWeight
 specifier|public
 specifier|static
@@ -4943,7 +4943,7 @@ name|encoded
 argument_list|)
 return|;
 block|}
-comment|/** weight -> cost */
+comment|/** weight -&gt; cost */
 DECL|method|encodeWeight
 specifier|public
 specifier|static

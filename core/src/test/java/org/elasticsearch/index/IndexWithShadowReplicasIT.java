@@ -4779,7 +4779,7 @@ name|dataPath
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Tests that shadow replicas can be "naturally" rebalanced and relocated      * around the cluster. By "naturally" I mean without using the reroute API      * @throws Exception      */
+comment|/**      * Tests that shadow replicas can be "naturally" rebalanced and relocated      * around the cluster. By "naturally" I mean without using the reroute API      */
 annotation|@
 name|Test
 DECL|method|testShadowReplicaNaturalRelocation

@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * ConsoleAppender appends log events to<code>System.out</code> or  *<code>System.err</code> using a layout specified by the user. The  * default target is<code>System.out</code>.  *<p/>  *<p>Elasticsearch: Adapter from log4j to allow to disable console logging...</p>  *  * @author Ceki G&uuml;lc&uuml;  * @author Curt Arnold  * @since 1.1  */
+comment|/**  * ConsoleAppender appends log events to<code>System.out</code> or  *<code>System.err</code> using a layout specified by the user. The  * default target is<code>System.out</code>.  *<p>Elasticsearch: Adapter from log4j to allow to disable console logging...</p>  *  * @author Ceki G&uuml;lc&uuml;  * @author Curt Arnold  * @since 1.1  */
 end_comment
 
 begin_class
@@ -254,7 +254,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the current value of the<b>Target</b> property. The      * default value of the option is "System.out".      *<p/>      * See also {@link #setTarget}.      */
+comment|/**      * Returns the current value of the<b>Target</b> property. The      * default value of the option is "System.out".      *<p>      * See also {@link #setTarget}.      */
 DECL|method|getTarget
 specifier|public
 name|String

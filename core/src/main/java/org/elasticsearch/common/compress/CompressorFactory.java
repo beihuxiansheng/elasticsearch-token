@@ -466,7 +466,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Uncompress the provided data, data can be detected as compressed using {@link #isCompressed(byte[], int, int)}.      */
+comment|/**      * Uncompress the provided data, data can be detected as compressed using {@link #isCompressed(BytesReference)}.      */
 DECL|method|uncompressIfNeeded
 specifier|public
 specifier|static

@@ -675,7 +675,7 @@ operator|.
 name|repository
 return|;
 block|}
-comment|/**      * Sets the list of indices that should be restored from snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are not supported. An empty list or {"_all"} will restore all open      * indices in the snapshot.      *      * @param indices list of indices      * @return this request      */
+comment|/**      * Sets the list of indices that should be restored from snapshot      *<p>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are not supported. An empty list or {"_all"} will restore all open      * indices in the snapshot.      *      * @param indices list of indices      * @return this request      */
 DECL|method|indices
 specifier|public
 name|RestoreSnapshotRequest
@@ -696,7 +696,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the list of indices that should be restored from snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are not supported. An empty list or {"_all"} will restore all open      * indices in the snapshot.      *      * @param indices list of indices      * @return this request      */
+comment|/**      * Sets the list of indices that should be restored from snapshot      *<p>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are not supported. An empty list or {"_all"} will restore all open      * indices in the snapshot.      *      * @param indices list of indices      * @return this request      */
 DECL|method|indices
 specifier|public
 name|RestoreSnapshotRequest
@@ -731,7 +731,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Returns list of indices that should be restored from snapshot      *      * @return      */
+comment|/**      * Returns list of indices that should be restored from snapshot      */
 DECL|method|indices
 specifier|public
 name|String
@@ -774,7 +774,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets rename pattern that should be applied to restored indices.      *<p/>      * Indices that match the rename pattern will be renamed according to {@link #renameReplacement(String)}. The      * rename pattern is applied according to the {@link java.util.regex.Matcher#appendReplacement(StringBuffer, String)}      * The request will fail if two or more indices will be renamed into the same name.      *      * @param renamePattern rename pattern      * @return this request      */
+comment|/**      * Sets rename pattern that should be applied to restored indices.      *<p>      * Indices that match the rename pattern will be renamed according to {@link #renameReplacement(String)}. The      * rename pattern is applied according to the {@link java.util.regex.Matcher#appendReplacement(StringBuffer, String)}      * The request will fail if two or more indices will be renamed into the same name.      *      * @param renamePattern rename pattern      * @return this request      */
 DECL|method|renamePattern
 specifier|public
 name|RestoreSnapshotRequest
@@ -805,7 +805,7 @@ return|return
 name|renamePattern
 return|;
 block|}
-comment|/**      * Sets rename replacement      *<p/>      * See {@link #renamePattern(String)} for more information.      *      * @param renameReplacement rename replacement      * @return      */
+comment|/**      * Sets rename replacement      *<p>      * See {@link #renamePattern(String)} for more information.      *      * @param renameReplacement rename replacement      */
 DECL|method|renameReplacement
 specifier|public
 name|RestoreSnapshotRequest
@@ -898,7 +898,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific restore settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|RestoreSnapshotRequest
@@ -918,7 +918,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific restore settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|RestoreSnapshotRequest
@@ -943,7 +943,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings in JSON, YAML or properties format      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific restore settings in JSON, YAML or properties format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|RestoreSnapshotRequest
@@ -974,7 +974,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific restore settings      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|RestoreSnapshotRequest
@@ -1124,7 +1124,7 @@ return|return
 name|ignoreIndexSettings
 return|;
 block|}
-comment|/**      * If set to true the restore procedure will restore global cluster state.      *<p/>      * The global cluster state includes persistent settings and index template definitions.      *      * @param includeGlobalState true if global state should be restored from the snapshot      * @return this request      */
+comment|/**      * If set to true the restore procedure will restore global cluster state.      *<p>      * The global cluster state includes persistent settings and index template definitions.      *      * @param includeGlobalState true if global state should be restored from the snapshot      * @return this request      */
 DECL|method|includeGlobalState
 specifier|public
 name|RestoreSnapshotRequest
@@ -1884,7 +1884,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Parses restore definition      *<p/>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @return this request      */
+comment|/**      * Parses restore definition      *<p>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @return this request      */
 DECL|method|source
 specifier|public
 name|RestoreSnapshotRequest
@@ -1955,7 +1955,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Parses restore definition      *<p/>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @return this request      */
+comment|/**      * Parses restore definition      *<p>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @return this request      */
 DECL|method|source
 specifier|public
 name|RestoreSnapshotRequest
@@ -1979,7 +1979,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**      * Parses restore definition      *<p/>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @param offset offset      * @param length length      * @return this request      */
+comment|/**      * Parses restore definition      *<p>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @param offset offset      * @param length length      * @return this request      */
 DECL|method|source
 specifier|public
 name|RestoreSnapshotRequest
@@ -2060,7 +2060,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Parses restore definition      *<p/>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @return this request      */
+comment|/**      * Parses restore definition      *<p>      * JSON, YAML and properties formats are supported      *      * @param source restore definition      * @return this request      */
 DECL|method|source
 specifier|public
 name|RestoreSnapshotRequest

@@ -119,7 +119,7 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link InputStream} for the given blob name      *<p/>      * This method is deprecated and is used only for compatibility with older blob containers      * The new blob containers should use readBlob/writeBlob methods instead      */
+comment|/**      * Creates a new {@link InputStream} for the given blob name      *<p>      * This method is deprecated and is used only for compatibility with older blob containers      * The new blob containers should use readBlob/writeBlob methods instead      */
 annotation|@
 name|Deprecated
 DECL|method|openInput
@@ -134,7 +134,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates a new OutputStream for the given blob name      *<p/>      * This method is deprecated and is used only for compatibility with older blob containers      * The new blob containers should override readBlob/writeBlob methods instead      */
+comment|/**      * Creates a new OutputStream for the given blob name      *<p>      * This method is deprecated and is used only for compatibility with older blob containers      * The new blob containers should override readBlob/writeBlob methods instead      */
 annotation|@
 name|Deprecated
 DECL|method|createOutput

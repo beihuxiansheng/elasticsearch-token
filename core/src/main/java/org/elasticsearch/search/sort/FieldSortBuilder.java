@@ -224,7 +224,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Defines what values to pick in the case a document contains multiple values for the targeted sort field.      * Possible values: min, max, sum and avg      *<p/>      * The last two values are only applicable for number based fields.      */
+comment|/**      * Defines what values to pick in the case a document contains multiple values for the targeted sort field.      * Possible values: min, max, sum and avg      *<p>      * The last two values are only applicable for number based fields.      */
 DECL|method|sortMode
 specifier|public
 name|FieldSortBuilder

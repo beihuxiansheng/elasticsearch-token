@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a SnowballAnalyzer initialized with stopwords and Snowball filter. Only  * supports Dutch, English (default), French, German and German2 where stopwords  * are readily available. For other languages available with the Lucene Snowball  * Stemmer, use them directly with the SnowballFilter and a CustomAnalyzer.  * Configuration of language is done with the "language" attribute or the analyzer.  * Also supports additional stopwords via "stopwords" attribute  *<p/>  * The SnowballAnalyzer comes with a StandardFilter, LowerCaseFilter, StopFilter  * and the SnowballFilter.  *  *  */
+comment|/**  * Creates a SnowballAnalyzer initialized with stopwords and Snowball filter. Only  * supports Dutch, English (default), French, German and German2 where stopwords  * are readily available. For other languages available with the Lucene Snowball  * Stemmer, use them directly with the SnowballFilter and a CustomAnalyzer.  * Configuration of language is done with the "language" attribute or the analyzer.  * Also supports additional stopwords via "stopwords" attribute  *<p>  * The SnowballAnalyzer comes with a StandardFilter, LowerCaseFilter, StopFilter  * and the SnowballFilter.  *  *  */
 end_comment
 
 begin_class

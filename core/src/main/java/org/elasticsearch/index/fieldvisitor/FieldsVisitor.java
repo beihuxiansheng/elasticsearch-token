@@ -362,8 +362,22 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|index
+operator|.
+name|StoredFieldVisitor
+import|;
+end_import
+
 begin_comment
-comment|/**  * Base {@link StoredFieldsVisitor} that retrieves all non-redundant metadata.  */
+comment|/**  * Base {@link StoredFieldVisitor} that retrieves all non-redundant metadata.  */
 end_comment
 
 begin_class

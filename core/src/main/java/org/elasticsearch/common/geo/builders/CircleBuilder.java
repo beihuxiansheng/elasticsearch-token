@@ -213,7 +213,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the radius of the circle      * @param radius radius of the circle (see {@link DistanceUnit.Distance})      * @return this      */
+comment|/**      * Set the radius of the circle      * @param radius radius of the circle (see {@link org.elasticsearch.common.unit.DistanceUnit.Distance})      * @return this      */
 DECL|method|radius
 specifier|public
 name|CircleBuilder

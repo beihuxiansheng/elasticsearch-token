@@ -489,7 +489,7 @@ return|return
 name|deleteCount
 return|;
 block|}
-comment|/**          * Returns if the index is under merge throttling control          * @return          */
+comment|/**          * Returns if the index is under merge throttling control          */
 DECL|method|isThrottled
 specifier|public
 name|boolean
@@ -500,7 +500,7 @@ return|return
 name|isThrottled
 return|;
 block|}
-comment|/**          * Gets the amount of time in milliseconds that the index has been under merge throttling control          * @return          */
+comment|/**          * Gets the amount of time in milliseconds that the index has been under merge throttling control          */
 DECL|method|getThrottleTimeInMillis
 specifier|public
 name|long
@@ -511,7 +511,7 @@ return|return
 name|throttleTimeInMillis
 return|;
 block|}
-comment|/**          * Gets the amount of time in a TimeValue that the index has been under merge throttling control          * @return          */
+comment|/**          * Gets the amount of time in a TimeValue that the index has been under merge throttling control          */
 DECL|method|getThrottleTime
 specifier|public
 name|TimeValue

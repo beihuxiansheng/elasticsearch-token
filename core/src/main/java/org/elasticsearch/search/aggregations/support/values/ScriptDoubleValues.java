@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link DoubleValues} implementation which is based on a script  */
+comment|/**  * {@link SortingNumericDoubleValues} implementation which is based on a script  */
 end_comment
 
 begin_class

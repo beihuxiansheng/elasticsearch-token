@@ -6550,7 +6550,7 @@ literal|"testing suggestions"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Searching for a rare phrase shouldn't provide any suggestions if confidence> 1.  This was possible before we rechecked the cutoff      * score during the reduce phase.  Failures don't occur every time - maybe two out of five tries but we don't repeat it to save time.      */
+comment|/**      * Searching for a rare phrase shouldn't provide any suggestions if confidence&gt; 1.  This was possible before we rechecked the cutoff      * score during the reduce phase.  Failures don't occur every time - maybe two out of five tries but we don't repeat it to save time.      */
 annotation|@
 name|Test
 DECL|method|testSearchForRarePhrase
@@ -6975,7 +6975,7 @@ literal|"nobel prize"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * If the suggester finds tons of options then picking the right one is slow without<<<INSERT SOLUTION HERE>>>.      */
+comment|/**      * If the suggester finds tons of options then picking the right one is slow without&lt;&lt;&lt;INSERT SOLUTION HERE&gt;&gt;&gt;.      */
 annotation|@
 name|Test
 annotation|@

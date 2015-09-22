@@ -463,7 +463,7 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Registers new repository in the cluster      *<p/>      * This method can be only called on the master node. It tries to create a new repository on the master      * and if it was successful it adds new repository to cluster metadata.      *      * @param request  register repository request      * @param listener register repository listener      */
+comment|/**      * Registers new repository in the cluster      *<p>      * This method can be only called on the master node. It tries to create a new repository on the master      * and if it was successful it adds new repository to cluster metadata.      *      * @param request  register repository request      * @param listener register repository listener      */
 DECL|method|registerRepository
 specifier|public
 name|void
@@ -921,7 +921,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Unregisters repository in the cluster      *<p/>      * This method can be only called on the master node. It removes repository information from cluster metadata.      *      * @param request  unregister repository request      * @param listener unregister repository listener      */
+comment|/**      * Unregisters repository in the cluster      *<p>      * This method can be only called on the master node. It removes repository information from cluster metadata.      *      * @param request  unregister repository request      * @param listener unregister repository listener      */
 DECL|method|unregisterRepository
 specifier|public
 name|void
@@ -1877,7 +1877,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns registered repository      *<p/>      * This method is called only on the master node      *      * @param repository repository name      * @return registered repository      * @throws RepositoryMissingException if repository with such name isn't registered      */
+comment|/**      * Returns registered repository      *<p>      * This method is called only on the master node      *      * @param repository repository name      * @return registered repository      * @throws RepositoryMissingException if repository with such name isn't registered      */
 DECL|method|repository
 specifier|public
 name|Repository
@@ -1918,7 +1918,7 @@ name|repository
 argument_list|)
 throw|;
 block|}
-comment|/**      * Returns registered index shard repository      *<p/>      * This method is called only on data nodes      *      * @param repository repository name      * @return registered repository      * @throws RepositoryMissingException if repository with such name isn't registered      */
+comment|/**      * Returns registered index shard repository      *<p>      * This method is called only on data nodes      *      * @param repository repository name      * @return registered repository      * @throws RepositoryMissingException if repository with such name isn't registered      */
 DECL|method|indexShardRepository
 specifier|public
 name|IndexShardRepository
@@ -1959,7 +1959,7 @@ name|repository
 argument_list|)
 throw|;
 block|}
-comment|/**      * Creates a new repository and adds it to the list of registered repositories.      *<p/>      * If a repository with the same name but different types or settings already exists, it will be closed and      * replaced with the new repository. If a repository with the same name exists but it has the same type and settings      * the new repository is ignored.      *      * @param repositoryMetaData new repository metadata      * @return {@code true} if new repository was added or {@code false} if it was ignored      */
+comment|/**      * Creates a new repository and adds it to the list of registered repositories.      *<p>      * If a repository with the same name but different types or settings already exists, it will be closed and      * replaced with the new repository. If a repository with the same name exists but it has the same type and settings      * the new repository is ignored.      *      * @param repositoryMetaData new repository metadata      * @return {@code true} if new repository was added or {@code false} if it was ignored      */
 DECL|method|registerRepository
 specifier|private
 name|boolean

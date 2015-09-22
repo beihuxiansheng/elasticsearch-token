@@ -311,7 +311,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p/>      * The script works with the variable<code>ctx</code>, which is bound to the entry,      * e.g.<code>ctx._source.mycounter += 1</code>.      *      */
+comment|/**      * The script to execute. Note, make sure not to send different script each times and instead      * use script params if possible with the same (automatically compiled) script.      *<p>      * The script works with the variable<code>ctx</code>, which is bound to the entry,      * e.g.<code>ctx._source.mycounter += 1</code>.      *      */
 DECL|method|setScript
 specifier|public
 name|UpdateRequestBuilder

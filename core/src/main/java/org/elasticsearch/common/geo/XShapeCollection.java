@@ -227,7 +227,7 @@ return|return
 name|retBox
 return|;
 block|}
-comment|/**    * Spatial4J shapes have no knowledge of directed edges. For this reason, a bounding box    * that wraps the dateline can have a min longitude that is mathematically> than the    * Rectangles' minX value.  This is an issue for geometric collections (e.g., MultiPolygon    * and ShapeCollection) Until geometry logic can be cleaned up in Spatial4J, ES provides    * the following expansion algorithm for GeometryCollections    */
+comment|/**    * Spatial4J shapes have no knowledge of directed edges. For this reason, a bounding box    * that wraps the dateline can have a min longitude that is mathematically&gt; than the    * Rectangles' minX value.  This is an issue for geometric collections (e.g., MultiPolygon    * and ShapeCollection) Until geometry logic can be cleaned up in Spatial4J, ES provides    * the following expansion algorithm for GeometryCollections    */
 DECL|method|expandBBox
 specifier|private
 name|Rectangle

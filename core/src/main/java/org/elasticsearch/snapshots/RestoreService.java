@@ -1093,7 +1093,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for restoring snapshots  *<p/>  * Restore operation is performed in several stages.  *<p/>  * First {@link #restoreSnapshot(RestoreRequest, org.elasticsearch.action.ActionListener))}  * method reads information about snapshot and metadata from repository. In update cluster state task it checks restore  * preconditions, restores global state if needed, creates {@link RestoreInProgress} record with list of shards that needs  * to be restored and adds this shard to the routing table using {@link RoutingTable.Builder#addAsRestore(IndexMetaData, RestoreSource)}  * method.  *<p/>  * Individual shards are getting restored as part of normal recovery process in  * {@link StoreRecoveryService#recover(IndexShard, boolean, StoreRecoveryService.RecoveryListener)}  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking  * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property. If this property is not null  * {@code recover} method uses {@link StoreRecoveryService#restore}  * method to start shard restore process.  *<p/>  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(SnapshotId, ShardId)},  * which updates {@link RestoreInProgress} in cluster state or removes it when all shards are completed. In case of  * restore failure a normal recovery fail-over process kicks in.  */
+comment|/**  * Service responsible for restoring snapshots  *<p>  * Restore operation is performed in several stages.  *<p>  * First {@link #restoreSnapshot(RestoreRequest, org.elasticsearch.action.ActionListener)}  * method reads information about snapshot and metadata from repository. In update cluster state task it checks restore  * preconditions, restores global state if needed, creates {@link RestoreInProgress} record with list of shards that needs  * to be restored and adds this shard to the routing table using {@link org.elasticsearch.cluster.routing.RoutingTable.Builder#addAsRestore(IndexMetaData, RestoreSource)}  * method.  *<p>  * Individual shards are getting restored as part of normal recovery process in  * {@link StoreRecoveryService#recover(IndexShard, boolean, StoreRecoveryService.RecoveryListener)}  * method, which detects that shard should be restored from snapshot rather than recovered from gateway by looking  * at the {@link org.elasticsearch.cluster.routing.ShardRouting#restoreSource()} property. If this property is not null  * {@code recover} method uses {@link StoreRecoveryService#restore}  * method to start shard restore process.  *<p>  * At the end of the successful restore process {@code IndexShardSnapshotAndRestoreService} calls {@link #indexShardRestoreCompleted(SnapshotId, ShardId)},  * which updates {@link RestoreInProgress} in cluster state or removes it when all shards are completed. In case of  * restore failure a normal recovery fail-over process kicks in.  */
 end_comment
 
 begin_class
@@ -5462,7 +5462,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Adds restore completion listener      *<p/>      * This listener is called for each snapshot that finishes restore operation in the cluster. It's responsibility of      * the listener to decide if it's called for the appropriate snapshot or not.      *      * @param listener restore completion listener      */
+comment|/**      * Adds restore completion listener      *<p>      * This listener is called for each snapshot that finishes restore operation in the cluster. It's responsibility of      * the listener to decide if it's called for the appropriate snapshot or not.      *      * @param listener restore completion listener      */
 DECL|method|addListener
 specifier|public
 name|void
@@ -5485,7 +5485,7 @@ name|listener
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes restore completion listener      *<p/>      * This listener is called for each snapshot that finishes restore operation in the cluster.      *      * @param listener restore completion listener      */
+comment|/**      * Removes restore completion listener      *<p>      * This listener is called for each snapshot that finishes restore operation in the cluster.      *      * @param listener restore completion listener      */
 DECL|method|removeListener
 specifier|public
 name|void

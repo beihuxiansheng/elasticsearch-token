@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Information about successfully completed restore operation.  *<p/>  * Returned as part of {@link org.elasticsearch.action.admin.cluster.snapshots.restore.RestoreSnapshotResponse}  */
+comment|/**  * Information about successfully completed restore operation.  *<p>  * Returned as part of {@link org.elasticsearch.action.admin.cluster.snapshots.restore.RestoreSnapshotResponse}  */
 end_comment
 
 begin_class
@@ -666,7 +666,7 @@ name|successfulShards
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads restore info from {@link StreamInput}      *      * @param in stream input      * @return restore info      * @throws IOException      */
+comment|/**      * Reads restore info from {@link StreamInput}      *      * @param in stream input      * @return restore info      */
 DECL|method|readRestoreInfo
 specifier|public
 specifier|static
@@ -697,7 +697,7 @@ return|return
 name|snapshotInfo
 return|;
 block|}
-comment|/**      * Reads optional restore info from {@link StreamInput}      *      * @param in stream input      * @return restore info      * @throws IOException      */
+comment|/**      * Reads optional restore info from {@link StreamInput}      *      * @param in stream input      * @return restore info      */
 DECL|method|readOptionalRestoreInfo
 specifier|public
 specifier|static

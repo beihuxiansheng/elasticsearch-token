@@ -45,7 +45,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the {@link Range} aggregation.  */
+comment|/**  * Builder for the {@link org.elasticsearch.search.aggregations.bucket.range.AbstractRangeBuilder.Range} aggregation.  */
 end_comment
 
 begin_class

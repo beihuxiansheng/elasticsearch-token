@@ -217,7 +217,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the list of indices that should be restored from snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are not supported. An empty list or {"_all"} will restore all open      * indices in the snapshot.      *      * @param indices list of indices      * @return this builder      */
+comment|/**      * Sets the list of indices that should be restored from snapshot      *<p>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are not supported. An empty list or {"_all"} will restore all open      * indices in the snapshot.      *      * @param indices list of indices      * @return this builder      */
 DECL|method|setIndices
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -260,7 +260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets rename pattern that should be applied to restored indices.      *<p/>      * Indices that match the rename pattern will be renamed according to {@link #setRenameReplacement(String)}. The      * rename pattern is applied according to the {@link java.util.regex.Matcher#appendReplacement(StringBuffer, String)}      * The request will fail if two or more indices will be renamed into the same name.      *      * @param renamePattern rename pattern      * @return this builder      */
+comment|/**      * Sets rename pattern that should be applied to restored indices.      *<p>      * Indices that match the rename pattern will be renamed according to {@link #setRenameReplacement(String)}. The      * rename pattern is applied according to the {@link java.util.regex.Matcher#appendReplacement(StringBuffer, String)}      * The request will fail if two or more indices will be renamed into the same name.      *      * @param renamePattern rename pattern      * @return this builder      */
 DECL|method|setRenamePattern
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -281,7 +281,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets rename replacement      *<p/>      * See {@link #setRenamePattern(String)} for more information.      *      * @param renameReplacement rename replacement      * @return this builder      */
+comment|/**      * Sets rename replacement      *<p>      * See {@link #setRenamePattern(String)} for more information.      *      * @param renameReplacement rename replacement      * @return this builder      */
 DECL|method|setRenameReplacement
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -302,7 +302,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific restore settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -323,7 +323,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific restore settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -346,7 +346,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings in JSON, YAML or properties format      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific restore settings in JSON, YAML or properties format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -367,7 +367,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific restore settings      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific restore settings      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|RestoreSnapshotRequestBuilder
@@ -414,7 +414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * If set to true the restore procedure will restore global cluster state.      *<p/>      * The global cluster state includes persistent settings and index template definitions.      *      * @param restoreGlobalState true if global state should be restored from the snapshot      * @return this builder      */
+comment|/**      * If set to true the restore procedure will restore global cluster state.      *<p>      * The global cluster state includes persistent settings and index template definitions.      *      * @param restoreGlobalState true if global state should be restored from the snapshot      * @return this builder      */
 DECL|method|setRestoreGlobalState
 specifier|public
 name|RestoreSnapshotRequestBuilder
