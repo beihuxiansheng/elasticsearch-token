@@ -145,11 +145,6 @@ name|SearchSourceBuilder
 name|source
 parameter_list|)
 function_decl|;
-DECL|method|extraSource
-name|BytesReference
-name|extraSource
-parameter_list|()
-function_decl|;
 DECL|method|numberOfShards
 name|int
 name|numberOfShards
@@ -174,11 +169,6 @@ function_decl|;
 DECL|method|template
 name|Template
 name|template
-parameter_list|()
-function_decl|;
-DECL|method|templateSource
-name|BytesReference
-name|templateSource
 parameter_list|()
 function_decl|;
 DECL|method|requestCache

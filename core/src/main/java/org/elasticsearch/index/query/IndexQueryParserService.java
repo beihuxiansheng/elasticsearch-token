@@ -918,6 +918,7 @@ name|queryStringLenient
 return|;
 block|}
 DECL|method|indicesQueriesRegistry
+specifier|public
 name|IndicesQueriesRegistry
 name|indicesQueriesRegistry
 parameter_list|()
