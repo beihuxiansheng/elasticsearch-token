@@ -20,6 +20,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|util
+operator|.
+name|LuceneTestCase
+operator|.
+name|AwaitsFix
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|elasticsearch
 operator|.
 name|action
@@ -275,6 +291,14 @@ annotation|@
 name|ESIntegTestCase
 operator|.
 name|SuiteScopeTestCase
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"needs fixing after the search request refactor. Do we need agg binary?"
+argument_list|)
+comment|// NO RELEASE
 DECL|class|AggregationsBinaryIT
 specifier|public
 class|class

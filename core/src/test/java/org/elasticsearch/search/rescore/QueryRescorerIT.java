@@ -129,8 +129,6 @@ operator|.
 name|settings
 operator|.
 name|Settings
-operator|.
-name|Builder
 import|;
 end_import
 
@@ -145,6 +143,8 @@ operator|.
 name|settings
 operator|.
 name|Settings
+operator|.
+name|Builder
 import|;
 end_import
 
@@ -173,20 +173,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|MatchQueryBuilder
 import|;
 end_import
 
@@ -340,7 +326,7 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_NUMBER_OF_SHARDS
+name|SETTING_NUMBER_OF_REPLICAS
 import|;
 end_import
 
@@ -356,7 +342,7 @@ name|metadata
 operator|.
 name|IndexMetaData
 operator|.
-name|SETTING_NUMBER_OF_REPLICAS
+name|SETTING_NUMBER_OF_SHARDS
 import|;
 end_import
 
@@ -586,6 +572,14 @@ name|ESIntegTestCase
 block|{
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Need to fix default window size for rescorers so that they are applied"
+argument_list|)
+comment|// NORELEASE
 DECL|method|testEnforceWindowSize
 specifier|public
 name|void
@@ -2313,6 +2307,14 @@ block|}
 comment|// Tests a rescore window smaller than number of hits:
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Need to fix default window size for rescorers so that they are applied"
+argument_list|)
+comment|// NORELEASE
 DECL|method|testSmallRescoreWindow
 specifier|public
 name|void
@@ -2993,6 +2995,14 @@ block|}
 comment|// Tests a rescorer that penalizes the scores:
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Need to fix default window size for rescorers so that they are applied"
+argument_list|)
+comment|// NORELEASE
 DECL|method|testRescorerMadeScoresWorse
 specifier|public
 name|void
@@ -6950,6 +6960,14 @@ block|}
 block|}
 annotation|@
 name|Test
+annotation|@
+name|AwaitsFix
+argument_list|(
+name|bugUrl
+operator|=
+literal|"Need to fix default window size for rescorers so that they are applied"
+argument_list|)
+comment|// NORELEASE
 DECL|method|testMultipleRescores
 specifier|public
 name|void

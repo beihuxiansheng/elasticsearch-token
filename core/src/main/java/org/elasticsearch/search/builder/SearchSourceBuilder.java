@@ -88,6 +88,18 @@ name|elasticsearch
 operator|.
 name|common
 operator|.
+name|ParsingException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
 name|Strings
 import|;
 end_import
@@ -263,20 +275,6 @@ operator|.
 name|query
 operator|.
 name|QueryParseContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|index
-operator|.
-name|query
-operator|.
-name|QueryParsingException
 import|;
 end_import
 
@@ -1813,11 +1811,6 @@ operator|.
 name|jsonBuilder
 argument_list|()
 decl_stmt|;
-name|builder
-operator|.
-name|startObject
-argument_list|()
-expr_stmt|;
 name|suggestBuilder
 operator|.
 name|toXContent
@@ -1826,11 +1819,6 @@ name|builder
 argument_list|,
 name|EMPTY_PARAMS
 argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|endObject
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -2492,7 +2480,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -2809,7 +2797,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3089,7 +3077,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3166,7 +3154,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3192,7 +3180,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3219,7 +3207,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3348,7 +3336,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3499,7 +3487,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3664,7 +3652,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3768,7 +3756,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -3876,7 +3864,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -4146,7 +4134,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -4199,7 +4187,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
@@ -4225,7 +4213,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|QueryParsingException
+name|ParsingException
 argument_list|(
 name|context
 argument_list|,
