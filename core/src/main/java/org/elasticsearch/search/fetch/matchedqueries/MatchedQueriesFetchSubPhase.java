@@ -450,7 +450,7 @@ parameter_list|(
 name|HitContext
 name|hitContext
 parameter_list|,
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,

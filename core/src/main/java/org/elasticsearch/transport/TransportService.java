@@ -524,7 +524,7 @@ name|threadPool
 decl_stmt|;
 DECL|field|requestHandlers
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -532,9 +532,9 @@ name|RequestHandlerRegistry
 argument_list|>
 name|requestHandlers
 init|=
-name|ImmutableMap
+name|Collections
 operator|.
-name|of
+name|emptyMap
 argument_list|()
 decl_stmt|;
 DECL|field|requestHandlerMutex

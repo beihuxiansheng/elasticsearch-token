@@ -3671,7 +3671,7 @@ operator|.
 name|STARTED
 condition|)
 block|{
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -3852,7 +3852,7 @@ block|}
 block|}
 DECL|method|processWaitingShards
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -3860,7 +3860,7 @@ name|ShardSnapshotStatus
 argument_list|>
 name|processWaitingShards
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -4498,7 +4498,7 @@ argument_list|>
 argument_list|>
 name|indicesWithMissingShards
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
@@ -4536,7 +4536,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|ImmutableMap
+name|Map
 operator|.
 name|Entry
 argument_list|<
@@ -5368,7 +5368,7 @@ name|waitForSnapshot
 operator|=
 literal|true
 expr_stmt|;
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,

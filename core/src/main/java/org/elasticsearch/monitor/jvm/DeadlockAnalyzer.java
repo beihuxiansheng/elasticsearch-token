@@ -337,7 +337,7 @@ argument_list|>
 argument_list|>
 name|calculateCycles
 parameter_list|(
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Long
 argument_list|,

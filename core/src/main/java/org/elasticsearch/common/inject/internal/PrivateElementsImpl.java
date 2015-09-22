@@ -207,7 +207,7 @@ decl_stmt|;
 comment|/**      * lazily instantiated      */
 DECL|field|exposedKeysToSources
 specifier|private
-name|ImmutableMap
+name|Map
 argument_list|<
 name|Key
 argument_list|<

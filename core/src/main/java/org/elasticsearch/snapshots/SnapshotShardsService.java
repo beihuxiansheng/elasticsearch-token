@@ -702,7 +702,7 @@ decl_stmt|;
 DECL|field|shardSnapshots
 specifier|private
 specifier|volatile
-name|ImmutableMap
+name|Map
 argument_list|<
 name|SnapshotId
 argument_list|,
@@ -2501,7 +2501,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ImmutableMap
+name|Map
 argument_list|<
 name|ShardId
 argument_list|,
