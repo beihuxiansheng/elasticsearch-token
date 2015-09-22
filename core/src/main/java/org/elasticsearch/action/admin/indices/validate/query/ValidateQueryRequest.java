@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to validate a specific query.  *<p/>  *<p>The request requires the query source to be set either using {@link #source(QuerySourceBuilder)},  * or {@link #source(byte[])}.  */
+comment|/**  * A request to validate a specific query.  *<p>  * The request requires the query source to be set either using {@link #source(QuerySourceBuilder)},  * or {@link #source(byte[])}.  */
 end_comment
 
 begin_class

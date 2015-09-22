@@ -57,7 +57,7 @@ name|LegacyTranslogReader
 extends|extends
 name|LegacyTranslogReaderBase
 block|{
-comment|/**      * Create a snapshot of translog file channel. The length parameter should be consistent with totalOperations and point      * at the end of the last operation in this snapshot.      *      * @param generation      * @param channelReference      */
+comment|/**      * Create a snapshot of translog file channel. The length parameter should be consistent with totalOperations and point      * at the end of the last operation in this snapshot.      */
 DECL|method|LegacyTranslogReader
 name|LegacyTranslogReader
 parameter_list|(

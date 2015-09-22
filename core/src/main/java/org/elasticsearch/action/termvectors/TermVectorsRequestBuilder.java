@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The builder class for a term vector request.  * Returns the term vector (doc frequency, positions, offsets) for a document.  *<p/>  * Note, the {@code index}, {@code type} and {@code id} are  * required.  */
+comment|/**  * The builder class for a term vector request.  * Returns the term vector (doc frequency, positions, offsets) for a document.  *<p>  * Note, the {@code index}, {@code type} and {@code id} are  * required.  */
 end_comment
 
 begin_class

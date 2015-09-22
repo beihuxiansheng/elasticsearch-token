@@ -282,7 +282,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
+comment|/**      * Sets the document source to index.      *<p>      * Note, its preferable to either set it using {@link #setSource(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #setSource(byte[])}.      */
 DECL|method|setSource
 specifier|public
 name|PutIndexedScriptRequestBuilder

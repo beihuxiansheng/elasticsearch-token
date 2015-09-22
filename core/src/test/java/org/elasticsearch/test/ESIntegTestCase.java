@@ -1847,7 +1847,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p/>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p/>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIT extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p/>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<p/>  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIT extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p/>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p/>  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  *</p>  */
+comment|/**  * {@link ESIntegTestCase} is an abstract base class to run integration  * tests against a JVM private Elasticsearch Cluster. The test class supports 2 different  * cluster scopes.  *<ul>  *<li>{@link Scope#TEST} - uses a new cluster for each individual test method.</li>  *<li>{@link Scope#SUITE} - uses a cluster shared across all test methods in the same suite</li>  *</ul>  *<p>  * The most common test scope is {@link Scope#SUITE} which shares a cluster per test suite.  *<p>  * If the test methods need specific node settings or change persistent and/or transient cluster settings {@link Scope#TEST}  * should be used. To configure a scope for the test cluster the {@link ClusterScope} annotation  * should be used, here is an example:  *<pre>  *  * @ClusterScope(scope=Scope.TEST) public class SomeIT extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p>  * If no {@link ClusterScope} annotation is present on an integration test the default scope is {@link Scope#SUITE}  *<p>  * A test cluster creates a set of nodes in the background before the test starts. The number of nodes in the cluster is  * determined at random and can change across tests. The {@link ClusterScope} allows configuring the initial number of nodes  * that are created before the tests start.  *<pre>  * @ClusterScope(scope=Scope.SUITE, numDataNodes=3)  * public class SomeIT extends ESIntegTestCase {  * @Test public void testMethod() {}  * }  *</pre>  *<p>  * Note, the {@link ESIntegTestCase} uses randomized settings on a cluster and index level. For instance  * each test might use different directory implementation for each test or will return a random client to one of the  * nodes in the cluster for each call to {@link #client()}. Test failures might only be reproducible if the correct  * system properties are passed to the test execution environment.  *<p>  * This class supports the following system properties (passed with -Dkey=value to the application)  *<ul>  *<li>-D{@value #TESTS_CLIENT_RATIO} - a double value in the interval [0..1] which defines the ration between node and transport clients used</li>  *<li>-D{@value #TESTS_ENABLE_MOCK_MODULES} - a boolean value to enable or disable mock modules. This is  * useful to test the system without asserting modules that to make sure they don't hide any bugs in production.</li>  *<li> - a random seed used to initialize the index random context.  *</ul>  */
 end_comment
 
 begin_class
@@ -1877,7 +1877,7 @@ name|SYSPROP_THIRDPARTY
 init|=
 literal|"tests.thirdparty"
 decl_stmt|;
-comment|/**      * Annotation for third-party integration tests.      *<p/>      * These are tests the require a third-party service in order to run. They      * may require the user to manually configure an external process (such as rabbitmq),      * or may additionally require some external configuration (e.g. AWS credentials)      * via the {@code tests.config} system property.      */
+comment|/**      * Annotation for third-party integration tests.      *<p>      * These are tests the require a third-party service in order to run. They      * may require the user to manually configure an external process (such as rabbitmq),      * or may additionally require some external configuration (e.g. AWS credentials)      * via the {@code tests.config} system property.      */
 annotation|@
 name|Inherited
 annotation|@
@@ -6067,7 +6067,7 @@ name|getStatus
 argument_list|()
 return|;
 block|}
-comment|/**      * Waits until at least a give number of document is visible for searchers      *      * @param numDocs number of documents to wait for.      * @return the actual number of docs seen.      * @throws InterruptedException      */
+comment|/**      * Waits until at least a give number of document is visible for searchers      *      * @param numDocs number of documents to wait for.      * @return the actual number of docs seen.      */
 DECL|method|waitForDocs
 specifier|public
 name|long
@@ -6089,7 +6089,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Waits until at least a give number of document is visible for searchers      *      * @param numDocs number of documents to wait for      * @param indexer a {@link org.elasticsearch.test.BackgroundIndexer}. If supplied it will be first checked for documents indexed.      *                This saves on unneeded searches.      * @return the actual number of docs seen.      * @throws InterruptedException      */
+comment|/**      * Waits until at least a give number of document is visible for searchers      *      * @param numDocs number of documents to wait for      * @param indexer a {@link org.elasticsearch.test.BackgroundIndexer}. If supplied it will be first checked for documents indexed.      *                This saves on unneeded searches.      * @return the actual number of docs seen.      */
 DECL|method|waitForDocs
 specifier|public
 name|long
@@ -6124,7 +6124,7 @@ name|indexer
 argument_list|)
 return|;
 block|}
-comment|/**      * Waits until at least a give number of document is visible for searchers      *      * @param numDocs         number of documents to wait for      * @param maxWaitTime     if not progress have been made during this time, fail the test      * @param maxWaitTimeUnit the unit in which maxWaitTime is specified      * @param indexer         a {@link org.elasticsearch.test.BackgroundIndexer}. If supplied it will be first checked for documents indexed.      *                        This saves on unneeded searches.      * @return the actual number of docs seen.      * @throws InterruptedException      */
+comment|/**      * Waits until at least a give number of document is visible for searchers      *      * @param numDocs         number of documents to wait for      * @param maxWaitTime     if not progress have been made during this time, fail the test      * @param maxWaitTimeUnit the unit in which maxWaitTime is specified      * @param indexer         a {@link org.elasticsearch.test.BackgroundIndexer}. If supplied it will be first checked for documents indexed.      *                        This saves on unneeded searches.      * @return the actual number of docs seen.      */
 DECL|method|waitForDocs
 specifier|public
 name|long
@@ -7569,7 +7569,7 @@ name|actionGet
 argument_list|()
 return|;
 block|}
-comment|/**      * Syntactic sugar for:      *<p/>      *<pre>      *   return client().prepareIndex(index, type, id).setSource(source).execute().actionGet();      *</pre>      *<p/>      * where source is a String.      */
+comment|/**      * Syntactic sugar for:      *<pre>      *   return client().prepareIndex(index, type, id).setSource(source).execute().actionGet();      *</pre>      *<p>      * where source is a String.      */
 DECL|method|index
 specifier|protected
 specifier|final

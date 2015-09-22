@@ -5424,7 +5424,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Returns<code>true</code> the internal writer has any uncommitted changes. Otherwise<code>false</code>      * @return      */
+comment|/**      * Returns<code>true</code> the internal writer has any uncommitted changes. Otherwise<code>false</code>      */
 DECL|method|hasUncommittedChanges
 specifier|public
 specifier|abstract

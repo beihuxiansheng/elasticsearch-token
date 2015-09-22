@@ -5806,7 +5806,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The script will change to document date values to the following:      *<p/>      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
+comment|/**      * The script will change to document date values to the following:      *<p>      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
 annotation|@
 name|Test
 DECL|method|multiValuedField_WithValueScript
@@ -6269,7 +6269,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * The script will change to document date values to the following:      *<p/>      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
+comment|/**      * The script will change to document date values to the following:      *<p>      * doc 1: [ Feb 2, Mar 3]      * doc 2: [ Mar 2, Apr 3]      * doc 3: [ Mar 15, Apr 16]      * doc 4: [ Apr 2, May 3]      * doc 5: [ Apr 15, May 16]      * doc 6: [ Apr 23, May 24]      */
 annotation|@
 name|Test
 DECL|method|multiValuedField_WithValueScript_WithInheritedSubAggregator

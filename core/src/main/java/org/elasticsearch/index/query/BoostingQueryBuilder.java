@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The BoostingQuery class can be used to effectively demote results that match a given query.  * Unlike the "NOT" clause, this still selects documents that contain undesirable terms,  * but reduces their overall score:  *<p/>  * Query balancedQuery = new BoostingQuery(positiveQuery, negativeQuery, 0.01f);  * In this scenario the positiveQuery contains the mandatory, desirable criteria which is used to  * select all matching documents, and the negativeQuery contains the undesirable elements which  * are simply used to lessen the scores. Documents that match the negativeQuery have their score  * multiplied by the supplied "boost" parameter, so this should be less than 1 to achieve a  * demoting effect  */
+comment|/**  * The BoostingQuery class can be used to effectively demote results that match a given query.  * Unlike the "NOT" clause, this still selects documents that contain undesirable terms,  * but reduces their overall score:  *<p>  * Query balancedQuery = new BoostingQuery(positiveQuery, negativeQuery, 0.01f);  * In this scenario the positiveQuery contains the mandatory, desirable criteria which is used to  * select all matching documents, and the negativeQuery contains the undesirable elements which  * are simply used to lessen the scores. Documents that match the negativeQuery have their score  * multiplied by the supplied "boost" parameter, so this should be less than 1 to achieve a  * demoting effect  */
 end_comment
 
 begin_class

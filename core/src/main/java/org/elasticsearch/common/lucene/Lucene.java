@@ -1528,7 +1528,7 @@ name|timeoutInMillis
 argument_list|)
 return|;
 block|}
-comment|/**      * Performs an exists (count> 0) query on the<code>searcher</code> for<code>query</code>      * with<code>filter</code> using the given<code>collector</code>      *      * The<code>collector</code> can be instantiated using<code>Lucene.createExistsCollector()</code>      */
+comment|/**      * Performs an exists (count&gt; 0) query on the<code>searcher</code> for<code>query</code>      * with<code>filter</code> using the given<code>collector</code>      *      * The<code>collector</code> can be instantiated using<code>Lucene.createExistsCollector()</code>      */
 DECL|method|exists
 specifier|public
 specifier|static
@@ -1573,7 +1573,7 @@ name|exists
 argument_list|()
 return|;
 block|}
-comment|/**      * Performs an exists (count> 0) query on the<code>searcher</code> for<code>query</code>      * using the given<code>collector</code>      *      * The<code>collector</code> can be instantiated using<code>Lucene.createExistsCollector()</code>      */
+comment|/**      * Performs an exists (count&gt; 0) query on the<code>searcher</code> for<code>query</code>      * using the given<code>collector</code>      *      * The<code>collector</code> can be instantiated using<code>Lucene.createExistsCollector()</code>      */
 DECL|method|exists
 specifier|public
 specifier|static
@@ -1716,7 +1716,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Performs an exists (count> 0) query on the searcher from the<code>searchContext</code> for<code>query</code>      * using the given<code>collector</code>      *      * The<code>collector</code> can be instantiated using<code>Lucene.createExistsCollector()</code>      */
+comment|/**      * Performs an exists (count&gt; 0) query on the searcher from the<code>searchContext</code> for<code>query</code>      * using the given<code>collector</code>      *      * The<code>collector</code> can be instantiated using<code>Lucene.createExistsCollector()</code>      */
 DECL|method|exists
 specifier|public
 specifier|static

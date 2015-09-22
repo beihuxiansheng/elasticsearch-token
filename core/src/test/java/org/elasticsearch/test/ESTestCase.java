@@ -1354,7 +1354,7 @@ name|random
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a "scaled" random number between min and max (inclusive).      *      * @see RandomizedTest#scaledRandomIntBetween(int, int);      */
+comment|/**      * Returns a "scaled" random number between min and max (inclusive).      *      * @see RandomizedTest#scaledRandomIntBetween(int, int)      */
 DECL|method|scaledRandomIntBetween
 specifier|public
 specifier|static

@@ -1448,7 +1448,7 @@ literal|"\"}"
 return|;
 block|}
 block|}
-comment|/**      * a cluster state supersedes another state iff they are from the same master and the version this state is higher thant the other state.      *<p/>      * In essence that means that all the changes from the other cluster state are also reflected by the current one      */
+comment|/**      * a cluster state supersedes another state iff they are from the same master and the version this state is higher thant the other state.      *<p>      * In essence that means that all the changes from the other cluster state are also reflected by the current one      */
 DECL|method|supersedes
 specifier|public
 name|boolean

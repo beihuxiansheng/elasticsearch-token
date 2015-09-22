@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to delete a script from the script index based on its scriptLang and id. Best created using  *<p/>  *<p>The operation requires the , {@link #scriptLang(String)} and {@link #id(String)} to  * be set.  *  * @see DeleteIndexedScriptResponse  * @see org.elasticsearch.client.Client#deleteIndexedScript(DeleteIndexedScriptRequest)  */
+comment|/**  * A request to delete a script from the script index based on its scriptLang and id. Best created using  *<p>  * The operation requires the , {@link #scriptLang(String)} and {@link #id(String)} to  * be set.  *  * @see DeleteIndexedScriptResponse  * @see org.elasticsearch.client.Client#deleteIndexedScript(DeleteIndexedScriptRequest)  */
 end_comment
 
 begin_class

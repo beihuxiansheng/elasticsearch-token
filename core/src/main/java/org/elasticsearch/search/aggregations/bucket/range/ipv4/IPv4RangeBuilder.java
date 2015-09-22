@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the {@link IPv4Range} aggregation.  */
+comment|/**  * Builder for the {@code IPv4Range} aggregation.  */
 end_comment
 
 begin_class
@@ -386,7 +386,7 @@ name|from
 argument_list|)
 return|;
 block|}
-comment|/**      * Computes the min& max ip addresses (represented as long values - same way as stored in index) represented by the given CIDR mask      * expression. The returned array has the length of 2, where the first entry represents the {@code min} address and the second the {@code max}.      * A {@code -1} value for either the {@code min} or the {@code max}, represents an unbounded end. In other words:      *      *<p>      * {@code min == -1 == "0.0.0.0" }      *</p>      *      * and      *      *<p>      * {@code max == -1 == "255.255.255.255" }      *</p>      *      * @param cidr      * @return      */
+comment|/**      * Computes the min&amp; max ip addresses (represented as long values - same way as stored in index) represented by the given CIDR mask      * expression. The returned array has the length of 2, where the first entry represents the {@code min} address and the second the {@code max}.      * A {@code -1} value for either the {@code min} or the {@code max}, represents an unbounded end. In other words:      *      *<p>      * {@code min == -1 == "0.0.0.0" }      *</p>      *      * and      *      *<p>      * {@code max == -1 == "255.255.255.255" }      *</p>      */
 DECL|method|cidrMaskToMinMax
 specifier|static
 name|long

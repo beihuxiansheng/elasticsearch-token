@@ -158,7 +158,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *<p/>      * For example indices that don't exist.      */
+comment|/**      * Specifies what type of requested indices to ignore and wildcard indices expressions.      *<p>      * For example indices that don't exist.      */
 DECL|method|setIndicesOptions
 specifier|public
 name|UpdateSettingsRequestBuilder

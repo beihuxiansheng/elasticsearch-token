@@ -128,16 +128,6 @@ name|IOException
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
 begin_class
 DECL|class|QueryParseContext
 specifier|public
@@ -196,6 +186,10 @@ DECL|field|parseFieldMatcher
 specifier|private
 name|ParseFieldMatcher
 name|parseFieldMatcher
+init|=
+name|ParseFieldMatcher
+operator|.
+name|EMPTY
 decl_stmt|;
 comment|//norelease this can eventually be deleted when context() method goes away
 DECL|field|shardContext
@@ -297,6 +291,23 @@ name|parser
 operator|=
 name|jp
 expr_stmt|;
+if|if
+condition|(
+name|parser
+operator|!=
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|parser
+operator|.
+name|setParseFieldMatcher
+argument_list|(
+name|parseFieldMatcher
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|//norelease this is still used in BaseQueryParserTemp and FunctionScoreQueryParser, remove if not needed there anymore
 annotation|@
@@ -334,6 +345,21 @@ name|ParseFieldMatcher
 name|parseFieldMatcher
 parameter_list|)
 block|{
+if|if
+condition|(
+name|parseFieldMatcher
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"parseFieldMatcher must not be null"
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|parseFieldMatcher

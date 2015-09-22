@@ -1094,7 +1094,7 @@ return|return
 literal|0
 return|;
 block|}
-comment|/**          * Determine whether the BlockTreeTermsReader.FieldReader can be used          * for estimating the field data, adding the estimate to the circuit          * breaker if it can, otherwise wrapping the terms in a          * RamAccountingTermsEnum to be estimated on a per-term basis.          *          * @param terms terms to be estimated          * @return A possibly wrapped TermsEnum for the terms          * @throws IOException          */
+comment|/**          * Determine whether the BlockTreeTermsReader.FieldReader can be used          * for estimating the field data, adding the estimate to the circuit          * breaker if it can, otherwise wrapping the terms in a          * RamAccountingTermsEnum to be estimated on a per-term basis.          *          * @param terms terms to be estimated          * @return A possibly wrapped TermsEnum for the terms          */
 annotation|@
 name|Override
 DECL|method|beforeLoad

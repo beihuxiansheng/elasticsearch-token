@@ -481,7 +481,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Deserialize the GapPolicy from the input stream          *          * @param in          * @return    GapPolicy Enum          * @throws IOException          */
+comment|/**          * Deserialize the GapPolicy from the input stream          *          * @return    GapPolicy Enum          */
 DECL|method|readFrom
 specifier|public
 specifier|static

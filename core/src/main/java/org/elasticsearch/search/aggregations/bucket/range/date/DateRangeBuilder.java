@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the {@link DateRange} aggregation.  */
+comment|/**  * Builder for the {@code DateRange} aggregation.  */
 end_comment
 
 begin_class
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Same as {@link #addRange(String, double, double)} but the key will be      * automatically generated based on<code>from</code> and<code>to</code>.      */
+comment|/**      * Same as {@link #addRange(String, Object, Object)} but the key will be      * automatically generated based on<code>from</code> and<code>to</code>.      */
 DECL|method|addRange
 specifier|public
 name|DateRangeBuilder
@@ -197,7 +197,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Same as {@link #addUnboundedTo(String, double)} but the key will be      * computed automatically.      */
+comment|/**      * Same as {@link #addUnboundedTo(String, Object)} but the key will be      * computed automatically.      */
 DECL|method|addUnboundedTo
 specifier|public
 name|DateRangeBuilder
@@ -248,7 +248,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Same as {@link #addUnboundedFrom(String, double)} but the key will be      * computed automatically.      */
+comment|/**      * Same as {@link #addUnboundedFrom(String, Object)} but the key will be      * computed automatically.      */
 DECL|method|addUnboundedFrom
 specifier|public
 name|DateRangeBuilder

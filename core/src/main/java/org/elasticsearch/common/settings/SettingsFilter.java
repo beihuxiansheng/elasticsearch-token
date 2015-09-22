@@ -213,7 +213,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a new simple pattern to the list of filters      *      * @param pattern      */
+comment|/**      * Adds a new simple pattern to the list of filters      */
 DECL|method|addFilter
 specifier|public
 name|void
@@ -231,7 +231,7 @@ name|pattern
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes a simple pattern from the list of filters      *      * @param pattern      */
+comment|/**      * Removes a simple pattern from the list of filters      */
 DECL|method|removeFilter
 specifier|public
 name|void

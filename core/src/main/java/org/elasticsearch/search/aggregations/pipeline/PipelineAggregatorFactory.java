@@ -144,7 +144,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Validates the state of this factory (makes sure the factory is properly      * configured)      *      * @param pipelineAggregatorFactories      * @param factories      * @param parent      */
+comment|/**      * Validates the state of this factory (makes sure the factory is properly      * configured)      */
 DECL|method|validate
 specifier|public
 specifier|final
@@ -192,7 +192,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Creates the pipeline aggregator      *      * @param context      *            The aggregation context      * @param parent      *            The parent aggregator (if this is a top level factory, the      *            parent will be {@code null})      * @param collectsFromSingleBucket      *            If true then the created aggregator will only be collected      *            with<tt>0</tt> as a bucket ordinal. Some factories can take      *            advantage of this in order to return more optimized      *            implementations.      *      * @return The created aggregator      */
+comment|/**      * Creates the pipeline aggregator      *      * @return The created aggregator      */
 DECL|method|create
 specifier|public
 specifier|final

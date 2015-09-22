@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uniquely identifies an allocation. An allocation is a shard moving from unassigned to initializing,  * or relocation.  *<p/>  * Relocation is a special case, where the origin shard is relocating with a relocationId and same id, and  * the target shard (only materialized in RoutingNodes) is initializing with the id set to the origin shard  * relocationId. Once relocation is done, the new allocation id is set to the relocationId. This is similar  * behavior to how ShardRouting#currentNodeId is used.  */
+comment|/**  * Uniquely identifies an allocation. An allocation is a shard moving from unassigned to initializing,  * or relocation.  *<p>  * Relocation is a special case, where the origin shard is relocating with a relocationId and same id, and  * the target shard (only materialized in RoutingNodes) is initializing with the id set to the origin shard  * relocationId. Once relocation is done, the new allocation id is set to the relocationId. This is similar  * behavior to how ShardRouting#currentNodeId is used.  */
 end_comment
 
 begin_class
@@ -295,7 +295,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new allocation id representing a cancelled relocation.      *<p/>      * Note that this is expected to be called on the allocation id      * of the *source* shard      */
+comment|/**      * Creates a new allocation id representing a cancelled relocation.      *<p>      * Note that this is expected to be called on the allocation id      * of the *source* shard      */
 DECL|method|cancelRelocation
 specifier|public
 specifier|static
@@ -327,7 +327,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new allocation id finalizing a relocation.      *<p/>      * Note that this is expected to be called on the allocation id      * of the *target* shard and thus it only needs to clear the relocating id.      */
+comment|/**      * Creates a new allocation id finalizing a relocation.      *<p>      * Note that this is expected to be called on the allocation id      * of the *target* shard and thus it only needs to clear the relocating id.      */
 DECL|method|finishRelocation
 specifier|public
 specifier|static

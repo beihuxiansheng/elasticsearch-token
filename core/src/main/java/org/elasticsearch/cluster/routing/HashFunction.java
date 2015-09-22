@@ -35,7 +35,7 @@ name|String
 name|routing
 parameter_list|)
 function_decl|;
-comment|/**      * Calculate a hash value for routing and its type      * @param type types name      * @param routing String to calculate the hash value from       * @return hash value of the given type and routing string      */
+comment|/**      * Calculate a hash value for routing and its type      * @param type types name      * @param id String to calculate the hash value from       * @return hash value of the given type and routing string      */
 annotation|@
 name|Deprecated
 DECL|method|hash

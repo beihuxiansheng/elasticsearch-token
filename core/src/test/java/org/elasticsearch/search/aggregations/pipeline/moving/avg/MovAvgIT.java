@@ -1451,7 +1451,7 @@ name|values
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Simple, unweighted moving average      *      * @param window Window of values to compute movavg for      * @return      */
+comment|/**      * Simple, unweighted moving average      *      * @param window Window of values to compute movavg for      */
 DECL|method|simple
 specifier|private
 name|double
@@ -1493,7 +1493,7 @@ return|return
 name|movAvg
 return|;
 block|}
-comment|/**      * Linearly weighted moving avg      *      * @param window Window of values to compute movavg for      * @return      */
+comment|/**      * Linearly weighted moving avg      *      * @param window Window of values to compute movavg for      */
 DECL|method|linear
 specifier|private
 name|double
@@ -1550,7 +1550,7 @@ operator|/
 name|totalWeight
 return|;
 block|}
-comment|/**      * Exponentionally weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      * @return      */
+comment|/**      * Exponentionally weighted (EWMA, Single exponential) moving avg      *      * @param window Window of values to compute movavg for      */
 DECL|method|ewma
 specifier|private
 name|double
@@ -1621,7 +1621,7 @@ return|return
 name|avg
 return|;
 block|}
-comment|/**      * Holt-Linear (Double exponential) moving avg      * @param window Window of values to compute movavg for      * @return      */
+comment|/**      * Holt-Linear (Double exponential) moving avg      * @param window Window of values to compute movavg for      */
 DECL|method|holt
 specifier|private
 name|double
@@ -1755,7 +1755,7 @@ name|b
 operator|)
 return|;
 block|}
-comment|/**      * Holt winters (triple exponential) moving avg      * @param window Window of values to compute movavg for      * @return      */
+comment|/**      * Holt winters (triple exponential) moving avg      * @param window Window of values to compute movavg for      */
 DECL|method|holtWinters
 specifier|private
 name|double
@@ -8962,7 +8962,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Better floating point comparisons courtesy of https://github.com/brazzy/floating-point-gui.de      *      * Snippet adapted to use doubles instead of floats      *      * @param a      * @param b      * @param epsilon      * @return      */
+comment|/**      * Better floating point comparisons courtesy of https://github.com/brazzy/floating-point-gui.de      *      * Snippet adapted to use doubles instead of floats      */
 DECL|method|nearlyEqual
 specifier|private
 specifier|static

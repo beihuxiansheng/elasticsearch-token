@@ -261,7 +261,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Register repository request.  *<p/>  * Registers a repository with given name, type and settings. If the repository with the same name already  * exists in the cluster, the new repository will replace the existing repository.  */
+comment|/**  * Register repository request.  *<p>  * Registers a repository with given name, type and settings. If the repository with the same name already  * exists in the cluster, the new repository will replace the existing repository.  */
 end_comment
 
 begin_class
@@ -404,7 +404,7 @@ operator|.
 name|name
 return|;
 block|}
-comment|/**      * The type of the repository      *<p/>      *<ul>      *<li>"fs" - shared filesystem repository</li>      *</ul>      *      * @param type repository type      * @return this request      */
+comment|/**      * The type of the repository      *<ul>      *<li>"fs" - shared filesystem repository</li>      *</ul>      *      * @param type repository type      * @return this request      */
 DECL|method|type
 specifier|public
 name|PutRepositoryRequest

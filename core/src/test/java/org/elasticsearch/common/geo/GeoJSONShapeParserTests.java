@@ -287,7 +287,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tests for {@link GeoJSONShapeParser}  */
+comment|/**  * Tests for {@code GeoJSONShapeParser}  */
 end_comment
 
 begin_class

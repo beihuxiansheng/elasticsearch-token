@@ -293,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *<p/>  *<p>Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  */
+comment|/**  * A query parser that uses the {@link MapperService} in order to build smarter  * queries based on the mapping information.  *<p>  * Also breaks fields with [type].[name] into a boolean query that must include the type  * as well as the query on the name.  */
 end_comment
 
 begin_class

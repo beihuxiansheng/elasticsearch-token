@@ -420,7 +420,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Configures the module and checks a Map<String, Class> of the "to" class      * is bound to "theClass".      */
+comment|/**      * Configures the module and checks a Map&lt;String, Class&gt; of the "to" class      * is bound to "theClass".      */
 DECL|method|assertMapMultiBinding
 specifier|public
 name|void

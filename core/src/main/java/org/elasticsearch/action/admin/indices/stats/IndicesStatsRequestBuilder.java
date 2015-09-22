@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A request to get indices level stats. Allow to enable different stats to be returned.  *<p/>  *<p>By default, the {@link #setDocs(boolean)}, {@link #setStore(boolean)}, {@link #setIndexing(boolean)}  * are enabled. Other stats can be enabled as well.  *<p/>  *<p>All the stats to be returned can be cleared using {@link #clear()}, at which point, specific  * stats can be enabled.  */
+comment|/**  * A request to get indices level stats. Allow to enable different stats to be returned.  *<p>  * By default, the {@link #setDocs(boolean)}, {@link #setStore(boolean)}, {@link #setIndexing(boolean)}  * are enabled. Other stats can be enabled as well.  *<p>  * All the stats to be returned can be cleared using {@link #clear()}, at which point, specific  * stats can be enabled.  */
 end_comment
 
 begin_class

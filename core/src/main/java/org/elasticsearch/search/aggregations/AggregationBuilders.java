@@ -1424,7 +1424,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link DateHistogram} aggregation with the given name.      */
+comment|/**      * Create a new {@link DateHistogramBuilder} aggregation with the given name.      */
 DECL|method|dateHistogram
 specifier|public
 specifier|static
@@ -1462,7 +1462,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link DateRange} aggregation with the given name.      */
+comment|/**      * Create a new {@link DateRangeBuilder} aggregation with the given name.      */
 DECL|method|dateRange
 specifier|public
 specifier|static
@@ -1481,7 +1481,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link IPv4Range} aggregation with the given name.      */
+comment|/**      * Create a new {@link IPv4RangeBuilder} aggregation with the given name.      */
 DECL|method|ipRange
 specifier|public
 specifier|static

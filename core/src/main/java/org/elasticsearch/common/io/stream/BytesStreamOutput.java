@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A @link {@link StreamOutput} that uses{@link BigArrays} to acquire pages of  * bytes, which avoids frequent reallocation& copying of the internal data.  */
+comment|/**  * A @link {@link StreamOutput} that uses {@link BigArrays} to acquire pages of  * bytes, which avoids frequent reallocation&amp; copying of the internal data.  */
 end_comment
 
 begin_class

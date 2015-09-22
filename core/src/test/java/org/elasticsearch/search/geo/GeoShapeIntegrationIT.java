@@ -3585,7 +3585,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test that orientation parameter correctly persists across cluster restart      * @throws IOException      */
+comment|/**      * Test that orientation parameter correctly persists across cluster restart      */
 DECL|method|testOrientationPersistence
 specifier|public
 name|void

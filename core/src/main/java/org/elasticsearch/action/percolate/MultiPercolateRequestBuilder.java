@@ -138,7 +138,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies how to globally ignore indices that are not available and how to deal with wildcard indices expressions.      *<p/>      * Invoke this method before invoking {@link #add(PercolateRequestBuilder)}.      */
+comment|/**      * Specifies how to globally ignore indices that are not available and how to deal with wildcard indices expressions.      *<p>      * Invoke this method before invoking {@link #add(PercolateRequestBuilder)}.      */
 DECL|method|setIndicesOptions
 specifier|public
 name|MultiPercolateRequestBuilder

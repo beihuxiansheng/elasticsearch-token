@@ -181,7 +181,7 @@ name|PipelineAggregator
 implements|implements
 name|Streamable
 block|{
-comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *       * @see {@link PipelineAggregatorFactory}      */
+comment|/**      * Parses the pipeline aggregation request and creates the appropriate      * pipeline aggregator factory for it.      *       * @see PipelineAggregatorFactory      */
 DECL|interface|Parser
 specifier|public
 specifier|static

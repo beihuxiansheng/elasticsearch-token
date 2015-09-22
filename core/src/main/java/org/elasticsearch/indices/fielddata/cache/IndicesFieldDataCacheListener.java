@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link IndexFieldDataCache.Listener} implementation that updates indices (node) level statistics / service about  * field data entries being loaded and unloaded.  *  * Currently it only decrements the memory used in the  {@link CircuitBreakerService}.  */
+comment|/**  * A {@link org.elasticsearch.index.fielddata.IndexFieldDataCache.Listener} implementation that updates indices (node) level statistics / service about  * field data entries being loaded and unloaded.  *  * Currently it only decrements the memory used in the  {@link CircuitBreakerService}.  */
 end_comment
 
 begin_class

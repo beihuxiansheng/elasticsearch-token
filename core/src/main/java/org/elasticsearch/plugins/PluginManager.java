@@ -502,11 +502,11 @@ literal|"analysis-smartcn"
 argument_list|,
 literal|"analysis-stempel"
 argument_list|,
-literal|"cloud-azure"
-argument_list|,
 literal|"cloud-gce"
 argument_list|,
 literal|"delete-by-query"
+argument_list|,
+literal|"discovery-azure"
 argument_list|,
 literal|"discovery-ec2"
 argument_list|,
@@ -520,7 +520,11 @@ literal|"mapper-murmur3"
 argument_list|,
 literal|"mapper-size"
 argument_list|,
+literal|"repository-azure"
+argument_list|,
 literal|"repository-s3"
+argument_list|,
+literal|"store-smb"
 argument_list|)
 operator|.
 name|build

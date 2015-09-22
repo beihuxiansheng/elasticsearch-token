@@ -691,7 +691,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Reads snapshot status from stream input      *      * @param in stream input      * @return deserialized snapshot status      * @throws IOException      */
+comment|/**      * Reads snapshot status from stream input      *      * @param in stream input      * @return deserialized snapshot status      */
 DECL|method|readSnapshotStatus
 specifier|public
 specifier|static

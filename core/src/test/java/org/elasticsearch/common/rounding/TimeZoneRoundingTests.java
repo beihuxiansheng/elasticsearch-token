@@ -616,7 +616,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * test TimeIntervalTimeZoneRounding, (interval< 12h) with time zone shift      */
+comment|/**      * test TimeIntervalTimeZoneRounding, (interval&lt; 12h) with time zone shift      */
 annotation|@
 name|Test
 DECL|method|testTimeIntervalTimeZoneRounding
@@ -788,7 +788,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * test DayIntervalTimeZoneRounding, (interval>= 12h) with time zone shift      */
+comment|/**      * test DayIntervalTimeZoneRounding, (interval&gt;= 12h) with time zone shift      */
 annotation|@
 name|Test
 DECL|method|testDayIntervalTimeZoneRounding

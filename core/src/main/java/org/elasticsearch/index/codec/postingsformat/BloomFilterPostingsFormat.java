@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<p>  * A {@link PostingsFormat} useful for low doc-frequency fields such as primary  * keys. Bloom filters are maintained in a ".blm" file which offers "fast-fail"  * for reads in segments known to have no record of the key. A choice of  * delegate PostingsFormat is used to record all other Postings data.  *</p>  *<p>  * This is a special bloom filter version, based on {@link org.elasticsearch.common.util.BloomFilter} and inspired  * by Lucene {@link org.apache.lucene.codecs.bloom.BloomFilteringPostingsFormat}.  *</p>  * @deprecated only for reading old segments  */
+comment|/**  *<p>  * A {@link PostingsFormat} useful for low doc-frequency fields such as primary  * keys. Bloom filters are maintained in a ".blm" file which offers "fast-fail"  * for reads in segments known to have no record of the key. A choice of  * delegate PostingsFormat is used to record all other Postings data.  *</p>  *<p>  * This is a special bloom filter version, based on {@link org.elasticsearch.common.util.BloomFilter} and inspired  * by Lucene {@code org.apache.lucene.codecs.bloom.BloomFilteringPostingsFormat}.  * @deprecated only for reading old segments  */
 end_comment
 
 begin_class
@@ -212,7 +212,7 @@ specifier|private
 name|PostingsFormat
 name|delegatePostingsFormat
 decl_stmt|;
-comment|/**      * Creates Bloom filters for a selection of fields created in the index. This      * is recorded as a set of Bitsets held as a segment summary in an additional      * "blm" file. This PostingsFormat delegates to a choice of delegate      * PostingsFormat for encoding all other postings data.      *      * @param delegatePostingsFormat The PostingsFormat that records all the non-bloom filter data i.e.      *                               postings info.      * @param bloomFilterFactory     The {@link BloomFilter.Factory} responsible for sizing BloomFilters      *                               appropriately      */
+comment|/**      * Creates Bloom filters for a selection of fields created in the index. This      * is recorded as a set of Bitsets held as a segment summary in an additional      * "blm" file. This PostingsFormat delegates to a choice of delegate      * PostingsFormat for encoding all other postings data.      *      * @param delegatePostingsFormat The PostingsFormat that records all the non-bloom filter data i.e.      *                               postings info.      * @param bloomFilterFactory     The {@link org.elasticsearch.common.util.BloomFilter.Factory} responsible for sizing BloomFilters      *                               appropriately      */
 DECL|method|BloomFilterPostingsFormat
 specifier|public
 name|BloomFilterPostingsFormat

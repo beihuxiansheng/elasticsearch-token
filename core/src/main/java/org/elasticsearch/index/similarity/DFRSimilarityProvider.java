@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for {@link DFRSimilarity}.  *<p/>  * Configuration options available:  *<ul>  *<li>basic_model</li>  *<li>after_effect</li>  *<li>normalization</li>  *</ul>  * @see DFRSimilarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for {@link DFRSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>basic_model</li>  *<li>after_effect</li>  *<li>normalization</li>  *</ul>  * @see DFRSimilarity For more information about configuration  */
 end_comment
 
 begin_class

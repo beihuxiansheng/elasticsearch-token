@@ -362,7 +362,7 @@ return|return
 name|nodeId
 return|;
 block|}
-comment|/**      * Reads shard failure information from stream input      *      * @param in stream input      * @return shard failure information      * @throws IOException      */
+comment|/**      * Reads shard failure information from stream input      *      * @param in stream input      * @return shard failure information      */
 DECL|method|readSnapshotShardFailure
 specifier|public
 specifier|static
@@ -519,7 +519,7 @@ operator|+
 literal|"]"
 return|;
 block|}
-comment|/**      * Serializes snapshot failure information into JSON      *      * @param snapshotShardFailure snapshot failure information      * @param builder              XContent builder      * @param params               additional parameters      * @throws IOException      */
+comment|/**      * Serializes snapshot failure information into JSON      *      * @param snapshotShardFailure snapshot failure information      * @param builder              XContent builder      * @param params               additional parameters      */
 DECL|method|toXContent
 specifier|public
 specifier|static
@@ -560,7 +560,7 @@ name|endObject
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Deserializes snapshot failure information from JSON      *      * @param parser JSON parser      * @return snapshot failure information      * @throws IOException      */
+comment|/**      * Deserializes snapshot failure information from JSON      *      * @param parser JSON parser      * @return snapshot failure information      */
 DECL|method|fromXContent
 specifier|public
 specifier|static

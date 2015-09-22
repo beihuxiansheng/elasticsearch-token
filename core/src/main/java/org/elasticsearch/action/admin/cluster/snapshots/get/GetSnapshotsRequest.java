@@ -294,7 +294,7 @@ operator|.
 name|snapshots
 return|;
 block|}
-comment|/**      * Sets the list of snapshots to be returned      *      * @param snapshots      * @return this request      */
+comment|/**      * Sets the list of snapshots to be returned      *      * @return this request      */
 DECL|method|snapshots
 specifier|public
 name|GetSnapshotsRequest

@@ -462,7 +462,7 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * A {@link ContextMapping} combined with the information provided by a document      * form a {@link ContextConfig} which is used to build the underlying FST.      *       * @param parseContext context of parsing phase       * @param parser {@link XContentParser} used to read and setup the configuration      * @return A {@link ContextConfig} related to<b>this</b> mapping      *       * @throws IOException      * @throws ElasticsearchParseException      */
+comment|/**      * A {@link ContextMapping} combined with the information provided by a document      * form a {@link ContextConfig} which is used to build the underlying FST.      *       * @param parseContext context of parsing phase       * @param parser {@link XContentParser} used to read and setup the configuration      * @return A {@link ContextConfig} related to<b>this</b> mapping      */
 DECL|method|parseContext
 specifier|public
 specifier|abstract
@@ -487,7 +487,7 @@ name|ContextConfig
 name|defaultConfig
 parameter_list|()
 function_decl|;
-comment|/**      * Parse a query according to the context. Parsing starts at parsers<b>current</b> position      *       * @param name name of the context       * @param parser {@link XContentParser} providing the data of the query      *       * @return {@link ContextQuery} according to this mapping      *       * @throws IOException      * @throws ElasticsearchParseException      */
+comment|/**      * Parse a query according to the context. Parsing starts at parsers<b>current</b> position      *       * @param name name of the context       * @param parser {@link XContentParser} providing the data of the query      *       * @return {@link ContextQuery} according to this mapping      */
 DECL|method|parseQuery
 specifier|public
 specifier|abstract
@@ -505,7 +505,7 @@ name|IOException
 throws|,
 name|ElasticsearchParseException
 function_decl|;
-comment|/**      * Since every context mapping is assumed to have a name given by the field name of an context object, this      * method is used to build the value used to serialize the mapping      *       * @param builder builder to append the mapping to      * @param params parameters passed to the builder      *       * @return the builder used      *       * @throws IOException      */
+comment|/**      * Since every context mapping is assumed to have a name given by the field name of an context object, this      * method is used to build the value used to serialize the mapping      *       * @param builder builder to append the mapping to      * @param params parameters passed to the builder      *       * @return the builder used      */
 DECL|method|toInnerXContent
 specifier|protected
 specifier|abstract

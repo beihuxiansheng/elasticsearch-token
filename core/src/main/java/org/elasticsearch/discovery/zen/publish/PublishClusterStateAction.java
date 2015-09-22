@@ -609,7 +609,7 @@ return|return
 name|pendingStatesQueue
 return|;
 block|}
-comment|/**      * publishes a cluster change event to other nodes. if at least minMasterNodes acknowledge the change it is committed and will      * be processed by the master and the other nodes.      *<p/>      * The method is guaranteed to throw a {@link Discovery.FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
+comment|/**      * publishes a cluster change event to other nodes. if at least minMasterNodes acknowledge the change it is committed and will      * be processed by the master and the other nodes.      *<p>      * The method is guaranteed to throw a {@link org.elasticsearch.discovery.Discovery.FailedToCommitClusterStateException} if the change is not committed and should be rejected.      * Any other exception signals the something wrong happened but the change is committed.      */
 DECL|method|publish
 specifier|public
 name|void

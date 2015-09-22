@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  *<p/>  */
+comment|/**  * A query that parses a query string and runs it. There are two modes that this operates. The first,  * when no field is added (using {@link #field(String)}, will run the query once and non prefixed fields  * will use the {@link #defaultField(String)} set. The second, when one or more fields are added  * (using {@link #field(String)}), will run the parsed query against the provided fields, and combine  * them either using DisMax or a plain boolean query (see {@link #useDisMax(boolean)}).  */
 end_comment
 
 begin_class
@@ -862,7 +862,7 @@ operator|.
 name|tieBreaker
 return|;
 block|}
-comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *<p/>      *<p>In default mode ({@link Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *<p/>      *<p>In {@link Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
+comment|/**      * Sets the boolean operator of the query parser used to parse the query string.      *<p>      * In default mode ({@link Operator#OR}) terms without any modifiers      * are considered optional: for example<code>capital of Hungary</code> is equal to      *<code>capital OR of OR Hungary</code>.      *<p>      * In {@link Operator#AND} mode terms are considered to be in conjunction: the      * above mentioned query is parsed as<code>capital AND of AND Hungary</code>      */
 DECL|method|defaultOperator
 specifier|public
 name|QueryStringQueryBuilder
@@ -940,7 +940,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set to true if phrase queries will be automatically generated      * when the analyzer returns more than one term from whitespace      * delimited text.      * NOTE: this behavior may not be suitable for all languages.      *<p/>      * Set to false if phrase queries should only be generated when      * surrounded by double quotes.      */
+comment|/**      * Set to true if phrase queries will be automatically generated      * when the analyzer returns more than one term from whitespace      * delimited text.      * NOTE: this behavior may not be suitable for all languages.      *<p>      * Set to false if phrase queries should only be generated when      * surrounded by double quotes.      */
 DECL|method|autoGeneratePhraseQueries
 specifier|public
 name|QueryStringQueryBuilder
@@ -1068,7 +1068,7 @@ operator|.
 name|lowercaseExpandedTerms
 return|;
 block|}
-comment|/**      * Set to<tt>true</tt> to enable position increments in result query. Defaults to      *<tt>true</tt>.      *<p/>      *<p>When set, result phrase and multi-phrase queries will be aware of position increments.      * Useful when e.g. a StopFilter increases the position increment of the token that follows an omitted token.      */
+comment|/**      * Set to<tt>true</tt> to enable position increments in result query. Defaults to      *<tt>true</tt>.      *<p>      * When set, result phrase and multi-phrase queries will be aware of position increments.      * Useful when e.g. a StopFilter increases the position increment of the token that follows an omitted token.      */
 DECL|method|enablePositionIncrements
 specifier|public
 name|QueryStringQueryBuilder

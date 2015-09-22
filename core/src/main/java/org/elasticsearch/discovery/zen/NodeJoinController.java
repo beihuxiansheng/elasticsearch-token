@@ -418,7 +418,7 @@ operator|=
 name|discoverySettings
 expr_stmt|;
 block|}
-comment|/**      * waits for enough incoming joins from master eligible nodes to complete the master election      *<p/>      * You must start accumulating joins before calling this method. See {@link #startAccumulatingJoins()}      *<p/>      * The method will return once the local node has been elected as master or some failure/timeout has happened.      * The exact outcome is communicated via the callback parameter, which is guaranteed to be called.      *      * @param requiredMasterJoins the number of joins from master eligible needed to complete the election      * @param timeValue           how long to wait before failing. a timeout is communicated via the callback's onFailure method.      * @param callback            the result of the election (success or failure) will be communicated by calling methods on this      *                            object      **/
+comment|/**      * waits for enough incoming joins from master eligible nodes to complete the master election      *<p>      * You must start accumulating joins before calling this method. See {@link #startAccumulatingJoins()}      *<p>      * The method will return once the local node has been elected as master or some failure/timeout has happened.      * The exact outcome is communicated via the callback parameter, which is guaranteed to be called.      *      * @param requiredMasterJoins the number of joins from master eligible needed to complete the election      * @param timeValue           how long to wait before failing. a timeout is communicated via the callback's onFailure method.      * @param callback            the result of the election (success or failure) will be communicated by calling methods on this      *                            object      **/
 DECL|method|waitToBeElectedAsMaster
 specifier|public
 name|void
@@ -873,7 +873,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * processes or queues an incoming join request.      *<p/>      * Note: doesn't do any validation. This should have been done before.      */
+comment|/**      * processes or queues an incoming join request.      *<p>      * Note: doesn't do any validation. This should have been done before.      */
 DECL|method|handleJoinRequest
 specifier|public
 name|void

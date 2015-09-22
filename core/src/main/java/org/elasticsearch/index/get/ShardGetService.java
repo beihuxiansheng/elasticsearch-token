@@ -842,7 +842,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns {@link GetResult} based on the specified {@link Engine.GetResult} argument.      * This method basically loads specified fields for the associated document in the engineGetResult.      * This method load the fields from the Lucene index and not from transaction log and therefore isn't realtime.      *<p/>      * Note: Call<b>must</b> release engine searcher associated with engineGetResult!      */
+comment|/**      * Returns {@link GetResult} based on the specified {@link org.elasticsearch.index.engine.Engine.GetResult} argument.      * This method basically loads specified fields for the associated document in the engineGetResult.      * This method load the fields from the Lucene index and not from transaction log and therefore isn't realtime.      *<p>      * Note: Call<b>must</b> release engine searcher associated with engineGetResult!      */
 DECL|method|get
 specifier|public
 name|GetResult

@@ -173,7 +173,7 @@ operator|.
 name|settings
 return|;
 block|}
-comment|/**      * Reads repository metadata from stream input      *      * @param in stream input      * @return repository metadata      * @throws IOException      */
+comment|/**      * Reads repository metadata from stream input      *      * @param in stream input      * @return repository metadata      */
 DECL|method|readFrom
 specifier|public
 specifier|static
@@ -224,7 +224,7 @@ name|settings
 argument_list|)
 return|;
 block|}
-comment|/**      * Writes repository metadata to stream output      *      * @param out stream output      * @throws IOException      */
+comment|/**      * Writes repository metadata to stream output      *      * @param out stream output      */
 DECL|method|writeTo
 specifier|public
 name|void

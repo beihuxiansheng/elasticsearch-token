@@ -591,7 +591,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Store provides plain access to files written by an elasticsearch index shard. Each shard  * has a dedicated store that is uses to access Lucene's Directory which represents the lowest level  * of file abstraction in Lucene used to read and write Lucene indices.  * This class also provides access to metadata information like checksums for committed files. A committed  * file is a file that belongs to a segment written by a Lucene commit. Files that have not been committed  * ie. created during a merge or a shard refresh / NRT reopen are not considered in the MetadataSnapshot.  *<p/>  * Note: If you use a store it's reference count should be increased before using it by calling #incRef and a  * corresponding #decRef must be called in a try/finally block to release the store again ie.:  *<pre>  *      store.incRef();  *      try {  *        // use the store...  *  *      } finally {  *          store.decRef();  *      }  *</pre>  */
+comment|/**  * A Store provides plain access to files written by an elasticsearch index shard. Each shard  * has a dedicated store that is uses to access Lucene's Directory which represents the lowest level  * of file abstraction in Lucene used to read and write Lucene indices.  * This class also provides access to metadata information like checksums for committed files. A committed  * file is a file that belongs to a segment written by a Lucene commit. Files that have not been committed  * ie. created during a merge or a shard refresh / NRT reopen are not considered in the MetadataSnapshot.  *<p>  * Note: If you use a store it's reference count should be increased before using it by calling #incRef and a  * corresponding #decRef must be called in a try/finally block to release the store again ie.:  *<pre>  *      store.incRef();  *      try {  *        // use the store...  *  *      } finally {  *          store.decRef();  *      }  *</pre>  */
 end_comment
 
 begin_class
@@ -1599,7 +1599,7 @@ name|to
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p/>      * Note: Close can safely be called multiple times.      *      * @throws AlreadyClosedException iff the reference counter can not be incremented.      * @see #decRef      * @see #tryIncRef()      */
+comment|/**      * Increments the refCount of this Store instance.  RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p>      * Note: Close can safely be called multiple times.      *      * @throws AlreadyClosedException iff the reference counter can not be incremented.      * @see #decRef      * @see #tryIncRef()      */
 annotation|@
 name|Override
 DECL|method|incRef
@@ -1615,7 +1615,7 @@ name|incRef
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Tries to increment the refCount of this Store instance. This method will return<tt>true</tt> iff the refCount was      * incremented successfully otherwise<tt>false</tt>. RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p/>      * Note: Close can safely be called multiple times.      *      * @see #decRef()      * @see #incRef()      */
+comment|/**      * Tries to increment the refCount of this Store instance. This method will return<tt>true</tt> iff the refCount was      * incremented successfully otherwise<tt>false</tt>. RefCounts are used to determine when a      * Store can be closed safely, i.e. as soon as there are no more references. Be sure to always call a      * corresponding {@link #decRef}, in a finally clause; otherwise the store may never be closed.  Note that      * {@link #close} simply calls decRef(), which means that the Store will not really be closed until {@link      * #decRef} has been called for all outstanding references.      *<p>      * Note: Close can safely be called multiple times.      *      * @see #decRef()      * @see #incRef()      */
 annotation|@
 name|Override
 DECL|method|tryIncRef
@@ -1920,7 +1920,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The returned IndexOutput might validate the files checksum if the file has been written with a newer lucene version      * and the metadata holds the necessary information to detect that it was been written by Lucene 4.8 or newer. If it has only      * a legacy checksum, returned IndexOutput will not verify the checksum.      *<p/>      * Note: Checksums are calculated nevertheless since lucene does it by default sicne version 4.8.0. This method only adds the      * verification against the checksum in the given metadata and does not add any significant overhead.      */
+comment|/**      * The returned IndexOutput might validate the files checksum if the file has been written with a newer lucene version      * and the metadata holds the necessary information to detect that it was been written by Lucene 4.8 or newer. If it has only      * a legacy checksum, returned IndexOutput will not verify the checksum.      *<p>      * Note: Checksums are calculated nevertheless since lucene does it by default sicne version 4.8.0. This method only adds the      * verification against the checksum in the given metadata and does not add any significant overhead.      */
 DECL|method|createVerifyingOutput
 specifier|public
 name|IndexOutput
@@ -3668,7 +3668,7 @@ literal|")"
 return|;
 block|}
 block|}
-comment|/**      * Represents a snapshot of the current directory build from the latest Lucene commit.      * Only files that are part of the last commit are considered in this datastrucutre.      * For backwards compatibility the snapshot might include legacy checksums that      * are derived from a dedicated checksum file written by older elasticsearch version pre 1.3      *<p/>      * Note: This class will ignore the<tt>segments.gen</tt> file since it's optional and might      * change concurrently for safety reasons.      *      * @see StoreFileMetaData      */
+comment|/**      * Represents a snapshot of the current directory build from the latest Lucene commit.      * Only files that are part of the last commit are considered in this datastrucutre.      * For backwards compatibility the snapshot might include legacy checksums that      * are derived from a dedicated checksum file written by older elasticsearch version pre 1.3      *<p>      * Note: This class will ignore the<tt>segments.gen</tt> file since it's optional and might      * change concurrently for safety reasons.      *      * @see StoreFileMetaData      */
 DECL|class|MetadataSnapshot
 specifier|public
 specifier|final
@@ -4663,7 +4663,7 @@ name|numDocs
 argument_list|)
 return|;
 block|}
-comment|/**          * Reads legacy checksum files found in the directory.          *<p/>          * Files are expected to start with _checksums- prefix          * followed by long file version. Only file with the highest version is read, all other files are ignored.          *          * @param directory the directory to read checksums from          * @return a map of file checksums and the checksum file version          * @throws IOException          */
+comment|/**          * Reads legacy checksum files found in the directory.          *<p>          * Files are expected to start with _checksums- prefix          * followed by long file version. Only file with the highest version is read, all other files are ignored.          *          * @param directory the directory to read checksums from          * @return a map of file checksums and the checksum file version          */
 DECL|method|readLegacyChecksums
 specifier|static
 name|Tuple
@@ -4811,7 +4811,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**          * Deletes all checksum files with version lower than newVersion.          *          * @param directory  the directory to clean          * @param newVersion the latest checksum file version          * @throws IOException          */
+comment|/**          * Deletes all checksum files with version lower than newVersion.          *          * @param directory  the directory to clean          * @param newVersion the latest checksum file version          */
 DECL|method|cleanLegacyChecksums
 specifier|static
 name|void
@@ -5127,7 +5127,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * Computes a strong hash value for small files. Note that this method should only be used for files< 1MB          */
+comment|/**          * Computes a strong hash value for small files. Note that this method should only be used for files&lt; 1MB          */
 DECL|method|hashFile
 specifier|public
 specifier|static
@@ -5198,7 +5198,7 @@ name|get
 argument_list|()
 return|;
 block|}
-comment|/**          * Computes a strong hash value for small files. Note that this method should only be used for files< 1MB          */
+comment|/**          * Computes a strong hash value for small files. Note that this method should only be used for files&lt; 1MB          */
 DECL|method|hashFile
 specifier|public
 specifier|static
@@ -5411,7 +5411,7 @@ name|SEGMENT_INFO_EXTENSION
 init|=
 literal|"si"
 decl_stmt|;
-comment|/**          * Returns a diff between the two snapshots that can be used for recovery. The given snapshot is treated as the          * recovery target and this snapshot as the source. The returned diff will hold a list of files that are:          *<ul>          *<li>identical: they exist in both snapshots and they can be considered the same ie. they don't need to be recovered</li>          *<li>different: they exist in both snapshots but their they are not identical</li>          *<li>missing: files that exist in the source but not in the target</li>          *</ul>          * This method groups file into per-segment files and per-commit files. A file is treated as          * identical if and on if all files in it's group are identical. On a per-segment level files for a segment are treated          * as identical iff:          *<ul>          *<li>all files in this segment have the same checksum</li>          *<li>all files in this segment have the same length</li>          *<li>the segments<tt>.si</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>.si</tt> file content as it's hash</li>          *</ul>          *<p/>          * The<tt>.si</tt> file contains a lot of diagnostics including a timestamp etc. in the future there might be          * unique segment identifiers in there hardening this method further.          *<p/>          * The per-commit files handles very similar. A commit is composed of the<tt>segments_N</tt> files as well as generational files like          * deletes (<tt>_x_y.del</tt>) or field-info (<tt>_x_y.fnm</tt>) files. On a per-commit level files for a commit are treated          * as identical iff:          *<ul>          *<li>all files belonging to this commit have the same checksum</li>          *<li>all files belonging to this commit have the same length</li>          *<li>the segments file<tt>segments_N</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>segments_N</tt> file content as it's hash</li>          *</ul>          *<p/>          * NOTE: this diff will not contain the<tt>segments.gen</tt> file. This file is omitted on recovery.          */
+comment|/**          * Returns a diff between the two snapshots that can be used for recovery. The given snapshot is treated as the          * recovery target and this snapshot as the source. The returned diff will hold a list of files that are:          *<ul>          *<li>identical: they exist in both snapshots and they can be considered the same ie. they don't need to be recovered</li>          *<li>different: they exist in both snapshots but their they are not identical</li>          *<li>missing: files that exist in the source but not in the target</li>          *</ul>          * This method groups file into per-segment files and per-commit files. A file is treated as          * identical if and on if all files in it's group are identical. On a per-segment level files for a segment are treated          * as identical iff:          *<ul>          *<li>all files in this segment have the same checksum</li>          *<li>all files in this segment have the same length</li>          *<li>the segments<tt>.si</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>.si</tt> file content as it's hash</li>          *</ul>          *<p>          * The<tt>.si</tt> file contains a lot of diagnostics including a timestamp etc. in the future there might be          * unique segment identifiers in there hardening this method further.          *<p>          * The per-commit files handles very similar. A commit is composed of the<tt>segments_N</tt> files as well as generational files like          * deletes (<tt>_x_y.del</tt>) or field-info (<tt>_x_y.fnm</tt>) files. On a per-commit level files for a commit are treated          * as identical iff:          *<ul>          *<li>all files belonging to this commit have the same checksum</li>          *<li>all files belonging to this commit have the same length</li>          *<li>the segments file<tt>segments_N</tt> files hashes are byte-identical Note: This is a using a perfect hash function, The metadata transfers the<tt>segments_N</tt> file content as it's hash</li>          *</ul>          *<p>          * NOTE: this diff will not contain the<tt>segments.gen</tt> file. This file is omitted on recovery.          */
 DECL|method|recoveryDiff
 specifier|public
 name|RecoveryDiff
@@ -7003,7 +7003,7 @@ name|length
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Index input that calculates checksum as data is read from the input.      *<p/>      * This class supports random access (it is possible to seek backward and forward) in order to accommodate retry      * mechanism that is used in some repository plugins (S3 for example). However, the checksum is only calculated on      * the first read. All consecutive reads of the same data are not used to calculate the checksum.      */
+comment|/**      * Index input that calculates checksum as data is read from the input.      *<p>      * This class supports random access (it is possible to seek backward and forward) in order to accommodate retry      * mechanism that is used in some repository plugins (S3 for example). However, the checksum is only calculated on      * the first read. All consecutive reads of the same data are not used to calculate the checksum.      */
 DECL|class|VerifyingIndexInput
 specifier|static
 class|class

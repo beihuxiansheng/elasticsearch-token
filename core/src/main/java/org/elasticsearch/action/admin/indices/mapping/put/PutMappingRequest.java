@@ -219,7 +219,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p/>  *<p>If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
+comment|/**  * Puts mapping definition registered under a specific type into one or more indices. Best created with  * {@link org.elasticsearch.client.Requests#putMappingRequest(String...)}.  *<p>  * If the mappings already exists, the new mappings will be merged with the new one. If there are elements  * that can't be merged are detected, the request will be rejected.  *  * @see org.elasticsearch.client.Requests#putMappingRequest(String...)  * @see org.elasticsearch.client.IndicesAdminClient#putMapping(PutMappingRequest)  * @see PutMappingResponse  */
 end_comment
 
 begin_class

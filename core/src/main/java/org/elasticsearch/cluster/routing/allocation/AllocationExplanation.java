@@ -186,7 +186,7 @@ specifier|final
 name|String
 name|description
 decl_stmt|;
-comment|/**          * Creates a new {@link NodeExplanation}          *            * @param node node referenced by {@link This} {@link NodeExplanation}          * @param description a message associated with the given node           */
+comment|/**          * Creates a new {@link NodeExplanation}          *            * @param node node referenced by this {@link NodeExplanation}          * @param description a message associated with the given node           */
 DECL|method|NodeExplanation
 specifier|public
 name|NodeExplanation

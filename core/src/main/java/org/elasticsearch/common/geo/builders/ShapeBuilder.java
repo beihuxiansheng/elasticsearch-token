@@ -986,7 +986,7 @@ name|nodes
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link ShapeBuilder} from {@link XContent}      * @param parser parser to read the GeoShape from      * @return {@link ShapeBuilder} read from the parser or null      *          if the parsers current token has been<code><null</code>      * @throws IOException if the input could not be read      */
+comment|/**      * Create a new {@link ShapeBuilder} from {@link XContent}      * @param parser parser to read the GeoShape from      * @return {@link ShapeBuilder} read from the parser or null      *          if the parsers current token has been<code>null</code>      * @throws IOException if the input could not be read      */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -1010,7 +1010,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link ShapeBuilder} from {@link XContent}      * @param parser parser to read the GeoShape from      * @param geoDocMapper document field mapper reference required for spatial parameters relevant      *                     to the shape construction process (e.g., orientation)      *                     todo: refactor to place build specific parameters in the SpatialContext      * @return {@link ShapeBuilder} read from the parser or null      *          if the parsers current token has been<code><null</code>      * @throws IOException if the input could not be read      */
+comment|/**      * Create a new {@link ShapeBuilder} from {@link XContent}      * @param parser parser to read the GeoShape from      * @param geoDocMapper document field mapper reference required for spatial parameters relevant      *                     to the shape construction process (e.g., orientation)      *                     todo: refactor to place build specific parameters in the SpatialContext      * @return {@link ShapeBuilder} read from the parser or null      *          if the parsers current token has been<code>null</code>      * @throws IOException if the input could not be read      */
 DECL|method|parse
 specifier|public
 specifier|static
@@ -1461,7 +1461,7 @@ return|return
 name|numIntersections
 return|;
 block|}
-comment|/**      * Node used to represent a tree of coordinates.      *<p/>      * Can either be a leaf node consisting of a Coordinate, or a parent with      * children      */
+comment|/**      * Node used to represent a tree of coordinates.      *<p>      * Can either be a leaf node consisting of a Coordinate, or a parent with      * children      */
 DECL|class|CoordinateNode
 specifier|protected
 specifier|static
@@ -2673,7 +2673,7 @@ name|length
 argument_list|)
 return|;
 block|}
-comment|/**          * Transforms coordinates in the eastern hemisphere (-180:0) to a (180:360) range           * @param points          */
+comment|/**          * Transforms coordinates in the eastern hemisphere (-180:0) to a (180:360) range           */
 DECL|method|translate
 specifier|protected
 specifier|static
@@ -3187,7 +3187,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**          * Parse the geometry specified by the source document and return a ShapeBuilder instance used to          * build the actual geometry          * @param parser - parse utility object including source document          * @param shapeMapper - field mapper needed for index specific parameters          * @return ShapeBuilder - a builder instance used to create the geometry          * @throws IOException          */
+comment|/**          * Parse the geometry specified by the source document and return a ShapeBuilder instance used to          * build the actual geometry          * @param parser - parse utility object including source document          * @param shapeMapper - field mapper needed for index specific parameters          * @return ShapeBuilder - a builder instance used to create the geometry          */
 DECL|method|parse
 specifier|public
 specifier|static

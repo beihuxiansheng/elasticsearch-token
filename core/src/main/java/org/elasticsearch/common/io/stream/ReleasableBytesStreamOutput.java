@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An bytes stream output that allows providing a {@link BigArrays} instance  * expecting it to require releasing its content ({@link #bytes()}) once done.  *<p/>  * Please note, its is the responsibility of the caller to make sure the bytes  * reference do not "escape" and are released only once.  */
+comment|/**  * An bytes stream output that allows providing a {@link BigArrays} instance  * expecting it to require releasing its content ({@link #bytes()}) once done.  *<p>  * Please note, its is the responsibility of the caller to make sure the bytes  * reference do not "escape" and are released only once.  */
 end_comment
 
 begin_class

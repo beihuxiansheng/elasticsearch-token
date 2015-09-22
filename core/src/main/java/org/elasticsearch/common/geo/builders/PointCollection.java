@@ -341,7 +341,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * builds an array of coordinates to a {@link XContentBuilder}      *       * @param builder builder to use       * @param closed repeat the first point at the end of the array if it's not already defines as last element of the array        * @return the builder      * @throws IOException      */
+comment|/**      * builds an array of coordinates to a {@link XContentBuilder}      *       * @param builder builder to use       * @param closed repeat the first point at the end of the array if it's not already defines as last element of the array        * @return the builder      */
 DECL|method|coordinatesToXcontent
 specifier|protected
 name|XContentBuilder

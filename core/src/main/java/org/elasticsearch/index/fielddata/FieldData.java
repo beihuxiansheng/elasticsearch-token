@@ -847,7 +847,7 @@ name|docsWithField
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a single-valued view of the {@link SortedNumericDoubleValues},      * if it was previously wrapped with {@link #singleton(NumericDocValues, Bits)},      * or null.      * @see #unwrapSingletonBits(SortedNumericDocValues)      */
+comment|/**      * Returns a single-valued view of the {@link SortedNumericDoubleValues},      * if it was previously wrapped with {@link DocValues#singleton(NumericDocValues, Bits)},      * or null.      * @see DocValues#unwrapSingletonBits(SortedNumericDocValues)      */
 DECL|method|unwrapSingleton
 specifier|public
 specifier|static

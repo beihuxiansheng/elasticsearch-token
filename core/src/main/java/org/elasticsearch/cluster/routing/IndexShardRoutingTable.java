@@ -1744,7 +1744,7 @@ name|ordered
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns shards based on nodeAttributes given  such as node name , node attribute, node IP      * Supports node specifications in cluster API      *      * @param nodeAttribute      * @param discoveryNodes      */
+comment|/**      * Returns shards based on nodeAttributes given  such as node name , node attribute, node IP      * Supports node specifications in cluster API      */
 DECL|method|onlyNodeSelectorActiveInitializingShardsIt
 specifier|public
 name|ShardIterator

@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A prioritizing executor which uses a priority queue as a work queue. The jobs that will be submitted will be treated  * as {@link PrioritizedRunnable} and/or {@link PrioritizedCallable}, those tasks that are not instances of these two will  * be wrapped and assign a default {@link Priority#NORMAL} priority.  *<p/>  * Note, if two tasks have the same priority, the first to arrive will be executed first (FIFO style).  */
+comment|/**  * A prioritizing executor which uses a priority queue as a work queue. The jobs that will be submitted will be treated  * as {@link PrioritizedRunnable} and/or {@link PrioritizedCallable}, those tasks that are not instances of these two will  * be wrapped and assign a default {@link Priority#NORMAL} priority.  *<p>  * Note, if two tasks have the same priority, the first to arrive will be executed first (FIFO style).  */
 end_comment
 
 begin_class

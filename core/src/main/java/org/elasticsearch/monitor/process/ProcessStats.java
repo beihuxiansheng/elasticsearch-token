@@ -956,7 +956,7 @@ name|total
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Get the Process cpu usage.          *<p>          *<p>Supported Platforms: All.          */
+comment|/**          * Get the Process cpu usage.          *<p>          * Supported Platforms: All.          */
 DECL|method|getPercent
 specifier|public
 name|short

@@ -740,7 +740,7 @@ name|BasicBackwardsCompatibilityIT
 extends|extends
 name|ESBackcompatTestCase
 block|{
-comment|/**      * Basic test using Index& Realtime Get with external versioning. This test ensures routing works correctly across versions.      */
+comment|/**      * Basic test using Index&amp; Realtime Get with external versioning. This test ensures routing works correctly across versions.      */
 annotation|@
 name|Test
 DECL|method|testExternalVersion
@@ -1047,7 +1047,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Basic test using Index& Realtime Get with internal versioning. This test ensures routing works correctly across versions.      */
+comment|/**      * Basic test using Index&amp; Realtime Get with internal versioning. This test ensures routing works correctly across versions.      */
 annotation|@
 name|Test
 DECL|method|testInternalVersion

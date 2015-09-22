@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Delete snapshot request  *<p/>  * Delete snapshot request removes the snapshot record from the repository and cleans up all  * files that are associated with this particular snapshot. All files that are shared with  * at least one other existing snapshot are left intact.  */
+comment|/**  * Delete snapshot request  *<p>  * Delete snapshot request removes the snapshot record from the repository and cleans up all  * files that are associated with this particular snapshot. All files that are shared with  * at least one other existing snapshot are left intact.  */
 end_comment
 
 begin_class

@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resolves certain ec2 related 'meta' hostnames into an actual hostname  * obtained from ec2 meta-data.  *<p/>  * Valid config values for {@link Ec2HostnameType}s are -  *<ul>  *<li>_ec2_ - maps to privateIpv4</li>  *<li>_ec2:privateIp_ - maps to privateIpv4</li>  *<li>_ec2:privateIpv4_</li>  *<li>_ec2:privateDns_</li>  *<li>_ec2:publicIp_ - maps to publicIpv4</li>  *<li>_ec2:publicIpv4_</li>  *<li>_ec2:publicDns_</li>  *</ul>  *  * @author Paul_Loy (keteracel)  */
+comment|/**  * Resolves certain ec2 related 'meta' hostnames into an actual hostname  * obtained from ec2 meta-data.  *<p>  * Valid config values for {@link Ec2HostnameType}s are -  *<ul>  *<li>_ec2_ - maps to privateIpv4</li>  *<li>_ec2:privateIp_ - maps to privateIpv4</li>  *<li>_ec2:privateIpv4_</li>  *<li>_ec2:privateDns_</li>  *<li>_ec2:publicIp_ - maps to publicIpv4</li>  *<li>_ec2:publicIpv4_</li>  *<li>_ec2:publicDns_</li>  *</ul>  *  * @author Paul_Loy (keteracel)  */
 end_comment
 
 begin_class
@@ -306,7 +306,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param type the ec2 hostname type to discover.      * @return the appropriate host resolved from ec2 meta-data.      * @throws IOException if ec2 meta-data cannot be obtained.      * @see CustomNameResolver#resolveIfPossible(String)      */
+comment|/**      * @param type the ec2 hostname type to discover.      * @return the appropriate host resolved from ec2 meta-data, or null if it cannot be obtained.      * @see CustomNameResolver#resolveIfPossible(String)      */
 DECL|method|resolve
 specifier|public
 name|InetAddress

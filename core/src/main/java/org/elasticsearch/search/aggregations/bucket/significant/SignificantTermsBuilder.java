@@ -149,7 +149,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an aggregation that finds interesting or unusual occurrences of terms in a result set.  *<p/>  * This feature is marked as experimental, and may be subject to change in the future.  If you  * use this feature, please let us know your experience with it!  */
+comment|/**  * Creates an aggregation that finds interesting or unusual occurrences of terms in a result set.  *<p>  * This feature is marked as experimental, and may be subject to change in the future.  If you  * use this feature, please let us know your experience with it!  */
 end_comment
 
 begin_class

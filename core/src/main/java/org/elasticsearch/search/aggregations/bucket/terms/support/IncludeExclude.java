@@ -555,7 +555,7 @@ name|automaton
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Returns whether the given value is accepted based on the {@code include}& {@code exclude} patterns.          */
+comment|/**          * Returns whether the given value is accepted based on the {@code include}&amp; {@code exclude} patterns.          */
 annotation|@
 name|Override
 DECL|method|accept
@@ -642,7 +642,7 @@ operator|=
 name|excludeValues
 expr_stmt|;
 block|}
-comment|/**          * Returns whether the given value is accepted based on the          * {@code include}& {@code exclude} sets.          */
+comment|/**          * Returns whether the given value is accepted based on the          * {@code include}&amp; {@code exclude} sets.          */
 annotation|@
 name|Override
 DECL|method|accept

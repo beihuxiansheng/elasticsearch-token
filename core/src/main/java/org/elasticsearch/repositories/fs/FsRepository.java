@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Shared file system implementation of the BlobStoreRepository  *<p/>  * Shared file system repository supports the following settings  *<dl>  *<dt>{@code location}</dt><dd>Path to the root of repository. This is mandatory parameter.</dd>  *<dt>{@code concurrent_streams}</dt><dd>Number of concurrent read/write stream (per repository on each node). Defaults to 5.</dd>  *<dt>{@code chunk_size}</dt><dd>Large file can be divided into chunks. This parameter specifies the chunk size. Defaults to not chucked.</dd>  *<dt>{@code compress}</dt><dd>If set to true metadata files will be stored compressed. Defaults to false.</dd>  *</ol>  */
+comment|/**  * Shared file system implementation of the BlobStoreRepository  *<p>  * Shared file system repository supports the following settings  *<dl>  *<dt>{@code location}</dt><dd>Path to the root of repository. This is mandatory parameter.</dd>  *<dt>{@code concurrent_streams}</dt><dd>Number of concurrent read/write stream (per repository on each node). Defaults to 5.</dd>  *<dt>{@code chunk_size}</dt><dd>Large file can be divided into chunks. This parameter specifies the chunk size. Defaults to not chucked.</dd>  *<dt>{@code compress}</dt><dd>If set to true metadata files will be stored compressed. Defaults to false.</dd>  *</dl>  */
 end_comment
 
 begin_class
@@ -241,7 +241,7 @@ specifier|private
 name|boolean
 name|compress
 decl_stmt|;
-comment|/**      * Constructs new shared file system repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository index shard repository      * @throws IOException      */
+comment|/**      * Constructs new shared file system repository      *      * @param name                 repository name      * @param repositorySettings   repository settings      * @param indexShardRepository index shard repository      */
 annotation|@
 name|Inject
 DECL|method|FsRepository

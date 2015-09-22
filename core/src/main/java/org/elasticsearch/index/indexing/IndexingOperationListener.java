@@ -59,7 +59,7 @@ return|return
 name|create
 return|;
 block|}
-comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p/>      * Note, long operations should not occur under this callback.      */
+comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */
 DECL|method|postCreateUnderLock
 specifier|public
 name|void
@@ -116,7 +116,7 @@ return|return
 name|index
 return|;
 block|}
-comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p/>      * Note, long operations should not occur under this callback.      */
+comment|/**      * Called after the indexing occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */
 DECL|method|postIndexUnderLock
 specifier|public
 name|void
@@ -173,7 +173,7 @@ return|return
 name|delete
 return|;
 block|}
-comment|/**      * Called after the delete occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p/>      * Note, long operations should not occur under this callback.      */
+comment|/**      * Called after the delete occurs, under a locking scheme to maintain      * concurrent updates to the same doc.      *<p>      * Note, long operations should not occur under this callback.      */
 DECL|method|postDeleteUnderLock
 specifier|public
 name|void

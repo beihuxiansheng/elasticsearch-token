@@ -689,7 +689,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * BlobStore - based implementation of Snapshot Repository  *<p/>  * This repository works with any {@link BlobStore} implementation. The blobStore should be initialized in the derived  * class before {@link #doStart()} is called.  *<p/>  *<p/>  * BlobStoreRepository maintains the following structure in the blob store  *<pre>  * {@code  *   STORE_ROOT  *   |- index             - list of all snapshot name as JSON array  *   |- snapshot-20131010 - JSON serialized Snapshot for snapshot "20131010"  *   |- meta-20131010.dat - JSON serialized MetaData for snapshot "20131010" (includes only global metadata)  *   |- snapshot-20131011 - JSON serialized Snapshot for snapshot "20131011"  *   |- meta-20131011.dat - JSON serialized MetaData for snapshot "20131011"  *   .....  *   |- indices/ - data for all indices  *      |- foo/ - data for index "foo"  *      |  |- meta-20131010.dat - JSON Serialized IndexMetaData for index "foo"  *      |  |- 0/ - data for shard "0" of index "foo"  *      |  |  |- __1 \  *      |  |  |- __2 |  *      |  |  |- __3 |- files from different segments see snapshot-* for their mappings to real segment files  *      |  |  |- __4 |  *      |  |  |- __5 /  *      |  |  .....  *      |  |  |- snap-20131010.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131010"  *      |  |  |- snap-20131011.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  |- list-123 - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  *      |  |- 1/ - data for shard "1" of index "foo"  *      |  |  |- __1  *      |  |  .....  *      |  |  *      |  |-2/  *      |  ......  *      |  *      |- bar/ - data for index bar  *      ......  * }  *</pre>  */
+comment|/**  * BlobStore - based implementation of Snapshot Repository  *<p>  * This repository works with any {@link BlobStore} implementation. The blobStore should be initialized in the derived  * class before {@link #doStart()} is called.  *<p>  * BlobStoreRepository maintains the following structure in the blob store  *<pre>  * {@code  *   STORE_ROOT  *   |- index             - list of all snapshot name as JSON array  *   |- snapshot-20131010 - JSON serialized Snapshot for snapshot "20131010"  *   |- meta-20131010.dat - JSON serialized MetaData for snapshot "20131010" (includes only global metadata)  *   |- snapshot-20131011 - JSON serialized Snapshot for snapshot "20131011"  *   |- meta-20131011.dat - JSON serialized MetaData for snapshot "20131011"  *   .....  *   |- indices/ - data for all indices  *      |- foo/ - data for index "foo"  *      |  |- meta-20131010.dat - JSON Serialized IndexMetaData for index "foo"  *      |  |- 0/ - data for shard "0" of index "foo"  *      |  |  |- __1 \  *      |  |  |- __2 |  *      |  |  |- __3 |- files from different segments see snapshot-* for their mappings to real segment files  *      |  |  |- __4 |  *      |  |  |- __5 /  *      |  |  .....  *      |  |  |- snap-20131010.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131010"  *      |  |  |- snap-20131011.dat - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  |- list-123 - JSON serialized BlobStoreIndexShardSnapshot for snapshot "20131011"  *      |  |  *      |  |- 1/ - data for shard "1" of index "foo"  *      |  |  |- __1  *      |  |  .....  *      |  |  *      |  |-2/  *      |  ......  *      |  *      |- bar/ - data for index bar  *      ......  * }  *</pre>  */
 end_comment
 
 begin_class
@@ -1229,7 +1229,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns initialized and ready to use BlobStore      *<p/>      * This method is first called in the {@link #doStart()} method.      *      * @return blob store      */
+comment|/**      * Returns initialized and ready to use BlobStore      *<p>      * This method is first called in the {@link #doStart()} method.      *      * @return blob store      */
 DECL|method|blobStore
 specifier|abstract
 specifier|protected
@@ -1256,7 +1256,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Returns data file chunk size.      *<p/>      * This method should return null if no chunking is needed.      *      * @return chunk size      */
+comment|/**      * Returns data file chunk size.      *<p>      * This method should return null if no chunking is needed.      *      * @return chunk size      */
 DECL|method|chunkSize
 specifier|protected
 name|ByteSizeValue
@@ -2884,7 +2884,7 @@ name|snapshotFormat
 return|;
 block|}
 block|}
-comment|/**      * In v2.0.0 we changed the matadata file format      * @param version      * @return true if legacy version should be used false otherwise      */
+comment|/**      * In v2.0.0 we changed the matadata file format      * @return true if legacy version should be used false otherwise      */
 DECL|method|legacyMetaData
 specifier|public
 specifier|static
@@ -2938,7 +2938,7 @@ name|indexMetaDataFormat
 return|;
 block|}
 block|}
-comment|/**      * Writes snapshot index file      *<p/>      * This file can be used by read-only repositories that are unable to list files in the repository      *      * @param snapshots list of snapshot ids      * @throws IOException I/O errors      */
+comment|/**      * Writes snapshot index file      *<p>      * This file can be used by read-only repositories that are unable to list files in the repository      *      * @param snapshots list of snapshot ids      * @throws IOException I/O errors      */
 DECL|method|writeSnapshotList
 specifier|protected
 name|void
@@ -3076,7 +3076,7 @@ name|bRef
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads snapshot index file      *<p/>      * This file can be used by read-only repositories that are unable to list files in the repository      *      * @return list of snapshots in the repository      * @throws IOException I/O errors      */
+comment|/**      * Reads snapshot index file      *<p>      * This file can be used by read-only repositories that are unable to list files in the repository      *      * @return list of snapshots in the repository      * @throws IOException I/O errors      */
 DECL|method|readSnapshotList
 specifier|protected
 name|List

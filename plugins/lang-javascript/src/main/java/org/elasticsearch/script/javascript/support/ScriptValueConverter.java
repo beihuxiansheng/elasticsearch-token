@@ -66,7 +66,7 @@ specifier|private
 name|ScriptValueConverter
 parameter_list|()
 block|{     }
-comment|/**      * Convert an object from a script wrapper value to a serializable value valid outside      * of the Rhino script processor context.      *<p/>      * This includes converting JavaScript Array objects to Lists of valid objects.      *      * @param value Value to convert from script wrapper object to external object value.      * @return unwrapped and converted value.      */
+comment|/**      * Convert an object from a script wrapper value to a serializable value valid outside      * of the Rhino script processor context.      *<p>      * This includes converting JavaScript Array objects to Lists of valid objects.      *      * @param value Value to convert from script wrapper object to external object value.      * @return unwrapped and converted value.      */
 DECL|method|unwrapValue
 specifier|public
 specifier|static

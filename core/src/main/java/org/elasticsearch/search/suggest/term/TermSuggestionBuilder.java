@@ -160,7 +160,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * s how similar the suggested terms at least need to be compared to the      * original suggest text tokens. A value between 0 and 1 can be specified.      * This value will be compared to the string distance result of each      * candidate spelling correction.      *<p/>      * Default is<tt>0.5</tt>      */
+comment|/**      * s how similar the suggested terms at least need to be compared to the      * original suggest text tokens. A value between 0 and 1 can be specified.      * This value will be compared to the string distance result of each      * candidate spelling correction.      *<p>      * Default is<tt>0.5</tt>      */
 DECL|method|setAccuracy
 specifier|public
 name|TermSuggestionBuilder
@@ -180,7 +180,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets how to sort the suggest terms per suggest text token. Two possible      * values:      *<ol>      *<li><code>score</code> - Sort should first be based on score, then      * document frequency and then the term itself.      *<li><code>frequency</code> - Sort should first be based on document      * frequency, then scotr and then the term itself.      *</ol>      *<p/>      * What the score is depends on the suggester being used.      */
+comment|/**      * Sets how to sort the suggest terms per suggest text token. Two possible      * values:      *<ol>      *<li><code>score</code> - Sort should first be based on score, then      * document frequency and then the term itself.      *<li><code>frequency</code> - Sort should first be based on document      * frequency, then scotr and then the term itself.      *</ol>      *<p>      * What the score is depends on the suggester being used.      */
 DECL|method|sort
 specifier|public
 name|TermSuggestionBuilder
@@ -260,7 +260,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a maximum threshold in number of documents a suggest text token can      * exist in order to be corrected. Can be a relative percentage number (e.g      * 0.4) or an absolute number to represent document frequencies. If an value      * higher than 1 is specified then fractional can not be specified. Defaults      * to<tt>0.01</tt>.      *<p/>      * This can be used to exclude high frequency terms from being suggested.      * High frequency terms are usually spelled correctly on top of this this      * also improves the suggest performance.      */
+comment|/**      * Sets a maximum threshold in number of documents a suggest text token can      * exist in order to be corrected. Can be a relative percentage number (e.g      * 0.4) or an absolute number to represent document frequencies. If an value      * higher than 1 is specified then fractional can not be specified. Defaults      * to<tt>0.01</tt>.      *<p>      * This can be used to exclude high frequency terms from being suggested.      * High frequency terms are usually spelled correctly on top of this this      * also improves the suggest performance.      */
 DECL|method|maxTermFreq
 specifier|public
 name|TermSuggestionBuilder

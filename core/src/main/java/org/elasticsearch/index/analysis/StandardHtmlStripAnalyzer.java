@@ -196,7 +196,7 @@ name|StandardHtmlStripAnalyzer
 extends|extends
 name|StopwordAnalyzerBase
 block|{
-comment|/**      * @deprecated use {@link StandardHtmlStripAnalyzer#StandardHtmlStripAnalyzer(org.apache.lucene.util.Version,      * org.apache.lucene.analysis.util.CharArraySet)} instead      */
+comment|/**      * @deprecated use {@link StandardHtmlStripAnalyzer#StandardHtmlStripAnalyzer(CharArraySet)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|StandardHtmlStripAnalyzer

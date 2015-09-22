@@ -281,7 +281,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Reads snapshot id from stream input      *      * @param in stream input      * @return snapshot id      * @throws IOException      */
+comment|/**      * Reads snapshot id from stream input      *      * @param in stream input      * @return snapshot id      */
 DECL|method|readSnapshotId
 specifier|public
 specifier|static

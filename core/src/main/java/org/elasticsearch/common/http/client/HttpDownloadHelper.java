@@ -1750,7 +1750,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**          * Has the download completed successfully?          *<p/>          *<p>Re-throws any exception caught during executaion.</p>          */
+comment|/**          * Has the download completed successfully?          *<p>          * Re-throws any exception caught during executaion.</p>          */
 DECL|method|wasSuccessful
 name|boolean
 name|wasSuccessful

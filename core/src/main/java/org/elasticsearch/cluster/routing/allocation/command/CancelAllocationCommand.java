@@ -757,7 +757,7 @@ specifier|final
 name|boolean
 name|allowPrimary
 decl_stmt|;
-comment|/**      * Creates a new {@link CancelAllocationCommand}      *       * @param shardId id of the shard which allocation should be canceled      * @param node id of the node that manages the shard which allocation should be canceled      * @param allowPrimary       */
+comment|/**      * Creates a new {@link CancelAllocationCommand}      *       * @param shardId id of the shard which allocation should be canceled      * @param node id of the node that manages the shard which allocation should be canceled      */
 DECL|method|CancelAllocationCommand
 specifier|public
 name|CancelAllocationCommand

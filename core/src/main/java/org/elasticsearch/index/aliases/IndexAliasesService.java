@@ -334,7 +334,7 @@ operator|=
 name|indexQueryParser
 expr_stmt|;
 block|}
-comment|/**      * Returns the filter associated with listed filtering aliases.      *<p/>      *<p>The list of filtering aliases should be obtained by calling MetaData.filteringAliases.      * Returns<tt>null</tt> if no filtering is required.</p>      */
+comment|/**      * Returns the filter associated with listed filtering aliases.      *<p>      * The list of filtering aliases should be obtained by calling MetaData.filteringAliases.      * Returns<tt>null</tt> if no filtering is required.</p>      */
 DECL|method|aliasFilter
 specifier|public
 name|Query

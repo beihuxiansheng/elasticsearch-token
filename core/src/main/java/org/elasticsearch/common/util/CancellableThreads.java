@@ -154,7 +154,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * called if {@link #checkForCancel()} was invoked after the operation was cancelled.      * the default implementation always throws an {@link ExecutionCancelledException}, suppressing      * any other exception that occurred before cancellation      *      * @param reason              reason for failure supplied by the caller of {@link @cancel}      * @param suppressedException any error that was encountered during the execution before the operation was cancelled.      */
+comment|/**      * called if {@link #checkForCancel()} was invoked after the operation was cancelled.      * the default implementation always throws an {@link ExecutionCancelledException}, suppressing      * any other exception that occurred before cancellation      *      * @param reason              reason for failure supplied by the caller of {@link #cancel}      * @param suppressedException any error that was encountered during the execution before the operation was cancelled.      */
 DECL|method|onCancel
 specifier|protected
 name|void

@@ -275,7 +275,6 @@ name|init
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      *      * @param useOnlyPrimaryCode      */
 DECL|method|KoelnerPhonetik
 specifier|public
 name|KoelnerPhonetik
@@ -306,7 +305,6 @@ return|return
 name|POSTEL_VARIATIONS_PATTERNS
 return|;
 block|}
-comment|/**      *      * @return      */
 DECL|method|getReplacements
 specifier|protected
 name|String
@@ -318,7 +316,6 @@ return|return
 name|POSTEL_VARIATIONS_REPLACEMENTS
 return|;
 block|}
-comment|/**      *      * @return      */
 DECL|method|getCode
 specifier|protected
 name|char
@@ -329,7 +326,6 @@ return|return
 literal|'0'
 return|;
 block|}
-comment|/**      *      * @param o1      * @param o2      * @return      */
 DECL|method|getRelativeValue
 specifier|public
 name|double
@@ -1626,7 +1622,6 @@ return|return
 name|s
 return|;
 block|}
-comment|/**      *      * @param str      * @return      */
 DECL|method|expandUmlauts
 specifier|private
 name|String
@@ -1661,7 +1656,6 @@ literal|"UE"
 argument_list|)
 return|;
 block|}
-comment|/**      *      * @param str      * @return      */
 DECL|method|removeSequences
 specifier|private
 name|String

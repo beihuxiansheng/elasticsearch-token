@@ -2123,7 +2123,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**          * Allows to set custom options for custom highlighters.          * This overrides global settings set by {@link HighlightBuilder#options(Map<String, Object>)}.          */
+comment|/**          * Allows to set custom options for custom highlighters.          * This overrides global settings set by {@link HighlightBuilder#options(Map)}.          */
 DECL|method|options
 specifier|public
 name|Field

@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parses field name values from the {@code fielddata_fields} parameter in a  * search request.  *<p/>  *<pre>  * {  *   "query": {...},  *   "fielddata_fields" : ["field1", "field2"]  * }  *</pre>  */
+comment|/**  * Parses field name values from the {@code fielddata_fields} parameter in a  * search request.  *<pre>  * {  *   "query": {...},  *   "fielddata_fields" : ["field1", "field2"]  * }  *</pre>  */
 end_comment
 
 begin_class

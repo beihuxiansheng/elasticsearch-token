@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service for looking up configured {@link SimilarityProvider} implementations by name.  *<p/>  * The service instantiates the Providers through their Factories using configuration  * values found with the {@link SimilarityModule#SIMILARITY_SETTINGS_PREFIX} prefix.  */
+comment|/**  * Service for looking up configured {@link SimilarityProvider} implementations by name.  *<p>  * The service instantiates the Providers through their Factories using configuration  * values found with the {@link SimilarityModule#SIMILARITY_SETTINGS_PREFIX} prefix.  */
 end_comment
 
 begin_class

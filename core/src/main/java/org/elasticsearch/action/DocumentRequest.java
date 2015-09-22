@@ -67,7 +67,7 @@ name|IndicesOptions
 name|indicesOptions
 parameter_list|()
 function_decl|;
-comment|/**      * Set the routing for this request      * @param routing      * @return the Request      */
+comment|/**      * Set the routing for this request      * @return the Request      */
 DECL|method|routing
 name|T
 name|routing

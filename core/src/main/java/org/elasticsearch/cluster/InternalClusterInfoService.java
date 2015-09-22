@@ -1738,7 +1738,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Refreshes the ClusterInfo in a blocking fashion      * @return      */
+comment|/**      * Refreshes the ClusterInfo in a blocking fashion      */
 DECL|method|refresh
 specifier|public
 specifier|final

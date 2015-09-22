@@ -255,7 +255,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * CommonTermsQuery query is a query that executes high-frequency terms in a  * optional sub-query to prevent slow queries due to "common" terms like  * stopwords. This query basically builds 2 queries off the  * {@link org.apache.lucene.queries.CommonTermsQuery#add(Term) added} terms  * where low-frequency terms are added to a required boolean clause  * and high-frequency terms are added to an optional boolean clause. The  * optional clause is only executed if the required "low-frequency' clause  * matches. Scores produced by this query will be slightly different to plain  * {@link BooleanQuery} scorer mainly due to differences in the  * {@link Similarity#coord(int,int) number of leave queries} in the required  * boolean clause. In the most cases high-frequency terms are unlikely to  * significantly contribute to the document score unless at least one of the  * low-frequency terms are matched such that this query can improve query  * execution times significantly if applicable.  *<p>  */
+comment|/**  * CommonTermsQuery query is a query that executes high-frequency terms in a  * optional sub-query to prevent slow queries due to "common" terms like  * stopwords. This query basically builds 2 queries off the {@code #add(Term)  * added} terms where low-frequency terms are added to a required boolean clause  * and high-frequency terms are added to an optional boolean clause. The  * optional clause is only executed if the required "low-frequency' clause  * matches. Scores produced by this query will be slightly different to plain  * {@link BooleanQuery} scorer mainly due to differences in the  * {@link Similarity#coord(int,int) number of leave queries} in the required  * boolean clause. In the most cases high-frequency terms are unlikely to  * significantly contribute to the document score unless at least one of the  * low-frequency terms are matched such that this query can improve query  * execution times significantly if applicable.  */
 end_comment
 
 begin_class
@@ -583,7 +583,7 @@ operator|.
 name|analyzer
 return|;
 block|}
-comment|/**      * Sets the cutoff document frequency for high / low frequent terms. A value      * in [0..1] (or absolute number>=1) representing the maximum threshold of      * a terms document frequency to be considered a low frequency term.      * Defaults to      *<tt>{@value #DEFAULT_CUTOFF_FREQ}</tt>      */
+comment|/**      * Sets the cutoff document frequency for high / low frequent terms. A value      * in [0..1] (or absolute number&gt;=1) representing the maximum threshold of      * a terms document frequency to be considered a low frequency term.      * Defaults to      *<tt>{@value #DEFAULT_CUTOFF_FREQ}</tt>      */
 DECL|method|cutoffFrequency
 specifier|public
 name|CommonTermsQueryBuilder

@@ -30,6 +30,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|cluster
+operator|.
+name|Diff
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|io
@@ -51,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Thrown by {@link Diffable#readDiffAndApply(org.elasticsearch.common.io.stream.StreamInput)} method  */
+comment|/**  * Thrown by {@link Diff#apply} method  */
 end_comment
 
 begin_class

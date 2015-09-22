@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for {@link IBSimilarity}.  *<p/>  * Configuration options available:  *<ul>  *<li>distribution</li>  *<li>lambda</li>  *<li>normalization</li>  *</ul>  * @see IBSimilarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for {@link IBSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>distribution</li>  *<li>lambda</li>  *<li>normalization</li>  *</ul>  * @see IBSimilarity For more information about configuration  */
 end_comment
 
 begin_class

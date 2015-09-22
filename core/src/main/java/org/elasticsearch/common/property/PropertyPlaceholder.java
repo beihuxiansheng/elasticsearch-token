@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Utility class for working with Strings that have placeholder values in them. A placeholder takes the form  *<tt>${name}</tt>. Using<tt>PropertyPlaceholder</tt> these placeholders can be substituted for  * user-supplied values.  *<p/>  *<p> Values for substitution can be supplied using a {@link Properties} instance or using a  * {@link PlaceholderResolver}.  */
+comment|/**  * Utility class for working with Strings that have placeholder values in them. A placeholder takes the form  *<tt>${name}</tt>. Using<tt>PropertyPlaceholder</tt> these placeholders can be substituted for  * user-supplied values.  *<p>  * Values for substitution can be supplied using a {@link Properties} instance or using a  * {@link PlaceholderResolver}.  */
 end_comment
 
 begin_class

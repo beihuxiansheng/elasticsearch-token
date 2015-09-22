@@ -195,7 +195,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a new filter with the given key.      * NOTE: if a filter was already defined for this key, then this filter will replace it.      * NOTE: the same {@link FiltersBuilder} cannot have both keyed and non-keyed filters      */
+comment|/**      * Add a new filter with the given key.      * NOTE: if a filter was already defined for this key, then this filter will replace it.      * NOTE: the same {@link FiltersAggregationBuilder} cannot have both keyed and non-keyed filters      */
 DECL|method|filter
 specifier|public
 name|FiltersAggregationBuilder
@@ -236,7 +236,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Add a new filter with no key.      * NOTE: the same {@link FiltersBuilder} cannot have both keyed and non-keyed filters.      */
+comment|/**      * Add a new filter with no key.      * NOTE: the same {@link FiltersAggregationBuilder} cannot have both keyed and non-keyed filters.      */
 DECL|method|filter
 specifier|public
 name|FiltersAggregationBuilder

@@ -165,7 +165,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Resolves the combined OR'ed value for the given list of regular expression flags. The given flags must follow the      * following syntax:      *<p/>      *<tt>flag_name</tt>(|<tt>flag_name</tt>)*      *<p/>      * Where<tt>flag_name</tt> is one of the following:      *<ul>      *<li>INTERSECTION</li>      *<li>COMPLEMENT</li>      *<li>EMPTY</li>      *<li>ANYSTRING</li>      *<li>INTERVAL</li>      *<li>NONE</li>      *<li>ALL</li>      *</ul>      *<p/>      * Example:<tt>INTERSECTION|COMPLEMENT|EMPTY</tt>      *      * @param flags A string representing a list of regualr expression flags      * @return The combined OR'ed value for all the flags      */
+comment|/**      * Resolves the combined OR'ed value for the given list of regular expression flags. The given flags must follow the      * following syntax:      *<p>      *<tt>flag_name</tt>(|<tt>flag_name</tt>)*      *<p>      * Where<tt>flag_name</tt> is one of the following:      *<ul>      *<li>INTERSECTION</li>      *<li>COMPLEMENT</li>      *<li>EMPTY</li>      *<li>ANYSTRING</li>      *<li>INTERVAL</li>      *<li>NONE</li>      *<li>ALL</li>      *</ul>      *<p>      * Example:<tt>INTERSECTION|COMPLEMENT|EMPTY</tt>      *      * @param flags A string representing a list of regular expression flags      * @return The combined OR'ed value for all the flags      */
 end_comment
 
 begin_function
