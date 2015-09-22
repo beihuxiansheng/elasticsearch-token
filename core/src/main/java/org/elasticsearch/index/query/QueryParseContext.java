@@ -515,7 +515,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @return a new QueryBuilder based on the current state of the parser      * @throws IOException      */
+comment|/**      * @return a new QueryBuilder based on the current state of the parser      */
 DECL|method|parseInnerQueryBuilder
 specifier|public
 name|QueryBuilder
@@ -739,7 +739,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * @return a new QueryBuilder based on the current state of the parser, but does so that the inner query      * is parsed to a filter      * @throws IOException      */
+comment|/**      * @return a new QueryBuilder based on the current state of the parser, but does so that the inner query      * is parsed to a filter      */
 comment|//norelease setting and checking the isFilter Flag should completely be moved to toQuery/toFilter after query refactoring
 DECL|method|parseInnerFilterToQueryBuilder
 specifier|public

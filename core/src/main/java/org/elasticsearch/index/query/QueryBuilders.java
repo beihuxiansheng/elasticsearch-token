@@ -1765,7 +1765,7 @@ name|point
 argument_list|)
 return|;
 block|}
-comment|/**      * A filter to filter based on a specific range from a specific geo location / point.      *      * @param name The location field name.      * @param point The point as geohash      */
+comment|/**      * A filter to filter based on a specific range from a specific geo location / point.      *      * @param name The location field name.      * @param geohash The point as geohash      */
 DECL|method|geoDistanceRangeQuery
 specifier|public
 specifier|static
@@ -1953,7 +1953,7 @@ name|points
 argument_list|)
 return|;
 block|}
-comment|/**      * A filter based on the relationship of a shape and indexed shapes      *      * @param name  The shape field name      * @param shape Shape to use in the filter      * @param relation relation of the shapes      */
+comment|/**      * A filter based on the relationship of a shape and indexed shapes      *      * @param name  The shape field name      * @param shape Shape to use in the filter      */
 DECL|method|geoShapeQuery
 specifier|public
 specifier|static
@@ -2266,7 +2266,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * A filter to filter only documents where a field does not exists in them.      * @param fieldPattern the field to query      */
+comment|/**      * A filter to filter only documents where a field does not exists in them.      * @param name the field to query      */
 DECL|method|missingQuery
 specifier|public
 specifier|static
@@ -2292,7 +2292,7 @@ name|DEFAULT_EXISTENCE_VALUE
 argument_list|)
 return|;
 block|}
-comment|/**      * A filter to filter only documents where a field does not exists in them.      * @param fieldPattern the field to query      * @param nullValue should the missing filter automatically include fields with null value configured in the      * mappings. Defaults to<tt>false</tt>.      * @param existence should the missing filter include documents where the field doesn't exist in the docs.      * Defaults to<tt>true</tt>.      * @throws IllegalArgumentException when both<tt>existence</tt> and<tt>nullValue</tt> are set to false      */
+comment|/**      * A filter to filter only documents where a field does not exists in them.      * @param name the field to query      * @param nullValue should the missing filter automatically include fields with null value configured in the      * mappings. Defaults to<tt>false</tt>.      * @param existence should the missing filter include documents where the field doesn't exist in the docs.      * Defaults to<tt>true</tt>.      * @throws IllegalArgumentException when both<tt>existence</tt> and<tt>nullValue</tt> are set to false      */
 DECL|method|missingQuery
 specifier|public
 specifier|static

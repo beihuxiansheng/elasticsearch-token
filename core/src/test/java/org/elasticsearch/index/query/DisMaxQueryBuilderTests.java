@@ -459,7 +459,7 @@ return|return
 name|alternateVersions
 return|;
 block|}
-comment|/**      * test `null`return value for missing inner queries      * @throws IOException      */
+comment|/**      * test `null`return value for missing inner queries      */
 annotation|@
 name|Test
 DECL|method|testNoInnerQueries

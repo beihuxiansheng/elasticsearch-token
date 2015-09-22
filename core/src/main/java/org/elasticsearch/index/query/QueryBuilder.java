@@ -128,7 +128,7 @@ argument_list|>
 extends|,
 name|ToXContent
 block|{
-comment|/**      * Converts this QueryBuilder to a lucene {@link Query}.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryShardException      * @throws IOException      */
+comment|/**      * Converts this QueryBuilder to a lucene {@link Query}.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      */
 DECL|method|toQuery
 name|Query
 name|toQuery
@@ -139,7 +139,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Converts this QueryBuilder to an unscored lucene {@link Query} that acts as a filter.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      * @throws QueryShardException      * @throws IOException      */
+comment|/**      * Converts this QueryBuilder to an unscored lucene {@link Query} that acts as a filter.      * Returns<tt>null</tt> if this query should be ignored in the context of      * parent queries.      *      * @param context additional information needed to construct the queries      * @return the {@link Query} or<tt>null</tt> if this query should be ignored upstream      */
 DECL|method|toFilter
 name|Query
 name|toFilter

@@ -364,7 +364,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @throws IOException      */
 annotation|@
 name|Test
 argument_list|(

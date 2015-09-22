@@ -582,7 +582,7 @@ name|relation
 init|=
 name|DEFAULT_SHAPE_RELATION
 decl_stmt|;
-comment|/**      * Creates a new GeoShapeQueryBuilder whose Query will be against the given      * field name using the given Shape      *      * @param name      *            Name of the field that will be queried      * @param shape      *            Shape used in the Query      */
+comment|/**      * Creates a new GeoShapeQueryBuilder whose Query will be against the given      * field name using the given Shape      *      * @param fieldName      *            Name of the field that will be queried      * @param shape      *            Shape used in the Query      */
 DECL|method|GeoShapeQueryBuilder
 specifier|public
 name|GeoShapeQueryBuilder

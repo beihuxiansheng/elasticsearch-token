@@ -1459,7 +1459,6 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param indexCreatedBeforeV2_0      * @return      */
 DECL|method|checkLatLon
 specifier|private
 name|QueryValidationException

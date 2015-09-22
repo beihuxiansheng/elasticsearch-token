@@ -996,7 +996,7 @@ return|return
 name|obj
 return|;
 block|}
-comment|/**      * Helper method to convert collection of {@link QueryBuilder} instances to lucene      * {@link Query} instances. {@link QueryBuilder} that return<tt>null</tt> calling      * their {@link QueryBuilder#toQuery(QueryShardContext)} method are not added to the      * resulting collection.      *      * @throws IOException      * @throws QueryShardException      */
+comment|/**      * Helper method to convert collection of {@link QueryBuilder} instances to lucene      * {@link Query} instances. {@link QueryBuilder} that return<tt>null</tt> calling      * their {@link QueryBuilder#toQuery(QueryShardContext)} method are not added to the      * resulting collection.      */
 DECL|method|toQueries
 specifier|protected
 specifier|static

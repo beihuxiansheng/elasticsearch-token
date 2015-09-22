@@ -159,7 +159,7 @@ argument_list|<
 name|IdsQueryBuilder
 argument_list|>
 block|{
-comment|/**      * check that parser throws exception on missing values field      * @throws IOException      */
+comment|/**      * check that parser throws exception on missing values field      */
 annotation|@
 name|Test
 argument_list|(

@@ -372,7 +372,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @see SpanNearQueryBuilder#inOrder(boolean))      */
+comment|/**      * @see SpanNearQueryBuilder#inOrder(boolean)      */
 DECL|method|inOrder
 specifier|public
 name|boolean
@@ -405,7 +405,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * @see SpanNearQueryBuilder#collectPayloads(boolean))      */
+comment|/**      * @see SpanNearQueryBuilder#collectPayloads(boolean)      */
 DECL|method|collectPayloads
 specifier|public
 name|boolean

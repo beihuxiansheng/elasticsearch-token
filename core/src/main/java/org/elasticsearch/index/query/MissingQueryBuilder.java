@@ -312,7 +312,7 @@ argument_list|,
 name|DEFAULT_EXISTENCE_VALUE
 argument_list|)
 decl_stmt|;
-comment|/**      * Constructs a filter that returns documents with only null values or no value in the original field.      * @param fieldPattern the field to query      * @param nullValue should the missing filter automatically include fields with null value configured in the      * mappings. Defaults to<tt>false</tt>.      * @param existance should the missing filter include documents where the field doesn't exist in the docs.      * Defaults to<tt>true</tt>.      * @throws IllegalArgumentException when both<tt>existence</tt> and<tt>nullValue</tt> are set to false      */
+comment|/**      * Constructs a filter that returns documents with only null values or no value in the original field.      * @param fieldPattern the field to query      * @param nullValue should the missing filter automatically include fields with null value configured in the      * mappings. Defaults to<tt>false</tt>.      * @param existence should the missing filter include documents where the field doesn't exist in the docs.      * Defaults to<tt>true</tt>.      * @throws IllegalArgumentException when both<tt>existence</tt> and<tt>nullValue</tt> are set to false      */
 DECL|method|MissingQueryBuilder
 specifier|public
 name|MissingQueryBuilder
