@@ -843,6 +843,13 @@ name|parser
 operator|=
 name|jp
 expr_stmt|;
+if|if
+condition|(
+name|parser
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|parser
@@ -852,6 +859,7 @@ argument_list|(
 name|parseFieldMatcher
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|namedQueries
