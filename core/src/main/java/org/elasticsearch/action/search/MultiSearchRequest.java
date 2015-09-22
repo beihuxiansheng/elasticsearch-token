@@ -260,7 +260,43 @@ name|support
 operator|.
 name|XContentMapValues
 operator|.
-name|*
+name|nodeBooleanValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|support
+operator|.
+name|XContentMapValues
+operator|.
+name|nodeStringArrayValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|xcontent
+operator|.
+name|support
+operator|.
+name|XContentMapValues
+operator|.
+name|nodeStringValue
 import|;
 end_import
 
@@ -1036,22 +1072,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|searchRequest
-operator|.
-name|source
-argument_list|(
-name|data
-operator|.
-name|slice
-argument_list|(
-name|from
-argument_list|,
-name|nextMarker
-operator|-
-name|from
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// searchRequest.source(data.slice(from, nextMarker - from));
+comment|// NOCOMMIT fix this
 block|}
 comment|// move pointers
 name|from

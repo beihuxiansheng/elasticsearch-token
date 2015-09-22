@@ -929,14 +929,7 @@ name|preference
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|searchRequest
-operator|.
-name|source
-argument_list|(
-name|source
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// searchRequest.source(source()); NOCOMMIT fix this
 name|SearchSourceBuilder
 name|searchSourceBuilder
 init|=

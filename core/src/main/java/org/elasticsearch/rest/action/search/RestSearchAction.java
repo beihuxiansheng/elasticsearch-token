@@ -779,18 +779,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|searchRequest
-operator|.
-name|source
-argument_list|(
-name|RestActions
-operator|.
-name|getRestContent
-argument_list|(
-name|request
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|// searchRequest.source(RestActions.getRestContent(request));
+comment|// NOCOMMIT fix this
 block|}
 block|}
 comment|// do not allow 'query_and_fetch' or 'dfs_query_and_fetch' search types

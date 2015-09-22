@@ -1524,68 +1524,15 @@ name|source
 argument_list|()
 operator|!=
 literal|null
-operator|&&
-name|context
-operator|.
-name|request
-argument_list|()
-operator|.
-name|source
-argument_list|()
-operator|.
-name|length
-argument_list|()
-operator|>
-literal|0
 condition|)
 block|{
-try|try
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|"source["
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|XContentHelper
-operator|.
-name|convertToJson
-argument_list|(
-name|context
-operator|.
-name|request
-argument_list|()
-operator|.
-name|source
-argument_list|()
-argument_list|,
-name|reformat
-argument_list|)
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"], "
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|e
-parameter_list|)
-block|{
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|"source[_failed_to_convert_], "
-argument_list|)
-expr_stmt|;
-block|}
+comment|// try {
+comment|// //
+comment|// sb.append("source[").append(XContentHelper.convertToJson(context.request().source(),
+comment|// // reformat)).append("], "); NOCOMMIT fix this
+comment|// } catch (IOException e) {
+comment|// sb.append("source[_failed_to_convert_], ");
+comment|// }
 block|}
 else|else
 block|{

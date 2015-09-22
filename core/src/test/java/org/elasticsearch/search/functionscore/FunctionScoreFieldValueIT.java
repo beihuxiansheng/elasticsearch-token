@@ -772,83 +772,33 @@ block|{
 comment|// This is fine, the query will throw an exception if executed
 comment|// locally, instead of just having failures
 block|}
-comment|// don't permit an array of factors
-try|try
-block|{
-name|String
-name|querySource
-init|=
-literal|"{"
-operator|+
-literal|"\"query\": {"
-operator|+
-literal|"  \"function_score\": {"
-operator|+
-literal|"    \"query\": {"
-operator|+
-literal|"      \"match\": {\"name\": \"foo\"}"
-operator|+
-literal|"      },"
-operator|+
-literal|"      \"functions\": ["
-operator|+
-literal|"        {"
-operator|+
-literal|"          \"field_value_factor\": {"
-operator|+
-literal|"            \"field\": \"test\","
-operator|+
-literal|"            \"factor\": [1.2,2]"
-operator|+
-literal|"          }"
-operator|+
-literal|"        }"
-operator|+
-literal|"      ]"
-operator|+
-literal|"    }"
-operator|+
-literal|"  }"
-operator|+
-literal|"}"
-decl_stmt|;
-name|response
-operator|=
-name|client
-argument_list|()
-operator|.
-name|prepareSearch
-argument_list|(
-literal|"test"
-argument_list|)
-operator|.
-name|setSource
-argument_list|(
-operator|new
-name|BytesArray
-argument_list|(
-name|querySource
-argument_list|)
-argument_list|)
-operator|.
-name|get
-argument_list|()
-expr_stmt|;
-name|assertFailures
-argument_list|(
-name|response
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|SearchPhaseExecutionException
-name|e
-parameter_list|)
-block|{
-comment|// This is fine, the query will throw an exception if executed
-comment|// locally, instead of just having failures
-block|}
+comment|//        // don't permit an array of factors
+comment|//        try {
+comment|//          String querySource = "{" +
+comment|//            "\"query\": {" +
+comment|//            "  \"function_score\": {" +
+comment|//            "    \"query\": {" +
+comment|//            "      \"match\": {\"name\": \"foo\"}" +
+comment|//            "      }," +
+comment|//            "      \"functions\": [" +
+comment|//            "        {" +
+comment|//            "          \"field_value_factor\": {" +
+comment|//            "            \"field\": \"test\"," +
+comment|//            "            \"factor\": [1.2,2]" +
+comment|//            "          }" +
+comment|//            "        }" +
+comment|//            "      ]" +
+comment|//            "    }" +
+comment|//            "  }" +
+comment|//            "}";
+comment|//          response = client().prepareSearch("test")
+comment|//          .setSource(new BytesArray(querySource))
+comment|//                  .get();
+comment|//          assertFailures(response);
+comment|//        } catch (SearchPhaseExecutionException e) {
+comment|//          // This is fine, the query will throw an exception if executed
+comment|//          // locally, instead of just having failures
+comment|//        } NOCOMMIT fix this
 block|}
 block|}
 end_class

@@ -152,18 +152,6 @@ name|hamcrest
 operator|.
 name|CoreMatchers
 operator|.
-name|notNullValue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
 name|nullValue
 import|;
 end_import
@@ -464,55 +452,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|sourceMap
-init|=
-name|XContentHelper
-operator|.
-name|convertToMap
-argument_list|(
-name|searchRequest
-operator|.
-name|source
-argument_list|()
-argument_list|,
-literal|false
-argument_list|)
-operator|.
-name|v2
-argument_list|()
-decl_stmt|;
-name|assertThat
-argument_list|(
-name|sourceMap
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|equalTo
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|sourceMap
-operator|.
-name|get
-argument_list|(
-literal|"query"
-argument_list|)
-argument_list|,
-name|notNullValue
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// Map<String, Object> sourceMap =
+comment|// XContentHelper.convertToMap(searchRequest.source(), false).v2();
+comment|// assertThat(sourceMap.size(), equalTo(1));
+comment|// assertThat(sourceMap.get("query"), notNullValue()); NOCOMMIT fix
+comment|// this
 block|}
 name|Map
 argument_list|<

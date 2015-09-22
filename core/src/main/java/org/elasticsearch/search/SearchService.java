@@ -148,20 +148,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|action
-operator|.
-name|search
-operator|.
-name|SearchType
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|cache
 operator|.
 name|recycler
@@ -391,34 +377,6 @@ operator|.
 name|xcontent
 operator|.
 name|XContentFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|common
-operator|.
-name|xcontent
-operator|.
-name|XContentLocation
 import|;
 end_import
 
@@ -856,6 +814,20 @@ name|elasticsearch
 operator|.
 name|search
 operator|.
+name|builder
+operator|.
+name|SearchSourceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|search
+operator|.
 name|dfs
 operator|.
 name|DfsPhase
@@ -1015,20 +987,6 @@ operator|.
 name|SearchContext
 operator|.
 name|Lifetime
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
-name|search
-operator|.
-name|internal
-operator|.
-name|ShardSearchLocalRequest
 import|;
 end_import
 
@@ -4053,16 +4011,7 @@ name|source
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|parseSource
-argument_list|(
-name|context
-argument_list|,
-name|request
-operator|.
-name|extraSource
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// parseSource(context, request.extraSource()); NOCOMMIT fix this
 comment|// if the from and size are still not set, default them
 if|if
 condition|(
@@ -4963,13 +4912,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|request
-operator|.
-name|source
-argument_list|(
-name|processedQuery
-argument_list|)
-expr_stmt|;
+comment|// request.source(processedQuery); NOCOMMIT fix this
 block|}
 DECL|method|parseSource
 specifier|private
@@ -4979,7 +4922,7 @@ parameter_list|(
 name|SearchContext
 name|context
 parameter_list|,
-name|BytesReference
+name|SearchSourceBuilder
 name|source
 parameter_list|)
 throws|throws
@@ -4991,275 +4934,238 @@ condition|(
 name|source
 operator|==
 literal|null
-operator|||
-name|source
-operator|.
-name|length
-argument_list|()
-operator|==
-literal|0
 condition|)
 block|{
 return|return;
 block|}
-name|XContentParser
-name|parser
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|parser
-operator|=
-name|XContentFactory
+name|context
 operator|.
-name|xContent
+name|from
 argument_list|(
 name|source
-argument_list|)
 operator|.
-name|createParser
+name|from
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|size
 argument_list|(
 name|source
-argument_list|)
-expr_stmt|;
-name|XContentParser
 operator|.
-name|Token
-name|token
-decl_stmt|;
-name|token
-operator|=
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|token
-operator|!=
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|START_OBJECT
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchParseException
-argument_list|(
-literal|"failed to parse search source. source must be an object, but found [{}] instead"
-argument_list|,
-name|token
-operator|.
-name|name
+name|size
 argument_list|()
 argument_list|)
-throw|;
-block|}
-while|while
-condition|(
-operator|(
-name|token
-operator|=
-name|parser
-operator|.
-name|nextToken
-argument_list|()
-operator|)
-operator|!=
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|END_OBJECT
-condition|)
-block|{
-if|if
-condition|(
-name|token
-operator|==
-name|XContentParser
-operator|.
-name|Token
-operator|.
-name|FIELD_NAME
-condition|)
-block|{
-name|String
-name|fieldName
-init|=
-name|parser
-operator|.
-name|currentName
-argument_list|()
-decl_stmt|;
-name|parser
-operator|.
-name|nextToken
-argument_list|()
 expr_stmt|;
-name|SearchParseElement
-name|element
+name|Float
+name|indexBoost
 init|=
-name|elementParsers
+name|source
+operator|.
+name|indexBoost
+argument_list|()
 operator|.
 name|get
 argument_list|(
-name|fieldName
+name|context
+operator|.
+name|shardTarget
+argument_list|()
+operator|.
+name|index
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|element
-operator|==
+name|indexBoost
+operator|!=
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|SearchParseException
+name|context
+operator|.
+name|queryBoost
+argument_list|(
+name|indexBoost
+argument_list|)
+expr_stmt|;
+block|}
+name|context
+operator|.
+name|parsedQuery
 argument_list|(
 name|context
-argument_list|,
-literal|"failed to parse search source. unknown search element ["
-operator|+
-name|fieldName
-operator|+
-literal|"]"
-argument_list|,
-name|parser
 operator|.
-name|getTokenLocation
+name|queryParserService
 argument_list|()
-argument_list|)
-throw|;
-block|}
-name|element
 operator|.
 name|parse
 argument_list|(
-name|parser
-argument_list|,
-name|context
+name|source
+operator|.
+name|query
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
-name|token
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|ElasticsearchParseException
-argument_list|(
-literal|"failed to parse search source. end of query source reached but query is not complete."
-argument_list|)
-throw|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|ElasticsearchParseException
-argument_list|(
-literal|"failed to parse search source. expected field name but got [{}]"
-argument_list|,
-name|token
-argument_list|)
-throw|;
-block|}
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|String
-name|sSource
-init|=
-literal|"_na_"
-decl_stmt|;
-try|try
-block|{
-name|sSource
-operator|=
-name|XContentHelper
+name|context
 operator|.
-name|convertToJson
+name|parsedPostFilter
+argument_list|(
+name|context
+operator|.
+name|queryParserService
+argument_list|()
+operator|.
+name|parse
 argument_list|(
 name|source
-argument_list|,
-literal|false
+operator|.
+name|postFilter
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e1
-parameter_list|)
-block|{
-comment|// ignore
-block|}
-name|XContentLocation
-name|location
-init|=
-name|parser
-operator|!=
-literal|null
-condition|?
-name|parser
-operator|.
-name|getTokenLocation
-argument_list|()
-else|:
-literal|null
-decl_stmt|;
-throw|throw
-operator|new
-name|SearchParseException
-argument_list|(
 name|context
-argument_list|,
-literal|"failed to parse search source ["
-operator|+
-name|sSource
-operator|+
-literal|"]"
-argument_list|,
-name|location
-argument_list|,
-name|e
-argument_list|)
-throw|;
-block|}
-finally|finally
-block|{
-if|if
-condition|(
-name|parser
-operator|!=
-literal|null
-condition|)
-block|{
-name|parser
 operator|.
-name|close
-argument_list|()
+name|sort
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
-block|}
-block|}
+comment|// NOCOMMIT parse source.sort() ByteReference into
+comment|// Sort object
+name|context
+operator|.
+name|trackScores
+argument_list|(
+name|source
+operator|.
+name|trackScores
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|minimumScore
+argument_list|(
+name|source
+operator|.
+name|minScore
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|timeoutInMillis
+argument_list|(
+name|source
+operator|.
+name|timeoutInMillis
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|terminateAfter
+argument_list|(
+name|source
+operator|.
+name|terminateAfter
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|aggregations
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// NOCOMMIT parse source.aggregations()
+comment|// ByteReference into
+comment|// SearchContextAggregations object
+name|context
+operator|.
+name|suggest
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// NOCOMMIT parse source.suggest() ByteReference
+comment|// into SuggestionSearchContext object
+name|context
+operator|.
+name|addRescore
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+comment|// NOCOMMIT parse source.rescore()
+comment|// ByteReference into RescoreSearchContext
+comment|// object
+comment|// NOCOMMIT populate the rest of the search request
+name|context
+operator|.
+name|explain
+argument_list|(
+name|source
+operator|.
+name|explain
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|version
+argument_list|(
+name|source
+operator|.
+name|version
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|//        XContentParser parser = null;
+comment|//        try {
+comment|//            parser = XContentFactory.xContent(source).createParser(source);
+comment|//            XContentParser.Token token;
+comment|//            token = parser.nextToken();
+comment|//            if (token != XContentParser.Token.START_OBJECT) {
+comment|//                throw new ElasticsearchParseException("failed to parse search source. source must be an object, but found [{}] instead", token.name());
+comment|//            }
+comment|//            while ((token = parser.nextToken()) != XContentParser.Token.END_OBJECT) {
+comment|//                if (token == XContentParser.Token.FIELD_NAME) {
+comment|//                    String fieldName = parser.currentName();
+comment|//                    parser.nextToken();
+comment|//                    SearchParseElement element = elementParsers.get(fieldName);
+comment|//                    if (element == null) {
+comment|//                        throw new SearchParseException(context, "failed to parse search source. unknown search element [" + fieldName + "]", parser.getTokenLocation());
+comment|//                    }
+comment|//                    element.parse(parser, context);
+comment|//                } else {
+comment|//                    if (token == null) {
+comment|//                        throw new ElasticsearchParseException("failed to parse search source. end of query source reached but query is not complete.");
+comment|//                    } else {
+comment|//                        throw new ElasticsearchParseException("failed to parse search source. expected field name but got [{}]", token);
+comment|//                    }
+comment|//                }
+comment|//            }
+comment|//        } catch (Throwable e) {
+comment|//            String sSource = "_na_";
+comment|//            try {
+comment|//                sSource = XContentHelper.convertToJson(source, false);
+comment|//            } catch (Throwable e1) {
+comment|//                // ignore
+comment|//            }
+comment|//            XContentLocation location = parser != null ? parser.getTokenLocation() : null;
+comment|//            throw new SearchParseException(context, "failed to parse search source [" + sSource + "]", location, e);
+comment|//        } finally {
+comment|//            if (parser != null) {
+comment|//                parser.close();
+comment|//            }
+comment|//        }
 block|}
 DECL|field|EMPTY_DOC_IDS
 specifier|private
@@ -7200,106 +7106,32 @@ operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
-name|ShardSearchRequest
-name|request
-init|=
-operator|new
-name|ShardSearchLocalRequest
-argument_list|(
-name|indexShard
-operator|.
-name|shardId
-argument_list|()
-argument_list|,
-name|indexMetaData
-operator|.
-name|numberOfShards
-argument_list|()
-argument_list|,
-name|SearchType
-operator|.
-name|QUERY_THEN_FETCH
-argument_list|,
-name|entry
-operator|.
-name|source
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|types
-argument_list|()
-argument_list|,
-name|entry
-operator|.
-name|requestCache
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|context
-operator|=
-name|createContext
-argument_list|(
-name|request
-argument_list|,
-name|warmerContext
-operator|.
-name|searcher
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// if we use sort, we need to do query to sort on it and load relevant field data
-comment|// if not, we might as well set size=0 (and cache if needed)
-if|if
-condition|(
-name|context
-operator|.
-name|sort
-argument_list|()
-operator|==
-literal|null
-condition|)
-block|{
-name|context
-operator|.
-name|size
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-name|boolean
-name|canCache
-init|=
-name|indicesQueryCache
-operator|.
-name|canCache
-argument_list|(
-name|request
-argument_list|,
-name|context
-argument_list|)
-decl_stmt|;
-comment|// early terminate when we can cache, since we can only do proper caching on top level searcher
-comment|// also, if we can't cache, and its top, we don't need to execute it, since we already did when its not top
-if|if
-condition|(
-name|canCache
-operator|!=
-name|top
-condition|)
-block|{
-return|return;
-block|}
-name|loadOrExecuteQueryPhase
-argument_list|(
-name|request
-argument_list|,
-name|context
-argument_list|,
-name|queryPhase
-argument_list|)
-expr_stmt|;
+comment|// ShardSearchRequest request = new
+comment|// ShardSearchLocalRequest(indexShard.shardId(),
+comment|// indexMetaData.numberOfShards(),
+comment|// SearchType.QUERY_THEN_FETCH, entry.source(),
+comment|// entry.types(), entry.requestCache());
+comment|// context = createContext(request,
+comment|// warmerContext.searcher());
+comment|// // if we use sort, we need to do query to sort on
+comment|// it and load relevant field data
+comment|// // if not, we might as well set size=0 (and cache
+comment|// if needed)
+comment|// if (context.sort() == null) {
+comment|// context.size(0);
+comment|// }
+comment|// boolean canCache =
+comment|// indicesQueryCache.canCache(request, context);
+comment|// // early terminate when we can cache, since we
+comment|// can only do proper caching on top level searcher
+comment|// // also, if we can't cache, and its top, we don't
+comment|// need to execute it, since we already did when its
+comment|// not top
+comment|// if (canCache != top) {
+comment|// return;
+comment|// }
+comment|// loadOrExecuteQueryPhase(request, context,
+comment|// queryPhase); NOCOMMIT fix this
 name|long
 name|took
 init|=
