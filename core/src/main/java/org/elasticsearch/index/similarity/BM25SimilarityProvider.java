@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for the {@link BM25Similarity}.  *<p/>  * Configuration options available:  *<ul>  *<li>k1</li>  *<li>b</li>  *<li>discount_overlaps</li>  *</ul>  * @see BM25Similarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for the {@link BM25Similarity}.  *<p>  * Configuration options available:  *<ul>  *<li>k1</li>  *<li>b</li>  *<li>discount_overlaps</li>  *</ul>  * @see BM25Similarity For more information about configuration  */
 end_comment
 
 begin_class

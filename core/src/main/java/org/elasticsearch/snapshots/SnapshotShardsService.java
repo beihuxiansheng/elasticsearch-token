@@ -2406,7 +2406,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Checks if any shards were processed that the new master doesn't know about      * @param event      */
+comment|/**      * Checks if any shards were processed that the new master doesn't know about      */
 DECL|method|syncShardStatsOnNewMaster
 specifier|private
 name|void

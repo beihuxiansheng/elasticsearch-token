@@ -9189,7 +9189,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Returns<code>true</code> iff the given generation is the current gbeneration of this translog      * @param generation      * @return      */
+comment|/**      * Returns<code>true</code> iff the given generation is the current gbeneration of this translog      */
 DECL|method|isCurrent
 specifier|public
 name|boolean

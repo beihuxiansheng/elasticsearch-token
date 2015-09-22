@@ -380,7 +380,7 @@ name|bucketOrd
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Same as {@link #collectBucket(int, long)}, but doesn't check if the docCounts needs to be re-sized.      */
+comment|/**      * Same as {@link #collectBucket(LeafBucketCollector, int, long)}, but doesn't check if the docCounts needs to be re-sized.      */
 DECL|method|collectExistingBucket
 specifier|public
 specifier|final

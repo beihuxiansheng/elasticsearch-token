@@ -3461,7 +3461,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**          * Snapshot individual file          *<p/>          * This is asynchronous method. Upon completion of the operation latch is getting counted down and any failures are          * added to the {@code failures} list          *          * @param fileInfo file to be snapshotted          * @throws IOException          */
+comment|/**          * Snapshot individual file          *<p>          * This is asynchronous method. Upon completion of the operation latch is getting counted down and any failures are          * added to the {@code failures} list          *          * @param fileInfo file to be snapshotted          */
 DECL|method|snapshotFile
 specifier|private
 name|void

@@ -207,7 +207,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a list of indices that should be included into the snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @param indices      * @return this builder      */
+comment|/**      * Sets a list of indices that should be included into the snapshot      *<p>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @return this builder      */
 DECL|method|setIndices
 specifier|public
 name|CreateSnapshotRequestBuilder
@@ -292,7 +292,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific snapshot settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|CreateSnapshotRequestBuilder
@@ -313,7 +313,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific snapshot settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|CreateSnapshotRequestBuilder
@@ -336,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings in YAML, JSON or properties format      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific snapshot settings in YAML, JSON or properties format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|CreateSnapshotRequestBuilder
@@ -357,7 +357,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
+comment|/**      * Sets repository-specific snapshot settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this builder      */
 DECL|method|setSettings
 specifier|public
 name|CreateSnapshotRequestBuilder

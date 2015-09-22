@@ -2964,7 +2964,7 @@ return|return
 name|recovered
 return|;
 block|}
-comment|/**          * returns the total number of translog operations needed to be recovered at this moment.          * Note that this can change as the number of operations grows during recovery.          *<p/>          * A value of -1 ({@link RecoveryState.Translog#UNKNOWN} is return if this is unknown (typically a gateway recovery)          */
+comment|/**          * returns the total number of translog operations needed to be recovered at this moment.          * Note that this can change as the number of operations grows during recovery.          *<p>          * A value of -1 ({@link RecoveryState.Translog#UNKNOWN} is return if this is unknown (typically a gateway recovery)          */
 DECL|method|totalOperations
 specifier|public
 specifier|synchronized
@@ -3012,7 +3012,7 @@ operator|+
 literal|"]"
 assert|;
 block|}
-comment|/**          * returns the total number of translog operations to recovered, on the start of the recovery. Unlike {@link #totalOperations}          * this does change during recovery.          *<p/>          * A value of -1 ({@link RecoveryState.Translog#UNKNOWN} is return if this is unknown (typically a gateway recovery)          */
+comment|/**          * returns the total number of translog operations to recovered, on the start of the recovery. Unlike {@link #totalOperations}          * this does change during recovery.          *<p>          * A value of -1 ({@link RecoveryState.Translog#UNKNOWN} is return if this is unknown (typically a gateway recovery)          */
 DECL|method|totalOperationsOnStart
 specifier|public
 specifier|synchronized

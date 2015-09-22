@@ -62,7 +62,7 @@ name|T
 name|part
 parameter_list|)
 function_decl|;
-comment|/**      * Writes the differences into the output stream      * @param out      * @throws IOException      */
+comment|/**      * Writes the differences into the output stream      */
 DECL|method|writeTo
 name|void
 name|writeTo

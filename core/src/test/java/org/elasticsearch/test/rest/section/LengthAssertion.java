@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a length assert section:  *<p/>  * - length:   { hits.hits: 1  }  */
+comment|/**  * Represents a length assert section:  *<p>  * - length:   { hits.hits: 1  }  */
 end_comment
 
 begin_class

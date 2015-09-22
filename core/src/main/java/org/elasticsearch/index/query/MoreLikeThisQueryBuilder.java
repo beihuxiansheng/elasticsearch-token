@@ -2414,7 +2414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the set of stopwords.      *<p/>      *<p>Any word in this set is considered "uninteresting" and ignored. Even if your Analyzer allows stopwords, you      * might want to tell the MoreLikeThis code to ignore them, as for the purposes of document similarity it seems      * reasonable to assume that "a stop word is never interesting".      */
+comment|/**      * Set the set of stopwords.      *<p>      * Any word in this set is considered "uninteresting" and ignored. Even if your Analyzer allows stopwords, you      * might want to tell the MoreLikeThis code to ignore them, as for the purposes of document similarity it seems      * reasonable to assume that "a stop word is never interesting".      */
 DECL|method|stopWords
 specifier|public
 name|MoreLikeThisQueryBuilder

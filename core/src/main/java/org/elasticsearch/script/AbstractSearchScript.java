@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for any script type that is used during the search process (custom score, aggs, and so on).  *<p/>  *<p>If the script returns a specific numeric type, consider overriding the type specific base classes  * such as {@link AbstractDoubleSearchScript}, {@link AbstractFloatSearchScript} and {@link AbstractLongSearchScript}  * for better performance.  *<p/>  *<p>The use is required to implement the {@link #run()} method.  */
+comment|/**  * A base class for any script type that is used during the search process (custom score, aggs, and so on).  *<p>  * If the script returns a specific numeric type, consider overriding the type specific base classes  * such as {@link AbstractDoubleSearchScript}, {@link AbstractFloatSearchScript} and {@link AbstractLongSearchScript}  * for better performance.  *<p>  * The use is required to implement the {@link #run()} method.  */
 end_comment
 
 begin_class

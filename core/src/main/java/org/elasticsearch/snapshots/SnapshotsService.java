@@ -659,7 +659,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Service responsible for creating snapshots  *<p/>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotsInProgress.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link SnapshotShardsService#processIndexShardSnapshots(ClusterChangedEvent)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link SnapshotShardsService#updateIndexShardSnapshotStatus} method</li>  *<li>When last shard is completed master node in {@link SnapshotShardsService#innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotsInProgress.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
+comment|/**  * Service responsible for creating snapshots  *<p>  * A typical snapshot creating process looks like this:  *<ul>  *<li>On the master node the {@link #createSnapshot(SnapshotRequest, CreateSnapshotListener)} is called and makes sure that no snapshots is currently running  * and registers the new snapshot in cluster state</li>  *<li>When cluster state is updated the {@link #beginSnapshot(ClusterState, SnapshotsInProgress.Entry, boolean, CreateSnapshotListener)} method  * kicks in and initializes the snapshot in the repository and then populates list of shards that needs to be snapshotted in cluster state</li>  *<li>Each data node is watching for these shards and when new shards scheduled for snapshotting appear in the cluster state, data nodes  * start processing them through {@link SnapshotShardsService#processIndexShardSnapshots(ClusterChangedEvent)} method</li>  *<li>Once shard snapshot is created data node updates state of the shard in the cluster state using the {@link SnapshotShardsService#updateIndexShardSnapshotStatus} method</li>  *<li>When last shard is completed master node in {@link SnapshotShardsService#innerUpdateSnapshotState} method marks the snapshot as completed</li>  *<li>After cluster state is updated, the {@link #endSnapshot(SnapshotsInProgress.Entry)} finalizes snapshot in the repository,  * notifies all {@link #snapshotCompletionListeners} that snapshot is completed, and finally calls {@link #removeSnapshotFromClusterState(SnapshotId, SnapshotInfo, Throwable)} to remove snapshot from cluster state</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -1071,7 +1071,7 @@ name|snapshotList
 argument_list|)
 return|;
 block|}
-comment|/**      * Initializes the snapshotting process.      *<p/>      * This method is used by clients to start snapshot. It makes sure that there is no snapshots are currently running and      * creates a snapshot record in cluster state metadata.      *      * @param request  snapshot request      * @param listener snapshot creation listener      */
+comment|/**      * Initializes the snapshotting process.      *<p>      * This method is used by clients to start snapshot. It makes sure that there is no snapshots are currently running and      * creates a snapshot record in cluster state metadata.      *      * @param request  snapshot request      * @param listener snapshot creation listener      */
 DECL|method|createSnapshot
 specifier|public
 name|void
@@ -1422,7 +1422,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Validates snapshot request      *      * @param request snapshot request      * @param state   current cluster state      * @throws org.elasticsearch.ElasticsearchException      */
+comment|/**      * Validates snapshot request      *      * @param request snapshot request      * @param state   current cluster state      */
 DECL|method|validate
 specifier|private
 name|void
@@ -1673,7 +1673,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Starts snapshot.      *<p/>      * Creates snapshot in repository and updates snapshot metadata record with list of shards that needs to be processed.      *      * @param clusterState               cluster state      * @param snapshot                   snapshot meta data      * @param partial                    allow partial snapshots      * @param userCreateSnapshotListener listener      */
+comment|/**      * Starts snapshot.      *<p>      * Creates snapshot in repository and updates snapshot metadata record with list of shards that needs to be processed.      *      * @param clusterState               cluster state      * @param snapshot                   snapshot meta data      * @param partial                    allow partial snapshots      * @param userCreateSnapshotListener listener      */
 DECL|method|beginSnapshot
 specifier|private
 name|void
@@ -4860,7 +4860,7 @@ name|closed
 argument_list|)
 return|;
 block|}
-comment|/**      * Finalizes the shard in repository and then removes it from cluster state      *<p/>      * This is non-blocking method that runs on a thread from SNAPSHOT thread pool      *      * @param entry snapshot      */
+comment|/**      * Finalizes the shard in repository and then removes it from cluster state      *<p>      * This is non-blocking method that runs on a thread from SNAPSHOT thread pool      *      * @param entry snapshot      */
 DECL|method|endSnapshot
 name|void
 name|endSnapshot
@@ -4879,7 +4879,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Finalizes the shard in repository and then removes it from cluster state      *<p/>      * This is non-blocking method that runs on a thread from SNAPSHOT thread pool      *      * @param entry   snapshot      * @param failure failure reason or null if snapshot was successful      */
+comment|/**      * Finalizes the shard in repository and then removes it from cluster state      *<p>      * This is non-blocking method that runs on a thread from SNAPSHOT thread pool      *      * @param entry   snapshot      * @param failure failure reason or null if snapshot was successful      */
 DECL|method|endSnapshot
 specifier|private
 name|void
@@ -5453,7 +5453,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Deletes snapshot from repository.      *<p/>      * If the snapshot is still running cancels the snapshot first and then deletes it from the repository.      *      * @param snapshotId snapshot id      * @param listener   listener      */
+comment|/**      * Deletes snapshot from repository.      *<p>      * If the snapshot is still running cancels the snapshot first and then deletes it from the repository.      *      * @param snapshotId snapshot id      * @param listener   listener      */
 DECL|method|deleteSnapshot
 specifier|public
 name|void

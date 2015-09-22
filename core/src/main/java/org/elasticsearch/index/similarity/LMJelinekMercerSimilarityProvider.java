@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for {@link LMJelinekMercerSimilarity}.  *<p/>  * Configuration options available:  *<ul>  *<li>lambda</li>  *</ul>  * @see LMJelinekMercerSimilarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for {@link LMJelinekMercerSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>lambda</li>  *</ul>  * @see LMJelinekMercerSimilarity For more information about configuration  */
 end_comment
 
 begin_class

@@ -491,7 +491,7 @@ return|return
 name|defaultConfig
 return|;
 block|}
-comment|/**      * Load the specification of a {@link CategoryContextMapping}      *       * @param field      *            name of the field to use. If<code>null</code> default field      *            will be used      * @return new {@link CategoryContextMapping}      */
+comment|/**      * Load the specification of a {@link CategoryContextMapping}      *       * @param name      *            name of the field to use. If<code>null</code> default field      *            will be used      * @return new {@link CategoryContextMapping}      */
 DECL|method|load
 specifier|protected
 specifier|static

@@ -105,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Pseudo randomly generate a score for each {@link #score}.  */
+comment|/**  * Pseudo randomly generate a score for each {@link LeafScoreFunction#score}.  */
 end_comment
 
 begin_class

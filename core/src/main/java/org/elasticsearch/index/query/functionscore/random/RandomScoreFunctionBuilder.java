@@ -121,7 +121,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * seed variant taking a long value.      * @see {@link #seed(int)}      */
+comment|/**      * seed variant taking a long value.      * @see #seed(int)      */
 DECL|method|seed
 specifier|public
 name|RandomScoreFunctionBuilder
@@ -141,7 +141,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * seed variant taking a String value.      * @see {@link #seed(int)}      */
+comment|/**      * seed variant taking a String value.      * @see #seed(int)      */
 DECL|method|seed
 specifier|public
 name|RandomScoreFunctionBuilder

@@ -225,7 +225,7 @@ name|hash
 argument_list|)
 return|;
 block|}
-comment|/**      * Return the key at<code>0&lte; index&lte; capacity()</code>. The result is undefined if the slot is unused.      *<p color="red">Beware that the content of the {@link BytesRef} may become invalid as soon as {@link #close()} is called</p>      */
+comment|/**      * Return the key at<code>0&lt;= index&lt;= capacity()</code>. The result is undefined if the slot is unused.      *<p>Beware that the content of the {@link BytesRef} may become invalid as soon as {@link #close()} is called</p>      */
 DECL|method|get
 specifier|public
 name|BytesRef
@@ -737,7 +737,7 @@ break|break;
 block|}
 block|}
 block|}
-comment|/**      * Try to add<code>key</code>. Return its newly allocated id if it wasn't in the hash table yet, or</code>-1-id</code>      * if it was already present in the hash table.      */
+comment|/**      * Try to add<code>key</code>. Return its newly allocated id if it wasn't in the hash table yet, or<code>-1-id</code>      * if it was already present in the hash table.      */
 DECL|method|add
 specifier|public
 name|long

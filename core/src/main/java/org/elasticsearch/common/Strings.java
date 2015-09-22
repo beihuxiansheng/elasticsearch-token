@@ -329,7 +329,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Splits a backslash escaped string on the separator.      *<p/>      * Current backslash escaping supported:      *<br> \n \t \r \b \f are escaped the same as a Java String      *<br> Other characters following a backslash are produced verbatim (\c => c)      *      * @param s         the string to split      * @param separator the separator to split on      * @param decode    decode backslash escaping      */
+comment|/**      * Splits a backslash escaped string on the separator.      *<p>      * Current backslash escaping supported:      *<br> \n \t \r \b \f are escaped the same as a Java String      *<br> Other characters following a backslash are produced verbatim (\c =&gt; c)      *      * @param s         the string to split      * @param separator the separator to split on      * @param decode    decode backslash escaping      */
 DECL|method|splitSmart
 specifier|public
 specifier|static
@@ -573,7 +573,7 @@ block|}
 comment|//---------------------------------------------------------------------
 comment|// General convenience methods for working with Strings
 comment|//---------------------------------------------------------------------
-comment|/**      * Check that the given CharSequence is neither<code>null</code> nor of length 0.      * Note: Will return<code>true</code> for a CharSequence that purely consists of whitespace.      *<p><pre>      * StringUtils.hasLength(null) = false      * StringUtils.hasLength("") = false      * StringUtils.hasLength(" ") = true      * StringUtils.hasLength("Hello") = true      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is not null and has length      * @see #hasText(String)      */
+comment|/**      * Check that the given CharSequence is neither<code>null</code> nor of length 0.      * Note: Will return<code>true</code> for a CharSequence that purely consists of whitespace.      *<pre>      * StringUtils.hasLength(null) = false      * StringUtils.hasLength("") = false      * StringUtils.hasLength(" ") = true      * StringUtils.hasLength("Hello") = true      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is not null and has length      * @see #hasText(String)      */
 DECL|method|hasLength
 specifier|public
 specifier|static
@@ -646,7 +646,7 @@ name|str
 argument_list|)
 return|;
 block|}
-comment|/**      * Check that the given CharSequence is either<code>null</code> or of length 0.      * Note: Will return<code>false</code> for a CharSequence that purely consists of whitespace.      *<p><pre>      * StringUtils.isEmpty(null) = true      * StringUtils.isEmpty("") = true      * StringUtils.isEmpty(" ") = false      * StringUtils.isEmpty("Hello") = false      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is either null or has a zero length      */
+comment|/**      * Check that the given CharSequence is either<code>null</code> or of length 0.      * Note: Will return<code>false</code> for a CharSequence that purely consists of whitespace.      *<pre>      * StringUtils.isEmpty(null) = true      * StringUtils.isEmpty("") = true      * StringUtils.isEmpty(" ") = false      * StringUtils.isEmpty("Hello") = false      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is either null or has a zero length      */
 DECL|method|isEmpty
 specifier|public
 specifier|static
@@ -665,7 +665,7 @@ name|str
 argument_list|)
 return|;
 block|}
-comment|/**      * Check whether the given CharSequence has actual text.      * More specifically, returns<code>true</code> if the string not<code>null</code>,      * its length is greater than 0, and it contains at least one non-whitespace character.      *<p><pre>      * StringUtils.hasText(null) = false      * StringUtils.hasText("") = false      * StringUtils.hasText(" ") = false      * StringUtils.hasText("12345") = true      * StringUtils.hasText(" 12345 ") = true      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is not<code>null</code>,      *         its length is greater than 0, and it does not contain whitespace only      * @see java.lang.Character#isWhitespace      */
+comment|/**      * Check whether the given CharSequence has actual text.      * More specifically, returns<code>true</code> if the string not<code>null</code>,      * its length is greater than 0, and it contains at least one non-whitespace character.      *<pre>      * StringUtils.hasText(null) = false      * StringUtils.hasText("") = false      * StringUtils.hasText(" ") = false      * StringUtils.hasText("12345") = true      * StringUtils.hasText(" 12345 ") = true      *</pre>      *      * @param str the CharSequence to check (may be<code>null</code>)      * @return<code>true</code> if the CharSequence is not<code>null</code>,      *         its length is greater than 0, and it does not contain whitespace only      * @see java.lang.Character#isWhitespace      */
 DECL|method|hasText
 specifier|public
 specifier|static
@@ -1399,7 +1399,7 @@ block|}
 comment|//---------------------------------------------------------------------
 comment|// Convenience methods for working with formatted Strings
 comment|//---------------------------------------------------------------------
-comment|/**      * Quote the given String with single quotes.      *      * @param str the input String (e.g. "myString")      * @return the quoted String (e.g. "'myString'"),      *         or<code>null<code> if the input was<code>null</code>      */
+comment|/**      * Quote the given String with single quotes.      *      * @param str the input String (e.g. "myString")      * @return the quoted String (e.g. "'myString'"),      *         or<code>null</code> if the input was<code>null</code>      */
 DECL|method|quote
 specifier|public
 specifier|static

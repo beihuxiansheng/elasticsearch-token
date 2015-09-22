@@ -52,7 +52,7 @@ specifier|public
 class|class
 name|IndexLookup
 block|{
-comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * offsets in the returned {@link IndexFieldTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(Object, int)} if you require      * offsets in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_OFFSETS
 specifier|public
 specifier|static
@@ -62,7 +62,7 @@ name|FLAG_OFFSETS
 init|=
 literal|2
 decl_stmt|;
-comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * payloads in the returned {@link IndexFieldTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(Object, int)} if you require      * payloads in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_PAYLOADS
 specifier|public
 specifier|static
@@ -72,7 +72,7 @@ name|FLAG_PAYLOADS
 init|=
 literal|4
 decl_stmt|;
-comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * frequencies in the returned {@link IndexFieldTerm}. Frequencies might be      * returned anyway for some lucene codecs even if this flag is no set.      */
+comment|/**      * Flag to pass to {@link IndexField#get(Object, int)} if you require      * frequencies in the returned {@link IndexFieldTerm}. Frequencies might be      * returned anyway for some lucene codecs even if this flag is no set.      */
 DECL|field|FLAG_FREQUENCIES
 specifier|public
 specifier|static
@@ -82,7 +82,7 @@ name|FLAG_FREQUENCIES
 init|=
 literal|8
 decl_stmt|;
-comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * positions in the returned {@link IndexFieldTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(Object, int)} if you require      * positions in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_POSITIONS
 specifier|public
 specifier|static
@@ -92,7 +92,7 @@ name|FLAG_POSITIONS
 init|=
 literal|16
 decl_stmt|;
-comment|/**      * Flag to pass to {@link IndexField#get(String, flags)} if you require      * positions in the returned {@link IndexFieldTerm}.      */
+comment|/**      * Flag to pass to {@link IndexField#get(Object, int)} if you require      * positions in the returned {@link IndexFieldTerm}.      */
 DECL|field|FLAG_CACHE
 specifier|public
 specifier|static

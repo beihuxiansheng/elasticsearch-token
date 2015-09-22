@@ -189,7 +189,7 @@ name|precision
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link CategoryMapping}      */
+comment|/**      * Create a new {@link CategoryContextMapping.Builder}      */
 DECL|method|category
 specifier|public
 specifier|static
@@ -214,7 +214,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Create a new {@link CategoryMapping} with default category      *       * @param defaultCategory category to use, if it is not provided      */
+comment|/**      * Create a new {@link CategoryContextMapping.Builder} with default category      *       * @param defaultCategory category to use, if it is not provided      */
 DECL|method|category
 specifier|public
 specifier|static

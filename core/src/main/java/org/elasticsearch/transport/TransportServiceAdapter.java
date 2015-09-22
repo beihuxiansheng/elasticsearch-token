@@ -75,7 +75,7 @@ name|TransportRequestOptions
 name|options
 parameter_list|)
 function_decl|;
-comment|/** called by the {@link Transport) implementation once a response was sent to calling node */
+comment|/** called by the {@link Transport} implementation once a response was sent to calling node */
 DECL|method|onResponseSent
 name|void
 name|onResponseSent
@@ -93,7 +93,7 @@ name|TransportResponseOptions
 name|options
 parameter_list|)
 function_decl|;
-comment|/** called by the {@link Transport) implementation after an exception was sent as a response to an incoming request */
+comment|/** called by the {@link Transport} implementation after an exception was sent as a response to an incoming request */
 DECL|method|onResponseSent
 name|void
 name|onResponseSent
@@ -108,7 +108,7 @@ name|Throwable
 name|t
 parameter_list|)
 function_decl|;
-comment|/**      * called by the {@link Transport) implementation when a response or an exception has been recieved for a previously      * sent request (before any processing or deserialization was done). Returns the appropriate response handler or null if not      * found.      */
+comment|/**      * called by the {@link Transport} implementation when a response or an exception has been received for a previously      * sent request (before any processing or deserialization was done). Returns the appropriate response handler or null if not      * found.      */
 DECL|method|onResponseReceived
 name|TransportResponseHandler
 name|onResponseReceived
@@ -117,7 +117,7 @@ name|long
 name|requestId
 parameter_list|)
 function_decl|;
-comment|/**      * called by the {@link Transport) implementation when an incoming request arrives but before      * any parsing of it has happened (with the exception of the requestId and action)      */
+comment|/**      * called by the {@link Transport} implementation when an incoming request arrives but before      * any parsing of it has happened (with the exception of the requestId and action)      */
 DECL|method|onRequestReceived
 name|void
 name|onRequestReceived

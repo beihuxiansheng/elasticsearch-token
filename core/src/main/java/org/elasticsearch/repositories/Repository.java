@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Snapshot repository interface.  *<p/>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p/>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(org.elasticsearch.cluster.metadata.SnapshotId, org.elasticsearch.index.shard.ShardId, org.elasticsearch.index.deletionpolicy.SnapshotIndexCommit, org.elasticsearch.index.snapshots.IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
+comment|/**  * Snapshot repository interface.  *<p>  * Responsible for index and cluster level operations. It's called only on master.  * Shard-level operations are performed using {@link org.elasticsearch.index.snapshots.IndexShardRepository}  * interface on data nodes.  *<p>  * Typical snapshot usage pattern:  *<ul>  *<li>Master calls {@link #initializeSnapshot(org.elasticsearch.cluster.metadata.SnapshotId, List, org.elasticsearch.cluster.metadata.MetaData)}  * with list of indices that will be included into the snapshot</li>  *<li>Data nodes call {@link org.elasticsearch.index.snapshots.IndexShardRepository#snapshot(org.elasticsearch.cluster.metadata.SnapshotId, org.elasticsearch.index.shard.ShardId, org.elasticsearch.index.deletionpolicy.SnapshotIndexCommit, org.elasticsearch.index.snapshots.IndexShardSnapshotStatus)} for each shard</li>  *<li>When all shard calls return master calls {@link #finalizeSnapshot}  * with possible list of failures</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -124,7 +124,7 @@ name|SnapshotId
 name|snapshotId
 parameter_list|)
 function_decl|;
-comment|/**      * Returns global metadata associate with the snapshot.      *<p/>      * The returned meta data contains global metadata as well as metadata for all indices listed in the indices parameter.      *      * @param snapshot snapshot      * @param indices    list of indices      * @return information about snapshot      */
+comment|/**      * Returns global metadata associate with the snapshot.      *<p>      * The returned meta data contains global metadata as well as metadata for all indices listed in the indices parameter.      *      * @param snapshot snapshot      * @param indices    list of indices      * @return information about snapshot      */
 DECL|method|readSnapshotMetaData
 name|MetaData
 name|readSnapshotMetaData
@@ -171,7 +171,7 @@ name|MetaData
 name|metaData
 parameter_list|)
 function_decl|;
-comment|/**      * Finalizes snapshotting process      *<p/>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
+comment|/**      * Finalizes snapshotting process      *<p>      * This method is called on master after all shards are snapshotted.      *      * @param snapshotId    snapshot id      * @param failure       global failure reason or null      * @param totalShards   total number of shards      * @param shardFailures list of shard failures      * @return snapshot description      */
 DECL|method|finalizeSnapshot
 name|Snapshot
 name|finalizeSnapshot
@@ -222,13 +222,13 @@ name|long
 name|restoreThrottleTimeInNanos
 parameter_list|()
 function_decl|;
-comment|/**      * Verifies repository on the master node and returns the verification token.      *<p/>      * If the verification token is not null, it's passed to all data nodes for verification. If it's null - no      * additional verification is required      *      * @return verification token that should be passed to all Index Shard Repositories for additional verification or null      */
+comment|/**      * Verifies repository on the master node and returns the verification token.      *<p>      * If the verification token is not null, it's passed to all data nodes for verification. If it's null - no      * additional verification is required      *      * @return verification token that should be passed to all Index Shard Repositories for additional verification or null      */
 DECL|method|startVerification
 name|String
 name|startVerification
 parameter_list|()
 function_decl|;
-comment|/**      * Called at the end of repository verification process.      *<p/>      * This method should perform all necessary cleanup of the temporary files created in the repository      *      * @param verificationToken verification request generated by {@link #startVerification} command      */
+comment|/**      * Called at the end of repository verification process.      *<p>      * This method should perform all necessary cleanup of the temporary files created in the repository      *      * @param verificationToken verification request generated by {@link #startVerification} command      */
 DECL|method|endVerification
 name|void
 name|endVerification

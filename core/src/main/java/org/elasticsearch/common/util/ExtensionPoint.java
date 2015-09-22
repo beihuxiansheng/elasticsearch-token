@@ -914,7 +914,7 @@ operator|=
 name|valueType
 expr_stmt|;
 block|}
-comment|/**          * Registers a mapping from {@param key} to {@param value}          *          * @throws IllegalArgumentException iff the key is already registered          */
+comment|/**          * Registers a mapping from {@code key} to {@code value}          *          * @throws IllegalArgumentException iff the key is already registered          */
 DECL|method|registerExtension
 specifier|public
 specifier|final

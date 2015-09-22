@@ -1219,7 +1219,7 @@ name|resolvedAliasOrIndex
 argument_list|)
 return|;
 block|}
-comment|/**      * Iterates through the list of indices and selects the effective list of filtering aliases for the      * given index.      *<p/>      *<p>Only aliases with filters are returned. If the indices list contains a non-filtering reference to      * the index itself - null is returned. Returns<tt>null</tt> if no filtering is required.</p>      */
+comment|/**      * Iterates through the list of indices and selects the effective list of filtering aliases for the      * given index.      *<p>Only aliases with filters are returned. If the indices list contains a non-filtering reference to      * the index itself - null is returned. Returns<tt>null</tt> if no filtering is required.      */
 DECL|method|filteringAliases
 specifier|public
 name|String

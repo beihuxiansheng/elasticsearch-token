@@ -423,7 +423,7 @@ literal|"."
 argument_list|)
 return|;
 block|}
-comment|/**      * Appends the path to the given base and strips N elements off the path if strip is> 0.      */
+comment|/**      * Appends the path to the given base and strips N elements off the path if strip is&gt; 0.      */
 DECL|method|append
 specifier|public
 specifier|static

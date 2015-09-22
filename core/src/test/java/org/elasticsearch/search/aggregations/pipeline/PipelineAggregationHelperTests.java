@@ -140,7 +140,7 @@ name|PipelineAggregationHelperTests
 extends|extends
 name|ESTestCase
 block|{
-comment|/**      * Generates a mock histogram to use for testing.  Each MockBucket holds a doc count, key and document values      * which can later be used to compute metrics and compare against the real aggregation results.  Gappiness can be      * controlled via parameters      *      * @param interval          Interval between bucket keys      * @param size              Size of mock histogram to generate (in buckets)      * @param gapProbability    Probability of generating an empty bucket. 0.0-1.0 inclusive      * @param runProbability    Probability of extending a gap once one has been created.  0.0-1.0 inclusive      * @return      */
+comment|/**      * Generates a mock histogram to use for testing.  Each MockBucket holds a doc count, key and document values      * which can later be used to compute metrics and compare against the real aggregation results.  Gappiness can be      * controlled via parameters      *      * @param interval          Interval between bucket keys      * @param size              Size of mock histogram to generate (in buckets)      * @param gapProbability    Probability of generating an empty bucket. 0.0-1.0 inclusive      * @param runProbability    Probability of extending a gap once one has been created.  0.0-1.0 inclusive      */
 DECL|method|generateHistogram
 specifier|public
 specifier|static
@@ -484,7 +484,7 @@ name|long
 name|key
 decl_stmt|;
 block|}
-comment|/**      * Computes a simple agg metric (min, sum, etc) from the provided values      *      * @param values Array of values to compute metric for      * @param metric A metric builder which defines what kind of metric should be returned for the values      * @return      */
+comment|/**      * Computes a simple agg metric (min, sum, etc) from the provided values      *      * @param values Array of values to compute metric for      * @param metric A metric builder which defines what kind of metric should be returned for the values      */
 DECL|method|calculateMetric
 specifier|public
 specifier|static

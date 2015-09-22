@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines how to perform suggesting. This builders allows a number of global options to be specified and  * an arbitrary number of {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder} instances.  *<p/>  * Suggesting works by suggesting terms that appear in the suggest text that are similar compared to the terms in  * provided text. These spelling suggestions are based on several options described in this class.  */
+comment|/**  * Defines how to perform suggesting. This builders allows a number of global options to be specified and  * an arbitrary number of {@link org.elasticsearch.search.suggest.term.TermSuggestionBuilder} instances.  *<p>  * Suggesting works by suggesting terms that appear in the suggest text that are similar compared to the terms in  * provided text. These spelling suggestions are based on several options described in this class.  */
 end_comment
 
 begin_class
@@ -191,7 +191,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * Sets the text to provide suggestions for. The suggest text is a required option that needs      * to be set either via this setter or via the {@link org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder#setText(String)} method.      *<p/>      * The suggest text gets analyzed by the suggest analyzer or the suggest field search analyzer.      * For each analyzed token, suggested terms are suggested if possible.      */
+comment|/**      * Sets the text to provide suggestions for. The suggest text is a required option that needs      * to be set either via this setter or via the {@link org.elasticsearch.search.suggest.SuggestBuilder.SuggestionBuilder#setText(String)} method.      *<p>      * The suggest text gets analyzed by the suggest analyzer or the suggest field search analyzer.      * For each analyzed token, suggested terms are suggested if possible.      */
 DECL|method|setText
 specifier|public
 name|SuggestBuilder
@@ -997,7 +997,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**          * Sets the maximum number of suggested term to be retrieved from each          * individual shard. During the reduce phase the only the top N suggestions          * are returned based on the<code>size</code> option. Defaults to the          *<code>size</code> option.          *<p/>          * Setting this to a value higher than the `size` can be useful in order to          * get a more accurate document frequency for suggested terms. Due to the          * fact that terms are partitioned amongst shards, the shard level document          * frequencies of suggestions may not be precise. Increasing this will make          * these document frequencies more precise.          */
+comment|/**          * Sets the maximum number of suggested term to be retrieved from each          * individual shard. During the reduce phase the only the top N suggestions          * are returned based on the<code>size</code> option. Defaults to the          *<code>size</code> option.          *<p>          * Setting this to a value higher than the `size` can be useful in order to          * get a more accurate document frequency for suggested terms. Due to the          * fact that terms are partitioned amongst shards, the shard level document          * frequencies of suggestions may not be precise. Increasing this will make          * these document frequencies more precise.          */
 annotation|@
 name|SuppressWarnings
 argument_list|(

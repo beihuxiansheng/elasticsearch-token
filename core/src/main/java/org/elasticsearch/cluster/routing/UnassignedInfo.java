@@ -260,7 +260,7 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-comment|/**      * Reason why the shard is in unassigned state.      *<p/>      * Note, ordering of the enum is important, make sure to add new values      * at the end and handle version serialization properly.      */
+comment|/**      * Reason why the shard is in unassigned state.      *<p>      * Note, ordering of the enum is important, make sure to add new values      * at the end and handle version serialization properly.      */
 DECL|enum|Reason
 specifier|public
 enum|enum

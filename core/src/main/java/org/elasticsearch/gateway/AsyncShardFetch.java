@@ -283,7 +283,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows to asynchronously fetch shard related data from other nodes for allocation, without blocking  * the cluster update thread.  *<p/>  * The async fetch logic maintains a map of which nodes are being fetched from in an async manner,  * and once the results are back, it makes sure to schedule a reroute to make sure those results will  * be taken into account.  */
+comment|/**  * Allows to asynchronously fetch shard related data from other nodes for allocation, without blocking  * the cluster update thread.  *<p>  * The async fetch logic maintains a map of which nodes are being fetched from in an async manner,  * and once the results are back, it makes sure to schedule a reroute to make sure those results will  * be taken into account.  */
 end_comment
 
 begin_class
@@ -536,7 +536,7 @@ return|return
 name|count
 return|;
 block|}
-comment|/**      * Fetches the data for the relevant shard. If there any ongoing async fetches going on, or new ones have      * been initiated by this call, the result will have no data.      *<p/>      * The ignoreNodes are nodes that are supposed to be ignored for this round, since fetching is async, we need      * to keep them around and make sure we add them back when all the responses are fetched and returned.      */
+comment|/**      * Fetches the data for the relevant shard. If there any ongoing async fetches going on, or new ones have      * been initiated by this call, the result will have no data.      *<p>      * The ignoreNodes are nodes that are supposed to be ignored for this round, since fetching is async, we need      * to keep them around and make sure we add them back when all the responses are fetched and returned.      */
 DECL|method|fetchData
 specifier|public
 specifier|synchronized

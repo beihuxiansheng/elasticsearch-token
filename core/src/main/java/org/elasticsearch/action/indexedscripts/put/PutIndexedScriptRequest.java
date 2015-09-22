@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Index request to index a script to the script index and make it available at search time.  *<p/>  *<p>The request requires the  {@link #scriptLang(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *<p/>  *<p>The source (content to index) can be set in its bytes form using ({@link #source()} (byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p/>  *<p>If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see PutIndexedScriptResponse  */
+comment|/**  * Index request to index a script to the script index and make it available at search time.  *<p>  * The request requires the  {@link #scriptLang(String)}, {@link #id(String)} and  * {@link #source(byte[])} to be set.  *<p>  * The source (content to index) can be set in its bytes form using ({@link #source()} (byte[])}),  * its string form ({@link #source(String)}) or using a {@link org.elasticsearch.common.xcontent.XContentBuilder}  * ({@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}).  *<p>  * If the {@link #id(String)} is not set, it will be automatically generated.  *  * @see PutIndexedScriptResponse  */
 end_comment
 
 begin_class
@@ -770,7 +770,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Sets the document source to index.      *<p/>      *<p>Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
+comment|/**      * Sets the document source to index.      *<p>      * Note, its preferable to either set it using {@link #source(org.elasticsearch.common.xcontent.XContentBuilder)}      * or using the {@link #source(byte[])}.      */
 DECL|method|source
 specifier|public
 name|PutIndexedScriptRequest

@@ -834,7 +834,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Checks the request parameters against enabled settings for error trace support      * @param request      * @param channel      * @return true if the request does not have any parameters that conflict with system settings      */
+comment|/**      * Checks the request parameters against enabled settings for error trace support      * @return true if the request does not have any parameters that conflict with system settings      */
 DECL|method|checkRequestParameters
 name|boolean
 name|checkRequestParameters

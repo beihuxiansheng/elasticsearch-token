@@ -365,7 +365,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Create snapshot request  *<p/>  * The only mandatory parameter is repository name. The repository name has to satisfy the following requirements  *<ul>  *<li>be a non-empty string</li>  *<li>must not contain whitespace (tabs or spaces)</li>  *<li>must not contain comma (',')</li>  *<li>must not contain hash sign ('#')</li>  *<li>must not start with underscore ('-')</li>  *<li>must be lowercase</li>  *<li>must not contain invalid file name characters {@link org.elasticsearch.common.Strings#INVALID_FILENAME_CHARS}</li>  *</ul>  */
+comment|/**  * Create snapshot request  *<p>  * The only mandatory parameter is repository name. The repository name has to satisfy the following requirements  *<ul>  *<li>be a non-empty string</li>  *<li>must not contain whitespace (tabs or spaces)</li>  *<li>must not contain comma (',')</li>  *<li>must not contain hash sign ('#')</li>  *<li>must not start with underscore ('-')</li>  *<li>must be lowercase</li>  *<li>must not contain invalid file name characters {@link org.elasticsearch.common.Strings#INVALID_FILENAME_CHARS}</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -665,7 +665,7 @@ operator|.
 name|repository
 return|;
 block|}
-comment|/**      * Sets a list of indices that should be included into the snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @param indices      * @return this request      */
+comment|/**      * Sets a list of indices that should be included into the snapshot      *<p>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @return this request      */
 annotation|@
 name|Override
 DECL|method|indices
@@ -688,7 +688,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a list of indices that should be included into the snapshot      *<p/>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @param indices      * @return this request      */
+comment|/**      * Sets a list of indices that should be included into the snapshot      *<p>      * The list of indices supports multi-index syntax. For example: "+test*" ,"-test42" will index all indices with      * prefix "test" except index "test42". Aliases are supported. An empty list or {"_all"} will snapshot all open      * indices in the cluster.      *      * @return this request      */
 DECL|method|indices
 specifier|public
 name|CreateSnapshotRequest
@@ -832,7 +832,7 @@ return|return
 name|waitForCompletion
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific snapshot settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|CreateSnapshotRequest
@@ -852,7 +852,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific snapshot settings.      *<p>      * See repository documentation for more information.      *      * @param settings repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|CreateSnapshotRequest
@@ -877,7 +877,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings in JSON, YAML or properties format      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific snapshot settings in JSON, YAML or properties format      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|CreateSnapshotRequest
@@ -908,7 +908,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets repository-specific snapshot settings.      *<p/>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
+comment|/**      * Sets repository-specific snapshot settings.      *<p>      * See repository documentation for more information.      *      * @param source repository-specific snapshot settings      * @return this request      */
 DECL|method|settings
 specifier|public
 name|CreateSnapshotRequest

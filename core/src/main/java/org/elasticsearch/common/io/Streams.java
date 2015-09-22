@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Simple utility methods for file and stream copying.  * All copy methods use a block size of 4096 bytes,  * and close all affected streams when done.  *<p/>  *<p>Mainly for use within the framework,  * but also useful for application code.  */
+comment|/**  * Simple utility methods for file and stream copying.  * All copy methods use a block size of 4096 bytes,  * and close all affected streams when done.  *<p>  * Mainly for use within the framework,  * but also useful for application code.  */
 end_comment
 
 begin_class

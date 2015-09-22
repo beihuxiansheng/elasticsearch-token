@@ -965,7 +965,7 @@ literal|3l
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set offset so day buckets start at 6am. Index first 12 hours for two days, with one day gap.      * @throws Exception      */
+comment|/**      * Set offset so day buckets start at 6am. Index first 12 hours for two days, with one day gap.      */
 annotation|@
 name|Test
 DECL|method|singleValue_WithOffset_MinDocCount

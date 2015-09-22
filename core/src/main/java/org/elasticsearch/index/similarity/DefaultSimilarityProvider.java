@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for {@link DefaultSimilarity}.  *<p/>  * Configuration options available:  *<ul>  *<li>discount_overlaps</li>  *</ul>  * @see DefaultSimilarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for {@link DefaultSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>discount_overlaps</li>  *</ul>  * @see DefaultSimilarity For more information about configuration  */
 end_comment
 
 begin_class

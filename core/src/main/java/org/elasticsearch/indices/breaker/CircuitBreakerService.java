@@ -88,7 +88,7 @@ name|settings
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Allows to register of a custom circuit breaker.      *      * @param breakerSettings      */
+comment|/**      * Allows to register of a custom circuit breaker.      */
 DECL|method|registerBreaker
 specifier|public
 specifier|abstract

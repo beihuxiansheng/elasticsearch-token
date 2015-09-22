@@ -432,7 +432,7 @@ return|return
 name|startTime
 return|;
 block|}
-comment|/**      * Returns time when snapshot ended      *<p/>      * Can be 0L if snapshot is still running      *      * @return snapshot end time      */
+comment|/**      * Returns time when snapshot ended      *<p>      * Can be 0L if snapshot is still running      *      * @return snapshot end time      */
 DECL|method|endTime
 specifier|public
 name|long
@@ -1405,7 +1405,7 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads snapshot information from stream input      *      * @param in stream input      * @return deserialized snapshot info      * @throws IOException      */
+comment|/**      * Reads snapshot information from stream input      *      * @param in stream input      * @return deserialized snapshot info      */
 DECL|method|readSnapshotInfo
 specifier|public
 specifier|static
@@ -1436,7 +1436,7 @@ return|return
 name|snapshotInfo
 return|;
 block|}
-comment|/**      * Reads optional snapshot information from stream input      *      * @param in stream input      * @return deserialized snapshot info or null      * @throws IOException      */
+comment|/**      * Reads optional snapshot information from stream input      *      * @param in stream input      * @return deserialized snapshot info or null      */
 DECL|method|readOptionalSnapshotInfo
 specifier|public
 specifier|static

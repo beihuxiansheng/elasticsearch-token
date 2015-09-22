@@ -919,7 +919,7 @@ operator|.
 name|API_AND_GATEWAY
 return|;
 block|}
-comment|/**      * Serializes information about a single repository      *      * @param repository repository metadata      * @param builder    XContent builder      * @param params     serialization parameters      * @throws IOException      */
+comment|/**      * Serializes information about a single repository      *      * @param repository repository metadata      * @param builder    XContent builder      * @param params     serialization parameters      */
 DECL|method|toXContent
 specifier|public
 specifier|static

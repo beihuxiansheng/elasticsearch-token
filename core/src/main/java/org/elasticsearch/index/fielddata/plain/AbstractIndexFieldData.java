@@ -459,7 +459,7 @@ name|int
 name|maxDoc
 parameter_list|)
 function_decl|;
-comment|/**      * A {@code PerValueEstimator} is a sub-class that can be used to estimate      * the memory overhead for loading the data. Each field data      * implementation should implement its own {@code PerValueEstimator} if it      * intends to take advantage of the MemoryCircuitBreaker.      *<p/>      * Note that the .beforeLoad(...) and .afterLoad(...) methods must be      * manually called.      */
+comment|/**      * A {@code PerValueEstimator} is a sub-class that can be used to estimate      * the memory overhead for loading the data. Each field data      * implementation should implement its own {@code PerValueEstimator} if it      * intends to take advantage of the MemoryCircuitBreaker.      *<p>      * Note that the .beforeLoad(...) and .afterLoad(...) methods must be      * manually called.      */
 DECL|interface|PerValueEstimator
 specifier|public
 interface|interface
@@ -475,7 +475,7 @@ name|BytesRef
 name|term
 parameter_list|)
 function_decl|;
-comment|/**          * Execute any pre-loading estimations for the terms. May also          * optionally wrap a {@link TermsEnum} in a          * {@link RamAccountingTermsEnum}          * which will estimate the memory on a per-term basis.          *          * @param terms terms to be estimated          * @return A TermsEnum for the given terms          * @throws IOException          */
+comment|/**          * Execute any pre-loading estimations for the terms. May also          * optionally wrap a {@link TermsEnum} in a          * {@link RamAccountingTermsEnum}          * which will estimate the memory on a per-term basis.          *          * @param terms terms to be estimated          * @return A TermsEnum for the given terms          */
 DECL|method|beforeLoad
 specifier|public
 name|TermsEnum

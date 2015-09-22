@@ -607,7 +607,7 @@ return|return
 name|startTime
 return|;
 block|}
-comment|/**      * Returns time when snapshot ended      *<p/>      * Can be 0L if snapshot is still running      *      * @return snapshot end time      */
+comment|/**      * Returns time when snapshot ended      *<p>      * Can be 0L if snapshot is still running      *      * @return snapshot end time      */
 DECL|method|endTime
 specifier|public
 name|long

@@ -452,7 +452,7 @@ name|id
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**          * Deserialize the SeasonalityType from the input stream          *          * @param in  the input stream          * @return    SeasonalityType Enum          * @throws IOException          */
+comment|/**          * Deserialize the SeasonalityType from the input stream          *          * @param in  the input stream          * @return    SeasonalityType Enum          */
 DECL|method|readFrom
 specifier|public
 specifier|static

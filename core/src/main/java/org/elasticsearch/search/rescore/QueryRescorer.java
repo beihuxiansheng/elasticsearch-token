@@ -1249,7 +1249,7 @@ return|;
 block|}
 block|}
 decl_stmt|;
-comment|/** Returns a new {@link TopDocs} with the topN from the incoming one, or the same TopDocs if the number of hits is already<=      *  topN. */
+comment|/** Returns a new {@link TopDocs} with the topN from the incoming one, or the same TopDocs if the number of hits is already&lt;=      *  topN. */
 DECL|method|topN
 specifier|private
 name|TopDocs

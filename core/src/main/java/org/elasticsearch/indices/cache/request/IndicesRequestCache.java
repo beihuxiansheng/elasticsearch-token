@@ -537,7 +537,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The indices request cache allows to cache a shard level request stage responses, helping with improving  * similar requests that are potentially expensive (because of aggs for example). The cache is fully coherent  * with the semantics of NRT (the index reader version is part of the cache key), and relies on size based  * eviction to evict old reader associated cache entries as well as scheduler reaper to clean readers that  * are no longer used or closed shards.  *<p/>  * Currently, the cache is only enabled for {@link SearchType#COUNT}, and can only be opted in on an index  * level setting that can be dynamically changed and defaults to false.  *<p/>  * There are still several TODOs left in this class, some easily addressable, some more complex, but the support  * is functional.  */
+comment|/**  * The indices request cache allows to cache a shard level request stage responses, helping with improving  * similar requests that are potentially expensive (because of aggs for example). The cache is fully coherent  * with the semantics of NRT (the index reader version is part of the cache key), and relies on size based  * eviction to evict old reader associated cache entries as well as scheduler reaper to clean readers that  * are no longer used or closed shards.  *<p>  * Currently, the cache is only enabled for count requests, and can only be opted in on an index  * level setting that can be dynamically changed and defaults to false.  *<p>  * There are still several TODOs left in this class, some easily addressable, some more complex, but the support  * is functional.  */
 end_comment
 
 begin_class

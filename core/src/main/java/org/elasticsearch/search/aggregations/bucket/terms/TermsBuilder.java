@@ -296,7 +296,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Define a regular expression that will determine what terms should be aggregated. The regular expression is based      * on the {@link RegExp} class.      *      * @see {@link RegExp#RegExp(String)}      */
+comment|/**      * Define a regular expression that will determine what terms should be aggregated. The regular expression is based      * on the {@link RegExp} class.      *      * @see RegExp#RegExp(String)      */
 DECL|method|include
 specifier|public
 name|TermsBuilder
@@ -565,7 +565,7 @@ return|return
 name|termsAsString
 return|;
 block|}
-comment|/**      * Define a regular expression that will filter out terms that should be excluded from the aggregation. The regular      * expression is based on the {@link RegExp} class.      *      * @see {@link RegExp#RegExp(String)}      */
+comment|/**      * Define a regular expression that will filter out terms that should be excluded from the aggregation. The regular      * expression is based on the {@link RegExp} class.      *      * @see RegExp#RegExp(String)      */
 DECL|method|exclude
 specifier|public
 name|TermsBuilder

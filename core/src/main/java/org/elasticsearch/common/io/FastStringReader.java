@@ -37,7 +37,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *<p/>  * (shay.banon  * )  */
+comment|/**  * A character stream whose source is a string that is<b>not thread safe</b>  *<p>  * (shay.banon  * )  */
 end_comment
 
 begin_class
@@ -294,7 +294,7 @@ return|return
 name|n
 return|;
 block|}
-comment|/**      * Skips the specified number of characters in the stream. Returns      * the number of characters that were skipped.      *<p/>      *<p>The<code>ns</code> parameter may be negative, even though the      *<code>skip</code> method of the {@link Reader} superclass throws      * an exception in this case. Negative values of<code>ns</code> cause the      * stream to skip backwards. Negative return values indicate a skip      * backwards. It is not possible to skip backwards past the beginning of      * the string.      *<p/>      *<p>If the entire string has been read or skipped, then this method has      * no effect and always returns 0.      *      * @throws IOException If an I/O error occurs      */
+comment|/**      * Skips the specified number of characters in the stream. Returns      * the number of characters that were skipped.      *<p>      * The<code>ns</code> parameter may be negative, even though the      *<code>skip</code> method of the {@link Reader} superclass throws      * an exception in this case. Negative values of<code>ns</code> cause the      * stream to skip backwards. Negative return values indicate a skip      * backwards. It is not possible to skip backwards past the beginning of      * the string.      *<p>      * If the entire string has been read or skipped, then this method has      * no effect and always returns 0.      *      * @throws IOException If an I/O error occurs      */
 annotation|@
 name|Override
 DECL|method|skip
@@ -386,7 +386,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Marks the present position in the stream.  Subsequent calls to reset()      * will reposition the stream to this point.      *      * @param readAheadLimit Limit on the number of characters that may be      *                       read while still preserving the mark.  Because      *                       the stream's input comes from a string, there      *                       is no actual limit, so this argument must not      *                       be negative, but is otherwise ignored.      * @throws IllegalArgumentException If readAheadLimit is< 0      * @throws IOException              If an I/O error occurs      */
+comment|/**      * Marks the present position in the stream.  Subsequent calls to reset()      * will reposition the stream to this point.      *      * @param readAheadLimit Limit on the number of characters that may be      *                       read while still preserving the mark.  Because      *                       the stream's input comes from a string, there      *                       is no actual limit, so this argument must not      *                       be negative, but is otherwise ignored.      * @throws IllegalArgumentException If readAheadLimit is&lt; 0      * @throws IOException              If an I/O error occurs      */
 annotation|@
 name|Override
 DECL|method|mark

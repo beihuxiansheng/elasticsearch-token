@@ -872,7 +872,7 @@ return|return
 name|reason
 return|;
 block|}
-comment|/**          * Reads restore status from stream input          *          * @param in stream input          * @return restore status          * @throws IOException          */
+comment|/**          * Reads restore status from stream input          *          * @param in stream input          * @return restore status          */
 DECL|method|readShardRestoreStatus
 specifier|public
 specifier|static
@@ -903,7 +903,7 @@ return|return
 name|shardSnapshotStatus
 return|;
 block|}
-comment|/**          * Reads restore status from stream input          *          * @param in stream input          * @throws IOException          */
+comment|/**          * Reads restore status from stream input          *          * @param in stream input          */
 DECL|method|readFrom
 specifier|public
 name|void
@@ -942,7 +942,7 @@ name|readOptionalString
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**          * Writes restore status to stream output          *          * @param out stream input          * @throws IOException          */
+comment|/**          * Writes restore status to stream output          *          * @param out stream input          */
 DECL|method|writeTo
 specifier|public
 name|void
@@ -1732,7 +1732,7 @@ return|return
 name|builder
 return|;
 block|}
-comment|/**      * Serializes single restore operation      *      * @param entry   restore operation metadata      * @param builder XContent builder      * @param params  serialization parameters      * @throws IOException      */
+comment|/**      * Serializes single restore operation      *      * @param entry   restore operation metadata      * @param builder XContent builder      * @param params  serialization parameters      */
 DECL|method|toXContent
 specifier|public
 name|void

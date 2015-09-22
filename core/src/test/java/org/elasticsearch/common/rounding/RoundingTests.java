@@ -334,7 +334,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Simple test case to illustrate how Rounding.Offset works on readable input.      * offset shifts input value back before rounding (so here 6 - 7 -> -1)      * then shifts rounded Value back  (here -10 -> -3)      */
+comment|/**      * Simple test case to illustrate how Rounding.Offset works on readable input.      * offset shifts input value back before rounding (so here 6 - 7 -&gt; -1)      * then shifts rounded Value back  (here -10 -&gt; -3)      */
 annotation|@
 name|Test
 DECL|method|testOffsetRounding

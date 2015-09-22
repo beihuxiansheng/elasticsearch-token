@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A base class for {@link org.elasticsearch.discovery.zen.fd.MasterFaultDetection}& {@link org.elasticsearch.discovery.zen.fd.NodesFaultDetection},  * making sure both use the same setting.  */
+comment|/**  * A base class for {@link org.elasticsearch.discovery.zen.fd.MasterFaultDetection}&amp; {@link org.elasticsearch.discovery.zen.fd.NodesFaultDetection},  * making sure both use the same setting.  */
 end_comment
 
 begin_class

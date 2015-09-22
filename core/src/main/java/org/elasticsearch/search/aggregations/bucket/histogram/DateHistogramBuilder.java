@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builder for the {@link DateHistogram} aggregation.  */
+comment|/**  * Builder for the {@code DateHistogram} aggregation.  */
 end_comment
 
 begin_class

@@ -317,7 +317,7 @@ name|HashMap
 argument_list|<>
 argument_list|()
 decl_stmt|;
-comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message.      *      * The message can be parameterized using {@code {}} as placeholders for the given      * arguments      *      * @param msg the detail message      * @param args the arguments for the message      */
+comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message.      *      * The message can be parameterized using<code>{}</code> as placeholders for the given      * arguments      *      * @param msg the detail message      * @param args the arguments for the message      */
 DECL|method|ElasticsearchException
 specifier|public
 name|ElasticsearchException
@@ -343,7 +343,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message      * and nested exception.      *      * The message can be parameterized using {@code {}} as placeholders for the given      * arguments      *      * @param msg   the detail message      * @param cause the nested exception      * @param args  the arguments for the message      */
+comment|/**      * Construct a<code>ElasticsearchException</code> with the specified detail message      * and nested exception.      *      * The message can be parameterized using<code>{}</code> as placeholders for the given      * arguments      *      * @param msg   the detail message      * @param cause the nested exception      * @param args  the arguments for the message      */
 DECL|method|ElasticsearchException
 specifier|public
 name|ElasticsearchException

@@ -637,7 +637,7 @@ return|return
 name|bytesRead
 return|;
 block|}
-comment|/**      * Copies bytes from source {@link org.jboss.netty.buffer.ChannelBuffer} to a {@link java.nio.channels.GatheringByteChannel}      *      * @param source      ChannelBuffer to copy from      * @param sourceIndex index in<i>source</i> to start copying from      * @param length      how many bytes to copy      * @param channel     target GatheringByteChannel      * @throws IOException      */
+comment|/**      * Copies bytes from source {@link org.jboss.netty.buffer.ChannelBuffer} to a {@link java.nio.channels.GatheringByteChannel}      *      * @param source      ChannelBuffer to copy from      * @param sourceIndex index in<i>source</i> to start copying from      * @param length      how many bytes to copy      * @param channel     target GatheringByteChannel      */
 DECL|method|writeToChannel
 specifier|public
 specifier|static
@@ -695,7 +695,7 @@ operator|==
 literal|0
 assert|;
 block|}
-comment|/**      * Writes part of a byte array to a {@link java.nio.channels.WritableByteChannel}      *      * @param source  byte array to copy from      * @param channel target WritableByteChannel      * @throws IOException      */
+comment|/**      * Writes part of a byte array to a {@link java.nio.channels.WritableByteChannel}      *      * @param source  byte array to copy from      * @param channel target WritableByteChannel      */
 DECL|method|writeToChannel
 specifier|public
 specifier|static
@@ -726,7 +726,7 @@ name|channel
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes part of a byte array to a {@link java.nio.channels.WritableByteChannel}      *      * @param source  byte array to copy from      * @param offset  start copying from this offset      * @param length  how many bytes to copy      * @param channel target WritableByteChannel      * @throws IOException      */
+comment|/**      * Writes part of a byte array to a {@link java.nio.channels.WritableByteChannel}      *      * @param source  byte array to copy from      * @param offset  start copying from this offset      * @param length  how many bytes to copy      * @param channel target WritableByteChannel      */
 DECL|method|writeToChannel
 specifier|public
 specifier|static
@@ -845,7 +845,7 @@ operator|+
 literal|")"
 assert|;
 block|}
-comment|/**      * Writes a {@link java.nio.ByteBuffer} to a {@link java.nio.channels.WritableByteChannel}      *      * @param byteBuffer source buffer      * @param channel    channel to write to      * @throws IOException      */
+comment|/**      * Writes a {@link java.nio.ByteBuffer} to a {@link java.nio.channels.WritableByteChannel}      *      * @param byteBuffer source buffer      * @param channel    channel to write to      */
 DECL|method|writeToChannel
 specifier|public
 specifier|static

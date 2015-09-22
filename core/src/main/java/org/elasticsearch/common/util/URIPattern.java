@@ -66,7 +66,7 @@ specifier|final
 name|URI
 name|uriPattern
 decl_stmt|;
-comment|/**      * Constructs uri pattern      * @param pattern      */
+comment|/**      * Constructs uri pattern      */
 DECL|method|URIPattern
 specifier|public
 name|URIPattern

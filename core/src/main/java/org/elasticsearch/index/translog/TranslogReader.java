@@ -917,7 +917,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Given a file, return a VersionedTranslogStream based on an      * optionally-existing header in the file. If the file does not exist, or      * has zero length, returns the latest version. If the header does not      * exist, assumes Version 0 of the translog file format.      *<p/>      *      * @throws IOException      */
+comment|/**      * Given a file, return a VersionedTranslogStream based on an      * optionally-existing header in the file. If the file does not exist, or      * has zero length, returns the latest version. If the header does not      * exist, assumes Version 0 of the translog file format.      */
 DECL|method|open
 specifier|public
 specifier|static

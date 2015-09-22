@@ -647,7 +647,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Parsing: We handle:  *<p/>  * - "field" : "geo_hash"  * - "field" : "lat,lon"  * - "field" : {  * "lat" : 1.1,  * "lon" : 2.1  * }  */
+comment|/**  * Parsing: We handle:  *<p>  * - "field" : "geo_hash"  * - "field" : "lat,lon"  * - "field" : {  * "lat" : 1.1,  * "lon" : 2.1  * }  */
 end_comment
 
 begin_class

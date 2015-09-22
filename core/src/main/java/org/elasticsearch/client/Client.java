@@ -731,7 +731,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *<p/>  *<p>All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *<p/>  *<p>A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
+comment|/**  * A client provides a one stop interface for performing actions/operations against the cluster.  *<p>  * All operations performed are asynchronous by nature. Each action/operation has two flavors, the first  * simply returns an {@link org.elasticsearch.action.ActionFuture}, while the second accepts an  * {@link org.elasticsearch.action.ActionListener}.  *<p>  * A client can either be retrieved from a {@link org.elasticsearch.node.Node} started, or connected remotely  * to one or more nodes using {@link org.elasticsearch.client.transport.TransportClient}.  *  * @see org.elasticsearch.node.Node#client()  * @see org.elasticsearch.client.transport.TransportClient  */
 end_comment
 
 begin_interface
@@ -756,7 +756,7 @@ name|AdminClient
 name|admin
 parameter_list|()
 function_decl|;
-comment|/**      * Index a JSON source associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request The index request      * @return The result future      * @see Requests#indexRequest(String)      */
+comment|/**      * Index a JSON source associated with a given index and type.      *<p>      * The id is optional, if it is not provided, one will be generated automatically.      *      * @param request The index request      * @return The result future      * @see Requests#indexRequest(String)      */
 DECL|method|index
 name|ActionFuture
 argument_list|<
@@ -768,7 +768,7 @@ name|IndexRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
+comment|/**      * Index a document associated with a given index and type.      *<p>      * The id is optional, if it is not provided, one will be generated automatically.      *      * @param request  The index request      * @param listener A listener to be notified with a result      * @see Requests#indexRequest(String)      */
 DECL|method|index
 name|void
 name|index
@@ -783,7 +783,7 @@ argument_list|>
 name|listener
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      */
+comment|/**      * Index a document associated with a given index and type.      *<p>      * The id is optional, if it is not provided, one will be generated automatically.      */
 DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex
@@ -837,7 +837,7 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      */
+comment|/**      * Index a document associated with a given index and type.      *<p>      * The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      */
 DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex
@@ -849,7 +849,7 @@ name|String
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Index a document associated with a given index and type.      *<p/>      *<p>The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      * @param id    The id of the document      */
+comment|/**      * Index a document associated with a given index and type.      *<p>      * The id is optional, if it is not provided, one will be generated automatically.      *      * @param index The index to index the document to      * @param type  The type to index the document to      * @param id    The id of the document      */
 DECL|method|prepareIndex
 name|IndexRequestBuilder
 name|prepareIndex
@@ -1403,7 +1403,7 @@ name|TermVectorsRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * An action that returns the term vectors for a specific document.      *      * @param request The term vector request      * @return The response future      */
+comment|/**      * An action that returns the term vectors for a specific document.      *      * @param request The term vector request      */
 DECL|method|termVectors
 name|void
 name|termVectors
@@ -1453,7 +1453,7 @@ name|TermVectorsRequest
 name|request
 parameter_list|)
 function_decl|;
-comment|/**      * An action that returns the term vectors for a specific document.      *      * @param request The term vector request      * @return The response future      */
+comment|/**      * An action that returns the term vectors for a specific document.      *      * @param request The term vector request      */
 annotation|@
 name|Deprecated
 DECL|method|termVector

@@ -825,7 +825,7 @@ name|SHARED_CHANNEL_NAME
 init|=
 literal|"#shared#"
 decl_stmt|;
-comment|/**      * A shared channel that keeps a static map of Config -> Shared channels, and closes shared      * channel once their reference count has reached 0. It also handles de-registering relevant      * listener from the shared list of listeners.      */
+comment|/**      * A shared channel that keeps a static map of Config -&gt; Shared channels, and closes shared      * channel once their reference count has reached 0. It also handles de-registering relevant      * listener from the shared list of listeners.      */
 DECL|class|Shared
 specifier|private
 specifier|final

@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2Filter} to normalize tokens.  *<p/>  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.  *  *  */
+comment|/**  * Uses the {@link org.apache.lucene.analysis.icu.ICUNormalizer2Filter} to normalize tokens.  *<p>The<tt>name</tt> can be used to provide the type of normalization to perform.  *  *  */
 end_comment
 
 begin_class

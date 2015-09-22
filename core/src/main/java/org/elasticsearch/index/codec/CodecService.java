@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&  * data-structures per field. Elasticsearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *  * @see PostingsFormatService  * @see DocValuesFormatService  */
+comment|/**  * Since Lucene 4.0 low level index segments are read and written through a  * codec layer that allows to use use-case specific file formats&amp;  * data-structures per field. Elasticsearch exposes the full  * {@link Codec} capabilities through this {@link CodecService}.  *  */
 end_comment
 
 begin_class

@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link SimilarityProvider} for {@link LMDirichletSimilarity}.  *<p/>  * Configuration options available:  *<ul>  *<li>mu</li>  *</ul>  * @see LMDirichletSimilarity For more information about configuration  */
+comment|/**  * {@link SimilarityProvider} for {@link LMDirichletSimilarity}.  *<p>  * Configuration options available:  *<ul>  *<li>mu</li>  *</ul>  * @see LMDirichletSimilarity For more information about configuration  */
 end_comment
 
 begin_class

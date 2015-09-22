@@ -96,7 +96,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Add a search request to execute. Note, the order is important, the search response will be returned in the      * same order as the search requests.      *<p/>      * If ignoreIndices has been set on the search request, then the indicesOptions of the multi search request      * will not be used (if set).      */
+comment|/**      * Add a search request to execute. Note, the order is important, the search response will be returned in the      * same order as the search requests.      *<p>      * If ignoreIndices has been set on the search request, then the indicesOptions of the multi search request      * will not be used (if set).      */
 DECL|method|add
 specifier|public
 name|MultiSearchRequestBuilder
@@ -220,7 +220,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Specifies what type of requested indices to ignore and how to deal with wildcard indices expressions.      * For example indices that don't exist.      *<p/>      * Invoke this method before invoking {@link #add(SearchRequestBuilder)}.      */
+comment|/**      * Specifies what type of requested indices to ignore and how to deal with wildcard indices expressions.      * For example indices that don't exist.      *<p>      * Invoke this method before invoking {@link #add(SearchRequestBuilder)}.      */
 DECL|method|setIndicesOptions
 specifier|public
 name|MultiSearchRequestBuilder

@@ -597,7 +597,7 @@ return|return
 name|defaultUnit
 return|;
 block|}
-comment|/**      * Write a {@link DistanceUnit} to a {@link StreamOutput}      *       * @param out {@link StreamOutput} to write to      * @param unit {@link DistanceUnit} to write       * @throws IOException      */
+comment|/**      * Write a {@link DistanceUnit} to a {@link StreamOutput}      *       * @param out {@link StreamOutput} to write to      * @param unit {@link DistanceUnit} to write       */
 DECL|method|writeDistanceUnit
 specifier|public
 specifier|static

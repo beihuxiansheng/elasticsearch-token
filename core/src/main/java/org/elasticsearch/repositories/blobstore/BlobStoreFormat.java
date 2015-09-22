@@ -291,7 +291,7 @@ operator|=
 name|parseFieldMatcher
 expr_stmt|;
 block|}
-comment|/**      * Reads and parses the blob with given blob name.      *      * @param blobContainer blob container      * @param blobName blob name      * @return parsed blob object      * @throws IOException      */
+comment|/**      * Reads and parses the blob with given blob name.      *      * @param blobContainer blob container      * @param blobName blob name      * @return parsed blob object      */
 DECL|method|readBlob
 specifier|public
 specifier|abstract
@@ -307,7 +307,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Reads and parses the blob with given name, applying name translation using the {link #blobName} method      *      * @param blobContainer blob container      * @param name          name to be translated into      * @return parsed blob object      * @throws IOException      */
+comment|/**      * Reads and parses the blob with given name, applying name translation using the {link #blobName} method      *      * @param blobContainer blob container      * @param name          name to be translated into      * @return parsed blob object      */
 DECL|method|read
 specifier|public
 name|T

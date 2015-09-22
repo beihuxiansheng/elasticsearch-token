@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A command that moves a shard from a specific node to another node.<br />  *<b>Note:</b> The shard needs to be in the state  * {@link ShardRoutingState#STARTED} in order to be moved.  */
+comment|/**  * A command that moves a shard from a specific node to another node.<br>  *<b>Note:</b> The shard needs to be in the state  * {@link ShardRoutingState#STARTED} in order to be moved.  */
 end_comment
 
 begin_class

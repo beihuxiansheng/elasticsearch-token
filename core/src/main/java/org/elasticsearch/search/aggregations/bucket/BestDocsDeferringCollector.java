@@ -314,7 +314,7 @@ specifier|final
 name|BigArrays
 name|bigArrays
 decl_stmt|;
-comment|/**      * Sole constructor.      *       * @param shardSize      *            The number of top-scoring docs to collect for each bucket      * @param bigArrays      */
+comment|/**      * Sole constructor.      *       * @param shardSize      *            The number of top-scoring docs to collect for each bucket      */
 DECL|method|BestDocsDeferringCollector
 specifier|public
 name|BestDocsDeferringCollector

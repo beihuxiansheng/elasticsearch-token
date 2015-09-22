@@ -157,7 +157,7 @@ name|BucketCollector
 implements|implements
 name|Releasable
 block|{
-comment|/**      * Parses the aggregation request and creates the appropriate aggregator factory for it.      *      * @see {@link AggregatorFactory}     */
+comment|/**      * Parses the aggregation request and creates the appropriate aggregator factory for it.      *      * @see AggregatorFactory     */
 DECL|interface|Parser
 specifier|public
 interface|interface

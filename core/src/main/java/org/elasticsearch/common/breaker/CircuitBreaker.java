@@ -153,7 +153,7 @@ name|long
 name|bytesNeeded
 parameter_list|)
 function_decl|;
-comment|/**      * add bytes to the breaker and maybe trip      * @param bytes number of bytes to add      * @param label string label describing the bytes being added      * @return the number of "used" bytes for the circuit breaker      * @throws CircuitBreakingException      */
+comment|/**      * add bytes to the breaker and maybe trip      * @param bytes number of bytes to add      * @param label string label describing the bytes being added      * @return the number of "used" bytes for the circuit breaker      */
 DECL|method|addEstimateBytesAndMaybeBreak
 specifier|public
 name|double

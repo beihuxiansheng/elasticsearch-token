@@ -232,7 +232,7 @@ specifier|public
 name|DeleteWarmerRequest
 parameter_list|()
 block|{     }
-comment|/**      * Constructs a new delete warmer request for the specified name.      *      * @param names: the name (or wildcard expression) of the warmer to match, null to delete all.      */
+comment|/**      * Constructs a new delete warmer request for the specified name.      *      * @param names the name (or wildcard expression) of the warmer to match, null to delete all.      */
 DECL|method|DeleteWarmerRequest
 specifier|public
 name|DeleteWarmerRequest

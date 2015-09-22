@@ -797,7 +797,7 @@ name|clusterState
 argument_list|)
 return|;
 block|}
-comment|/**      * Deserialize a shard-level result from an input stream      *      * @param in input stream      * @return a deserialized shard-level result      * @throws IOException      */
+comment|/**      * Deserialize a shard-level result from an input stream      *      * @param in input stream      * @return a deserialized shard-level result      */
 DECL|method|readShardResult
 specifier|protected
 specifier|abstract
@@ -845,7 +845,7 @@ name|ClusterState
 name|clusterState
 parameter_list|)
 function_decl|;
-comment|/**      * Deserialize a request from an input stream      *      * @param in input stream      * @return a de-serialized request      * @throws IOException      */
+comment|/**      * Deserialize a request from an input stream      *      * @param in input stream      * @return a de-serialized request      */
 DECL|method|readRequestFrom
 specifier|protected
 specifier|abstract

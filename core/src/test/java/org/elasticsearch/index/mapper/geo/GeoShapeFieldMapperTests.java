@@ -476,7 +476,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test that orientation parameter correctly parses      * @throws IOException      */
+comment|/**      * Test that orientation parameter correctly parses      */
 DECL|method|testOrientationParsing
 specifier|public
 name|void
@@ -799,7 +799,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test that orientation parameter correctly parses      * @throws IOException      */
+comment|/**      * Test that orientation parameter correctly parses      */
 DECL|method|testCoerceParsing
 specifier|public
 name|void

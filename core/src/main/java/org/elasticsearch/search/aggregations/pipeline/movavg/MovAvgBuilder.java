@@ -303,7 +303,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The hash of settings that should be provided to the model when it is      * instantiated      *      * @param settings      * @return      */
+comment|/**      * The hash of settings that should be provided to the model when it is      * instantiated      */
 DECL|method|settings
 specifier|public
 name|MovAvgBuilder
