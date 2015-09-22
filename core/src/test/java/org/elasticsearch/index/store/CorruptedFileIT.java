@@ -666,20 +666,6 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
-name|index
-operator|.
-name|translog
-operator|.
-name|TranslogService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|elasticsearch
-operator|.
 name|indices
 operator|.
 name|IndicesLifecycle
@@ -1523,7 +1509,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|TranslogService
+name|IndexShard
 operator|.
 name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
@@ -2318,7 +2304,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|TranslogService
+name|IndexShard
 operator|.
 name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
@@ -4409,7 +4395,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|TranslogService
+name|IndexShard
 operator|.
 name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
@@ -4830,7 +4816,7 @@ comment|// no checkindex - we corrupt shards on purpose
 operator|.
 name|put
 argument_list|(
-name|TranslogService
+name|IndexShard
 operator|.
 name|INDEX_TRANSLOG_DISABLE_FLUSH
 argument_list|,
