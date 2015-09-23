@@ -4700,6 +4700,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|source
+operator|.
+name|query
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|context
 operator|.
 name|parsedQuery
@@ -4718,6 +4728,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|source
