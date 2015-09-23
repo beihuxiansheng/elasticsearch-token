@@ -32,15 +32,15 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|google
+name|apache
 operator|.
-name|common
+name|lucene
 operator|.
-name|collect
+name|index
 operator|.
-name|ImmutableSet
+name|FieldInfo
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|lucene
 operator|.
 name|index
 operator|.
-name|FieldInfo
+name|StoredFieldVisitor
 import|;
 end_import
 
@@ -363,16 +363,32 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
 name|org
 operator|.
-name|apache
+name|elasticsearch
 operator|.
-name|lucene
+name|common
 operator|.
-name|index
+name|util
 operator|.
-name|StoredFieldVisitor
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
 import|;
 end_import
 
@@ -398,9 +414,9 @@ name|String
 argument_list|>
 name|BASE_REQUIRED_FIELDS
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 name|UidFieldMapper
 operator|.
@@ -421,6 +437,7 @@ argument_list|,
 name|ParentFieldMapper
 operator|.
 name|NAME
+argument_list|)
 argument_list|)
 decl_stmt|;
 DECL|field|loadSource

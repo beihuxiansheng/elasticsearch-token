@@ -18,20 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -206,6 +192,18 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -340,9 +338,7 @@ else|else
 block|{
 name|searchRoutingValues
 operator|=
-name|ImmutableSet
-operator|.
-name|of
+name|emptySet
 argument_list|()
 expr_stmt|;
 block|}

@@ -164,20 +164,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|google
-operator|.
-name|common
-operator|.
-name|collect
-operator|.
-name|ImmutableSet
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|elasticsearch
@@ -287,6 +273,36 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|elasticsearch
+operator|.
+name|common
+operator|.
+name|util
+operator|.
+name|set
+operator|.
+name|Sets
+operator|.
+name|newHashSet
 import|;
 end_import
 
@@ -1107,9 +1123,9 @@ name|String
 argument_list|>
 name|INDEX_BYTES_SIZE_SETTINGS
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 literal|"index.merge.policy.floor_segment"
 argument_list|,
@@ -1131,6 +1147,7 @@ literal|"index.translog.fs.buffer_size"
 argument_list|,
 literal|"index.version_map_size"
 argument_list|)
+argument_list|)
 decl_stmt|;
 comment|/** All known time settings for an index. */
 DECL|field|INDEX_TIME_SETTINGS
@@ -1143,9 +1160,9 @@ name|String
 argument_list|>
 name|INDEX_TIME_SETTINGS
 init|=
-name|ImmutableSet
-operator|.
-name|of
+name|unmodifiableSet
+argument_list|(
+name|newHashSet
 argument_list|(
 literal|"index.gateway.wait_for_mapping_update_post_recovery"
 argument_list|,
@@ -1192,6 +1209,7 @@ argument_list|,
 name|UnassignedInfo
 operator|.
 name|INDEX_DELAYED_NODE_LEFT_TIMEOUT_SETTING
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|/**      * Elasticsearch 2.0 requires units on byte/memory and time settings; this method adds the default unit to any such settings that are      * missing units.      */
